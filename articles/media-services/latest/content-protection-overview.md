@@ -4,7 +4,7 @@ description: This articles give an overview of content protection with Media Ser
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
 
 ---
@@ -145,9 +145,7 @@ The example shows how to:
 
 2. Create a StreamingLocator that is configured to stream an encrypted asset. 
 
-  In the case of this example, we set **StreamingPolicyName** to **PredefinedStreamingPolicy.SecureStreaming** which supports envelope and cenc encryption and sets two content keys on the StreamingLocator. 
-
-  If you also want to encrypt with FairPlay, set the **StreamingPolicyName** to **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  For example, you can set StreamingLocator.StreamingPolicyName to the "Predefined_MultiDrmCencStreaming" policy. This policy indicates that you want for two content keys (envelope and CENC) to get generated and set on the locator. Thus, the envelope, PlayReady, and Widevine encryptions are applied (the key is delivered to the playback client based on the configured DRM licenses). If you also want to encrypt your stream with CBCS (FairPlay), use "Predefined_MultiDrmStreaming".
 
 3. Create a test token.
 

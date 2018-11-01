@@ -690,7 +690,6 @@ The following illustration shows the messages that Azure AcD sends to a SCIM ser
 *Figure 6: Group provisioning and de-provisioning sequence*
 
 ## Related articles
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)
 * [Customizing Attribute Mappings for User Provisioning](customize-application-attributes.md)
 * [Writing Expressions for Attribute Mappings](functions-for-customizing-application-data.md)

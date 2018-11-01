@@ -2,19 +2,11 @@
 title: 'Create a route-based Azure VPN gateway: PowerShell | Microsoft Docs'
 description: Quickly create a route-based VPN Gateway using PowerShell
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 
-ms.assetid: 
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
 ---
 

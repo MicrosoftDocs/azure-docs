@@ -7,7 +7,7 @@ ms.component: process-automation
 author: eamonoreilly
 ms.author: eamono
 keywords: azure automation, DSC, powershell, desired state configuration, update management, change tracking, inventory, runbooks, python, graphical
-ms.date: 03/15/2018
+ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
 ---

@@ -1,14 +1,13 @@
 ---
-title: Troubleshoot Hyper-V to Azure replication with Azure Site Recovery | Microsoft Docs
-description: Describes how to troubleshooting issues with Hyper-V to Azure replication using Azure Site Recovery
+title: Troubleshoot Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs
+description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: rayne
+ms.date: 10/10/2018
+ms.author: ramamill
 
 ---
 # Troubleshoot Hyper-V to Azure replication and failover

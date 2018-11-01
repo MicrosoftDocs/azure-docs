@@ -6,19 +6,19 @@ author: rboucher
 ms.service: azure-monitor
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 06/20/2018
+ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
 ---
 # Azure Diagnostics 1.3 and later configuration schema
 > [!NOTE]
 > The Azure Diagnostics extension is the component used to collect performance counters and other statistics from:
-> - Azure Virtual Machines 
+> - Azure Virtual Machines
 > - Virtual Machine Scale Sets
-> - Service Fabric 
-> - Cloud Services 
+> - Service Fabric
+> - Cloud Services
 > - Network Security Groups
-> 
+>
 > This page is only relevant if you are using one of these services.
 
 This page is valid for versions 1.3 and newer (Azure SDK 2.4 and newer). Newer configuration sections are commented to show in what version they were added.  
@@ -47,7 +47,7 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
     <WadCfg>  
       <DiagnosticMonitorConfiguration overallQuotaInMB="10000">  
 
-        <PerformanceCounters scheduledTransferPeriod="PT1M">  
+        <PerformanceCounters scheduledTransferPeriod="PT1M", sinks="AzureMonitorSink">  
           <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />  
         </PerformanceCounters>  
 
@@ -99,13 +99,19 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
           <CrashDumpConfiguration processName="badapp.exe"/>  
         </CrashDumps>  
 
-        <DockerSources> <!-- Added in 1.9 --> 
+        <DockerSources> <!-- Added in 1.9 -->
           <Stats enabled="true" sampleRate="PT1M" scheduledTransferPeriod="PT1M" />
         </DockerSources>
 
       </DiagnosticMonitorConfiguration>  
 
       <SinksConfig>   <!-- Added in 1.5 -->  
+        <Sink name="AzureMonitorSink">
+            <AzureMonitor> <!-- Added in 1.11 -->
+                <resourceId>{insert resourceId}</ResourceId> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs-->
+                <Region>{insert Azure region of resource}</Region> <!-- Parameter only needed for classic VMs and Classic Cloud Services, exclude VMSS and Resource Manager VMs -->
+            </AzureMonitor>
+        </Sink>
         <Sink name="ApplicationInsights">   
           <ApplicationInsights>{Insert InstrumentationKey}</ApplicationInsights>   
           <Channels>   
@@ -133,11 +139,18 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
   <PrivateConfig>  <!-- Added in 1.3 -->  
     <StorageAccount name="" key="" endpoint="" sasToken="{sas token}"  />  <!-- sasToken in Private config added in 1.8.1 -->  
     <EventHub Url="https://myeventhub-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-   
+
+    <AzureMonitorAccount>
+        <ServicePrincipalMeta> <!-- Added in 1.11; only needed for classic VMs and Classic cloud services -->
+            <PrincipalId>{Insert service principal clientId}</PrincipalId>
+            <Secret>{Insert service principal client secret}</Secret>
+        </ServicePrincipalMeta>
+    </AzureMonitorAccount>
+
     <SecondaryStorageAccounts>
        <StorageAccount name="secondarydiagstorageaccount" key="{base64 encoded key}" endpoint="https://core.windows.net" sasToken="{sas token}" />
     </SecondaryStorageAccounts>
-   
+
     <SecondaryEventHubs>
        <EventHub Url="https://myeventhub-ns.servicebus.windows.net/secondarydiageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
     </SecondaryEventHubs>
@@ -147,10 +160,14 @@ For more information about using Azure Diagnostics, see [Azure Diagnostics Exten
 </DiagnosticsConfiguration>  
 
 ```  
+> [!NOTE]
+> The public config Azure Monitor sink definition has two properties, resourceId and region. These are only required for Classic VMs and Classic Cloud services. These properties should not be used for Resource Manager Virtual Machines or Virtual Machine Scale sets.
+> There is also an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs and Classic Cloud Services. For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
+>
 
-JSON equivalent of the previous XML configuration file. 
+JSON equivalent of the previous XML configuration file.
 
-The PublicConfig and PrivateConfig are separated because in most json usage cases, they are passed as different variables. These cases include Resource Manager templates, Virtual Machine Scale set PowerShell, and Visual Studio. 
+The PublicConfig and PrivateConfig are separated because in most json usage cases, they are passed as different variables. These cases include Resource Manager templates, Virtual Machine Scale set PowerShell, and Visual Studio.
 
 ```json
 "PublicConfig" {
@@ -162,6 +179,7 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
             },
             "PerformanceCounters": {
                 "scheduledTransferPeriod": "PT1M",
+                "sinks": "AzureMonitorSink",
                 "PerformanceCounterConfiguration": [
                     {
                         "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
@@ -272,6 +290,14 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
         "SinksConfig": {
             "Sink": [
                 {
+                    "name": "AzureMonitorSink",
+                    "AzureMonitor":
+                    {
+                        "ResourceId": "{insert resourceId if a classic VM or cloud service, else property not needed}",
+                        "Region": "{insert Azure region of resource if a classic VM or cloud service, else property not needed}"
+                    }
+                },
+                {
                     "name": "ApplicationInsights",
                     "ApplicationInsights": "{Insert InstrumentationKey}",
                     "Channels": {
@@ -318,6 +344,11 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
 }
 ```
 
+> [!NOTE]
+> The public config Azure Monitor sink definition has two properties, resourceId and region. These are only required for Classic VMs and Classic Cloud services.
+> These properties should not be used for Resource Manager Virtual Machines or Virtual Machine Scale sets.
+>
+
 ```json
 "PrivateConfig" {
     "storageAccountName": "diagstorageaccount",
@@ -328,6 +359,12 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
         "Url": "https://myeventhub-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
         "SharedAccessKey": "{base64 encoded key}"
+    },
+    "AzureMonitorAccount": {
+        "ServicePrincipalMeta": {
+            "PrincipalId": "{Insert service principal client Id}",
+            "Secret": "{Insert service principal client secret}"
+        }
     },
     "SecondaryStorageAccounts": {
         "StorageAccount": [
@@ -351,6 +388,12 @@ The PublicConfig and PrivateConfig are separated because in most json usage case
 }
 
 ```
+
+> [!NOTE]
+> There is an additional Private Config element for the Azure Monitor sink, that passes in a Principal Id and Secret. This is only required for Classic VMs and Classic Cloud Services. 
+> For Resource Manager VMs and VMSS the Azure Monitor definition in the private config element can be excluded.
+>
+
 
 ## Reading this page  
  The tags following are roughly in order shown in the preceding example.  If you don't see a full description where you expect it, search the page for the element or attribute.  
@@ -390,14 +433,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 ## WadCFG Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG*
- 
+
  Identifies and configures the telemetry data to be collected.  
 
 
-## DiagnosticMonitorConfiguration Element 
+## DiagnosticMonitorConfiguration Element
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration*
 
- Required 
+ Required
 
 |Attributes|Description|  
 |----------------|-----------------|  
@@ -416,14 +459,14 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**EtwProviders**|See description elsewhere on this page.|  
 |**Metrics**|See description elsewhere on this page.|  
 |**PerformanceCounters**|See description elsewhere on this page.|  
-|**WindowsEventLog**|See description elsewhere on this page.| 
-|**DockerSources**|See description elsewhere on this page. | 
+|**WindowsEventLog**|See description elsewhere on this page.|
+|**DockerSources**|See description elsewhere on this page. |
 
 
 
 ## CrashDumps Element  
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - CrashDumps*
- 
+
  Enable the collection of crash dumps.  
 
 |Attributes|Description|  
@@ -436,7 +479,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**CrashDumpConfiguration**|Required. Defines configuration values for each process.<br /><br /> The following attribute is also required:<br /><br /> **processName** - The name of the process you want Azure Diagnostics to collect a crash dump for.|  
 
-## Directories Element 
+## Directories Element
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration -  Directories*
 
  Enables the collection of the contents of a directory, IIS failed access request logs and/or IIS logs.  
@@ -447,7 +490,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |--------------------|-----------------|  
 |**IISLogs**|Including this element in the configuration enables the collection of IIS logs:<br /><br /> **containerName** - The name of the blob container in your Azure Storage account to be used to store the IIS logs.|   
 |**FailedRequestLogs**|Including this element in the configuration enables collection of logs about failed requests to an IIS site or application. You must also enable tracing options under **system.WebServer** in **Web.config**.|  
-|**DataSources**|A list of directories to monitor.| 
+|**DataSources**|A list of directories to monitor.|
 
 
 
@@ -535,14 +578,15 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 
 |Child Element|Description|  
 |-------------------|-----------------|  
-|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|  
+|**PerformanceCounterConfiguration**|The following attributes are required:<br /><br /> - **counterSpecifier** - The name of the performance counter. For example, `\Processor(_Total)\% Processor Time`. To get a list of performance counters on your host, run the command `typeperf`.<br /><br /> - **sampleRate** - How often the counter should be sampled.<br /><br /> Optional attribute:<br /><br /> **unit** - The unit of measure of the counter.|
+|**sinks** | Added in 1.5. Optional. Points to a sink location to also send diagnostic data. For example, Azure Monitor or Event Hubs.|    
 
 
 
 
 ## WindowsEventLog Element
  *Tree: Root - DiagnosticsConfiguration - PublicConfig - WadCFG - DiagnosticMonitorConfiguration - WindowsEventLog*
- 
+
  Enables the collection of Windows Event Logs.  
 
  Optional **scheduledTransferPeriod** attribute. See explanation  earlier.  
@@ -626,7 +670,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |**name**|**string**|A unique name of the channel to refer to|  
 
 
-## PrivateConfig Element 
+## PrivateConfig Element
  *Tree: Root - DiagnosticsConfiguration - PrivateConfig*
 
  Added in version 1.3.  

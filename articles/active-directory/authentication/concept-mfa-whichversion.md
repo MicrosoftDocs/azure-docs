@@ -58,7 +58,7 @@ The following table compares the features that are available with Multi-Factor A
 | Mobile app verification code as a second factor | ● | ● |
 | Phone call as second factor | ● | ● |
 | One-way SMS as second factor | ● | ● |
-| Hardware Tokens as second factor | | ● |
+| Hardware Tokens as second factor | ● (Public preview) | ● |
 | App passwords for Office 365 clients that don’t support MFA | ● | |
 | Admin control over authentication methods | ● | ● |
 | PIN mode | | ● |

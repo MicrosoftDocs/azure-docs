@@ -2,13 +2,13 @@
 title: Bindings for Durable Functions - Azure
 description: How to use triggers and bindings for the Durable Functons extension for Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -76,7 +76,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
     return `Hello ${name}!`;
 });
@@ -105,9 +105,9 @@ public static async Task<string> Run(
 ```javascript
 const df = require("durable-functions");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     const name = context.df.getInput();
-    const result = yield context.df.callActivityAsync("SayHello", name);
+    const result = yield context.df.callActivity("SayHello", name);
     return result;
 });
 ```
@@ -118,7 +118,7 @@ The activity trigger enables you to author functions that are called by orchestr
 
 If you're using Visual Studio, the activity trigger is configured using the [ActivityTriggerAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.ActivityTriggerAttribute.html) .NET attribute. 
 
-If you're using the Azure portal for development, the activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+If you're using VS Code or the Azure portal for development, the activity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -138,7 +138,7 @@ Internally this trigger binding polls a queue in the default storage account for
 Here are some notes about the activity trigger:
 
 * **Threading** - Unlike the orchestration trigger, activity triggers don't have any restrictions around threading or I/O. They can be treated like regular functions.
-* **Poising-message handling** - There is no poison message support in activity triggers.
+* **Poison-message handling** - There is no poison message support in activity triggers.
 * **Message visibility** - Activity trigger messages are dequeued and kept invisible for a configurable duration. The visibility of these messages is renewed automatically as long as the function app is running and healthy.
 * **Return values** - Return values are serialized to JSON and persisted to the orchestration history table in Azure Table storage.
 
@@ -244,7 +244,7 @@ The orchestration client binding enables you to write functions which interact w
 
 If you're using Visual Studio, you can bind to the orchestration client by using the [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html) .NET attribute.
 
-If you're using scripting languages (e.g. *.csx* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
+If you're using scripting languages (e.g. *.csx* or *.js* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -252,7 +252,7 @@ If you're using scripting languages (e.g. *.csx* files) for development, the orc
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "orchestrationClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -306,7 +306,7 @@ If you're not using Visual Studio for development, you can create the following 
     {
       "name": "starter",
       "type": "orchestrationClient",
-      "direction": "out"
+      "direction": "in"
     }
   ],
   "disabled": false
@@ -346,6 +346,12 @@ module.exports = function (context, input) {
 ```
 
 More details on starting instances can be found in [Instance management](durable-functions-instance-management.md).
+
+<a name="host-json"></a>  
+
+## host.json settings
+
+[!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
 
 ## Next steps
 

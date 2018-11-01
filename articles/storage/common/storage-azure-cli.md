@@ -1,6 +1,6 @@
 ---
-title: Using the Azure CLI 2.0 with Azure Storage | Microsoft Docs
-description: Learn how to use the Azure Command-Line Interface (Azure CLI) 2.0 with Azure Storage to create and manage storage accounts and work with Azure blobs and files. The Azure CLI 2.0 is a cross-platform tool written in Python.
+title: Using the Azure CLI with Azure Storage | Microsoft Docs
+description: Learn how to use the Azure Command-Line Interface (Azure CLI) with Azure Storage to create and manage storage accounts and work with Azure blobs and files.
 services: storage
 author: roygara
 ms.service: storage
@@ -10,11 +10,11 @@ ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
 ---
-# Using the Azure CLI 2.0 with Azure Storage
+# Using the Azure CLI with Azure Storage
 
-The open-source, cross-platform Azure CLI 2.0 provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.
+The open-source, cross-platform Azure CLI provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.
 
-In this guide, we show you how to use the [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
+In this guide, we show you how to use the [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI before using this guide.
 
 The examples in the guide assume the use of the Bash shell on Ubuntu, but other platforms should perform similarly. 
 
@@ -25,11 +25,11 @@ This guide assumes that you understand the basic concepts of Azure Storage. It a
 
 ### Accounts
 * **Azure account**: If you don't already have an Azure subscription, [create a free Azure account](https://azure.microsoft.com/free/).
-* **Storage account**: See [Create a storage account](storage-create-storage-account.md#create-a-storage-account) in [About Azure storage accounts](storage-create-storage-account.md).
+* **Storage account**: See [Create a storage account](storage-quickstart-create-account.md) in [About Azure storage accounts](storage-create-storage-account.md).
 
-### Install the Azure CLI 2.0
+### Install the Azure CLI
 
-Download and install the Azure CLI 2.0 by following the instructions outlined in [Install Azure CLI 2.0](/cli/azure/install-az-cli2).
+Download and install the Azure CLI by following the instructions outlined in [Install the Azure CLI](/cli/azure/install-az-cli2).
 
 > [!TIP]
 > If you have trouble with the installation, check out the [Installation Troubleshooting](/cli/azure/install-az-cli2#installation-troubleshooting) section of the article, and the [Install Troubleshooting](https://github.com/Azure/azure-cli/blob/master/doc/install_troubleshooting.md) guide on GitHub.
@@ -90,9 +90,9 @@ To work with the resources in your Azure subscription, you must first log in to 
   * This doesn't work with Microsoft accounts or accounts that use multi-factor authentication.
 * **Log in with a service principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-## Azure CLI 2.0 sample script
+## Azure CLI sample script
 
-Next, we'll work with a small shell script that issues a few basic Azure CLI 2.0 commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify.
+Next, we'll work with a small shell script that issues a few basic Azure CLI commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify.
 
 ```bash
 #!/bin/bash
@@ -513,8 +513,8 @@ Sample Output
 ```
 
 ## Next steps
-Here are some additional resources for learning more about working with the Azure CLI 2.0.
+Here are some additional resources for learning more about working with the Azure CLI. 
 
-* [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
-* [Azure CLI 2.0 command reference](/cli/azure)
-* [Azure CLI 2.0 on GitHub](https://github.com/Azure/azure-cli)
+* [Get started with Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2)
+* [Azure CLI command reference](/cli/azure)
+* [Azure CLI on GitHub](https://github.com/Azure/azure-cli)

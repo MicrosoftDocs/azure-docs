@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 09/05/2018
+ms.date: 09/26/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
@@ -65,7 +65,7 @@ The Azure Stack Readiness Checker Tool provides the ability to create a certific
     ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature $true
+    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD -ExtensionHostFeature
     ```
 
 5. Place your certificate(s) in the appropriate directories.
@@ -88,9 +88,9 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
-    [Byte[]] $AdminHostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx -Encoding Byte)
+    [Byte[]]$AdminHostingCertContent = [Byte[]](Get-Content c:\certificate\myadminhostingcertificate.pfx -Encoding Byte)
 
-    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
+    Invoke-Command -ComputerName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
     -ConfigurationName "PrivilegedEndpoint" `
     -ArgumentList @($AdminHostingCertContent, $CertPassword) `
@@ -105,9 +105,9 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
 
-    [Byte[]] $HostingCertContent = [Byte[]](Get-Content c:\certificate\myhostingcertificate.pfx  -Encoding Byte)
+    [Byte[]]$HostingCertContent = [Byte[]](Get-Content c:\certificate\myhostingcertificate.pfx  -Encoding Byte)
 
-    Invoke-Command -ComputeName <PrivilegedEndpoint computer name> `
+    Invoke-Command -ComputerName <PrivilegedEndpoint computer name> `
     -Credential $CloudAdminCred `
     -ConfigurationName "PrivilegedEndpoint" `
     -ArgumentList @($HostingCertContent, $CertPassword) `

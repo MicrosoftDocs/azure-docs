@@ -6,7 +6,7 @@ author: prashanthyv
 manager: sumedhb
 ms.service: key-vault
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
 
@@ -22,7 +22,7 @@ In this quickstart, you follow the necessary steps for getting an Azure web appl
 > * Store a secret in the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure web application.
-> * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the web app.
+> * Enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for the web app.
 > * Grant the required permissions for the web application to read data from the key vault.
 
 Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
@@ -30,7 +30,7 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
 >[!NOTE]
 >Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. To follow security best practices, this first secret needs to be rotated periodically. 
 >
->With [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
+>With [managed service identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
 
 ## Prerequisites
 
@@ -164,11 +164,11 @@ Then, run this command by using the name of your key vault and the value of **Pr
 
 ```azurecli
 
-az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
+az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
 
 ```
 
-Now when you run the application, you should see your secret value retrieved.
+Now when you run the application, you should see your secret value retrieved. In the above command you are giving the Identity(MSI) of the App Service permissions to do **get** and **list** operations on your Key Vault
 
 ## Next steps
 

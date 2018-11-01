@@ -14,7 +14,7 @@ ms.author: isacabe
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
-In this tutorial, you learn how to run a sample app on your DevKit to send sensor data to your solution accelerator.
+You will learn how to run a sample app on your IoT DevKit to send sensor data to your solution accelerator.
 
 The [MXChip IoT DevKit](https://aka.ms/iot-devkit) is an all-in-one Arduino compatible board with rich peripherals and sensors. You can develop for it using [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.vscode-iot-workbench) in Visual Studio Code. And it comes with a growing [projects catalog](https://microsoft.github.io/azure-iot-developer-kit/docs/projects/) to guide you prototype Internet of Things (IoT) solutions that take advantage of Microsoft Azure services.
 
@@ -27,39 +27,13 @@ Go through the [Getting Started Guide](https://docs.microsoft.com/azure/iot-hub/
 * Start using the DevKit
 * Prepare the development environment
 
-
-## Create an Azure IoT Remote Monitoring solution accelerator
-
-The AZ3166 device you create in this tutorial sends data to an instance of the Remote Monitoring solution accelerator. If you haven't yet provisioned an instance in your Azure account, follow the [Quickstart](https://docs.microsoft.com/azure/iot-accelerators/quickstart-remote-monitoring-deploy) guide to do so.
-
-When the deployment for the Remote Monitoring solution finishes, open the solution dashboard.
-
-![The solution dashboard](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard-info.png)
-
-## Add a device to the Remote Monitoring solution
-
-1. In the dashboard, go to **Devices** section and click the **New Device**.
-   ![Adding a new device](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-device.png)
-
-2. Configure the device by using information below and click **Apply**.
-  * Device Type: **Physical**
-  * Device ID: **AZ3166**
-  * Authentication Type: **Symmetric Key**
-  * Authentication Key: **Auto generate keys**
-  
-  ![Adding a new device form](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-add-new-device-form.png)
-
-3. After the new device is created, copy the **Connection String primary key**. This is the device that is just created in Azure IoT Hub underneath.
-  
-  ![Device Connection String](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-new-device-connstring.png)
-
 ## Open the Remote Monitoring sample in VS Code
 
 1. Make sure your IoT DevKit is **not connected** to your computer. Start VS Code first, and then connect the DevKit to your computer.
 
-1. Click `F1` to open the command palette, type and select **IoT Workbench: Examples**. Then select **IoT DevKit** as board.
+2. Click `F1` to open the command palette, type and select **IoT Workbench: Examples**. Then select **IoT DevKit** as board.
 
-1. Find **Remote Monitoring** and click **Open Sample**. It opens a new VS Code window with project folder in it.
+3. Find **Remote Monitoring** and click **Open Sample**. It opens a new VS Code window with project folder in it.
   ![IoT Workbench, select Remote Monitoring example](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/iot-workbench-example.png)
 
 ## Configure IoT Hub device connection string
@@ -94,7 +68,7 @@ When the sample app runs, DevKit sends sensor data over Wi-Fi to your Remote Mon
 
 1. Go to your solution dashboard, and click **Devices**.
 
-1. Click on the device name (AZ3166) a tab opens on the right side of the dashboard, where you can see the sensor status on DevKit in real time.
+2. Click on the device name, on the right hand tab, you can see the sensor status on DevKit in real time.
   ![Sensor data in Azure IoT Suite](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-dashboard.png)
 
 ### Send a C2D message
@@ -105,7 +79,7 @@ Remote Monitoring solution allows you to invoke remote method on the device. The
 
 Let us try change the color of one of the DevKit LEDs using the method "LedColor".
 
-1. Select the **AZ3166** from device list and click on the **Jobs**.
+1. Select the device name from device list and click on the **Jobs**.
 
   ![Create a Job](media/iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2/azure-iot-suite-job.png)
 

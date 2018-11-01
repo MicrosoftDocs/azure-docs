@@ -2,13 +2,13 @@
 title: Sub-orchestrations for Durable Functions - Azure
 description: How to call orchestrations from orchestrations in the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -26,6 +26,8 @@ Sub-orchestrator functions behave just like activity functions from the caller's
 ## Example
 
 The following example illustrates an IoT ("Internet of Things") scenario where there are multiple devices that need to be provisioned. There is a particular orchestration that needs to happen for each of the devices, which might look something like the following:
+
+#### C#
 
 ```csharp
 public static async Task DeviceProvisioningOrchestration(
@@ -46,9 +48,32 @@ public static async Task DeviceProvisioningOrchestration(
 }
 ```
 
-This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` API.
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceId = context.df.getInput();
+
+    // Step 1: Create an installation package in blob storage and return a SAS URL.
+    const sasUrl = yield context.df.callActivity("CreateInstallationPackage", deviceId);
+
+    // Step 2: Notify the device that the installation package is ready.
+    yield context.df.callActivity("SendPackageUrlToDevice", { id: deviceId, url: sasUrl });
+
+    // Step 3: Wait for the device to acknowledge that it has downloaded the new package.
+    yield context.df.waitForExternalEvent("DownloadCompletedAck");
+
+    // Step 4: ...
+});
+```
+
+This orchestrator function can be used as-is for one-off device provisioning or it can be part of a larger orchestration. In the latter case, the parent orchestrator function can schedule instances of `DeviceProvisioningOrchestration` using the `CallSubOrchestratorAsync` (C#) or `callSubOrchestrator` (JS) API.
 
 Here is an example that shows how to run multiple orchestrator functions in parallel.
+
+#### C#
 
 ```csharp
 [FunctionName("ProvisionNewDevices")]
@@ -69,6 +94,27 @@ public static async Task ProvisionNewDevices(
 
     // ...
 }
+```
+
+#### JavaScript (Functions v2 only)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const deviceIds = yield context.df.callActivity("GetNewDeviceIds");
+
+    // Run multiple device provisioning flows in parallel
+    const provisioningTasks = [];
+    for (const deviceId of deviceIds) {
+        const provisionTask = context.df.callSubOrchestrator("DeviceProvisioningOrchestration", deviceId);
+        provisioningTasks.push(provisionTask);
+    }
+
+    yield context.df.Task.all(provisioningTasks);
+
+    // ...
+});
 ```
 
 ## Next steps

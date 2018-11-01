@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Use Azure blob storage for IIS and Azure table storage for events with Log Analytics

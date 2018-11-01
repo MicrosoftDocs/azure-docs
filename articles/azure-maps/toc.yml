@@ -58,7 +58,7 @@
       href: choose-map-style.md
     - name: Add map controls
       href: map-add-controls.md
-    - name: Add a pin
+    - name: Add symbols and markers
       href: map-add-pin.md
     - name: Add a popup
       href: map-add-popup.md
@@ -144,6 +144,8 @@
     href: https://azure.microsoft.com/develop/iot/
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=iot
+  - name: Glossary
+    href: glossary.md
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=azurelbs
   - name: Pricing

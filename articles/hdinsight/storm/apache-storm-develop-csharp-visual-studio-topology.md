@@ -51,7 +51,7 @@ To install Data Lake tools for Visual Studio, follow the steps in [Get started u
 
 When you submit a Storm topology from Visual Studio, SCP.NET generates a zip file that contains the topology and dependencies. Java is used to create these zip files, because it uses a format that is more compatible with Linux-based clusters.
 
-1. Install the Java Developer Kit (JDK) 7 or later on your development environment. You can get the Oracle JDK from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). You can also use [other Java distributions](http://openjdk.java.net/).
+1. Install the Java Developer Kit (JDK) 7 or later on your development environment. You can get the Oracle JDK from [Oracle](https://aka.ms/azure-jdks). You can also use [other Java distributions](http://openjdk.java.net/).
 
 2. The `JAVA_HOME` environment variable must point to the directory that contains Java.
 

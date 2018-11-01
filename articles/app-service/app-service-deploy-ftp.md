@@ -109,4 +109,4 @@ enables version control, package restore, MSBuild, and more.
 
 ## More Resources
 
-* [Azure App Service Deployment Credentials](app-service-deploy-ftp.md)
+* [Azure App Service Deployment Credentials](app-service-deployment-credentials.md)

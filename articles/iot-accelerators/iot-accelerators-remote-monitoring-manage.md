@@ -141,7 +141,7 @@ Now the Contoso operator can query for devices based on the operating team:
 
 ## Next steps
 
-This tutorial showed you how to configure and manage the devices connected to the Remote Monitoring solution accelerator. To learn how to use the solution accelerator to identify and fix issues with your connected devices, continue to the next tutorial.
+This tutorial showed you how to configure and manage the devices connected to the Remote Monitoring solution accelerator. To learn how to use the solution accelerator to perform a root-cause analysis on an unexpected alert, continue to the next tutorial.
 
 > [!div class="nextstepaction"]
-> [Use device alerts to identify and fix issues with devices connected to your monitoring solution](iot-accelerators-remote-monitoring-maintain.md)
+> [Conduct a root cause analysis on an alert](iot-accelerators-remote-monitoring-root-cause-analysis.md)

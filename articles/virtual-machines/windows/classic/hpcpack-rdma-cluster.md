@@ -21,8 +21,6 @@ ms.author: danlep
 # Set up a Windows RDMA cluster with HPC Pack to run MPI applications
 Set up a Windows RDMA cluster in Azure with [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) and [RDMA-capable HPC VM sizes](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#rdma-capable-instances) to run parallel Message Passing Interface (MPI) applications. When you set up RDMA-capable, Windows Server-based nodes in an HPC Pack cluster, MPI applications communicate efficiently over a low latency, high throughput network in Azure that is based on remote direct memory access (RDMA) technology.
 
-If you want to run MPI workloads on Linux VMs that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](../../linux/classic/rdma-cluster.md).
-
 ## HPC Pack cluster deployment options
 Microsoft HPC Pack is a tool provided at no additional cost to create HPC clusters on-premises or in Azure to run Windows or Linux HPC applications. HPC Pack includes a runtime environment for the Microsoft implementation of the Message Passing Interface for Windows (MS-MPI). When used with RDMA-capable instances running a supported Windows Server operating system, HPC Pack provides an efficient option to run Windows MPI applications that access the Azure RDMA network. 
 
@@ -86,7 +84,7 @@ in an Azure VM.
    When you are done running jobs, take the nodes offline and use the **Stop** action in HPC Cluster Manager.
 
 ## Scenario 2: Deploy compute nodes in compute-intensive VMs (IaaS)
-In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs in an Azure virtual network. HPC Pack provides several [deployment options in Azure VMs](../../linux/hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the following considerations and steps guide you to use
+In this scenario, you deploy the HPC Pack head node and cluster compute nodes on VMs in an Azure virtual network. HPC Pack provides several [deployment options in Azure VMs](../../windows/hpcpack-cluster-options.md), including automated deployment scripts and Azure quickstart templates. As an example, the following considerations and steps guide you to use
 the [HPC Pack IaaS deployment
 script](hpcpack-cluster-powershell-script.md) to
 automate the deployment of an HPC Pack 2012 R2 cluster in Azure.
@@ -200,7 +198,6 @@ instances added in a “burst to Azure” configuration).
 
 ## Next steps
 * As an alternative to using HPC Pack, develop with the Azure Batch service to run MPI applications on managed pools of compute nodes in Azure. See [Use multi-instance tasks to run Message Passing Interface (MPI) applications in Azure Batch](../../../batch/batch-mpi.md).
-* If you want to run Linux MPI applications that access the Azure RDMA network, see [Set up a Linux RDMA cluster to run MPI applications](../../linux/classic/rdma-cluster.md).
 
 <!--Image references-->
 [burst]:media/hpcpack-rdma-cluster/burst.png

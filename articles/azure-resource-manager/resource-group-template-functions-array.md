@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2017
+ms.date: 09/28/2018
 ms.author: tomfitz
 
 ---
@@ -326,7 +326,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -Temp
 ## contains
 `contains(container, itemToFind)`
 
-Checks whether an array contains a value, an object contains a key, or a string contains a substring.
+Checks whether an array contains a value, an object contains a key, or a string contains a substring. The string comparison is case-sensitive. However, when testing if an object contains a key, the comparison is case-insensitive.
 
 ### Parameters
 
@@ -734,6 +734,10 @@ Returns a JSON object.
 
 The JSON object from the specified string, or an empty object when **null** is specified.
 
+### Remarks
+
+If you need to include a parameter value or variable in the JSON object, use the [concat](resource-group-template-functions-string.md#concat) function to create the string that you pass to the function.
+
 ### Example
 
 The following [example template](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/json.json) shows how to use the json function with arrays and objects:
@@ -742,6 +746,12 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
 {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
+    "parameters": {
+        "testValue": {
+            "type": "string",
+            "defaultValue": "demo value"
+        }
+    },
     "resources": [
     ],
     "outputs": {
@@ -752,6 +762,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         "nullOutput": {
             "type": "bool",
             "value": "[empty(json('null'))]"
+        },
+        "paramOutput": {
+            "type": "object",
+            "value": "[json(concat('{\"a\": \"', parameters('testValue'), '\"}'))]"
         }
     }
 }
@@ -763,6 +777,7 @@ The output from the preceding example with the default values is:
 | ---- | ---- | ----- |
 | jsonOutput | Object | {"a": "b"} |
 | nullOutput | Boolean | True |
+| paramOutput | Object | {"a": "demo value"}
 
 To deploy this example template with Azure CLI, use:
 

@@ -12,7 +12,7 @@ ms.custom: mvc
 ms.date: 01/12/2018
 ---
 
-# Check traffic with a schedule-based logic app
+# Check traffic on a schedule with Azure Logic Apps
 
 Azure Logic Apps helps you automate workflows that run on a schedule. 
 This tutorial shows how you can build a [logic app](../logic-apps/logic-apps-overview.md) 
@@ -421,7 +421,7 @@ Choose **Delete resource group**. Enter the resource group name as confirmation,
 ## Get support
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+* To submit or vote on feature ideas, visit the [Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

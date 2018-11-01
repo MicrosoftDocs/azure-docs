@@ -12,10 +12,14 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 03/10/2018
+
+ROBOTS: NOINDEX
 ---
 # Install and use the machine learning CLI for top tasks in Azure Machine Learning
 
-Azure Machine Learning services are an integrated, end-to-end data science and advanced analytics solution. Professional data scientists can use Azure Machine Learning services to prepare data, develop experiments, and deploy models at cloud scale. 
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
+
+Azure Machine Learning service is an integrated, end-to-end data science and advanced analytics solution. Professional data scientists can use Azure Machine Learning service to prepare data, develop experiments, and deploy models at cloud scale. 
 
 Azure Machine Learning provides a command-line interface (CLI) with which you can:
 + Manage your workspace and projects
@@ -34,7 +38,7 @@ This article presents some of the most useful CLI commands for your convenience.
 You need contributer access to an Azure subscription or a resource group where you can deploy your models. Also, you need to install Azure Machine Learning Workbench in order to run the CLI. 
 
 >[!IMPORTANT]
->The CLI delivered with Azure Machine Learning services is different from the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), which is used for managing Azure resources.
+>The CLI delivered with Azure Machine Learning service is different from the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), which is used for managing Azure resources.
 
 ## Get and start CLI
 
@@ -196,7 +200,7 @@ az ml env set -n <environment name> -g <resource group name>​
 ## Next steps
 
 Get started with one of these articles: ​
-+ [Install and start using Azure Machine Learning](../service/quickstart-installation.md)
++ [Install and start using Azure Machine Learning](quickstart-installation.md)
 + [Classifying Iris Data Tutorial: Part 1](tutorial-classifying-iris-part-1.md)
 
 Dig deeper with one of these articles:
