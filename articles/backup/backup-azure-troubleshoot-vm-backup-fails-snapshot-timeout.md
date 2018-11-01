@@ -95,14 +95,14 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Error code**: UserErrorUnsupportedDiskSize <br>
 **Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
 
-Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Azure VM Backup stack V2. Upgrading to Azure VM Backup stack V2 will provide support up to 4TB. Review these [benefits](#backup-upgrade-to-vm-backup-stack-v2), [considerations](#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](#backup-upgrade-to-vm-backup-stack-v2#upgrade).  
+Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Azure VM Backup stack V2. Upgrading to Azure VM Backup stack V2 will provide support up to 4TB. Review these [benefits](#backup-upgrade-to-vm-backup-stack-v2), [considerations](backup-upgrade-to-vm-backup-stack-v#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2#upgrade).  
 
 ## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
 
 **Error code**: UserErrorStandardSSDNotSupported <br>
 **Error message**: Currently Azure Backup does not support Standard SSD disks <br>
 
-Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to Azure VM Backup stack V2. Review these [benefits](#backup-upgrade-to-vm-backup-stack-v2), [considerations](#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](#backup-upgrade-to-vm-backup-stack-v2#upgrade).  
+Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to Azure VM Backup stack V2. Review these [benefits](#backup-upgrade-to-vm-backup-stack-v2), [considerations](backup-upgrade-to-vm-backup-stack-v#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2#upgrade).
 
 
 ## Causes and solutions
