@@ -96,7 +96,7 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
     |  Error |  Suggestion |
     |---|---|
     |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-error). |
-    |1058 - ERROR_SERVICE_DISABLED  |See [TermService service is disabled.](#termService-service-is-disabled).  |
+    |1058 - ERROR_SERVICE_DISABLED  |See [TermService service is disabled](#termService-service-is-disabled).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.|
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.|
     |1069 - ERROR_SERVICE_LOGON_FAILED  |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.    |
