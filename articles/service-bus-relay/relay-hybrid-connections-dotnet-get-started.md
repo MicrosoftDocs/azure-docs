@@ -64,7 +64,7 @@ In Visual Studio, write a C# console application to send messages to the relay.
 Congratulations, you have created an end-to-end Hybrid Connections application!
 
 ## Next steps
-In this quickstart, the client and server applications used .NET websockets to send and receive messages. The Hybrid Connections feature of Azure Relay also supports using HTTP to send and receive messages. To learn how to use HTTP with Azure Relay Hybrid Connections, see the [HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).
+In this quickstart, the client and server applications used .NET WebSockets to send and receive messages. The Hybrid Connections feature of Azure Relay also supports using HTTP to send and receive messages. To learn how to use HTTP with Azure Relay Hybrid Connections, see the [HTTP quickstart](relay-hybrid-connections-http-requests-dotnet-get-started.md).
 
-In this quickstart, you used .NET Framework to create client and server applications. To learn how to write client and server applications in Node.js, see the [Node.js Websockets quickstart](relay-hybrid-connections-node-get-started.md) or the [Node.js HTTP quickstart]().
+In this quickstart, you used .NET Framework to create client and server applications. To learn how to write client and server applications in Node.js, see the [Node.js WebSockets quickstart](relay-hybrid-connections-node-get-started.md) or the [Node.js HTTP quickstart]().
 
