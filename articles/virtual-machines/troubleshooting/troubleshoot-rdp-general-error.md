@@ -61,7 +61,7 @@ To resolve this problem, [back up the operating system disk](../windows/snapshot
 
 ### Serial Console
 
-#### Step 1: Turn on Remote Deskop
+#### Step 1: Turn on Remote Desktop
 
 1. Access the [Serial Console](serial-console-windows.md) by selecting **Support & Troubleshooting** > **Serial console (Preview)**. If the feature is enabled on the VM, you can connect the VM successfully.
 
@@ -172,7 +172,7 @@ For more information, see [Remote Desktop disconnects frequently in Azure VM](tr
 
 ### Offline repair
 
-#### Step 1: Turn on Remote Deskop
+#### Step 1: Turn on Remote Desktop
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
 2. Start a Remote Desktop connection to the recovery VM.
