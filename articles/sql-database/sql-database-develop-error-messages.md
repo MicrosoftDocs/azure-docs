@@ -12,7 +12,7 @@ author: stevestein
 ms.author: sstein
 ms.reviewer:
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 10/31/2018
 ---
 # SQL error codes for SQL Database client applications: Database connection errors and other issues
 
@@ -125,10 +125,10 @@ The following errors are related to creating and using elastic pools:
 
 Related topics:
 
-* [Create an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md) 
-* [Manage an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md). 
-* [Create an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md) 
-* [Monitor and manage an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md).
+* [Create an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Manage an elastic pool (C#)](sql-database-elastic-pool-manage-csharp.md)
+* [Create an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
+* [Monitor and manage an elastic pool (PowerShell)](sql-database-elastic-pool-manage-powershell.md)
 
 ## General errors
 The following errors do not fall into any previous categories.
@@ -137,7 +137,7 @@ The following errors do not fall into any previous categories.
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) is not a valid name because it contains invalid characters. |
 | 18452 |14 |Login failed. The login is from an untrusted domain and cannot be used with Windows authentication.%.&#x2a;ls (Windows logins are not supported in this version of SQL Server.) |
-| 18456 |14 |Login failed for user '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(The login failed for user "%.&#x2a;ls". The password change failed. Password change during login is not supported in this version of SQL Server.) |
+| 18456 |14 |Login failed for user '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(The login failed for user "%.&#x2a;ls".) |
 | 18470 |14 |Login failed for user '%.&#x2a;ls'. Reason: The account is disabled.%.&#x2a;ls |
 | 40014 |16 |Multiple databases cannot be used in the same transaction. |
 | 40054 |16 |Tables without a clustered index are not supported in this version of SQL Server. Create a clustered index and try again. |
