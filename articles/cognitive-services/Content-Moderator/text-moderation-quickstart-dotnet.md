@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze text content for problematic material in C# "
+title: "Quickstart: Analyze text content for problematic material in C#"
 titlesuffix: Azure Cognitive Services
 description: How to analyze text content for various problematic material using the Content Moderator SDK for .NET
 services: cognitive-services
@@ -237,7 +237,7 @@ Autocorrect typos, check for matching terms, PII, and classify.
 
 ## Next steps
 
-In this quickstart, you've developed a simple .NET application that uses the Content Moderator service to return relevant information about a given text sample. Next, learn more about what the different flags and classifications mean so that you can decide which data you need and how your app should handle it.
+In this quickstart, you've developed a simple .NET application that uses the Content Moderator service to return relevant information about a given text sample. Next, learn more about what the different flags and classifications mean so you can decide which data you need and how your app should handle it.
 
 > [!div class="nextstepaction"]
 > [Text moderation guide](text-moderation-api.md)
