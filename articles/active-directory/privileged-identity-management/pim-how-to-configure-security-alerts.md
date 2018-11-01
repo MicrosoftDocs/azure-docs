@@ -54,6 +54,8 @@ The following table lists all the security alerts for directory roles, how to fi
 | **How to fix?** | Review the users in the list and remove them from privileged roles they do not need. |
 | **Prevention** | Only assign privileged roles to users that have a business justification.</br>Schedule regular access reviews to verify that users still need their access. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
+| **Trigger** | Triggered if a user goes a certain amount of time without activating a role. |
+| **Number of days** | This setting specifies the number of days, from 0 to 100, that a user can go without activating a role.|
 
 ### There are too many global administrators
 
@@ -64,6 +66,9 @@ The following table lists all the security alerts for directory roles, how to fi
 | **How to fix?** | Review the users in the list and remove any that do not absolutely need the Global Administrator role.</br>Assign these users lower privileged roles. |
 | **Prevention** | Assign users the least privileged role they need. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
+| **Trigger** | Triggered if two different criteria are met, and you can configure both of them. First, you need to reach a certain threshold of Global Administrators. Second, a certain percentage of your total role assignments must be Global Administrators. If you only meet one of these measurements, the alert does not appear. |
+| **Minimum number of Global Administrators** | This setting specifies the number of Global administrators, from 2 to 100, that you consider an unsafe amount. |
+| **Percentage of Global Administrators** | This setting specifies the minimum percentage of administrators who are Global Administrators, from 0% to 100%, that is unsafe in your environment. |
 
 ### Roles are being activated too frequently
 
@@ -74,6 +79,9 @@ The following table lists all the security alerts for directory roles, how to fi
 | **How to fix?** | Review the users in the list and ensure that the [activation duration](pim-how-to-change-default-settings.md) for their privileged role is set long enough for them to perform their tasks. |
 | **Prevention** | Ensure that the [activation duration](pim-how-to-change-default-settings.md) for privileged roles is set long enough for users to perform their tasks.</br>[Require MFA](pim-how-to-change-default-settings.md) for privileged roles that have accounts shared by multiple administrators. |
 | **In-portal mitigation action** | N/A |
+| **Trigger** | Triggered if a user activates the same privileged role multiple times within a specified period. You can configure both the time period and the number of activations. |
+| **Activation renewal timeframe** | This setting specifies in days, hours, minutes, and second the time period you want to use to track suspicious renewals. |
+| **Number of activation renewals** | This setting specifies the number of activations, from 2 to 100, that you consider worthy of alert, within the timeframe you chose. You can change this setting by moving the slider, or typing a number in the text box. |
 
 ### Roles don't require MFA for activation
 
@@ -92,9 +100,9 @@ The following table lists all the security alerts for directory roles, how to fi
 > | | |
 > | --- | --- |
 > | **Severity** | High |
-> | **Why am I getting this?** | Privileged role assignments made outside > of PIM are not properly monitored and may indicate an active attack. |
-> | **How to fix?** | Review the users in the list and remove them from > privileged roles assigned outside of PIM. |
-> | **Prevention** | Investigate where users are being assigned privileged > roles outside of PIM and prohibit future assignments from there. |
+> | **Why am I getting this?** | Privileged role assignments made outside of PIM are not properly monitored and may indicate an active attack. |
+> | **How to fix?** | Review the users in the list and remove them from privileged roles assigned outside of PIM. |
+> | **Prevention** | Investigate where users are being assigned privileged roles outside of PIM and prohibit future assignments from there. |
 > | **In-portal mitigation action** | Removes the account from their privileged role. |
 
 ### Potential stale accounts in a privileged role
@@ -103,9 +111,9 @@ The following table lists all the security alerts for directory roles, how to fi
 > | | |
 > | --- | --- |
 > | **Severity** | Medium |
-> | **Why am I getting this?** | Accounts that have not changed their > password recently might be service or shared accounts that aren't being > maintained. These accounts in privileged roles are vulnerable to > attackers. |
-> | **How to fix?** | Review the accounts in the list. If they no longer > need access, remove them from their privileged roles. |
-> | **Prevention** | Ensure that accounts that are shared are rotating > strong passwords when there is a change in the users that know the > password.</br>Regularly review accounts with privileged roles using > access reviews and remove role assignments that are no longer needed. |
+> | **Why am I getting this?** | Accounts that have not changed their password recently might be service or shared accounts that aren't being maintained. These accounts in privileged roles are vulnerable to attackers. |
+> | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
+> | **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password.</br>Regularly review accounts with privileged roles using access reviews and remove role assignments that are no longer needed. |
 > | **In-portal mitigation action** | Removes the account from their privileged role. |
 
 ### Users aren't using their privileged roles
@@ -114,9 +122,9 @@ The following table lists all the security alerts for directory roles, how to fi
 > | | |
 > | --- | --- |
 > | **Severity** | Low |
-> | **Why am I getting this?** | Users that have been assigned privileged > roles they don't need increases the chance of an attack. It is also > easier for attackers to remain unnoticed in accounts that are not > actively being used. |
-> | **How to fix?** | Review the users in the list and remove them from > privileged roles they do not need. |
-> | **Prevention** | Only assign privileged roles to users that have a > business justification.</br>Schedule regular access reviews to verify > that users still need their access. |
+> | **Why am I getting this?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
+> | **How to fix?** | Review the users in the list and remove them from privileged roles they do not need. |
+> | **Prevention** | Only assign privileged roles to users that have a business justification.</br>Schedule regular access reviews to verify that users still need their access. |
 > | **In-portal mitigation action** | Removes the account from their privileged role. |
 
 ### There are too many global administrators
@@ -125,8 +133,8 @@ The following table lists all the security alerts for directory roles, how to fi
 > | | |
 > | --- | --- |
 > | **Severity** | Low |
-> | **Why am I getting this?** | Global Administrator is the highest > privileged role. If  a Global Administrator is compromised, the attacker > gains access to all of their permissions, which puts your whole system at > risk. |
-> | **How to fix?** | Review the users in the list and remove any that do > not absolutely need the Global Administrator role.</br>Assign these users > lower privileged roles. |
+> | **Why am I getting this?** | Global Administrator is the highest privileged role. If  a Global Administrator is compromised, the attacker gains access to all of their permissions, which puts your whole system at risk. |
+> | **How to fix?** | Review the users in the list and remove any that do not absolutely need the Global Administrator role.</br>Assign these users lower privileged roles. |
 > | **Prevention** | Assign users the least privileged role they need. |
 > | **In-portal mitigation action** | Removes the account from their privileged role. |
 
@@ -136,9 +144,9 @@ The following table lists all the security alerts for directory roles, how to fi
 > | | |
 > | --- | --- |
 > | **Severity** | Low |
-> | **Why am I getting this?** | Multiple activations to the same > privileged role by the same user is a sign of an attack. |
-> | **How to fix?** | Review the users in the list and ensure that the > [activation duration](pim-how-to-change-default-settings.md) for their > privileged role is set long enough for them to perform their tasks. |
-> | **Prevention** | Ensure that the [activation duration]> (pim-how-to-change-default-settings.md) for privileged roles is set long > enough for users to perform their tasks.</br>[Require MFA]> (pim-how-to-change-default-settings.md) for privileged roles that have > accounts shared by multiple administrators. |
+> | **Why am I getting this?** | Multiple activations to the same privileged role by the same user is a sign of an attack. |
+> | **How to fix?** | Review the users in the list and ensure that the [activation duration](pim-how-to-change-default-settings.md) for their privileged role is set long enough for them to perform their tasks. |
+> | **Prevention** | Ensure that the [activation duration](pim-how-to-change-default-settings.md) for privileged roles is set long enough for users to perform their tasks.</br>[Require MFA](pim-how-to-change-default-settings.md) for privileged roles that have accounts shared by multiple administrators. |
 > | **In-portal mitigation action** | N/A |
 
 ### Roles don't require MFA for activation
@@ -147,9 +155,9 @@ The following table lists all the security alerts for directory roles, how to fi
 > | | |
 > | --- | --- |
 > | **Severity** | Low |
-> | **Why am I getting this?** | Without MFA, compromised users can > activate privileged roles. |
-> | **How to fix?** | Review the list of roles and [require MFA]> (pim-how-to-change-default-settings.md) for every role. |
-> | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) > for every role.  |
+> | **Why am I getting this?** | Without MFA, compromised users can activate privileged roles. |
+> | **How to fix?** | Review the list of roles and [require MFA](pim-how-to-change-default-settings.md) for every role. |
+> | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
 > | **In-portal mitigation action** | Makes MFA required for activation of the privileged role. |
 
 ### Roles are being assigned outside of PIM
