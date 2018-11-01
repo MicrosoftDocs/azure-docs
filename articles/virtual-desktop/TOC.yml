@@ -4,6 +4,8 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: windows-virtual-desktop-overview.md
+  - name: Windows Virtual Desktop and Remote Desktop Services comparison
+    href: wvd-and-rds-comparison.md
   - name: Set up a Windows Virtual Desktop environment
     href: set-up-wvd-environment.md
 - name: Tutorials
@@ -12,8 +14,8 @@
     href: set-up-wvd-tenants-in-azure-active-directory.md
   - name: Create a host pool in Windows Virtual Desktop
     href: manage-host-pools.md
-  - name: Connect to Microsoft Remote Services
-    href: connect-to-mrs.md
+  - name: Connect to Windows Virtual Desktop
+    href: connect-to-windows-virtual-desktop.md
   - name: Manage app groups for Windows Virtual Desktop
     href: manage-app-groups-for-wvd.md
   - name: Manage user storage in Windows Virtual Desktop

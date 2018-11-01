@@ -27,7 +27,7 @@ Before you deploy the Remote Desktop Services modern infrastructure, it's a good
 * The host protocol installer, **Microsoft.RDInfra.StackSxS.Installer-x64.msi**.
 * The Windows Virtual Desktop PowerShell module, **RDPowerShell.zip**.
 
-If you're hosting for external customers, you should also have a Cloud Solution Provider (CSP) account to access the Microsoft Partner Center. The CSP technology enables the creation of CSP subscriptions that the hosting partner controls but is parented to the customer’s Azure AD tenant. You'll need Azure credentials to access one of the following:
+If you're hosting for external customers, you should also have a Cloud Solution Provider (CSP) account to access the Microsoft Partner Center. The CSP technology enables the creation of CSP subscriptions that the hosting partner controls but is parented to the customer’s Azure Active Directory tenant. You'll need Azure credentials to access one of the following:
 
 * Microsoft Partner Center (CSP) to create a CSP subscription.
 * Enterprise subscription with either the Owner or Contributor role assigned.
@@ -36,9 +36,9 @@ If you're hosting for external customers, you should also have a Cloud Solution 
 
 Follow the steps in this section to prepare a subscription for the tenant’s session hosts (RDSH or Windows 10 RS3) if you plan to employ Active Directory. Choose the section that best suits your needs.
 
-### Alternative 1: Create a CSP subscription for a customer without an Azure AD tenant
+### Alternative 1: Create a CSP subscription for a customer without an Azure Active Directory tenant
 
-This is the scenario you'll use if you're a hosting partner currently hosting Windows desktops and applications for an external customer without an Azure AD tenant. Use the following steps to create a new Azure AD tenant for a customer with a CSP subscription that's parented to the Azure AD tenant but controlled and managed by the partner. This procedure uses the Partner Center portal, but there are also equivalent REST APIs that you can use to get the same results.
+This is the scenario you'll use if you're a hosting partner currently hosting Windows desktops and applications for an external customer without an Azure Active Directory tenant. Use the following steps to create a new Azure Active Directory tenant for a customer with a CSP subscription that's parented to the Azure Active Directory tenant but controlled and managed by the partner. This procedure uses the Partner Center portal, but there are also equivalent REST APIs that you can use to get the same results.
 
 1. Open the [Microsoft Partner Center](https://partnercenter.microsoft.com/).
 2. Select **Dashboard**.
@@ -72,7 +72,7 @@ You'll need to access the CSP subscription frequently while setting up your tena
 3. In the Dashboard, select **Customers**, then select the customer.
 4. On the customer’s **Subscriptions** page, select **Service management**.
 5. On the Service management page, select **Microsoft Azure Management Portal**.
-6. Sign in to the Azure Portal using the CSP account. (Don't use the customer's Azure AD admin account, like ```admin@tenant.onmicrosoft.com```.)
+6. Sign in to the Azure Portal using the CSP account. (Don't use the customer's Azure Active Directory admin account, like ```admin@tenant.onmicrosoft.com```.)
 
 ### Alternative 2: Use an existing Enterprise subscription
 
@@ -85,20 +85,20 @@ Ensure that you have Owner access to the subscription. To access an Enterprise s
 
 ## Prepare Active Directory for the RD tenant environment
 
-All session host virtual machines (RDSH or Windows 10) in the RD tenant environment must be domain-joined, and the AD domain must be synchronized with the tenant’s Azure AD. This section will cover how to create the tenant’s Active Directory and networking infrastructure.
+All session host virtual machines (RDSH or Windows 10) in the RD tenant environment must be domain-joined, and the Active Directory domain must be synchronized with the tenant’s Azure AD. This section will cover how to create the tenant’s Active Directory and networking infrastructure.
 
-Azure AD Domain Services (DS) can't be deployed in a CSP subscription at the moment, so the following procedure uses an Enterprise Azure subscription. This section will be updated once Azure AD DS supports CSP subscriptions.
+Azure Active Directory Domain Services (DS) can't be deployed in a CSP subscription at the moment, so the following procedure uses an Enterprise Azure subscription. This section will be updated once Azure Active Directory Domain Services supports CSP subscriptions.
 
 To create a Resource Group and virtual network in the tenant’s environment:
 
 1. Access the Enterprise Azure subscription through the [Azure Portal](https://portal.azure.com).
-2. Follow the steps [here](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) to create a Resource Group, virtual network, and Azure AD DS instance for the customer’s session host environment.
+2. Follow the steps [here](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) to create a Resource Group, virtual network, and Azure Active Directory Domain Services instance for the customer’s session host environment.
 
 >[!NOTE]
->It may take several hours to create the Azure AD Domain Services. When adding users to Azure AD, it may take several minutes for the accounts to be synchronized to the Azure AD DS instance.
+>It may take several hours to create the Azure Active Directory Domain Services. When adding users to Azure AD, it may take several minutes for the accounts to be synchronized to the Azure Active Directory Domain Services instance.
 
 >[!TIP]
->Optionally, you can also [associate a custom domain to your Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
+>Optionally, you can also [associate a custom domain to your Azure Active Directory](https://azure.microsoft.com/documentation/articles/active-directory-add-domain/).
 
 ### Create a virtual network and Active Directory virtual machines in the tenant’s environment
 
@@ -109,7 +109,7 @@ You can use the following [Azure Quickstart Azure Resource Manager template](htt
  1. Resource group: Select **Create new** and specify a name.
  1. Admin username: Choose a domain admin name you will remember.
  1. Admin password: Choose a password that you will remember that also meets Azure virtual machine password complexity standards.
- 1. Domain name: If you have already created a custom domain name, like the ```contoso.com``` name from the example, then use that name. However, the name doesn't necessarily need to match your Azure AD tenant domain, as you can always sync your user accounts.
+ 1. Domain name: If you have already created a custom domain name, like the ```contoso.com``` name from the example, then use that name. However, the name doesn't necessarily need to match your Azure Active directory tenant domain, as you can always sync your user accounts.
  1. DNS Prefix: Same prefix as your domain name except all lower case. For example, ```contoso```.
    
    >[!WARNING]
@@ -120,47 +120,47 @@ You can use the following [Azure Quickstart Azure Resource Manager template](htt
 6. Select **Open**, **Connect**, then sign in with the domain admin credentials you created (for example, ```myadminacct@mydomainname.com```).
 7. When Server Manager opens, select **Tools**, and open the **Active Directory Users and Computers** tool. From here, you can add user accounts.
 
-### Deploy Azure AD Connect to synchronize AD DS accounts to Azure AD
+### Deploy Azure Active Directory Connect to synchronize Active Directory Domain Services accounts to Azure Active Directory
 
-You need to synchronize the user accounts in the AD DS deployed in a virtual machine in the tenant’s environment with the user accounts in Azure AD. You can use the [Azure AD Connect tool](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express) to do this.
+You need to synchronize the user accounts in the Active Directory Domain Services deployed in a virtual machine in the tenant’s environment with the user accounts in Azure Active Directory. You can use the [Azure Active Directory Connect tool](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express) to do this.
 
 >[!NOTE]
->If you want the fully qualified user names to match between AD and Azure AD, you need to first create a custom domain name for Azure AD. This is described in [Quickstart: Add a custom domain name to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
+>If you want the fully qualified user names to match between Active Directory and Azure Active Directory, you need to first create a custom domain name for Azure Active Directory. This is described in [Quickstart: Add a custom domain name to Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain).
 
-#### Add users to the new AD domain so that they sync up to the new Azure AD tenant
+#### Add users to the new Active Directory domain so that they sync up to the new Azure Active Directory tenant
 
-1. Connect and sign into the AD virtual machine in the customer’s environment.
+1. Connect and sign into the Active Directory virtual machine in the customer’s environment.
 2. In Server Manager, select **Tools** > **Active Directory Users and Computers**.
 3. Expand the domain name, right-click **Users**, then select **New** > **User**.
 4. Repeat to make 2–3 users.
-5. Wait approximately 30 minutes for the Azure AD sync to complete, then confirm that you can sign in to Azure using the synchronized accounts. To do this, open a new InPrivate Edge browser session and navigate to <https://portal.azure.com>. Sign out, and then sign back in with one of the user names you added.
+5. Wait approximately 30 minutes for the Azure Active Directory sync to complete, then confirm that you can sign in to Azure using the synchronized accounts. To do this, open a new InPrivate Edge browser session and navigate to <https://portal.azure.com>. Sign out, and then sign back in with one of the user names you added.
 
   >[!NOTE]
-  >If you have added a custom domain name to Azure AD for matched UPNs, you can sign in with ```myusername@mydomainname.com```. If you haven't added a custom domain name to Azure AD, this means your UPNs are mismatched, so you'll have to sign in as ```myusername@mydomainname.onmicrosoft.com```.
+  >If you have added a custom domain name to Azure Active Directory for matched UPNs, you can sign in with ```myusername@mydomainname.com```. If you haven't added a custom domain name to Azure AD, this means your UPNs are mismatched, so you'll have to sign in as ```myusername@mydomainname.onmicrosoft.com```.
 
-## Give consent to allow the Windows Virtual Desktop roles and RD clients to read the tenant’s Azure AD
+## Give consent to allow the Windows Virtual Desktop roles and RD clients to read the tenant’s Azure Active Directory
 
-When an infrastructure admin deploys Windows Virtual Desktop, it gets registered as a multi-tenant Azure application in Azure AD. You must allow the Windows Virtual Desktop application to read the tenant’s Azure AD. Follow these steps to to connect to a web site that is part of the Windows Virtual Desktop deployment and consent to allow the Windows Virtual Desktop application to read that customer’s Azure AD tenant.
+When an infrastructure admin deploys Windows Virtual Desktop, it gets registered as a multi-tenant Azure application in Azure Active Directory. You must allow the Windows Virtual Desktop application to read the tenant’s Azure AD. Follow these steps to to connect to a web site that is part of the Windows Virtual Desktop deployment and consent to allow the Windows Virtual Desktop application to read that customer’s Azure Active Directory tenant.
 
-1. Open a browser and connect to the RD Web page URL.
-2. Select **Consent Option: Server App** and enter the Azure AD tenant ID. (For CSP subscriptions, you can find the ID listed in the Partner Portal as the customer's Microsoft ID. For Enterprise subscriptions, you can find the ID under **Azure Active Directory** > **Properties** > **Directory ID**.) After entering the ID, select **Submit**.
-3. Sign in to the RD Connection App consent page with an administrative account from the customer’s Azure AD tenant. The account name will look something like ```admin@<tenantname>.onmicrosoft.com```. (Note that this is not the partner’s CSP account.)
+1. Open a browser and connect to the Remote Desktop Web page URL.
+2. Select **Consent Option: Server App** and enter the Azure Active Directory tenant ID. (For CSP subscriptions, you can find the ID listed in the Partner Portal as the customer's Microsoft ID. For Enterprise subscriptions, you can find the ID under **Azure Active Directory** > **Properties** > **Directory ID**.) After entering the ID, select **Submit**.
+3. Sign in to the RD Connection App consent page with an administrative account from the customer’s Azure Active Directory tenant. The account name will look something like ```admin@<tenantname>.onmicrosoft.com```. (Note that this is not the partner’s CSP account.)
 4. Select **Accept**.
 5. Repeat steps 1–4 for the Client App.
 
   >[!NOTE]
   >The Server App must be consented before the Client App. Wait one minute between consenting the Server App and the Client App.
 
-## Create an RD tenant and host pool in the RDS modern infrastructure
+## Create a Remote Desktop tenant and host pool in Windows Virtual Desktop
 
-Follow the steps in this section to create a new RD tenant and create an empty session host pool in the RDS modern infrastructure.
+Follow the steps in this section to create a new Remote Desktop tenant and create an empty session host pool in Windows Virtual Desktop.
 
-### Install and import the RDS modern infrastructure PowerShell module
+### Install and import the Window Virtual Desktop PowerShell module
 
-Follow these steps in the Windows PowerShell command window or a Windows PowerShell Integrated Scripting Environment (ISE) window to install and import the RDS modern infrastructure PowerShell module on your local Windows computer.
+Follow these steps in the Windows PowerShell command window or a Windows PowerShell Integrated Scripting Environment (ISE) window to install and import the Windows Virtual Desktop PowerShell module on your local Windows computer.
 
 >[!NOTE]
->These instructions will change once the RDS2mi.0 PS module is published to the PowerShell Gallery.
+>These instructions will change once the RDS2mi.0 PowerShell module is published to the PowerShell Gallery.
 
 1. Copy the **RDPowerShell.zip** file and extract it to a folder on your local computer.
 2. Open a PowerShell window as Administrator.
@@ -289,7 +289,7 @@ Use the following procedure to create a resource group and one or more virtual m
     * Size: your choice, DS1_V2 (SSD) or A1_V2 (HDD) are good for testing.
     * Select **View all** to see all virtual machine sizes available.
     * Virtual Network: Select the virtual network created in the [Prepare Active Directory for the RD tenant environment](set-up-wvd-tenants-in-ad.md#prepare-active-directory-for-the-rd-tenant-environment) section.
-    * Public IP address: Leave with default settings, that is, a public IP. A public IP is initially required to connect to the virtual machine, join the AD domain, and register with Windows Virtual Desktop. After completing these actions, you can go back and remove all public IP addresses for the session host virtual machines.
+    * Public IP address: Leave with default settings, that is, a public IP. A public IP is initially required to connect to the virtual machine, join the Active Directory domain, and register with Windows Virtual Desktop. After completing these actions, you can go back and remove all public IP addresses for the session host virtual machines.
     * Network security group (firewall): Create a new network security group for the host pool with the default port rules.
 
       >[!NOTE]
