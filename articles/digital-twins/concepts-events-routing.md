@@ -14,11 +14,11 @@ ms.author: alinast
 
 IoT solutions often unite several powerful services that include storage, analytics, and more. This article describes how to connect Azure Digital Twins apps to Azure analytics, AI, and storage services to give them deeper insights and functionalities.
 
-## Route types
+## Route types  
 
 Azure Digital Twins offers two ways to integrate IoT events into other Azure services or business applications:
 
-* **Routing Azure Digital Twins events**:  An object in the spatial graph that changes, telemetry data that's received, or a user-defined function that creates a notification based on predefined conditions can trigger Azure Digital Twins events. Users can send these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus topics](https://azure.microsoft.com/services/service-bus/), or [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) for further processing.
+* **Routing Azure Digital Twins events**: An object in the spatial graph that changes, telemetry data that's received, or a user-defined function that creates a notification based on predefined conditions can trigger Azure Digital Twins events. Users can send these events to [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/), [Azure Service Bus topics](https://azure.microsoft.com/services/service-bus/), or [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) for further processing.
 
 * **Routing device telemetry**: In addition to routing events, Azure Digital Twins can also route raw device telemetry messages to Event Hubs for further insights and analytics. These types of messages aren't processed by Azure Digital Twins. And they're only forwarded to the event hub.
 
