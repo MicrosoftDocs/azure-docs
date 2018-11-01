@@ -9,7 +9,7 @@ editor: ''
 ms.assetid:  
 ms.service: service-fabric-mesh
 ms.devlang: dotNet
-ms.topic: tutorial
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/26/2018

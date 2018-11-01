@@ -54,16 +54,18 @@
   items:
   - name: Set up your development environment
     href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
-  - name: Optimize Visual Studio performance
-    href: service-fabric-mesh-howto-optimize-vs.md
   - name: Set up Service Fabric Mesh CLI
     href: service-fabric-mesh-howto-setup-cli.md
-  - name: Store state with Azure Files volume
-    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md  
-  - name: Manage secrets
-    href: service-fabric-mesh-howto-manage-secrets.md
+  - name: Optimize Visual Studio performance
+    href: service-fabric-mesh-howto-optimize-vs.md
   - name: Auto scale services
     href: service-fabric-mesh-howto-auto-scale-services.md
+  - name: Store state with Azure Files volume
+    href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md  
+  - name: Use reliable collections in your Service Fabric Mesh app
+    href: service-fabric-mesh-work-with-reliable-collections.md
+  - name: Manage secrets
+    href: service-fabric-mesh-howto-manage-secrets.md
 
 - name: Reference
   items:
