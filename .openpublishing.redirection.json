@@ -30120,6 +30120,11 @@
             "source_path": "articles/active-directory/active-directory-windows-enterprise-state-roaming-troubleshooting.md",
             "redirect_url": "/azure/active-directory/devices/enterprise-state-roaming-troubleshooting",
             "redirect_document_id" : true
+        },
+        {
+            "source_path": "articles/iot-central/howto-create-application.md",
+            "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
+            "redirect_document_id" : false
         }
     ]
 }
