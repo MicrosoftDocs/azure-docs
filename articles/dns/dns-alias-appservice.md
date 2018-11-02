@@ -5,7 +5,7 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 11/23/2018
+ms.date: 11/3/2018
 ms.author: victorh
 ---
 
@@ -124,10 +124,10 @@ Now you can test to make sure you can reach your web app and that it is being lo
 1. Open a web browser and browse to your domain. For example, contoso.com. You should see the default web app page.
 2. Stop your first web app.
 3. Close your web browser, and wait a few minutes.
-4. Start your web browser and browse to domain. You should still see the default web app page.
+4. Start your web browser and browse to your domain. You should still see the default web app page.
 5. Stop your second web app.
 6. Close your web browser, and wait a few minutes.
-7. Start your web browser and browse to your domain. You should see Error 403 indicating that the web app is stopped.
+7. Start your web browser and browse to your domain. You should see Error 403, indicating that the web app is stopped.
 8. Start your second web app.
 9. Close your web browser, and wait a few minutes.
 10. Start your web browser and browse to your domain. You should see the default web app page again.
