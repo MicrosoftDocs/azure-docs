@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
 
 ---
@@ -183,11 +183,11 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-1. Navigate to the [Enterprise Applications - All Applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) page in the Azure portal.
-2. In the **Show** dropdown, select **All Applications** and click **Apply**.
-3. Search for the application ID *abba844e-bc0e-44b0-947a-dc74e5d09022*
-4. If it shows up in the search, delete the service principal
-5.  Follow the steps to [re-register to the Microsoft AAD namespace using the Azure portal.](active-directory-ds-troubleshoot-service-principals.md#re-register-to-the-microsoft-aad-namespace-using-the-azure-portal)
+Our service principals need access to be able to manage and create resources on your managed domain. Someone has denied the service principal access and now it is unable to manage resources. Follow the steps to grant access to your service principal.
+
+1. Read about [RBAC control and how to grant access to applications on the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+2. Review the access that the service principal with the ID ```abba844e-bc0e-44b0-947a-dc74e5d09022``` and grant the access that was denied at an earlier date.
+
 
 ## AADDS112: Not enough IP address in the managed domain
 
@@ -249,7 +249,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-1.	Review Resource Manager operation logs on the network resources for your managed domain
+1.	Review Resource Manager operation logs on the network resources for your managed domain.
 2.	Weaken the policy restrictions on the resources so that the AAD-DS service principal can operate on them.
 
 
@@ -276,7 +276,7 @@ Here are some common reasons why synchronization stops on managed domains:
 
 **Resolution:**
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
+[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to back up your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the backup has completed.
 
 
 ## AADDS503: Suspension due to disabled subscription
