@@ -5,35 +5,34 @@ services: azure-stack
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/13/2018
+ms.date: 11/02/2018
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ---
-# Tutorial: Use the Azure Stack Ethereum blockchain solution template
+# Deploy an Ethereum blockchain network on Azure Stack
 
 The Ethereum solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum blockchain network with minimal Azure and Ethereum knowledge.
 
 With a handful of user inputs and a single-click deployment through the Azure Stack tenant portal, each member can provision their network footprint. Each member's network footprint consists of a set of load-balanced transaction nodes with which an application or user can interact to submit transactions, a set of mining nodes to record transactions, and a Network Virtual Appliance (NVA). A subsequent connection step connects the NVAs to create a fully configured multi-member blockchain network.
 
-To set this up, you will:
+To set this up, you:
 
-> [!div class="checklist"]
-> * Choose a deployment architecture
-> * Deploy a standalone, consortium leader or consortium member network
+- Choose a deployment architecture
+- Deploy a standalone, consortium leader, or consortium member network
 
 ## Prerequisites
 
-Download the latest items [from the Marketplace](azure-stack-download-azure-marketplace-item.md):
+Download the latest items [from the Marketplace](../azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS
-* Windows Server 2016
-* Custom Script for Linux 2.0
-* Custom Script Extension for Windows
+- Ubuntu Server 16.04 LTS
+- Windows Server 2016
+- Custom Script for Linux 2.0
+- Custom Script Extension for Windows
 
-For more information about blockchain scenarios, see [Ethereum proof-of-work consortium solution template](../blockchain/templates/ethereum-deployment.md).
+For more information about blockchain scenarios, see [Ethereum proof-of-work consortium solution template](../../blockchain/templates/ethereum-deployment.md).
 
 ## Deployment architecture
 
@@ -44,23 +43,23 @@ This solution template can deploy single or multi member Ethereum consortium net
 The template can deploy Ethereum consortium for leader and member join in a variety of ways, here are the ones we have tested:
 
 - On a multi-node Azure Stack, with Azure AD or AD FS, deploy lead and member using the same subscription or with different subscriptions.
-- On a single-node Azure Stack (with Azure AD) deploy lead and member using the same subscription.
+- On a single-node Azure Stack (with Azure AD), deploy lead and member using the same subscription.
 
 ### Standalone and consortium leader deployment
 
 The consortium leader template configures the first member's footprint in the network. 
 
 1. Download the [leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. In the Azure Stack Administration portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
+2. In the Azure Stack tenant portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you previously downloaded.
     
-    ![Edit leader template](media/azure-stack-ethereum/edit-leader-template.png)
+    ![Edit leader template](./media/azure-stack-ethereum/edit-leader-template.png)
 
 5. Select **Save**.
 6. Select **Edit parameters** and complete the template parameters for your deployment.
     
-    ![Edit leader template parameters](media/azure-stack-ethereum/edit-leader-parameters.png)
+    ![Edit leader template parameters](./media/azure-stack-ethereum/edit-leader-parameters.png)
 
     Parameter Name | Description | Allowed Values | Sample value
     ---------------|-------------|----------------|-------------
@@ -85,7 +84,7 @@ The consortium leader template configures the first member's footprint in the ne
 7. Select **OK**.
 8. In **Custom deployment**, specify **Subscription**, **Resource group**, and  **Resource group location**.
     
-    ![Leader deployment parameters](media/azure-stack-ethereum/leader-deployment-parameters.png)
+    ![Leader deployment parameters](./media/azure-stack-ethereum/leader-deployment-parameters.png)
 
     Parameter Name | Description | Allowed Values | Sample value
     ---------------|-------------|----------------|-------------
@@ -101,12 +100,12 @@ After deployment completes, you can review the deployment summary for **Microsof
 
 To verify leader’s deployment, browse leader’s admin site. You can find admin site address in the output section of **Microsoft.Template** deployment.  
 
-![Leader deployment summary](media/azure-stack-ethereum/ethereum-node-status.png)
+![Leader deployment summary](./media/azure-stack-ethereum/ethereum-node-status.png)
 
 ### Joining consortium member deployment
 
 1. Download the [consortium member template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. In the Azure Stack Administration portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
+2. In the Azure Stack tenant portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you downloaded previously.
 5. Select **Save**.
@@ -149,25 +148,25 @@ After deployment completes, you can review the deployment summary for **Microsof
 
 To verify member’s deployment, browse member’s admin site. You can find admin site address in the output section of Microsoft.Template deployment.
 
-![Member deployment summary](media/azure-stack-ethereum/ethereum-node-status-2.png)
+![Member deployment summary](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-As shown in the picture, member’s nodes status is **Not running**. This is because the connection between member and leader is not established. The connection between member and leader is a two-way connection. When you deploy member, template automatically creates the connection from member to the leader. To create the connection from leader to member go to the next step.
+As shown in the picture, member’s nodes status is **Not running**. This is because the connection between member and leader is not established. The connection between member and leader is a two-way connection. When you deploy member, template automatically creates the connection from member to the leader. To create the connection from leader to member, go to the next step.
 
 ### Connect member and leader
 
 This template creates a connection from the leader to a remote member. 
 
 1. Download the [connect member and leader template from GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. In the Azure Stack Administration portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
+2. In the Azure Stack tenant portal, select **+ Create a resource > Template deployment** to deploy from a custom template.
 3. Select **Edit template** to edit the new custom template.
 4. In the editing pane on the right, copy and paste the leader template JSON you downloaded previously.
     
-    ![Edit connect template](media/azure-stack-ethereum/edit-connect-template.png)
+    ![Edit connect template](./media/azure-stack-ethereum/edit-connect-template.png)
 
 5. Select **Save**.
 6. Select **Edit parameters** and complete the template parameters for your deployment.
     
-    ![Edit connect template parameters](media/azure-stack-ethereum/edit-connect-parameters.png)
+    ![Edit connect template parameters](./media/azure-stack-ethereum/edit-connect-parameters.png)
 
     Parameter Name | Description | Allowed Values | Sample value
     ---------------|-------------|----------------|-------------
@@ -183,7 +182,7 @@ This template creates a connection from the leader to a remote member.
 7. Select **OK**.
 8. In **Custom deployment**, specify **Subscription**, **Resource group**, and  **Resource group location**.
     
-    ![Connect deployment parameters](media/azure-stack-ethereum/connect-deployment-parameters.png)
+    ![Connect deployment parameters](./media/azure-stack-ethereum/connect-deployment-parameters.png)
 
     Parameter Name | Description | Allowed Values | Sample value
     ---------------|-------------|----------------|-------------
@@ -195,17 +194,8 @@ This template creates a connection from the leader to a remote member.
 
 After deployment is complete, it takes few minutes for leader and member to start communication. To verify the deployment, refresh member’s admin site. Status of the member’s nodes should be running. 
 
-![Verify the deployment](media/azure-stack-ethereum/ethererum-node-status-3.png)
+![Verify the deployment](./media/azure-stack-ethereum/ethererum-node-status-3.png)
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Choose a deployment architecture
-> * Deploy a standalone, consortium leader or consortium member network
-
-To learn more about Ethereum and Azure, see:
-
-> [!div class="nextstepaction"]
-> [Blockchain Technology and Applications](https://azure.microsoft.com/solutions/blockchain/)
+To learn more about Ethereum and Azure, see [Blockchain Technology and Applications](https://azure.microsoft.com/solutions/blockchain/).
