@@ -53,7 +53,7 @@ The following lines of code execute the primary functionality of the project.
 
 ### Create a new Custom Vision Service project
 
-The created project will then show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
+The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
 ```csharp
     // Create a new project
@@ -94,6 +94,8 @@ trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFile
 
 ### Train the classifier
 
+This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
+
 ```csharp
 // Now there are images with tags; start training the project
 Console.WriteLine("\tTraining");
@@ -107,18 +109,16 @@ while (iteration.Status == "Completed")
     // Re-query the iteration to get it's updated status
     iteration = trainingApi.GetIteration(project.Id, iteration.Id);
 }
-```
 
-### Set the current iteration as default
-
-```csharp
 // The iteration is now trained. Make it the default project endpoint
 iteration.IsDefault = true;
 trainingApi.UpdateIteration(project.Id, iteration.Id, iteration);
 Console.WriteLine("Done!\n");
 ```
 
-### Create a prediction endpoint
+### Set the prediction endpoint
+
+The prediction endpoint is the reference that you can use to submit an image to the current model and get a classification prediction.
  
 ```csharp
 // Create a prediction endpoint, passing in obtained prediction key
