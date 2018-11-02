@@ -1,5 +1,5 @@
 ---
-title: AppSource and Marketplace review policy | Azure
+title: AppSource and Marketplace review policies | Azure
 description: Ratings and reviews policy in the Azure Marketplace for app and service publishers.
 services: Azure, Marketplace, AppSource, Policy
 documentationcenter:
@@ -18,19 +18,19 @@ ms.author: qianw211
 
 ---
 
-# Azure AppSource and Marketplace review policy
+# Azure AppSource and Marketplace review policies
 
 The rating and review policies for Azure AppSource and Marketplace are listed here.
 
 1. In AppSource and Azure Marketplace reviews, Microsoft will not tolerate the following behaviors or content:
     * Bot/cyber-attacks.
     * Privacy compliance violations.
-    * Spam content. 
+    * Spam content.
     * Scam content.
     * Offensive content: obscene, profane, or offensive language or gestures.
     * Illegal content.
     * Abusive, hateful, or threatening content.
-    * Defamatory content. 
+    * Defamatory content.
     * Repeated submissions of the same or similar content.
     * Advertising, including promotion of other apps and services.
 
@@ -43,7 +43,7 @@ The rating and review policies for Azure AppSource and Marketplace are listed he
 
 ## Review guidelines for customers
 
-1. Do not submit content that could be in violation of the [AppSource and Azure Marketplace review policy](./rating-and-review-policies.md).
+1. Do not submit content that could be in violation of the [AppSource and Azure Marketplace review policy](./rating-review-policies.md).
 2. Do not include personally identifiable information (PII) such as email address, physical address, telephone numbers and etc.
 3. Ensure that your review is clear, readable, and informative.
 4. Ensure that viewpoints expressed in your review are balanced and neutral.
@@ -51,7 +51,7 @@ The rating and review policies for Azure AppSource and Marketplace are listed he
 
 ## Review guidelines for publishers
 
-1. Do not post any content that could be in violation of the [AppSource and Azure Marketplace review policy](./rating-and-review-policies.md).
+1. Do not post any content that could be in violation of the [AppSource and Azure Marketplace review policy](./rating-review-policies.md).
 2. Do not include any marketing content or advertisements in your comment.
 3. Do not promote other apps or services in your comment.
 4. Your response should be directly related to the specific app and review.
