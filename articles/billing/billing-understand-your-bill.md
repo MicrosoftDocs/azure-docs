@@ -34,7 +34,7 @@ If there's a charge on your invoice that you want more information about, you ca
 The detailed usage CSV file shows your charges by billing
 period and daily usage. To get the file, see
 [Get your Azure billing invoice and daily usage
-data](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
+data](billing-download-azure-invoice-daily-usage-date.md).
 
 Your usage charges are displayed at the meter level. The following terms mean the same thing in both the invoice and the detailed usage file. For example, the billing cycle on the invoice is the same as the billing period shown in the detailed usage file.
 
