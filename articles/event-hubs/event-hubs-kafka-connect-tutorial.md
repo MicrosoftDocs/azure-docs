@@ -29,7 +29,7 @@ In this tutorial, you take the following steps:
 > * 
 
 ## Prerequisites
-To complete this walkthough, make sure you have the following prerequisites:
+To complete this walkthrough, make sure you have the following prerequisites:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
 - Linux/MacOS
@@ -85,7 +85,7 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 
 ## Run Kafka Connect
 
-In this step, a Kafka Connect worker will be started locally in distributed mode, using Event Hubs to maintain cluster state.
+In this step, a Kafka Connect worker is started locally in distributed mode, using Event Hubs to maintain cluster state.
 
 1. Save the above `connect-distributed.properties` file locally.  Be sure to replace all values in braces.
 2. Navigate to the location of the Kafka release on your machine.
