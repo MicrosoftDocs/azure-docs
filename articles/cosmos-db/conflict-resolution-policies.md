@@ -29,19 +29,19 @@ Cosmos DB offers a flexible policy-driven mechanism to resolve update conflicts.
 
 - **Last-Write-Wins (LWW):** This resolution policy by default, uses a system-defined timestamp property (based on the time-synchronization clock protocol). Alternatively, when using the SQL API, Cosmos DB allows you to specify any other custom numerical property (also referred to as the “conflict resolution path”) to be used for conflict resolution.  
 
-If two or more items conflict on insert or replace operations, the item that contains the highest value for the “conflict resolution path” becomes the “winner”. If multiple items have same numeric value for the conflict resolution path, the selected “winner” version is determined by the system. All regions are guaranteed to converge to a single winner and end up with the identical version of the committed item. If there are delete conflicts involved, the deleted version always wins over either insert or replace conflicts, regardless of the value of the conflict resolution path.
+  If two or more items conflict on insert or replace operations, the item that contains the highest value for the “conflict resolution path” becomes the “winner”. If multiple items have same numeric value for the conflict resolution path, the selected “winner” version is determined by the system. All regions are guaranteed to converge to a single winner and end up with the identical version of the committed item. If there are delete conflicts involved, the deleted version always wins over either insert or replace conflicts, regardless of the value of the conflict resolution path.
 
-> [!NOTE]
-> Last-Write-Wins is the default conflict resolution policy and it is available for SQL, Table, MongoDB, Cassandra and Gremlin API accounts.
+  > [!NOTE]
+  > Last-Write-Wins is the default conflict resolution policy and it is available for SQL, Table, MongoDB, Cassandra and Gremlin API accounts.
 
-To learn more, see [examples using LWW conflict resolution policies](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  To learn more, see [examples using LWW conflict resolution policies](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
 - **Custom:** This resolution policy is designed for application-defined semantics for reconciliation of conflicts. While setting this policy on your Cosmos container, you also need to register a merge stored procedure, which is automatically invoked when update conflicts are detected under a database transaction at the server. The system provides exactly once guarantee for the execution of a merge procedure as part of the commitment protocol.  
 
-However, if you configure your container with the custom resolution option, but either fail to register a merge procedure on the container, or if the merge procedure throws an exception at runtime, the conflicts are written to the conflicts feed. Your application will then need to manually resolve the conflicts in the conflicts-feed. To learn more, see [examples of using custom resolution policy and how to use conflicts feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  However, if you configure your container with the custom resolution option, but either fail to register a merge procedure on the container, or if the merge procedure throws an exception at runtime, the conflicts are written to the conflicts feed. Your application will then need to manually resolve the conflicts in the conflicts-feed. To learn more, see [examples of using custom resolution policy and how to use conflicts feed](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 
-> [!NOTE]
-> Custom conflict resolution policy is only available for SQL API accounts.
+  > [!NOTE]
+  > Custom conflict resolution policy is only available for SQL API accounts.
 
 ## Next steps
 
