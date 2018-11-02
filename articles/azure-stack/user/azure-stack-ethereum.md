@@ -12,7 +12,7 @@ ms.reviewer: seyadava
 ms.custom: mvc
 manager: femila
 ---
-# Use the Azure Stack Ethereum blockchain solution template
+# Deploy an Ethereum blockchain network on Azure Stack
 
 The Ethereum solution template is designed to make it easier and quicker to deploy and configure a multi-member consortium Ethereum blockchain network with minimal Azure and Ethereum knowledge.
 
