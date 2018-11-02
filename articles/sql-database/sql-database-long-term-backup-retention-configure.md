@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
+ms.date: 10/24/2018
 ---
 # Manage Azure SQL Database long-term backup retention
 
@@ -168,6 +168,9 @@ This example shows how to delete an LTR backup from the list of backups.
 $ltrBackup = $ltrBackups[0]
 Remove-AzureRmSqlDatabaseLongTermRetentionBackup -ResourceId $ltrBackup.ResourceId
 ```
+> [!IMPORTANT]
+> Deleting LTR backup is non-reversible. You can set up notifications about each delete in Azure Monitor by filtering for operation ‘Deletes a long term retention backup’. The activity log contains information on who and when made the request. See [Create activity log alerts](../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md) for detailed instructions.
+>
 
 ### Restore from LTR backups
 This example shows how to restore from an LTR backup. Note, this interface did not change but the resource id parameter now requires the LTR backup resource id. 

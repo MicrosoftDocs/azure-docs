@@ -5,7 +5,7 @@ keywords: azure app service, web app, faq, linux, oss, web app for containers, m
 services: app-service
 documentationCenter: ''
 author: yili
-manager: apurvajo
+manager: stefsch
 editor: ''
 
 ms.assetid:
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 10/30/2018
 ms.author: yili
 ---
 # Azure App Service on Linux FAQ
