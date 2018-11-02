@@ -20,7 +20,7 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-cassandra-account/create-cosmosdb-cassandra-account.sh?highlight=17-31 "Create an Azure Cosmos DB Cassandra API account, database, and table.")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-cassandra-account/create-cosmosdb-cassandra-account.sh "Create an Azure Cosmos DB Cassandra API account, database, and table.")]
 
 > [!Note]
 > Azure CLI does not directly support creating a Cassandra table. Use Azure Portal or CQL Shell.
