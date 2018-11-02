@@ -27,11 +27,40 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 1. Download and install the OpenVPN client from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or' New-AzureRmVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Then, open the vpnconfig.ovpn configuration file from the OpenVPN folder in Notepad.
-4. Fill in the P2S client certificate section with the P2S client certificate public key in base64. In a PEM formatted certificate, you can simply open the .cer file and copy over the base64 key between the certificate headers. See here how to export a certificate to get the encoded public key.
-5. Fill in the private key section with the P2S client certificate private key in base64. For information about how to extract private key, see [export the key](vpn-gateway-certificates-point-to-site.md#clientexport).
-6. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-7. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
-8. Right-click the OpenVPN icon in the system tray and click connect.
+4.	Export the P2S client certificate you created and uploaded to your P2S configuration on the gateway. Example: [Create Certificate with PowerShell](vpn-gateway/vpn-gateway-certificates-point-to-site.md) while obtaining the Private key. See [export the key](vpn-gateway/vpn-gateway-certificates-point-to-site.md)
+5.	You will now need to extract the private key and the base64 thumbprint from the .pfx you just created. There are multiple ways to do this, and using an OpenSSL on your machine is one. Alternately you can use an online tool like [NameCheap](https://decoder.link/converter)'s tool found here. Select PKCS#12 to PEM.
+6.	Using web method above download the zip file, inside you will find two .crt files and a .key file. Open the file without the -bundle.crt in notepad. This will give you the base64 of your cert. Select all and copy, you will include the -----BEGIN and END Certificate-----.
+```
+-----BEGIN CERTIFICATE-----
+<Thumprint of certificate>
+-----END CERTIFICATE-----
+```
+7.	Now switch to vpnconfig.ovpn file you opened in notepad from step 3. Find the section shown below replace everything between the and
+```
+# P2S client certificate
+# please fill this field with a PEM formatted cert
+<cert>
+$CLIENTCERTIFICATE
+</cert>
+```
+8.	Now open the .key file in notepad, and select all again and copy.
+```
+-----BEGIN PRIVATE KEY-----
+<Private Key Data>
+-----END PRIVATE KEY-----
+```
+9.	Go back to the vpnconfig.ovpn file in notepad and find this section. Paste the private key replacing everything between and
+```
+# P2S client root certificate private key
+# please fill this field with a PEM formatted key
+<key>
+$PRIVATEKEY
+</key>
+```
+10.	Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
+11.	Save the vpnconfig.ovpn file.
+12.	Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
+13.	Right-click the OpenVPN icon in the system tray and click connect. 
 
 ## <a name="mac"></a>Mac clients
 
