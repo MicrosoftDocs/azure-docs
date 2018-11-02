@@ -95,8 +95,8 @@ SSH private key password.
 
   > [!IMPORTANT]
   >
-  > The SFTP-SSH connector supports *only* these private keys, 
-  > formats, algorithms, and fingerprints:
+  > The SFTP-SSH connector supports *only* these private 
+  > key formats, algorithms, and fingerprints:
   > 
   > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
   > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
