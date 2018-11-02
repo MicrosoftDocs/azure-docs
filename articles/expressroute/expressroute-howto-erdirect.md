@@ -220,6 +220,7 @@ ExpressRoute Direct gives you the ability to connect directly into Microsoft’s
   ```
 
   Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
+
 ## <a name="circuit"></a>Create a circuit
 
 By default, you can create 10 circuits in the subscription where the ExpressRoute Direct resource is. This can be increased by support. You are responsible for tracking both Provisioned and Utilized Bandwidth. Provisioned bandwidth is the sum of bandwidth of all circuits on the ExpressRoute Direct resource and utilized bandwidth is the physical usage of the underlying physical interfaces.
@@ -228,15 +229,15 @@ There are additional circuit bandwidths that can be utilized on ExpressRoute Dir
 
 Standard or premium circuits can be created. Standard circuits are included in the cost, while premium circuits have a cost based on the bandwidth selected. Circuits can only be created as metered, as unlimited is not supported on ExpressRoute Direct.
 
-  Create a circuit on the ExpressRoute Direct resource.
+Create a circuit on the ExpressRoute Direct resource.
 
   ```powershell
   New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
   ```
 
-Other bandwidths include: 5.0, 10.0, and 40.0
+  Other bandwidths include: 5.0, 10.0, and 40.0
 
-**Example output:**
+  **Example output:**
 
   ```powershell
   Name                             : ExpressRoute-Direct-ckt
