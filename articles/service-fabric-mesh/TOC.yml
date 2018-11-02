@@ -63,7 +63,7 @@
   - name: Store state with Azure Files volume
     href: service-fabric-mesh-howto-deploy-app-azurefiles-volume.md  
   - name: Use reliable collections in your Service Fabric Mesh app
-    href: service-fabric-mesh-work-with-reliable-collections.md
+    href: service-fabric-mesh-howto-reliable-collections.md
   - name: Manage secrets
     href: service-fabric-mesh-howto-manage-secrets.md
 
