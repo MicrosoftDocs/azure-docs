@@ -140,7 +140,7 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 
 5. Collect the file **c:\temp\ProcMonTrace.PML**:
 
-    1. [Attach a data disk to the VM](../windows/attach-managed-disk-portal
+    1. [Attach a data disk to the VM](../windows/attach-managed-disk-portal.md
 ).
     2. Use Serial Console you can copy the file to the new drive. For example, if you attach : `copy C:\temp\ProcMonTrace.PML F:\`. In this command, F is the driver letter of the attached data disk.
     3. Detach the data drive and attach it on a working VM that has Process Monitor ubstakke installed.
