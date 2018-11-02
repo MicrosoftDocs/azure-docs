@@ -192,8 +192,6 @@
           href: programming.md
         - name: SQL data partitioning
           href: sql-api-partition-data.md
-        - name: Troubleshoot Java Async SDK 
-          href: troubleshoot-java-async-sdk.md
         - name: Data types
           items:
           - name: DateTime
@@ -392,6 +390,8 @@
       items:
       - name: Manage using PowerShell
         href: manage-account-with-powershell.md
+      - name: Manage using Azure CLI
+        href: manage-with-cli.md
       - name: Manage using Storage Explorer
         href: storage-explorer.md
       - name: Manage using data explorer
@@ -484,6 +484,10 @@
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
+  - name: Troubleshooting guides
+    items:
+    - name: Troubleshoot Java Async SDK
+      href: troubleshoot-java-async-sdk.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

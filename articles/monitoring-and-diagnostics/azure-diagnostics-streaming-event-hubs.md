@@ -36,7 +36,7 @@ Event Hubs receieving data from Azure Diagnostics is supported in Cloud Services
 * Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
   * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
   * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## Connect Azure Diagnostics to Event Hubs sink
 By default, Azure Diagnostics always sends logs and metrics to an Azure Storage account. An application may also send data to Event Hubs by adding a new **Sinks** section under the **PublicConfig** / **WadCfg** element of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** file.
@@ -215,7 +215,7 @@ In the following figure, the Event Hubs dashboard shows healthy sending of diagn
 As discussed previously, there are many use cases for listening to and processing Event Hubs data.
 
 One simple approach is to create a small test console application to listen to the event hub and print the output stream. You can place the following code, which is explained in more detail
-in [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)), in a console application.  
+in [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), in a console application.  
 
 Note that the console application must include the [Event Processor Host NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -503,7 +503,7 @@ Protected Settings:
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](../event-hubs/event-hubs-about.md)
 * [Create an event hub](../event-hubs/event-hubs-create.md)
 * [Event Hubs FAQ](../event-hubs/event-hubs-faq.md)
 
