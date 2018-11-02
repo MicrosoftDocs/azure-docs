@@ -12,7 +12,7 @@ ms.author: msangapu
 ---
 # Serve content from Azure Storage in App Service on Linux
 
-This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/). The benefits of moving content to Azure Storage include: more bandwidth to the web app, content portability, and multiple methods of transferring content. In this guide, you learn how to do it by [configuring custom storage](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/).
+This guide shows how to serve static content in App Service on Linux by using [Azure Storage](/azure/storage/common/storage-introduction). Benefits include secured content, content portability, access to multiple apps, and multiple transferring methods. In this guide, you learn how to serve content on Azure Storage by [configuring custom storage](https://blogs.msdn.microsoft.com/appserviceteam/2018/09/24/announcing-bring-your-own-storage-to-app-service/).
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ To upload a local directory to the storage account, you use the [`az storage blo
 az storage blob upload-batch -d <full_path_to_local_directory> --account-name <storage_account_name> --account-key "<access_key>" -s <source_location_name>
 ```
 
-## Link storage
+## Link storage to your web app
 
 > [!CAUTION]
 > Linking an existing directory in a web app to a storage account will delete the directory contents. If you are migrating files for an existing app, make a backup of your app and its content before you begin.
