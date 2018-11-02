@@ -30,420 +30,284 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-1. [Download and install Git](https://git-scm.com/)
-1. [Download and install the Java JDK](https://aka.ms/azure-jdks)
-1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
+* [Azure CLI](http://docs.microsoft.com/cli/azure/overview), installed on your own computer. 
+* [Git](https://git-scm.com/)
+* [Java JDK](https://aka.ms/azure-jdks)
+* [Maven](https://maven.apache.org)
 
-## Prepare local MySQL 
+## Clone the sample TODO app and prepare the repo
 
-In this step, you create a database in a local MySQL server for use in testing the app locally on your machine.
-
-### Connect to MySQL server
-
-In a terminal window, connect to your local MySQL server. You can use this terminal window to run all the commands in this tutorial.
+This tutorial uses a sample TODO list app developed consisting of a Spring MVC REST API alongside [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). The following commands clone the sample repo and then set up the app environment.
 
 ```bash
-mysql -u root -p
+git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
+cd e2e-java-experience-in-app-service-linux-part-2
+yes | cp -rf .prep/* .
 ```
 
-If you're prompted for a password, enter the password for the `root` account. If you don't remember your root account password, see [MySQL: How to Reset the Root Password](https://dev.mysql.com/doc/refman/5.7/en/resetting-permissions.html).
+This tutorial focuses on how to deploy this application to Azure App Service on Linux and not how to write Java applications using Spring Data Azure Cosmos DB. To learn more about writing Java apps using Spring and Cosmos DB, see the [H Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
-If your command runs successfully, then your MySQL server is already running. If not, make sure that your local MySQL server is started by following the [MySQL post-installation steps](https://dev.mysql.com/doc/refman/5.7/en/postinstallation.html).
 
-### Create a database 
+## Create an Azure Cosmos DB
 
-In the `mysql` prompt, create a database and a table for the to-do items.
+Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
 
-```sql
-CREATE DATABASE tododb;
+1. Login your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
+```bash
+az login
+az account set -s <your-subscription-id>
 ```
-
-Exit your server connection by typing `quit`.
-
-```sql
-quit
-```
-
-## Create and run the sample app 
-
-In this step, you clone sample Spring boot app, configure it to use the local MySQL database, and run it on your computer. 
-
-### Clone the sample
-
-In the terminal window, navigate to a working directory and clone the sample repository. 
+2. Create an Azure Resource Group, noting the resource group name.
 
 ```bash
-git clone https://github.com/azure-samples/mysql-spring-boot-todo
+az group create -n <your-azure-group-name> \
+    -l <your-resource-group-region>
+```
+3. Create Azure Cosmos DB with GlobalDocumentDB kind. 
+The name of Cosmos DB must use only lower case letters. Note down the `documentEndpoint` field in the response from the command.
+```bash
+az cosmosdb create --kind GlobalDocumentDB \
+    -g <your-azure-group-name> \
+    -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
+```
+4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` handy as you'll need them in the next step.
+```bash
+az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
 ```
 
-### Configure the app to use the MySQL database
+## Configure the TODO app properties
 
-Update the `spring.datasource.password` and  value in *spring-boot-mysql-todo/src/main/resources/application.properties* with the same root password used to open the MySQL prompt:
-
-```
-spring.datasource.password=mysqlpass
-```
-
-### Build and run the sample
-
-Build and run the sample using the Maven wrapper included in the repo:
+Open a terminal on your computer. Copy the sample script file in the cloned repo so you can customize it for your Cosmos DB database you just created.
 
 ```bash
-cd spring-boot-mysql-todo
-mvnw package spring-boot:run
+cd initial/spring-todo-app
+cp set-env-variables-template.sh .scripts/set-env-variables.sh
 ```
-
-Open your browser to `http://localhost:8080` to see in the sample in action. As you add tasks to the list,  use the following SQL commands in the MySQL prompt to view the data stored in MySQL.
-
-```SQL
-use testdb;
-select * from todo_item;
-```
-
-Stop the application by hitting `Ctrl`+`C` in the terminal. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-## Create an Azure MySQL database
-
-In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](/cli/azure/install-azure-cli). You configure the sample application to use this database later on in the tutorial.
-
-### Create a resource group
-
-Create a [resource group](../azure-resource-manager/resource-group-overview.md) with the [`az group create`](/cli/azure/group#az-group-create) command. An Azure resource group is a logical container where related resources like web apps, databases, and storage accounts are deployed and managed. 
-
-The following example creates a resource group in the North Europe region:
-
-```azurecli-interactive
-az group create --name myResourceGroup --location "North Europe"
-```    
-
-To see the possible values you can use for `--location`, use the [`az appservice list-locations`](/cli/azure/appservice#list-locations) command.
-
-### Create a MySQL server
-
-In the Cloud Shell, create a server in Azure Database for MySQL with the [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create) command.
-
-In the following command, substitute a unique server name for the *\<mysql_server_name>* placeholder, a user name for the *\<admin_user>*, and a password for the *\<admin_password>*  placeholder. The server name is used as part of your PostgreSQL endpoint (`https://<mysql_server_name>.mysql.database.azure.com`), so the name needs to be unique across all servers in Azure.
-
-```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <server_admin_password> --sku-name GP_Gen4_2
-```
-
-> [!NOTE]
-> Since there are several credentials to think about in this tutorial, to avoid confusion, `--admin-user` and `--admin-password` are set to dummy values. In a production environment, follow security best practices when choosing a good username and password for your MySQL server in Azure.
->
->
-
-When the MySQL server is created, the Azure CLI shows information similar to the following example:
-
-```json
-{
-  "location": "westeurope",
-  "name": "<mysql_server_name>",
-  "resourceGroup": "myResourceGroup",
-  "sku": {
-    "additionalProperties": {},
-    "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
-    "size": null,
-    "tier": "GeneralPurpose"
-  },
-  "sslEnforcement": "Enabled",
-  ...	+  
-  -  < Output has been truncated for readability >
-}
-```
-
-### Configure server firewall
-
-In the Cloud Shell, create a firewall rule for your MySQL server to allow client connections by using the [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-create) command. When both starting IP and end IP are set to 0.0.0.0, the firewall is only opened for other Azure resources. 
-
-```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
-```
-
-> [!TIP] 
-> You can be even more restrictive in your firewall rule by [using only the outbound IP addresses your app uses](app-service-ip-addresses.md#find-outbound-ips).
->
-
-## Configure the Azure MySQL database
-
-In the local terminal window, connect to the MySQL server in Azure. Use the value you specified previously for _&lt;mysql_server_name>_. When prompted for a password, use the password you specified when you created the database in Azure.
+ 
+Edit `.scripts/set-env-variables.sh` in your favorite editor and supply Azure 
+Cosmos DB connection info. For the App Service Linux configuration, use the same region as before (`your-resource-group-region`) and resource group (`your-azure-group-name`) used when creating the Cosmos DB database. Choose a WEBAPP_NAME that is unique since it cannot duplicate any web app name in any Azure deployment.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+export COSMOSDB_URI=<put-your-COSMOS-DB-documentEndpoint-URI-here>
+export COSMOSDB_KEY=<put-your-COSMOS-DB-primaryMasterKey-here>
+export COSMOSDB_DBNAME=<put-your-COSMOS-DB-name-here>
+
+// App Service Linux Configuration
+export RESOURCEGROUP_NAME=<put-your-resource-group-name-here>
+export WEBAPP_NAME=<put-your-Webapp-name-here>
+export REGION=<put-your-REGION-here>
 ```
-
-### Create a database 
-
-In the `mysql` prompt, create a database and a table for the to-do items.
-
-```sql
-CREATE DATABASE tododb;
-```
-
-### Create a user with permissions
-
-Create a database user and give it all privileges in the `tododb` database. Replace the placeholders `<Javaapp_user>` and `<Javaapp_password>` with your own unique app name.
-
-```sql
-CREATE USER '<Javaapp_user>' IDENTIFIED BY '<Javaapp_password>'; 
-GRANT ALL PRIVILEGES ON tododb.* TO '<Javaapp_user>';
-```
-
-Exit your server connection by typing `quit`.
-
-```sql
-quit
-```
-
-## Deploy the sample to Azure App Service
-
-Create an Azure App Service plan with the **FREE** pricing tier using the  [`az appservice plan create`](/cli/azure/appservice/plan#az-appservice-plan-create) CLI command. The appservice plan defines the physical resources used to host your apps. All applications assigned to an appservice plan share these resources, allowing you to save cost when hosting multiple apps. 
-
-```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku FREE
-```
-
-When the plan is ready, the Azure CLI shows similar output to the following example:
-
-```json
-{ 
-  "adminSiteName": null,
-  "appServicePlanName": "myAppServicePlan",
-  "geoRegion": "North Europe",
-  "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/0000-0000/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myAppServicePlan",
-  "kind": "app",
-  "location": "North Europe",
-  "maximumNumberOfWorkers": 1,
-  "name": "myAppServicePlan",
-  ...
-  < Output has been truncated for readability >
-} 
-``` 
-
-### Create an Azure Web app
-
-In the Cloud Shell, use the [`az webapp create`](/cli/azure/webapp#az-webapp-create) CLI command to create a web app definition in the `myAppServicePlan` App Service plan. The web app definition provides a URL to access your application with and configures several options to deploy your code to Azure. 
-
-```azurecli-interactive
-az webapp create --name <app_name> --resource-group myResourceGroup --plan myAppServicePlan
-```
-
-Substitute the `<app_name>` placeholder with your own unique app name. This unique name is part of the default domain name for the web app, so the name needs to be unique across all apps in Azure. You can map a custom domain name entry to the web app before you expose it to your users.
-
-When the web app definition is ready, the Azure CLI shows information similar to the following example: 
-
-```json 
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-   ...
-  < Output has been truncated for readability >
-}
-```
-
-### Configure Java 
-
-In the Cloud Shell, set up the Java runtime configuration that your app needs with the  [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set) command.
-
-The following command configures the web app to run on a recent [Java 8 JDK](https://aka.ms/azure-jdks) and [Apache Tomcat](https://tomcat.apache.org/) 8.0.
-
-```azurecli-interactive
-az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
-```
-
-### Configure the app to use the Azure SQL database
-
-Before running the sample app, set application settings on the web app to use the Azure MySQL database you created in Azure. These properties are exposed to the web application as environment variables and override the values set in the application.properties inside the packaged web app. 
-
-In the Cloud Shell, set application settings using [`az webapp config appsettings`](/cli/azure/webapp/config/appsettings) in the CLI:
-
-```azurecli-interactive
-az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
-```
-
-```azurecli-interactive
-az webapp config appsettings set --settings SPRING_DATASOURCE_USERNAME=Javaapp_user@mysql_server_name --resource-group myResourceGroup --name <app_name>
-```
-
-```azurecli-interactive
-az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_password --resource-group myResourceGroup --name <app_name>
-```
-
-### Get FTP deployment credentials 
-You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Azure DevOps, and BitBucket. 
-For this example, FTP to deploy the .WAR file built previously on your local machine to Azure App Service.
-
-To determine what credentials to pass along in an ftp command to the Web App, Use [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command in the Cloud Shell: 
-
-```azurecli-interactive
-az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json
-```
-
-```JSON
-[
-  {
-    "Password": "aBcDeFgHiJkLmNoPqRsTuVwXyZ",
-    "URL": "ftp://waws-prod-blu-069.ftp.azurewebsites.windows.net/site/wwwroot",
-    "Username": "app_name\\$app_name"
-  }
-]
-```
-
-### Upload the app using FTP
-
-Use your favorite FTP tool to deploy the .WAR file to the */site/wwwroot/webapps* folder on the server address taken from the `URL` field in the previous command. Remove the existing default (ROOT) application directory and replace the existing ROOT.war with the .WAR file built in the earlier in the tutorial.
+   
+These environment variables are used to populate values `application.properties` in the TODO list app without risking leaking secrets into version control history.
 
 ```bash
-ftp waws-prod-blu-069.ftp.azurewebsites.windows.net
-Connected to waws-prod-blu-069.drip.azurewebsites.windows.net.
-220 Microsoft FTP Service
-Name (waws-prod-blu-069.ftp.azurewebsites.windows.net:raisa): app_name\$app_name
-331 Password required
-Password:
-cd /site/wwwroot/webapps
-mdelete -i ROOT/*
-rmdir ROOT/
-put target/TodoDemo-0.0.1-SNAPSHOT.war ROOT.war
+source .scripts/set-env-variables.sh
 ```
 
-### Test the web app
+## Run the sample app
 
-Browse to `http://<app_name>.azurewebsites.net/` and add a few tasks to the list. 
+Use Maven to run the sample.
 
-![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+```bash
+mvn package spring-boot:run
+```
 
-**Congratulations!** You're running a data-driven Java app in Azure App Service.
+The output should look like the following.
 
-## Update the app and redeploy
+```bash
+bash-3.2$ mvn package spring-boot:run
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building spring-todo-app 2.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
 
-Update the application to include an additional column in the todo list for what day the item was created. Spring Boot handles updating the database schema for you as the data model changes without altering your existing database records.
 
-1. On your local system, open up *src/main/java/com/example/fabrikam/TodoItem.java* and add the following imports to the class:   
+[INFO] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+[INFO] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
+2018-10-28 15:04:32.101  INFO 7673 --- [           main] c.m.azure.documentdb.DocumentClient      : Initializing DocumentClient with serviceEndpoint [https://sample-cosmos-db-westus.documents.azure.com:443/], ConnectionPolicy [ConnectionPolicy [requestTimeout=60, mediaRequestTimeout=300, connectionMode=Gateway, mediaReadMode=Buffered, maxPoolSize=800, idleConnectionTimeout=60, userAgentSuffix=;spring-data/2.0.6;098063be661ab767976bd5a2ec350e978faba99348207e8627375e8033277cb2, retryOptions=com.microsoft.azure.documentdb.RetryOptions@6b9fb84d, enableEndpointDiscovery=true, preferredLocations=null]], ConsistencyLevel [null]
+[INFO] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+[INFO] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
+[INFO] TodoApplication - Started TodoApplication in 45.573 seconds (JVM running for 76.534)
+```
 
-    ```java
-    import java.text.SimpleDateFormat;
-    import java.util.Calendar;
-    ```
+You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
 
-2. Add a `String` property `timeCreated` to *src/main/java/com/example/fabrikam/TodoItem.java*, initializing it with a timestamp at object creation. Add getters/setters for the new `timeCreated` property while you are editing this file.
+ ![](./media/spring-todo-app-running-locally.jpg)
 
-    ```java
-    private String name;
-    private boolean complete;
-    private String timeCreated;
+If you see exceptions instaead of the "Started TodoApplication" message, check that the `bash` script in the previous step exported the environment variables properly and that the values are correct for the Azure Cosmos DB database you created.
+
+## Configure Azure deployment
+
+Open the `pom.xml` file in the `initial/spring-boot-todo` directory and add the following  [Maven Plugin for Azure App Service](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) configuration.
+
+```xml    
+<plugins> 
+
+    <!--*************************************************-->
+    <!-- Deploy to Java SE in App Service Linux           -->
+    <!--*************************************************-->
+       
+    <plugin>
+        <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-webapp-maven-plugin</artifactId>
+            <version>1.4.0</version>
+            <configuration>
+            <deploymentType>jar</deploymentType>
+            
+            <!-- Web App information -->
+            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
+            <appName>${WEBAPP_NAME}</appName>
+            <region>${REGION}</region>
+            
+            <!-- Java Runtime Stack for Web App on Linux-->
+            <linuxRuntime>jre8</linuxRuntime>
+            
+            <appSettings>
+                <property>
+                    <name>COSMOSDB_URI</name>
+                    <value>${COSMOSDB_URI}</value>
+                </property>
+                <property>
+                    <name>COSMOSDB_KEY</name>
+                    <value>${COSMOSDB_KEY}</value>
+                </property>
+                <property>
+                    <name>COSMOSDB_DBNAME</name>
+                    <value>${COSMOSDB_DBNAME}</value>
+                </property>
+                <property>
+                    <name>JAVA_OPTS</name>
+                    <value>-Dserver.port=80</value>
+                </property>
+            </appSettings>
+            
+        </configuration>
+    </plugin>            
     ...
+</plugins>
+```
 
-    public TodoItem(String category, String name) {
-       this.category = category;
-       this.name = name;
-       this.complete = false;
-       this.timeCreated = new SimpleDateFormat("MMMM dd, YYYY").format(Calendar.getInstance().getTime());
-    }
-    ...
-    public void setTimeCreated(String timeCreated) {
-       this.timeCreated = timeCreated;
-    }
+## Deploy to App Service on Linux
 
-    public String getTimeCreated() {
-        return timeCreated;
-    }
-    ```
+Use the `azure-webapp:deploy` Maven goal to deploy the TODO app to Azure App Service on Linux.
 
-3. Update *src/main/java/com/example/fabrikam/TodoDemoController.java* with a line in the `updateTodo` method to set the timestamp:
+```bash
 
-    ```java
-    item.setComplete(requestItem.isComplete());
-    item.setId(requestItem.getId());
-    item.setTimeCreated(requestItem.getTimeCreated());
-    repository.save(item);
-    ```
+// Deploy
+bash-3.2$ mvn azure-webapp:deploy
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] Building spring-todo-app 2.0-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- azure-webapp-maven-plugin:1.4.0:deploy (default-cli) @ spring-todo-app ---
+[INFO] Authenticate with Azure CLI 2.0
+[INFO] Target Web App doesn't exist. Creating a new one...
+[INFO] Creating App Service Plan 'ServicePlanb6ba8178-5bbb-49e7'...
+[INFO] Successfully created App Service Plan.
+[INFO] Successfully created Web App.
+[INFO] Trying to deploy artifact to spring-todo-app...
+[INFO] Successfully deployed the artifact to https://spring-todo-app.azurewebsites.net
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 02:19 min
+[INFO] Finished at: 2018-10-28T15:32:03-07:00
+[INFO] Final Memory: 50M/574M
+[INFO] ------------------------------------------------------------------------
+```
 
-4. Add support for the new field in the `Thymeleaf` template. Update *src/main/resources/templates/index.html* with a new table header for the timestamp, and a new field to display the value of the timestamp in each table data row.
+## View the app on Azure
 
-    ```html
-    <th>Name</th>
-    <th>Category</th>
-    <th>Time Created</th>
-    <th>Complete</th>
-    ...
-    <td th:text="${item.category}">item_category</td><input type="hidden" th:field="*{todoList[__${i.index}__].category}"/>
-    <td th:text="${item.timeCreated}">item_time_created</td><input type="hidden" th:field="*{todoList[__${i.index}__].timeCreated}"/>
-    <td><input type="checkbox" th:checked="${item.complete} == true" th:field="*{todoList[__${i.index}__].complete}"/></td>
-    ```
+```bash
+open https://spring-todo-app.azurewebsites.net
+```
+![](./media/spring-todo-app-running-in-app-service.jpg)
 
-5. Rebuild the application:
+## View logs to troubleshoot the app
 
-    ```bash
-    mvnw clean package 
-    ```
+Enable logging for the deployed Java web app in App Service on  Linux:
 
-6. FTP the updated .WAR as before, removing the existing *site/wwwroot/webapps/ROOT* directory and *ROOT.war*, then uploading the updated .WAR file as ROOT.war. 
+```bash
+az webapp log config --name ${WEBAPP_NAME} \
+ --resource-group ${RESOURCEGROUP_NAME} \
+  --web-server-logging filesystem
+```
 
-When you refresh the app, a **Time Created** column is now visible. When you add a new task, the app will populate the timestamp automatically. Your existing tasks remain unchanged and work with the app even though the underlying data model has changed. 
+Then stream the web app logs to your terminal:
 
-![Java app updated with a new column](./media/app-service-web-tutorial-java-mysql/appservice-updates-java.png)
-      
-## Stream diagnostic logs 
+```bash
+az webapp log tail --name ${WEBAPP_NAME} \
+ --resource-group ${RESOURCEGROUP_NAME}
+```
 
-While your Java application runs in Azure App Service, you can get the console logs piped directly to your terminal. That way, you can get the same diagnostic messages to help you debug application errors.
+You'll see the most recent lines of output and as new requests are made to the TODO app they will stream in on the console. To exit the console, use CONTROL+C.
 
-To start log streaming, use the [`az webapp log tail`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) command in the Cloud Shell.
+```bash
+bash-3.2$ az webapp log tail --name ${WEBAPP_NAME}  --resource-group ${RESOURCEGROUP_NAME}
+2018-10-28T22:50:17  Welcome, you are now connected to log-streaming service.
+2018-10-28T22:44:56.265890407Z   _____                               
+2018-10-28T22:44:56.265930308Z   /  _  \ __________ _________   ____  
+2018-10-28T22:44:56.265936008Z  /  /_\  \___   /  |  \_  __ \_/ __ \ 
+2018-10-28T22:44:56.265940308Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2018-10-28T22:44:56.265944408Z \____|__  /_____ \____/ |__|    \___  >
+2018-10-28T22:44:56.265948508Z         \/      \/                  \/ 
+2018-10-28T22:44:56.265952508Z A P P   S E R V I C E   O N   L I N U X
+2018-10-28T22:44:56.265956408Z Documentation: http://aka.ms/webapp-linux
+2018-10-28T22:44:56.266260910Z Setup openrc ...
+2018-10-28T22:44:57.396926506Z Service `hwdrivers' needs non existent service `dev'
+2018-10-28T22:44:57.397294409Z  * Caching service dependencies ... [ ok ]
+2018-10-28T22:44:57.474152273Z Starting ssh service...
+...
+...
+2018-10-28T22:46:13.432160734Z [INFO] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
+2018-10-28T22:46:13.744859424Z [INFO] TomcatWebServer - Tomcat started on port(s): 80 (http) with context path ''
+2018-10-28T22:46:13.783230205Z [INFO] TodoApplication - Started TodoApplication in 57.209 seconds (JVM running for 70.815)
+2018-10-28T22:46:14.887366993Z 2018-10-28 22:46:14.887  INFO 198 --- [p-nio-80-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2018-10-28T22:46:14.887637695Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization started
+2018-10-28T22:46:14.998479907Z [INFO] DispatcherServlet - FrameworkServlet 'dispatcherServlet': initialization completed in 111 ms
 
-```azurecli-interactive 
-az webapp log tail --name <app_name> --resource-group myResourceGroup 
-``` 
+2018-10-28T22:49:20.572059062Z Sun Oct 28 22:49:20 GMT 2018 GET ======= /api/todolist =======
+2018-10-28T22:49:25.850543080Z Sun Oct 28 22:49:25 GMT 2018 DELETE ======= /api/todolist/{4f41ab03-1b12-4131-a920-fe5dfec106ca} ======= 
+2018-10-28T22:49:26.047126614Z Sun Oct 28 22:49:26 GMT 2018 GET ======= /api/todolist =======
+2018-10-28T22:49:30.201740227Z Sun Oct 28 22:49:30 GMT 2018 POST ======= /api/todolist ======= Milk
+2018-10-28T22:49:30.413468872Z Sun Oct 28 22:49:30 GMT 2018 GET ======= /api/todolist =======
+```
 
-## Manage your Azure web app
+## Scale out the TODO App
 
-Go to the [Azure portal](https://portal.azure.com) to see the web app you created.
+Scale out the application by adding another worker:
 
-From the left menu, click **App Service**, then click the name of your Azure web app.
-
-![Portal navigation to Azure web app](./media/app-service-web-tutorial-java-mysql/access-portal.png)
-
-By default, your web app page shows the **Overview** page. This page gives you a view of how your app is doing. Here, you can also perform management tasks like stop, start, restart, and delete. The tabs on the left side of the page show the different configuration pages you can open.
-
-![App Service page in Azure portal](./media/app-service-web-tutorial-java-mysql/web-app-blade.png)
-
-These tabs in the page show the many great features you can add to your web app. The following list gives you just a few of the possibilities:
-* Map a custom DNS name
-* Bind a custom SSL certificate
-* Configure continuous deployment
-* Scale up and out
-* Add user authentication
+```bash
+az appservice plan update --number-of-workers 2 \
+   --name ${WEBAPP_PLAN_NAME} \
+   --resource-group <your-azure-group-name>
+```
 
 ## Clean up resources
 
 If you don't need these resources for another tutorial (see [Next steps](#next)), you can delete them by running the following command in the Cloud Shell: 
   
-```azurecli-interactive
-az group delete --name myResourceGroup 
+```bash
+az group delete --name your-azure-group-name
 ``` 
 
 <a name="next"></a>
 
 ## Next steps
 
-> [!div class="checklist"]
-> * Create a MySQL database in Azure
-> * Connect a sample Java app to the MySQL
-> * Deploy the app to Azure
-> * Update and redeploy the app
-> * Stream diagnostic logs from Azure
-> * Manage the app in the Azure portal
+[Azure for Java Developers](/java/azure/)
+[Spring Boot](https://spring.io/projects/spring-boot), 
+[Spring Data for Cosmos DB](/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?view=azure-java-stable), 
+[Azure Cosmos DB](/azure/cosmos-db/sql-api-introduction)
+and
+[App Service Linux](/azure/app-service/containers/app-service-linux-intro).
 
-Advance to the next tutorial to learn how to map a custom DNS name to the app.
+Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Map an existing custom DNS name to Azure Web Apps](app-service-web-tutorial-custom-domain.md)
+> [Java in App Service Linux dev guide](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-java)
