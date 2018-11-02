@@ -35,7 +35,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 <Thumprint of certificate>
 -----END CERTIFICATE-----
 ```
-7.	Now switch to vpnconfig.ovpn file you opened in notepad from step 3. Find the section shown below replace everything between the and
+7.	Now switch to vpnconfig.ovpn file you opened in notepad from step 3. Find the section shown below replace everything between the and <cert> and </cert>
 ```
 # P2S client certificate
 # please fill this field with a PEM formatted cert
@@ -49,7 +49,7 @@ $CLIENTCERTIFICATE
 <Private Key Data>
 -----END PRIVATE KEY-----
 ```
-9.	Go back to the vpnconfig.ovpn file in notepad and find this section. Paste the private key replacing everything between and
+9.	Go back to the vpnconfig.ovpn file in notepad and find this section. Paste the private key replacing everything between and <key> and </key>
 ```
 # P2S client root certificate private key
 # please fill this field with a PEM formatted key
