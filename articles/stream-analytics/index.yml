@@ -6,7 +6,7 @@ metadata:
   meta.description: Learn how to run IoT analytics in the cloud with fully-managed event processing. Analyze data in real time from applications, sensors, devices, and more.
   services: stream-analytics
   author: jasonwhowell
-  ms.author: jasonh
+  ms.author: mamccrea
   manager: kfile
   ms.service: stream-analytics
   ms.topic: landing-page

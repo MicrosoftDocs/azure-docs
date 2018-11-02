@@ -31,7 +31,7 @@ Management solutions in Azure are implemented as [Resource Manager templates](..
 You can use any text editor to work with solution files, but we recommend leveraging the features provided in Visual Studio or Visual Studio Code as described in the following articles.
 
 - [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Working with Azure Resource Manager Templates in Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
+- [Working with Azure Resource Manager Templates in Visual Studio Code](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 
