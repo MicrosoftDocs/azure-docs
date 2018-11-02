@@ -53,7 +53,7 @@ The following properties are used to manage lifetimes of security tokens emitted
 
 The following use cases are enabled using these properties:
 
-- Allow a user to stay signed into a mobile application indefinitely, as long as he or she is continually active on the application. You can do this by setting the **Refresh token sliding window lifetime (days)** switch to **Unbounded** in your sign-in policy.
+- Allow a user to stay signed in to a mobile application indefinitely, as long as the user is continually active on the application. You can set **Refresh token sliding window lifetime (days)** to **Unbounded** in your sign-in policy.
 - Meet your industry's security and compliance requirements by setting the appropriate access token lifetimes.
 
 These settings are not available for password reset policies. 
@@ -62,19 +62,19 @@ These settings are not available for password reset policies.
 
 The following properties allow customers to opt in as needed:
 
-- **Issuer (iss) claim** - This identifies the Azure AD B2C tenant that issued the token.
+- **Issuer (iss) claim** - This property identifies the Azure AD B2C tenant that issued the token.
     - `https://<domain>/{B2C tenant GUID}/v2.0/` - This is the default value.
     - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/` - This value includes IDs for both the B2C tenant and the policy used in the token request. If your app or library needs Azure AD B2C to be compliant with the [OpenID Connect Discovery 1.0 spec](http://openid.net/specs/openid-connect-discovery-1_0.html), use this value.
-- **Subject (sub) claim** - This identifies the entity for which the token asserts information.
-    - **ObjectID** - This identifier is the default value. It populates the object ID of the user in the directory into the `sub` claim in the token.
-    - **Not supported** - This is only provided for backward-compatibility, and we recommend that you switch to **ObjectID** as soon as you are able to.
-- **Claim representing policy ID** - This identifies the claim type into which the policy ID used in the token request is populated.
+- **Subject (sub) claim** - This property identifies the entity for which the token asserts information.
+    - **ObjectID** - This property is the default value. It populates the object ID of the user in the directory into the `sub` claim in the token.
+    - **Not supported** - This property is only provided for backward-compatibility, and we recommend that you switch to **ObjectID** as soon as you are able to.
+- **Claim representing policy ID** - This property identifies the claim type into which the policy ID used in the token request is populated.
     - **tfp** - This property is the default value.
     - **acr** - This property is only provided for backward-compatibility.
 
 ## Session behavior
 
-Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. These are the properties you can use to manage web application sessions:
+Azure AD B2C supports the [OpenID Connect authentication protocol](active-directory-b2c-reference-oidc.md) for enabling secure sign-in to web applications. You can use the following properties to manage web application sessions:
 
 - **Web app session lifetime (minutes)** - The lifetime of Azure AD B2C's session cookie stored on the user's browser upon successful authentication.
     - Default = 1440 minutes.
@@ -93,10 +93,10 @@ These settings are not available for password reset policies.
 
 If you have multiple applications and policies in your B2C tenant, you can manage user interactions across them using the **Single sign-on configuration** property. You can set the property to one of the following settings:
 
-- **Tenant** - This is the default setting. Using this setting allows multiple applications and policies in your B2C tenant to share the same user session. For example, once a user signs into an application, the user can also seamlessly sign into another one, Contoso Pharmacy, upon accessing it.
-- **Application** - This allows you to maintain a user session exclusively for an application, independent of other applications. For example, if you want the user to sign in to Contoso Pharmacy (with the same credentials), even if he or she is already signed into Contoso Shopping, another application on the same B2C tenant. 
-- **Policy** - This allows you to maintain a user session exclusively for a policy, independent of the applications using it. For example, if the user has already signed in and completed a multi factor authentication (MFA) step, the user can be given access to higher-security parts of multiple applications as long as the session tied to the policy doesn't expire.
-- **Disabled** - This forces the user to run through the entire user journey on every execution of the policy. For example, this allows multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
+- **Tenant** - This setting is the default. Using this setting allows multiple applications and policies in your B2C tenant to share the same user session. For example, once a user signs into an application, the user can also seamlessly sign into another one, Contoso Pharmacy, upon accessing it.
+- **Application** - This setting allows you to maintain a user session exclusively for an application, independent of other applications. For example, if you want the user to sign in to Contoso Pharmacy (with the same credentials), even if the user is already signed into Contoso Shopping, another application on the same B2C tenant. 
+- **Policy** - This setting allows you to maintain a user session exclusively for a policy, independent of the applications using it. For example, if the user has already signed in and completed a multi factor authentication (MFA) step, the user can be given access to higher-security parts of multiple applications as long as the session tied to the policy doesn't expire.
+- **Disabled** - This setting orces the user to run through the entire user journey on every execution of the policy. For example, this allows multiple users to sign up to your application (in a shared desktop scenario), even while a single user remains signed in during the whole time.
 
 These settings are not available for password reset policies. 
 
