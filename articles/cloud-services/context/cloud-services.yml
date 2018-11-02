@@ -2,5 +2,5 @@
 brand: Azure
 searchScope:
    - "Azure"
-breadcrumb_path: ./breadcrumb/toc.yml
-toc_rel: ./TOC.md
+breadcrumb_path: ../breadcrumb/toc.yml
+toc_rel: ../toc.yml
