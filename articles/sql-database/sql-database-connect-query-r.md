@@ -1,5 +1,5 @@
 ---
-title: Quickstart for using R script in Azure SQL Database | Microsoft Docs
+title: Quickstart for using R script in Azure SQL Database (preview) | Microsoft Docs
 description: This topic shows you how to use R script in Azure SQL Database.
 services: sql-database
 ms.service: sql-database
@@ -14,108 +14,107 @@ manager: cgronlun
 ms.date: 10/31/2018
 ---
 
-# Quickstart: Use R script in Azure SQL database
+# Quickstart: Use R in Azure SQL database (preview)
 
-This article explains how you can run R scripts in Azure SQL database. It walks you through the basics of moving data between SQL Server and Python: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed Python code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in SQL Server.
+This article explains how you can run R scripts in Azure SQL database. It walks you through the basics of moving data between Azure SQL database and R: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed R code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in Azure SQL database.
+
+R support in Azure SQL database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL.
+
+The key value proposition of using R scripts in Azure SQL database is the power of its enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
+
+There are some differences between using R in Azure SQL database and [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning).
+
+- R only. Currently there is no support for Python.
+- No need to configure `external scripts enabled` via `sp_configure`.
+- No need to give script execution permission to users.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
+## Sign up for the preview
+
+The preview of R support in Azure SQL database is not enabled by default. Sign up for the preview at [aka.ms/sqldb-r-preview-signup](https://aka.ms/sqldb-r-preview-signup).
+
+When you sign up, you can either:
+
+- Enable R support in an existing database
+- Create a new database with R support
+
+When your database with R support is ready, return to this page to learn how to execute R scripts in the context of a stored procedure.
+
 ## Prerequisites
 
-This quickstart uses as its starting point the resources created in one of these quickstarts:
+To run the example code in these exercises, you must first have an Azure SQL database with R support enabled.
+You can create a database using one of these quickstarts:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-You also need to be able to connect to the Azure SQL database using for example [SQL Server Management Studio] or 
+You can connect to the Azure SQL database and run the R scripts using [SQL Server Management Studio](sql-database-connect-query-ssms.md), [Visual Studio Code](sql-database-connect-query-vscode.md), or the [Azure Portal](sql-database-connect-query-portal.md), You can also another database management or query tool, as long as it can connect to an Azure SQL database, and run a T-SQL query or stored procedure.
 
-- First prerequisite
-- Second prerequisite
-- Third prerequisite
-<!---If you feel like your quickstart has a lot of prerequisites, the
-quickstart may be the wrong content type - a tutorial or how-to guide
-may be the better option.
-If you need them, make Prerequisites your first H2 in a quickstart.
-If there’s something a customer needs to take care of before they start (for
-example, creating a VM) it’s OK to link to that content before they begin.
---->
+This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
-## Sign in to <service/product/tool name>
+You also need to sign up for the preview, as described above.
 
-Sign in to the [<service> portal](url).
-<!---If you need to sign in to the portal to do the quickstart, this H2 and
-link are required.--->
+## Verify R exists
 
-## Procedure 1
+The following steps confirm that R is enabled for your Azure SQL database.
 
-<!---Required:
-Quickstarts are prescriptive and guide the customer through an end-to-end
-procedure. Make sure to use specific naming for setting up accounts and
-configuring technology.
-Don't link off to other content - include whatever the customer needs to
-complete the scenario in the article. For example, if the customer needs
-to set permissions, include the permissions they need to set, and the specific
-settings in the quickstart procedure. Don't send the customer to another
-article to read about it.
-In a break from tradition, do not link to reference topics in the procedural
-part of the quickstart when using cmdlets or code. Provide customers what they
-need to know in the quickstart to successfully complete the quickstart.
-For portal-based procedures, minimize bullets and numbering.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.
---->
+1. Something something
+1. Something else something else
+1. And more of something
 
-Include a sentence or two to explain only what is needed to complete the
-procedure.
+## Basic R interaction
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
-   ![Browser](media/contribute-how-to-mvc-quickstart/browser.png)
-   <!---Use screenshots but be judicious to maintain a reasonable length. Make
-    sure screenshots align to the
-    [current standards](contribute-mvc-screen-shots.md).
-   If users access your product/service via a web browser the first screenshot
-   should always include the full browser window in Chrome or Safari. This is
-   to show users that the portal is browser-based - OS and browser agnostic.--->
-1. Step four of the procedure
+There are two ways to run R code in Azure SQL database:
 
-## Procedure 2
++ Add a R script as an argument of the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
 
-Include a sentence or two to explain only what is needed to complete the procedure.
++ From a [remote R client](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to SQL Server, and execute code using the SQL Server as the compute context. 
 
-1. Step one of the procedure
-1. Step two of the procedure
-1. Step three of the procedure
+The following exercise is focused on the first interaction model: how to pass R code to a stored procedure.
 
-## Procedure 3
+1. Something something
+1. Something else something else
+1. And more of something
 
-Include a sentence or two to explain only what is needed to complete the procedure.
-<!---Code requires specific formatting. Here are a few useful examples of
-commonly used code blocks. Make sure to use the interactive functionality where
-possible.
-For the CLI or PowerShell based procedures, don't use bullets or numbering.--->
+## Check R version
 
-Here is an example of a code block for Java:
+1. Something something
+1. Something else something else
+1. And more of something
 
-```java
-cluster = Cluster.build(new File("src/remote.yaml")).create();
-...
-client = cluster.connect();
-```
+## List R packages
 
-or a code block for Azure CLI:
+1. Something something
+1. Something else something else
+1. And more of something
 
-```azurecli-interactive 
-az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter --admin-username azureuser --admin-password myPassword12
-```
-or a code block for Azure PowerShell:
+## Handle inputs and outputs
 
-```azurepowershell-interactive
-New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public
-```
+1. Something something
+1. Something else something else
+1. And more of something
+
+## Create a predictive model
+
+1. Something something
+1. Something else something else
+1. And more of something
+
+## Predict and plot from model
+
+1. Something something
+1. Something else something else
+1. And more of something
+
+## Add a package
+
+1. Something something
+1. Something else something else
+1. And more of something
 
 ## Clean up resources
 
-If you're not going to continue to use this application, delete <resources>
+If you're not going to continue to use this application, delete the Azure SQL database
 with the following steps:
 
 1. From the left-hand menu...
