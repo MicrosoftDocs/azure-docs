@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/23/2018
+ms.date: 11/02/2018
 ms.author: cwatson
 
 ---
@@ -59,7 +59,7 @@ The Account Administrator can also configure to have invoices sent via email. To
 
 Assign the Billing Reader role to someone that needs read-only access to the subscription billing information but not the ability to manage or create Azure services. This role is appropriate for users in an organization who only perform financial and cost management for Azure subscriptions.
 
-If you're an EA customer, an Account Owner or Department Admin can assign the Billing Reader role to team members. But for that Billing Reader to be able to view billing information for the department or account, the Enterprise Administrator must enable  **Account Owner can view charges** or **Department Admin can view charges** policies.
+If you're an EA customer, an Account Owner or Department Admin can assign the Billing Reader role to team members. But for that Billing Reader to be able to view billing information for the department or account, the Enterprise Administrator must enable  **AO view charges** or **DA view charges** policies in the EA portal.
 
 The Billing Reader feature is in preview, and does not yet support non-global clouds.
 
@@ -81,24 +81,16 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 
 The Enterprise Admin can allow the Department Admins and Account Owners to view usage details and costs associated to the Departments and Accounts that they manage.
 
-1. As the Enterprise Admin, sign in to the [Azure portal](https://portal.azure.com/).
-1. Search on **Cost Management + Billing**.
-
-    ![Screenshot that shows Azure portal search](./media/billing-manage-access/portal-cm-billing-search.png)
-   
-1. On **Overview**, select the organization.
-1. Select the account that you want to manage.
-1. Select **Policies**.
-1. Select **Account owners can view charges** or **Department admins can view charges** or both.
-
-    ![Screenshot that shows view charges policies](./media/billing-manage-access/billing-ea-view-charges-policy.png)
-
+1. As the Enterprise Admin, sign in to the [EA portal](https://ea.azure.com/).
+1. Select **Manage**.
+1. Under **Enrollment**, change the **DA view charges** to **Enabled** for the Department Admin to view usage and costs.
+1. Change **AO view charges** to **Enabled** for the Account Owner to view usage and costs.
 1. After you select these policies, the Department Admin and/or Account Owners can:
 
    - View the Usage Summary dashboard in the EA portal for their specific department or account.
-   - Download reports from **Download Usage** in the EA portal. The reports include the Usage Detail CSV and Marketplace Charges CSV for their specific department or account.
+   - Download reports from **Download Usage** in the EA portal. The reports include the Usage Detail .csv file and Marketplace Charges .csv file for their specific department or account.
    - Access the enterprise’s custom pricing in Azure Calculator.
-   - See forecasts at EA price rates in the Azure portal.
+   - See forecasts at the Enterprise's price rates in the Azure portal.
 
 For more information, see Understand Azure Enterprise Agreement administrative roles.
 
