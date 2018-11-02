@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Create a store locator using Azure Maps
 
-This tutorial guides you through the process of creating a simple store locator using Azure Maps. Store locators are common and many of the same concepts used in this type of application are applicable to many others. Store Locators are a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
+This tutorial guides you through the process of creating a simple store locator using Azure Maps. Store locators are common and many of the same concepts used in this type of application are applicable to many others. Store Locators are a must for most businesses that sell directly to consumers. In this tutorial, you will learn how to:
     
 > [!div class="checklist"]
 * Create a new web page using the map control API
@@ -52,7 +52,7 @@ In the wireframes above you can see a fairly straight forward application, with 
 * A search box and button will let users search for a location, such as an address, postal code, or city. The map will zoom into the area on the map. A key press event will be added to the search box that triggers a search if the user presses the enter key. This is something that is often over looked but makes for a much better user experience.
 * When the map moves, the distance to each location from the center of the map will be calculated, and the result list updated to show the closest locations at the top.  
 * When you click on a result in the result list, it will center the map over the selected location and open its popup.  
-* Clicking on an individual location on the map will also display its popup. 
+* Clicking on an individual location on the map will also display its popup.
 * When zoomed out, the locations will be grouped into clusters, represented as a circle with a number written inside of it. The clusters will form and break apart as the zoom level changes.
 * Clicking on a cluster will zoom in the map for two levels and center it over where the cluster was.
 
@@ -150,7 +150,8 @@ To create the user interface, you need to add the following code in the `index.h
 Putting it all together your `index.html` should look like [index.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
 
 The next step is to define the CSS styles, which will define how everything is laid out and styled. Open the `index.css` file and add the following pieces of code to it. Note the `@media` style, which defines alternate styling options to be used when the page width is less than 700 pixels.  
-
+    
+<details>
     ```CSS
     html, body { 
         padding: 0; 
@@ -353,6 +354,8 @@ The next step is to define the CSS styles, which will define how everything is l
         } 
     }
     ```
+</details>
+
 Upon running the application now, you will see the header, search box, and search button, but the map will still not be visible because it hasn’t been loaded yet. If you try to do a search, nothing will happen.
 
 ## Wire the application with JavaScript
