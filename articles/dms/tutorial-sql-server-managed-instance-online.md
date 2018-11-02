@@ -140,7 +140,7 @@ After an instance of the service is created, locate it within the Azure portal, 
 
 3. Provide **SQL User** and **Password** to connect to target instance of Azure SQL Database Managed Instance.
 
-       ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
+    ![Select Target](media\tutorial-sql-server-to-managed-instance-online\dms-target-details3.png)
 
 2.  Select **Save**.
 
