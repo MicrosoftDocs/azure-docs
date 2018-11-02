@@ -139,7 +139,7 @@
     href: https://azure.microsoft.com/regions/services/
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
-  - name: SDKs
+  - name: SDKs/Tools
     items:
     - name: Azure CLI
       href: https://aka.ms/ams-v3-cli
