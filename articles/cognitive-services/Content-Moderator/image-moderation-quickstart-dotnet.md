@@ -163,7 +163,7 @@ private static EvaluationData EvaluateImage(
 }
 ```
 
-## Load the input images
+### Load the input images
 
 Add the following code to the **Main** method in the **Program** class. This sets up the program to retrieve evaluation data for each image URL in the input file. It then writes this data to a single output file.
 

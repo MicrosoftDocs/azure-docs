@@ -23,7 +23,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
-## Sign up for Content Moderator media processor (preview)
+## Set up Azure resources
 
 The Content Moderator's video moderation capability is available as a free public preview **media processor** in Azure Media Services (AMS). Azure Media Services is a specialized Azure service for storing and streaming video content. 
 
