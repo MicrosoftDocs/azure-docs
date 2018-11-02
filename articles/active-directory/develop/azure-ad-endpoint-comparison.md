@@ -14,32 +14,30 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
-ms.author: andret
-ms.reviewer: hirsin, andret
+ms.date: 11/02/2018
+ms.author: celested
+ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa
 ms.custom: aaddev
 ---
 
 # Comparing the Azure AD v2.0 endpoint with the v1.0 endpoint
 
-When developing a new application, it is important to know the differences between the v1.0 and v2.0 endpoints. Below are the main differences, as well as some existing limitations for the v2.0 endpoint.
+When developing a new application, it's important to know the differences between the Azure Active Director (Azure AD) v1.0 and v2.0 endpoints. This article covers the main differences, as well as some existing limitations for the v2.0 endpoint.
 
 > [!NOTE]
-> Not all Azure Active Directory (Azure AD) scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
+> Not all Azure AD scenarios and features are supported by the v2.0 endpoint. To determine if you should use the v2.0 endpoint, read about [v2.0 limitations](#limitations).
 
 ## Who can sign in
 
 ![Who can sign in with v1.0 and v2.0 endpoints](media/azure-ad-endpoint-comparison/who-can-sign-in.png)
 
 * The v1.0 endpoint allows only work and school accounts to sign in to your application (Azure AD)
-
-* The v2.0 endpoint allows work and school accounts from Azure AD and personal accounts (MSA) (hotmail.com, outlook.com, msn.com) to sign in.
-
+* The v2.0 endpoint allows work and school accounts from Azure AD and personal accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
 * Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for applications configured as *[single-tenant](single-and-multi-tenant-apps.md)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-The v2.0 endpoint allows you to write apps that accept sign-in from both personal and work and school accounts, giving you the ability to write your app completely account-agnostic. For instance, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
+The v2.0 endpoint allows you to write apps that accept sign-ins from both personal and work and school accounts, which gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
 
-For v2.0 endpoint, you can use a single library (MSAL) to gain access to both the consumer, educational and enterprise worlds.
+For v2.0 endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to both the consumer, educational, and enterprise worlds.
 
  The Azure AD v1.0 endpoint accepts sign-ins from work and school accounts only.
 
@@ -49,33 +47,30 @@ Apps using the Azure AD v1.0 endpoint are required to specify their required OAu
 
 ![Permissions Registration UI](./media/azure-ad-endpoint-comparison/app_reg_permissions.png)
 
-The permissions set directly on the application registration are **static**. While static permissions of the app defined in the Azure portal and kept the code nice and simple, it might present a few issues for developers:
+The permissions set directly on the application registration are **static**. While static permissions of the app defined in the Azure portal keeps the code nice and simple, it presents some possible issues for developers:
 
-* The app need know all of the permissions it would ever need at app creation time. Adding permissions over time was a difficult process.
+* The app needs know all of the permissions it would ever need at app creation time. Adding permissions over time was a difficult process.
+* The app needs to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
+* The app needs to request all the permissions it would ever need upon the user's first sign-in. In some cases this led to a long list of permissions, which discouraged end users from approving the app's access on initial sign-in.
 
-* The app need to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
+With the v2.0 endpoint, you can ignore the static permissions defined in the app registration information in the Azure portal and specify the permissions that your app needs **dynamically** at runtime, during regular use of your app. To do so, you can specify the scopes your app needs at any given point in time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information.
 
-* The app need to request all the permissions it would ever need upon the user's first sign-in. In some cases this led to a long list of permissions, which discouraged end users from approving the app's access on initial sign-in.
+If the user has yet not consented to new scopes added to the request, they will be prompted to consent only to the new permissions. To learn more, see [permissions, consent, and scopes](v2-permissions-and-consent.md).
 
-With the v2.0 endpoint, you can ignore the statically defined permissions defined in the app registration information in the Azure portal and specify the permissions your app needs **dynamically** at runtime, during regular use of your app, regardless of statically defined permissions in the application registration information.
+Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. If you wish, you can also front load your consent experience and ask for all permissions in one initial authorization request. Or, if your app requires a large number of permissions, you can gather those permissions from the user incrementally as they attempt to use certain features of your app over time.
 
-To do so, you can specify the scopes your app needs at any given point in your application time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information.
-
-If the user has yet not consented to new scopes added to the request, they will be prompted to consent only to the new permissions. To learn more, you can read up on [permissions, consent, and scopes](v2-permissions-and-consent.md).
-
-Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. If you wish, you can also choose to front load your consent experience and ask for all permissions in one initial authorization request. Or if your app requires a large number of permissions, you can choose to gather those permissions from the user incrementally, as they attempt to use certain features of your app over time.
-
-Note that admin consent done on behalf of an organization still uses the static permissions registered for the app, so it is recommended that you set those permissions for apps using the v2.0 endpoint if you need an admin to give consent on behalf of the entire organization. This reduces the cycles required by the organization admin to setup the application
+Admin consent done on behalf of an organization still uses the static permissions registered for the app, so we recommend that you set those permissions for apps using the v2.0 endpoint if you need an admin to give consent on behalf of the entire organization. This reduces the cycles required by the organization admin to setup the application.
 
 ## Scopes, not resources
 
 For apps using the v1.0 endpoint, an app can behave as a **resource**, or a recipient of tokens. A resource can define a number of **scopes** or **oAuth2Permissions** that it understands, allowing client apps to request tokens to that resource for a certain set of scopes. Consider the Azure AD Graph API as an example of a resource:
 
 * Resource Identifier, or `AppID URI`: `https://graph.windows.net/`
-
 * Scopes, or `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, and so on.
 
-All of this holds true for the v2.0 endpoint. An app can still behave as resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions has changed. For the v1.0 endpoint, an OAuth 2.0 authorize request to Azure AD might have looked like:
+This holds true for the v2.0 endpoint. An app can still behave as a resource, define scopes, and be identified by a URI. Client apps can still request access to those scopes. However, the way that a client requests those permissions has changed. 
+
+For the v1.0 endpoint, an OAuth 2.0 authorize request to Azure AD might have looked like:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/authorize?
@@ -84,7 +79,9 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-where the **resource** parameter indicated which resource the client app is requesting authorization for. Azure AD computed the permissions required by the app based on static configuration in the Azure portal, and issued tokens accordingly. For applications using the v2.0 endpoint, the same OAuth 2.0 authorize request looks like:
+Here, the **resource** parameter indicated which resource the client app is requesting authorization for. Azure AD computed the permissions required by the app based on static configuration in the Azure portal, and issued tokens accordingly. 
+
+For applications using the v2.0 endpoint, the same OAuth 2.0 authorize request looks like:
 
 ```text
 GET https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
@@ -93,7 +90,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Where the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still present in the request - it is simply encompassed in each of the values of the scope parameter. Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices. It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent), which is described earlier.
+Here, the **scope** parameter indicates which resource and permissions the app is requesting authorization for. The desired resource is still present in the request - it is simply encompassed in each of the values of the scope parameter. Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices. It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent).
 
 ## Well-known scopes
 
@@ -107,17 +104,18 @@ To learn more about OAuth 2.0, `refresh_tokens`, and `access_tokens`, check out 
 
 ### OpenID, profile, and email
 
-Historically, the most basic OpenID Connect sign-in flow with Azure AD would provide a lot of information about the user in the resulting *id_token*. The claims in an *id_token* can include the user's name, preferred username, email address, object ID, and more.
+Historically, the most basic OpenID Connect sign-in flow with Azure AD would provide a lot of information about the user in the resulting *id_token*. The claims in an id_token can include the user's name, preferred username, email address, object ID, and more.
 
-The information that the `openid` scope affords your app access to is now restricted. The `openid` scope will only allow your app to sign in the user and receive an app-specific identifier for the user. If you want to obtain personal data about the user in your app, your app will need to request additional permissions from the user. Two new scopes – the `email` and `profile` scopes – will allow you to request additional permissions.
+The information that the `openid` scope affords your app access to is now restricted. The `openid` scope will only allow your app to sign in the user and receive an app-specific identifier for the user. If you want to obtain personal data about the user in your app, your app needs to request additional permissions from the user. Two new scopes, `email` and `profile`, will allow you to request additional permissions.
 
-The `email` scope allows your app access to the user’s primary email address through the `email` claim in the id_token, assuming the user has an addressable email address. The `profile` scope affords your app access to all other basic information about the user – their name, preferred username, object ID, and so on.
+* The `email` scope allows your app access to the user’s primary email address through the `email` claim in the id_token, assuming the user has an addressable email address. 
+* The `profile` scope affords your app access to all other basic information about the user such as their name, preferred username, object ID, and so on.
 
-This allows you to code your app in a minimal-disclosure fashion – you can only ask the user for the set of information that your app requires to do its job. For more information on these scopes, see [the v2.0 scope reference](v2-permissions-and-consent.md).
+These scopes allow you to code your app in a minimal-disclosure fashion so you can only ask the user for the set of information that your app needs to do its job. For more information on these scopes, see [the v2.0 scope reference](v2-permissions-and-consent.md).
 
 ## Token claims
 
-The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints. Apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens. Further details of different types of tokens used in the v2.0 endpoint are available in the [access token](access-tokens.md) reference and [`id_token` reference](id-tokens.md)
+The claims in tokens issued by the v2.0 endpoint will not be identical to tokens issued by the generally available Azure AD endpoints. Apps migrating to the new service should not assume a particular claim will exist in id_tokens or access_tokens. Further details of different types of tokens used in the v2.0 endpoint are available in the [access token](access-tokens.md) reference and [id_token reference](id-tokens.md)
 
 ## Limitations
 
@@ -127,11 +125,10 @@ When you build applications that integrate with the Microsoft identity platform,
 
 Here's a simplified recommendation for developers at this point in time:
 
-* If you must want to support personal Microsoft accounts in your application or are writing a new application, use v2.0. But before you do, be sure that you understand the limitations discussed in this article.
-
+* If you want or need to support personal Microsoft accounts in your application, or you're writing a new application, use v2.0. But before you do, make sure you understand the limitations discussed in this article.
 * If you're migrating or updating an application that relies on SAML, you can't use v2.0. Instead, refer to the [v1.0 guide](v1-overview.md).
 
-The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that you will only ever need to use the v2.0 endpoint. In the meantime, use this article to determine whether the v2.0 endpoint is right for you. We will continue to update this article to reflect the current state of the v2.0 endpoint. Check back to reevaluate your requirements against v2.0 capabilities.
+The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that you'll only ever need to use the v2.0 endpoint. In the meantime, use this article to determine whether the v2.0 endpoint is right for you. We'll continue to update this article to reflect the current state of the v2.0 endpoint. Check back to reevaluate your requirements against v2.0 capabilities.
 
 ### Restrictions on app registrations
 
@@ -139,10 +136,8 @@ Currently, for each app that you want to integrate with the v2.0 endpoint, you m
 
 In addition, app registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
 
-* Only two app secrets are allowed per Application ID.
-
-* An app registration registered by a user with a personal Microsoft account can be viewed and managed only by a single developer account. It cannot be shared between multiple developers. If you would like to share your app registration amongst multiple developers, you can create the application by signing into the registration portal with an Azure AD account.
-
+* Only two app secrets are allowed per application ID.
+* An app registration registered by a user with a personal Microsoft account can be viewed and managed only by a single developer account. It can't be shared between multiple developers. If you'd like to share your app registration with multiple developers, you can create the application by signing into the registration portal with an Azure AD account.
 * There are several restrictions on the format of the redirect URL that is allowed. For more information about redirect URL, see the next section.
 
 ### Restrictions on redirect URLs
@@ -155,7 +150,6 @@ Apps that are registered in the Application Registration Portal are restricted t
 The registration system compares the whole DNS name of the existing redirect URL to the DNS name of the redirect URL that you are adding. The request to add the DNS name will fail if either of the following conditions is true:  
 
 * The whole DNS name of the new redirect URL does not match the DNS name of the existing redirect URL.
-
 * The whole DNS name of the new redirect URL is not a subdomain of the existing redirect URL.
 
 For example, if the app has this redirect URL:
@@ -186,27 +180,21 @@ To learn how to register an app in the Application Registration Portal, see [How
 
 Currently, library support for the v2.0 endpoint is limited. If you want to use the v2.0 endpoint in a production application, you have these options:
 
-* If you are building a web application, you can safely use Microsoft generally available server-side middleware to perform sign-in and token validation. These include the OWIN Open ID Connect middleware for ASP.NET and the Node.js Passport plug-in. For code samples that use Microsoft middleware, see the [v2.0 getting started](v2-overview.md#getting-started) section.
-
-* If you are building a desktop or mobile application, you can use one of the preview Microsoft Authentication Libraries (MSAL). These libraries are in a production-supported preview, so it is safe to use them in production applications. You can read more about the terms of the preview and the available libraries in [authentication libraries reference](reference-v2-libraries.md).
-
+* If you're building a web application, you can safely use Microsoft generally available server-side middleware to perform sign-in and token validation. These include the OWIN Open ID Connect middleware for ASP.NET and the Node.js Passport plug-in. For code samples that use Microsoft middleware, see the [v2.0 getting started](v2-overview.md#getting-started) section.
+* If you're building a desktop or mobile application, you can use one of the preview Microsoft Authentication Libraries (MSAL). These libraries are in a production-supported preview, so it is safe to use them in production applications. You can read more about the terms of the preview and the available libraries in [authentication libraries reference](reference-v2-libraries.md).
 * For platforms not covered by Microsoft libraries, you can integrate with the v2.0 endpoint by directly sending and receiving protocol messages in your application code. The v2.0 OpenID Connect and OAuth protocols [are explicitly documented](active-directory-v2-protocols.md) to help you perform such an integration.
-
 * Finally, you can use open-source Open ID Connect and OAuth libraries to integrate with the v2.0 endpoint. The v2.0 protocol should be compatible with many open-source protocol libraries without changes. The availability of these kinds of libraries varies by language and platform. The [Open ID Connect](http://openid.net/connect/) and [OAuth 2.0](http://oauth.net/2/) websites maintain a list of popular implementations. For more information, see [Azure Active Directory v2.0 and authentication libraries](reference-v2-libraries.md), and the list of open-source client libraries and samples that have been tested with the v2.0 endpoint.
-
-* For reference, the `.well-known` endpoint for the v2.0 common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration` .  Replace `common` with your tenant ID to get data specific to your tenant.  
+* For reference, the `.well-known` endpoint for the v2.0 common endpoint is `https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration`. Replace `common` with your tenant ID to get data specific to your tenant.  
 
 ### Protocol changes
 
 The v2.0 endpoint does not support SAML or WS-Federation; it only supports Open ID Connect and OAuth 2.0.  The notable changes to the OAuth 2.0 protocols from the v1.0 endpoint are: 
 
 * The `email` claim is returned  if an optional claim is configured **or** scope=email was specified in the request. 
-
 * The `scope` parameter is now supported in place of the `resource` parameter.  
+* Many responses have been modified to make them more compliant with the OAuth 2.0 specification, for example, correctly returning `expires_in` as an int instead of a string.  
 
-* Many responses have been modified to make them more compliant with the OAuth 2.0 specification, for example correctly returning `expires_in` as an int instead of a string.  
-
-To better understand the scope of protocol functionality supported in the v2.0 endpoint, read through our [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
+To better understand the scope of protocol functionality supported in the v2.0 endpoint, see [OpenID Connect and OAuth 2.0 protocol reference](active-directory-v2-protocols.md).
 
 #### SAML restrictions
 
