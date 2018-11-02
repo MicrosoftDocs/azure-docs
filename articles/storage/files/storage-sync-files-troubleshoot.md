@@ -514,7 +514,7 @@ This error occurs because there are changes on the Azure file share directly and
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
-| **Error string** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 | | |
 | **HRESULT** | 0x80c80253 |

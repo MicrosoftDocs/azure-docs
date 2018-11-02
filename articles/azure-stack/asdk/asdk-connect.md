@@ -13,23 +13,26 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
-
+ms.reviewer: knithinc
 ---
-# Connect to the Azure Stack Development Kit
+# Connect to the ASDK
 
-To manage resources, you must first connect to the Azure Stack Development Kit (ASDK). In this article, we describe the steps that you take to connect to the ASDK. You can use one of the following connection options:
+To manage resources, you must first connect to the Azure Stack Development Kit (ASDK). In this article, we describe the steps that you take to connect to the ASDK by using the following connection options:
 
-* [Remote Desktop Connection](#connect-with-remote-desktop). When you connect by using Remote Desktop Connection, a single user can quickly connect to the development kit.
-* [Virtual private network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
+* [Remote Desktop Connection (RDP)](#connect-with-rdp). When you connect by using Remote Desktop Connection, a single user can quickly connect to the development kit.
+* [Virtual Private Network (VPN)](#connect-with-vpn). When you connect by using a VPN, multiple users can concurrently connect from clients outside the Azure Stack infrastructure. A VPN connection requires some setup.
 
-<a name="connect-to-azure-stack-with-remote-desktop"></a>
-##  Connect to Azure Stack by using Remote Desktop Connection
+<a name="connect-with-rdp"></a>
+## Connect to Azure Stack using RDP
 
-A single concurrent user can manage resources in the operator portal or the user portal through Remote Desktop Connection.
+A single concurrent user can manage resources in the Azure Stack administration portal or the user portal through Remote Desktop Connection directly from the ASDK host computer. 
 
-1. Open Remote Desktop Connection (mstc.exe) and connect to the development kit host computer as **AzureStack\AzureStackAdmin** using the password specified during ASDK setup.  
+> [!TIP]
+> This option also enables you to use RDP again while signed into the ASDK host computer to sign in to virtual machines created on the ASDK host computer. 
+
+1. Open Remote Desktop Connection (mstc.exe) and connect to the development kit host computer IP address using an account authorized to sign in remotely to the ASDK host computer. By default, **AzureStack\AzureStackAdmin** has permissions to remote in to the ASDK host computer.  
 
 2. On the development kit host computer, open Server Manager (ServerManager.exe). Select **Local Server**, turn off **IE Enhanced Security Configuration**, and close Server Manager.
 
@@ -40,15 +43,15 @@ A single concurrent user can manage resources in the operator portal or the user
 > [!NOTE]
 > For more information about when to use which account, see [ASDK administration basics](asdk-admin-basics.md#what-account-should-i-use).
 
-<a name="connect-to-azure-stack-with-vpn"></a>
-## Connect to Azure Stack by using VPN
+<a name="connect-with-vpn"></a>
+## Connect to Azure Stack using VPN
 
-You can establish a split tunnel VPN connection to an ASDK to access the Azure Stack portals and locally installed tools like Visual Studio and PowerShell. Using VPN connections, multiple users can connect at the same time to Azure Stack resources hosted by the ASDK.
+You can establish a split tunnel VPN connection to an ASDK host computer to access the Azure Stack portals and locally installed tools like Visual Studio and PowerShell. Using VPN connections, multiple users can connect at the same time to Azure Stack resources hosted by the ASDK.
 
 VPN connectivity is supported for both Azure AD and Active Directory Federation Services (AD FS) deployments.
 
 > [!NOTE]
-> A VPN connection does not provide connectivity to Azure Stack infrastructure VMs.
+> A VPN connection *does not* provide connectivity to Azure Stack VMs. You will not be able to RDP into Azure Stack VMs while connected via VPN.
 
 ### Prerequisites
 Before setting up a VPN connection to the ASDK, ensure you have met the following prerequisites.
@@ -94,29 +97,33 @@ Add-AzsVpnConnection `
 
 If setup succeeds, **azurestack** appears in your list of VPN connections.
 
-![Network connections](media/asdk-connect/image3.png)  
+![Network connections](media/asdk-connect/vpn.png)  
 
 ### Connect to Azure Stack
 
-Connect to the Azure Stack instance by using one of the following methods:  
+  Connect to the Azure Stack instance by using one of the following methods:  
 
-* Use the `Connect-AzsVpn ` command:
-    
-  ```PowerShell
-  Connect-AzsVpn `
-    -Password $Password
-  ```
+  * Use the `Connect-AzsVpn ` command:
+      
+    ```PowerShell
+    Connect-AzsVpn `
+      -Password $Password
+    ```
 
-  When prompted, trust the Azure Stack host and install the certificate from **AzureStackCertificateAuthority** in your local computer’s certificate store. 
+  * On your local computer, select **Network Settings** > **VPN** > **azurestack** > **connect**. At the sign-in prompt, enter the user name (**AzureStack\AzureStackAdmin**) and your password.
+
+The first time you connect, you will be prompted to install the Azure Stack root certificate from **AzureStackCertificateAuthority** in your local computer’s certificate store. This step adds the ASDK certificate authority (CA) to the list of trusted hosts. Click **Yes** to install the certificate.
+
+![Root certificate](media/asdk-connect/cert.png)  
   
   > [!IMPORTANT]
-  > The prompt might be hidden by the PowerShell window.
-
-* On your local computer, select **Network Settings** > **VPN** > **azurestack** > **connect**. At the sign-in prompt, enter the user name (**AzureStack\AzureStackAdmin**) and your password.
+  > The prompt might be hidden by the PowerShell window or other applications.
 
 ### Test VPN connectivity
 
-To test the portal connection, open a web browser, and then go to either the user portal (https://portal.local.azurestack.external/) or the administration portal (https://adminportal.local.azurestack.external/). Sign in and create resources.  
+To test the portal connection, open a web browser, and then go to either the user portal (https://portal.local.azurestack.external/) or the administration portal (https://adminportal.local.azurestack.external/). 
+
+Sign in with the appropriate subscription credentials to create and manage resources.  
 
 ## Next steps
 

@@ -50,7 +50,7 @@ There are two ways in which the volume of data can be limited and help control y
 Log Analytics makes it easy to understand what the costs are likely be based on recent usage patterns.  To do this, perform the following steps.  
 
 1. Sign into the [Azure portal](http://portal.azure.com). 
-2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-manage-cost-storage/azure-portal-01.png)<br><br>  
 3. In the Log Analytics subscriptions pane, select your workspace and then click **Usage and estimated costs**  from the left-hand pane.<br><br> ![Usage and estimated costs page](media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
 
 From here you can review your data volume for the month. This includes all the data received and retained in your Log Analytics workspace.  Click **Usage details** from the top of the page to view the usage dashboard with information on data volume trends by source, computers and offering. To view and set a daily cap or to modify the retention period, click **Data volume management**.
@@ -73,7 +73,7 @@ The following steps describe how to configure a limit to manage the volume of da
 5. Daily cap is **OFF** by default – click **ON** to enable it, and then set the data volume limit in GB/day.<br><br> ![Log Analytics configure data limit](media/log-analytics-manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### Alert when limit reached
-While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).      
+While we present a visual cue in the Azure portal when your data limit threshold is met, this behavior doesn't necessarily align to how you manage operational issues requiring immediate attention.  To receive an alert notification, you can create a new alert rule in Azure Monitor.  To learn more, see [how to create, view and manage alerts](../monitoring-and-diagnostics/alert-metric.md).      
 
 To get you started, here are the recommended settings for the alert:
 

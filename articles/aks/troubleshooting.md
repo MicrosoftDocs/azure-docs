@@ -16,7 +16,7 @@ When you create or manager AKS clusters, you may occasionally encounter issues. 
 
 ### In general, where do I find information about debugging Kubernetes issues?
 
-[Here] (https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) is an official link to troubleshooting kubernetes clusters.
+[Here](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) is an official link to troubleshooting kubernetes clusters.
 [Here](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) is a link to a troubleshooting guide published by a Microsoft engineer around troubleshooting pods, nodes, clusters, etc.
 
 ### I am getting a quota exceeded error during create or upgrade. What should I do? 

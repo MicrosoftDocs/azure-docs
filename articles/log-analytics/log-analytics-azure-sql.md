@@ -41,8 +41,8 @@ As the solution does not use agents to connect to the Log Analytics service, the
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics doesn't read the data from a storage account. |
-| [Windows agents](log-analytics-windows-agent.md) | No | Direct Windows agents aren't used by the solution. |
-| [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents aren't used by the solution. |
+| [Windows agents](log-analytics-agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
+| [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 
 ## Configuration
@@ -142,9 +142,13 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ![Azure SQL Analytics Queries](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
-### Permissions
+## Permissions
 
-Recognizing that some organizations enforce strict permission controls in Azure, please find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum permissions required to use Azure SQL Analytics, while granting no access to managing other resources in the portal.
+To use Azure SQL Analytics users will at minimum need to be granted the Reader role in Azure. This role will however not allow users to see the query text, or perform any Automatic tuning actions. More liberal roles in Azure that will allow using the solution to the fullest extent are Owner, Contributor, SQL DB Contributor, or SQL Server Contributor. You also might want to consider creating a custom role in the portal with specific permissions required only to use Azure SQL Analytics, and with no access to managing other resources.
+
+### Creating a custom role in portal
+
+Recognizing that some organizations enforce strict permission controls in Azure, please find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
 
 Please replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
 
@@ -173,13 +177,17 @@ Please replace the “{SubscriptionId}" in the below script with your Azure subs
     New-AzureRmRoleDefinition $role
    ```
 
-Once the new role is created, assign this role to each user you need to grant permissions to use Azure SQL Analytics.
+Once the new role is created, assign this role to each user that you need to grant custom permissions to use Azure SQL Analytics.
 
-### Analyze data and create alerts
+## Analyze data and create alerts
+
+Data analysis in Azure SQL Analytics is based on [Log Analytics language](./query-language/get-started-queries.md) for your custom querying and reporting. Please find description of the available data collected from database resource for custom querying in [metrics and logs available](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+
+Automated alerting in the solution is based on writing a Log Analytics query that triggers an alert upon a condition met. Please find below several examples on Log Analytics queries upon which alerting can be setup in the solution.
 
 ### Creating alerts for Azure SQL Database
 
-You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
+You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-search.md) queries that you can use with a log alert:
 
 *High CPU on Azure SQL Database*
 
@@ -276,6 +284,6 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 ## Next steps
 
-- Use [Log Searches](log-analytics-log-searches.md) in Log Analytics to view detailed Azure SQL data.
+- Use [Log Searches](log-analytics-log-search.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](log-analytics-dashboards.md) showing Azure SQL data.
-- [Create alerts](log-analytics-alerts.md) when specific Azure SQL events occur.
+- [Create alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) when specific Azure SQL events occur.

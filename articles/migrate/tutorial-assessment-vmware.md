@@ -4,7 +4,7 @@ description: Describes how to discover and assess on-premises VMware VMs for mig
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/24/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -64,7 +64,7 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
 1. In the Azure Migrate project, click **Getting Started** > **Discover & Assess** > **Discover Machines**.
 2. In **Discover machines**, there are two options available for the appliance, click **Download** to download the appropriate appliance based on your preference.
 
-    a. **One-time discovery:** The appliance for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric, [learn more] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Since it is a one-time discovery, changes in the on-premises environment are not reflected once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
+    a. **One-time discovery:** The appliance for this model, communicates with vCenter Server to gather metadata about the VMs. For performance data collection of the VMs, it relies on the historical performance data stored in vCenter Server and collects the performance history of last one month. In this model, Azure Migrate collects average counter (vs. peak counter) for each metric, [learn more](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Since it is a one-time discovery, changes in the on-premises environment are not reflected once the discovery is complete. If you want the changes to reflect, you have to do a rediscovery of the same environment to the same project.
 
     b. **Continuous discovery:** The appliance for this model, continuously profiles the on-premises environment to gather real-time utilization data for each VM. In this model, peak counters are collected for each metric (CPU utilization, memory utilization etc.). This model does not depend on the statistics settings of vCenter Server for performance data collection. You can stop the continuous profiling anytime from the appliance.
 

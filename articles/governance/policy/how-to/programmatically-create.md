@@ -4,7 +4,7 @@ description: This article walks you through programmatically creating and managi
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -65,7 +65,8 @@ CLI, and HTTP requests.
    }
    ```
 
-   For more information about authoring a policy definition, see [Azure Policy Definition Structure](../concepts/definition-structure.md).
+   For more information about authoring a policy definition, see [Azure Policy Definition
+   Structure](../concepts/definition-structure.md).
 
 1. Run the following command to create a policy definition using the AuditStorageAccounts.json file.
 
@@ -73,7 +74,16 @@ CLI, and HTTP requests.
    New-AzureRmPolicyDefinition -Name 'AuditStorageAccounts' -DisplayName 'Audit Storage Accounts Open to Public Networks' -Policy 'AuditStorageAccounts.json'
    ```
 
-   The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_. For more information about other parameters that you can use, see [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+   The command creates a policy definition named _Audit Storage Accounts Open to Public Networks_.
+   For more information about other parameters that you can use, see
+   [New-AzureRmPolicyDefinition](/powershell/module/azurerm.resources/new-azurermpolicydefinition).
+
+   When called without location parameters, `New-AzureRmPolicyDefinition` defaults to saving the
+   policy definition in the selected subscription of the sessions context. To save the definition
+   to a different location, use the following parameters:
+
+   - **SubscriptionId** - Save to a different subscription. Requires a _GUID_ value.
+   - **ManagementGroupName** - Save to a management group. Requires a _string_ value.
 
 1. After you create your policy definition, you can create a policy assignment by running the following commands:
 
@@ -85,7 +95,18 @@ CLI, and HTTP requests.
 
    Replace _ContosoRG_ with the name of your intended resource group.
 
-For more information about managing resource policies using the Azure Resource Manager PowerShell module, see [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
+   The **Scope** parameter on `New-AzureRmPolicyAssignment` also works with subscriptions and
+   management groups. The parameter uses a full resource path, which the **ResourceId** property on
+   `Get-AzureRmResourceGroup` returns. The pattern for **Scope** for each container is as follows.
+   Replace `{rgName}`, `{subId}`, and `{mgName}` with your resource group name, subscription ID,
+   and management group name, respectively.
+
+   - Resource group - `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Subscription - `/subscriptions/{subId}/`
+   - Management group - `/providers/Microsoft.Management/managementGroups/{mgName}`
+
+For more information about managing resource policies using the Azure Resource Manager PowerShell
+module, see [AzureRM.Resources](/powershell/module/azurerm.resources/#policies).
 
 ### Create and assign a policy definition using ARMClient
 
