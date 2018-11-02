@@ -37,12 +37,12 @@ You require a log query to retrieve any data from Log Analytics.  Whether you're
 The different ways that you will use queries in Log Analytics include the following:
 
 - **Portals.** You can perform interactive analysis of log data in the [Azure portal](log-analytics-log-search-portals.md).  This allows you to edit your query and analyze the results in a variety of formats and visualizations.  
-- **Alert rules.** [Alert rules](log-analytics-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
+- **Alert rules.** [Alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) proactively identify issues from data in your workspace.  Each alert rule is based on a log search that is automatically run at regular intervals.  The results are inspected to determine if an alert should be created.
 - **Dashboards.** You can pin the results of any query into an [Azure dashboard]() which allow you to visualize log and metric data together and optionally share with other Azure users. 
 - **Views.**  You can create visualizations of data to be included in user dashboards with [View Designer](log-analytics-view-designer.md).  Log queries provide the data used by [tiles](log-analytics-view-designer-tiles.md) and [visualization parts](log-analytics-view-designer-parts.md) in each view.  
 - **Export.**  When you import data from Log Analytics workspace into Excel or [Power BI](log-analytics-powerbi.md), you create a log query to define the data to export.
 - **PowerShell.** You can run a PowerShell script from a command line or an Azure Automation runbook that uses [Get-​Azure​Rm​Operational​Insights​Search​Results](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) to retrieve data from Log Analytics.  This cmdlet requires a query to determine the data to retrieve.
-- **Log Analytics API.**  The [Log Analytics log search API](log-analytics-log-search-api.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
+- **Log Analytics API.**  The [Log Analytics log search API](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) allows any REST API client to retrieve log data from the workspace.  The API request includes a query that is run against Log Analytics to determine the data to retrieve.
 
 ![Log searches](media/log-analytics-queries/queries-overview.png)
 
@@ -91,9 +91,9 @@ union Update, workspace("contoso-workspace").Update
 ```
 
 ## How Log Analytics data is organized
-When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](log-analytics-quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single tables, but others may use a variety of options to include data from multiple tables.
+When you build a query, you start by determining which tables have the data that you're looking for. Different kinds of data are separated into dedicated tables in each [Log Analytics workspace](log-analytics-quick-create-workspace.md).  Documentation for different data sources includes the name of the data type that it creates and a description of each of its properties.  Many queries will only require data from a single table, but others may use a variety of options to include data from multiple tables.
 
-While [Application Insights](../application-insights/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Log Analytics, this data is stored in a different partition than the other log data. You use the same query language to access this data but must the [Application Insights console](../application-insights/app-insights-analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](log-analytics-cross-workspace-search.md) to combine Application Insights data with other data in Log Analytics.
+While [Application Insights](../application-insights/app-insights-overview.md) stores application data such as requests, exceptions, traces, and usage in Log Analytics, this data is stored in a different partition than the other log data. You use the same query language to access this data but must use the [Application Insights console](../application-insights/app-insights-analytics.md) or [Application Insights REST API](https://dev.applicationinsights.io/) to access it. You can use [cross-resources queries](log-analytics-cross-workspace-search.md) to combine Application Insights data with other data in Log Analytics.
 
 
 ![Tables](media/log-analytics-queries/queries-tables.png)

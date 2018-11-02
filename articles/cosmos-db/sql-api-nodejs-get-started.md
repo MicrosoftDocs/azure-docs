@@ -258,7 +258,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
      .catch((error) => { exit(`Completed with error \${JSON.stringify(error)}`) });
    ```
 
-At this point, your code in ```app.js``` should now look as following code:
+   At this point, your code in ```app.js``` should now look as following code:
 
    ```nodejs
    const CosmosClient = require('@azure/cosmos').CosmosClient;
@@ -311,10 +311,11 @@ At this point, your code in ```app.js``` should now look as following code:
      .catch((error) => { exit(`Completed with error ${JSON.stringify(error) }`) });
    ```
 
-In your terminal, locate your ```app.js``` file and run the command: 
-```bash 
-node app.js
-```
+5. In your terminal, locate your ```app.js``` file and run the command: 
+
+   ```bash 
+   node app.js
+   ```
 
 Congratulations! You have successfully created an Azure Cosmos DB database.
 
@@ -360,77 +361,77 @@ A container can be created by using either the [createIfNotExists](/javascript/a
      .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
    ```
 
-At this point, your code in ```app.js``` should now look like this:
+   At this point, your code in ```app.js``` should now look like this:
 
-```nodejs
-const CosmosClient = require('@azure/cosmos').CosmosClient;
+   ```nodejs
+   const CosmosClient = require('@azure/cosmos').CosmosClient;
 
-const config = require('./config');
-const url = require('url');
+   const config = require('./config');
+   const url = require('url');
 
-const endpoint = config.endpoint;
-const masterKey = config.primaryKey;
+   const endpoint = config.endpoint;
+   const masterKey = config.primaryKey;
 
-const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
+   const client = new CosmosClient({ endpoint: endpoint, auth: { masterKey: masterKey } });
 
-const HttpStatusCodes = { NOTFOUND: 404 };
+   const HttpStatusCodes = { NOTFOUND: 404 };
 
-const databaseId = config.database.id;
-const containerId = config.container.id;
+   const databaseId = config.database.id;
+   const containerId = config.container.id;
 
-/**
- * Create the database if it does not exist
- */
-async function createDatabase() {
-    const { database } = await client.databases.createIfNotExists({ id: databaseId });
-    console.log(`Created database:\n${database.id}\n`);
-}
+   /**
+   * Create the database if it does not exist
+   */
+   async function createDatabase() {
+     const { database } = await client.databases.createIfNotExists({ id: databaseId });
+     console.log(`Created database:\n${database.id}\n`);
+   }
 
-/**
- * Read the database definition
- */
-async function readDatabase() {
-    const { body: databaseDefinition } = await client.database(databaseId).read();
-    console.log(`Reading database:\n${databaseDefinition.id}\n`);
-}
+   /**
+   * Read the database definition
+   */
+   async function readDatabase() {
+     const { body: databaseDefinition } = await client.database(databaseId).read();
+     console.log(`Reading database:\n${databaseDefinition.id}\n`);
+   }
 
-/**
- * Create the container if it does not exist
- */
-async function createContainer() {
-    const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
-    console.log(`Created container:\n${config.container.id}\n`);
-}
+   /**
+   * Create the container if it does not exist
+   */
+   async function createContainer() {
+     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
+     console.log(`Created container:\n${config.container.id}\n`);
+   }
 
-/**
- * Read the container definition
- */
-async function readContainer() {
-    const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
-    console.log(`Reading container:\n${containerDefinition.id}\n`);
-}
+   /**
+   * Read the container definition
+   */
+   async function readContainer() {
+     const { body: containerDefinition } = await client.database(databaseId).container(containerId).read();
+     console.log(`Reading container:\n${containerDefinition.id}\n`);
+   }
 
-/**
- * Exit the app with a prompt
- * @param {message} message - The message to display
- */
-function exit(message) {
-    console.log(message);
-    console.log('Press any key to exit');
-    process.stdin.setRawMode(true);
-    process.stdin.resume();
-    process.stdin.on('data', process.exit.bind(process, 0));
-}
+   /**
+   * Exit the app with a prompt
+   * @param {message} message - The message to display
+   */
+   function exit(message) {
+     console.log(message);
+     console.log('Press any key to exit');
+     process.stdin.setRawMode(true);
+     process.stdin.resume();
+     process.stdin.on('data', process.exit.bind(process, 0));
+   }
 
-createDatabase()
-    .then(() => readDatabase())
-    .then(() => createContainer())
-    .then(() => readContainer())
-    .then(() => { exit(`Completed successfully`); })
-    .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
-```
+   createDatabase()
+     .then(() => readDatabase())
+     .then(() => createContainer())
+     .then(() => readContainer())
+     .then(() => { exit(`Completed successfully`); })
+     .catch((error) => { exit(`Completed with error ${JSON.stringify(error)}`) });
+   ```
 
-In your terminal, locate your ```app.js``` file and run the command: 
+1. In your terminal, locate your ```app.js``` file and run the command: 
 
    ```bash 
    node app.js
@@ -834,6 +835,7 @@ node app.js
 
 You should see the output of your get started app. The output should match the example text below.
 
+   ```
     Created database:
     FamilyDatabase
 
@@ -868,6 +870,7 @@ You should see the output of your get started app. The output should match the e
 
     Completed successfully
     Press any key to exit
+   ```
 
 Congratulations! You've completed the Node.js tutorial and have your first Azure Cosmos DB console application!
 

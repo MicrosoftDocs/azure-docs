@@ -4,11 +4,6 @@ description: Learn how to create public Load Balancer Standard with a zone-redun
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
-
-ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
