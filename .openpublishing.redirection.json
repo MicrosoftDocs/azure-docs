@@ -3347,6 +3347,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-scenario-source-control-integration-with-github-ent.md",
+            "redirect_url": "/azure/automation/source-control-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-scenario-source-control-integration-with-VSTS.md",
+            "redirect_url": "/azure/automation/source-control-integration",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-scenario-remove-resourcegroup.md",
             "redirect_url": "/azure/automation",
             "redirect_document_id": false
