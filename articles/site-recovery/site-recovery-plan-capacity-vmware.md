@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: rayne
 ---
 
-# Plan capacity and scaling for VMware disaster recovery to Auzre
+# Plan capacity and scaling for VMware disaster recovery to Azure
 
 Use this article to figure out planning for capacity and scaling, when replicating on-premises VMware VMs and physical servers to Azure with [Azure Site Recovery](site-recovery-overview.md).
 
