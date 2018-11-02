@@ -151,7 +151,7 @@ The first time that you run sudo, you will be asked to authenticate a second tim
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
-with this:
+With this line:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
