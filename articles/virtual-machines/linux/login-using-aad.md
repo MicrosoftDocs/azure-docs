@@ -144,6 +144,20 @@ When prompted, enter your Azure AD login credentials at the login page. The foll
 
 Close the browser window, return to the SSH prompt, and press the **Enter** key. You are now signed in to the Azure Linux virtual machine with the role permissions as assigned, such as *VM User* or *VM Administrator*. If your user account is assigned the *Virtual Machine Administrator Login* role, you can use the `sudo` to run commands that require root privileges.
 
+## Sudo and AAD login
+
+The first time that you run sudo, you will be asked to authenticate a second time. If you don't want to have to authenticate again to run sudo, you can edit your sudoers file `/aad/etc/sudoers.d/aad_admins` and replace this line:
+
+```bash
+%aad_admins ALL=(ALL) ALL
+``
+with this:
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
+
 ## Troubleshoot sign-in issues
 
 Some common errors when you try to SSH with Azure AD credentials include no RBAC roles assigned, and repeated prompts to sign in. Use the following sections to correct these issues.
