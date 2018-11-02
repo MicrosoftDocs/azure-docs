@@ -1,6 +1,6 @@
 ---
-title: Connect to SFTP account with SSH - Azure Logic Apps | Microsoft Docs
-description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server through SSH by using Azure Logic Apps
+title: Connect to SFTP server with SSH - Azure Logic Apps | Microsoft Docs
+description: Automate tasks that monitor, create, manage, send, and receive files for an SFTP server by using SSH and Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,42 +9,49 @@ ms.author: estfan
 ms.reviewer: divswa, LADocs
 ms.topic: article
 tags: connectors
-ms.date: 10/26/2018
+ms.date: 10/31/2018
 ---
 
 # Monitor, create, and manage SFTP files by using SSH and Azure Logic Apps
 
-With Azure Logic Apps and the SFTP-SSH connector, 
-you can automate tasks and processes that monitor, 
-create, send, and receive files on an 
-[SFTP](https://www.ssh.com/ssh/sftp/) server 
-along with other actions, for example:
+To automate tasks that monitor, create, send, and receive files on a 
+[Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) 
+server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) 
+protocol, you can build and automate integration workflows by using 
+Azure Logic Apps and the SFTP-SSH connector. SFTP is a network protocol 
+that provides file access, file transfer, and file management over 
+any reliable data stream. Here are some example tasks you can automate: 
 
 * Monitor when files are added or changed.
 * Get, create, copy, rename, update, list, and delete files.
-* Create folder.
+* Create folders.
 * Get file content and metadata.
 * Extract archives to folders.
 
-You can use triggers that get responses from your SFTP server and 
-make the output available to other actions. You can use actions in 
-your logic apps to perform tasks with files on your SFTP server. 
-You can also have other actions use the output from SFTP actions. 
-For example, if you regularly retrieve files from your SFTP server, 
-you can send email about those files and their content by using 
-the Office 365 Outlook connector or Outlook.com connector.
+Compared to the [SFTP connector](../connectors/connectors-create-api-sftp.md), 
+the SFTP-SSH connector can read or write files up to *1 GB* in size. 
+For files larger than 1 GB, you can use the SFTP-SSH connector plus 
+[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+For more differences, review [Compare SFTP-SSH versus SFTP](#comparison) 
+later in this article.
+
+You can use triggers that monitor events on your SFTP server 
+and make output available to other actions. You can use 
+actions that perform various tasks on your SFTP server. 
+You can also have other actions in your logic app use the 
+output from SFTP actions. For example, if you regularly 
+retrieve files from your SFTP server, you can send email 
+alerts about those files and their content by using the 
+Office 365 Outlook connector or Outlook.com connector.
 If you're new to logic apps, review 
 [What is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-The SFTP-SSH connector can read or write files up to *1 GB* in size. 
-For files larger than 1 GB, you can use the SFTP-SSH connector plus  
-[chunking for handling large messages](../logic-apps/logic-apps-handle-large-messages.md). 
+<a name="comparison"></a>
 
-## SFTP-SSH versus SFTP
+## Compare SFTP-SSH versus SFTP
 
-Here are the few key differences between the SFTP-SSH connector and the 
-[SFTP connector](../connectors/connectors-create-api-sftp.md). The SFTP-SSH 
-connector provides these capabilities:
+Here are other key differences between the SFTP-SSH connector and the 
+SFTP connector where the SFTP-SSH connector has these capabilities:
 
 * Uses the <a href="https://github.com/sshnet/SSH.NET" target="_blank">**SSH.NET**</a> library, 
 which is an open-source Secure Shell (SSH) library that supports .NET. 
