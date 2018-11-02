@@ -92,7 +92,7 @@ The Enterprise Admin can allow the Department Admins and Account Owners to view 
    - Access the enterprise’s custom pricing in Azure Calculator.
    - See forecasts at the Enterprise's price rates in the Azure portal.
 
-For more information, see Understand Azure Enterprise Agreement administrative roles.
+For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
 
 ## Only Account Admins can access Account Center
 
