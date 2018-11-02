@@ -2657,7 +2657,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
  **Return Types**  
   
- Returns a Boolean value.  
+ Returns part of an array expression..  
   
  **Examples**  
   
