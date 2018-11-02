@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/02/2018
 ms.author: pbutlerm
 ---
 
