@@ -12,9 +12,7 @@ ms.custom: include file
 <!-- trying to consolidate the multiple versions of create-an-iot-hub into one -->
 <!-- let's call this one iot-hub-create-hub-include -->
 
-## Create an IoT hub
-
-This article describes how to create an IoT hub using the [Azure portal](https://portal.azure.com).
+This section describes how to create an IoT hub using the [Azure portal](https://portal.azure.com).
 
 1. Log in to the [Azure portal](https://portal.azure.com). 
 
@@ -40,7 +38,7 @@ This article describes how to create an IoT hub using the [Azure portal](https:/
 
    ![Screenshot showing setting size and scale for a new IoT hub using the Azure portal](./media/iot-hub-create-hub-include/iot-hub-create-screen-size-scale.png)
 
-   On this screen, you can take the defaults and just click **Review + create** at the bottom. Or you can fill in the fields as desired.
+   On this screen, you can take the defaults and just click **Review + create** at the bottom. 
 
    **Pricing and scale tier**: You can choose from several tiers depending on how many features you want and how many messages you send through your solution per day. The free tier is intended for testing and evaluation. It allows 500 devices to be connected to the IoT hub and up to 8,000 messages per day. Each Azure subscription can create one IoT Hub in the free tier. 
 
