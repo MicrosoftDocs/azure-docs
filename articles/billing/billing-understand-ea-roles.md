@@ -91,9 +91,9 @@ The following table shows the relationship between the Enterprise admin role, th
 |---|---|---|---|
 |Account owner|✔|Owner|Enterprise's pricing|
 |Account owner|✘ |Owner|No pricing|
-|Account owner|✔ |none|?|
-|Account owner|✘ |none|?|
-|none|n/a |Owner|Retail pricing|
+|Account owner|✔ |none|No pricing|
+|Account owner|✘ |none|No pricing|
+|None|n/a |Owner|Retail pricing|
 
 You set the Enterprise admin role and view charges policies in the EA portal. The RBAC role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
