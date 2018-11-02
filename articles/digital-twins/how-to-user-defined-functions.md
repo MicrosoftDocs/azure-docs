@@ -185,7 +185,7 @@ function process(telemetry, executionContext) {
 }
 ```
 
-For a more complex UDF code sample, [check available spaces with fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
+For a more complex UDF code sample, [check available spaces with a fresh air UDF](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/occupancy-quickstart/src/actions/userDefinedFunctions/availability.js).
 
 ## Create a role assignment
 
@@ -405,7 +405,7 @@ Given a space identifier, this function retrieves the property and its value fro
 
 | Parameter  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId | `guid` | space identifier |
+| spaceId | `guid` | Space identifier |
 | propertyName | `string` | Space property name |
 
 ### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`

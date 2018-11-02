@@ -53,7 +53,7 @@ The event formats for each of the event types are described in the following sec
 - UserBlobMetadata
 - UserExtendedProperty
 
-Example:
+#### Example
 
 ```JSON
 {
@@ -86,7 +86,7 @@ Example:
 > [!IMPORTANT]  
 > This event must be explicitly sent from the UDF itself.
 
-Example:
+#### Example
 
 ```JSON
 {
@@ -114,7 +114,7 @@ Example:
 
 **SensorChange** is an update to a sensor's state based on telemetry changes.
 
-Example:
+#### Example
 
 ```JSON
 {
@@ -149,7 +149,7 @@ Example:
 
 **SpaceChange** is an update to a space's state based on telemetry changes.
 
-Example:
+#### Example
 
 ```JSON
 {
