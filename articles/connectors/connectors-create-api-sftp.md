@@ -17,8 +17,7 @@ ms.date: 10/26/2018
 
 To automate tasks that monitor, create, send, and receive files on a 
 [Secure File Transfer Protocol (SFTP)](https://www.ssh.com/ssh/sftp/) 
-server by using the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) 
-protocol, you can build and automate integration workflows by using 
+server, you can build and automate integration workflows by using 
 Azure Logic Apps and the SFTP connector. SFTP is a network protocol 
 that provides file access, file transfer, and file management over 
 any reliable data stream. Here are some example tasks you can automate: 
@@ -53,16 +52,14 @@ If you're new to logic apps, review
 
 * Your SFTP server address and account credentials, 
 which let your logic app access your SFTP account. 
-You also need access to an SSH private key and the 
+To use the [Secure Shell (SSH)](https://www.ssh.com/ssh/protocol/) 
+protocol, you also need access to an SSH private key and the 
 SSH private key password. 
 
   > [!NOTE]
   > 
-  > The SFTP connector supports these private keys and formats:
-  > 
-  > * **Private keys**: RSA (Rivest Shamir Adleman) and 
-  DSA (Digital Signature Algorithm)
-  > * **Formats**: OpenSSH, ssh.com, and PuTTY
+  > The SFTP connector supports these private key formats,
+  > OpenSSH, ssh.com, and PuTTY.
   > 
   > When you're creating your logic app, after you add 
   > the SFTP trigger or action you want, you'll need 
