@@ -59,14 +59,13 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
   > [!NOTE]
   >
   > The SFTP-SSH connector supports *only* these private keys, 
-  > formats, fingerprints, and algorithms:
+  > formats, algorithms, and fingerprints:
   > 
-  > * **Private keys**: RSA (Rivest Shamir Adleman) and 
-  DSA (Digital Signature Algorithm)
-  > * **Formats**: OpenSSH and ssh.com 
-  > * **Fingerprint**: MD5 only
+  > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
+  > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
   > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
   > AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  > * **Fingerprint**: MD5
 
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector. For files larger than 1 GB, use 
@@ -97,14 +96,13 @@ SSH private key password.
   > [!IMPORTANT]
   >
   > The SFTP-SSH connector supports *only* these private keys, 
-  > formats, fingerprints, and algorithms:
+  > formats, algorithms, and fingerprints:
   > 
-  > * **Private keys**: RSA (Rivest Shamir Adleman) and 
-  DSA (Digital Signature Algorithm)
-  > * **Formats**: OpenSSH and ssh.com 
-  > * **Fingerprint**: MD5 only
+  > * **Private key formats**: RSA (Rivest Shamir Adleman) and 
+  > DSA (Digital Signature Algorithm) keys in both OpenSSH and ssh.com formats
   > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
   > AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  > * **Fingerprint**: MD5
   >
   > When you're creating your logic app, after you add 
   > the SFTP-SSH trigger or action you want, you'll need 

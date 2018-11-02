@@ -58,8 +58,8 @@ SSH private key password.
 
   > [!NOTE]
   > 
-  > The SFTP connector supports these private key formats,
-  > OpenSSH, ssh.com, and PuTTY.
+  > The SFTP connector supports these private key formats:
+  > OpenSSH, ssh.com, and PuTTY
   > 
   > When you're creating your logic app, after you add 
   > the SFTP trigger or action you want, you'll need 
