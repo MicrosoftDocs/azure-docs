@@ -287,7 +287,7 @@ Create a circuit on the ExpressRoute Direct resource.
   az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
   ```
 
-  Other bandwidths include: 1.0, 2.0, 5.0, 10.0, and 40.0
+  Other bandwidths include: 5 Gbps, 10 Gbps, and 40 Gbps
 
   **Example output:**
 

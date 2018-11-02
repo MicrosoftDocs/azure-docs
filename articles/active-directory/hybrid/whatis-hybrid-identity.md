@@ -13,26 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2018
+ms.date: 11/01/2018
 ms.component: hybrid
 ms.author: billmath
 ---
 
 # Hybrid identity and Microsoft's identity solutions
-[Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) hybrid identity solutions enable you to synchronize on-premises directory objects with Azure AD while still managing your users on-premises. The first decision to make when planning to synchronize your on-premises Windows Server Active Directory with Azure AD is whether you want to use synchronized identity or federated identity. 
+[Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) hybrid identity solutions enable you to synchronize on-premises directory objects with Azure AD while still managing your users on-premises. The first decision to make when planning to synchronize your on-premises Windows Server Active Directory with Azure AD is whether you want to use managed identities or federated identity. 
 
-- **Synchronized identities**, and optionally password hashes, enable your users to use the same password to access both on-premises and cloud-based organizational resources. 
+- **Managed identities** - User accounts and groups that are synchronized from a on-premises Active Directory and the user authentication is managed by Azure.   
 - **Federated identities** allow for more control over users by separating user authentication from Azure, and delegating authentication to a trusted, on-premises, identity provider. 
 
 There are several options available for configuring hybrid identity. As you consider which identity model best fits your organization’s needs, you also need to think about time, existing infrastructure, complexity, and cost. These factors are different for every organization, and might change over time. However, if your requirements do change, you also have the flexibility to switch to a different identity model.
 
-## Synchronized identity 
+## Managed identity 
 
-Synchronized identity is the simplest way to synchronize on-premises directory objects (users and groups) with Azure AD. 
+Managed identity is the simplest way to synchronize on-premises directory objects (users and groups) with Azure AD. 
 
 ![Synchronized hybrid identity](./media/whatis-hybrid-identity/synchronized-identity.png)
 
-While synchronized identity  is the easiest and quickest method, your users still need to maintain a separate password for cloud-based resources. To avoid this, you can also (optionally) [synchronize a hash of user passwords](how-to-connect-password-hash-synchronization.md) to your Azure AD directory. Synchronizing password hashes enables users to log in to cloud-based organizational resources with the same user name and password that they use on-premises. Azure AD Connect periodically checks your on-premises directory for changes and keeps your Azure AD directory synchronized. When a user attribute or password is changed on-premises Active Directory, it is automatically updated in Azure AD. 
+While managed identity is the easiest and quickest method, your users still need to maintain a separate password for cloud-based resources. To avoid this, you can also (optionally) [synchronize a hash of user passwords](how-to-connect-password-hash-synchronization.md) to your Azure AD directory. Synchronizing password hashes enables users to log in to cloud-based organizational resources with the same user name and password that they use on-premises. Azure AD Connect periodically checks your on-premises directory for changes and keeps your Azure AD directory synchronized. When a user attribute or password is changed on-premises Active Directory, it is automatically updated in Azure AD. 
 
 For most organizations who only need to enable their users to sign in to Office 365, SaaS applications, and other Azure AD-based resources, the default password synchronization option is recommended. If that doesn’t work for you, you'll need to decide between pass-through authentication and AD FS.
 

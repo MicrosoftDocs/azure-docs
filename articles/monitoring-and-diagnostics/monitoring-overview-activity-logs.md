@@ -27,7 +27,7 @@ The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnosti
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 > [!NOTE]
->  [The newer alerts](monitoring-overview-unified-alerts.md) offers an enhanced experience when creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
+>  [The newer alerts](monitoring-overview-unified-alerts.md) offers an enhanced experience when creating and managing activity log alert rules.  [Learn more](alert-activity-log.md).
 
 View the following video introducing the Activity Log.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]

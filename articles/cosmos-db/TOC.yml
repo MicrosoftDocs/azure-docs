@@ -192,8 +192,6 @@
           href: programming.md
         - name: SQL data partitioning
           href: sql-api-partition-data.md
-        - name: Troubleshoot Java Async SDK 
-          href: troubleshoot-java-async-sdk.md
         - name: Data types
           items:
           - name: DateTime
@@ -484,6 +482,10 @@
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
+  - name: Troubleshooting guides
+    items:
+    - name: Troubleshoot Java Async SDK
+      href: troubleshoot-java-async-sdk.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

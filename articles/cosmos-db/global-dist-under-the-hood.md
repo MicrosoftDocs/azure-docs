@@ -12,26 +12,25 @@ ms.reviewer: sngun
 
 ---
 
-# Global distribution - under the hood
+# Azure Cosmos DB global distribution - under the hood
 
-Azure Cosmos DB is a foundational service of Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB service on massive “stamps” of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains.
+Azure Cosmos DB is a foundational service of Azure, so it's deployed across all Azure regions worldwide including the public, sovereign, Department of Defense (DoD) and government clouds. Within a data center, we deploy and manage the Azure Cosmos DB on massive stamps of machines, each with dedicated local storage. Within a data center, Azure Cosmos DB is deployed across many clusters, each potentially running multiple generations of hardware. Machines within a cluster are typically spread across 10-20 fault domains. The following image shows the Cosmos DB global distribution system topology:
 
 ![System Topology](./media/global-dist-under-the-hood/distributed-system-topology.png)
-**System Topology**
 
-Global distribution in Azure Cosmos DB is turn-key: at any time, with a few clicks or programmatically with a single API call customer can add or remove the geographical regions associated with their Cosmos database. A Cosmos database in turn consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema agnostic and provide a scope for a query. All data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without having to deal with schema or hassles of index management, especially in a globally distributed setup.  
-
-As shown in the following image, the data within a container is distributed along two dimensions:  
+**Global distribution in Azure Cosmos DB is turn-key:** At any time, with a few clicks or programmatically with a single API call, you can add or remove the geographical regions associated with their Cosmos database. A Cosmos database in turn consists of a set of Cosmos containers. In Cosmos DB, containers serve as the logical units of distribution and scalability. The collections, tables, and graphs you create are (internally) just Cosmos containers. Containers are completely schema agnostic and provide a scope for a query. Data in a Cosmos container is automatically indexed upon ingestion. Automatic indexing enables users to query the data without having to deal with schema or hassles of index management, especially in a globally distributed setup.  
 
 - In a given region, data within a container is distributed by using a partition-key, which you provide and is transparently managed by the underlying resource partitions (local distribution).  
+
 - Each resource partition is also replicated across geographical regions (global distribution). 
 
 When an app using Cosmos DB elastically scales throughput (or consumes more storage) on a Cosmos container, Cosmos DB transparently handles partition management operations (split, clone, delete) across all the regions. Independent of the scale, distribution, or failures, Cosmos DB continues to provide a single system image of the data within the containers, which are globally distributed across any number of regions.  
 
-![Resource Partitions](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
-**Distribution of Resource Partitions**
+As shown in the following image, the data within a container is distributed along two dimensions:  
 
-Physically, a resource partition is implemented by a group of replicas, called a replica-set. Each machine hosts hundreds of replicas corresponding to various resource partitions within a fixed set of processes as shown in the previous image. Replicas corresponding to the resource partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
+![Resource Partitions](./media/global-dist-under-the-hood/distribution-of-resource-partitions.png)
+
+A resource partition is implemented by a group of replicas, called a replica-set. Each machine hosts hundreds of replicas that correspond to various resource partitions within a fixed set of processes as shown in the previous image. Replicas corresponding to the resource partitions are dynamically placed and load balanced across the machines within a cluster and data centers within a region.  
 
 A replica uniquely belongs to an Azure Cosmos DB tenant. Each replica hosts an instance of Cosmos DB’s [database engine](https://www.vldb.org/pvldb/vol8/p1668-shukla.pdf), which manages the resources as well as the associated indexes. The Cosmos DB database engine operates on an atom-record-sequence (ARS) based type system. The engine is agnostic to the concept of a schema and blurring the boundary between the structure and instance values of records. Cosmos DB achieves full schema agnosticism by automatically indexing everything upon ingestion in an efficient manner, which allows users to query their globally distributed data without having to deal with schema or index management.
 
