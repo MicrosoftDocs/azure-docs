@@ -18,7 +18,7 @@ ms.date: 11/05/2018
 ## Overview
 Resource health for SQL Database helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
 
-![Overview](../media/sql-database-resource-health/sql-resource-health-overview.jpg)
+![Overview](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
 ## Health Checks
 SQL Database determines the health of your resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL DB resource only examines failures caused by SQL (or the system) and not by the user.
@@ -28,7 +28,7 @@ SQL Database determines the health of your resource by examining the success and
 ### Available
 A status of Available means that Resource Health has not detected logins failures to the database.
 
-![Available](../media/sql-database-resource-health/sql-resource-health-available.jpg)
+![Available](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
 ### Degraded
 A status of Degraded means that Resource Health has detected a majority of successful logins, but some failures as well. These are most likely transient login errors. To reduce the impact of connection issues caused by future reconfigurations, please implement retry logic in your code
