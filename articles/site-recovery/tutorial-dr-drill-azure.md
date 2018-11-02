@@ -5,8 +5,9 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
+ms.custom: MVC
 
 ---
 # Run a disaster recovery drill to Azure

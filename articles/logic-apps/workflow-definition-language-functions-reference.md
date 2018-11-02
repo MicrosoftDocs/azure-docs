@@ -1869,7 +1869,7 @@ These examples find the first item in these collections:
 
 ```
 first('hello')
-first([0, 1, 2])
+first(createArray(0, 1, 2))
 ```
 
 And return these results: 
@@ -2466,7 +2466,7 @@ intersection('<collection1>', '<collection2>', ...)
 This example finds the common items across these arrays:  
 
 ```
-intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
 And returns an array with *only* these items: `[1, 2]`
@@ -2499,7 +2499,7 @@ This example creates a string from all the items in this
 array with the specified character as the delimiter:
 
 ```
-join([a, b, c], '.')
+join(createArray('a', 'b', 'c'), '.')
 ```
 
 And returns this result: `"a.b.c"`
@@ -2531,7 +2531,7 @@ These examples find the last item in these collections:
 
 ```
 last('abcd')
-last([0, 1, 2, 3])
+last(createArray(0, 1, 2, 3))
 ```
 
 And returns these results: 
@@ -2602,7 +2602,7 @@ These examples count the number of items in these collections:
 
 ```
 length('abcd')
-length([0, 1, 2, 3])
+length(createArray(0, 1, 2, 3))
 ```
 
 And return this result: `4`
@@ -2736,7 +2736,7 @@ These examples get the highest value from the set of numbers and the array:
 
 ```
 max(1, 2, 3)
-max([1, 2, 3])
+max(createArray(1, 2, 3))
 ```
 
 And return this result: `3`
@@ -2769,7 +2769,7 @@ These examples get the lowest value in the set of numbers and the array:
 
 ```
 min(1, 2, 3)
-min([1, 2, 3])
+min(createArray(1, 2, 3))
 ```
 
 And return this result: `1`
@@ -3194,7 +3194,7 @@ This example removes one item, the number 0,
 from the front of the specified array: 
 
 ```
-skip([0, 1, 2, 3], 1)
+skip(createArray(0, 1, 2, 3), 1)
 ```
 
 And returns this array with the remaining items: `[1,2,3]`
@@ -3551,7 +3551,7 @@ items from the front of these collections:
 
 ```
 take('abcde`, 3)
-take([0, 1, 2, 3, 4], 3)
+take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
 And return these results:
@@ -3854,7 +3854,7 @@ union([<collection1>], [<collection2>], ...)
 This example gets *all* the items from these collections: 
 
 ```
-union([1, 2, 3], [1, 2, 10, 101])
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
 And returns this result: `[1, 2, 3, 10, 101]`

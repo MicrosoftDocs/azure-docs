@@ -6,7 +6,7 @@ author: genlin
 manager: cshepard
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 ---
 # Troubleshoot slow backup of files and folders in Azure Backup
