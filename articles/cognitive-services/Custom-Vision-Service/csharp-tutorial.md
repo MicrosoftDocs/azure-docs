@@ -51,7 +51,7 @@ TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
 
 The following lines of code execute the primary functionality of the project.
 
-### Create a new Custom Vision Service project
+### Create a new Custom Vision service project
 
 The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
@@ -94,7 +94,7 @@ trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFile
 
 ### Train the classifier
 
-This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
+This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this each time you retrain the model.
 
 ```csharp
 // Now there are images with tags; start training the project
@@ -156,7 +156,7 @@ Making a prediction:
         Japanese Cherry: 0.0%
 ```
 
-You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. At this point, you can press any key to exit the application.
+You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. Press any key to exit the application. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 ## Clean up resources
 If you wish to implement your own image classification project (or try an [object detection](csharp-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
