@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: juliako
 ---
 
@@ -38,7 +38,7 @@ This article describes changes that were introduced in Azure Media Services (AMS
 * An Asset can have multiple StreamingLocators each with different Dynamic Packaging and Dynamic Encryption settings.
 * Content protection supports multi-key features. 
 * LiveEvent Preview supports Dynamic Packaging and Dynamic Encryption. This enables content protection on Preview as well as DASH and HLS packaging.
-* LiveOuput is simpler to use than the older Program entity. 
+* LiveOutput is simpler to use than the older Program entity. 
 * RBAC support on entities was added.
 
 ## Changes from v2
@@ -58,66 +58,22 @@ This article describes changes that were introduced in Azure Media Services (AMS
   * LiveEvent replaces Channel.
   * LiveOutput replaces Program.
   * StreamingLocator replaces Locator.
+* LiveOutputs do not need to be started explicitely, they start on creation and stop when deleted. Programs worked differently, they had to be startd after creation.
+* Deleting a LiveOutput does NOT delete the underlying Asset that it is attached to.  
 
 ## Code changes
 
 ### Create an asset and upload a file 
 
-#### v2
+[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L113)
 
-```csharp
-IAsset asset = context.Assets.Create(assetName, storageAccountName, options);
-
-IAssetFile assetFile = asset.AssetFiles.Create(assetFileName);
-
-assetFile.Upload(filePath);
-```
-
-#### v3
-
-```csharp
-Asset asset = client.Assets.CreateOrUpdate(resourceGroupName, accountName, assetName, new Asset());
-
-var response = client.Assets.ListContainerSas(resourceGroupName, accountName, assetName, permissions: AssetContainerPermission.ReadWrite, expiryTime: DateTime.Now.AddHours(1));
-
-var sasUri = new Uri(response.AssetContainerSasUrls.First());
-CloudBlobContainer container = new CloudBlobContainer(sasUri);
-
-var blob = container.GetBlockBlobReference(Path.GetFileName(fileToUpload));
-blob.UploadFromFile(fileToUpload);
-```
+[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L169)
 
 ### Submit a job
 
-#### v2
+[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L146)
 
-```csharp
-IMediaProcessor processor = context.MediaProcessors.GetLatestMediaProcessorByName(mediaProcessorName);
-
-IJob job = jobs.Create($"Job for {inputAsset.Name}");
-
-ITask task = job.Tasks.AddNew($"Task for {inputAsset.Name}", processor, taskConfiguration);
-
-task.InputAssets.Add(inputAsset);
-
-task.OutputAssets.AddNew(outputAssetName, outputAssetStorageAccountName, outputAssetOptions);
-
-job.Submit();
-```
-
-#### v3
-
-```csharp
-client.Assets.CreateOrUpdate(resourceGroupName, accountName, outputAssetName, new Asset());
-
-JobOutput[] jobOutputs = { new JobOutputAsset(outputAssetName)};
-
-JobInput jobInput = JobInputAsset(assetName: assetName);
-
-Job job = client.Jobs.Create(resourceGroupName,
-accountName, transformName, jobName,
-new Job {Input = jobInput, Outputs = jobOutputs});
-```
+[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/UploadEncodeAndStreamFiles/Program.cs#L298)
 
 ### Publish an asset with AES encryption 
 
@@ -133,6 +89,8 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 8. Create AccessPolicy
 9. Create Locator
 
+[v2 .NET example](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-aes/blob/master/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs#L64)
+
 #### v3
 
 1. Create Content Key Policy
@@ -140,13 +98,19 @@ new Job {Input = jobInput, Outputs = jobOutputs});
 3. Upload content or use Asset as JobOutput
 4. Create StreamingLocator
 
+[v3 .NET example](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES/Program.cs#L105)
+
 ## Known issues
 
-- Currently, Media Reserved Units can only be managed using the Media Services v2 API.  
+- Currently, Media Reserved Units can only be managed using the Media Services v2 API. For more information, see [Scaling media processing](../previous/media-services-scale-media-processing-overview.md).
 - Media Services resources created with the v3 API cannot be managed by the v2 API.
 - Most Media Services entities that were created with the v2 API, can continue being managed using the v3 API. There are a few exceptions:  
     - Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. Since Jobs and Tasks are relatively short-lived entities (essentially only useful while in flight) the recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
-    - Channels and Programs created with v2 (mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. 
+    - Channels and Programs created with v2 (mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop. 
+     
+        Presently, you cannot migrate continuously running Channels. Media Services team is working on adding this feature.
+        
+- Currently, you cannot use the Azure portal to manage v3 resources. Use REST API or one of the supported SDKs.
 
 ## Next steps
 
