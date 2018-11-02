@@ -26,7 +26,6 @@ In this tutorial, you take the following steps:
 > * Configure Kafka Connect for Event Hubs
 > * Run Kafka Connect
 > * Create connectors
-> * 
 
 ## Prerequisites
 To complete this walkthrough, make sure you have the following prerequisites:
