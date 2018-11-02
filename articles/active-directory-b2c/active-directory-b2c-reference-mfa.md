@@ -26,7 +26,7 @@ This feature helps applications handle scenarios such as the following:
 
 When you create a policy, you have the option to enable multi-factor authentication.
 
-![Set multi-factor authentication](./media/active-directory-reference-mfa/add-policy.png)
+![Set multi-factor authentication](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
 Set **State** to **On**.
 
