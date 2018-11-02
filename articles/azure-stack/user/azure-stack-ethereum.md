@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/13/2018
+ms.date: 11/02/2018
 ms.topic: tutorial
 ms.service: azure-stack
 ms.reviewer: seyadava
