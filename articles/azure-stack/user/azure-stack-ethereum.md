@@ -21,7 +21,7 @@ With a handful of user inputs and a single-click deployment through the Azure St
 To set this up, you:
 
 - Choose a deployment architecture
-- Deploy a standalone, consortium leader or consortium member network
+- Deploy a standalone, consortium leader, or consortium member network
 
 ## Prerequisites
 
@@ -43,7 +43,7 @@ This solution template can deploy single or multi member Ethereum consortium net
 The template can deploy Ethereum consortium for leader and member join in a variety of ways, here are the ones we have tested:
 
 - On a multi-node Azure Stack, with Azure AD or AD FS, deploy lead and member using the same subscription or with different subscriptions.
-- On a single-node Azure Stack (with Azure AD) deploy lead and member using the same subscription.
+- On a single-node Azure Stack (with Azure AD), deploy lead and member using the same subscription.
 
 ### Standalone and consortium leader deployment
 
@@ -150,7 +150,7 @@ To verify member’s deployment, browse member’s admin site. You can find admi
 
 ![Member deployment summary](./media/azure-stack-ethereum/ethereum-node-status-2.png)
 
-As shown in the picture, member’s nodes status is **Not running**. This is because the connection between member and leader is not established. The connection between member and leader is a two-way connection. When you deploy member, template automatically creates the connection from member to the leader. To create the connection from leader to member go to the next step.
+As shown in the picture, member’s nodes status is **Not running**. This is because the connection between member and leader is not established. The connection between member and leader is a two-way connection. When you deploy member, template automatically creates the connection from member to the leader. To create the connection from leader to member, go to the next step.
 
 ### Connect member and leader
 
