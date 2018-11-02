@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2018
+ms.date: 11/02/2018
 ms.author: cwatson
 ---
 # Understand Azure Enterprise Agreement administrative roles in Azure
@@ -62,8 +62,8 @@ The following sections describe the user limits for each role, the tasks the rol
 |Manage resources in Azure portal|✘|✘|✔|
 |Manage subscription permissions including role-based access control|✘|✘|✔|
 
-- <sup>3</sup> Requires that the Enterprise Admin enable **Department Administrator can view charges** policy in the Azure portal. The Department Administrator can then see details for the department.
-- <sup>4</sup> Requires that the Enterprise Admin enable **Account Owner can view charges** policy in the Azure portal. The Account Owner can then see details for the account.
+- <sup>3</sup> Requires that the Enterprise Admin enable **DA view charges** policy in the EA portal. The Department Administrator can then see details for the department.
+- <sup>4</sup> Requires that the Enterprise Admin enable **AO view charges** policy in the EA portal. The Account Owner can then see details for the account.
 
 ## Portal and pricing access by role
 
@@ -73,15 +73,15 @@ The following sections describe the user limits for each role, the tasks the rol
 |Department Administrator|✔|✔|✔<sup>5</sup>|
 |Account Owner|✔|✔|✔<sup>6</sup> |
 
-- <sup>5</sup> Requires that the Enterprise Admin enable **Department Administrator can view charges** policy in the Azure portal.
-- <sup>6</sup> Requires that the Enterprise Admin enable **Account Owner can view charges** policy in the Azure portal.
+- <sup>5</sup> Requires that the Enterprise Admin enable **DA view charges** policy in the EA portal.
+- <sup>6</sup> Requires that the Enterprise Admin enable **AO view charges** policy in the EA portal.
 
 ## Pricing in Azure portal
 
 You may see different pricing in the Azure portal depending on your administrative role and how the view charges policies are set. The two policies in the EA portal that affect the pricing you see in the Azure portal are:
 
-- Department admins can view charges
-- Account owners can view charges
+- DA view charges
+- AO view charges
 
 To learn how to set these policies, see [Manage access to billing information for Azure](billing-manage-access.md).
 
