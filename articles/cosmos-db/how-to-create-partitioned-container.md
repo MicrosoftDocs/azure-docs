@@ -92,7 +92,7 @@ This article explains the different ways to create a partitioned container (coll
 ![Table API create partitioned collection](./media/create-partitioned-collection/partitioned-collection-create-table.png)
 
 > [!Note]
-> For Table API, the partition key is specified each time you add a new row in a table.
+> For Table API, the partition key is specified each time you add a new row.
 
 ## CLI
 
@@ -152,7 +152,7 @@ az cosmosdb collection create \
 
 ```azurecli-interactive
 # Create a table with 1000 RU/s
-# Note: you don't need to specify partition key as this is set for each new row
+# Note: you don't need to specify partition key as this is set in each row
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
     --collection-name $tableName \
@@ -163,13 +163,13 @@ az cosmosdb collection create \
 
 ## .NET
 
-### <a id="dotnet-sql"></a>SQL (Core) API
+### <a id="dotnet-sql-graph"></a>SQL, Graph API
 
 ```csharp
 // Create a partitioned container with a partition key and 1000 RU/s
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "myContainerName";
-myCollection.PartitionKey.Paths.Add("/myPartition\Kkey");
+myCollection.PartitionKey.Paths.Add("/myPartitionKey");
 
 await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
@@ -186,6 +186,16 @@ db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: 
 
 > [!Note]
 > MongoDB does not have a concept of Request Units. To create a new collection with throughput use the Azure Portal or SQL API as shown in the previous example.
+
+### <a id="dotnet-cassandra"></a>Cassandra API
+
+```csharp
+// Create a Cassandra table with a partition (primary) key and provision throughput of 1000 RU/s
+session.Execute(CREATE TABLE myKeySpace.myTable(
+    user_id int PRIMARY KEY,
+    firstName text,
+    lastName text) WITH cosmosdb_provisioned_throughput=1000);
+```
 
 ## Next steps
 

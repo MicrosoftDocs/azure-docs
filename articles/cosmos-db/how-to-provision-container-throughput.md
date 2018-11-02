@@ -43,9 +43,9 @@ az cosmosdb collection create \
 ## .NET
 
 > [!Note]
-> Use the SQL API to provision database throughput for all APIs. Throughput provisioning on Cosmos DB is not supported by native 3rd party drivers.
+> Use the SQL API to provision throughput for all APIs except for Cassandra API.
 
-### <a id="dotnet-all"></a>All APIs
+### <a id="dotnet-most"></a>SQL, MongoDB, Gremlin, Table APIs
 
 ```csharp
 // Create a container with a partition key and provision throughput of 1000 RU/s
@@ -57,6 +57,16 @@ await client.CreateDocumentCollectionAsync(
     UriFactory.CreateDatabaseUri("myDatabaseName"),
     myCollection,
     new RequestOptions { OfferThroughput = 1000 });
+```
+
+### <a id="dotnet-cassandra"></a>Cassandra API
+
+```csharp
+// Create a Cassandra table with a partition (primary) key and provision throughput of 1000 RU/s
+session.Execute(CREATE TABLE myKeySpace.myTable(
+    user_id int PRIMARY KEY,
+    firstName text,
+    lastName text) WITH cosmosdb_provisioned_throughput=1000);
 ```
 
 ## Next steps

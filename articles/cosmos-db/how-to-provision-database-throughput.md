@@ -32,7 +32,7 @@ This article explains how to provision throughput for a database in Azure Cosmos
 ## .NET
 
 > [!Note]
-> Use the SQL API to provision database throughput for all APIs. Throughput provisioning on Cosmos DB is not supported by native 3rd party drivers.
+> Use the SQL API to provision throughput for all APIs. You can optionally use the example below for Cassandra API as well.
 
 ### <a id="dotnet-all"></a>All APIs
 
@@ -47,6 +47,13 @@ RequestOptions options = new RequestOptions
 await client.CreateDatabaseIfNotExistsAsync(
     new Database {Id = databaseName},  
     options);
+```
+
+### <a id="dotnet-cassandra"></a>Cassandra API
+
+```csharp
+// Create a Cassandra keyspace and provision throughput of 10000 RU/s
+session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=1000);
 ```
 
 ## Next steps
