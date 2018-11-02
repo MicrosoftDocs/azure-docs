@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine Serial Console | Microsoft Docs
+title: Azure virtual machine serial console for Linux | Microsoft Docs
 description: Bi-Directional serial console for Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/31/2018
 ms.author: harijay
 ---
 
@@ -29,17 +29,17 @@ For serial console documentation for Windows VMs, see [Virtual machine serial co
 
 ## Prerequisites 
 
-* The VM in which you are accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
+- The VM in which you're accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
 
-* The VM in which you are accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. Select **Boot diagnostics** from the **Support + troubleshooting** section.
+- The VM in which you're accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. 
 
     ![Boot diagnostics settings](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-An account that uses a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account: 
+- An account that uses a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account: 
 
-* The VM in which you are accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
+    - The VM in which you're accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
 
-* For settings specific to Linux distributions, see [Serial console Linux distribution availability](#serial-console-linux-distribution-availability).
+    - For settings specific to Linux distributions, see [Serial console Linux distribution availability](#serial-console-linux-distribution-availability).
 
 
 
@@ -47,12 +47,14 @@ An account that uses a serial console must have the [Virtual Machine Contributor
 The serial console for virtual machines is accessible only through the Azure portal:
 
   1. Open the [Azure portal](https://portal.azure.com).
+
   1. On the left menu, select **Virtual machines**.
+
   1. Select a VM in the list. The overview page for the VM opens.
+
   1. Scroll down to the **Support + troubleshooting** section and select **Serial console**. A new pane with the serial console opens and starts the connection.
 
-   ![](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Linux serial console window](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 
@@ -68,7 +70,7 @@ Red Hat Enterprise Linux    | Serial console access enabled by default.
 CentOS      | Serial console access enabled by default. 
 Ubuntu      | Serial console access enabled by default.
 CoreOS      | Serial console access enabled by default.
-SUSE        | Newer SLES images available on Azure have serial console access enabled by default. If you are using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
+SUSE        | Newer SLES images available on Azure have serial console access enabled by default. If you're using older versions (10 or earlier) of SLES on Azure, see the [KB article](https://www.novell.com/support/kb/doc.php?id=3456486) to enable serial console. 
 Oracle Linux        | Serial console access enabled by default.
 Custom Linux images     | To enable the serial console for your custom Linux VM image, enable console access in the file */etc/inittab* to run a terminal on `ttyS0`. For example: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. For more information on properly creating custom images, see [Create and upload a Linux VHD in Azure](https://aka.ms/createuploadvhd). If you're building a custom kernel, consider enabling these kernel flags: `CONFIG_SERIAL_8250=y` and `CONFIG_MAGIC_SYSRQ_SERIAL=y`. The configuration file is typically located in the */boot/* path.
 
@@ -89,9 +91,9 @@ By default, all subscriptions have serial console access enabled for all VMs. Yo
 > To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include administrator or owner roles. Custom roles can also have write permissions.
 
 ### Subscription-level disable
-The serial console can be disabled for an entire subscription through the [Disable Console REST API call](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter "default" for **default**, and then select **Run**. Azure CLI commands aren't yet available.
+The serial console can be disabled for an entire subscription through the [Disable Console REST API call](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter **default** for **default**, and then select **Run**. Azure CLI commands aren't yet available.
 
-![](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+![REST API Try It](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
 Alternatively, you can use the following set of bash commands in Cloud Shell to disable, enable, and view the disabled status of the serial console for a subscription: 
 
@@ -144,7 +146,7 @@ If a user is connected to the serial console and another user successfully reque
 This means that a user who's disconnected won't be logged out. The ability to enforce a logout upon disconnect (by using SIGHUP or similar mechanism) is still in the roadmap. For Windows there is an automatic timeout enabled in Special Administrative Console (SAC); however, for Linux you can configure the terminal timeout setting. To do so, add `export TMOUT=600` in your *.bash_profile* or *.profile* file for the user you use to sign in to the console. This setting will time out the session after 10 minutes.
 
 ## Accessibility
-Accessibility is a key focus for the Azure serial console. To that end, we have ensured that the serial console is fully accessible.
+Accessibility is a key focus for the Azure serial console. To that end, we've ensured that the serial console is fully accessible.
 
 ### Keyboard navigation
 Use the **Tab** key on your keyboard to navigate in the serial console interface from the Azure portal. Your location will be highlighted on screen. To leave the focus of the serial console window, press **Ctrl**+**F6** on your keyboard.
@@ -186,9 +188,9 @@ A. Yes. Use **Ctrl**+**Shift**+**C** and **Ctrl**+**Shift**+**V** to copy and pa
 
 **Q. Can I use serial console instead of an SSH connection?**
 
-A. While this usage may seem technically possible, the serial console is intended to be used primarily as a troubleshooting tool in situations where connectivity via SSH is not possible. We recommend against using the serial console as an SSH replacement for the following reasons:
+A. While this usage may seem technically possible, the serial console is intended to be used primarily as a troubleshooting tool in situations where connectivity via SSH isn't possible. We recommend against using the serial console as an SSH replacement for the following reasons:
 
-- The serial console does not have as much bandwidth as SSH. Because it's a text-only connection, more GUI-heavy interactions are difficult.
+- The serial console doesn't have as much bandwidth as SSH. Because it's a text-only connection, more GUI-heavy interactions are difficult.
 - Serial console access is currently possible only by using a username and password. Because SSH keys are far more secure than username/password combinations, from a sign-in security perspective, we recommend SSH over serial console.
 
 **Q. Who can enable or disable serial console for my subscription?**

@@ -742,6 +742,8 @@
           href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
         - name: Webhook actions for log alerts
           href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
+        - name: Troubleshooting log alerts
+          href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event

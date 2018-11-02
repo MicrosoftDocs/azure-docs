@@ -31,9 +31,9 @@ Distributed databases relying on replication for high availability, low latency 
 - For details on mapping between “Read Consistency Level” of Apache Cassandra and Cosmos DB consistency levels, see [Consistency levels and Cosmos DB APIs](consistency-levels-across-apis.md#cassandra-mapping).
 - For details on mapping between “Read Concern” of MongoDB and Azure Cosmos DB consistency levels, see [Consistency levels and Cosmos DB APIs](consistency-levels-across-apis.md#mongo-mapping).
 
-## You may get stronger consistency guarantees in practice
+## Consistency guarantees in practice
 
-Consistency guarantees for a read operation correspond to the freshness and ordering of the state of the database being requested. Read-consistency is tied to the ordering and propagation of the write (update) operations.  
+You may get stronger consistency guarantees in practice. Consistency guarantees for a read operation correspond to the freshness and ordering of the state of the database being requested. Read-consistency is tied to the ordering and propagation of the write (update) operations.  
 
 When the consistency level is set to **bounded staleness**, Cosmos DB guarantees that the clients always read the value of a previous write, with a lag bounded by the staleness window.
 

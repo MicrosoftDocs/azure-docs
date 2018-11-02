@@ -123,7 +123,7 @@ To enable password reset on your application, you need to create a **password re
 
 Now that you have a desktop app registered and policies created, you need to configure your app to use your Azure AD B2C tenant. In this tutorial, you configure a sample desktop app. 
 
-[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip) or clone the sample from GitHub.
+[Download a zip file](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip), [browse the repo](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop), or clone the sample from GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git
