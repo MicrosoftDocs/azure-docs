@@ -29,15 +29,15 @@ For serial console documentation for Linux VMs, see [Virtual machine serial cons
 
 ## Prerequisites 
 
-* The VM in which you are accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
+* The VM in which you're accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
 
-* The VM in which you are accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. Select **Boot diagnostics** from the **Support + troubleshooting** section.
+* The VM in which you're accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. 
 
     ![Boot diagnostics settings](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * An account using a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account. 
 
-* The VM in which you are accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
+* The VM in which you're accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
 
 
 ## Get started with the serial console
@@ -64,7 +64,7 @@ Alternatively, to manually enable the serial console for Windows virtual machine
     - `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 1. Reboot the system for the SAC console to be enabled.
 
-![SAC console](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
+    ![SAC console](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
 If needed, the SAC can be enabled offline as well:
 
@@ -110,9 +110,13 @@ For information on configuring Windows to create a crash dump file when it recei
     ![Connect to SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
 
 1.	Enter `cmd` to create a channel that has a CMD instance. 
+
 1.	Enter `ch -si 1` to switch to the channel that's running the CMD instance. 
+
 1.	Press **Enter**, and then enter sign-in credentials with administrative permissions.
+
 1.	After you've entered valid credentials, the CMD instance opens.
+
 1.	To start a PowerShell instance, enter `PowerShell` in the CMD instance, and then press **Enter**. 
 
     ![Open PowerShell instance](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
