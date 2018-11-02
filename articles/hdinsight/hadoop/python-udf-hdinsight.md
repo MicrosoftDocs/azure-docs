@@ -43,7 +43,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -55,7 +55,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```

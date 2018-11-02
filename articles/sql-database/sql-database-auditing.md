@@ -11,15 +11,20 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ---
 # Get started with SQL database auditing
 
-Azure SQL database auditing tracks database events and writes them to an audit log in your Azure storage account. Auditing also:
+Auditing for Azure [SQL Database](sql-database-technical-overview.md)  and [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) tracks database events and writes them to an audit log in your Azure storage account, OMS workspace or Event Hubs. Auditing also:
 
 - Helps you maintain regulatory compliance, understand database activity, and gain insight into discrepancies and anomalies that could indicate business concerns or suspected security violations.
 
 - Enables and facilitates adherence to compliance standards, although it doesn't guarantee compliance. For more information about Azure programs that support standards compliance, see the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/).
+
+
+> [!NOTE] 
+> This topic applies to Azure SQL server, and to both SQL Database and SQL Data Warehouse databases that are created on the Azure SQL server. For simplicity, SQL Database is used when referring to both SQL Database and SQL Data Warehouse.
+
 
 ## <a id="subheading-1"></a>Azure SQL database auditing overview
 
@@ -45,7 +50,7 @@ An auditing policy can be defined for a specific database or as a default server
 
 - If *server blob auditing is enabled*, it *always applies to the database*. The database will be audited, regardless of the database auditing settings.
 
-- Enabling blob auditing on the database, in addition to enabling it on the server, does *not* override or change any of the settings of the server blob auditing. Both audits will exist side by side. In other words, the database is audited twice in parallel; once by the server policy and once by the database policy.
+- Enabling blob auditing on the database or data warehouse, in addition to enabling it on the server, does *not* override or change any of the settings of the server blob auditing. Both audits will exist side by side. In other words, the database is audited twice in parallel; once by the server policy and once by the database policy.
 
    > [!NOTE]
    > You should avoid enabling both server blob auditing and database blob auditing together, unless:
@@ -74,7 +79,7 @@ The following section describes the configuration of auditing using the Azure po
 
     ![Navigation pane][3]
 
-5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to an Log Analytics workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
+5. **New** - You now have multiple options for configuring where audit logs will be written. You can write logs to an Azure storage account, to a Log Analytics workspace for consumption by Log Analytics, or to event hub for consumption using event hub. You can configure any combination of these options, and audit logs will be written to each.
 
     ![storage options](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -82,7 +87,7 @@ The following section describes the configuration of auditing using the Azure po
 
     ![storage account](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-7. To configure writing audit logs to an Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
+7. To configure writing audit logs to a Log Analytics workspace, select **Log Analytics (Preview)** and open **Log Analytics details**. Select or create the Log Analytics workspace where logs will be written and then click **OK**.
 
     ![Log Analytics](./media/sql-database-auditing-get-started/auditing_select_oms.png)
 
@@ -93,6 +98,11 @@ The following section describes the configuration of auditing using the Azure po
 9. Click **Save**.
 10. If you want to customize the audited events, you can do this via [PowerShell cmdlets](#subheading-7) or the [REST API](#subheading-9).
 11. After you've configured your auditing settings, you can turn on the new threat detection feature and configure emails to receive security alerts. When you use threat detection, you receive proactive alerts on anomalous database activities that can indicate potential security threats. For more information, see [Getting started with threat detection](sql-database-threat-detection-get-started.md).
+
+
+> [!IMPORTANT]
+>Enabling auditing on an Azure SQL Data Warehouse, or on a server that has an Azure SQL Data Warehouse on it, **will result in the Data Warehouse being resumed**, even in the case where it was previously paused. **Please make sure to pause the Data Warehouse again after enabling auditing**.'
+
 
 ## <a id="subheading-3"></a>Analyze audit logs and reports
 
@@ -201,6 +211,9 @@ In production, you are likely to refresh your storage keys periodically. When wr
     FAILED_DATABASE_AUTHENTICATION_GROUP
 
     You can configure auditing for different types of actions and action groups using PowerShell, as described in the [Manage SQL database auditing using Azure PowerShell](#subheading-7) section.
+
+- When using AAD Authentication, failed logins records will *not* appear in the SQL audit log. To view failed login audit records, you need to visit the [Azure Active Directory portal]( ../active-directory/reports-monitoring/reference-sign-ins-error-codes.md), which logs details of these events.
+
 
 ## <a id="subheading-7"></a>Manage SQL database auditing using Azure PowerShell
 

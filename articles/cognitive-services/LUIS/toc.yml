@@ -103,6 +103,8 @@
       href: luis-concept-utterance.md
     - name: Roles
       href: luis-concept-roles.md
+    - name: Prebuilt models
+      href: luis-concept-prebuilt-model.md
   - name: Improve app performance
     items:
     - name: Prediction score
@@ -145,12 +147,20 @@
     href: luis-how-to-start-new-app.md
   - name: Build Model
     items:
-    - name: Add intents
+    - name: Add an intent
       href: luis-how-to-add-intents.md
-    - name: Add utterances
+    - name: Add entity to utterance 
       href: luis-how-to-add-example-utterances.md
-    - name: Add entities
+    - name: Add entity without utterance
       href: luis-how-to-add-entities.md
+    - name: Use prebuilt models
+      items:
+      - name: Use domains
+        href: luis-prebuilt-domains.md
+      - name: Use intents
+        href: luis-prebuilt-intent.md
+      - name: Use entities
+        href: luis-prebuilt-entities.md
     - name: With REST APIs
       items:
       - name: Build app programmatically using Node.js
@@ -195,12 +205,6 @@
       href: luis-how-to-batch-test.md
   - name: Publish
     href: luis-how-to-publish-app.md
-  - name: Use prebuilt models
-    items:
-    - name: Use entities
-      href: luis-prebuilt-entities.md
-    - name: Use domains
-      href: luis-how-to-use-prebuilt-domains.md
   - name: Manage app
     items:
     - name: Using the dashboard

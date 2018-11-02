@@ -44,7 +44,7 @@ Perform the following steps to clone an order.
 
     ![Clone order 1](media/data-box-portal-admin/clone-order1.png)
 
-2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.    
+2.	All the details of the order stay the same. The order name is the original order name appended by *-Clone*. Select the checkbox to confirm that you have reviewed the privacy information. Click **Create**.
 
 The clone is created in a few minutes and the portal updates to show the new order.
 
@@ -68,6 +68,7 @@ You can only delete orders that are completed or canceled. Perform the following
 You may need to download the shipping label if the E-ink display of your Data Box is not working and does not display the return shipping label. 
 
 Perform the following steps to download a shipping label.
+
 1.	Go to **Overview > Download shipping label**. This option is available only after the device has shipped. 
 
     ![Download shipping label](media/data-box-portal-admin/download-shipping-label.png)
@@ -104,6 +105,77 @@ Perform the following steps to edit notification details.
  
     ![Edit notification details 2](media/data-box-portal-admin/edit-notification-details2.png)
 
+
+## Download order history
+
+Once the Data Box order is complete, the data on the device disks is erased. When the device cleanup is complete, you can download the order history in the Azure portal.
+
+Perform the following steps to download the order history.
+
+1. In your Data Box order, go to **Overview**. Ensure that the order is complete. If the order is complete and the device cleanup is complete, then go to **Order details**. **Download order history** option is available.
+
+    ![Download order history](media/data-box-portal-admin/download-order-history-1.png)
+
+2. Click **Download order history**. In the downloaded history, you will see a record of carrier tracking logs. If you scroll down to the bottom of this log, you can see the links to:
+    
+    - **Copy logs** - have the list of files that errored out during the data copy from Data Box to your Azure storage account.
+    - **Audit logs** - contain information on power on and share access on the Data Box when it is outside of Azure datacenter.
+    - **BOM files** - have the list of files (also known as the file manifest) that you can download during **Prepare to ship** and has file names, file sizes, and the file checksums.
+
+        ```
+        -------------------------------
+        Microsoft Data Box Order Report
+        -------------------------------
+        
+        Name                                               : eastusdryrun                                      
+        StartTime(UTC)                                     : 9/6/2018 12:54:47 PM +00:00                       
+        DeviceType                                         : ImolaPod                                          
+        
+        -------------------
+        Data Box Activities
+        -------------------
+        
+        Time(UTC)             | Activity                       | Status          | Description                                                                                                                                           
+        
+        9/6/2018 12:54:51 PM  | OrderCreated         | Completed  |                                                                                                                              
+        9/11/2018 8:57:38 PM  | DevicePrepared       | Completed  |                                                                                                                                                       
+        9/12/2018 7:28:15 PM  | ShippingToCustomer   | InProgress | Pickup Scan. Local Time : 9/12/2018 2:52:31 PM at Chantilly                                                                                           
+        9/13/2018 2:33:04 AM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/12/2018 9:00:00 PM at Chantilly                                                                                                                                                                                                                                                              
+        9/13/2018 12:40:31 PM | ShippingToCustomer   | InProgress | Arrival Scan. Local Time : 9/13/2018 5:00:00 AM at Oakland                                                                                            
+        9/13/2018 2:42:10 PM  | ShippingToCustomer   | InProgress | Departure Scan. Local Time : 9/13/2018 6:08:00 AM at Oakland                                                                                          
+        9/13/2018 3:42:12 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:14:08 AM at Sunnyvale                                                                                      
+        9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Destination Scan. Local Time : 9/13/2018 8:56:54 AM at Sunnyvale                                                                                      
+        9/13/2018 4:43:05 PM  | ShippingToCustomer   | InProgress | Out For Delivery Today. Local Time : 9/13/2018 9:11:21 AM at Sunnyvale                                                                                
+        9/13/2018 5:43:07 PM  | ShippingToCustomer   | Completed  | Delivered. Local Time : 9/13/2018 9:44:17 AM at SUNNYVALE                                                                                             
+        9/14/2018 11:48:35 PM | ShippingToDataCenter | InProgress | Pickup Scan. Local Time : 9/14/2018 3:55:37 PM at Sunnyvale                                                                                                                                                                                 
+        9/15/2018 1:52:35 AM  | ShippingToDataCenter | InProgress | Arrival Scan. Local Time : 9/14/2018 6:31:00 PM at San Jose                                                                                           
+        9/15/2018 2:52:39 AM  | ShippingToDataCenter | InProgress | Departure Scan. Local Time : 9/14/2018 7:17:00 PM at San Jose                                                                                                                                                                             
+        9/17/2018 8:23:31 AM  | ShippingToDataCenter | InProgress | Destination Scan. Local Time : 9/17/2018 4:14:37 AM at Chantilly                                                                                      
+        9/17/2018 12:24:42 PM | ShippingToDataCenter | InProgress | Loaded on Delivery Vehicle. Local Time : 9/17/2018 7:45:36 AM at Chantilly                                                                            
+        9/17/2018 1:25:11 PM  | ShippingToDataCenter | InProgress | Out For Delivery Today. Local Time : 9/17/2018 8:27:11 AM at Chantilly                                                                                
+        9/17/2018 2:25:51 PM  | ShippingToDataCenter | Completed | Delivered. Local Time : 9/17/2018 9:56:32 AM at STERLING                                                                                              
+        9/18/2018 9:55:41 PM  | DeviceBoot           | Completed | Appliance booted up successfully                                                                                                                      
+        9/18/2018 11:00:25 PM | DataCopy             | Started   |                                                                                                                                                       
+        9/18/2018 11:01:33 PM | DataCopy             | Completed | Copy Completed.                                                                                                                                       
+        9/18/2018 11:20:58 PM | SecureErase          | Started   |                                                                                                                                                       
+        9/18/2018 11:28:46 PM | SecureErase          | Completed | Azure Data Box:BY506B4B616700 has been sanitized according to NIST 800 -88 Rev 1.                                                                     
+        
+        ----------------------
+        Data Box Job Log Links
+        ----------------------
+        
+        Account Name         : eastusdryrun                                         
+        Copy Logs Path       : copylog/copylogd695869a2a294396b7b903296c208388.xml                                                                                                                                                     
+        Audit Logs Path      : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700                                                                                                                     
+        BOM Files Path       : azuredatabox-chainofcustodylogs\3b4cf163-f1af-475c-a391-f8afea3fa327\by506b4b616700
+        ```
+You can then go to your storage account and view the copy logs.
+
+![Logs in storage accounts](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+
+You can also view the chain of custody logs that include the audit logs and the BOM files.
+
+![Logs in storage accounts](media/data-box-portal-admin/logs-in-storage-acct-1.png)
 
 ## View order status
 

@@ -10,7 +10,7 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: glenga
 ---
 
@@ -338,6 +338,9 @@ Host.Functions.MyHttpTrigger
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
+
+>[!IMPORTANT]
+>When running locally, authentication isn't enforced for HTTP endpoints. This means that all local HTTP requests are handled as `authLevel = "anonymous"`. For more information, see the [HTTP binding article](functions-bindings-http-webhook.md#authorization-keys). 
 
 ### Passing test data to a function
 

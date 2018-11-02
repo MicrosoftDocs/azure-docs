@@ -27,7 +27,7 @@ The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnosti
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 > [!NOTE]
->  [The newer alerts](monitoring-overview-unified-alerts.md) offers an enhanced experience when creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
+>  [The newer alerts](monitoring-overview-unified-alerts.md) offers an enhanced experience when creating and managing activity log alert rules.  [Learn more](alert-activity-log.md).
 
 View the following video introducing the Activity Log.
 > [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
@@ -98,7 +98,7 @@ A **Log Profile** controls how your Activity Log is exported. Using a Log Profil
 You can use a storage account or event hub namespace that is not in the same subscription as the one emitting logs. The user who configures the setting must have the appropriate RBAC access to both subscriptions.
 
 > [!NOTE]
->  You cannot currently archive data to a storage account that behind a secured virtual network.
+>  You cannot currently archive data to a storage account that is behind a secured virtual network.
 
 > [!WARNING]
 > The format of the log data in the storage account will change to JSON Lines on Nov. 1st, 2018. [See this article for a description of the impact and how to update your tooling to handle the new format.](./monitor-diagnostic-logs-append-blobs.md) 

@@ -181,5 +181,5 @@ For more information, see [Network security and Azure Storage](../storage/common
 
 ## Next steps
 * [Read about RBAC and permissions in Resource Manager](../role-based-access-control/overview.md)
-* [Read the overview of monitoring in Azure](monitoring-overview.md)
+* [Read the overview of monitoring in Azure](../azure-monitor/overview.md)
 

@@ -41,6 +41,7 @@ In order to get up and running with the Digital Twins APIs you can use a client 
 1. Navigate to https://www.getpostman.com/ to download the app
 1. Follow the steps [here](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure Active Directory application (or you can choose to re-use an existing registration). 
 1. Under Required permissions add “Azure Digital Twins,” and select Delegated Permissions. Don't forget to click Grant Permissions to finalize.
+1. Open the application manifest and set oauth2AllowImplicitFlow to true
 1. Configure a reply url to [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback).
 1. Select the **Authorization Tab**, click on **OAuth 2.0**, and select **Get New Access Token**.
 
@@ -48,7 +49,7 @@ In order to get up and running with the Digital Twins APIs you can use a client 
     |---------|---------|
     | Grant Type | Implicit |
     | Callback URL | [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback) |
-    | Auth URL | [https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0](https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0)
+    | Auth URL | https://login.microsoftonline.com/<Your Azure AD Tenant e.g. Contoso>.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
     | Client Id | Use the Application Id for the Azure AD app that was created or repurposed from Step 1 |
     | Scope | leave blank |
     | State | leave blank |

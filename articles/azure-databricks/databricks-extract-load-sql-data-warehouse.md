@@ -2,10 +2,9 @@
 title: 'Tutorial: Perform ETL operations using Azure Databricks'
 description: Learn how to extract data from Data Lake Store into Azure Databricks, transform the data, and then load the data into Azure SQL Data Warehouse. 
 services: azure-databricks
-author: nitinme
-ms.author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
@@ -91,7 +90,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
 
     * Enter a name for the cluster.
     * For this article, create a cluster with **4.0** runtime. 
-    * Make sure you select the **Terminate after ____ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
+    * Make sure you select the **Terminate after \_\_ minutes of inactivity** checkbox. Provide a duration (in minutes) to terminate the cluster, if the cluster is not being used.
     
     Select **Create cluster**. Once the cluster is running, you can attach notebooks to the cluster and run Spark jobs.
 

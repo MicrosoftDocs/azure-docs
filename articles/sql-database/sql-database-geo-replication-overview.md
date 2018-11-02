@@ -11,7 +11,7 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
+ms.date: 10/29/2018
 ---
 # Overview: Active geo-replication and auto-failover groups
 
@@ -275,18 +275,18 @@ As discussed previously, auto-failover groups and active geo-replication can als
 | --- | --- |
 | [Create or Update Database (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Creates, updates, or restores a primary or a secondary database. |
 | [Get Create or Update Database Status](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Returns the status during a create operation. |
-| [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Sets which replica database is primary by failing over from the current primary replica database. |
-| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
-| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
-| [Replication Links - List By Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
-| [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Deletes a database replication link. Cannot be done during failover. |
-| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Creates or updates a failover group |
-| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Removes the failover group from the server |
-| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Fails over from the current primary server to this server. |
-| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) | Gets a failover group. |
-| [List Failover Groups By Server](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Lists the failover groups in a server. |
-| [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Updates a failover group. |
+| [Set Secondary Database as Primary (Planned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Sets which replica database is primary by failing over from the current primary replica database. |
+| [Set Secondary Database as Primary (Unplanned Failover)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Sets which replica database is primary by failing over from the current primary replica database. This operation might result in data loss. |
+| [Get Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Gets a specific replication link for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [Replication Links - List By Database](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Gets all replication links for a given SQL database in a geo-replication partnership. It retrieves the information visible in the sys.geo_replication_links catalog view. |
+| [Delete Replication Link](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Deletes a database replication link. Cannot be done during failover. |
+| [Create or Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Creates or updates a failover group |
+| [Delete Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Removes the failover group from the server |
+| [Failover (Planned)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Fails over from the current primary server to this server. |
+| [Force Failover Allow Data Loss](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |ails over from the current primary server to this server. This operation might result in data loss. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/get) | Gets a failover group. |
+| [List Failover Groups By Server](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Lists the failover groups in a server. |
+| [Update Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Updates a failover group. |
 |  | |
 
 ## Next steps

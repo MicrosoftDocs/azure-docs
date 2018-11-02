@@ -114,7 +114,7 @@ You can download a complete version of the project created in this tutorial from
 
 * The [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
-* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* Java JDK 1.8 or later on your development environment. JDK downloads are available from [Oracle](https://aka.ms/azure-jdks).
 
   * The **JAVA_HOME** environment variable must point to the directory that contains Java.
   * The **%JAVA_HOME%/bin** directory must be in the path.

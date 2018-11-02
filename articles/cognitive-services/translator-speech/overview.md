@@ -30,7 +30,7 @@ For speech to speech translation, the service provides the ability to synthesize
 The Translator Speech API uses the WebSocket protocol to provide a full-duplex communication channel between the client and the server. 
 
 ## About Microsoft Translator
-Microsoft Translator is a cloud-based machine translation service. At the core of this service are the [Translator Text API] (https://www.microsoft.com/en-us/translator/translatorapi.aspx) and Translator Speech API which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
+Microsoft Translator is a cloud-based machine translation service. At the core of this service are the [Translator Text API](https://www.microsoft.com/en-us/translator/translatorapi.aspx) and Translator Speech API which power various Microsoft products and services and are used by thousands of businesses worldwide in their applications and workflows, allowing their content to reach a worldwide audience.
 
 Learn more about the [Microsoft Translator service](https://www.microsoft.com/en-us/translator/home.aspx)
 
