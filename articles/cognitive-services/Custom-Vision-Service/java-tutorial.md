@@ -34,30 +34,38 @@ Clone or download the [Cognitive Services Java SDK Samples](https://github.com/A
 
 This Visual Studio project creates a new Custom Vision project named __Sample Java Project__, which can be accessed through the [Custom Vision website](https://customvision.ai/). It then uploads images to train and test a classifier. In this project, the classifier is intended to determine whether a tree is a __Hemlock__ or a __Japanese Cherry__.
 
+## Get the training and prediction keys
+
+The project needs a valid set of subscription keys in order to interact with the service. To get a set of free trial keys, go to the [Custom Vision website](https://customvision.ai) and sign in with a Microsoft account. Select the __gear icon__ in the upper right. In the __Accounts__ section, see the values in the __Training Key__ and __Prediction Key__ fields. You will need these later. 
+
+![Image of the keys UI](./media/csharp-tutorial/training-prediction-keys.png)
+
+The program is configured to store your key data as environment variables. Set these variables by navigating to the **Vision/CustomVision** folder in PowerShell. Then enter the commands:
+
+```PowerShell
+$env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
+$env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
+```
+
 ## Understand the code
 
-Use your Java IDE to open the `Vision/CustomVision` project. 
+Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisionSamples.java_ file. Find the **runSample** method and comment out the **ObjectDetection_Sample** method call&mdash;this executes the object detection scenario, which is not covered in this guide. The **ImageClassification_Sample** method implements the primary functionality of this example; navigate to its definition and inspect the code. 
 
-The following code snippets implement the primary functionality of this example:
+### Create a Custom Vision Service project
 
-## Create a Custom Vision Service project
-
-> [!IMPORTANT]
-> Set the `trainingApiKey` to the training key value you retrieved earlier.
+The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
 ```java
-final String trainingApiKey = "insert your training key here";
-TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
-
+System.out.println("ImageClassification Sample");
 Trainings trainer = trainClient.trainings();
 
 System.out.println("Creating project...");
 Project project = trainer.createProject()
-            .withName("Sample Java Project")
-            .execute();
+    .withName("Sample Java Project")
+    .execute();
 ```
 
-## Add tags to your project
+### Create tags in the project
 
 ```java
 // create hemlock tag
@@ -73,9 +81,9 @@ Tag cherryTag = trainer.createTag()
     .execute();
 ```
 
-## Upload images to the project
+### Upload and tag images
 
-The sample is setup to include the images in the final package. Images are read from the resources section of the jar and uploaded to the service.
+The sample images are included in the **src/main/resources** folder of the project. They are read from there and uploaded to the service with their appropriate tags.
 
 ```java
 System.out.println("Adding images...");
@@ -92,7 +100,7 @@ for (int i = 1; i <= 10; i++) {
 }
 ```
 
-The previous snippet code makes use of two helper functions that retrieve the images as resource streams and upload them to the service.
+The previous code snippet makes use of two helper functions that retrieve the images as resource streams and upload them to the service.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
@@ -124,9 +132,9 @@ private static byte[] GetImage(String folder, String fileName)
 }
 ```
 
-## Train the project
+### Train the classifier
 
-This creates the first iteration in the project and marks this iteration as the default iteration. 
+This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
 
 ```java
 System.out.println("Training...");
@@ -143,22 +151,11 @@ System.out.println("Training Status: "+ iteration.status());
 trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
 ```
 
-## Get and use the default prediction endpoint
+### Use the prediction endpoint
 
-> [!IMPORTANT]
-> Set the `predictionApiKey` to the prediction key value you retrieved earlier.
+The prediction endpoint, represented by the `predictor` object here, is the reference that you use to submit an image to the current model and get a classification prediction. In this sample, `predictor` is defined elsewhere using the prediction key environment variable.
 
 ```java
-final String predictionApiKey = "insert your prediction key here";
-PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
-
-// Use below for predictions from a url
-// String url = "some url";
-// ImagePrediction results = predictor.predictions().predictImage()
-//                         .withProjectId(project.id())
-//                         .withUrl(url)
-//                         .execute();
-
 // load test image
 byte[] testImage = GetImage("/Test", "test_image.jpg");
 
@@ -174,15 +171,15 @@ for (Prediction prediction: results.predictions())
 }
 ```
 
-## Run the example
+## Run the application
 
-To compile and run the solution using maven:
+To compile and run the solution using maven, run the following command in the project directory in PowerShell:
 
-```
+```PowerShell
 mvn compile exec:java
 ```
 
-The output of the application is similar to the following text:
+The output of the application should be similar to the following text:
 
 ```
 Creating project...
@@ -215,3 +212,19 @@ Done!
         Hemlock: 93.53%
         Japanese Cherry: 0.01%
 ```
+
+You can then verify that the test image prediction (the last few lines of output) is correct.
+
+## Clean up resources
+If you wish to implement your own image classification project (or try an [object detection](java-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
+
+On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
+
+![Screenshot of a panel labelled My New Project with a trash can icon](media/csharp-tutorial/delete_project.png)
+
+## Next steps
+
+Now you have seen how every step of the image classification process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate.
+
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)
