@@ -34,7 +34,7 @@ Here are some guidelines to follow when using a service-specific client in an Az
 - **DO** create a single, static client that can be used by every function invocation.
 - **CONSIDER** creating a single, static client in a shared helper class if different functions use the same service.
 
-## HttpClient code example
+## C# HttpClient code example
 
 Here's an example of function code that creates a static [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx):
 
@@ -50,6 +50,26 @@ public static async Task Run(string input)
 ```
 
 A common question about the .NET [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) is "Should I be disposing my client?" In general, you dispose objects that implement `IDisposable` when you're done using them. But you don't dispose a static client because you aren't done using it when the function ends. You want the static client to live for the duration of your application.
+
+## Node.js HTTP agent code example
+
+Using the native [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) class is recommended over using the `node-fetch` module since it provides better connection management options. Connection parameters can be configured using options on the `http.agent` class. See [new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) for the detailed options available when creating a new instance of the HTTP agent, or after it is created. 
+
+The global `http.globalAgent` used by `http.request()` has all of these values set to their respective defaults. The recommended way to configure connection limits in Functions is to set a maximum number globally. You can accomplish this with the following code.
+
+```js
+http.globalAgent.maxSockets = 200;
+```
+
+ To configure a new HTTP request with a custom HTTP agent. You can use the following code to create individually configured HTTP requests.
+
+```js
+var http = require('http');
+var httpAgent = new http.Agent();
+httpAgent.maxSockets = 200;
+options.agent = httpAgent;
+http.request(options, onResponseCallback);
+```
 
 ## DocumentClient code example
 
