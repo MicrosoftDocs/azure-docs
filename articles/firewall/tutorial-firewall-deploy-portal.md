@@ -12,8 +12,6 @@ ms.custom: mvc
 ---
 # Tutorial: Deploy and configure Azure Firewall using the Azure portal
 
-If you're an administrator in an organization, it's likely that you want to control outbound access from resources located in a subnet. You can use Azure Firewall to do just that. Refer to the steps in this tutorial if you are new to the service.
-
 Azure Firewall has two rule types to control outbound access:
 
 - **Application rules**
