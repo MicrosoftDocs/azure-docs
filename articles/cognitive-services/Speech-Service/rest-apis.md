@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: erhopf
 ---
+
 # Speech Service REST APIs
 
 In addition to the [Speech SDK](speech-sdk.md), the Speech service enables you to convert speech-to-text and text-to-speech via a set REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
@@ -35,10 +36,205 @@ When using the `Authorization: Bearer` header, you're required to make a request
 
 ### How to obtain an access token
 
-To get an access token, you'll need to make a request to the `issueToken` endpoint using the `Ocp-Apim-Subscription-Key` and your subscription key. These regions and endpoints are supported:
+To get an access token, you'll need to make a request to the `issueToken` endpoint using the `Ocp-Apim-Subscription-Key` and your subscription key.
+
+These regions and endpoints are supported:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
+#### Get a token: HTTP
+
+The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
+
+```
+POST /sts/v1.0/issueToken HTTP/1.1
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.api.cognitive.microsoft.com
+Content-type: application/x-www-form-urlencoded
+Content-Length: 0
+```
+
+The body of the response to this request is the access token in Java Web Token (JWT) format.
+
+#### Get a token: PowerShell
+
+The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+
+```Powershell
+$FetchTokenHeader = @{
+  'Content-type'='application/x-www-form-urlencoded';
+  'Content-Length'= '0';
+  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+}
+
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
+ -Headers $FetchTokenHeader
+
+# show the token received
+$OAuthToken
+
+```
+
+#### Get a token: cURL
+
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+
+> [!NOTE]
+> The command is shown on multiple lines for readability, but enter it on a single line at a shell prompt.
+
+```
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
+ -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
+```
+
+#### Get a token: C#
+
+The following C# class illustrates how to obtain an access token. Pass your Speech service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
+
+```cs
+/*
+    * This class demonstrates how to get a valid access token.
+    */
+public class Authentication
+{
+    public static readonly string FetchTokenUri =
+        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+    private string subscriptionKey;
+    private string token;
+
+    public Authentication(string subscriptionKey)
+    {
+        this.subscriptionKey = subscriptionKey;
+        this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
+    }
+
+    public string GetAccessToken()
+    {
+        return this.token;
+    }
+
+    private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(fetchUri);
+
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
+            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+            return await result.Content.ReadAsStringAsync();
+        }
+    }
+}
+```
+
+### How to use an access token
+
+The access token should be sent to the service as the `Authorization: Bearer <TOKEN>` header. Each access token is valid for 10 minutes. You can obtain a new token at any time, however, to minimize network traffic and latency, we recommend using the same token for nine minutes.
+
+Here's a sample request to the text-to-speech REST API:
+
+```http
+POST /cognitiveservices/v1 HTTP/1.1
+Authorization: Bearer YOUR_ACCESS_TOKEN
+Host: westus.tts.speech.microsoft.com
+Content-type: application/ssml+xml
+Content-Length: 199
+Connection: Keep-Alive
+
+<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
+<voice name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
+    Hello, world!
+</voice></speak>
+```
+
+### How to renew an access token using C#
+
+The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes by using a timer. This approach ensures that a valid token is always available while your program is running.
+
+> [!NOTE]
+> Instead of using a timer, you can store a timestamp of when the last token was obtained. Then you can request a new one only if it's close to expiring. This approach avoids requesting new tokens unnecessarily and might be more suitable for programs that make infrequent Speech requests.
+
+As before, make sure the `FetchTokenUri` value matches your subscription region. Pass your subscription key when you instantiate the class.
+
+```cs
+/*
+    * This class demonstrates how to maintain a valid access token.
+    */
+public class Authentication
+{
+    public static readonly string FetchTokenUri =
+        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+    private string subscriptionKey;
+    private string token;
+    private Timer accessTokenRenewer;
+
+    //Access token expires every 10 minutes. Renew it every 9 minutes.
+    private const int RefreshTokenDuration = 9;
+
+    public Authentication(string subscriptionKey)
+    {
+        this.subscriptionKey = subscriptionKey;
+        this.token = FetchToken(FetchTokenUri, subscriptionKey).Result;
+
+        // renew the token on set duration.
+        accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback),
+                                        this,
+                                        TimeSpan.FromMinutes(RefreshTokenDuration),
+                                        TimeSpan.FromMilliseconds(-1));
+    }
+
+    public string GetAccessToken()
+    {
+        return this.token;
+    }
+
+    private void RenewAccessToken()
+    {
+        this.token = FetchToken(FetchTokenUri, this.subscriptionKey).Result;
+        Console.WriteLine("Renewed token.");
+    }
+
+    private void OnTokenExpiredCallback(object stateInfo)
+    {
+        try
+        {
+            RenewAccessToken();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(string.Format("Failed renewing access token. Details: {0}", ex.Message));
+        }
+        finally
+        {
+            try
+            {
+                accessTokenRenewer.Change(TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(string.Format("Failed to reschedule the timer to renew access token. Details: {0}", ex.Message));
+            }
+        }
+    }
+
+    private async Task<string> FetchToken(string fetchUri, string subscriptionKey)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(fetchUri);
+
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
+            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+            return await result.Content.ReadAsStringAsync();
+        }
+    }
+}
+```
 
 ## Speech-to-text
 
@@ -294,212 +490,6 @@ HTTP code|Meaning|Possible reason
 502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
 
 If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred or saved to a buffer or file for later playback or other use.
-
-## Authentication
-
-Sending a request to the Speech service's REST API requires either a subscription key or an access token. In general, it's easiest to send the subscription key directly. The Speech service then obtains the access token for you. To minimize response time, you might want to use an access token instead.
-
-To obtain a token, present your subscription key to a regional Speech service `issueToken` endpoint, as shown in the following table. Use the endpoint that matches your subscription region.
-
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
-
-Each access token is valid for 10 minutes. You can obtain a new token at any time. If you like, you can obtain a token just before every Speech REST API request. To minimize network traffic and latency, we recommend using the same token for nine minutes.
-
-The following sections show how to get a token and how to use it in a request.
-
-### Get a token: HTTP
-
-The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
-
-```
-POST /sts/v1.0/issueToken HTTP/1.1
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.api.cognitive.microsoft.com
-Content-type: application/x-www-form-urlencoded
-Content-Length: 0
-```
-
-The body of the response to this request is the access token in Java Web Token (JWT) format.
-
-### Get a token: PowerShell
-
-The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
-
-```Powershell
-$FetchTokenHeader = @{
-  'Content-type'='application/x-www-form-urlencoded';
-  'Content-Length'= '0';
-  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
-}
-
-$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
- -Headers $FetchTokenHeader
-
-# show the token received
-$OAuthToken
-
-```
-
-### Get a token: cURL
-
-cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
-
-> [!NOTE]
-> The command is shown on multiple lines for readability, but enter it on a single line at a shell prompt.
-
-```
-curl -v -X POST
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
- -H "Content-type: application/x-www-form-urlencoded"
- -H "Content-Length: 0"
- -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
-
-### Get a token: C#
-
-The following C# class illustrates how to obtain an access token. Pass your Speech service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
-
-```cs
-/*
-    * This class demonstrates how to get a valid access token.
-    */
-public class Authentication
-{
-    public static readonly string FetchTokenUri =
-        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-    private string subscriptionKey;
-    private string token;
-
-    public Authentication(string subscriptionKey)
-    {
-        this.subscriptionKey = subscriptionKey;
-        this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
-    }
-
-    public string GetAccessToken()
-    {
-        return this.token;
-    }
-
-    private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
-    {
-        using (var client = new HttpClient())
-        {
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-            return await result.Content.ReadAsStringAsync();
-        }
-    }
-}
-```
-
-### Use a token
-
-To use a token in a REST API request, provide it in the `Authorization` header, following the word `Bearer`. Here is a sample Text to Speech REST request that contains a token. Substitute your actual token for `YOUR_ACCESS_TOKEN`. Use the correct host name in the `Host` header.
-
-```xml
-POST /cognitiveservices/v1 HTTP/1.1
-Authorization: Bearer YOUR_ACCESS_TOKEN
-Host: westus.tts.speech.microsoft.com
-Content-type: application/ssml+xml
-Content-Length: 199
-Connection: Keep-Alive
-
-<speak version='1.0' xmlns="http://www.w3.org/2001/10/synthesis" xml:lang='en-US'>
-<voice name='Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)'>
-    Hello, world!
-</voice></speak>
-```
-
-### Renew authorization
-
-The authorization token expires after 10 minutes. Renew your authorization by obtaining a new token before it expires. As an example, you can obtain a new token after nine minutes.
-
-The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes by using a timer. This approach ensures that a valid token is always available while your program is running.
-
-> [!NOTE]
-> Instead of using a timer, you can store a timestamp of when the last token was obtained. Then you can request a new one only if it's close to expiring. This approach avoids requesting new tokens unnecessarily and might be more suitable for programs that make infrequent Speech requests.
-
-As before, make sure the `FetchTokenUri` value matches your subscription region. Pass your subscription key when you instantiate the class.
-
-```cs
-/*
-    * This class demonstrates how to maintain a valid access token.
-    */
-public class Authentication
-{
-    public static readonly string FetchTokenUri =
-        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-    private string subscriptionKey;
-    private string token;
-    private Timer accessTokenRenewer;
-
-    //Access token expires every 10 minutes. Renew it every 9 minutes.
-    private const int RefreshTokenDuration = 9;
-
-    public Authentication(string subscriptionKey)
-    {
-        this.subscriptionKey = subscriptionKey;
-        this.token = FetchToken(FetchTokenUri, subscriptionKey).Result;
-
-        // renew the token on set duration.
-        accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback),
-                                        this,
-                                        TimeSpan.FromMinutes(RefreshTokenDuration),
-                                        TimeSpan.FromMilliseconds(-1));
-    }
-
-    public string GetAccessToken()
-    {
-        return this.token;
-    }
-
-    private void RenewAccessToken()
-    {
-        this.token = FetchToken(FetchTokenUri, this.subscriptionKey).Result;
-        Console.WriteLine("Renewed token.");
-    }
-
-    private void OnTokenExpiredCallback(object stateInfo)
-    {
-        try
-        {
-            RenewAccessToken();
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine(string.Format("Failed renewing access token. Details: {0}", ex.Message));
-        }
-        finally
-        {
-            try
-            {
-                accessTokenRenewer.Change(TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(string.Format("Failed to reschedule the timer to renew access token. Details: {0}", ex.Message));
-            }
-        }
-    }
-
-    private async Task<string> FetchToken(string fetchUri, string subscriptionKey)
-    {
-        using (var client = new HttpClient())
-        {
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-            return await result.Content.ReadAsStringAsync();
-        }
-    }
-}
-```
 
 ## Next steps
 
