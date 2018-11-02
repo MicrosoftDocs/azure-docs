@@ -55,9 +55,3 @@ This article describes how to create an IoT hub using the [Azure portal](https:/
    ![Screenshot reviewing information for creating the new IoT hub](./media/iot-hub-create-hub-include/iot-hub-create-review.png)
 
 6. Click **Create** to create your new IoT hub. Creating the hub takes a few minutes.
-
-7. After your hub has been created, you can retrieve the connection string you use to connect devices and applications to your hub. To find the connection string, click on your hub to see the property window. Click **Shared access policies**.
-   
-8. In **Shared access policies**, select the **iothubowner** policy. Copy the IoT Hub **Connection string---primary key** to use later. For more information, see [Access control](../articles/iot-hub/iot-hub-devguide-security.md) in the "IoT Hub developer guide."
-
-    ![Show how to retrieve the connection string](./media/iot-hub-create-hub-include/iot-hub-get-connection-string.png)

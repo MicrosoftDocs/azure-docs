@@ -46,7 +46,7 @@ Download the sample Python project from https://github.com/Azure-Samples/azure-i
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
 
 ## Register a device
 
