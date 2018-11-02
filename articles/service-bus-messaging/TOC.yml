@@ -29,8 +29,6 @@
       href: service-bus-python-how-to-use-queues.md
     - name: Send and receive messages - Ruby
       href: service-bus-ruby-how-to-use-queues.md
-    - name: Send and receive messages - REST
-      href: /rest/api/servicebus/queues    
   - name: Services Bus topics and subscriptions
     items:
     - name: Publish and subscribe for messages - .NET
