@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -78,6 +78,10 @@ Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environme
 ## Can I install two or more Pass-through Authentication Agents on the same server?
 
 No, you can only install one Pass-through Authentication Agent on a single server. If you want to configure Pass-through Authentication for high availability, [follow the instructions here](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## Do I have to manually renew certificates used by Pass-through Authentication Agents?
+
+The communication between each Pass-through Authentication Agent and Azure AD is secured using certificate-based authentication. These [certificates are automatically renewed every few months by Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). There is no need to manually renew these certificates. You can clean up older expired certificates as required.
 
 ## How do I remove a Pass-through Authentication Agent?
 

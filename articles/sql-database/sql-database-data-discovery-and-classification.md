@@ -126,7 +126,7 @@ An important aspect of the information protection paradigm is the ability to mon
 You can use T-SQL to add/remove column classifications, as well as retrieve all classifications for the entire database.
 
 > [!NOTE]
-> When using T-SQL to manage labels, there is no validation that labels added to a column exist in the organizational information protection policy (the set of labels that appear in the portal recommendations). It is therefor up to you to validate this.
+> When using T-SQL to manage labels, there is no validation that labels added to a column exist in the organizational information protection policy (the set of labels that appear in the portal recommendations). It is therefore up to you to validate this.
 
 - Add/update the classification of one or more columns: [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
 - Remove the classification from one or more columns: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
@@ -134,10 +134,10 @@ You can use T-SQL to add/remove column classifications, as well as retrieve all 
 
 You can also use REST APIs to programmatically manage classifications. The published REST APIs support the following operations:
 
-- [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_createorupdate)  - Creates or updates the sensitivity label of a given column
-- [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_delete) - Deletes the sensitivity label of a given column
-- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_get)  - Gets the sensitivity label of a given column
-- [List By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/sensitivitylabels_listbydatabase) - Gets the sensitivity labels of a given database
+- [Create Or Update](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate)  - Creates or updates the sensitivity label of a given column
+- [Delete](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) - Deletes the sensitivity label of a given column
+- [Get](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get)  - Gets the sensitivity label of a given column
+- [List By Database](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) - Gets the sensitivity labels of a given database
 
 ## <a id="subheading-5"></a>Next steps
 

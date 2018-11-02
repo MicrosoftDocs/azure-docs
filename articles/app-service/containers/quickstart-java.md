@@ -73,26 +73,7 @@ Then add the following plugin definition inside the `<build>` element of the `po
 
 
 > [!NOTE] 
-> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications. Use the following alternate plugin definition for these applications. This configuration will deploy a JAR built by Maven at `${project.build.directory}/${project.build.finalName}.jar` on your local filesystem.
->
->```xml
-><plugin>
->            <groupId>com.microsoft.azure</groupId>
->            <artifactId>azure-webapp-maven-plugin</artifactId>
->            <version>1.4.0</version>
->            <configuration>
->                <deploymentType>jar</deploymentType>
->
->           <!-- Web App information -->
->            <resourceGroup>${RESOURCEGROUP_NAME}</resourceGroup>
->            <appName>${WEBAPP_NAME}</appName>
->            <region>${REGION}</region>  
->
->                <!-- Java Runtime Stack for Web App on Linux-->
->                <linuxRuntime>jre8</linuxRuntime>
->            </configuration>
->         </plugin>
->```    
+> In this article we are only working with Java apps packaged in WAR files. The plugin also supports JAR web applications, visit [Deploy a Java SE JAR file to App Service on Linux](https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) to try it out.
 
 
 Update the following placeholders in the plugin configuration:
@@ -123,8 +104,8 @@ Once deployment has completed, browse to the deployed application using the foll
 
 ## Next steps
 
-In this quickstart, you used Maven to create a Java web app, configured the [Maven Plugin for Azure Web Apps (Preview)](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then  deployed a web archive packaged Java web app to App Service on Linux. To learn more about using Java with Azure, follow the link below.
+In this quickstart, you used Maven to create a Java web app, configured the [Maven Plugin for Azure Web Apps](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin), then deployed a web archive packaged Java app to App Service on Linux. To learn how to connect databases, set up logging and monitoring, configure security, and set runtime options, continue to the Java Developer's Guide for App Service on Linux.
 
 > [!div class="nextstepaction"]
-> [Azure for Java Developers](https://docs.microsoft.com/java/azure/)
+> [App Service on Linux Java Developer's Guide](app-service-linux-java.md)
 

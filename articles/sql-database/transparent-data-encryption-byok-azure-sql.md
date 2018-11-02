@@ -61,8 +61,6 @@ When TDE is first configured to use a TDE protector from Key Vault, the server s
   > If the Azure AD Identity **is accidentally deleted or the server’s permissions are revoked** using the key vault’s access policy, the  server loses access to the key vault, and TDE encrypted databases are dropped within 24 hours.
 
 - When using firewalls and virtual networks with Azure Key Vault, you must configure the following: 
-  - Allow access from “Selected networks” 
-  - Add existing virtual networks and select the SQL Database network if applicable (this is optional for singleton databases and required for managed instances) 
   - Allow trusted Microsoft services to bypass this firewall – chose YES 
  		 
  	> [!NOTE] 

@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -82,7 +82,7 @@ Claims are present only if a value exists to fill it. Thus, your app should not 
 | Claim | Format | Description |
 |-----|--------|-------------|
 | `aud` | String, an App ID URI | Identifies the intended recipient of the token. In access tokens, the audience is your app's Application ID, assigned to your app in the Azure portal. Your app should validate this value and reject the token if the value does not match. |
-| `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
+| `iss` | String, an STS URI | Identifies the security token service (STS) that constructs and returns the token, and the Azure AD tenant in which the user was authenticated. If the token issued is a v2.0 token (see the `ver` claim), the URI will end in `/v2.0`. The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
 |`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim is not present, it means that the value of `iss` can be used instead.  For personal accounts being used in an orgnizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |  
 | `iat` | int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred. |
 | `nbf` | int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT must not be accepted for processing. |
@@ -127,12 +127,12 @@ The following claims will be included in v1.0 tokens if applicable, but are not 
 
 #### The `amr` claim
 
-Microsoft identities can authenticate in a variety of ways, which may be relevant to your application. The `amr` claim is an array that can contain multiple items,such as `["mfa", "rsa", "pwd"]`, for an authentication that used both a password and the Authenticator app. 
+Microsoft identities can authenticate in a variety of ways, which may be relevant to your application. The `amr` claim is an array that can contain multiple items, such as `["mfa", "rsa", "pwd"]`, for an authentication that used both a password and the Authenticator app. 
 
 | Value | Description |
 |-----|-------------|
 | `pwd` | Password authentication, either a user's Microsoft password or an app's client secret. |
-| `rsa` | Authentication was based on the proof of an RSA key, for example with the [Microsoft Authenticator pp](https://aka.ms/AA2kvvu). This includes if authentication was performed by a self-signed JWT with a service owned X509 certificate. |
+| `rsa` | Authentication was based on the proof of an RSA key, for example with the [Microsoft Authenticator app](https://aka.ms/AA2kvvu). This includes if authentication was performed by a self-signed JWT with a service owned X509 certificate. |
 | `otp` | One-time passcode using an email or a text message. |
 | `fed` | A federated authentication assertion (such as JWT or SAML) was used. |
 | `wia` | Windows Integrated Authentication |
@@ -175,7 +175,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Try this URL in a browser!
+> Try this [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) in a browser!
 
 This metadata document:
 
@@ -183,7 +183,7 @@ This metadata document:
 * Includes a `jwks_uri`, which gives the location of the set of public keys used to sign tokens. The JSON document located at the `jwks_uri` contains all of the public key information in use at that particular moment in time. Your app can use the `kid` claim in the JWT header to select which public key in this document has been used to sign a particular token. It can then perform signature validation using the correct public key and the indicated algorithm.
 
 > [!NOTE]
-> The v1.0 endpoint returns both the `x5t` and `kid` claims. The `x5t` claim is missing from v2.0 tokens. The v2.0 endpoint responds with the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
+> The v1.0 endpoint returns both the `x5t` and `kid` claims, while the v2.0 endpoint responds with only the `kid` claim. Going forward, we recommend using the `kid` claim to validate your token.
 
 Performing signature validation is outside the scope of this document - there are many open source libraries available for helping you do so if necessary.
 
@@ -198,7 +198,7 @@ Your application's business logic will dictate this step, some common authorizat
 * Check that the `tid` matches a tenant that is allowed to call your API.
 * Use the `acr` claim to verify the user has performed MFA. Note that this should be enforced using [conditional access](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * If you've requested the `roles` or `groups` claims in the access token, verify that the user is in the group allowed to perform this action.
-  * For tokens retrieved using the implicit flow, you'll likely need to query the [Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token. 
+  * For tokens retrieved using the implicit flow, you'll likely need to query the [Microsoft Graph](https://developer.microsoft.com/graph/) for this data, as it's often too large to fit in the token. 
 
 ## User and application tokens
 

@@ -193,7 +193,7 @@ Make sure you concatenate your parameter/variable strings (\'contosovm\') with a
 For example, most resource names cannot start with a digit, but unique string function can return a string, which starts with a digit. So, if you use raw unique string output, your deployments will fail. 
 
 You can find additional information about resource naming rules and
-restrictions in [this article] (https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
+restrictions in [this article](https://docs.microsoft.com/azure/guidance/guidance-naming-conventions).
 
 ### Deployment Location
 
