@@ -53,7 +53,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 
 ```csharp
 // Create a Cassandra keyspace and provision throughput of 10000 RU/s
-session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=1000);
+session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provisioned_throughput=10000);
 ```
 
 ## Next steps
