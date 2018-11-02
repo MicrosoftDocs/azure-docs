@@ -84,6 +84,10 @@ Only one public IP address is supported on an application gateway.
 Application Gateway consumes one private IP address per instance, plus another private IP address if a private frontend IP configuration is configured. Also, Azure reserves the first four and last IP address in each subnet for internal usage.
 For example, if an application gateway is set to three instances and no private frontend IP, then a /29 subnet size or greater is needed. In this case, the application gateway uses three IP addresses. If you have three instances and an IP address for the private frontend IP configuration, then a /28 subnet size or greater is needed as four IP addresses are required.
 
+### Q. Can I deploy more than one Application Gateway resource to a single subnet?**
+
+Yes, in addition to having multiple instances of a given Application Gateway deployment, you can provision another unique Application Gateway resource to an existing subnet that contains a different Application Gateway resource.
+
 ### Does Application Gateway support x-forwarded-for headers?
 
 Yes, Application Gateway inserts x-forwarded-for, x-forwarded-proto, and x-forwarded-port headers into the request forwarded to the backend. The format for x-forwarded-for header is a comma-separated list of IP:Port. The valid values for x-forwarded-proto are http or https. X-forwarded-port specifies the port at which the request reached at the application gateway.

@@ -21,9 +21,9 @@ Batch transcription is ideal if you have large amounts of audio in storage. By u
 
 The Batch Transcription API offers asynchronous speech-to-text transcription, along with additional features. It is a REST API that exposes methods for:
 
-* Creating batch processing requests
-* Querying status 
-* Downloading transcriptions
+1. Creating batch processing requests
+1. Query Status 
+1. Downloading transcriptions
 
 > [!NOTE]
 > The Batch Transcription API is ideal for call centers, which typically accumulate thousands of hours of audio. The API is guided by a "fire and forget" philosophy, which makes it easy to transcribe large volumes of audio recordings.

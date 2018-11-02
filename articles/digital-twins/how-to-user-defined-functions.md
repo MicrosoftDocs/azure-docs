@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
 ---
 
@@ -22,8 +22,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourInstanceName` | The name of your Azure Digital Twins instance |
-| `yourLocation` | Which server region your instance is hosted on |
+| *yourInstanceName* | The name of your Azure Digital Twins instance |
+| *yourLocation* | Which server region your instance is hosted on |
 
 ## Client library reference
 
@@ -45,9 +45,9 @@ Valid matcher condition targets:
 - `SensorDevice`
 - `SensorSpace`
 
-The following example matcher will evaluate to true on any sensor telemetry event with `Temperature` as its data type value. You can create multiple matchers on a user-defined function.
+The following example matcher will evaluate to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function.
 
-```text
+```plaintext
 POST https://yourManagementApiUrl/api/v1.0/matchers
 {
   "Name": "Temperature Matcher",
@@ -65,8 +65,8 @@ POST https://yourManagementApiUrl/api/v1.0/matchers
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourSpaceIdentifier` | Which server region your instance is hosted on |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
+| *yourSpaceIdentifier* | Which server region your instance is hosted on |
 
 ## Create a user-defined function (UDF)
 
@@ -85,7 +85,7 @@ POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Typ
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
 
 Body:
 
@@ -113,14 +113,14 @@ function process(telemetry, executionContext) {
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourSpaceIdentifier` | The space identifier  |
-| `yourMatcherIdentifier` | The id of the matcher you wish to use |
+| *yourSpaceIdentifier* | The space identifier  |
+| *yourMatcherIdentifier* | The ID of the matcher you wish to use |
 
 ### Example Functions
 
-Set the sensor telemetry reading directly for the sensor with data type `Temperature`, which is sensor.DataType:
+Set the sensor telemetry reading directly for the sensor with data type **Temperature**, which is `sensor.DataType`:
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Get sensor metadata
@@ -134,9 +134,21 @@ function process(telemetry, executionContext) {
 }
 ```
 
-Log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will be forwarded:
+The *telemetry* parameter exposes the **SensorId** and **Message** attributes (corresponding to a message sent by a sensor). The *executionContext* parameter exposes the following attributes:
 
-```javascript
+```csharp
+var executionContext = new UdfExecutionContext
+{
+    EnqueuedTime = request.HubEnqueuedTime,
+    ProcessorReceivedTime = request.ProcessorReceivedTime,
+    UserDefinedFunctionId = request.UserDefinedFunctionId,
+    CorrelationId = correlationId.ToString(),
+};
+```
+
+In the next example, we will log a message if the sensor telemetry reading surpasses a pre-defined threshold. If your diagnostic settings are enabled on the Digital Twins instance, logs from user-defined functions will also be forwarded:
+
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -151,7 +163,7 @@ function process(telemetry, executionContext) {
 
 The following code will trigger a notification if the temperature level rises above the pre-defined constant.
 
-```javascript
+```JavaScript
 function process(telemetry, executionContext) {
 
   // Retrieve the sensor value
@@ -179,7 +191,7 @@ For a more complex UDF code sample, refer to [Check available spaces with fresh 
 
 We need to create a role assignment for the user-defined function to execute under. If we do not, it will not have the proper permissions to interact with the Management API to perform actions on graph objects. The actions that the user-defined function performs are not exempt from the role-based access control within the Digital Twins Management APIs. They can be limited in scope by specifying certain roles, or certain access control paths. For more information, see [Role Based Access Control](./security-role-based-access-control.md) documentation.
 
-- Query for roles and get the ID of the role you want to assign to the UDF; pass it to RoleId below.
+1. Query for roles and get the ID of the role you want to assign to the UDF; pass it to **RoleId** below.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/system/roles
@@ -187,10 +199,11 @@ GET https://yourManagementApiUrl/api/v1.0/system/roles
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
 
-- ObjectId will be the UDF ID that was created earlier
-- Find `Path` by querying the Spaces with their full path and copy the `spacePaths` value. Paste it in Path below when creating the UDF role assignment
+2. **ObjectId** will be the UDF ID that was created earlier.
+3. Find the value of **Path** by querying your spaces with `fullpath`.
+4. Copy the returned `spacePaths` value. You will use that below.
 
 ```plaintext
 GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
@@ -198,8 +211,10 @@ GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=ful
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourSpaceName` | The name of the space you wish to use |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
+| *yourSpaceName* | The name of the space you wish to use |
+
+4. Now, paste the returned `spacePaths` value into **Path** to create a UDF role assignment.
 
 ```plaintext
 POST https://yourManagementApiUrl/api/v1.0/roleassignments
@@ -213,10 +228,10 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourManagementApiUrl` | The full URL path for your Management API  |
-| `yourDesiredRoleIdentifier` | The identifier for the desired role |
-| `yourUserDefinedFunctionId` | The id for the UDF you want to use |
-| `yourAccessControlPath` | The access control path |
+| *yourManagementApiUrl* | The full URL path for your Management API  |
+| *yourDesiredRoleIdentifier* | The identifier for the desired role |
+| *yourUserDefinedFunctionId* | The ID for the UDF you want to use |
+| *yourAccessControlPath* | The access control path |
 
 ## Send telemetry to be processed
 
@@ -236,7 +251,7 @@ Given a space identifier, retrieves the space from the graph.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | space identifier |
+| *id*  | `guid` | space identifier |
 
 ### getSensorMetadata(id) ⇒ `sensor`
 
@@ -246,7 +261,7 @@ Given a sensor identifier, retrieves the sensor from the graph.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | sensor identifier |
+| *id*  | `guid` | sensor identifier |
 
 ### getDeviceMetadata(id) ⇒ `device`
 
@@ -256,7 +271,7 @@ Given a device identifier, retrieves the device from the graph.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| id  | `guid` | device identifier |
+| *id* | `guid` | device identifier |
 
 ### getSensorValue(sensorId, dataType) ⇒ `value`
 
@@ -266,8 +281,8 @@ Given a sensor identifier and its data type, retrieve the current value for that
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor identifier |
-| dataType  | `string` | sensor data type |
+| *sensorId*  | `guid` | sensor identifier |
+| *dataType*  | `string` | sensor data type |
 
 ### getSpaceValue(spaceId, valueName) ⇒ `value`
 
@@ -277,8 +292,8 @@ Given a space identifier and the value name, retrieve the current value for that
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | space identifier |
-| valueName  | `string` | space property name |
+| *spaceId*  | `guid` | space identifier |
+| *valueName* | `string` | space property name |
 
 ### getSensorHistoryValues(sensorId, dataType) ⇒ `value[]`
 
@@ -288,8 +303,8 @@ Given a sensor identifier and its data type, retrieve the historical values for 
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor identifier |
-| dataType  | `string` | sensor data type |
+| *sensorId* | `guid` | sensor identifier |
+| *dataType* | `string` | sensor data type |
 
 ### getSpaceHistoryValues(spaceId, dataType) ⇒ `value[]`
 
@@ -299,8 +314,8 @@ Given a space identifier and the value name, retrieve the historical values for 
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | space identifier |
-| valueName  | `string` | space property name |
+| *spaceId* | `guid` | space identifier |
+| *valueName* | `string` | space property name |
 
 ### getSpaceChildSpaces(spaceId) ⇒ `space[]`
 
@@ -310,7 +325,7 @@ Given a space identifier, retrieve the child spaces for that parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | space identifier |
+| *spaceId* | `guid` | space identifier |
 
 ### getSpaceChildSensors(spaceId) ⇒ `sensor[]`
 
@@ -320,7 +335,7 @@ Given a space identifier, retrieve the child sensors for that parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | space identifier |
+| *spaceId* | `guid` | space identifier |
 
 ### getSpaceChildDevices(spaceId) ⇒ `device[]`
 
@@ -330,7 +345,7 @@ Given a space identifier, retrieve the child devices for that parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | space identifier |
+| *spaceId* | `guid` | space identifier |
 
 ### getDeviceChildSensors(deviceId) ⇒ `sensor[]`
 
@@ -340,7 +355,7 @@ Given a device identifier, retrieve the child sensors for that parent device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | device identifier |
+| *deviceId* | `guid` | device identifier |
 
 ### getSpaceParentSpace(childSpaceId) ⇒ `space`
 
@@ -350,7 +365,7 @@ Given a space identifier, retrieve its parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| childSpaceId  | `guid` | space identifier |
+| *childSpaceId* | `guid` | space identifier |
 
 ### getSensorParentSpace(childSensorId) ⇒ `space`
 
@@ -360,7 +375,7 @@ Given a sensor identifier, retrieve its parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | sensor identifier |
+| *childSensorId* | `guid` | sensor identifier |
 
 ### getDeviceParentSpace(childDeviceId) ⇒ `space`
 
@@ -370,7 +385,7 @@ Given a device identifier, retrieve its parent space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| childDeviceId  | `guid` | device identifier |
+| *childDeviceId* | `guid` | device identifier |
 
 ### getSensorParentDevice(childSensorId) ⇒ `space`
 
@@ -380,7 +395,7 @@ Given a sensor identifier, retrieve its parent device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| childSensorId  | `guid` | sensor identifier |
+| *childSensorId* | `guid` | sensor identifier |
 
 ### getSpaceExtendedProperty(spaceId, propertyName) ⇒ `extendedProperty`
 
@@ -390,8 +405,8 @@ Given a space identifier, retrieve the property and its value from the space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | space identifier |
-| propertyName  | `string` | space property name |
+| *spaceId* | `guid` | space identifier |
+| *propertyName* | `string` | space property name |
 
 ### getSensorExtendedProperty(sensorId, propertyName) ⇒ `extendedProperty`
 
@@ -401,8 +416,8 @@ Given a sensor identifier, retrieve the property and its value from the sensor.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor identifier |
-| propertyName  | `string` | sensor property name |
+| *sensorId* | `guid` | sensor identifier |
+| *propertyName* | `string` | sensor property name |
 
 ### getDeviceExtendedProperty(deviceId, propertyName) ⇒ `extendedProperty`
 
@@ -412,8 +427,8 @@ Given a device identifier, retrieve the property and its value from the device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| deviceId  | `guid` | device identifier |
-| propertyName  | `string` | device property name |
+| *deviceId* | `guid` | device identifier |
+| *propertyName* | `string` | device property name |
 
 ### setSensorValue(sensorId, dataType, value)
 
@@ -423,9 +438,9 @@ Sets a value on the sensor object with the given data type.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| sensorId  | `guid` | sensor identifier |
-| dataType  | `string` | sensor data type |
-| value  | `string` | value |
+| *sensorId* | `guid` | sensor identifier |
+| *dataType*  | `string` | sensor data type |
+| *value*  | `string` | value |
 
 ### setSpaceValue(spaceId, dataType, value)
 
@@ -435,9 +450,9 @@ Sets a value on the space object with the given data type.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| spaceId  | `guid` | space identifier |
-| dataType  | `string` | data type |
-| value  | `string` | value |
+| *spaceId* | `guid` | space identifier |
+| *dataType* | `string` | data type |
+| *value* | `string` | value |
 
 ### log(message)
 
@@ -447,7 +462,7 @@ Logs the following message within the user-defined function.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| message  | `string` | message to be logged |
+| *message* | `string` | message to be logged |
 
 ### sendNotification(topologyObjectId, topologyObjectType, payload)
 
@@ -457,9 +472,9 @@ Sends a custom notification out to be dispatched.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| topologyObjectId  | `Guid` | graph object identifier (ex. space / sensor /device id)|
-| topologyObjectType  | `string` | (ex. space / sensor / device)|
-| payload  | `string` | the json payload to be sent with the notification |
+| *topologyObjectId*  | `guid` | graph object identifier (ex. space / sensor /device ID)|
+| *topologyObjectType*  | `string` | (ex. space / sensor / device)|
+| *payload*  | `string` | the JSON payload to be sent with the notification |
 
 ## Return Types
 
@@ -498,7 +513,7 @@ Returns the extended property and its value for the current space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | name of the extended property |
+| *propertyName* | `string` | name of the extended property |
 
 #### Value(valueName) ⇒ `value`
 
@@ -506,7 +521,7 @@ Returns the value of the current space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| valueName | `string` | name of the value |
+| *valueName* | `string` | name of the value |
 
 #### History(valueName) ⇒ `value[]`
 
@@ -514,7 +529,7 @@ Returns the historical values of the current space.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| valueName | `string` | name of the value |
+| *valueName* | `string` | name of the value |
 
 #### Notify(payload)
 
@@ -522,7 +537,7 @@ Sends a notification with the specified payload.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | json payload to include in the notification |
+| *payload* | `string` | JSON payload to include in the notification |
 
 ### Device
 
@@ -558,7 +573,7 @@ Returns the extended property and its value for the current device.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | name of the extended property |
+| *propertyName* | `string` | name of the extended property |
 
 #### Notify(payload)
 
@@ -566,7 +581,7 @@ Sends a notification with the specified payload.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | json payload to include in the notification |
+| *payload* | `string` | JSON payload to include in the notification |
 
 ### Sensor
 
@@ -606,7 +621,7 @@ Returns the extended property and its value for the current sensor.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| propertyName | `string` | name of the extended property |
+| *propertyName* | `string` | name of the extended property |
 
 #### Value() ⇒ `value`
 
@@ -622,7 +637,7 @@ Sends a notification with the specified payload.
 
 | Param  | Type                | Description  |
 | ------ | ------------------- | ------------ |
-| payload | `string` | json payload to include in the notification |
+| *payload* | `string` | JSON payload to include in the notification |
 
 ### Value
 
