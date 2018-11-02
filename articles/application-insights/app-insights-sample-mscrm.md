@@ -132,4 +132,4 @@ You can do even deeper analysis if you [export the data to Microsoft Power BI](a
 ## Learn more
 * [What is Application Insights?](app-insights-overview.md)
 * [Application Insights for web pages](app-insights-javascript.md)
-* [More samples and walkthroughs](app-insights-code-samples.md)
+* [More samples and walkthroughs](app-insights-overview.md)

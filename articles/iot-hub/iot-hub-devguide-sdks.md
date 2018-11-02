@@ -162,4 +162,4 @@ Other reference topics in this IoT Hub developer guide include:
 * [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
 * [IoT Hub MQTT support](iot-hub-mqtt-support.md)
 * [IoT Hub REST API reference](/rest/api/iothub/)
-* [Auzre IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
+* [Azure IoT SDK platform support](iot-hub-device-sdk-platform-support.md)
