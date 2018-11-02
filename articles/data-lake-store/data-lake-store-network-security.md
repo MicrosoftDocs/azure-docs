@@ -18,16 +18,11 @@ ms.author: elsung
 ---
 # Virtual network integration for Azure Data Lake Storage Gen1 - Preview
 
-This article introduces virtual network integration for Azure Data Lake Storage Gen1, which is in preview. With virtual network integration, you can:
-
-- Prevent unapproved access to your Azure Data Lake Storage Gen1 accounts. 
-- Lock these accounts to your specific virtual networks and subnets. 
-- Configure your accounts to accept traffic only from specific virtual networks and subnets. 
-- Block access from everywhere else. 
+This article introduces virtual network integration for Azure Data Lake Storage Gen1, which is in preview. With virtual network integration, you can configure your accounts to accept traffic only from specific virtual networks and subnets. 
 
 This feature helps to secure your Data Lake Storage account from external threats.
 
-Virtual network integration for Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD). It's used to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
+Virtual network integration for Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
 
 > [!NOTE]
 > This technology is in preview. We don't recommend it for use in production environments.
@@ -63,7 +58,7 @@ A key benefit of virtual network service endpoints is [optimal routing](https://
 
 ## Data exfiltration from the customer virtual network
 
-After you secure Data Lake Storage accounts for access from the virtual network, make sure there's no exfiltration to an unapproved account.
+In addition to securing the Data Lake Storage accounts for access from the virtual network, you also might be interested in making sure there's no exfiltration to an unauthorized account.
 
 Use a firewall solution in your virtual network to filter the outbound traffic based on the destination account URL. Allow access to only approved Data Lake Storage Gen1 accounts.
 
@@ -75,7 +70,8 @@ Some available options are:
 > Using firewalls in the data path introduces an additional hop in the data path. It might affect the network performance for end-to-end data exchange. Throughput availability and connection latency might be affected. 
 
 ## Limitations
-- HDInsight clusters must be newly created after they're added to the preview. Clusters that were created before Data Lake Storage Gen1 virtual network integration support was available must be re-created to support this new feature.
+
+- HDI clusters that were created before Data Lake Storage Gen1 virtual network integration support was available must be re-created to support this new feature.
  
 - When you create a new HDInsight cluster and select a Data Lake Storage Gen1 account with virtual network integration enabled, the process fails. First, disable the virtual network rule. Or on the **Firewall and virtual networks** blade of the Data Lake Storage account, select **Allow access from all networks and services**. For more information, see the [Exceptions](##Exceptions) section.
 
@@ -140,7 +136,7 @@ Some available options are:
 7.	[Optional] On the **Firewall and virtual networks** page, in the **Firewall** section, you can allow connectivity from specific IP addresses. 
 
 ## Exceptions
-You can enable connectivity from a set of services and VMs on Azure. On the **Firewall and virtual networks** blade, in the **Exceptions** area, select from two options:
+You can enable connectivity from Azure services and VMs outside of your selected virtual networks. On the **Firewall and virtual networks** blade, in the **Exceptions** area, select from two options:
  
 - **Allow all Azure services to access this Data Lake Storage Gen1 account**. This option allows Azure services such as Azure Data Factory, Azure Event Hubs, and all Azure VMs to communicate with your Data Lake Storage account.
 
