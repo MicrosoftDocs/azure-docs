@@ -22,7 +22,7 @@ ms.author: cwatson
 
 For most subscriptions, you can give billing information access to members of your team from **Subscriptions** in the Azure portal. If you're an Azure customer with an Enterprise Agreement (EA customer) and are the Enterprise Administrator, you can give permissions to the Department Admins and Account Owners from **Cost Management + Billing** in the Azure portal.
 
-## Give access to billing for most subscriptions
+## Give access to billing
 
 All except EA customers can grant access to Azure billing information by assigning one of the following user roles to members of your team:
 
@@ -55,7 +55,7 @@ After you assign the appropriate roles to members of your team, the Account Admi
 
 The Account Administrator can also configure to have invoices sent via email. To learn more, see [Get your invoice in email](billing-download-azure-invoice-daily-usage-date.md).
 
-## Give read-only access to billing information
+## Give read-only access to billing
 
 Assign the Billing Reader role to someone that needs read-only access to the subscription billing information but not the ability to manage or create Azure services. This role is appropriate for users in an organization who only perform financial and cost management for Azure subscriptions.
 
@@ -66,18 +66,18 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
 
-1. Select **Access control (IAM)** and then click **Add**.
-
-    ![Screenshot shows IAM in the subscription blade](./media/billing-manage-access/select-iam.PNG)
-
-1. Choose **Billing Reader** as the **Role**.
-1. In the **Select** textbox, type the name or email for the user you add.
+1. Select **Access control (IAM)**.
+1. Select **Role assignments** to view all the role assignments for this subscription.
+1. Select **Add** > **Add role assignment**.
+1. In the **Role** drop-down list, choose **Billing Reader**.
+1. In the **Select** textbox, type the name or email for the user you want to add.
 1. Select **Save**.
+1. After a few moments, the user is assigned the Billing Reader role at the subscription scope.
 1. The Billing Reader receives an email with a link to sign in.
 
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
-## Allow Department Admin or Account Owner billing access for EA customers
+## Allow Department Admin or Account Owner billing access
 
 The Enterprise Admin can allow the Department Admins and Account Owners to view usage details and costs associated to the Departments and Accounts that they manage.
 
@@ -94,7 +94,7 @@ The Enterprise Admin can allow the Department Admins and Account Owners to view 
 
 For more information, see Understand Azure Enterprise Agreement administrative roles.
 
-## Only Account Administrators can access the Account Center
+## Only Account Admins can access Account Center
 
 The Account Administrator is the legal owner of the subscription. By default, the person who signed up for or bought the Azure subscription is the Account Administrator, unless the [subscription ownership was transferred](billing-subscription-transfer.md) to somebody else. The Account Administrator can create subscriptions, cancel subscriptions, change the billing address for a subscription, and manage access policies for the subscription from the [Account Center](https://account.azure.com/Subscriptions).
 
