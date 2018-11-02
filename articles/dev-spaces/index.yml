@@ -29,7 +29,7 @@ sections:
       text: Java
       href: quickstart-java.md
     - image: 
-        src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
+        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
       text: .NET and VS Code
       href: quickstart-netcore.md
     - image: 
