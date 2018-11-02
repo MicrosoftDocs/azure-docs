@@ -38,7 +38,7 @@ All triggers that are currently supported work either with [logical load metrics
 There are two mechanisms that are currently supported for auto scaling. The first one is meant for stateless services or for containers where auto scaling is performed by adding or removing [instances](service-fabric-concepts-replica-lifecycle.md). For both stateful and stateless services, auto scaling can also be performed by adding or removing named [partitions](service-fabric-concepts-partitioning.md) of the service.
 
 > [!NOTE]
-> Currently there is support for only one scaling policy per service.
+> Currently there is support for only one scaling policy per service, and only one scaling trigger per policy.
 
 ## Average partition load trigger with instance based scaling
 The first type of trigger is based on the load of instances in a stateless service partition. Metric loads are first smoothed to obtain the load for every instance of a partition, and then these values are averaged across all instances of the partition. There are three factors that determine when the service will be scaled:
