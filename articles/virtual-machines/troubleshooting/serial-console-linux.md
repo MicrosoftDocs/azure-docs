@@ -31,7 +31,7 @@ For serial console documentation for Windows VMs, see [Virtual machine serial co
 
 - The VM in which you're accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
 
-- The VM in which you're accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. Select **Boot diagnostics** from the **Support + troubleshooting** section.
+- The VM in which you're accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. 
 
     ![Boot diagnostics settings](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
