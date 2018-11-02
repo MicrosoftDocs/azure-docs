@@ -32,12 +32,11 @@ You can install the Custom Vision SDK from maven central repository:
 
 Clone or download the [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) project. Navigate to the **Vision/CustomVision/** folder.
 
-TBD
+This Visual Studio project creates a new Custom Vision project named __Sample Java Project__, which can be accessed through the [Custom Vision website](https://customvision.ai/). It then uploads images to train and test a classifier. In this project, the classifier is intended to determine whether a tree is a __Hemlock__ or a __Japanese Cherry__.
+
 ## Understand the code
 
-Use your favorite Java IDE to open the `Vision/CustomVision` project. 
-
-This application uses the training key you retrieved earlier to create a new project named __Sample Java Project__. It then uploads images to train and test a classifier. The classifier identifies whether a tree is a __Hemlock__ or a __Japanese Cherry__.
+Use your Java IDE to open the `Vision/CustomVision` project. 
 
 The following code snippets implement the primary functionality of this example:
 
