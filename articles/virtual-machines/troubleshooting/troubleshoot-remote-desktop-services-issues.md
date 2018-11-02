@@ -55,6 +55,7 @@ This problem occurs because Remote Desktop Services isn't running on the VM. The
 
 - The TermService service is set to **Disabled**. 
 - The TermService service is crashing or hanging. 
+- The TermService is not starting because of to a incorrect configuration.
 
 ## Solution
 
@@ -103,7 +104,9 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
     |1070 - ERROR_SERVICE_START_HANG   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.  |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | See [TermService service is disabled](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. |
-    |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |
+    |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |   |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |See [TermService service is disabled](#termService-service-is-disabled).  |   |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    |1067 - ERROR_PROCESS_ABORTED  |See [TermService service is disabled](#termService-service-is-disabled).  |
 
 #### TermService service is stopped because of an Access Denied problem
 
