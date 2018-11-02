@@ -21,7 +21,7 @@ ms.author: pbutlerm
 # Containers
 
 <table> <tr> <td>This section explains how to publish a container image to the <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>.  
-The container offer type supports Docker container images provisioned as <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes Service</a> instances or <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a> and hosted in an <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry</a> repository. </td> <td><img src="./media/container-icon1.png"  alt="Azure container icon" /></td> </tr> </table>
+The container offer type supports Docker container images provisioned as <a href="https://docs.microsoft.com/azure/aks/index">Azure Kubernetes Service</a> instances or <a href="https://docs.microsoft.com/azure/container-instances/container-instances-overview">Azure Container Instances</a> and hosted in an <a href="https://docs.microsoft.com/azure/container-registry">Azure Container Registry</a> repository. </td> <td><img src="./media/container-icon.png"  alt="Azure container icon" /></td> </tr> </table>
 
 ## Offer components
 
