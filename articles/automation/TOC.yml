@@ -202,12 +202,6 @@
           displayName: Monitor, Azure Monitor 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
-        - name: Source control integration with GitHub Enterprise
-          href: automation-scenario-source-control-integration-with-github-ent.md
-          displayName: CI, runbooks
-        - name: Source control integration with Azure DevOps
-          href: automation-scenario-source-control-integration-with-VSTS.md
-          displayName: VSTS, CI, runbooks
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
         - name: Integrate Azure Automation with Event Grid and Microsoft Teams

@@ -3347,6 +3347,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/automation/automation-scenario-source-control-integration-with-github-ent.md",
+            "redirect_url": "/azure/automation/source-control-integration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/automation/automation-scenario-source-control-integration-with-VSTS.md",
+            "redirect_url": "/azure/automation/source-control-integration",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/automation/automation-scenario-remove-resourcegroup.md",
             "redirect_url": "/azure/automation",
             "redirect_document_id": false
@@ -10076,7 +10086,7 @@
         },
         {
             "source_path": "articles/log-analytics/query-language/kusto.md",
-            "redirect_url": "azure/log-analytics/query-language/query-language",
+            "redirect_url": "/azure/log-analytics/query-language/query-language",
             "redirect_document_id": false
         },
         {
@@ -30294,6 +30304,11 @@
         {
             "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/iot-central/howto-create-application.md",
+            "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
             "redirect_document_id" : false
         }
     ]
