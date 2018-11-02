@@ -4,8 +4,8 @@ description: Learn how to use Apache Sqoop to import and export between Hadoop o
 keywords: hadoop sqoop,sqoop
 
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
