@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/31/2018
+ms.date: 11/02/2018
 ms.author: cwatson
 
 ---
@@ -23,12 +23,12 @@ Azure customers with an Enterprise Agreement (EA customers) may receive an invoi
 
 A credit is also known as a monetary commitment. EA customers make an upfront monetary commitment or credit when they add Azure. But you can add more credit to your Enterprise Agreement by contacting your Microsoft account manager or reseller.  
 
-## Invoice when credit exceeded or doesn't apply
+## When credit exceeded or doesn't apply
 
 You get one or more invoices for the following situations:
 
 - **Service overage**: Your organization's usage costs exceeds your credit balance.
-- **Charges billed separately**: The products or services your organization used aren't covered by the credit. You are invoiced for the following products or services regardless of your credit balance:
+- **Charges billed separately**: The products or services your organization used aren't covered by the credit. You're invoiced for the following products or services regardless of your credit balance:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop 
@@ -44,10 +44,9 @@ You get one or more invoices for the following situations:
 
 When you have charges due for both service overages and services not covered by the credit during the billing period, you get one invoice that includes both types of charges. Marketplaces charges are always invoiced separately.
 
-
 ## Review charges
 
-To review and verify the charges on your invoice, you must be an Enterprise Administrator, or Account Owner or Department Admin with the view charges policy enabled. For more information, see Understand Azure Enterprise Agreement administrative roles in Azure. If you don't know who the Enterprise Admin is for your organization, contact support.
+To review and verify the charges on your invoice, you must be an Enterprise Administrator, or Account Owner or Department Admin with the view charges policy enabled. For more information, see Understand Azure Enterprise Agreement administrative roles in Azure. If you don't know who the Enterprise Admin is for your organization, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Review service overage invoice
 
@@ -59,8 +58,15 @@ Compare your total usage amount from the Enterprise portal in **Reports** > **Us
  
    ![Screenshot that shows M + C option  on Usage summary.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 
-1. The **Total Usage** amount should match the **Total Extended Amount** on your overage invoice. The **Total Extended Usage** amount is the total usage costs for the selected billing period before any credit is applied.
-1. The **Total Amount** on your invoice is the amount due after the credit is applied and taxes added.
+1. The **Total Usage** amount should match the **Total Extended Amount** on your service overage invoice. The following table lists the terms and descriptions shown on the invoice and on the **Usage Summary** in the Azure portal:
+
+   |Invoice term|Usage summary term|Description|
+   |---|---|---|
+   |Total Extended Amount|Total Usage|The total pre-tax usage charge for the specific period before the credit is applied.|
+   |Commitment Usage|Commitment Usage|The credit to be applied during that specific period.|
+   |Total Sale|Service Overage|The total usage charge that exceeds your credit amount. This amount doesn't include tax.|
+   |Tax Amount|Not applicable|Tax that applies to the total sale amount for the specific period.|
+   |Total Amount|Not applicable|The amount due for the invoice after the credit is applied and tax is added.|
 1. To get more information about your charges, go to **Download Usage** > **Advanced Report Download**. This report doesn't include taxes or charges for reservations or marketplace products.
 
       ![Screenshot that shows Advanced report Download on the Download usage tab.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-advanced.png)
