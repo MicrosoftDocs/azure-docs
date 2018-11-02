@@ -1,5 +1,5 @@
 # [Azure Marketplace and AppSource documentation](index.md)
-## [Rating and review policies](./rating-and-review-policies.md)   
+## [Rating and review policies](./rating-review-policies.md)   
 
 ## [Azure Marketplace and AppSource overview and benefits](./marketplace-publishers-guide.md)  
 

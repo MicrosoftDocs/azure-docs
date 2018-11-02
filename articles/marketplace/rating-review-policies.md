@@ -13,12 +13,14 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 11/1/2018
+ms.date: 11/02/2018
 ms.author: qianw211
 
 ---
 
-# AppSource and Azure Marketplace review policy
+# Azure AppSource and Marketplace review policy
+
+The rating and review policies for Azure AppSource and Marketplace are listed here.
 
 1. In AppSource and Azure Marketplace reviews, Microsoft will not tolerate the following behaviors or content:
     * Bot/cyber-attacks.
