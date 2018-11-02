@@ -1,6 +1,6 @@
 ---
-title: Find Service Fabric Mesh Samples | Microsoft Docs
-description: Convenient directory for different Mesh sample code.
+title: Find Azure Service Fabric Mesh Samples | Microsoft Docs
+description: Learn how to find different Service Fabric Mesh sample applications.
 services: service-fabric-mesh
 keywords:  
 author: v-vasuke
@@ -12,7 +12,7 @@ manager: jeconnoc
 #Customer intent: Choose a prepared sample project that most closely mirrors my goals. 
 ---
 
-#Find Service Fabric Mesh Samples
+# Find Service Fabric Mesh Samples
 
 For more information about deploying templates directly to Azure, see the [sample template Github page.](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/README.md)
 
