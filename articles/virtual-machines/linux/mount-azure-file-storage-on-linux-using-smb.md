@@ -97,6 +97,7 @@ Mount the Azure file share to the local directory.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+The above command uses the [mount](https://linux.die.net/man/8/mount) command to mount the Azure file share and options specific to [cifs](https://linux.die.net/man/8/mount.cifs). Specifically, the file_mode and dir_mode options set files and directories to permission `0777`. The `0777` permission gives read, write, and execute permissions to all users. You can change these permissions by replacing the values with other [chmod permissions](https://en.wikipedia.org/wiki/Chmod). You can also use other [cifs](https://linux.die.net/man/8/mount.cifs) options such as gid or uid. 
 
 
 ## Persist the mount
