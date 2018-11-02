@@ -9,12 +9,12 @@ ms.service: digital-twins
 services: digital-twins
 manager: bertvanhoof
 ms.custom: mvc
-#Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next generation IoT services. 
+#Customer intent: As an Azure enterprise customer, I want to know what capabilities Digital Twins has so that I can build next-generation IoT services. 
 ---
 
 # Overview of Azure Digital Twins
 
-Azure Digital Twins is an Azure IoT service that creates comprehensive models of the physical environment. Among its many features is the ability to create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
+Azure Digital Twins is an Azure IoT service that creates comprehensive models of the physical environment. It can create spatial intelligence graphs to model the relationships and interactions between people, spaces, and devices.
 
 With Azure Digital Twins, you can query data from a physical space rather than from many disparate sensors. This service helps you build reusable, highly scalable, spatially aware experiences that link streaming data across the digital and physical world. Your apps are enhanced by these uniquely relevant contextual features. Azure Digital Twins can be used for the following example tasks to:
 
@@ -50,31 +50,31 @@ Consider a smart utility app that involves several electricity usage meters conn
 
 [Digital twin object models](./concepts-objectmodel-spatialgraph.md) are predefined device protocols and data schema. They align your solution’s domain-specific needs to accelerate and simplify development.
 
-For example, a room occupancy application might use predefined space types such as campus, building, floor, and room.
+An example is a room occupancy application might use predefined space types such as campus, building, floor, and room.
 
 ### Multiple and nested tenants
 
 You can build solutions that scale securely and can be reused for multiple tenants. You also can create multiple subtenants that can be accessed and used in an isolated and secure manner.
 
-For example, a space utilization app might be configured to isolate a tenant's data from other tenants' data within a single building. Or the app might be used to combine data for a single tenant with multiple buildings.
+An example is a space utilization app that's configured to isolate a tenant's data from other tenants' data within a single building. Or the app is used to combine data for a single tenant with numerous buildings.
 
 ### Advanced compute capabilities
 
-With advanced compute capabilities called [user-defined functions](./concepts-user-defined-functions.md), you can define and run custom functions against incoming [device data](./concepts-device-ingress.md) to send signals to predefined endpoints. This capability improves customization and automation of device tasks.
+With [user-defined functions](./concepts-user-defined-functions.md), you can define and run custom functions against incoming [device data](./concepts-device-ingress.md) to send signals to predefined endpoints. This advanced capability improves customization and automation of device tasks.
 
-For example, a smart agriculture application might include a user-defined function to assess soil moisture sensor readings and the weather forecast. The app might then send signals about the irrigation needs.
+An example is a smart agriculture application that includes a user-defined function to assess soil moisture sensor readings and the weather forecast. The app then sends signals about the irrigation needs.
 
 ### Built-in access control
 
-You can use access and identity management features such as [role-based access control](./security-role-based-access-control.md) and [Azure Active Directory](./security-authenticating-apis.md) to securely control access for individuals and devices.
+By using access and identity management features such as [role-based access control](./security-role-based-access-control.md) and [Azure Active Directory](./security-authenticating-apis.md), you can securely control access for individuals and devices.
 
-For example, a facilities management app might be configured to allow occupants of a room to set the temperature within a specified range. Facilities managers might be allowed to set the temperature in any room to any value.
+An example is a facilities management app that's configured to allow occupants of a room to set the temperature within a specified range. Facilities managers are allowed to set the temperature in any room to any value.
 
 ### Ecosystem
 
 You can connect an Azure Digital Twins instance to many powerful Azure services. These services include Azure Stream Analytics, Azure AI, and Azure Storage. They also include Azure Maps, Microsoft Mixed Reality, Dynamics 365, or Office 365.
 
-For example, a smart office building application might use Azure Digital Twins to represent teams and devices located on many floors. As devices stream live data into the provisioned Digital Twin instance, Stream Analytics processes that data to provide actionable key insights. The data is stored in Azure Storage and converted into a shareable file format. The file is distributed across the whole organization by using Office 365.
+An example is a smart office building application that uses Azure Digital Twins to represent teams and devices located on many floors. As devices stream live data into the provisioned Digital Twin instance, Stream Analytics processes that data to provide actionable key insights. The data is stored in Azure Storage and converted into a shareable file format. The file is distributed across the whole organization by using Office 365.
 
 ## Solutions that benefit from Azure Digital Twins
 
