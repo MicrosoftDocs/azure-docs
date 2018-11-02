@@ -51,11 +51,15 @@ which is an open-source Secure Shell (SSH) library that supports .NET.
 
   > [!NOTE]
   >
-  > The SFTP-SSH connector supports these private 
-  > SSH key formats ***but only the MD5 fingerprint***:
+  > The SFTP-SSH connector supports *only* these private keys, 
+  > formats, fingerprints, and algorithms:
   > 
-  > * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
-  > * DSA (Digital Signature Algorithm)
+  > * **Private keys**: RSA (Rivest Shamir Adleman) and 
+  DSA (Digital Signature Algorithm)
+  > * **Formats**: OpenSSH and ssh.com 
+  > * **Fingerprint**: MD5 only
+  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
+  > AES-128-CBC, AES-192-CBC, and AES-256-CBC
 
 * Reads or writes files up to *1 GB* in size compared 
 to the SFTP connector. For files larger than 1 GB, use 
@@ -67,13 +71,11 @@ a folder at the specified path on the SFTP server.
 * Provides the **Rename file** action, 
 which renames a file on the SFTP server.
 
-* Caches the connection to SFTP server, which improves performance 
-and reduces the number of attempts at connecting to the server. 
-
-  You can control the duration used for caching 
-  the connection by setting up the 
-  <a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
-  property on your SFTP server. 
+* Caches the connection to SFTP server *for up to 1 hour*, which improves 
+performance and reduces the number of attempts at connecting to the server. 
+To set the duration for this caching behavior, edit the 
+<a href="http://man.openbsd.org/sshd_config#ClientAliveInterval" target="_blank">**ClientAliveInterval**</a> 
+property in the SSH configuration on your SFTP server. 
 
 ## Prerequisites
 
@@ -81,16 +83,22 @@ and reduces the number of attempts at connecting to the server.
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * Your SFTP server address and account credentials, 
-which let your logic app access your SFTP account 
+which let your logic app access your SFTP account. 
+You also need access to an SSH private key and the 
+SSH private key password. 
 
-  > [!IMPORTANT] 
+  > [!IMPORTANT]
   >
-  > The SFTP-SSH connector supports these private SSH key 
-  > formats ***but only the MD5 fingerprint***: 
+  > The SFTP-SSH connector supports *only* these private keys, 
+  > formats, fingerprints, and algorithms:
   > 
-  > * PuTTY-based RSA (Rivest Shamir Adleman), not open RSA
-  > * DSA (Digital Signature Algorithm)
-  > 
+  > * **Private keys**: RSA (Rivest Shamir Adleman) and 
+  DSA (Digital Signature Algorithm)
+  > * **Formats**: OpenSSH and ssh.com 
+  > * **Fingerprint**: MD5 only
+  > * **Encryption algorithms**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, 
+  > AES-128-CBC, AES-192-CBC, and AES-256-CBC
+  >
   > When you're creating your logic app, after you add 
   > the SFTP-SSH trigger or action you want, you'll need 
   > to provide connection information for your SFTP server. 
@@ -139,8 +147,8 @@ select the trigger you want.
    >
    > When you enter your SSH private key in the 
    > **SSH private key** property, follow these 
-   > additional steps, which help make sure you 
-   > provide the complete and correct value for this property. 
+   > additional steps, which help make sure you provide 
+   > the complete and correct value for this property. 
    > An invalid key causes the connection to fail.
    
    Although you can use any text editor, here are sample 
@@ -154,10 +162,11 @@ select the trigger you want.
 
    1. Select **Edit** > **Copy**.
 
-   1. When you provide the connection details for the 
-  SFTP-SSH trigger or action's **SSH private key** property, 
-  ***make sure you paste*** the key. ***Don't manually enter 
-  or edit the key***.
+   1. In the SFTP-SSH trigger or action you added, 
+   paste the *complete* key you copied into the 
+   **SSH private key** property, which supports multiple lines. 
+  ***Make sure you paste*** the key. ***Don't manually 
+  enter or edit the key***.
 
 1. When you're done entering the connection details, 
 choose **Create**.

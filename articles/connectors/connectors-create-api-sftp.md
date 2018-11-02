@@ -49,16 +49,18 @@ For files larger than 1 GB, you can use the SFTP-SSH connector plus
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
 * Your SFTP server address and account credentials, 
-which let your logic app access your SFTP account
+which let your logic app access your SFTP account. 
+You also need access to an SSH private key and the 
+SSH private key password. 
 
-  > [!IMPORTANT]
-  >
-  > The SFTP connector supports these private SSH key formats:
+  > [!NOTE]
   > 
-  > * OpenSSH
-  > * ssh.com
-  > * PuTTY
-  >
+  > The SFTP connector supports these private keys and formats:
+  > 
+  > * **Private keys**: RSA (Rivest Shamir Adleman) and 
+  DSA (Digital Signature Algorithm)
+  > * **Formats**: OpenSSH, ssh.com, and PuTTY
+  > 
   > When you're creating your logic app, after you add 
   > the SFTP trigger or action you want, you'll need 
   > to provide connection information for your SFTP server. 
@@ -107,8 +109,8 @@ select the trigger you want.
    >
    > When you enter your SSH private key in the 
    > **SSH private key** property, follow these 
-   > additional steps, which help make sure you 
-   > provide the complete and correct value for this property. 
+   > additional steps, which help make sure you provide 
+   > the complete and correct value for this property. 
    > An invalid key causes the connection to fail.
    
    Although you can use any text editor, here are sample 
@@ -122,10 +124,11 @@ select the trigger you want.
 
    1. Select **Edit** > **Copy**.
 
-   1. When you provide the connection details for the 
-  SFTP trigger or action's **SSH private key** property, 
-  ***make sure you paste*** the key. ***Don't manually enter 
-  or edit the key***.
+   1. In the SFTP trigger or action you added, 
+   paste the *complete* key you copied into the 
+   **SSH private key** property, which supports multiple lines. 
+  ***Make sure you paste*** the key. ***Don't manually 
+  enter or edit the key***.
 
 1. When you're done entering the connection details, 
 choose **Create**.
