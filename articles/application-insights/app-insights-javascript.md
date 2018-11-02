@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
@@ -226,7 +226,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about the user behavior analytics tools](app-insights-web-track-usage.md)
+* [Learn about the user behavior analytics tools](app-insights-usage-overview.md)
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -237,7 +237,7 @@ Want to find out what your users do with your app?
 
 
 ## <a name="next"></a> Next steps
-* [Track usage](app-insights-web-track-usage.md)
+* [Track usage](app-insights-usage-overview.md)
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-web-track-usage.md)
+* [Build-measure-learn](app-insights-usage-overview.md)
 
