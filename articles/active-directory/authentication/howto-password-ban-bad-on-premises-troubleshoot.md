@@ -6,19 +6,19 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-
 ---
+
 # Preview: Azure AD password protection monitoring, reporting, and troubleshooting
 
 |     |
 | --- |
-| Azure AD password protection and the custom banned password list are public preview features of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Azure AD password protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 After deployment of Azure AD password protection monitoring and reporting are essential tasks. This article goes into detail to help you understand where each service logs information and how to report on the use of Azure AD password protection.
@@ -89,8 +89,8 @@ Some other key event log messages to be aware of are:
 
 The password for the specified user was accepted because an Azure password policy is not available yet
 
-UserName: <user>
-FullName: <user>
+UserName: SomeUser
+FullName: Some User
 
 This condition may be caused by one or more of the following reasons:%n
 
@@ -201,8 +201,8 @@ If it is decided to uninstall the public preview software and cleanup all relate
 2. Uninstall the DC Agent software from all domain controllers. This step **requires** a reboot.
 3. Manually remove all proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory Powershell command:
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -213,8 +213,8 @@ If it is decided to uninstall the public preview software and cleanup all relate
 4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the public preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
 
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 

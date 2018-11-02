@@ -4,7 +4,7 @@ description: Learn how to use SCP.NET to create .NET-based Storm topologies for 
 services: hdinsight
 ms.service: hdinsight
 author: jasonwhowell
-ms.author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual

@@ -19,7 +19,7 @@ This article provides information and sample code to help you get started using 
 
 ## Prerequisites
 - A Java IDE of your choice
-- JDK 7 or 8 installed
+- [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
 - Maven installed
 
 

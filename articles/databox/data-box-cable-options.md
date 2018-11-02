@@ -13,9 +13,9 @@ ms.author: alkohli
 
 # Cabling options for your Azure Data Box
 
-This article describes the various ways to cable your Azure Data Box.
+This article describes the various ways to cable your Azure Data Box for data transfer.
 
-## Data transfer via MGMT port
+## Transfer via MGMT port
 
 This option is the absolute minimum configuration for your Data Box. You can configure only the MGMT port for both management and data.
 
@@ -38,7 +38,7 @@ Do the following steps to cable your device.
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 
 
-## Data transfer via DATA port and static IPs
+## Transfer via DATA port with static IPs
 
 You can configure two ports for your Data Box, the MGMT port for management traffic and one of the data ports for data. The data ports could be DATA 1, DATA 2, or DATA 3.
 
@@ -82,7 +82,7 @@ Do the following steps to cable your device.
 3. Access the local web UI of the device at: 192.168.100.10. Sign in and unlock the Data Box using the unlock password from the Azure portal.
 4. Identify the IP addresses assigned by the DHCP server.
 
-## Data transfer via DATA port using a switch and static IPs
+## Transfer via DATA port with static IPs using a switch 
 
 Use this configuration for multiple data sources across 1 GbE and 10 gbE networks.
 
@@ -107,7 +107,7 @@ Do the following steps to cable your device.
 4. Assign static IPs to the data ports that you've configured.
 
 
-## Data transfer via DATA port in a DHCP environment
+## Transfer via DATA port in a DHCP environment
 
 Use this configuration if your device will be in a DHCP environment.
 

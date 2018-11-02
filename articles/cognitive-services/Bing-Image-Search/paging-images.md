@@ -56,3 +56,6 @@ To eliminate duplicate results, use the [nextOffset](https://docs.microsoft.com/
 
 > [!NOTE]
 > Paging applies only to image search (/images/search), and not to image insights or trending images (/images/trending).
+
+> [!NOTE]
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 

@@ -36,7 +36,9 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
++ Learn the [Azure API Management terminology](api-management-terminology.md).
++ Understand the [concept of policies in Azure API Management](api-management-howto-policies.md).
++ Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 ## Create a test API 
 
@@ -85,6 +87,9 @@ The steps in this section show how to create a blank API with no backend. It als
 3. In the window on the right, click the **Design** tab.
 4. In the **Inbound processing** window, click **+ Add policy**.
 5. Select the **Mock responses** tile from the gallery.
+
+    ![Mock responses policy tile](./media/mock-api-responses/mock-responses-policy-tile.png)
+
 6. In the **API Management response** textbox, type **200 OK, application/json**. This selection indicates that your API should return the response sample you defined in the previous section.
 
     ![Enable response mocking](./media/mock-api-responses/mock-api-responses-set-mocking.png)
