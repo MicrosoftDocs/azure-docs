@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Analyze text content for problematic material in C#"
+title: "Quickstart: Analyze text content for objectionable material in C#"
 titlesuffix: Azure Cognitive Services
-description: How to analyze text content for various problematic material using the Content Moderator SDK for .NET
+description: How to analyze text content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -14,9 +14,9 @@ ms.author: sajagtap
 #As a C# developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Analyze text content for problematic material in C# 
+# Quickstart: Analyze text content for objectionable material in C# 
 
-This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You will learn how to execute term-based filtering and classification of text content with the aim of moderating potentially problematic material.
+This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You will learn how to execute term-based filtering and classification of text content with the aim of moderating potentially objectionable material.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 

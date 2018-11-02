@@ -9,9 +9,9 @@
     href: quick-start.md
   - name: Using the .NET SDK
     items:
-    - name: Analyze image content for problematic material
+    - name: Analyze image content for objectionable material
       href: image-moderation-quickstart-dotnet.md
-    - name: Analyze text content for problematic material
+    - name: Analyze text content for objectionable material
       href: text-moderation-quickstart-dotnet.md   
 - name: Concepts
   items:

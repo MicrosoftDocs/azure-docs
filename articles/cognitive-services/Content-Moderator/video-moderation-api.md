@@ -1,7 +1,7 @@
 ---
-title: "Analyze video content for problematic material in C#"
+title: "Analyze video content for objectionable material in C#"
 titlesuffix: Azure Cognitive Services
-description: How to analyze video content for various problematic material using the Content Moderator SDK for .NET
+description: How to analyze video content for various objectionable material using the Content Moderator SDK for .NET
 services: cognitive-services
 author: sanjeev3
 manager: cgronlun
@@ -14,7 +14,7 @@ ms.author: sajagtap
 #As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Analyze video content for problematic material in C#
+# Analyze video content for objectionable material in C#
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to scan video content for adult or racy content.
 
