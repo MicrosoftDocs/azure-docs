@@ -108,9 +108,9 @@ This article describes changes that were introduced in Azure Media Services (AMS
     - Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. Since Jobs and Tasks are relatively short-lived entities (essentially only useful while in flight) the recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
     - Channels and Programs created with v2 (mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop. 
      
-        Presently, you cannot migrate continuously running Channels. Media Services team is working on adding this feature.
+        Presently, you cannot migrate continuously running Channels. The Media Services team is working on adding this feature.
         
-- Currently, you cannot use the Azure portal to manage v3 resources. Use REST API or one of the supported SDKs.
+- Currently, you cannot use the Azure portal to manage v3 resources. Use [REST API](https://aka.ms/ams-v3-rest-sdk) or one of the supported SDKs.
 
 ## Next steps
 
