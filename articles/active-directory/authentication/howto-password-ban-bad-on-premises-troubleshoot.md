@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -63,7 +63,7 @@ The key password-validation-related events are as follows:
 
 #### Sample event log message for Event ID 10014 successful password set
 
-```text
+```
 The changed password for the specified user was validated as compliant with the current Azure password policy.
 
  UserName: BPL_02885102771
@@ -74,7 +74,7 @@ The changed password for the specified user was validated as compliant with the 
 
 10017:
 
-```text
+```
 The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
  UserName: BPL_03283841185
@@ -83,7 +83,7 @@ The reset password for the specified user was rejected because it did not comply
 
 30003:
 
-```text
+```
 The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
  UserName: BPL_03283841185
@@ -94,7 +94,7 @@ Some other key event log messages to be aware of are:
 
 #### Sample event log message for Event ID 30001
 
-```text
+```
 The password for the specified user was accepted because an Azure password policy is not available yet
 
 UserName: SomeUser
@@ -121,7 +121,7 @@ This condition may be caused by one or more of the following reasons:%n
 
 #### Sample event log message for Event ID 30006
 
-```text
+```
 The service is now enforcing the following Azure password policy.
 
  Enabled: 1
@@ -203,7 +203,7 @@ Text logging is disabled by default. A restart of the Proxy service is required 
 
 Most of the Azure AD password protection Powershell cmdlets will always write to a text log located under:
 
-C:\Program Files\Azure AD Password Protection Proxy\Logs
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
 If a cmdlet error occurs and the cause and\or solution is not readily apparent, these text logs may also be consulted.
 
@@ -235,6 +235,7 @@ If the domain controller is booted into Directory Services Repair Mode, the DC a
 ## Domain controller demotion
 
 It is supported to demote a domain controller that is still running the DC agent software. Administrators should be aware however that the DC agent software keeps running and continues enforcing the current password policy during the demotion procedure. The new local Administrator account password (specified as part of the demotion operation) is validated like any other password. Microsoft recommends that secure passwords be chosen for local Administrator accounts as part of a DC demotion procedure; however the validation of the new local Administrator account password by the DC agent software may be disruptive to pre-existing demotion operational procedures.
+
 Once the demotion has succeeded, and the domain controller has been rebooted and is again running as a normal member server, the DC agent software reverts to running in a passive mode. It may then be uninstalled at any time.
 
 ## Removal
@@ -242,30 +243,31 @@ Once the demotion has succeeded, and the domain controller has been rebooted and
 If it is decided to uninstall the public preview software and cleanup all related state from the domain(s) and forest, this task can be accomplished using the following steps:
 
 > [!IMPORTANT]
-> It is important to perform these steps in order. If any instance of the password protection Proxy service is left running it will periodically re-create its serviceConnectionPoint object as well as periodically re-create the sysvol state.
+> It is important to perform these steps in order. If any instance of the Proxy service is left running it will periodically re-create its serviceConnectionPoint object. If any instance of the DC agent service is left running it will periodically re-create its serviceConnectionPoint object and the sysvol state.
 
 1. Uninstall the password protection Proxy software from all machines. This step does **not** require a reboot.
 2. Uninstall the DC Agent software from all domain controllers. This step **requires** a reboot.
-3. Manually remove all proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory Powershell command:
+3. Manually remove all Proxy service connection points in each domain naming context. The location of these objects may be discovered with the following Active Directory Powershell command:
+
    ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    Do not omit the asterisk (“*”) at the end of the $keywords variable value.
 
-   The resulting object found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually. 
+   The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually. 
 
 4. Manually remove all DC agent connection points in each domain naming context. There may be one these objects per domain controller in the forest, depending on how widely the public preview software was deployed. The location of that object may be discovered with the following Active Directory Powershell command:
 
    ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   The resulting object found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.
+   The resulting object(s) found via the `Get-ADObject` command can then be piped to `Remove-ADObject`, or deleted manually.
 
 5. Manually remove the forest-level configuration state. The forest configuration state is maintained in a container in the Active Directory configuration naming context. It can be discovered and deleted as follows:
 
