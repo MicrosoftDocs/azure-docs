@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
-> ![NOTE]
+> [!NOTE]
 > This guide uses a free-tier Content Moderator subscription. For information on what is provided with each subscription tier, see the [Pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) page.
 
 ## Create the Visual Studio project
