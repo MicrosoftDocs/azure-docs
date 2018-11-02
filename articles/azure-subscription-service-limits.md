@@ -140,6 +140,8 @@ The following table details the features and limits of the Basic, Standard, and 
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### Application Gateway limits
+
+The following table applies to v1, v2, Standard, and WAF SKUs unless otherwise stated.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### Network Watcher limits
