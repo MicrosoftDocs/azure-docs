@@ -25,7 +25,7 @@ The container offer type supports Docker container images provisioned as <a href
 
 ## Offer components
 
-This section outlines the elements of publishing a container, and is intended as a guide for the publisher to the Azure Marketplace. From this viewpoint, it's divided into the following main parts:
+This section outlines the elements of publishing a container, and is intended as a guide for the publisher to the Azure Marketplace. Publishing's divided into the following main parts:
 
 - [Prerequisites](./cpp-prerequisites.md) - lists the technical and business requirements before creating or publishing a container offer.
 - [Create the offer](./cpp-create-offer.md) -lists the steps required to create a new container offer entry using the Cloud Partner Portal.
