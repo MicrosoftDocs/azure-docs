@@ -41,12 +41,12 @@ The following sections describe the user limits for each role, the tasks the rol
 
 |Tasks| Enterprise Administrator|Department Administrator|Account Owner|
 |---|---|---|---|
-|View, add, or remove Enterprise Administrators|✓|✗|✗|
-|View, add, or remove  Notification Contacts<sup>2</sup> |✓|✗|✗|
-|View/add/remove Department Administrators|✓|✓|✗|
-|View, add, or remove  Account Owners|✓|✓|✗|
-|View, add, or remove  Service Administrators|✗|✗|✓|
-|Create or cancel subscription|✗|✗|✓|
+|View, add, or remove Enterprise Administrators|✔|✘|✘|
+|View, add, or remove  Notification Contacts<sup>2</sup> |✔|✘|✘|
+|View/add/remove Department Administrators|✔|✔|✘|
+|View, add, or remove  Account Owners|✔|✔|✘|
+|View, add, or remove  Service Administrators|✘|✘|✔|
+|Create or cancel subscription|✘|✘|✔|
 
 <sup>2</sup> Notification contacts are sent all the email communications about the Azure Enterprise Agreement.
 
@@ -54,13 +54,13 @@ The following sections describe the user limits for each role, the tasks the rol
 
 |Tasks| Enterprise Administrator|Department Administrator|Account Owner|
 |---|---|---|---|
-|View credit balance or monetary commitment|✓|✗|✗|
-|Set department spending limits|✓|✗|✗|
-|View enterprise's price sheet|✓|✗|✗|
-|View usage and cost details in the Enterprise portal|✓|✓<sup>3</sup>|✓<sup>4</sup>|
-|View forecasts in Azure portal|✓|✓<sup>3</sup>|✓<sup>4</sup> |
-|Manage resources in Azure portal|✗|✗|✓|
-|Manage subscription permissions including role-based access control|✗|✗|✓|
+|View credit balance or monetary commitment|✔|✘|✘|
+|Set department spending limits|✔|✘|✘|
+|View enterprise's price sheet|✔|✘|✘|
+|View usage and cost details in the Enterprise portal|✔|✔<sup>3</sup>|✔<sup>4</sup>|
+|View forecasts in Azure portal|✔|✔<sup>3</sup>|✔<sup>4</sup> |
+|Manage resources in Azure portal|✘|✘|✔|
+|Manage subscription permissions including role-based access control|✘|✘|✔|
 
 - <sup>3</sup> Requires that the Enterprise Admin enable **Department Administrator can view charges** policy in the Azure portal. The Department Administrator can then see details for the department.
 - <sup>4</sup> Requires that the Enterprise Admin enable **Account Owner can view charges** policy in the Azure portal. The Account Owner can then see details for the account.
@@ -93,7 +93,7 @@ The following table shows the relationship between the Enterprise admin role, th
 |Account owner|✘ |Owner|No pricing|
 |Account owner|✔ |none|No pricing|
 |Account owner|✘ |none|No pricing|
-|None|n/a |Owner|Retail pricing|
+|None|Not applicable |Owner|Retail pricing|
 
 You set the Enterprise admin role and view charges policies in the EA portal. The RBAC role can be updated in the Azure portal. For more information, see [Manage access using RBAC and the Azure portal](../role-based-access-control/role-assignments-portal.md).
 
