@@ -24,9 +24,9 @@ For elastically scaling throughput up or down, you can increase or decrease the 
 
 ## Throughput scaling details
 
-If you provision R RUs on a Cosmos container (or database), Cosmos DB ensures that R RUs are available in *each* of the regions associated with your Cosmos account. Each time you add a new region to your Cosmos account, Cosmos DB automatically provisions R RUs in the newly added region. The operations performed against your Cosmos container are guaranteed to get R RUs in each of the regions associated with your Cosmos account. You can't selectively assign RUs to a specific region - the RUs provisioned for a Cosmos container (or database) are provisioned for all the regions associated with your Cosmos account.
+If you provision 'R' RUs on a Cosmos container (or database), Cosmos DB ensures that 'R' RUs are available in *each* of the regions associated with your Cosmos account. Each time you add a new region to your Cosmos account, Cosmos DB automatically provisions 'R' RUs in the newly added region. The operations performed against your Cosmos container are guaranteed to get 'R' RUs in each of the regions associated with your Cosmos account. You can't selectively assign RUs to a specific region - the RUs provisioned for a Cosmos container (or database) are provisioned for all the regions associated with your Cosmos account.
 
-Assuming that a Cosmos container is configured with R RUs and there are N regions associated with the Cosmos account, then:
+Assuming that a Cosmos container is configured with 'R' RUs and there are 'N' regions associated with the Cosmos account, then:
 
 - If the Cosmos account is configured with a single write region, the total RUs available globally on the container = R x N.
 - If the Cosmos account is configured with multiple write regions, the total RUs available globally on the container = R x (N+1). The additional R RUs are automatically provisioned to process update conflicts and anti-entropy traffic across the regions.

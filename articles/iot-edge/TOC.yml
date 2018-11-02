@@ -135,10 +135,10 @@
       href: how-to-deploy-monitor-cli.md
   - name: Use Edge devices as gateways
     items:
-    - name: Transparent gateway (Linux)
-      href: how-to-create-transparent-gateway-linux.md
-    - name: Transparent gateway (Windows)
-      href: how-to-create-transparent-gateway-windows.md
+    - name: Configure a transparent gateway
+      href: how-to-create-transparent-gateway.md
+    - name: Connect a downstream device
+      href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
   - name: Configure proxy support
