@@ -75,7 +75,7 @@ If you are ready to deploy Access Reviews in your organization, follow these ste
 
 To onboard to Access Reviews, follow these steps.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) and open the directory where you want to use Access Reviews.
+1. As a Global Administrator or User Account Administrator, sign in to the [Azure portal](https://portal.azure.com) where you want to use Access Reviews.
 
 1. Click **All services** and find the Access Reviews service.
 
