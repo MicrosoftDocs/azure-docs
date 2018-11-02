@@ -4,8 +4,6 @@ description: Learn how to use synthetic partition keys in your Azure Cosmos DB c
 services: cosmos-db
 keywords: partition key, partition
 author: rafats
-manager: kfile
-editor: monicar
 
 ms.service: cosmos-db
 ms.devlang: na
