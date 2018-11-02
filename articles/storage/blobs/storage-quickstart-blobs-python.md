@@ -14,7 +14,7 @@ ms.author: tamram
 
 # Quickstart: Upload, download, and list blobs with Python
 
-In this quickstart, you learn how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
+In this quickstart, you'll see how to use Python to upload, download, and list block blobs in a container in Azure Blob storage. 
 
 ## Prerequisites
 
@@ -35,7 +35,7 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
-This command clones the repository to your local git folder. To open the Python program, look for the *storage-blobs-python-quickstart* folder, and *example.py* file.  
+This command clones the *Azure-Samples* repository to your local git folder. To run the Python program, find the *storage-blobs-python-quickstart* folder, and open the *example.py* file.  
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
@@ -53,7 +53,7 @@ First, install the dependencies by running `pip install`:
 
     pip install azure-storage
 
-Next, run the sample. The following output is an example of the output returned when running the application:
+Next, run the sample. You’ll see messages similar to the following output:
   
 ```
 Temp file = C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078.txt
@@ -69,11 +69,11 @@ When you press any key to continue, the sample program deletes the storage conta
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
-After you've verified the files, hit any key to finish the demo and delete the test files. Now that you know what the sample does, open the *example.py* file to look at the code. 
+After you've verified the files, press any key to finish the demo and delete the test files. Now that you know what the sample does, open the *example.py* file to look at the code. 
 
 ## Understand the sample code
 
-Next, we walk through the sample code so that you can understand how it works.
+Let’s walk through the sample code to understand how it works.
 
 ### Get references to the storage objects
 First, you create the references to the objects used to access and manage Blob storage. These objects build on each other, and each is used by the next one in the list.
@@ -85,7 +85,7 @@ First, you create the references to the objects used to access and manage Blob s
 Once you have the Cloud Blob container, instantiate the **CloudBlockBlob** object that points to the specific blob that you're interested in. You can then upload, download, and copy the blob as you need.
 
 > [!IMPORTANT]
-> Container names must be lowercase. For more information about container and blob names, see [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
+> Container names must be lowercase. For more information about container and blob names, see [Naming and referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
 In this section, you instantiate the objects, create a new container, and then set permissions on the container so the blobs are public. The container is called **quickstartblobs**. 
 
@@ -156,7 +156,7 @@ block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_t
 ```
 
 ### Clean up resources
-If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the `delete\_container` method. Use the `delete\_blob` method to delete the files if the files created are no longer needed.
+If you no longer need the blobs uploaded in this quickstart, you can delete the entire container using the `delete\_container` method. To delete individual files instead, use the `delete\_blob` method.
 
 ```python
 # Clean up resources. This includes the container and the temp files
