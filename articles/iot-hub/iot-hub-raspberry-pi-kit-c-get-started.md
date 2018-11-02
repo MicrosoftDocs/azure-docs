@@ -60,6 +60,8 @@ The following items are optional:
 > These items are optional because the code sample support simulated sensor data.
 >
 
+## Create an IoT hub
+
 [!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
 
 ## Get the connection string for the IoT Hub

@@ -18,8 +18,9 @@ ms.author: dobett
 
 In this tutorial, you will learn:
 
-1. how to create a module identity in the portal. 
-1. how to use .NET device SDK update the module twin from your device.
+1. How to create a module identity in the portal. 
+
+2. How to use .NET device SDK update the module twin from your device.
 
 > [!NOTE]
 > For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
@@ -30,7 +31,11 @@ To complete this tutorial, you need the following:
 * Visual Studio 2015 or Visual Studio 2017.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
+
+[!INCLUDE [iot-hub-find-connection-string-include](../../includes/iot-hub-find-connection-string-include.md)
 
 ## Create a device identity in the portal
 

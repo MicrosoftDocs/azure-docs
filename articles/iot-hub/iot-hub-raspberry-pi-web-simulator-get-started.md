@@ -83,7 +83,6 @@ The Raspberry Pi web simulator is now available in preview version. We'd like to
 
 2. Click **Run** or type `npm start` to run the application.
 
-
 You should see the following output that shows the sensor data and the messages that are sent to your IoT hub
 ![Output - sensor data sent from Raspberry Pi to your IoT hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 

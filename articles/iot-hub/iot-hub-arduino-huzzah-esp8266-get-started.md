@@ -57,9 +57,9 @@ The following items are optional in case you don’t have a sensor. You also hav
 * A breadboard
 * M/M jumper wires
 
-[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
+## Create an IoT hub
 
-## Get the connection string for the IoT Hub
+[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
 
 [!INCLUDE [iot-hub-find-connection-string-include](../../includes/iot-hub-find-connection-string-include.md)
 
