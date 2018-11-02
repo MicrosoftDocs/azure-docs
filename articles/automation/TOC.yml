@@ -241,12 +241,14 @@
   - name: Update Management
     href: troubleshoot/update-management.md
     displayName: troubleshoot
-  - name: Troubleshoot Update Agent issues - Windows
-    href: troubleshoot/update-agent-issues.md
-    displayName: hybrid runbook worker, hybrid worker, troubleshoot
-  - name: Troubleshoot Update Agent issues - Linux
-    href: troubleshoot/update-agent-issues-linux.md
-    displayName: hybrid runbook worker, hybrid worker, troubleshoot
+  - name: Troubleshoot Update Agent issues
+    items:
+    - name: Windows
+      href: troubleshoot/update-agent-issues.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows
+    - name: Linux
+      href: troubleshoot/update-agent-issues-linux.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux
 - name: Reference
   items:
   - name: Azure PowerShell
