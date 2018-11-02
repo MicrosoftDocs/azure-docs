@@ -35,7 +35,7 @@ az storage account create --name <storage_account_name> --resource-group myResou
 az storage container create --name <storage_container_name> --account-name <storage_account_name>
 ```
 
-## Upload files
+## Upload files to Azure Storage
 
 To upload a local directory to the storage account, you use the [`az storage blob upload-batch`](https://docs.microsoft.com/cli/azure/storage/blob?view=azure-cli-latest#az-storage-blob-upload-batch) command like the following example:
 
