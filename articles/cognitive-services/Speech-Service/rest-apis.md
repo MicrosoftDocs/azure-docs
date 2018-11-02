@@ -13,19 +13,44 @@ ms.author: erhopf
 ---
 # Speech Service REST APIs
 
-The REST APIs of the Azure Cognitive Services Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
+In addition to the [Speech SDK](speech-sdk.md), the Speech service enables you to convert speech-to-text and text-to-speech via a set REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
 
-## Speech to Text
+Before using the REST APIs in your application, please consider:
+* The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
+* The speech-to-text REST API only returns final results. Partial results are not provided.
+* The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For additional details, see [Authorization]().
 
-The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region.
+## Authentication
+
+Each request to either the speech-to-text or text-to-speech REST API requires an authorization header. This table illustrates support by service:
+
+| Supported auth headers | Speech-to-text | Text-to-speech |
+|------------------------|----------------|----------------|
+| Ocp-Apim-Subscription-Key | Yes | No |
+| Authorization: Bearer | Yes | Yes |
+
+When using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key.
+
+When using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes.
+
+### How to obtain an access token
+
+To get an access token, you'll need to make a request to the `issueToken` endpoint using the `Ocp-Apim-Subscription-Key` and your subscription key. These regions and endpoints are supported:
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+
+
+## Speech-to-text
+
+The speech-to-text endpoint only supports short utterances. Requests may contain up to 10 seconds of audio with a total duration of 14 seconds. The REST API  only returns the final results, not partial or interim results.
+
+If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [batch transcription](batch-transcription.md).
+
+### Regions and endpoints
+
+These regions are supported for speech-to-text using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
-
-> [!NOTE]
-> If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
-
-This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API returns only final results, not partial or interim results. The Speech service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
-
 
 ### Query parameters
 
@@ -192,9 +217,9 @@ The following is a typical response for `detailed` recognition.
 }
 ```
 
-## Text to Speech
+## Text-to-speech
 
-The following are the REST endpoints for the Speech service's Text to Speech API. Use the endpoint that matches your subscription region.
+These regions are supported for text-to-speech via the REST API. Make sure that you select the endpoint that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
