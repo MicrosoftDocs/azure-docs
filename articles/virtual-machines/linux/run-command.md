@@ -52,7 +52,7 @@ Navigate to a VM in [Azure](https://portal.azure.com) and select **Run command**
 
 ![Run command list](./media/run-command/run-command-list.png)
 
-Choose a command to run. Some of the commands may have optional or required input parameters. For those commands the parameters are presented as text fields for you to provide the input values. For each command you can view the script that is being run by expanding **View script**. **RunShellScript** is different from the other commands as it allows you to provide your own custom script. 
+Choose a command to run. Some of the commands may have optional or required input parameters. For those commands the parameters are presented as text fields for you to provide the input values. For each command you can view the script that is being run by expanding **View script**. **RunShellScript** is different from the other commands as it allows you to provide your own custom script.
 
 > [!NOTE]
 > The built-in commands are not editable.

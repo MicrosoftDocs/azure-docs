@@ -29,7 +29,7 @@ The objective of this tutorial is to show you the steps you need to perform in G
 The scenario outlined in this tutorial assumes that you already have the following items:
 
 *   An Azure Active directory tenant
-*   A Github tenant with the [Business plan](https://help.github.com/articles/organization-billing-plans/#business-plan) or better enabled 
+*   A GitHub tenant with the [Business Cloud plan](https://help.github.com/articles/organization-billing-plans/#github-business-cloud) or better enabled 
 *   A user account in GitHub with Admin permissions 
 
 > [!NOTE]

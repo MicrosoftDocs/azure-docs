@@ -109,7 +109,6 @@ When you use stream data from an IoT Hub, you have access to the following metad
 | **IoTHub.ConnectionDeviceId** | The authentication ID used to send this message. This value is stamped on servicebound messages by the IoT Hub. |
 | **IoTHub.ConnectionDeviceGenerationId** | The generation ID of the authenticated device that was used to send this message. This value is stamped on servicebound messages by the IoT Hub. |
 | **IoTHub.EnqueuedTime** | The time when the message was received by the IoT Hub. |
-| **IoTHub.StreamId** | A custom event property added by the sender device. |
 
 
 ## Stream data from Blob storage

@@ -47,12 +47,9 @@ For details on this service and how to use it, see [Azure SQL Server Stretch Dat
 For details on this service and how to use it, see [Azure Cosmos DB documentation](../cosmos-db/index.yml).
 
 ### Variations
-Azure Cosmos DB is generally available in Azure Government. Features that are not currently available in Cosmos DB for Azure Government are:
+Azure Cosmos DB is generally available in Azure Government. The **Add Azure Search** function currently isn't available in Cosmos DB for Azure Government because Azure Search is not yet deployed in Azure Government.
 
-* **Add Azure Search** - Does not work because Azure Search is not yet deployed in Azure Government.
-* **Gremlin API (Graph)** - Cosmos DB accounts using Gremlin cannot be created at this time.
-
-The URLs for accessing Cosmos DB in Azure Government are different:
+Also, the URLs for accessing Cosmos DB in Azure Government are different:
 
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
@@ -89,6 +86,6 @@ The following information identifies the Azure Government boundary for Azure Red
 | --- | --- |
 | All data stored and processed in Azure Redis Cache can contain Azure Government-regulated data. |Azure Redis Cache metadata is not permitted to contain export-controlled data. Do not enter regulated/controlled data into the following fields: **Cache name, Subscription name, Resource groups, Resource tags, Redis properties**. |
 
-## Next Steps
+## Next steps
 For supplemental information and updates subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
