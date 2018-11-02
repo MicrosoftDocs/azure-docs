@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Create a store locator using Azure Maps
 
-This tutorial will guide you through the process of creating a simple store locator using Azure Maps. Store locators are common and many of the same concepts used in this type of application are applicable to many others. Store Locators are a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
+This tutorial guides you through the process of creating a simple store locator using Azure Maps. Store locators are common and many of the same concepts used in this type of application are applicable to many others. Store Locators are a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
     
 > [!div class="checklist"]
 * Create a new web page using the map control API
@@ -30,20 +30,22 @@ Jump ahead to the [live sample](https://azuremapscodesamples.azurewebsites.net/?
 
 ## Prerequisites
 
-Before you proceed, follow the steps in the [first tutorial](https://docs.microsoft.com/azure/azure-maps/tutorial-search-location) to create your Azure Maps account, and get the subscription key for your account.
+Before you proceed, follow the steps in the first tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount), and [get the subscription key for your account](./tutorial-search-location.md#getkey).
 
 ## Design
 
 Before jumping into code, it is always good to start off with a design. Store locators can be as simple or as complicated as you want it to be. In this tutorial, we will focus on creating a store locator. We will include some tips along the way to help you extend certain functionalities if you desire. We will create a store locator for a fictional company called Contoso Coffee. Following is a wireframe of the general layout of the locator we will build.
 
+
 <center>![wireframe](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 To maximize the usefulness of this store locator, we will also include a responsive layout that adjusts when the screen width is fewer than 700 pixels wide. It facilitates the use of locator on small screens, such as mobile devices. Here is a wireframe of what this small screen layout will look like.  
 
+
 <center>![wireframe-mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-In the wireframes above you can see that it is a fairly straight forward application, which has a search box, a list of nearby stores, a map with some markers (symbols) and a popup with additional information when you click on a marker. Going into a bit more detail here are the features we will build into this store locator: 
-    
+In the wireframes above you can see a fairly straight forward application, with a search box, a list of nearby stores, a map with some markers (symbols) and a popup with additional information when a marker is clicked. Going into a bit more detail here are the features we will build into this store locator:
+
 * The location information for all stores will be managed using an Excel spreadsheet and exported into a tab-delimited flat file, which we can easily import into our application. All locations will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
 * The page layout will adjust depending on the width of the screen.  
 * There will be a header, which contains the logo for the store.  
