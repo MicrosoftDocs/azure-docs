@@ -5,7 +5,6 @@ description: Return N-Best translations using the Microsoft Translator Text API.
 services: cognitive-services
 author: Jann-Skotdal
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual

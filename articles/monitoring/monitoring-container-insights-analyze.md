@@ -1,5 +1,5 @@
 ---
-title: Monitor AKS cluster performance with Azure Monitor for containers | Microsoft Docs
+title: Monitor AKS cluster performance with Azure Monitor for containers (Preview) | Microsoft Docs
 description: This article describes how you can view and analyze the performance and log data with Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
 ---
 
-## Understand AKS cluster performance with Azure Monitor for containers
+# Understand AKS cluster performance with Azure Monitor for containers (Preview)
 Viewing the performance of your Azure Kubernetes Service (AKS) clusters can be observed from two perspectives with Azure Monitor for containers, directly from a AKS cluster or view all AKS clusters in a subscription from Azure Monitor. 
 
 This article will help you understand the experience between the two perspectives and how to quickly assess, investigate, and resolve issues detected.
@@ -105,6 +105,10 @@ Switch to the **Nodes** tab and the row hierarchy follows the Kubernetes object 
 
 ![Example Kubernetes Node hierarchy in the performance view](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
+From an expanded node, you can drill-down from the pod or container running on the node to the controller to view performance data filtered for that controller. Click on the value under the **Controller** column for the specific node.   
+
+![Example drill-down from node to controller in the performance view](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
 You can select controllers or containers at the top of the page and review the status and resource utilization for those objects.  If instead you want to review memory utilization, in the **Metric** drop-down list, select **Memory RSS** or **Memory working set**. **Memory RSS** is supported only for Kubernetes version 1.8 and later. Otherwise, you view values for **Min&nbsp;%** as *NaN&nbsp;%*, which is a numeric data type value that represents an undefined or unrepresentable value. 
 
 ![Container nodes performance view](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
@@ -140,7 +144,9 @@ Here you can view the performance health of your controllers.
 
 ![<Name> controllers performance view](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-The row hierarchy starts with a controller and expands the controller. You view one or more containers. Expand a pod, and the last row displays the container grouped to the pod.  
+The row hierarchy starts with a controller and when you expand a controller, you view one or more pods.  Expand pod, and the last row displays the container grouped to the pod. From an expanded controller, you can drill-down to the node it is running on to view performance data filtered for that node. Click on the value under the **Node** column for the specific controller.   
+
+![Example drill-down from node to controller in the performance view](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 The information that's displayed when you view controllers is described in the following table:
 
@@ -174,6 +180,10 @@ In the selector, select **Containers**.
 Here you can view the performance health of your Azure Kubernetes containers.  
 
 ![<Name> controllers performance view](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+From a container, you can drill-down to a pod or node to view performance data filtered for that object. Click on the value under the **Pod** or **Node** column for the specific container.   
+
+![Example drill-down from node to controller in the performance view](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 The information that's displayed when you view containers is described in the following table:
 

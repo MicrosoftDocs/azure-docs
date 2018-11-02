@@ -1,29 +1,30 @@
 ---
 title: 'Quickstart: Recognize speech in Java (Windows or Linux)'
-titleSuffix: "Microsoft Cognitive Services"
+titleSuffix: Azure Cognitive Services
 description: Learn how to recognize speech in Java (Windows or Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
 ---
 
-# Quickstart: Recognize speech in Java on Windows or Linux by using the Speech SDK
+# Quickstart: Recognize speech in Java on Windows or Linux by using the Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-In this article, you create a Java console application by using the [Speech SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or Ubuntu Linux 16.04. It runs on a 64-bit Java 8 runtime environment (JRE).
+In this article, you create a Java console application by using the [Speech Service SDK](speech-sdk.md). You transcribe speech to text in real time from your PC's microphone. The application is built with the Speech SDK Maven package, and the Eclipse Java IDE (v4.8) on 64-bit Windows or Ubuntu Linux 16.04. It runs on a 64-bit Java 8 runtime environment (JRE).
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
 
 ## Prerequisites
 
-You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech service for free](get-started.md) for details.
+You need a Speech service subscription key to complete this Quickstart. You can get one for free. See [Try the Speech Service for free](get-started.md) for details.
 
 
 ## Create and configure project

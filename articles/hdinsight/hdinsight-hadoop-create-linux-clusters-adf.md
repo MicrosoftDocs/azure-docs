@@ -2,14 +2,14 @@
 title: 'Tutorial: Create on-demand Hadoop clusters in Azure HDInsight using Data Factory '
 description: Learn how to create on-demand Hadoop clusters in HDInsight using Azure Data Factory.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
+ms.author: hrasheed
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 
 ---
@@ -36,7 +36,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 - Azure PowerShell. For instructions, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.7.0).
 
-- An Azure Active Directory service principal. Once you have created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+- An Azure Active Directory service principal. Once you have created the service principal, be sure to retrieve the **application ID** and **authentication key** using the instructions in the linked article. You need these values later in this tutorial. Also, make sure the service principal is a member of the *Contributor* role of the subscription or the resource group in which the cluster is created. For instructions to retrieve the required values and assign the right roles, see [Create an Azure Active Directory service principal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Create an Azure storage account
 

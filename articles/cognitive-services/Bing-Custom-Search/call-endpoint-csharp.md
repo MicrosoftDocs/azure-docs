@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
+ms.author: maheshb
 ---
 
 # Quickstart: Call Bing Custom Search endpoint (C#)

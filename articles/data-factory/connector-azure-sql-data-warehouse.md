@@ -1,4 +1,4 @@
-﻿---
+---
 title: Copy data to and from Azure SQL Data Warehouse by using Azure Data Factory | Microsoft Docs
 description: Learn how to copy data from supported source stores to Azure SQL Data Warehouse or from SQL Data Warehouse to supported sink stores by using Data Factory.
 services: data-factory
@@ -98,7 +98,7 @@ For different authentication types, refer to the following sections on prerequis
 
 To use service principal-based Azure AD application token authentication, follow these steps:
 
-1. **[Create an Azure Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
+1. **[Create an Azure Active Directory application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)** from the Azure portal. Make note of the application name and the following values that define the linked service:
 
     - Application ID
     - Application key

@@ -2,8 +2,8 @@
 title: Extend HDInsight with Virtual Network - Azure
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -167,7 +167,7 @@ For more information, see the [Name Resolution for VMs and Role Instances](../vi
 
 ## Directly connect to Hadoop services
 
-You can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses a public IP, which may not be accessible if you have used NSGs or UDRs to restrict incoming traffic from the internet. Additionally, when you deploy the cluster in a VNet you can access it using the private endpoint https://CLUSTERNAME-internal.azurehdinsight.net. This endpoint resolves to a private IP inside the VNet for cluster access.
+You can connect to the cluster at https://CLUSTERNAME.azurehdinsight.net. This address uses a public IP, which may not be accessible if you have used NSGs or UDRs to restrict incoming traffic from the internet. Additionally, when you deploy the cluster in a VNet you can access it using the private endpoint https://CLUSTERNAME-int.azurehdinsight.net. This endpoint resolves to a private IP inside the VNet for cluster access.
 
 To connect to Ambari and other web pages through the virtual network, use the following steps:
 

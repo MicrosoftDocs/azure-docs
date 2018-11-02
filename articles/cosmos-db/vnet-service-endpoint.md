@@ -128,7 +128,7 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -170,7 +170,7 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
    Set-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName -Properties $CosmosDBProperties
@@ -180,7 +180,7 @@ Use the following steps to configure Service endpoint to an Azure Cosmos DB acco
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName

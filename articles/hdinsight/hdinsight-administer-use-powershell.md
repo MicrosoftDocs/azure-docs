@@ -3,13 +3,13 @@ title: Manage Hadoop clusters in HDInsight with PowerShell - Azure
 description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using Azure PowerShell.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Manage Hadoop clusters in HDInsight by using Azure PowerShell
