@@ -113,7 +113,7 @@
     href: https://aka.ms/ams-v3-java-ref
   - name: Python
     href: https://aka.ms/ams-v3-python-ref
-  - name: Node .js
+  - name: Node.js
     href: https://aka.ms/ams-v3-nodejs-ref
   - name: Go
     href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/mediaservices/mgmt/2018-06-01-preview/media      
@@ -149,7 +149,7 @@
       href: https://aka.ms/ams-v3-java-sdk
     - name: Python
       href: https://aka.ms/ams-v3-python-sdk
-    - name: Node .js
+    - name: Node.js
       href: https://aka.ms/ams-v3-nodejs-sdk   
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
@@ -159,4 +159,3 @@
     href: limits-quotas-constraints.md
   - name: FAQ
     href: frequently-asked-questions.md
-  
