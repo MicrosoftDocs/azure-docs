@@ -115,6 +115,11 @@
             "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
             "redirect_document_id": true
         },
+		        {
+            "source_path": "articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md",
+            "redirect_url": "/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/frontdoor/front-door-rest-api.md",
             "redirect_url": "/rest/api/frontdoor",
