@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Analyze video content for problematic material in C#"
+title: "Analyze video content for problematic material in C#"
 titlesuffix: Azure Cognitive Services
 description: How to analyze video content for various problematic material using the Content Moderator SDK for .NET
 services: cognitive-services
@@ -8,13 +8,13 @@ manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: sajagtap
 #As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Analyze video content for problematic material in C#
+# Analyze video content for problematic material in C#
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) to scan video content for adult or racy content.
 
@@ -95,7 +95,7 @@ static string STORAGE_CONTAINER_NAME = "YOUR BLOB CONTAINER FOR VIDEO FILES";
 
 private static StorageCredentials _StorageCredentials = null;
 
-// Azure Media Services authentication. See the quickstart for how to get these.
+// Azure Media Services authentication. 
 private const string AZURE_AD_TENANT_NAME = "microsoft.onmicrosoft.com";
 private const string CLIENT_ID = "YOUR CLIENT ID";
 private const string CLIENT_SECRET = "YOUR CLIENT SECRET";
@@ -110,6 +110,7 @@ private const string MEDIA_PROCESSOR = "Azure Media Content Moderator";
 private const string INPUT_FILE = "VIDEO FILE NAME";
 private const string OUTPUT_FOLDER = "";
 
+// JSON settings file
 private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
 ```
