@@ -4,8 +4,8 @@ description: Learn how to use Microsoft Power BI to visualize Interactive Query 
 keywords: hdinsight,hadoop,hive,interactive query,interactive hive,LLAP,directquery 
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual

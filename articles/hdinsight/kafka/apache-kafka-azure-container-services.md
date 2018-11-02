@@ -3,8 +3,8 @@ title: Use Azure Kubernetes Service with Kafka on HDInsight
 description: Learn how to use Kafka on HDInsight from container images hosted in Azure Kubernetes Service (AKS).
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
