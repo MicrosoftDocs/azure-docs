@@ -139,6 +139,12 @@ If your proxy settings are correct, you may have to contact your proxy server ad
 
 If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you were granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
 
+## Connection String Does Not Have Complete Configuration Settings
+
+If you receive this error message, it is possible that you do not have the needed permissions to obtain the keys for your Storage account. To confirm if this is the case, go to the portal and locate your Storage account. You can quickly do this by right clicking on the node for your Storage account and clicking "Open in Portal". Once you do, go to the "Access Keys" blade. If you do not have permissions to view keys then you will see a page with the message "You do not have access". To workaround this issue, you can either obtain the account key from someone else and attach with name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
+
+If you do see the account keys, then please file an issue on GitHub so we can help you resolve the issue.
+
 ## Issues with SAS URL
 If you're connecting to a service using a SAS URL and experiencing this error:
 
