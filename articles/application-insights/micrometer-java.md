@@ -51,9 +51,10 @@ Steps
 
     ```
 2. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
-    a. `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
-3. Build your application and run
-4. The above should get you up and running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
+
+     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
+1. Build your application and run
+2. The above should get you up and running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/azure-application-insights-spring-boot-starter/README.md).
 
 ## Using Spring 2.x
 
@@ -76,7 +77,7 @@ Steps:
     ```
 1. Update the application.properties or yml file with the Application Insights Instrumentation key using the following property:
 
-    a. `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
+     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 3. Build your application and run
 4. The above should get you running with pre-aggregated metrics auto collected to Azure Monitor. For details on how to fine-tune Application Insights Spring Boot starter refer to the [readme on GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
@@ -128,60 +129,60 @@ Steps:
 
 1. Add the following dependencies in your pom.xml or build.gradle file:
 
-```XML
-    <dependency>
-    	<groupId>io.micrometer</groupId>
-    	<artifactId>micrometer-registry-azure-monitor</artifactId>
-    	<version>1.1.0</version>
-    </dependency>
-    
-    <dependency>
-    	<groupId>com.microsoft.azure</groupId>
-    	<artifactId>applicationinsights-web</artifactId>
-    	<version>2.2.0</version>
-    </dependency
- ```
+    ```XML
+        <dependency>
+        	<groupId>io.micrometer</groupId>
+        	<artifactId>micrometer-registry-azure-monitor</artifactId>
+        	<version>1.1.0</version>
+        </dependency>
+        
+        <dependency>
+        	<groupId>com.microsoft.azure</groupId>
+        	<artifactId>applicationinsights-web</artifactId>
+        	<version>2.2.0</version>
+        </dependency
+     ```
 
 2. Put Application Insights.xml in the resources folder
 
     Sample Servlet class (emits a timer metric):
 
-```Java
-    @WebServlet("/hello")
-    public class TimedDemo extends HttpServlet {
-
-      private static final long serialVersionUID = -4751096228274971485L;
-
-      @Override
-      @Timed(value = "hello.world")
-      protected void doGet(HttpServletRequest reqest, HttpServletResponse response)
-          throws ServletException, IOException {
-
-        response.getWriter().println("Hello World!");
-        MeterRegistry registry = (MeterRegistry) getServletContext().getAttribute("AzureMonitorMeterRegistry");
-
-    //create new Timer metric
-        Timer sampleTimer = registry.timer("timer");
-        Stream<Integer> infiniteStream = Stream.iterate(0, i -> i+1);
-        infiniteStream.limit(10).forEach(integer -> {
-          try {
-            Thread.sleep(1000);
-            sampleTimer.record(integer, TimeUnit.MILLISECONDS);
-          } catch (Exception e) {}
-           });
-      }
-      @Override
-      public void init() throws ServletException {
-        System.out.println("Servlet " + this.getServletName() + " has started");
-      }
-      @Override
-      public void destroy() {
-        System.out.println("Servlet " + this.getServletName() + " has stopped");
-      }
-
-    }
-
-```
+    ```Java
+        @WebServlet("/hello")
+        public class TimedDemo extends HttpServlet {
+    
+          private static final long serialVersionUID = -4751096228274971485L;
+    
+          @Override
+          @Timed(value = "hello.world")
+          protected void doGet(HttpServletRequest reqest, HttpServletResponse response)
+              throws ServletException, IOException {
+    
+            response.getWriter().println("Hello World!");
+            MeterRegistry registry = (MeterRegistry) getServletContext().getAttribute("AzureMonitorMeterRegistry");
+    
+        //create new Timer metric
+            Timer sampleTimer = registry.timer("timer");
+            Stream<Integer> infiniteStream = Stream.iterate(0, i -> i+1);
+            infiniteStream.limit(10).forEach(integer -> {
+              try {
+                Thread.sleep(1000);
+                sampleTimer.record(integer, TimeUnit.MILLISECONDS);
+              } catch (Exception e) {}
+               });
+          }
+          @Override
+          public void init() throws ServletException {
+            System.out.println("Servlet " + this.getServletName() + " has started");
+          }
+          @Override
+          public void destroy() {
+            System.out.println("Servlet " + this.getServletName() + " has stopped");
+          }
+    
+        }
+    
+    ```
 
   Sample configuration class:
 
@@ -227,7 +228,6 @@ To learn more about metrics, refer to the [Micrometer documentation](https://mic
 
 Other sample code on how to create different types of metrics can be found in[the official Micrometer Github repo](https://github.com/micrometer-metrics/micrometer/tree/master/samples/micrometer-samples-core/src/main/java/io/micrometer/core/samples).
 
-
 ## How to bind additional metrics collection
 
 ### SpringBoot/Spring
@@ -251,4 +251,4 @@ Add the following binding code to the configuration  file:
 ## Next Steps
 
 * To learn more about Micrometer refer to the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure refer to the official [Spring on Azure documentation](https://docs.microsoft.com/en-us/java/azure/spring-framework/?view=azure-java-stable)
+* To learn about Spring on Azure refer to the official [Spring on Azure documentation](https://docs.microsoft.com/en-us/java/azure/spring-framework/?view=azure-java-stable).
