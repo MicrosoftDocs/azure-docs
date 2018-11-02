@@ -106,7 +106,7 @@ Before you begin the cabling of your device, you will need:
 
 - Your Edge physical device, unpacked, and rack mounted.
 - Two power cables. 
-- A minimum of 1-GbE RJ-45 network cable to be configured as management. There are two 1-GbE network interfaces on the device.
+- At least one 1-GbE RJ-45 network cable to connect to the management interface. There are two 1-GbE network interfaces, one management and one data, on the device.
 - One 25-GbE SFP+ copper cable for each data network interface to be configured. At least one data network interface - PORT 2, PORT 3, PORT 4, PORT 5, or PORT 6 needs to be connected to the Internet (connectivity to Azure).
 - Access to two Power Distribution Units (recommended).
 
