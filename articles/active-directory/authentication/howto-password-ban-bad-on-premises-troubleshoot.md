@@ -61,7 +61,7 @@ The key password-validation-related events are as follows:
 > [!TIP]
 > Incoming passwords are validated against the Microsoft global password list first; if that fails, no further processing is performed. This is the same behavior as performed on password changes in Azure.
 
-#### Sample event log message for Event ID 10014 successful password set
+#### Sample event log message for Event ID 10014 (successful password set)
 
 ```
 The changed password for the specified user was validated as compliant with the current Azure password policy.
@@ -70,7 +70,7 @@ The changed password for the specified user was validated as compliant with the 
  FullName:
 ```
 
-#### Sample event log message for Event ID 10017 and 30003 failed password set
+#### Sample event log message for Event ID 10017 and 30003 (failed password set)
 
 10017:
 
@@ -90,9 +90,7 @@ The reset password for the specified user was rejected because it matched at lea
  FullName:
 ```
 
-Some other key event log messages to be aware of are:
-
-#### Sample event log message for Event ID 30001
+#### Sample event log message for Event ID 30001 (password accepted due to no policy available)
 
 ```
 The password for the specified user was accepted because an Azure password policy is not available yet
@@ -119,7 +117,7 @@ This condition may be caused by one or more of the following reasons:%n
    Resolution steps: ensure network connectivity exists to the domain.
 ```
 
-#### Sample event log message for Event ID 30006
+#### Sample event log message for Event ID 30006 (new policy being enforced)
 
 ```
 The service is now enforcing the following Azure password policy.
@@ -201,7 +199,7 @@ Text logging is disabled by default. A restart of the Proxy service is required 
 
 #### Powershell cmdlet logging
 
-Most of the Azure AD password protection Powershell cmdlets will always write to a text log located under:
+Most of the Azure AD password protection Powershell cmdlets will write to a text log located under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -209,11 +207,11 @@ If a cmdlet error occurs and the cause and\or solution is not readily apparent, 
 
 ### Emergency remediation
 
-If an unfortunate situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
+If a situation occurs where the DC agent service is causing problems, the DC agent service may be immediately shut down. The DC agent password filter dll still attempts to call the non-running service and will log warning events (10012, 10013), but all incoming passwords are accepted during that time. The DC agent service may then also be configured via the Windows Service Control Manager with a startup type of “Disabled” as needed.
 
 ### Performance monitoring
 
-The DC agent service software installs a performance counter object named **Azure AD password protection**. The following perf counters are currently available:
+The DC agent service software installs a performance counter object named **Azure AD Password Protection**. The following perf counters are currently available:
 
 |Perf counter name | Description|
 | --- | --- |

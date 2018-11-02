@@ -80,7 +80,7 @@ PasswordSetErrors               : 1
 The scope of the cmdlet’s reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
 
 > [!NOTE]
-> This cmdlet works by opening a Powershell session to each domain controller. In order to success, Powershell remote session support must be enabled on each domain controller, and the client must have sufficient privileges. For more information on Powershell remote session requirements, run 'Get-Help about_Remote_Troubleshooting' in a Powershell window.
+> This cmdlet works by opening a Powershell session to each domain controller. In order to succeed, Powershell remote session support must be enabled on each domain controller, and the client must have sufficient privileges. For more information on Powershell remote session requirements, run 'Get-Help about_Remote_Troubleshooting' in a Powershell window.
 
 > [!NOTE]
 > This cmdlet works by remotely querying each DC agent service’s Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
