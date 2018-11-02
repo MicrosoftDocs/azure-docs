@@ -22,7 +22,7 @@ In this quickstart, you will use the online Content Moderator Review Tool to tes
 - A web browser
 
 ## Set up the review tool
-The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](http://contentmoderator.cognitive.microsoft.com/) site and sign up.
+The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](https://contentmoderator.cognitive.microsoft.com/) site and sign up.
 
 ![Content Moderator Home Page](images/homepage.PNG)
 

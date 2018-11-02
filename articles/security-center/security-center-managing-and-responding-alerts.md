@@ -92,4 +92,4 @@ In this document, you learned how to configure security policies in Security Cen
 * [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.

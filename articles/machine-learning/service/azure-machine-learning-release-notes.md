@@ -215,7 +215,7 @@ Welcome to the third update of Azure Machine Learning. This update includes impr
 **Notable New Features**
 - [Support for SQL Server and Azure SQL DB as a data source](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Deep Learning on Spark with GPU support using MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [All AML containers are compatible with Azure IoT Edge devices when deployed (no extra steps required)](http://aka.ms/aml-iot-edge-blog)
+- [All AML containers are compatible with Azure IoT Edge devices when deployed (no extra steps required)](https://aka.ms/aml-iot-edge-blog)
 - Registered model list and detail views available Azure portal
 - Accessing compute targets using SSH key-based authentication in addition to username/password-based access. 
 - New Pattern Frequency Inspector in the data prep experience. 
@@ -281,7 +281,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
 - Added `az ml datasource create` command allows to creating a data source file from the command-line
 
 #### Model Management and Operationalization
-- [All AML containers are compatible with Azure IoT Edge devices when operationalized (no extra steps required)](http://aka.ms/aml-iot-edge-blog) 
+- [All AML containers are compatible with Azure IoT Edge devices when operationalized (no extra steps required)](https://aka.ms/aml-iot-edge-blog) 
 - Improvements of error messages in the o16n CLI
 - Bug fixes in model management portal UX  
 - Consistent letter casing for model management attributes in the detail page

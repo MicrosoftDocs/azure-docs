@@ -48,9 +48,9 @@ For a user to access an application, they must first be assigned to it in some w
 
 6.  An administrator enables [Self-service Group Management](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) to allow a user to join a group that an application is assigned to, but only **with prior approval from a selected set of business approvers**
 
-7.  An administrator assigns a license to a user directly for a first party application, like [Microsoft Office 365](http://products.office.com/)
+7.  An administrator assigns a license to a user directly for a first party application, like [Microsoft Office 365](https://products.office.com/)
 
-8.  An administrator assigns a license to a group that the user is a member of to a first party application, like [Microsoft Office 365](http://products.office.com/)
+8.  An administrator assigns a license to a group that the user is a member of to a first party application, like [Microsoft Office 365](https://products.office.com/)
 
 9.  An [administrator consents to an application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) to be used by all users and then a user signs in to the application
 

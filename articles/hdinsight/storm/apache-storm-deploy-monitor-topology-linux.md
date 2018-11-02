@@ -32,7 +32,7 @@ In this document, learn the basics of managing and monitoring Storm topologies r
 
   * Visual Studio 2012 with Update 4
 
-  * Visual Studio 2013 with Update 4 or [Visual Studio 2013 Community](http://go.microsoft.com/fwlink/?LinkId=517284)
+  * Visual Studio 2013 with Update 4 or [Visual Studio 2013 Community](https://go.microsoft.com/fwlink/?LinkId=517284)
   * [Visual Studio 2015](https://www.visualstudio.com/downloads/)
 
   * Visual Studio 2015 (any edition)

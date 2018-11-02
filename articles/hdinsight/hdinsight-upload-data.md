@@ -207,7 +207,7 @@ Before using the tool, you must know your Azure storage account name and account
     Once the file has finished uploading, you can use it from jobs on the HDInsight cluster.
 
 ### Mount Azure Storage as Local Drive
-See [Mount Azure Storage as Local Drive](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+See [Mount Azure Storage as Local Drive](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
 
 ### Upload using services
 #### Azure Data Factory

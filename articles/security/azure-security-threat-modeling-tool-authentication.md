@@ -153,7 +153,7 @@ ms.author: jegeib
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | OnPrem, SQL Azure |
 | **Attributes**              | SQL Version - MSSQL2012, SQL Version - V12 |
-| **References**              | [Security Best Practices with Contained Databases](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **References**              | [Security Best Practices with Contained Databases](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Steps** | The absence of an enforced password policy may increase the likelihood of a weak credential being established in a contained database. Leverage Windows Authentication. |
 
 ## <a id="authn-sas-tokens"></a>Use per device authentication credentials using SaS tokens

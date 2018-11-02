@@ -92,7 +92,7 @@ These are some of the features supported on premium storage enabled VMs:
     You can use premium and standard disks in the same Premium Storage VM. With Premium Storage, you can provision a VM and attach several persistent data disks to the VM. If needed, to increase the capacity and performance of the volume, you can stripe across your disks.
 
     > [!NOTE]
-    > If you stripe premium storage data disks by using [Storage Spaces](http://technet.microsoft.com/library/hh831739.aspx), set up Storage Spaces with 1 column for each disk that you use. Otherwise, overall performance of the striped volume might be lower than expected because of uneven distribution of traffic across the disks. By default, in Server Manager, you can set up columns for up to 8 disks. If you have more than 8 disks, use PowerShell to create the volume. Specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns, even if you have more disks. For example, if you have 32 disks in a single stripe set, specify 32 columns. To specify the number of columns the virtual disk uses, in the [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet, use the *NumberOfColumns* parameter. For more information, see [Storage Spaces Overview](http://technet.microsoft.com/library/hh831739.aspx) and [Storage Spaces FAQs](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > If you stripe premium storage data disks by using [Storage Spaces](https://technet.microsoft.com/library/hh831739.aspx), set up Storage Spaces with 1 column for each disk that you use. Otherwise, overall performance of the striped volume might be lower than expected because of uneven distribution of traffic across the disks. By default, in Server Manager, you can set up columns for up to 8 disks. If you have more than 8 disks, use PowerShell to create the volume. Specify the number of columns manually. Otherwise, the Server Manager UI continues to use 8 columns, even if you have more disks. For example, if you have 32 disks in a single stripe set, specify 32 columns. To specify the number of columns the virtual disk uses, in the [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx) PowerShell cmdlet, use the *NumberOfColumns* parameter. For more information, see [Storage Spaces Overview](https://technet.microsoft.com/library/hh831739.aspx) and [Storage Spaces FAQs](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -233,7 +233,7 @@ The following limits apply to premium storage blob snapshots:
 
 To maintain geo-redundant copies of your snapshots, you can copy snapshots from a premium storage account to a geo-redundant standard storage account by using AzCopy or Copy Blob. For more information, see [Transfer data with the AzCopy command-line utility](../articles/storage/common/storage-use-azcopy.md) and [Copy Blob](/rest/api/storageservices/Copy-Blob).
 
-For detailed information about performing REST operations against page blobs in a premium storage account, see [Blob service operations with Azure Premium Storage](http://go.microsoft.com/fwlink/?LinkId=521969).
+For detailed information about performing REST operations against page blobs in a premium storage account, see [Blob service operations with Azure Premium Storage](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### Managed disks
 
@@ -263,12 +263,12 @@ The following Linux distributions have been validated for Azure Premium Storage.
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 required](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommended](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 required](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommended](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *See note in the next section* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 or RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 or RHCK w/[LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### LIS drivers for OpenLogic CentOS

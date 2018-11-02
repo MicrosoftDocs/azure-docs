@@ -30,7 +30,7 @@ In this sample, you use an HDInsight cluster to analyze website log files to get
 ## Prerequisites
 * You must have provisioned a Hadoop cluster on Azure HDInsight. For instructions, see [Provision HDInsight Clusters](../hdinsight-hadoop-provision-linux-clusters.md).
 * You must have Microsoft Excel 2013 or Excel 2010 installed.
-* You must have [Microsoft Hive ODBC Driver](http://www.microsoft.com/download/details.aspx?id=40886) to import data from Hive into Excel.
+* You must have [Microsoft Hive ODBC Driver](https://www.microsoft.com/download/details.aspx?id=40886) to import data from Hive into Excel.
 
 ## To run the sample
 1. From the [Azure portal](https://portal.azure.com/), from the Startboard (if you pinned the cluster there), click the cluster tile on which you want to run the sample.
