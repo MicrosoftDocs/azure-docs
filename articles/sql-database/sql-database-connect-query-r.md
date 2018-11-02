@@ -48,7 +48,7 @@ You can create a database using one of these quickstarts:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-You can connect to the Azure SQL database and run the R scripts using [SQL Server Management Studio](sql-database-connect-query-ssms.md), [Visual Studio Code](sql-database-connect-query-vscode.md), or the [Azure Portal](sql-database-connect-query-portal.md), You can also another database management or query tool, as long as it can connect to an Azure SQL database, and run a T-SQL query or stored procedure.
+You can connect to the Azure SQL database and run the R scripts using [SQL Server Management Studio](sql-database-connect-query-ssms.md), [Visual Studio Code](sql-database-connect-query-vscode.md), or the [Azure Portal](sql-database-connect-query-portal.md). You can also another database management or query tool, as long as it can connect to an Azure SQL database, and run a T-SQL query or stored procedure. This quickstart uses **SQL Server Management Studio**.
 
 This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
@@ -58,9 +58,23 @@ You also need to sign up for the preview, as described above.
 
 The following steps confirm that R is enabled for your Azure SQL database.
 
-1. Something something
-1. Something else something else
-1. And more of something
+1. Open SQL Server Management Studio.
+1. Open a new Query window in SQL Server Management Studio, and connect to your Azure SQL database.
+1. Run the code below. 
+
+    ```sql
+    EXEC sp_execute_external_script
+    @language =N'R',
+    @script=N'print(31 + 11)';
+    GO
+    ```
+    If all is well, you should see a result message like this one.
+
+    ```text
+    STDOUT message(s) from external script: 
+    42
+    ```
+1. If you get any errors, it might be because the preview of R support in Azure SQL database is not enabled for your database . You can sign up for the preview at [aka.ms/sqldb-r-preview-signup](https://aka.ms/sqldb-r-preview-signup).
 
 ## Basic R interaction
 
