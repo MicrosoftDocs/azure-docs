@@ -111,9 +111,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![FreshDesk Domain and URLs single sign-on information](./media/freshdesk-tutorial/tutorial_freshdesk_url.png)
 
-    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com`
+    a. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com` or any other value Freshdesk has suggested.
 
-	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com`
+	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `https://<tenant-name>.freshdesk.com` r any other value Freshdesk has suggested.
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Sign-On URL and Identifier. Contact [FreshDesk Client support team](https://freshdesk.com/helpdesk-software?utm_source=Google-AdWords&utm_medium=Search-IND-Brand&utm_campaign=Search-IND-Brand&utm_term=freshdesk&device=c&gclid=COSH2_LH7NICFVUDvAodBPgBZg) to get these values.
