@@ -1,42 +1,30 @@
 ---
-title: Build a Java and MySQL web app in Azure
-description: Learn how to get a Java app that connects to the Azure MySQL database service working in Azure appservice .
-services: app-service\web
-documentationcenter: Java
-author: bbenz
-manager: jeffsand
-editor: jasonwhowell
-ms.assetid: 
+title: Build, deploy, and scale a Java web app in App Service on Linux
+description: Build, deploy, and scale Spring Boot Java Web apps with Azure App Service on Linux and Azure Cosmos DB.
+author: routlaw
+manager: angerobe
 ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: tutorial
-ms.date: 05/22/2017
-ms.author: bbenz
+ms.date: 11/02/2018
 ms.custom: mvc
 ---
 
-# Tutorial: Build a Java and MySQL web app in Azure
+# Tutorial: Build a Java wb app using Spring Boot, Spring Data for Cosmos DB, Azure Cosmos DB and App Service on Linux
 
-> [!NOTE]
-> This article deploys an app to App Service on Windows. To deploy to App Service on _Linux_, see [Deploy a containerized Spring Boot app to Azure](/java/azure/spring-framework/deploy-containerized-spring-boot-java-app-with-maven-plugin).
->
-
-This tutorial shows you how to create a Java web app in Azure and connect it to a MySQL database. 
-When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Database for MySQL](../mysql/overview.md) running on [Azure App Service Web Apps](app-service-web-overview.md).
+This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
+When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a MySQL database in Azure
-> * Connect a sample app to the database
-> * Deploy the app to Azure
-> * Update and redeploy the app
+> * Create a Cosmos DB database.
+> * Connect a simple TODO app running locally to the database
+> * Deploy the TODO sample app to Azure
 > * Stream diagnostic logs from Azure
-> * Monitor the app in the Azure portal
+> * Scale out the web app 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
