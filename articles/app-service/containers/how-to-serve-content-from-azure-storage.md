@@ -25,7 +25,7 @@ This guide shows how to serve static content in App Service on Linux by using [A
 > Azure Storage is non-default storage and billed separately, not included with the web app.
 >
 
-Create an Azure [Azure storage account](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
+Create an Azure [Azure storage account](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-cli).
 
 ```azurecli
 #Create Storage Account
@@ -67,4 +67,4 @@ az webapp conf storage-account list --resource-group <group_name> --name <app_na
 
 ## Next steps
 
-- [Configure web apps in Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/web-sites-configure).
+- [Configure web apps in Azure App Service](https://docs.microsoft.com/azure/app-service/web-sites-configure).
