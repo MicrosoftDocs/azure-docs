@@ -5,7 +5,7 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 11/1/2018
+ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
 ---
