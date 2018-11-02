@@ -95,5 +95,5 @@ The schema for the Activity Log is available in [Monitor subscription activity w
 ## Next steps
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
-* [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md)
+* [Set up an alert based on an Activity Log event](monitor-alerts-unified-log-webhook.md)
 
