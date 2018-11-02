@@ -14,7 +14,7 @@ ms.author: sajagtap
 #As a C# developer of content management software, I want to analyze images for offensive or inappropriate material so that I can categorize and handle it accordingly.
 ---
 
-# Quickstart: Analyze text content for objectionable material in C#
+# Quickstart: Analyze image content for objectionable material in C#
 
 This article provides information and code samples to help you get started using the [Content Moderator SDK for .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). You will learn how to scan for adult or racy content, extractable text, and human faces with the aim of moderating potentially objectionable material.
 
@@ -25,7 +25,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 - Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/)
 
-> ![NOTE]
+
+> [!NOTE]
 > This guide uses a free-tier Content Moderator subscription. For information on what is provided with each subscription tier, see the [Pricing and limits](https://azure.microsoft.com/pricing/details/cognitive-services/content-moderator/) page.
 
 ## Create the Visual Studio project
