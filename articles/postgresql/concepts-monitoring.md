@@ -7,7 +7,7 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 11/01/2018
 ---
 # Monitor and tune
 Monitoring data about your servers helps you troubleshoot and optimize for your workload. Azure Database for PostgreSQL provides various monitoring options to provide insight into the behaviour of your server.
@@ -33,6 +33,7 @@ These metrics are available for Azure Database for PostgreSQL:
 |connections_failed|Failed Connections|Count|The number of failed connections to the server.|
 |network_bytes_egress|Network Out|Bytes|Network Out across active connections.|
 |network_bytes_ingress|Network In|Bytes|Network In across active connections.|
+|backup_storage_used|Backup Storage Used|Bytes|The amount of backup storage used.|
 
 ## Server logs
 You can enable logging on your server. These logs are also available through Azure Diagnostic Logs in [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs, and Storage Account. To learn more about logging, visit the [server logs](concepts-server-logs.md) page.

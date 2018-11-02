@@ -28,7 +28,7 @@ To get started, you first need to download and install [Visual Studio](https://w
 3. Click on the **Download** button. 
 4. After installation, restart Visual Studio. 
 
-Once Visual Studio is reloaded, the extension is active. [Learn more about finding extensions](hhttps://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
+Once Visual Studio is reloaded, the extension is active. [Learn more about finding extensions](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions).
 
 > [!NOTE]
 > Visual Studio Tools for AI needs Visual Studio 2015 or 2017, professional or enterprise edition. It does not support Apple OSX version. 
