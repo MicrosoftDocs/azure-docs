@@ -49,7 +49,7 @@ You can create a database using one of these quickstarts:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-You can connect to the SQL Database and run the R scripts using [SQL Server Management Studio](sql-database-connect-query-ssms.md), [Visual Studio Code](sql-database-connect-query-vscode.md), or the [Azure Portal](sql-database-connect-query-portal.md). You can also another database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses **SQL Server Management Studio**.
+You can connect to the SQL Database and run the R scripts using [SQL Server Management Studio](sql-database-connect-query-ssms.md), [Visual Studio Code](sql-database-connect-query-vscode.md), or the [Azure portal](sql-database-connect-query-portal.md). You can also another database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses **SQL Server Management Studio**.
 
 This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
@@ -149,7 +149,6 @@ If you would like to see which version of R is installed in your SQL database, d
     nickname       Someone to Lean On
     ```
 
-
 ## List R packages
 
 To see a list of the installed R packages in your SQL database, including version, dependencies, license, and library path information, follow the exercise below.
@@ -172,7 +171,7 @@ To see a list of the installed R packages in your SQL database, including versio
 
 ## Inputs and outputs
 
-By default, [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) accepts a single input dataset, which typically you supply in the form of a valid SQL query. Other types of input can be passed as SQL variables.
+By default, [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) accepts a single input dataset, which typically you supply in the form of a valid SQL query. Other types of input can be passed as SQL variables.
 
 The stored procedure returns a single R data frame as output, but you can also output scalars and models as variables. For example, you can output a trained model as a binary variable and pass that to a T-SQL INSERT statement, to write that model to a table. You can also generate plots (in binary format) or scalars (individual values, such as the date and time, the time elapsed to train the model, and so forth).
 
@@ -332,7 +331,7 @@ You can train a model using R and save the model to a table in your SQL database
     WHERE model_name = 'default model'
     ```
 
-4. Generally, the output of R from the stored procedure [sp_execute_external_script](../../relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) is limited to a single data frame.
+4. Generally, the output of R from the stored procedure [sp_execute_external_script](https://review.docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md) is limited to a single data frame.
 
     However, you can return outputs of other types, such as scalars, in addition to the data frame.
 
@@ -402,9 +401,9 @@ Use the model you created in the previous section to score predictions against n
     + After retrieving the model from the table, call the `unserialize` function on the model.
 
         > [!TIP] 
-        > Also check out the new [serialization functions](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support [realtime scoring](../real-time-scoring.md).
-    +  Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
-    +  In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
+        > Also check out the new [serialization functions](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
+    + Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
+    + In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
     + The column names used in the R script are not necessarily passed to the stored procedure output. Here we've used the WITH RESULTS clause to define some new column names.
 
     **Results**
