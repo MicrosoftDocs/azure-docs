@@ -184,44 +184,43 @@ Steps:
     
     ```
 
-  Sample configuration class:
+      Sample configuration class:
 
-    
     ```Java
-        @WebListener
-        public class MeterRegistryConfiguration implements ServletContextListener {
-    
-          @Override
-          public void contextInitialized(ServletContextEvent servletContextEvent) {
-    
-        // Create AzureMonitorMeterRegistry
-          private final AzureMonitorConfig config = new AzureMonitorConfig() {
-            @Override
-            public String get(String key) {
-                return null;
-            }
+         @WebListener
+         public class MeterRegistryConfiguration implements ServletContextListener {
+     
            @Override
-              public Duration step() {
-                return Duration.ofSeconds(60);}
-    
+           public void contextInitialized(ServletContextEvent servletContextEvent) {
+     
+         // Create AzureMonitorMeterRegistry
+           private final AzureMonitorConfig config = new AzureMonitorConfig() {
+             @Override
+             public String get(String key) {
+                 return null;
+             }
             @Override
-            public boolean enabled() {
-                return false;
-            }
-        };
-    
-    MeterRegistry azureMeterRegistry = AzureMonitorMeterRegistry.builder(config);
-    
-            //set the config to be used elsewhere
-            servletContextEvent.getServletContext().setAttribute("AzureMonitorMeterRegistry", azureMeterRegistry);
-    
-          }
-    
-          @Override
-          public void contextDestroyed(ServletContextEvent servletContextEvent) {
-    
-          }
-        }
+               public Duration step() {
+                 return Duration.ofSeconds(60);}
+     
+             @Override
+             public boolean enabled() {
+                 return false;
+             }
+         };
+     
+      MeterRegistry azureMeterRegistry = AzureMonitorMeterRegistry.builder(config);
+     
+             //set the config to be used elsewhere
+             servletContextEvent.getServletContext().setAttribute("AzureMonitorMeterRegistry", azureMeterRegistry);
+     
+           }
+     
+           @Override
+           public void contextDestroyed(ServletContextEvent servletContextEvent) {
+     
+           }
+         }
     ```
 
 To learn more about metrics, refer to the [Micrometer documentation](https://micrometer.io/docs/).
