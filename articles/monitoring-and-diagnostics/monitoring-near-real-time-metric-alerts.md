@@ -16,8 +16,8 @@ Azure Monitor now supports a [new metric alert type](monitoring-overview-unified
 
 You can also use newer metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs 
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
-- [Heartbeat records for Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
-- [Update management](../operations-management-suite/oms-solution-update-management.md) records
+- [Heartbeat records for Agent Health](../monitoring/monitoring-solution-agenthealth.md)
+- [Update management](../automation/automation-update-management.md) records
 - [Event data](../log-analytics/log-analytics-data-sources-windows-events.md) logs
  
 > [!NOTE]
