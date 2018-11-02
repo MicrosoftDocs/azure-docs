@@ -58,7 +58,7 @@ This article describes changes that were introduced in Azure Media Services (AMS
   * LiveEvent replaces Channel.
   * LiveOutput replaces Program.
   * StreamingLocator replaces Locator.
-* LiveOutputs do not need to be started explicitely, they start on creation and stop when deleted. Programs worked differently, they had to be startd after creation.
+* LiveOutputs do not need to be started explicitly, they start on creation and stop when deleted. Programs worked differently, they had to be started after creation.
 * Deleting a LiveOutput does NOT delete the underlying Asset that it is attached to.  
 
 ## Code changes
