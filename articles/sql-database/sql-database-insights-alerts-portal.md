@@ -11,7 +11,7 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
+ms.date: 11/02/2018
 ---
 # Use Azure portal to create alerts for Azure SQL Database and Data Warehouse
 
