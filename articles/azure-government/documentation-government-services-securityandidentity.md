@@ -144,9 +144,9 @@ For details on this service and how to use it, see the [Azure Multi-Factor Authe
 
 ## Azure Information Protection
 
-Azure Information Protection Premium, part of our Enterprise Mobility + Security suite, is generally available in Azure Government.
+Azure Information Protection Premium, part of the [Enterprise Mobility + Security](https://docs.microsoft.com/enterprise-mobility-security) suite, is generally available in Azure Government.
 
-For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fenterprise-mobility-security%2Fsolutions%2Fems-aip-premium-govt-service-description&data=02%7C01%7Cjuliako%40microsoft.com%7C98b74c07458141fd43a608d6404e08ae%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636767101250166818&sdata=KWIMpGbJy7iMD2ccWxhWqH0RPRm553KdWv0uYQjMyvc%3D&reserved=0).
+For details on this service and how to use it, see the [Azure Information Protection Premium Government Service Description](https://docs.microsoft.com/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
 ## Next Steps
 For supplemental information and updates, subscribe to the
