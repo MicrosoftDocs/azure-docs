@@ -20,7 +20,7 @@ This tutorial will guide you through the process of creating a simple store loca
 * Load custom data from a file and display it on the map.
 * Use the Azure Maps search service to find an address or place a query.
 * Get the users location from the browser and show it on the map.
-* Combine multiple layers on the map to create custom symbols on the map.  
+* Combine multiple layers to create custom symbols on the map.  
 * Clustering of data points.  
 * Add zoom controls to the map.
 
@@ -44,15 +44,15 @@ To maximize the usefulness of this store locator, we will also include a respons
 
 In the wireframes above you can see that it is a fairly straight forward application, which has a search box, a list of nearby stores, a map with some markers (symbols) and a popup with additional information when you click on a marker. Going into a bit more detail here are the features we will build into this store locator: 
     
-* The location information for all stores will be managed using an Excel spreadsheet and exported into a tab delimited flat file which we can easily import into our application. All locations will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
+* The location information for all stores will be managed using an Excel spreadsheet and exported into a tab-delimited flat file, which we can easily import into our application. All locations will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
 * The page layout will adjust depending on the width of the screen.  
-* There will be a header which contains the logo for the store.  
+* There will be a header, which contains the logo for the store.  
 * A search box and button will let users search for a location, such as an address, postal code, or city. The map will zoom into the area on the map. A key press event will be added to the search box that triggers a search if the user presses the enter key. This is something that is often over looked but makes for a much better user experience.
 * When the map moves, the distance to each location from the center of the map will be calculated, and the result list updated to show the closest locations at the top.  
-* When you click on a result in the result list it will center the map over the selected location and open its popup.  
+* When you click on a result in the result list, it will center the map over the selected location and open its popup.  
 * Clicking on an individual location on the map will also display its popup. 
 * When zoomed out, the locations will be grouped into clusters, represented as a circle with a number written inside of it. The clusters will form and break apart as the zoom level changes.
-* Clicking on a cluster will zoom the map in two levels and center it over where the cluster was.
+* Clicking on a cluster will zoom in the map for two levels and center it over where the cluster was.
 
 <a id="create a data-set"></a>
 
@@ -147,7 +147,7 @@ To create the user interface, you need to add the following code in the `index.h
 
 Putting it all together your `index.html` should look like [index.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
 
-The next step is to define the CSS styles, which will define how everything is laid out and styled. Open the `index.css` file and add the following pieces of code to it. Note the `@media` style which defines alternate styling options to be used when the page width is less than 700 pixels.  
+The next step is to define the CSS styles, which will define how everything is laid out and styled. Open the `index.css` file and add the following pieces of code to it. Note the `@media` style, which defines alternate styling options to be used when the page width is less than 700 pixels.  
 
     ```CSS
     html, body { 
@@ -357,7 +357,7 @@ Upon running the application now, you will see the header, search box, and searc
 
 At this point, we have all that we need from the user interface side of things. We now need to add the JavaScript to load and parse the data, then render it on the map. To get started open the `index.js` file and add the following code to it: 
 
-1. Add some global options to make it easier to update settings. Also define variables for the map, a popup, a data source, an icon layer, a HTML marker which will display the center of a search area, and an instance of the Azure Maps search service client.
+1. Add some global options to make it easier to update settings. Also define variables for the map, a popup, a data source, an icon layer, a HTML marker, which will display the center of a search area, and an instance of the Azure Maps search service client.
 
     ```Javascript
     //The maximum zoom level to cluster data point data on the map. 
@@ -371,7 +371,7 @@ At this point, we have all that we need from the user interface side of things. 
     var map, popup, datasource, iconLayer, centerMarker, serviceClient;
     ```
 
-2. Add the following to the `index.js`. The following block of code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits till the page has finished loading, wires up events to monitor the loading of the map and powers the search and “My location” buttons. When the search button is clicked, or the user presses the enter button in the search textbox, do a fuzzy search against the users query. Pass in an array of Country ISO2 values into the `countrySet` option to limit the search results to those countries. This will greatly help increase the accuracy of the results that are returned. When the search completes, take the first result and set the map camera over that area. When the user clicks the “My Location” button, use the HTML5 geolocation API built into the browser to retrieve the users location and center the map over their location.  
+2. Add the following to the `index.js`. The following block of code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits until the page has finished loading, wires up events to monitor the loading of the map and powers the search and “My location” buttons. When the search button is clicked, or the user presses the enter button in the search textbox, do a fuzzy search against the users query. Pass in an array of Country ISO2 values into the `countrySet` option to limit the search results to those countries. This will greatly help increase the accuracy of the results that are returned. When the search completes, take the first result and set the map camera over that area. When the user clicks the “My Location” button, use the HTML5 geolocation API built into the browser to retrieve the users location and center the map over their location.  
 
     **Tip:** When using popups, it is best to create a single Popup instance and reuse it by updating its content and position. The reason for doing this, instead of creating a popup for each point on the map is that for every popup created there are a number of DOM elements that are added to the page. The more DOM elements there are on the page the more things the browser has to keep track of. If there are too many items, the browser can become slow.
 
@@ -491,7 +491,7 @@ At this point, we have all that we need from the user interface side of things. 
     position: map.getCamera().center 
     }); 
     ```
-4. Within the map's load event listener, add a data source then make a call to load and parse the data set. Enable clustering on the data source. This will group overlapping points together into a cluster. These clusters will separate into their individual points as you zoom in. This makes for a much more fluid user experience and provides increased performance.
+4. Within the map's load event listener, add a data source then make a call to load and parse the data set. Enable clustering on the data source. It will group overlapping points together into a cluster. These clusters will separate into their individual points as you zoom in. This makes for a much more fluid user experience and provides increased performance.
 
     ```Javascript
     //Create a data source and add it to the map and enable clustering. 
@@ -506,7 +506,7 @@ At this point, we have all that we need from the user interface side of things. 
     loadStoreData();
     ```
 
-5. Within the map's load event listener, after loading the data set, define a set of layers to render the data. A bubble layer will be used to render clustered data points and a symbol layer will be used to render the number of points in each cluster above the bubble layer. A second symbol layer will be used to render a custom icon for individual locations on the map. Mouse over and out events will be added to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. A click event will be added to the cluster bubble layer which will zoom the map in two levels centered over a cluster when the user clicks on any cluster. A click event will be added to the icon layer which will display a popup with details of a coffee shop when a user clicks on an individual location icon. Add an event to the map to monitor when it has finished moving. When this event fires, update the items in the list panel.  
+5. Within the map's load event listener, after loading the data set, define a set of layers to render the data. A bubble layer will be used to render clustered data points and a symbol layer will be used to render the number of points in each cluster above the bubble layer. A second symbol layer will be used to render a custom icon for individual locations on the map. Mouse over and out events will be added to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. A click event will be added to the cluster bubble layer, which will zoom the map in two levels centered over a cluster when the user clicks on any cluster. A click event will be added to the icon layer, which will display a popup with details of a coffee shop when a user clicks on an individual location icon. Add an event to the map to monitor when it has finished moving. When this event fires, update the items in the list panel.  
 
     ```Javascript
     //Create a bubble layer for rendering clustered data points. 
@@ -589,7 +589,7 @@ At this point, we have all that we need from the user interface side of things. 
     });
     ```
 
-6. When loading the coffee shop data set, first it needs to be downloaded, then the text file needs to be split into lines. The first line contains the header information. To make the code easier to follow we will parse the header into an object which we can then use to for looking up the cell index of each property. After the first line, loop through the remaining lines and create a point feature and add this to these features to the data source. Finally, update the list panel.
+6. When loading the coffee shop data set, first it needs to be downloaded, then the text file needs to be split into lines. The first line contains the header information. To make the code easier to follow, we will parse the header into an object, which we can then use to for looking up the cell index of each property. After the first line, loop through the remaining lines and create a point feature and add it to the data source. Finally, update the list panel.
 
     ```Javascript
     function loadStoreData() { 
@@ -883,7 +883,7 @@ At this point, we have all that we need from the user interface side of things. 
     }
     ```
 
-At this point you should have a fully functional store locator. Open the `index.html` file in a web browser. Once the clusters are rendered on the map you can search for a location using the search box, press the “My Location” button, click on clusters, or zoom into the map to see individual locations. The first time a user presses the “My Location” button the browser will display a security warning asking for permission to access the user’s location. If they agree to share, then the map will zoom into their location and nearby coffee shops will be displayed. 
+At this point, you should have a fully functional store locator. Open the `index.html` file in a web browser. Once the clusters are rendered on the map you can search for a location using the search box, press the “My Location” button, click on clusters, or zoom into the map to see individual locations. The first time a user presses the “My Location” button the browser will display a security warning asking for permission to access the user’s location. If they agree to share, then the map will zoom into their location and nearby coffee shops will be displayed. 
 
 <center>![Browser-Warning](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
