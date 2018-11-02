@@ -1,17 +1,18 @@
 ---
-title: Azure CLI Script-Regenerate Azure Cosmos DB account key | Microsoft Docs
-description: Azure CLI Script Sample - Regenerate an Azure Cosmos DB account key
+title: Azure CLI Script-Create an Azure Cosmos DB Cassandra API account, database, and table | Microsoft Docs
+description: Azure CLI Script Sample - Create an Azure Cosmos DB Cassandra API account, database, and table
 author: markjbrown
 
 ms.service: cosmos-db
+ms.component: cosmosdb-cassandra
 ms.topic: sample
 ms.date: 10/26/2018
 ms.author: mjbrown
 ---
 
-# Regenerate an Azure Cosmos DB account key using the Azure CLI
+# Azure Cosmos DB: Create a Cassandra API account using Azure CLI
 
-This sample regenerates any kind of Azure Cosmos DB account key using the Azure CLI.
+This sample CLI script creates an Azure Cosmos DB Cassandra API account, database, and table.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -19,7 +20,10 @@ If you choose to install and use the CLI locally, this topic requires that you a
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/secure-cosmosdb-regenerate-keys/secure-cosmosdb-regenerate-keys.sh "Regenerate Azure Cosmos DB account keys")]
+[!code-azurecli-interactive[main](../../../cli_scripts/cosmosdb/create-cosmosdb-cassandra-account/create-cosmosdb-cassandra-account.sh "Create an Azure Cosmos DB Cassandra API account, database, and table.")]
+
+> [!Note]
+> Azure CLI does not directly support creating a Cassandra table. Use Azure Portal or CQL Shell.
 
 ## Clean up deployment
 
@@ -36,10 +40,9 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Notes |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Updates an Azure Cosmos DB account. |
-| [az cosmosdb list-keys](/cli/azure/cosmosdb#az-cosmosdb-list-keys) | List the access keys for a Cosmos DB account. |
-| [az cosmosdb regenerate-key](/cli/azure/cosmosdb#az-cosmosdb-regenerate-key) | Regenerates Azure Cosmos DB account keys. |
-| [az group delete](/cli/azure/group#az-group-delete) | Deletes a resource group including all nested resources. |
+| [az cosmosdb create](/cli/azure/cosmosdb#az-cosmosdb-create) | Creates an Azure Cosmos DB account. |
+| [az cosmosdb database create](/cli/azure/cosmosdb/database#az-cosmosdb-database-create) | Creates an Azure Cosmos DB database. |
+| [az group delete](/cli/azure/resource#az-resource-delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 
