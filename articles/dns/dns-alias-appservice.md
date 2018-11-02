@@ -1,5 +1,5 @@
 ---
-title: Host load-balanced web apps at the zone apex 
+title: Host load-balanced Azure web apps at the zone apex 
 description: Use an Azure DNS alias record to host load-balanced web apps at the zone apex 
 services: dns
 author: vhorne
@@ -9,7 +9,7 @@ ms.date: 11/3/2018
 ms.author: victorh
 ---
 
-# Host load-balanced web apps at the zone apex
+# Host load-balanced Azure web apps at the zone apex
 
 The DNS protocol prevents the assignment of anything other than an A or AAAA record at the zone apex. An example zone apex is contoso.com. This restriction presents a problem for application owners who have load-balanced applications behind Traffic Manager. It isn't possible to point at the Traffic Manager profile from the zone apex record. As a result, application owners must use a workaround. A redirect at the application layer must redirect from the zone apex to another domain. An example is a redirect from contoso.com to www.contoso.com. This arrangement presents a single point of failure for the redirect function.
 
