@@ -18,7 +18,7 @@
       href: relay-hybrid-connections-http-requests-node-get-started.md    
   - name: Windows Communication Foundation (WCF)
     items:
-    - name: Expose an on-premsies WCF service to a web application in the cloud
+    - name: Expose an on-premises WCF service to a web application in the cloud
       href: service-bus-dotnet-hybrid-app-using-service-bus-relay.md
     - name: Expose an on-premises WCF service to a WCF client outside your network
       href: service-bus-relay-tutorial.md
