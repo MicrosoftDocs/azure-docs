@@ -40,7 +40,7 @@ Before jumping into code, it is always good to start off with a design. Store lo
 
 To maximize the usefulness of this store locator, we will also include a responsive layout that adjusts when the screen width is fewer than 700 pixels wide. It facilitates the use of locator on small screens, such as mobile devices. Here is a wireframe of what this small screen layout will look like.  
 
-![wireframe-mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)
+<center>![wireframe-mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 In the wireframes above you can see that it is a fairly straight forward application, which has a search box, a list of nearby stores, a map with some markers (symbols) and a popup with additional information when you click on a marker. Going into a bit more detail here are the features we will build into this store locator: 
     
@@ -71,7 +71,6 @@ You can download the spreadsheet [here](https://github.com/Azure-Samples/AzureMa
 There are many ways in which we can expose the data set to the application. One approach is to load the data into a database and expose a web service that can query the data and send the results to the user’s browser. It is ideal for large data sets, or data sets that are updated frequently, but require a lot more development work and have higher costs. Another approach is to convert this data set into a flat text file that we can easily parse in the browser. The file itself can be hosted with the rest of the application. This keeps things simple but is only a good option for smaller data sets as the user will download all the data, and with this data set the file size is less than 1 MB, which is acceptable.  
 
 To convert the spreadsheet into a flat text file, we will save it as a tab-delimited file.  It will spec each column out with a tab character, which will make it easy to parse in our code. You can use CSV (comma-separated value) but that would require more parsing logic as any field that has a comma around it would be wrapped with quotes. To export this data as a Tab-delimited file in Excel press the **Save As** button and in the **Save as type** drop-down select **Text (Tab delimited)(*.txt)**. We will call this file **ContosoCoffee.txt**. 
-
 
 ![Save-As](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -145,6 +144,7 @@ To create the user interface, you need to add the following code in the `index.h
 
     </main>
     ```
+
 Putting it all together your `index.html` should look like [index.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
 
 The next step is to define the CSS styles, which will define how everything is laid out and styled. Open the `index.css` file and add the following pieces of code to it. Note the `@media` style which defines alternate styling options to be used when the page width is less than 700 pixels.  
@@ -373,7 +373,7 @@ At this point, we have all that we need from the user interface side of things. 
 
 2. Add the following to the `index.js`. The following block of code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits till the page has finished loading, wires up events to monitor the loading of the map and powers the search and “My location” buttons. When the search button is clicked, or the user presses the enter button in the search textbox, do a fuzzy search against the users query. Pass in an array of Country ISO2 values into the `countrySet` option to limit the search results to those countries. This will greatly help increase the accuracy of the results that are returned. When the search completes, take the first result and set the map camera over that area. When the user clicks the “My Location” button, use the HTML5 geolocation API built into the browser to retrieve the users location and center the map over their location.  
 
-**Tip:** When using popups, it is best to create a single Popup instance and reuse it by updating its content and position. The reason for doing this, instead of creating a popup for each point on the map is that for every popup created there are a number of DOM elements that are added to the page. The more DOM elements there are on the page the more things the browser has to keep track of. If there are too many items, the browser can become slow.
+    **Tip:** When using popups, it is best to create a single Popup instance and reuse it by updating its content and position. The reason for doing this, instead of creating a popup for each point on the map is that for every popup created there are a number of DOM elements that are added to the page. The more DOM elements there are on the page the more things the browser has to keep track of. If there are too many items, the browser can become slow.
 
     ```Javascript
     function initialize() { 
