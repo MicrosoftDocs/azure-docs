@@ -326,11 +326,6 @@
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/iot-edge/how-to-create-transparent-gateway.md",
-            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway-linux",
-            "redirect_document_id": true
-        },
-        {
             "source_path": "articles/iot-edge/how-to-vscode-develop-azure-function.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-csharp-function",
             "redirect_document_id": true
@@ -1279,6 +1274,16 @@
         {
             "source_path": "articles/iot-edge/tutorial-multiple-modules-in-vscode.md",
             "redirect_url": "/azure/iot-edge/how-to-develop-multiple-modules-vscode",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway-linux.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/iot-edge/how-to-create-transparent-gateway-windows.md",
+            "redirect_url": "/azure/iot-edge/how-to-create-transparent-gateway",
             "redirect_document_id": false
         },
         {
@@ -3308,7 +3313,7 @@
         },
         {
             "source_path": "articles/application-insights/enable-profiler-compute.md",
-            "redirect_url": "/azure/application-insights/app-insights-overview",
+            "redirect_url": "/azure/application-insights/app-insights-profiler-overview",
             "redirect_document_id": false
         },
         {
@@ -7820,10 +7825,10 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/cosmos-db/mongodb-multi-master-support.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/multi-master-oss-nosql",
-            "redirect_document_id": false
-        },
+            "source_path": "articles/cosmos-db/mongodb-multi-master-support.md",
+            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/multi-master-oss-nosql",
+            "redirect_document_id": false
+        },
         {
             "source_path": "articles/cosmos-db/20-days-of-tips.md",
             "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/",
@@ -10031,47 +10036,47 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-get-started.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics",
+            "redirect_url": "/azure/log-analytics",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-azure-vm-extension.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm",
+            "redirect_url": "/azure/log-analytics/log-analytics-quick-collect-azurevm",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/application-insights/app-insights-customer-data.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-personal-data-mgmt",
+            "redirect_url": "/azure/log-analytics/log-analytics-personal-data-mgmt",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search-transition.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries",
+            "redirect_url": "/azure/log-analytics/query-language/get-started-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-overview.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search.md",
-            "redirect_url": "https://docs.microsoft.com/azure/log-analytics/log-analytics-queries",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-service-fabric.md",
-            "redirect_url": "https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-oms-setup",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-oms-setup",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-service-fabric-azure-resource-manager.md",
-            "redirect_url": "https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms",
+            "redirect_url": "/azure/service-fabric/service-fabric-diagnostics-event-analysis-oms",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/query-language/kusto.md",
-            "redirect_url": "azure/log-analytics/query-language/query-language",
+            "redirect_url": "/azure/log-analytics/query-language/query-language",
             "redirect_document_id": false
         },
         {
@@ -19678,7 +19683,7 @@
         },
         {
             "source_path": "articles/application-insights/app-insights-analytics-reference.md",
-            "redirect_url": "https://docs.loganalytics.io/",
+            "redirect_url": "/azure/kusto/query/",
             "redirect_document_id": false
         },
         {
@@ -27643,6 +27648,31 @@
             "redirect_document_id": false
         },
         {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-create-simulated-device.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-deploy-simulated-device.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-custom-model.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-create-custom-device",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-device-schema.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
+          "redirect_document_id": false
+        },
+        {
+          "source_path": "articles/iot-accelerators/iot-accelerators-device-simulation-device-behavior.md",
+          "redirect_url": "/azure/iot-accelerators/iot-accelerators-device-simulation-advanced-device",
+          "redirect_document_id": false
+        },
+        {
             "source_path": "articles/active-directory/develop/active-directory-v2-devquickstarts-angular-dotnet.md",
             "redirect_url": "/azure/active-directory/develop/GuidedSetups/active-directory-javascriptspa",
             "redirect_document_id": false
@@ -29159,6 +29189,21 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-language-customization-custom.md",
+            "redirect_url": "/azure/active-directory-b2c/localization",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-ui-customization.md",
+            "redirect_url": "/azure/active-directory-b2c/customize-ui-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory-b2c/active-directory-b2c-reference-ui-customization-helper-tool.md",
+            "redirect_url": "/azure/active-directory-b2c/tutorial-customize-ui",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json.md",
             "redirect_url": "/azure/cognitive-services/video-indexer/video-indexer-output-json-v2",
             "redirect_document_id": true
@@ -30249,6 +30294,11 @@
         {
             "source_path": "articles/key-vault/vs-key-vault-aspnet-what-happened.md",
             "redirect_url": "/azure/key-vault/vs-key-vault-add-connected-service",
+            "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/iot-central/howto-create-application.md",
+            "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
             "redirect_document_id" : false
         }
     ]

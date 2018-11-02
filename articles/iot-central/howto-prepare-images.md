@@ -18,7 +18,7 @@ This article describes how, as a builder, you can customize your Microsoft Azure
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
+1. An Azure IoT Central application. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 1. A tool for scaling and resizing images files.
 
 ## Choose where to use custom images
