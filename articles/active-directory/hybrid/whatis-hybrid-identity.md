@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/01/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -30,7 +30,7 @@ There are several options available for configuring hybrid identity. As you cons
 
 Managed identity is the simplest way to synchronize on-premises directory objects (users and groups) with Azure AD. 
 
-![Synchronized hybrid identity](./media/whatis-hybrid-identity/synchronized-identity.png)
+![Synchronized hybrid identity](./media/whatis-hybrid-identity/managed.png)
 
 While managed identity is the easiest and quickest method, your users still need to maintain a separate password for cloud-based resources. To avoid this, you can also (optionally) [synchronize a hash of user passwords](how-to-connect-password-hash-synchronization.md) to your Azure AD directory. Synchronizing password hashes enables users to log in to cloud-based organizational resources with the same user name and password that they use on-premises. Azure AD Connect periodically checks your on-premises directory for changes and keeps your Azure AD directory synchronized. When a user attribute or password is changed on-premises Active Directory, it is automatically updated in Azure AD. 
 
