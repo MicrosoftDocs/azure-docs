@@ -18,10 +18,10 @@ ms.author: yujhong
 
 # Deploy an app in Azure Government with Azure Pipelines
 
-> [!NOTE]
-> Azure Pipelines is not available in Azure Government. This tutorial shows how to configure the CI/CD capabilities of Azure Pipelines in order to deploy an app in Azure Government, while the app executes outside the government cloud.
+This article helps you use Azure Pipelines to set up continuous integration (CI) and continuous deployment (CD) of your web app running in Azure Government. CI/CD automates the build of your code from a repo along with the deployment (release) of the built code artifacts to a service or set of services in Azure Government. In this tutorial, you will build a web app and deploy it to an Azure Governments app service. This build and release process is triggered by a change to a code file in the repo.
 
-This article helps you use Azure Pipelines to set up continuous deployment of your web app running in Azure Government. Continuous deployment (CD) means starting an automated deployment process whenever a code change is made to your application or whenever a new successful build is available. 
+> [!NOTE]
+> Azure Pipelines is not available as part of Azure Government. While this tutorial shows how to configure the CI/CD capabilities of Azure Pipelines in order to deploy an app to a service inside Azure Government, be aware that Azure Pipelines runs its pipelines outside of Azure Government. Research your organization's security and service policies before using it as part of your deployment tools. 
 
 [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started/?view=vsts) is used by teams to configure continuous deployment for applications hosted in Azure subscriptions. We can use this service for applications running in Azure Government by defining [service connections](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts) for Azure Government. 
 
@@ -77,7 +77,9 @@ AzureUSGovernment." This sets the service principal to be created in Azure Gover
 
 ## Configure the Azure Pipelines service connection
 
-Follow the instructions in [Service connections for builds and releases](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) to set up the Azure Pipelines service connection. In step #3, make sure you click on "use the full version of the service connection catalog" and set **Environment** to **AzureUSGovernment**.
+Follow the instructions in [Service connections for builds and releases](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints) to set up the Azure Pipelines service connection. 
+
+Make one change specific to Azure Government: In step #3 of [Service connections for builds and releases](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints?view=vsts), click on "use the full version of the service connection catalog" and set **Environment** to **AzureUSGovernment**.
 
 ## Define a release process
 
