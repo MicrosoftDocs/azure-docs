@@ -902,12 +902,12 @@ If you resize the browser window to less than 700 pixels wide or open the applic
 In this tutorial, you have seen how easy it is to create a store locator using Azure Maps. This may be all the functionality that you need. Following is a list of some additional and more advance features you may be interested in adding to your store locator for a more custom user experience. 
 
 > [!div class="checklist"]
-> Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
->[Add support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
->Allow the user to [filter locations along route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
->Add the ability to [specify filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property) (i.e. only return locations that have Wi-Fi). 
->Add support to specify an initial search value using a query string. This will allow users to bookmark and share searches. This will also provide an easy method for you to pass searches to this page from another page.  
->[Deploy as an Azure Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
->Store your data in a database and search for nearby locations. 
-    >[SQL Server Spatial Data Types Overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
-    >[Query Spatial Data for Nearest Neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
+* Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
+* [Add support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
+* Allow the user to [filter locations along route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
+* Add the ability to [specify filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property) (i.e. only return locations that have Wi-Fi). 
+* Add support to specify an initial search value using a query string. This will allow users to bookmark and share searches. This will also provide an easy method for you to pass searches to this page from another page.  
+* [Deploy as an Azure Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+* Store your data in a database and search for nearby locations. 
+    * [SQL Server Spatial Data Types Overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
+    * [Query Spatial Data for Nearest Neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
