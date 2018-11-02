@@ -25,13 +25,20 @@ The following diagram provides a high-level overview of the Azure SQL Database c
 
 The following steps describe how a connection is established to an Azure SQL database through the Azure SQL Database software load-balancer (SLB) and the Azure SQL Database gateway.
 
-- Clients within Azure or outside of Azure connect to the SLB, which has a public IP address and listens on port 1433.
-- The SLB directs traffic to the Azure SQL Database gateway.
-- The gateway redirects the traffic to the correct proxy middleware.
-- The proxy middleware redirects the traffic to the appropriate Azure SQL database.
+- Clients connect to the SLB, which has a public IP address and listens on port 1433.
+- The SLB forwards traffic to the Azure SQL Database gateway.
+- The gateway, dependent on the effective connection policy, redirects or proxies the traffic to the correct proxy middleware.
+- The proxy middleware forwards the traffic to the appropriate Azure SQL database.
 
 > [!IMPORTANT]
 > Each of these components has distributed denial of service (DDoS) protection built-in at the network and the app layer.
+
+## Connection policy
+
+Currently, there are three options for the connection policy setting of a SQL Database Server:
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database. To enable connectivity, the clients must allow outbound firewall rules to all Azure IP addresses in the region (try this using NSG with [service tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)), not just the Azure SQL Database Gateway IP addresses. As packets go directly to the database, latency and throughput improve.
+- **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways. To enable connectivity, the client must have outbound firewall rules that allow only the Azure SQL Database Gateway IP addresses (usually two IP addresses per region). Choosing this mode can result in higher latency and lower throughput, depending on nature of the workload. We highly recommend the Redirect connection policy over the Proxy connection policy for the lowest latency and highest throughput.
+- **Default:** This is the connection policy in effect on all severs right after creation unless you explicitly alter the connection policy to either Proxy or Redirect. The effective policy depends on whether connections originate from whithin Azure (Redirect) or outside of Azure (Proxy)  
 
 ## Connectivity from within Azure
 
@@ -46,9 +53,9 @@ If you are connecting from outside Azure, your connections have a connection pol
 ![architecture overview](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> When using service endpoints with Azure SQL Database your policy is **Proxy** by default. To enable connectivity from inside your VNet, you must allow outbound connections to the Azure SQL Database Gateway IP addresses specified in the list below.
+> When connecting from within Azure, your policy is **Redirect** by default. To enable connectivity from inside your VNet, you must allow outbound connections to all Azure SQL Database IPs. This can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)
 
-When using service endpoints we highly recommend changing your connection policy to **Redirect** to enable better performance. If you change your connection policy to **Redirect** it will not be sufficient to allow outbound on your NSG to Azure SQL Database gateway IPs listed below, you must allow outbound to all Azure SQL Database IPs. This can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+If you created SQL Database Server before November 10th 2018 your connection policy might be set explicitly to **Proxy** to ensure consistency in service behavior. When using service endpoints, we highly recommend changing your connection policy to **Redirect** to enable better performance. If you change your connection policy to **Redirect** it will not be sufficient to allow outbound on your NSG to Azure SQL Database gateway IPs listed below, you must allow outbound to all Azure SQL Database IPs. This can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## Azure SQL Database gateway IP addresses
 
@@ -57,7 +64,7 @@ To connect to an Azure SQL database from on-premises resources, you need to allo
 The following table lists the primary and secondary IPs of the Azure SQL Database gateway for all data regions. For some regions, there are two IP addresses. In these regions, the primary IP address is the current IP address of the gateway and the second IP address is a failover IP address. The failover address is the address to which we might move your server to keep the service availability high. For these regions, we recommend that you allow outbound to both the IP addresses. The second IP address is owned by Microsoft and does not listen in on any services until it is activated by Azure SQL Database to accept connections.
 
 > [!IMPORTANT]
-> If you are connecting from within Azure your connection policy will be **Redirect** by default (except if you are using service endpoints). It will not be sufficient to allow the following IPs. You must allow all Azure SQL Database IPs. If you are connecting from within a VNet, this can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> If you are connecting from within Azure your connection policy will be **Redirect** by default. It will not be sufficient to allow the following IPs. You must allow all Azure SQL Database IPs. If you are connecting from within a VNet, this can be accomplished with the help of NSG (Network Security Groups) Service Tags. For more information, see [Service Tags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Region Name | Primary IP address | Secondary IP address |
 | --- | --- |--- |
