@@ -56,7 +56,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group. Use one of the currently supported regions (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast).
+At the command prompt, create the resource group. Use one of the currently supported regions (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>

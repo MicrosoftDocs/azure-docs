@@ -76,6 +76,8 @@ The following two types of errors are classified as user errors:
 | ------------------- | ----------------- |
 |Incoming Messages (preview)|The number of events or messages sent to Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
 |Outgoing Messages (preview)|The number of events or messages received from Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: EntityName|
+| Messages (preview) | Count of messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: EntityName |
+| ActiveMessages (preview) | Count of active messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: EntityName |
 
 ## Connection metrics
 
