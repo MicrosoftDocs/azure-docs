@@ -56,28 +56,10 @@ The Speech service also exposes REST endpoints for speech-to-text and text-to-sp
 
 For speech-to-text reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
 
-| Region | Endpoint |
-|--------|----------|
-| West US | https://westus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| West US2 | https://westus2.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| East US | https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| East US2 | https://eastus.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| East Asia | https://eastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| South East Asia | https://southeastasia.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| North Europe | https://northeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
-| West Europe | https://westeurope.stt.speech.microsoft.com/speech/recognition/conversation/cognitiveservices/v1 |
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 ### Text-to-speech
 
 For text-to-speech reference documentation, see [REST APIs](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#speech-to-text).
 
-| Region | Endpoint |
-|--------|----------|
-| West US | https://westus.tts.speech.microsoft.com/cognitiveservices/v1 |
-| West US2 | https://westus2.tts.speech.microsoft.com/cognitiveservices/v1 |
-| East US | https://eastus.tts.speech.microsoft.com/cognitiveservices/v1 |
-| East US2 | https://eastus2.tts.speech.microsoft.com/cognitiveservices/v1 |
-| East Asia | https://eastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
-| South East Asia | https://southeastasia.tts.speech.microsoft.com/cognitiveservices/v1 |
-| North Europe | https://northeurope.tts.speech.microsoft.com/cognitiveservices/v |
-| West Europe | https://westeurope.tts.speech.microsoft.com/cognitiveservices/v1 |  
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
