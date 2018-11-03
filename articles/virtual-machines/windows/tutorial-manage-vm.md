@@ -111,7 +111,7 @@ Use the [Get-AzureRmVMImageOffer](/powershell/module/azurerm.compute/get-azurerm
 Get-AzureRmVMImageOffer -Location "EastUS" -PublisherName "MicrosoftWindowsServer"
 ```
 
-The results will look something like this: 
+The results will look something like this example: 
 
 ```powershell
 Offer             PublisherName          Location
@@ -127,7 +127,7 @@ The [Get-AzureRmVMImageSku](/powershell/module/azurerm.compute/get-azurermvmimag
 Get-AzureRmVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
 ```
 
-The results will look something like this: 
+The results will look something like this example: 
 
 ```powershell
 Skus                                      Offer         PublisherName          Location
@@ -236,7 +236,7 @@ An Azure VM can have one of many power states. This state represents the current
 | Starting | Indicates the virtual machine is being started. |
 | Running | Indicates that the virtual machine is running. |
 | Stopping | Indicates that the virtual machine is being stopped. |
-| Stopped | Indicates that the virtual machine is stopped. Note that virtual machines in the stopped state still incur compute charges.  |
+| Stopped | Indicates that the virtual machine is stopped. Virtual machines in the stopped state still incur compute charges.  |
 | Deallocating | Indicates that the virtual machine is being deallocated. |
 | Deallocated | Indicates that the virtual machine is completely removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
 | - | Indicates that the power state of the virtual machine is unknown. |
@@ -252,7 +252,7 @@ Get-AzureRmVM `
     -Status | Select @{n="Status"; e={$_.Statuses[1].Code}}
 ```
 
-The output will look something like this:
+The output will look something like this example:
 
 ```azurepowershell-interactive
 Status
