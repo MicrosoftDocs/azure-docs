@@ -8,7 +8,7 @@ manager: timlt
 ms.service: event-hubs
 ms.topic: tutorial
 ms.custom:
-ms.date: 11/02/2018
+ms.date: 11/03/2018
 ms.author: bahariri
 
 ---
