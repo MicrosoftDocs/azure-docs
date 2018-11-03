@@ -30,14 +30,16 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-* [Azure CLI](http://docs.microsoft.com/cli/azure/overview), installed on your own computer. 
+* [Azure CLI](http://docs.microsoft.com/cli/azure/overview)
 * [Git](https://git-scm.com/)
 * [Java JDK](https://aka.ms/azure-jdks)
 * [Maven](https://maven.apache.org)
 
 ## Clone the sample TODO app and prepare the repo
 
-This tutorial uses a sample TODO list app developed consisting of a Spring MVC REST API alongside [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). The following commands clone the sample repo and then set up the app environment.
+This tutorial uses a sample TODO list app developed consisting of a Spring MVC REST API alongside [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). 
+
+Clone the sample repo and then set up the app environment.
 
 ```bash
 git clone --recurse-submodules https://github.com/Azure-Samples/e2e-java-experience-in-app-service-linux-part-2.git
@@ -45,7 +47,7 @@ cd e2e-java-experience-in-app-service-linux-part-2
 yes | cp -rf .prep/* .
 ```
 
-This tutorial focuses on how to deploy this application to Azure App Service on Linux and not how to write Java applications using Spring Data Azure Cosmos DB. To learn more about writing Java apps using Spring and Cosmos DB, see the [H Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
+This tutorial focuses on how to deploy this sample application to Azure App Service on Linux and not how to write Java applications using Spring Data Azure Cosmos DB. To learn more about writing Java apps using Spring and Cosmos DB, see the [Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
 
 ## Create an Azure Cosmos DB
