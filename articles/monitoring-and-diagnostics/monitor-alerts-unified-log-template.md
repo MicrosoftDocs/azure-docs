@@ -14,7 +14,7 @@ ms.component: alerts
 This article shows how you can manage [log alerts](monitor-alerts-unified-log.md) programmatically at scale, in Azure using [Azure Resource Manager template](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) and [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Currently Azure Alerts, supports log alerts on queries from [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) and [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
 
 ## Managing log alert on Log Analytics
-Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is integrated into the [new Azure alerts experience](monitoring-overview-unified-alerts.md); while it still runs off Log Analytics APIs and remains compatibile with schema used earlier.
+Log alert for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) is integrated into the [new Azure alerts experience](monitoring-overview-alerts.md); while it still runs off Log Analytics APIs and remains compatibile with schema used earlier.
 
 > [!NOTE]
 > Beginning May 14, 2018, all alerts in a workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](monitoring-alerts-extend.md). 
@@ -129,6 +129,6 @@ On successful operation, 201 will be returned to state new alert rule creation o
 
 ## Next steps
 * Understand [Webhook actions for log alerts](monitor-alerts-unified-log-webhook.md)
-* Learn about the new [Azure Alerts](monitoring-overview-unified-alerts.md)
+* Learn about the new [Azure Alerts](monitoring-overview-alerts.md)
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).   

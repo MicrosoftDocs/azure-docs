@@ -12,7 +12,7 @@ ms.component: alerts
 
 # Supported resources for metric alerts in Azure Monitor
 
-Azure Monitor now supports a [new metric alert type](monitoring-overview-unified-alerts.md) which has significant benefits over the older [classic metric alerts](insights-alerts-portal.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
+Azure Monitor now supports a [new metric alert type](monitoring-overview-alerts.md) which has significant benefits over the older [classic metric alerts](insights-alerts-portal.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
 
 You can also use newer metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs 
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
@@ -122,6 +122,6 @@ The POST operation contains the following JSON payload and schema for all near n
 
 ## Next steps
 
-* Learn more about the new [Alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the new [Alerts experience](monitoring-overview-alerts.md).
 * Learn about [log alerts in Azure](monitor-alerts-unified-log.md).
 * Learn about [alerts in Azure](monitoring-overview-alerts.md).

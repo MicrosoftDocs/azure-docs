@@ -91,7 +91,7 @@ Visit our [Azure Quickstart gallery](https://azure.microsoft.com/resources/templ
 
 > [!NOTE]
 
-> You can also create activity log alert rules using the enhanced user experience in Monitor > [Alerts (Preview)](monitoring-overview-unified-alerts.md). For more information on how to create these, see [this article](monitoring-activity-log-alerts-new-experience.md).
+> You can also create activity log alert rules using the enhanced user experience in Monitor > [Alerts (Preview)](monitoring-overview-alerts.md). For more information on how to create these, see [this article](monitoring-activity-log-alerts-new-experience.md).
 
 ## Next steps
 - Learn more about [alerts](monitoring-overview-alerts.md).

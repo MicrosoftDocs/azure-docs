@@ -66,4 +66,4 @@ This article will be continually updated will links & details regarding the new 
 ## Next steps
 
 * Learn about the [new unified Azure Monitor](../azure-monitor/overview.md).
-* Learn more about the new [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Learn more about the new [Azure Alerts](monitoring-overview-alerts.md).
