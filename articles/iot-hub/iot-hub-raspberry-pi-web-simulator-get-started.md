@@ -70,11 +70,8 @@ The Raspberry Pi web simulator is now available in preview version. We'd like to
 
 ![Overview of Pi online simulator](media/iot-hub-raspberry-pi-web-simulator/0_overview.png)
 
-[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
-
-## Get the connection string for the IoT Hub
-
-[!INCLUDE [iot-hub-find-connection-string-include](../../includes/iot-hub-find-connection-string-include.md)
+<!-- robinsh NEED SEPARATE INCLUDES FOR CREATE HUB, find connection string, AND CREATE DEVICE HERE -->
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## Run a sample application on Pi web simulator
 

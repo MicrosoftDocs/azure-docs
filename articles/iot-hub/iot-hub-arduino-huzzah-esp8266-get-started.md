@@ -58,10 +58,8 @@ The following items are optional in case you don’t have a sensor. You also hav
 * M/M jumper wires
 
 ## Create an IoT hub
-
-[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
-
-[!INCLUDE [iot-hub-find-connection-string-include](../../includes/iot-hub-find-connection-string-include.md)
+<!-- robinsh NEED SEPARATE INCLUDES FOR CREATE HUB, find connection string, AND CREATE DEVICE HERE -->
+[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
 
 ## Connect Feather HUZZAH ESP8266 with the sensor and your computer
 
