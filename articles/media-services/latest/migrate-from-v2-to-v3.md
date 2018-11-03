@@ -20,7 +20,7 @@ ms.author: juliako
 
 # Migration guidance for moving from Media Services v2 to v3
 
-This article describes changes that were introduced in Azure Media Services (AMS) v3 and shows differences between two versions.
+This article describes changes that were introduced in Azure Media Services (AMS) v3, shows differences between two versions, and provides the migration guidance.
 
 If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Azure Media Services. However, as called out in the  [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
 
@@ -29,7 +29,7 @@ If you have a video service developed today on top of the [legacy Media Services
 ### API is more approachable
 
 *  v3 is based on a unified API surface, which exposes both management and operations functionality built on Azure Resource Manager. Azure Resource Manager templates can be used to create and deploy Transforms, Streaming Endpoints, LiveEvents, and more.
-* Based on the [Open API (aka Swagger) Specification](https://aka.ms/ams-v3-rest-sdk) document.
+* [Open API (aka Swagger) Specification](https://aka.ms/ams-v3-rest-sdk) document.
 
     Exposes the schema for all service components, including file-based encoding.
 * SDKs available for [.NET](https://aka.ms/ams-v3-dotnet-ref), .NET Core, [Node.js](https://aka.ms/ams-v3-nodejs-ref), [Python](https://aka.ms/ams-v3-python-ref), [Java](https://aka.ms/ams-v3-java-ref), [Go](https://aka.ms/ams-v3-go-ref), and Ruby.
@@ -53,12 +53,12 @@ If you have a video service developed today on top of the [legacy Media Services
 
 * For Assets created with v3, Media Services supports only the [Azure Storage server-side storage encryption](https://docs.microsoft.com/azure/storage/common/storage-service-encryption).
 
-    * You can use v3 APIs with Assets created with v2 APIs that had [storage encryption](../previous/media-services-rest-storage-encryption.md) (AES 256) provided by Media Services
+    * You can use v3 APIs with Assets created with v2 APIs that had [storage encryption](../previous/media-services-rest-storage-encryption.md) (AES 256) provided by Media Services.
     * You cannot create new Assets with the legacy AES 256 [storage encryption](../previous/media-services-rest-storage-encryption.md) using v3 APIs.
 * The v3 SDKs are now decoupled from the Storage SDK, which gives you more control over the version of Storage SDK you want to use and avoids versioning issues. 
 * In the v3 APIs, all of the encoding bit rates are in bits per second. This is different than the v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128 (kbps), but in v3 it would be 128000 (bits/second). 
 * Entities AssetFiles, AccessPolicies, and IngestManifests do not exist in v3.
-* ContentKeys are no longer an entity, they are now a property of the StreamingLocator.
+* ContentKeys is no longer an entity, it is now a property of the StreamingLocator.
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed
     * JobOutput replaces Task, and is now part of a Job.
@@ -69,7 +69,7 @@ If you have a video service developed today on top of the [legacy Media Services
 
 ## Feature gaps with respect to v2 APIs
 
-The v3 APIs has the following feature gaps with respect to v2 APIs. Closing the gaps is work in progress.
+The v3 APIs has the following feature gaps with respect to the v2 APIs. Closing the gaps is work in progress.
 
 * The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.
 
@@ -128,7 +128,7 @@ The v3 APIs has the following feature gaps with respect to v2 APIs. Closing the 
 * Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
 * Today, Media Reserved Units can only be managed using the Media Services v2 API. For more information, see [Scaling media processing](../previous/media-services-scale-media-processing-overview.md).
 * Media Services entities created with the v3 API cannot be managed by the v2 API.  
-* It is not recommended to manage entities that were created with v2 APIs, via the v3 APIs. Following are examples of the differences that make the entities in two versions incompatible:   
+* It is not recommended to manage entities that were created with v2 APIs via the v3 APIs. Following are examples of the differences that make the entities in two versions incompatible:   
     
     * Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. The recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
     * Channels and Programs created with v2 (which are mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop.
