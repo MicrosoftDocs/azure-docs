@@ -214,9 +214,9 @@
     - name: View system test results
       href: custom-translator/how-to-view-system-test-results.md
     - name: Manage settings
-      href: how-to-manage-settings.md
+      href: custom-translator/how-to-manage-settings.md
     - name: Migrate from Hub
-      href: how-to-migrate.md
+      href: custom-translator/how-to-migrate.md
   - name: Resources
     items:
     - name: Glossary
