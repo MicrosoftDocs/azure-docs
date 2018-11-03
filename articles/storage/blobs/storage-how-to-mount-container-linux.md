@@ -52,12 +52,12 @@ sudo apt-get install blobfuse
 ```
 
 On an Enterprise Linux distribution:
-```bash
+```bash    
 sudo yum install blobfuse
 ```
 
 ## Prepare for mounting
-Blobfuse requires a temporary path in the file system to buffer and cache any open files to help provide native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
+Blobfuse provides native-like performance by requiring a temporary path in the file system to buffer and cache any open files. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
 
 > [!NOTE]
 > Blobfuse stores all open file contents in the temporary path. Make sure to have enough space to accommodate all open files. 
