@@ -74,11 +74,13 @@ To request a deployment:
 
     ![Deploy model](media/how-to/how-to-deploy-model.png)
 
-3.  Click on Deploy. You can view the status of your deployrequest in the “Status” column.
+3.  Click on Deploy. You can view the status of your model in the “Status” column.
 
 >[!Note]
 >If a model is deployed already, you'll see “Undeploy” button for that model. To undeploy a model click "Undeploy" button.
 
 ## Next steps
 
-- Start using your deployed custom translation model with [Translator API V3.0](https://aka.ms/customtranslatorplaceholder).
+- Start using your deployed custom translation model via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).
+- Learn [how to manage settings](how-to-manage-settings.md) to share your workspace, manage subscription key.
+- Learn [how to migrate your workspace and project](how-to-migrate.md) from [Microsoft Translator Hub](https://hub.microsofttranslator.com)

@@ -38,31 +38,6 @@ You can train a model using only dictionary data. To do this, select only the di
 - When using a dictionary, capitalization and punctuation in your translations will reflect the capitalization and punctuation provided in your target file. Capitalization and punctuation are ignored when trying to identify matches between your input sentence and the source sentences in your dictionary file. For example, let’s say we trained an English to Spanish system that used a dictionary that specified “City of Hamburg” in the source file, and “Ciudad de hamburg” in the target file. If I requested translation of a sentence that included the phrase “city of Hamburg”, then “city of Hamburg” would match to my dictionary file for the entry “City of Hamburg”, and would map to “Ciudad de hamburg” in my final translation.
 - If a word appears more than once in a dictionary file, the system will always use the last entry provided. Your dictionary should not contain multiple translations of the same word.
 
-## How to create a dictionary file?
-
-To create a dictionary, follow the steps listed here.
-
-1.  Create an Excel file. Custom Translator supports only
-    “.xlsx” files created using Excel 2007 and later. This file contains a
-    list of source-language terms and a list of corresponding
-    target-language equivalents in the first sheet of the Workbook. Other
-    sheets in the workbook will be ignored.
-
-2.  In cell A1 of the first sheet, enter the ISO standard Language IDs for
-    the source language (for example “en” or “en-us” for English)
-
-3.  In cell B1 of the first sheet, enter the ISO standard language IDs for
-    the target language (for example “es” or “es-es” for Spanish)
-
-4.  Enter the source language terms in Column A, and the equivalent
-    translations for these terms in the target Language in Column B. HTML
-    tags in the dictionary will be ignored.
-
-The image below shows an Excel file containing a dictionary of terms mapped from
-English to Spanish.
-
-![Dictionary file](media/how-to/how-to-create-dictionary.png)
-
 ## Next steps
 
 - Read about [guidelines on document formats](document-formats-naming-convention.md).

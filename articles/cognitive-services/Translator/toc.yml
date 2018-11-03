@@ -214,9 +214,9 @@
     - name: View system test results
       href: custom-translator/how-to-view-system-test-results.md
     - name: Manage settings
-      href: https://aka.ms/customtranslatorplaceholder
+      href: how-to-manage-settings.md
     - name: Migrate from Hub
-      href: https://aka.ms/customtranslatorplaceholder
+      href: how-to-migrate.md
   - name: Resources
     items:
     - name: Glossary
