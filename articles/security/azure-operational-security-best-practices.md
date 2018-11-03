@@ -73,8 +73,8 @@ You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/a
 **Best practice**: Automatically build and deploy to Azure web apps or cloud services.  
 **Detail**: You can use Azure Pipelines to [automatically build and deploy](https://docs.microsoft.com/en-us/azure/devops/pipelines/index?view=vsts) to Azure web apps or cloud services. Azure Pipelines automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
 
-**Best practice**: Automate release management.  
-**Detail**: [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/overview?view=tfs-2018&viewFallbackFrom=vsts) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
+**Best practice**: Use continuous deployment.  
+**Detail**: [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/index?view=vsts) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
 
 **Best practice**: Check your app's performance before you launch it or deploy updates to production.  
 **Detail**: Run cloud-based [load tests](https://docs.microsoft.com/en-us/azure/devops/test/load-test/getting-started-with-performance-testing?view=vsts) by using Azure Test Plans to:
