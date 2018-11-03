@@ -78,7 +78,7 @@ using Microsoft.WindowsAzure.Storage.Auth;
 using System.Collections.Generic;
 ```
 
-### Set up 
+### Set up resource references
 
 Add the following static fields to the **Program** class in _Program.cs_. These fields hold the information necessary for connecting to your AMS subscription. Fill them in with the values you got in the steps above. Note that `CLIENT_ID` is the **Application ID** value of your Azure AD app, and `CLIENT_SECRET` is the value of the "VideoModKey" that you created for that app.
 
