@@ -36,17 +36,17 @@ Before you proceed, follow the steps in the first tutorial to [create your Azure
 
 Before jumping into code, it is always good to start off with a design. Store locators can be as simple or as complicated as you want it to be. In this tutorial, we will focus on creating a store locator. We will include some tips along the way to help you extend certain functionalities if you desire. We will create a store locator for a fictional company called Contoso Coffee. Following is a wireframe of the general layout of the locator we will build.
 
-
+<br>
 <center>![wireframe](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 To maximize the usefulness of this store locator, we will also include a responsive layout that adjusts when the screen width is fewer than 700 pixels wide. It facilitates the use of locator on small screens, such as mobile devices. Here is a wireframe of what this small screen layout will look like.  
 
-
+<br>
 <center>![wireframe-mobile](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
 In the wireframes above you can see a fairly straight forward application, with a search box, a list of nearby stores, a map with some markers (symbols) and a popup with additional information when a marker is clicked. Going into a bit more detail here are the features we will build into this store locator:
 
-* The location information for all stores will be managed using an Excel spreadsheet and exported into a tab-delimited flat file, which we can easily import into our application. All locations will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
+* All locations from the imported tab-delimited data file will be loaded on the map and the user will be able to either pan and zoom the map into the area they are interested in, perform a search, or press the GPS button.
 * The page layout will adjust depending on the width of the screen.  
 * There will be a header, which contains the logo for the store.  
 * A search box and button will let users search for a location, such as an address, postal code, or city. The map will zoom into the area on the map. A key press event will be added to the search box that triggers a search if the user presses the enter key. This is something that is often over looked but makes for a much better user experience.
@@ -61,7 +61,7 @@ In the wireframes above you can see a fairly straight forward application, with 
 ## Create the Store Location Data Set
 
 Before we start developing an application, we first need to create a data set of the stores we want to display on the map. For this tutorial, we will be using a data set for a fictitious coffee shop called Contoso Coffee. In the spirit of creating a “simple” store locator, this data set is managed inside of an Excel spreadsheet and consists of 10,213 locations spread across nine countries; USA, Canada, UK, France, Germany, Italy, Netherlands, Denmark, and Spain. Here is a screenshot of what the data looks like.
-
+<br>
 <center>![Data-Spreadsheet](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 You can download the spreadsheet [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Looking at this screenshot we can make the following observations:
@@ -70,20 +70,20 @@ You can download the spreadsheet [here](https://github.com/Azure-Samples/AzureMa
 * There is a Latitude and Longitude column that contains the coordinates of each coffee shop. If you do not have this information you can use the Search services in Azure Maps to determine this.
 * There are some additional columns that contain some metadata related to the coffee shops; a phone number, boolean columns for Wi-Fi hotspot and wheel chair accessibility, opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
 
-There are many ways in which we can expose the data set to the application. One approach is to load the data into a database and expose a web service that can query the data and send the results to the user’s browser. It is ideal for large data sets, or data sets that are updated frequently, but require a lot more development work and have higher costs. Another approach is to convert this data set into a flat text file that we can easily parse in the browser. The file itself can be hosted with the rest of the application. This keeps things simple but is only a good option for smaller data sets as the user will download all the data, and with this data set the file size is less than 1 MB, which is acceptable.  
+There are many ways in which you can expose the data set to the application. One approach is to load the data into a database and expose a web service that can query the data and send the results to the user’s browser. It is ideal for large data sets, or data sets that are updated frequently, but require a lot more development work and have higher costs. Another approach is to convert this data set into a flat text file that we can easily parse in the browser. The file itself can be hosted with the rest of the application. This keeps things simple but is only a good option for smaller data sets as the user will download all the data, and with this data set the file size is less than 1 MB, which is acceptable.  
 
 To convert the spreadsheet into a flat text file, we will save it as a tab-delimited file.  It will spec each column out with a tab character, which will make it easy to parse in our code. You can use CSV (comma-separated value) but that would require more parsing logic as any field that has a comma around it would be wrapped with quotes. To export this data as a Tab-delimited file in Excel press the **Save As** button and in the **Save as type** drop-down select **Text (Tab delimited)(*.txt)**. We will call this file **ContosoCoffee.txt**. 
-
+<br>
 <center>![Save-As](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 If you open the text file in notepad, it will look something like below;
-
+<br>
 <center>![Tab-File](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
-
+<br>
 ## Set up the project
 
 To create the project, you can use [Visual Studio](https://visualstudio.microsoft.com) or an editor of your choice. In your project folder, create three files; `index.html`, `index.css`, and `index.js`. These files will define the layout, styles, and logic for the application. Create a folder called `data` and add ContosoCoffee.txt file to it. Create another folder and call it `images`. There are 10 images we will use in this application for icons, buttons, and markers on the map. You can download these images here. Your project folder should now look like the one below.
-
+<br>
 <center>![VS-layout](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## Create the user interface
@@ -150,9 +150,8 @@ To create the user interface, you need to add the following code in the `index.h
 Putting it all together your `index.html` should look like [index.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html)
 
 The next step is to define the CSS styles, which will define how everything is laid out and styled. Open the `index.css` file and add the following pieces of code to it. Note the `@media` style, which defines alternate styling options to be used when the page width is less than 700 pixels.  
-    
-<details>
-    ```CSS
+
+    ```css
     html, body { 
         padding: 0; 
         margin: 0; 
@@ -354,9 +353,8 @@ The next step is to define the CSS styles, which will define how everything is l
         } 
     }
     ```
-</details>
 
-Upon running the application now, you will see the header, search box, and search button, but the map will still not be visible because it hasn’t been loaded yet. If you try to do a search, nothing will happen.
+Upon running the application now, you will see the header, search box, and search button, but the map will still not be visible because it hasn’t been loaded yet. And if you try to do a search, nothing will happen.
 
 ## Wire the application with JavaScript
 
@@ -487,13 +485,13 @@ At this point, we have all that we need from the user interface side of things. 
     ```Javascript
     //Add the zoom control to the map. 
     map.controls.add(new atlas.control.ZoomControl(), { 
-    position: 'top-right'
+            position: 'top-right'
     }); 
 
     //Add an HTML marker to the map to indicate the center used for searching. 
     centerMarker = new atlas.HtmlMarker({ 
-    htmlContent: '<div class="mapCenterIcon"></div>', 
-    position: map.getCamera().center 
+            htmlContent: '<div class="mapCenterIcon"></div>', 
+            position: map.getCamera().center 
     }); 
     ```
 4. Within the map's load event listener, add a data source then make a call to load and parse the data set. Enable clustering on the data source. It will group overlapping points together into a cluster. These clusters will separate into their individual points as you zoom in. This makes for a much more fluid user experience and provides increased performance.
@@ -546,8 +544,8 @@ At this point, we have all that we need from the user interface side of things. 
     //Create a layer to render a coffe cup symbol above each bubble for an individual location. 
     iconLayer = new atlas.layer.SymbolLayer(datasource, null, { 
                 iconOptions: { 
-                        //Pass in the id of the custom icon that was loaded into the map resources. 
-                        image: 'myCustomIcon', 
+                    //Pass in the id of the custom icon that was loaded into the map resources. 
+                    image: 'myCustomIcon', 
 
                     //Optionally scale the size of the icon. 
                     font: ['SegoeUi-Bold'], 
@@ -654,7 +652,7 @@ At this point, we have all that we need from the user interface side of things. 
     }
     ```
 
-7. When the list panel is updated, the distance from the center of the map to all point features in the current map view is calculated. The features are then sorted by distance, and HTML generated to display each location in the list panel. 
+7. When the list panel is updated, the distance from the center of the map to all point features in the current map view is calculated. The features are then sorted by distance, and HTML generated to display each location in the list panel.
 
     ```Javascript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>'; 
