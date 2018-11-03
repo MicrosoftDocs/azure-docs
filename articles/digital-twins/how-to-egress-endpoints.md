@@ -64,7 +64,7 @@ The event formats for each of the event types are described in the following sec
       "3a16d146-ca39-49ee-b803-17a18a12ba36"
     ],
     "Id": "00000000-0000-0000-0000-000000000000",
-      Type": "ExtendedPropertyKey",
+      "Type": "ExtendedPropertyKey",
     "AccessType": "Create"
   },
   "eventType": "TopologyOperation",
