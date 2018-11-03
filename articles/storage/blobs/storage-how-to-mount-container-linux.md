@@ -23,7 +23,7 @@ This guide shows you how to use blobfuse, and mount a Blob storage container on 
 > 
 
 ## Install blobfuse on Linux
-Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu and RHEL distributions. In order to install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the installation steps [here](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
+Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu and RHEL distributions. To install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the installation steps [here](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
 ### Configure the Microsoft package repository
 Configure the [Linux Package Repository for Microsoft Products](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
@@ -64,7 +64,7 @@ Blobfuse requires a temporary path in the file system to buffer and cache any op
 > 
 
 ### (Optional) Use a ramdisk for the temporary path
-The following example creates a ramdisk of 16 GB as well as creating a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
+The following example creates a ramdisk of 16 GB and a directory for blobfuse. Choose the size based on your needs. This ramdisk allows blobfuse to open files up to 16 GB in size. 
 ```bash
 sudo mount -t tmpfs -o size=16g tmpfs /mnt/ramdisk
 sudo mkdir /mnt/ramdisk/blobfusetmp
@@ -72,9 +72,9 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 ```
 
 ### Use an SSD for temporary path
-In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. In Ubuntu distributions, this ephemeral disk is mounted on '/mnt' whereas it is mounted on '/mnt/resource/' in Red Hat and CentOS distributions.
+In Azure, you may use the ephemeral disks (SSD) available on your VMs to provide a low-latency buffer for blobfuse. In Ubuntu distributions, this ephemeral disk is mounted on '/mnt'. The disk is mounted on '/mnt/resource/' in Red Hat and CentOS distributions.
 
-Ensure your user has access to the temporary path:
+Make sure your user has access to the temporary path:
 ```bash
 sudo mkdir /mnt/resource/blobfusetmp
 sudo chown <youruser> /mnt/resource/blobfusetmp
