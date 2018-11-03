@@ -57,7 +57,7 @@ To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
 
-[!INCLUDE [iot-hub-find-connection-string-include](../../includes/iot-hub-find-connection-string-include.md)
+[!INCLUDE [iot-hub-find-connection-string-include](../../includes/iot-hub-find-connection-string-include.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
