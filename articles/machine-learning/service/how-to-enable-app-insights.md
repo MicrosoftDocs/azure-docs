@@ -103,8 +103,11 @@ To disable Application Insights, use the following code:
 ## Evaluate data
 Your service's data is stored in your Application Insights account, within the same resource group as your Azure Machine Learning service.
 To view it:
-1. Go to your resource group in the [Azure portal](https://portal.azure.com) and browse to your Application Insights resource. 
-2. The **Overview** tab shows you the basic set of metrics for your service.
+1. Go to your Machine Learning service workspace in the [Azure portal](https://portal.azure.com) and click on Application Insights link.
+
+    [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
+
+1. The **Overview** tab shows you the basic set of metrics for your service.
 
    [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -124,3 +127,7 @@ The [00.Getting Started/13.enable-app-insights-in-production-service.ipynb](http
 
 ## Next steps
 You can also collect data on your models in production. Read the article  [Collect data for models in production](how-to-enable-data-collection.md). 
+
+
+## Other references
+* [Azure Monitor for containers](https://docs.microsoft.com/en-us/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
