@@ -60,7 +60,7 @@ sudo yum install blobfuse
 Blobfuse requires a temporary path in the file system to buffer and cache any open files, which helps provides native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
 
 > [!NOTE]
-> Blobfuse stores all open file contents in the temporary path. Make sure to have enough space in order to accommodate all open files. 
+> Blobfuse stores all open file contents in the temporary path. Make sure to have enough space to accommodate all open files. 
 > 
 
 ### (Optional) Use a ramdisk for the temporary path
