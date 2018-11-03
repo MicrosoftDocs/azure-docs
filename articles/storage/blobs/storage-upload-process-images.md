@@ -1,6 +1,6 @@
 ---
 title: Upload image data in the cloud with Azure Storage | Microsoft Docs 
-description: Use Azure blob storage with a web app to store application data
+description: Use Azure Blob storage with a web app to store application data
 services: storage
 documentationcenter: 
 author: tamram
@@ -9,7 +9,7 @@ author: tamram
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 02/20/2018
+ms.date: 11/02/2018
 ms.author: tamram
 ms.custom: mvc
 ---
@@ -42,12 +42,12 @@ If you choose to install and use the CLI locally, this tutorial requires that yo
 
 ## Create a resource group 
 
-Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
+You can deploy and manage Azure resources in logical containers called Azure resource groups. Create a resource group with the [az group create](/cli/azure/group#az_group_create) command. 
 
 The following example creates a resource group named `myResourceGroup`.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westcentralus 
+az group create --name myResourceGroup --location southeastasia 
 ```
 
 ## Create a storage account
@@ -55,23 +55,23 @@ az group create --name myResourceGroup --location westcentralus
 The sample uploads images to a blob container in an Azure Storage account. A storage account provides a unique namespace to store and access your Azure storage data objects. Create a storage account in the resource group you created by using the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 > [!IMPORTANT]
-> In part 2 of the tutorial you use Event subscriptions for blob storage. Event subscriptions are currently only supported for Blob storage accounts in the following locations: Asia Southeast, Asia East, Australia East, Australia Southeast, Central US, East US, East US 2, Europe West, Europe North, Japan East, Japan West, West Central US, West US and West US 2. Because of this restriction, you must create a Blob storage account that is used by the sample app to store images and thumbnails.
+> In part 2 of the tutorial you use Event subscriptions for Blob storage. Event subscriptions are currently only supported for Blob storage accounts in the following locations: Asia Southeast, Asia East, Australia East, Australia Southeast, Central US, East US, East US 2, Europe West, Europe North, Japan East, Japan West, West Central US, West US, and West US 2. Because of this restriction, you must create a Blob storage account that is used by the sample app to store images and thumbnails.
 
 In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.  
 
 ```azurecli-interactive
 az storage account create --name <blob_storage_account> \
---location westcentralus --resource-group myResourceGroup \
+--location southeastasia --resource-group myResourceGroup \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ```
 
-## Create blob storage containers
+## Create Blob storage containers
 
 The app uses two containers in the Blob storage account. Containers are similar to folders and are used to store blobs. The _images_ container is where the app uploads full-resolution images. In a later part of the series, an Azure function app uploads resized image thumbnails to the _thumbnails_ container.
 
-Get the storage account key by using the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command. You then use this key to create two containers using the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.  
+Get the storage account key by using the [az storage account keys list](/cli/azure/storage/account/keys#az_storage_account_keys_list) command. Then, use this key to create two containers with the [az storage container create](/cli/azure/storage/container#az_storage_container_create) command.  
 
-In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ containers public access is set to `off`, the _thumbnails_ containers public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
+In this case, `<blob_storage_account>` is the name of the Blob storage account you created. The _images_ container's public access is set to `off`. The _thumbnails_ container's public access is set to `container`. The `container` public access setting allows the thumbnails to be viewable to people that visit the web page.
 
 ```azurecli-interactive
 blobStorageAccount=<blob_storage_account>
@@ -85,11 +85,11 @@ az storage container create -n images --account-name $blobStorageAccount \
 az storage container create -n thumbnails --account-name $blobStorageAccount \
 --account-key $blobStorageAccountKey --public-access container
 
-echo "Make a note of your blob storage account key..."
+echo "Make a note of your Blob storage account key..."
 echo $blobStorageAccountKey
 ```
 
-Make a note of your blob storage account name and key. The sample app uses these settings to connect to the storage account to upload images. 
+Make a note of your Blob storage account name and key. The sample app uses these settings to connect to upload images to the chosen storage account. 
 
 ## Create an App Service plan
 
@@ -107,7 +107,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 The web app provides a hosting space for the sample app code that is deployed from the GitHub sample repository. Create a [web app](../../app-service/app-service-web-overview.md) in the `myAppServicePlan` App Service plan with the [az webapp create](/cli/azure/webapp#az_webapp_create) command.  
 
-In the following command, replace `<web_app>` with a unique name (valid characters are `a-z`, `0-9`, and `-`). If `<web_app>` is not unique, you get the error message: _Website with given name `<web_app>` already exists._ The default URL of the web app is `https://<web_app>.azurewebsites.net`.  
+In the following command, replace `<web_app>` with a unique name. Valid characters are `a-z`, `0-9`, and `-`. If `<web_app>` is not unique, you get the error message: _Website with given name `<web_app>` already exists._ The default URL of the web app is `https://<web_app>.azurewebsites.net`.  
 
 ```azurecli-interactive
 az webapp create --name <web_app> --resource-group myResourceGroup --plan myAppServicePlan
@@ -136,7 +136,7 @@ az webapp deployment source config --name <web_app> \
 
 The sample web app uses the [Azure Storage Client Library](/dotnet/api/overview/azure/storage?view=azure-dotnet) to request access tokens, which are used to upload images. The storage account credentials used by the Storage SDK are set in the application settings for the web app. Add application settings to the deployed app with the [az webapp config appsettings set](/cli/azure/webapp/config/appsettings#az_webapp_config_appsettings_set) command.
 
-In the following command, `<blob_storage_account>` is the name of your Blob storage account and `<blob_storage_key>` is the associated key. Replace `<web_app>` with the name of the web app you created in the preceding step.
+In the following command, replace `<blob_storage_account>` with the name of your Blob storage account and `<blob_storage_key>` with the associated key. Replace `<web_app>` with the name of the web app you created in the preceding step.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <web_app> --resource-group myResourceGroup \
@@ -146,18 +146,18 @@ AzureStorageConfig__ThumbnailContainer=thumbnails \
 AzureStorageConfig__AccountKey=<blob_storage_key>  
 ```
 
-After the web app is deployed and configured, you can test the image upload functionality in the app.
+After you deploy and configure the web app, you can test the image upload functionality in the app.
 
 ## Upload an image
 
 To test the web app, browse to the URL of your published app. The default URL of the web app is `https://<web_app>.azurewebsites.net`.
-Select the **Upload photos** region to select and upload a file or drag and drop a file on the region. The image disappears if successfully uploaded.
+Select the **Upload photos** region to select and upload a file, or drag and drop a file on the region. The image disappears if successfully uploaded.
 
 # [\.NET](#tab/net)
 
 ![ImageResizer app](media/storage-upload-process-images/figure1.png)
 
-In the sample code, the `UploadFiletoStorage` task in the `Storagehelper.cs` file is used to upload the images to the `images` container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method. The following code sample contains the `UploadFiletoStorage` task.
+In the sample code, the `UploadFiletoStorage` task in the *Storagehelper.cs* file is used to upload the images to the `images` container within the storage account using the [UploadFromStreamAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob.uploadfromstreamasync?view=azure-dotnet) method. The following code sample contains the `UploadFiletoStorage` task.
 
 ```csharp
 public static async Task<bool> UploadFileToStorage(Stream fileStream, string fileName, AzureStorageConfig _storageConfig)
@@ -206,7 +206,7 @@ In the sample code, the `post` route is responsible for uploading the image into
 As the file is sent to the route, the contents of the file remain in memory until the file is uploaded to the blob container.
 
 > [!IMPORTANT]
-> Loading very large files into memory may have a negative effect on the performance of your web application. If you expect users to post large files, you may want to consider staging files on the web server file system and then scheduling uploads into blob storage. Once the files are in blob storage then you can remove them off the server file system.
+> Loading large files into memory may have a negative effect on your web application's performance. If you expect users to post large files, you may want to consider staging files on the web server file system and then scheduling uploads into Blob storage. Once the files are in Blob storage, you can remove them from the server file system.
 
 ```javascript
 const
@@ -259,7 +259,7 @@ router.post('/', uploadStrategy, (req, res) => {
 
 ## Verify the image is shown in the storage account
 
-Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Overview**, select the **images** container.
+Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Blob Service**, select **Blobs**, then select the **images** container.
 
 Verify the image is shown in the container.
 
@@ -267,11 +267,11 @@ Verify the image is shown in the container.
 
 ## Test thumbnail viewing
 
-To test thumbnail viewing, you'll upload an image to the thumbnail container in order to ensure the application can read the thumbnail container.
+To test thumbnail viewing, you'll upload an image to the thumbnail container to ensure the application can read the thumbnail container.
 
-Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Select **Containers** under **Blob Service** and select the **thumbnails** container. Select **Upload** to open the **Upload blob** pane.
+Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Blob Service**, select **Blobs**, then select the **thumbnails** container. Select **Upload** to open the **Upload blob** pane.
 
-Choose a file using the file picker and select **Upload**.
+Choose a file with the file picker and select **Upload**.
 
 Navigate back to your app to verify that the image uploaded to the **thumbnails** container is visible.
 
@@ -283,13 +283,13 @@ Navigate back to your app to verify that the image uploaded to the **thumbnails*
 
 ---
 
-In the **thumbnails** container in the Azure portal, select the image you uploaded and select **Delete** to delete the image. In part two of the series, you are automating the creation of the thumbnail images, so this test image is not needed.
+In part two of the series, you are automate the thumbnail images creation, you don't need this image.In the **thumbnails** container in the Azure portal, select the image you uploaded and select **Delete** to delete the image. 
 
-CDN can be enabled to cache content from your Azure storage account. While not described in this tutorial, to learn how to enable CDN with your Azure storage account, you can visit: [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
+You can enable CDN to cache content from your Azure storage account. For more information about how to enable CDN with your Azure storage account, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
 ## Next steps
 
-In part one of the series, you learned about configuring a web app interacting with storage such as how to:
+In part one of the series, you learned about configuring a web app interacting with storage, For example, how to:
 
 > [!div class="checklist"]
 > * Create a storage account
@@ -299,7 +299,7 @@ In part one of the series, you learned about configuring a web app interacting w
 > * Deploy a Web App to Azure
 > * Interact with the web application
 
-Advance to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.
+Proceed to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.
 
 > [!div class="nextstepaction"]
 > [Use Event Grid to trigger an Azure Function to resize an uploaded image](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
