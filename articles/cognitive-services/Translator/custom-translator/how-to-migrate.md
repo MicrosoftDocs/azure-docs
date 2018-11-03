@@ -37,20 +37,21 @@ When you migrate your complete Hub workspace to Custom translator, your projects
 
 To migrate a workspace:
 
-1.	Sign in to Microsoft Translator Hub
+1.	Sign in to Microsoft Translator Hub.
 
-2.	Go to Settings page
+2.	Go to Settings page.
 
-3.	On settings page click Migrate Workspace data to Custom Translator
+3.	On settings page click Migrate Workspace data to Custom Translator.
+
     ![How to migrate from Hub](media/how-to/how-to-migrate-workspace-from-hub.png)
 
 4.	On the next page select either of these two options:
 
-    a.	Deployed Trainings only: Selecting this option will migrate only your deployed systems and related documents. 
+    a.	Deployed Trainings only: Selecting this option will migrate only your deployed systems and related documents.
 
     b.	All Successful Trainings: Selecting this option will migrate all your successful trainings and related documents.
 
-    c.	Enter your destination Workspace ID in Custom Translator
+    c.	Enter your destination Workspace ID in Custom Translator.
 
     ![How to migrate from Hub](media/how-to/how-to-migrate-from-hub-screen.png)
 
@@ -62,11 +63,11 @@ If you want to migrate your projects selectively, Microsoft Translator Hub gives
 
 To migrate a project:
 
-1.	Sign in to Microsoft Translator Hub
+1.	Sign in to Microsoft Translator Hub.
 
-2.	Go to Projects page
+2.	Go to Projects page.
 
-3.	Click Migrate link for appropriate project
+3.	Click Migrate link for appropriate project.
 
     ![How to migrate from Hub](media/how-to/how-to-migrate-from-hub.png)
 
@@ -76,7 +77,7 @@ To migrate a project:
 
     b.	All Successful Trainings: Selecting this option will migrate all your successful trainings and related documents.
 
-    c.	Enter your destination Workspace ID in Custom Translator
+    c.	Enter your destination Workspace ID in Custom Translator.
 
     ![How to migrate from Hub](media/how-to/how-to-migrate-from-hub-screen.png)
 
@@ -86,9 +87,9 @@ To migrate a project:
 
 You will find your destination Workspace ID on the Settings page in Custom Translator
 
-1.	Go to Setting page in the Custom Translator portal. 
+1.	Go to Setting page in the Custom Translator portal.
 
-2.	You will find the Workspace ID in the Basic Information section
+2.	You will find the Workspace ID in the Basic Information section.
 
 ![How to find destination workspace ID](media/how-to/how-to-find-destination-ws-id.png)
 
@@ -107,7 +108,8 @@ Migration History page displays following information as summary for every migra
 1.	Migrated By: Name and email of the user submitted this migration request
 
 2.	Migrated On: Date and time stamp of the migration
-3.	Projects: Number of projects requested for migration v/s number of projects successfully migrated. 
+
+3.	Projects: Number of projects requested for migration v/s number of projects successfully migrated.
 
 4.	Trainings: Number of trainings requested for migration v/s number of trainings successfully migrated.
 
