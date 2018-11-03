@@ -11,9 +11,9 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: 
 manager: craigg
-ms.date: 04/24/2018
+ms.date: 11/01/2018
 ---
-# Azure SQL Database Connect and Query Quickstarts
+# Quickstarts: Azure SQL Database Connect and Query
 
 The following document includes links to Azure examples showing how to connect and query an Azure SQL database. It also provides some recommendations for Transport Level Security.
 

@@ -97,6 +97,8 @@ You're now ready to create Service Fabric Mesh applications!
 
 Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutorial-create-dotnetcore.md) tutorial.
 
+Find answers to [common questions](service-fabric-mesh-faq.md).
+
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows
 [download-docker-server]: https://docs.docker.com/install/windows/docker-ee/

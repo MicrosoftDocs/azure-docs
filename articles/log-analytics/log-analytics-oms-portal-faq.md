@@ -78,7 +78,7 @@ Manage most Connected Source settings the  in the **Advanced settings** menu for
 | Linux   Servers   | **Advanced settings** menu for the workspace. |
 | Azure Storage     | **Advanced settings** menu for the workspace. |
 | System Center     | **Advanced settings** menu for the workspace. |
-| Office 365        | See the [documentation for Office 365 management solution](../operations-management-suite/oms-solution-office-365.md) for configuration details. |
+| Office 365        | See the [documentation for Office 365 management solution](../monitoring/monitoring-solution-office-365.md) for configuration details. |
 | Windows Telemetry | Settings menu for the solution. See [Windows Analytics in the Azure portal](/windows/deployment/update/windows-analytics-azure-portal) for configuration details. |
 | ITSM Connector    | See  [Connect ITSM products/services with IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) for instructions on connecting your ITSM service with Log Analytics. |
 
