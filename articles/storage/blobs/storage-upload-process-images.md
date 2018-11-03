@@ -283,7 +283,7 @@ Navigate back to your app to verify that the image uploaded to the **thumbnails*
 
 ---
 
-In part two of the series, you are automate the thumbnail images creation, you don't need this image.In the **thumbnails** container in the Azure portal, select the image you uploaded and select **Delete** to delete the image. 
+In part two of the series, you automate thumbnail image creation so you don't need this image. In the **thumbnails** container in the Azure portal, select the image you uploaded and select **Delete** to delete the image. 
 
 You can enable CDN to cache content from your Azure storage account. For more information about how to enable CDN with your Azure storage account, see [Integrate an Azure storage account with Azure CDN](../../cdn/cdn-create-a-storage-account-with-cdn.md).
 
