@@ -57,7 +57,7 @@ The sample uploads images to a blob container in an Azure Storage account. A sto
 > [!IMPORTANT]
 > In part 2 of the tutorial you use Event subscriptions for Blob storage. Event subscriptions are currently only supported for Blob storage accounts in the following locations: Asia Southeast, Asia East, Australia East, Australia Southeast, Central US, East US, East US 2, Europe West, Europe North, Japan East, Japan West, West Central US, West US, and West US 2. Because of this restriction, you must create a Blob storage account that is used by the sample app to store images and thumbnails.
 
-In the following command, substitute your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.  
+In the following command, replace your own globally unique name for the Blob storage account where you see the `<blob_storage_account>` placeholder.  
 
 ```azurecli-interactive
 az storage account create --name <blob_storage_account> \
@@ -203,7 +203,7 @@ In the sample code, the `post` route is responsible for uploading the image into
 - [multer](https://github.com/expressjs/multer) implements the upload strategy for the route handler
 - [into-stream](https://github.com/sindresorhus/into-stream) converts the buffer into a stream as required by [createBlockBlobFromStream](http://azure.github.io/azure-sdk-for-node/azure-storage-legacy/latest/BlobService.html#createBlockBlobFromStream)
 
-As the file is sent to the route, the contents of the file remain in memory until the file is uploaded to the blob container.
+As the file is sent to the route, the contents of the file stay in memory until the file is uploaded to the blob container.
 
 > [!IMPORTANT]
 > Loading large files into memory may have a negative effect on your web application's performance. If you expect users to post large files, you may want to consider staging files on the web server file system and then scheduling uploads into Blob storage. Once the files are in Blob storage, you can remove them from the server file system.
@@ -267,7 +267,7 @@ Verify the image is shown in the container.
 
 ## Test thumbnail viewing
 
-To test thumbnail viewing, you'll upload an image to the thumbnail container to ensure the application can read the thumbnail container.
+To test thumbnail viewing, you'll upload an image to the thumbnail container to check if the application can read the thumbnail container.
 
 Sign in to the [Azure portal](https://portal.azure.com). From the left menu, select **Storage accounts**, then select the name of your storage account. Under **Blob Service**, select **Blobs**, then select the **thumbnails** container. Select **Upload** to open the **Upload blob** pane.
 
@@ -299,7 +299,7 @@ In part one of the series, you learned about configuring a web app interacting w
 > * Deploy a Web App to Azure
 > * Interact with the web application
 
-Proceed to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.
+Go on to part two of the series to learn about using Event Grid to trigger an Azure function to resize an image.
 
 > [!div class="nextstepaction"]
 > [Use Event Grid to trigger an Azure Function to resize an uploaded image](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
