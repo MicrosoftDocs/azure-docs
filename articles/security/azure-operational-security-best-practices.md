@@ -77,7 +77,7 @@ You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/a
 **Detail**: [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/index?view=vsts) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Release Management, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
 
 **Best practice**: Check your app's performance before you launch it or deploy updates to production.  
-**Detail**: Run cloud-based [load tests](https://docs.microsoft.com/en-us/azure/devops/test/load-test/getting-started-with-performance-testing?view=vsts) by using Azure Test Plans to:
+**Detail**: Run cloud-based [load tests](https://docs.microsoft.com/en-us/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) by using Azure Test Plans to:
 
 - Find performance problems in your app.
 - Improve deployment quality.
