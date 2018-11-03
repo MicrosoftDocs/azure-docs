@@ -121,7 +121,7 @@ Add the following dependencies to your pom.xml or build.gradle file:
  
 * [Application Insight Core 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) or above
 * [Application Insights Web 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) or above
-* [Register Web Filter](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-java-get-started)
+* [Register Web Filter](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
 * Micrometer Azure Registry 1.1.0 or above
 * [Application Insights Resource](app-insights-create-new-resource.md)
 
@@ -247,7 +247,7 @@ Add the following binding code to the configuration  file:
 	New GuavaCacheMetrics().bind(registry);
 ```
 
-## Next Steps
+## Next steps
 
 * To learn more about Micrometer refer to the official [Micrometer documentation](https://micrometer.io/docs).
-* To learn about Spring on Azure refer to the official [Spring on Azure documentation](https://docs.microsoft.com/en-us/java/azure/spring-framework/?view=azure-java-stable).
+* To learn about Spring on Azure refer to the official [Spring on Azure documentation](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
