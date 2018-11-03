@@ -1,21 +1,15 @@
 ---
-title: 'Quickstart: Run a Spark job on Azure Databricks using Resource Manager template | Microsoft Docs'
+title: 'Quickstart: Run a Spark job on Azure Databricks using Resource Manager template '
 description: The quickstart shows how to use the Azure Resource Manager template to create an Azure Databricks workspace, then create an Apache Spark cluster, and run a Spark job.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
-
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/23/2018
-ms.author: nitinme
+ms.author: mamccrea
 ms.custom: mvc
-
 ---
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure Resource Manager template

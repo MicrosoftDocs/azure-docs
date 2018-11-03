@@ -11,9 +11,9 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 11/01/2018
 ---
-# Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises
+# Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises
 
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
 
