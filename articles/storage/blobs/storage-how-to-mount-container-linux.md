@@ -13,7 +13,7 @@ ms.author: seguler
 # How to mount Blob storage as a file system with blobfuse
 
 ## Overview
-[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage, which allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and therefore does not have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter.  
+[Blobfuse](https://github.com/Azure/azure-storage-fuse) is a virtual file system driver for Azure Blob Storage. Blobfuse allows you to access your existing block blob data in your Storage account through the Linux file system. Azure Blob Storage is an object storage service and doesn't have a hierarchical namespace. Blobfuse provides this namespace using the virtual directory scheme with the use of forward-slash '/' as a delimiter.  
 
 This guide shows you how to use blobfuse, and mount a Blob storage container on Linux and access data. To learn more about blobfuse, read the details in [the blobfuse repository](https://github.com/Azure/azure-storage-fuse).
 
@@ -57,7 +57,7 @@ sudo yum install blobfuse
 ```
 
 ## Prepare for mounting
-Blobfuse requires a temporary path in the file system to buffer and cache any open files, which helps provides native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
+Blobfuse requires a temporary path in the file system to buffer and cache any open files, which helps provide native-like performance. For this temporary path, choose the most performant disk, or use a ramdisk for best performance. 
 
 > [!NOTE]
 > Blobfuse stores all open file contents in the temporary path. Make sure to have enough space to accommodate all open files. 
@@ -109,13 +109,13 @@ mkdir ~/mycontainer
 > For a full list of mount options, check [the blobfuse repository](https://github.com/Azure/azure-storage-fuse#mount-options).  
 > 
 
-In order to mount blobfuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg'  onto the location '/mycontainer'.
+To mount blobfuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg' onto the location '/mycontainer'.
 
 ```bash
 blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-You should now have access to your block blobs through the regular file system APIs. Note that the mounted directory can only be accessed by the user mounting it, which secures the access. If you want to allow access to all users, you can mount via the option ```-o allow_other```. 
+You should now have access to your block blobs through the regular file system APIs. The mounted directory can only be accessed by the user mounting it, which secures the access. To allow access to all users, you can mount via the option ```-o allow_other```. 
 
 ```bash
 cd ~/mycontainer
