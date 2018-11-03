@@ -41,7 +41,7 @@ To add someone as an administrator for an Azure subscription, assign them the [O
 4. Select **Add role assignment**.
    (If the Add role assignment button is missing, you do not have permission to add permissions.)
 5. In the **Role** box, select **Owner**. 
-6. In the **Assign access to** box, select **Azure AD user, group, or application**. 
+6. In the **Assign access to** box, select **Azure AD user, group, or service principal**. 
 7. In the **Select** box, type the email address of the user you want to add as Owner. Select the user, and then select **Save**.
 
     ![Screenshot that shows the Owner role selected](./media/billing-add-change-azure-subscription-administrator/add-role.png)

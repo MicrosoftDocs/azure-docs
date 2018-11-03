@@ -274,7 +274,7 @@ The following section shows you how to configure RBAC on your Automation Account
 
 #### Add a new user and assign a role
 
-1. From the **Access control (IAM)** page, click **+ Add role assignment** to open the **Add permissions** page where you can add a user, group, or application, and assign a role to them.
+1. From the **Access control (IAM)** page, click **+ Add role assignment** to open the **Add role assignment** page where you can add a user, group, or application, and assign a role to them.
 
 2. Select a role from the list of available roles. You can choose any of the available built-in roles that an Automation account supports or any custom role you may have defined.
 

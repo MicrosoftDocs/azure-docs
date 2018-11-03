@@ -357,7 +357,7 @@ In the Azure portal, select **Subscriptions** and choose the subscription of you
 
 ![Subscription contributors](media/manage-runas-account/automation-account-remove-subscription.png)
 
-To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add role assignment**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Complete these steps for the resources groups you want to give your Azure Automation Run As service principal access to.
+To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add role assignment**, this opens the **Add role assignment** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Complete these steps for the resources groups you want to give your Azure Automation Run As service principal access to.
 
 ## Misconfiguration
 
