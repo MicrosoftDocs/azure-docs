@@ -117,7 +117,7 @@
     href: migrate-overview.md
   - name: About role-based access control with Site Recovery
     href: site-recovery-role-based-linked-access-control.md
-- name: About disaster recovery to a secondary on-premises site
+  - name: About disaster recovery to a secondary on-premises site
     items:
     - name: Support matrix for VMware VM/physical server to a secondary site
       href: vmware-physical-secondary-support-matrix.md
