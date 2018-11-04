@@ -361,7 +361,7 @@
         href: hyper-v-vmm-recovery-script.md
       - name: Run a failover and failback between on-premises sites
         href: hyper-v-vmm-failover-failback.md
-      - name: Performance scale tests for Hyper-V replication to a secondary site
+      - name: Performance scale tests for disaster recovery to a secondary site
         href: hyper-v-vmm-performance-results.md
   - name: Automation
     items:
