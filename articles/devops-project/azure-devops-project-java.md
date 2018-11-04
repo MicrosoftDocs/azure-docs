@@ -28,7 +28,7 @@ If you don't have an Azure subscription, you can get one free through [Visual St
 
 ## Sign in to the Azure portal
 
-The Azure DevOps Project creates a CI/CD pipeline in Azure Pipelines.  You can create a free new Azure DevOps organization or use an existing organization.  DevOps Projects also creates Azure resources in the Azure subscription of your choice.
+ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
@@ -46,10 +46,10 @@ The Azure DevOps Project creates a CI/CD pipeline in Azure Pipelines.  You can c
  
 ## Configure Azure DevOps Services and an Azure subscription 
 
-1. Create a new Azure DevOps Services organization or choose an existing organization. 
+1. Create a new Azure DevOps organization or choose an existing organization. 
 	a. Choose a name for your project. 
 
-	b. Select your Azure subscription and location, and then choose a name for your application. Then select **Done**.
+	b. Select your Azure subscription and location, choose a name for your application, and then select **Done**.
 
 	After a few minutes, the Azure DevOps Projects dashboard is diplayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application deploys to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
 	
@@ -72,7 +72,8 @@ Azure DevOps Projects creates a Git repository in your Azure DevOps organization
 
 1. On the left side of the browser, go to the **src/main/webapp/index.html** file.
 
-1. Select **Edit**, and then make a change to some of the text. 		For example, change some of the text for one of the div tags.
+1. Select **Edit**, and then make a change to some of the text.
+		For example, change some of the text for one of the div tags.
 
 1. Select **Commit**, and then save your changes.
 
@@ -81,12 +82,12 @@ Azure DevOps Projects creates a Git repository in your Azure DevOps organization
 
 ## Examine the CI/CD pipeline
 
-Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azure DevOps organization. Explore and customize the pipeline as needed. Take the following steps to familiarize yourself with the build and release pipelines.
+Azure DevOps Projects automatically configures a full CI/CD pipeline. Explore and customize the pipeline as needed. Take the following steps to familiarize yourself with the build and release pipelines.
 
 1. At the top of the Azure DevOps Projects dashboard, select **Build Pipelines**.
 		This link opens a browser tab and the build pipeline for your new project.
 
-1. Point to the **Status** field, and then select the ellipsis that appears (...).  
+1. Point to the **Status** field, and then select the ellipsis  (...).  
 		This action opens a menu where you can start several activities such as queuing a new build, pausing a build, and editing the build pipeline.
 
 1. Select **Edit**.
@@ -99,7 +100,7 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azu
 1. Change the name of your build pipeline to something more descriptive, select **Save & queue**, and then select **Save**.
 
 1. Under your build pipeline name, select **History**. 
-		 You see an audit trail of your recent changes for the build.  Azure DevOps keeps track of any changes that are made to the build pipeline, and it allows your to compare versions.
+		 You see an audit trail of your recent changes for the build.  Azure DevOps keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**. 
 		Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
@@ -107,7 +108,7 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azu
 1. Select **Retention**.  
 		Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-1. Select **Build and Release**, and then select **Releases**.  		Azure DevOps Projects creates an Azure DevOps  					release pipeline to manage deployments to Azure.
+1. Select **Build and Release**, and then select **Releases**.  		Azure DevOps Projects creates a release pipeline to manage 		deployments to Azure.
 
 1. On the left side, select the ellipsis (...) next to your release pipeline, and then select **Edit**.
 	The release pipeline contains a pipeline, which defines the release process.  
@@ -119,7 +120,7 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azu
 		This release pipeline has an enabled CD trigger, which runs a deployment every time there is a new build artifact available. Optionally, you can disable the trigger so that your deployments require manual execution. 
 
 1. On the left, select **Tasks**. The tasks are the activities that your deployment process performs. 
-		In this example, a task was created to deploy to *Azure App Service.
+		In this example, a task was created to deploy to Azure App Service.
 
 1. On the right side, select **View releases**. 
 		This view shows a history of releases.
@@ -135,11 +136,11 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azu
 
 ## Clean up resources
 
-When you don't need them anymore, you can delete Azure App Service and related resourcesfrom this quickstart by using the **Delete** functionality on the Azure DevOps Projects dashboard.
+When you don't need them anymore, you can delete Azure App Service and related resources from this quickstart by using the **Delete** functionality on the Azure DevOps Projects dashboard.
 
 ## Next steps
 
-When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created in your Azure Pipelines. You can modify these build and release pipelines to meet the needs of your team. To learn more, see this tutorial:
+When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created in Azure Pipelines. You can modify these build and release pipelines to meet the needs of your team. To learn more, see this tutorial:
 
 > [!div class="nextstepaction"]
 > [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
