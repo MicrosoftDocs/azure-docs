@@ -386,21 +386,21 @@
     - name: Troubleshoot the Mobility service for Azure VMs
       href: site-recovery-extension-troubleshoot.md
   - name: VMware/physical server
-      items: 
-      - name: Troubleshoot VMware to Azure replication
-        href: vmware-azure-troubleshoot-replication.md
-      - name: Troubleshoot push installation of the Mobility service for VMware VMs/physical servers
-        href: vmware-azure-troubleshoot-push-install.md
-      - name: Troubleshoot failover to Azure
-        href: site-recovery-failover-to-azure-troubleshoot.md
-      - name: Troubleshoot reprotection and failback of VMware VMs 
-        href: vmware-azure-troubleshoot-failback-reprotect.md
-    - Hyper-V
-      Items:
-      - name: Troubleshoot Hyper-V replication
-        href: hyper-v-azure-troubleshoot.md
-      - name: Troubleshoot failover to Azure
-        href: site-recovery-failover-to-azure-troubleshoot.md
+    items: 
+    - name: Troubleshoot VMware to Azure replication
+      href: vmware-azure-troubleshoot-replication.md
+    - name: Troubleshoot push installation of the Mobility service for VMware VMs/physical servers
+      href: vmware-azure-troubleshoot-push-install.md
+    - name: Troubleshoot failover to Azure
+      href: site-recovery-failover-to-azure-troubleshoot.md
+    - name: Troubleshoot reprotection and failback of VMware VMs 
+      href: vmware-azure-troubleshoot-failback-reprotect.md
+  - name: Hyper-V
+    items:
+    - name: Troubleshoot Hyper-V replication
+      href: hyper-v-azure-troubleshoot.md
+    - name: Troubleshoot failover to Azure
+      href: site-recovery-failover-to-azure-troubleshoot.md
 - name: Reference
   items:
   - name: Azure PowerShell
