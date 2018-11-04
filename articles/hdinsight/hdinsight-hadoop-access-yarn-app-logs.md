@@ -2,13 +2,13 @@
 title: Access Hadoop YARN application logs programmatically - Azure 
 description: Access application logs programmatically on a Hadoop cluster in HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---

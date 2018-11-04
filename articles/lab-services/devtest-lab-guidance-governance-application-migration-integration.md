@@ -1,6 +1,6 @@
 ---
 title: Governance of Azure DevTest Labs infrastructure
-description: This article provides guidance for governance of Azure DevTest Labs infrastructure. 
+description: This article provides guidance for governance of Azure DevTest Labs infrastructure.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -17,9 +17,9 @@ ms.author: spelluru
 ---
 
 # Governance of Azure DevTest Labs infrastructure - Application migration and integration
-Once your development/test lab environment has been established, you need to think about the following questions: 
+Once your development/test lab environment has been established, you need to think about the following questions:
 
-- How do you utilize the environment within your project team? 
+- How do you utilize the environment within your project team?
 - How do you ensure that you follow any required organizational policies, and maintain the agility to add value to your application?
 
 ## Azure Marketplace images vs. custom images
@@ -57,10 +57,10 @@ How can I set up an easily repeatable process to bring my custom organizational 
 ### Answer
 See [this video on Immage Factory pattern](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). This scenario is an advanced scenario, and the scripts provided are sample scripts only. If any changes are required, you need to manage and maintain the scripts used in your environment.
 
-Using DevTest Labs to create a custom image pipeline in Visual Studio Team Services (VSTS):
+Using DevTest Labs to create a custom image pipeline in Azure Pipelines:
 
 - [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Image Factory – Part 2! Setup VSTS and Factory Lab to Create VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Video: Custom Image Factory with Azure DevTest Labs](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -76,7 +76,7 @@ Yes. There are two aspects to consider – inbound and outbound traffic.
 
 **Outbound traffic** – If you want to prevent virtual machines going directly to public internet and force traffic through a corporate firewall, then you can route traffic on-premises via express route or VPN, by using forced routing.
 
-> [!NOTE] 
+> [!NOTE]
 > If you have a proxy server that blocks traffic without proxy settings, do not forget to add exceptions to the lab’s artifact storage account, .
 
 You could also use network security groups for virtual machines or subnets. This step adds an additional layer of protection to allow / block traffic.
@@ -97,9 +97,9 @@ Otherwise, each DevTest Labs environment could have its own virtual network. How
 When should I use a shared IP vs. public IP vs. private IP?
 
 ### Answer
-If you use a site-to-site VPN or Express Route, consider using private IPs so that your machines are accessible via your internal network, and inaccessible over public internet. 
+If you use a site-to-site VPN or Express Route, consider using private IPs so that your machines are accessible via your internal network, and inaccessible over public internet.
 
-> [!NOTE] 
+> [!NOTE]
 > Lab owners can change this subnet policy to ensure that no one accidently creates public IP addresses for their VMs. The subscription owner should create a subscription policy preventing public IPs from being created.
 
 When using shared public IPs, the virtual machines in a lab share a public IP address. This approach can be helpful when you need to avoid breaching the limits on public IP addresses for a given subscription.
@@ -122,7 +122,7 @@ When considering the number of virtual machines per user or per lab, there are t
 How can I use Resource Manager templates in my DevTest Labs Environment?
 
 ### Answer
-You deploy your Resource Manager templates into a DevTest Labs environment by using steps mentioned in the [Environments feature in DevTest labs](devtest-lab-test-env.md) article. Basically, you check your Resource Manager templates into a Git Repository (either Visual Studio Team Services or GitHub), and add a [private repository for your templates](devtest-lab-test-env.md) to the lab.
+You deploy your Resource Manager templates into a DevTest Labs environment by using steps mentioned in the [Environments feature in DevTest labs](devtest-lab-test-env.md) article. Basically, you check your Resource Manager templates into a Git Repository (either Azure Repos or GitHub), and add a [private repository for your templates](devtest-lab-test-env.md) to the lab.
 
 This scenario may not be useful if you are using DevTest Labs to host development machines, but may be useful if you are building a staging environment, which is representative of production.
 

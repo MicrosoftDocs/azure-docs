@@ -78,7 +78,7 @@ Like Avere Control Panel, vfxt.py operations try to make sure changed data is st
 
 vfxt.py is preinstalled on the cluster controller VM. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-A complete vfxt.py usage guide is available on GitHub: <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
+A complete vfxt.py usage guide is available on GitHub: [Cloud cluster management with vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### Add cluster nodes with vfxt.py
 
@@ -110,7 +110,7 @@ If you are not using the prototype, you must construct a command like the follow
    --log ~/vfxt.log
 ```
 
-For more information, read [Add nodes to a cluster](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) in the vfxt.py usage guide.
+For more information, read [Add nodes to a cluster](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) in the vfxt.py usage guide.
 
 ### Stop a cluster with vfxt.py
 
@@ -124,7 +124,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-Because the cluster is stopped, you must pass instance identifiers to specify the cluster nodes. Read [Specifying which cluster to modify](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) in the vfxt.py usage guide to learn more.
+Because the cluster is stopped, you must pass instance identifiers to specify the cluster nodes. Read [Specifying which cluster to modify](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) in the vfxt.py usage guide to learn more.
 
 ### Destroy a cluster with vfxt.py
 
@@ -134,8 +134,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 The option ``--quick-destroy`` can be used if you do not want to write changed data from the cluster cache.
 
-Read the [vfxt.py usage guide](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>) for additional information.  
-<!-- change to final location when available -->
+Read the [vfxt.py usage guide](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) for additional information.  
 
 ## Manage cluster VMs from the Azure portal 
 
