@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: virtual-machines-linux
  ms.topic: include
- ms.date: 05/29/2018
+ ms.date: 09/24/2018
  ms.author: danlep
  ms.custom: include file
 ---
@@ -21,11 +21,11 @@ NVIDIA CUDA drivers for NC, NCv2, NCv3, and ND-series VMs (optional for NV-serie
 
 | Distribution | Driver |
 | --- | -- | 
-| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 or 7.4<br/><br/> CentOS-based 7.3 or 7.4, CentOS-based 7.4 HPC | NVIDIA CUDA 9.1, driver branch R390 |
+| Ubuntu 16.04 LTS<br/><br/> Red Hat Enterprise Linux 7.3 or 7.4<br/><br/> CentOS-based 7.3 or 7.4, CentOS-based 7.4 HPC | NVIDIA CUDA 10.0, driver branch R410 |
 
 ### NVIDIA GRID drivers
 
-Microsoft redistributes NVIDIA GRID driver installers for NV-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the distributions listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure.
+Microsoft redistributes NVIDIA GRID driver installers for NV and NVv2-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the distributions listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure.
 
 | Distribution | Driver |
 | --- | -- |

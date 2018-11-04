@@ -1,6 +1,6 @@
 ---
-title: Manage SSO and token customization with custom policies in Azure Active Directory B2C | Microsoft Docs
-description: Learn about managing SSO and token customization with custom policies.
+title: Manage SSO and token customization using custom policies in Azure Active Directory B2C | Microsoft Docs
+description: Learn about managing SSO and token customization using custom policies in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -8,16 +8,18 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/02/2017
+ms.date: 10/09/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# Azure Active Directory B2C: Manage SSO and token customization with custom policies
-Using custom policies provides you the same control over your token, session and single sign-on (SSO) configurations as through built-in policies.  To learn what each setting does, see the documentation [here](#active-directory-b2c-token-session-sso).
+# Manage SSO and token customization using custom policies in Azure Active Directory B2C
+
+This article provides information about how you can manage your token, session, and single sign-on (SSO) configurations using [custom policies](active-directory-b2c-overview-custom.md) in Azure Active Directory (Azure AD) B2C.
 
 ## Token lifetimes and claims configuration
-To change the settings on your token lifetimes, you need to add a `<ClaimsProviders>` element in the relying party file of the policy you want to impact.  The `<ClaimsProviders>` element is a child of the `<TrustFrameworkPolicy>`.  Inside, you'll need to put the information that affects your token lifetimes.  The XML looks like this example:
+
+To change the settings on your token lifetimes, you add a [ClaimsProviders](claimsproviders.md) element in the relying party file of the policy you want to impact.  The **ClaimsProviders** element is a child of the [TrustFrameworkPolicy](trustframeworkpolicy.md) element. Inside, you'll need to put the information that affects your token lifetimes. The XML looks like this example:
 
 ```XML
 <ClaimsProviders>
@@ -39,41 +41,36 @@ To change the settings on your token lifetimes, you need to add a `<ClaimsProvid
 </ClaimsProviders>
 ```
 
-**Access token lifetimes** - The access token lifetime can be changed by modifying the value inside the `<Item>` with the Key="token_lifetime_secs" in seconds.  The default value in built-in is 3600 seconds (60 minutes).
+The following values are set in the previous example:
 
-**ID token lifetime** - The ID token lifetime can be changed by modifying the value inside the `<Item>` with the Key="id_token_lifetime_secs" in seconds.  The default value in built-in is 3600 seconds (60 minutes).
+- **Access token lifetimes** - The access token lifetime value is set with **token_lifetime_secs** metadata item. The default value is 3600 seconds (60 minutes).
+- **ID token lifetime** - The ID token lifetime value is set with the **id_token_lifetime_secs** metadata item. The default value is 3600 seconds (60 minutes).
+- **Refresh token lifetime** - The refresh token lifetime value is set with the **refresh_token_lifetime_secs** metadata item. The default value is 1209600 seconds (14 days).
+- **Refresh token sliding window lifetime** - If you would like to set a sliding window lifetime to your refresh token, set the value of **rolling_refresh_token_lifetime_secs** metadata item. The default value is 7776000 (90 days). If you don't want to enforce a sliding window lifetime, replace the item with `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
+- **Issuer (iss) claim** - The Issuer (iss) claim is set with the **IssuanceClaimPattern** metadata item. The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
+- **Setting claim representing policy ID** - The options for setting this value are `TFP` (trust framework policy) and `ACR` (authentication context reference). `TFP` is the recommended value. Set **AuthenticationContextReferenceClaimPattern** with the value of `None`. In your **OutputClaims** item, add this element:
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    ```
 
-**Refresh token lifetime** - The refresh token lifetime can be changed by modifying the value inside the `<Item>` with the Key="refresh_token_lifetime_secs" in seconds.  The default value in built-in is 1209600 seconds (14 days).
+    For ACR, remove the **AuthenticationContextReferenceClaimPattern** item.
 
-**Refresh token sliding window lifetime** - If you would like to set a sliding window lifetime to your refresh token, modify the value inside `<Item>` with the Key="rolling_refresh_token_lifetime_secs" in seconds.  The default value in built-in is 7776000 (90 days).  If you don't want to enforce a sliding window lifetime, replace this line with:
-```XML
-<Item Key="allow_infinite_rolling_refresh_token">True</Item>
-```
+- **Subject (sub) claim** - This option defaults to ObjectID, if you would like to switch this setting to `Not Supported`, replace this line: 
 
-**Issuer (iss) claim** - If you want to change the Issuer (iss) claim, modify the value inside the `<Item>` with the Key="IssuanceClaimPattern".  The applicable values are `AuthorityAndTenantGuid` and `AuthorityWithTfp`.
-
-**Setting claim representing policy ID** - The options for setting this value are TFP (trust framework policy) and ACR (authentication context reference).  
-We recommend setting this to TFP, to do this, ensure the `<Item>` with the Key="AuthenticationContextReferenceClaimPattern" exists and the value is `None`.
-In your `<OutputClaims>` item, add this element:
-```XML
-<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
-```
-For ACR, remove the `<Item>` with the Key="AuthenticationContextReferenceClaimPattern".
-
-**Subject (sub) claim** - This option is defaulted to ObjectID, if you would like to switch this to `Not Supported`, do the following:
-
-Replace this line 
-```XML
-<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
-```
-with this line:
-```XML
-<OutputClaim ClaimTypeReferenceId="sub" />
-```
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+    ```
+    
+    with this line:
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="sub" />
+    ```
 
 ## Session behavior and SSO
 
-To change your session behavior and SSO configurations, you need to add a `<UserJourneyBehaviors>` element inside of the `<RelyingParty>` element.  The `<UserJourneyBehaviors>` element must immediately follow the `<DefaultUserJourney>`.  The inside of your `<UserJourneyBehavors>` element should look like this:
+To change your session behavior and SSO configurations, you add a **UserJourneyBehaviors** element inside of the [RelyingParty](relyingparty.md) element.  The **UserJourneyBehaviors** element must immediately follow the **DefaultUserJourney**. The inside of your **UserJourneyBehavors** element should look like this example:
 
 ```XML
 <UserJourneyBehaviors>
@@ -82,8 +79,9 @@ To change your session behavior and SSO configurations, you need to add a `<User
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Single sign on (SSO) configuration** - To change the single sign-on configuration, you need to modify the value of `<SingleSignOn>`.  The applicable values are `Tenant`, `Application`, `Policy` and `Disabled`. 
 
-**Web app session lifetime (minutes)** - To change the web app session lifetime, you need to modify value of the `<SessionExpiryInSeconds>` element.  The default value in built-in policies is 86400 seconds (1440 minutes).
+The following values are configured in the previous example:
 
-**Web app session time-out** - To change the web app session timeout, you need to modify the value of `<SessionExpiryType>`.  The applicable values are `Absolute` and `Rolling`.
+- **Single sign on (SSO)** - Single sign-on is configured with the **SingleSignOn**. The applicable values are `Tenant`, `Application`, `Policy`, and `Suppressed`. 
+- **Web app session lifetime (minutes)** - The web app session lifetime is set with the **SessionExpiryInSeconds** element. The default value is 86400 seconds (1440 minutes).
+- **Web app session time-out** - The web app session timeout is set with the **SessionExpiryType** element. The applicable values are `Absolute` and `Rolling`.

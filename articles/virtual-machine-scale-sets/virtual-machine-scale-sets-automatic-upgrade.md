@@ -1,9 +1,9 @@
 ---
-title: Automatic OS upgrades with Azure virtual machine scale sets | Microsoft Docs
-description: Learn how to automatically upgrade the OS on VM instances in an scale set
+title: Automatic OS image upgrades with Azure virtual machine scale sets | Microsoft Docs
+description: Learn how to automatically upgrade the OS image on VM instances in an scale set
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: yeki
+author: rajsqr
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,147 +14,97 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2018
-ms.author: yeki
+ms.date: 09/25/2018
+ms.author: rajraj
 
 ---
-# Azure virtual machine scale set automatic OS upgrades
+# Azure virtual machine scale set automatic OS image upgrades
 
-Automatic OS image upgrade is a preview feature for Azure virtual machine scale sets that automatically upgrades all VMs to the latest OS image.
+Automatic OS image upgrade is a feature of Azure virtual machine scale sets that automatically upgrades all VMs to the latest OS image.
 
 Automatic OS upgrade has the following characteristics:
 
 - Once configured, the latest OS image published by image publishers is automatically applied to the scale set without user intervention.
 - Upgrades batches of instances in a rolling manner each time a new platform image is published by the publisher.
-- Integrates with application health probe (optional, but highly recommended for safety).
-- Works for all VM sizes.
-- Works for Windows and Linux platform images.
-- You can opt out of automatic upgrades at any time (OS Upgrades can be started manually as well).
+- Integrates with application health probe.
+- Works for all VM sizes, and for both Windows and Linux platform images.
+- You can opt out of automatic upgrades at any time (OS Upgrades can be initiated manually as well).
 - The OS Disk of a VM is replaced with the new OS Disk created with latest image version. Configured extensions and custom data scripts are run, while persisted data disks are retained.
+- Azure disk encryption (in preview) is currently not supported.  
 
+## How does automatic OS image upgrade work?
 
-## Preview notes 
-While in preview, the following limitations and restrictions apply:
+An upgrade works by replacing the OS disk of a VM with a new one created using the latest image version. Any configured extensions and custom data scripts are run, while persisted data disks are retained. To minimize the application downtime, upgrades take place in batches of machines, with no more than 20% of the scale set upgrading at any time. You also have the option to integrate an Azure Load Balancer application health probe. It is highly recommended to incorporate an application heartbeat and validate upgrade success for each batch in the upgrade process. The execution steps are: 
 
-- Automatic OS upgrades only support [four OS SKUs](#supported-os-images). There is no SLA or guarantees. We recommend you don't use automatic upgrades on production critical workloads during preview.
-- Azure disk encryption is **not** currently supported with virtual machine scale set automatic OS upgrade.
+1. Before beginning the upgrade process, the orchestrator will ensure that no more than 20% of instances are unhealthy. 
+2. Identify the batch of VM instances to upgrade, with a batch having maximum of 20% of the total instance count.
+3. Upgrade the OS image of this batch of VM instances.
+4. If the customer has configured Application health probes, the upgrade waits up to 5 minutes for probes to become healthy, before moving on to upgrade the next batch. 
+5. If there are remaining instances to upgrade, goto step 1) for the next batch; otherwise the upgrade is complete.
 
-
-## Register to use Automatic OS Upgrade
-To use the automated OS upgrade feature, register the preview provider with Azure Powershell or Azure CLI 2.0.
-
-### PowerShell
-
-1. Register with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature):
-
-     ```powershell
-     Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName AutoOSUpgradePreview
-     ```
-
-2. It takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature). 
-
-3. Once registered, confirm that the *Microsoft.Compute* provider is registered. The following example uses Azure Powershell with [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
-
-     ```powershell
-     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
-     ```
-
-
-### CLI 2.0
-
-1. Register with [az feature register](/cli/azure/feature#az-feature-register):
-
-     ```azurecli
-     az feature register --name AutoOSUpgradePreview --namespace Microsoft.Compute
-     ```
-
-2. It takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [az feature show](/cli/azure/feature#az-feature-show). 
- 
-3. Once registered, make sure that the *Microsoft.Compute* provider is registered. The following example uses the Azure CLI (2.0.20 or later) with [az provider register](/cli/azure/provider#az-provider-register):
-
-     ```azurecli
-     az provider register --namespace Microsoft.Compute
-     ```
-
-> [!NOTE]
-> Service Fabric clusters have their own notion of application health, but scale sets without Service Fabric use the load balancer health probe to monitor application health. 
->
-> ### Azure Powershell
->
-> 1. Register the provider feature for health probes with [Register-AzureRmProviderFeature](/powershell/module/azurerm.resources/register-azurermproviderfeature):
->
->      ```powershell
->      Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVmssHealthProbe
->      ```
->
-> 2. Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [Get-AzureRmProviderFeature](/powershell/module/AzureRM.Resources/Get-AzureRmProviderFeature)
->
-> 3. Once registered ensure that the *Microsoft.Network* provider is registered using [Register-AzureRmResourceProvider](/powershell/module/AzureRM.Resources/Register-AzureRmResourceProvider):
->
->      ```powershell
->      Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
->      ```
->
->
-> ### CLI 2.0
->
-> 1. Register the provider feature for health probes with [az feature register](/cli/azure/feature#az-feature-register):
->
->      ```azurecli
->      az feature register --name AllowVmssHealthProbe --namespace Microsoft.Network
->      ```
->
-> 2. Again, it takes approximately 10 minutes for registration state to report as *Registered*. You can check the current registration status with [az feature show](/cli/azure/feature#az-feature-show). 
->
-> 3. Once registered ensure that the *Microsoft.Network* provider is registered using [az provider register](/cli/azure/provider#az-provider-register) as follows:
->
->      ```azurecli
->      az provider register --namespace Microsoft.Network
->      ```
-
-## Portal experience
-Once you follow the registration steps above, you can go to [the Azure portal](https://aka.ms/managed-compute) to enable automatic OS upgrades on your scale sets and to see the progress of upgrades:
-
-![](./media/virtual-machine-scale-sets-automatic-upgrade/automatic-upgrade-portal.png)
-
+The scale set OS upgrade orchestrator checks for the overall VM instance health before upgrading every batch. While upgrading a batch, there may be other concurrent Planned or Unplanned maintenance happening in Azure Datacenters that may impact availability of your VMs. Hence, it is possible that temporarily more than 20% instances may be down. In such cases, at the end of current batch, the scale set upgrade stops.
 
 ## Supported OS images
-Only certain OS platform images are currently supported. You can't currently use custom images that you've created yourself. The *version* property of the platform image must be set to *latest*.
+Only certain OS platform images are currently supported. You cannot currently use custom images that you have you created yourself. 
 
-The following SKUs are currently supported (more will be added):
+The following SKUs are currently supported (more will be added in the future):
 	
-| Publisher               | Offer         |  Sku               | Version  |
-|-------------------------|---------------|--------------------|----------|
-| Canonical               | UbuntuServer  | 16.04-LTS          | latest   |
-| MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | latest   |
-| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | latest   |
-| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | latest   |
-| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-with-Containers | latest   |
+| Publisher               | OS Offer      |  Sku               |
+|-------------------------|---------------|--------------------|
+| Canonical               | UbuntuServer  | 16.04-LTS          |
+| Canonical               | UbuntuServer  | 18.04-LTS *        | 
+| Rogue Wave (OpenLogic)  | CentOS        | 7.5 *              | 
+| CoreOS                  | CoreOS        | Stable             | 
+| Microsoft Corporation   | WindowsServer | 2012-R2-Datacenter | 
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter    | 
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-Smalldisk |
+| Microsoft Corporation   | WindowsServer | 2016-Datacenter-with-Containers |
 
+* Support for these images is currently rolling out and will be available in all the Azure regions shortly. 
 
+## Requirements for configuring automatic OS image upgrade
 
-## Application Health without Service Fabric
-> [!NOTE]
-> This section only applies for scale sets without Service Fabric. Service Fabric has its own notion of application health. When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
+- The *version* property of the platform image must be set to *latest*.
+- Use application health probes for non Service Fabric scale sets.
+- Ensure that the resources that the scale set model is referring to is available and kept up-to-date. 
+  Exa.SAS URI for bootstrapping payload in VM extension properties, payload in storage account, reference to secrets in the model. 
 
-During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. For this reason, the application must provide health signals to the scale set OS Upgrade engine. During OS Upgrades, the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. Only when all the extensions on a VM are successfully provisioned, is the application considered healthy. 
+## Configure automatic OS image upgrade
+To configure automatic OS image upgrade, ensure that the *automaticOSUpgradePolicy.enableAutomaticOSUpgrade* property is set to *true* in the scale set model definition. 
 
-Additionally, the scale set *must* be configured with Application Health Probes to provide the platform with correct information on the ongoing state of the application. Application Health Probes are Custom Load Balancer Probes that are used as a health signal. The application running on a scale set VM instance can respond to external HTTP or TCP requests indicating whether it's healthy. For more information on how Custom Load Balancer Probes work, see to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+```
+PUT or PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet?api-version=2018-10-01`
+```
+
+```json
+{ 
+  "properties": { 
+    "upgradePolicy": { 
+      "automaticOSUpgradePolicy": { 
+        "enableAutomaticOSUpgrade":  true 
+      } 
+    } 
+  } 
+} 
+```
+
+The following example uses the Azure CLI (2.0.47 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
+
+```azurecli
+az vmss update --name myVMSS --resource-group myResourceGroup --set UpgradePolicy.AutomaticOSUpgradePolicy.EnableAutomaticOSUpgrade=true
+```
+Support for configuring this property via Azure PowerShell will be rolled out soon.
+
+## Using Application Health Probes 
+
+During an OS Upgrade, VM instances in a scale set are upgraded one batch at a time. The upgrade should continue only if the customer application is healthy on the upgraded VM instances. We recommend that the application provides health signals to the scale set OS Upgrade engine. By default, during OS Upgrades the platform considers VM power state and extension provisioning state to determine if a VM instance is healthy after an upgrade. During the OS Upgrade of a VM instance, the OS disk on a VM instance is replaced with a new disk based on latest image version. After the OS Upgrade has completed, the configured extensions are run on these VMs. Only when all the extensions on a VM are successfully provisioned, is the application considered healthy. 
+
+A scale set can optionally be configured with Application Health Probes to provide the platform with accurate information on the ongoing state of the application. Application Health Probes are Custom Load Balancer Probes that are used as a health signal. The application running on a scale set VM instance can respond to external HTTP or TCP requests indicating whether it is healthy. For more information on how Custom Load Balancer Probes work, see to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md). An Application Health Probe is not required for automatic OS upgrades, but it is highly recommended.
 
 If the scale set is configured to use multiple placement groups, probes using a [Standard Load Balancer](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) need to be used.
 
-### Important: Keep credentials up-to-date
-If your scale set uses any credentials to access external resources, you'll need to make sure the credentials are kept up-to-date. For example, a VM extension may be configured to use a SAS token for storage account. If any credentials, including certificates and tokens have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
-
-The recommended steps to recover VMs and re-enable automatic OS upgrade if there's a resource authentication failure are:
-
-* Regenerate the token (or any other credentials) passed into your extension(s).
-* Make sure that any credential used from inside the VM to talk to external entities is up-to-date.
-* Update extension(s) in the scale set model with any new tokens.
-* Deploy the updated scale set, which will update all VM instances including the failed ones. 
-
 ### Configuring a Custom Load Balancer Probe as Application Health Probe on a scale set
-You *must* create a load balancer probe explicitly for scale set health. The same endpoint for an existing HTTP probe or TCP probe can be used, but a health probe may require different behavior from a traditional load-balancer probe. For example, a traditional load balancer probe could return unhealthy if the load on the instance is too high. Conversely that may not be appropriate for determining the instance health during an automatic OS upgrade. Configure the probe to have a high probing rate of less than two minutes.
+As a best practice, create a load balancer probe explicitly for scale set health. The same endpoint for an existing HTTP probe or TCP probe may be used, but a health probe may require different behavior from a traditional load-balancer probe. For example, a traditional load balancer probe may return unhealthy if the load on the instance is too high, whereas that may not be appropriate for determining the instance health during an automatic OS upgrade. Configure the probe to have a high probing rate of less than two minutes.
 
 The load-balancer probe can be referenced in the *networkProfile* of the scale set and can be associated with either an internal or public facing load-balancer as follows:
 
@@ -166,124 +116,96 @@ The load-balancer probe can be referenced in the *networkProfile* of the scale s
   "networkInterfaceConfigurations":
   ...
 ```
+> [!NOTE]
+> When using Automatic OS Upgrades with Service Fabric, the new OS image is rolled out Update Domain by Update Domain to maintain high availability of the services running in Service Fabric. For more information on the durability characteristics of Service Fabric clusters, please see [this documentation](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster).
 
+### Keep credentials up-to-date
+If your scale set uses any credentials to access external resources, for example if a VM extension is configured which uses a SAS token for storage account, you will need to make sure the credentials are kept up-to-date. If any credentials, including certificates and tokens have expired, the upgrade will fail, and the first batch of VMs will be left in a failed state.
 
-## Enforce an OS image upgrade policy across your subscription
-For safe upgrades, it is highly recommended to enforce an upgrade policy. This policy can require application health probes across your subscription. The following Azure Resource Manager policy rejects deployments that don't have automated OS image upgrade settings configured:
+The recommended steps to recover VMs and re-enable automatic OS upgrade if there is a resource authentication failure are:
 
-### Powershell
-1. Obtain the built-in Azure Resource Manager policy definition with [Get-AzureRmPolicyDefinition](/powershell/module/AzureRM.Resources/Get-AzureRmPolicyDefinition) as follows:
+* Regenerate the token (or any other credentials) passed into your extension(s).
+* Ensure that any credential used from inside the VM to talk to external entities is up-to-date.
+* Update extension(s) in the scale set model with any new tokens.
+* Deploy the updated scale set, which will update all VM instances including the failed ones. 
 
-    ```powershell
-    $policyDefinition = Get-AzureRmPolicyDefinition -Id "/providers/Microsoft.Authorization/policyDefinitions/465f0161-0087-490a-9ad9-ad6217f4f43a"
-    ```
+## Get the history of automatic OS image upgrades 
+You can check the history of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs. You can get history for the last five OS upgrade attempts within the past two months.
 
-2. Assign policy to a subscription with [New-AzureRmPolicyAssignment](/powershell/module/AzureRM.Resources/New-AzureRmPolicyAssignment) as follows:
-
-    ```powershell
-    New-AzureRmPolicyAssignment `
-        -Name "Enforce automatic OS upgrades with app health checks" `
-        -Scope "/subscriptions/<SubscriptionId>" `
-        -PolicyDefinition $policyDefinition
-    ```
-
-### CLI 2.0
-Assign policy to a subscription with built-in Azure Resource Manager policy:
-
-```azurecli
-az policy assignment create --display-name "Enforce automatic OS upgrades with app health checks" --name "Enforce automatic OS upgrades" --policy 465f0161-0087-490a-9ad9-ad6217f4f43a --scope "/subscriptions/<SubscriptionId>"
-```
-
-## Configure auto-updates
-To configure automatic upgrades, ensure that the *automaticOSUpgrade* property is set to *true* in the scale set model definition. You can configure this property with Azure PowerShell or the Azure CLI 2.0.
-
-### PowerShell
-The following example uses Azure PowerShell (4.4.1 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
+### Azure PowerShell
+To following example uses Azure PowerShell to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```powershell
-$rgname = myResourceGroup
-$vmssname = myVMSS
-$vmss = Get-AzureRmVMss -ResourceGroupName $rgname -VmScaleSetName $vmssname
-$vmss.UpgradePolicy.AutomaticOSUpgrade = $true
-Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -VirtualMachineScaleSet $vmss
+Get-AzureRmVmss -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS -OSUpgradeHistory
 ```
 
-### CLI 2.0
-The following example uses the Azure CLI (2.0.20 or later) to configure automatic upgrades for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
+### Azure CLI 2.0
+The following example uses the Azure CLI (2.0.47 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```azurecli
-rgname="myResourceGroup"
-vmssname="myVMSS"
-az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
-```
-
-
-## Check the status of an automatic OS upgrade
-You can check the status of the most recent OS upgrade performed on your scale set with Azure PowerShell, Azure CLI 2.0, or the REST APIs.
-
-### PowerShell
-To following example uses Azure PowerShell (4.4.1 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
-
-```powershell
-Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName myVMSS
-```
-
-### CLI 2.0
-The following example uses the Azure CLI (2.0.20 or later) to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
-
-```azurecli
-az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
+az vmss get-os-upgrade-history --resource-group myResourceGroup --name myVMSS
 ```
 
 ### REST API
 The following example uses the REST API to check the status for the scale set named *myVMSS* in the resource group named *myResourceGroup*:
 
 ```
-GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/rollingUpgrades/latest?api-version=2017-03-30`
+GET on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myScaleSet/osUpgradeHistory?api-version=2018-10-01`
 ```
+Please refer to the documentation for this API here: https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/getosupgradehistory.
 
 The GET call returns properties similar to the following example output:
 
 ```json
 {
-  "properties": {
-    "policy": {
-      "maxBatchInstancePercent": 20,
-      "maxUnhealthyInstancePercent": 5,
-      "maxUnhealthyUpgradedInstancePercent": 5,
-      "pauseTimeBetweenBatches": "PT0S"
-    },
-    "runningStatus": {
-      "code": "Completed",
-      "startTime": "2017-06-16T03:40:14.0924763+00:00",
-      "lastAction": "Start",
-      "lastActionTime": "2017-06-22T08:45:43.1838042+00:00"
-    },
-    "progress": {
-      "successfulInstanceCount": 3,
-      "failedInstanceCount": 0,
-      "inprogressInstanceCount": 0,
-      "pendingInstanceCount": 0
+  "value": [
+    {
+      "properties": {
+        "runningStatus": {
+          "code": "RollingForward",
+          "startTime": "2018-07-24T17:46:06.1248429+00:00",
+          "completedTime": "2018-04-21T12:29:25.0511245+00:00"
+        },
+        "progress": {
+          "successfulInstanceCount": 16,
+          "failedInstanceCount": 0,
+          "inProgressInstanceCount": 4,
+          "pendingInstanceCount": 0
+        },
+        "startedBy": "Platform",
+        "targetImageReference": {
+          "publisher": "MicrosoftWindowsServer",
+          "offer": "WindowsServer",
+          "sku": "2016-Datacenter",
+          "version": "2016.127.20180613"
+        },
+        "rollbackInfo": {
+          "successfullyRolledbackInstanceCount": 0,
+          "failedRolledbackInstanceCount": 0
+        }
+      },
+      "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades",
+      "location": "westeurope"
     }
-  },
-  "type": "Microsoft.Compute/virtualMachineScaleSets/rollingUpgrades",
-  "location": "southcentralus"
-}
+  ]
+} 
 ```
 
+## How to get the latest version of a platform OS image? 
 
-## Automatic OS Upgrade Execution
-To expand on the use of application health probes, scale set OS upgrades execute following steps:
+You can get the image versions for automatic OS upgrade supported SKUs using the below examples: 
 
-1. If more than 20% of instances are Unhealthy, stop the upgrade; otherwise continue.
-2. Identify the next batch of VM instances to upgrade, with a batch having maximum 20% of total instance count.
-3. Upgrade the OS of the next batch of VM instances.
-4. If more than 20% of upgraded instances are Unhealthy, stop the upgrade; otherwise continue.
-5. For scale sets that aren't part of a Service Fabric cluster, the upgrade waits up to 5 minutes for probes to become healthy, then immediately continues onto the next batch. For scale sets that are part of a Service Fabric cluster, the scale set waits 30 minutes before moving on to the next batch.
-6. If there are remaining instances to upgrade, goto step 1) for the next batch; otherwise the upgrade is complete.
+```
+GET on `/subscriptions/subscription_id/providers/Microsoft.Compute/locations/{location}/publishers/{publisherName}/artifacttypes/vmimage/offers/{offer}/skus/{skus}/versions?api-version=2018-10-01`
+```
 
-The scale set OS Upgrade Engine checks for the overall VM instance health before upgrading every batch. While upgrading a batch, there could be other concurrent Planned or Unplanned maintenance happening in Azure Datacenters that may impact availability of your VMs. Therefore it's possible that temporarily more than 20% instances might be down. In such cases, at the end of current batch, the scale set upgrade stops.
+```powershell
+Get-AzureRmVmImage -Location "westus" -PublisherName "Canonical" -Offer "UbuntuServer" -Skus "16.04-LTS"
+```
 
+```azurecli
+az vm image list --location "westus" --publisher "Canonical" --offer "UbuntuServer" --sku "16.04-LTS" --all
+```
 
 ## Deploy with a template
 
@@ -292,7 +214,6 @@ You can use the following template to deploy a scale set that uses automatic upg
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fvm-scale-sets%2Fmaster%2Fpreview%2Fupgrade%2Fautoupdate.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
-
 
 ## Next steps
 For more examples on how to use automatic OS upgrades with scale sets, see the [GitHub repo for preview features](https://github.com/Azure/vm-scale-sets/tree/master/preview/upgrade).

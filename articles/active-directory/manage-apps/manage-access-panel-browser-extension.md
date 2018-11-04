@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
@@ -86,7 +86,6 @@ To uninstall the Access Panel extension from your computer:
 If you encounter issues uninstalling the extension, you can also remove it using the [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) tool.
 
 ## Related Articles
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md)
 * [Application access and single sign-on with Azure Active Directory](what-is-single-sign-on.md)
 * [How to Deploy the Access Panel Extension for Internet Explorer using Group Policy](deploy-access-panel-browser-extension.md)
 

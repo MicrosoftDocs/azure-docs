@@ -1,18 +1,17 @@
 ---
-title: Translator Text convert text script with PHP | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with PHP in Cognitive Services.
+title: "Quickstart: Convert text script, PHP - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you convert text in one language from one script to another using the Translator Text API with PHP.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Transliterate text with PHP
+# Quickstart: Transliterate text with the Translator Text REST API (PHP)
 
 In this quickstart, you convert text in one language from one script to another using the Translator Text API.
 

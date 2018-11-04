@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Create and manage Azure virtual networks for Linux VMs | Microsoft Docs
-description: In this tutorial, you learn how to use the Azure CLI 2.0 to create and manage Azure virtual networks for Linux virtual machines
+description: In this tutorial, you learn how to use the Azure CLI to create and manage Azure virtual networks for Linux virtual machines
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: cynthn
@@ -21,7 +21,7 @@ ms.custom: mvc
 #Customer intent: As an IT administrator, I want to learn about Azure virtual networks so that I can securely deploy Linux virtual machines and restrict traffic between them.
 ---
 
-# Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI 2.0
+# Tutorial: Create and manage Azure virtual networks for Linux virtual machines with the Azure CLI
 
 Azure virtual machines use Azure networking for internal and external network communication. This tutorial walks through deploying two virtual machines and configuring Azure networking for these VMs. The examples in this tutorial assume that the VMs are hosting a web application with a database back-end, however an application is not deployed in the tutorial. In this tutorial, you learn how to:
 
@@ -34,7 +34,7 @@ Azure virtual machines use Azure networking for internal and external network co
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 ## VM networking overview
 

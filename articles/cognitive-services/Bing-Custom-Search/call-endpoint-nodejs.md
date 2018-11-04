@@ -1,46 +1,45 @@
 ---
-title: Call endpoint by using Node.js - Bing Custom Search - Microsoft Cognitive Services
+title: "Quickstart: Call endpoint by using Node.js - Bing Custom Search"
+titlesuffix: Azure Cognitive Services
 description: This quickstart shows how to request search results from your custom search instance by using Node.js to call the Bing Custom Search endpoint. 
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
-# Call Bing Custom Search endpoint (Node.js)
+# Quickstart: Call Bing Custom Search endpoint (Node.js)
 
-This quickstart shows how to request search results from your custom search instance by using Node.js to call the Bing Custom Search endpoint. 
+This quickstart shows how to request search results from your custom search instance using Node.js to call the Bing Custom Search endpoint. 
 
 ## Prerequisites
+
 To complete this quickstart, you need:
 
-- A custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
-
+- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
 - [Node.js](https://www.nodejs.org/) installed.
-
--  [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Bing Search APIs**. The [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) is sufficient for this quickstart. You need the access key provided when you activate your free trial, or you may use a paid subscription key from your Azure dashboard.
+- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
 
 ## Run the code
 
-To call the Bing Custom Search endpoint, follow these steps:
+To run this example, follow these steps:
 
-1. Create a folder for your code.
-
-2. From a command prompt or terminal, navigate to the folder you just created.
-
+1. Create a folder for your code.  
+  
+2. From a command prompt or terminal, navigate to the folder you just created.  
+  
 3. Install the **request** node module:
     <pre>
     npm install request
-    </pre>
+    </pre>  
     
-4. Create the file BingCustomSearch.js and copy the following code to it.
-
-5. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your key and configuration ID (see step 1).
-
+4. Create a file named BingCustomSearch.js in the folder you created and copy the following code into it. Replace **YOUR-SUBSCRIPTION-KEY** and **YOUR-CUSTOM-CONFIG-ID** with your subscription key and configuration ID.  
+  
     ``` javascript
     var request = require("request");
     
@@ -69,11 +68,13 @@ To call the Bing Custom Search endpoint, follow these steps:
             console.log();
         }
     })
-    ```
-6. Run the code using the following command.
+    ```  
+  
+6. Run the code using the following command:  
+  
     ```    
     node BingCustomSearch.js
-   ``` 
+    ``` 
 
 ## Next steps
 - [Configure your hosted UI experience](./hosted-ui.md)

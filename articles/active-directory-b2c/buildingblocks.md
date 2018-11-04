@@ -33,15 +33,15 @@ The **BuildingBlocks** element is added inside the [TrustFrameworkPolicy](trustf
     <ClaimsSchema>
       ...
     </ClaimsSchema>
-    <ClaimsTransformations>
-      ...
-    </ClaimsTransformations>
     <Predicates>
     ...
     </Predicates>
     <PredicateValidations>
     ...
     </PredicateValidations>
+    <ClaimsTransformations>
+      ...
+    </ClaimsTransformations>
     <ContentDefinitions>
       ...
     </ContentDefinitions>
@@ -51,9 +51,11 @@ The **BuildingBlocks** element is added inside the [TrustFrameworkPolicy](trustf
  </BuildingBlocks>
 ```
 
-The **BuildingBlocks** element contains the following elements:
+The **BuildingBlocks** element contains the following elements that must be specified in the order defined:
 
 - [ClaimsSchema](claimsschema.md) - Defines the claim types that can be referenced as part of the policy. The claims schema is the place where you declare your claim types. A claim type is similar to a variable in many programmatic languages. You can use the claim type to collect data from the user of your application, receive claims from social identity providers, send and receive data from a custom REST API, or store any internal data used by your custom policy. 
+
+- [Predicates and PredicateValidationsInput](predicates.md) - Enables you to perform a validation process to ensure that only properly formed data is entered into a claim.
  
 - [ClaimsTransformations](claimstransformations.md) - Contains a list of claims transformations that can be used in your policy.  A claims transformation converts one claim into another. In the claims transformation, you specify a transform method, such as: 
     - Changing the case of a string claim to the one specified. For example, changing a string from lowercase to uppercase.
@@ -66,4 +68,4 @@ The **BuildingBlocks** element contains the following elements:
 
 - [Localization](localization.md) - Allows you to support multiple languages. The localization support in policies allows you set up the list of supported languages in a policy and pick a default language. Language-specific strings and collections are also supported.
 
-- [Predicates and PredicateValidationsInput](predicates.md) - Enables you to perform a validation process to ensure that only properly formed data is entered into a claim.
+

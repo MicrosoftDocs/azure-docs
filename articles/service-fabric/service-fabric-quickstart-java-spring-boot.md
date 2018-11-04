@@ -136,7 +136,7 @@ At this stage, you have created a Service Fabric application for the Spring Boot
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
 
-    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [preqrequisites](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
+    If using a Mac, start the local cluster from the Docker image (this is assuming you have followed the [prerequisites](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-a-local-container-and-set-up-service-fabric) to set up your local cluster for Mac). 
 
     ```bash
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
@@ -183,7 +183,7 @@ Sign in and join a [Linux cluster](http://aka.ms/tryservicefabric). Download the
 Service Fabric provides several tools that you can use to manage a cluster and its applications:
 
 * Service Fabric Explorer, a browser-based tool.
-* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI 2.0.
+* Service Fabric Command Line Interface (CLI), which runs on top of Azure CLI.
 * PowerShell commands.
 
 In this quickstart, you use the Service Fabric CLI and Service Fabric Explorer.

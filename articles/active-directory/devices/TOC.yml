@@ -4,6 +4,8 @@
   items:
   - name: What is device management in Azure AD?
     href: overview.md
+  - name: What is enterprise state roaming?
+    href: enterprise-state-roaming-overview.md
 - name: Tutorials
   expanded: false
   items:
@@ -20,6 +22,8 @@
   items:
   - name: Manage devices using the Azure portal
     href: device-management-azure-portal.md
+  - name: Manage stale devices
+    href: manage-stale-devices.md
   - name: Plan Azure AD join
     href: azureadjoin-plan.md
   - name: Plan your hybrid Azure AD join implementation
@@ -28,12 +32,24 @@
     href: hybrid-azuread-join-control.md
   - name: Assign local admins to Azure AD joined devices
     href: assign-local-admin.md
+  - name: Enable enterprise state roaming
+    href: enterprise-state-roaming-enable.md
   - name: Troubleshoot hybrid Azure AD joined Windows current devices
     href: troubleshoot-hybrid-join-windows-current.md
   - name: Troubleshoot hybrid Azure AD joined legacy Windows devices
     href: troubleshoot-hybrid-join-windows-legacy.md
+  - name: Troubleshoot enterprise state roaming
+    href: enterprise-state-roaming-troubleshooting.md
   - name: FAQs
     href: faq.md
+  - name: Enable enterprise state FAQs
+    href: enterprise-state-roaming-faqs.md
+- name: Reference
+  items:
+  - name: Enterprise state roaming GPO settings
+    href: enterprise-state-roaming-group-policy-settings.md
+  - name: Enterprise state roaming Windows settings
+    href: enterprise-state-roaming-windows-settings-reference.md
 - name: Resources
   items:
   - name: Azure feedback forum

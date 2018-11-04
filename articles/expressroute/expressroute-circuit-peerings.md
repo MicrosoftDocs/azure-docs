@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/01/2018
 ms.author: cherylmc
 
 ---
@@ -78,7 +78,7 @@ If you choose to have all three peering sessions, you must have three pairs of B
 ## ExpressRoute health
 ExpressRoute circuits may be monitored for availability, connectivity to VNets and bandwidth utilization using [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) (NPM).
 
-NPM monitors the health of Azure private peering and Microsoft peering.  Check out our [post](https://azure.microsoft.com/en-in/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
+NPM monitors the health of Azure private peering and Microsoft peering.  Check out our [post](https://azure.microsoft.com/blog/monitoring-of-azure-expressroute-in-preview/) for more information.
 
 ## Next steps
 * Find a service provider. See [ExpressRoute service providers and locations](expressroute-locations.md).

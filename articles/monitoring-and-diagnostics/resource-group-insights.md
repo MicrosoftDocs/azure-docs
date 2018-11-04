@@ -9,7 +9,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
 ---
@@ -104,6 +104,16 @@ Performance offers its own gallery of workbooks. For App Service the prebuilt Ap
 In this case, if you select edit you will see that this set of visualizations is powered by Azure Monitor Metrics.
 
  ![Screenshot of performance view with Azure Metrics](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## Troubleshooting
+
+### Enabling access to alerts
+
+To see alerts in Azure Monitor for Resource Groups, someone with an Owner or Contributor role for this subscription needs to open Azure Monitor for Resource Groups for any resource group in the subscription. This will enable anyone with read access to see alerts in Azure Monitor for Resource Groups for all of the resource groups in the subscription. If you have an Owner or Contributor role, refresh this page in a few minutes.
+
+Azure Monitor for Resource Groups relies on the Azure Monitor Alerts Management system to retrieve alert status. Alerts Management isn't configured for every resource group and subscription by default, and it can only be enabled by someone with an Owner or Contributor role. It can be enabled either by:
+* Opening Azure Monitor for Resource Groups for any resource group in the subscription.
+* Or by going to the subscription, clicking **Resource Providers**, then clicking **Register for Alerts.Management**.
 
 ## Next steps
 

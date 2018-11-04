@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptal
-ms.date: 08/27/2018
+ms.date: 09/18/2018
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Create a Log Analytics workspace with Azure PowerShell
 
-The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to to deploy a Log Analytics workspace in Azure, which is a unique environment with its own data repository, data sources, and solutions.  The steps described in this article are required if you intend on collecting data from the following sources:
+The Azure PowerShell module is used to create and manage Azure resources from the PowerShell command line or in scripts. This quickstart shows you how to use the Azure PowerShell module to deploy a Log Analytics workspace in Azure, which is a unique environment with its own data repository, data sources, and solutions.  The steps described in this article are required if you intend on collecting data from the following sources:
 
 * Azure resources in your subscription  
 * On-premises computers monitored by System Center Operations Manager  
@@ -87,7 +87,7 @@ The following parameters set a default value:
 	        "metadata": {
             "description": "Specifies the service tier of the workspace: Standalone, PerNode, Per-GB"
 		}
-          },
+          }
     },
     "resources": [
         {
@@ -118,7 +118,7 @@ The following parameters set a default value:
 
 The deployment can take a few minutes to complete. When it finishes, you see a message similar to the following that includes the result:
 
-![Example result when deployment is complete](./media/log-analytics-template-workspace-configuration/template-output-01.png)
+![Example result when deployment is complete](media/log-analytics-quick-create-workspace-posh/template-output-01.png)
 
 ## Next steps
 Now that you have a workspace available, you can configure collection of monitoring telemetry, run log searches to analyze that data, and add a management solution to provide additional data and analytic insights.  

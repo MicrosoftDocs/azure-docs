@@ -6,7 +6,7 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 
 ms.author: jeffgilb
 ms.reviewer: wamota
@@ -28,9 +28,8 @@ A set of infrastructure VIPs is required for publishing Azure Stack endpoints to
 
 Internal infrastructure VIPs aren't listed because they’re not required for publishing Azure Stack.
 
-> [!NOTE]
+> [!Note]  
 > User VIPs are dynamic, defined by the users themselves with no control by the Azure Stack operator.
-
 
 |Endpoint (VIP)|DNS host A record|Protocol|Ports|
 |---------|---------|---------|---------|
@@ -62,6 +61,8 @@ Internal infrastructure VIPs aren't listed because they’re not required for pu
 
 Azure Stack supports only transparent proxy servers. In a deployment where a transparent proxy uplinks to a traditional proxy server, you must allow the following ports and URLs for outbound communication:
 
+> [!Note]  
+> Azure Stack does not support using Express Route to reach the Azure services listed in the following table.
 
 |Purpose|URL|Protocol|Ports|
 |---------|---------|---------|---------|
@@ -73,6 +74,7 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
 |NTP|     |UDP|123|
 |DNS|     |TCP<br>UDP|53|
+|CRL|     |HTTPS|443|
 |     |     |     |     |
 
 > [!Note]  

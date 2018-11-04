@@ -18,7 +18,7 @@ This sample CLI script enables and downloads the slow query logs of a single Azu
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
+If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
 
 ## Sample script
 In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the <log_file_name> in the `az monitor` commands with your own server log file name.

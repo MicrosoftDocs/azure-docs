@@ -1,6 +1,6 @@
 After [deploying an Azure Container Service cluster](../articles/container-service/dcos-swarm/container-service-deployment.md), you might need to change the number of agent nodes. For example, you might need more agents so you can run more container applications or instances. 
 
-You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster by using the Azure portal or the Azure CLI 2.0. 
+You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes cluster by using the Azure portal or the Azure CLI. 
 
 ## Scale with the Azure portal
 
@@ -12,9 +12,9 @@ You can change the number of agent nodes in a DC/OS, Docker Swarm, or Kubernetes
 
 4. To save the configuration, click **Save**.
 
-## Scale with the Azure CLI 2.0
+## Scale with the Azure CLI
 
-Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and signed in to an Azure account (`az login`).
+Make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI and signed in to an Azure account (`az login`).
 
 ### See the current agent count
 To see the number of agents currently in the cluster, run the `az acs show` command. This shows the cluster configuration. For example, the following command shows the configuration of the container service named `containerservice-myACSName` in the resource group `myResourceGroup`:
@@ -34,7 +34,7 @@ For example, to change the number of agents in the previous cluster to 10, type 
 az acs scale -g myResourceGroup -n containerservice-myACSName --new-agent-count 10
 ```
 
-The Azure CLI 2.0 returns a JSON string representing the new configuration of the container service, including the new agent count.
+The Azure CLI returns a JSON string representing the new configuration of the container service, including the new agent count.
 
 For more command options, run `az acs scale --help`.
 
@@ -50,6 +50,6 @@ For more command options, run `az acs scale --help`.
 
 
 ## Next steps
-* See [more examples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) of using Azure CLI 2.0 commands with Azure Container Service.
+* See [more examples](../articles/container-service/dcos-swarm/container-service-create-acs-cluster-cli.md) of using Azure CLI commands with Azure Container Service.
 * Learn more about [DC/OS agent pools](../articles/container-service/dcos-swarm/container-service-dcos-agents.md) in Azure Container Service.
 

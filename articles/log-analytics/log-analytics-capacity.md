@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Plan Hyper-V virtual machine capacity with the Capacity and Performance solution (Preview)
