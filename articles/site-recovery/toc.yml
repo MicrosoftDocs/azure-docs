@@ -305,7 +305,7 @@
       items:
       - name: Set up recovery plans
         href: site-recovery-create-recovery-plans.md
-      - - name: Add VMM scripts to recovery plans
+      - name: Add VMM scripts to recovery plans
         href: hyper-v-vmm-recovery-script.md
       - name: Run a disaster recovery drill to Azure
         href: site-recovery-test-failover-to-azure.md
