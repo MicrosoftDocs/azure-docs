@@ -54,7 +54,7 @@ The following steps use different accounts for each subscription. If you're usin
     - **Location**: *East US*
 4. In the **Search resources** box at the top of the portal, type *myVnetA*. Select **myVnetA** when it appears in the search results. 
 5. Select **Access control (IAM)** from the vertical list of options on the left side.
-6. Under **myVnetA - Access control (IAM)**, select **+ Add**.
+6. Under **myVnetA - Access control (IAM)**, select **+ Add role assignment**.
 7. Select **Network contributor** in the **Role** box.
 8. In the **Select** box, select *UserB*, or type UserB's email address to search for it.
 9. Select **Save**.
