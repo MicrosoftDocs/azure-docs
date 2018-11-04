@@ -136,7 +136,7 @@ We recommend taking regular scheduled backups of the configuration server. For s
 The installers are held in the **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** folder on the configuration server.
 
 ## How do I install the Mobility service?
-You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery), or manual installation from [the UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui), or [using PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt). Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md), or [Azure Automation and DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md), or [manual installation](vmware-physical-mobility-service-install-manual.md) from the UI or Powershell. Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 
