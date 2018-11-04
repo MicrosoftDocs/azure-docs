@@ -3,9 +3,9 @@ title: Upload data for Hadoop jobs in HDInsight
 description: Learn how to upload and access data for Hadoop jobs in HDInsight using the Azure classic CLI, Azure Storage Explorer, Azure PowerShell, the Hadoop command line, or Sqoop.
 keywords: etl hadoop, getting data into hadoop, hadoop load data
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual

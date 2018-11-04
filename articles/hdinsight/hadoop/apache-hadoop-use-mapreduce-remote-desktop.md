@@ -2,13 +2,13 @@
 title: MapReduce and Remote Desktop with Hadoop in HDInsight - Azure 
 description: Learn how to use Remote Desktop to connect to Hadoop on HDInsight and run MapReduce jobs.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---

@@ -42,8 +42,8 @@ import json
 # Replace the subscriptionKey string value with your valid subscription key.
 subscriptionKey = 'YOUR-SUBSCRIPTION-KEY'
 
-host = 'www.bingapis.com'
-path = '/api/v7/localbusinesses/search'
+host = 'api.cognitive.microsoft.com/bing'
+path = '/v7.0/localbusinesses/search'
 
 query = 'restaurant in Bellevue'
 
