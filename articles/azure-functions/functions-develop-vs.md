@@ -24,7 +24,7 @@ The Azure Functions Tools provides the following benefits:
 * Develop and deploy pre-compiled C# functions. Pre-complied functions provide a better cold-start performance than C# script-based functions. 
 * Code your functions in C# while having all of the benefits of Visual Studio development. 
 
-This article shows you how to use the Azure Functions Tools for Visual Studio 2017 to develop your functions in C#. You also learn how to publish your project to Azure as a .NET assembly.
+This article provides details about how to use the Azure Functions Tools for Visual Studio 2017 to develop C# functions and publish them to Azure. Before you read this article, you should complete the [Functions quickstart for Visual Studio](functions-create-your-first-function-visual-studio.md). 
 
 > [!IMPORTANT]
 > Don't mix local development with portal development in the same function app. When you publish from a local project to a function app, the deployment process overwrites any functions that you developed in the portal.
