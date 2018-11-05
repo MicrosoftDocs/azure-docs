@@ -14,7 +14,7 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/02/2018
+ms.date: 11/05/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -22,7 +22,7 @@ ms.reviewer: dhanyahk
 
 # Azure AD activity logs in Azure Monitor (preview)
 
-You can now route Azure Active Directory (Azure AD) activity logs to your own storage account or event hub by using Azure Monitor. With the public preview of Azure Active Directory logs in Azure Monitor, you can:
+You can now route Azure Active Directory (Azure AD) activity logs to several endpoints for long term retention and data insights. The public preview of Azure AD logs in Azure Monitor allows you to:
 
 * Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
 * Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
@@ -33,7 +33,7 @@ You can now route Azure Active Directory (Azure AD) activity logs to your own st
 
 ## Supported reports
 
-You can route Azure AD audit logs and sign-in logs to your Azure storage account, event hub, or custom solution by using this feature. 
+You can route Azure AD audit logs and sign-in logs to your Azure storage account, event hub, Log Analytics or custom solution by using this feature. 
 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
@@ -98,25 +98,19 @@ To review costs related to managing the Log Analytics workspace, see [Manage cos
 
 This section answers frequently asked questions and discusses known issues with Azure AD logs in Azure Monitor.
 
-**Q: Where should I start?** 
-
-**A**: This article discusses what you need to deploy this feature. After you've satisfied the prerequisites, go to the tutorials that can help you configure and route your logs to an event hub.
-
----
-
 **Q: Which logs are included?**
 
 **A**: The sign-in activity logs and audit logs are both available for routing through this feature, although B2C-related audit events are currently not included. To find out which types of logs and which feature-based logs are currently supported, see [Audit log schema](reference-azure-monitor-audit-log-schema.md) and [Sign-in log schema](reference-azure-monitor-sign-ins-log-schema.md). 
 
 ---
 
-**Q: How soon after an action do the corresponding logs show up in event hubs?**
+**Q: How soon after an action will the corresponding logs show up in my event hub?**
 
 **A**: The logs should show up in your event hub within two to five minutes after the action is performed. For more information about Event Hubs, see [What is Azure Event Hubs?](../../event-hubs/event-hubs-about.md).
 
 ---
 
-**Q: How soon after an action do the corresponding logs show up in storage accounts?**
+**Q: How soon after an action will the corresponding logs show up in my storage account?**
 
 **A**: For Azure storage accounts, the latency is anywhere from 5 to 15 minutes after the action is performed.
 
