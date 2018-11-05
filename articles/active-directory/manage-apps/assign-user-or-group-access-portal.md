@@ -22,7 +22,7 @@ ms.reviewer: luleon
 To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
 
 > [!NOTE]
-> For information about license requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
+> For licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > For Microsoft Applications (such as Office 365 apps), use PowerShell to assign users to an enterprise app.
