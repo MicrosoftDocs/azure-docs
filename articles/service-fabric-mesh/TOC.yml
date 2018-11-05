@@ -41,8 +41,8 @@
     href: service-fabric-mesh-terminology.md
   - name: Service Fabric resources
     href: service-fabric-mesh-service-fabric-resources.md
-  - name: Networking
-    href: service-fabric-mesh-networking.md
+  - name: Networks and gateways
+    href: service-fabric-mesh-networks-and-gateways.md
   - name: Service scalability
     href: service-fabric-mesh-scalability.md
   - name: Monitoring and diagnostics
