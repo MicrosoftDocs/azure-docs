@@ -1,6 +1,6 @@
 ---
 title: Configure a custom domain name for your Azure storage account | Microsoft Docs
-description: Use the Azure portal to map your own canonical name (CNAME) to the blob or web endpoint in an Azure storage account.
+description: Use the Azure portal to map your own canonical name (CNAME) to the Blob storage or web endpoint in an Azure storage account.
 services: storage
 author: tamram
 
@@ -63,7 +63,7 @@ You can use Azure DNS to configure a custom DNS name for your Azure Blob store. 
 
 If your custom domain currently supports an application that cannot have any downtime, use the procedure in [Register a custom domain by using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
 
-To configure a custom domain name, create a new CNAME record in DNS. The CNAME record specifies an alias for a domain name. In our example, it maps the address of your custom domain to your storage account's blob storage endpoint.
+To configure a custom domain name, create a new CNAME record in DNS. The CNAME record specifies an alias for a domain name. In our example, it maps the address of your custom domain to your storage account's Blob storage endpoint.
 
 You can usually manage your domain's DNS settings on your domain registrar's website. Each registrar has a similar but slightly different method of specifying a CNAME record, but the concept is the same. Because some basic domain registration packages don't offer DNS configuration, you might need to upgrade your domain registration package before you can create the CNAME record.
 
@@ -131,7 +131,7 @@ For example, to access a web form in the *myforms* container in the *photos.cont
 
 ## Deregister a custom domain
 
-To deregister a custom domain for your blob storage endpoint, use one of the following procedures.
+To deregister a custom domain for your Blob storage endpoint, use one of the procedures in the next three sections.
 
 ### Azure portal
 
