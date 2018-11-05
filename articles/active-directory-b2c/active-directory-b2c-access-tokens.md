@@ -15,7 +15,7 @@ ms.component: B2C
 ---
 # Azure AD B2C: Requesting access tokens
 
-An access token (denoted as **access\_token** in the responses from Azure AD B2C) is a form of security token that a client can use to access resources that are secured by an [authorization server](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-protocols#the-basics), such as a web API. Access tokens are represented as [JWTs](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-tokens#types-of-tokens) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
+An access token (denoted as **access\_token** in the responses from Azure AD B2C) is a form of security token that a client can use to access resources that are secured by an [authorization server](active-directory-b2c-reference-protocols.md), such as a web API. Access tokens are represented as [JWTs](active-directory-b2c-reference-tokens.md) and contain information about the intended resource server and the granted permissions to the server. When calling the resource server, the access token must be present in the HTTP request.
 
 This article discusses how to configure a client application and web API in order to obtain an **access\_token**.
 
@@ -33,22 +33,22 @@ Before requesting an access token, you first need to register a web API and publ
 ### Register a web API
 
 1. On the Azure AD B2C features menu on the Azure portal, click **Applications**.
-1. Click **+Add** at the top of the menu.
-1. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso API".
-1. Toggle the **Include web app / web API** switch to **Yes**.
-1. Enter an arbitrary value for the **Reply URLs**. For example, enter `https://localhost:44316/`. The value does not matter since an API should not be receiving the token directly from Azure AD B2C.
-1. Enter an **App ID URI**. This is the identifier used for your web API. For example, enter 'notes' in the box. The **App ID URI** would then be `https://{tenantName}.onmicrosoft.com/notes`.
-1. Click **Create** to register your application.
-1. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
+2. Click **+Add** at the top of the menu.
+3. Enter a **Name** for the application that will describe your application to consumers. For example, you could enter "Contoso API".
+4. Toggle the **Include web app / web API** switch to **Yes**.
+5. Enter an arbitrary value for the **Reply URLs**. For example, enter `https://localhost:44316/`. The value does not matter since an API should not be receiving the token directly from Azure AD B2C.
+6. Enter an **App ID URI**. This is the identifier used for your web API. For example, enter 'notes' in the box. The **App ID URI** would then be `https://{tenantName}.onmicrosoft.com/notes`.
+7. Click **Create** to register your application.
+8. Click the application that you just created and copy down the globally unique **Application Client ID** that you'll use later in your code.
 
 ### Publishing permissions
 
 Scopes, which are analogous to permissions, are necessary when your app is calling an API. Some examples of scopes are "read" or "write". Suppose you want your web or native app to "read" from an API. Your app would call Azure AD B2C and request an access token that gives access to the scope "read". In order for Azure AD B2C to emit such an access token, the app needs to be granted permission to "read" from the specific API. To do this, your API first needs to publish the "read" scope.
 
 1. Within the Azure AD B2C **Applications** menu, open the web API application ("Contoso API").
-1. Click on **Published scopes**. This is where you define the permissions (scopes) that can be granted to other applications.
-1. Add **Scope Values** as necessary (for example, "read"). By default, the "user_impersonation" scope will be defined. You can ignore this if you wish. Enter a description of the scope in the **Scope Name** column.
-1. Click **Save**.
+2. Click on **Published scopes**. This is where you define the permissions (scopes) that can be granted to other applications.
+3. Add **Scope Values** as necessary (for example, "read"). By default, the "user_impersonation" scope will be defined. You can ignore this if you wish. Enter a description of the scope in the **Scope Name** column.
+4. Click **Save**.
 
 > [!IMPORTANT]
 > The **Scope Name** is the description of the **Scope Value**. When using the scope, make sure to use the **Scope Value**.
@@ -58,11 +58,11 @@ Scopes, which are analogous to permissions, are necessary when your app is calli
 Once an API is configured to publish scopes, the client application needs to be granted those scopes via the Azure portal.
 
 1. Navigate to the **Applications** menu in the Azure AD B2C features menu.
-1. Register a client application ([web app](active-directory-b2c-app-registration.md#register-a-web-app) or [native client](active-directory-b2c-app-registration.md#register-a-mobile-or-native-app)) if you don’t have one already. If you are following this guide as your starting point, you'll need to register a client application.
-1. Click on **API access**.
-1. Click on **Add**.
-1. Select your web API and the scopes (permissions) you would like to grant.
-1. Click **OK**.
+2. Register a client application ([web app](active-directory-b2c-app-registration.md) or [native client](active-directory-b2c-app-registration.md)) if you don’t have one already. If you are following this guide as your starting point, you'll need to register a client application.
+3. Click on **API access**.
+4. Click on **Add**.
+5. Select your web API and the scopes (permissions) you would like to grant.
+6. Click **OK**.
 
 > [!NOTE]
 > Azure AD B2C does not ask your client application users for their consent. Instead, all consent is provided by the admin, based on the permissions configured between the applications described above. If a permission grant for an application is revoked, all users who were previously able to acquire that permission will no longer be able to do so.

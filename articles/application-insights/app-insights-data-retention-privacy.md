@@ -229,7 +229,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## Personal data stored in Application Insights
 
-Our [Application Insights personal data article](app-insights-customer-data.md) discusses this issue in-depth.
+Our [Application Insights personal data article](../log-analytics/log-analytics-personal-data-mgmt.md) discusses this issue in-depth.
 
 #### Can my users turn off Application Insights?
 Not directly. We don't provide a switch that your users can operate to turn off Application Insights.
