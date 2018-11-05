@@ -10,7 +10,7 @@ ms.date: 11/01/2018
 ms.author: iainfou
 ---
 
-# Cluster operator best practices for access and identity management in Azure Kubernetes Service (AKS)
+# Best practices for cluster operators to manage access and identity in Azure Kubernetes Service (AKS)
 
 As you deploy and maintain clusters in Azure Kubernetes Service (AKS), you need to implement ways to manage access to resources and services. Without these controls, accounts may have access to resources and services they don't need, and it can be hard to track which set of credentials were used to make changes. To help you succeed, there are some best practices you can follow as you design and run AKS clusters.
 

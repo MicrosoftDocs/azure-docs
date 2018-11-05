@@ -48,20 +48,23 @@
     href: concepts-clusters-workloads.md
   - name: Access and identity
     href: concepts-identity.md
-    items:
-    - name: Best practices
-      href: best-practices-identity.md
   - name: Security
     href: concepts-security.md
     items:
-    - name: Best practices
-      href: best-practices-security.md
   - name: Networking
     href: concepts-network.md
   - name: Storage
     href: concepts-storage.md
   - name: Scale
     href: concepts-scale.md
+  - name: Best practices
+    items:
+    - name: For cluster operators
+      items:
+      - name: Access and identity
+        href: operator-best-practices-identity.md
+      - name: Security and upgrades
+        href: operator-best-practices-security.md
   - name: Quotas and regional limits
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS

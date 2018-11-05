@@ -1,6 +1,6 @@
 ---
-title: Best practices - Identity and authentication in Azure Kubernetes Services (AKS)
-description: Learn the best practices for how to manage identity and authentication to cluster resources in Azure Kubernetes Service (AKS)
+title: Operator best practices - Security in Azure Kubernetes Services (AKS)
+description: Learn the cluster operator best practices for how to manage security and upgrades in Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
 
@@ -10,7 +10,7 @@ ms.date: 10/29/2018
 ms.author: iainfou
 ---
 
-# Best practices for identity and authentication in Azure Kubernetes Service (AKS)
+# Best practices for cluster operators to manage security and upgrades in Azure Kubernetes Service (AKS)
 
 As you develop and run applications in Azure Kubernetes Service (AKS), there are a few key areas to consider. How you manage your cluster and application deployments can negatively impact the end-user experience of services that you provide. To help you succeed, there are some best practices you can follow as you design and run AKS clusters.
 
