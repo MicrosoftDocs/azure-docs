@@ -16,7 +16,7 @@ Partitioning is the technique used by Cosmos DB to scale individual containers i
 
 A logical partition is a distinct subset of items in a container. The items in a logical partition are identified by the partition key value that is shared by all items in the logical partition.  For example, consider a container that holds documents and each document has a `UserID` property.  If `UserID` serves as the partition key for the items in a container, and there are 1000 unique `UserID` values, 1000 logical partitions will be created for the container.
 
-Each item in a partitioned container has a **partition key** that determines the item’s **logical partition**, and each item also has an **item id** (which is unique within a logical partition).  The **index** of an item uniquely identifies it and it is formed by combining the partition key and the item id.
+Each item in a container has a **partition key** that determines the item’s **logical partition**, and each item also has an **item id** (which is unique within a logical partition).  The **index** of an item uniquely identifies it and it is formed by combining the partition key and the item id.
 
 Choosing a partition key is an important decision that will affect your application’s performance.  To learn more, see [Choosing a partition key](partitioning-overview.md#choose-partitionkey) article for detailed guidance.
 
@@ -48,4 +48,3 @@ Consider the following details when choosing a partition key:
 * Learn about [partitions](partition-data.md)
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md)
-* Learn how to [monitor metrics related to partitions](TBD)

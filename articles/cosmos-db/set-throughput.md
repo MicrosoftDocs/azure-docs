@@ -79,5 +79,4 @@ You can combine the two models, provisioning throughput on both database and the
 * Learn more about [Logical Partitions](partition-data.md)
 * Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
-* Learn [how to find out the consumed RUs for a database operation](TBD)
-* Learn [how to estimate provisioned throughput capacity](TBD)
+

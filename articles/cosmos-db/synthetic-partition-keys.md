@@ -56,7 +56,6 @@ With this strategy, the writes are evenly spread across the partition key values
 You can learn more about the partitioning concept in the following articles:
 
 * Learn more about [logical partitions](partition-data.md)
-* Learn more about [designing a partition key](TBD)
 * Learn more about [provisioning throughput on Cosmos containers and databases](set-throughput.md)
 * Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)

@@ -1,6 +1,6 @@
 ---
-title: Query partitioned containers in Azure Cosmos DB
-description: Learn how to query partitioned containers in Azure Cosmos DB
+title: Query containers in Azure Cosmos DB
+description: Learn how to query containers in Azure Cosmos DB
 services: cosmos-db
 author: markjbrown
 
@@ -10,13 +10,13 @@ ms.date: 11/06/2018
 ms.author: mjbrown
 ---
 
-# Query partitioned containers in Azure Cosmos DB
+# Query containers in Azure Cosmos DB
 
-This article explains how to query a partitioned container (collection, graph, table) in Azure Cosmos DB.
+This article explains how to query a container (collection, graph, table) in Azure Cosmos DB.
 
 ## In-partition query
 
-When you query data from partitioned containers, Cosmos DB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
+When you query data from containers, Cosmos DB automatically routes the query to the partitions corresponding to the partition key values specified in the filter (if there are any). For example, this query is routed to just the partition containing the partition key "XMS-0001".
 
 ```csharp
 // Query using partition key into a class called, DeviceReading
@@ -27,7 +27,7 @@ IQueryable<DeviceReading> query = client.CreateDocumentQuery<DeviceReading>(
 
 ## Cross-partition query
 
-The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. To execute a a query across partitions, set **EnableCrossPartitionQuery** to true (or x-ms-documentdb-query-enablecrosspartition in the REST API).
+The following query does not have a filter on the partition key (DeviceId) and is fanned out to all partitions where it is executed against the partition's index. To execute a query across partitions, set **EnableCrossPartitionQuery** to true (or x-ms-documentdb-query-enablecrosspartition in the REST API).
 
 ```csharp
 // Query across partition keys into a class called, DeviceReading
@@ -37,7 +37,7 @@ IQueryable<DeviceReading> crossPartitionQuery = client.CreateDocumentQuery<Devic
     .Where(m => m.MetricType == "Temperature" && m.MetricValue > 100);
 ```
 
-Cosmos DB supports aggregate functions COUNT, MIN, MAX, and AVG over partitioned containers by using SQL. The aggregate functions over partitioned containers starting from the SDK version 1.12.0 and above. Queries must include a single aggregate operator and must include a single value in the projection.
+Cosmos DB supports aggregate functions COUNT, MIN, MAX, and AVG over containers by using SQL. The aggregate functions over containers starting from the SDK version 1.12.0 and above. Queries must include a single aggregate operator and must include a single value in the projection.
 
 ## Parallel cross-partition query
 

@@ -60,7 +60,3 @@ The unique keys feature is currently supported by the following Cosmos DB APIs a
 ## Next steps
 
 * Learn more about [logical partitions](partition-data.md)
-* Learn more about [designing a partition key](TBD)
-* Learn [how to specify unique key constraints using SQL API](TBD)
-* Learn [how to specify unique key constraints using MongoDB API](TBD)
-* Learn [how to specify unique key constraints using Azure portal](TBD)

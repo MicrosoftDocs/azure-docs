@@ -1,6 +1,6 @@
 ---
-title: Create a partitioned container in Azure Cosmos DB
-description: Learn how to create a partitioned container in Azure Cosmos DB
+title: Create a container in Azure Cosmos DB
+description: Learn how to create a container in Azure Cosmos DB
 services: cosmos-db
 author: markjbrown
 
@@ -10,11 +10,11 @@ ms.date: 11/06/2018
 ms.author: mjbrown
 ---
 
-# Create partitioned containers in Azure Cosmos DB
+# Create a container in Azure Cosmos DB
 
-This article explains the different ways to create a partitioned container (collection, table, graph). A partitioned container can be created by using the Azure portal, Azure CLI, or supported SDKs. This article demonstrates how to create a container, specify the partition key and provision throughput.
+This article explains the different ways to create a container (collection, table, graph). A container can be created by using the Azure portal, Azure CLI, or supported SDKs. This article demonstrates how to create a container, specify the partition key and provision throughput.
 
-## Create partitioned container using Azure portal
+## Create a container using Azure portal
 
 ### <a id="portal-sql"></a>SQL (Core) API
 
@@ -31,7 +31,7 @@ This article explains the different ways to create a partitioned container (coll
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![SQL API creates partitioned collection](./media/how-to-create-partitioned-container/partitioned-collection-create-sql.png)
+![SQL API creates a collection](./media/how-to-create-container/partitioned-collection-create-sql.png)
 
 ### <a id="portal-mongodb"></a>MongoDB API
 
@@ -48,7 +48,7 @@ This article explains the different ways to create a partitioned container (coll
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![MongoDB API creates partitioned collection](./media/how-to-create-partitioned-container/partitioned-collection-create-mongodb.png)
+![MongoDB API creates a collection](./media/how-to-create-container/partitioned-collection-create-mongodb.png)
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
@@ -64,7 +64,7 @@ This article explains the different ways to create a partitioned container (coll
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![Cassandra API creates partitioned collection](./media/how-to-create-partitioned-container/partitioned-collection-create-cassandra.png)
+![Cassandra API creates a collection](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
 > [!Note]
 > For Cassandra API, the primary key is used as the partition key.
@@ -84,7 +84,7 @@ This article explains the different ways to create a partitioned container (coll
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![Gremlin API creates partitioned collection](./media/how-to-create-partitioned-container/partitioned-collection-create-gremlin.png)
+![Gremlin API creates a collection](./media/how-to-create-container/partitioned-collection-create-gremlin.png)
 
 ### <a id="portal-table"></a>Table API
 
@@ -99,17 +99,17 @@ This article explains the different ways to create a partitioned container (coll
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![Table API creates partitioned collection](./media/how-to-create-partitioned-container/partitioned-collection-create-table.png)
+![Table API creates a collection](./media/how-to-create-partitioned-container/partitioned-collection-create-table.png)
 
 > [!Note]
 > For Table API, the partition key is specified each time you add a new row.
 
-## Create partitioned container using Azure CLI
+## Create a container using Azure CLI
 
 ### <a id="cli-sql"></a>SQL (Core) API
 
 ```azurecli-interactive
-# Create a partitioned container with a partition key and provision 1000 RU/s throughput.
+# Create a container with a partition key and provision 1000 RU/s throughput.
 
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
@@ -123,7 +123,7 @@ az cosmosdb collection create \
 ### <a id="cli-mongodb"></a>MongoDB API
 
 ```azurecli-interactive
-# Create a partitioned collection with a shard key and provision 1000 RU/s throughput.
+# Create a collection with a shard key and provision 1000 RU/s throughput.
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
     --collection-name $collectionName \
@@ -136,7 +136,7 @@ az cosmosdb collection create \
 ### <a id="cli-cassandra"></a>Cassandra API
 
 ```azurecli-interactive
-# Create a partitioned table with a partition/primary key and provision 1000 RU/s throughput.
+# Create a table with a partition/primary key and provision 1000 RU/s throughput.
 az cosmosdb collection create \
     --resource-group $resourceGroupName \
     --collection-name $tableName \
@@ -172,12 +172,12 @@ az cosmosdb collection create \
     --throughput 1000
 ```
 
-## Create a partitioned container using .NET SDK
+## Create a container using .NET SDK
 
 ### <a id="dotnet-sql-graph"></a>SQL API and Gremlin API
 
 ```csharp
-// Create a partitioned container with a partition key and provision 1000 RU/s throughput.
+// Create a container with a partition key and provision 1000 RU/s throughput.
 DocumentCollection myCollection = new DocumentCollection();
 myCollection.Id = "myContainerName";
 myCollection.PartitionKey.Paths.Add("/myPartitionKey");
@@ -191,7 +191,7 @@ await client.CreateDocumentCollectionAsync(
 ### <a id="dotnet-mongodb"></a>MongoDB API
 
 ```csharp
-// Create a partitioned collection with a partition key by using Mongo Shell:
+// Create a collection with a partition key by using Mongo Shell:
 db.runCommand( { shardCollection: "myDatabase.myCollection", key: { myShardKey: "hashed" } } )
 ```
 

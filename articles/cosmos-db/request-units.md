@@ -15,13 +15,13 @@ With Azure Cosmos DB, you pay for the throughput you provision and the storage y
 
 Cosmos DB supports a variety of APIs (SQL, MongoDB, Cassandra, Gremlin, and Table). Each API has its own set of database operations, ranging from simple point reads and writes to complex queries. Each database operation consumes system resources depending upon the complexity of the operation.  The cost of all database operations is normalized by Cosmos DB and is expressed in terms of Request Units (RUs). The cost to read a 1-KB item is 1 Request Unit (1 RU). All other database operations are similarly assigned a cost in terms of RUs. Regardless of the API you are using to interact with your Cosmos container and the database operation (write, read, query), costs are always measured in terms of RUs.
 
-You can think of RU/s as the currency for throughput. RU/s is a rate-based currency, which abstracts the system resources such as CPU, IOPS, and memory that are required to perform the  database operations supported by Cosmos DB. The following image shows the request units consumed by different database operations:
+You can think of RU/s as the currency for throughput. RU/s is a rate-based currency, which abstracts the system resources such as CPU, IOPS, and memory that are required to perform the database operations supported by Cosmos DB. The following image shows the request units consumed by different database operations:
 
 ![Database operations consume request units](./media/request-units/request-units.png)
 
-To manage and plan capacity, Cosmos DB ensures that the number of RUs for a given database operation over a given dataset is deterministic. You can track the number of RUs that are consumed by any database operation by examining the response header. Once you understand the factors that affect request unit charges, and your application's throughput requirements, you can run your application cost-effectively.  For more information about Request Unit charges, see [how-to get the RUs consumed by a database operation](TBD).
+To manage and plan capacity, Cosmos DB ensures that the number of RUs for a given database operation over a given dataset is deterministic. You can track the number of RUs that are consumed by any database operation by examining the response header. Once you understand the factors that affect request unit charges, and your application's throughput requirements, you can run your application cost-effectively.
 
-While you are billed on an hourly basis, you can provision the number of RUs for your application on a per-second basis in increments of 100 RU/s. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs (in the increments or decrements of 100 RUs) at any time, either programmatically or by using the Azure portal.
+While you are billed on an hourly basis, you provision the number of RUs for your application on a per-second basis in increments of 100 RU/s. To scale the provisioned throughput for your application, you can increase or decrease the number of RUs (in the increments or decrements of 100 RUs) at any time, either programmatically or by using the Azure portal.
 
 You can provision throughput at two distinct granularities: 
 
@@ -44,7 +44,7 @@ While estimating the number of RU/s to provision, it is important to consider th
 
 * **Query patterns** - The complexity of a query affects how many request units are consumed for an operation. The number of query results, the number of predicates, the nature of the predicates, the number of user-defined functions, the size of the source data, the size of the result set and projections affect the cost of query operations. Cosmos DB guarantees that the same query on the same data will always cost the same number of RUs on repeat executions.
 
-* **Script usage** - As with queries, stored procedures, and triggers consume RUs based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how much request unit capacity each operation consumes. For more information, see [how to get the RUs consumed for a database operation](TBD).
+* **Script usage** - As with queries, stored procedures, and triggers consume RUs based on the complexity of the operations being performed. As you develop your application, inspect the request charge header to better understand how much request unit capacity each operation consumes.
 
 ## Next steps
 
@@ -53,4 +53,3 @@ While estimating the number of RU/s to provision, it is important to consider th
 * Learn more about [Scaling throughput](scaling-throughput.md)
 * Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
-* Learn [how to get the request units consumed for a database operation](TBD)

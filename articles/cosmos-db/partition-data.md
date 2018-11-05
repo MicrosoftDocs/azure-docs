@@ -18,9 +18,9 @@ This article explains about physical and logical partitions in Azure Cosmos DB, 
 
 A logical partition consists of a set of items with the same partition key. For example, consider a container where all the items contain a `City` property, then you can use `City` as the partition key for the container. Groups of items with specific values for the `City` such as, "London", "Paris", "NYC" etc. will form a distinct logical partition.
 
-In Azure Cosmos DB, a container is the fundamental unit of scalability. The data added to the container and the throughput that you provision on the container are automatically (horizontally) partitioned across a set of logical partitions. They are partitioned based on the partition key you specify for the Cosmos container. To learn more, see [how to specify the partition key for your Cosmos container](how-to-create-partitioned-container.md) article.
+In Azure Cosmos DB, a container is the fundamental unit of scalability. The data added to the container and the throughput that you provision on the container are automatically (horizontally) partitioned across a set of logical partitions. They are partitioned based on the partition key you specify for the Cosmos container. To learn more, see [how to specify the partition key for your Cosmos container](how-to-create-container.md) article.
 
-A logical partition defines the scope of database transactions. You can update items within a logical partition by using a transaction with snapshot isolation. For more information about transactions, see [multi-item transactions](TBD).
+A logical partition defines the scope of database transactions. You can update items within a logical partition by using a transaction with snapshot isolation.
 
 When new items are added to the container or if the throughput provisioned on the container is increased, new logical partitions are transparently created by the system.
 
@@ -30,7 +30,7 @@ A Cosmos container is scaled by distributing the data and the throughput across 
 
 ![Azure Cosmos DB partitioning](./media/partition-data/logical-partitions.png)
 
-Throughput Provisioned for a container is divided evenly among the resource partitions. Therefore a partition key design that doesn't distribute the throughput requests evenly can create "hot" partitions. Hot partitions can result in rate-limiting and inefficient use of the provisioned throughput.
+Throughput provisioned for a container is divided evenly among the resource partitions. Therefore a partition key design that doesn't distribute the throughput requests evenly can create "hot" partitions. Hot partitions can result in rate-limiting and inefficient use of the provisioned throughput.
 
 Unlike logical partitions, resource partitions are an internal implementation of the system. You can't control their size, placement, the count, or the mapping between the logical partitions and the resource partitions. However, you can control the number of logical partitions and the distribution of data and throughput by choosing the right partition key.
 
@@ -43,5 +43,3 @@ In this article, provided an overview of data partitioning and best practices fo
 * Learn about [choosing a partition-key](partitioning-overview.md#choose-partitionkey)
 * Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
-* Learn [how to find out the consumed RUs for a database operation](TBD)
-* Learn [how to estimate the provisioned-throughput capacity](TBD)

@@ -434,14 +434,14 @@
           href: how-to-manage-conflicts.md
     - name: Partitioning
       items:
-        - name: Create partitioned container
-          href: how-to-create-partitioned-container.md
+        - name: Create a container
+          href: how-to-create-container.md
         - name: Provision container throughput
           href: how-to-provision-container-throughput.md
         - name: Provision database throughput
           href: how-to-provision-database-throughput.md
-        - name: Query partitioned container
-          href: how-to-query-partition-container.md
+        - name: Query a container
+          href: how-to-query-container.md
     - name: Best practices
       items:
       - name: Performance tips
