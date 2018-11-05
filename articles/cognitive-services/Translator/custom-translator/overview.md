@@ -14,11 +14,24 @@ ms.topic: overview
 
 # What is Custom Translator?
 
-[Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service. With Custom Translator enterprises, app developers, and language service providers can build neural translation systems. These are the systems that understand the terminology used in their own business and industry. The customized translation system seamlessly integrates into existing applications, workflows, and websites.
+[Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service. With Custom Translator enterprises, app developers, and language service providers can build neural machine translation (NMT). These are the systems that understand the terminology used in their own business and industry. The customized translation system seamlessly integrates into existing applications, workflows, and websites.
 
-Microsoft Translator released [neural machine translation (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) in 2016. NMT provided major advances in translation quality over the then industry-standard Statistical Machine Translation (SMT) technology. Because NMT better captures the context of full sentences before translating them, it provides higher quality, more human-sounding, and more fluent translations.
+Microsoft Translator released [Neural Machine Translation (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) in 2016. NMT provided major advances in translation quality over the then industry-standard [Statistical Machine Translation (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) technology. Because NMT better captures the context of full sentences before translating them, it provides higher quality, more human-sounding, and more fluent translations. [Custom Translator](https://portal.customtranslator.azure.ai/) offers similar capabilities to what [Microsoft Translator Hub](https://hub.microsofttranslator.com/) does for Statistical Machine Translation (SMT), but exclusively for Neural Machine Translation (NMT) systems.
 
 The supported languages are limited to the language pairs where NMT languages exist and the list of NMT languages available today can be found on the [Microsoft Translator Languages webpage](https://www.microsoft.com/translator/business/languages/).
+
+## Features
+
+Custom Translator provides different features to build custom translation system and subsequently access it.
+
+|Feature  |Description  |
+|---------|---------|
+|[Create a project](how-to-create-project.md)     |  Create your project for required language pair. Your project contains all your custom models.       |
+|[Upload documents](how-to-upload-document.md)     |  Upload your parallel documents and dictionaries to train your custom model.       |
+|[Create model](how-to-train-model.md)     |   Train and build your custom models with the uploaded documents .       |
+|[Deploy model](how-to-view-system-test-results.md#deploy-a-model)     |   Deploy custom models and access via Microsoft Translator [Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).     |
+|[Share your work](how-to-manage-settings.md#share-your-workspace)     |  Share your works with different people when there is a need.       |
+
 
 ## Get Better translations
 
@@ -51,7 +64,7 @@ for pricing tier details.
 
 ## Securely translate anytime, anywhere on all your apps and services
 
-Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, high performance, highly scalable, [secure](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality) Microsoft Translator API that powers billions of translations  every day. Custom systems can be seamlessly accessed and integrated into any product or business workflow, and on any device, via the Microsoft Translator Text API through standard REST technology.
+Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, [secure](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), high performance, highly scalable Microsoft Translator [Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), that powers billions of translations  every day. Custom systems can be seamlessly accessed and integrated into any product or business workflow, and on any device, via the Microsoft Translator Text API through standard REST technology.
 
 
 ## Next steps

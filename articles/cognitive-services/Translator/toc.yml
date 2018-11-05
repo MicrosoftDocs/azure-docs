@@ -7,7 +7,6 @@
     - name: What is the Translator Text API?
       href: translator-info-overview.md
   - name: Quickstarts
-    expanded: true
     items:
       - name: Translate text
         items:
@@ -180,7 +179,9 @@
     - name: What is the Custom Translator?
       href: custom-translator/overview.md
   - name: Quickstarts
-    href: custom-translator/quickstart-build-deploy-custom-model.md
+    items:
+    - name: Quickstarts
+      href: custom-translator/quickstart-build-deploy-custom-model.md
   - name: Concepts
     items:
     - name: Workspace and projects
@@ -219,6 +220,8 @@
       href: custom-translator/how-to-migrate.md
   - name: Resources
     items:
+    - name: Language Support
+      href: https://www.microsoft.com/translator/business/languages/
     - name: Glossary
       href: custom-translator/how-to-create-project.md
     - name: FAQ

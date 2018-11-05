@@ -33,7 +33,7 @@ If you don’t have a subscription, follow the steps below:
 2. Note the key for your translator subscription. Either of the  Key1 or Key2 are acceptable.
 3. Navigate back to the Custom Translator portal.
 
-## Add existing key
+### Add existing key
 
 1.	Navigate to the “Settings” page for your workspace.
 2.	Click Add Key
