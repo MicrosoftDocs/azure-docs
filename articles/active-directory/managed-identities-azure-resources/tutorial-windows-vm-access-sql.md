@@ -27,7 +27,7 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 > [!div class="checklist"]
 > * Grant your VM access to an Azure SQL server
 > * Enable Azure AD authentication for the SQL server
-> * Create a contained user in the database that represents the Azure AD group
+> * Create a contained user in the database that represents the VM's system assigned identity
 > * Get an access token using the VM identity and use it to query an Azure SQL server
 
 ## Prerequisites
