@@ -156,15 +156,19 @@ and select **Build Now**.
 
 ## Set up Azure App Service 
 
-1. Using the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview), create a new [Web App on Linux](/azure/app-service/containers/app-service-linux-intro). The web app name in this tutorial is `myJavaApp`, but you need to use a unique name for your own app.
+1. By using either the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview), 
+create a new [Web App on Linux](/azure/app-service/containers/app-service-linux-intro). 
+
+   This tutorial uses the "MyJavaApp" as the web app name, 
+   but make sure you provide a unique name for your own app.
    
     ```azurecli-interactive
-    az group create --name myResourceGroupJenkins --location westus
+    az group create --name <your-resource-group-jenkins> --location <your-Azure-region>
     az appservice plan create --is-linux --name myLinuxAppServicePlan --resource-group myResourceGroupJenkins 
     az webapp create --name myJavaApp --resource-group myResourceGroupJenkins --plan myLinuxAppServicePlan --runtime "java|1.8|Tomcat|8.5"
     ```
 
-2. Create an [Azure Container Registry](/azure/container-registry/container-registry-intro) to store the Docker images built by Jenkins. The container registry name used in this tutorial is `jenkinsregistry`, but you need to use a unique name for your own container registry. 
+1. Create an [Azure Container Registry](/azure/container-registry/container-registry-intro) to store the Docker images built by Jenkins. The container registry name used in this tutorial is `jenkinsregistry`, but you need to use a unique name for your own container registry. 
 
     ```azurecli-interactive
     az acr create --name jenkinsregistry --resource-group myResourceGroupJenkins --sku Basic --admin-enabled
