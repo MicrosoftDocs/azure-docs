@@ -18,7 +18,7 @@ This article explains about physical and logical partitions in Azure Cosmos DB, 
 
 A logical partition consists of a set of items with the same partition key. For example, consider a container where all the items contain a `City` property, then you can use `City` as the partition key for the container. Groups of items with specific values for the `City` such as, "London", "Paris", "NYC" etc. will form a distinct logical partition.
 
-In Azure Cosmos DB, a container is the fundamental unit of scalability. The data added to the container and the throughput that you provision on the container are automatically (horizontally) partitioned across a set of logical partitions. They are partitioned based on the partition key you specify for the Cosmos container. To learn more, see [how to specify the partition key for your Cosmos container](TBD) article.
+In Azure Cosmos DB, a container is the fundamental unit of scalability. The data added to the container and the throughput that you provision on the container are automatically (horizontally) partitioned across a set of logical partitions. They are partitioned based on the partition key you specify for the Cosmos container. To learn more, see [how to specify the partition key for your Cosmos container](how-to-create-partitioned-container.md) article.
 
 A logical partition defines the scope of database transactions. You can update items within a logical partition by using a transaction with snapshot isolation. For more information about transactions, see [multi-item transactions](TBD).
 
@@ -40,7 +40,7 @@ In this article, provided an overview of data partitioning and best practices fo
 
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md)
-* Learn about [choosing a partition-key](TBD)
+* Learn about [choosing a partition-key](partitioning-overview.md#choose-partitionkey)
 * Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
 * Learn [how to find out the consumed RUs for a database operation](TBD)

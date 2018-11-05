@@ -18,7 +18,7 @@ A logical partition is a distinct subset of items in a container. The items in a
 
 Each item in a partitioned container has a **partition key** that determines the item’s **logical partition**, and each item also has an **item id** (which is unique within a logical partition).  The **index** of an item uniquely identifies it and it is formed by combining the partition key and the item id.
 
-Choosing a partition key is an important decision that will affect your application’s performance.  To learn more, see [Choosing a partition key](TBD) article for detailed guidance.
+Choosing a partition key is an important decision that will affect your application’s performance.  To learn more, see [Choosing a partition key](partitioning-overview.md#choose-partitionkey) article for detailed guidance.
 
 ## Logical partition management
 
@@ -28,7 +28,7 @@ Cosmos DB uses hash-based partitioning to spread logical partitions across physi
 
 Queries that access data within a single partition are more cost-effective than queries that access multiple partitions. Transactions (in stored procedures or triggers) are only allowed against items within a single logical partition.  
 
-## Partition keys
+## <a id="choose-partitionkey"></a>Choosing a partition key
 
 Consider the following details when choosing a partition key:
 
@@ -44,7 +44,7 @@ Consider the following details when choosing a partition key:
 
 ## Next steps
 
-* Learn about [choosing a partition key](TBD)
+* Learn about [choosing a partition key](partitioning-overview.md#choose-partitionkey)
 * Learn about [partitions](partition-data.md)
 * Learn about [provisioned throughput in Azure Cosmos DB](request-units.md)
 * Learn about [global distribution in Azure Cosmos DB](distribute-data-globally.md)
