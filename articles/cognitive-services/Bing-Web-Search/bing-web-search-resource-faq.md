@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: aahill
+ms.author: aahi
 ---
 
 # Frequently asked questions (FAQ)

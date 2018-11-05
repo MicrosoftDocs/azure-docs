@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: aahill
+ms.author: aahi
 ---
 
 # Quickstart: Bing News Search API with C#

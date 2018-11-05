@@ -3,14 +3,14 @@ title: "Quickstart: Bing Entity Search API, Java"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
 services: cognitive-services
-author: v-jaswel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: quickstart
 ms.date: 11/28/2017
-ms.author: v-jaswel
+ms.author: aahi
 ---
 # Quickstart for Bing Entity Search API with Java 
 

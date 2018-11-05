@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-entity-search
 ms.topic: tutorial
 ms.date: 10/04/2017
-ms.author: aahill
+ms.author: aahi
 ---
 # Tutorial: Single-page web app source
 

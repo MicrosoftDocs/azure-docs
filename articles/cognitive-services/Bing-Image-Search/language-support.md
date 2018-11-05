@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 10/06/2017
-ms.author: aahill
+ms.author: aahi
 ---
 
 # Language and region support for the Bing Image Search API
