@@ -21,24 +21,25 @@ Ask questions, get answers from Microsoft engineers, and report issues in the [s
 
 **What is the cost of participating in the preview?**
 
-There are no charges for deploying applications or containers to Mesh preview. However you are encouraged to delete the resources you deploy and not leave them running, unless you are actively testing it.
+There are no charges for deploying applications or containers to the Mesh preview currently. However,  we encourage you to to delete the resources you deploy and not leave them running unless you're actively testing them.
 
 **Is there a quota limit of the number of cores and RAM?**
 
-Yes, the quotas for each subscription are:
+Yes, the quotas for each subscription are set as follows:
 
-- Number of Applications - 5 
-- Number of Cores per application– 12 
+- Number of applications - 5 
+- Cores per application– 12 
 - Total RAM per application - 48 GB 
-- Number of Network and Ingress end points – 5  
-- Number of Azure Volumes that you can attach - 10 
+- Network and Ingress end points – 5  
+- Azure Volumes that you can attach - 10 
 - Number of Service replicas – 3 
-- The largest container you can deploy is limited to 4 cores, 16-GB RAM.
+- The largest container you can deploy is limited to 4 cores, 16GB RAM.
 - You can allocate partial cores to your containers in increments of 0.5 cores up to a maximum of 6 cores.
 
 **How long can I leave my application deployed for?**
 
-We have currently limited the lifetime of an application to two days in order to maximize the use of the free cores allocated to the preview. As a result, you are allowed to run a given deployment continuously for 48 hours, after which it will be deleted by the system. If this happens, you can validate that the system shut it down by running an `az mesh app show` command in Azure CLI and checking if it returned `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+We have currently limited the lifetime of an application to two days. This is in order to maximize the use of the free cores allocated to the preview. 
+As a result, you are only allowed to run a given deployment continuously for 48 hours, after which time it will be deleted by the system. If you see this happen, you can validate that the system shut it down by running an `az mesh app show` command in Azure CLI and checking if it returns `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
 
 For example: 
 
