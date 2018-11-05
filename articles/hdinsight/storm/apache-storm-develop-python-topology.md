@@ -2,7 +2,7 @@
 title: Apache Storm with Python comopnents - Azure HDInsight 
 description: Learn how to create an Apache Storm topology that uses Python components.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 keywords: apache storm python
 
@@ -10,7 +10,7 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Develop Apache Storm topologies using Python on HDInsight

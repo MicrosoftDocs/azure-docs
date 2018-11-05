@@ -27,7 +27,7 @@ The full request URL syntax is shown below. See the Bing Local Business Search A
 For information on local search categories, see [Search categories for the Bing Local Business Search API](local-categories.md).
 
 ```
-https://api.cognitive.microsoft.com/bing/localbusinesses/v7.0/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
+https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search[?q][&localCategories][&cc][&mkt][&safesearch][&setlang][&count][&first][&localCircularView][&localMapView]
 ```
 
 ## Using responses

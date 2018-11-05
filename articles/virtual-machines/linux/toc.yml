@@ -205,6 +205,7 @@
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
+      displayName: AAD
       items:
         - name: Red Hat Enterprise Linux
           href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md

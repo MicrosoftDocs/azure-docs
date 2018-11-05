@@ -2,14 +2,14 @@
 title: 'Tutorial: Create on-demand Hadoop clusters in Azure HDInsight using Data Factory '
 description: Learn how to create on-demand Hadoop clusters in HDInsight using Azure Data Factory.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
+ms.author: hrasheed
 #Customer intent: As a data worker, I need to create a Hadoop cluster and run Hive jobs on demand
 
 ---
