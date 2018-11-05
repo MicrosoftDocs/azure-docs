@@ -341,7 +341,7 @@
       - name: Advanced monitoring
         items:
         - name: Azure SQL Analytics monitoring
-          href: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql
+          href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
         - name: Diagnostic telemetry logging
           href: sql-database-metrics-diag-logging.md
       - name: Automated troubleshooting
