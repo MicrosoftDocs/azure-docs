@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
 
 ---
@@ -76,16 +76,16 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Security configurations|✔|✔|✔|✔|
 |Anti-malware|✔|✔|X|X|
 |JIT VM access|✔|X|✔|X|
-|Adaptive application controls|✔ (only Azure)|X|X|X|
+|Adaptive application controls|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Disk encryption|✔|X|✔|X|
 |Third party deployment|✔|X|✔|X|
 |NSGs|✔|X|✔|X|
-|Filess V1|✔|✔|X|X|
+|Filess threat detection|✔|✔|X|X|
 |Network map|✔|X|✔|X|
-|Adaptive network hardening|✔|X|✔|X|
+|Adaptive network controls|✔|X|✔|X|
 
-* These features are currently supported in public preview.
+\* These features are currently supported in public preview.
 
 
 ## Supported PaaS features
@@ -99,22 +99,13 @@ VMs running in a cloud service are also supported. Only cloud services web and w
 |Blob storage accounts*|✔| ✔|
 |App services|✔| ✔|
 |Cloud services|✔| X|
-|Redis cache|✔| X|
-|Service fabric|✔| X|
-|Azure automation|✔| X|
-|Data lake |✔| X|
-|Key vault|✔| X|
-|Service bus|✔| X|
-|Stream analytics|✔| X|
-|Batch|✔| X|
-|Logic apps|✔| X|
 |Vnets|✔| NA|
 |Subnets|✔| NA|
 |NICs|✔| ✔|
 |NSGs|✔| NA|
 |Subscription|✔| ✔|
 
-* These features are currently supported in public preview.
+\* These features are currently supported in public preview.
 
 ## Next steps
 
