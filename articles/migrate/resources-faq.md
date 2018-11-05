@@ -49,9 +49,9 @@ Azure Migrate currently supports East US and West Central US as migration projec
 
 The connection can be over the internet or use ExpressRoute with public peering.
 
-### Can I harden the VM set up with the .OVA template?
+### Can I harden the VM set up with the OVA template?
 
-Additional components (for example anti-virus) can be added into the .OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
+Additional components (for example anti-virus) can be added into the OVA template as long as the communication and firewall rules required for the Azure Migrate appliance to work are left as is.   
 
 ## Discovery
 
@@ -93,7 +93,7 @@ We have introduced continuous profiling of performance data(which is in preview)
 
 The data collected by the collector appliance is stored in the Azure location that you specify while creating the migration project. The data is securely stored in a Microsoft subscription and is deleted when the user deletes the Azure Migrate project.
 
-For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in an Log Analytics workspace created in user’s subscription. This data is deleted when you delete the Log Analytics workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
+For dependency visualization, if you install agents on the VMs, the data collected by the dependency agents is stored in the US in a Log Analytics workspace created in user’s subscription. This data is deleted when you delete the Log Analytics workspace in your subscription. [Learn more](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization).
 
 ### Is the data encrypted at rest and while in transit?
 
@@ -109,7 +109,7 @@ The collector appliance connects to the vCenter Server (port 443) using the cred
 
 Yes, a single collector appliance can be used to discover multiple vCenter Servers, but not concurrently. You need to run the discoveries one after another.
 
-### Is the .OVA template used by Site Recovery integrated with the .OVA used by Azure Migrate?
+### Is the OVA template used by Site Recovery integrated with the OVA used by Azure Migrate?
 
 Currently there is no integration. The .OVA template in Site Recovery is used to set up a Site Recovery configuration server for VMware VM/physical server replication. The .OVA used by Azure Migrate is used to discover VMware VMs managed by a vCenter server, for the purposes of migration assessment.
 
