@@ -1,6 +1,6 @@
 ---
 title: Create a CI/CD pipeline for Java with Azure DevOps Projects | Quickstart
-description: DevOps Projects makes it easy to get started with Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
+description: DevOps Projects makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -44,14 +44,15 @@ If you don't have an Azure subscription, you can get one free through [Visual St
 
 1. Web App For Containers is the default deployment target.  The application framework, which you chose previously, dictates the type of Azure service deployment target available here. Leave the default service, and then select **Next**.
  
-## Configure Azure DevOps Services and an Azure subscription 
+## Configure Azure DevOps and an Azure subscription 
 
 1. Create a new Azure DevOps organization or choose an existing organization. 
+
 	a. Choose a name for your project. 
 
 	b. Select your Azure subscription and location, choose a name for your application, and then select **Done**.
 
-	After a few minutes, the Azure DevOps Projects dashboard is diplayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application deploys to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
+	After a few minutes, the Azure DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application deploys to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
 	
 
 2. Select **Browse** to view your running application.
@@ -78,7 +79,7 @@ Azure DevOps Projects creates a Git repository in your Azure DevOps organization
 1. Select **Commit**, and then save your changes.
 
 1. In your browser, go to the Azure DevOps Projects dashboard. 
-		You should now see a build in progress. The changes you just made are automatically built and deployed via a 	 CI/CD pipeline.
+		You should now see a build in progress. The changes you just made are automatically built and deployed via a CI/CD pipeline.
 
 ## Examine the CI/CD pipeline
 
@@ -105,7 +106,7 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline. Explore an
 1. Select **Triggers**. 
 		Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
-1. Select **Retention**.  
+1. Select **Retention**. 
 		Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 1. Select **Build and Release**, and then select **Releases**.  		Azure DevOps Projects creates a release pipeline to manage 		deployments to Azure.
@@ -136,7 +137,7 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline. Explore an
 
 ## Clean up resources
 
-When you don't need them anymore, you can delete Azure App Service and related resources from this quickstart by using the **Delete** functionality on the Azure DevOps Projects dashboard.
+You can delete Azure App Service and related resources from this quickstart when you don't need them anymore by using the **Delete** functionality on the Azure DevOps Projects dashboard.
 
 ## Next steps
 
