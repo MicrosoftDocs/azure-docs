@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 09/25/2018
-ms.author: erhopf
+ms.author: aahi
 ---
 
 # Language and region support for the Bing Web Search API

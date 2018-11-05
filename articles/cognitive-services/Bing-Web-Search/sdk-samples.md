@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: sample
 ms.date: 08/16/2018
-ms.author: erhopf
+ms.author: aahi
 ---
 
 # Bing Web Search SDK samples
