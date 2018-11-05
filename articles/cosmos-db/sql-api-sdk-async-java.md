@@ -10,7 +10,7 @@ ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
 ms.date: 11/02/2018
-ms.author: sngun
+ms.author: moderakh
 
 ---
 # Azure Cosmos DB Async Java SDK for SQL API: Release notes and resources
