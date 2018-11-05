@@ -74,7 +74,7 @@ Open a web browser and navigate to your new team project at: [https://&lt;myacco
 Select the **Build and release** tab, then **Builds**, then click **New Pipeline**.
 
 >[!NOTE]
->If you do not see the build definition template, make sure the **New YAML pipeline creation experience** feature is turned off. This feature is configured within **Preview Features** for your DevOps account.
+>If you do not see the build definition template, make sure the **New YAML pipeline creation experience** feature is turned off. This feature is configured within the **Preview Features** section of your DevOps account.
 
 ![New Pipeline][new-pipeline]
 
