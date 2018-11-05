@@ -12,28 +12,22 @@ ms.author: twounder
 ms.reviewer: twounder
 ---
 
-# What's new in Azure SQL Data Warehouse?
-Azure SQL Data Warehouse receives improvements continually. This article describes the new features and changes that have been introduced to Azure SQL Data Warehouse.
+# Azure SQL Data Warehouse release notes
 
+Azure SQL Data Warehouse is a cloud-based Enterprise Data Warehouse (EDW) that leverages Massively Parallel Processing (MPP) to quickly run complex queries across petabytes of data. Use SQL Data Warehouse as a key component of a big data solution. Import big data into SQL Data Warehouse with simple PolyBase T-SQL queries, and then use the power of MPP to run high-performance analytics. As you integrate and analyze, the data warehouse will become the single version of truth your business can count on for insights.
+
+Click on the links below to find out more about the new features and improvements that you can expect in the latest version of Azure SQL Data Warehouse. You can expect to receive these service updates during your identified maintenance schedule.
+
+- [October 2018](./release-notes-october-2018.md)
+- [September 2018](./release-notes-september-2018.md)
+- [August 2018](./release-notes-august-2018.md)
+- [July 2018](./release-notes-july-2018.md)
+- [June 2018](./release-notes-june-2018.md)
+- [May 2018](./release-notes-may-2018.md)
 
 ## Next steps
-Now that you know a bit about SQL Data Warehouse, learn how to quickly [create a SQL Data Warehouse][create a SQL Data Warehouse]. If you are new to Azure, you may find the [Azure glossary][Azure glossary] helpful as you encounter new terminology. Or look at some of these other SQL Data Warehouse Resources.  
-
-* [Customer success stories]
-* [Blogs]
-* [Feature requests]
-* [Videos]
-* [Customer Advisory Team blogs]
-* [Stack Overflow forum]
-* [Twitter]
-
-
-[Blogs]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[Customer Advisory Team blogs]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[Customer success stories]: https://azure.microsoft.com/case-studies/?service=sql-data-warehouse
-[Feature requests]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[Stack Overflow forum]: http://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[create a SQL Data Warehouse]: ./create-data-warehouse-portal.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
+- [Learn more](https://docs.microsoft.com/azure/sql-data-warehouse/viewing-maintenance-schedule) about viewing a maintenance schedule. 
+- [Learn more](https://docs.microsoft.com/azure/sql-data-warehouse/changing-maintenance-schedule) about changing a maintenance schedule.
+- [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric) about creating, viewing, and managing alerts by using Azure Monitor.
+- [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) about webhook actions for log alert rules.
+- [Learn more](https://docs.microsoft.com/azure/service-health/service-health-overview) about Azure Service Health
