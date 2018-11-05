@@ -4,7 +4,6 @@ description: Reference for REST APIs for the Speech Service.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
