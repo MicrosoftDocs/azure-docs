@@ -55,7 +55,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Install IIS and the .NET framework using the custom script extension.
+Install IIS and the .NET framework using the custom script extension with the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `
