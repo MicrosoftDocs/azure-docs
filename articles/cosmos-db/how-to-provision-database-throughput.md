@@ -10,26 +10,28 @@ ms.date: 11/06/2018
 ms.author: mjbrown
 ---
 
-# Provision throughput for a database
+# Provision throughput for a database in Azure Cosmos DB
 
-This article explains how to provision throughput for a database in Azure Cosmos DB. Throughput can be [provisioned for a single container](how-to-provision-container-throughput.md), or for a database and shared among multiple containers within it. Database throughput can be provisioned using the Azure portal or CosmosDB SDKs.
+This article explains how to provision throughput for a database in Azure Cosmos DB. You can provision throughput for a single [container](how-to-provision-container-throughput.md), or for a database and share the throughput among the containers within it. You can provision database level throughput by using the Azure portal or Cosmos DB SDKs.
 
-## Portal
+## Provision throughput using Azure portal
 
 ### <a id="portal-sql"></a>SQL (Core) API
 
-1. Sign in to the Azure portal
-2. Select an existing or create a new Azure Cosmos DB account
-3. Click Data Explorer
-4. Click New Database
-5. Enter a Database Id
-6. Select Provision throughput
-7. Enter a throughput
-8. Click OK
+1. Sign in to [Azure portal](https://portal.azure.com/).
 
-![SQL API provision database throughput](./media/provision-database-throughput/provision-database-throughput-portal-all-api.png)
+1. [Create a new Cosmos DB account](../../includes/cosmos-db-create-dbaccount.md) or select an existing account.
 
-## .NET
+1. Open the **Data Explorer** pane and select **New Database**. Next fill the form with the following details:
+
+   * Enter a Database Id. 
+   * Select Provision throughput.
+   * Enter a throughput, for example 1000 RUs.
+   * Select **OK**.
+
+![SQL API provision database throughput](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+
+## Provision throughput using .NET SDK
 
 > [!Note]
 > Use the SQL API to provision throughput for all APIs. You can optionally use the example below for Cassandra API as well.
@@ -58,7 +60,7 @@ session.Execute(CREATE KEYSPACE IF NOT EXISTS myKeySpace WITH cosmosdb_provision
 
 ## Next steps
 
-See more articles about throughput provisioning in Cosmos DB:
+See the following articles to learn about provisioning throughput in Cosmos DB:
 
-* [How to provision container throughput](how-to-provision-container-throughput.md)
+* [How to provision throughput for a container](how-to-provision-container-throughput.md)
 * [Request units and throughput in Azure Cosmos DB](request-units.md)
