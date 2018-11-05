@@ -36,9 +36,35 @@ Yes, the quotas for each subscription are:
 - The largest container you can deploy is limited to 4 cores, 16-GB RAM.
 - You can allocate partial cores to your containers in increments of 0.5 cores up to a maximum of 6 cores.
 
-**Can I leave my application running overnight?**
+**How long can I leave my application deployed for?**
 
-Yes, you can, however you are encouraged to delete the resources you deploy and not leave them running, unless you are actively testing it. This policy may change in the future and the resources may be deleted if they are being misused.
+We have currently limited the lifetime of an application to two days in order to maximize the use of the free cores allocated to the preview. As a result, you are allowed to run a given deployment continuously for 48 hours, after which it will be deleted by the system. If this happens, you can validate that the system shut it down by running an `az mesh app show` command in Azure CLI and checking if it returned `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+For example: 
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
 
 ## Supported container OS images
 The following container OS images can be used when deploying services.
