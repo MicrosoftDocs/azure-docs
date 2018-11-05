@@ -127,7 +127,7 @@ For any other response, that response is returned unaltered.
 
 Change the Main method to call the CreateKB method:
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=252-265 "Add CreateKB method")]
+[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/create-knowledge-base/QnaQuickstartCreateKnowledgebase/Program.cs?range=252-265 "Add CreateKB method")]
 
 ## Build and run the program
 
