@@ -72,13 +72,16 @@ The v3 API has the following feature gaps with respect to the v2 API. Closing th
 
     Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
 
-* Many of the advanced features of the Media Encoder Standard in v2 APIs are in the process of being exposed in v3, such as:
+* Many of the advanced features of the Media Encoder Standard in v2 APIs are currently not available in v3, such as:
     * Clipping (for on-demand and live scenarios)
     * Stitching of Assets
     * Overlays
     * Cropping
     * Thumbnail Sprites
-* LiveEvents with transcoding currently do not support Slate insertion mid-stream, custom presets, or ad marker insertion via API call. These features are under development. 
+* LiveEvents with transcoding currently do not support Slate insertion mid-stream, custom presets, or ad marker insertion via API call. 
+
+> [!NOTE]
+> Please bookmark this article and keep checking for updates.
 
 ## Code differences
 
@@ -99,7 +102,9 @@ The following table shows the code differences between v2 and v3 for common scen
     * Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. The recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
     * Channels and Programs created with v2 (which are mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop.
     
-        Presently, you cannot migrate continuously running Channels. The Media Services team is working on adding this feature.
+        Presently, you cannot migrate continuously running Channels.  
+> [!NOTE]
+> Please bookmark this article and keep checking for updates.
 
 ## Next steps
 
