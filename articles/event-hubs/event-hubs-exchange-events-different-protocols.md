@@ -17,7 +17,7 @@ ms.author: spelluru
 
 ---
 
-# Exchange events using different protocols: AMQP, Kafka, and HTTPS
+# Exchange events between consumers and producers that use different protocols: AMQP, Kafka, and HTTPS
 Azure Event Hubs supports three protocols for consumers and producers: AMQP, Kafka, and HTTPS. Each one of these protocols has its own way of representing a message, so naturally the following question arises: if an application sends events to an Event Hub with one protocol and consumes them with a different protocol, what do the various parts and values of the event look like when they arrive at the consumer? This article discusses best practices for both producer and consumer to ensure that the values within an event are correctly interpreted by the consuming application.
 
 The advice in this article specifically covers these clients, with the listed versions used in developing the code snippets:
