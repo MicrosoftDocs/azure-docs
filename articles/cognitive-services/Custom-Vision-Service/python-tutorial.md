@@ -15,7 +15,7 @@ ms.author: areddish
 
 # Quickstart: Create an image classification project with the Custom Vision Python SDK
 
-This article provides information and sample code to help you get started using the Custom Vision SDK with Python to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own .NET application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
+This article provides information and sample code to help you get started using the Custom Vision SDK with Python to build an image classification model. After it's created, you can add tags, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Python application. If you wish to go through the process of building and using a classification model _without_ code, see the [browser-based guidance](getting-started-build-a-classifier.md) instead.
 
 ## Prerequisites
 
@@ -38,11 +38,15 @@ The project needs a valid set of subscription keys in order to interact with the
 
 ## Get the sample images
 
-This example uses the images from the **Samples/Images** directory of the [Cognitive-CustomVision-Windows](https://github.com/Microsoft/Cognitive-CustomVision-Windows/tree/master/Samples/Images) project on GitHub. Clone or download this repository to your development environment.
+This example uses the images from the **samples/vision/images** directory of the [Cognitive Services Python SDK Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) repo on GitHub. Clone or download this repository to your development environment.
 
-## Create the Custom Vision service project
+## Add the code
 
-To create a new Custom Vision service project, create new file named *sample.py* and add the following contents. Insert your subscription keys in the appropriate definitions.
+Create a new file called *sample.py* in your preferred project directory.
+
+### Create the Custom Vision service project
+
+Add the following contents to your script. Insert your subscription keys in the appropriate definitions.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
@@ -71,14 +75,13 @@ cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
 
 ### Upload and tag images
 
-To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You will need to enter the base image URL path, based on where you downloaded the Cognitive-CustomVision-Windows project.
+To add the sample images to the project, insert the following code after the tag creation. This code uploads each image with its corresponding tag. You will need to enter the base image URL path, based on where you downloaded the Cognitive Services Python SDK Samples project.
 
-> [!IMPORTANT]
->
-> Change path to the images based on where you downloaded the Cognitive-CustomVision-Windows project earlier.
+> [!NOTE]
+> You'll need to change the path to the images based on where you downloaded the Cognitive Services Python SDK Samples project earlier.
 
 ```Python
-base_image_url = "<path to CustomVision-Windows project>"
+base_image_url = "<path to project>"
 
 print ("Adding images...")
 for image_num in range(1,10):
@@ -109,7 +112,7 @@ trainer.update_iteration(project.id, iteration.id, is_default=True)
 print ("Done!")
 ```
 
-## Get and use the default prediction endpoint
+### Get and use the default prediction endpoint
 
 To send an image to the prediction endpoint and retrieve the prediction, add the following code to the end of the file:
 
@@ -153,7 +156,7 @@ Done!
 You can then verify that the test image (found in **<base_image_url>/Images/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 ## Clean up resources
-If you wish to implement your own image classification project (or try an [object detection](csharp-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
+If you wish to implement your own image classification project (or try an [object detection](python-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
 
 On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
 

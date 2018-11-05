@@ -159,7 +159,7 @@ At this point, all of the sample images have been uploaded, and each has a tag (
 
 ### Train the project
 
-This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
+This code creates the first training iteration in the project.
 
 ```csharp
 // Now there are images with tags start training the project
@@ -176,6 +176,8 @@ while (iteration.Status == "Training")
 }
 ```
 ### Set the current iteration as default
+
+This code marks the current iteration as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
 
 ```csharp
 // The iteration is now trained. Make it the default project endpoint
