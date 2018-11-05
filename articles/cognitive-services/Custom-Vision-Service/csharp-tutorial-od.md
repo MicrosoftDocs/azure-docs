@@ -54,7 +54,7 @@ The following lines of code execute the primary functionality of the project.
 
 ### Create a new Custom Vision Service project
 
-The created project will then show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
+This first bit of code creates an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
 ```csharp
 // Find the object detection domain
@@ -159,6 +159,8 @@ At this point, all of the sample images have been uploaded, and each has a tag (
 
 ### Train the project
 
+This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
+
 ```csharp
 // Now there are images with tags start training the project
 Console.WriteLine("\tTraining");
@@ -191,7 +193,7 @@ Console.WriteLine("Done!\n");
 PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
 ```
 
-### Submit an image to the default prediction endpoint
+### Use the prediction endpoint
 
 This part of the script loads the test image, queries the model endpoint, and outputs prediction data to the console.
 
