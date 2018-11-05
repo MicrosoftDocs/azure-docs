@@ -14,21 +14,19 @@ ms.reviewer: kasimpso
 
 ---
 
-# Hide an application from user's experience in Azure Active Directory
+# Hide applications from end-users in Azure Active Directory
 
-If you have an application that you do not want to show on users’ access panels or Office 365 launchers, there are options to hide this app tile.  The following two options are available for hiding applications from user's app launchers.
+Instructions for how to hide applications from end-users' MyApps panel or Office 365 launcher. When an application is hidden, users still have permissions to the application. 
 
-- Hide a third-party application from users access panels and Office 365 app launchers
-- Hide all Office 365 applications from users access panels
+## Prerequisities
 
-By hiding the application, users still have permissions to the application, but will not see them appear on their app launchers. You must have the appropriate permissions to manage the enterprise application, and you must be a global admin for the directory.
+Application administrator privileges are required to hide an application from the MyApps panel and Office 365 launcher.
+
+Global administrator privileges are required to hide all Office 365 applications.
 
 
-## Hiding an application from user's end user experiences
-You can use the steps below, depending on your situation, to hide applications from the access panel.
-
-### Hide a third-party application from the user
-Use the following steps to hide an application from a user's access panel and Office 365 application launcher.
+## Hide a third-party application from the user
+Use the following steps to hide an application from MyApps panel and Office 365 application launcher.
 
 1.	Sign in to the [Azure portal](https://portal.azure.com) as the global administrator for your directory.
 2.	Select **Azure Active Directory**.
@@ -40,9 +38,9 @@ Use the following steps to hide an application from a user's access panel and Of
 8.	Click **Save**.
 
 
-### How do I hide Office 365 applications from user's access panel?
+## Hide Office 365 applications from the MyApps panel
 
-Use the following steps to hide all Office 365 applications from the access panel. These apps will still be visible in the Office 365 portal.
+Use the following steps to hide all Office 365 applications from the MyApps panel. The applications are still be visible in the Office 365 portal.
 
 1.	Sign in to the [Azure portal](https://portal.azure.com) as a global administrator for your directory.
 2.	Select **Azure Active Directory**.
