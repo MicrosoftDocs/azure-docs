@@ -10,23 +10,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/05/2018
 ms.author: barclayn
 
 ---
 
 # Azure Dedicated HSM deciding deployment architecture
 
-Dedicated HSM provides cryptographic key storage capabilities in Azure. It meets the most stringent security requirements. Customers who:
+Dedicated HSM provides cryptographic key storage in Azure. It meets stringent security requirements. Customers will benefit from using Azure Dedicated HSM if they:
 
 * Must meet FIPS 140-2 Level 3 certification
 * Require that they have exclusive access to the HSM
 * should have complete control of their devices
 
-will benefit from using Azure Dedicated HSM.
-
-The HSMs are distributed across Microsoft’s datacenters and can be easily provisioned as a single device. They may also be deployed across regions for a highly available solution.
-The regions with Dedicated HSM available currently are:
+The HSMs are distributed across Microsoft’s data centers and can be easily provisioned as a single device. They may also be deployed across regions for a highly available solution. The regions with Dedicated HSM available currently are:
 
 * East US
 * East US 2
@@ -37,7 +34,7 @@ The regions with Dedicated HSM available currently are:
 * North Europe
 * West Europe
 
-Each of these regions has two independent datacenters. One exception is South East Asia, which has 3. There are a total of 17 datacenters across Europe, Asia, and the USA that offer the Dedicated HSM service. For more information on Azure regions, see the official [Azure regions information](https://azure.microsoft.com/global-infrastructure/regions/).
+Each of these regions has two independent data centers. One exception is South East Asia, which has 3. There are a total of 17 data centers across Europe, Asia, and the USA that offer the Dedicated HSM service. For more information on Azure regions, see the official [Azure regions information](https://azure.microsoft.com/global-infrastructure/regions/).
 Some design factors for any Dedicated HSM-based solution are location, high availability, and support for other distributed applications. Location is a significant factor for application latency,
 
 ## Device location
@@ -46,7 +43,7 @@ Choose an HSM location as close as possible to the applications using it.
 
 ## High availability
 
-It is always recommended to use two HSM devices in a region as a high availability pair. This type of deployment ensures the availability of keys if a single device experiences a problem preventing it from processing key operations. It also significantly reduces risk when performing break/fix maintenance such as power supply replacement. It is important for a design to account for any kind of regional level failure. Regional level failures may occur in the event of natural disasters such as hurricanes, flood, or earthquakes. These types of events should be mitigated by provisioning HSM Devices in another region. Devices deployed in another region may be paired together. This means that the minimum deployment for a highly available solution is four HDM devices across two regions. Local redundancy and redundancy across regions can be used as a baseline to add any further HSM device deployments to support latency, capacity or to meet other application-specific requirements.
+It is always recommended to use two HSM devices in a region as a high availability pair. This type of deployment ensures the availability of keys if a single device experiences a problem preventing it from processing key operations. It also significantly reduces risk when performing break/fix maintenance such as power supply replacement. It is important for a design to account for any kind of regional level failure. Regional level failures can happen when there are natural disasters such as hurricanes, floods, or earthquakes. These types of events should be mitigated by provisioning HSM Devices in another region. Devices deployed in another region may be paired together. This means that the minimum deployment for a highly available solution is four HDM devices across two regions. Local redundancy and redundancy across regions can be used as a baseline to add any further HSM device deployments to support latency, capacity or to meet other application-specific requirements.
 
 ## Distributed application support
 
