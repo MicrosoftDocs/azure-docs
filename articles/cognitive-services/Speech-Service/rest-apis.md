@@ -57,7 +57,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | Format | Codec | Bitrate | Sample Rate |
 |--------|-------|---------|-------------|
 | WAV | PCM | 16-bit | 16 kHz, mono |
-| Ogg | OPUS | 16-bit | 16 kHz, mono |
+| OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec.
