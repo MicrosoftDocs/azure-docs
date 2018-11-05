@@ -42,6 +42,8 @@ The prebuilt entities are developed in the Recognizers-Text open-source project.
 
 GeographyV2 and PersonName are not included in the Recognizers-Text project. For issues with these prebuilt entities, please open a [support request](../../../azure-supportability/how-to-create-azure-support-request.md). 
 
+GeographyV2 and PersonName are not included in the Recognizers-Text project. For issues with these prebuilt entities, please open a [support request](../../../../azure-supportability/how-to-create-azure-support-request.md). 
+
 ## Next steps
 
 Learn about the [number](luis-reference-prebuilt-number.md), [datetimeV2](luis-reference-prebuilt-datetimev2.md), and [currency](luis-reference-prebuilt-currency.md) entities. 
