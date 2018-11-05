@@ -66,6 +66,8 @@
     href: service-fabric-mesh-howto-reliable-collections.md
   - name: Manage secrets
     href: service-fabric-mesh-howto-manage-secrets.md
+  - name: Find samples
+    href: service-fabric-mesh-howto-find-samples.md
 
 - name: Reference
   items:
