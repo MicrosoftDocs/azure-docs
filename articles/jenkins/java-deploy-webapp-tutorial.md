@@ -71,34 +71,48 @@ so you can return to the Jenkins management page.
 
 Now, set up Jenkins so when new commits are pushed 
 to your GitHub repo, Jenkins receives the 
-[GitHub webhooks](https://developer.github.com/webhooks/).
+[webhooks from GitHub](https://developer.github.com/webhooks/).
 
 1. On your Jenkins web console's **Manage Jenkins** page, 
 select **Configure System**. 
 
    ![Configure system](media/jenkins-java-quickstart/manage-jenkins-configure-system.png)
 
-1. Find the **GitHub** section, and view the details for your GitHub Server. 
-Make sure the **Manage hooks** property appears selected. 
+1. On the configuration page, scroll to the **GitHub** section. 
+If you haven't already provided details for your GitHub server, 
+select **Add GitHub Server** > **GitHub Server**. 
 
-1. Choose **Advanced** so addtional settings appear. 
-Open the **Manage additional GitHub actions** list, 
+   ![Add GitHub server](media/jenkins-java-quickstart/add-GitHub-server.png)
+
+1. Check that the **Manage hooks** property appears selected. 
+Choose **Advanced** so you can choose addtional settings. 
+
+   ![Add GitHub server](media/jenkins-java-quickstart/advanced-GitHub-settings.png)
+
+1. Choose **Manage additional GitHub actions**, 
 and select **Convert login and password to token**.
 
+   ![Add GitHub server](media/jenkins-java-quickstart/manage-additional-actions.png)
+
 1. Select **From login and password**, 
-and enter your GitHub username and password. 
-Select **Create token credentials**, 
-which creates a new 
-[GitHub Personal Access Token](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
+enter your GitHub username and password, 
+and choose **Create token credentials**, 
+which creates a [GitHub Personal Access Token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
-   ![Create GitHub PAT from login and password](media/jenkins-java-quickstart/create_github_credentials.png)
+   ![Create GitHub PAT from login and password](media/jenkins-java-quickstart/create-github-token-credentials.png)
 
-1. Select the newly created token from the **Credentials** drop down in the GitHub Servers configuration. Select **Test connection** to verify that the authentication is working.   
+1. Now under **GitHub Server**, open the **Credentials** list, 
+and select your new token. Check that authentication is working 
+by choosing **Test connection**.
 
-   ![Verify connection to GitHub once PAT is configured](media/jenkins-java-quickstart/verify_github_connection.png)
+   ![Check connection to GitHub server with new PAT](media/jenkins-java-quickstart/check-github-connection.png)
 
 > [!NOTE]
-> If your GitHub account has two-factor authentication enabled,  create the token on GitHub and configure Jenkins to use it. Review the [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation for full details.
+> 
+> If your GitHub account has two-factor authentication enabled, 
+> create your token on GitHub and set up Jenkins to use that token. 
+> For more information, see the documentation for the 
+> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin).
 
 ## Fork sample repo and create pipeline job 
 
