@@ -116,7 +116,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	b. In the **Identifier (Entity ID)** textbox, type a URL using the following pattern: `YourCompanyInstanceofHeyBuddy`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign-On URL and Identifier (Entity ID). The <Entity ID> in the Sign on url is auto generated for each organization. Contact [HeyBuddy Client support team](mailto:support@heybuddy.com) to get these values.
+	> These values are not real. Update these values with the actual Sign-On URL and Identifier (Entity ID). The `Entity ID` in the Sign on url is auto generated for each organization. Contact [HeyBuddy Client support team](mailto:support@heybuddy.com) to get these values.
 
 5. HeyBuddy application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes & Claims** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes & Claims** dialog.
 
