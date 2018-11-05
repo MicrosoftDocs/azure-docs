@@ -126,54 +126,20 @@ You can choose any SSH tool to connect to your virtual machine. In this example,
 In this phase, you install the Java runtime environment, Tomcat7, and other Tomcat7 components.  
 
 ### Java runtime environment
-Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs), OpenJDK and Oracle JDK. You can choose the one you want.  
-
-> [!NOTE]
-> Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is different. OpenJDK tends to use open libraries, while Oracle JDK tends to use closed ones. Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
-
-#### Install OpenJDK  
-
-Use the following command to download OpenJDK.   
-
-    sudo apt-get update  
-    sudo apt-get install openjdk-7-jre  
+Tomcat is written in Java. See [Azure supported JDKs](https://aka.ms/azure-jdks) for information on how to get fully supported Java runtimes. You can also bring your own, but the rest of this article will use the Azure-supported releases.
 
 
-* To create a directory to contain the JDK files:  
+#### Install Azure supported JDK
 
-        sudo mkdir /usr/lib/jvm  
-* To extract the JDK files into the /usr/lib/jvm/ directory:  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
-
-#### Install Oracle JDK
-
-
-Use the following command to download Oracle JDK from the Oracle website.  
-
-     wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
-* To create a directory to contain the JDK files:  
-
-        sudo mkdir /usr/lib/jvm  
-* To extract the JDK files into the /usr/lib/jvm/ directory:  
-
-        sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-* To set Oracle JDK as the default Java virtual machine:  
-
-        sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
-
-        sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
+Follow the `apt-get` install instructions documented on the  [Azul Zulu Enteprise for Azure](https://www.azul.com/downloads/azure-only/zulu/#apt-repo) website.
 
 #### Confirm that Java installation is successful
 You can use a command like the following to test if the Java runtime environment is installed correctly:  
-
     java -version  
 
-If you installed OpenJDK, you should see a message like the following:
+You should see a message like the following:
 ![Successful OpenJDK installation message][14]
 
-If you installed Oracle JDK, you should see a message like the following:
-![Successful Oracle JDK installation message][15]
 
 ### Install Tomcat7
 Use the following command to install Tomcat7.  
