@@ -75,13 +75,18 @@ For the durable function to be invoked the  function.json should be modified to 
 
 ## Querying instances
 
-The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` (required), `showHistory` (optional), and `showHistoryOutput` (optional) as parameters. If `showHistory` is set to `true`, the response will contain the execution history. If `showHistoryOutput` is set to `true` as well, the execution history will contain activity outputs. The method returns an object with the following properties:
+The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters. 
+If `showHistory` is set to `true`, the response will contain the execution history. 
+If `showHistoryOutput` is set to `true` as well, the execution history will contain activity outputs. 
+If `showInput` is set to `false`, the response will not contain the input of the function. The default value is true.
+
+The method returns an object with the following properties:
 
 * **Name**: The name of the orchestrator function.
 * **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
 * **CreatedTime**: The time at which the orchestrator function started running.
 * **LastUpdatedTime**: The time at which the orchestration last checkpointed.
-* **Input**: The input of the function as a JSON value.
+* **Input**: The input of the function as a JSON value. This field will not be populated if `showInput` is false.
 * **CustomStatus**: Custom orchestration status in JSON format. 
 * **Output**: The output of the function as a JSON value (if the function has completed). If the orchestrator function failed, this property will include the failure details. If the orchestrator function was terminated, this property will include the provided reason for the termination (if any).
 * **RuntimeStatus**: One of the following values:
