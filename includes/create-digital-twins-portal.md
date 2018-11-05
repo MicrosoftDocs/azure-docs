@@ -12,7 +12,7 @@
 
 1. Sign in to the [Azure portal](http://portal.azure.com).
 
-1. From the left side navigation pane, click **Create a resource**. Search for *digital twins*, and select **Digital Twins (preview)**. Click **Create** to start the deployment process.
+1. From the pane on the left, select **Create a resource**. Search for *digital twins*, and select **Digital Twins (preview)**. Select **Create** to start the deployment process.
 
     ![Create Digital Twins](./media/create-digital-twins-portal/create-digital-twins.png)
 
@@ -24,12 +24,12 @@
 
     ![Create Digital Twins](./media/create-digital-twins-portal/create-digital-twins-param.png)
 
-1. Review your Digital Twins information, then click **Create**. Your Digital Twins instance might take a few minutes to get created. You can monitor the progress in the **Notifications** pane.
+1. Review your Digital Twins information. Then select **Create**. Your Digital Twins instance might take a few minutes to create. Monitor the progress in the **Notifications** pane.
 
 1. Open the **Overview** pane of your Digital Twins instance. Note the link that shows under **Management API**.
 
-    1. The **Management API** URL is formatted as: **_https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger_**. This URL takes you to the Azure Digital Twins REST API documentation that applies to your instance. Read [How to use Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md) to learn how to read and use this API documentation.
+    a. The **Management API** URL is formatted as https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger. This URL takes you to the Azure Digital Twins REST API documentation that applies to your instance. To learn how to read and use this API documentation, read [How to use Azure Digital Twins Swagger](../articles/digital-twins/how-to-use-swagger.md).
 
-    1. Modify the **Management API** URL to this format: **_https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/_**. Your application will use the modified URL as the base URL to access your instance. Copy this modified URL to a temporary file. You will need this in the proceeding section.
+    b. Modify the **Management API** URL to the format https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/. Your application uses the modified URL as the base URL to access your instance. Copy this modified URL to a temporary file. You need this information in the preceding section.
 
     ![Management APIs](./media/create-digital-twins-portal/digital-twins-management-api.png)
