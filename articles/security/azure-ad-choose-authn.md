@@ -63,7 +63,7 @@ The following section helps you decide which authentication method is right for 
 
 ![Azure AD authentication decision tree](media/azure-ad/azure-ad-authn-image1.png)
 
-Notes on decisions:
+Details on decision questions:
 
 1. Azure AD can handle sign-in for users without relying on on-premises components to verify passwords.
 2. Azure AD can hand off user sign-in to a trusted authentication provider such as Microsoft’s AD FS.
