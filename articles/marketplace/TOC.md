@@ -86,7 +86,18 @@
 ### [SaaS Sell through Azure](./cloud-partner-portal-orig/cloud-partner-portal-saas-offer-subscriptions.md)
 ### [SaaS APIs](./cloud-partner-portal-orig/cloud-partner-portal-saas-subscription-apis.md)
 
-## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md)
+<!-- Legacy ## [Containers](./cloud-partner-portal-orig/cloud-partner-portal-containers-guide.md) -->
+
+## [Containers offer](./cloud-partner-portal/containers/cpp-containers-offer.md)
+### [Prerequisites](./cloud-partner-portal/containers/cpp-prerequisites.md)
+### [Create container offer](./cloud-partner-portal/containers/cpp-create-offer.md)
+#### [Offer settings tab](./cloud-partner-portal/containers/cpp-offer-settings-tab.md)
+#### [SKUs tab](./cloud-partner-portal/containers/cpp-skus-tab.md)
+#### [Marketplace tab](./cloud-partner-portal/containers/cpp-marketplace-tab.md)
+#### [Support tab](./cloud-partner-portal/containers/cpp-support-tab.md)
+### [Create container technical assets](./cloud-partner-portal/containers/cpp-create-technical-assets.md)
+### [Publish container offer](./cloud-partner-portal/containers/cpp-publish-offer.md)
+### [Update existing offer](./cloud-partner-portal/containers/cpp-update-existing-offer.md)
 
 ## [IoT edge module offer](./cloud-partner-portal/iot-edge-module/cpp-offer-process-parts.md)
 ### [Prerequisites](./cloud-partner-portal/iot-edge-module/cpp-prerequisites.md)
