@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -64,7 +64,7 @@ This setting should normally be left in its default enabled (Yes) state. Configu
 
 The `Get-AzureADPasswordProtectionSummaryReport` cmdlet may be used to produce a summary view of activity. An example output of this cmdlet is as follows:
 
-```
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -80,10 +80,26 @@ PasswordSetErrors               : 1
 The scope of the cmdlet’s reporting may be influenced using one of the –Forest, -Domain, or –DomainController parameters. Not specifying a parameter implies –Forest.
 
 > [!NOTE]
-> This cmdlet works by opening a Powershell session to each domain controller. In order to success, Powershell remote session support must be enabled on each domain controller, and the client must have sufficient privileges. For more information on Powershell remote session requirements, run 'Get-Help about_Remote_Troubleshooting' in a Powershell window.
+> This cmdlet works by opening a PowerShell session to each domain controller. In order to succeed, PowerShell remote session support must be enabled on each domain controller, and the client must have sufficient privileges. For more information on PowerShell remote session requirements, run 'Get-Help about_Remote_Troubleshooting' in a PowerShell window.
 
 > [!NOTE]
 > This cmdlet works by remotely querying each DC agent service’s Admin event log. If the event logs contain large numbers of events, the cmdlet may take a long time to complete. In addition, bulk network queries of large data sets may impact domain controller performance. Therefore, this cmdlet should be used carefully in production environments.
+
+## DC Agent discovery
+
+The `Get-AzureADPasswordProtectionDCAgent` cmdlet may be used to display basic information about the various DC agents running in a domain or forest. This information is retrieved from the serviceConnectionPoint object(s) registered by the running DC agent service(s). An example output of this cmdlet is as follows:
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+The various properties are updated by each DC agent service on an approximate hourly basis. The data is still subject to Active Directory replication latency.
+
+The scope of the cmdlet’s query may be influenced using either the –Forest or –Domain parameters.
 
 ## Next steps
 

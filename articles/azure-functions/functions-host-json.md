@@ -89,7 +89,7 @@ The following sections of this article explain each top-level property. All are 
 
 ## applicationInsights
 
-This setting is a child of [logging](#log).
+This setting is a child of [logging](#logging).
 
 [!INCLUDE [applicationInsights](../../includes/functions-host-json-applicationinsights.md)]
 
