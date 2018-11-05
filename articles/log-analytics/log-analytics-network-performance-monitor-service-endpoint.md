@@ -126,4 +126,4 @@ If you observe an abnormality, follow these steps:
 
 
 ## Next steps
-[Search logs](log-analytics-log-search.md) to view detailed network performance data records.
+[Search logs](log-analytics-queries.md) to view detailed network performance data records.
