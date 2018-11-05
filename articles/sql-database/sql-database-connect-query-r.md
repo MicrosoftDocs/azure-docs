@@ -414,9 +414,81 @@ Use the model you created in the previous section to score predictions against n
 
 TODO
 
-1. Something something
-1. Something else something else
-1. And more of something
+1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. 
+1. If you don't have R installed, download R from [www.r-project.org/](https://www.r-project.org/) and install it on your local computer. R is available for Windows, MacOS, and Linux. In this example, we are using Windows.
+1. First, install **RODBCext**, which is a prerequisite for **sqlmlutils**. Open a **Command Prompt** and run the following command:
+
+    ```shell
+    R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
+    ```
+
+    The output should look similar to this:
+
+    ```text
+    R version 3.5.1 (2018-07-02) -- "Feather Spray"
+    Copyright (C) 2018 The R Foundation for Statistical Computing
+    Platform: x86_64-w64-mingw32/x64 (64-bit)
+
+    R is free software and comes with ABSOLUTELY NO WARRANTY.
+    You are welcome to redistribute it under certain conditions.
+    Type 'license()' or 'licence()' for distribution details.
+
+      Natural language support but running in an English locale
+
+    R is a collaborative project with many contributors.
+    Type 'contributors()' for more information and
+    'citation()' on how to cite R or R packages in publications.
+
+    Type 'demo()' for some demos, 'help()' for on-line help, or
+    'help.start()' for an HTML browser interface to help.
+    Type 'q()' to quit R.
+
+    > install.packages('RODBCext', repos='https://cran.microsoft.com')
+    Installing package into 'C:/Users/youruser/Documents/R/win-library/3.5'
+    (as 'lib' is unspecified)
+    trying URL 'https://cran.microsoft.com/bin/windows/contrib/3.5/RODBCext_0.3.1.zip'
+    Content type 'application/zip' length 283032 bytes (276 KB)
+    ==================================================
+    downloaded 276 KB
+
+    package 'RODBCext' successfully unpacked and MD5 sums checked
+
+    The downloaded binary packages are in
+            C:\Users\youruser\AppData\Local\Temp\RtmpyyuQf2\downloaded_packages
+    ```
+
+    > [!NOTE]
+    > If you are receiving the error like *'R' is not recognized as an internal or external command, operable program or batch file.*, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example ``cd C:\Program Files\R\R-3.5.1\bin`).
+
+1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the directory you have downloaded the zip file to and the name of the zip file. For example:
+
+    ```shell
+    R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
+    ```
+
+    The output you get should be similar to the following:
+
+    ```text
+    In R CMD INSTALL
+    * installing to library 'C:/Users/youruser/Documents/R/win-library/3.5'
+    package 'sqlmlutils' successfully unpacked and MD5 sums checked
+    ```
+
+1. In this example you will use RStudio Desktop as the IDE. You can use another IDE if you prefer. Download and install RStudio Desktop from [www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/), if you don't already have RStudio installed.
+
+1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using sqlmlutils.
+
+    ```R
+    library(sqlmlutils) 
+    connection <- connectionInfo(server= "yourserver.database.windows.net", database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
+    sql_install.packages(connectionString = connection, pkgs = “packageName”, verbose = TRUE, scope = “PUBLIC”)
+    ```
+    
+1. Once the package is installed, you can use it in your R script through **sp_execute_external_script**.
+
+    ```sql
+    -- SQL script goes here...
+    ```
 
 ## Next steps
 
