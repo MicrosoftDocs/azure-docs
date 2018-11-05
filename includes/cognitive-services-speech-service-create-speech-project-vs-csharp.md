@@ -32,14 +32,14 @@ ms.author: wolfma
 
     After the package is installed, a confirmation appears in the Package Manager console.
 
-1. Create a platform configuration matching your PC architecture via the Configuration Manager. Select **Build** > **Configuration Manager**.
+1. The next step is to create a platform configuration that matches the architecture of the computer you're using to build and run the console application. From the menu bar, select **Build** > **Configuration Manager...**.
 
     ![Launch the configuration manager](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-05-cfg-manager-click.png "Launch the configuration manager")
 
-1. In the **Configuration Manager** dialog box, add a new platform. From the **Active solution platform** drop-down list, select **New**.
+1. In the **Configuration Manager** dialog box, locate the **Active solution platform** drop-down list, and select **New**.
 
     ![Add a new platform under the configuration manager window](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-06-cfg-manager-new.png "Add a new platform under the configuration manager window")
 
-1. If you are running 64-bit Windows, create a new platform configuration named `x64`. If you are running 32-bit Windows, create a new platform configuration named `x86`.
+1. If you are running 64-bit Windows, when prompted with **Type or select the new platform**, `x64`. If you are running 32-bit Windows, select `x86`. When you're finished, click **OK**.
 
     ![On 64-bit Windows, add a new platform named "x64"](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-07-cfg-manager-add-x64.png "Add x64 platform")
