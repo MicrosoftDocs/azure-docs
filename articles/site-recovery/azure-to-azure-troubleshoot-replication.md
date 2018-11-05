@@ -11,7 +11,7 @@ ms.date: 10/30/2018
 ms.author: asgang
 
 ---
-# Troubleshoot Azure-to-Azure VM replication issues
+# Troubleshoot Azure-to-Azure VM ongoing replication issues
 
 This article describes the common issues in Azure Site Recovery when replicating and recovering Azure virtual machines from one region to another region and explains how to troubleshoot them. For more information about supported configurations, see the [support matrix for replicating Azure VMs](site-recovery-support-matrix-azure-to-azure.md).
 
@@ -24,15 +24,15 @@ ERROR ID: 153007 </br>
 Azure Site Recovery consistently replicates data from source region to the disaster recovery region and creates crash consistent point every 5 minutes. If Site Recovery is not able to create recovery points for 60 minutes, then it alerts user. Below are the causes that could result in this error:
 
 **Cause 1: [High data change rate on the source virtual machine](#high-data-change-rate-on-the-source-virtal-machine)**    
-**Cause 2: [Network connectivity issue ](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)** 
+**Cause 2: [Network connectivity issue ](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## Causes and solutions
 
 ### <a name="high-data-change-rate-on-the-source-virtal-machine"></a>High data change rate on the source Virtual machine
 Azure Site Recovery fires an event if the data change rate on the source virtual machine is higher than the supported limits. To check if the issue is due to high churn, go to Replicated items> VM > click on “Events -last 72 hours”.
-You should see the event “Data Change rate beyond supported limits” as shown in the screenshot below 
+You should see the event “Data Change rate beyond supported limits” as shown in the screenshot below
 ![data_change_rate_high](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
-If you click on the event you should be able to see the exact disk information as shown in the screenshot below 
+If you click on the event you should be able to see the exact disk information as shown in the screenshot below
 ![data_change_rate_event](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png)
 
 
@@ -57,7 +57,7 @@ Peak data churn across all disks on a VM | 54 MB/s
 ### Solution
 We must understand that Azure Site Recovery has data change rate limits based on the type of disk. To know if this issue is recurring or momentarily, it is important to find the data change rate  pattern  of the affected  virtual machine.
 To find the  data change rate of the affected virtual machine. Go to the source virtual machine> metrics under Monitoring and add the metrics as shown below.
- 
+
 ![high_data_change_rate](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
 
 1.) Click on "Add metric" and add "OS Disk Write Bytes/sec" and "Data Disk Write Bytes/sec". </br>
@@ -67,7 +67,7 @@ To find the  data change rate of the affected virtual machine. Go to the source 
 In cases like above if it is an occasional data burst and the data change rate is greater than 10 MBps (for Premium) and 2 MBps (for Standard) for some time and comes down, replication will catch up. However if the churn is well beyond the supported limit most of the time then you should consider one of the below option if possible:
 
 **Option 1:** Exclude the disk, which is causing high data change rate: </br>
-You can currently exclude the disk using [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine) 
+You can currently exclude the disk using [Site Recovery Powershell](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-powershell#replicate-azure-virtual-machine)
 
 **Option 2:** Change the disaster recovery  storage disk tier </br>
 This option is only possible if the  disk data churn is less than 10 MB/s. Let say a VM with P10 disk is having a data churn of greater than 8 MB/s  but less than 10 MB/s. If customer can use P30 disk for target storage during protection then the issue can be solved.
