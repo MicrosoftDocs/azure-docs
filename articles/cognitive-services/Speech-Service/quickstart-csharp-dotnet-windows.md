@@ -1,7 +1,7 @@
 ---
 title: 'Quickstart: Recognize and transcribe speech, .NET Framework (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real-time.
+description: Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
@@ -16,7 +16,7 @@ ms.author: wolfma
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real-time.
+Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Microsoft Speech enabled. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/?api=speech) to get a subscription key.
 
@@ -34,7 +34,7 @@ To complete this project, you'll need:
 
 ## Add sample code
 
-1. Open `Program.cs`, and replace the automatically generated code with this:
+1. Open `Program.cs` and replace the automatically generated code with this sample:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
@@ -50,7 +50,7 @@ To complete this project, you'll need:
 
     ![Screenshot of Visual Studio application, with Build Solution option highlighted](media/sdk/qs-csharp-dotnet-windows-08-build.png "Successful build")
 
-1. From the menu bar, select **Debug** > **Start Debugging**, or press **F5**. This will start the application.
+1. From the menu bar, select **Debug** > **Start Debugging**, or press **F5** to start the application.
 
     ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start the app into debugging")
 
