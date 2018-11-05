@@ -64,7 +64,7 @@ In order to add Log Analytics connection, your Configuration Manager environment
    
 2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
 
-   1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
+   1. In the Azure portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/develop/quickstart-v1-add-azure-ad-app.md).
    2. In the Azure portal, you've created an app secret key for the registered app in Azure Active Directory.  
    3. In the Azure portal, you've provided the registered web app with permission to access Log Analytics.  
       ![Connection to Log Analytics Wizard General page](./media/log-analytics-sccm/sccm-console-general01.png)
@@ -108,7 +108,7 @@ After the collections are imported, you can see how many computers with collecti
 
 ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](log-analytics-log-searches.md), you can start in-depth analysis of Configuration Manager data.
+When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](log-analytics-queries.md), you can start in-depth analysis of Configuration Manager data.
 
 ## Next steps
-* Use [Log Search](log-analytics-log-searches.md) to view detailed information about your Configuration Manager data.
+* Use [Log Search](log-analytics-queries.md) to view detailed information about your Configuration Manager data.

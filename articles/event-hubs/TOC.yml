@@ -121,6 +121,10 @@
       href: event-hubs-metrics-azure-monitor.md
     - name: Event Hubs management libraries
       href: event-hubs-management-libraries.md
+  - name: Troubleshoot
+    items:
+    - name: Exceptions
+      href: event-hubs-messaging-exceptions.md
   - name: Use IP filters
     href: event-hubs-ip-filtering.md
   - name: Use virtual network service endpoints
@@ -151,8 +155,6 @@
       href: /dotnet/api/microsoft.azure.management.eventhub
   - name: REST
     href: /rest/api/eventhub
-  - name: Exceptions
-    href: event-hubs-messaging-exceptions.md
   - name: Quotas
     href: event-hubs-quotas.md
 - name: Resources
