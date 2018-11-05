@@ -98,7 +98,6 @@ Next, insert the stub code for a **MainWindow** class. A **FaceClient** instance
 
 The two methods, **BrowseButton_Click** and **FacePhoto_MouseMove**, correspond to the event handlers declared in *MainWindow.xaml*. The **BrowseButton_Click** method creates an **OpenFileDialog**, which allows the user to select a .jpg image. The image is read and displayed in the main window. The remaining code for **BrowseButton_Click** and **FacePhoto_MouseMove** is inserted in subsequent steps.
 
-tbd
 ```csharp
 namespace FaceTutorial
 {
@@ -175,25 +174,6 @@ namespace FaceTutorial
     }
 }
 ```
-
-### Insert your subscription key and verify or change the region
-
-- Find the following line in *MainWindow.xaml.cs* and replace `<Subscription Key>` with your Face API subscription key:
-
-    ```csharp
-    private const string subscriptionKey = "<SubscriptionKey>";
-    ```
-
-- Find the following line in *MainWindow.xaml.cs* and replace or verify the Azure region associated with your subscription key:
-
-    ```csharp
-    private const string Endpoint =
-        "https://westcentralus.api.cognitive.microsoft.com";
-    ```
-
-    Make sure the location is the same as where you obtained your subscription keys. If you obtained your subscription keys from the **westus** region, for example, replace `Westcentralus` with `Westus`.
-
-    If you received your subscription keys by using the free trial, the region for your keys is **westcentralus**, so no change is required.
 
 ### Test the app
 
