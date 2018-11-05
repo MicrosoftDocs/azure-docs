@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-news-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: aahi
+ms.author: aahill
 ---
 # Quickstart for Bing News Search API with PHP
 

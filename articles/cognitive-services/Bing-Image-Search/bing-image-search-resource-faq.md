@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: troubleshooting
 ms.date: 10/06/2017
-ms.author: aahi
+ms.author: aahill
 ---
 
 # Frequently asked questions (FAQ) about the Bing Image Search API

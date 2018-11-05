@@ -3,14 +3,14 @@ title: Define a custom view - Bing Custom Search
 titlesuffix: Azure Cognitive Services
 description: Describes how to create site and vertical search services
 services: cognitive-services
-author: aahill
+author: brapel
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
-ms.author: aahi
+ms.author: v-brapel
 ---
 
 # Configure your custom search experience

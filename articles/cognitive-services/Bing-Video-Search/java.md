@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: aahi
+ms.author: aahill
 ---
 # Quickstart: Bing Video Search API with Java
 

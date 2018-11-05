@@ -3,14 +3,14 @@ title: "Quickstart: Bing Autosuggest API, C#"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Bing Autosuggest API.
 services: cognitive-services
-author: aahill
+author: v-jaswel
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-autosuggest
 ms.topic: quickstart
 ms.date: 09/14/2017
-ms.author: aahi
+ms.author: v-jaswel
 ---
 # Quickstart for Bing Autosuggest API with C#
 
