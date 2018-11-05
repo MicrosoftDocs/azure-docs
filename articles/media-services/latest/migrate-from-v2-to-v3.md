@@ -36,9 +36,9 @@ If you have a video service developed today on top of the [legacy Media Services
 
 ### New features
 
-* For file based Job processing, you can use a HTTP(S) URL as the input.
+* For file-based Job processing, you can use a HTTP(S) URL as the input.
     You do not need to have content already stored in Azure, nor do you need to create Assets.
-* Introduces the concept of [Transforms](transforms-jobs-concept.md) for file based Job processing. A Transform can be used to build re-usable configurations, to create Azure Resource Manager Templates, and isolate processing settings between multiple customers or tenants.
+* Introduces the concept of [Transforms](transforms-jobs-concept.md) for file-based Job processing. A Transform can be used to build reusable configurations, to create Azure Resource Manager Templates, and isolate processing settings between multiple customers or tenants.
 * An Asset can have [multiple StreamingLocators](streaming-locators-concept.md) each with different Dynamic Packaging and Dynamic Encryption settings.
 * [Content protection](content-key-policy-concept.md) supports multi-key features.
 * You can stream live events that are up to 24 hours long.
@@ -66,7 +66,7 @@ If you have a video service developed today on top of the [legacy Media Services
 
 ## Feature gaps with respect to v2 APIs
 
-The v3 APIs has the following feature gaps with respect to the v2 APIs. Closing the gaps is work in progress.
+The v3 API has the following feature gaps with respect to the v2 API. Closing the gaps is work in progress.
 
 * The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.
 
