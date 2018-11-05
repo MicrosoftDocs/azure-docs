@@ -69,10 +69,10 @@ Notes on decisions:
 2. Azure AD can hand off user sign-in to a trusted authentication provider such as Microsoft’s AD FS.
 3. If you need to apply user-level Active Directory security policies such as account expired, disabled account, password expired, account locked out, and sign-in hours on each user sign-in, Azure AD requires some on-premises components.
 4. Sign-in features not natively supported by Azure AD:
-* Sign-in using smartcards or certificates.
-* Sign-in using on-premises MFA Server.
-* Sign-in using 3rd party authentication solution.
-* Multi-site on-premises authentication solution.
+   * Sign-in using smartcards or certificates.
+   * Sign-in using on-premises MFA Server.
+   * Sign-in using 3rd party authentication solution.
+   * Multi-site on-premises authentication solution.
 5. Azure AD Identity Protection requires Password Hash Sync regardless of which sign-in method you choose, to provide the "Users with leaked credentials" report. Organizations can failover to Password Hash Sync if their primary sign-in method fails and it was configured before the failure event.
 
 ## Detailed considerations
