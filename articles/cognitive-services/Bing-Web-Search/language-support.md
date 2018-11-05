@@ -3,7 +3,7 @@ title: Language support - Bing Web Search API
 titleSuffix: Azure Cognitive Services
 description: A list of natural languages, countries and regions that are supported by the Bing News Search API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
