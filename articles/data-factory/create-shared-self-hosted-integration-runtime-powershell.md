@@ -30,14 +30,14 @@ This step-by-step guide shows you how to create a shared self-hosted integration
 
 - **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
 
-> [!NOTE]
+> [!NOTE]  
 > For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on  [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
 
 ## Create a data factory
 
-1. **Launch the Windows PowerShell Integrated Scripting Environment (ISE).**
+1. Launch the Windows PowerShell Integrated Scripting Environment (ISE).
 
-1. **Create variables.** Copy and paste the following script. Replace the variables, such as SubscriptionName and ResourceGroupName, with actual values: 
+1. Create variables. Copy and paste the following script. Replace the variables, such as **SubscriptionName** and **ResourceGroupName**, with actual values: 
 
     ```powershell
     # If input contains a PSH special character, e.g. "$", precede it with the escape character "`" like "`$". 
@@ -58,14 +58,14 @@ This step-by-step guide shows you how to create a shared self-hosted integration
     $LinkedIntegrationRuntimeDescription = "[Description for Linked Integration Runtime]"
     ```
 
-1. **Sign in and select a subscription.** Add the following code to the script to sign in and select your Azure subscription:
+1. Sign in and select a subscription. Add the following code to the script to sign in and select your Azure subscription:
 
     ```powershell
     Connect-AzureRmAccount
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-1. **Create a resource group and a data factory.**
+1. Create a resource group and a data factory.
 
     > [!NOTE]  
     > This step is optional. If you already have a data factory, skip this step. 
@@ -86,7 +86,7 @@ This step-by-step guide shows you how to create a shared self-hosted integration
 
 ## Create a self-hosted integration runtime
 
-> [!NOTE]
+> [!NOTE]  
 > This step is optional. If you already have the self-hosted integration runtime that you want to share with other data factories, skip this step.
 
 Run the following command to create a self-hosted integration runtime:
@@ -125,7 +125,7 @@ The response contains the authentication key for this self-hosted integration ru
 
 ### Create another data factory
 
-> [!NOTE]
+> [!NOTE]  
 > This step is optional. If you already have the data factory that you want to share with, skip this step.
 
 ```powershell
@@ -137,7 +137,7 @@ $factory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResourceGroupName `
 
 Grant permission to the data factory that needs to access the self-hosted integration runtime you created and registered.
 
-> [!IMPORTANT]
+> [!IMPORTANT]  
 > Do not skip this step!
 
 ```powershell
