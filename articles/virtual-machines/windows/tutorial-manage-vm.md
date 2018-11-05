@@ -254,7 +254,7 @@ Get-AzureRmVM `
 
 The output will look something like this example:
 
-```azurepowershell-interactive
+```powershell
 Status
 ------
 PowerState/running
