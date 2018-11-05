@@ -37,28 +37,20 @@ This tutorial shows you how to:
 
 ## Create the Visual Studio solution
 
-Follow these steps to create a Windows WPF application project.
+Follow these steps to create a new WPF application project.
 
-1. Open Visual Studio and from the **File** menu, click **New**, then **Project**.
-   - In Visual Studio 2017, expand **Installed**, then **Other Languages**. Select **Visual C#**, then **WPF App (.NET Framework)**.
-   - In Visual Studio 2015, expand **Installed**, then **Templates**. Select **Visual C#**, then **WPF Application**.
+1. In Visual Studio, create a new project.
+    - If you're using Visual Studio 2017, expand **Installed**, then **Visual C#**, then select **WPF App (.NET Framework)**.
+    - If you're using Visual Studio 2015, expand **Installed**, then **Templates**. Select **Visual C#**, then **WPF Application**.
 1. Name the application **FaceTutorial**, then click **OK**.
-1. Get the required NuGet packages. 
-
-## Install the Face service client library
-
-Follow these instructions to install the client library.
-
-1. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**.
-1. In the **Package Manager Console**, paste the following, then press **Enter**.
-
-    `Install-Package Microsoft.Azure.CognitiveServices.Vision.Face -Version 2.2.0-preview`
+1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**; then find and install the following packages:
+    - Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview
 
 ## Add the initial code
 
-### MainWindow.xaml
+### Create the UI
 
-Open *MainWindow.xaml* (tip: swap panes using the **up/down arrow icon**) and replace the contents with the following code. This xaml code is used to create the UI window. Note the event handlers, `FacePhoto_MouseMove` and `BrowseButton_Click`.
+Open *MainWindow.xaml* and replace the contents with the following code. This xaml code is used to create the UI window. Note the event handlers, `FacePhoto_MouseMove` and `BrowseButton_Click`.
 
 ```xml
 <Window x:Class="FaceTutorial.MainWindow"
@@ -81,13 +73,11 @@ Open *MainWindow.xaml* (tip: swap panes using the **up/down arrow icon**) and re
 </Window>
 ```
 
-### MainWindow.xaml.cs
+### Create the main class
 
-Expand *MainWindow.xaml*, then open *MainWindow.xaml.cs*, and replace the contents with the following code. Ignore the squiggly red underlines; they'll disappear after the first build.
+Open *MainWindow.xaml.cs* and replace the contents with the following code. Ignore the error flags; they'll disappear after the first build.
 
-The first two lines import the client library namespaces. Next, the `FaceClient` is created, passing in the subscription key, while the Azure region is set in the `MainWindow` constructor. The two methods, `BrowseButton_Click` and `FacePhoto_MouseMove`, correspond to the event handlers declared in *MainWindow.xaml*.
-
-`BrowseButton_Click` creates an `OpenFileDialog`, which allows the user to select a jpg image. The image is read and displayed in the main window. The remaining code for `BrowseButton_Click` and the code for `FacePhoto_MouseMove` are inserted in subsequent steps.
+First, import the client library namespaces, along with other needed namespaces. 
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.Vision.Face;
@@ -102,13 +92,19 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+```
 
+Next, insert the stub code for a **MainWindow** class. A **FaceClient** instance is created with the subscription key, which you must enter yourself. You must also set the region string in `faceEndpoint` to the correct region for your subscription. Note that free trial subscription keys are generated in the "westcentralus" region. 
+
+The two methods, **BrowseButton_Click** and **FacePhoto_MouseMove**, correspond to the event handlers declared in *MainWindow.xaml*. The **BrowseButton_Click** method creates an **OpenFileDialog**, which allows the user to select a .jpg image. The image is read and displayed in the main window. The remaining code for **BrowseButton_Click** and **FacePhoto_MouseMove** is inserted in subsequent steps.
+
+tbd
+```csharp
 namespace FaceTutorial
 {
     public partial class MainWindow : Window
     {
         // Replace <SubscriptionKey> with your valid subscription key.
-        // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
         private const string subscriptionKey = "<SubscriptionKey>";
 
         // Replace or verify the region.
@@ -116,10 +112,6 @@ namespace FaceTutorial
         // You must use the same region as you used to obtain your subscription
         // keys. For example, if you obtained your subscription keys from the
         // westus region, replace "westcentralus" with "westus".
-        //
-        // NOTE: Free trial subscription keys are generated in the westcentralus
-        // region, so if you are using a free trial subscription key, you should
-        // not need to change this region.
         private const string faceEndpoint =
             "https://westcentralus.api.cognitive.microsoft.com";
 
