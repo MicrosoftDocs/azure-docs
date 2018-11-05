@@ -135,7 +135,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        1. A `.NET FRAMEWORK 3.5` folder, which contains a custom setup to install an earlier version of the .NET Framework that might be required for custom components on each node of your Azure-SSIS IR.
 
-       1. An `AAS` folder, which contains a custom setup to install client libraries on each node of your Azure-SSIS IR that enable your Analysis Services tasks to connect to Azure Analysis Services (AAS) instance using service principal authentication. First, download the latest **MSOLAP (amd64)** and **AMO** client libraries/Windows installers - for example, `x64_15.0.900.108_SQL_AS_OLEDB.msi` and `x64_15.0.900.108_SQL_AS_AMO.msi` - from [here](https://docs.microsoft.com/en-us/azure/analysis-services/analysis-services-data-providers), then upload them all together with `main.cmd` into your container.  
+       1. An `AAS` folder, which contains a custom setup to install client libraries on each node of your Azure-SSIS IR that enable your Analysis Services tasks to connect to Azure Analysis Services (AAS) instance using service principal authentication. First, download the latest **MSOLAP (amd64)** and **AMO** client libraries/Windows installers - for example, `x64_15.0.900.108_SQL_AS_OLEDB.msi` and `x64_15.0.900.108_SQL_AS_AMO.msi` - from [here](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), then upload them all together with `main.cmd` into your container.  
 
        1. A `BCP` folder, which contains a custom setup to install SQL Server command-line utilities (`MsSqlCmdLnUtils.msi`), including the bulk copy program (`bcp`), on each node of your Azure-SSIS IR.
 
