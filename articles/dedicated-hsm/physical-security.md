@@ -10,21 +10,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/05/2018
 ms.author: barclayn
 
 ---
 # Azure Dedicated HSM physical security
 
-Azure Dedicated HSM helps you meet advanced security requirements. It is managed following the most stringent security practices throughout its full lifecycle.
+Azure Dedicated HSM helps you meet advanced security requirements. It is managed following stringent security practices throughout its full lifecycle.
 
 ## Security through procurement
 
-Microsoft follows a highly secure procurement process. We manage the chain of custody and ensure that the specific device ordered and shipped is the device arriving at our datacenters. The HSM devices are stored in a secure storage area until commissioned in the data gallery of the datacenter.  The racks containing the HSM devices are considered high business impact(HBI). They are locked and under video surveillance at all times.
+Microsoft follows a secure procurement process. We manage the chain of custody and ensure that the specific device ordered and shipped is the device arriving at our data centers. The HSM devices are stored in a secure storage area until commissioned in the data gallery of the data center.  The racks containing the HSM devices are considered high business impact(HBI). These devices are locked and under video surveillance at all times.
 
 ## Security through deployment
 
-HSMs are installed in racks together with associated networking components. Once installed, they must be configured and made available as part of the Azure Dedicated HSM Service. This access for this configuration activity is only performed by Microsoft employees (???BACKGROUND CHECKED???) and a “Just In Time” (JIT) administration service is used to ensure only the right employees get access to configure devices for only the purpose and time they need it. This also ensures a log of all activity related to the HSM devices.
+Hardware security modules are installed in racks together with associated networking components. Once installed, they must be configured before they are made available as part of the Azure Dedicated HSM Service. The access for this configuration activity is only performed by Microsoft employees (???BACKGROUND CHECKED???). “Just In Time” (JIT) administration is used to limit access to only the right employees and for only the time that access is needed. The procedures and systems used also ensure that all activity related to the HSM devices is tracked and logged.
 
 ## Security in operations
 
@@ -32,7 +32,7 @@ HSMs are hardware devices so it is possible that component level issues may come
 
 ### Component replacement
 
-Once that a device is provisioned and under customer management the hot-swappable power supply is the only component that may be replaced. This component does not cause a tamper event when removed. If this type of work is required a ticketing system will be used. A request is made in the ticket to allow a Microsoft engineer to access the rear of the HBI rack. When the ticket is processed a temporary physical key is issued. This enables the Microsoft engineer to hot-swap the affected power supply.
+After a device is provisioned and under customer management, the hot-swappable power supply is the only component that may be serviced without triggering a tamper event. If this type of work is required a ticketing system will be used. A request is made in the ticket to allow a Microsoft engineer to access the rear of the HBI rack. When the ticket is processed a temporary physical key is issued. This temporary key gives the Microsoft engineer access to the device and allows them to hot-swap the affected power supply.
 
 ### Device replacement
 
@@ -46,8 +46,7 @@ If for any reason a Microsoft engineer must access the rack used by HSM devices 
 
 ## Logical level security considerations
 
-The HSMs are initially provisioned to a dedicated virtual network created by the customer instead of using the Azure network. While this does have an impact in terms of the ExpressRoute Gateway requirement, it does provide a valuable logical network level isolation increasing confidence in access only being available to the customer.
-Once provisioned, the HSM device is fully under the control of the customer. This implies that any logical level security controls are the responsibility of the customer. The customer’s first task will be to change the administrator password. From that point until the device is reset and decommissioned, Microsoft has no administrative access to the device. The exception for administrative access is the serial port connection. The serial port connection is only available inside the rack. The rack is locked inside a highly secured data gallery area of the datacenters.
+The HSMs are initially provisioned to a dedicated virtual network created by the customer instead of using the Azure network. This configuration has an impact in terms of the ExpressRoute Gateway requirement but it provides a valuable logical network level isolation. This isolation increases confidence in access only being available to the customer. Once provisioned, the HSM device is fully under the control of the customer. This implies that any logical level security controls are the responsibility of the customer. The customer’s first task will be to change the administrator password. From that point until the device is reset and decommissioned, Microsoft has no administrative access to the device. The exception for administrative access is the serial port connection. The serial port connection is only available inside the rack. The rack is locked inside a highly secured data gallery area of the data centers.
 
 ## Next steps
 
