@@ -1,7 +1,7 @@
 ---
-title: "Tutorial: Detect and frame faces in an image using the .NET SDK with C#"
+title: "Tutorial: detect and analyze faces in an image using the .NET SDK"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you create a Windows app that uses the Face API to detect and frame faces in an image.
+description: In this tutorial, you will create a Windows app that uses the Face API to detect and frame faces in an image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -9,16 +9,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 11/5/2018
 ms.author: pafarley
-#Customer intent: As a developer, I want to use the client library to make calling the Face service easier.
+#Customer intent: As a developer of image management/storage software, I want to implement the features of face detection and simple face analysis, so that users can benefit from this information when browsing their photos.
 ---
 
-# Tutorial: Create a WPF app to detect and frame faces in an image using the .NET SDK
+# Tutorial: Create a WPF app to detect and analyze faces in an image
 
-In this tutorial, you create a Windows Presentation Framework (WPF) application that uses the Face service through its .NET client library. The app detects faces in an image, draws a frame around each face, and displays a description of the face on the status bar. The complete sample code is available on GitHub at [Detect and frame faces in an image on Windows](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample).
-
-![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
+In this tutorial, you will create a simple Windows Presentation Framework (WPF) application that uses the Face API service through its .NET client library. The app will detect faces in an image, draw a frame around each face, and display a description of the face on the status bar. The complete sample code is available on the [Cognitive Face CSharp sample](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample) repository on GitHub.
 
 This tutorial shows you how to:
 
@@ -27,13 +25,15 @@ This tutorial shows you how to:
 > - Install the Face service client library
 > - Use the client library to detect faces in an image
 > - Draw a frame around each detected face
-> - Display a description of the face on the status bar
+> - Display a description of the highlighted face on the status bar
+
+![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
+
 
 ## Prerequisites
 
-- You need a subscription key to run the sample. You can get free trial subscription keys from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/). For Visual Studio 2017, the .NET Desktop application development workload is required. This tutorial uses Visual Studio 2017 Community Edition.
-- The [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
+- A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API and get your key.
+- Any edition of [Visual Studio 2015 or 2017](https://www.visualstudio.com/downloads/).
 
 ## Create the Visual Studio solution
 
@@ -43,6 +43,7 @@ Follow these steps to create a Windows WPF application project.
    - In Visual Studio 2017, expand **Installed**, then **Other Languages**. Select **Visual C#**, then **WPF App (.NET Framework)**.
    - In Visual Studio 2015, expand **Installed**, then **Templates**. Select **Visual C#**, then **WPF Application**.
 1. Name the application **FaceTutorial**, then click **OK**.
+1. Get the required NuGet packages. 
 
 ## Install the Face service client library
 
