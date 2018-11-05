@@ -28,7 +28,7 @@ This step-by-step guide shows you how to create a shared self-hosted integration
 
 - **Azure subscription**. If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin. 
 
-- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows](/powershell/azure/install-azurerm-ps). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
+- **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.11.0). You use PowerShell to run a script to create a self-hosted integration runtime that can be shared with other data factories. 
 
 > [!NOTE]  
 > For a list of Azure regions in which Data Factory is currently available, select the regions that interest you on  [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory).
@@ -70,7 +70,7 @@ This step-by-step guide shows you how to create a shared self-hosted integration
     > [!NOTE]  
     > This step is optional. If you already have a data factory, skip this step. 
 
-    Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) by using the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the WestEurope location: 
+    Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) by using the [New-AzureRmResourceGroup](https://docs.microsoft.com/en-us/powershell/module/azurerm.resources/new-azurermresourcegroup?view=azurermps-6.11.0) command. A resource group is a logical container into which Azure resources are deployed and managed as a group. The following example creates a resource group named `myResourceGroup` in the WestEurope location: 
 
     ```powershell
     New-AzureRmResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName
@@ -187,6 +187,6 @@ Remove-AzureRmDataFactoryV2IntegrationRuntime `
 
 ## Next steps
 
-- Review integration runtime concepts in [Integration runtime in Azure Data Factory](concepts-integration-runtime.md).
+- Review [integration runtime concepts in Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/concepts-integration-runtime).
 
-- Learn how to create a self-hosted integration runtime in the Azure portal in [Create and configure a self-hosted integration runtime](create-self-hosted-integration-runtime.md).
+- Learn how to [create a self-hosted integration runtime in the Azure portal](https://docs.microsoft.com/en-us/azure/data-factory/create-self-hosted-integration-runtime).
