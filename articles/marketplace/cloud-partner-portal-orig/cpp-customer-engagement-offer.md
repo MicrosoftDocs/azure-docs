@@ -31,7 +31,7 @@ it demonstrates an example of a custom Dynamics 365 for Customer Engagement
 application, the benefits of providing a Test Drive trial, and how to publish to
 AppSource.
 
-[!Video https://channel9.msdn.com/events/Build/2018/THR1202/player]
+> [!Video https://channel9.msdn.com/events/Build/2018/THR1202/player]
 
 
 ## Publishing process

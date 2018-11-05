@@ -26,7 +26,7 @@ ms.author: pbutlerm
 The following video, [Building Solution Templates, and Managed Applications for the Azure Marketplace](https://channel9.msdn.com/Events/Build/2018/BRK3603), is an overview on how to author an Azure Resource Manager template to define an
 Azure application solution and then how to subsequently publish the app offer to the Azure Marketplace.
 
-[!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
+> [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3603/player]
 
 
 ## Publishing process

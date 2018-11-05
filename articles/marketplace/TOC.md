@@ -126,14 +126,14 @@
 
 <!-- ## [Cortana Intelligence](./cloud-partner-portal-orig/cloud-partner-portal-publish-cortana-intelligence-app.md)  -->
 
-## [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal-orig/cpp-dyn365-ce-offer.md)
+## [Dynamics 365 for Customer Engagement offer](./cloud-partner-portal-orig/cpp-customer-engagement-offer.md)
 ### [Create solution](./cloud-partner-portal-orig/dynamics-365-solution-preparation.md)
 ### [Create package](./cloud-partner-portal-orig/appSource-package-preparation.md)
 ### [Generate SAS key](./cloud-partner-portal-orig/store-your-appSource-package-to-azure-storage-and-generate-sas-key.md)
 ### [Create offer](./cloud-partner-portal-orig/setup-your-application-in-the-publishing-portal.md)
 ### [Publish offer](./cloud-partner-portal-orig/request-to-publish-the-app.md)
 
-## [Dynamics 365 for Business Central offer](./cloud-partner-portal-orig/cpp-dyn365-buscentral-offer.md)
+## [Dynamics 365 for Business Central offer](./cloud-partner-portal-orig/cpp-business-central-offer.md)
 ### [Publish overview](./cloud-partner-portal-orig/d365-finance-overview-publish-your-app.md)
 ### [Create new offer](./cloud-partner-portal-orig/d365-finance-create-new-offer.md)
 ### [Offer settings](./cloud-partner-portal-orig/d365-finance-create-offer-settings.md)
@@ -141,7 +141,7 @@
 ### [Storefront details](./cloud-partner-portal-orig/d365-finance-create-storefront-details.md)
 ### [Publish process](./cloud-partner-portal-orig/d365-finance-app-publishing-process.md)
 
-## [Dynamics 365 for Operations offer](./cloud-partner-portal-orig/cpp-dyn365-operations-offer.md)
+## [Dynamics 365 for Operations offer](./cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md)
 ### [Prerequisites](./cloud-partner-portal-orig/pre-requisites.md)
 ### [How to publish](./cloud-partner-portal-orig/manage-dynamics-365-for-operations.md)
 ### [LCS subscription](./cloud-partner-portal-orig/lcs-subscription.md)
