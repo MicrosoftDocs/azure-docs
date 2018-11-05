@@ -40,7 +40,7 @@ KeyPhrase is not available in all subcultures of Portuguese (Brazil) - ```pt-BR`
 ## Contribute to prebuilt entity cultures
 The prebuilt entities are developed in the Recognizers-Text open-source project. [Contribute](https://github.com/Microsoft/Recognizers-Text) to the project. This project includes examples of currency per culture. 
 
-GeographyV2 and PersonName are not included in the Recognizers-Text project. For issues with these prebuilt entities, please open a [support request](../../../azure-supportability/how-to-create-azure-support-request). 
+GeographyV2 and PersonName are not included in the Recognizers-Text project. For issues with these prebuilt entities, please open a [support request](../../../azure-supportability/how-to-create-azure-support-request.md). 
 
 ## Next steps
 
