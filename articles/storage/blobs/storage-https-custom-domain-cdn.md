@@ -36,7 +36,7 @@ To enable HTTPS for your custom Blob storage endpoint, do the following:
 
 ## Shared access signatures
 
-If your Blob storage endpoint is configured to disallow anonymous read access, you need to provide a [shared access signature](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token in each request you make to your custom domain. By default, Blob storage endpoints disallow anonymous read access. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md)
+By default, Blob storage endpoints disallow anonymous read access. If your Blob storage endpoint is configured to disallow anonymous read access, provide a [shared access signature](../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) token in each request to your custom domain. For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
 
 Azure CDN doesn't respect any restrictions that are added to the shared access signature token. For example, all shared access signature tokens expire. You can still access content with an expired shared access signature until that content is purged from the Azure CDN edge nodes. You can control how long data is cached on Azure CDN by setting the cache response header. To learn how, see [Manage expiration of Azure Storage blobs in Azure CDN](../../cdn/cdn-manage-expiration-of-blob-content.md).
 
@@ -44,7 +44,7 @@ If you create two or more shared access signature URLs for the same blob endpoin
 
 ## HTTP to HTTPS redirection
 
-You can redirect HTTP traffic to HTTPS. Doing so requires the use of the Azure CDN premium offering from Verizon. You need to [Override HTTP behavior by using the Azure CDN rules engine](../../cdn/cdn-rules-engine.md) by applying the following rule:
+You can redirect HTTP traffic to HTTPS. Doing so requires the use of the Azure CDN premium offering from Verizon. [Override HTTP behavior with the Azure CDN rules engine](../../cdn/cdn-rules-engine.md) by applying the following rule:
 
 ![HTTP to HTTPS redirection rule](./media/storage-https-custom-domain-cdn/redirect-to-https.png)
 
@@ -54,11 +54,11 @@ For a deeper dive into rules, see the [Azure CDN rules engine features](../../cd
 
 ## Pricing and billing
 
-When you access blobs through Azure CDN, you pay [Blob storage prices](https://azure.microsoft.com/pricing/details/storage/blobs/) for traffic between the edge nodes and the origin (Blob storage), and you pay [Azure CDN prices](https://azure.microsoft.com/pricing/details/cdn/) for data that's accessed from the edge nodes.
+When you access blobs through Azure CDN, you pay [Blob storage prices](https://azure.microsoft.com/pricing/details/storage/blobs/) for traffic between the edge nodes and the origin (Blob storage). You pay [Azure CDN prices](https://azure.microsoft.com/pricing/details/cdn/) for data that's accessed from the edge nodes.
 
 For example, let's say you have a storage account in West US that you're accessing via Azure CDN. When someone in the UK tries to access a blob in that storage account via Azure CDN, Azure first checks for the blob in the edge node that's closest to the UK. If Azure finds the blob, it accesses a copy and uses Azure CDN pricing, because Azure CDN is accessing it. If Azure doesn't find the blob, it copies the blob to the edge node. This action results in egress and transaction charges, as specified in the Blob storage pricing. Azure then accesses the file on the edge node, which results in Azure CDN billing.
 
-When you look at the [Azure CDN pricing page](https://azure.microsoft.com/pricing/details/cdn/), note that HTTPS support for custom domain names is available for Azure CDN only from Verizon products (Standard and Premium).
+On the [Azure CDN pricing page](https://azure.microsoft.com/pricing/details/cdn/), HTTPS support for custom domain names is available for Azure CDN only from Verizon Standard and Premium products.
 
 ## Next steps
 
