@@ -131,7 +131,7 @@ For example, to access a web form in the *myforms* container in the *photos.cont
 
 ## Deregister a custom domain
 
-To deregister a custom domain for your Blob storage endpoint, use one of the procedures in the next three sections.
+To deregister a custom domain for your Blob storage endpoint, use one of the following procedures.
 
 ### Azure portal
 
