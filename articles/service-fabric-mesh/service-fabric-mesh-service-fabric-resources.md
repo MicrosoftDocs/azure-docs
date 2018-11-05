@@ -77,7 +77,7 @@ Network resource is individually deployable resource, independent of an Applicat
 > The current preview only supports a one to one mapping between applications and networks
 
 ## Gateways
-A Gateway resource connects two networks and routes traffic.  A gateway allows your services to communicate with external clients and provides an ingress into your service(s).  A gateway can also be used to connect your Mesh application with your own, existing virtual network. For more information, read about [networking in Service Fabric Mesh applications](service-fabric-mesh-networking.md#networks-and-gateways).
+A Gateway resource connects two networks and routes traffic.  A gateway allows your services to communicate with external clients and provides an ingress into your service(s).  A gateway can also be used to connect your Mesh application with your own, existing virtual network. For more information, read about [networking in Service Fabric Mesh applications](service-fabric-mesh-networks-and-gateways.md).
 
 ## Secrets
 
