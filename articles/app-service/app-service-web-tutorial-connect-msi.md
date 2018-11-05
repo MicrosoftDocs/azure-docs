@@ -158,8 +158,8 @@ During the earlier steps, you probably noticed your managed identity is connecte
 In the Cloud Shell, add the managed identity for your app into a new Azure Active Directory group called _myAzureSQLDBAccessGroup_, shown in the following script:
 
 ```azurecli-interactive
-groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
-msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
+$groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
+$msiobjectid=$(az webapp identity show --resource-group <group_name> --name <app_name> --query principalId --output tsv)
 az ad group member add --group $groupid --member-id $msiobjectid
 az ad group member list -g $groupid
 ```
