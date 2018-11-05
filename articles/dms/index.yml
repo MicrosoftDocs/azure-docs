@@ -20,7 +20,7 @@ abstract:
     image:
       alt: 
       height: 110
-      src: media/video-thumb-highlighted.png
+      src: media/video-thumb-intro2dms.png
       width: 250  
     title: Introduction to Azure DMS (1:30)
     href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
