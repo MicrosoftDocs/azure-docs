@@ -1,6 +1,6 @@
 ---
-title: Quickstart for using R script in Azure SQL Database (preview) | Microsoft Docs
-description: This topic shows you how to use R script in Azure SQL Database.
+title: Quickstart for using Machine Learning Services (with R) in Azure SQL Database (preview) | Microsoft Docs
+description: This topic shows you how to use Machine Learning Services in Azure SQL Database and how to run R scripts to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -11,53 +11,50 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 10/31/2018
+ms.date: 11/05/2018
 ---
 
-# Quickstart: Use R in Azure SQL database (preview)
+# Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
 
-This article explains how you can run R scripts in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed R code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in Azure SQL database.
+This article explains how you can use Machine Learning Services (with R) in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed R code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in Azure SQL database.
 
-R in SQL Database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL. Use the power of enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
-
-There are some differences between using R in SQL Database and [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning).
-
-- R only. Currently there is no support for Python.
-- No need to configure `external scripts enabled` via `sp_configure`.
-- No need to give script execution permission to users.
-- Packages have to be installed via **sqlmutils**.
+Machine learning in SQL Database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL. Use the power of enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Sign up for the preview
 
-The public preview of R in SQL Database is not enabled by default. Sign up for the preview at [aka.ms/sqldb-r-preview-signup](https://aka.ms/sqldb-r-preview-signup).
+The public preview of Machine Learning Services (with R) in SQL Database is not enabled by default. Send an email to to Microsoft at [sqldbml@microsoft.com](mailto:sqldbml@microsoft.com) to sign up for the public preview.
 
-When you sign up, Microsoft will onboard you to the public preview using either one of these methodologies:
+Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new databases on an R enabled service.
 
-- Migrate an existing SQL database to an R-enabled service
-- Create a new empty R-enabled SQL database
+Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor Managed Instance are supported. You should not use Machine Learning Services with R for production workloads during the public preview.
 
-R in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor Managed Instance are supported. Also, there is no SLA while in public preview.
-
-When your R-enabled SQL database is ready, return to this page to learn how to execute R scripts in the context of a stored procedure.
+When your Machine Learning Services (with R) has been enabled for your SQL database, return to this page to learn how to execute R scripts in the context of a stored procedure.
 
 ## Prerequisites
 
-To run the example code in these exercises, you must first have an SQL database with R enabled.
-You can create a database using one of these quickstarts:
+To run the example code in these exercises, you must first have an SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable Machine Learning Services for your existing or new database.
 
-[!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
-
-You can connect to the SQL Database and run the R scripts using [SQL Server Management Studio](sql-database-connect-query-ssms.md), [Visual Studio Code](sql-database-connect-query-vscode.md), or the [Azure portal](sql-database-connect-query-portal.md). You can also another database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses **SQL Server Management Studio**.
+You can connect to the SQL Database and run the R scripts any database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
 This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
 You also need to sign up for the preview, as described above.
 
+## Different from SQL Server
+
+The functionality of Machine Learning Services (with R) in Azure SQL Database is similar to [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning). However, there are some differences:
+
+- R only. Currently there is no support for Python.
+- No need to configure `external scripts enabled` via `sp_configure`.
+- No need to give script execution permission to users.
+- Packages have to be installed via **sqlmkutils**.
+- There is no separate external resource governance. R resources are a certain percentage of the SQL resources, depending on the tier.
+
 ## Verify R exists
 
-The following steps confirm that R is enabled for your SQL database.
+You can confirm that Machine Learning Services (with R) is enabled for your SQL database. Follow the steps below.
 
 1. Open SQL Server Management Studio.
 1. Open a new Query window in SQL Server Management Studio, and connect to your SQL database.
@@ -75,23 +72,23 @@ The following steps confirm that R is enabled for your SQL database.
     STDOUT message(s) from external script: 
     42
     ```
-1. If you get any errors, it might be because the preview of R is not enabled for your SQL database. You can sign up for the preview at [aka.ms/sqldb-r-preview-signup](https://aka.ms/sqldb-r-preview-signup).
+1. If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See how to sign up for the public preview above.
 
 ## Basic R interaction
 
-There are two ways to run R code in SQL Database:
+There are two ways you can run R code in SQL Database:
 
 + Add a R script as an argument of the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
 
-+ From a [remote R client](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to your SQL database, and execute code using the SQL Database as the compute context. 
++ From a [remote R client](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to your SQL database, and execute code using the SQL Database as the compute context.
 
 The following exercise is focused on the first interaction model: how to pass R code to a stored procedure.
 
 1. Run a simple script to see how an R script can executed in your SQL database.
 
     ```sql
-    EXECUTE sp_execute_external_script 
-    @language = N'R', 
+    EXECUTE sp_execute_external_script
+    @language = N'R',
     @script = N'
     a <- 1
     b <- 2
@@ -109,65 +106,9 @@ The following exercise is focused on the first interaction model: how to pass R 
     0.5 2
     ```
 
-    While getting **stdout** messages is handy when testing your code, more often you need to return the results in tabular format, so that you can use it in an application or write it to a table.
+    While getting **stdout** messages is handy when testing your code, more often you need to return the results in tabular format, so that you can use it in an application or write it to a table. See the inputs and outputs section below for more information.
 
 Remember, everything inside the `@script` argument must be valid R code.
-
-## Check R version
-
-If you would like to see which version of R is installed in your SQL database, do the following:
-
-1. Run the script below on your SQL database.
-
-    ```SQL
-    EXECUTE sp_execute_external_script
-    @language =N'R',
-    @script=N'print(version)';
-    GO
-    ```
-
-2. The R `print` function returns the version to the **Messages** window. In the example output below, you can see that SQL Database in this case have R version 3.4.4 installed.
-
-    **Results**
-
-    ```text
-    STDOUT message(s) from external script:
-                   _
-    platform       x86_64-w64-mingw32
-    arch           x86_64
-    os             mingw32
-    system         x86_64, mingw32
-    status
-    major          3
-    minor          4.4
-    year           2018
-    month          03
-    day            15
-    svn rev        74408
-    language       R
-    version.string R version 3.4.4 (2018-03-15)
-    nickname       Someone to Lean On
-    ```
-
-## List R packages
-
-To see a list of the installed R packages in your SQL database, including version, dependencies, license, and library path information, follow the exercise below.
-
-1. Run the script below on your SQL database.
-
-    ```SQL
-    EXECUTE sp_execute_external_script @language = N'R'
-    , @script = N'
-    OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]);'
-    WITH result sets((Package NVARCHAR(255), Version NVARCHAR(100), Depends NVARCHAR(4000)
-        , License NVARCHAR(1000), LibPath NVARCHAR(2000)));
-    ```
-
-2. The output is from `installed.packages()` in R and returned as a result set.
-
-    **Results**
-
-    ![Installed packages in R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
 ## Inputs and outputs
 
@@ -175,7 +116,7 @@ By default, [sp_execute_external_script](https://review.docs.microsoft.com/sql/r
 
 The stored procedure returns a single R data frame as output, but you can also output scalars and models as variables. For example, you can output a trained model as a binary variable and pass that to a T-SQL INSERT statement, to write that model to a table. You can also generate plots (in binary format) or scalars (individual values, such as the date and time, the time elapsed to train the model, and so forth).
 
-For now, let's look at just the default input and output variables of sp_execute_external_script: `InputDataSet` and `OutputDataSet`. 
+For now, let's look at just the default input and output variables of sp_execute_external_script: `InputDataSet` and `OutputDataSet`.
 
 1. Create a small table of test data by running the following T-SQL statement:
 
@@ -249,6 +190,63 @@ For now, let's look at just the default input and output variables of sp_execute
     **Results**
 
     ![Query results using @script as input](./media/sql-database-connect-query-r/r-data-generated-output.png)
+
+## Check R version
+
+If you would like to see which version of R is installed in your SQL database, do the following:
+
+1. Run the script below on your SQL database.
+
+    ```SQL
+    EXECUTE sp_execute_external_script
+    @language =N'R',
+    @script=N'print(version)';
+    GO
+    ```
+
+2. The R `print` function returns the version to the **Messages** window. In the example output below, you can see that SQL Database in this case have R version 3.4.4 installed.
+
+    **Results**
+
+    ```text
+    STDOUT message(s) from external script:
+                   _
+    platform       x86_64-w64-mingw32
+    arch           x86_64
+    os             mingw32
+    system         x86_64, mingw32
+    status
+    major          3
+    minor          4.4
+    year           2018
+    month          03
+    day            15
+    svn rev        74408
+    language       R
+    version.string R version 3.4.4 (2018-03-15)
+    nickname       Someone to Lean On
+    ```
+
+## List R packages
+
+Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database. To see a list of which R packages are installed, including version, dependencies, license, and library path information, follow the steps below.
+
+1. Run the script below on your SQL database.
+
+    ```SQL
+    EXECUTE sp_execute_external_script @language = N'R'
+    , @script = N'
+    OutputDataSet <- data.frame(installed.packages()[,c("Package", "Version", "Depends", "License", "LibPath")]);'
+    WITH result sets((Package NVARCHAR(255), Version NVARCHAR(100), Depends NVARCHAR(4000)
+        , License NVARCHAR(1000), LibPath NVARCHAR(2000)));
+    ```
+
+2. The output is from `installed.packages()` in R and returned as a result set.
+
+    **Results**
+
+    ![Installed packages in R](./media/sql-database-connect-query-r/r-installed-packages.png)
+
 
 ## Create a predictive model
 
@@ -410,27 +408,21 @@ Use the model you created in the previous section to score predictions against n
 
     ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
+    It is also possible to use the [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) to generate a predicted value or score based on a stored model.
+
 ## Add a package
+
+TODO
 
 1. Something something
 1. Something else something else
 1. And more of something
 
-## Clean up resources
-
-If you're not going to continue to use this application, delete the Azure SQL database
-with the following steps:
-
-1. From the left-hand menu...
-2. ...click Delete, type...and then click Delete
-3. Clickeliclick :)
-
-<!---Required:
-To avoid any costs associated with following the quickstart procedure, a Clean
-up resources (H2) should come just before Next steps (H2)
---->
-
 ## Next steps
 
-- No idea
-- What to put here...
+For more information on Machine Learning Services, see the articles below on SQL Server Machine Learning Services. While these articles are for SQL Server, most of the information is also applicable to Machine Learning Services (with R) in Azure SQL Database.
+
+- [SQL Server Machine Learning Services](https://review.docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
+- [Tutorial: Learn in-database analytics using R in SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [End-to-end data science walkthrough for R and SQL Server](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
+- [Tutorial: Use RevoScaleR R functions with SQL Server data](https://review.docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
