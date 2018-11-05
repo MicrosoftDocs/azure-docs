@@ -3,8 +3,8 @@ title: Start with Apache Kafka - Azure HDInsight Quickstart
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure PowerShell. You also learn about Kafka topics, subscribers, and consumers.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: mvc,hdinsightactive
 ms.topic: quickstart

@@ -2,14 +2,14 @@
 title: Java HBase client - Azure HDInsight 
 description: Learn how to use Apache Maven to build a Java-based Apache HBase application, then deploy it to HBase on Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Build Java applications for Apache HBase
@@ -26,7 +26,7 @@ The steps in this document use [Maven](http://maven.apache.org/) to create and b
 
 ## Requirements
 
-* [Java platform JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html) 8 or later.
+* [Java platform JDK](https://aka.ms/azure-jdks) 8 or later.
 
     > [!NOTE]
     > HDInsight 3.5 and greater requires Java 8. Earlier versions of HDInsight require Java 7.

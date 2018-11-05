@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -108,7 +108,7 @@ During the preview, Data Box Disk can transfer data to the following Azure regio
 
 ## Pricing
 
-During the preview, Data Box Disk is available free of charge. This will change when Data Box Disk is generally available.
+For information on pricing, go to [Preview Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## Next steps
 

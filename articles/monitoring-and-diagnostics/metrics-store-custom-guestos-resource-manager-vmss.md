@@ -269,7 +269,7 @@ To deploy the Resource Manager template, use Azure PowerShell:
 
 1. On the **Monitor** page, select **Metrics**. 
 
-   ![Monitor - Metrics page](./media/metrics-store-custom-rest-api/metrics.png) 
+   ![Monitor - Metrics page](media/metrics-store-custom-guestos-resource-manager-vmss/metrics.png) 
 
 1. Change the aggregation period to **Last 30 minutes**.  
 
