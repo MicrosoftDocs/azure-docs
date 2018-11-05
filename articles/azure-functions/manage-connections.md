@@ -54,7 +54,7 @@ A common question about the .NET [HttpClient](https://msdn.microsoft.com/library
 
 ### HTTP agent examples (Node.js)
 
-Because it provides better connection management options, you should use the native [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) class instead of the `node-fetch` module. Connection parameters are configured using options on the `http.agent` class. See [new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) for the detailed options available with the HTTP agent.
+Because it provides better connection management options, you should use the native [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) class instead of non-native methods, such as the `node-fetch` module. Connection parameters are configured using options on the `http.agent` class. See [new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options) for the detailed options available with the HTTP agent.
 
 The global `http.globalAgent` used by `http.request()` has all of these values set to their respective defaults. The recommended way to configure connection limits in Functions is to set a maximum number globally. The following example sets the maximum number of sockets for the function app:
 
