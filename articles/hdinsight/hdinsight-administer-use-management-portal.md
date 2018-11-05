@@ -1,6 +1,6 @@
 ---
-title: Manage Windows-based Hadoop clusters in HDInsight using the Azure portal 
-description: Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Hadoop command console.
+title: Manage Windows-based Apache Hadoop clusters in HDInsight using the Azure portal 
+description: Learn how to administer HDInsight Service. Create an HDInsight cluster, open the interactive JavaScript console, and open the Apache Hadoop command console.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -13,9 +13,9 @@ ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Manage Windows-based Hadoop clusters in HDInsight by using the Azure portal
+# Manage Windows-based Apache Hadoop clusters in HDInsight by using the Azure portal
 
-Using the [Azure portal][azure-portal], you can create Windows-based Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
+Using the [Azure portal][azure-portal], you can create Windows-based Apache Hadoop clusters in Azure HDInsight, change Hadoop user password, and enable Remote Desktop Protocol (RDP) so you can access the Hadoop command console on the cluster.
 
 The information in this article only applies to Window-based HDInsight clusters. For information on managing Linux-based clusters, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-portal-linux.md).
 

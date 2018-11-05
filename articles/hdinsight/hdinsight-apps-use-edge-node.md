@@ -1,5 +1,5 @@
 ---
-title: Use empty edge nodes on Hadoop clusters in HDInsight - Azure 
+title: Use empty edge nodes on Apache Hadoop clusters in HDInsight - Azure 
 description: How to add an empty edge node to an HDInsight cluster that can be used as a client, and then test/host your HDInsight applications.
 services: hdinsight
 ms.reviewer: jasonh
@@ -12,9 +12,9 @@ ms.date: 04/23/2018
 ms.author: hrasheed
 
 ---
-# Use empty edge nodes on Hadoop clusters in HDInsight
+# Use empty edge nodes on Apache Hadoop clusters in HDInsight
 
-Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no Hadoop services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
+Learn how to add an empty edge node to an HDInsight cluster. An empty edge node is a Linux virtual machine with the same client tools installed and configured as in the headnodes, but with no Apache Hadoop services running. You can use the edge node for accessing the cluster, testing your client applications, and hosting your client applications. 
 
 You can add an empty edge node to an existing HDInsight cluster, to a new cluster when you create the cluster. Adding an empty edge node is done using Azure Resource Manager template.  The following sample demonstrates how it is done using a template:
 
