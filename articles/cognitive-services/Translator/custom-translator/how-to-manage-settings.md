@@ -41,7 +41,7 @@ If you don’t have a subscription, follow the steps below:
     ![How to add subscription key](media/how-to/how-to-add-subscription-key.png)
 
 3. In the dialog, enter the key for your translator subscription, then click the “Add” button.
-1. 
+ 
     ![How to add subscription key](media/how-to/how-to-add-subscription-key-dialog.png)
 4.	After you’ve added a key, you can modify or delete the key at any time.
 
