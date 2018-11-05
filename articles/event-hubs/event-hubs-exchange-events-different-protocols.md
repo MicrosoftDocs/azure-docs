@@ -1,9 +1,9 @@
 ---
-title: Process Apache Kafka for Event Hubs events using Azure Stream analytics | Microsoft Docs
-description: This article shows how to process Kafka events that are ingested through event hubs by using Azure Stream Analytics
+title: Exchange events between consumers and producers that use different protocols in Azure Event Hubs| Microsoft Docs
+description: This article shows how consumers and producers that use different protocols (AMQP, Apache Kafka, and HTTPS) can exchange events when using Azure Event Hubs. 
 services: event-hubs
 documentationcenter: ''
-author: spelluru
+author: basilhariri
 manager: 
 
 ms.service: event-hubs
@@ -12,8 +12,8 @@ ms.topic: article
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/29/2018
-ms.author: spelluru
+ms.date: 11/05/2018
+ms.author: bahariri
 
 ---
 
