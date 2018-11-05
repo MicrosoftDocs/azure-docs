@@ -30,7 +30,7 @@ The preview sample script requires the Event Grid extension. To install, run `az
 
 ## Sample script - preview extension
 
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic-preview.sh "Subscribe to custom topic")]
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.sh "Subscribe to custom topic")]
 
 
 ## Script explanation

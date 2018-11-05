@@ -30,7 +30,7 @@ The preview sample script requires the Event Grid extension. To install, run `az
 
 ## Sample script - preview extension
 
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage/subscribe-to-blob-storage-preview.sh "Subscribe to Blob storage")]
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-blob-storage-preview/subscribe-to-blob-storage-preview.sh "Subscribe to Blob storage")]
 
 ## Script explanation
 

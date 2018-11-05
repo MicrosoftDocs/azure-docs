@@ -28,11 +28,11 @@ The preview sample script requires the Event Grid extension. To install, run `az
 
 ## Sample script - stable
 
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription/filter-events.sh "Subscribe to Azure subscription")]
+[!code-azurecli[main](../../../cli_scripts/event-grid/filter-events/filter-events.sh "Subscribe to Azure subscription")]
 
 ## Sample script - preview extension
 
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription/filter-events-preview.sh "Subscribe to Azure subscription")]
+[!code-azurecli[main](../../../cli_scripts/event-grid/filter-events-preview/filter-events-preview.sh "Subscribe to Azure subscription")]
 
 ## Script explanation
 

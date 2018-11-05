@@ -30,7 +30,7 @@ The preview sample script requires the Event Grid extension. To install, run `az
 
 ## Sample script - preview extension
 
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-resource-group/subscribe-to-resource-group-preview.sh "Subscribe to resource group")]
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-resource-group-preview/subscribe-to-resource-group-preview.sh "Subscribe to resource group")]
 
 ## Script explanation
 

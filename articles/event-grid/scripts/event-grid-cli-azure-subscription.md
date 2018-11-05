@@ -30,7 +30,7 @@ The preview sample script requires the Event Grid extension. To install, run `az
 
 ## Sample script - preview extension
 
-[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription/subscribe-to-azure-subscription-preview.sh "Subscribe to Azure subscription")]
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-azure-subscription-preview/subscribe-to-azure-subscription-preview.sh "Subscribe to Azure subscription")]
 
 ## Script explanation
 
