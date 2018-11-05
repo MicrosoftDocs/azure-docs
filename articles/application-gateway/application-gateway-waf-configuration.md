@@ -5,7 +5,7 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/6/2018
 ms.author: victorh
 
 ---
@@ -33,16 +33,25 @@ WAF also offers a configurable knob to turn the request body inspection on or of
 ![waf-exclusion.png](media/application-gateway-waf-configuration/waf-exclusion.png)
 
 WAF exclusion lists allow users to omit certain request attributes from a WAF evaluation. A common example is Active Directory inserted tokens that are used for authentication or password fields. Such attributes are prone to contain special characters that may trigger a false positive from the WAF rules. Once an attribute is added to the WAF exclusion list, it isn't taken into consideration by any configured and active WAF rule. Exclusion lists are global in scope.
-You can add request headers, request body, request cookies, or request query string arguments to WAF exclusion lists. If the body has form data or XML/JSON (key value pairs) then request attribute exclusion type can be used.
+
+The following can be added to exclusion lists:
+
+* Request Headers
+* Request Cookies
+* Request Body
+
+   * Form multi-part data
+   * XML
+   * JSON
 
 You can specify an exact request header, body, cookie, or query string attribute match, or, can optionally specify partial matches.
 
 The following are the supported match criteria operators:
 
-- **Equals**:  This operator is used for an exact match. As an example, for selecting header named **bearerToken** use equals operator with selector set as **bearerToken**.
-- **Starts with**: This operator matches all fields that start with specified selector value. 
-- **Ends with**:  This operator matches all request fields that end with specified selector value. 
-- **Contains**: This operator matches all request fields that contain specified selector value.
+- **Equals**:  This operator is used for an exact match. As an example, for selecting a header named **bearerToken**, use the equals operator with the selector set as **bearerToken**.
+- **Starts with**: This operator matches all fields that start with the specified selector value.
+- **Ends with**:  This operator matches all request fields that end with the specified selector value.
+- **Contains**: This operator matches all request fields that contain the specified selector value.
 
 In all cases matching is case insensitive and regular expression are not allowed as selectors.
 
