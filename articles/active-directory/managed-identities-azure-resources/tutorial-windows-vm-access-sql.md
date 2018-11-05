@@ -44,7 +44,7 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 
 ## Grant your VM access to a database in an Azure SQL server
 
-Now you can grant your VM access to a database in an Azure SQL server.  For this step, you can use an existing SQL server or create a new one.  To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
+To grant your VM access to a database in an Azure SQL Server, you can use an existing SQL server or create a new one.  To create a new server and database using the Azure portal, follow this [Azure SQL quickstart](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-portal). There are also quickstarts that use the Azure CLI and Azure PowerShell in the [Azure SQL documentation](https://docs.microsoft.com/azure/sql-database/).
 
 There are two steps to granting your VM access to a database:
 
@@ -81,17 +81,17 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 10. In the query window, enter the following line, and click **Execute** in the toolbar:
 
     > [!NOTE]
-    > VMName is the name of the VM that you enabled system assigned identity on in the prerequsites section.
+    > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequsites section.
     
      ```
      CREATE USER [VMName] FROM EXTERNAL PROVIDER
      ```
     
-     The command should complete successfully, creating the contained user for the group.
+     The command should complete successfully, creating the contained user for the VM's system-assigned identity.
 11.  Clear the query window, enter the following line, and click **Execute** in the toolbar:
 
     > [!NOTE]
-    > VMName is the name of the VM that you enabled system assigned identity on in the prerequsites section.
+    > `VMName` in the following command is the name of the VM that you enabled system assigned identity on in the prerequsites section.
      
      ```
      ALTER ROLE db_datareader ADD MEMBER [VMName]
