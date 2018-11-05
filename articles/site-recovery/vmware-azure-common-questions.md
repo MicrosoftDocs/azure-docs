@@ -54,6 +54,8 @@ To discover the getting started steps of deploying the configuration server on y
 ### Where do on-premises VMs replicate to?
 Data replicates to Azure storage. When you run a failover, Site Recovery automatically creates Azure VMs from the storage account.
 
+## Replication
+
 ### What apps can I replicate?
 You can replicate any app or workload running on a VMware VM that complies with [replication requirements](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery provides support for application-aware replication, so that apps can be failed over and failed back to an intelligent state. Site Recovery integrates with Microsoft applications such as SharePoint, Exchange, Dynamics, SQL Server and Active Directory, and works closely with leading vendors, including Oracle, SAP, IBM and Red Hat. [Learn more](site-recovery-workload.md) about workload protection.
 
@@ -69,18 +71,17 @@ Yes, ExpressRoute can be used to replicate VMs to Azure. Site Recovery replicate
 When you replicate to Azure, replication traffic reaches the public endpoints of an Azure Storage account, Thus you can only replicate over the public internet with ExpressRoute (public peering), and VPN doesn't work.
 
 
-
-## What are the replicated VM requirements?
+### What are the replicated VM requirements?
 
 For replication, a VMware VM must be running a supported operating system. In addition, the VM must meet the requirements for Azure VMs. [Learn more](vmware-physical-azure-support-matrix.md##replicated-machines) in the support matrix.
 
-## How often can I replicate to Azure?
+### How often can I replicate to Azure?
 Replication is continuous when replicating VMware VMs to Azure.
 
-## Can I extend replication?
+### Can I extend replication?
 Extended or chained replication isn't supported. Request this feature in [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
 
-## Can I do an offline initial replication?
+### Can I do an offline initial replication?
 This isn't supported. Request this feature in the [feedback forum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### Can I exclude disks?
@@ -136,7 +137,7 @@ We recommend taking regular scheduled backups of the configuration server. For s
 The installers are held in the **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** folder on the configuration server.
 
 ## How do I install the Mobility service?
-You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery), or manual installation from [the UI](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui), or [using PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt). Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md), or [Azure Automation and DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+You install on each VM you want to replicate, using a [push installation](vmware-azure-install-mobility-service.md), or [manual installation](vmware-physical-mobility-service-install-manual.md) from the UI or Powershell. Alternatively, you can deploy using a deployment tool such as [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 
