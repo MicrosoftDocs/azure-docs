@@ -25,7 +25,7 @@ You can use the Azure ExpressRoute Monitor capability in [Network Performance Mo
 - Tracking of bandwidth utilization, loss and latency at the circuit, peering, and Azure Virtual Network level for ExpressRoute.
 - Discovery of network topology of your ExpressRoute circuits.
 
-![ExpressRoute Monitor](media/log-analytics-network-performance-monitor/expressroute-intro.png)
+![ExpressRoute Monitor](media/log-analytics-network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## Configuration 
 To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and select **Configure**.
@@ -50,7 +50,7 @@ For more information about NSGs, see [Network security groups](../virtual-netw
     >[!NOTE]
     > Only private peerings connected to the virtual networks associated with the subscription linked with this Log Analytics workspace are discovered. If ExpressRoute is connected to virtual networks outside of the subscription linked to this workspace, create a Log Analytics workspace in those subscriptions. Then use Network Performance Monitor to monitor those peerings. 
 
-    ![ExpressRoute Monitor configuration](media/log-analytics-network-performance-monitor/expressroute-configure.png)
+    ![ExpressRoute Monitor configuration](media/log-analytics-network-performance-monitor-expressroute/expressroute-configure.png)
  
  After the discovery is complete, the discovered private peering connections are listed in a table. The monitoring for these peerings is initially in a disabled state. 
 
@@ -63,7 +63,7 @@ For more information about NSGs, see [Network security groups](../virtual-netw
 5. Select **Add Agents** to choose the monitoring agents you intend to use for monitoring this peering connection. Make sure that you add agents on both ends of the connection. You need at least one agent in the virtual network connected to this peering. You also need at least one on-premises agent connected to this peering. 
 6. Select **Save** to save the configuration. 
 
-   ![ExpressRoute monitoring configuration](media/log-analytics-network-performance-monitor/expressroute-configure-discovery.png)
+   ![ExpressRoute monitoring configuration](media/log-analytics-network-performance-monitor-expressroute/expressroute-configure-discovery.png)
 
 
 After you enable the rules and select values and agents, wait 30 to 60 minutes for the values to populate and the **ExpressRoute Monitoring** tiles to appear. When you see the monitoring tiles, your ExpressRoute circuits and connection resources are now monitored by Network Performance Monitor. 
@@ -75,37 +75,37 @@ After you enable the rules and select values and agents, wait 30 to 60 minutes f
 
 The Network Performance Monitor dashboard shows an overview of the health of ExpressRoute circuits and peering connections. 
 
-![Network Performance Monitor dashboard](media/log-analytics-network-performance-monitor/npm-dashboard-expressroute.png) 
+![Network Performance Monitor dashboard](media/log-analytics-network-performance-monitor-expressroute/npm-dashboard-expressroute.png) 
 
 ### Circuits list 
 
 To see a list of all monitored ExpressRoute circuits, select the ExpressRoute circuits tile. You can select a circuit and view its health state, trend charts for packet loss, bandwidth utilization, and latency. The charts are interactive. You can select a custom time window for plotting the charts. Drag the mouse over an area on the chart to zoom in and see fine-grained data points. 
 
-![ExpressRoute circuits list](media/log-analytics-network-performance-monitor/expressroute-circuits.png) 
+![ExpressRoute circuits list](media/log-analytics-network-performance-monitor-expressroute/expressroute-circuits.png) 
 
 ### Trends of loss, latency, and throughput 
 
 The bandwidth utilization, latency, and loss charts are interactive. You can zoom in to any section of these charts by using mouse controls. You also can see the bandwidth, latency, and loss data for other intervals. In the upper left under the **Actions** button, select **Date/Time**. 
 
-![ExpressRoute latency](media/log-analytics-network-performance-monitor/expressroute-latency.png) 
+![ExpressRoute latency](media/log-analytics-network-performance-monitor-expressroute/expressroute-latency.png) 
 
 ### Peerings list 
 
 To bring up a list of all connections to virtual networks over private peering, select the **Private Peerings** tile on the dashboard. Here, you can select a virtual network connection and view its health state, trend charts for packet loss, bandwidth utilization, and latency. 
 
-![ExpressRoute peerings](media/log-analytics-network-performance-monitor/expressroute-peerings.png) 
+![ExpressRoute peerings](media/log-analytics-network-performance-monitor-expressroute/expressroute-peerings.png) 
 
 ### Circuit topology 
 
 To view circuit topology, select the **Topology** tile. This action takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network, and each layer 3 hop is represented by a node of the diagram. Selecting a hop reveals more details about the hop. To increase the level of visibility to include on-premises hops, move the slider bar under **FILTERS**. Moving the slider bar to the left or right increases or decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high-latency segments on your network. 
 
-![ExpressRoute topology](media/log-analytics-network-performance-monitor/expressroute-topology.png)
+![ExpressRoute topology](media/log-analytics-network-performance-monitor-expressroute/expressroute-topology.png)
 
 ### Detailed topology view of a circuit 
 
 This view shows virtual network connections. 
 
-![ExpressRoute virtual network connections](media/log-analytics-network-performance-monitor/expressroute-vnet.png)
+![ExpressRoute virtual network connections](media/log-analytics-network-performance-monitor-expressroute/expressroute-vnet.png)
  
 
 ### Diagnostics 
@@ -114,7 +114,7 @@ Network Performance Monitor helps you diagnose several circuit connectivity issu
 
 **Circuit is down.** Network Performance Monitor notifies you as soon as the connectivity between your on-premises resources and Azure virtual networks is lost. This notification helps you take proactive action before you receive user escalations and reduce downtime.
 
-![ExpressRoute circuit is down](media/log-analytics-network-performance-monitor/expressroute-circuit-down.png)
+![ExpressRoute circuit is down](media/log-analytics-network-performance-monitor-expressroute/expressroute-circuit-down.png)
  
 
 **Traffic not flowing through intended circuit.** Network Performance Monitor notifies you whenever traffic isn't flowing through the intended ExpressRoute circuit. This issue can happen if the circuit is down and traffic is flowing through the backup route. It also can happen if there's a routing issue. This information helps you proactively manage any configuration issues in your routing policies and make sure that the most optimal and secure route is used. 
@@ -124,14 +124,14 @@ Network Performance Monitor helps you diagnose several circuit connectivity issu
 **Traffic not flowing through primary circuit.** Network Performance Monitor notifies you when traffic is flowing through the secondary ExpressRoute circuit. Even though you won't experience any connectivity issues in this case, proactively troubleshooting the issues with the primary circuit makes you better prepared. 
 
  
-![ExpressRoute traffic flow](media/log-analytics-network-performance-monitor/expressroute-traffic-flow.png)
+![ExpressRoute traffic flow](media/log-analytics-network-performance-monitor-expressroute/expressroute-traffic-flow.png)
 
 
 **Degradation due to peak utilization.** You can correlate the bandwidth utilization trend with the latency trend to identify whether the Azure workload degradation is due to a peak in bandwidth utilization or not. Then you can take action accordingly.
 
-![ExpressRoute bandwidth utilization](media/log-analytics-network-performance-monitor/expressroute-peak-utilization.png)
+![ExpressRoute bandwidth utilization](media/log-analytics-network-performance-monitor-expressroute/expressroute-peak-utilization.png)
 
  
 
 ## Next steps
-[Search logs](log-analytics-log-searches.md) to view detailed network performance data records.
+[Search logs](log-analytics-queries.md) to view detailed network performance data records.
