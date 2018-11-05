@@ -133,7 +133,7 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-Links to update rollups for upgrading to all versions of the configuration server are available in the [Azure updates page](https://azure.microsoft.com/en-us/updates/?product=site-recovery).
+Links to update rollups for upgrading to all versions of the configuration server are available in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
 
 > [!IMPORTANT]
 > With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.
