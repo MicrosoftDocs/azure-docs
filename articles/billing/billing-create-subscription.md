@@ -19,7 +19,7 @@ ms.author: cwatson
 ---
 # Create a subscription in the Azure portal
 
-You can create additional subscriptions for your Azure account. But if you want to create a subscription for your Enterprise account, you must have the Azure Enterprise or Department Administrator role for your organization.
+You can create additional subscriptions for your Azure account. But if you want to create Azure subscriptions under your organization's Enterprise Agreement, you must have the Account Owner role for your organization.
 
 ## Create an Azure subscription
 
