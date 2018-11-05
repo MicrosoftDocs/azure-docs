@@ -11,13 +11,29 @@ ms.tgt_pltfrm: linux
 ms.component: disks
 ---
 
-# Common terms
+# Defining the common terms in Azure Disks
 
 This article defines several of the primary terminologies used in the Azure Disks space. Understanding these terms will be essential in determining what resources are necessary for your applications. Especially if you're designing a high performance application.
 
-## VHDs
+## What is an Azure Disk?
 
-VHDs are virtual hard disks. In the azure space they can either be data or OS disks.
+An Azure Disk is essentially a VHD (virtual hard disks). You can think of them just as you would an on-prem disk but for a more direct analogy they're akin to a VMDK or a VHDx/VMD. Internally they are page blobs which you don't have to manage if you're using managed disks. In the Azure space they can either be data or OS disks.
+
+
+### Data Disks
+
+A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4095 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+
+> [!NOTE]
+> For more information about virtual machines capacities, see [Sizes for Linux virtual machines](./sizes.md).
+
+Azure creates an operating system disk when you create a virtual machine from an image. If you use an image that includes data disks, Azure also creates the data disks when it creates the virtual machine. Otherwise, you add data disks after you create the virtual machine.
+
+You can add data disks to a virtual machine at any time, by **attaching** the disk to the virtual machine. You can use a VHD that you've uploaded or copied to your storage account, or one that Azure creates for you. Attaching a data disk associates the VHD file with the VM, by placing a 'lease' on the VHD so it can't be deleted from storage while it's still attached.
+
+### OS Disks
+
+Every virtual machine has one attached operating system disk. It's registered as a SATA drive and is labeled /dev/sda by default. This disk has a maximum capacity of 2048 gigabytes (GB).
 
 ## IOPS
 
