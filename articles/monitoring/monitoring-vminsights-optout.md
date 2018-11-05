@@ -21,7 +21,7 @@ ms.author: magoedte
 
 If, after you enable monitoring of your virtual machines, you decide you no longer want to monitor them with Azure Monitor for VMs, you can *opt out* or disable monitoring. This article shows how to accomplish this for a single or multiple VMs.  
 
-Currently, Azure Monitor for VMs does not support selectively disable monitoring of your VMs. If your Log Analytics workspace configured to support this solution is also supporting other solutions and collection of other monitoring data, it's important you understand the impact and methods described below for removal before proceeding.
+Currently, Azure Monitor for VMs does not support selectively disable monitoring of your VMs. If your Log Analytics workspace configured to support this solution is also supporting other solutions and collection of other monitoring data, it's important you understand the impact and methods described below before proceeding.
 
 Azure Monitor for VMs relies on the following components to deliver its experience:
 
