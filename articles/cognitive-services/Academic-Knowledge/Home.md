@@ -3,14 +3,14 @@ title: What is Academic Knowledge API?
 titlesuffix: Azure Cognitive Services
 description: Use the Academic Knowledge API to interpret user queries and retrieve rich information from the Academic Graph.
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
+ms.date: 10/30/2018
+ms.author: darrine
 ---
 
 # Academic Knowledge API
@@ -28,13 +28,10 @@ The Academic Knowledge API consists of four related REST endpoints:
   1. **interpret** – Interprets a natural language user query string. Returns annotated interpretations to enable rich search-box auto-completion experiences that anticipate what the user is typing.  
   2. **evaluate** – Evaluates a query expression and returns Academic Knowledge entity results.  
   3. **calchistogram** – Calculates a histogram of the distribution of attribute values for the academic entities returned by a query expression, such as the distribution of citations by year for a given author.  
-  4. **graph search** – Searches for a given graph pattern and returns the matched entity results.
-
+  
 Used together, these API methods allow you to create a rich semantic search experience. Given a user query string, the **interpret** method provides you with an annotated version of the query and a structured query expression, while optionally completing the user’s query based on the semantics of the underlying academic data. For example, if a user types the string *latent s*, the **interpret** method can provide a set of ranked interpretations, suggesting that the user might be searching for the field of study *latent semantic analysis*, the paper *latent structure analysis*, or other entity expressions starting with *latent s*. This information can be used to quickly guide the user to the desired search results.
 
 The **evaluate** method can be used to retrieve a set of matching paper entities from the academic knowledge base, and the **calchistogram** method can be used to calculate the distribution of attribute values for a set of paper entities which can be used to further filter the search results.        
-
-The **graph search** method has two modes: *json* and *lambda*. The *json* mode can perform graph pattern matching according to the graph patterns specified by a JSON object. The *lambda* mode can perform server-side computations during graph traversals according to the user-specified lambda expressions.
 
 ## Getting Started 
 Please see the subtopics at the left for detailed documentation.  Note that to improve the readability of the examples, the REST API calls contain characters (such as spaces) that have not been URL-encoded.  Your code will need to apply the appropriate URL-encodings.

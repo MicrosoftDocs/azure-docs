@@ -1,11 +1,14 @@
 ---
-title: Customize pronunciation with Speech Services in Azure Cognitive Services 
-description: Learn how to customize pronunciation with the Speech Services in Azure Cognitive Services.
+title: Customize pronunciation with Speech Service
+titlesuffix: Azure Cognitive Services
+description: Learn how to customize pronunciation with the Speech Service.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/02/2018
 ms.author: panosper
 ---

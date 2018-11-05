@@ -71,7 +71,7 @@ For more information on Azure Government Compliance, refer to the [compliance do
 
 ## Endpoint mapping
 
-To learn about mapping global Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
+The following table shows the mapping between some Azure services and Azure Government endpoints.
 
 > [!NOTE]
 > The **Active Directory Authority** for Azure Government has changed from https://login-us.microsoftonline.com to https://login.microsoftonline.us.  The original URL will continue to work but all applications should be updated to the new authority URL.
@@ -80,17 +80,19 @@ To learn about mapping global Azure and SQL Database endpoints to Azure Governme
 | --- | --- | --- |
 | Portal | https://portal.azure.us | https://portal.azure.com |
 | Active Directory Endpoint and Authority | https://login.microsoftonline.us | https://login.microsoftonline.com <br/> https://login.windows.net |
+| Active Directory tenant names | [yourtenantname].onmicrosoft.com | [yourtenantname].onmicrosoft.com |
 | Active Directory Graph API | https://graph.windows.net/ | https://graph.windows.net/ |
 | Microsoft Graph API | https://graph.microsoft.com/ | https://graph.microsoft.com/ |
 | Azure API | https://management.usgovcloudapi.net/ | https://management.azure.com/ |
-| SQL Database DNS Suffix | *.database.usgovcloudapi.net | *.database.windows.net |
-| Storage DNS Suffix | *.core.usgovcloudapi.net | *.core.windows.net |
-| Traffic Manager DNS Suffix | *.usgovtrafficmanager.net | *.trafficmanager.net |
-| Key Vault DNS Suffix | *.vault.usgovcloudapi.net | *.vault.azure.net |
-| Service Bus DNS Suffix | *.servicebus.usgovcloudapi.net | *.servicebus.windows.net |
+| SQL Database DNS Suffix | \*.database.usgovcloudapi.net | \*.database.windows.net |
+| Storage DNS Suffix | \*.core.usgovcloudapi.net | \*.core.windows.net |
+| Traffic Manager DNS Suffix | \*.usgovtrafficmanager.net | \*.trafficmanager.net |
+| Key Vault DNS Suffix | \*.vault.usgovcloudapi.net | \*.vault.azure.net |
+| Service Bus DNS Suffix | \*.servicebus.usgovcloudapi.net | \*.servicebus.windows.net |
 | Gallery Url | https://gallery.azure.us/ | https://gallery.azure.com/ |
 | Classic Deployment Model Url | https://management.core.usgovcloudapi.net/ | https://management.core.windows.net/ |
 | Publish Settings File Url | https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade | https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade |
+| LUIS Portal | https://luis.azure.us | https://luis.ai
 
 ## Next steps
 For more information about Azure Government, see the following resources:
