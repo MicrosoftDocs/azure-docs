@@ -7560,6 +7560,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-ethereum.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-ethereum",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/blockchain-workbench/blockchain-workbench-architecture.md",
             "redirect_url": "/azure/blockchain/workbench/architecture",
             "redirect_document_id": false
