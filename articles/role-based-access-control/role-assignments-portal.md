@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/27/2018
+ms.date: 11/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ---
@@ -97,11 +97,11 @@ In RBAC, to grant access, you assign a role to a user, group, service principal,
 
 1. Click the **Role assignments** tab to view all the role assignments at this scope.
 
-1. Click **Add role assignment** to open the **Add permissions** pane.
+1. Click **Add role assignment** to open the Add role assignment pane.
 
-   If you don't have permissions to assign roles, you won't see the **Add role assignment** option.
+   If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add permissions pane](./media/role-assignments-portal/add-permissions.png)
+   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
 1. In the **Role** drop-down list, select a role such as **Virtual Machine Contributor**.
 
@@ -123,11 +123,11 @@ To make a user an administrator of an Azure subscription, assign them the [Owner
 
 1. Click the **Role assignments** tab to view all the role assignments for this subscription.
 
-1. Click **Add role assignment** to open the **Add permissions** pane.
+1. Click **Add role assignment** to open the Add role assignment pane.
 
-   If you don't have permissions to assign roles, you won't see the **Add role assignment** option.
+   If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add permissions pane](./media/role-assignments-portal/add-permissions.png)
+   ![Add role assignment pane](./media/role-assignments-portal/add-role-assignment.png)
 
 1. In the **Role** drop-down list, select the **Owner** role.
 
