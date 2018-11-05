@@ -28,6 +28,7 @@ The Standard tier of Azure Event Hubs provides features beyond what is available
 * Additional brokered connections, with an overage charge for more than the number included
 * More than a single [consumer group](event-hubs-features.md#consumer-groups)
 * [Capture](event-hubs-capture-overview.md)
+* [Kafka integration](event-hubs-for-kafka-ecosystem-overview.md)
 
 For more information about pricing tiers, including Event Hubs Dedicated, see the [Event Hubs pricing details](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -51,6 +52,27 @@ Event Hubs emits exhaustive metrics that provide the state of your resources to 
 ### How do I integrate my existing Kafka application with Event Hubs?
 Event Hubs provides a Kafka endpoint that can be used by your existing Apache Kafka based applications. A configuration change is all that is required to have the PaaS Kafka experience. It provides an alternative to running your own Kafka cluster. Event Hubs supports Apache Kafka 1.0 and newer client versions and works with your existing Kafka applications, tools, and frameworks. For more information, see [Event Hubs for Kafka repo](https://github.com/Azure/azure-event-hubs-for-kafka).
 
+### What configuration changes need to be done for my existing application to talk to Event Hubs?
+To connect to a Kafka-enabled Event Hub, you'll need to update the Kafka client configs. This is done by creating an Event Hubs namespace and obtaining the [connection string](event-hubs-get-connection-string.md). Change the bootstrap.servers to point the Event Hubs FQDN and the port to 9093. Update the sasl.jaas.config to direct the Kafka client to your Kafka-enabled Event Hubs endpoint (which is the connection string you have obtained), with correct authentication as shown below:
+
+bootstrap.servers={YOUR.EVENTHUBS.FQDN}:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{YOUR.EVENTHUBS.CONNECTION.STRING}";
+
+Example:
+
+bootstrap.servers=dummynamespace.servicebus.windows.net:9093
+request.timeout.ms=60000
+security.protocol=SASL_SSL
+sasl.mechanism=PLAIN
+sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="Endpoint=sb://dummynamespace.servicebus.windows.net/;SharedAccessKeyName=DummyAccessKeyName;SharedAccessKey=5dOntTRytoC24opYThisAsit3is2B+OGY1US/fuL3ly=";
+
+Note: If sasl.jaas.config is not a supported configuration in your framework, find the configurations that are used to set the SASL username and password and use those instead. Set the username to $ConnectionString and the password to your Event Hubs connection string.
+
+### What is the message/event size for Kafka-enabled Event Hubs?
+The maximum message size allowed for Kafka-enabled Event Hubs is 1MB.
 
 ## Throughput units
 
