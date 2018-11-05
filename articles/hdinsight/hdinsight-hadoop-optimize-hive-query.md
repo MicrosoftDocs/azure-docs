@@ -2,14 +2,14 @@
 title: Optimize Hive queries in Azure HDInsight 
 description: Learn how to optimize your Hive queries for Hadoop in HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Optimize Hive queries in Azure HDInsight

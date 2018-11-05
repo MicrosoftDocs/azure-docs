@@ -2,8 +2,8 @@
 title: Azure HDInsight troubleshooting guides
 description: Troubleshoot Hadoop workloads by using Azure HDInsight. Step-by-step documentation shows you how to use HDInsight to solve common problems with Hive, Spark, YARN, HBase, HDFS, and Storm.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/2/2017
