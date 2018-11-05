@@ -61,8 +61,10 @@ sections:
 - title: Reference
   items:
   - type: list
-    style: cards
-    className: cardsD
+    style: unordered
+    className: spaced noBullet
     items:
-    - html: <p><a href="/azure/dms/pre-reqs">Overview of prerequisites for using the Azure Database Migration Service</a></p><p><a href="/azure/dms/faq">FAQ about using the Azure Database Migration Service</a></p><p><a href="/azure/dms/known-issues-azure-sql-online">Known issues/migration limitations with online migrations to Azure SQL DB</a></p>
+    - html: <a href="/azure/dms/pre-reqs">Overview of prerequisites for using the Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/faq">FAQ about using the Azure Database Migration Service</a>
+    - html: <a href="/azure/dms/known-issues-azure-sql-online">Known issues/migration limitations with online migrations to Azure SQL DB</a>
     
