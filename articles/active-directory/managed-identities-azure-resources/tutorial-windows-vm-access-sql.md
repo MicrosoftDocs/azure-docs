@@ -54,7 +54,7 @@ There are two steps to granting your VM access to a database:
 
 ## Enable Azure AD authentication for the SQL server
 
-Now that you have created the group and added the VM's system-assigned managed identity to the membership, you can [configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
+[Configure Azure AD authentication for the SQL server](/azure/sql-database/sql-database-aad-authentication-configure#provision-an-azure-active-directory-administrator-for-your-azure-sql-server) using the following steps:
 
 1.	In the Azure portal, select **SQL servers** from the left-hand navigation.
 2.	Click the SQL server to be enabled for Azure AD authentication.
@@ -63,7 +63,7 @@ Now that you have created the group and added the VM's system-assigned managed i
 5.	Select an Azure AD user account to be made an administrator of the server, and click **Select.**
 6.	In the command bar, click **Save.**
 
-## Create a contained user in the database that represents the Azure AD group
+## Create a contained user in the database that represents the VM's system assigned identity
 
 For this next step, you will need [Microsoft SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS). Before beginning, it may also be helpful to review the following articles for background on Azure AD integration:
 
@@ -79,17 +79,23 @@ For this next step, you will need [Microsoft SQL Server Management Studio](https
 7.  Click **Connect**.  Complete the sign-in process.
 8.  In the **Object Explorer**, expand the **Databases** folder.
 9.  Right-click on a user database and click **New query**.
-10.  In the query window, enter the following line, and click **Execute** in the toolbar:
+10. In the query window, enter the following line, and click **Execute** in the toolbar:
+
+    > [!NOTE]
+    > VMName is the name of the VM that you enabled system assigned identity on in the prerequsites section.
     
      ```
-     CREATE USER [VM managed identity access to SQL] FROM EXTERNAL PROVIDER
+     CREATE USER [VMName] FROM EXTERNAL PROVIDER
      ```
     
      The command should complete successfully, creating the contained user for the group.
 11.  Clear the query window, enter the following line, and click **Execute** in the toolbar:
+
+    > [!NOTE]
+    > VMName is the name of the VM that you enabled system assigned identity on in the prerequsites section.
      
      ```
-     ALTER ROLE db_datareader ADD MEMBER [VM managed identity access to SQL]
+     ALTER ROLE db_datareader ADD MEMBER [VMName]
      ```
 
      The command should complete successfully, granting the contained user the ability to read the entire database.
