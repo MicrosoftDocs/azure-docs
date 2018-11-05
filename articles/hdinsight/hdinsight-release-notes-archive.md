@@ -3,13 +3,13 @@ title: Archived release notes for Azure HDInsight
 description: Archived release notes and versions of Azure HDInsight. 
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Archived release notes for Azure HDInsight
