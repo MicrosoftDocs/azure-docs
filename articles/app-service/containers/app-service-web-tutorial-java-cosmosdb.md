@@ -15,7 +15,7 @@ ms.custom: mvc
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
 
-![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
+![Java app running in Azure appservice](./media/app-service-web-tutorial-java-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 In this tutorial, you learn how to:
 
@@ -137,7 +137,7 @@ bash-3.2$ mvn package spring-boot:run
 
 You can access Spring TODO App locally using this link once the app is started: [http://localhost:8080/](http://localhost:8080/).
 
- ![](./media/spring-todo-app-running-locally.jpg)
+ ![](./media/app-service-web-tutorial-java-cosmosdb/spring-todo-app-running-locally.jpg)
 
 If you see exceptions instaead of the "Started TodoApplication" message, check that the `bash` script in the previous step exported the environment variables properly and that the values are correct for the Azure Cosmos DB database you created.
 
@@ -225,10 +225,9 @@ bash-3.2$ mvn azure-webapp:deploy
 
 ## View the app on Azure
 
-```bash
-open https://spring-todo-app.azurewebsites.net
-```
-![](./media/spring-todo-app-running-in-app-service.jpg)
+Open the running app by pointing to the URL displayed in the Maven output in the previous step in (`Sucessfully deployed the artifact to`) your wweb browser.
+
+![](./media/app-service-web-tutorial-java-cosmosdb/spring-todo-app-running-in-app-service.jpg)
 
 ## View logs to troubleshoot the app
 
