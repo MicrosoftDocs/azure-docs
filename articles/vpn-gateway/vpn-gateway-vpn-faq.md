@@ -117,7 +117,7 @@ Yes. See [Configure force tunneling](vpn-gateway-about-forced-tunneling.md).
 
 Yes, you can deploy your own VPN gateways or servers in Azure either from the Azure Marketplace or creating your own VPN routers. You need to configure user-defined routes in your virtual network to ensure traffic is routed properly between your on-premises networks and your virtual network subnets.
 
-### Why are certain ports opened on my virtual network gateway?
+### <a name="gatewayports"></a>Why are certain ports opened on my virtual network gateway?
 
 They are required for Azure infrastructure communication. They are protected (locked down) by Azure certificates. Without proper certificates, external entities, including the customers of those gateways, will not be able to cause any effect on those endpoints.
 
