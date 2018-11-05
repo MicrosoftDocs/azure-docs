@@ -1,62 +1,62 @@
 ---
-title: "Tutorial: Create an object detection project with the Custom Vision SDK for Java - Custom Vision Service"
+title: "Quickstart: Create an object detection project with the Custom Vision SDK for Java"
 titlesuffix: Azure Cognitive Services
-description: Create a project, add tags, upload images, train your project, and make a prediction using the default endpoint.
+description: Create a project, add tags, upload images, train your project, and detect objects using the Java SDK.
 services: cognitive-services
 author: areddish
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: tutorial
-ms.date: 08/28/2018
+ms.topic: quickstart
+ms.date: 10/31/2018
 ms.author: areddish
 ---
 
-# Tutorial: Create an object detection project with the Custom Vision SDK for Java
+# Quickstart: Create an object detection project with the Custom Vision SDK for Java
 
-Explore a basic Java application that uses the Computer Vision API to create an object detection project. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this open-source example as a template for building your own app by using the Custom Vision API.
+This article provides information and sample code to help you get started using the Custom Vision SDK with Java to build an object detection model. After it's created, you can add tagged regions, upload images, train the project, obtain the project's default prediction endpoint URL, and use the endpoint to programmatically test an image. Use this example as a template for building your own Java application. 
 
 ## Prerequisites
 
-To use the tutorial, you need to do the following:
+- A Java IDE of your choice
+- [JDK 7 or 8](https://aka.ms/azure-jdks) installed.
+- Maven installed
 
-- Install [JDK 7 or 8](https://aka.ms/azure-jdks)
-- Install Maven.
-
-## Install the Custom Vision Service SDK
+## Get the Custom Vision SDK and sample code
+To write a Java app that uses Custom Vision, you'll need the Custom Vision maven packages. These are included in the sample project you will download, but you can access them individually here.
 
 You can install the Custom Vision SDK from maven central repository:
 * [Training SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-training)
 * [Prediction SDK](https://mvnrepository.com/artifact/com.microsoft.azure.cognitiveservices/azure-cognitiveservices-customvision-prediction)
 
+Clone or download the [Cognitive Services Java SDK Samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master) project. Navigate to the **Vision/CustomVision/** folder.
+
+This Java project creates a new Custom Vision object detection project named __Sample Java OD Project__, which can be accessed through the [Custom Vision website](https://customvision.ai/). It then uploads images to train and test a classifier. In this project, the classifier is intended to determine whether a tree is a __Hemlock__ or a __Japanese Cherry__.
 ## Get the training and prediction keys
 
-To get the keys used in this example, visit the [Custom Vision site](https://customvision.ai) and select the __gear icon__ in the upper right. In the __Accounts__ section, copy the values from the __Training Key__ and __Prediction Key__ fields.
+## Get the training and prediction keys
 
-![Image of the keys UI](./media/python-tutorial/training-prediction-keys.png)
+The project needs a valid set of subscription keys in order to interact with the service. To get a set of free trial keys, go to the [Custom Vision website](https://customvision.ai) and sign in with a Microsoft account. Select the __gear icon__ in the upper right. In the __Accounts__ section, see the values in the __Training Key__ and __Prediction Key__ fields. You will need these later. 
+
+![Image of the keys UI](./media/csharp-tutorial/training-prediction-keys.png)
+
+The program is configured to store your key data as environment variables. Set these variables by navigating to the **Vision/CustomVision** folder in PowerShell. Then enter the commands:
+
+```PowerShell
+$env:AZURE_CUSTOMVISION_TRAINING_API_KEY ="<your training api key>"
+$env:AZURE_CUSTOMVISION_PREDICTION_API_KEY ="<your prediction api key>"
+```
 
 ## Understand the code
 
-The full project, including images, is available from the [Custom Vision Azure samples for Java repository](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisionSamples.java_ file. Find the **runSample** method and comment out the **ImageClassification_Sample** method call&mdash;this executes the image classification scenario, which is not covered in this guide. The **ObjectDetection_Sample** method implements the primary functionality of this quickstart; navigate to its definition and inspect the code. 
 
-Use your favorite Java IDE to open the `Vision/CustomVision` project. 
+### Create a new Custom Vision Service project
 
-This application uses the training key you retrieved earlier to create a new project named __Sample Java OD Project__. It then uploads images to train and test an object detector. The object detector identifies regions containing a __fork__ or a pair of __scissors__.
-
-The following code snippets implement the primary functionality of this example:
-
-## Create a Custom Vision Service project
-
-Note the difference between creating an object detection and image classification project is the domain that is specified to the createProject call.
-
-> [!IMPORTANT]
-> Set the `trainingApiKey` to the training key value you retrieved earlier.
+Go to the code block that creates a training client and an object detection project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
 ```java
-final String trainingApiKey = "insert your training key here";
-TrainingApi trainClient = CustomVisionTrainingManager.authenticate(trainingApiKey);
-
 System.out.println("Object Detection Sample");
 Trainings trainer = trainClient.trainings();
 
@@ -71,7 +71,7 @@ for (final Domain domain : domains) {
 }
 
 if (objectDetectionDomain == null) {
-    System.out.println("Unexpected result; couldn't find object detection domain.");
+    System.out.println("Unexpected result; no objects were detected.");
     return;
 }
 
@@ -85,7 +85,7 @@ Project project = trainer.createProject()
     .execute();
 ```
 
-## Add tags to your project
+### Add tags to your project
 
 ```java
 // create fork tag
@@ -101,9 +101,9 @@ Tag scissorsTag = trainer.createTag()
     .execute();
 ```
 
-## Upload images to the project
+### Upload and tag images
 
-For object detection project you need to upload image, regions, and tags. The region is in normalized coordinates and specifies the location of the tagged object.
+When you tag images in object detection projects, you need to specify the region of each tagged object using normalized coordinates. Go to the definition of the `regionMap` Map. This code associates each of the sample images with its tagged region.
 
 
 ```java
@@ -157,7 +157,11 @@ regionMap.put("fork_17.jpg", new double[] { 0.305147052, 0.2512582, 0.4791667, 0
 regionMap.put("fork_18.jpg", new double[] { 0.234068632, 0.445702642, 0.6127451, 0.344771236 });
 regionMap.put("fork_19.jpg", new double[] { 0.219362751, 0.141781077, 0.5919118, 0.6683006 });
 regionMap.put("fork_20.jpg", new double[] { 0.180147052, 0.239820287, 0.6887255, 0.235294119 });
+```
 
+Then, skip to the code block that adds the images to the project. The images are read from the **src/main/resources** folder of the project and are uploaded to the service with their appropriate tags and region coordinates.
+
+```Java
 System.out.println("Adding images...");
 for (int i = 1; i <= 20; i++) {
     String fileName = "fork_" + i + ".jpg";
@@ -172,7 +176,7 @@ for (int i = 1; i <= 20; i++) {
 }
 ```
 
-The previous snippet code makes use of two helper functions that retrieve the images as resource streams and upload them to the service.
+The previous code snippet makes use of two helper functions that retrieve the images as resource streams and upload them to the service.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)
@@ -215,9 +219,9 @@ private static byte[] GetImage(String folder, String fileName)
 }
 ```
 
-## Train the project
+### Train the project
 
-This creates the first iteration in the project and marks this iteration as the default iteration. 
+This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
 
 ```java
 System.out.println("Training...");
@@ -232,16 +236,12 @@ System.out.println("Training Status: "+ iteration.status());
 trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
 ```
 
-## Get and use the default prediction endpoint
+### Use the prediction endpoint
 
-> [!IMPORTANT]
-> Set the `predictionApiKey` to the prediction key value you retrieved earlier.
+The prediction endpoint, represented by the `predictor` object here, is the reference that you use to submit an image to the current model and get a classification prediction. In this sample, `predictor` is defined elsewhere using the prediction key environment variable.
 
 ```java
-final String predictionApiKey = "insert your prediction key here";
-PredictionEndpoint predictClient = CustomVisionPredictionManager.authenticate(predictionApiKey);
-
-// Use below for predictions from a url
+// use below for url
 // String url = "some url";
 // ImagePrediction results = predictor.predictions().predictImage()
 //                         .withProjectId(project.id())
@@ -270,12 +270,26 @@ for (Prediction prediction: results.predictions())
 }
 ```
 
-## Run the example
+## Run the application
 
-The prediction results appear on the console along with some logging to show progress.
+To compile and run the solution using maven, run the following command in the project directory in PowerShell:
 
-To compile and run the solution using maven:
-
-```
+```PowerShell
 mvn compile exec:java
 ```
+
+View the console output for logging and prediction results. You can then verify that the test image is tagged appropriately and that the region of detection is correct.
+
+## Clean up resources
+If you wish to implement your own image classification project (or try an [object detection](java-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
+
+On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under your new project.
+
+![Screenshot of a panel labelled My New Project with a trash can icon](media/csharp-tutorial/delete_project.png)
+
+## Next steps
+
+Now you have seen how every step of the object detection process can be done in code. This sample executes a single training iteration, but often you will need to train and test your model multiple times in order to make it more accurate. The following guide deals with image classification, but its principles are similar to object detection.
+
+> [!div class="nextstepaction"]
+> [Test and retrain a model](test-your-model.md)
