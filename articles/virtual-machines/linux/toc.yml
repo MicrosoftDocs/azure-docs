@@ -102,16 +102,8 @@
     items:
     - name: Managed Disks
       href: managed-disks-overview.md
-    - name: Premium SSDs
-      href: premium-storage.md
-    - name: Standard SSDs
-      href: disks-standard-ssd.md
-    - name: Ultra SSDs
-      href: disks-ultra-ssd.md
     - name: Premium storage performance
       href: premium-storage-performance.md
-    - name: Standard storage
-      href: standard-storage.md
     - name: Scalability targets for disks
       href: disk-scalability-targets.md
     - name: Backup and disaster recovery for disks

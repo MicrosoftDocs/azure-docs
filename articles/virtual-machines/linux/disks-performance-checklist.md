@@ -43,10 +43,3 @@ Next, measure the maximum performance requirements of your application throughou
 > You should consider scaling these numbers based on expected future growth of your application. It is a good idea to plan for growth ahead of time, because it could be harder to change the infrastructure for improving performance later.
 
 If you have an existing application and want to move to Premium Storage, first build the checklist above for the existing application. Then, build a prototype of your application on Premium Storage and design the application based on guidelines described in *Optimizing Application Performance* in a later section of this document. The next article describes the tools you can use to gather the performance measurements.
-
-## Next steps
-
-Create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. By doing so, you can determine whether Premium Storage can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
-
-> [!div class="nextstepaction"]
-> See the article on [benchmarking](disks-benchmarks.md) to learn more.

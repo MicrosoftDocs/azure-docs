@@ -261,3 +261,10 @@ While the test runs, you will be able to see the number of combined read and wri
 #### Maximum Combined Throughput
 
 To get the maximum combined Read and Write Throughput, use a larger block size and large queue depth with multiple threads performing reads and writes. You can use a block size of 64 KB and queue depth of 128.
+
+## Next steps
+
+Create a checklist similar to your existing application for the prototype. Using Benchmarking tools you can simulate the workloads and measure performance on the prototype application. By doing so, you can determine which disk offering can match or surpass your application performance requirements. Then you can implement the same guidelines for your production application.
+
+> [!div class="nextstepaction"]
+> See the article on [creating a performance checklist](disks-performance-checklist.md) begin.
