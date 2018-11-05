@@ -54,8 +54,8 @@ This is preferably accomplished by fully patching the machine via Windows Update
 
     |Endpoint |Purpose|
     | --- | --- |
-    |https://login.microsoftonline.com|Authentication requests|
-    |https://enterpriseregistration.windows.net|Azure AD password protection functionality|
+    |`https://login.microsoftonline.com`|Authentication requests|
+    |`https://enterpriseregistration.windows.net`|Azure AD password protection functionality|
 
 * A global administrator account to register the Azure AD password protection proxy service and forest with Azure AD.
 * An account with Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
