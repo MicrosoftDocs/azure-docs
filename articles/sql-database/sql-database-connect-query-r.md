@@ -38,7 +38,7 @@ When you sign up, Microsoft will onboard you to the public preview using either 
 - Migrate an existing SQL database to an R-enabled service
 - Create a new empty R-enabled SQL database
 
-R in SQL Database is currently only available in the vCore-based purchasing model for under **General Purpose** and **Business Critical**. There is no support for managed instances at this point. Also, there is no SLA while in public preview.
+R in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor Managed Instance are supported. Also, there is no SLA while in public preview.
 
 When your R-enabled SQL database is ready, return to this page to learn how to execute R scripts in the context of a stored procedure.
 
