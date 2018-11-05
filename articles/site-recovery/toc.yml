@@ -161,6 +161,8 @@
       items:
       - name: Troubleshoot Azure to Azure replication
         href: azure-to-azure-troubleshoot-errors.md
+      - name: Troubleshoot ongoing replication
+        href: azure-to-azure-troubleshoot-replication.md
       - name: Troubleshoot Azure Site Recovery extension
         href: site-recovery-extension-troubleshoot.md
     - name: Manage
