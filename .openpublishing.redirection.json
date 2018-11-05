@@ -13766,6 +13766,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/service-fabric/service-fabric-patterns-and-scenarios.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-application-scenarios",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/service-fabric-mesh/service-fabric-mesh-howto-deploy-app-private-registry.md",
             "redirect_url": "/azure/service-fabric-mesh/service-fabric-mesh-tutorial-template-deploy-app",
             "redirect_document_id": false
