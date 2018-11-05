@@ -1,6 +1,6 @@
 ---
 title: Azure Active Directory activity logs in Azure Monitor (preview) | Microsoft Docs
-description: Overview of Azure Active Directory activity logs in Azure Monitor (preview)
+description: Introduction to Azure Active Directory activity logs in Azure Monitor (preview)
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -14,7 +14,7 @@ ms.topic: concept
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/02/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -24,16 +24,16 @@ ms.reviewer: dhanyahk
 
 You can now route Azure Active Directory (Azure AD) activity logs to your own storage account or event hub by using Azure Monitor. With the public preview of Azure Active Directory logs in Azure Monitor, you can:
 
-* Archive your audit logs for an Azure storage account, which enables you to retain the data for a long time.
-* Stream your audit logs to an Azure event hub for analytics by using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
-* Integrate your audit logs with your own custom log solutions by streaming them to an event hub.
+* Archive Azure AD activity logs to an Azure storage account, to retain the data for a long time.
+* Stream Azure AD activity logs to an Azure event hub for analytics, using popular Security Information and Event Management (SIEM) tools, such as Splunk and QRadar.
+* Integrate Azure AD activity logs with your own custom log solutions by streaming them to an event hub.
 * Send Azure AD activity logs to Log Analytics to enable rich visualizations, monitoring and alerting on the connected data.
 
 > [!VIDEO https://www.youtube.com/embed/syT-9KNfug8]
 
 ## Supported reports
 
-You can route audit activity logs and sign-in activity logs to your Azure storage account, event hub, or custom solution by using this feature. 
+You can route Azure AD audit logs and sign-in logs to your Azure storage account, event hub, or custom solution by using this feature. 
 
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
