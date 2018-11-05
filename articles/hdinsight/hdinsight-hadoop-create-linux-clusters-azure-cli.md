@@ -2,14 +2,14 @@
 title: Create Hadoop clusters using the Azure classic CLI - Azure HDInsight
 description: Learn how to create HDInsight clusters using the cross-platform Azure classic CLI.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Create HDInsight clusters using the Azure Classic CLI
