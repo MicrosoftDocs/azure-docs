@@ -34,6 +34,8 @@ On each Windows machine you want to protect, do the following:
 
 ## Install on Linux machine
 
+On each Linux machine that you want to protect, do the following:
+
 1. Ensure that there's network connectivity between the Linux machine and the process server.
 2. Create an account that the process server can use to access the computer. The account should be a **root** user on the source Linux server. Use this account only for the push installation and for updates.
 3. Check that the /etc/hosts file on the source Linux server has entries that map the local hostname to IP addresses associated with all network adapters.

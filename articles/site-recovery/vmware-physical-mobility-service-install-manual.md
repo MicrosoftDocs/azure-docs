@@ -9,7 +9,7 @@ ms.date: 11/04/2018
 ms.author: raynew
 ---
 
-# About the Mobility service for VMware VMs and physical servers
+# Install the Mobility service manually on VMware VMs and physical servers
 
 When you set up disaster recovery for VMware VMs and physical servers using [Azure Site Recovery](site-recovery-overview.md), you install the [Site Recovery Mobility service](vmware-physical-mobility-service-overview.md) on each on-premises VMware VM and physical server.  The Mobility service captures data writes on the machine, and forwards them to the Site Recovery process server.
 
@@ -46,12 +46,11 @@ Before you install, create a passphrase that will be used during installation.
 
     ![Mobility Service registration page](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-1.  in **Configuration Server Details**, specify the IP address and passphrase you configured.  
-
+6.  in **Configuration Server Details**, specify the IP address and passphrase you configured.  
 
     ![Mobility Service registration page](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
-6. Select **Register** to finish the registration.
+7. Select **Register** to finish the registration.
 
     ![Mobility Service registration final page](./media/vmware-physical-mobility-service-install-manual/mobility5.png)
 
