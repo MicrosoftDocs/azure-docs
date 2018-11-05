@@ -24,8 +24,6 @@ This script creates an Event Grid subscription to the events for a resource grou
 
 The preview sample script requires the Event Grid extension. To install, run `az extension add --name eventgrid`.
 
-## Sample script
-
 ## Sample script - stable
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/filter-events/filter-events.sh "Subscribe to Azure subscription")]
