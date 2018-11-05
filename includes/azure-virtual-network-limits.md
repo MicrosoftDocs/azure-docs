@@ -17,7 +17,7 @@
 | --- | --- | --- |
 | Virtual networks |50 |100 |
 | Local network sites |20 |contact support |
-| DNS Servers per virtual network |20 |100 |
+| DNS Servers per virtual network |20 |20 |
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Security Groups (NSG) |100 |200 |

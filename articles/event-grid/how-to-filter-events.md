@@ -216,10 +216,10 @@ az eventgrid event-subscription create \
   -n demoAdvancedSub \
   --advanced-filter data.color stringin blue red green \
   --endpoint $endpointURL \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-Notice an expiration date is set for the subscription. The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time.
+Notice that an [expiration date](concepts.md#event-subscription-expiration) is set for the subscription.
 
 ### Test filter
 

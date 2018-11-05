@@ -25,7 +25,7 @@ For more information about cluster deployment steps and planning, read [Plan you
 
 After following the instructions in this document, you will have a virtual network, a subnet, a controller, and a vFXT cluster as shown in the following diagram:
 
-![diagram showing vnet containing optional blob storage and a subnet containing three grouped VMs labeled vFXT nodes/vFXT cluster and one VM labeled cluster controller](media/avere-vfxt-deployment-500px.png)
+![diagram showing vnet containing optional blob storage and a subnet containing three grouped VMs labeled vFXT nodes/vFXT cluster and one VM labeled cluster controller](media/avere-vfxt-deployment.png)
 
 Before starting, make sure you have addressed these prerequisites:  
 
@@ -193,9 +193,7 @@ You also can find missing information by browsing to the controller VM informati
 
 To find this information from the Resource Manager template output, follow this procedure:
 
-1. From the notification icon on the top bar of the Azure portal, click **Go to resource group**. This shows the new resource group that contains your controller and vnet.
-
-   ![Notifications section of portal with "Deployment succeeded" message and "Go to resource group" and "Pin to dashboard" buttons](media/avere-vfxt-browse-to-rg.png)
+1. Go to the resource group for your cluster controller.
 
 1. On left side, click **Deployments**, and then **Microsoft.Template**.
 
