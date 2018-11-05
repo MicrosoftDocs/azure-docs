@@ -46,11 +46,6 @@
   items:
   - name: Clusters and workloads
     href: concepts-clusters-workloads.md
-    items:
-    - name: Cluster operator best practices
-      href: operator-best-practices-cluster-isolation-resource-management.md
-    - name: Application developer best practices
-      href: developer-best-practices-resource-management.md
   - name: Access and identity
     href: concepts-identity.md
   - name: Security
@@ -61,6 +56,16 @@
     href: concepts-storage.md
   - name: Scale
     href: concepts-scale.md
+  - name: Best practices
+    items:
+    - name: For cluster operators
+      items:
+      - name: Cluster isolation and resource management
+        href: operator-best-practices-cluster-isolation-resource-management.md
+    - name: For application developers
+      items:
+      - name: Resource management
+        href: developer-best-practices-resource-management.md
   - name: Quotas and regional limits
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS

@@ -10,7 +10,7 @@ ms.date: 10/29/2018
 ms.author: iainfou
 ---
 
-# Cluster operator best practices for isolation and resource management in Azure Kubernetes Service (AKS)
+# Best practices for cluster operators to manage resources in Azure Kubernetes Service (AKS)
 
 As you manage clusters in Azure Kubernetes Service (AKS), there are a few key areas to consider. How you manage your cluster and application deployments can negatively impact the end-user experience of services that you provide. To help you succeed, there are some best practices you can follow as you design and run AKS clusters.
 
@@ -23,7 +23,9 @@ This best practices article focuses on how to run your cluster and workloads fro
 
 ## Logically isolate clusters
 
-Kubernetes offers logical isolation using *Namespaces*. With a namespace, you can isolate tenants for the following components:
+**Best practice guidance** - Use logical isolation to separate teams and projects. You can use logical isolation alongside physical isolation, but try to minimize the number of physical AKS clusters you deploy just to separate teams or applications.
+
+Kubernetes offers logical isolation using [Namespaces][k8s-namespaces]. With a namespace, you can isolate tenants for the following components:
 
 * **Scheduler** - You can use resource quotas, discussed in the following sections, to define and enforce limits for the amount of CPU, memory, or storage that each tenant can consume within the cluster.
 * **Authentication and authorization** - You can use Kubernetes role-based access controls (RBAC) to assign permissions to users and groups. As a best practice, you should also integrate with Azure Active Directory (AD) to provide a central way to manage those users, groups, permissions, and credentials.
@@ -34,9 +36,9 @@ With logical isolation using namespaces, a single AKS cluster can be used for mu
 
 Logical separation of clusters usually provides a higher pod density than physically isolated clusters. There is less excess compute capacity that sits idle in the cluster. When combined with the Kubernetes cluster autoscaler, you can scale the number of nodes up or down to meet demands. This best practice approach to autoscaling lets you run only the number of nodes required and minimizes costs.
 
-**Best practice guidance** - Use logical isolation to separate teams and projects. You can use logical isolation alongside physical isolation, but try to minimize the number of physical AKS clusters you deploy just to separate teams or applications.
+### Physically isolated clusters
 
-## Physically isolate clusters
+**Best practice guidance** - Minimize the use of physical isolation for each separate team or application deployment. Instead, use *logical* isolation, as discussed in the previous section.
 
 An alternative approach to cluster isolation is to use physically separate AKS clusters. In this isolation model, teams or projects are assigned their own AKS cluster. This approach often looks like the easiest way to isolate development teams, but adds additional management and financial overhead. You now have to maintain these multiple clusters, are billed for all the individual nodes, and have to individually provide access and assign permissions.
 
@@ -44,9 +46,9 @@ An alternative approach to cluster isolation is to use physically separate AKS c
 
 Physically separate clusters usually have a low pod density. As each team or project has their own AKS cluster, the cluster is often over-provisioned with compute resources, with a small number of pods scheduled on those nodes. Unused capacity on the nodes cannot be used for applications or services in development by other teams. These excess resources contribute to the additional costs in physically separate clusters.
 
-**Best practice guidance** - Minimize the use of physical isolation for each separate team or application deployment. Instead, use *logical* isolation, as discussed in the previous section.
-
 ## Enforce resource quotas
+
+**Best practice guidance** - Plan and apply resource quotas at the namespace level. If pods don't define resource requests and limits, reject the deployment. Monitor resource usage and adjust quotas as needed.
 
 Resource requests and limits are placed in the pod specification and used at deployment time for the Kubernetes scheduler to find an available node in the cluster. These limits and requests work at the individual pod level. For more information about how to define these values, see [Define pod resource requests and limits][resource-limits]
 
@@ -82,15 +84,13 @@ kubectl apply -f dev-app-team-quotas.yaml --namespace dev-apps
 
 For more information about available resource objects, scopes, and priorities, see [Resource quotas in Kubernetes][k8s-resource-quotas].
 
-**Best practice guidance** - Plan and apply resource quotas at the namespace level. If pods don't define resource requests and limits, reject the deployment. Monitor resource usage and adjust quotas as needed.
-
 ## Regularly check for cluster issues with kube-advisor
+
+**Best practice guidance** - Regularly run the latest version of `kube-advisor` to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
 
 The [kube-advisor][kube-advisor] tool scans a Kubernetes cluster and reports on issues that it finds. This tool helps identify pods that do not have resource requests and limits in place, for example.
 
 Especially in an AKS cluster that hosts multiple development teams and applications, it can be hard to track pods without these resource requests and limits set. As a best practice, regularly run `kube-advisor` on your AKS clusters, especially if you don't assign resource quotas to namespaces.
-
-**Best practice guidance** - Regularly run the latest version of `kube-advisor` to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
 
 ## Next steps
 
@@ -111,3 +111,4 @@ To implement some of these best practices, see the following articles:
 [aks-kubeadvisor]: kube-advisor-tool.md
 [developer-best-practices-resources]: developer-best-practices-resource-management.md
 [resource-limits]: developer-best-practices-resource-management.md#define-pod-resource-requests-and-limits
+[k8s-namespaces]: concepts-clusters-workloads.md#namespaces

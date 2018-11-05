@@ -10,7 +10,7 @@ ms.date: 10/29/2018
 ms.author: iainfou
 ---
 
-# Application developer best practices for resource management in Azure Kubernetes Service (AKS)
+# Best practices for application developers to manage resources in Azure Kubernetes Service (AKS)
 
 As you develop and run applications in Azure Kubernetes Service (AKS), there are a few key areas to consider. How you manage your application deployments can negatively impact the end-user experience of services that you provide. To help you succeed, there are some best practices you can follow as you develop and run applications in AKS.
 
@@ -22,6 +22,8 @@ This best practices article focuses on how to run your cluster and workloads fro
 > * How to use the `kube-advisor` tool to check for issues with deployments
 
 ## Define pod resource requests and limits
+
+**Best practice guidance** - Set pod requests and limits on all pods in your YAML manifests. If the AKS cluster uses *resource quotas*, your deployment may be rejected if you don't define these values.
 
 A primary way to manage the compute resources within an AKS cluster is to use pod requests and limits. These requests and limits let the Kubernetes scheduler know what compute resources a pod should be assigned.
 
@@ -58,9 +60,9 @@ spec:
 
 For more information about resource measurements and assignments, see [Managing compute resources for containers][k8s-resource-limits].
 
-**Best practice guidance** - Set pod requests and limits on all pods in your YAML manifests. If the AKS cluster uses *resource quotas*, your deployment may be rejected if you don't define these values.
-
 ## Develop and debug applications against an AKS cluster
+
+**Best practice guidance** - Development teams should deploy and debug against an AKS cluster using Dev Spaces. This development model ensures that role-based access controls, network, or storage needs are implemented before the app is deployed to production.
 
 With Azure Dev Spaces, you can develop, debug, and test applications directly against an AKS cluster. Developers within a team can work together to build and test throughout the application lifecycle. You can continue to use existing tools such as Visual Studio or Visual Studio Code. An extension is installed for Dev Spaces that gives an option to run and debug the application in an AKS cluster:
 
@@ -68,23 +70,21 @@ With Azure Dev Spaces, you can develop, debug, and test applications directly ag
 
 This integrated development and test process with Dev Spaces reduces the need for local test environments, such as [minikube][minikube]. Instead, you develop and test against an AKS cluster, which can also be secured and isolated as noted in previous section on the use of namespaces to logically isolate a cluster. When your apps are ready to deploy to production, you can confidently deploy as your development was all done against a real AKS cluster.
 
-**Best practice guidance** - Development teams should deploy and debug against an AKS cluster using Dev Spaces. This development model ensures that role-based access controls, network, or storage needs are implemented before the app is deployed to production.
-
 ## Use the Visual Studio Code extension for Kubernetes
+
+**Best practice guidance** - Install and use the VS Code extension for Kubernetes when you write YAML manifests. You can also use the extension for integrated deployment solution, which may help application owners that infrequently interact with the AKS cluster.
 
 The [Visual Studio Code extension for Kubernetes][vscode-kubernetes] helps you develop and deploy applications to AKS. The extension provides intellisense for Kubernetes resources, as well as Helm charts and templates. You can also browse, deploy, and edit Kubernetes resources from within VS Code. The extension also provides an intellisense check for resource requests or limits being set in the pod specifications:
 
 ![VS Code extension for Kubernetes warning about missing memory limits](media/best-practices-cluster-isolation-resource-management/vs-code-kubernetes-extension.png)
 
-**Best practice guidance** - Install and use the VS Code extension for Kubernetes when you write YAML manifests. You can also use the extension for integrated deployment solution, which may help application owners that infrequently interact with the AKS cluster.
-
 ## Regularly check for application issues with kube-advisor
+
+**Best practice guidance** - Regularly run the latest version of `kube-advisor` to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
 
 The [kube-advisor][kube-advisor] tool scans a Kubernetes cluster and reports on issues that it finds. This tool helps identify pods that do not have resource requests and limits in place, for example.
 
 Especially in an AKS cluster that hosts multiple development teams and applications, it can be hard to track pods without these resource requests and limits set. As a best practice, regularly run `kube-advisor` on your AKS clusters.
-
-**Best practice guidance** - Regularly run the latest version of `kube-advisor` to detect issues in your cluster. If you apply resource quotas on an existing AKS cluster, run `kube-advisor` first to find pods that don't have resource requests and limits defined.
 
 ## Next steps
 
