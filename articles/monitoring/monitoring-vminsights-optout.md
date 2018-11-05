@@ -1,5 +1,5 @@
 ---
-title: How to Stop Monitoring with Azure Monitor for VMs (Preview) | Microsoft Docs
+title: How to Disable Monitoring with Azure Monitor for VMs (Preview) | Microsoft Docs
 description: This article describes how you can discontinue monitoring of your virtual machines with Azure Monitor for VMs.
 services: azure-monitor
 documentationcenter: ''
@@ -13,20 +13,28 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/05/2018
 ms.author: magoedte
 ---
 
-# How to stop monitoring your virtual machines with Azure Monitor for VMs (Preview)
+# How to disable monitoring of your virtual machines with Azure Monitor for VMs (Preview)
 
-If, after you enable monitoring of your virtual machines, you decide you no longer want to monitor them with Azure Monitor for VMs, you can *opt out*. This article shows how to accomplish this for a single or multiple VMs.  
+If, after you enable monitoring of your virtual machines, you decide you no longer want to monitor them with Azure Monitor for VMs, you can *opt out* or disable monitoring. This article shows how to accomplish this for a single or multiple VMs.  
 
-Currently Azure Monitor for VMs does not support selectively disabling monitoring of a VM and allow you to not only maintain implementation of the solution, but also the Log Analytics workspace enabled with it. If your workspace is supporting other solutions and collection of other monitoring data, it's important you understand the impact and methods described below for removal, before proceeding.  
+Currently, Azure Monitor for VMs does not support selectively disable monitoring of your VMs. If your Log Analytics workspace configured to support this solution is also supporting other solutions and collection of other monitoring data, it's important you understand the impact and methods described below for removal before proceeding.
 
-If you were evaluating Azure Monitor for VMs with a single VM and configured it with the pre-selected default workspace, you can *opt out* by uninstalling the Dependency agent and disconnecting the Log Analytics agent from the workspace before you remove the workspace. This is appropriate if you intend on using the VM for other purposes and decide later to reconnect the VM to a different workspace. Otherwise, if either are no longer needed, you can delete both resources using one of the supported methods available. If you are using the Log Analytics workspace to support other monitoring solutions and collection of data from other sources, you can remove the Azure Monitor for VMs solution components from the workspace without interruption or impact to your workspace.
+Azure Monitor for VMs relies on the following components to deliver its experience:
+
+* A Log Analytics workspace, which stores monitoring data collected from VMs and other sources.
+* Collection of performance counters configured in the workspace, which updates monitoring configuration on all VMs connected to the workspace.
+* Two monitoring solutions configured in the workspace - **InfrastructureInsights** and **ServiceMap**, which update monitoring configuration on all VMs connected to the workspace.
+* Two Azure virtual machine extensions, the **MicrosoftMonitoringAgent** and the **DepenendencyAgent**, which collect and send data to the workspace.
+
+
+If you were evaluating Azure Monitor for VMs with a single VM and configured it with the pre-selected default workspace, you can disable monitoring by uninstalling the Dependency agent and disconnecting the Log Analytics agent from the workspace before removing the workspace. This is appropriate if you intend on using the VM for other purposes and decide later to reconnect the VM to a different workspace. Otherwise, if neither are no longer needed, you can delete both resources using one of the supported methods available. If you are using the Log Analytics workspace to support other monitoring solutions and collection of data from other sources, you can remove the Azure Monitor for VMs solution components from the workspace without interruption or impact to your workspace.
 
 >[!NOTE]
-> After removing the solutions from your workspace, you may continue to see health state, performance and map data when switching those tabs. Data will eventually stop appearing from the Performance and Map feature after sometime; however the Health feature will continue to show health status for your VMs. The **Try now** option will be available from the selected Azure VM to allow you to re-enable monitoring in the future.  
+> After removing the solution components from your workspace, you may continue to see health state from your Azure VMs; specifically performance and map data when you navigate to either view in the portal. Data will eventually stop appearing from the Performance and Map view after sometime; however the Health view will continue to show health status for your VMs. The **Try now** option will be available from the selected Azure VM to allow you to re-enable monitoring in the future.  
 
 ## Complete removal of Azure Monitor for VMs
 
