@@ -29,4 +29,3 @@ See [Linux VM sizes](../../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirt
 ## See also
 
 [Azure subscription and service limits, quotas, and constraints](https://docs.microsoft.com/azure/azure-subscription-service-limits)
-

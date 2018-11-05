@@ -102,6 +102,14 @@
     items:
     - name: Managed Disks
       href: managed-disks-overview.md
+    - name: Disk Types
+      href: disk-types.md
+    - name: Defining the common terminology for Azure Disks
+      href: disks-common-terms.md
+    - name: Benchmarks
+      href: disks-benchmarks.md
+    - name: Performance Checklist
+      href: disks-performance-checklist.md
     - name: Premium storage performance
       href: premium-storage-performance.md
     - name: Scalability targets for disks
