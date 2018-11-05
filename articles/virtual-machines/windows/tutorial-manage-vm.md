@@ -23,7 +23,7 @@ ms.custom: mvc
 
 # Tutorial: Create and Manage Windows VMs with Azure PowerShell
 
-Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine deployment items such as selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
+Azure virtual machines provide a fully configurable and flexible computing environment. This tutorial covers basic Azure virtual machine (VM) deployment tasks like selecting a VM size, selecting a VM image, and deploying a VM. You learn how to:
 
 > [!div class="checklist"]
 > * Create and connect to a VM
@@ -52,17 +52,17 @@ New-AzureRmResourceGroup `
 
 The resource group is specified when creating or modifying a VM, which can be seen throughout this tutorial.
 
-## Create virtual machine
+## Create a VM
 
-When creating a virtual machine, several options are available such as operating system image, network configuration, and administrative credentials. In this example, a virtual machine is created with a name of *myVM* running the default latest version of Windows Server 2016 Datacenter.
+When creating a VM, several options are available such as operating system image, network configuration, and administrative credentials. This example creates a VM named *myVM*, running the default version of Windows Server 2016 Datacenter.
 
-Set the username and password needed for the administrator account on the virtual machine with [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
+Set the username and password needed for the administrator account on the VM with [Get-Credential](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-credential?view=powershell-6):
 
 ```azurepowershell-interactive
 $cred = Get-Credential
 ```
 
-Create the virtual machine with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
+Create the VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm).
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -78,26 +78,26 @@ New-AzureRmVm `
 
 ## Connect to VM
 
-After the deployment has completed, create a remote desktop connection with the virtual machine.
+After the deployment has completed, create a remote desktop connection with the VM.
 
-Run the following commands to return the public IP address of the virtual machine. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
+Run the following commands to return the public IP address of the VM. Take note of this IP Address so you can connect to it with your browser to test web connectivity in a future step.
 
 ```azurepowershell-interactive
 Get-AzureRmPublicIpAddress `
    -ResourceGroupName "myResourceGroupVM"  | Select IpAddress
 ```
 
-Use the following command, on your local machine, to create a remote desktop session with the virtual machine. Replace the IP address with the *publicIPAddress* of your virtual machine. When prompted, enter the credentials used when creating the virtual machine.
+Use the following command, on your local machine, to create a remote desktop session with the VM. Replace the IP address with the *publicIPAddress* of your VM. When prompted, enter the credentials used when creating the VM.
 
 ```powershell
 mstsc /v:<publicIpAddress>
 ```
 
-In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username and password you created for the virtual machine and then click **OK**.
+In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username and password you created for the VM and then click **OK**.
 
 ## Understand marketplace images
 
-The Azure marketplace includes many virtual machine images that can be used to create a new virtual machine. In the previous steps, a virtual machine was created using the Windows Server 2016 Datacenter image. In this step, the PowerShell module is used to search the marketplace for other Windows images, which can also be used as a base for new VMs. This process consists of finding the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image.
+The Azure marketplace includes many images that can be used to create a new VM. In the previous steps, a VM was created using the Windows Server 2016 Datacenter image. In this step, the PowerShell module is used to search the marketplace for other Windows images, which can also be used as a base for new VMs. This process consists of finding the publisher, offer, SKU, and optionally a version number to [identify](cli-ps-findimage.md#terminology) the image.
 
 Use the [Get-AzureRmVMImagePublisher](/powershell/module/azurerm.compute/get-azurermvmimagepublisher) command to return a list of image publishers:
 
@@ -148,7 +148,7 @@ Skus                                      Offer         PublisherName          L
 2016-Nano-Server                          WindowsServer MicrosoftWindowsServer EastUS
 ```
 
-This information can be used to deploy a VM with a specific image. This example deploys a virtual machine using the latest version of a Windows Server 2016 with Containers image.
+This information can be used to deploy a VM with a specific image. This example deploys a VM using the latest version of a Windows Server 2016 with Containers image.
 
 ```azurepowershell-interactive
 New-AzureRmVm `
@@ -168,7 +168,7 @@ The `-AsJob` parameter creates the VM as a background task, so the PowerShell pr
 
 ## Understand VM sizes
 
-A virtual machine size determines the amount of compute resources such as CPU, GPU, and memory that are made available to the virtual machine. Virtual machines need to be created with a size appropriate for the expect workload. If workload increases, an existing virtual machine can be resized.
+A VM size determines the amount of compute resources such as CPU, GPU, and memory that are made available to the VM. Virtual machines should to be created using a VM size appropriate for the workload. If a workload increases, an existing virtual machine can also be resized.
 
 ### VM Sizes
 
@@ -208,7 +208,7 @@ $vm.HardwareProfile.VmSize = "Standard_DS3_v2"
 Update-AzureRmVM -VM $vm -ResourceGroupName "myResourceGroupVM"
 ```
 
-If the desired size is not on the current cluster, the VM needs to be deallocated before the resize operation can occur. Note, when the VM is powered back on, any data on the temp disk are removed, and the public IP address change unless a static IP address is being used.
+If the size you want is not available on the current cluster, the VM needs to be deallocated before the resize operation can occur. Deallocating a VM will remove any data on the temp disk, and the public IP address will change unless a static IP address is being used.
 
 ```azurepowershell-interactive
 Stop-AzureRmVM `
@@ -236,14 +236,14 @@ An Azure VM can have one of many power states. This state represents the current
 | Starting | Indicates the virtual machine is being started. |
 | Running | Indicates that the virtual machine is running. |
 | Stopping | Indicates that the virtual machine is being stopped. |
-| Stopped | Indicates that the virtual machine is stopped. Virtual machines in the stopped state still incur compute charges.  |
-| Deallocating | Indicates that the virtual machine is being deallocated. |
-| Deallocated | Indicates that the virtual machine is completely removed from the hypervisor but still available in the control plane. Virtual machines in the Deallocated state do not incur compute charges. |
-| - | Indicates that the power state of the virtual machine is unknown. |
+| Stopped | Indicates that the VM is stopped. Virtual machines in the stopped state still incur compute charges.  |
+| Deallocating | Indicates that the VM is being deallocated. |
+| Deallocated | Indicates that the VM is removed from the hypervisor but still available in the control plane. Virtual machines in the `Deallocated` state do not incur compute charges. |
+| - | Indicates that the power state of the VM is unknown. |
 
 ### Find power state
 
-To retrieve the state of a particular VM, use the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) command. Be sure to specify a valid name for a virtual machine and resource group.
+To retrieve the state of a particular VM, use the [Get-AzureRmVM](/powershell/module/azurerm.compute/get-azurermvm) command. Be sure to specify a valid name for a VM and resource group.
 
 ```azurepowershell-interactive
 Get-AzureRmVM `
@@ -262,11 +262,11 @@ PowerState/running
 
 ## Management tasks
 
-During the lifecycle of a virtual machine, you may want to run management tasks such as starting, stopping, or deleting a virtual machine. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using Azure PowerShell, many common management tasks can be run from the command line or in scripts.
+During the lifecycle of a VM, you may want to run management tasks such as starting, stopping, or deleting a VM. Additionally, you may want to create scripts to automate repetitive or complex tasks. Using Azure PowerShell, many common management tasks can be run from the command line or in scripts.
 
-### Stop virtual machine
+### Stop a VM
 
-Stop and deallocate a virtual machine with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
+Stop and deallocate a VM with [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm):
 
 ```azurepowershell-interactive
 Stop-AzureRmVM `
@@ -274,9 +274,9 @@ Stop-AzureRmVM `
    -Name "myVM" -Force
 ```
 
-If you want to keep the virtual machine in a provisioned state, use the -StayProvisioned parameter.
+If you want to keep the VM in a provisioned state, use the -StayProvisioned parameter.
 
-### Start virtual machine
+### Start a VM
 
 ```azurepowershell-interactive
 Start-AzureRmVM `
