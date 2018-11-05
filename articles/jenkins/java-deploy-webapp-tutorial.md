@@ -67,11 +67,12 @@ From the left menu, select **Manage Jenkins** > **Manage Plugins**.
 1. When you're done, on the left menu, select **Manage Jenkins** 
 so you can return to the Jenkins management page.
 
-## Configure GitHub and Jenkins
+## Set up Jenkins for GitHub
 
-Now, set up Jenkins so when new commits are pushed 
-to your GitHub repo, Jenkins receives the 
-[webhooks from GitHub](https://developer.github.com/webhooks/).
+When new commits get pushed to your GitHub repo where 
+you'll keep your sample Java web app, you want Jenkins 
+to get those [events from GitHub](https://developer.github.com/webhooks/). 
+To get these events in Jenkins, enable webhooks for GitHub. 
 
 1. On your Jenkins web console's **Manage Jenkins** page, 
 select **Configure System**. 
@@ -116,17 +117,44 @@ by choosing **Test connection**.
 
 ## Fork sample repo and create pipeline job 
 
-1. Open the [Spring Boot sample application repo](https://github.com/spring-guides/gs-spring-boot-docker) and fork it to your own GitHub account by selecting **Fork** in the top right-hand corner.   
-    ![Fork from GitHub](media/jenkins-java-quickstart/fork_github_repo.png)
-1. In the Jenkins web console, select **New Item**, give it a name **MyJavaApp**, select **Freestyle project**, then select **OK**.   
-    ![New Jenkins Freestyle Project](media/jenkins-java-quickstart/jenkins_freestyle.png)
-2. Under the **General** section, select **GitHub** project and enter your forked repo URL such as https://github.com/raisa/gs-spring-boot-docker
-3. Under the **Source code management**  section, select **Git**, enter your forked repo `.git` URL such as https://github.com/raisa/gs-spring-boot-docker.git
-4. Under the **Build Triggers** section, select **GitHub hook trigger for GITscm polling**.
-5. Under the **Build** section, select **Add build step** and choose **Invoke top-level Maven targets**. Enter `package` in the **Goals** field.
-6. Select **Save**. You can test your job by selecting **Build Now** from the project page.
+Now you'll create a local copy of the GitHub repo that has the sample Java web app. 
+You'll then create a pipeline job so you can build that app.
 
-## Configure Azure App Service 
+1. Go to the [GitHub repo that has the Spring Boot sample app](https://github.com/spring-guides/gs-spring-boot-docker), 
+and fork the repo to your GitHub account by choosing **Fork**.
+
+   ![Fork sample repo from GitHub](media/jenkins-java-quickstart/fork-github-repo.png)
+
+1. Return to the Jenkins web console home page, 
+and select **New Item**. Provide a name for your sample app, 
+for example, "MyJavaApp", and select **Freestyle project**. 
+At the bottom, choose **OK**.   
+
+   ![Select Freestyle Project](media/jenkins-java-quickstart/jenkins-select-freestyle-project.png)
+
+1. On the **General** tab, select **GitHub project**. 
+For **Project url**, enter the URL for your forked repo,  
+for example: `https://github.com/<your-GitHub-user-name>/gs-spring-boot-docker`
+
+1. Go to the **Source Code Management**  section, 
+select **Git**, enter the URL for your forked repo plus `.git`, 
+for example: `https://github.com/<your-GitHub-user-name>/gs-spring-boot-docker.git`
+
+1. Go to the **Build Triggers** section, 
+and select **GitHub hook trigger for GITscm polling**.
+
+1. Go to the **Build** section, choose **Add build step**, 
+and select **Invoke top-level Maven targets**. 
+In the **Goals** box, enter `package`.
+
+1. When you're done, choose **Save**. 
+
+1. To test your pipeline job, go to your project page in Jenkins, 
+and select **Build Now**.
+
+   ![Test build your project](media/jenkins-java-quickstart/test-build-project.png)
+
+## Set up Azure App Service 
 
 1. Using the Azure CLI or [Cloud Shell](/azure/cloud-shell/overview), create a new [Web App on Linux](/azure/app-service/containers/app-service-linux-intro). The web app name in this tutorial is `myJavaApp`, but you need to use a unique name for your own app.
    
