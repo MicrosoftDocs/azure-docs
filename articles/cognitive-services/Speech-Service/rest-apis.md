@@ -57,7 +57,7 @@ The audio is sent in the body of the HTTP `POST` request. It should be in 16-bit
 | Format | Codec | Bitrate | Sample Rate |
 |--------|-------|-------------|
 | WAV | PCM | 16-bit | 16 kHz, mono |
-| Ogg | OPUS | | 16 kHz, mono |
+| Ogg | OPUS | 16-bit | 16 kHz, mono |
 
 * WAV format with PCM codec
 * Ogg format with OPUS codec
