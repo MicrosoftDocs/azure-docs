@@ -85,7 +85,7 @@ All HTTP APIs implemented by the extension take the following parameters. The da
 | taskHub    | Query string    | The name of the [task hub](durable-functions-task-hubs.md). If not specified, the current function app's task hub name is assumed. |
 | connection | Query string    | The **name** of the connection string for the storage account. If not specified, the default connection string for the function app is assumed. |
 | systemKey  | Query string    | The authorization key required to invoke the API. |
-| showInput  | Query string    | Optional parameter. If set to `false`, the execution input will be included in the response payload.|
+| showInput  | Query string    | Optional parameter. If set to `false`, the execution input will not be included in the response payload.|
 | showHistory| Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.| 
 | showHistoryOutput| Query string    | Optional parameter. If set to `true`, the activity outputs will be included in the orchestration execution history.| 
 | createdTimeFrom  | Query string    | Optional parameter. When specified, filters the list of returned instances which were created at or after the given ISO8601 timestamp.|

@@ -75,10 +75,12 @@ For the durable function to be invoked the  function.json should be modified to 
 
 ## Querying instances
 
-The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance. It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters. 
-If `showHistory` is set to `true`, the response will contain the execution history. 
-If `showHistoryOutput` is set to `true` as well, the execution history will contain activity outputs. 
-If `showInput` is set to `false`, the response will not contain the input of the function. The default value is true.
+The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_) method on the [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) class queries the status of an orchestration instance.
+
+It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters. 
+* **`showHistory`**: If set to `true`, the response will contain the execution history. 
+* **`showHistoryOutput`**: If set to `true`, the execution history will contain activity outputs. 
+* **`showInput`**: If set to `false`, the response will not contain the input of the function. The default value is true.
 
 The method returns an object with the following properties:
 
