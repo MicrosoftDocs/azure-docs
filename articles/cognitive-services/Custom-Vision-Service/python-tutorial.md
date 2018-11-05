@@ -46,7 +46,7 @@ Create a new file called *sample.py* in your preferred project directory.
 
 ### Create the Custom Vision service project
 
-Add the following contents to your script. Insert your subscription keys in the appropriate definitions.
+Add the following code to your script to create a new Custom Vision service project. Insert your subscription keys in the appropriate definitions.
 
 ```Python
 from azure.cognitiveservices.vision.customvision.training import training_api
