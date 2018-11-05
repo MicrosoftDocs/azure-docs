@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 10/31/2018
 ms.author: bwren
 ms.component: na
 ---
@@ -58,5 +58,5 @@ The following operators support specific Log Analytics features and are not avai
 
 ## Next steps
 
-- Get references to different [resources for writing Log Analytics queries](kusto.md).
+- Get references to different [resources for writing Log Analytics queries](query-language.md).
 - Access the complete [reference documentation for Data Explorer query language](/azure/kusto/query/).
