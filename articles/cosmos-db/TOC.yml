@@ -432,7 +432,7 @@
           href: how-to-manage-consistency.md
         - name: Manage Conflicts
           href: how-to-manage-conflicts.md
-    - name: Global distribution
+    - name: Partitioning
       items:
         - name: Create partitioned container
           href: how-to-create-partitioned-container.md
