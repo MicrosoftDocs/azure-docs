@@ -42,7 +42,7 @@ The default mode is `Proof`. The `Proof` spelling mode provides the most compreh
 > * The maximum supported query length is below. If the query exceeds the max length, the query and its results will not be altered.
 >    * 130 characters for the following language codes: en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
 >    * 65 characters for all others.
-> * the `Spell` mode does not support square brackets in queries, and may cause inconsistent results. We recommend removing them from your queries when using the Spell mode, or using a different mode.
+> * the Spell mode does not support square brackets in queries, and may cause inconsistent results. We recommend removing them from your queries when using the Spell mode, or using a different mode.
 
 ## Market setting
 Market needs to be specified in the query parameter in request URL, otherwise speller will take the default market based on IP address.
