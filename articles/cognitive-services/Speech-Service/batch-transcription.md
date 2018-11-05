@@ -32,18 +32,9 @@ The Batch transcription API offers asynchronous speech to text transcription, al
 
 ### Supported formats
 
-The Batch transcription API supports the following formats:
+The Batch transcription API supports the formats outline [here]((1)	https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/batch-transcription#supported-formats):
 
-Name| Channel  |
-----|----------|
-mp3 |   Mono   |   
-mp3 |  Stereo  | 
-wav |   Mono   |
-wav |  Stereo  |
-opus|   Mono   |
-opus|  Stereo  |
-
-For stereo audio streams, Batch transcription splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel, includuing properties for setting up the profanity filter and the punctuation model
+For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel, includuing properties for setting up the profanity filter and the punctuation model.
 
 ```json
 {
