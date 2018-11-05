@@ -22,8 +22,8 @@ abstract:
       height: 110
       src: media/video-thumb-highlighted.png
       width: 250  
-    title: Data Platform Modernization (4:48)
-    href: https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Data-Platform-Modernization/player
+    title: Introduction to Azure DMS (1:30)
+    href: https://www.microsoft.com/en-us/videoplayer/embed/RE2IqVu
     width: 250
 sections:
 - title: 5-Minute Quickstarts
