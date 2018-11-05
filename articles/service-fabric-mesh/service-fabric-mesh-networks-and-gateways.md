@@ -42,4 +42,4 @@ When a Mesh application is created, it should reference an existing network reso
 To learn more about Service Fabric Mesh, read the overview:
 - [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
 
-[Image2]: media/service-fabric-mesh-networking/Gateway.png
+[Image2]: media/service-fabric-mesh-networks-and-gateways/Gateway.png
