@@ -52,7 +52,7 @@ The SQL API Async Java SDK differs from the SQL API Java SDK by providing asynch
 ### <a name="2.2.1"/>2.2.1
 * Fixed a NPE bug in write retry path.
 * Fixed a NPE bug in endpoint management.
-* Upgraded vulnerable dependencies (([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Upgraded vulnerable dependencies ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
 * Added support for Netty network logging for troubleshooting.
 
 ### <a name="2.2.0"/>2.2.0
