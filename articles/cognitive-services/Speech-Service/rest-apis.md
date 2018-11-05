@@ -52,7 +52,7 @@ The following fields are sent in the HTTP request header.
 
 ### Audio format
 
-The audio is sent in the body of the HTTP `POST` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
+Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
 | Format | Codec | Bitrate | Sample Rate |
 |--------|-------|---------|-------------|
