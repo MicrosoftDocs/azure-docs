@@ -40,6 +40,8 @@ mp3 |   Mono   |
 mp3 |  Stereo  | 
 wav |   Mono   |
 wav |  Stereo  |
+opus|   Mono   |
+opus|  Stereo  |
 
 For stereo audio streams, Batch transcription splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel.
 
@@ -107,11 +109,11 @@ After you obtain the token, you must specify the SAS URI pointing to the audio f
             private const int Port = 443;
     
             // SAS URI 
-            private const string RecordingsBlobUri = "some SAS URI";
+            private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
-            private static Guid AdaptedAcousticId = new Guid("some guid");
-            private static Guid AdaptedLanguageId = new Guid("some guid");
+            private static Guid AdaptedAcousticId = new Guid("guid of the acoustic adaptation model");
+            private static Guid AdaptedLanguageId = new Guid("guid of the language model");
 
             // Creating a Batch transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
