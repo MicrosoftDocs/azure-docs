@@ -1,7 +1,7 @@
 ---
-title: 'Quickstart: Recognize speech in C# under .NET Framework on Windows by using the Speech Service SDK'
+title: 'Quickstart: Recognize and transcribe speech, .NET Framework (Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
-description: Learn how to recognize speech in C# under .NET Framework on Windows by using the Speech Service SDK
+description: Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real-time.
 services: cognitive-services
 author: wolfma61
 manager: cgronlun
@@ -12,7 +12,7 @@ ms.date: 11/05/2018
 ms.author: wolfma
 ---
 
-# Quickstart: Recognize speech in C# under .NET Framework on Windows by using the Speech SDK
+# Quickstart: Recognize and transcribe speech using the Speech SDK and .NET Framework (Windows)
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -59,7 +59,7 @@ To complete this project, you'll need:
     ![Screenshot of console output after successful recognition](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console output after successful recognition")
 
 [!INCLUDE [Download this sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Look for this sample in the `quickstart/csharp-dotnet-windows` folder.
+The code is available in the `quickstart/csharp-dotnet-windows` folder.
 
 ## Next steps
 
