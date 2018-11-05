@@ -35,7 +35,6 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
 ## Prerequisites
 
 * On Windows:
-  * .NET Core cross-platform development
   * [.NET Core 2.1 SDK or later](https://www.microsoft.com/net/download/windows)
 
 * On Mac:
