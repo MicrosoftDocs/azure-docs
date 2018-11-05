@@ -136,9 +136,23 @@ Azure Migrate currently does not support cost estimation for [Enterprise Agreeme
 
 ## Dependency visualization
 
+### What is dependency visualization?
+
+Dependency visualization enables you to assess groups of VMs for migration with greater confidence by cross-checking machine dependencies before you run an assessment. Dependency visualization helps you to ensure that nothing is left behind, avoiding unexpected outages when you migrate to Azure. Azure Migrate leverages the Service Map solution in Log Analytics to enable dependency visualization.
+
 ### Do I need to pay to use the dependency visualization feature?
 
-Azure Migrate is available at no additional charge. Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricing/details/azure-migrate/).
+No. Learn more about Azure Migrate pricing [here](https://azure.microsoft.com/pricing/details/azure-migrate/).
+
+### Do I need to install anything for dependency visualization?
+
+To use dependency visualization, you need to download and install agents on each on-premises machine that you want to evaluate. 
+
+- [Microsoft Monitoring agent(MMA)](https://docs.microsoft.com/azure/log-analytics/log-analytics-agent-windows) needs to be installed on each machine.
+- The [Dependency agent](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure) needs to be installed on each machine.
+- In addition, if you have machines with no internet connectivity, you need to download and install Log Analytics gateway on them.
+
+You don't need these agents on machines you want to assess unless you're using dependency visualization.
 
 ### Can I use an existing workspace for dependency visualization?
 
