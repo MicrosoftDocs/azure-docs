@@ -205,19 +205,20 @@ Azure Key Vault provides a way to securely store credentials and other keys and 
    az webapp identity assign --name "<YourAppName>" --resource-group "<YourResourceGroupName>"
    ```
    Please take note that you have to replace <YourAppName> with the name of the published app on Azure i.e. if your published app name was MyAwesomeapp.azurewebsites.net then replace <YourAppName> with MyAwesomeapp
-
+ 
+ The output of the above command looks like this
+ Make a note of the PrincipalId when you publish the application to Azure. It should be of the format:
+   ```
+   {
+     "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+     "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+     "type": "SystemAssigned"
+   }
+  ```
 >[!NOTE]
 >The command in this procedure is the equivalent of going to the [portal](https://portal.azure.com) and switching the **Identity / System assigned** setting to **On** in the web application properties.
 
 ## Assign permissions to your application to read secrets from Key Vault
-
-Make a note of the output when you publish the application to Azure. It should be of the format:
-        
-        {
-          "principalId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-          "tenantId": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
-          "type": "SystemAssigned"
-        }
         
 Then, run this command by using the name of your key vault and the value of **PrincipalId**:
 
