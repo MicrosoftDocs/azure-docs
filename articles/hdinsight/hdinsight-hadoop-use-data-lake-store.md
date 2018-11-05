@@ -2,8 +2,8 @@
 title: Use Data Lake Store with Hadoop in Azure HDInsight
 description: Learn how to query data from Azure Data Lake Store and to store results of your analysis.
 services: hdinsight,storage
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017

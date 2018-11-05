@@ -390,6 +390,8 @@
       items:
       - name: Manage using PowerShell
         href: manage-account-with-powershell.md
+      - name: Manage using Azure CLI
+        href: manage-with-cli.md
       - name: Manage using Storage Explorer
         href: storage-explorer.md
       - name: Manage using data explorer

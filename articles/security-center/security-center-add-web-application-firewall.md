@@ -3,7 +3,7 @@ title: Add a web application firewall in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendations **Add a web application firewall** and **Finalize application protection**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/15/2018
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Add a web application firewall in Azure Security Center
