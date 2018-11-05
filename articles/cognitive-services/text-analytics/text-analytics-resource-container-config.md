@@ -3,13 +3,13 @@ title: Configure containers
 titlesuffix: Text Analytics - Cognitive Services - Azure
 description: Configuration settings for Text Analytics containers.
 services: cognitive-services
-author: deken
-manager: nolachar
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 08/28/2018
-ms.author: v-deken
+ms.date: 10/31/2018
+ms.author: diberry
 ---
 # Configure containers
 

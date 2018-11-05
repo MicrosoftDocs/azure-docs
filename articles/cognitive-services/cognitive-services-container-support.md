@@ -3,13 +3,13 @@ title: "Container support in Azure Cognitive Services"
 titleSuffix: "Azure Cognitive Services"
 description: Learn how Docker containers can get Cognitive Services closer to your data.
 services: cognitive-services
-author: deken
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 02/01/2018
-ms.author: v-deken
+ms.date: 10/31/2018
+ms.author: diberry
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
 
@@ -23,20 +23,11 @@ The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [T
 
 ## Features and benefits
 
-Azure Cognitive Services containers provide you with functionality that you can run where you need it, when you need it. Some of the benefits of using Azure Cognitive Services containers include:
+- **Control over data**: Allow customers to use Cognitive Services with complete control over their data.  This is essential for customers that cannot send data to the cloud but need access to Cognitive Services technology. Support consistency in hybrid environments  – across data, management, identity, and security.
+- **Control over model updates**: Provide customers flexibility in versioning and updating of models deployed in their solutions.
+- **Portable architecture**: Enable the creation of a portable application architecture that can be deployed in the cloud, on-premises and the edge. Containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
+- **High throughput / low latency**: Provide customers the ability to scale for high throughput and low latency requirements by enabling Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
 
-* Better isolation of your data and models  
-  Containerized applications and services run on top of a container host, in either Linux or Windows. Containers are isolated from each other and from the underlying operating system.
-* Local deployment with Azure Cognitive Services containers  
-  You can deploy to any Docker-enabled host that is connected to Azure. This allows you to run models close to your data.
-* More flexibility in deployment targets  
-  Containers have a significantly smaller footprint than virtual machines, and can be instantiated on any machine, including virtual machines, that can support a Docker container host. For example, you can run the containers provided by Azure Cognitive Services containers in a Docker container host running on an Azure virtual machine, allowing you to choose the right VM SKU for your needs. Containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-* More flexibility in versioning and update management  
-  With Azure Cognitive Services containers, you have more, and more fine-grained, control over what and when services get updated.
-* Better composability of services  
-  You can now compose services to maximize data locality between multiple services, with minimal cost.
-
-You can typically use the same REST API operations and .NET Core client libraries with both Azure Cognitive Services and the corresponding containers, so your implementation can work seamlessly both in the cloud and on-premises.
 
 ## Containers in Azure Cognitive Services
 
@@ -44,8 +35,8 @@ Azure Cognitive Services containers provide the following set of Docker containe
 
 | Service | Container| Description |
 |---------|----------|-------------|
-|[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |**Recognize Text** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.<br/><br/>**Important:** The Recognize Text container currently works only with English. |
-|[Face](Face/face-how-to-install-containers.md) |**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits. |
+|[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |**Recognize Text** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.<br/><br/>**Important:** The Recognize Text container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
+|[Face](Face/face-how-to-install-containers.md) |**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
