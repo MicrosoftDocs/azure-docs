@@ -152,7 +152,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Via the [device context class](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
+Via the [device context class](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```
