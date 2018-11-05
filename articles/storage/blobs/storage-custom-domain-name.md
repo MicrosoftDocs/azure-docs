@@ -50,7 +50,7 @@ The direct method is covered in the "Register a custom domain" section.
 
 The second method also uses CNAME records. To avoid downtime, however, it first employs a special subdomain *asverify* that's recognized by Azure.
 
-The process of mapping your custom domain to a blob endpoint can result in a brief period of downtime for the domain while you are registering it in the [Azure portal](https://portal.azure.com). If the domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, use the Azure *asverify* subdomain as an intermediate registration step. This step ensures that users can access your domain while the DNS mapping takes place.
+Mapping your custom domain to a blob endpoint can cause a brief period of downtime while you are registering the domain in the [Azure portal](https://portal.azure.com). If the domain currently supports an application with a service-level agreement (SLA) that requires zero downtime, use the Azure *asverify* subdomain as an intermediate registration step. This step ensures that users can access your domain while the DNS mapping takes place.
 
 The intermediary method is covered in [Register a custom domain by using the *asverify* subdomain](#register-a-custom-domain-using-the-asverify-subdomain).
 
