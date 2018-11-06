@@ -27,7 +27,7 @@ Standard SSDs support all service management operations offered by Managed Disks
 
 ## Scalability and performance targets
 
-The following table contains disk sizes, which are currently offered for Standard SSD.
+The following table contains disk sizes, which are currently offered for Standard SSD. Sizes denoted with an asterisk are currently in preview. See our [FAQ](virtual-machines-faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
 
 |Standard SSD Disk Type  |Disk Size  |IOPS per Disk  |Throughput per disk  |
 |---------|---------|---------|---------|
@@ -37,9 +37,9 @@ The following table contains disk sizes, which are currently offered for Standar
 |E30     |1,024 GiB       |Up to 500         |Up to 60 MiB per second         |
 |E40     |2,048 GiB       |Up to 500         |Up to 60 MiB per second         |
 |E50     |4,095 GiB       |Up to 500         |Up to 60 MiB per second         |
-|E60     |8,192 GiB       |Up to 1,300       |Up to 300 MiB per second        |
-|E70     |16,384 GiB      |Up to 2,000       |Up to 500 MiB per second        |
-|E80     |32,767 GiB      |Up to 2,000       |Up to 500 MiB per second        |
+|E60 *     |8,192 GiB       |Up to 1,300       |Up to 300 MiB per second        |
+|E70 *    |16,384 GiB      |Up to 2,000       |Up to 500 MiB per second        |
+|E80 *    |32,767 GiB      |Up to 2,000       |Up to 500 MiB per second        |
 
 Standard SSDs are designed to provide single-digit millisecond latencies for most IO operations, and to deliver the IOPS and throughput up to the limits described in the above table. Actual IOPS and Throughput may vary sometimes depending on the traffic patterns. Standard SSDs will provide more consistent performance than the HDD disks with the lower latency.
 
