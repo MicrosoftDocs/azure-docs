@@ -22,15 +22,15 @@ builds and redeploys your app. The sample app in this tutorial was developed by 
 In this tutorial, you'll complete these tasks:
 
 > [!div class="checklist"]
-> * Install and set up Jenkins plug-ins so you can work with GitHub, 
+> * Install Jenkins plug-ins so you can work with GitHub, 
 > deploy to Azure App Service, and other related tasks.
-> * Connect from Jenkins to GitHub.
+> * Connect Jenkins to GitHub.
 > * Create an Azure service principal so you can authenticate without using your own credentials. 
-> * Create a Jenkins pipeline that builds your sample app when a new commit is pushed in GitHub.
-> * Create build config and script files for your Jenkins pipeline.
-> * Set up your Jenkins pipeline to use a build script.
+> * Fork the sample repo and create a Jenkins pipeline that builds your sample app when a new commit is pushed in GitHub.
+> * Create build files for your Jenkins pipeline.
+> * Point your Jenkins pipeline at a build script.
 > * Deploy your sample app to Azure by running a manual build.
-> * Push an app update in GitHub and redeploy to Azure by automatically triggering a Jenkins build.
+> * Push app updates in GitHub and redeploy to Azure by automatically triggering a Jenkins build.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -76,7 +76,7 @@ command line or [Azure Cloud Shell](/azure/cloud-shell/overview)
 select **Manage Jenkins** so that you return to 
 the Jenkins management page for the next steps.
 
-## Set up Jenkins for GitHub
+## Connect Jenkins to GitHub
 
 To have Jenkins monitor and get GitHub events when new 
 commits for your web app are pushed to GitHub, enable 
@@ -127,11 +127,11 @@ by choosing **Test connection**.
 
 In a later section, you'll create a pipeline job in Jenkins for building your app. 
 To authenticate running the pipeline job from a script, create an 
-[Azure Active Directory service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
+[Azure Active Directory service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 
 A service principal is an identity you can assign specific permissions 
 and use for accessing Azure resources without entering your own credentials. 
 To create the service principal, run the Azure CLI 
-[**az ad sp create-for-rbac**](/cli/azure/create-an-azure-service-principal-azure-cli) 
+[**az ad sp create-for-rbac**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest) 
 command, either from your local command line or Azure Cloud Shell:
 
 ```azurecli-interactive
@@ -186,7 +186,7 @@ add these environment variables:
 
 1. When you're done, choose **Save**.
 
-## Create build config and script files
+## Create build files
 
 1. In your GitHub fork's `src/main/resources/` folder, 
 create a config file named `web.config` that contains this XML 
@@ -233,7 +233,7 @@ script file named `Jenkinsfile` that contains this text
 1. Commit both `web.config` and `Jenkinsfile` to your GitHub fork, 
 and push your changes.
 
-## Set up pipeline with build script
+## Point pipeline at build script
 
 1. In Jenkins, select your previously created pipeline job. 
 
@@ -306,7 +306,7 @@ and commit the change to the repo's `master` branch.
 
    ![View your deployed app on Azure](media/jenkins-java-quickstart/greeetings-edited.png)
 
-## Report bugs in Jenkins plug-ins
+## Report Jenkins plug-in bugs
 
 If you find any bugs with the Jenkins plug-ins, 
 open an issue for that specific component in the 
