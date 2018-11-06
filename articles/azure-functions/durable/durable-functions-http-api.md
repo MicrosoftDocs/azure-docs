@@ -63,7 +63,7 @@ Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d84
 
 ## Async operation tracking
 
-The HTTP response mentioned previously is designed to help implementing long-running HTTP async APIs with Durable Functions. This is sometimes referred to as the *Polling Consumer Pattern*. The client/server flow works as follows:
+The HTTP response mentioned previously is designed to help implement long-running HTTP async APIs with Durable Functions. This is sometimes referred to as the *Polling Consumer Pattern*. The client/server flow works as follows:
 
 1. The client issues an HTTP request to start a long running process, such as an orchestrator function.
 2. The target HTTP trigger returns an HTTP 202 response with a `Location` header with the `statusQueryGetUri` value.
@@ -85,6 +85,7 @@ All HTTP APIs implemented by the extension take the following parameters. The da
 | taskHub    | Query string    | The name of the [task hub](durable-functions-task-hubs.md). If not specified, the current function app's task hub name is assumed. |
 | connection | Query string    | The **name** of the connection string for the storage account. If not specified, the default connection string for the function app is assumed. |
 | systemKey  | Query string    | The authorization key required to invoke the API. |
+| showInput  | Query string    | Optional parameter. If set to `false`, the execution input will not be included in the response payload.|
 | showHistory| Query string    | Optional parameter. If set to `true`, the orchestration execution history will be included in the response payload.| 
 | showHistoryOutput| Query string    | Optional parameter. If set to `true`, the activity outputs will be included in the orchestration execution history.| 
 | createdTimeFrom  | Query string    | Optional parameter. When specified, filters the list of returned instances which were created at or after the given ISO8601 timestamp.|
@@ -128,7 +129,7 @@ The response payload for the **HTTP 200** and **HTTP 202** cases is a JSON objec
 | Field           | Data type | Description |
 |-----------------|-----------|-------------|
 | runtimeStatus   | string    | The runtime status of the instance. Values include *Running*, *Pending*, *Failed*, *Canceled*, *Terminated*, *Completed*. |
-| input           | JSON      | The JSON data used to initialize the instance. |
+| input           | JSON      | The JSON data used to initialize the instance. This field is `null` if the `showInput` query string parameter is set to `false`.|
 | customStatus    | JSON      | The JSON data used for custom orchestration status. This field is `null` if not set. |
 | output          | JSON      | The JSON output of the instance. This field is `null` if the instance is not in a completed state. |
 | createdTime     | string    | The time at which the instance was created. Uses ISO 8601 extended notation. |
@@ -221,13 +222,13 @@ You can filter the request.
 For Functions 1.0, the request format is as follows:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
 
 ```http
-GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### Response
