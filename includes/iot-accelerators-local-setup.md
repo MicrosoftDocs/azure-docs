@@ -18,7 +18,7 @@ To clone and create a local version of the repository, use your command-line env
 
 To download the latest version of the .NET microservice implementations, run:
 
-```cmd\sh
+```cmd/sh
 git clone --recurse-submodules https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
 
 # To retrieve the latest submodules, run the following command:
