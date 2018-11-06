@@ -18,7 +18,7 @@ Azure Ultra SSD (preview) delivers high throughput, high IOPS, and consistent lo
 
 **Managed Disks**: Ultra SSDs are only available as Managed Disks. Ultra SSDs cannot be deployed as an Unmanaged Disk or Page Blob. While creating a Managed Disk, you specify the disk sku type as UltraSSD_LRS and indicate the size of disk, the IOPS, and throughput you need, and Azure creates and manages the disk for you.  
 
-**Virtual Machines**: Ultra SSDs are designed to work with all Premium SSD enabled Azure Virtual Machine SKUs, however, as it is currently in preview the VM sizes will be limited to the VMs are sized as ES/DS v3.
+**Virtual Machines**: Ultra SSDs are designed to work with all Premium SSD enabled Azure Virtual Machine SKUs; however, as it is currently in preview, the VMs are sized as ES/DS v3.
 
 **Dynamic Performance Configuration**: Ultra SSDs allow you to dynamically change the performance (IOPS and throughput) of the disk along with your workload needs without having to restart your virtual machines.
 
