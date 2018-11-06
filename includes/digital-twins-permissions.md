@@ -27,11 +27,17 @@
     ![Azure Active Directory Application ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
 1. Open your app registration pane. Select **Settings** > **Required permissions**, and then:
-    - Select **Add** in the top left to open the **Add API access** pane.
-    - Choose **Select an API**, and search for **Azure Digital Twins**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead.
-    - Select **Azure Digital Twins (Azure Smart Spaces Service)**, and choose **Select**.
-    - Choose **Select permissions**. Select the **Read/Write Access** delegated permissions check box, and choose **Select**.
-    - Select **Done** in the **Add API access** pane.
-    - In the **Required permissions** pane, select **Grant permissions**. Accept the acknowledgement that appears.
 
-       ![Azure Active Directory App registrations add API](./media/digital-twins-permissions/aad-app-req-permissions.png)
+    a. Select **Add** in the top left to open the **Add API access** pane.
+    
+    b. Choose **Select an API**, and search for **Azure Digital Twins**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead.
+    
+    c. Select **Azure Digital Twins (Azure Smart Spaces Service)**, and choose **Select**.
+    
+    d. Choose **Select permissions**. Select the **Read/Write Access** delegated permissions check box, and choose **Select**.
+    
+    e. Select **Done** in the **Add API access** pane.
+    
+    f. In the **Required permissions** pane, select **Grant permissions**. Accept the acknowledgement that appears.
+
+      ![Azure Active Directory App registrations add API](./media/digital-twins-permissions/aad-app-req-permissions.png)

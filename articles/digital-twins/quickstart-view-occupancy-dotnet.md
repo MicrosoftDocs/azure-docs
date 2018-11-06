@@ -17,7 +17,7 @@ ms.author: alinast
 
 The Azure Digital Twins service allows you to re-create a digital image of your physical environment. You can then get notified by events in your environment and customize your responses to them. 
 
-This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginary office building. It shows you how to find available rooms in that building. With Digital Twins, you can associate multiple sensors with your environment. You also can find out if the air quality of your available room is optimal with the help of a simulated sensor for carbon dioxide. One of the sample applications generates random sensor data to help you visualize this scenario.
+This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginary office building. It shows you how to find available rooms in that building. With Digital Twins, you can associate many sensors with your environment. You also can find out if the air quality of your available room is optimal with the help of a simulated sensor for carbon dioxide. One of the sample applications generates random sensor data to help you visualize this scenario.
 
 ## Prerequisites
 
@@ -102,7 +102,7 @@ Build and run the sensor simulator application by following these steps.
 
 ## Find available spaces with fresh air
 
-The sensor sample simulates random data values for two sensors, motion and carbon dioxide. Available spaces with fresh air are defined in the sample by no presence in the room and a carbon dioxide level under 1,000 ppm. If the condition isn't fulfilled, the space isn't available or the air quality is poor.
+The sensor sample simulates random data values for two sensors. They're motion and carbon dioxide. Available spaces with fresh air are defined in the sample by no presence in the room. They're also defined by a carbon dioxide level under 1,000 ppm. If the condition isn't fulfilled, the space isn't available or the air quality is poor.
 
 1. Open the command prompt you used to run the previous provisioning step.
 1. Run `dotnet run GetAvailableAndFreshSpaces`.
