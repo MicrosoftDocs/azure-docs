@@ -66,13 +66,15 @@ Blockchain Workbench deployment requires registration of an Azure AD application
 
 5. Select **Create** to register the Azure AD application.
 
-### Modify application manifest
+### Modify manifest
 
-Next, you need to modify the application manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../../active-directory/develop/reference-app-manifest.md).
+Next, you need to modify the manifest to use application roles within Azure AD to specify Blockchain Workbench administrators.  For more information about application manifests, see [Azure Active Directory application manifest](../../active-directory/develop/reference-app-manifest.md).
 
 1. For the application you registered, select **Manifest** in the registered application details pane.
 2. Generate a GUID. You can generate a GUID using the PowerShell command [guid] :: NewGuid () or New-GUID cmdlet. Another option is to use a GUID generator website.
 3. You are going to update the **appRoles** section of the manifest. In the Edit manifest pane, select **Edit** and replace `"appRoles": []` with the provided JSON. Be sure to replace the value for the **id** field with the GUID you generated. 
+
+    ![Edit manifest](media/deploy/edit-manifest.png)
 
     ``` json
     "appRoles": [
@@ -90,12 +92,15 @@ Next, you need to modify the application manifest to use application roles withi
        ],
     ```
 
-    ![Edit manifest](media/deploy/edit-manifest.png)
-
     > [!IMPORTANT]
     > The value **Administrator** is needed to identify Blockchain Workbench administrators.
+4. In the manifest, also change the **Oauth2AllowImplictFlow** value to **true**.
 
-4.  Click **Save** to save the application manifest changes.
+    ``` json
+    "oauth2AllowImplicitFlow": true,
+    ```
+
+5. Select **Save** to save the manifest changes.
 
 ### Add Graph API required permissions
 
@@ -107,38 +112,17 @@ The API application needs to request permission from the user to access the dire
 
     Click **Select**.
 
-2. In **Enable Access** under **Application permissions**, choose **Read all users' full profiles**.
+2. In **Enable Access** under **Delegated permissions**, choose **Read all users' basic profiles**.
 
     ![Enable access](media/deploy/client-app-read-perms.png)
 
-    Click **Select** then click **Done**.
+    Select **Save** then select **Done**.
 
 3. In **Required permissions**, select **Grant Permissions** then select **Yes** for the verification prompt.
 
    ![Grant permissions](media/deploy/client-app-grant-permissions.png)
 
    Granting permission allows Blockchain Workbench to access users in the directory. The read permission is required to search and add members to Blockchain Workbench.
-
-### Add Graph API key to application
-
-Blockchain Workbench uses Azure AD as the main identity management system for users interacting with blockchain applications. In order for Blockchain Workbench to access Azure AD and retrieve user information, such as names and emails, you need to add an access key. Blockchain Workbench uses the key to authenticate with Azure AD.
-
-1. For the application you registered, select **Settings** in the registered application details pane.
-2. Select **Keys**.
-3. Add a new key by specifying a key **description** and choosing **expires** duration value. 
-
-    ![Create key](media/deploy/app-key-create.png)
-
-    |Setting  | Value  |
-    |---------|---------|
-    | Description | `Service` |
-    | Expires | Choose an expiration duration |
-
-4. Select **Save**. 
-5. Copy the value of the key and store it for later. You need it for deployment.
-
-    > [!IMPORTANT]
-    >  If you don't save the key for the deployment, you will need to generate a new key. You can't retrieve the key value from the portal later.
 
 ### Get application ID
 
@@ -160,6 +144,14 @@ Collect and store the Active Directory tenant domain name where the applications
 In the left-hand navigation pane, select the **Azure Active Directory** service. Select **Custom domain names**. Copy and store the domain name.
 
 ![Domain name](media/deploy/domain-name.png)
+
+### Guest user settings
+
+If you have guest users in your AAD tenant, there are a few additional steps that you need to take to ensure Workbench user assignment and management is setup properly.
+
+1. Navigate to your AAD tenant settings page and locate “User settings.”
+2. Select “Manage external collaboration settings” for External Users
+3. Flip the toggle for “Guest user permissions are limited” to “No.
 
 ## Deploy Blockchain Workbench
 
@@ -206,7 +198,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Application Key | Use the Application key from the Blockchain client app registration collected in the [Add Graph API key to application](#add-graph-api-key-to-application) prerequisite section. |
 
 
-8.  Click **OK** to finish the Azure AD Parameters configuration section.
+8.  Select **OK** to finish the Azure AD Parameters configuration section.
 
 9.  In **Network Settings and Performance**, choose if you want to create a new blockchain network or use an existing proof-of-authority blockchain network.
 
@@ -249,7 +241,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Monitoring | Choose whether you want to enable Azure Monitor to monitor your blockchain network |
     | Connect to existing Log Analytics instance | Choose whether you want to use an existing Log Analytics instance or create a new one. If using an existing instance, enter your workspace ID and primary key. |
 
-12. Click **OK** to finish the Azure Monitor section.
+12. Select **OK** to finish the Azure Monitor section.
 
 13. Review the summary to verify your parameters are accurate.
 
@@ -266,7 +258,7 @@ Once the deployment of the Blockchain Workbench has completed, a new resource gr
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. In the left-hand navigation pane, select **Resource groups**
 3. Choose the resource group name you specified when deploying Blockchain Workbench.
-4. Click the **TYPE** column heading to sort the list alphabetically by type.
+4. Select the **TYPE** column heading to sort the list alphabetically by type.
 5. There are two resources with type **App Service**. Select the resource of type **App Service** *without* the "-api" suffix.
 
     ![App service list](media/deploy/resource-group-list.png)
