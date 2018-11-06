@@ -108,7 +108,7 @@ Move-AzureRmResource -DestinationResourceGroupName 'targetRG' -DestinationSubscr
 ## Next steps
 To learn more about Service Bus, see the following articles:
 
-* [Introducing Azure Service Bus Premium (blog post)](http://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+* [Introducing Azure Service Bus Premium (blog post)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
 * [Introducing Azure Service Bus Premium (Channel9)](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging)
 * [Service Bus overview](service-bus-messaging-overview.md)
 * [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)

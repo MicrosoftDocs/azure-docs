@@ -207,7 +207,7 @@ In this article you learned to use File Integrity Monitoring (FIM) in Security C
 * [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
 * [Monitoring partner solutions](security-center-partner-solutions.md) -- Learn how to monitor the health status of your partner solutions.
 * [Security Center FAQ](security-center-faq.md)--Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/)--Get the latest Azure security news and information.
 
 <!--Image references-->
 [1]: ./media/security-center-file-integrity-monitoring/security-center-dashboard.png

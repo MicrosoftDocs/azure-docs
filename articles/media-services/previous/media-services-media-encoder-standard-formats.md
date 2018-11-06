@@ -83,7 +83,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Windows Media Audio |Yes |
 | WAV/PCM |Yes |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Yes |
-| [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Yes |
 | AMR (adaptive multi-rate) |Yes |
 | AES (SMPTE 331M and 302M, AES3-2003) |No |
