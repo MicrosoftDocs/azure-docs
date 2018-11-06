@@ -4,7 +4,7 @@ description: Azure Blueprints is a service in Azure, that you use to create, def
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
@@ -26,6 +26,11 @@ other artifacts such as:
 - Policy Assignments
 - Azure Resource Manager templates
 - Resource Groups
+
+The Azure Blueprints service is backed by the globally distributed [Azure Cosmos DB](../../cosmos-db/introduction.md).
+Blueprint objects are replicated to multiple Azure regions. This replication provides low latency,
+high availability, and consistent access to your blueprint objects, regardless of which region
+Blueprints deploys your resources to.
 
 ## How it's different from Resource Manager templates
 
