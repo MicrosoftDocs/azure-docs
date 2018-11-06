@@ -146,7 +146,9 @@ If you are using premium storage accounts for unmanaged disks and your applicati
 ### Premium Storage disk limits
 When you provision a premium storage disk, the size of the disk determines the maximum IOPS and throughput (bandwidth). Azure offers eight GA types of premium storage disks: P4 (Managed Disks only), P6 (Managed Disks only), P10, P15 (Managed Disks only), P20, P30, P40, and P50. As well as three preview disk sizes: P60, P70, and P80. Each premium storage disk type has specific limits for IOPS and throughput. Limits for the disk types are described in the following table:
 
-| Premium Disks Type  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Sizes denoted with an asterisk are currently in preview.
+
+| Premium Disks Type  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Disk size           | 32 GiB| 64 GiB| 128 GiB| 256 GiB| 512 GiB| 1024 GiB (1 TiB) | 2048 GiB (2 TiB)| 4095 GiB (4 TiB)| 8192 GiB (8 TiB)| 16,384 GiB (16 TiB)| 32,767 GiB (32 TiB)|
 | IOPS per disk       | 120   | 240   | 500    | 1100   | 2300   | 5000             | 7500            | 7500            | 12,500          | 15,000             | 20,000             |
