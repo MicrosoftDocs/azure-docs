@@ -3,8 +3,8 @@ title: Create Spark Streaming jobs with exactly-once event processing - Azure HD
 description: How to set up Spark Streaming to process an event once and only once.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018

@@ -3,8 +3,8 @@ title: Apache Storm write to Storage/Data Lake Store - Azure HDInsight
 description: Learn how to use the Apache Storm to write to the HDFS-compatible storage for HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -23,7 +23,7 @@ The project containing this topology is available as a download from [https://gi
 
 To compile this project, you need the following configuration for your development environment:
 
-* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) or higher. HDInsight 3.5 or higher require Java 8.
+* [Java JDK 1.8](https://aka.ms/azure-jdks) or higher. HDInsight 3.5 or higher require Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 

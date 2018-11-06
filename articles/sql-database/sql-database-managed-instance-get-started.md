@@ -11,9 +11,9 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 09/23/2018
+ms.date: 11/01/2018
 ---
-# Create an Azure SQL Database Managed Instance
+# Quickstart: Create an Azure SQL Database Managed Instance
 
 This quickstart walks through how to create an Azure SQL Database [Managed Instance](sql-database-managed-instance.md) in the Azure portal. 
 
@@ -83,3 +83,4 @@ After the deployment completes successfully, review the resources created and re
   - For a quickstart showing how to connect to a Managed Instance from an Azure virtual machine, see [Configure an Azure virtual machine connection](sql-database-managed-instance-configure-vm.md).
   - For a quickstart showing how to connect to a Managed Instance from an on-premises client computer using a point-to-site connection, see [Configure a point-to-site connection](sql-database-managed-instance-configure-p2s.md).
 - To restore an existing SQL Server database from on-premises to a Managed instance, you can use the [Azure Database Migration Service (DMS) for migration](../dms/tutorial-sql-server-to-managed-instance.md) to restore from a database backup file or the [T-SQL RESTORE command](sql-database-managed-instance-get-started-restore.md) to restore from a database backup file.
+- For advanced monitoring of Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md)

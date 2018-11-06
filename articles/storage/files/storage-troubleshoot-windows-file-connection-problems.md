@@ -6,7 +6,7 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: jeffpatt
 ms.component: files
 ---
@@ -183,6 +183,24 @@ To copy a file over the network, you must first decrypt it. Use one of the follo
   - Value = 1
 
 Be aware that setting the registry key affects all copy operations that are made to network shares.
+
+## Slow enumeration of files and folders
+
+### Cause
+
+This problem can occur if there is no enough cache on client machine for large directories.
+
+### Solution
+
+To resolve this problem,  adjusting the **DirectoryCacheEntrySizeMax** registry value  to allow caching of larger directory listings in the client machine:
+
+- Location: HKLM\System\CCS\Services\Lanmanworkstation\Parameters
+- Value mane: DirectoryCacheEntrySizeMax 
+- Value type:DWORD
+ 
+ 
+For example, you can set it to 0x100000 and see if the performance become better.
+
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved quickly.
