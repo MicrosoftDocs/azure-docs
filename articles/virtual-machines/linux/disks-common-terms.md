@@ -17,8 +17,7 @@ This article defines several of the primary terminologies used in the Azure Disk
 
 ## What is an Azure Disk?
 
-An Azure Disk is essentially a VHD (virtual hard disks). You can think of them just as you would an on-prem disk but for a more direct analogy they're akin to a VMDK or a VHDx/VMD. Internally they are page blobs which you don't have to manage if you're using managed disks. In the Azure space they can either be data or OS disks.
-
+An Azure Disk is essentially a VHD (virtual hard disks). You can think of them just as you would an on-prem disk but, for a more direct analogy, they're akin to a VMDK or a VHDx/VMD. Internally, they are page blobs which you don't have to manage, if you're using managed disks. In the Azure space they can either be data or OS disks.
 
 ### Data Disks
 

@@ -103,7 +103,7 @@
     - name: Managed Disks
       href: managed-disks-overview.md
     - name: Disk Types
-      href: disk-types.md
+      href: disks-types.md
     - name: Defining the common terminology for Azure Disks
       href: disks-common-terms.md
     - name: Benchmarks

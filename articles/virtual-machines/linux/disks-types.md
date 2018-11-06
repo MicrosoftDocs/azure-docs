@@ -1,6 +1,6 @@
 ---
-title: Defining the common terms in Azure Disks - Microsoft Azure | Microsoft Docs
-description: Learn about IOPS, throughput, and latency
+title: What are the differences between the disk types available in Azure Disks - Microsoft Azure | Microsoft Docs
+description: Learn about Ultra, Premium, and Standard SSDs as well as Standard HDDs.
 services: "virtual-machines-linux,storage"
 author: roygara
 ms.author: rogarana
@@ -14,42 +14,6 @@ ms.component: disks
 # Disk types
 
 intro
-
-## Standard HDD
-
-Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard SSD and HDD disks for Dev/Test scenarios and less critical workloads, and premium SSD disks for mission-critical production applications. Standard Storage is available in all Azure regions.
-
-### Disk size
-
-| Standard Disk Type  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60              | S70              | S80              |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk size in GiB          | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
-| IOPS per disk       | Up to 500              | Up to 500              | Up to 500              | Up to 500 | Up to 500              | Up to 500              | Up to 500             | Up to 500              | Up to 1,300              | Up to 2,000              | Up to 2,000              |
-| Throughput per disk | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec| Up to 300 MiB/sec | Up to 500 MiB/sec | Up to 500 MiB/sec |
-
-## Standard SSD
-
-Azure Standard Solid State Drives (SSD) Managed Disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Standard SSD offers a good entry level experience for those who wish to move to the cloud, especially if you experience issues with the variance of workloads running on your HDD solutions on premises. Standard SSDs deliver better availability, consistency, reliability and latency compared to HDD Disks, and are suitable for Web servers, low IOPS application servers, lightly used enterprise applications, and Dev/Test workloads.
-
-### Disk size
-
-| Standard SSD Disk Type  | E10               | E15               | E20             | E30 | E40              | E50              | E60              | E70              | E80              |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk size in GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
-| IOPS per disk       | Up to 500              | Up to 500              | Up to 500              | Up to 500 | Up to 500              | Up to 500              | Up to 500             | Up to 500              | Up to 1,300              | Up to 2,000              | Up to 2,000              |
-| Throughput per disk | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec| Up to 300 MiB/sec |  Up to 500 MiB/sec | Up to 500 MiB/sec |
-
-## Premium SSD
-
-Azure Premium SSDs deliver high-performance, low-latency disk support for virtual machines (VMs) with input/output (I/O)-intensive workloads. To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium Storage.
-
-### Disk size
-
-| Premium Disk Type  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60              | P70              | P80              |
-|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
-| Disk size in GiB           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
-| IOPS per disk       | Up to 120 | Up to 240              | Up to 500              | Up to 1,100 | Up to 2,300              | Up to 5,000              | Up to 7,500             | Up to 7,500              | Up to 12,500              | Up to 15,000              | Up to 20,000              |
-| Throughput per disk | Up to 25 MiB/sec | Up to 50 MiB/sec | Up to 100 MiB/sec | Up to 125 MiB/sec | Up to 150 MiB/sec | Up to 200 MiB/sec | Up to 250 MiB/sec | Up to 250 MiB/sec| Up to 480 MiB/sec | Up to 750 MiB/sec | Up to 750 MiB/sec |
 
 ## Ultra SSD (Preview)
 
@@ -81,7 +45,7 @@ Some key capabilities of Ultra SSD are:
 
 ### Ultra SSD Preview Scope and Limitations
 
-At preview, Ultra SSD Disks:
+During preview, Ultra SSD Disks:
 
 - Will be initially supported in East US 2 in a single Availability Zone  
 - Can only be used with Availability Zones (Availability Sets and Single VM deployments outside of Zones will not have the ability to attach an Ultra SSD Disk)
@@ -92,6 +56,42 @@ At preview, Ultra SSD Disks:
 - Will not (yet) support disk snapshots, VM Images, Availability Sets, Virtual Machine Scale Sets and Azure Disk Encryption.
 - Will not (yet) support integration with Azure Backup or Azure Site Recovery.
 - As with [most previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/), this feature should not be used for production workloads until General Availability (GA).
+
+## Premium SSD
+
+Azure Premium SSDs deliver high-performance, low-latency disk support for virtual machines (VMs) with input/output (I/O)-intensive workloads. To take advantage of the speed and performance of premium storage disks, you can migrate existing VM disks to Premium Storage.
+
+### Disk size
+
+| Premium Disk Type  | P4               | P6               | P10             | P15 | P20              | S30              | P40              | P50              | P60              | P70              | P80              |
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Disk size in GiB           | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
+| IOPS per disk       | Up to 120 | Up to 240              | Up to 500              | Up to 1,100 | Up to 2,300              | Up to 5,000              | Up to 7,500             | Up to 7,500              | Up to 12,500              | Up to 15,000              | Up to 20,000              |
+| Throughput per disk | Up to 25 MiB/sec | Up to 50 MiB/sec | Up to 100 MiB/sec | Up to 125 MiB/sec | Up to 150 MiB/sec | Up to 200 MiB/sec | Up to 250 MiB/sec | Up to 250 MiB/sec| Up to 480 MiB/sec | Up to 750 MiB/sec | Up to 750 MiB/sec |
+
+## Standard SSD
+
+Azure Standard Solid State Drives (SSD) Managed Disks are a cost-effective storage option optimized for workloads that need consistent performance at lower IOPS levels. Standard SSD offers a good entry level experience for those who wish to move to the cloud, especially if you experience issues with the variance of workloads running on your HDD solutions on premises. Standard SSDs deliver better availability, consistency, reliability and latency compared to HDD Disks, and are suitable for Web servers, low IOPS application servers, lightly used enterprise applications, and Dev/Test workloads.
+
+### Disk size
+
+| Standard SSD Disk Type  | E10               | E15               | E20             | E30 | E40              | E50              | E60              | E70              | E80              |
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Disk size in GiB           | 128             | 256             | 512            | 1,024  | 2,048            | 4,095     | 8,192     | 16,384     | 32,767    |
+| IOPS per disk       | Up to 500              | Up to 500              | Up to 500              | Up to 500 | Up to 500              | Up to 500              | Up to 500             | Up to 500              | Up to 1,300              | Up to 2,000              | Up to 2,000              |
+| Throughput per disk | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec| Up to 300 MiB/sec |  Up to 500 MiB/sec | Up to 500 MiB/sec |
+
+## Standard HDD
+
+Azure Standard Storage delivers reliable, low-cost disk support for VMs running latency-insensitive workloads. It also supports blobs, tables, queues, and files. With Standard Storage, the data is stored on hard disk drives (HDDs). When working with VMs, you can use standard SSD and HDD disks for Dev/Test scenarios and less critical workloads, and premium SSD disks for mission-critical production applications. Standard Storage is available in all Azure regions.
+
+### Disk size
+
+| Standard Disk Type  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60              | S70              | S80              |
+|---------------------|---------------------|---------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|------------------|
+| Disk size in GiB          | 32             | 64             | 128            | 256  | 512            | 1,024    | 2,048     | 4,095    | 8,192     | 16,384     | 32,767     |
+| IOPS per disk       | Up to 500              | Up to 500              | Up to 500              | Up to 500 | Up to 500              | Up to 500              | Up to 500             | Up to 500              | Up to 1,300              | Up to 2,000              | Up to 2,000              |
+| Throughput per disk | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec | Up to 60 MiB/sec| Up to 300 MiB/sec | Up to 500 MiB/sec | Up to 500 MiB/sec |
 
 ## Billing
 
