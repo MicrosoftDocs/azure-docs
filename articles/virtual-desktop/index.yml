@@ -19,7 +19,6 @@ sections:
   - type: paragraph
     text: 'What is Windows Virtual Desktop?'
   - type: list
-    style: 
     items:
     - html: <a href="/azure/virtual-desktop/windows-virtual-desktop-overview">What is Windows Virtual Desktop?</a>
     - html: <a href="/azure/virtual-desktop/wvd-and-rds-comparison">Windows Virtual Desktop and Remote Desktop Services comparison</a>
@@ -41,7 +40,6 @@ sections:
   - type: paragraph
     text: 'Learn how to perform basic setup and diagnostics functions for Window Virtual Desktop.'
   - type: list
-    style: 
     items: 
     - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-ad">Set up tenants in Azure Active Directory</a>
     - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-rd">Connect to a Remote Desktop environment</a>
