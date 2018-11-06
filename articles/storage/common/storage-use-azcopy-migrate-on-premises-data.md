@@ -33,7 +33,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Prerequisites
 
-To complete this tutorial, download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](http://aka.ms/downloadazcopy).
+To complete this tutorial, download the latest version of AzCopy on [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#download-and-install-azcopy) or [Windows](https://aka.ms/downloadazcopy).
 
 If you're on Windows, you will require [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) as this tutorial makes use of it in order to schedule a task. Linux users will make use of the crontab command, instead.
 

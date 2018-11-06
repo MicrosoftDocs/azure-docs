@@ -26,7 +26,7 @@ At the end of this tutorial, you have two C apps:
 
 To complete this tutorial, you need the following:
 
-* An active Azure account. (If you don't have an account, you can create an [Azure free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create an [Azure free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 * An IoT Hub.
 * The latest [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c).
 
