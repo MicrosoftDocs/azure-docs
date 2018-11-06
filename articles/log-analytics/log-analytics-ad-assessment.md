@@ -181,4 +181,4 @@ After the next scheduled health check runs, by default every seven days, the spe
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* Use [Log searches in Log Analytics](log-analytics-log-search.md) to learn how to analyze detailed AD Health Check data and recommendations.
+* Use [Log searches in Log Analytics](log-analytics-queries.md) to learn how to analyze detailed AD Health Check data and recommendations.

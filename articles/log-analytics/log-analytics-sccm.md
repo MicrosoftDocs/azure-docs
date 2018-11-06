@@ -108,7 +108,7 @@ After the collections are imported, you can see how many computers with collecti
 
 ![Computer Groups - SCCM tab](./media/log-analytics-sccm/sccm-computer-groups02.png)
 
-When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](log-analytics-log-search.md), you can start in-depth analysis of Configuration Manager data.
+When you click either one, Search opens, displaying either all of the imported groups or all computers that belong to each group. Using [Log Search](log-analytics-queries.md), you can start in-depth analysis of Configuration Manager data.
 
 ## Next steps
-* Use [Log Search](log-analytics-log-search.md) to view detailed information about your Configuration Manager data.
+* Use [Log Search](log-analytics-queries.md) to view detailed information about your Configuration Manager data.

@@ -69,7 +69,7 @@ There are four items within the solution:
 
 ## Develop your module
 
-The default Azure Function code that comes with the solution is located at **modules** > [your module name] > **EdgeHubTrigger-Csharp** > **run.csx**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
+The default Azure Function code that comes with the solution is located at **modules** > [your module name] > **modulename.cs**. The module and the deployment.template.json file are set up so that you can build the solution, push it to your container registry, and deploy it to a device to start testing without touching any code. The module is built to simply take input from a source (in this case, the tempSensor module that simulates data) and pipe it to IoT Hub. 
 
 When you're ready to customize the Azure Function template with your own code, use the [Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md) to build modules that address the key needs for IoT solutions such as security, device management, and reliability. 
 
@@ -88,7 +88,7 @@ Check your container status in VS Code Docker explorer or by running the `docker
 
    ![Select debug configuration](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. Navigate to `run.csx`. Add a breakpoint in the function.
+2. Navigate to `modulename.cs`. Add a breakpoint in the function.
 3. Select **Start Debugging** or select **F5**. Select the process to attach to.
 4. In VS Code debug view, you'll see the variables in the left panel. 
 

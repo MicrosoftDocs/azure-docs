@@ -33,7 +33,8 @@ Before you start, make sure you have the following:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).  
 * Log in to the [Azure portal](https://portal.azure.com/).  
-* Download the phone call event generator app [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).  
+* Download the phone call event generator app [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
+* You will need Power BI account.
 
 ## Create an Azure Event Hub 
 
@@ -83,9 +84,7 @@ Before an application can send data to Azure Event Hubs, the event hub must have
 
    `Endpoint=sb://<Your event hub namespace>.servicebus.windows.net/;SharedAccessKeyName=<Your shared access policy name>;SharedAccessKey=<generated key>;EntityPath=<Your event hub name>` 
 
-   Notice that the connection string contains multiple key-value pairs separated with semicolons: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey**, and **EntityPath**.  
-
-5. Remove the **EntityPath** pair from the connection string and the semicolon that precedes it.
+   Notice that the connection string contains multiple key-value pairs separated with semicolons: **Endpoint**, **SharedAccessKeyName**, **SharedAccessKey**, and **EntityPath**.
 
 ## Start the event generator application
 
@@ -244,13 +243,13 @@ You can test a query from the query editor using sample data. Run the following 
 
 3. Once the job succeeds, navigate to [Power BI](https://powerbi.com/) and sign in with your work or school account. If the Stream Analytics job query is outputting results, the *ASAdataset* dataset you created exists under the **Datasets** tab.  
 
-4. From your Power BI workspace, select **+ Create** to create a mew dashboard named *Fraudulent Calls*.  
+4. From your Power BI workspace, select **+ Create** to create a new dashboard named *Fraudulent Calls*.  
 
 5. At the top of the window, select **Add tile**. Then select **Custom Streaming Data** and **Next**. Choose the **ASAdataset** under **Your Datasets**. Select **Card** from the **Visualization type** dropdown, and add **fraudulentcalls** to **Fields**. Select **Next** to enter a name for the tile, and then select **Apply** to create the tile.  
 
    ![Create tiles](media/stream-analytics-manage-job/create-tiles.png)
 
-6. Follow the steps 4 and 5 again with the following options:
+6. Follow the step 5 again with the following options:
    * When you get to Visualization Type, select Line chart.  
    * Add an axis and select **windowend**.  
    * Add a value and select **fraudulentcalls**.  

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 
@@ -48,9 +48,8 @@ The key must be stored in a secure location (for example, public Azure Key Vault
 
 ### Backups
 
- - Infrastructure Backup Controller needs to be triggered on demand. Recommendation is to backup at least two times per day.
  - Backup jobs execute while the system is running so there is no downtime to the management experiences or user applications. Expect the backup jobs to take 20-40 minutes for a solution that is under reasonable load.
- - Using OEM provided instruction, manually backup network switches and the hardware lifecycle host (HLH) should be stored on the same backup share where the Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for each configuration that belongs to a scale unit.
+ - Using OEM provided instructions, manually backup network switches and the hardware lifecycle host (HLH) should be stored on the same backup share where the Infrastructure Backup Controller stores control plane backup data. Consider storing switch and HLH configurations in the region folder. If you have multiple Azure Stack instances in the same region, consider using an identifier for each configuration that belongs to a scale unit.
 
 ### Folder Names
 
@@ -91,5 +90,6 @@ The following alerts are supported by the system:
 
 ## Next steps
 
- - Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md).  
- - Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md).
+Review the reference material for the [Infrastructure Backup Service](azure-stack-backup-reference.md).
+
+Enable the [Infrastructure Backup Service](azure-stack-backup-enable-backup-console.md).
