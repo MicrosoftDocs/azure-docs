@@ -12,10 +12,10 @@ articles/ @apex-docs-pr-reviewers
 # Cognitive Services
 articles/cognitive-services/ @nitinme @tchristiani @cjgronlund
 articles/cognitive-services/LUIS/ @cjgronlund @nitinme @diberry
-articles/cognitive-services/[Ss]peaker-recognition/ @cjgronlund @nitinme @erhopf
-articles/cognitive-services/[Ss]peech-[Ss]ervice/ @cjgronlund @nitinme @erhopf
-articles/cognitive-services/[Tt]ranslator/ @cjgronlund @nitinme @erhopf
-articles/cognitive-services/[Qq]n[Aa][Mm]aker/ @cjgronlund @nitinme @diberry
+articles/cognitive-services/Speaker-recognition/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/Speech-Service/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/Translator/ @cjgronlund @nitinme @erhopf
+articles/cognitive-services/QnAMaker/ @cjgronlund @nitinme @diberry
 
 # DevOps
 
