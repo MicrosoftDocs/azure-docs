@@ -64,7 +64,7 @@ By default, Azure Diagnostics always sends logs and metrics to an Azure Storage 
 
 In this example, the event hub URL is set to the fully qualified namespace of the event hub: Event Hubs namespace  + "/" + event hub name.  
 
-The event hub URL is displayed in the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
+The event hub URL is displayed in the [Azure portal](https://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
 
 The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file.
 
