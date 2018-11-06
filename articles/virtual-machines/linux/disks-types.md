@@ -13,7 +13,14 @@ ms.component: disks
 
 # Disk types
 
-intro
+Azure Managed Disks currently offers three disk types which are generally available and one currently in preview. These four disk types each have their own appropriate target customer scenarios, they are as follows:
+
+|Disk Type  |Scenario  |
+|---------|---------|
+|Ultra SSD (Preview)     |         |
+|Premium SSD     |Production and performance sensitive workloads         |
+|Standard SSD     |Web servers, lightly used enterprise applications and Dev/Test         |
+|Standard HDD     |Backup, Non-critical, Infrequent access         |
 
 ## Ultra SSD (Preview)
 
