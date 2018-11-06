@@ -53,7 +53,7 @@ Certificates are composed of three interrelated resources linked together as a K
         -   Provider  
         -   Credentials – CA account credentials. Each CA has its own specific data.  
 
-     For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](http://aka.ms/kvcertsblog).  
+     For more information on creating accounts with CA Providers, see the related post on the [Key Vault blog](https://aka.ms/kvcertsblog).  
 
 **Step 3.1** - set up [certificate contacts](/rest/api/keyvault/setcertificatecontacts) for notifications. This is the contact for the Key Vault user. Key Vault does not enforce this step.  
 

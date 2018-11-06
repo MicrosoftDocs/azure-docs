@@ -281,7 +281,7 @@ External tables referencing the files in HDFS or Azure blob storage are not supp
 
 ### Replication
 
-Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replication is available for public preview on Managed Instance. For information about Replication, see [SQL Server Replication](https://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
 
 ### RESTORE statement
 

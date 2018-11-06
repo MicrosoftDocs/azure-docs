@@ -42,7 +42,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 * **Azure Storage account**. You use the blob storage as **source** data store. If you don't have an Azure storage account, see the [Create a storage account](../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * **Azure SQL Database**. You use the database as **sink** data store. If you don't have an Azure SQL Database, see the [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) article for steps to create one.
 * **Visual Studio** 2013, 2015, or 2017. The walkthrough in this article uses Visual Studio 2017.
-* **Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/)**.
+* **Download and install [Azure .NET SDK](https://azure.microsoft.com/downloads/)**.
 * **Create an application in Azure Active Directory** following [these instructions](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Make note of the following values that you use in later steps: **application ID**, **authentication key**, and **tenant ID**. Assign application to "**Contributor**" role by following instructions in the same article.
 
 ### Create blob table
