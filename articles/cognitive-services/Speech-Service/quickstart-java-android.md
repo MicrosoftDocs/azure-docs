@@ -19,7 +19,7 @@ ms.author: wolfma
 
 In this article, you'll learn how to create a Java application for Android using the Cognitive Services Speech SDK to transcribe speech to text.
 The application is based on the Microsoft Cognitive Services Speech SDK Maven Package, version 1.0.1, and Android Studio 3.1.
-The Speech SDK is currently compatible with Android devices having 32-bit or 64-bit ARM processors.
+The Speech SDK is currently compatible with Android devices having 32-bit or 64-bit ARM and Intel compatible processors.
 
 > [!NOTE]
 > For the Speech Devices SDK and the Roobo device, see [Speech Devices SDK](speech-devices-sdk.md).
