@@ -428,24 +428,24 @@
       href: tutorial-setup-ci-cd.md
     - name: Global distribution
       items:
-        - name: Manage Database Account
-          href: how-to-manage-database-account.md
-        - name: Manage Consistency
-          href: how-to-manage-consistency.md
-        - name: Manage Conflicts
-          href: how-to-manage-conflicts.md
+      - name: Manage Database Account
+        href: how-to-manage-database-account.md
+      - name: Manage Consistency
+        href: how-to-manage-consistency.md
+      - name: Manage Conflicts
+        href: how-to-manage-conflicts.md
     - name: Provisioned throughput
       items:
-        - name: Provision container throughput
-          href: how-to-provision-container-throughput.md
-        - name: Provision database throughput
-          href: how-to-provision-database-throughput.md
+      - name: Provision container throughput
+        href: how-to-provision-container-throughput.md
+      - name: Provision database throughput
+        href: how-to-provision-database-throughput.md
     - name: Working with containers and items
       items:
-        - name: Create a container
-          href: how-to-create-container.md
-          - name: Query a container
-          href: how-to-query-container.md
+      - name: Create a container
+        href: how-to-create-container.md
+      - name: Query a container
+        href: how-to-query-container.md
     - name: Best practices
       items:
       - name: Performance tips
