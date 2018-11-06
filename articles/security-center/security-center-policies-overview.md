@@ -52,4 +52,4 @@ In this article, you learned about security policies in Azure Security Center. T
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center data security](security-center-data-security.md): Learn how Security Center manages and safeguards data.
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/): Get the latest Azure security news and information.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/): Get the latest Azure security news and information.

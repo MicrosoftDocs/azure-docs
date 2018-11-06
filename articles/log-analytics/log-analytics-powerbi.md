@@ -77,4 +77,4 @@ The dataset created in Power BI will have the same data that you previously saw 
 
 ## Next steps
 * Learn about [log searches](log-analytics-queries.md) to build queries that can be exported to Power BI.
-* Learn more about [Power BI](http://powerbi.microsoft.com) to build visualizations based on Log Analytics exports.
+* Learn more about [Power BI](https://powerbi.microsoft.com) to build visualizations based on Log Analytics exports.
