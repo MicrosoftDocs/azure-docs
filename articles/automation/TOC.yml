@@ -202,6 +202,12 @@
           displayName: Monitor, Azure Monitor 
         - name: Create Amazon Web Service VM
           href: automation-scenario-aws-deployment.md
+        - name: Source control integration with GitHub Enterprise
+          href: automation-scenario-source-control-integration-with-github-ent.md
+          displayName: CI, runbooks
+        - name: Source control integration with Azure DevOps
+          href: automation-scenario-source-control-integration-with-VSTS.md
+          displayName: VSTS, CI, runbooks
         - name: Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
           href: automation-deploy-template-runbook.md
         - name: Integrate Azure Automation with Event Grid and Microsoft Teams
@@ -235,9 +241,17 @@
   - name: Update Management
     href: troubleshoot/update-management.md
     displayName: troubleshoot
+  - name: Shared resources
+    href: troubleshoot/shared-resources.md
+    displayName: module, import
   - name: Troubleshoot Update Agent issues
-    href: troubleshoot/update-agent-issues.md
-    displayName: hybrid runbook worker, hybrid worker, troubleshoot
+    items:
+    - name: Windows
+      href: troubleshoot/update-agent-issues.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows
+    - name: Linux
+      href: troubleshoot/update-agent-issues-linux.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux
 - name: Reference
   items:
   - name: Azure PowerShell
