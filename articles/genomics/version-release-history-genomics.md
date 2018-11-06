@@ -15,7 +15,7 @@ ms.date: 03/02/2018
 The Microsoft Genomics team regularly updates the Microsoft Genomics Python client for fixes and new functionality. 
 
 ## Latest release
-The current Python client is version 0.7.4. It was released March 5 2018 and utilizes GATK 3.3. 
+The current Python client is version 0.7.4. It was released March 5 2018 and supports running workflows with GATK 3.5 and GATK4.
 
 
 ## Release history 
