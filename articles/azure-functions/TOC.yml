@@ -83,7 +83,9 @@
     - name: F#
       href: functions-reference-fsharp.md
     - name: JavaScript
-      href: functions-reference-node.md   
+      href: functions-reference-node.md
+    - name: PowerShell
+      href: functions-reference-powershell.md
     - name: Java
       href: functions-reference-java.md 
   - name: Diagnostics
