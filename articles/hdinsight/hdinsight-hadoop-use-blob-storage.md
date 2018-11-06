@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
+ms.date: 11/06/2018
 ---
 
 # Use Azure storage with Azure HDInsight clusters
