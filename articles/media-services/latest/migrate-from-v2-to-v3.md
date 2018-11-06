@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/04/2018
+ms.date: 11/05/2018
 ms.author: juliako
 ---
 
@@ -59,9 +59,11 @@ If you have a video service developed today on top of the [legacy Media Services
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed
     * JobOutput replaces Task, and is now part of a Job.
-    * LiveEvent replaces Channel.
-    * LiveOutput replaces Program.
     * StreamingLocator replaces Locator.
+    * LiveEvent replaces Channel.
+        
+        LiveEvents billing is based on Live Channel meters. For more information, see [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveOutput replaces Program.
 * LiveOutputs do not need to be started explicitly, they start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 
 ## Feature gaps with respect to v2 APIs
