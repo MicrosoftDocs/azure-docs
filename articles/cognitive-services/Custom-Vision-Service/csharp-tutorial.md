@@ -40,6 +40,8 @@ The project needs a valid set of subscription keys in order to interact with the
 
 Open the _Program.cs_ file and inspect the code. Insert your subscription keys in the appropriate definitions in the **Main** method.
 
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=20-25)]
+
 ```csharp
 // Add your training & prediction key from the settings page of the portal
 string trainingKey = "<your key here>";
