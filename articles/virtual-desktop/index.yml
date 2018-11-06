@@ -49,4 +49,7 @@ sections:
     - html: <a href="/azure/virtual-desktop/introducing-the-new-diagnostics-role-service">Introducing the new diagnostics role service</a>
 - title: Reference
   items: 
+  - type: list
+    style: unordered
+    items:
   - html: <a href="/azure/virtual-desktop/powershell-cmdlet-table">PowerShell</a>
