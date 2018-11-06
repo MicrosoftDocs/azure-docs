@@ -12,7 +12,7 @@ ms.devlang: ''
 ms.topic: tutorial
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 06/11/2018
+ms.date: 11/05/2018
 ms.author: rolyon
 
 #Customer intent: As a new user, I want to see how to grant access to resources in the portal, so that I can start granting access to others.
@@ -61,15 +61,17 @@ In RBAC, to grant access, you create a role assignment.
 
 1. In the list of **Resource groups**, choose the new **rbac-resource-group** resource group.
 
-1. Choose **Access control (IAM)** to see the current list of role assignments.
+1. Choose **Access control (IAM)**.
+
+1. Choose the **Role assignments** tab to see the current list of role assignments.
 
    ![Access control (IAM) blade for resource group](./media/quickstart-assign-role-user-portal/access-control.png)
 
-1. Choose **Add** to open the **Add permissions** pane.
+1. Choose **Add role assignment** to open the Add role assignment pane.
 
-   If you don't have permissions to assign roles, you won't see the **Add** option.
+   If you don't have permissions to assign roles, the Add role assignment option will be disabled.
 
-   ![Add permissions pane](./media/quickstart-assign-role-user-portal/add-permissions.png)
+   ![Add role assignment pane](./media/quickstart-assign-role-user-portal/add-role-assignment.png)
 
 1. In the **Role** drop-down list, select **Virtual Machine Contributor**.
 
@@ -85,7 +87,7 @@ In RBAC, to grant access, you create a role assignment.
 
 In RBAC, to remove access, you remove a role assignment.
 
-1. In the list of role assignments, add a checkmark next to user with the Virtual Machine Contributor role.
+1. In the list of role assignments, add a checkmark next to the user with the Virtual Machine Contributor role.
 
 1. Choose **Remove**.
 
