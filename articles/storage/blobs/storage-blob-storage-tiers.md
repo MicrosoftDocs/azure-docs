@@ -61,7 +61,7 @@ During preview, the Premium access tier:
 - Is only available in the following regions: US East 2, US Central, and US West
 - Does not support automatic tiering and data lifecycle management
 
-To learn how to register for the Premium access tier preview, see [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob).
+To learn how to register for the Premium access tier preview, see [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
 
 ## Hot access tier
 
