@@ -81,7 +81,7 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 ### General internet connectivity
 
-This check makes sure that the machine has access to the internet. Update Management requires access to the internet to macke 
+This check makes sure that the machine has access to the internet.
 
 ### Registration endpoint
 
