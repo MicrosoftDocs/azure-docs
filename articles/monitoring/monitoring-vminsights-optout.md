@@ -19,7 +19,7 @@ ms.author: magoedte
 
 # How to disable monitoring of your virtual machines with Azure Monitor for VMs (Preview)
 
-If after you enable monitoring of your virtual machines you decide you no longer want to monitor them with Azure Monitor for VMs, you can *opt out* or disable monitoring. This article shows how to accomplish this for a single or multiple VMs.  
+If after you enable monitoring of your virtual machines you decide you no longer want to monitor them with Azure Monitor for VMs, you can disable monitoring. This article shows how to accomplish this for a single or multiple VMs.  
 
 Currently, Azure Monitor for VMs does not support selectively disabling monitoring of your VMs. If your Log Analytics workspace is configured to support this solution and other solutions, as well as collect other monitoring data, it's important you understand the impact and methods described below before proceeding.
 
@@ -32,7 +32,7 @@ Azure Monitor for VMs relies on the following components to deliver its experien
 
 Consider the following when preparing to disable monitoring of your virtual machines with Azure Monitor for VMs:
 
-* If you are evaluating with a single VM and you accepted the pre-selected default Log Analytics workspace, you can disable monitoring by uninstalling the Dependency agent from the VM and disconnecting the Log Analytics agent from this workspace.  This approach is appropriate if you intend on using the VM for other purposes and decide later to reconnect it to a different workspace. 
+* If you are evaluating with a single VM and you accepted the pre-selected default Log Analytics workspace, you can disable monitoring by uninstalling the Dependency agent from the VM and disconnecting the Log Analytics agent from this workspace. This approach is appropriate if you intend on using the VM for other purposes and decide later to reconnect it to a different workspace.
 * If you are using the Log Analytics workspace to support other monitoring solutions and collection of data from other sources, you can remove Azure Monitor for VMs solution components from the workspace without interruption or impact to your workspace.  
 
 >[!NOTE]
