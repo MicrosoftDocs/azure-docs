@@ -12,9 +12,9 @@ ms.date: 11/10/2018
 
 # Tutorial: Deploy Java web apps to Azure from GitHub by using Jenkins for continuous integration and deployment
 
-This tutorial shows how to deploy a sample Java web app from GitHub to 
-[Azure App Service Web Apps on Linux](/azure/app-service/containers/app-service-linux-intro) 
-by setting up continuous integration (CI) and continuous deployment (CD) in Jenkins. 
+This tutorial shows how to deploy a Java web app from GitHub to 
+[Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro) 
+with continuous integration (CI) and continuous deployment (CD) in Jenkins. 
 That way, when you update your app by pushing commits to GitHub, Jenkins automatically 
 builds and redeploys your app. The sample app in this tutorial was developed by using the 
 [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
@@ -127,11 +127,11 @@ by choosing **Test connection**.
 
 In a later section, you'll create a pipeline job in Jenkins for building your app. 
 To authenticate running the pipeline job from a script, create an 
-[Azure Active Directory service principal](azure/active-directory/develop/app-objects-and-service-principals). 
+[Azure Active Directory service principal](/azure/active-directory/develop/app-objects-and-service-principals). 
 A service principal is an identity you can assign specific permissions 
-and use for accessing Azure resources without providing your own credentials. 
+and use for accessing Azure resources without entering your own credentials. 
 To create the service principal, run the Azure CLI 
-[**az ad sp create-for-rbac**](cli/azure/create-an-azure-service-principal-azure-cli) 
+[**az ad sp create-for-rbac**](/cli/azure/create-an-azure-service-principal-azure-cli) 
 command, either from your local command line or Azure Cloud Shell:
 
 ```azurecli-interactive
@@ -182,7 +182,7 @@ add these environment variables:
 
    This step sets up Jenkins with your service principal 
    so you can run the pipeline job and deploy to Azure 
-   without providing your own credentials.
+   without entering your own credentials.
 
 1. When you're done, choose **Save**.
 
