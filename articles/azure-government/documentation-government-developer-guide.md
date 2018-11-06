@@ -54,11 +54,12 @@ Currently, US DoD East, US DoD Central, US Gov Virginia, US Gov Arizona, US Gov 
 ### Quickstarts
 Navigate through the links below to get started using Azure Government.
 
-* [Login to Azure Government Portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal)
-* [Connect with Visual Studio](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-vs)
-* [Connect with PowerShell](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-ps)
-* [Connect with CLI](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-cli)
+* [Login to Azure Government Portal](documentation-government-get-started-connect-with-portal.md)
+* [Connect with Visual Studio](documentation-government-get-started-connect-with-vs.md)
+* [Connect with PowerShell](documentation-government-get-started-connect-with-ps.md)
+* [Connect with CLI](documentation-government-get-started-connect-with-cli.md)
 * [Connect to Azure Storage](documentation-government-get-started-connect-to-storage.md)
+* [Connect with Azure SDK for Python](https://docs.microsoft.com/python/azure/python-sdk-azure-multi-cloud?view=azure-python)
 
 ### Azure Government Video Library 
 The [Azure Government video library](https://channel9.msdn.com/blogs/Azure-Government) contains many helpful videos to get you up and running with Azure Government. 
