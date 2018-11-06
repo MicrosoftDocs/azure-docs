@@ -24,7 +24,7 @@ monikerRange: 'vsts'
 
 Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Java app in Azure Pipelines.  
 
-If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
+If you don't have an Azure subscription, you can get one for free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## Sign in to the Azure portal
 
@@ -54,7 +54,7 @@ The Java samples include a choice of several application frameworks.
 	a. Choose a name for your project. 
 
 	b. Select your Azure subscription and location, choose a name for your application, and then select **Done**.  
-	After a few minutes, the Azure DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application deploys to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
+	After a few minutes, the Azure DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
 	
 
 2. Select **Browse** to view your running application.
@@ -96,7 +96,7 @@ This link opens a browser tab and the build pipeline for your new project.
 1. Select **Edit**.
 
 1. In this pane, you can examine the various tasks for your build pipeline.  
-The build performs various tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs that are used for deployments.
+The build performs a variety of tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs that are used for deployments.
 
 1. At the top of the build pipeline, select the build pipeline name.
 
@@ -114,7 +114,7 @@ Depending on your scenario, you can specify policies to keep or remove a certain
 1. Select **Build and Release**, and then select **Releases**.  
 Azure DevOps Projects creates a release pipeline to manage 		deployments to Azure.
 
-1. On the left side, select the ellipsis (...) next to your release pipeline, and then select **Edit**.  
+1. On the left, select the ellipsis (...) next to your release pipeline, and then select **Edit**.  
 The release pipeline contains a pipeline, which defines the release process.  
 	
 12. Under **Artifacts**, select **Drop**.  
@@ -126,7 +126,7 @@ This release pipeline has an enabled CD trigger, which runs a deployment every t
 1. On the left, select **Tasks**.   
 The tasks are the activities that your deployment process performs. In this example, a task was created to deploy to Azure App Service.
 
-1. On the right side, select **View releases**.  
+1. On the right, select **View releases**.  
 This view shows a history of releases.
 
 1. Select the ellipsis (...) next to one of your releases, and then select **Open**.  
