@@ -94,7 +94,7 @@
     - name: Partitioning
       items:
       - name: Overview
-        href: partitioning-overview  
+        href: partitioning-overview.md  
       - name: Logical partitions
         href: partition-data.md
       - name: Creating a synthetic partition key
