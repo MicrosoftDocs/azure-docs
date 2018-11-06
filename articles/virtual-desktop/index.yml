@@ -13,43 +13,40 @@ metadata:
   ms.author: helohr
 abstract:
   description: Deliver a virtual desktop experience and remote apps to any device. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 10 experience—with exceptional scale and reduced IT costs.
-  aside:
-    image:
-      alt: 
-      height: 110
-      src: ./media/index/iot-edge-thumbnail.png
-      width: 250  
-    title: Creating the intelligent edge with Azure IoT Edge (6:59)
-    href: https://channel9.msdn.com/Shows/Internet-of-Things-Show/Creating-the-intelligent-edge-with-Azure-IoT-Edge
-    width: 250
 sections:
-- title: 5-Minute Quickstarts
+- title: Overview
   items:
   - type: paragraph
-    text: 'Deploy your first IoT Edge module and process data on a simulated device:'
+    text: 'What is Windows Virtual Desktop?'
   - type: list
-    style: icon48
-    items: 
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_Windows.svg
-      text: Windows
-      href: /azure/iot-edge/quickstart
-    - image: 
-        src: https://docs.microsoft.com/media/logos/logo_linux-color.svg
-      text: Linux
-      href: /azure/iot-edge/quickstart-linux
-- title: Step-by-Step Tutorials
+    style: 
+    items:
+    - html: <a href="/azure/virtual-desktop/windows-virtual-desktop-overview">What is Windows Virtual Desktop?</a>
+    - html: <a href="/azure/virtual-desktop/wvd-and-rds-comparison">Windows Virtual Desktop and Remote Desktop Services comparison</a>
+    - html: <a href="/azure/virtual-desktop/set-up-wvd-environment">Set up a Windows Virtual Desktop environment</a>
+- title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: Learn how to install and configure IoT Edge, deploy modules, and utilize Azure services like Stream Analytics at the edge.
+    text: 'Learn how to install and configure Windows Virtual Desktop, and how to connect to the client when ready.'
   - type: list
     style: ordered
     items:
-    - html: <a href="/azure/iot-edge/tutorial-deploy-function">Filter messages with Azure Functions</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-stream-analytics">Find averages with Azure Stream Analytics as a module</a>
-    - html: <a href="/azure/iot-edge/tutorial-deploy-machine-learning">Score data with Azure Machine Learning as a module</a>
-    - html: <a href="/azure/iot-edge/tutorial-csharp-module">Filter data with a C# module</a>
-    - html: <a href="/azure/iot-edge/tutorial-python-module">Filter data with a Python module</a>
-    - html: <a href="/azure/iot-edge/tutorial-node-module">Filter data with a Node.js module</a>
-    - html: <a href="/azure/iot-edge/tutorial-c-module">Filter data with a C module</a>
-    - html: <a href="/azure/iot-edge/tutorial-store-data-sql-server">Store data at the edge with SQL Server</a>
+    - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-azure-active-directory">Set up Windows Virtual Desktop tenants</a>
+    - html: <a href="/azure/virtual-desktop/manage-host-pools">Create a host pool in Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/connect-to-windows-virtual-desktop">Connect to Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/manage-app-groups-for-wvd">Manage app groups for Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/manage-user-storage">Manage user storage for Windows Virtual Desktop</a>
+- title: How-tos
+  items:
+  - type: paragraph
+    text: 'Learn how to perform basic setup and diagnostics functions for Window Virtual Desktop.'
+  - type: list
+    style: 
+    items: 
+    - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-ad">Set up tenants in Azure Active Directory</a>
+    - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-rd">Connect to a Remote Desktop environment</a>
+    - html: <a href="/azure/virtual-desktop/hoster-admin-delegated-administration">Hoster admin delegated administration</a>
+    - html: <a href="/azure/virtual-desktop/introducing-the-new-diagnostics-role-service">Introducing the new diagnostics role service</a>
+- title: Reference
+  items: 
+  - html: <a href="/azure/virtual-desktop/powershell-cmdlet-table">PowerShell</a>
