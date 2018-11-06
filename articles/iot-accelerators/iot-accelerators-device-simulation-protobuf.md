@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/06/2018
 ms.author: dobett
 
 # As an IT Pro, I need to create advanced custom simulated devices to test my IoT solution.
@@ -84,7 +84,7 @@ In this how-to-guide, you create a new device model for an asset tracker:
 
 1. Define the device functionality in the device model **assettracker-01.json** file. The telemetry section of a Protobuf device model must:
 
-    * Include the name of the Protobuf class generated for your device.
+    * Include the name of the Protobuf class you generate for your device. The following section shows you how to generate this class.
     * Specify Protobuf as the message format.
 
     ```json
@@ -139,7 +139,7 @@ In this how-to-guide, you create a new device model for an asset tracker:
 
 ### Create device behaviors script
 
-TBD
+Write the behavior script that defines how your device behaves. For more information, see [Create an advanced simulated device](iot-accelerators-device-simulation-advanced-device.md).
 
 ## Define your Protobuf format
 

@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/06/2018
 ms.author: dobett
 
 # As an IT Pro, I need to deploy a custom Docker image to the cloud to deploy my customized Device Simulation solution.
