@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ms.author: wolfma
 ---
 
@@ -66,7 +66,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 1. The following output line appears in the Package Manager console.
 
    ```text
-   Successfully installed 'Microsoft.CognitiveServices.Speech 1.0.1' to helloworld
+   Successfully installed 'Microsoft.CognitiveServices.Speech 1.1.0' to helloworld
    ```
 
 1. Because the application uses the microphone for speech input, add the **Microphone** capability to the project. In Solution Explorer, double-click **Package.appxmanifest** to edit your application manifest. Then switch to the **Capabilities** tab, select the box for the **Microphone** capability, and save your changes.
