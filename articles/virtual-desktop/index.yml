@@ -24,7 +24,7 @@ sections:
     - html: <a href="/azure/virtual-desktop/windows-virtual-desktop-overview">What is Windows Virtual Desktop?</a>
     - html: <a href="/azure/virtual-desktop/wvd-and-rds-comparison">Windows Virtual Desktop and Remote Desktop Services comparison</a>
     - html: <a href="/azure/virtual-desktop/set-up-wvd-environment">Set up a Windows Virtual Desktop environment</a>
-- title: Step-by-step tutorials
+- title: Step-by-Step Tutorials
   items:
   - type: paragraph
     text: 'Learn how to install and configure Windows Virtual Desktop, and how to connect to the client when ready.'
@@ -52,4 +52,4 @@ sections:
   - type: list
     style: unordered
     items:
-  - html: <a href="/azure/virtual-desktop/powershell-cmdlet-table">PowerShell</a>
+    - html: <a href="/azure/virtual-desktop/powershell-cmdlet-table">PowerShell</a>
