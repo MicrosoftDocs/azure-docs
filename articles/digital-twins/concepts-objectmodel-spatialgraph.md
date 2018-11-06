@@ -55,7 +55,7 @@ Other categories of objects are:
 
 ## Spatial intelligence graph
 
-Spatial graph is the hierarchical graph of spaces, devices, and people defined in the Digital Twins object model. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. You can manage and interact with your spatial graph with a collection of REST APIs.
+Spatial graph is the hierarchical graph of spaces, devices, and people defined in the Digital Twins object model. The spatial graph supports inheritance, filtering, traversing, scalability, and extensibility. You can manage and interact with your spatial graph with a collection of REST APIs.
 
 If you deploy a Digital Twins service in your subscription, you become the global administrator of the root node. You're then automatically granted full access to the entire structure. Provision spaces in the graph by using the Space API. Provision services by using the Device API and sensors by using the Sensor API. [Open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) also are available to provision the graph in bulk.
 
@@ -79,8 +79,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Custom attribute name | Replace with |
 | --- | --- |
-| *yourInstanceName* | The name of your Digital Twins instance |
-| *yourLocation* | Which server region your instance is hosted on |
+| **yourInstanceName** | The name of your Digital Twins instance |
+| **yourLocation** | Which server region your instance is hosted on |
 
  The full URL format appears in this image.
 
@@ -98,9 +98,9 @@ All API calls must be authenticated by using [OAuth](https://docs.microsoft.com/
 
 ## Next steps
 
-To learn about device connectivity and how to send telemetry messages to Digital Twins, read [Azure Digital Twins device connectivity and telemetry ingress](concepts-device-ingress.md).
+* To learn about device connectivity and how to send telemetry messages to Digital Twins, read [Azure Digital Twins device connectivity and telemetry ingress](concepts-device-ingress.md).
 
-To learn about Management API limitations and throttles, read [Azure Digital Twins API management and limitations](concepts-service-limits.md).
+* To learn about Management API limitations and throttles, read [Azure Digital Twins API management and limitations](concepts-service-limits.md).
 
 <!-- Images -->
 [1]: media/concepts/digital-twins-spatial-graph-building.png
