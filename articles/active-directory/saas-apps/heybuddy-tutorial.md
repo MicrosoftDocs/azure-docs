@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/06/2018
 ms.author: jeedes
 
 ---
@@ -123,7 +123,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![image](./media/heybuddy-tutorial/tutorial_heybuddy_attribute.png)
 
 	>[!NOTE]
-	>Please refer to this [link](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) on how to configure and setup the roles for the application.
+	>Please refer to this [link](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) on how to configure and setup the roles for the application.
 
 6. In the **User Claims** section on the **User Attributes & Claims** dialog, configure SAML token attribute as shown in the image above and perform the following steps:
     
