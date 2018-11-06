@@ -37,7 +37,7 @@ sections:
           html: <p>Learn how to get started with Custom Translator</p>
           image:
             src: ../media/index/i_get-started.svg
-          title: Get started with Custom Translator
+          title: Custom Translator quickstart
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph
