@@ -90,7 +90,7 @@ You can also pass in a hashtable that contains the names of output bindings to t
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
 
-$hashtable @{
+$hashtable = @{
     myQueue = "myData"
     myOtherQueue = "myData"
 }
