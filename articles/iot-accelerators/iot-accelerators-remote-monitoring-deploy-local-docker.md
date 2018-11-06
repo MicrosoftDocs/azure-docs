@@ -58,7 +58,7 @@ docker run --rm -ti library/alpine ping google.com
 
 To run the solution accelerator, navigate to the **services\\scripts\\local** folder in your command-line environment and run the following command:
 
-```cmd\sh
+```cmd/sh
 docker-compose up
 ```
 
@@ -74,7 +74,7 @@ You can use a separate shell to view the logs from the container. First find the
 Follow these steps to start the Stream Analytics job:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
-1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script**.
+1. Navigate to the **Resource group** created for your solution. The name of the resource group is the name you chose for your solution when you ran the **start.cmd** script.
 1. Click on the **Stream Analytics job** in the list of resources.
 1. On the Stream Analytics job **overview** page, click the **Start** button. Then click **Start** to start the job now.
 
