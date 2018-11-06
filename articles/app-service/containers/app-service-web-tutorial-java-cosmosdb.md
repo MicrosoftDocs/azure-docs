@@ -15,8 +15,6 @@ ms.custom: mvc
 This tutorial walks you through the process of building, configuring, deploying, and scaling Java web apps on Azure. 
 When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Cosmos DB](/azure/cosmos-db) running on [Azure App Service on Linux](/azure/app-service/containers).
 
-![Java app running in Azure appservice](./media/app-service-web-tutorial-java-cosmosdb/spring-todo-app-running-in-app-service.jpg)
-
 In this tutorial, you will:
 
 > [!div class="checklist"]
@@ -37,7 +35,7 @@ In this tutorial, you will:
 
 ## Clone the sample TODO app and prepare the repo
 
-This tutorial uses a sample TODO list app developed consisting of a Spring MVC REST API alongside [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available [on GitHub](https://github.com/Microsoft/spring-todo-app). 
+This tutorial uses a sample TODO list Spring app developed with [Spring Data Azure Cosmos DB](https://github.com/Microsoft/spring-data-cosmosdb). The code for the app is available on [GitHub](https://github.com/Microsoft/spring-todo-app). 
 
 Clone the sample repo and then set up the app environment.
 
@@ -50,32 +48,38 @@ yes | cp -rf .prep/* .
 This tutorial focuses on how to deploy this sample application to Azure App Service on Linux and not how to write Java applications using Spring Data Azure Cosmos DB. To learn more about writing Java apps using Spring and Cosmos DB, see the [Spring Boot Starter with the Azure Cosmos DB SQL API tutorial](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db ) and the [Spring Data Azure Cosmos DB quick start](https://github.com/Microsoft/spring-data-cosmosdb#quick-start).
 
 
-## Create an Azure Cosmos DB
+## Create the database
 
-Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting the application state no matter where you run the application.
+Follow these steps to create an Azure Cosmos DB database in your subscription. The TODO list app will connect to this database and store its data when running, persisting your TODO list no matter where you run the application.
 
 1. Login your Azure CLI, and optionally set your subscription if you have more than one connected to your login credentials.
-```bash
-az login
-az account set -s <your-subscription-id>
-```
+
+   ```bash
+   az login
+   az account set -s <your-subscription-id>
+   ```
+
 2. Create an Azure Resource Group, noting the resource group name.
 
-```bash
-az group create -n <your-azure-group-name> \
-    -l <your-resource-group-region>
-```
+   ```bash
+    az group create -n your-azure-group-name \
+       -l your-resource-group-region
+   ```
+
 3. Create Azure Cosmos DB with GlobalDocumentDB kind. 
 The name of Cosmos DB must use only lower case letters. Note down the `documentEndpoint` field in the response from the command.
-```bash
-az cosmosdb create --kind GlobalDocumentDB \
-    -g <your-azure-group-name> \
-    -n <your-azure-COSMOS-DB-name-in-lower-case-letters>
-```
-4. Get your Azure Cosmos DB key to connect to the app. Keep the he `primaryMasterKey`, `documentEndpoint` handy as you'll need them in the next step.
-```bash
-az cosmosdb list-keys -g <your-azure-group-name> -n <your-azure-COSMOSDB-name>
-```
+
+    ```bash
+    az cosmosdb create --kind GlobalDocumentDB \
+        -g your-azure-group-name \
+        -n your-azure-COSMOS-DB-name-in-lower-case-letters
+    ```
+
+4. Get your Azure Cosmos DB key to connect to the app. Keep the  `primaryMasterKey` and `documentEndpoint` values nearby as you will need them in the next step 
+
+    ```bash
+    az cosmosdb list-keys -g your-azure-group-name -n your-azure-COSMOSDB-name
+    ```
 
 ## Configure the TODO app properties
 
@@ -100,7 +104,15 @@ export WEBAPP_NAME=<put-your-Webapp-name-here>
 export REGION=<put-your-REGION-here>
 ```
    
-These environment variables are used to populate values `application.properties` in the TODO list app without risking leaking secrets into version control history.
+These environment variables are used to populate values at runtime in the TODO list app without risking leaking secrets into version control history. Here's an example on how they are consumed in Spring's application.properties file:
+
+```
+azure.cosmosdb.uri=${COSMOSDB_URI}
+azure.cosmosdb.key=${COSMOSDB_KEY}
+azure.cosmosdb.database=${COSMOSDB_DBNAME}
+```
+
+Populate the environment variables in your shell. You'll need to run this command again if you need to use this tutorial from another terminal window.
 
 ```bash
 source .scripts/set-env-variables.sh
@@ -108,7 +120,7 @@ source .scripts/set-env-variables.sh
 
 ## Run the sample app
 
-Use Maven to run the sample.
+Use Maven to run the sample on your local computer.
 
 ```bash
 mvn package spring-boot:run
@@ -129,7 +141,6 @@ bash-3.2$ mvn package spring-boot:run
 [INFO] SimpleUrlHandlerMapping - Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
 [INFO] SimpleUrlHandlerMapping - Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
 [INFO] WelcomePageHandlerMapping - Adding welcome page: class path resource [static/index.html]
-2018-10-28 15:04:32.101  INFO 7673 --- [           main] c.m.azure.documentdb.DocumentClient      : Initializing DocumentClient with serviceEndpoint [https://sample-cosmos-db-westus.documents.azure.com:443/], ConnectionPolicy [ConnectionPolicy [requestTimeout=60, mediaRequestTimeout=300, connectionMode=Gateway, mediaReadMode=Buffered, maxPoolSize=800, idleConnectionTimeout=60, userAgentSuffix=;spring-data/2.0.6;098063be661ab767976bd5a2ec350e978faba99348207e8627375e8033277cb2, retryOptions=com.microsoft.azure.documentdb.RetryOptions@6b9fb84d, enableEndpointDiscovery=true, preferredLocations=null]], ConsistencyLevel [null]
 [INFO] AnnotationMBeanExporter - Registering beans for JMX exposure on startup
 [INFO] TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path ''
 [INFO] TodoApplication - Started TodoApplication in 45.573 seconds (JVM running for 76.534)
