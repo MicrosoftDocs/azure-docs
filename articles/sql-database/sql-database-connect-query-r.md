@@ -16,7 +16,7 @@ ms.date: 11/05/2018
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
 
-This article explains how you can use Machine Learning Services (with R) in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed R code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in Azure SQL database.
+This article explains how you can use the public preview of Machine Learning Services (with R) in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed R code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in Azure SQL database.
 
 Machine learning in SQL Database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL. Use the power of enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
 
@@ -418,7 +418,7 @@ TODO
 1. If you don't have R installed, download R from [www.r-project.org/](https://www.r-project.org/) and install it on your local computer. R is available for Windows, MacOS, and Linux. In this example, we are using Windows.
 1. First, install **RODBCext**, which is a prerequisite for **sqlmlutils**. Open a **Command Prompt** and run the following command:
 
-    ```shell
+    ```cmd
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
@@ -458,11 +458,11 @@ TODO
     ```
 
     > [!NOTE]
-    > If you are receiving the error like *'R' is not recognized as an internal or external command, operable program or batch file.*, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example ``cd C:\Program Files\R\R-3.5.1\bin`).
+    > If you are receiving the error like *'R' is not recognized as an internal or external command, operable program or batch file.*, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`).
 
 1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the directory you have downloaded the zip file to and the name of the zip file. For example:
 
-    ```shell
+    ```cmd
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
     ```
 
