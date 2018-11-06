@@ -89,7 +89,7 @@ You can use the [Azure portal][portal] or a tool like the [Microsoft Azure Stora
 
 ## Mount multiple volumes
 
-To mount multiple volumes in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups)or a YAML file.
+To mount multiple volumes in a container instance, you must deploy using an [Azure Resource Manager template](/azure/templates/microsoft.containerinstance/containergroups) or a YAML file.
 
 To use a template, provide the share details and define the volumes by populating the `volumes` array in the `properties` section of the template. For example, if you've created two Azure Files shares named *share1* and *share2* in storage account *myStorageAccount*, the `volumes` array would appear similar to the following:
 
