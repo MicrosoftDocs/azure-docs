@@ -19,11 +19,11 @@ This article discusses solutions to resolve issues that you may run across when 
 
 #### Issue
 
-When you import or update your modules in Azure automation you find a module that is stuck in the **Importing** state.
+When you import or update your modules in Azure automation, you find a module that is stuck in the **Importing** state.
 
 #### Error
 
-Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this occurs the module can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
+Importing PowerShell modules is a complex multi-step process. This process introduces the possibility of a module not importing correctly. If this occurs, the module you're importing can be stuck in a transient state. To learn more about this process, see [Importing a PowerShell Module]( /powershell/developer/module/importing-a-powershell-module#the-importing-process).
 
 #### Resolution
 
