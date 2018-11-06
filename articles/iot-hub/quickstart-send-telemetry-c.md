@@ -110,7 +110,7 @@ However, in this quickstart, you will prepare a development environment used to 
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 

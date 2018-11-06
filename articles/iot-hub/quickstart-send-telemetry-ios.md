@@ -32,7 +32,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-create-hub-include](../../includes/iot-hub-create-hub-include.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 

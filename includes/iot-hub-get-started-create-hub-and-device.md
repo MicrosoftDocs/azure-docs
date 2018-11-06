@@ -12,7 +12,7 @@
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-create-hub](iot-hub-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](iot-hub-include-create-hub.md)]
 
 Now that you have created an IoT hub, locate the important information that you use to connect devices and applications to your IoT hub. 
 

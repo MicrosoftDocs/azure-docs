@@ -54,7 +54,7 @@ Start the quickstart by creating an IoT hub in the Azure portal.
 
 Create your IoT hub in a resource group that you can use to maintain and manage all the resources that you create in this quickstart. Call it something easy to remember, like **IoTEdgeResources**. By putting all the resources for the quickstarts and tutorials in a group, you can manage them together and remove them easily when you're done testing. 
 
-[!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register an IoT Edge device
 

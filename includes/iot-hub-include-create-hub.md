@@ -10,7 +10,7 @@ ms.author: robinsh
 ms.custom: include file
 ---
 <!-- trying to consolidate the multiple versions of create-an-iot-hub into one -->
-<!-- let's call this one iot-hub-create-hub-include -->
+<!-- let's call this one iot-hub-include-create-hub -->
 
 This section describes how to create an IoT hub using the [Azure portal](https://portal.azure.com).
 
@@ -20,7 +20,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 3. Click **Iot Hub** from the list on the right. You see the first screen for creating an IoT hub.
 
-   ![Screenshot showing creating a hub in the Azure portal](./media/iot-hub-create-hub-include/iot-hub-create-screen-basics.png)
+   ![Screenshot showing creating a hub in the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
    Fill in the fields.
 
@@ -36,7 +36,7 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 4. Click **Next: Size and scale** to continue creating your IoT hub.
 
-   ![Screenshot showing setting size and scale for a new IoT hub using the Azure portal](./media/iot-hub-create-hub-include/iot-hub-create-screen-size-scale.png)
+   ![Screenshot showing setting size and scale for a new IoT hub using the Azure portal](./media/iot-hub-include-create-hub/iot-hub-create-screen-size-scale.png)
 
    On this screen, you can take the defaults and just click **Review + create** at the bottom. 
 
@@ -50,6 +50,6 @@ This section describes how to create an IoT hub using the [Azure portal](https:/
 
 5. Click **Review + create** to review your choices. You see something similar to this screen.
 
-   ![Screenshot reviewing information for creating the new IoT hub](./media/iot-hub-create-hub-include/iot-hub-create-review.png)
+   ![Screenshot reviewing information for creating the new IoT hub](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 6. Click **Create** to create your new IoT hub. Creating the hub takes a few minutes.

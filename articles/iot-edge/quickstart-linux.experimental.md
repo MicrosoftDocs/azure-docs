@@ -43,7 +43,7 @@ This quickstart uses a Linux machine as an IoT Edge device. If you don't have on
 Start the quickstart by creating your IoT Hub in the Azure portal.
 ![Create IoT Hub][3]
 
-[!INCLUDE [iot-hub-create-hub](../../includes/iot-hub-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register an IoT Edge device
 
