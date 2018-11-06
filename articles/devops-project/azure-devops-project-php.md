@@ -1,5 +1,5 @@
 ---
-title: Quickstart: Create a CI/CD pipeline for PHP with Azure DevOps Project 
+title: 'Quickstart: Create a CI/CD pipeline for PHP with Azure DevOps Projects' 
 description: DevOps Projects makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -20,7 +20,7 @@ monikerRange: 'vsts'
 ---
 
 
-# Create a CI/CD pipeline for PHP with the Azure DevOps Projects
+# Create a CI/CD pipeline for PHP with Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your PHP app in Azure Pipelines.  
 
@@ -67,7 +67,7 @@ Azure DevOps Projects automatically configures a CI build and release trigger.  
 
 Azure DevOps Projects creates a Git repository in your Azure DevOps organization or GitHub account. To view the repository and make code changes to your application, take the following steps:
 
-1. On the left side of the DevOps Projects dashboard, select the link for your master branch.   
+1. On the left of the DevOps Projects dashboard, select the link for your master branch.   
 	This link opens a view to the newly created Git repository.
 
 1. To view the repository clone URL, select **Clone** from the top right of the browser.   
@@ -80,14 +80,14 @@ Azure DevOps Projects creates a Git repository in your Azure DevOps organization
 1. Select **Commit**, and then save your changes.
 
 1. In your browser, go to the Azure DevOps Projects dashboard.  
-You should now see a build in progress. The changes you just 	made are automatically built and deployed via an  CI/CD 		pipeline.
+You should now see a build in progress. The changes you just 	made are automatically built and deployed via a CI/CD 		pipeline.
 
 ## Examine the CI/CD pipeline
 
-Azure DevOps Projects automatically configures a full CI/CD pipeline in Azure Pipelines. Explore and customize the pipeline as needed. To familiarize yourself with the Azure DevOps build and release pipelines, do the following:
+Azure DevOps Projects automatically configures a full CI/CD pipeline in Azure Pipelines. Explore and customize the pipeline as needed. To familiarize yourself with the build and release pipelines, do the following:
 
 1. At the top of the Azure DevOps Projects dashboard, select **Build Pipelines**.  
-	This link opens a browser tab and the Azure DevOps build pipeline for your new project.
+	This link opens a browser tab and the build pipeline for your new project.
 
 1. Point to the **Status** field, and then select the **ellipsis** (...).  
 	A menu displays several options, such as queuing a new build, pausing a build, and editing the build pipeline.
@@ -95,14 +95,14 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in Azure Pi
 1. Select **Edit**.
 
 1. In this pane, you can examine the various tasks for your build pipeline.  
-	The build runs various tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs that are used for deployments.
+	The build runs a variety of tasks, such as fetching sources from the Git repository, restoring dependencies, and publishing outputs that are used for deployments.
 
 1. At the top of the build pipeline, select the build pipeline name.
 
 1. Change the name of your build pipeline to something more descriptive, select, **Save & queue**, and then select **Save**.
 
 1. Under your build pipeline name, select **History**.   
-	The **History** pane displays audit trail of your recent changes for the build. Azure DevOps keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
+	The **History** pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
 	 Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. You can optionally choose to include or exclude branches from the CI process.
