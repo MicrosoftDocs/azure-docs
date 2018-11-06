@@ -16,6 +16,8 @@
       href: ingest-data-event-hub.md
     - name: Batching data - Python
       href: python-ingest-data.md
+    - name: Batching data - Node SDK
+      href: node-ingest-data.md
   - name: Query data
     expanded: true
     items:
@@ -31,6 +33,8 @@
   items:
   - name: Data ingestion overview
     href: ingest-data-overview.md
+  - name: Time series analysis
+    href: time-series-analysis.md
 - name: How-to guides
   items:
   - name: Write queries

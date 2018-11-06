@@ -17,12 +17,13 @@ ms.date: 09/24/2018
 The [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) offers different transform methods to clean your data. These methods make it simple to add columns, filter out unwanted rows or columns, and impute missing values.
 
 Currently there are methods for the following tasks:
-- [Add column using an expression](#add-column-using-expression)
+- [Add column using an expression](#column)
 - [Impute missing values](#impute-missing-values)
 - [Derive column by example](#derive-column-by-example)
 - [Filtering](#filtering)
 - [Custom Python transforms](#custom-python-transforms)
 
+<a name=column>
 ## Add column using an expression
 
 The Azure Machine Learning Data Prep SDK includes `substring` expressions you can use to calculate a value from existing columns, and then put that value in a new column. In this example, we'll load data and try to add columns to that input data.

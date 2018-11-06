@@ -434,7 +434,6 @@ The final section of this guide provides a list of PdM solution templates, tutor
 
 | # | Title | Description |
 |--:|:------|-------------|
-| 1 | [Azure Predictive Maintenance Machine Learning Sample](https://github.com/Azure/MachineLearningSamples-PredictiveMaintenance) |PdM sample to predict failure over the next N time units. This sample is written as an Azure ML Workbench project, and is ideal for beginners to PdM. [Additional documentation](https://docs.microsoft.com/azure/machine-learning/desktop-workbench/scenario-predictive-maintenance) related to this sample.|
 | 2 | [Azure Predictive Maintenance Solution Template](https://github.com/Azure/AI-PredictiveMaintenance) | An open-source solution template which demonstrates ML modeling and a complete Azure infrastructure capable of supporting Predictive Maintenance scenarios in the context of IoT remote monitoring. |
 | 3 | [Deep Learning for Predictive Maintenance](https://github.com/Azure/MachineLearningSamples-DeepLearningforPredictiveMaintenance) | Azure Notebook with a demo solution of using LSTM (Long Short-Term Memory) networks (a class of Recurrent Neural Networks) for Predictive Maintenance, with a [blog post on this sample](https://azure.microsoft.com/blog/deep-learning-for-predictive-maintenance).|
 | 4 | [Predictive Maintenance Modeling Guide in R](https://gallery.azure.ai/Notebook/Predictive-Maintenance-Modelling-Guide-R-Notebook-1) | PdM modeling guide with scripts in R.|
@@ -452,13 +451,13 @@ Microsoft Azure offers learning paths for the foundational concepts behind PdM t
 |:-------------------|--------------|
 | [Learning Path for PdM using Trees and Random Forest](https://aischool.microsoft.com/learning-paths/1H5vH5wAYcAy88CoQWQcA8) | Public | 
 | [Learning Path for PdM using Deep Learning](https://aischool.microsoft.com/learning-paths/FSIXxYkOGcauo0eUO8qAS) | Public |
-| [AI Developer on Azure](http://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
-| [Microsoft AI School](http://aischool.microsoft.com/learning-paths) | Public |
+| [AI Developer on Azure](https://azure.microsoft.com/training/learning-paths/azure-ai-developer) | Public |
+| [Microsoft AI School](https://aischool.microsoft.com/learning-paths) | Public |
 | [Azure AI Learning from GitHub](https://github.com/Azure/connectthedots/blob/master/readme.md) | Public |
 | [LinkedIn Learning](http://www.linkedin.com/learning) | Public |
 | [Microsoft AI Youtube Webinars](https://www.youtube.com/watch?v=NvrH7_KKzoM&t=4s) | Public |
 | [Microsoft AI Show](http://channel9.msdn.com/Shows/AI-Show) | Public |
-| [LearnAI@MS](http://learnanalytics.microsoft.com) | Partners |
-| [Microsoft Partner Network](http://learningportal.microsoft.com) | Partners |
+| [LearnAI@MS](https://learnanalytics.microsoft.com) | Partners |
+| [Microsoft Partner Network](https://learningportal.microsoft.com) | Partners |
 
 In addition, free MOOCS (massive open online courses) on AI are offered online by academic  institutions like Stanford and MIT, and other educational companies.

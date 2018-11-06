@@ -1,9 +1,10 @@
 ---
-title: 'Quickstart: Recognize speech in C# under .NET Core on Windows by using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in C# under .NET Core on Windows by using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech in C# under .NET Core on Windows by using the Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in C# under .NET Core on Windows by using the Speech Service SDK
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service

@@ -4,7 +4,11 @@
   expanded: true
   items:
   - name: What is Azure Machine Learning service?
+    displayName: AML, services
     href: overview-what-is-azure-ml.md
+  - name: How the service works
+    displayName: architecture
+    href: concept-azure-machine-learning-architecture.md    
   - name: What's happening to Workbench?
     href: overview-what-happened-to-workbench.md 
 - name: Quickstarts
@@ -24,11 +28,10 @@
 - name: Samples
   items:
   - name: Jupyter notebooks (GitHub)
+    displayName: example, examples
     href: http://aka.ms/aml-notebooks
 - name: Concepts   
   items: 
-  - name: How the service works
-    href: concept-azure-machine-learning-architecture.md    
   - name: Model management
     href: concept-model-management-and-deployment.md
   - name: Accelerate with FPGAs
@@ -42,6 +45,7 @@
   - name: Set up development environment 	
     items:    
     - name: Choose an environment 
+      displayName: local, remote
       href: how-to-choose-a-dev-environment.md 
     - name: Configure an environment
       href: how-to-configure-environment.md
@@ -52,6 +56,7 @@
       - name: Train and deploy        
         href: how-to-vscode-train-deploy.md
   - name: Prepare data
+    displayName: data prep, etl, elt
     href: how-to-data-prep.md   
     items:
     - name: Load data
@@ -60,12 +65,12 @@
       href: how-to-transform-data.md
     - name: Write data
       href: how-to-write-data.md
-  - name: Access data
-    href: how-to-access-data.md
   - name: Train models
     items:    
     - name: Set up training environments	
       href: how-to-set-up-training-targets.md
+    - name: Access data in training
+      href: how-to-access-data.md
     - name: Create estimators
       href: how-to-train-ml-models.md
       items:
@@ -73,8 +78,6 @@
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-    - name: Create and deploy ONNX models
-      href: how-to-build-deploy-onnx.md   
   - name: Tune models
     items:    
     - name: Tune hyperparameters
@@ -88,6 +91,10 @@
       href: how-to-configure-auto-train.md 
     - name: Use remote compute targets
       href: how-to-auto-train-remote.md
+  - name: ONNX models	
+    items:    
+    - name: Create and deploy
+      href: how-to-build-deploy-onnx.md   
   - name: Deploy models	
     items:    
     - name: Where to deploy models
@@ -112,8 +119,6 @@
       href: how-to-enable-app-insights.md 
   - name: Manage resource quotas
     href: how-to-manage-quotas.md
-  - name: Export and delete data
-    href: how-to-export-delete-data.md
 - name: Reference
   items:    
   - name: Machine learning SDK
@@ -130,18 +135,21 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Export or delete account data
-    href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
   - name: Release notes
     href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
     href: support-for-aml-services.md
+  - name: Export and delete data
+    href: how-to-export-delete-data.md
   - name: Deprecated docs
     items:  
     - name: How to migrate
-      href: how-to-migrate.md             
+      displayName: Workbench, upgrade, update, transfer
+      href: how-to-migrate.md    
+    - name: Export or delete account data (deprecated)
+      href: ../desktop-workbench/export-delete-experimentation-model-management-data-dsr.md
     - name: Workbench quickstart
       href: ../desktop-workbench/quickstart-installation.md
     - name: 'Tutorial 1: Prepare data'
@@ -235,7 +243,7 @@
         href: ../desktop-workbench/how-to-use-model-data-collection.md
       - name: Deployment troubleshooting guide
         href: ../desktop-workbench/how-to-deploy-troubleshooting-guide.md
-    - name: Real-world how-tos
+    - name: Old examples
       items:
       - name: Document collection analysis
         href: ../desktop-workbench/scenario-document-collection-analysis.md  
@@ -263,7 +271,7 @@
         href: ../desktop-workbench/scenario-image-classification-using-cntk.md
       - name: Deep Learning for Predictive Maintenance 
         href: ../desktop-workbench/scenario-deep-learning-for-predictive-maintenance.md
-    - name: Reference
+    - name: Old Reference
       items:
       - name: Python extensions for data preparation
         href: ../desktop-workbench/data-prep-python-extensibility-overview.md
@@ -301,7 +309,7 @@
         href: ../desktop-workbench/model-management-cli-reference.md
       - name: Model data collection API
         href: ../desktop-workbench/model-data-collection-api-reference.md
-    - name: Key concepts
+    - name: Old concepts
       href: ../desktop-workbench/overview-general-concepts.md    
     - name: Domain packages
       href: ../desktop-workbench/reference-python-package-overview.md

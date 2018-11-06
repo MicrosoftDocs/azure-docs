@@ -3,7 +3,7 @@ title: Microsoft Azure Storage Explorer release notes
 description: Release notes for Microsoft Azure Storage Explorer
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid:
@@ -22,13 +22,110 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is a standalone app that enables you to easily work with Azure Storage data on Windows, macOS, and Linux.
 
+## Version 1.5.0
+10/29/2018
+
+### Download Azure Storage Explorer 1.5.0
+- [Azure Storage Explorer 1.5.0 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Azure Storage Explorer 1.5.0 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Azure Storage Explorer 1.5.0 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### New
+
+* You can now use [AzCopy v10 (Preview)](https://github.com/Azure/azure-storage-azcopy) for uploading and downloading Blobs. To enable this feature go to the "Experimental" menu and then click "Use AzCopy for Improved Blob Upload and Download". When enabled, AzCopy will be used in the following scenarios:
+   * Upload of folders and files to blob containers, either via the toolbar or drag and drop.
+   * Downloading of folders and files, either via the toolbar or context menu.
+
+* Additionally, when using AzCopy:
+   * You can copy the AzCopy command used to execute the transfer to your clipboard. Simply click "Copy AzCopy Command to Clipboard" in the activity log.
+   * You will need to refresh the blob editor manually after uploading.
+   * Uploading files to append blobs is not supported, .vhds will be uploaded as page blobs, and all other files will be uploaded as block blobs.
+   * Errors and conflicts that occur during upload or download will not be surfaced until after a upload or download is finished.
+
+Finally, support for using AzCopy with File Shares will be coming in the future.
+* Storage Explorer is now using Electron version 2.0.11.
+* Breaking leases can now only be performed on one blob at a time. Additionally, you have to enter the name of the blob whose lease you are breaking. This change was made to reduce the likelihood of accidentally breaking a lease, especially in the case of .vhds for VMs. #394
+* If you ever encounter sign-in issues, you can now try resetting authentication. Go to the "Help" menu and click "Reset" to access this capability. #419
+
+### Fix
+
+* After strong user feedback, the default emulator node has been re-enabled. You can still add additional emulator connections via the Connect dialog, but if your emulator is configured to use the default ports you can also use the "Emulator * Default Ports" node under "Local & Attached/Storage Accounts". #669
+* Storage Explorer will no longer let you set blob metadata values which have leading or trailing whitespace. #760
+* The "Sign In" button was always enabled on same pages of the Connect dialog. It is now disabled when appropriate. #761
+* Quick Access will no longer generate an error in the console when no Quick Access items have been added.
+
+### Known Issues
+
+* Detatching from a resource attached via SAS URI, such as a blob container, may cause an error that prevents other attachments from showing up correctly. To work around this issue, just refresh the group node. See #537 for more information.
+* If you use VS for Mac and have ever created a custom AAD configuration, you may be unable to sign-in. To work around the issue, delete the contents of ~/.IdentityService/AadConfigurations. If doing so does not unblock you, please comment on this issue.
+* Azurite has not yet fully implemented all Storage APIs. Because of this, there may be unexpected errors or behavior when using Azurite for development storage.
+* In rare cases, the tree focus may get stuck on Quick Access. To unstick the focus, you can Refresh All.
+* Uploading from your OneDrive folder does not work because of a bug in NodeJS. The bug has been fixed, but not yet integrated into Electron. To workaround this issue when uploading to or downloading from a blob container, you can use the experimental AzCopy feature.
+* When targeting Azure Stack, uploading certain files as append blobs may fail.
+* After clicking "Cancel" on a task, it may take a while for that task to cancel. This is because we are using the cancel filter workaround described here.
+* If you choose the wrong PIN/Smartcard certificate, then you will need to restart in order to have Storage Explorer forget that decision.
+* Renaming blobs (individually or inside a renamed blob container) does not preserve snapshots. All other properties and metadata for blobs, files and entities are preserved during a rename.
+* Azure Stack does not support the following features. Attempting to use these features while working with Azure Stack resources may result in unexpected errors.
+   * File shares
+   * Access tiers
+   * Soft Delete
+* The Electron shell used by Storage Explorer has trouble with some GPU (graphics processing unit) hardware acceleration. If Storage Explorer is displaying a blank (empty) main window, you can try launching Storage Explorer from the command line and disabling GPU acceleration by adding the `--disable-gpu` switch:
+
+	```
+	./StorageExplorer.exe --disable-gpu
+	```
+
+* For Linux users, you will need to install [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* For users on Ubuntu 14.04, you will need to ensure GCC is up-to-date - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+	sudo apt-get update
+	sudo apt-get upgrade
+	sudo apt-get dist-upgrade
+	```
+
+* For users on Ubuntu 17.04, you will need to install GConf - this can be done by running the following commands, and then restarting your machine:
+
+	```
+	sudo apt-get install libgconf-2-4
+	```
+
+## Previous releases
+
+* [Version 1.4.4](#version-144)
+* [Version 1.4.3](#version-143)
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Version 0.9.4 and 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Version 0.9.1 and 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Version 0.8.12 and 0.8.11 and 0.8.10](#version-0812-and-0811-and-0810)
+* [Version 0.8.9 and 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## Version 1.4.4
 10/15/2018
-
-### Download Azure Storage Explorer 1.4.4
-- [Azure Storage Explorer 1.4.4 for Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Azure Storage Explorer 1.4.4 for Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Azure Storage Explorer 1.4.4 for Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### Hotfixes
 * The Azure Resource Management Api Version has been rolled back to unblock Azure US Government users. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -82,38 +179,6 @@ This article contains the release notes for Azure Storage Explorer 1.4.3 release
 	```
 	sudo apt-get install libgconf-2-4
 	```
-
-## Previous releases
-
-* [Version 1.4.3](#version-143)
-* [Version 1.4.2](#version-142)
-* [Version 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Version 0.9.4 and 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Version 0.9.1 and 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Version 0.8.12 and 0.8.11 and 0.8.10](#version-0812-and-0811-and-0810)
-* [Version 0.8.9 and 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## Version 1.4.3
 10/11/2018
