@@ -276,6 +276,11 @@
       href: functions-bindings-twilio.md    
   - name: host.json reference
     href: functions-host-json.md      
+    items:
+    - name: Functions 2.x
+      href: functions-host-json.md  
+    - name: Functions 1.x
+      href: functions-host-json-v1.md    
   - name: OpenAPI reference
     href: functions-api-definition.md
 - name: Resources

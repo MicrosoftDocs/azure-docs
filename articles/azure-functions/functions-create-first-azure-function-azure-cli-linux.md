@@ -17,7 +17,7 @@ manager: jeconnoc
 
 Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) Linux environment without having to first create a VM or publish a web application. Linux-hosting is currently in preview and requires [the Functions 2.0 runtime](functions-versions.md).
 
-This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md). =
+This quickstart article walks you through how to use the Azure CLI to create your first function app running on Linux. The function code is created locally and then deployed to Azure by using the [Azure Functions Core Tools](functions-run-local.md).
 
 The following steps are supported on a Mac, Windows, or Linux computer. This article shows you how to create functions in either JavaScript or C#. To learn how to create Python functions, see [Create your first Python function using Core Tools and the Azure CLI (preview)](functions-create-first-function-python.md).
 
@@ -95,4 +95,9 @@ Now, you can publish your project to the new function app in Azure.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
-[!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+## Next steps
+
+This article showed you how to host your function app on a default Azure App Service container. You can also host your functions on Linux in your own custom container.
+
+> [!div class="nextstepaction"]
+> [Create a function on Linux using a custom image](functions-create-function-linux-custom-image.md)

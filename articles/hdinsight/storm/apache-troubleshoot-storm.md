@@ -4,13 +4,12 @@ description: Get answers to common questions about using Apache Storm with Azure
 keywords: Azure HDInsight, Storm, FAQ, troubleshooting guide, common problems
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/2/2017
 ---
-
 # Troubleshoot Storm by using Azure HDInsight
 
 Learn about the top issues and their resolutions for working with Apache Storm payloads in Apache Ambari.

@@ -2,14 +2,14 @@
 title: Use MapReduce and Curl with Hadoop in HDInsight - Azure 
 description: Learn how to remotely run MapReduce jobs with Hadoop on HDInsight using Curl.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Run MapReduce jobs with Hadoop on HDInsight using REST
