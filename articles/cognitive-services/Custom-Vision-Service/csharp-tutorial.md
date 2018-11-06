@@ -40,16 +40,7 @@ The project needs a valid set of subscription keys in order to interact with the
 
 Open the _Program.cs_ file and inspect the code. Insert your subscription keys in the appropriate definitions in the **Main** method.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=20-25)]
-
-```csharp
-// Add your training & prediction key from the settings page of the portal
-string trainingKey = "<your key here>";
-string predictionKey = "<your key here>";
-
-// Create the Api, passing in the training key
-TrainingApi trainingApi = new TrainingApi() { ApiKey = trainingKey };
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=21-30)]
 
 The following lines of code execute the primary functionality of the project.
 
@@ -57,91 +48,35 @@ The following lines of code execute the primary functionality of the project.
 
 The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
-```csharp
-    // Create a new project
-Console.WriteLine("Creating new project:");
-var project = trainingApi.CreateProject("My New Project");
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=32-34)]
 
 ### Create tags in the project
 
-```csharp
-// Make two tags in the new project
-var hemlockTag = trainingApi.CreateTag(project.Id, "Hemlock");
-var japaneseCherryTag = trainingApi.CreateTag(project.Id, "Japanese Cherry");
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=36-38)]
 
 ### Upload and tag images
 
 The images for this project are included. They are referenced in the **LoadImagesFromDisk** method in _Program.cs_.
 
-```csharp
-// Add some images to the tags
-Console.WriteLine("\tUploading images");
-LoadImagesFromDisk();
-
-// Images can be uploaded one at a time
-foreach (var image in hemlockImages)
-{
-    using (var stream = new MemoryStream(File.ReadAllBytes(image)))
-    {
-        trainingApi.CreateImagesFromData(project.Id, stream, new List<string>() { hemlockTag.Id.ToString() });
-    }
-}
-
-// Or uploaded in a single batch 
-var imageFiles = japaneseCherryImages.Select(img => new ImageFileCreateEntry(Path.GetFileName(img), File.ReadAllBytes(img))).ToList();
-trainingApi.CreateImagesFromFiles(project.Id, new ImageFileCreateBatch(imageFiles, new List<Guid>() { japaneseCherryTag.Id }));
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=40-55)]
 
 ### Train the classifier
 
 This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this each time you retrain the model.
 
-```csharp
-// Now there are images with tags; start training the project
-Console.WriteLine("\tTraining");
-var iteration = trainingApi.TrainProject(project.Id);
-
-// The returned iteration will be in progress, and can be queried periodically to see when it has completed
-while (iteration.Status == "Completed")
-{
-    Thread.Sleep(1000);
-
-    // Re-query the iteration to get it's updated status
-    iteration = trainingApi.GetIteration(project.Id, iteration.Id);
-}
-
-// The iteration is now trained. Make it the default project endpoint
-iteration.IsDefault = true;
-trainingApi.UpdateIteration(project.Id, iteration.Id, iteration);
-Console.WriteLine("Done!\n");
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=57-73)]
 
 ### Set the prediction endpoint
 
 The prediction endpoint is the reference that you can use to submit an image to the current model and get a classification prediction.
  
-```csharp
-// Create a prediction endpoint, passing in obtained prediction key
-PredictionEndpoint endpoint = new PredictionEndpoint() { ApiKey = predictionKey };
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=77-82)]
  
 ### Submit an image to the default prediction endpoint
 
 In this script, the test image is loaded in the **LoadImagesFromDisk** method, and the model's prediction output is to be displayed in the console.
 
-```csharp
-// Make a prediction against the new project
-Console.WriteLine("Making a prediction:");
-var result = endpoint.PredictImage(project.Id, testImage);
-
-// Loop over each prediction and write out the results
-foreach (var c in result.Predictions)
-{
-    Console.WriteLine($"\t{c.TagName}: {c.Probability:P1}");
-}
-```
+[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ImageClassification/Program.cs?range=84-92)]
 
 ## Run the application
 

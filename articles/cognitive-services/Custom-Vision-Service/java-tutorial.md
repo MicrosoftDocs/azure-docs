@@ -55,121 +55,33 @@ Load the `Vision/CustomVision` project in your Java IDE and open the _CustomVisi
 
 This first bit of code creates an image classification project. The created project will show up on the [Custom Vision website](https://customvision.ai/) that you visited earlier. 
 
-```java
-System.out.println("ImageClassification Sample");
-Trainings trainer = trainClient.trainings();
-
-System.out.println("Creating project...");
-Project project = trainer.createProject()
-    .withName("Sample Java Project")
-    .execute();
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=57-63)]
 
 ### Create tags in the project
 
-```java
-// create hemlock tag
-Tag hemlockTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("Hemlock")
-    .execute();
-
-// create cherry tag
-Tag cherryTag = trainer.createTag()
-    .withProjectId(project.id())
-    .withName("Japanese Cherry")
-    .execute();
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=65-74)]
 
 ### Upload and tag images
 
 The sample images are included in the **src/main/resources** folder of the project. They are read from there and uploaded to the service with their appropriate tags.
 
-```java
-System.out.println("Adding images...");
-for (int i = 1; i <= 10; i++) {
-    String fileName = "hemlock_" + i + ".jpg";
-    byte[] contents = GetImage("/Hemlock", fileName);
-    AddImageToProject(trainer, project, fileName, contents, hemlockTag.id(), null);
-}
-
-for (int i = 1; i <= 10; i++) {
-    String fileName = "japanese_cherry_" + i + ".jpg";
-    byte[] contents = GetImage("/Japanese Cherry", fileName);
-    AddImageToProject(trainer, project, fileName, contents, cherryTag.id(), null);
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=76-87)]
 
 The previous code snippet makes use of two helper functions that retrieve the images as resource streams and upload them to the service.
 
-```java
-private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag)
-{
-    System.out.println("Adding image: " + fileName);
-
-    ImageFileCreateEntry file = new ImageFileCreateEntry()
-        .withName(fileName)
-        .withContents(contents);
-
-    ImageFileCreateBatch batch = new ImageFileCreateBatch()
-        .withImages(Collections.singletonList(file));
-
-    batch = batch.withTagIds(Collections.singletonList(tag));
-
-    trainer.createImagesFromFiles(project.id(), batch);
-}
-
-private static byte[] GetImage(String folder, String fileName)
-{
-    try {
-        return ByteStreams.toByteArray(CustomVisionSamples.class.getResourceAsStream(folder + "/" + fileName));
-    } catch (Exception e) {
-        System.out.println(e.getMessage());
-        e.printStackTrace();
-    }
-
-    return null;
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=277-314)]
 
 ### Train the classifier
 
 This code creates the first iteration in the project and marks it as the default iteration. The default iteration reflects the version of the model that will respond to prediction requests. You should update this every time you retrain the model.
 
-```java
-System.out.println("Training...");
-Iteration iteration = trainer.trainProject(project.id());
-
-while (iteration.status().equals("Training"))
-{
-    System.out.println("Training Status: "+ iteration.status());
-    Thread.sleep(1000);
-    iteration = trainer.getIteration(project.id(), iteration.id());
-}
-
-System.out.println("Training Status: "+ iteration.status());
-trainer.updateIteration(project.id(), iteration.id(), iteration.withIsDefault(true));
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=89-99)]
 
 ### Use the prediction endpoint
 
 The prediction endpoint, represented by the `predictor` object here, is the reference that you use to submit an image to the current model and get a classification prediction. In this sample, `predictor` is defined elsewhere using the prediction key environment variable.
 
-```java
-// load test image
-byte[] testImage = GetImage("/Test", "test_image.jpg");
-
-// predict
-ImagePrediction results = predictor.predictions().predictImage()
-    .withProjectId(project.id())
-    .withImageData(testImage)
-    .execute();
-
-for (Prediction prediction: results.predictions())
-{
-    System.out.println(String.format("\t%s: %.2f%%", prediction.tagName(), prediction.probability() * 100.0f));
-}
-```
+[!code-java[](~/cognitive-services-java-sdk-samples/Vision/CustomVision/src/main/java/com/microsoft/azure/cognitiveservices/vision/customvision/samples/CustomVisionSamples.java?range=108-120)]
 
 ## Run the application
 
