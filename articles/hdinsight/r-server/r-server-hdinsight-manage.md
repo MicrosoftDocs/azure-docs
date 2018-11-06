@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 11/06/2018
 ---
 # Manage ML Services cluster on Azure HDInsight
 
