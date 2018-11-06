@@ -34,7 +34,7 @@ The following diagram shows the high-level architecture of the live streaming se
 ![ingest flow][image1]
 
 ## 3. Bitstream format – ISO 14496-12 fragmented MP4
-The wire format for live streaming ingest discussed in this document is based on [ISO-14496-12]. For a detailed explanation of fragmented MP4 format and extensions both for video-on-demand files and live streaming ingestion, see [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+The wire format for live streaming ingest discussed in this document is based on [ISO-14496-12]. For a detailed explanation of fragmented MP4 format and extensions both for video-on-demand files and live streaming ingestion, see [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### Live ingest format definitions
 The following list describes special format definitions that apply to live ingest into Azure Media Services:

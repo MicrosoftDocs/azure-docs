@@ -3,7 +3,7 @@ title: Create and manage telemetry rules in your Azure IoT Central application |
 description: Azure IoT Central telemetry rules enable you to monitor your devices in near real time and to automatically invoke actions, such as sending an email, when the rule triggers.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -82,7 +82,7 @@ This section shows you how to set up actions to take when the rule is fired. Act
 
    ![Configure Action](media\howto-create-telemetry-rules\Configure_Action.png)
 
-1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule matches, the rule triggers the configured email action.
+1. To save the rule, choose **Save**. The rule goes live within a few minutes and starts monitoring telemetry being sent to your application. When the condition specified in the rule is met, the rule triggers the configured email action.
 
 1. Choose **Done** to exit the **Edit Template** mode.
 

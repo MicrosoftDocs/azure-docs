@@ -115,6 +115,11 @@
             "redirect_url": "/azure/virtual-machines/linux/sizes-hpc#rdma-capable-instances",
             "redirect_document_id": true
         },
+		        {
+            "source_path": "articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md",
+            "redirect_url": "/azure/virtual-machines/windows/publish-web-app-from-visual-studio",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/frontdoor/front-door-rest-api.md",
             "redirect_url": "/rest/api/frontdoor",
@@ -1264,6 +1269,16 @@
         {
             "source_path": "articles/iot-edge/tutorial-simulate-device-windows.md",
             "redirect_url": "/azure/iot-edge/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/quickstart.experimental.md",
+            "redirect_url": "/azure/iot-edge/quickstart",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/iot-edge/quickstart-linux.experimental.md",
+            "redirect_url": "/azure/iot-edge/quickstart-linux",
             "redirect_document_id": false
         },
         {
@@ -7555,6 +7570,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/azure-stack/azure-stack-ethereum.md",
+            "redirect_url": "/azure/azure-stack/user/azure-stack-ethereum",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/blockchain-workbench/blockchain-workbench-architecture.md",
             "redirect_url": "/azure/blockchain/workbench/architecture",
             "redirect_document_id": false
@@ -8931,7 +8951,7 @@
         },
         {
             "source_path": "articles/event-hubs/event-hubs-overview.md",
-            "redirect_url": "/azure/event-hubs/event-hubs-what-is-event-hubs",
+            "redirect_url": "/azure/event-hubs/event-hubs-about",
             "redirect_document_id": false
         },
         {
@@ -10011,7 +10031,7 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-proxy-firewall.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-windows-agent",
+            "redirect_url": "/azure/log-analytics/log-analytics-agent-windows",
             "redirect_document_id": false
         },
         {
@@ -13753,6 +13773,11 @@
         {
             "source_path": "articles/multi-factor-authentication/multi-factor-authentication-microsoft-authenticator.md",
             "redirect_url": "./end-user/microsoft-authenticator-app-how-to",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/service-fabric/service-fabric-patterns-and-scenarios.md",
+            "redirect_url": "/azure/service-fabric/service-fabric-application-scenarios",
             "redirect_document_id": false
         },
         {
@@ -24428,12 +24453,12 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-searches.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search-new.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
@@ -24613,17 +24638,17 @@
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search-upgrade.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search-upgrade-changes.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
             "source_path": "articles/log-analytics/log-analytics-log-search-faq.md",
-            "redirect_url": "/azure/log-analytics/log-analytics-log-search",
+            "redirect_url": "/azure/log-analytics/log-analytics-queries",
             "redirect_document_id": false
         },
         {
