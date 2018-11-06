@@ -166,4 +166,4 @@ Once you configure the Log Analytics agent for Linux to send data to Log Analyti
 
 ## Next steps
 * [Collect performance counters](log-analytics-data-sources-performance-counters.md) from Linux agents.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 

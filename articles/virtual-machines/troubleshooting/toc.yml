@@ -26,6 +26,10 @@
     href: troubleshoot-rdp-intermittent-connectivity.md
   - name: Troubleshoot a general error
     href: troubleshoot-rdp-general-error.md
+  - name: Troubleshoot authentication errors
+    href: troubleshoot-authentication-error-rdp-vm.md
+  - name: Troubleshoot Azure VM RDP connection issues by Event ID
+    href: event-id-troubleshoot-vm-rdp-connecton.md
 - name: SSH
   items:
   - name: SSH troubleshooting
@@ -134,3 +138,5 @@
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Understand a system reboot
   href: understand-vm-reboot.md
+- name: Remote troubleshooting tools
+  href: remote-tools-troubleshoot-azure-vm-issues.md

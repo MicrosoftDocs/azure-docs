@@ -52,7 +52,7 @@ Use the following procedure to connect your System Center Service Manager instan
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
 
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+	![New connection](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -73,7 +73,7 @@ Use the following procedure to connect your System Center Service Manager instan
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, Log Analytics creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
-![Service manager connection](./media/log-analytics-itsmc/service-manager-connection.png)
+![Service manager connection](media/log-analytics-itsmc-connections/service-manager-connection.png)
 
 **When successfully connected, and synced**:
 
@@ -123,14 +123,14 @@ Use the following procedure to configure the hybrid connection that connects the
 2. Click **Settings** > **Networking**.
 3. Under **Hybrid Connections**, click **Configure your hybrid connection endpoints**.
 
-    ![Hybrid connection networking](./media/log-analytics-itsmc/itsmc-hybrid-connection-networking-and-end-points.png)
+    ![Hybrid connection networking](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-networking-and-end-points.png)
 4. In the **Hybrid Connections** blade, click **Add hybrid connection**.
 
-    ![Hybrid connection add](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-add.png)
+    ![Hybrid connection add](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-add.png)
 
 5. In the **Add Hybrid Connections** blade, click **Create new hybrid Connection**.
 
-    ![New Hybrid connection](./media/log-analytics-itsmc/itsmc-create-new-hybrid-connection.png)
+    ![New Hybrid connection](media/log-analytics-itsmc-connections/itsmc-create-new-hybrid-connection.png)
 
 6. Type the following values:
 
@@ -141,14 +141,14 @@ Use the following procedure to configure the hybrid connection that connects the
     - **Location**: select the location.
     -  **Name**: Specify a name to the servicebus if you are creating it.
 
-    ![Hybrid connection values](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-values.png)
+    ![Hybrid connection values](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-values.png)
 6. Click **OK** to close the **Create hybrid connection** blade and start creating the hybrid connection.
 
     Once the Hybrid connection is created, it is displayed under the blade.
 
 7. After the hybrid connection is created, select the connection and click **Add selected hybrid connection**.
 
-    ![New hybrid connection](./media/log-analytics-itsmc/itsmc-new-hybrid-connection-added.png)
+    ![New hybrid connection](media/log-analytics-itsmc-connections/itsmc-new-hybrid-connection-added.png)
 
 #### Configure the listener setup
 
@@ -166,14 +166,14 @@ Use the following procedure to configure the listener setup for the hybrid conne
 
 Your hybrid connection is successfully connected.
 
-![successful hybrid connection](./media/log-analytics-itsmc/itsmc-hybrid-connection-listener-set-up-successful.png)
+![successful hybrid connection](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-listener-set-up-successful.png)
 > [!NOTE]
 
 > After the hybrid connection is created, verify and test the connection by visiting the deployed Service Manager Web app. Ensure the connection is successful before you try to connect to ITSMC in Azure.
 
 The following sample image shows the details of a successful connection:
 
-![Hybrid connection test](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
+![Hybrid connection test](media/log-analytics-itsmc-connections/itsmc-hybrid-connection-test.png)
 
 ## Connect ServiceNow to IT Service Management Connector in Azure
 
@@ -204,7 +204,7 @@ Use the following procedure to create a ServiceNow connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+	![New connection](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -227,7 +227,7 @@ Use the following procedure to create a ServiceNow connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
-![ServiceNow connection](./media/log-analytics-itsmc/itsm-connection-servicenow-connection-latest.png)
+![ServiceNow connection](media/log-analytics-itsmc-connections/itsm-connection-servicenow-connection-latest.png)
 
 **When successfully connected, and synced**:
 
@@ -288,7 +288,7 @@ Ensure the following prerequisites are met:
 
 
 - ITSMC installed. More information: [Adding the IT Service Management Connector Solution](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md).
+- Provance App should be registered with Azure AD - and client ID is made available. For detailed information, see [how to configure active directory authentication](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
 
 - User role:  Administrator.
 
@@ -299,7 +299,7 @@ Use the following procedure to create a Provance connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+	![New connection](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -321,7 +321,7 @@ Use the following procedure to create a Provance connection:
 | **Sync Data** | Type the number of past days that you want the data from. **Maximum limit**: 120 days. |
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled.|
 
-![Provance connection](./media/log-analytics-itsmc/itsm-connections-provance-latest.png)
+![Provance connection](media/log-analytics-itsmc-connections/itsm-connections-provance-latest.png)
 
 **When successfully connected, and synced**:
 
@@ -350,7 +350,7 @@ Use the following procedure to create a Provance connection:
 1. In Azure portal, go to **All Resources** and look for **ServiceDesk(YourWorkspaceName)**
 
 2.	Under **WORKSPACE DATA SOURCES** click **ITSM Connections**.
-	![New connection](./media/log-analytics-itsmc/add-new-itsm-connection.png)
+	![New connection](media/log-analytics-itsmc-connections/add-new-itsm-connection.png)
 
 3. At the top of the right pane, click **Add**.
 
@@ -373,7 +373,7 @@ Use the following procedure to create a Provance connection:
 | **Create new configuration item in ITSM solution** | Select this option if you want to create the configuration items in the ITSM product. When selected, ITSMC creates the affected CIs as configuration items (in case of non-existing CIs) in the supported ITSM system. **Default**: disabled. |
 
 
-![Provance connection](./media/log-analytics-itsmc/itsm-connections-cherwell-latest.png)
+![Provance connection](media/log-analytics-itsmc-connections/itsm-connections-cherwell-latest.png)
 
 **When successfully connected, and synced**:
 
@@ -391,7 +391,7 @@ To generate the client ID/key for Cherwell, use the following procedure:
 2. Click **Security** > **Edit REST API client settings**.
 3. Select **Create new client** > **client secret**.
 
-    ![Cherwell user id](./media/log-analytics-itsmc/itsmc-cherwell-client-id.png)
+    ![Cherwell user id](media/log-analytics-itsmc-connections/itsmc-cherwell-client-id.png)
 
 
 ## Next steps

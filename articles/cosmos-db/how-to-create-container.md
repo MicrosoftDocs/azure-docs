@@ -20,7 +20,7 @@ This article explains the different ways to create a container (collection, tabl
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](../../includes/cosmos-db-create-dbaccount.md) or select an existing account.
+1. [Create a new Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account) or select an existing account.
 
 1. Open the **Data Explorer** pane and select **New Collection**. Next fill the form with the following details:
 
@@ -37,7 +37,7 @@ This article explains the different ways to create a container (collection, tabl
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](../../includes/cosmos-db-create-dbaccount.md) or select an existing account.
+1. [Create a new Cosmos DB account](create-mongodb-dotnet.md#create-a-database-account) or select an existing account.
 
 1. Open the **Data Explorer** pane and select **New Collection**. Next fill the form with the following details:
 
@@ -54,7 +54,7 @@ This article explains the different ways to create a container (collection, tabl
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](../../includes/cosmos-db-create-dbaccount.md) or select an existing account.
+1. [Create a new Cosmos DB account](create-cassandra-dotnet.md#create-a-database-account) or select an existing account.
 
 1. Open the **Data Explorer** pane and select **New Table**. Next fill the form with the following details:
 
@@ -66,14 +66,14 @@ This article explains the different ways to create a container (collection, tabl
 
 ![Cassandra API creates a collection](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
-> [!Note]
+> [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
 
 ### <a id="portal-gremlin"></a>Gremlin API
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](../../includes/cosmos-db-create-dbaccount.md) or select an existing account.
+1. [Create a new Cosmos DB account](create-graph-dotnet.md#create-a-database-account) or select an existing account.
 
 1. Open the **Data Explorer** pane and select **New Graph**. Next fill the form with the following details:
 
@@ -90,7 +90,7 @@ This article explains the different ways to create a container (collection, tabl
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](../../includes/cosmos-db-create-dbaccount.md) or select an existing account.
+1. [Create a new Cosmos DB account](create-table-dotnet.md#create-a-database-account) or select an existing account.
 
 1. Open the **Data Explorer** pane and select **New Table**. Next fill the form with the following details:
 
@@ -99,7 +99,7 @@ This article explains the different ways to create a container (collection, tabl
    * Enter a throughput, for example 1000 RUs.
    * Select **OK**.
 
-![Table API creates a collection](./media/how-to-create-partitioned-container/partitioned-collection-create-table.png)
+![Table API creates a collection](./media/how-to-create-container/partitioned-collection-create-table.png)
 
 > [!Note]
 > For Table API, the partition key is specified each time you add a new row.
