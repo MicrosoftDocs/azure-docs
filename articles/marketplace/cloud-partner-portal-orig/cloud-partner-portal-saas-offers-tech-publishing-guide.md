@@ -40,7 +40,7 @@ offer. For more information, see [Manage Users](./cloud-partner-portal-manage-us
 Before an offer can be published on behalf of a publisher account, one
 of individuals with *Owner* role need to agree to comply with the
 [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/),
-[Microsoft PrivacyStatement](http://www.microsoft.com/privacystatement/default.aspx),
+[Microsoft PrivacyStatement](https://www.microsoft.com/privacystatement/default.aspx),
 and [Microsoft Azure Certified ProgramAgreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 

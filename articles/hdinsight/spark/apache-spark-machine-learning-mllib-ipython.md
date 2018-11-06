@@ -9,7 +9,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
 
 ---
@@ -74,7 +74,7 @@ Because the raw data is in a CSV format, you can use the Spark context to pull t
         sio.close()
         return value
     
-    inspections = sc.textFile('wasb:///HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
+    inspections = sc.textFile('/HdiSamples/HdiSamples/FoodInspectionData/Food_Inspections1.csv')\
                     .map(csvParse)
     ```
 

@@ -201,7 +201,7 @@ or faster training times.
 | [decision forest](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6 | |
 | [decision jungle](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6 |Low memory footprint |
 | [boosted decision tree](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6 |Large memory footprint |
-| [neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neural network](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [averaged perceptron](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [support vector machine](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5 |Good for large feature sets |
 | [locally deep support vector machine](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Good for large feature sets |
@@ -210,7 +210,7 @@ or faster training times.
 | [logistic regression](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5 | |
 | [decision forest](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6 | |
 | [decision jungle ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6 |Low memory footprint |
-| [neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neural network](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [one-v-all](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |See properties of the two-class method selected |
 | **Regression** | | | | | |
 | [linear](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -218,7 +218,7 @@ or faster training times.
 | [decision forest](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6 | |
 | [boosted decision tree](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5 |Large memory footprint |
 | [fast forest quantile](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributions rather than point predictions |
-| [neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Additional customization is possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [neural network](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Additional customization is possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5 |Technically log-linear. For predicting counts |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |For predicting rank-ordering |
 | **Anomaly detection** | | | | | |
@@ -335,7 +335,7 @@ take a long time to train, particularly for large data sets with lots of
 features. They also have more parameters than most algorithms, which
 means that parameter sweeping expands the training time a great deal.
 And for those overachievers who wish to [specify their own network
-structure](http://go.microsoft.com/fwlink/?LinkId=402867), the
+structure](https://go.microsoft.com/fwlink/?LinkId=402867), the
 possibilities are inexhaustible.
 
 ![Boundaries learned by neural networks][6]
