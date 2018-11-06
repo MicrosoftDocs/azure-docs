@@ -46,7 +46,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
     - **Database**: For this tutorial, enter **default**.
     - **Data Connectivity mode**: For this tutorial, select **DirectQuery**.
 
-    ![HDInsight interactive query power bi directquery connect](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
+    ![HDInsight interactive query Power BI DirectQuery connect](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
 
 7. Click **OK**.
 
@@ -54,7 +54,7 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 
 9. From the left pane, select **hivesampletale**, and then click **Load**.
 
-    ![HDInsight interactive query power bi hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
+    ![HDInsight interactive query Power BI hivesampletable](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-hivesampletable.png)
 
 ## Visualize data on a map
 
