@@ -8,13 +8,12 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ---
 
 # Quickstart: Use Python to get started with Azure Machine Learning
 
 In this quickstart, you use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. In this quickstart, you start by configuring your own Python environment and Jupyter notebook server. To run with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md).
-
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
@@ -34,8 +33,10 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.74 
 
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Install the SDK
 
@@ -52,13 +53,13 @@ Before you install the SDK, we recommend that you create an isolated Python envi
 
 Open a command-line window. Then create a new conda environment named `myenv` with Python 3.6.
 
-```sh
+```shell
 conda create -n myenv -y Python=3.6
 ```
 
 Activate the environment.
 
-  ```sh
+  ```shell
   conda activate myenv
   ```
 
@@ -66,14 +67,14 @@ Activate the environment.
 
 In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes **approximately four minutes** to finish.
 
-```sh
+```shell
 pip install azureml-sdk[notebooks]
 ```
 
 ## Create a workspace
 
 To launch the Jupyter Notebook, enter this command.
-```sh
+```shell
 jupyter notebook
 ```
 
@@ -81,10 +82,8 @@ In the browser window, create a new notebook by using the default `Python 3` ker
 
 To display the SDK version, enter the following Python code in a notebook cell and execute it.
 
-```python
-import azureml.core
-print(azureml.core.VERSION)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=import)]
+
 
 Create a new Azure resource group and a new workspace.
 
@@ -104,9 +103,8 @@ Executing the preceding code might trigger a new browser window for you to sign 
 
 To see the workspace details, such as associated storage, container registry, and key vault, enter the following code.
 
-```python
-ws.get_details()
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=getDetails)]
+
 
 ## Write a configuration file
 
@@ -114,14 +112,8 @@ Save the details of your workspace in a configuration file into the current dire
 
 This workspace configuration file makes it easy to load this same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
 
-```python
-# Create the configuration file.
-ws.write_config()
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=writeConfig)]
 
-# Use this code to load the workspace from 
-# other scripts and notebooks in this directory.
-# ws = Workspace.from_config()
-```
 
 The `write_config()` API call creates the configuration file in the current directory. The `config.json` file contains the following script.
 
@@ -137,24 +129,8 @@ The `write_config()` API call creates the configuration file in the current dire
 
 Write some code that uses the basic APIs of the SDK to track experiment runs.
 
-```python
-from azureml.core import Experiment
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=useWs)]
 
-# create a new experiment
-exp = Experiment(workspace=ws, name='myexp')
-
-# start a run
-run = exp.start_logging()
-
-# log a number
-run.log('my magic number', 42)
-
-# log a list (Fibonacci numbers)
-run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
-
-# finish the run
-run.complete()
-```
 
 ## View logged results
 When the run finishes, you can view the experiment run in the Azure portal. Use the following code to print a URL to the results for the last run.
@@ -173,9 +149,8 @@ Use the link to view the logged values in the Azure portal in your browser.
 
 If you don't plan to use the resources you created here, delete them so you don't incur any charges.
 
-```python
-ws.delete(delete_dependent_resources=True)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=delete)]
+
 
 ## Next steps
 
