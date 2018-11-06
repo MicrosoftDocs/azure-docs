@@ -80,9 +80,9 @@ The [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/a
 It takes an `instanceId` (required), `showHistory` (optional), `showHistoryOutput` (optional), and `showInput` (optional) as parameters. 
 * **`showHistory`**: If set to `true`, the response will contain the execution history. 
 * **`showHistoryOutput`**: If set to `true`, the execution history will contain activity outputs. 
-* **`showInput`**: If set to `false`, the response will not contain the input of the function. The default value is true.
+* **`showInput`**: If set to `false`, the response will not contain the input of the function. The default value is `true`.
 
-The method returns an object with the following properties:
+The method returns a JSON object with the following properties:
 
 * **Name**: The name of the orchestrator function.
 * **InstanceId**: The instance ID of the orchestration (should be the same as the `instanceId` input).
