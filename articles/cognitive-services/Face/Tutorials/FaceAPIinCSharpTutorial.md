@@ -175,19 +175,19 @@ namespace FaceTutorial
 }
 ```
 
-### Test the app
+### Try the app
 
-Press **Start** on the menu to test your app. When the window opens, click **Browse** in the lower left corner. A **File Open** dialog appears where you can browse and select a photo, which is then displayed in the window.
+Press **Start** on the menu to test your app. When the window opens, click **Browse** in the lower left corner. A **File Open** dialog appears where you can browse and select a photo, which is then displayed in the window. Verify that this works as expecting before moving on to the next step.
 
 ![Screenshot showing unmodified image of faces](../Images/getting-started-cs-ui.png)
 
 ## Upload an image to detect faces
 
-The most straightforward way to detect faces is by calling the `FaceClient.Face.DetectWithStreamAsync` method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API method for uploading the local image.
+The most straightforward way to detect faces is by calling the **FaceClient.Face.DetectWithStreamAsync** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) API method for uploading the local image.
 
-Insert the following method in the `MainWindow` class, below the `FacePhoto_MouseMove` method.
+Insert the following method in the `MainWindow` class, below the **FacePhoto_MouseMove** method.
 
-A list of face attributes to analyze is created and the submitted image file is read into a `Stream`. Both are passed to the `DetectWithStreamAsync` call.
+This defines a list of face attributes to analyze and reads the submitted image file is read into a **Stream**. Then it passes both of these objects to the **DetectWithStreamAsync** call.
 
 ```csharp
 // Uploads the image file and calls DetectWithStreamAsync.
@@ -232,17 +232,15 @@ private async Task<IList<DetectedFace>> UploadAndDetectFaces(string imageFilePat
 
 ## Draw rectangles around each face
 
-Add the code to draw a rectangle around each detected face in the image.
-
-In *MainWindow.xaml.cs*, add the `async` modifier to the `BrowseButton_Click` method.
+Next, you will add the code to draw a rectangle around each detected face in the image. In *MainWindow.xaml.cs*, add the `async` modifier to the **BrowseButton_Click** method.
 
 ```csharp
 private async void BrowseButton_Click(object sender, RoutedEventArgs e)
 ```
 
-Insert the following code at the end of the `BrowseButton_Click` method, after the `FacePhoto.Source = bitmapSource` line.
+Insert the following code at the end of the **BrowseButton_Click** method, after the `FacePhoto.Source = bitmapSource` line.
 
-The list of detected faces is populated by the call to `UploadAndDetectFaces`. Next, a rectangle is drawn around each face, and the modified image is displayed in the main window.
+This populates a list of detected faces from the call to **UploadAndDetectFaces**. Then it draws a rectangle around each face and displays the modified image in the main window.
 
 ```csharp
 // Detect any faces in the image.
@@ -303,9 +301,9 @@ if (faceList.Count > 0)
 
 ## Describe the faces in the image
 
-Append the following method to the `MainWindow` class, below the `UploadAndDetectFaces` method.
+Add the following method to the **MainWindow** class, below the **UploadAndDetectFaces** method.
 
-The method converts the face attributes into a string describing the face. The string is displayed when the mouse pointer hovers over the face rectangle.
+The method converts the face attributes into a string describing the face. 
 
 ```csharp
 // Creates a string out of the attributes describing the face.
@@ -371,9 +369,7 @@ private string FaceDescription(DetectedFace face)
 
 ## Display the face description
 
-Replace the `FacePhoto_MouseMove` method with the following code.
-
-This event handler  displays the face description string when the mouse pointer hovers over the face rectangle.
+Replace the **FacePhoto_MouseMove** method with the following code. This event handler  displays the face description string in **faceDescriptionStatusBar** when the mouse pointer hovers over a face rectangle.
 
 ```csharp
 private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
@@ -421,13 +417,13 @@ private void FacePhoto_MouseMove(object sender, MouseEventArgs e)
 
 ## Run the app
 
-Run the application and browse for an image containing a face. Wait for a few seconds to allow the Face service to respond. After that, you'll see a red rectangle on the faces in the image. By moving the mouse over a face rectangle, the description of that face appears on the status bar.
+Run the application and browse for an image containing a face. Wait for a few seconds to allow the Face service to respond. You'll see a red rectangle on each of the faces in the image. If you move the mouse over a face rectangle, the description of that face should appear in the status bar.
 
 ![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
 
 ## Summary
 
-In this tutorial, you learned the basic process for using the Face service client library, and created an application to display and frame faces in an image.
+In this tutorial, you learned the basic process for using the Face service client library and created an application to display and frame faces in an image.
 
 ## Next steps
 
