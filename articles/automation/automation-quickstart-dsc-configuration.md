@@ -26,8 +26,8 @@ To complete this quickstart, you need:
 * An Azure Resource Manager VM (not Classic) running Red Hat Enterprise Linux, CentOS, or Oracle Linux. For instructions on creating a VM, see
   [Create your first Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md)
 
-## Log in to Azure
-Log in to Azure at https://portal.azure.com
+## Sign in to Azure
+Sign in to Azure at https://portal.azure.com
 
 ## Onboard a virtual machine
 There are many different methods to onboard a machine and enable Desired State Configuration. This quickstart covers onboarding through an Automation account. You can learn more about different methods to onboard your machines to Desired State Configuration by reading the [onboarding](https://docs.microsoft.com/azure/automation/automation-dsc-onboarding) article.
@@ -128,7 +128,7 @@ A compiled *Node Configuration* can be assigned to DSC Nodes. Assignment applies
 
 ## Viewing node status
 
-The status of all managed nodes can be found in the **State Confiruation (DSC)** and then under the **Nodes** tab in the Automation Account. You can filter the display by status, node configuration, or name search.
+The status of all managed nodes can be found in the **State Configuration (DSC)** and then under the **Nodes** tab in the Automation Account. You can filter the display by status, node configuration, or name search.
 
 ![DSC Node Status](./media/automation-quickstart-dsc-configuration/dsc-node-status.png)
 

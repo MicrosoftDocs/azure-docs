@@ -7,7 +7,7 @@ ms.service: automation
 ms.component: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -38,14 +38,14 @@ Azure Automation State Configuration brings the same management layer to
 From the Azure portal, or from PowerShell, you can manage all your DSC configurations, resources,
 and target nodes.
 
-![Screen shot of the Azure Automation blade](./media/automation-dsc-overview/azure-automation-blade.png)
+![Screenshot of the Azure Automation page](./media/automation-dsc-overview/azure-automation-blade.png)
 
 ### Import reporting data into Log Analytics
 
 Nodes that are managed with Azure Automation State Configuration send detailed reporting status
 data to the built-in pull server. You can configure Azure Automation State Configuration to send
 this data to your Log Analytics workspace. To learn how to send State Configuration status data to
-your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Log nalytics](automation-dsc-diagnostics.md).
+your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Log Analytics](automation-dsc-diagnostics.md).
 
 ## <a name="network-planning"></a>Configure your network
 
@@ -56,7 +56,7 @@ The following port and URLs are required for State Configuration (DSC) to commun
 * Global URL of US Gov Virginia: *.azure-automation.us
 * Agent service: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-It is recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
+It's recommended to use the addresses listed when defining exceptions. For IP addresses you can download the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653). This file is updated weekly, and has the currently deployed ranges and any upcoming changes to the IP ranges.
 
 If you have an Automation account that's defined for a specific region, you can restrict communication to that regional datacenter. The following table provides the DNS record for each region:
 
