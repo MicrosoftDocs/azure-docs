@@ -3,7 +3,7 @@ title: Update OS version in Azure Security Center | Microsoft Docs
 description: This article shows you how to implement the Azure Security Center recommendation **Update OS version**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Update OS version in Azure Security Center

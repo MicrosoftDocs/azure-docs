@@ -80,7 +80,7 @@ Permissions that are set for a topic are stored in Azure Active Directory and mu
 
 ## Manage access to topics
 
-Managing access to topics is done via [role assignment](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-cli). Role assignment uses Role Based Access Check to limit operations on Azure resources to authorized users at a certain scope.
+Managing access to topics is done via [role assignment](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-cli). Role assignment uses Role Based Access Check to limit operations on Azure resources to authorized users at a certain scope.
 
 Event Grid has two built-in roles which you can use to assign particular users access on various topics within a domain. These roles are `EventGrid EventSubscription Contributor (Preview)`, which allows for creation and deletion of subscriptions, and `EventGrid EventSubscription Reader (Preview)`, which only allows for listing of event subscriptions.
 
