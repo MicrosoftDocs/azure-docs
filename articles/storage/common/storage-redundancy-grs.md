@@ -21,7 +21,7 @@ When you enable read-only access to your data in the secondary region, your data
 Some considerations to keep in mind when using RA-GRS:
 
 * Your application has to manage which endpoint it is interacting with when using RA-GRS.
-* Since asynchronous replication involves a delay, changes that haven't yet been replicated to the secondary region may be lost if data can't be recovered from the primary region, for example, if a regional disaster occurs.
+* Since asynchronous replication involves a delay, changes that haven't yet been replicated to the secondary region may be lost if data can't be recovered from the primary region.
 * You can check the Last Sync Time of your storage account. Last Sync Time is a GMT date/time value. All primary writes before the Last Sync Time have been successfully written to the secondary location, meaning that they are available to be read from the secondary location. Primary writes after the Last Sync Time may or may not be available for reads yet. You can query this value using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](storage-powershell-guide-full.md), or from one of the Azure Storage client libraries.
 * If Microsoft initiates failover to the secondary region, you'll have read and write access to that data after the failover has completed. For more information, see [Disaster recovery guidance](storage-disaster-recovery-guidance.md).
 * For information on how to switch to the secondary region, see [What to do if an Azure Storage outage occurs](storage-disaster-recovery-guidance.md).
@@ -29,7 +29,7 @@ Some considerations to keep in mind when using RA-GRS:
 * For suggestions on how to design for high availability with RA-GRS, see [Designing Highly Available Applications using RA-GRS storage](storage-designing-ha-apps-with-ragrs.md).
 
 ## What is the RPO and RTO with GRS?
-**Recovery Point Objective (RPO):** In GRS and RA-GRS, the storage service asynchronously geo-replicates the data from the primary to the secondary location. In the event of a major regional disaster in the primary region, Microsoft performs a failover to the secondary region. If a failover happens, recent changes that have't yet been geo-replicated may be lost. The number of minutes of potential data that's lost is known as the RPO. The RPO indicates the point in time to which data can be recovered. Azure Storage typically has an RPO of less than 15 minutes, although there's currently no SLA on how long geo-replication takes.
+**Recovery Point Objective (RPO):** In GRS and RA-GRS, the storage service asynchronously geo-replicates the data from the primary to the secondary location. In the event of a major regional disaster in the primary region, Microsoft performs a failover to the secondary region. If a failover happens, recent changes that haven't yet been geo-replicated may be lost. The number of minutes of potential data that's lost is known as the RPO. The RPO indicates the point in time to which data can be recovered. Azure Storage typically has an RPO of less than 15 minutes, although there's currently no SLA on how long geo-replication takes.
 
 **Recovery Time Objective (RTO):** The RTO is a measure of how long it takes to perform the failover and get the storage account back online. The time to perform the failover includes the following actions:
 
