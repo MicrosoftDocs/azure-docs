@@ -19,7 +19,7 @@ This article discusses solutions to resolve issues that you may run across when 
 
 #### Issue
 
-After updating your modules in Azure automation you have a module that is stuck in the **Importing** state.
+When you import or update your modules in Azure automation you find a module that is stuck in the **Importing** state.
 
 #### Error
 
