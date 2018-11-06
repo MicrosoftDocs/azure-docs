@@ -54,7 +54,7 @@ command line or [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 1. From your web browser, sign in to your Jenkins web console at this location:
 
-   `https://<your-Jenkins-server>.<Azure-region>.cloudapp.azure.com`
+   `https://<Jenkins-server-name>.<Azure-region>.cloudapp.azure.com`
 
 1. From the Jenkins home page, select **Manage Jenkins** > **Manage Plugins**.
 
@@ -189,7 +189,7 @@ add these environment variables:
 ## Create build config and script files
 
 1. In your GitHub fork's `src/main/resources/` folder, 
-create a file named `web.config` that contains this XML 
+create a config file named `web.config` that contains this XML 
 but replaces `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
 
    ```xml
@@ -205,8 +205,8 @@ but replaces `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
    </configuration>
    ```
 
-1. In your GitHub fork's root folder, create a script 
-file named `Jenkinsfile` that contains this text 
+1. In your GitHub fork's root folder, create a build 
+script file named `Jenkinsfile` that contains this text 
 ([source in GitHub here](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
    ```text  
@@ -248,7 +248,7 @@ select **Pipeline script from SCM**.
    select **Git** as your source control. 
 
    1. In the **Repositories** section, for **Repository URL**, 
-   enter the URL for your GitHub fork location, for example: 
+   enter the URL for your GitHub fork, for example: 
 
       `https://github.com/<your-GitHub-username>/gs-spring-boot`
 
@@ -260,7 +260,7 @@ select **Pipeline script from SCM**.
    1. When you're done, choose **Save**.
 
 1. To test your pipeline job, return to your pipeline 
-job's page in Jenkins, and select **Build Now**.
+job page in Jenkins, and select **Build Now**.
 
    ![Test build your app](media/jenkins-java-quickstart/test-build-project.png)
 
