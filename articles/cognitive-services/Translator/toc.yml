@@ -221,7 +221,7 @@
   - name: Resources
     items:
     - name: Language Support
-      href: https://www.microsoft.com/translator/business/languages/
+      href: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support
     - name: Glossary
       href: custom-translator/how-to-create-project.md
     - name: FAQ
