@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: daseidma;bwren
+ms.author: bwren
 
 ---
 # Configure Service Map in Azure
@@ -168,7 +168,7 @@ For more information on data collection and usage, see the [Microsoft Online Ser
 
 ## Installation
 
-## Azure VM Extension
+### Azure VM Extension
 There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux), and you can easily deploy the Dependency agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency agent to your Windows and Linux VMs using either a PowerShell script or directly in the VM using an Azure Resource Manager template.  If you deploy the agent with the Azure VM Extension, your agents are automatically updated to the latest version.
 
 To deploy the Azure VM Extension with PowerShell, you can use the following example:

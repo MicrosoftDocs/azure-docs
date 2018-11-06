@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: magoedte
 ---
 
@@ -241,7 +241,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {

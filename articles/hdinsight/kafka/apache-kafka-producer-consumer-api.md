@@ -2,8 +2,8 @@
 title: 'Tutorial: Use the Apache Kafka Producer and Consumer APIs - Azure HDInsight '
 description: Learn how to use the Apache Kafka Producer and Consumer APIs with Kafka on HDInsight. In this tutorial, you learn how to use these APIs with Kafka on HDInsight from a Java application.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -33,7 +33,7 @@ For more information on the APIs, see Apache documentation on the [Producer API]
 
 You must have the following components installed in your development environment:
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
+* [Java JDK 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/)
 
