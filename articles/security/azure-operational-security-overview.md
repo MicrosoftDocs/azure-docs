@@ -49,7 +49,7 @@ For more information, see the [Azure Backup components table](https://docs.micro
 
 ### Site Recovery
 
-[Azure Site Recovery](http://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Azure Security Center to perform more intelligent and effective threat detection.
+[Azure Site Recovery](https://azure.microsoft.com/documentation/services/site-recovery) provides business continuity by orchestrating the replication of on-premises virtual and physical machines to Azure, or to a secondary site. If your primary site is unavailable, you fail over to the secondary location so that users can keep working. You fail back when systems return to working order. Use Azure Security Center to perform more intelligent and effective threat detection.
 
 ## Azure Active Directory
 
