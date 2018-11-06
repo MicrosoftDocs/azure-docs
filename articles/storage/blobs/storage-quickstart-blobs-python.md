@@ -35,7 +35,7 @@ Use [git](https://git-scm.com/) to download a copy of the application to your de
 git clone https://github.com/Azure-Samples/storage-blobs-python-quickstart.git 
 ```
 
-This command clones the *Azure-Samples* repository to your local git folder. To run the Python program, find the *storage-blobs-python-quickstart* folder, and open the *example.py* file.  
+This command clones the *Azure-Samples/storage-blobs-python-quickstart* repository to your local git folder. To run the Python program, open the *example.py* file at the root of the repository.  
 
 [!INCLUDE [storage-copy-account-key-portal](../../../includes/storage-copy-account-key-portal.md)]
 
@@ -65,7 +65,7 @@ List blobs in the container
 
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_9f4ed0f9-22d3-43e1-98d0-8b2c05c01078_DOWNLOADED.txt
 ```
-When you press any key to continue, the sample program deletes the storage container and the files. Before you continue, look in your *Documents* folder for the two files. You can open them and see they're the same.
+Before you continue, look in your *Documents* folder for the two files. You can open them and see they're the same.
 
 You can also use a tool such as the [Azure Storage Explorer](http://storageexplorer.com) to view the files in Blob storage. Azure Storage Explorer is a free cross-platform tool that allows you to access your storage account information. 
 
