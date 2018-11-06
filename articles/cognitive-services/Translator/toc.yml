@@ -200,11 +200,11 @@
       href: custom-translator/what-is-bleu-score.md
   - name: How-to guides
     items:
-    - name: Create project
+    - name: Create a project
       href: custom-translator/how-to-create-project.md
     - name: Manage projects
       href: custom-translator/how-to-search-edit-delete-projects.md
-    - name: Upload document
+    - name: Upload a document
       href: custom-translator/how-to-upload-document.md
     - name: View document details
       href: custom-translator/how-to-view-document-details.md

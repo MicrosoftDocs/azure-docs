@@ -35,37 +35,29 @@ The filter tool allows you to search projects by different filter conditions. It
 
 ## Edit a project
 
-Custom Translator gives ability to edit name and the description of a project. Other project metadata like category, source, target language are not available for edit. Below steps describes how to edit a project.
+Custom Translator gives ability to edit name and the description of a project. Other project metadata like category, source, target language are not available for edit. Below steps describe how to edit a project.
 
 1.  Click on the pencil icon that appears when you hover over a project.
 
     ![Edit project](media/how-to/how-to-edit-project.png)
 
-2.  In the dialog, you can modify either the project name or the description of the project. 
+2.  In the dialog, you can modify either the project name or the description of the project, but cannot modify the project label, category, or language pair.
 
     ![Edit project dialog](media/how-to/how-to-edit-project-dialog.png)
 
 3.  Click on the filter button.
 
->[!NOTE]
->You cannot modify the project label, category, or language pair. 
-
-
 ## Delete a project
 
-You can delete a project when you no longer need it. Below steps describes how to delete a project.
+You can delete a project when you no longer need it. Below steps describe how to delete a project.
 
 1. Hover on any project record and click on the trash icon.
 
    ![Delete project](media/how-to/how-to-delete-project.png)
 
-2. Confirm deletion. Deleting a project will delete all models that were created
-within that project.
+2. Confirm deletion. Deleting a project will delete all models that were created within that project. Deleting project will not affect your  documents.
 
    ![Delete confirmation dialog](media/how-to/how-to-delete-project-confirm.png)
-
->[!NOTE]
->Deleting project will not affect your  documents.
 
 ## Next steps
 

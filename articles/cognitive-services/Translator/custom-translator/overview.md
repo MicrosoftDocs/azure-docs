@@ -18,7 +18,9 @@ ms.topic: overview
 
 Microsoft Translator released [Neural Machine Translation (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) in 2016. NMT provided major advances in translation quality over the then industry-standard [Statistical Machine Translation (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) technology. Because NMT better captures the context of full sentences before translating them, it provides higher quality, more human-sounding, and more fluent translations. [Custom Translator](https://portal.customtranslator.azure.ai/) offers similar capabilities to what [Microsoft Translator Hub](https://hub.microsofttranslator.com/) does for Statistical Machine Translation (SMT), but exclusively for Neural Machine Translation (NMT) systems.
 
-The supported languages are limited to the language pairs where NMT languages exist and the list of NMT languages available today can be found on the [Microsoft Translator Languages webpage](https://www.microsoft.com/translator/business/languages/).
+Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, [secure](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), high performance, highly scalable Microsoft Translator [Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), that powers billions of translations  every day.
+
+Custom Translator supports more than three dozen languages, and maps directly to the languages available for NMT. For a complete list, see  [Microsoft Translator Languages](https://www.microsoft.com/translator/business/languages/).
 
 ## Features
 
@@ -64,7 +66,7 @@ for pricing tier details.
 
 ## Securely translate anytime, anywhere on all your apps and services
 
-Translation systems built with [Custom Translator](https://portal.customtranslator.azure.ai) are available through the same cloud-based, [secure](https://cognitive.uservoice.com/knowledgebase/articles/1147537-api-and-customization-confidentiality), high performance, highly scalable Microsoft Translator [Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl), that powers billions of translations  every day. Custom systems can be seamlessly accessed and integrated into any product or business workflow, and on any device, via the Microsoft Translator Text API through standard REST technology.
+Custom systems can be seamlessly accessed and integrated into any product or business workflow, and on any device, via the Microsoft Translator Text API through standard REST technology.
 
 
 ## Next steps

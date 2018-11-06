@@ -25,8 +25,9 @@ Click on an individual document to view the document details page. The document 
 
 ![document details](media/how-to/how-to-view-document-details.png)
 
-
 ## Delete a document
+
+User must be a workspace owner to delete document to delete a document. Additionally, if a document is in use by a model, that is in any part of the training process or any part of the deployment process, the document can't be deleted.
 
 1. Go to document page
 2.  Hover on any document record and click on the trash icon.
@@ -36,9 +37,6 @@ Click on an individual document to view the document details page. The document 
 3.  Confirm Delete.
 
     ![Delete confirm](media/how-to/how-to-delete-document-confirm.png)
-
->[!NOTE]
->User must be a workspace owner to delete document to delete a document. A document can't be in use by a model, that is in any part of the training process or any part of the deployment process.
 
 ## Next steps
 

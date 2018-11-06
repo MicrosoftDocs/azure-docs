@@ -1,7 +1,7 @@
 ---
-title: How to create project? - Custom Translator
+title: How to create a project? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: How to create project in Custom Translator?  
+description: How to create a project in Custom Translator?  
 author: rajdeep-in
 manager: christw
 ms.service: cognitive-services
@@ -12,7 +12,7 @@ ms.topic: article
 #Customer intent: As a Custom Translator user, I want to understand how to create project, so that I can build and manage a project.
 ---
 
-# Create project
+# Create a project
 
 A project is a container for a models, documents, and tests. Each project automatically includes all documents that are uploaded into that workspace that have the correct language pair. 
 
@@ -78,9 +78,6 @@ After selecting a project, you'll see the following on the project page:
     document(s).
 
     ![View project details](media/how-to/how-to-view-project.png)
-
->[!NOTE]
->Model tab: This tab shows all model in this project.
 
 ## Next steps
 
