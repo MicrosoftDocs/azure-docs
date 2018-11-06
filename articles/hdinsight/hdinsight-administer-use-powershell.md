@@ -205,7 +205,7 @@ $resourceGroupName = $cluster.ResourceGroup
 ## Submit jobs
 **To submit MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in Windows-based HDInsight](hdinsight-run-samples.md).
+See [Run the MapReduce examples included in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **To submit Hive jobs**
 
