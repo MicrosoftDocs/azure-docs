@@ -41,7 +41,7 @@ kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.1.0/kur
 By default, your AKS nodes check for updates every evening. If you want to manually initiate an update to test that `kured` runs correctly, first follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection the node, check for and apply updates as follows:
 
 ```console
-sudo apt-get update ** sudo apt-get upgrade -y
+sudo apt-get update && sudo apt-get upgrade -y
 ```
 
 ## Monitor and review reboot process
