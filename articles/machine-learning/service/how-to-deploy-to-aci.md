@@ -128,7 +128,7 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3CreateImage)]
 
-**Time estimate**: Approximately 3 minutes.
+    **Time estimate**: Approximately 3 minutes.
 
 1. Deploy the Docker image as a service using `Webservice.deploy_from_image()`
 
@@ -136,7 +136,7 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
         
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
  
-**Time estimate**: Approximately 3 minutes.
+    **Time estimate**: Approximately 3 minutes.
 
 This method gives you the most control over creating and naming the components in the deployment.
 
