@@ -282,9 +282,9 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 - ext_expires_in: 0
 - expires_on: 1529627844
 - resource: `https://api.contoso.com`
-- access_token: <SAML assertion>
+- access_token: \<SAML assertion\>
 - issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token: <Refresh token>
+- refresh_token: \<Refresh token\>
 
 ## Client limitations
 
