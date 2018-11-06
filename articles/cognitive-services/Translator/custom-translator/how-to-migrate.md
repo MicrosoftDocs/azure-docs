@@ -29,6 +29,9 @@ These items are migrated during the process:
 
 For all deployed trainings, Custom Translator will train the model without any cost. You have the option manually deploy them.
 
+>[!Note]
+>For a training to succeed, Custom Translator requires minimum 10,000 extracted sentences. For less number of extracted sentences than the [suggested minimum](sentence-alignment.md#suggested-minimum-number-of-extracted-and-aligned-sentences), Custom Translator can't conduct a training.
+
 For all successful trainings, which are not deployed, they will be migrated as draft in Custom Translator.
 
 ## Find Custom Translator Workspace Id
@@ -124,3 +127,6 @@ Migration History page displays following information as summary for every migra
     ![Migration history details](media/how-to/how-to-migration-history-details.png)
 
 If you want more detailed migration report about your projects, trainings and documents, you have option export details as CSV.
+
+>[!Note]
+>Migration is only supported to the language pairs where NMT languages exist. Please check the list of currently [supported NMT languages](https://www.microsoft.com/translator/business/languages/). For the language pairs where NMT languages does not exist, data will be moved from Hub to Custom Translator, but trainings can't be conducted on those language pairs.

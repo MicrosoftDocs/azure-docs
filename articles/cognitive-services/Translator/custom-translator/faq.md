@@ -18,11 +18,6 @@ ms.topic: reference
 
 There are restrictions and limits with respect to file size, model training, and model deployment. Keep these restrictions in mind when setting up your training to build a model in Custom Translator.
 
-- Trainings – A user can have a maximum of four concurrent trainings in a
-    workspace.
-
-- Deployments – A user can have a maximum of four concurrent deployments in a workspace.
-
 - Submitted files must be less than 100 MB in size.
 
 - Monolingual data is not supported.
