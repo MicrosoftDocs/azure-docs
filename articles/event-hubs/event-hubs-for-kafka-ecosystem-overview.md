@@ -18,7 +18,7 @@ Event Hubs provides a Kafka endpoint that can be used by your existing Kafka bas
 
 ## What does Event Hubs for Kafka provide?
 
-The Event Hubs for Kafka feature provides a protocol head on top of Azure Event Hubs that is binary compatible with Kafka versions 1.0 and later for both reading from and writing to Kafka topics. You may start using the Kafka endpoint from your applications with no code change but a minimal configuration change. You update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to your Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into Event Hubs. 
+The Event Hubs for Kafka feature provides a protocol head on top of Azure Event Hubs that is binary compatible with Kafka versions 1.0 and later for both reading from and writing to Kafka topics. You may start using the Kafka endpoint from your applications with no code change but a minimal configuration change. You update the connection string in configurations to point to the Kafka endpoint exposed by your event hub instead of pointing to your Kafka cluster. Then, you can start streaming events from your applications that use the Kafka protocol into Event Hubs. This integration also supports frameworks like [Kafka Connect](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 Conceptually Kafka and Event Hubs are nearly identical: they are both partitioned logs built for streaming data. The following table maps concepts between Kafka and Event Hubs.
 
@@ -66,6 +66,7 @@ This article provided an introduction to Event Hubs for Kafka. To learn more, se
 * [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
 * [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
 * [Explore more samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+* [Learn Kafka Connect integration (preview) with Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect)
 * Get started with an [Event Hubs tutorial](event-hubs-dotnet-standard-getstarted-send.md)
 * [Event Hubs FAQ](event-hubs-faq.md)
 
