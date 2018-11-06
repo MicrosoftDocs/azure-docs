@@ -66,9 +66,9 @@
 
   - name: Implement security recommendations
     href: security-center-recommendations.md
-  - name: Strengthen security posture
-    href: security-center-monitoring.md
     items:
+    - name: Strengthen security posture
+      href: security-center-monitoring.md
     - name: Protect your machines and apps
       href: security-center-virtual-machine-protection.md
       items:
