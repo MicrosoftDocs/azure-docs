@@ -12,12 +12,12 @@ ms.date: 11/10/2018
 
 # Tutorial: Deploy Java web apps to Azure from GitHub by using Jenkins for continuous integration and deployment
 
-This tutorial shows how you can deploy a sample Java web app from GitHub to 
+This tutorial shows how to deploy a sample Java web app from GitHub to 
 [Azure App Service Web Apps on Linux](/azure/app-service/containers/app-service-linux-intro) 
-by setting up Jenkins for continuous integration (CI) and continuous deployment (CD). 
-That way, when you update your app and push new commits to GitHub, Jenkins automatically 
-builds and redeploys your app from GitHub to Azure. The sample app in this tutorial was 
-developed by using the [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
+by setting up continuous integration (CI) and continuous deployment (CD) in Jenkins. 
+That way, when you update your app by pushing commits to GitHub, Jenkins automatically 
+builds and redeploys your app. The sample app in this tutorial was developed by using the 
+[Spring Boot](http://projects.spring.io/spring-boot/) framework. 
 
 In this tutorial, you'll complete these tasks:
 
