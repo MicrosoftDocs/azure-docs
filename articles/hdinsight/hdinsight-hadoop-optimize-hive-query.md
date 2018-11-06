@@ -58,7 +58,7 @@ You can make any Hive query Tez enabled by prefixing the query with the followin
 
 ## Hive partitioning
 
-I/O operations are the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. This is great for queries like table scans. However for queries that only need to scan a small amount of data (for example, queries with filtering), this behavior creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
+I/O operations are the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables, which is great for queries like table scans. However for queries that only need to scan a small amount of data (for example, queries with filtering), this behavior creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
 
 Hive partitioning is implemented by reorganizing the raw data into new directories with each partition having its own directory - where the partition is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
 
@@ -120,7 +120,7 @@ For more information, see [Partitioned Tables](https://cwiki.apache.org/confluen
 ## Use the ORCFile format
 Hive supports different file formats. For example:
 
-* **Text**: this is the default file format and works with most scenarios
+* **Text**: the default file format and works with most scenarios
 * **Avro**: works well for interoperability scenarios
 * **ORC/Parquet**: best suited for performance
 
