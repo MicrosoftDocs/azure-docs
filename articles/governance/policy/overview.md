@@ -46,10 +46,9 @@ default allow and explicit deny system.
 
 ### RBAC Permissions in Azure Policy
 
-Azure Policy has several permissions, known as operations, in three Resource Providers:
+Azure Policy has several permissions, known as operations, in two Resource Providers:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.GuestConfiguration](../../role-based-access-control/resource-provider-operations.md#microsoftguestconfiguration)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
 Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor
