@@ -40,13 +40,13 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 ### Authorization codes can no longer be reused
 
-**Effective date**: November 6, 2018
+**Effective date**: November 15, 2018
 
 **Endpoints impacted**: Both v1.0 and v2.0
 
 **Protocol impacted**: [Code flow](v2-oauth2-auth-code-flow.md)
 
-Starting on November 6, 2018, Azure AD will stop accepting previously-used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
+Starting on November 15, 2018, Azure AD will stop accepting previously-used authentication codes for apps. This security change helps to bring Azure AD in line with the OAuth specification and will be enforced on both the v1 and v2 endpoints.
 
 If your app reuses authorization codes to get tokens for multiple resources, we recommend that you use the code to get a refresh token, and then use that refresh token to acquire additional tokens for other resources. Authorization codes can only be used once, but refresh tokens can be used multiple times across multiple resources. Any new app that attempts to reuse an authentication code during the OAuth code flow will get an invalid_grant error.
 
