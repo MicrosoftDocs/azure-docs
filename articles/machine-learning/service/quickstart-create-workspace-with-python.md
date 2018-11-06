@@ -82,7 +82,7 @@ In the browser window, create a new notebook by using the default `Python 3` ker
 
 To display the SDK version, enter the following Python code in a notebook cell and execute it.
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=import)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
 
 Create a new Azure resource group and a new workspace.
@@ -103,7 +103,7 @@ Executing the preceding code might trigger a new browser window for you to sign 
 
 To see the workspace details, such as associated storage, container registry, and key vault, enter the following code.
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=getDetails)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
 
 
 ## Write a configuration file
@@ -112,7 +112,7 @@ Save the details of your workspace in a configuration file into the current dire
 
 This workspace configuration file makes it easy to load this same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=writeConfig)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
 
 The `write_config()` API call creates the configuration file in the current directory. The `config.json` file contains the following script.
@@ -129,7 +129,7 @@ The `write_config()` API call creates the configuration file in the current dire
 
 Write some code that uses the basic APIs of the SDK to track experiment runs.
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=useWs)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
 
 ## View logged results
@@ -149,7 +149,7 @@ Use the link to view the logged values in the Azure portal in your browser.
 
 If you don't plan to use the resources you created here, delete them so you don't incur any charges.
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=delete)]
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
 
 
 ## Next steps
