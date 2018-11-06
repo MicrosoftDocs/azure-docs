@@ -147,11 +147,11 @@ In the left-hand navigation pane, select the **Azure Active Directory** service.
 
 ### Guest user settings
 
-If you have guest users in your AAD tenant, there are a few additional steps that you need to take to ensure Workbench user assignment and management is setup properly.
+If you have guest users in your Azure AD tenant, follow the additional steps to ensure Blockchain Workbench user assignment and management works properly.
 
-1. Navigate to your AAD tenant settings page and locate “User settings.”
-2. Select “Manage external collaboration settings” for External Users
-3. Flip the toggle for “Guest user permissions are limited” to “No.
+1. Switch you your Azure AD tenant and select **Azure Active Directory > User settings > Manage external collaboration settings**.
+2. Set **Guest user permissions are limited** to **No**.
+    ![External collaboration settings](media/deploy/user-collaboration-settings.png)
 
 ## Deploy Blockchain Workbench
 
