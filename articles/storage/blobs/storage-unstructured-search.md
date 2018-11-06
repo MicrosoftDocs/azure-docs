@@ -1,6 +1,6 @@
 ---
-title: Search unstructured data in Azure cloud storage
-description: Searching unstructured data using Azure search.
+title: 'Tutorial: Search unstructured data in Azure cloud storage'
+description: 'Tutorial: Searching unstructured data using Azure search.'
 author: roygara
 
 services: storage
@@ -66,7 +66,7 @@ Containers are similar to folders and are used to store blobs.
 
 For this tutorial, you use a single container to store the text files obtained from clinicaltrials.gov.
 
-1. Navigate to your storage account in the Azure portal.
+1. Go to your storage account in the Azure portal.
 
 2. Select **Browse blobs** under **Blob Service.**
 
@@ -94,7 +94,7 @@ Now that you have a container, you can upload your example data to it.
 
 The upload process may take a moment.
 
-After it completes, navigate back into your data container to confirm the text files uploaded.
+After it finishes, go back into your data container to confirm the text files were uploaded.
 
   ![Unstructured search](media/storage-unstructured-search/clinicalfolder.png)
 
@@ -104,7 +104,7 @@ Azure Search is a search-as-a-service cloud solution that gives developers APIs 
 
 If you are not familiar with the process of creating a search service, here's how to create one:
 
-1. Navigate to your storage account in the Azure portal.
+1. Go to your storage account in the Azure portal.
 
 2. Scroll down and click **Add Azure Search** under **BLOB SERVICE**.
 
@@ -126,7 +126,7 @@ If you are not familiar with the process of creating a search service, here's ho
 
 Now that you have a search service, you can attach it to your blob storage. This section walks you through the process of choosing a data source, creating an index, and creating an indexer.
 
-1. Navigate to your storage account.
+1. Go to your storage account.
 
 2. Select **Add Azure Search** under **BLOB SERVICE.**
 
@@ -138,13 +138,13 @@ Now that you have a search service, you can attach it to your blob storage. This
 
 1. Enter a name for the data source. Under **Data to extract**, select **Content and Metadata**. The data source specifies which parts of the blob are indexed.
     
-    a. In your own future scenarios, you can also select **Storage metadata only**. You would make that selection if you wish to limit the data that is indexed to standard blob properties or user-defined properties.
+    a. In your own future scenarios, you can also select **Storage metadata only**. You would make that selection if you want to limit the data that is indexed to standard blob properties or user-defined properties.
     
     b. You can also choose **All metadata** to obtain both standard blob properties and *all* content-type specific metadata. 
 
 2. Since the blobs you're using are text files, set **Parsing Mode** to **Text**.
     
-    a. In your own future scenarios, you may wish to select [other parsing modes](../../search/search-howto-indexing-azure-blob-storage.md) depending on the contents of your blobs.
+    a. In your own future scenarios, you may want to select [other parsing modes](../../search/search-howto-indexing-azure-blob-storage.md) depending on the contents of your blobs.
 
   ![Unstructured search](media/storage-unstructured-search/datasources.png)
 
@@ -203,7 +203,7 @@ To search your files, open the search explorer inside the index of your newly cr
 
 The following steps show you where to find the search explorer and provides you some example queries:
 
-1. Navigate to all resources and find your newly created search service.
+1. Go to all resources and find your newly created search service.
 
   ![Unstructured search](media/storage-unstructured-search/exampleurl.png)
 
@@ -238,16 +238,6 @@ The `$select` parameter can only be used with fields that are marked retrievable
 You have now completed this tutorial and have a searchable set of unstructured data.
 
 ## Next steps
-
-In this tutorial, you learned about searching unstructured data using Azure Search, such as how to:
-
-> [!div class="checklist"]
-> * Create a resource group
-> * Create a storage account
-> * Create a container
-> * Uploading data to your container
-> * Create a Search Service
-> * Using the Search Service to search your container
 
 Follow this link to learn more about indexing documents with Azure Search.
 
