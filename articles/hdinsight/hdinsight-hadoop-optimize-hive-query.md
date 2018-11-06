@@ -12,7 +12,13 @@ ms.date: 11/06/2018
 ---
 # Optimize Hive queries in Azure HDInsight
 
-By default, Hadoop clusters are not optimized for performance. This article covers some most common Hive performance optimization methods that you can apply to your queries.
+In Azure HDInsight there are multiple approaches to run Hive queries. Choose the right cluster type to help optimize performance for your workload. 
+
+For example, choose **Interactive Query** cluster type to optimize for ad-hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for batch process. **Spark** and **HBase** can also run Hive queries.
+
+[What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md)
+
+HDInsight clusters of Hadoop cluster type are not optimized for performance by default. This article describes some of the most common Hive performance optimization methods that you can apply to your queries.
 
 ## Scale out worker nodes
 
