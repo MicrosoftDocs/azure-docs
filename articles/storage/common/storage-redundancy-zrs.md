@@ -45,8 +45,8 @@ Migrating data to or from ZRS requires a different strategy. ZRS migration invol
 
 There are two primary options for migration to or from ZRS: 
 
-1. Manually copy or move data to a new ZRS account from an existing account. 
-2. Request a live migration. 
+- Manually copy or move data to a new ZRS account from an existing account.
+- Request a live migration.
 
 Microsoft strongly recommends that you perform a manual migration. A manual migration provides more flexibility than a live migration. With a manual migration, you're in control of the timing.
 
