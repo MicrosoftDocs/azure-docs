@@ -14,15 +14,18 @@ ms.author: bahariri
 ---
 
 # Integrate Apache Kafka Connect support on Azure Event Hubs
-[Kafka Connect](https://kafka.apache.org/documentation/#connect) is a platform that provides easy integration of Apache Kafka and other services into secure and scalable pipelines. Workers can be deployed in a standalone mode (single processes) or a distributed mode (nodes in a cluster of Connect workers).  Source and sink connectors are used to define movement of data in and out of the Kafka cluster respectively. For more information, see [Kafka Connect concepts](https://docs.confluent.io/current/connect/concepts.html).
+As ingestion for business needs increases, so does the requirement to ingest for various external sources and sinks. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) provides such framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This tutorial walks you through using Kafka Connect framework with Kafka-enabled Event Hubs.
 
-This tutorial walks you through integrating Kafka Connect with Azure Event Hubs and deploying basic FileStreamSource and FileStreamSink connectors.  While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
+This tutorial walks you through integrating Kafka Connect with a Kafka-enabled Azure event hub and deploying basic FileStreamSource and FileStreamSink connectors.  While these connectors are not meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
+
+> [!NOTE]
+> This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
 
 In this tutorial, you take the following steps:
 
 > [!div class="checklist"]
 > * Create an Event Hubs namespace
-> * Configure Kafka Connect for Event Hubs
+> * Clone the example project
 > * Configure Kafka Connect for Event Hubs
 > * Run Kafka Connect
 > * Create connectors
@@ -31,12 +34,21 @@ In this tutorial, you take the following steps:
 To complete this walkthrough, make sure you have the following prerequisites:
 
 - Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/).
+- [Git](https://www.git-scm.com/downloads)
 - Linux/MacOS
 - Kafka release (version 1.1.1, Scala version 2.11), available from [kafka.apache.org](https://kafka.apache.org/downloads#1.1.1)
 - Read through the [Event Hubs for Apache Kafka](https://docs.microsoft.com/azure/event-hubs/event-hubs-for-kafka-ecosystem-overview) introduction article
 
 ## Create an Event Hubs namespace
 An Event Hubs namespace is required to send and receive from any Event Hubs service. See [Creating a Kafka enabled Event Hub](event-hubs-create.md) for instructions on getting an Event Hubs Kafka endpoint. Get the Event Hubs connection string and fully qualified domain name (FQDN) for later use. For instructions, see [Get an Event Hubs connection string](event-hubs-get-connection-string.md). 
+
+## Clone the example project
+Clone the Azure Event Hubs repository and navigate to the tutorials/connect subfolder: 
+
+```
+git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
+cd azure-event-hubs-for-kafka/tutorials/connect
+```
 
 ## Configure Kafka Connect for Event Hubs
 Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs.  The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
