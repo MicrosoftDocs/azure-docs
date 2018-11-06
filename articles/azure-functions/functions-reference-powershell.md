@@ -282,7 +282,7 @@ param($req, $TriggerMetadata)
 $name = $req.Query.Name
 
 Push-OutputBinding -Name res -Value ([HttpResponseContext]@{
-    StatusCode = $status
+    StatusCode = [System.Net.HttpStatusCode]::OK
     Body = "Hello $name!"
 })
 ```
