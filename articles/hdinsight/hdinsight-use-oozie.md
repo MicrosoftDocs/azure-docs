@@ -2,9 +2,9 @@
 title: Use Hadoop Oozie in HDInsight 
 description: Use Hadoop Oozie in HDInsight, a big data service. Learn how to define an Oozie workflow, and submit an Oozie job.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

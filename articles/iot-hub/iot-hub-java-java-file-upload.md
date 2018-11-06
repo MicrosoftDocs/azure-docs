@@ -40,7 +40,7 @@ At the end of this tutorial you run two Java console apps:
 
 To complete this tutorial, you need the following:
 
-* The latest [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* The latest [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 

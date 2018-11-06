@@ -67,7 +67,6 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
   The following services are NOT supported:
     * CDN
-    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -77,10 +76,9 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Azure DevOps Services Load Testing
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>The following services are **not supported**:
     * CDN
-    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -197,11 +195,7 @@ Yes. Virtual machines deployed in virtual networks connected to the same Express
 
 ### Can I use site-to-site connectivity for virtual networks in conjunction with ExpressRoute?
 
-Yes. ExpressRoute can coexist with site-to-site VPNs.
-
-### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
-
-Yes. You will have to create an ExpressRoute gateway within your virtual network. There is a small downtime associated with the process.
+Yes. ExpressRoute can coexist with site-to-site VPNs. See [Configure ExpressRoute and site-to-site coexisting connections](expressroute-howto-coexist-resource-manager.md).
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 

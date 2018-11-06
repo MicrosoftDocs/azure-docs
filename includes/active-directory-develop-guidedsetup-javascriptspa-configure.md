@@ -54,23 +54,23 @@ There are multiple ways to register an application. Select the option that best 
 
 > #### Visual Studio instructions for obtaining the redirect URL
 > Follow these steps to obtain the redirect URL:
-> 1.	In **Solution Explorer**, select the project and look at the **Properties** window. If you don’t see a **Properties** window, press **F4**.
-> 2.	Copy the value from **URL** to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
-> 3.	Switch back to the *Application Registration* and set the value as a **Redirect URL**.
-
+> 1. In **Solution Explorer**, select the project and look at the **Properties** window. If you don’t see a **Properties** window, press **F4**.
+> 2. Copy the value from **URL** to the clipboard:<br/> ![Project properties](media/active-directory-develop-guidedsetup-javascriptspa-configure/vs-project-properties-screenshot.png)<br />
+> 3. Switch back to the *Application Registration* and set the value as a **Redirect URL**.
 
 #### Configure your JavaScript SPA
 
-1.	In the  `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
+1. In the `index.html` file created during project setup, add the application registration information. Add the following code at the top within the `<script></script>` tags in the body of your `index.html` file:
 
-```javascript
-var applicationConfig = {
-    clientID: "[Enter the application Id here]",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
-};
-```
-<ol start="3">
+    ```javascript
+    var applicationConfig = {
+        clientID: "[Enter the application Id here]",
+        graphScopes: ["user.read"],
+        graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+    };
+    ```
+
+<ol start="2">
 <li>
 Replace <code>Enter the application Id here</code> with the application ID you just registered.
 </li>

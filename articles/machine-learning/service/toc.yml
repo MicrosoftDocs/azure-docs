@@ -6,6 +6,9 @@
   - name: What is Azure Machine Learning service?
     displayName: AML, services
     href: overview-what-is-azure-ml.md
+  - name: How the service works
+    displayName: architecture
+    href: concept-azure-machine-learning-architecture.md    
   - name: What's happening to Workbench?
     href: overview-what-happened-to-workbench.md 
 - name: Quickstarts
@@ -29,9 +32,6 @@
     href: http://aka.ms/aml-notebooks
 - name: Concepts   
   items: 
-  - name: How the service works
-    displayName: architecture
-    href: concept-azure-machine-learning-architecture.md    
   - name: Model management
     href: concept-model-management-and-deployment.md
   - name: Accelerate with FPGAs

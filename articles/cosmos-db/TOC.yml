@@ -72,29 +72,35 @@
     - name: Resource model
       href: sql-api-resources.md
     - name: Global distribution
-      href: distribute-data-globally.md
       items:
-      - name: Key benefits
-        href: distribute-data-globally-benefits.md
-      - name: Enable global distribution
-        href: distribute-data-globally-turnkey.md
-      - name: Enable multi-master
-        href: enable-multi-master.md
-      - name: Multi-master with OSS NoSQL databases
-        href: multi-master-oss-nosql.md
-      - name: Conflict resolution
-        href: multi-master-conflict-resolution.md  
+      - name: Overview
+        href: distribute-data-globally.md
+      - name: Consistency Levels
+        href: consistency-levels.md
+      - name: Choosing the right consistency level
+        href: consistency-levels-choosing.md
+      - name: Consistency levels and Cosmos DB APIs
+        href: consistency-levels-across-apis.md
+      - name: Consistency, availability and performance tradeoffs
+        href: consistency-levels-tradeoffs.md
+      - name: High availability
+        href: high-availability.md
+      - name: Scale throughput globally
+        href: scaling-throughput.md
+      - name: Conflict resolution policies
+        href: conflict-resolution-policies.md
+      - name: Global distribution - under the hood
+        href: global-dist-under-the-hood.md  
     - name: Throughput
-      href: request-units.md
       items:
+      - name: Overview
+        href: request-units.md
       - name: Get and set throughput
         href: set-throughput.md
     - name: Partitioning and data distribution
       href: partition-data.md
     - name: Indexing
       href: indexing-policies.md
-    - name: Consistency models
-      href: consistency-levels.md
     - name: Change feed
       href: change-feed.md
     - name: Time to live
@@ -102,8 +108,9 @@
     - name: Unique keys
       href: unique-keys.md
     - name: Security
-      href: database-security.md
       items:
+        - name: Overview
+          href: database-security.md
         - name: Data encryption
           href: database-encryption-at-rest.md
         - name: Secure access to data
@@ -118,8 +125,6 @@
       href: cosmos-db-reserved-capacity.md
     - name : Backup and restore
       href: online-backup-and-restore.md
-    - name : High availability
-      href: regional-failover.md
   - name: Multi-model APIs
     expanded: true
     items:
@@ -385,6 +390,8 @@
       items:
       - name: Manage using PowerShell
         href: manage-account-with-powershell.md
+      - name: Manage using Azure CLI
+        href: manage-with-cli.md
       - name: Manage using Storage Explorer
         href: storage-explorer.md
       - name: Manage using data explorer
@@ -411,8 +418,16 @@
         href: local-emulator-export-ssl-certificates.md
       - name: Visual Studio Code extension
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
-    - name: Set up VSTS CI/CD pipeline
+    - name: Set up Azure DevOps CI/CD pipeline
       href: tutorial-setup-ci-cd.md
+    - name: Global distribution
+      items:
+        - name: Manage Database Account
+          href: how-to-manage-database-account.md
+        - name: Manage Consistency
+          href: how-to-manage-consistency.md
+        - name: Manage Conflicts
+          href: how-to-manage-conflicts.md
     - name: Best practices
       items:
       - name: Performance tips
@@ -427,6 +442,12 @@
           href: performance-testing.md
       - name: Cost-effective reads and writes
         href: key-value-store-cost.md
+    - name: Visualize Cosmos DB data
+      items:
+      - name: Use Power BI 
+        href: powerbi-visualize.md
+      - name: Use Qlik Sense
+        href: visualize-qlik-sense.md
     - name: Integrate with other Azure services
       items: 
       - name: Change feed Ecommerce solution
@@ -457,14 +478,16 @@
         href: spark-connector.md
       - name: Spark and Kafka
         href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-      - name: Power BI connector
-        href: powerbi-visualize.md
       - name: ODBC driver 
         href: odbc-driver.md
     - name: Bulk executor library
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
+  - name: Troubleshooting guides
+    items:
+    - name: Troubleshoot Java Async SDK
+      href: troubleshoot-java-async-sdk.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn
@@ -493,5 +516,3 @@
         href: use-cases.md
       - name: Social media apps
         href: social-media-apps.md
-
-
