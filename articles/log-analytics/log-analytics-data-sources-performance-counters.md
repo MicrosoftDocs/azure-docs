@@ -223,5 +223,5 @@ The following table provides different examples of log searches that retrieve Pe
 
 ## Next steps
 * [Collect performance counters from Linux applications](log-analytics-data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
 * Export collected data to [Power BI](log-analytics-powerbi.md) for additional visualizations and analysis.
