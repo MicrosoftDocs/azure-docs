@@ -135,6 +135,8 @@
     href: event-hubs-auto-inflate.md
   - name: Stream Azure Diagnostics data using Event Hubs
     href: event-hubs-streaming-azure-diags-data.md
+  - name: Exchange events between applications using different protocols
+    href: event-hubs-exchange-events-different-protocols.md    
 - name: Reference
   items:
   - name: Java
