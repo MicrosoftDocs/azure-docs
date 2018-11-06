@@ -444,7 +444,7 @@ If you need to use a package that is not already installed in your SQL database,
 
 1. In this example you will use RStudio Desktop as the IDE. You can use another IDE if you prefer. Download and install RStudio Desktop from [www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/), if you don't already have RStudio installed.
 
-1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using sqlmlutils. In the example below, you will install the [glue]https://cran.r-project.org/web/packages/glue/) package, which can format and interpolate a string.
+1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using sqlmlutils. In the example below, you will install the [glue](https://cran.r-project.org/web/packages/glue/) package, which can format and interpolate a string.
 
     ```R
     library(sqlmlutils) 
