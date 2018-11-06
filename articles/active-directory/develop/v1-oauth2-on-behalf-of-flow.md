@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory service-to-service authentication using the OAuth2.0 On-Behalf-Of draft specification | Microsoft Docs
-description: This article describes how to use HTTP messages to implement service-to-service authentication using the OAuth2.0 On-Behalf-Of flow.
+title: Azure Active Directory service-to-service authentication that uses the OAuth2.0 On-Behalf-Of draft specification | Microsoft Docs
+description: This article describes how to use HTTP messages to implement service-to-service authentication with the OAuth2.0 On-Behalf-Of flow.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -20,18 +20,18 @@ ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
 ---
 
-# Service-to-service calls using delegated user identity in the On-Behalf-Of flow
+# Service-to-service calls that use delegated user identity in the On-Behalf-Of flow
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
 The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a service or web API to pass user authentication to another service or web API. The OBO flow propagates the delegated user identity and permissions through the request chain. For the middle-tier service to make authenticated requests to the downstream service, it must secure an access token from Azure Active Directory (Azure AD) on behalf of the user.
 
 > [!IMPORTANT]
-> As of May 2018, an `id_token` can't be used for the On-Behalf-Of flow.  Single-page apps (SPAs) must pass an **access** token to a middle-tier confidential client to perform OBO flows. For more detail about the clients that can perform On-Behalf-Of calls, see [limitations](#client-limitations).
+> As of May 2018, an `id_token` can't be used for the On-Behalf-Of flow.  Single-page apps (SPAs) must pass an access token to a middle-tier confidential client to perform OBO flows. For more detail about the clients that can perform On-Behalf-Of calls, see [limitations](#client-limitations).
 
 ## On-Behalf-Of flow diagram
 
-The OBO flow starts after the user has been authenticated on an application using the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Next, API A needs to make an authenticated request to the downstream web API (API B).
+The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Next, API A needs to make an authenticated request to the downstream web API (API B).
 
 These steps constitute the On-Behalf-Of flow:
 ![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
@@ -52,9 +52,9 @@ Register both the middle-tier service and the client application in Azure AD.
 ### Register the middle-tier service
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account and look under the **Directory** list to choose an Active Directory tenant for your application.
+1. On the top bar, select your account and look under the **Directory** list to select an Active Directory tenant for your application.
 1. Select **More Services** on the left pane and choose **Azure Active Directory**.
-1. Select **App registrations** and choose **New application registration**.
+1. Select **App registrations** and then **New application registration**.
 1. Enter a friendly name for the application and select the application type.
     1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
     1. Select **Create** to create the application.
@@ -64,30 +64,30 @@ Register both the middle-tier service and the client application in Azure AD.
     1. When you save this page, the Azure portal displays the key value. Copy and save the key value in a safe location.
 
     > [!IMPORTANT]
-    > You need the key to configure the application settings in your implementation. This key value is not displayed again nor retrievable by any other means. Record it as soon as it is visible in the Azure Portal.
+    > You need the key to configure the application settings in your implementation. This key value is not displayed again, and it isn't retrievable by any other means. Record it as soon as it is visible in the Azure portal.
 
 ### Register the client application
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. On the top bar, select your account and look under the **Directory** list to choose an Active Directory tenant for your application.
+1. On the top bar, select your account and look under the **Directory** list to select an Active Directory tenant for your application.
 1. Select **More Services** on the left pane and choose **Azure Active Directory**.
-1. Select **App registrations** and choose **New application registration**.
+1. Select **App registrations** and then **New application registration**.
 1. Enter a friendly name for the application and select the application type.
    1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
    1. Select **Create** to create the application.
 1. Configure permissions for your application.
    1. In the Settings menu, choose the **Required permissions** section, and then select **Add** and **Select an API**.
-   1. Type the name of the middle-tier service in the textbox.
-   1. Choose  **Select Permissions** and then select **Access service name**.
+   1. Type the name of the middle-tier service in the text field.
+   1. Choose **Select Permissions** and then select **Access service name**.
 
 ### Configure known client applications
 
-In this scenario, the middle-tier service needs to obtain the user's consent to access the downstream API without a user interaction. The option to grant access to the downstream API must be presented upfront as part of the consent step during authentication.
+In this scenario, the middle-tier service needs to obtain the user's consent to access the downstream API without a user interaction. The option to grant access to the downstream API must be presented up front as part of the consent step during authentication.
 
 Follow the steps below to explicitly bind the client app's registration in Azure AD with the middle-tier service's registration. This operation merges the consent required by both the client and middle-tier into a single dialog.
 
 1. Go to the middle-tier service registration and select **Manifest** to open the manifest editor.
-1. Locate the `knownClientApplications` array property and add the Client ID of the client application as an element.
+1. Locate the `knownClientApplications` array property and add the client ID of the client application as an element.
 1. Save the manifest by selecting **Save**.
 
 ## Service-to-service access token request
@@ -106,11 +106,11 @@ When using a shared secret, a service-to-service access token request contains t
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |required | The type of the token request. Since an OBO request uses a JSON Web Token (JWT), the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | The type of the token request. An OBO request uses a JSON Web Token (JWT) so the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the access token used in the request. |
-| client_id |required | The App ID assigned to the calling service during registration with Azure AD. To find the App ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
+| client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
-| resource |required | The App ID URI of the receiving service (secured resource). To find the App ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
+| resource |required | The app ID URI of the receiving service (secured resource). To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | scope |required | A space separated list of scopes for the token request. For OpenID Connect, the scope **openid** must be specified.|
 
@@ -140,12 +140,12 @@ A service-to-service access token request with a certificate contains the follow
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |required | The type of the token request. Since an OBO request uses a JWT access token, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | The type of the token request. An OBO request uses a JWT access token so the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the token used in the request. |
-| client_id |required | The App ID assigned to the calling service during registration with Azure AD. To find the App ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
+| client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_assertion_type |required |The value must be `urn:ietf:params:oauth:client-assertion-type:jwt-bearer` |
 | client_assertion |required | A JSON Web Token that you create and sign with the certificate you registered as credentials for your application. See  [certificate credentials](active-directory-certificate-credentials.md) to learn about assertion format and about how to register your certificate.|
-| resource |required | The App ID URI of the receiving service (secured resource). To find the App ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
+| resource |required | The app ID URI of the receiving service (secured resource). To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | scope |required | A space separated list of scopes for the token request. For OpenID Connect, the scope **openid** must be specified.|
 
@@ -182,9 +182,9 @@ A success response is a JSON OAuth 2.0 response with the following parameters:
 | scope |The scope of access granted in the token. |
 | expires_in |The length of time the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
-| resource |The App ID URI of the receiving service (secured resource). |
+| resource |The app ID URI of the receiving service (secured resource). |
 | access_token |The requested access token. The calling service can use this token to authenticate to the receiving service. |
-| id_token |The requested id token. The calling service can use this token to verify the user's identity and begin a session with the user. |
+| id_token |The requested ID token. The calling service can use this token to verify the user's identity and begin a session with the user. |
 | refresh_token |The refresh token for the requested access token. The calling service can use this token to request another access token after the current access token expires. |
 
 ### Success response example
@@ -208,7 +208,7 @@ The following example shows a success response to a request for an access token 
 
 ### Error response example
 
-The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a conditional access policy (e.g., multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the conditional access policy.
+The Azure AD token endpoint returns an error response when it tries to acquire an access token for a downstream API that is set with a conditional access policy (for example, multi-factor authentication). The middle-tier service should surface this error to the client application so that the client application can provide the user interaction to satisfy the conditional access policy.
 
 ```
 {
@@ -244,24 +244,24 @@ Some OAuth-based web services need to access other web service APIs that accept 
 > [!TIP]
 > When you call a SAML-protected web service from a front-end web application, you can simply call the API and initiate a normal interactive authentication flow with the user's existing session. You only need to use an OBO flow when a service-to-service call requires a SAML token to provide user context.
 
-### Obtain a SAML token using an OBO request with a shared secret
+### Obtain a SAML token by using an OBO request with a shared secret
 
 A service-to-service request for a SAML assertion contains the following parameters:
 
 | Parameter |  | Description |
 | --- | --- | --- |
-| grant_type |required | The type of the token request. For a request using a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | The type of the token request. For a request that uses a JWT, the value must be **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | The value of the access token used in the request.|
-| client_id |required | The App ID assigned to the calling service during registration with Azure AD. To find the App ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
+| client_id |required | The app ID assigned to the calling service during registration with Azure AD. To find the app ID in the Azure portal, select **Active Directory**, choose the directory, and then select the application name. |
 | client_secret |required | The key registered for the calling service in Azure AD. This value should have been noted at the time of registration. |
-| resource |required | The App ID URI of the receiving service (secured resource). This is the resource that will be the Audience of the SAML token. To find the App ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
+| resource |required | The app ID URI of the receiving service (secured resource). This is the resource that will be the Audience of the SAML token. To find the app ID URI in the Azure portal, select **Active Directory** and choose the directory. Select the application name, choose **All settings**, and then select **Properties**. |
 | requested_token_use |required | Specifies how the request should be processed. In the On-Behalf-Of flow, the value must be **on_behalf_of**. |
 | requested_token_type | required | Specifies the type of token requested. The value can be **urn:ietf:params:oauth:token-type:saml2** or **urn:ietf:params:oauth:token-type:saml1** depending on the requirements of the accessed resource. |
 
 The response contains a SAML token encoded in UTF8 and Base64url.
 
-- **_SubjectConfirmationData_ for a SAML assertion sourced from an OBO call**: If the target application requires a recipient value in **SubjectConfirmationData**, then the value must be a non-wildcard Reply URL in the resource application configuration.
-- **The _SubjectConfirmationData_ node**: The node can't contain an **InResponseTo** attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an **InResponseTo** attribute.
+- **SubjectConfirmationData for a SAML assertion sourced from an OBO call**: If the target application requires a recipient value in **SubjectConfirmationData**, then the value must be a non-wildcard Reply URL in the resource application configuration.
+- **The SubjectConfirmationData node**: The node can't contain an **InResponseTo** attribute since it's not part of a SAML response. The application receiving the SAML token must be able to accept the SAML assertion without an **InResponseTo** attribute.
 
 - **Consent**: Consent must have been granted to receive a SAML token containing user data on an OAuth flow. For information on permissions and obtaining administrator consent, see [Permissions and consent in the Azure Active Directory v1.0 endpoint](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
@@ -273,7 +273,7 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 | scope |The scope of access granted in the token. |
 | expires_in |The length of time the access token is valid (in seconds). |
 | expires_on |The time when the access token expires. The date is represented as the number of seconds from 1970-01-01T0:0:0Z UTC until the expiration time. This value is used to determine the lifetime of cached tokens. |
-| resource |The App ID URI of the receiving service (secured resource). |
+| resource |The app ID URI of the receiving service (secured resource). |
 | access_token |The parameter that returns the SAML assertion. |
 | refresh_token |The refresh token. The calling service can use this token to request another access token after the current SAML assertion expires. |
 
@@ -282,9 +282,9 @@ The response contains a SAML token encoded in UTF8 and Base64url.
 - ext_expires_in: 0
 - expires_on: 1529627844
 - resource: `https://api.contoso.com`
-- access_token: < SAML assertion >
+- access_token: <SAML assertion>
 - issued_token_type: urn:ietf:params:oauth:token-type:saml2
-- refresh_token: < Refresh token >
+- refresh_token: <Refresh token>
 
 ## Client limitations
 
@@ -292,7 +292,7 @@ Public clients with wildcard reply URLs can't use an `id_token` for OBO flows. H
 
 ## Next steps
 
-Learn more about the OAuth 2.0 protocol and another way to perform service-to-service authentication using client credentials:
+Learn more about the OAuth 2.0 protocol and another way to perform service-to-service authentication that uses client credentials:
 
 * [Service to service authentication using OAuth 2.0 client credentials grant in Azure AD](v1-oauth2-client-creds-grant-flow.md)
 * [OAuth 2.0 in Azure AD](v1-protocols-oauth-code.md)
