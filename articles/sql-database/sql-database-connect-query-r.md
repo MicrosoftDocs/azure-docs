@@ -11,7 +11,7 @@ author: dphansen
 ms.author: davidph
 ms.reviewer:
 manager: cgronlun
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ---
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
