@@ -25,7 +25,7 @@ This article assumes that you have already read the [Azure Functions developer r
 
 ## Folder structure
 
-The required folder structure for a JavaScript project looks like the following. This default can be changed. For more information, see the [scriptFile](#using-scriptfile) section below.
+The required folder structure for a PowerShell project looks like the following. This default can be changed. For more information, see the [scriptFile](#using-scriptfile) section below.
 
 ```
 PSFunctionApp
