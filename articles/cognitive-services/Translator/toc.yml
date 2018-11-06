@@ -223,9 +223,9 @@
     - name: Language Support
       href: https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support
     - name: Glossary
-      href: custom-translator/how-to-create-project.md
+      href: custom-translator/glossary.md
     - name: FAQ
-      href: custom-translator/how-to-search-edit-delete-projects.md
+      href: custom-translator/faq.md
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - name: Stackoverflow
