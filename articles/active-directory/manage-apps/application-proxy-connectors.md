@@ -29,6 +29,7 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 ## Requirements and deployment
 
 To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a Windows Server 2012 R2 or 2016 machine. The connector needs to be able to communicate with the Application Proxy service as well as the on-premises applications that you publish. 
+Application Proxy also requires TLS 1.2 running on the underlying operating system. To change to TLS 1.2, follow the steps in [Enable TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). While the content is for Azure AD Connect, this procedure is the same for all .NET clients.
 
 For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-enable.md).
 
