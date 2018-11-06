@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/06/2018
 ms.author: iainfou
 ---
 
@@ -24,25 +24,31 @@ You also need the Azure CLI version 2.0.49 or later installed and configured. Ru
 
 In an AKS cluster, your Kubernetes nodes run as Azure virtual machines (VMs). These Linux-based VMs use an Ubuntu image, with the OS configured to automatically check for updates every night. If security or kernel upgrades are available, they are automatically downloaded and installed.
 
-Some security updates, such as kernel updates, require a node reboot to finalize the process. This reboot process doesn't happen automatically. A node that requires a reboot creates a file named */var/run/reboot-required*.
+![AKS node update and reboot process with kured](media/node-updates-kured/node-reboot-process.png)
 
-You can use your own workflows and processes to handle node reboots, or use  to orchestrate the process. With `kured`, a [DaemonSet][DaemonSet] is deployed that runs a pod on each node in the cluster. These pods in the DaemonSet watch for existence of that */var/run/reboot-required* file, and then initiates a process to reboot the nodes.
+Some security updates, such as kernel updates, require a node reboot to finalize the process. A node that requires a reboot creates a file named */var/run/reboot-required*. This reboot process doesn't happen automatically.
+
+You can use your own workflows and processes to handle node reboots, or use `kured` to orchestrate the process. With `kured`, a [DaemonSet][DaemonSet] is deployed that runs a pod on each node in the cluster. These pods in the DaemonSet watch for existence of the */var/run/reboot-required* file, and then initiates a process to reboot the nodes.
 
 ## Deploy kured in an AKS cluster
 
-To deploy the kured DaemonSet, apply the following sample YAML manifest from the GitHub project page. This manifest creates a role and cluster role, bindings, and a service account, then deploys the DaemonSet using kured version 1.1.0 that should support AKS clusters 1.9 or later.
+To deploy the `kured` DaemonSet, apply the following sample YAML manifest from their GitHub project page. This manifest creates a role and cluster role, bindings, and a service account, then deploys the DaemonSet using `kured` version 1.1.0 that supports AKS clusters 1.9 or later.
 
 ```console
 kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.1.0/kured-1.1.0.yaml
 ```
 
+You can also configure additional parameters for `kured`, such as integration with Prometheus or Slack. For more information about additional configuration paramters, see the [kured installation docs][kured-install].
+
 ## Update cluster nodes
 
-By default, your AKS nodes check for updates every evening. If you want to manually initiate an update to test that `kured` runs correctly, first follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection the node, check for and apply updates as follows:
+By default, AKS nodes check for updates every evening. If you don't want to wait, you can manually initiate an update to test that `kured` runs correctly. First, follow the steps to [SSH to one of your AKS nodes][aks-ssh]. Once you have an SSH connection the node, check for updates and apply them as follows:
 
 ```console
 sudo apt-get update && sudo apt-get upgrade -y
 ```
+
+If updates were applied that require a node reboot, a file is written to */var/run/reboot-required. `Kured` checks for nodes that require a reboot every 60 minutes by default.
 
 ## Monitor and review reboot process
 
@@ -55,7 +61,7 @@ NAME                       STATUS                     ROLES     AGE       VERSIO
 aks-nodepool1-79590246-2   Ready,SchedulingDisabled   agent     1h        v1.9.11
 ```
 
-Once upgrade process is complete, you can view the status of the nodes using the [kubectl get nodes][kubectl-get-nodes] command with the `--output wide` parameter. This additional output shows a difference in *KERNEL-VERSION* of the underlying nodes, as shown in the following example output. The *aks-nodepool1-79590246-2* was upgraded in a previous step and shows kernel version *4.15.0-1025-azure*. The node *aks-nodepool1-79590246-1* shows kernel version *4.15.0-1023-azure*.
+Once the upgrade process is complete, you can view the status of the nodes using the [kubectl get nodes][kubectl-get-nodes] command with the `--output wide` parameter. This additional output shows a difference in *KERNEL-VERSION* of the underlying nodes, as shown in the following example output. The *aks-nodepool1-79590246-2* was upgraded in a previous step and shows kernel version *4.15.0-1025-azure*. The node *aks-nodepool1-79590246-1* shows kernel version *4.15.0-1023-azure*.
 
 ```
 NAME                       STATUS    ROLES     AGE       VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE             KERNEL-VERSION      CONTAINER-RUNTIME
@@ -69,7 +75,8 @@ This article detailed how to use `kured` to reboot nodes automatically as part o
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
-[kubectl-get-nodes]:
+[kured-install]: https://github.com/weaveworks/kured#installation
+[kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->
 [aks-quickstart-cli]: kubernetes-walkthrough.md
