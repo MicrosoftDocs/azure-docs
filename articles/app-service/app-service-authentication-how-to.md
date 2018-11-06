@@ -56,6 +56,25 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
 ```
 
+## Validate tokens from providers
+
+In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](app-service-authentication-overview.md#authentication-flow)). To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
+
+```
+POST /.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<JWT>","access_token":"<JWT>"}
+```
+
+The token format varies slightly according to the provider. See the following table for details:
+
+| Provider | Request body |
+|-|-|
+| `aad` | `"id_token":"<token>"}`,`"access_token":"<token>"}` |
+| `microsoftaccount` | `{"authenticationToken":"<token>"}` |
+| `facebook`, `google`, `twitter` | `{"access_token":"<token>"}` |
+
 ## Sign out of a session
 
 Users can initiate a sign-out by sending a `GET` request to the app's `/.auth/logout` endpoint. The `GET` request does the following:
