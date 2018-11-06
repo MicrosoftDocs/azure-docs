@@ -21,7 +21,7 @@ A Hadoop cluster consists of several virtual machines (nodes) that are used for 
 > [!IMPORTANT]
 >HDInsight cluster billing starts once a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. Learn how to [delete a cluster.](../../hdinsight/hdinsight-delete-cluster.md)
 
-A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its Hierarchical Namespace Service and [Hadoop driver](abfs-driver.md), the Data Lake Storage Gen2 feature of Azure Storage is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
+A storage account with Data Lake Storage Gen2 capabilities is used as the data layer in this quickstart. With its hierarchical namespace service and [Hadoop driver](abfs-driver.md), Data Lake Storage Gen2 is optimized for distributed processing and analysis. Data stored in a storage account which has Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
 
 ## Cluster setup methods
 

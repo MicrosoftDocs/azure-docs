@@ -13,7 +13,7 @@ ms.date: 06/27/2018
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
-This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in storage account with Azure Data Lake Storage Gen2 preview enabled.
+This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account with Azure Data Lake Storage Gen2 preview enabled.
 
 As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 
@@ -49,11 +49,7 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
-<<<<<<< HEAD
-    |**Location**     | Select **West US 2**.        |
-=======
     |**Location**     | Select **West US 2**. Feel free to select another public region if you prefer.        |
->>>>>>> b16b7c5d7420fc5a11c8d4b33721880de32a049e
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Select **Pin to dashboard** and then click **Create**.
