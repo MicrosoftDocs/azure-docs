@@ -16,6 +16,11 @@ In this article, learn about the Azure Machine Learning service releases.
 
 ## 2018-11-05
 
+### Azure portal 
+The Azure portal for the Azure Machine Learning service has the following updates:
+  * A new **Pipelines** tab for published pipelines.
+  * Added support for attaching an existing HDInsight cluster as a compute target.
+
 ### Azure Machine Learning SDK for Python v0.1.74
 
 + **Breaking changes** 
@@ -25,10 +30,8 @@ In this article, learn about the Azure Machine Learning service releases.
   * **Upcoming in next release** We are continuing to streamline the training compute experience for our users. We are unifying the various compute options in *DSVMCompute* and *BatchAICompute* into a single class. called *AmlCompute*. In next release, both old computes and *AmlCompute* will co-exist. In subsequent release, only training compute you can create will be *AmlCompute* and the other two classes will be deprecated.
 
 + **New features**
-  * Azure ML Pipelines [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) now uses MPI steps.
+  * The Azure Machine Learning Pipelines [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) now uses MPI steps.
   * The RunDetails widget for Jupyter notebooks is updated to show a visualization of the pipeline.
-  * The Azure portal for machine learning has a new **Pipelines** tab for published pipelines.
-  * The Azure portal for machine learning has support for attaching exisiting HDInsight as a compute target.
 
 ### Azure Machine Learning Data Prep SDK v0.4.0 
  
