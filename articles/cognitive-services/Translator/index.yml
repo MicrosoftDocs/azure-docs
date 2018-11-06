@@ -33,7 +33,7 @@ sections:
           image:
             src: ../media/index/i_overview.svg
           title: What is Custom Translator?
-        - href: azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+        - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
           html: <p>Learn how to get started with Custom Translator</p>
           image:
             src: ../media/index/i_get-started.svg
