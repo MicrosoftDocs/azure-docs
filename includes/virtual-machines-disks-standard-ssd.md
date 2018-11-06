@@ -17,7 +17,7 @@ Azure Standard Solid State Drives (SSD) Managed Disks are a cost-effective stora
 ## Standard SSD Features
 
 **Managed Disks**: Standard SSDs are only available as Managed Disks. Unmanaged Disks and Page Blobs are not supported on Standard SSD. While creating the Managed Disk, you specify the disk type as Standard SSD and indicate the size of disk you need, and Azure creates and manages the disk for you.
-Standard SSDs support all service management operations offered by Managed Disks. For example, you can create, copy or snapshot Standard SSD Managed Disks in the same way you do with Managed Disks.
+Standard SSDs support all classic deployment model operations offered by Managed Disks. For example, you can create, copy or snapshot Standard SSD Managed Disks in the same way you do with Managed Disks.
 
 **Virtual Machines**: Standard SSDs can be used with all Azure VMs, including the VM types that do not support Premium Disks. For example, if you're using an A-series VM, or N-series VM, or DS-series, or any other Azure VM series, you can use Standard SSDs with that VM. With the introduction of Standard SSD, we are enabling a broad range of workloads that previously used HDD-based disks to transition to SSD-based disks, and experience the consistent performance, higher availability, better latency, and an overall better experience that come with SSDs.
 
