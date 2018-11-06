@@ -13,9 +13,9 @@ ms.date: 09/24/2018
 ---
 # Select and use a compute target to train your model
 
-With the Azure Machine Learning service, you can train your model in several different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you will learn about the supported compute targets and how to use them.
+With the Azure Machine Learning service, you can train your model in different environments. These environments, called __compute targets__, can be local or in the cloud. In this document, you learn about the supported compute targets and how to use them.
 
-A compute target is the resource that runs your training script or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
+A compute target is the resource that runs your training script, or hosts your model when it's deployed as a web service. They can be created and managed using the Azure Machine Learning SDK or CLI. If you have compute targets that were created by another process (for example, the Azure portal or Azure CLI), you can use them by attaching them to your Azure Machine Learning service workspace.
 
 You can start with local runs on your machine, and then scale up and out to other environments such as remote Data Science virtual machines with GPU or Azure Batch AI. 
 
@@ -30,8 +30,13 @@ Azure Machine Learning service supports the following compute targets:
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
 |[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. For more information on pipelines, see the [Pipelines in Azure Machine Learning](concept-ml-pipelines.md) document.
 
 __[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It is a serverless cloud offering that is inexpensive and easy to create and work with. ACI does not support GPU acceleration, automated hyper parameter tuning, or automated model selection. Also, it cannot be used in a pipeline.
 
@@ -46,7 +51,7 @@ You can use the Azure Machine Learning SDK, Azure CLI, or Azure portal to create
 > [!IMPORTANT]
 > You cannot attach an existing Azure Containers Instance to your workspace. Instead, you must create a new instance.
 >
-> You cannot create an Azure HDInsight cluster within a workspace. Instead, you must attach an existing cluster.
+> You cannot create Azure HDInsight, Azure Databricks, or Azure Data Lake Store within a workspace. Instead, you must create the resource and then attach it to your workspace.
 
 ## Workflow
 
@@ -172,6 +177,7 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
     run_config.environment.docker.enabled = True
 
     # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -289,7 +295,6 @@ run_config.environment.docker.enabled = True
 
 # set Docker base image to the default CPU-based image
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
 # use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False
@@ -304,6 +309,106 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 It can take from a few seconds to a few minutes to create an ACI compute target.
 
 For a Jupyter Notebook that demonstrates training on Azure Container Instance, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
+
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks is an Apache Spark-based environment in the Azure cloud. It can be used as a compute target when training models with an Azure Machine Learning pipeline.
+
+> [!IMPORTANT]
+> An Azure Databricks compute target can only be used in a Machine Learning pipeline.
+>
+> You must create an Azure Databricks workspace before using it to train your model. To create these resource, see the [Run a Spark job on Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) document.
+
+To attach Azure Databricks as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
+
+* __Compute name__: The name you want to assign to this compute resource.
+* __Resource ID__: The resource ID of the Azure Databricks workspace. The following text is an example of the format for this value:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > To get the resource ID, use the following Azure CLI command. Replace `<databricks-ws>` with the name of your Databricks workspace:
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Access token__: The access token used to authenticate to Azure Databricks. To generate an access token, see the [Authentication](https://docs.azuredatabricks.net/api/latest/authentication.html) document.
+
+The following code demonstrates how to attach Azure Databricks as a compute target:
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics is a big data analytics platform in the Azure cloud. It can be used as a compute target when training models with an Azure Machine Learning pipeline.
+
+> [!IMPORTANT]
+> An Azure Data Lake Analytics compute target can only be used in a Machine Learning pipeline.
+>
+> You must create an Azure Data Lake Analytics account before using it to train your model. To create this resource, see the [Get started with Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal) document.
+
+To attach Data Lake Analytics as a compute target, you must use the Azure Machine Learning SDK and provide the following information:
+
+* __Compute name__: The name you want to assign to this compute resource.
+* __Resource ID__: The resource ID of the Data Lake Analytics account. The following text is an example of the format for this value:
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > To get the resource ID, use the following Azure CLI command. Replace `<datalakeanalytics>` with the name of your Data Lake Analytics account name:
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+The following code demonstrates how to attach Data Lake Analytics as a compute target:
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Azure Machine Learning pipelines can only work with data stored in the default data store of the Data Lake Analytics account. If the data you need to work with is in a non-default store, you can use a [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) to copy the data before training.
 
 ## <a id="hdinsight"></a>Attach an HDInsight cluster 
 
@@ -345,8 +450,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## Submit training run
-    
-The code for submitting a training run is the same regardless of the compute target:
+
+There are two ways to submit a training run:
+
+* Submitting a `ScriptRunConfig` object.
+* Submitting a `Pipeline` object.
+
+> [!IMPORTANT]
+> The Azure Databricks and Azure Datalake Analytics compute targets can only be used in a pipeline.
+> The local compute target cannot be used in a Pipeline.
+
+### Submit using `ScriptRunConfig`
+
+The code pattern for submitting a training runs using `ScriptRunConfig` is the same regardless of the compute target:
 
 * Create a `ScriptRunConfig` object using the run configuration for the compute target.
 * Submit the run.
@@ -354,13 +470,46 @@ The code for submitting a training run is the same regardless of the compute tar
 
 The following example uses the configuration for the system-managed local compute target created earlier in this document:
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 For a Jupyter Notebook that demonstrates training with Spark on HDInsight, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### Submit using a pipeline
+
+The code pattern for submitting a training runs using a pipeline is the same regardless of the compute target:
+
+* Add a step to the pipeline for the compute resource.
+* Submit a run using the pipeline.
+* Wait for the run to complete.
+
+The following example uses the Azure Databricks compute target created earlier in this document:
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+For more information on machine learning pipelines, see the [Pipelines and Azure Machine Learning](concept-ml-pipelines.md) document.
+
+For example Jupyter Notebooks that demonstrate training using a pipeline, see [https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## View and set up compute using the Azure portal
 
@@ -381,12 +530,19 @@ Follow the above steps to view the list of compute targets, and then use the fol
 
 1. Enter a name for the compute target.
 1. Select the type of compute to attach for __Training__. 
+
+    > [!IMPORTANT]
+    > Not all compute types can be created using the Azure portal. Currently the types that can be created for training are:
+    > 
+    > * Virtual Machine
+    > * Batch AI
+
 1. Select __Create New__ and fill out the required form. 
 1. Select __Create__
 1. You can view the status create operation by selecting the compute target from the list.
 
     ![View Compute list](./media/how-to-set-up-training-targets/View_list.png)
-    You will then see the details for that compute.
+    You will then see the details for the compute target.
     ![View details](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. Now you can submit a run against these targets as detailed above.
 
@@ -396,8 +552,16 @@ Follow the above steps to view the list of compute targets, then use the followi
 
 1. Click the **+** sign to add a compute target.
 2. Enter a name for the compute target.
-3. Select the type of compute to attach for Training. Batch AI and Virtual Machines are currently supported in the portal for training.
-4. Select 'Use Existing'.
+3. Select the type of compute to attach for Training.
+
+    > [!IMPORTANT]
+    > Not all compute types can be attached using the portal.
+    > Currently the types that can be attached for training are:
+    > 
+    > * Virtual Machine
+    > * Batch AI
+
+1. Select 'Use Existing'.
     - When attaching Batch AI clusters, select the compute target from the dropdown, select the Batch AI workspace and the Batch AI Cluster, and then click **Create**.
     - When attaching a Virtual Machine, enter the IP Address, Username/Password Combination, Private/Public Keys, and the Port and click Create.
 
@@ -407,7 +571,7 @@ Follow the above steps to view the list of compute targets, then use the followi
     > * [Create and use SSH keys on Linux or macOS]( https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
     > * [Create and use SSH keys on Windows]( https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
-5. You can view the status of the provisioning state by selecting the compute target from the list of Computes.
+5. You can view the status of the provisioning state by selecting the compute target from the list.
 6. Now you can submit a run against these targets.
 
 ## Examples
@@ -423,7 +587,7 @@ Get these notebooks:
 
 ## Next steps
 
-* [Azure Machine Learning SDK reference](http://aka.ms/aml-sdk)
+* [Azure Machine Learning SDK reference](https://aka.ms/aml-sdk)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
 * [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md)

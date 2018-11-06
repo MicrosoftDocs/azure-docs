@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Database Migration Service to perform an online migration of MySQL to Azure Database for MySQL | Microsoft Docs
+title: "Tutorial: Use the Azure Database Migration Service to perform an online migration of MySQL to Azure Database for MySQL | Microsoft Docs"
 description: Learn to perform an online migration from MySQL on-premises to Azure Database for MySQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -13,7 +13,7 @@ ms.topic: article
 ms.date: 10/06/2018
 ---
 
-# Migrate MySQL to Azure Database for MySQL online using DMS
+# Tutorial: Migrate MySQL to Azure Database for MySQL online using DMS
 You can use the Azure Database Migration Service to migrate the databases from an on-premises MySQL instance to [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **Employees** sample database from an on-premises instance of MySQL 5.7 to Azure Database for MySQL by using an online migration activity in the Azure Database Migration Service.
 
 In this tutorial, you learn how to:

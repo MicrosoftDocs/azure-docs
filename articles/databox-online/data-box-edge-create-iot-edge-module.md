@@ -141,6 +141,9 @@ Create a C# solution template that you can customize with your own code.
             private const string OutputFolderPath = "/home/CloudShare";
     ````
 
+    > [!IMPORTANT]
+    > Make a note of the `InputFolderPath` and the `OutputFolderPath`. You will need to provide these paths when you deploy this module.
+
 4. Add the **MessageBody** class to the Program class. These classes define the expected schema for the body of incoming messages.
 
     ```

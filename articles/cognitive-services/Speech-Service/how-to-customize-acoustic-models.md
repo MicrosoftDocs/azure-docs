@@ -1,8 +1,11 @@
 ---
-title: Create an acoustic model with the Speech Service - Azure Cognitive Services
+title: "Tutorial: Create an acoustic model with the Speech Service"
+titlesuffix: Azure Cognitive Services
 description: Learn how to create an acoustic model with the Speech Service in Azure Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: tutorial
@@ -46,7 +49,7 @@ An acoustic dataset for customizing the acoustic model consists of two parts: (1
 * All audio files in the dataset should be stored in the WAV (RIFF) audio format.
 * The audio must have a sampling rate of 8 kilohertz (KHz) or 16 KHz, and the sample values should be stored as uncompressed, pulse-code modulation (PCM) 16-bit signed integers (shorts).
 * Only single-channel (mono) audio files are supported.
-* The audio files must be between 100 microseconds and 1 minute in length. Each audio file should ideally start and end with at least 100 microseconds of silence, and somewhere between 500 microseconds and 1 second is common.
+* The audio files can be between 100 microseconds and 1 minute in length, although ideally they should be around 10-12 seconds. Each audio file should ideally start and end with at least 100 microseconds of silence, and somewhere between 500 microseconds and 1 second is common.
 * If you have background noise in your data, we recommend that you also have some examples with longer segments of silence in your data&mdash;for example, a few seconds&mdash;before and/or after the speech content.
 * Each audio file should consist of a single utterance&mdash;for example, a single sentence for dictation, a single query, or a single turn of a dialog system.
 * Each audio file in the dataset should have a unique file name and a .wav extension.
@@ -62,7 +65,7 @@ An acoustic dataset for customizing the acoustic model consists of two parts: (1
 | Sampling Rate | 8,000 Hertz (Hz) or 16,000 Hz |
 | Channels | 1 (mono) |
 | Sample Format | PCM, 16-bit integers |
-| File Duration | 0.1 seconds < duration < 60 seconds |
+| File Duration | 0.1 seconds < duration < 12 seconds | 
 | Silence Collar | > 0.1 seconds |
 | Archive Format | .zip |
 | Maximum Archive Size | 2 GB |

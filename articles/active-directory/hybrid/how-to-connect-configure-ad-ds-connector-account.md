@@ -15,7 +15,7 @@ ms.author: billmath
 
 # Azure AD Connect: Configure AD DS Connector Account Permissions 
 
-A new PowerShell Module named ADSyncConfig.psm1 was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
+A new PowerShell Module named [ADSyncConfig.psm1](reference-connect-adsyncconfig.md) was introduced with build 1.1.880.0 (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for your Azure AD Connect deployment. 
 
 ## Overview 
 The following PowerShell cmdlets can be used to setup Active Directory permissions of the AD DS Connector account, for each feature that you pretend to enable in Azure AD Connect. To prevent any issues, you should prepare Active Directory permissions in advance whenever you want to install Azure AD Connect using a custom domain account to connect to your forest. This ADSyncConfig module can also be used to configure permissions after Azure AD Connect is deployed.
@@ -45,7 +45,7 @@ Install-WindowsFeature RSAT-AD-Tools
 ```
 ![Configure](media/how-to-connect-configure-ad-ds-connector-account/configure2.png)
 
->![NOTE]
+>[!NOTE]
 >You can also copy the file **C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncConfig\ADSyncConfig.psm1** to a Domain Controller which already has RSAT for AD DS installed and use this PowerShell module from there.
 
 To start using the ADSyncConfig you need to load the module in a Windows PowerShell window: 
@@ -266,10 +266,10 @@ This PowerShell script will tighten permissions for the AD Connector Account pro
 - Disable inheritance on the specified object 
 - Remove all ACEs on the specific object, except ACEs specific to SELF as we want to keep the default permissions intact when it comes to SELF. 
  
- The -ObjectDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
+ The -ADConnectorAccountDN parameter is the AD account whose permissions need to be tightened. This is typically the MSOL_nnnnnnnnnnnn domain account that is configured in the AD DS Connector (see Determine your AD DS Connector Account). The -Credential parameter is necessary to specify the Administrator account that has the necessary privileges to restrict Active Directory permissions on the target AD object. This is typically the Enterprise or Domain Administrator.  
 
 ``` powershell
-Set-ADSyncRestrictedPermissions [-ObjectDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
+Set-ADSyncRestrictedPermissions [-ADConnectorAccountDN] <String> [-Credential] <PSCredential> [-DisableCredentialValidation] [-WhatIf] [-Confirm] [<CommonParameters>] 
 ```
  
 For Example: 
@@ -298,3 +298,5 @@ This cmdlet will set the following permissions:
 - [Azure AD Connect: Accounts and permissions](reference-connect-accounts-permissions.md)
 - [Express Installation](how-to-connect-install-express.md)
 - [Custom Installation](how-to-connect-install-custom.md)
+- [ADSyncConfig Reference](reference-connect-adsyncconfig.md)
+

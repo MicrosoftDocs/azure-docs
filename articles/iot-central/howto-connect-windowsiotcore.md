@@ -18,7 +18,7 @@ This article describes how, as a device developer, to connect a Windows IoT Core
 
 To complete the steps in this article, you need the following:
 
-1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
+1. An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 2. A device running the Windows 10 IoT Core operating system. For this walkthrough, we will use a Raspberry Pi.
 
 
@@ -39,7 +39,7 @@ In your Azure IoT Central application, add a real device from the **Windows IoT 
 
 ### Prepare the Windows IoT Core device
 
-To set up a Windows IoT Core device please follow the step by step guide at [Set up a Windows IoT Core device] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+To set up a Windows IoT Core device please follow the step by step guide at [Set up a Windows IoT Core device](https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### Add a real device
 

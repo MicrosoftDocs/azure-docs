@@ -21,7 +21,7 @@ Choose from a letter-sized or A3-sized download.
 
 ## Letter-sized cheat sheets
 
-Download the [Azure Cosmos DB letter-sized query cheat sheets](http://go.microsoft.com/fwlink/?LinkId=623215) if you're going to print to letter-sized paper (8.5" x 11").
+Download the [Azure Cosmos DB letter-sized query cheat sheets](https://go.microsoft.com/fwlink/?LinkId=623215) if you're going to print to letter-sized paper (8.5" x 11").
 
 ![Azure Cosmos DB query cheat sheets - letter-sized, with SQL API, JavaScript, MongoDB API, Gremlin API, and Table API queries and functions](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

@@ -1,18 +1,19 @@
 ---
-title: 'Quickstart: Recognize speech in Objective-C on iOS using the Cognitive Services Speech SDK'
-titleSuffix: "Microsoft Cognitive Services"
-description: Learn how to recognize speech in Objective-C on iOS using the Cognitive Services Speech SDK
+title: 'Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK'
+titleSuffix: Azure Cognitive Services
+description: Learn how to recognize speech in Objective-C on iOS using the Speech Service SDK
 services: cognitive-services
 author: chlandsi
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
-ms.date: 10/12/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 11/06/2018
 ms.author: chlandsi
 ---
 
-# Quickstart: Recognize speech in Objective-C on iOS using the Cognitive Services Speech SDK
+# Quickstart: Recognize speech in Objective-C on iOS using the Speech Service SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -20,14 +21,14 @@ In this article, you learn how to create an iOS app in Objective-C using the Cog
 
 ## Prerequisites
 
-* A subscription key for the Speech service. See [Try the speech service for free](get-started.md).
+* A subscription key for the Speech service. See [Try the Speech Service for free](get-started.md).
 * A Mac with Xcode 9.4.1 installed as iOS development environment. This tutorial targets iOS versions 11.4. If you don't have Xcode yet, you can install it from the [App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## Get the Speech SDK for iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.0.1`.
+The current version of the Cognitive Services Speech SDK is `1.1.0`.
 
 The Cognitive Services Speech SDK for Mac and iOS is currently distributed as a Cocoa Framework.
 It can be downloaded from https://aka.ms/csspeech/iosbinary. Download the file to your home directory.

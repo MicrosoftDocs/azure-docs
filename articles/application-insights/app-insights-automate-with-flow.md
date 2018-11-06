@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automate Azure Application Insights processes with Microsoft Flow
 description: Learn how you can use Microsoft Flow to quickly automate repeatable processes by using the Application Insights connector.
 services: application-insights
@@ -29,7 +29,7 @@ You can add additional actions as well. Microsoft Flow makes hundreds of actions
 In this tutorial, you will learn how to create a flow that uses the Analytics auto-cluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email, just one example of how you can use Microsoft Flow and Application Insights Analytics together. 
 
 ### Step 1: Create a flow
-1. Sign in to [Microsoft Flow](http://flow.microsoft.com), and then select **My Flows**.
+1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and then select **My Flows**.
 1. Click **Create a flow from blank**.
 
 ### Step 2: Create a trigger for your flow
@@ -42,7 +42,7 @@ In this tutorial, you will learn how to create a flow that uses the Analytics au
 ### Step 3: Add an Application Insights action
 1. Click **New step**, and then click **Add an action**.
 1. Search for **Azure Application Insights**.
-1. Click **Azure Application Insights – Visualize Analytics query Preview**.
+1. Click **Azure Application Insights - Visualize Analytics query Preview**.
 
     ![Run Analytics query window](./media/app-insights-automate-with-flow/flow2.png)
 
@@ -80,7 +80,7 @@ When you create your own queries, verify that they are working properly in Analy
 
 1. Click **New step**, and then click **Add an action**.
 1. Search for **Office 365 Outlook**.
-1. Click **Office 365 Outlook – Send an email**.
+1. Click **Office 365 Outlook - Send an email**.
 
     ![Office 365 Outlook selection window](./media/app-insights-automate-with-flow/flow2b.png)
 
@@ -120,7 +120,7 @@ When the flow runs, the recipients you have specified in the email list receive 
 
 ## Next steps
 
-- Learn more about creating [Analytics queries](app-insights-analytics-using.md).
+- Learn more about creating [Analytics queries](../log-analytics/query-language/get-started-queries.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

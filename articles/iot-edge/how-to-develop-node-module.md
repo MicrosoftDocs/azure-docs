@@ -120,7 +120,7 @@ The IoT Edge Node.js module depends on Azure IoT Node.js Device SDK. In the defa
 
 5. In VS Code integrated terminal, run the following command to send a **Hello World** message to your module. This is the command showed in previous steps when setup IoT Edge simulator successfully. You might need to create or switch to another integrated terminal if current one is blocked.
 
-    ```cmd
+    ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 

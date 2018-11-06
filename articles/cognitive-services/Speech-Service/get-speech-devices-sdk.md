@@ -1,13 +1,14 @@
 ---
 title: Get the Speech Devices SDK
+titleSuffix: Azure Cognitive Services
 description: Learn how to get access to the Speech Devices SDK.
-titleSuffix: "Azure Cognitive Services"
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
 ---

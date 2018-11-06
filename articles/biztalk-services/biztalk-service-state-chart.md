@@ -49,10 +49,10 @@ The following tables list the operations or actions that can be done when the Bi
 
 
 ## See Also
-* [What you can do in the dashboard, monitor and scale tabs in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [What you get with the Developer, Basic, Standard, and Premium editions in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [How to back up and restore a BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Throttling explained in BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [Retrieve the Service Bus and Access Control issuer name and issuer key values for your BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [What you can do in the dashboard, monitor and scale tabs in BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [What you get with the Developer, Basic, Standard, and Premium editions in BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [How to back up and restore a BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Throttling explained in BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Retrieve the Service Bus and Access Control issuer name and issuer key values for your BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [How do I Start Using the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
