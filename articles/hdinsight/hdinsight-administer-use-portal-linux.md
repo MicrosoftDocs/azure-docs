@@ -142,6 +142,15 @@ The cluster scaling feature allows you to change the number of worker nodes used
 > Only clusters with HDInsight version 3.1.3 or higher are supported. If you are unsure of the version of your cluster, you can check the Properties page.  See [List and show clusters](#list-and-show-clusters).
 >
 >
+**To scale clusters**
+
+1. Sign in to the [Portal][azure-portal].
+2. Click **HDInsight Clusters** from the left menu.
+3. Click the cluster you want to scale.
+3. Click **Scale Cluster**.
+4. Enter **Number of Worker nodes**. The limit on the number of cluster nodes varies between Azure subscriptions. You can contact billing support to increase the limit.  The cost information reflects the changes you have made to the number of nodes.
+
+    ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 The impact of changing the number of data nodes varies for each type of cluster supported by HDInsight:
 
@@ -186,15 +195,6 @@ The impact of changing the number of data nodes varies for each type of cluster 
     $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
     ```
 
-**To scale clusters**
-
-1. Sign in to the [Portal][azure-portal].
-2. Click **HDInsight Clusters** from the left menu.
-3. Click the cluster you want to scale.
-3. Click **Scale Cluster**.
-4. Enter **Number of Worker nodes**. The limit on the number of cluster nodes varies between Azure subscriptions. You can contact billing support to increase the limit.  The cost information reflects the changes you have made to the number of nodes.
-
-    ![HDInsight hadoop hbase storm spark scale](./media/hdinsight-administer-use-portal-linux/hdinsight-portal-scale-cluster.png)
 
 ## Pause/shut down clusters
 
