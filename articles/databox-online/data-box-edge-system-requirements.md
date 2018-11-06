@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/06/2018
 ms.author: alkohli
 ---
 # Azure Data Box Edge system requirements (Preview)
@@ -48,33 +48,22 @@ The following table lists the ports that need to be opened in your firewall to a
 
 ### Port configuration for Data Box Edge
 
-| Port no.|	In or out |	Port scope|	Required|	Notes                                                             |                                                                                     |
-|--------|---------|----------|--------------|----------------------|---------------|
-| TCP 80 (HTTP)|Out|WAN	|No|Outbound port is used for Internet access to retrieve updates. <br>The outbound web proxy is user configurable. |                          
-| TCP 443 (HTTPS)|Out|WAN|Yes|Outbound port is used for accessing data in the cloud.<br>The outbound web proxy is user configurable.|   
-| UDP 53 (DNS)|Out|WAN|In some cases<br>See notes|This port is required only if you are using an Internet-based DNS server.<br>We recommend using local DNS server. |
-| UDP 123 (NTP)|Out|WAN|In some cases<br>See notes|This port is required only if you are using an Internet-based NTP server.  |
-| UDP 67 (DHCP)|Out|WAN|In some cases<br>See notes|This port is required only if you are using a DHCP server.  |
-| TCP 80 (HTTP)|In|LAN|Yes|This is the inbound port for local UI on the device for local management. <br>Accessing the local UI over HTTP will automatically redirect to HTTPS.  | 
-| TCP 443 (HTTPS)|In|LAN|Yes|This is the inbound port for local UI on the device for local management. |
+[!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
+## Port configuration for IoT Edge deployment
 
-## Port configuration IoT Edge deployment
-
-Azure IoT Edge allows communication from an on-premises Edge device to Azure cloud using supported IoT Hub protocols. For enhanced security, communication channels between Azure IoT Edge and Azure IoT Hub are always configured to be Outbound; this is based on the Services Assisted Communication pattern, which minimizes the attack surface for a malicious entity to explore. Inbound communication is only required for specific scenarios where Azure IoT Hub need to push messages down to the Azure IoT Edge device (e.g., Cloud To Device messaging), these are again protected using secure TLS channels and can be further secured using X.509 certificates and TPM device modules. 
+Azure IoT Edge allows outbound communication from an on-premises Edge device to Azure cloud using supported IoT Hub protocols. Inbound communication is only required for specific scenarios where Azure IoT Hub need to push messages down to the Azure IoT Edge device (e.g., Cloud To Device messaging).
 
 Use the following table as a guideline for port configuration for the underlying servers where Azure IoT Edge runtime is hosted:
 
 | Port no. | In or out | Port scope | Required | Guidance |
 |----------|-----------|------------|----------|----------|
-| TCP   8833 (MQTT) | Out       | WAN        | No       | Outbound open when using MQTT as the communication protocol. 1883 for MQTT is not supported by IoT Edge.|
-| TCP 5671 (AMQP)   | Out       | WAN        | Yes      | Default communication protocol for IoT Edge. Must be open if Azure IoT Edge is not configured for other supported protocols or AMQP is the desired communication protocol. <br>5672 for AMQP is not supported by IoT Edge. <br>Block this port when Azure IoT Edge use a different IoT Hub supported protocol. |
-| TCP 443 (HTTPS)   | Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. If you have a transparent gateway with leaf devices that may send method   requests. In this case, port 443 does not need to be open to external networks to connect to IoT Hub or provide IoT Hub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open inbound from the internal network. |
-| TCP 80 (HTTP)     | Out       | WAN        |          | Not supported by IoT Edge. |
-| TCP   8833 (MQTT) | In        |            | No       | Inbound connections should be blocked. |
-| TCP 5671 (AMQP)   | In        |            | No       | Inbound connections should   be blocked.|
-| TCP 443   (HTTPS) | In        |            | No       | Inbound connections should be opened only for specific scenarios. If non HTTP protocols such as AMQP, MQTT cannot be configured, the messages can   be sent over WebSockets using port 443. |
-| TCP 80 (HTTP)     | In        |            | No       | Not supported by IoT Edge. |
+| TCP 5671 (AMQP)| Out       | WAN        | Yes      | Default communication protocol for IoT Edge. Must be open if Azure IoT Edge is not configured for other supported protocols or AMQP is the desired communication protocol. <br>5672 for AMQP is not supported by IoT Edge. <br>Block this port when Azure IoT Edge use a different IoT Hub supported protocol. |
+| TCP 443 (HTTPS)| Out       | WAN        | Yes      | Outbound open for IoT Edge   provisioning. If you have a transparent gateway with leaf devices that may send method   requests. In this case, port 443 does not need to be open to external networks to connect to IoT Hub or provide IoT Hub services through Azure IoT Edge. Thus the incoming rule could be restricted to only open inbound from the internal network. |
+| TCP 5671 (AMQP) | In        |            | No       | Inbound connections should be blocked.|
+| TCP 443 (HTTPS) | In        |            | In some cases, see comments | Inbound connections should be opened only for specific scenarios. If non HTTP protocols such as AMQP, MQTT cannot be configured, the messages can be sent over WebSockets using port 443. |
+
+For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
 ## URL patterns for firewall rules
 
