@@ -59,7 +59,7 @@ We recommend that you use Azure Managed Disks for new VMs, and that you convert 
 
 ### Disk comparison
 
-The following table provides a comparison of Standard HDD, Standard SSD, and Premium SSD for unmanaged and managed disks to help you decide what to use. Sizes denoted with an asterisk are currently in preview. See our [FAQ](virtual-machines-faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
+The following table provides a comparison of Standard HDD, Standard SSD, and Premium SSD for unmanaged and managed disks to help you decide what to use. Sizes denoted with an asterisk are currently in preview.
 
 |    | Azure Premium Disk |Azure Standard SSD Disk | Azure Standard HDD Disk
 |--- | ------------------ | ------------------------------- | -----------------------

@@ -80,8 +80,6 @@ Here are the disk sizes available for a standard HDD managed disk, sizes denoted
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,384 GiB (16 TiB) | 32,767 GiB (TiB) |
 
-See our [FAQ](virtual-machines-faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
-
 **Number of transactions**: You are billed for the number of transactions that you perform on a standard managed disk.
 
 Standard SSD Disks use IO Unit size of 256KB. If the data being transferred is less than 256 KB, it is considered 1 I/O unit. Larger I/O sizes are counted as multiple I/Os of size 256 KB. For example, a 1,100 KB I/O is counted as five I/O units.

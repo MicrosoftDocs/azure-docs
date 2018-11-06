@@ -10,8 +10,6 @@
  ms.custom: include file
 ---
 
-Sizes denoted with an asterisk are currently in preview. See our [FAQ](virtual-machines-faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
-
 **Standard managed virtual machine HDDs**
 
 | Standard Disk Type  | S4               | S6               | S10             | S15 | S20              | S30              | S40              | S50              | S60 *             | S70 *             | S80 *             |

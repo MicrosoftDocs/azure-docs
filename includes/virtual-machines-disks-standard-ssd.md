@@ -27,7 +27,7 @@ Standard SSDs support all classic deployment model operations offered by Managed
 
 ## Scalability and performance targets
 
-The following table contains disk sizes, which are currently offered for Standard SSD. Sizes denoted with an asterisk are currently in preview. See our [FAQ](virtual-machines-faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
+The following table contains disk sizes, which are currently offered for Standard SSD. Sizes denoted with an asterisk are currently in preview.
 
 |Standard SSD Disk Type  |Disk Size  |IOPS per Disk  |Throughput per disk  |
 |---------|---------|---------|---------|

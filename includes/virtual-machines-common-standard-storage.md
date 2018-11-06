@@ -111,7 +111,7 @@ If a managed disk is attached to a VM, certain API operations are not permitted 
 
 When using Standard Storage, the following billing considerations apply:
 
-* Standard storage unmanaged disks/data size 
+* Standard storage unmanaged disks/data size
 * Standard managed disks
 * Standard storage snapshots
 * Outbound data transfers
@@ -121,7 +121,7 @@ When using Standard Storage, the following billing considerations apply:
 
 **Managed disks:** Billing for standard managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GiB, you are billed as per the pricing of the S15 Disk type.
 
-Sizes denoted with an asterisk are currently in preview. See our [FAQ](virtual-machines-faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
+Sizes denoted with an asterisk are currently in preview.
 
 | **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
