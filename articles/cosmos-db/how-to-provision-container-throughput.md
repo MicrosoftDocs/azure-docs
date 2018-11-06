@@ -18,7 +18,7 @@ This article explains how to provision throughput for a container (collection, g
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
-1. [Create a new Cosmos DB account](../../includes/cosmos-db-create-dbaccount.md) or select an existing account.
+1. [Create a new Cosmos DB account](create-sql-api-dotnet.md#create-a-database-account) or select an existing account.
 
 1. Open the **Data Explorer** pane and select **New Collection**. Next fill the form with the following details:
 

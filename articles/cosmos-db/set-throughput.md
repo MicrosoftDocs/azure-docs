@@ -62,21 +62,21 @@ You can combine the two models, provisioning throughput on both database and the
 
 ## Comparison of models
 
-   |**Quota**  |**Provisioned throughput on a database**  |**Provisioned throughput on a container**|
-   |---------|---------|---------|
-   |Unit of scalability|Container|Container|
+|**Quota**  |**Throughput provisioned on a database**  |**Throughput provisioned on a container**|
+|---------|---------|---------|
+|Unit of scalability|Container|Container|
 |Minimum RUs |400 |400|
 |Minimum RUs per container|100|400|
-|Required minimum RUs per 1 GB of consumed storage|40|40|
+|Minimum RUs required to consume 1 GB of storage|40|40|
 |Maximum RUs|Unlimited, on the database|Unlimited, on the container|
-|RUs assigned/available to a specific container|No guarantees. RUs assigned to a given container depend on the choice of partition keys across all the containers sharing the throughput, distribution of workload, number of containers, etc. |All the RUs configured on the container are exclusively reserved for the container.|
-|Maximum storage for the container|Unlimited|Unlimited|
+|RUs assigned/available to a specific container|No guarantees. RUs assigned to a given container depend on the properties such as - choice of partition keys of containers that share the throughput, distribution of workload, number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
+|Maximum storage for a container|Unlimited|Unlimited|
 |Maximum throughput per logical partition of a container|10K RUs|10K RUs|
 |Maximum storage (data + index) per logical partition of a container|10 GB|10 GB|
 
 ## Next steps
 
-* Learn more about [Logical Partitions](partition-data.md)
+* Learn more about [logical partitions](partition-data.md)
 * Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
 * Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
 
