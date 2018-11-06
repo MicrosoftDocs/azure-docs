@@ -1,16 +1,14 @@
 ---
 title: Optimize Hive queries in Azure HDInsight 
-description: Learn how to optimize your Hive queries for Hadoop in HDInsight.
+description: This article describes how to optimize your Hive queries for Hadoop in HDInsight.
 services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
-
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: hrasheed
-
+ms.date: 11/06/2018
 ---
 # Optimize Hive queries in Azure HDInsight
 
@@ -18,20 +16,21 @@ By default, Hadoop clusters are not optimized for performance. This article cove
 
 ## Scale out worker nodes
 
-Increasing the number of worker nodes in a cluster can leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
+Increasing the number of worker nodes in an HDInsight cluster allows the work to leverage more mappers and reducers to be run in parallel. There are two ways you can increase scale out in HDInsight:
 
-* At the provision time, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or Cross-platform command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
+* At the time when you create a cluster, you can specify the number of worker nodes using the Azure portal, Azure PowerShell, or command-line interface.  For more information, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). The following screenshot shows the worker node configuration on the Azure portal:
   
     ![scaleout_1][image-hdi-optimize-hive-scaleout_1]
-* At the run time, you can also scale out a cluster without recreating one:
+    
+* After creation, you can also edit the number of worker nodes to scale out a cluster further without recreating one:
 
     ![scaleout_1][image-hdi-optimize-hive-scaleout_2]
 
-For more information about the different virtual machines supported by HDInsight, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
+For more information about scaling HDInsight, see [Scale HDInsight clusters](hdinsight-scaling-best-practices.md)
 
-## Enable Tez
+## Use Tez instead of Map Reduce
 
-[Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine:
+[Apache Tez](http://hortonworks.com/hadoop/tez/) is an alternative execution engine to the MapReduce engine. Linux-based HDInsight clusters have Tez enabled by default.
 
 ![tez_1][image-hdi-optimize-hive-tez_1]
 
@@ -45,20 +44,19 @@ Tez is faster because:
 
 For more information on these concepts, see [Apache TEZ](http://hortonworks.com/hadoop/tez/).
 
-You can make any Hive query Tez enabled by prefixing the query with the setting below:
+You can make any Hive query Tez enabled by prefixing the query with the following set command:
 
-    set hive.execution.engine=tez;
-
-Linux-based HDInsight clusters have Tez enabled by default.
-
+   ```hive
+   set hive.execution.engine=tez;
+   ```
 
 ## Hive partitioning
 
-I/O operation is the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. This is great for queries like table scans. However for queries that only need to scan a small amount of data (for example, queries with filtering), this behavior creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
+I/O operations are the major performance bottleneck for running Hive queries. The performance can be improved if the amount of data that needs to be read can be reduced. By default, Hive queries scan entire Hive tables. This is great for queries like table scans. However for queries that only need to scan a small amount of data (for example, queries with filtering), this behavior creates unnecessary overhead. Hive partitioning allows Hive queries to access only the necessary amount of data in Hive tables.
 
 Hive partitioning is implemented by reorganizing the raw data into new directories with each partition having its own directory - where the partition is defined by the user. The following diagram illustrates partitioning a Hive table by the column *Year*. A new directory is created for each year.
 
-![partitioning][image-hdi-optimize-hive-partitioning_1]
+![Hive partitioning][image-hdi-optimize-hive-partitioning_1]
 
 Some partitioning considerations:
 
@@ -68,38 +66,49 @@ Some partitioning considerations:
 
 To create a partition table, use the *Partitioned By* clause:
 
-    CREATE TABLE lineitem_part
-        (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
-         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE            STRING, L_SHIPINSTRUCT STRING, L_SHIPMODE STRING,
-         L_COMMENT STRING)
-    PARTITIONED BY(L_SHIPDATE STRING)
-    ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
-    STORED AS TEXTFILE;
-
+   ```hive
+   CREATE TABLE lineitem_part
+       (L_ORDERKEY INT, L_PARTKEY INT, L_SUPPKEY INT,L_LINENUMBER INT,
+        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING, 
+        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT STRING)
+   PARTITIONED BY(L_SHIPDATE STRING)
+   ROW FORMAT DELIMITED FIELDS TERMINATED BY '\t'
+   STORED AS TEXTFILE;
+   ```
+   
 Once the partitioned table is created, you can either create static partitioning or dynamic partitioning.
 
 * **Static partitioning** means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location. The following code snippet is an example.
   
-        INSERT OVERWRITE TABLE lineitem_part
-        PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
-        SELECT * FROM lineitem 
-        WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
-  
-        ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
-        LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+   ```hive
+   INSERT OVERWRITE TABLE lineitem_part
+   PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’)
+   SELECT * FROM lineitem 
+   WHERE lineitem.L_SHIPDATE = ‘5/23/1996 12:00:00 AM’
+   
+   ALTER TABLE lineitem_part ADD PARTITION (L_SHIPDATE = ‘5/23/1996 12:00:00 AM’))
+   LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
+   ```
+   
 * **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table:
   
-        SET hive.exec.dynamic.partition = true;
-        SET hive.exec.dynamic.partition.mode = nonstrict;
-        INSERT INTO TABLE lineitem_part
-        PARTITION (L_SHIPDATE)
-        SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
-             L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
-              L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-             L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as           L_RETURNFLAG, L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as           L_SHIPDATE_PS, L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as      L_RECEIPTDATE, L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as      L_SHIPMODE, L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
-
+   ```hive
+   SET hive.exec.dynamic.partition = true;
+   SET hive.exec.dynamic.partition.mode = nonstrict;
+   INSERT INTO TABLE lineitem_part
+   PARTITION (L_SHIPDATE)
+   SELECT L_ORDERKEY as L_ORDERKEY, L_PARTKEY as L_PARTKEY , 
+       L_SUPPKEY as L_SUPPKEY, L_LINENUMBER as L_LINENUMBER,
+       L_QUANTITY as L_QUANTITY, L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+       L_DISCOUNT as L_DISCOUNT, L_TAX as L_TAX, L_RETURNFLAG as L_RETURNFLAG,
+       L_LINESTATUS as L_LINESTATUS, L_SHIPDATE as L_SHIPDATE_PS,
+       L_COMMITDATE as L_COMMITDATE, L_RECEIPTDATE as L_RECEIPTDATE,
+       L_SHIPINSTRUCT as L_SHIPINSTRUCT, L_SHIPMODE as L_SHIPMODE, 
+       L_COMMENT as L_COMMENT, L_SHIPDATE as L_SHIPDATE FROM lineitem;
+   ```
+   
 For more information, see [Partitioned Tables](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-PartitionedTables).
 
 ## Use the ORCFile format
@@ -118,37 +127,41 @@ ORC (Optimized Row Columnar) format is a highly efficient way to store Hive data
 
 To enable ORC format, you first create a table with the clause *Stored as ORC*:
 
-    CREATE TABLE lineitem_orc_part
-        (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
-         L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
-         L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
-         L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
-         L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
-    PARTITIONED BY(L_SHIPDATE STRING)
-    STORED AS ORC;
-
+   ```hive
+   CREATE TABLE lineitem_orc_part
+       (L_ORDERKEY INT, L_PARTKEY INT,L_SUPPKEY INT, L_LINENUMBER INT,
+        L_QUANTITY DOUBLE, L_EXTENDEDPRICE DOUBLE, L_DISCOUNT DOUBLE,
+        L_TAX DOUBLE, L_RETURNFLAG STRING, L_LINESTATUS STRING,
+        L_SHIPDATE_PS STRING, L_COMMITDATE STRING, L_RECEIPTDATE STRING,
+        L_SHIPINSTRUCT STRING, L_SHIPMODE STRING, L_COMMENT      STRING)
+   PARTITIONED BY(L_SHIPDATE STRING)
+   STORED AS ORC;
+   ```
+   
 Next, you insert data to the ORC table from the staging table. For example:
 
-    INSERT INTO TABLE lineitem_orc
-    SELECT L_ORDERKEY as L_ORDERKEY, 
-           L_PARTKEY as L_PARTKEY , 
-           L_SUPPKEY as L_SUPPKEY,
-           L_LINENUMBER as L_LINENUMBER,
-            L_QUANTITY as L_QUANTITY, 
-           L_EXTENDEDPRICE as L_EXTENDEDPRICE,
-           L_DISCOUNT as L_DISCOUNT,
-           L_TAX as L_TAX,
-           L_RETURNFLAG as L_RETURNFLAG,
-           L_LINESTATUS as L_LINESTATUS,
-           L_SHIPDATE as L_SHIPDATE,
+   ```hive
+   INSERT INTO TABLE lineitem_orc
+   SELECT L_ORDERKEY as L_ORDERKEY, 
+          L_PARTKEY as L_PARTKEY , 
+          L_SUPPKEY as L_SUPPKEY,
+          L_LINENUMBER as L_LINENUMBER,
+          L_QUANTITY as L_QUANTITY, 
+          L_EXTENDEDPRICE as L_EXTENDEDPRICE,
+          L_DISCOUNT as L_DISCOUNT,
+          L_TAX as L_TAX,
+          L_RETURNFLAG as L_RETURNFLAG,
+          L_LINESTATUS as L_LINESTATUS,
+          L_SHIPDATE as L_SHIPDATE,
            L_COMMITDATE as L_COMMITDATE,
            L_RECEIPTDATE as L_RECEIPTDATE, 
            L_SHIPINSTRUCT as L_SHIPINSTRUCT,
            L_SHIPMODE as L_SHIPMODE,
            L_COMMENT as L_COMMENT
     FROM lineitem;
-
-You can read more on the ORC format [here](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
+   ```
+   
+You can read more on the ORC format in the [Hive Language manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+ORC).
 
 ## Vectorization
 
@@ -156,7 +169,9 @@ Vectorization allows Hive to process a batch of 1024 rows together instead of pr
 
 To enable vectorization prefix your Hive query with the following setting:
 
+   ```hive
     set hive.vectorized.execution.enabled = true;
+   ```
 
 For more information, see [Vectorized query execution](https://cwiki.apache.org/confluence/display/Hive/Vectorized+Query+Execution).
 
