@@ -65,6 +65,7 @@ If you already have code that uses Bing Speech or Translator Speech via WebSocke
 
 The [Speech Devices SDK](speech-devices-sdk.md) is an integrated hardware and software platform for developers of speech-enabled devices. Our hardware partner provides reference designs and development units. Microsoft provides a device-optimized SDK that takes full advantage of the hardware's capabilities.
 
+
 ## Speech scenarios
 
 Use cases for the Speech service include:
