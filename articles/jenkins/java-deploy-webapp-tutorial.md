@@ -78,7 +78,7 @@ the Jenkins management page for the next steps.
 
 ## Connect Jenkins to GitHub
 
-To have Jenkins monitor and get GitHub events when new 
+To have Jenkins monitor and receive GitHub events when new 
 commits for your web app are pushed to GitHub, enable 
 [GitHub webhooks](https://developer.github.com/webhooks/) in Jenkins.
 
@@ -282,7 +282,7 @@ App Service web app uses a unique name.
 1. After the build finishes, Jenkins deploys your app, 
 which is now live on Azure at the publication URL, for example: 
 
-   `http://your-java-web-app-name.azurewebsites.net`
+   `http://<your-Java-web-app>.azurewebsites.net`
 
    ![View your deployed app on Azure](media/jenkins-java-quickstart/greeetings-unedited.png)
 
