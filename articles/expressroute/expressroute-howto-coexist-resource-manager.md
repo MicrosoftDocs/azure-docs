@@ -23,7 +23,7 @@ Configuring Site-to-Site VPN and ExpressRoute coexisting connections has several
 * You can configure a Site-to-Site VPN as a secure failover path for ExpressRoute. 
 * Alternatively, you can use Site-to-Site VPNs to connect to sites that are not connected through ExpressRoute. 
 
-The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. You can also configure these scenarios using the Azure Portal, although documentation is not yet available. You can configure either gateway first. Typically, you will incur no downtime when adding a new gateway or gateway connection.
+The steps to configure both scenarios are covered in this article. This article applies to the Resource Manager deployment model and uses PowerShell. You can also configure these scenarios using the Azure portal, although documentation is not yet available. You can configure either gateway first. Typically, you will incur no downtime when adding a new gateway or gateway connection.
 
 
 
@@ -75,7 +75,7 @@ This procedure walks you through creating a VNet and Site-to-Site and ExpressRou
 
 1. Install the latest version of the Azure PowerShell cmdlets. For information about installing the cmdlets, see [How to install and configure Azure PowerShell](/powershell/azure/overview). The cmdlets that you use for this configuration may be slightly different than what you might be familiar with. Be sure to use the cmdlets specified in these instructions.
 
-2. Log in to your account and set up the environment.
+2. Sign in to your account and set up the environment.
 
   ```powershell
   Connect-AzureRmAccount
@@ -207,7 +207,7 @@ If you have a virtual network that has only one virtual network gateway (let's s
 5. At this point, you have a virtual network with no gateways. To create new gateways and set up the connections, follow the steps in the previous section.
 
 ## To add point-to-site configuration to the VPN gateway
-You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a co-existence setup.
+You can follow the steps below to add Point-to-Site configuration to your VPN gateway in a coexistence setup.
 
 1. Add VPN Client address pool.
 
