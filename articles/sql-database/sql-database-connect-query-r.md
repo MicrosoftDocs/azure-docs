@@ -16,7 +16,7 @@ ms.date: 11/05/2018
 
 # Quickstart: Use Machine Learning Services (with R) in Azure SQL Database (preview)
 
-This article explains how you can use the public preview of Machine Learning Services (with R) in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R: requirements, data structures, inputs, and outputs. It also explains how to wrap well-formed R code in a stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in Azure SQL database.
+This article explains how you can use the public preview of Machine Learning Services (with R) in Azure SQL Database. It walks you through the basics of moving data between a SQL database and R. It also explains how to wrap well-formed R code in the stored procedure [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) to build, train, and use machine learning models in a SQL database.
 
 Machine learning in SQL Database is used to execute R code and functions and the code is fully available to relational data as stored procedures, as T-SQL script containing R statements, or as R code containing T-SQL. Use the power of enterprise R packages to deliver advanced analytics at scale, and the ability to bring calculations and processing to where the data resides, eliminating the need to pull data across the network.
 
@@ -34,13 +34,13 @@ When Machine Learning Services (with R) has been enabled for your SQL database, 
 
 ## Prerequisites
 
-To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database.
+To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database, as described above.
 
 You can connect to the SQL Database and run the R scripts any database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
-This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
+For the [add a package](#add-package) exercise, you will also need to install [R](https://www.r-project.org/) and [RStudio Desktop](https://www.rstudio.com/products/rstudio/download/) on your local computer.
 
-You also need to sign up for the preview, as described above.
+This quickstart also requires that you configure a server-level firewall rule. For a quickstart showing how to do this, see [Create server-level firewall rule](sql-database-get-started-portal-firewall.md).
 
 ## Different from SQL Server
 
@@ -56,8 +56,8 @@ The functionality of Machine Learning Services (with R) in Azure SQL Database is
 
 You can confirm that Machine Learning Services (with R) is enabled for your SQL database. Follow the steps below.
 
-1. Open SQL Server Management Studio.
-1. Open a new Query window in SQL Server Management Studio, and connect to your SQL database.
+1. Open SQL Server Management Studio and connect to your SQL database.
+
 1. Run the code below. 
 
     ```sql
@@ -72,6 +72,7 @@ You can confirm that Machine Learning Services (with R) is enabled for your SQL 
     STDOUT message(s) from external script: 
     42
     ```
+
 1. If you get any errors, it might be because the public preview of Machine Learning Services (with R) is not enabled for your SQL database. See how to sign up for the public preview above.
 
 ## Basic R interaction
@@ -79,7 +80,6 @@ You can confirm that Machine Learning Services (with R) is enabled for your SQL 
 There are two ways you can run R code in SQL Database:
 
 + Add a R script as an argument of the system stored procedure, [sp_execute_external_script](https://docs.microsoft.com/sql//relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql.md).
-
 + From a [remote R client](https://review.docs.microsoft.com/sql/advanced-analytics/r/set-up-a-data-science-client), connect to your SQL database, and execute code using the SQL Database as the compute context.
 
 The following exercise is focused on the first interaction model: how to pass R code to a stored procedure.
@@ -106,7 +106,7 @@ The following exercise is focused on the first interaction model: how to pass R 
     0.5 2
     ```
 
-    While getting **stdout** messages is handy when testing your code, more often you need to return the results in tabular format, so that you can use it in an application or write it to a table. See the inputs and outputs section below for more information.
+    While getting **stdout** messages is useful when testing your code, more often you need to return the results in tabular format, so that you can use it in an application or write it to a table. See the inputs and outputs section below for more information.
 
 Remember, everything inside the `@script` argument must be valid R code.
 
@@ -165,7 +165,7 @@ For now, let's look at just the default input and output variables of sp_execute
       , @input_data_1 = N' SELECT 12 as Col;'
       , @input_data_1_name  = N'SQL_in'
       , @output_data_1_name =  N'SQL_out'
-      WITH RESULT SETS (([NewColName] int NOT NULL));
+      WITH RESULT SETS (([NewColName] INT NOT NULL));
     ```
 
     Note that R is case-sensitive, so the case of the input and output variables in `@input_data_1_name` and `@output_data_1_name` have to match the ones in the R code in `@script`. 
@@ -174,7 +174,7 @@ For now, let's look at just the default input and output variables of sp_execute
 
     Only one input dataset can be passed as a parameter, and you can return only one dataset. However, you can call other datasets from inside your R code and you can return outputs of other types in addition to the dataset. You can also add the OUTPUT keyword to any parameter to have it returned with the results. 
 
-    The `WITH RESULT SETS` statement defines the schema for the data, for the benefit of SQL Database. You need to provide SQL compatible data types for each column you return from R. You can use the schema definition to provide new column names too; you need not use the column names from the R data.frame. 
+    The `WITH RESULT SETS` statement defines the schema for the data which is used in SQL Database. You need to provide SQL compatible data types for each column you return from R. You can use the schema definition to provide new column names too as you do not need to use the column names from the R data frame.
 
 4. You can also generate values using the R script and leave the input query string in _@input_data_1_ blank.
 
@@ -229,7 +229,7 @@ If you would like to see which version of R is installed in your SQL database, d
 
 ## List R packages
 
-Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database. To see a list of which R packages are installed, including version, dependencies, license, and library path information, follow the steps below.
+Microsoft provides a number of R packages pre-installed with Machine Learning Services in your SQL database. To see a list of which R packages are installed, including version, dependencies, license, and library path information, follow the steps below. To add additional packages, see the [add a package](#add-package) section.
 
 1. Run the script below on your SQL database.
 
@@ -272,8 +272,9 @@ You can train a model using R and save the model to a table in your SQL database
 
     The requirements of a linear model are simple:
 
-    - Define a formula that describes the relationship between the dependent variable `speed` and the independent variable `distance`
-    - Provide input data to use in training the model
+    - Define a formula that describes the relationship between the dependent variable `speed` and the independent variable `distance`.
+
+    - Provide input data to use in training the model.
 
     > [!TIP]
     > If you need a refresher on linear models, we recommend this tutorial, which describes the process of fitting a model using rxLinMod: [Fitting Linear Models](https://docs.microsoft.com/r-server/r/how-to-revoscaler-linear-model)
@@ -398,12 +399,15 @@ Use the model you created in the previous section to score predictions against n
     The script above performs the following steps:
 
     + Use a SELECT statement to get a single model from the table, and pass it as an input parameter.
+
     + After retrieving the model from the table, call the `unserialize` function on the model.
 
         > [!TIP] 
         > Also check out the new [serialization functions](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxserializemodel) provided by RevoScaleR, which support realtime scoring.
     + Apply the `rxPredict` function with appropriate arguments to the model, and provide the new input data.
+
     + In the example, the `str` function is added during the testing phase, to check the schema of data being returned from R. You can remove the statement later.
+
     + The column names used in the R script are not necessarily passed to the stored procedure output. Here we've used the WITH RESULTS clause to define some new column names.
 
     **Results**
@@ -411,6 +415,8 @@ Use the model you created in the previous section to score predictions against n
     ![Result set for predicting stopping distance](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
     It is also possible to use the [PREDICT in Transact-SQL](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql) to generate a predicted value or score based on a stored model.
+
+<a name="add-package"></a>
 
 ## Add a package
 
