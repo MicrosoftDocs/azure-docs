@@ -86,7 +86,7 @@ The following table describes the purpose, content, and formatting for fields un
 
 ## SKU content
 
-Under Edge Module Images, provide the information we need to upload your IoT Edge module.
+Under **Edge Module Images**, provide the information we need to upload your IoT Edge module.
 
 Give us access to your [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) (ACR) that contains your IoT Edge module image so that we can upload it and certify it. After it's published, your IoT Edge module will be copied and distributed using a public container registry hosted by the Azure Marketplace.
 
