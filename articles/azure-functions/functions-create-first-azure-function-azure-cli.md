@@ -105,7 +105,7 @@ After the function app has been created, the Azure CLI shows information similar
 
 ### Configure the function app (Node.js)
 
-When you create a JavaScript function app, it's important to target the correct Node.js version. Version 2.x of the Functions runtime requires Node.js version 8.x. The application setting `WEBSITE_NODE_DEFAULT_VERSION` controls the version of Node.js that is used by the function app in Azure. Use the [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) command to set this Node.js version to `8.11.1`.
+When you create a JavaScript function app, it's important to target the correct Node.js version. Version 2.x of the Functions runtime requires Node.js version 8.x. The application setting `WEBSITE_NODE_DEFAULT_VERSION` controls the version of Node.js that is used by the function app in Azure. Use the [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) command to set the Node.js version to `8.11.1`.
 
 In the following Azure CLI command, `<app_name> is the name of your function app.
 
