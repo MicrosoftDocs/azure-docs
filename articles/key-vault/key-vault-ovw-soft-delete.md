@@ -41,6 +41,7 @@ Purge protection(**--enable-purge-protection** in Azure CLI) flag is off by defa
 
 > [!NOTE] the prerequisite to turning on purge protection is you must have soft delete turned on. The command to do so in Azure CLI 2 is
 
+
 ```
 az keyvault create --name "VaultName" --resource-group "ResourceGroupName" --location westus --enable-soft-delete true --enable-purge-protection true
 ```
