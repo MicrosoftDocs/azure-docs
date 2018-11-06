@@ -10,27 +10,27 @@ ms.topic: tutorial
 ms.date: 11/10/2018
 ---
 
-# Tutorial: Deploy Java web apps to Azure from GitHub with Jenkins by using continuous integration and deployment
+# Tutorial: Deploy Java web apps to Azure from GitHub by using Jenkins for continuous integration and deployment
 
-This tutorial shows how to deploy a sample Java web app from GitHub to 
+This tutorial shows how you can deploy a sample Java web app from GitHub to 
 [Azure App Service Web Apps on Linux](/azure/app-service/containers/app-service-linux-intro) 
-by setting up Jenkins for continuous integration and deployment (CI/CD). 
-You can then automatically update your app and redeploy when new commits 
-get pushed to GitHub. The sample web app in this tutorial was developed 
-by using the [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
+by setting up Jenkins for continuous integration (CI) and continuous deployment (CD). 
+That way, when you update your app and push new commits to GitHub, Jenkins automatically 
+builds and redeploys your app from GitHub to Azure. The sample app in this tutorial was 
+developed by using the [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
 
 In this tutorial, you'll complete these tasks:
 
 > [!div class="checklist"]
-> * Install and set up Jenkins plug-ins so you can deploy 
-> to Azure App Service, work with GitHub, and other tasks.
+> * Install and set up Jenkins plug-ins so you can work with GitHub, 
+> deploy to Azure App Service, and other related tasks.
 > * Connect from Jenkins to GitHub.
 > * Create an Azure service principal so you can authenticate without using your own credentials. 
-> * Create a Jenkins pipeline that builds your web app when a new commit is pushed in GitHub.
+> * Create a Jenkins pipeline that builds your sample app when a new commit is pushed in GitHub.
 > * Create build config and script files for your Jenkins pipeline.
-> * Set up your Jenkins pipeline to use the build script.
+> * Set up your Jenkins pipeline to use a build script.
 > * Deploy your sample app to Azure by running a manual build.
-> * Push web app updates in GitHub and redeploy to Azure by triggering a Jenkins build.
+> * Push an app update in GitHub and redeploy to Azure by automatically triggering a Jenkins build.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -110,9 +110,9 @@ and select **Convert login and password to token**.
 
    ![Choose "Manage additional GitHub actions"](media/jenkins-java-quickstart/manage-additional-actions.png)
 
-1. Select **From login and password**, 
-enter your GitHub username and password, 
-and choose **Create token credentials**, 
+1. Select **From login and password** so you 
+can enter your GitHub username and password. 
+When you're done, choose **Create token credentials**, 
 which creates a [GitHub Personal Access Token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
    ![Create GitHub PAT from login and password](media/jenkins-java-quickstart/create-github-token-credentials.png)
@@ -262,7 +262,7 @@ select **Pipeline script from SCM**.
 1. To test your pipeline job, return to your pipeline 
 job page in Jenkins, and select **Build Now**.
 
-   ![Test build your app](media/jenkins-java-quickstart/test-build-project.png)
+   ![Run a test build for your app](media/jenkins-java-quickstart/test-build-project.png)
 
 ## Deploy to Azure manually
 
