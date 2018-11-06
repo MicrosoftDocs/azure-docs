@@ -42,8 +42,11 @@ The hivesampletable Hive table comes with all HDInsight clusters.
 5. Select **Continue** to close the **Preview connector** warning dialog.
 
 6. From **HDInsight Interactive Query**, select or enter the following information:
+
     - **Server**: Enter the Interactive Query cluster name, for example *myiqcluster.azurehdinsight.net*.
+
     - **Database**: For this tutorial, enter **default**.
+    
     - **Data Connectivity mode**: For this tutorial, select **DirectQuery**.
 
     ![HDInsight interactive query Power BI DirectQuery connect](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-interactive-query-power-bi-connect.png)
@@ -63,6 +66,7 @@ Continue from the last procedure.
 1. From the Visualizations pane, select **Map**.  It is a globe icon.
 
     ![HDInsight Power BI customizes report](./media/apache-hadoop-connect-hive-power-bi-directquery/hdinsight-power-bi-customize.png)
+    
 2. From the Fields pane, select **country** and **devicemake**. You can see the data plotted on the map.
 
 3. Expand the map.
