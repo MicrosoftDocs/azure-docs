@@ -414,24 +414,23 @@ Use the model you created in the previous section to score predictions against n
 
 ## Add a package
 
-If you need a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). Follow the steps below to install a package.
+If you need to use a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). Follow the steps below to install the package.
 
 1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. You do not need to unzip the file.
 
-1. If you don't have R installed, download R from [www.r-project.org/](https://www.r-project.org/) and install it on your local computer. R is available for Windows, MacOS, and Linux. In this example, we are using Windows.
+1. If you don't have R installed, download R from [www.r-project.org](https://www.r-project.org/) and install it on your local computer. R is available for Windows, MacOS, and Linux. In this example, we are using Windows.
 
 1. First, install the **RODBCext** package, which is a prerequisite for **sqlmlutils**. **RODBCext** also installs the dependency the **RODBC** package. Open a **Command Prompt** and run the following command:
 
-    ```cmd
+    ```
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    > [!NOTE]
-    > If you are receiving the error like **'R' is not recognized as an internal or external command, operable program or batch file.**, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`).
+    If you are receiving the error like **'R' is not recognized as an internal or external command, operable program or batch file.**, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`).
 
 1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the directory you have downloaded the zip file to and the name of the zip file. For example:
 
-    ```cmd
+    ```
     R CMD INSTALL C:\Users\youruser\Downloads\sqlmlutils_0.5.0.zip
     ```
 
@@ -449,9 +448,13 @@ If you need a package that is not already installed in your SQL database, you ca
 
     ```R
     library(sqlmlutils) 
-    connection <- connectionInfo(server= "yourserver.database.windows.net", database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
+    connection <- connectionInfo(server= "yourserver.database.windows.net", 
+        database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
     sql_install.packages(connectionString = connection, pkgs = "glue", verbose = TRUE, scope = "PUBLIC")
     ```
+
+    > [!NOTE]
+    > The **scope** can either be **PUBLIC** or **PRIVATE**. Public scope is useful for the database administrator to install packages that all users can use. Private scope makes the package only available to the user who installs it. If you don't specify the scope, the default scope is **PRIVATE**.
 
 1. Now, verify that the **glue** package has been installed.
 
@@ -495,7 +498,8 @@ If you need a package that is not already installed in your SQL database, you ca
 
     ```R
     library(sqlmlutils) 
-    connection <- connectionInfo(server= "yourserver.database.windows.net", database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
+    connection <- connectionInfo(server= "yourserver.database.windows.net", 
+        database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
     sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC") 
     ```
 
