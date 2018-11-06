@@ -44,6 +44,8 @@ Support for additional APIs is forthcoming. To help us prioritize which ones to 
 
 In addition to a Cosmos DB account, you need to have a [Azure Search service](search-create-service-portal.md). 
 
+In your Cosmos DB account you can choose whether you want the collection to automatically index all documents. By default, all documents are automatically indexed, but you can turn off automatic indexing. When indexing is turned off, documents can be accessed only through their self-links or by queries by using the document ID. Azure Search requires Cosmos DB automatic indexing to be turned on in the collection that will be indexed by Azure Search. 
+
 <a name="Concepts"></a>
 ## Azure Search indexer concepts
 
