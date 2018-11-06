@@ -80,7 +80,7 @@ This API call returns a JSON response that includes the operation ID in the head
 }
 ```
 
-## Add function to determine creation status
+## Add function to get status
 
 Add the following function to make an HTTP GET request to check the operation status. The `Ocp-Apim-Subscription-Key` is the QnA Maker service key, used for authentication. 
 
@@ -105,7 +105,7 @@ The following function is the main function and creates the KB and repeats check
 [!code-go[Add the main method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=110-140 "Add the main method")]
 
 
-# Compile the program
+## Compile the program
 Enter the following command to compile the file. The command prompt does not return any information for a successful build.
 
 ```bash

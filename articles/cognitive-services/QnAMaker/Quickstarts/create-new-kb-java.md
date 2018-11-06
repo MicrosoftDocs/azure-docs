@@ -77,7 +77,7 @@ This API call returns a JSON response that includes the operation ID. Use the op
 }
 ```
 
-## Add a method to check the creation status
+## Add a method to get status
 Add the following method to check the creation status. 
 
 [!code-java[Add GetStatus method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=146-150 "Add GetStatus method")]
@@ -104,15 +104,15 @@ The main method creates the KB, then polls for the status. The_create_ **Operati
 
 1. Make sure the gson library is in the `./libs` directory. At the command-line, compile the file `CreateKB.java`:
 
-```bash
-javac -cp ".;libs/*" CreateKB.java
-```
+    ```bash
+    javac -cp ".;libs/*" CreateKB.java
+    ```
 
 2. Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to create the KB, then it will poll for the results every 30 seconds. Each response is printed to the console window.
 
-```base
-java -cp ",;libs/*" CreateKB
-```
+    ```base
+    java -cp ",;libs/*" CreateKB
+    ```
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page.    
 
