@@ -125,6 +125,9 @@ Build and run the program. It will automatically send the request to the QnA Mak
 
 Once your knowledge base is created, you can view it in your QnA Maker Portal, [My knowledge bases](https://www.qnamaker.ai/Home/MyServices) page. 
 
+
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
