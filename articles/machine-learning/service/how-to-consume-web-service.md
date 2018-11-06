@@ -12,23 +12,41 @@ ms.date: 10/30/2018
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
-# Create a client for an Azure ML model deployed as a web service
+# How to consume an Azure ML model deployed as a web service
 
-Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model.
+Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to use C#, Go, Java, and Python to send and receive data from a web service created with the Azure Machine Learning service.
 
-## Get the REST API information
+## About the web service
 
-The REST API information can be retrieved using the Azure Machine Learning SDK. The [azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information necessary to create a client for the REST API exposed by the web service. The following `Webservice` properties that are useful when creating a client application:
+A web service is created when you deploy an image to an Azure Container Instance, Azure Kubernetes Service, or Project Brainwave (field programmable gate arrays). Images are created from registered models and scoring files.
+
+The URI used to access a web service can be retrieved using the Azure Machine Learning SDK. If authentication is enabled, you can also use the SDK to get the authentication keys.
+
+> ![IMPORTANT]
+> The request data format is not standardized for the web services. By default, a JSON document is exptected, but a model may expect an array of 5 numbers, a string value, an image, or some other format. This can be modified by the scoring file. For example, the scoring file might accept a string value that is the URL of an image, and then handle loading the image into the format expected by the model. You should always verify what data the model and scoring file expect before creating a client.
+
+The web service can accept multiple sets of scoring data in one request, and returns a JSON document containing an array of responses.
+
+The general workflow when creating a client that uses an ML web service is:
+
+* Use the SDK to retrieve the URI of the service
+* Use the SDK to determine if authentication is enabled. If so, get the authentication keys.
+* Inspect the model and scoring file used in the image to determine what data format is expected.
+* Create the client.
+
+## Get the web service connection information
+
+> [!NOTE]
+> The Azure Machine Learning SDK is used to get the web service information. This is a Python SDK. While it is used to retrieve information about the web services, you can use any language to create a client for the service.
+
+The web service connection information can be retrieved using the Azure Machine Learning SDK. The [azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information necessary to create a client for the REST API exposed by the web service. The following `Webservice` properties that are useful when creating a client application:
 
 * `auth_enabled` - If authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
 
-There are a three ways to retrieve this information for a service:
+There are a three ways to retrieve this information for deployed web services:
 
-> [!NOTE]
-> The Azure Machine Learning SDK is a Python package. While it is used to retrieve information about the web services, you can use any language to create a REST client for the service.
-
-* When you deploy a model, a `Webservice` object is returned with this information:
+* When you deploy a model, a `Webservice` object is returned with information about the service:
 
     ```python
     service = Webservice.deploy_from_model(name='myservice',
@@ -39,14 +57,14 @@ There are a three ways to retrieve this information for a service:
     print(service.scoring_uri)
     ```
 
-* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace.
+* You can use `Webservice.list` to retrieve a list of deployed web services for models in your workspace. You can add filters to narrow the list of information returned. For more information on what can be filtered on, see the [Webservice.list](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py#list) reference documentation.
 
     ```python
     services = Webservice.list(ws)
     print(services[0].scoring_uri)
     ```
 
-* If you know the name of the deployed service, you can create a new instance of `Webservice` and provide the workspace and service name as parameters.
+* If you know the name of the deployed service, you can create a new instance of `Webservice` and provide the workspace and service name as parameters. Since the service already exists, it does not create the deployment. Instead, it returns an object containing information about the deployed service.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -192,9 +210,9 @@ namespace MLWebServiceClient
 }
 ```
 
-The results returned are similar to the following text:
+The results returned are similar to the following JSON document:
 
-```text
+```json
 [217.67978776218715, 224.78937091757172]
 ```
 
@@ -284,9 +302,9 @@ func main() {
 }
 ```
 
-The results returned are similar to the following text:
+The results returned are similar to the following JSON document:
 
-```text
+```json
 [217.67978776218715, 224.78937091757172]
 ```
 
@@ -364,9 +382,9 @@ public class App {
 }
 ```
 
-The results returned are similar to the following text:
+The results returned are similar to the following JSON document:
 
-```text
+```json
 [217.67978776218715, 224.78937091757172]
 ```
 
@@ -426,9 +444,9 @@ print(resp.text)
 
 ```
 
-The results returned are similar to the following text:
+The results returned are similar to the following JSON document:
 
-```text
+```JSON
 [217.67978776218715, 224.78937091757172]
 ```
 
