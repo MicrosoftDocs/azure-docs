@@ -166,7 +166,7 @@ Create a Traffic Manager profile that directs user traffic by sending them to th
     | Setting                 | Value                                              |
     | ---                     | ---                                                |
     | Name                   | This name needs to be unique within the trafficmanager.net zone and results in the DNS name, trafficmanager.net that is used to access your Traffic Manager profile.                                   |
-    | Routing method          | Select the **Priority** routing method.                                       |
+    | Routing method          | Select the **Performance** routing method.                                       |
     | Subscription            | Select your subscription.                          |
     | Resource group          | Select **Create new** and enter *myResourceGroupTM1*. |
     | Location                | Select **East US**.  This setting refers to the location of the resource group, and has no impact on the Traffic Manager profile that will be deployed globally.                              |

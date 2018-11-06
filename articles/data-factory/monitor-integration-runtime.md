@@ -165,10 +165,10 @@ Azure-SSIS integration runtime is a fully managed cluster of Azure virtual machi
 | NodeSize | The size of each node of your Azure-SSIS integration runtime. |
 | NodeCount | The number of nodes in your Azure-SSIS integration runtime. |
 | MaxParallelExecutionsPerNode | The number of parallel executions per node in your Azure-SSIS integration runtime. |
-| CatalogServerEndpoint | The endpoint of your existing Azure SQL Database/Managed Instance (Preview) server to host SSISDB. |
-| CatalogAdminUserName | The admin username of your existing Azure SQL Database/Managed Instance (Preview) server. Data Factory service uses this information to prepare and manage SSISDB on your behalf. |
-| CatalogAdminPassword | The admin password of your existing Azure SQL Database/Managed Instance (Preview) server. |
-| CatalogPricingTier | The pricing tier for SSISDB hosted by your existing Azure SQL Database server.  Not applicable to Azure SQL Managed Instance (Preview) hosting SSISDB. |
+| CatalogServerEndpoint | The endpoint of your existing Azure SQL Database/Managed Instance server to host SSISDB. |
+| CatalogAdminUserName | The admin username of your existing Azure SQL Database/Managed Instance server. Data Factory service uses this information to prepare and manage SSISDB on your behalf. |
+| CatalogAdminPassword | The admin password of your existing Azure SQL Database/Managed Instance server. |
+| CatalogPricingTier | The pricing tier for SSISDB hosted by your existing Azure SQL Database server.  Not applicable to Azure SQL Database Managed Instance hosting SSISDB. |
 | VNetId | The virtual network resource ID for your Azure-SSIS integration runtime to join. |
 | Subnet | The subnet name for your Azure-SSIS integration runtime to join. |
 | ID | The resource ID of your Azure-SSIS integration runtime. |
@@ -220,7 +220,7 @@ See the following articles to learn more about Azure-SSIS integration runtime:
 
 - [Azure-SSIS Integration Runtime](concepts-integration-runtime.md#azure-ssis-integration-runtime). This article provides conceptual information about integration runtimes in general including the Azure-SSIS IR. 
 - [Tutorial: deploy SSIS packages to Azure](tutorial-create-azure-ssis-runtime-portal.md). This article provides step-by-step instructions to create an Azure-SSIS IR and uses an Azure SQL database to host the SSIS catalog. 
-- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Managed Instance (Preview) and joining the IR to a virtual network. 
+- [How to: Create an Azure-SSIS integration runtime](create-azure-ssis-integration-runtime.md). This article expands on the tutorial and provides instructions on using Azure SQL Database Managed Instance and joining the IR to a virtual network. 
 - [Manage an Azure-SSIS IR](manage-azure-ssis-integration-runtime.md). This article shows you how to stop, start, or remove an Azure-SSIS IR. It also shows you how to scale out your Azure-SSIS IR by adding more nodes to the IR. 
 - [Join an Azure-SSIS IR to a virtual network](join-azure-ssis-integration-runtime-virtual-network.md). This article provides conceptual information about joining an Azure-SSIS IR to an Azure virtual network. It also provides steps to use Azure portal to configure the virtual network so that the Azure-SSIS IR can join the virtual network. 
 

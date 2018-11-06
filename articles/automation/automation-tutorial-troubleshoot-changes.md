@@ -7,7 +7,7 @@ ms.component: change-inventory-management
 keywords: change, tracking, automation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 09/12/2018
+ms.date: 11/01/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
@@ -73,7 +73,7 @@ ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
 
-To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](https://docs.loganalytics.io/index).
+To learn more about running and searching log files in Log Analytics, see [Azure Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ## Configure Change tracking
 
@@ -210,7 +210,7 @@ The following image is an example email received wen the W3SVC service stops.
 
 ![email](./media/automation-tutorial-troubleshoot-changes/email.png)
 
-## Next Steps
+## Next steps
 
 In this tutorial you learned how to:
 

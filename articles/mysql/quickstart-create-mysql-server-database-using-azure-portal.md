@@ -9,7 +9,7 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 11/01/2018
 ---
 
 # Create an Azure Database for MySQL server by using the Azure portal
@@ -69,17 +69,11 @@ The Azure Database for MySQL service creates a firewall at the server level. It 
 
 2. On the server page, select **Connection security**.
 
-3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. 
-
-   For this Quickstart, let's allow all IP addresses into the server by filling in boxes in each column with the following values:
-
-   Rule name | Start IP | End IP 
-   ---|---|---
-   AllowAllIps |  0.0.0.0 | 255.255.255.255
+3.	Under the **Firewall rules** heading, select the blank text box in the **Rule Name** column to begin creating the firewall rule. Enter the precise range of IPs of the clients that will be accesing this server.
    
-   ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
+   ![Connection security - Firewall rules](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 
-   Allowing all IP addresses is not secure. This example is provided for simplicity, but in a real-world scenario, you need to know the precise IP address ranges to add for your applications and users. 
+
 
 4. On the upper toolbar of the **Connection security** page, select **Save**. Wait until the notification appears stating that the update has finished successfully before you continue. 
 
@@ -99,20 +93,9 @@ To find these values, take the following steps:
 In this example, the server name is **mydemoserver.mysql.database.azure.com**, and the server admin sign-in is **myadmin@mydemoserver**.
 
 ## Connect to MySQL by using the mysql command-line tool
-There are a number of applications you can use to connect to your Azure Database for MySQL server. 
+Connect to your server using the **mysql.exe** command-line tool. You can download MySQL from [here](https://dev.mysql.com/downloads/) and install it on your computer. 
 
-Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) command-line tool to illustrate how to connect to the server. You can also use a web browser and Azure Cloud Shell as described here without installing additional software. If you have the mysql utility installed locally, you can connect from there as well.
-
-1. Launch Azure Cloud Shell via the terminal icon (**>_**) on the upper right of the Azure portal.
-![Azure Cloud Shell terminal symbol](./media/quickstart-create-mysql-server-database-using-azure-portal/7-cloud-console.png)
-
-2.  Azure Cloud Shell opens in your browser, where you can type bash shell commands.
-
-   ![Command prompt--mysql command-line example](./media/quickstart-create-mysql-server-database-using-azure-portal/8-bash.png)
-
-3. At the Cloud Shell prompt, connect to your Azure Database for MySQL server by typing the mysql command line.
-
-    To connect to an Azure Database for MySQL server with the mysql utility, use the following format:
+1. To connect to an Azure Database for MySQL server with the mysql utility, use the following format:
 
     ```bash
     mysql --host <fully qualified server name> --user <server admin login name>@<server name> -p
@@ -120,7 +103,7 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
 
     For example, the following command connects to our example server:
 
-    ```azurecli-interactive
+    ```bash
     mysql --host mydemoserver.mysql.database.azure.com --user myadmin@mydemoserver -p
     ```
 
@@ -150,7 +133,7 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     mysql>
     ```
     > [!TIP]
-    > If the firewall is not configured to allow the IP address of Azure Cloud Shell, the following error occurs:
+    > If the firewall is not configured to allow the IP address of your client, the following error occurs:
     >
     > ERROR 2003 (28000): Client with IP address 123.456.789.0 is not allowed to access the server.
     >
@@ -179,7 +162,7 @@ Let's first use the [mysql](https://dev.mysql.com/doc/refman/5.7/en/mysql.html) 
     SHOW DATABASES;
     ```
 
-7.  Type `\q`, and then select the **Enter** key to quit the mysql tool. You can close Azure Cloud Shell after you are done.
+7.  Type `\q`, and then select the **Enter** key to quit the mysql tool. 
 
 Now you have connected to the Azure Database for MySQL server and created a blank user database. Continue to the next section for a similar exercise. The next exercise connects to the same server by using another common tool, MySQL Workbench.
 

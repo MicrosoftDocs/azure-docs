@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
+ms.date: 09/21/2018
 ms.author: spelluru
 
 ---
@@ -39,5 +39,4 @@ See the following topics for conceptual overviews of Service Bus.
 
 * [Service Bus messaging overview](service-bus-messaging-overview.md)
 * [Service Bus architecture](service-bus-architecture.md)
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 

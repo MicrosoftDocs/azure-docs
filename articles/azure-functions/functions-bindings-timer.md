@@ -3,7 +3,7 @@ title: Timer trigger for Azure Functions
 description: Understand how to use timer triggers in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
@@ -12,7 +12,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/08/2018
-ms.author: glenga
+ms.author: cshoe
 
 ms.custom: 
 
@@ -52,13 +52,13 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```cs
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
 ```
 
@@ -80,13 +80,13 @@ Here's the binding data in the *function.json* file:
 Here's the C# script code:
 
 ```csharp
-public static void Run(TimerInfo myTimer, TraceWriter log)
+public static void Run(TimerInfo myTimer, ILogger log)
 {
     if(myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}" );  
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}" );  
 }
 ```
 
@@ -108,11 +108,11 @@ Here's the binding data in the *function.json* file:
 Here's the F# script code:
 
 ```fsharp
-let Run(myTimer: TimerInfo, log: TraceWriter ) =
+let Run(myTimer: TimerInfo, log: ILogger ) =
     if (myTimer.IsPastDue) then
-        log.Info("F# function is running late.")
+        log.LogInformation("F# function is running late.")
     let now = DateTime.Now.ToLongTimeString()
-    log.Info(sprintf "F# function executed at %s!" now)
+    log.LogInformation(sprintf "F# function executed at %s!" now)
 ```
 
 ### JavaScript example
@@ -169,13 +169,13 @@ The attribute's constructor takes a CRON expression or a `TimeSpan`. You can use
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
-public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
 {
     if (myTimer.IsPastDue)
     {
-        log.Info("Timer is running late!");
+        log.LogInformation("Timer is running late!");
     }
-    log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
+    log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
  ```
 
@@ -289,7 +289,7 @@ Expressed as a string, the `TimeSpan` format is `hh:mm:ss` when `hh` is less tha
 |---------|---------|
 |"01:00:00" | every hour        |
 |"00:01:00"|every minute         |
-|"24:00:00" | every 24 days        |
+|"24:00:00" | everyday        |
 
 ## Scale-out
 

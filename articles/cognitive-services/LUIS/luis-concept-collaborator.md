@@ -4,10 +4,10 @@ titleSuffix: Azure Cognitive Services
 description: LUIS apps require a single owner and optional collaborators.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
 ---

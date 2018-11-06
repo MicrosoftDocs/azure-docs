@@ -1,11 +1,11 @@
 ---
-title: Connect an Amazon Web Services account to Azure Cost Management | Microsoft Docs
-description: Connect an Amazon Web Services account to view cost and usage data in Cost Management reports.
+title: Connect an Amazon Web Services account to Cloudyn in Azure | Microsoft Docs
+description: Connect an Amazon Web Services account to view cost and usage data in Cloudyn reports.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 08/07/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -14,20 +14,20 @@ ms.custom:
 
 # Connect an Amazon Web Services account
 
-You have two options to connect your Amazon Web Services (AWS) account to Azure Cost Management. You can connect with an IAM role or with a read-only IAM user account. The IAM role is recommended because it allows you to delegate access with defined permissions to trusted entities. The IAM role doesn't require you to share long-term access keys. After you connect an AWS account to Cost Management, cost and usage data is available in Cost Management reports. This document guides you through both options.
+You have two options to connect your Amazon Web Services (AWS) account to Cloudyn. You can connect with an IAM role or with a read-only IAM user account. The IAM role is recommended because it allows you to delegate access with defined permissions to trusted entities. The IAM role doesn't require you to share long-term access keys. After you connect an AWS account to Cloudyn, cost and usage data is available in Cloudyn reports. This document guides you through both options.
 
 For more information about AWS IAM identities, see [Identities (Users, Groups, and Roles)](https://docs.aws.amazon.com/IAM/latest/UserGuide/id.html).
 
-Also, you enable AWS detailed billing reports and store the information in an AWS simple storage service (S3) bucket. Detailed billing reports include billing charges with tag and resource information on an hourly basis. Storing the reports allows Cost Management to retrieve them from your bucket and display the information in its reports.
+Also, you enable AWS detailed billing reports and store the information in an AWS simple storage service (S3) bucket. Detailed billing reports include billing charges with tag and resource information on an hourly basis. Storing the reports allows Cloudyn to retrieve them from your bucket and display the information in its reports.
 
 
 ## AWS role-based access
 
-The following sections walk you through creating a read-only IAM role to provide access to Cost Management.
+The following sections walk you through creating a read-only IAM role to provide access to Cloudyn.
 
-### Get your Cost Management account external ID
+### Get your Cloudyn account external ID
 
-The first step is to get the unique connection passphrase from the Azure Cost Management portal. It is used in AWS as the **External ID**.
+The first step is to get the unique connection passphrase from the Cloudyn portal. It is used in AWS as the **External ID**.
 
 1. Open the Cloudyn portal from the Azure portal or navigate to  [https://azure.cloudyn.com](https://azure.cloudyn.com) and sign in.
 2. Click the cog symbol and then select **Cloud Accounts**.
@@ -39,16 +39,16 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
 
 1. Sign in to the AWS console at https://console.aws.amazon.com/iam/home and select **Roles**.
 2. Click **Create Role** and then select **Another AWS account**.
-3. In the **Account ID** box, paste `432263259397`. This Account ID is the Cost Management data collector account assigned by AWS to the Cloudyn service. Use the exact Account ID shown.
-4. Next to **Options**, select **Require external ID**. Paste your unique value that copied previously from the **External ID** field in Cost Management. Then click **Next: Permissions**.  
+3. In the **Account ID** box, paste `432263259397`. This Account ID is the Cloudyn data collector account assigned by AWS to the Cloudyn service. Use the exact Account ID shown.
+4. Next to **Options**, select **Require external ID**. Paste your unique value that copied previously from the **External ID** field in Cloudyn. Then click **Next: Permissions**.  
     ![Create role](./media/connect-aws-account/create-role01.png)
 5. Under **Attach permissions policies**, in the **Policy type** filter box search, type `ReadOnlyAccess`, select **ReadOnlyAccess**, then click **Next: Review**.  
     ![Read-only access](./media/connect-aws-account/readonlyaccess.png)
-6. On the Review page, ensure your selections are correct and type a **Role name**. For example, *Azure-Cost-Mgt*. Enter a **Role description**. For example, _Role assignment for Azure Cost Management_, then click **Create role**.
-7. In the **Roles** list, click the role you created and copy the **Role ARN** value from the Summary page. Use the Role ARN (Amazon Resource Name) value later when you register your configuration in Azure Cost Management.  
+6. On the Review page, ensure your selections are correct and type a **Role name**. For example, *Azure-Cost-Mgt*. Enter a **Role description**. For example, _Role assignment for Cloudyn_, then click **Create role**.
+7. In the **Roles** list, click the role you created and copy the **Role ARN** value from the Summary page. Use the Role ARN (Amazon Resource Name) value later when you register your configuration in Cloudyn.  
     ![Role ARN](./media/connect-aws-account/role-arn.png)
 
-### Configure AWS IAM role access in Cost Management
+### Configure AWS IAM role access in Cloudyn
 
 1. Open the Cloudyn portal from the Azure portal or navigate to  https://azure.cloudyn.com/ and sign in.
 2. Click the cog symbol and then select **Cloud Accounts**.
@@ -59,16 +59,16 @@ The first step is to get the unique connection passphrase from the Azure Cost Ma
     ![Add AWS Account box](./media/connect-aws-account/add-aws-account-box.png)
 
 
-Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol indicating that Cost Management can access your AWS account. Until you enable detailed AWS billing, your consolidation status appears as **Standalone**.
+Your AWS account appears in the list of accounts. The **Owner ID** listed matches your Role ARN value. Your **Account Status** should have a green check mark symbol indicating that Cloudyn can access your AWS account. Until you enable detailed AWS billing, your consolidation status appears as **Standalone**.
 
 ![AWS account status](./media/connect-aws-account/aws-account-status01.png)
 
-Cost Management starts collecting the data and populating reports. Next, [enable detailed AWS billing](#enable-detailed-aws-billing).
+Cloudyn starts collecting the data and populating reports. Next, [enable detailed AWS billing](#enable-detailed-aws-billing).
 
 
 ## AWS user-based access
 
-The following sections walk you through creating a read-only user to provide access to Cost Management.
+The following sections walk you through creating a read-only user to provide access to Cloudyn.
 
 ### Add AWS read-only user-based access
 
@@ -81,11 +81,11 @@ The following sections walk you through creating a read-only user to provide acc
 6. Under **Attach permissions policies**, in the **Policy type** filter box search, type `ReadOnlyAccess`, select **ReadOnlyAccess**, and then click **Next: Review**.  
     ![Set permissions for user](./media/connect-aws-account/set-permission-for-user.png)
 7. On the Review page, ensure your selections are correct then click **Create user**.
-8. On the Complete page, your Access key ID and Secret access key are shown. You use this information to configure registration in Cost Management.
+8. On the Complete page, your Access key ID and Secret access key are shown. You use this information to configure registration in Cloudyn.
 9. Click **Download .csv** and save the credentials.csv file to a secure location.  
     ![Download credentials](./media/connect-aws-account/download-csv.png)
 
-### Configure AWS IAM user-based access in Cost Management
+### Configure AWS IAM user-based access in Cloudyn
 
 1. Open the Cloudyn portal from the Azure portal or navigate to https://azure.cloudyn.com/ and sign in.
 2. Click the cog symbol and then select **Cloud Accounts**.
@@ -97,7 +97,7 @@ The following sections walk you through creating a read-only user to provide acc
 
 Your AWS account appears in the list of accounts. Your **Account Status** should have a green check mark symbol.
 
-Cost Management starts collecting the data and populating reports. Next, [enable detailed AWS billing](#enable-detailed-aws-billing).
+Cloudyn starts collecting the data and populating reports. Next, [enable detailed AWS billing](#enable-detailed-aws-billing).
 
 ## Enable detailed AWS billing
 
@@ -180,7 +180,7 @@ After you create and configure the S3 bucket, navigate to [Billing Preferences](
 3. Select all four report granularity options and then click **Save preferences**.  
     ![Enable reports](./media/connect-aws-account/enable-reports.png)
 
-Cost Management retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console. When detailed billing data is available, your account consolidation status appears as **Consolidated**. Account status appears as **Completed**.
+Cloudyn retrieves detailed billing information from your S3 bucket and populates reports after detailed billing is enabled. It can take up to 24 hours until detailed billing data appears in the Cloudyn console. When detailed billing data is available, your account consolidation status appears as **Consolidated**. Account status appears as **Completed**.
 
 ![Account Consolidated Status](./media/connect-aws-account/consolidated-status.png)
 
@@ -188,4 +188,4 @@ Some of the optimization reports may require a few days of data to get an adequa
 
 ## Next steps
 
-- To learn more about Azure Cost Management, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cost Management.
+- To learn more about Cloudyn, continue to the [Review usage and costs](tutorial-review-usage.md) tutorial for Cloudyn.

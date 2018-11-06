@@ -13,6 +13,8 @@ ms.author: zhouwang
 ---
 # Bing Speech WebSocket protocol
 
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 Bing Speech is a cloud-based platform that features the most advanced algorithms available for converting spoken audio to text. The Bing Speech protocol defines the [connection setup](#connection-establishment) between client applications and the service and the speech recognition messages exchanged between counterparts ([client-originated Messages](#client-originated-messages) and [service-originated messages](#service-originated-messages)). In addition, [telemetry messages](#telemetry-schema) and [error handling](#error-handling) are described.
 
 ## Connection establishment

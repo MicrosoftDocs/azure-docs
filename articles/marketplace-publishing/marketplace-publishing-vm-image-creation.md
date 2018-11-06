@@ -15,7 +15,6 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-
 ---
 # Guide to create a virtual machine image for the Azure Marketplace
 This article, **Step 2**, walks you through preparing the virtual hard disks (VHDs) that you will deploy to the Azure Marketplace. Your VHDs are the foundation of your SKU. The process differs depending on whether you are providing a Linux-based or Windows-based SKU. This article covers both scenarios. This process can be performed in parallel with [Account creation and registration][link-acct-creation].
@@ -186,7 +185,7 @@ To learn more about VM images, review the following blog posts:
 * [VM Image PowerShell How To](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
 * [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
-### Set up the necessary tools, PowerShell and Azure CLI
+### Set up the necessary tools, PowerShell and Azure classic CLI
 * [How to setup PowerShell](/powershell/azure/overview)
 * [How to setup Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
@@ -431,7 +430,9 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
 **Azure CLI 2.0 (Recommended for Non-Windows & Continuous Integration)**
 
-Following are the steps for generating SAS URL by using Azure CLI
+Following are the steps for generating SAS URL by using Azure classic CLI
+
+[!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
 1.	Download Microsoft Azure CLI from [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). You can also find different links for **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** and **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
@@ -509,7 +510,7 @@ After you have created your offer and SKU, you should enter the image details as
 |Failure in copying images - “sp=rl” not in SAS url|Failure: Copying Images. Not able to download blob using provided SAS Uri|Update the SAS Url with permissions set as “Read” & “List|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Failure in copying images - SAS url have white spaces in vhd name|Failure: Copying Images. Not able to download blob using provided SAS Uri.|Update the SAS Url without white spaces|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 |Failure in copying images – SAS Url Authorization error|Failure: Copying Images. Not able to download blob due to authorization error|Regenerate the SAS Url|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
-|Failure in copying images – SAS Url "st" and "se" parameters do not have full date-time specification|Failure: Copying Images. Not able to download blob due to incorrect SAS Url |SAS Url Start and End Date parameters ("st", "se") are required to have full date-time specification, such as 11-02-2017T00:00:00Z, and not only the date or shortened versions for the time. It is possible to encounter this scenario using Azure CLI 2.0 (az command). Be sure to provide the full date-time specification and regenerate the SAS Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
+|Failure in copying images – SAS Url "st" and "se" parameters do not have full date-time specification|Failure: Copying Images. Not able to download blob due to incorrect SAS Url |SAS Url Start and End Date parameters ("st", "se") are required to have full date-time specification, such as 11-02-2017T00:00:00Z, and not only the date or shortened versions for the time. It is possible to encounter this scenario using Azure CLI version 2.0 or higher. Be sure to provide the full date-time specification and regenerate the SAS Url.|[https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/)|
 
 ## Next step
 After you are done with the SKU details, you can move forward to the [Azure Marketplace marketing content guide][link-pushstaging]. In that step of the publishing process, you provide the marketing content, pricing, and other information necessary prior to **Step 3: Testing your VM offer in staging**, where you test various use-case scenarios before deploying the offer to the Azure Marketplace for public visibility and purchase.  

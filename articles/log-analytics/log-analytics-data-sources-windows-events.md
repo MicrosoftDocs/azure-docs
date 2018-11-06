@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Windows event log data sources in Log Analytics
@@ -72,6 +72,6 @@ The following table provides different examples of log searches that retrieve Wi
 
 ## Next steps
 * Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
 * Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
 * Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.

@@ -1,21 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Build workflows with the IoT Central connector in Microsoft Flow | Microsoft Docs
 description: Use the IoT Central connector in Microsoft Flow to trigger workflows and create, update, and delete devices in workflows.
 services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 09/18/2018
-ms.topic: article
-ms.service: azure-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.topic: conceptual
+ms.service: iot-central
 manager: peterpr
 ---
 
@@ -25,8 +16,10 @@ manager: peterpr
 
 Use Microsoft Flow to automate workflows across the many applications and services that business users rely on. Using the IoT Central connector in Microsoft Flow, you can trigger workflows when a rule is triggered in IoT Central. In a workflow triggered by IoT Central or any other application, you can use the actions in the IoT Central connector to create a device, update a device's properties and settings, or delete a device. Check out [these Microsoft Flow templates](https://aka.ms/iotcentralflowtemplates) that connect IoT Central to other services such as mobile notifications and Microsoft Teams.
 
-> [!NOTE] 
-> You'll need to sign into Microsoft Flow with a Microsoft personal or work or school account. Learn more about Microsoft Flow plans [here](https://aka.ms/microsoftflowplans).
+## Prerequisites
+
+- A Pay-As-You-Go application
+- A Microsoft personal or work or school account to sign into Flow ([learn more about Microsoft Flow plans](https://aka.ms/microsoftflowplans))
 
 ## Trigger a workflow when a rule is triggered
 
@@ -100,6 +93,8 @@ This section shows you how to update device settings and properties in IoT Centr
     ![IoT Central device explorer device ID](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. You can update the device name. To update any of the device's properties and settings, you must select the device template of the device you want to update in the **Device Template** dropdown. The action tile expands to show all the properties and settings you can update.
+
+    ![Flow update device workflow](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. Select each of the properties and settings you want to update. From the dynamic content pane, choose the corresponding input from the trigger. In this example, the Location value is propagated down to update the device's Location property.
 

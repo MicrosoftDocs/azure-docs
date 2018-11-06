@@ -4,16 +4,16 @@ titleSuffix: Azure Cognitive Services
 description: Use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: language-understanding
-ms.topic: article
+ms.component: language-understanding
+ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
 #Customer intent: As a new user, I want to understand how and why to use pattern roles. 
 ---
 
-# Tutorial: 4. Extract contextually-related patterns
+# Tutorial 4: Extract contextually-related patterns
 
 In this tutorial, use a pattern to extract data from a well-formatted template utterance. The template utterance uses a simple entity and roles to extract related data such as origin location and destination location.  When using patterns, fewer example utterances are needed for the intent.
 
@@ -376,6 +376,8 @@ In this tutorial, the Human Resources app detects utterances about moving new em
 |--|--|--|
 |[Hierarchical (no roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
 |This tutorial (with roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
+
+For more information, see [Roles versus hierarchical entities](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## Clean up resources
 

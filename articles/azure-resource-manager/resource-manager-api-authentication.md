@@ -92,7 +92,7 @@ Azure AD also supports certificate credentials for applications: you create a se
 the public key to your Azure AD application registration. For authentication, your application sends a small payload to Azure AD
 signed using your private key, and Azure AD validates the signature using the public key that you registered.
 
-For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md).
+For information about creating an AD app with a certificate, see [Use Azure PowerShell to create a service principal to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) or [Use Azure CLI to create a service principal to access resources](resource-group-authenticate-service-principal-cli.md).
 
 ## Get tenant ID from subscription ID
 To request a token that can be used to call Resource Manager, your application needs to know the tenant ID of the Azure AD tenant that hosts the Azure subscription. Most likely, your users know their subscription IDs, but they might not know their tenant IDs for Azure Active Directory. To get the user's tenant ID, ask the user for the subscription ID. Provide that subscription ID when sending a request about the subscription:
@@ -104,7 +104,7 @@ The request fails because the user has not logged in yet, but you can retrieve t
 ## Get user + app access token
 Your application redirects the user to Azure AD with an OAuth 2.0 Authorize Request - to authenticate the user's credentials and get back an authorization code. Your application uses the authorization code to get an access token for Resource Manager. The [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) method creates the authorization request.
 
-This article shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](../active-directory/develop/azure-ad-developers-guide.md).
+This article shows the REST API requests to authenticate the user. You can also use helper libraries to perform authentication in your code. For more information about these libraries, see [Azure Active Directory Authentication Libraries](../active-directory/active-directory-authentication-libraries.md). For guidance on integrating identity management in an application, see [Azure Active Directory developer's guide](../active-directory/develop/v1-overview.md).
 
 ### Auth request (OAuth 2.0)
 Issue an Open ID Connect/OAuth2.0 Authorize Request to the Azure AD Authorize endpoint:
@@ -152,7 +152,7 @@ The following example shows a request for code grant token with password credent
 
     grant_type=authorization_code&code=AAABAAAAiL9Kn2Z*****L1nVMH3Z5ESiAA&redirect_uri=http%3A%2F%2Flocalhost%3A62080%2FAccount%2FSignIn&client_id=a0448380-c346-4f9f-b897-c18733de9394&client_secret=olna84E8*****goScOg%3D
 
-When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. The claim types for the token are shown in [JWT token claims](../active-directory/develop/v1-protocols-oauth-code.md#jwt-token-claims). For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
+When working with certificate credentials, create a JSON Web Token (JWT) and sign (RSA SHA256) using the private key of your application's certificate credential. Building this token is shown in the [client credential flow](../active-directory/develop/v1-oauth2-client-creds-grant-flow.md#second-case-access-token-request-with a-certificate).  For reference, see the [Active Directory Auth Library (.NET) code](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/dev/src/ADAL.PCL.Desktop/CryptographyHelper.cs) to sign Client Assertion JWT tokens.
 
 See the [Open ID Connect spec](http://openid.net/specs/openid-connect-core-1_0.html#ClientAuthentication) for details on client authentication.
 

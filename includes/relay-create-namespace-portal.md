@@ -1,5 +1,5 @@
 1. Sign in to the [Azure portal][Azure portal].
-2. In the left menu, select **+ Create a resource**. Then, select **Enterprise Integration** > **Relay**.
+2. In the left menu, select **+ Create a resource**. Then, select **Integration** > **Relay**. If you don't see **Relay** in the list, select **See All** in the top-right corner. 
 3. Under **Create namespace**, enter a namespace name. The system immediately checks to see if the name is available.
 4. In the **Subscription** box, select an Azure subscription in which to create the namespace.
 5. In the [Resource group](../articles/azure-resource-manager/resource-group-portal.md) box, select an existing resource group in which to place the namespace, or create a new one.  

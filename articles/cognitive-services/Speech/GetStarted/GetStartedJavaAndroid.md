@@ -12,6 +12,8 @@ ms.date: 09/18/2018
 ms.author: zhouwang
 ---
 
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 # Quickstart: Use the Bing Speech recognition API in Java on Android
 
 With the Bing Speech Recognition API, you can develop Android applications that use the cloud-based Bing Speech Service to convert spoken audio to text. The API supports real-time streaming, so your application can simultaneously and asynchronously receive partial recognition results at the same time it's sending audio to the service.

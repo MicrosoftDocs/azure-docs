@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: In this tutorial, create an app that demonstrates how to extract positive, negative, and neutral sentiment from utterances. Sentiment is determined from the entire utterance.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding

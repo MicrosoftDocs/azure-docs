@@ -26,7 +26,7 @@ Follow these steps to install and configure `kubectl` on your computer.
 
 ### Install kubectl
 One way to install this
-tool is to use the `az acs kubernetes install-cli` Azure CLI 2.0 command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest Azure CLI 2.0 and signed in to an Azure account (`az login`).
+tool is to use the `az acs kubernetes install-cli` Azure CLI command. To run this command, make sure that you [installed](/cli/azure/install-az-cli2) the latest version of the Azure CLI and are signed in to an Azure account (`az login`).
 
 ```azurecli
 # Linux or macOS

@@ -13,6 +13,8 @@ ms.author: zhouwang
 ---
 # Support
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 If you have questions, feedback, or suggestions about Bing Speech, you can reach out to us via GitHub. 
  - [REST API-related questions](https://github.com/Azure-Samples/SpeechToText-REST/issues)
  - [JavaScript library](https://github.com/Azure-Samples/Cognitive-Speech-STT-JavaScript/issues)

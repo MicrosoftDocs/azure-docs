@@ -15,6 +15,8 @@ ms.author: v-jaswel
 # Quickstart: Translator Speech API with Python
 <a name="HOLTop"></a>
 
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 This article shows you how to use the Translator Speech API to translate words spoken in a .wav file.
 
 ## Prerequisites

@@ -13,6 +13,8 @@ ms.author: zhouwang
 ---
 # Authenticate to the Speech API
 
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
 Bing Speech supports authentication by using:
 
 - A subscription key.

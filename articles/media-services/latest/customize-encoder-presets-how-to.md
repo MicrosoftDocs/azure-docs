@@ -4,14 +4,14 @@ description: This topic shows how to use Azure Media Services v3 to encode a cus
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
 ms.custom: 
-ms.date: 05/17/2018
+ms.date: 10/15/2018
 ms.author: juliako
 ---
 

@@ -80,7 +80,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Scale settings
 * WebJobs schedulers
 
-To configure an app setting or connection string to stick to a slot (not swapped), access the **Application Settings** blade for a specific slot, then select the **Slot Setting** box for the configuration elements that should stick the slot. Marking a configuration element as slot specific has the effect of establishing that element as not swappable across all the deployment slots associated with the app.
+To configure an app setting or connection string to stick to a slot (not swapped), access the **Application Settings** blade for a specific slot, then select the **Slot Setting** box for the configuration elements that should stick to the slot. Marking a configuration element as slot specific has the effect of establishing that element as not swappable across all the deployment slots associated with the app.
 
 ![Slot settings][SlotSettings]
 

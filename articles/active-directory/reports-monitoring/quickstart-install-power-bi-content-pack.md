@@ -35,6 +35,7 @@ To complete this quickstart, you need:
 
 * A Power BI account. This is the same account as your O365 or Azure AD account. 
 * Your Azure AD tenant ID. This is the **Directory ID** of your directory from the [properties page](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties) of the Azure portal.
+* An Azure AD Premium (P1/P2) license. 
 
 ## Install Azure AD Power BI content pack 
 

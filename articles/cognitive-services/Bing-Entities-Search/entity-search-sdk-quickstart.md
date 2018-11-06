@@ -1,18 +1,19 @@
 ---
-title: Entity search API C# quickstart | Microsoft Docs
-description: Setup for Entity search SDK console application.
-titleSuffix: Azure cognitive services entity search API C# quickstart
+title: "Quickstart: Bing Entity Search SDK, C#"
+titleSuffix: Azure Cognitive Services
+description: Setup for Entity search SDK console application with C#.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ---
 
-# Entity Search SDK C# quickstart
+# Quickstart: Bing Entity Search SDK with C#
 
 The Bing Entity Search API contains the functionality of the REST API for entity search and parsing the results.
 

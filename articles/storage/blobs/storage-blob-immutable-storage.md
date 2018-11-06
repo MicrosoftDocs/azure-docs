@@ -2,12 +2,12 @@
 title: Immutable storage for Azure Storage Blobs | Microsoft Docs
 description: Azure Storage offers WORM (write once, read many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval.
 services: storage
-author: MichaelHauss
+author: xyh1
 
 ms.service: storage
 ms.topic: article
-ms.date: 09/18/2018
-ms.author: mihauss
+ms.date: 11/05/2018
+ms.author: hux
 ms.component: blobs
 ---
 
@@ -91,7 +91,7 @@ There is no additional charge for using this feature. Immutable data is priced i
 
 ## Getting started
 
-The most recent releases of the [Azure portal](http://portal.azure.com) and [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) as well as the preview version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) support immutable storage for Azure Blob storage.
+The most recent releases of the [Azure portal](http://portal.azure.com) and [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) as well as the preview version of [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) support immutable storage for Azure Blob storage.
 
 ### Azure portal
 
@@ -127,7 +127,7 @@ The most recent releases of the [Azure portal](http://portal.azure.com) and [Azu
 
 8. To clear a legal hold, simply remove the tag.
 
-### Azure CLI 2.0
+### Azure CLI
 
 The feature is included in the following command groups:
 `az storage container immutability-policy`  and `az storage container legal-hold`. Run `-h` on them to see the commands.
@@ -191,7 +191,7 @@ In the case of non-payment, normal data retention policies will apply as stipula
 
 **Do you offer a trial or grace period for just trying out the feature?**
 
-Yes. When a time-based retention policy is first created, it's in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it stays locked forever, preventing deletion. Also, the retention interval can no longer be decreased when the policy is locked. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
+Yes. When a time-based retention policy is first created, it's in an *unlocked* state. In this state, you can make any desired change to the retention interval, such as increase or decrease and even delete the policy. After the policy is locked, it stays locked until the retention interval expires. This prevents deletion and modification to the retention interval. We strongly recommend that you use the *unlocked* state only for trial purposes and lock the policy within a 24-hour period. These practices help you comply with SEC 17a-4(f) and other regulations.
 
 **Is the feature available in national and government clouds?**
 
@@ -219,7 +219,7 @@ New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
 New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
-    $StorageAccount -SkuName Standard_LRS -Location $location -Kind Storage
+    $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
 # Create a new container
 New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `

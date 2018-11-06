@@ -12,12 +12,13 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.topic: article
-ms.date: 02/27/2018
+ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
 ---
 # Topologies for Azure AD Connect
 This article describes various on-premises and Azure Active Directory (Azure AD) topologies that use Azure AD Connect sync as the key integration solution. This article includes both supported and unsupported configurations.
+
 
 Here's the legend for pictures in the article:
 
@@ -80,7 +81,7 @@ Having more than one Azure AD Connect sync server connected to a single Azure AD
 ### Multiple forests, separate topologies
 ![Option for representing users only once across all directories](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Depiction of multiple forests and separate topologies](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Depiction of multiple forests and separate topologies](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 In this environment, all on-premises forests are treated as separate entities. No user is present in any other forest. Each forest has its own Exchange organization, and there's no GALSync between the forests. This topology might be the situation after a merger/acquisition or in an organization where each business unit operates independently. These forests are in the same organization in Azure AD and appear with a unified GAL. In the preceding picture, each object in every forest is represented once in the metaverse and aggregated in the target Azure AD tenant.
 

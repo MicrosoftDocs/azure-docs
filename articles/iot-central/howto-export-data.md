@@ -1,22 +1,12 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Export your data in Azure IoT Central | Microsoft Docs
 description: How to export data from your Azure IoT Central application
 services: iot-central
 author: viv-liu
 ms.author: viviali
 ms.date: 09/18/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.service: azure-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.topic: conceptual
+ms.service: iot-central
 manager: peterpr
 ---
 
@@ -31,10 +21,10 @@ This article describes how to use the continuous data export feature in Azure Io
 
 ## Prerequisites
 
-- An extended 30-day trial IoT Central application, or a paid application.
-- An Azure account with an Azure subscription.
-- The same Azure account is an administrator in your IoT Central application.
-- The same Azure account has permissions to create a storage account or access an existing storage account in the same Azure subscription.
+- A Pay-As-You-Go application.
+- An administrator in your IoT Central application who has:
+    - an Azure account in the Azure subscription your IoT Central application is in
+    - permissions to create a storage account or access an existing storage account in this Azure subscription
 
 ## Types of data to export
 

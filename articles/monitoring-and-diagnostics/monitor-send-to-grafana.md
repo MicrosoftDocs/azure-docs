@@ -32,13 +32,13 @@ Use the following steps to set up a Grafana server from Azure Marketplace and bu
 ## Log in to Grafana
 1. After the deployment completes, select **Go to Resource Group**. You see a list of newly created resources.
 
-    ![Grafana resource group objects](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Grafana resource group objects](media/monitor-send-to-grafana/grafana1.png)
 
     If you select the network security group (*grafana-nsg* in this case), you can see that port 3000 is used to access Grafana server.
 
 2. Go back to the list of resources and select **Public IP address**. Using the values found on this screen, type *http://<IP address>:3000*  or the *<DNSName>:3000* in your browser. You should see a login page for the Grafana server you just built.
 
-    ![Grafana login screen](.\media\monitor-how-to-grafana\grafana2.png)
+    ![Grafana login screen](media/monitor-send-to-grafana/grafana2.png)
 
 3. Log in with the user name as *admin* and the Grafana server admin password you created earlier.
 
@@ -46,7 +46,7 @@ Use the following steps to set up a Grafana server from Azure Marketplace and bu
 
 Once successfully logged in, you should see that the Azure Monitor data source plugin is already included.
 
-![Grafana shows Azure Monitor plugin](.\media\monitor-how-to-grafana\grafana3.png)
+![Grafana shows Azure Monitor plugin](media/monitor-send-to-grafana/grafana3.png)
 
 1. Select **Add data source** to configure Azure Monitor and Application Insights.
 
@@ -57,7 +57,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
 Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect metrics data. You must create a service principal to manage access to your Azure resources.
 
-1. See [these instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID, client ID, and a client secret.
+1. See [these instructions](../active-directory/develop/howto-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID, client ID, and a client secret.
 
 2. See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) to assign the reader role to the Azure Active Directory application. 	
 
@@ -65,7 +65,7 @@ Grafana uses an Azure Active Directory service principal to connect to Azure Mon
 
 4. After you have entered all of this info, select **Save** and Grafana tests the API. You should see a message similar to the following one.  
 
-    ![Grafana shows Azure Monitor plugin](.\media\monitor-how-to-grafana\grafana4-1.png)
+    ![Grafana shows Azure Monitor plugin](media/monitor-send-to-grafana/grafana4-1.png)
 
 > [!NOTE]
 > While configuring the plugin you can indicate which Azure Cloud (Public, Azure US Government, Azure Germany, or Azure China) you would like the plugin to be configured against.
@@ -78,7 +78,7 @@ Grafana uses an Azure Active Directory service principal to connect to Azure Mon
 
 2. In the new dashboard, select the **Graph**. You can try other charting options but this article uses *Graph* as an example.
 
-    ![Grafana New Dashboard](.\media\monitor-how-to-grafana\grafana5.png)
+    ![Grafana New Dashboard](media/monitor-send-to-grafana/grafana5.png)
 
 3. A blank graph shows up on your dashboard.
 
@@ -88,14 +88,14 @@ Grafana uses an Azure Active Directory service principal to connect to Azure Mon
 
 Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
 
-![Grafana Two Charts Example](.\media\monitor-how-to-grafana\grafana6.png)
+![Grafana Two Charts Example](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## Optional: Create dashboard playlists
 
 One of the many useful features of Grafana is the dashboard playlist. You can create multiple dashboards and add them to a playlist configuring an interval for each dashboard to show. Select **Play** to see the dashboards cycle through. You may want to display them on a large wall monitor to provide a "status board" for your group.
 
-![Grafana Playlist Example](.\media\monitor-how-to-grafana\grafana7.png)
+![Grafana Playlist Example](media/monitor-send-to-grafana/grafana7.png)
 
 
 ## Optional: Monitor your custom metrics in the same Grafana server
@@ -112,7 +112,7 @@ Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, a
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Here is an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
-![Grafana Example Metrics](.\media\monitor-how-to-grafana\grafana8.png)
+![Grafana Example Metrics](media/monitor-send-to-grafana/grafana8.png)
 
 
 ## Clean up resources
@@ -123,4 +123,4 @@ You are charged when VMs are running whether you are using them or not. To avoid
 2. On your resource group page, click **Delete**, type **Grafana** in the text box, and then click **Delete**.
 
 ## Next steps
-* [Overview of Azure Monitor Metrics](monitoring-overview-metrics.md)
+* [Overview of Azure Monitor Metrics](../monitoring/monitoring-data-collection.md)

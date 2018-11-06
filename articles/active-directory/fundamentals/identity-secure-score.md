@@ -151,7 +151,7 @@ The [Office 365 secure score](https://docs.microsoft.com/office365/securitycompl
 
 - Apps
 
-The identity secure score represents the identity part of of the Office 365 secure score. This means that your recommendations for the identity secure score and the identity score in Office 365 are the same. 
+The identity secure score represents the identity part of the Office 365 secure score. This means that your recommendations for the identity secure score and the identity score in Office 365 are the same. 
 
 
 ## Next steps

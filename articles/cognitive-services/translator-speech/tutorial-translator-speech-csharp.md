@@ -14,6 +14,8 @@ ms.author: v-jerkin
 ---
 # Tutorial: Translator Speech application in C#
 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
 This tutorial is a tour of an interactive speech translation tool that uses the Translator Speech API, a part of Azure Cognitive Services. You will learn how to:
 
 > [!div class="checklist"]
