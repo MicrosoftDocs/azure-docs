@@ -238,7 +238,9 @@
   - name: Manage costs
     items:
     - name: Prepay for VMs - Azure reservations
-      href: prepay-reserved-vm-instances.md       
+      href: prepay-reserved-vm-instances.md
+    - name: Prepay for RedHat software  
+      href: prepay-rhel-software-charges.md       
     - name: Prepay for SUSE software  
       href: prepay-suse-software-charges.md 
     - name: What are Azure reservations?
