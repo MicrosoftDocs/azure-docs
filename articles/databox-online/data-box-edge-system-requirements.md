@@ -10,7 +10,7 @@ ms.topic: article
 ms.date: 11/06/2018
 ms.author: alkohli
 ---
-# Azure Data Box Edge system requirements (Preview)
+# Azure Data Box Edge system requirements (preview)
 
 This article describes the important system requirements for your Microsoft Azure Data Box Edge solution and for the clients connecting to Azure Data Box Edge. We recommend that you review the information carefully before you deploy your Data Box Edge. You can refer back to this information as necessary during the deployment and subsequent operation.
 
@@ -20,7 +20,7 @@ The system requirements for the Data Box Edge include:
 - **Networking requirements for the device** - provides information about any networking requirements for the operation of the physical device.
 
 > [!IMPORTANT]
-> Data Box Edge is in Preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
+> Data Box Edge is in preview. Please review the [terms of use for the preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution.
 
 ## Supported OS for clients connected to device
 
@@ -44,7 +44,7 @@ The system requirements for the Data Box Edge include:
 
 ## Port configuration for Data Box Edge
 
-The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box Edge device sends data externally, beyond the deployment, for example, outbound to the Internet.
+The following table lists the ports that need to be opened in your firewall to allow for SMB, cloud, or management traffic. In this table, *in* or *inbound* refers to the direction from which incoming client requests access to your device. *Out* or *outbound* refers to the direction in which your Data Box Edge device sends data externally, beyond the deployment, for example, outbound to the internet.
 
 [!INCLUDE [Port configuration for device](../../includes/data-box-edge-gateway-port-config.md)]
 
@@ -73,7 +73,7 @@ We recommend that you set your firewall rules for outbound traffic, based on Dat
 > - The device (source) IPs should always be set to all the cloud-enabled network interfaces.
 > - The destination IPs should be set to [Azure datacenter IP ranges](https://www.microsoft.com/download/confirmation.aspx?id=41653).
 
-|     URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Component/Functionality                                                                             |
+|     URL pattern                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Component or functionality                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
 |    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Azure Data Box Edge service<br>Azure Service Bus<br>Authentication Service    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Device activation                                                                                    |
