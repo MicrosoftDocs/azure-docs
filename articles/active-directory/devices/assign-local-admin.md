@@ -18,6 +18,8 @@ ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
 
+#Customer intent: As a IT admin, I want to manage the local administrators group assignment during an Azure AD join, so that I can control who can manage Azure AD joined devices
+
 ---
 # How to manage the local administrators group on Azure AD joined devices
 
@@ -89,9 +91,9 @@ Starting with the **Windows 10 1709** release, you can do perform this task from
  
 Additionally, you can also add users using the command prompt:
 
-- If your tenant users are synchronized from on-premises Active Directory, use `net localgroup administrators /add “Contoso\username”`.
+- If your tenant users are synchronized from on-premises Active Directory, use `net localgroup administrators /add "Contoso\username"`.
 
-- If your tenant users are created in Azure AD, use `net localgroup administrators /add “AzureAD\UserUpn”`
+- If your tenant users are created in Azure AD, use `net localgroup administrators /add "AzureAD\UserUpn"`
 
 
 ## Considerations 

@@ -4,7 +4,7 @@ description: This topic gives an overview of Microsoft Azure Media Services scen
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,9 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-
+ms.date: 10/15/2018
+ms.author: juliako 
 ---
 # Scenarios and availability of Media Services features across datacenters
 
@@ -154,7 +153,7 @@ AMS customers can scale streaming endpoints, media processing, and storage in th
     For more information see, [Scale media processing](media-services-portal-scale-media-processing.md).
 * You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. For more information, see [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Availability of Media Services features across datacenters
+## <a id="availability"></a> Availability of Media Services features across datacenters
 
 This section provides details about availability of Media Services features across datacenters.
 

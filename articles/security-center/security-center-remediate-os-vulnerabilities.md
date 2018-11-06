@@ -3,18 +3,18 @@ title: Remediate security configurations in Azure Security Center | Microsoft Do
 description: This document shows you how to implement the Azure Security Center recommendation, "Remediate security configurations."
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 991d41f5-1d17-468d-a66d-83ec1308ab79
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Remediate security configurations in Azure Security Center

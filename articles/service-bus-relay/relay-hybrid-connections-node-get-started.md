@@ -3,7 +3,7 @@ title: Get started with Azure Relay Hybrid Connections Websockets in Node | Micr
 description: Write a Node.js console application for Azure Relay Hybrid Connections Websockets
 services: service-bus-relay
 documentationcenter: node
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Get started with Relay Hybrid Connections Websockets in Node

@@ -12,7 +12,6 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-
 ---
 # Password policies and restrictions in Azure Active Directory
 
@@ -20,11 +19,11 @@ This article describes the password policies and complexity requirements associa
 
 ## Administrator reset policy differences
 
-**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this polciy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
+**Microsoft enforces a strong default *two-gate* password reset policy for any Azure administrator role** this policy may be different from the one you have defined for your users and cannot be changed. You should always test password reset functionality as a user without any Azure administrator roles assigned.
 
 With a two-gate policy, **administrators don't have the ability to use security questions**.
 
- A two-gate policy requires two pieces of authentication data, such as an email address *and* a phone number. A two-gate policy applies in the following circumstances:
+A two-gate policy requires two pieces of authentication data, such as an email address *and* a phone number. A two-gate policy applies in the following circumstances:
 
 * All the following Azure administrator roles are affected:
   * Helpdesk administrator
@@ -47,37 +46,25 @@ With a two-gate policy, **administrators don't have the ability to use security 
   * CRM service administrator
   * Power BI service administrator
 
-* If 30 days have elapsed in a trial subscription
-
-  or
-
-* A vanity domain is present, such as contoso.com
-
-  or
-
+* If 30 days have elapsed in a trial subscription; or
+* A vanity domain is present, such as contoso.com; or
 * Azure AD Connect is synchronizing identities from your on-premises directory
 
 ### Exceptions
 
 A one-gate policy requires one piece of authentication data, such as an email address *or* phone number. A one-gate policy applies in the following circumstances:
 
-* It's within the first 30 days of a trial subscription
-
-  or
-
-* A vanity domain isn't present (*.onmicrosoft.com)
-
-  and
-
-  Azure AD Connect isn't synchronizing identities
+* It's within the first 30 days of a trial subscription; or
+* A vanity domain isn't present (*.onmicrosoft.com); and
+* Azure AD Connect isn't synchronizing identities
 
 ## UserPrincipalName policies that apply to all user accounts
 
-Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the polices that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
+Every user account that needs to sign in to Azure AD must have a unique user principal name (UPN) attribute value associated with their account. The following table outlines the policies that apply to both on-premises Active Directory user accounts that are synchronized to the cloud and to cloud-only user accounts:
 
 | Property | UserPrincipalName requirements |
 | --- | --- |
-| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Characters allowed |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Characters not allowed |<ul> <li>Any "\@\" character that's not separating the username from the domain.</li> <li>Can't contain a period character "." immediately preceding the "\@\" symbol</li></ul> |
 | Length constraints |<ul> <li>The total length must not exceed 113 characters</li><li>There can be up to 64 characters before the "\@\" symbol</li><li>There can be up to 48 characters after the "\@\" symbol</li></ul> |
 
@@ -87,7 +74,7 @@ The following table describes the available password policy settings that can be
 
 | Property | Requirements |
 | --- | --- |
-| Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ “ ( ) ;</li></ul> |
+| Characters allowed |<ul><li>A – Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [ ] { } &#124; \ : ‘ , . ? / ` ~ " ( ) ;</li></ul> |
 | Characters not allowed |<ul><li>Unicode characters.</li><li>Spaces.</li><li> Strong passwords only</li></ul> |
 | Password restrictions |<ul><li>A minimum of 8 characters and a maximum of 16 characters.</li><li>Strong passwords only: Requires three out of four of the following:<ul><li>Lowercase characters.</li><li>Uppercase characters.</li><li>Numbers (0-9).</li><li>Symbols (see the previous password restrictions).</li></ul></li></ul> |
 | Password expiry duration |<ul><li>Default value: **90** days.</li><li>The value is configurable by using the `Set-MsolPasswordPolicy` cmdlet from the Azure Active Directory Module for Windows PowerShell.</li></ul> |
@@ -114,29 +101,29 @@ To get started, you need to [download and install the Azure AD PowerShell module
 ### Check the expiration policy for a password
 
 1. Connect to Windows PowerShell by using your company administrator credentials.
-2. Execute one of the following commands:
+1. Execute one of the following commands:
 
-   * To see if a single user’s password is set to never expire, run the following cmdlet by using the UPN (for example, *aprilr@contoso.onmicrosoft.com*) or the user ID of the user you want to check: `Get-MSOLUser -UserPrincipalName <user ID> | Select PasswordNeverExpires`
-   * To see the **Password never expires** setting for all users, run the following cmdlet: `Get-MSOLUser | Select UserPrincipalName, PasswordNeverExpires`
+   * To see if a single user’s password is set to never expire, run the following cmdlet by using the UPN (for example, *aprilr@contoso.onmicrosoft.com*) or the user ID of the user you want to check: `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
+   * To see the **Password never expires** setting for all users, run the following cmdlet: `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
 
 ### Set a password to expire
 
 1. Connect to Windows PowerShell by using your company administrator credentials.
-2. Execute one of the following commands:
+1. Execute one of the following commands:
 
-   * To set the password of one user so that the password expires, run the following cmdlet by using the UPN or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $false`
-   * To set the passwords of all users in the organization so that they expire, use the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $false`
+   * To set the password of one user so that the password expires, run the following cmdlet by using the UPN or the user ID of the user: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
+   * To set the passwords of all users in the organization so that they expire, use the following cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
 
 ### Set a password to never expire
 
 1. Connect to Windows PowerShell by using your company administrator credentials.
-2. Execute one of the following commands:
+1. Execute one of the following commands:
 
-   * To set the password of one user to never expire, run the following cmdlet by using the UPN or the user ID of the user: `Set-MsolUser -UserPrincipalName <user ID> -PasswordNeverExpires $true`
-   * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-MSOLUser | Set-MsolUser -PasswordNeverExpires $true`
+   * To set the password of one user to never expire, run the following cmdlet by using the UPN or the user ID of the user: `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
+   * To set the passwords of all the users in an organization to never expire, run the following cmdlet: `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`
 
    > [!WARNING]
-   > Passwords set to `-PasswordNeverExpires $true` still age based on the `pwdLastSet` attribute. If you set the user passwords to never expire and then 90+ days go by, the passwords expire. Based on the `pwdLastSet` attribute, if you change the expiration to `-PasswordNeverExpires $false`, all passwords that have a `pwdLastSet` older than 90 days require the user to change them the next time they sign in. This change can affect a large number of users. 
+   > Passwords set to `-PasswordPolicies DisablePasswordExpiration` still age based on the `pwdLastSet` attribute. If you set the user passwords to never expire and then 90+ days go by, the passwords expire. Based on the `pwdLastSet` attribute, if you change the expiration to `-PasswordPolicies None`, all passwords that have a `pwdLastSet` older than 90 days require the user to change them the next time they sign in. This change can affect a large number of users. 
 
 ## Next steps
 

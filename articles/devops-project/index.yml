@@ -68,7 +68,7 @@ sections:
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
-    text: Learn how to use the Azure DevOps Project to create VSTS Release pipelines
+    text: Learn how to use the Azure DevOps Project to create Azure Release pipelines
   - type: list
     style: ordered
     items:

@@ -17,6 +17,8 @@ ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: jairoc
 
+#Customer intent: As a IT admin, I want to fix issues with my hybrid Azure AD joined devices so that I can my users can use this feature.
+
 ---
 # Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices 
 

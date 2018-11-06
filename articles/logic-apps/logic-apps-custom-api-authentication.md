@@ -1,23 +1,17 @@
 ---
 title: Add authentication to custom APIs - Azure Logic Apps | Microsoft Docs
-description: Set up authentication for calls to your custom APIs from logic apps
-author: ecfan
-manager: jeconnoc
-editor: 
+description: Set up authentication for calling custom APIs from Azure Logic Apps
 services: logic-apps
-documentationcenter: 
-
-ms.assetid: 
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: LADocs; estfan
 ---
 
-# Secure calls to your custom APIs from logic apps
+# Secure calls to custom APIs from Azure Logic Apps
 
 To secure calls to your APIs, you can set up Azure Active Directory (Azure AD) 
 authentication through the Azure portal so you don't have to update your code. 
@@ -130,17 +124,17 @@ when you leave the **Keys** page.
 You can perform this task through Azure Resource Manager with PowerShell. 
 In PowerShell, run these commands:
 
-1. `Switch-AzureMode AzureResourceManager`
+1. `Add-AzureRmAccount`
 
-2. `Add-AzureAccount`
+2. `$SecurePassword = Read-Host -AsSecureString` (Enter a password and hit enter)
 
-3. `New-AzureADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password "identity-password"`
+3. `New-AzureRmADApplication -DisplayName "MyLogicAppID" -HomePage "http://mydomain.tld" -IdentifierUris "http://mydomain.tld" -Password $SecurePassword`
 
 4. Make sure to copy the **Tenant ID** (GUID for your Azure AD tenant), 
 the **Application ID**, and the password that you used.
 
 For more information, learn how to 
-[create a service principal with PowerShell to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+[create a service principal with PowerShell to access resources](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### Part 2: Create an Azure AD application identity for your web app or API app
 

@@ -48,7 +48,7 @@ sections:
     - html: <a href="tutorial-prepare-on-premises-vmware">Prepare on-premises VMware</a>
     - html: <a href="tutorial-vmware-to-azure">Set-up disaster recovery</a>
     - html: <a href="tutorial-dr-drill-azure">Run a disaster recovery drill</a>
-    - html: <a href="tutorial-vmware-to-azure-failover-failback">Run a failover and failback</a>
+    - html: <a href="vmware-azure-tutorial-failover-failback">Run a failover and failback</a>
   - type: text
     html: <h3>Hyper-V</h3> 
   - type: list    
@@ -74,6 +74,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.siterecovery>Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/site-recovery/">REST API Reference</a></p>

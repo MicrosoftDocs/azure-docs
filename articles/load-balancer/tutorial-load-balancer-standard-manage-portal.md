@@ -90,9 +90,9 @@ In this section, you create a virtual network, create three virtual machines for
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
 7. Create two more VMs, named, *VM2* and *VM3* with *myVnet* as its virtual network, *myBackendSubnet* as its subnet, and *myNetworkSecurityGroup* as its network security group using steps 1-6. 
 
-### Create network security group rules
+### Create network security group rule
 
-In this section, you create NSG rules to allow inbound connections using HTTP and RDP.
+In this section, you create a NSG rule to allow inbound connections using HTTP.
 
 1. Click **All resources** in the left-hand menu, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupSLB** resource group.
 2. Under **Settings**, click **Inbound security rules**, and then click **Add**.
@@ -133,7 +133,7 @@ In this section, you create NSG rules to allow inbound connections using HTTP an
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer rules.
+In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
 
 ### Create a backend address pool
 
@@ -200,11 +200,11 @@ To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When they are no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also, removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

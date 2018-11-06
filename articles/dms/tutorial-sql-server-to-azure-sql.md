@@ -1,20 +1,20 @@
 ---
-title: Use the Azure Database Migration Service to migrate SQL Server to Azure SQL Database offline | Microsoft Docs
+title: "Tutorial: Use the Azure Database Migration Service to migrate SQL Server to Azure SQL Database offline | Microsoft Docs"
 description: Learn to migrate from SQL Server on-premises to Azure SQL Database offline by using the Azure Database Migration Service.
 services: dms
-author: edmacauley
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: 
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 10/10/2018
 ---
 
-# Migrate SQL Server to Azure SQL Database offline using DMS
-You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to [Azure SQL Database](https://docs.microsoft.com/en-us/azure/sql-database/). In this tutorial, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 (or later) to an Azure SQL Database by using the Azure Database Migration Service.
+# Tutorial: Migrate SQL Server to Azure SQL Database offline using DMS
+You can use the Azure Database Migration Service to migrate the databases from an on-premises SQL Server instance to [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). In this tutorial, you migrate the **Adventureworks2012** database restored to an on-premises instance of SQL Server 2016 (or later) to an Azure SQL Database by using the Azure Database Migration Service.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -25,6 +25,10 @@ In this tutorial, you learn how to:
 > * Run the migration.
 > * Monitor the migration.
 > * Download a migration report.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+This article describes an offline migration from SQL Server to Azure SQL Database. For an online migration, see [Migrate SQL Server to Azure SQL Database online using DMS](tutorial-sql-server-azure-sql-online.md).
 
 ## Prerequisites
 To complete this tutorial, you need to:
@@ -210,7 +214,7 @@ After the service is created, locate it within the Azure portal, open it, and th
     ![Migration Summary](media\tutorial-sql-server-to-azure-sql\dms-run-migration2.png)
 
 ## Run the migration
-1.	Select **Run migration**.
+- Select **Run migration**.
 
     The migration activity window appears, and the **Status** of the activity is **Pending**.
 

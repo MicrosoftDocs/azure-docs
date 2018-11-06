@@ -6,7 +6,7 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 9/7/2018
 ms.author: saurse
 ---
 # Restore files to a Windows server or Windows client machine using Resource Manager deployment model
@@ -49,6 +49,9 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 > [!IMPORTANT]
 > The option to restore *Individual Files and Folders* requires .NET Framework 4.5.2 or higher. If you do not see the *Individual Files and Folders* option, you must upgrade .NET Framework to version 4.5.2 or higher and try again.
 
+> [!TIP]
+> The *Individual Files and Folders* option allows for quick access to the recovery point data. It is suitable for recovering individual files, with sizes totalling not more than 80 GB in size and offers transfer/copy speeds up to 6 MBps during recovery. The *Volume* option recovers all backed up data in a given Volume. This option provides faster transfer speeds (upto 60 MBps), which is ideal for recovering large sized data or entire volumes.
+
 5. On the **Select Volume and Date** pane, select the volume that contains the files and/or folders you want to restore.
 
     On the calendar, select a recovery point. You can restore from any recovery point in time. Dates in **bold** indicate the availability of at least one recovery point. Once you select a date, if multiple recovery points are available, choose the specific recovery point from the **Time** drop-down menu.
@@ -67,6 +70,7 @@ If you accidentally deleted a file and wish to restore it to the same machine (f
 8. In Windows Explorer, copy the files and/or folders you want to restore and paste them to any location local to the server or computer. You can open or stream the files directly from the recovery volume and verify that you are recovering the correct versions.
 
     ![Copy and paste files and folders from mounted volume to local location](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
 
 9. When you are finished restoring the files and/or folders, on the **Browse and Recovery Files** pane, click **Unmount**. Then click **Yes** to confirm that you want to unmount the volume.
 

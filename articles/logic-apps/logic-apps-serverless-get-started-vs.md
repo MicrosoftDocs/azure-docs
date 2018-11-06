@@ -3,15 +3,14 @@ title: Build serverless apps with Visual Studio | Microsoft Docs
 description: Build, deploy, and manage your first serverless app with Azure Logic Apps and Azure Functions in Visual Studio
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.reviewer: jehollan, LADocs 
-ms.suite: integration
+ms.reviewer: klam, LADocs
+ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ---
 
 # Build your first serverless app with Azure Logic Apps and Azure Functions - Visual Studio
@@ -178,7 +177,7 @@ Your deployment template deploys any Azure functions that you have in your solut
 from the Git repo that's specified by variables in the `azuredeploy.json` file. 
 If you create and author your Functions project in your solution, 
 you can check that project into Git source control, for example, 
-GitHub or Visual Studio Team Services, and then update the `repo` 
+GitHub or Azure DevOps, and then update the `repo` 
 variable so that the template deploys your Azure function.
 
 ## Manage logic apps and view run history

@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -24,7 +24,7 @@ To install and configure a Windows Hybrid Runbook Worker, you can use two method
 The minimum requirements for a Windows Hybrid Runbook Worker are:
 
 * Windows Server 2012 or later.
-* Windows PowerShell 4.0 or later ([download WMF 4.0](https://www.microsoft.com/download/details.aspx?id=40855)). We recommend Windows PowerShell 5.1 ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) for increased reliability.
+* Windows PowerShell 5.1 or later ([download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET Framework 4.6.2 or later.
 * Two cores.
 * 4 GB of RAM.
@@ -43,13 +43,13 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 Perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role:
 
-1. Download the New-OnPremiseHybridWorker.ps1 script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment. Copy the script to the worker.
+1. Download the New-OnPremiseHybridWorker.ps1 script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment. Copy the script to the worker.
 
    The New-OnPremiseHybridWorker.ps1 script requires the following parameters during execution:
 
    * *AutomationAccountName* (mandatory): The name of your Automation account.
    * *AAResourceGroupName* (mandatory): The name of the resource group that's associated with your Automation account.
-   * *OMSResourceGroupName* (optional): The name of the resource group for the Operations Management Suite workspace. If this resource group is not specified, *AAResourceGroupName* is used.
+   * *OMSResourceGroupName* (optional): The name of the resource group for the Log Analytics workspace. If this resource group is not specified, *AAResourceGroupName* is used.
    * *HybridGroupName* (mandatory): The name of a Hybrid Runbook Worker group that you specify as a target for the runbooks that support this scenario.
    * *SubscriptionID* (mandatory): The Azure subscription ID that your Automation account is in.
    * *WorkspaceName* (optional): The Log Analytics workspace name. If you don't have a Log Analytics workspace, the script creates and configures one.
@@ -57,8 +57,8 @@ Perform the following steps to automate the installation and configuration of th
      > [!NOTE]
      > Currently, the only Automation regions supported for integration with Log Analytics are **Australia Southeast**, **East US 2**, **Southeast Asia**, and **West Europe**. If your Automation account is not in one of those regions, the script creates a Log Analytics workspace but warns you that it can't link them together.
 
-1. On your computer, open **Windows PowerShell** from the **Start** screen in Administrator mode.
-1. From the PowerShell command-line shell, browse to the folder that contains the script that you downloaded. Change the values for the parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*. Then run the script.
+2. On your computer, open **Windows PowerShell** from the **Start** screen in Administrator mode.
+3. From the PowerShell command-line shell, browse to the folder that contains the script that you downloaded. Change the values for the parameters *-AutomationAccountName*, *-AAResourceGroupName*, *-OMSResourceGroupName*, *-HybridGroupName*, *-SubscriptionId*, and *-WorkspaceName*. Then run the script.
 
      > [!NOTE]
      > You're prompted to authenticate with Azure after you run the script. You *must* sign in with an account that's a member of the Subscription Admins role and co-administrator of the subscription.
@@ -69,9 +69,9 @@ Perform the following steps to automate the installation and configuration of th
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. You're prompted to agree to install NuGet, and you're prompted to authenticate with your Azure credentials.
+4. You're prompted to agree to install NuGet, and you're prompted to authenticate with your Azure credentials.
 
-1. After the script is finished, the **Hybrid Worker Groups** page shows the new group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile. On the **Hybrid Workers** page, you see each member of the group listed.
+5. After the script is finished, the **Hybrid Worker Groups** page shows the new group and the number of members. If it's an existing group, the number of members is incremented. You can select the group from the list on the **Hybrid Worker Groups** page and select the **Hybrid Workers** tile. On the **Hybrid Workers** page, you see each member of the group listed.
 
 ### Manual deployment
 

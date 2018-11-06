@@ -1,6 +1,6 @@
 ---
-title: Copy data to and from WASB into Data Lake Store using Distcp| Microsoft Docs
-description: Use Distcp tool to copy data to and from Azure Storage Blobs to Data Lake Store
+title: Copy data to and from WASB into Azure Data Lake Storage Gen1 using Distcp| Microsoft Docs
+description: Use Distcp tool to copy data to and from Azure Storage Blobs to Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -15,27 +15,27 @@ ms.date: 05/29/2018
 ms.author: nitinme
 
 ---
-# Use Distcp to copy data between Azure Storage Blobs and Data Lake Store
+# Use Distcp to copy data between Azure Storage Blobs and Azure Data Lake Storage Gen1
 > [!div class="op_single_selector"]
 > * [Using DistCp](data-lake-store-copy-data-wasb-distcp.md)
 > * [Using AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 >
 >
 
-If you have an HDInsight cluster with access to Data Lake Store, you can use Hadoop ecosystem tools like Distcp to copy data **to and from** an HDInsight cluster storage (WASB) into a Data Lake Store account. This article provides instructions on how use the Distcp tool.
+If you have an HDInsight cluster with access to Azure Data Lake Storage Gen1, you can use Hadoop ecosystem tools like Distcp to copy data **to and from** an HDInsight cluster storage (WASB) into a Data Lake Storage Gen1 account. This article provides instructions on how use the Distcp tool.
 
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
-* **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen1 account. See [Create an HDInsight cluster with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 
 ## Do you learn fast with videos?
-[Watch this video](https://mix.office.com/watch/1liuojvdx6sie) on how to copy data between Azure Storage Blobs and Data Lake Store using DistCp.
+[Watch this video](https://mix.office.com/watch/1liuojvdx6sie) on how to copy data between Azure Storage Blobs and Data Lake Storage Gen1 using DistCp.
 
 ## Use Distcp from an HDInsight Linux cluster
 
-An HDInsight cluster comes with the Distcp utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Data Lake Store as additional storage, the Distcp utility can be used out-of-the-box to copy data to and from a Data Lake Store account as well. In this section, we look at how to use the Distcp utility.
+An HDInsight cluster comes with the Distcp utility, which can be used to copy data from different sources into an HDInsight cluster. If you have configured the HDInsight cluster to use Data Lake Storage Gen1 as additional storage, the Distcp utility can be used out-of-the-box to copy data to and from a Data Lake Storage Gen1 account as well. In this section, we look at how to use the Distcp utility.
 
 1. From your desktop, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md). Run the commands from the SSH prompt.
 
@@ -45,31 +45,31 @@ An HDInsight cluster comes with the Distcp utility, which can be used to copy da
 
     The output should provide a list of contents in the storage blob.
 
-3. Similarly, verify whether you can access the Data Lake Store account from the cluster. Run the following command:
+3. Similarly, verify whether you can access the Data Lake Storage Gen1 account from the cluster. Run the following command:
 
-        hdfs dfs -ls adl://<data_lake_store_account>.azuredatalakestore.net:443/
+        hdfs dfs -ls adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/
 
-    The output should provide a list of files/folders in the Data Lake Store account.
+    The output should provide a list of files/folders in the Data Lake Storage Gen1 account.
 
-4. Use Distcp to copy data from WASB to a Data Lake Store account.
+4. Use Distcp to copy data from WASB to a Data Lake Storage Gen1 account.
 
-        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder
+        hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder
 
-    The command copies the contents of the **/example/data/gutenberg/** folder in WASB to **/myfolder** in the Data Lake Store account.
+    The command copies the contents of the **/example/data/gutenberg/** folder in WASB to **/myfolder** in the Data Lake Storage Gen1 account.
 
-5. Similarly, use Distcp to copy data from Data Lake Store account to WASB.
+5. Similarly, use Distcp to copy data from Data Lake Storage Gen1 account to WASB.
 
-        hadoop distcp adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
+        hadoop distcp adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg
 
-    THe command copies the contents of **/myfolder** in the Data Lake Store account to **/example/data/gutenberg/** folder in WASB.
+    THe command copies the contents of **/myfolder** in the Data Lake Storage Gen1 account to **/example/data/gutenberg/** folder in WASB.
 
 ## Performance considerations while using DistCp
 
-Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Store. Number of simultaneous copies is controlled by setting the number of mappers (‘m’) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
+Because DistCp’s lowest granularity is a single file, setting the maximum number of simultaneous copies is the most important parameter to optimize it against Data Lake Storage Gen1. Number of simultaneous copies is controlled by setting the number of mappers (‘m’) parameter on the command line. This parameter specifies the maximum number of mappers that are used to copy data. Default value is 20.
 
 **Example**
 
-	hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_store_account>.azuredatalakestore.net:443/myfolder -m 100
+	hadoop distcp wasb://<container_name>@<storage_account_name>.blob.core.windows.net/example/data/gutenberg adl://<data_lake_storage_gen1_account>.azuredatalakestore.net:443/myfolder -m 100
 
 ### How do I determine the number of mappers to use?
 
@@ -110,7 +110,7 @@ When the size of the dataset to be moved is large (for example, >1 TB) or if you
 * If you are copying from an Azure Blob Storage account, your copy job may be throttled on the blob storage side. This degrades the performance of your copy job. To learn more about the limits of Azure Blob Storage, see Azure Storage limits at [Azure subscription and service limits](../azure-subscription-service-limits.md).
 
 ## See also
-* [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
-* [Secure data in Data Lake Store](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Use Azure HDInsight with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Copy data from Azure Storage Blobs to Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Secure data in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

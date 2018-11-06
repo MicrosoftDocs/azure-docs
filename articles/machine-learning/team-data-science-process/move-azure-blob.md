@@ -4,7 +4,7 @@ description: Move Data to and from Azure Blob Storage
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: d6681e30-ab45-45ea-a9fb-ac8acefe544d

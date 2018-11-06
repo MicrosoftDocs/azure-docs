@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor a live ASP.NET web app with Azure Application Insights  | Microsoft Docs
 description: Monitor a website's performance without re-deploying it. Works with ASP.NET web apps hosted on-premises, in VMs or on Azure.
 services: application-insights
@@ -12,17 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
 
 ---
 # Instrument web apps at runtime with Application Insights
 
-
 You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. If your apps are hosted by an on-premises IIS server, install Status Monitor. If they're Azure web apps or run in an Azure VM, you can switch on Application Insights monitoring from the Azure control panel. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 You need a [Microsoft Azure](http://azure.com) subscription.
 
-![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Screenshot of App Insights overview graphs containing information on failed requests, server response time, and server requests](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 You have a choice of three routes to apply Application Insights to your .NET web applications:
 
@@ -55,7 +54,7 @@ If your application is running as an Azure web service, here's how to switch on 
 
     ![Click through to Application Insights](./media/app-insights-monitor-performance-live-website-now/azure-web-view-more.png)
 
-[Monitoring Cloud and VM apps](app-insights-azure.md).
+[Monitoring Cloud and VM apps](app-insights-overview.md).
 
 ### Enable client-side monitoring in Azure
 

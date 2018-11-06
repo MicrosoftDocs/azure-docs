@@ -42,7 +42,7 @@ In this tutorial series you learn how to:
 Before you begin this tutorial:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * Install the Service Fabric SDK for [Mac](service-fabric-get-started-mac.md) or [Linux](service-fabric-get-started-linux.md)
 * [Install Python 3](https://wiki.python.org/moin/BeginnersGuide/Download)
 
@@ -170,7 +170,7 @@ The following steps create the necessary resources required to deploy your appli
     Your SAS URL for the EventHubs follows the structure: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. For example,
     https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. Open the *sfdeploy.parameters.json* file and replace the following contents from the preceding steps
+12. Open the *sfdeploy.parameters.json* file and replace the following contents from the preceding steps. [SAS-URL-STORAGE-ACCOUNT] was noted in step 8. [SAS-URL-EVENT-HUBS] was noted in step 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -184,7 +184,12 @@ The following steps create the necessary resources required to deploy your appli
     }
     ```
 
-13. Run the following command to create your Service Fabric cluster
+13. Opens **sfdeploy.parameters.json**. Change the following parameters and then save the file.
+    - **clusterName**. Use only lower-case letters and numerals.
+    - **adminUserName** (to a value other than blank)
+    - **adminPassword** (to a value other than blank)
+
+14. Run the following command to create your Service Fabric cluster
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -203,13 +208,13 @@ The following steps create the necessary resources required to deploy your appli
 2. To deploy your application to this cluster, you must use SFCTL to establish a connection to the cluster. SFCTL requires a PEM file with both the public and private key to connect to the cluster. Run the following command to produce a PEM file with both the public and private key. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. Run the following command to connect to the cluster.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. To deploy your application, navigate to the *Voting/Scripts* folder and run the **install.sh** script.

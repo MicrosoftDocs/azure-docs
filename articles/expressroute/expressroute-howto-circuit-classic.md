@@ -43,7 +43,7 @@ To sign in to your Azure account, use the following example:
 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount
   ```
 2. Check the subscriptions for the account.

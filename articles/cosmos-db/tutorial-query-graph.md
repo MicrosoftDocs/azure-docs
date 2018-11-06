@@ -17,9 +17,9 @@ ms.custom: mvc
 
 ---
 
-# Tutorial: Query Azure Cosmos DB Graph API by using Gremlin
+# Tutorial: Query Azure Cosmos DB Gremlin API by using Gremlin
 
-The Azure Cosmos DB [Graph API](graph-introduction.md) supports [Gremlin](https://github.com/tinkerpop/gremlin/wiki) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
+The Azure Cosmos DB [Gremlin API](graph-introduction.md) supports [Gremlin](https://github.com/tinkerpop/gremlin/wiki) queries. This article provides sample documents and queries to get you started. A detailed Gremlin reference is provided in the [Gremlin support](gremlin-support.md) article.
 
 This article covers the following tasks: 
 

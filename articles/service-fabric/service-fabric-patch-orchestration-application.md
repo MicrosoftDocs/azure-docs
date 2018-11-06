@@ -26,7 +26,9 @@ ms.author: nachandr
 >
 >
 
-The patch orchestration application is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime.
+[Azure virtual machine scale set automatic OS image upgrades](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the best practice for keeping your operating systems patched in Azure, and the Patch Orchestration Application (POA) is a wrapper around Service Fabrics RepairManager Systems service that enables configuration based OS patch scheduling for non-Azure hosted clusters. POA is not required for non-Azure hosted clusters, but scheduling patch installation by Upgrade Domains, is required to patch Service Fabric clusters hosts without downtime.
+
+POA is an Azure Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime.
 
 The patch orchestration app provides the following features:
 
@@ -136,7 +138,7 @@ Automatic Windows updates might lead to availability loss because multiple clust
 
 Application along with installation scripts can be downloaded from [Archive link](https://go.microsoft.com/fwlink/?linkid=869566).
 
-Application in sfpkg format can be downloaded from [sfpkg link](https://go.microsoft.com/fwlink/?linkid=869567). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
+Application in sfpkg format can be downloaded from [sfpkg link](https://aka.ms/POA/POA_v1.2.2.sfpkg). This comes handy for [Azure Resource Manager based application deployment](service-fabric-application-arm-resource.md).
 
 ## Configure the app
 
@@ -398,3 +400,5 @@ An administrator must intervene and determine why the application or cluster bec
 ### Version 1.2.2 (Latest)
 
 - Miscellaneous bug fixes.
+- Binaries are now signed.
+- sfpkg download link now points to a specific version.

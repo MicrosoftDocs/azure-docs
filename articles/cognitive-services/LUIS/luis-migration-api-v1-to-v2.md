@@ -1,14 +1,14 @@
 ---
-title: API Migrate guide from v1 to v2 | Microsoft Docs
-titleSuffix: Azure
+title: API Migration guide from v1 to v2 
+titleSuffix: Azure Cognitive Services
 description: Learn how to migration to the latest API set.
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
 ---
 
@@ -150,7 +150,7 @@ LUIS suggests utterances from existing [endpoint utterances](luis-how-to-review-
 The exported 1.x app's JSON has some areas that you need to change before importing into [LUIS][LUIS] 2.0. 
 
 ### Prebuilt entities 
-The [prebuilt entities](luis-prebuilt-entities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-prebuilt-entities.md#use-a-prebuilt-datetimev2-entity), instead of datetime. 
+The [prebuilt entities](luis-prebuilt-entities.md) have changed. Make sure you are using the V2 prebuilt entities. This includes using [datetimeV2](luis-reference-prebuilt-datetimev2.md), instead of datetime. 
 
 ### Actions
 The actions property is no longer valid. It should be an empty 
@@ -163,6 +163,6 @@ See [LUIS API response codes](luis-reference-response-codes.md).
 
 ## Next steps
 
-Use the v2 API documentation to update existing REST calls to LIUS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
+Use the v2 API documentation to update existing REST calls to LUIS [endpoint](https://aka.ms/luis-endpoint-apis) and [authoring](https://aka.ms/luis-authoring-apis) APIs. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

@@ -3,11 +3,11 @@ title: Storm-starter examples on Apache Storm on HDInsight - Azure
 description: Learn how to do big data analytics and process data in real-time using Apache Storm and the storm-starter examples on HDInsight.
 keywords: storm-starter, apache storm example
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
-editor: jasonwhowell
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
 ---

@@ -1,21 +1,15 @@
 ---
-title: Use a U-SQL database project to develop a U-SQL database for Azure Data Lake | Microsoft Docs
-description: 'Learn how to develop a U-SQL database using Azure Data Lake Tools for Visual Studio.'
+title: Use a U-SQL database project to develop a U-SQL database for Azure Data Lake
+description: Learn how to develop a U-SQL database using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager:  
-editor: 
-
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-
 ---
 # Use a U-SQL database project to develop a U-SQL database for Azure Data Lake
 
@@ -57,7 +51,7 @@ For an assembly object, the tool provides a user-friendly UI editor that helps y
 
 The build output for a U-SQL database project is a U-SQL database deployment package, named with the suffix `.usqldbpack`. The `.usqldbpack` package is a .zip file that includes all DDL statements in a single U-SQL script in the **DDL** folder, and all DLLs and additional files for assemblies in the **Temp** folder.
 
-Learn more about [how to build a U-SQL database project with the MSBuild command line and a Visual Studio Team Services build task](data-lake-analytics-cicd-overview.md).
+Learn more about [how to build a U-SQL database project with the MSBuild command line and a Azure DevOps Services build task](data-lake-analytics-cicd-overview.md).
 
 ## Deploy a U-SQL database
 
@@ -94,7 +88,7 @@ You can deploy a U-SQL database through a U-SQL database project or a .usqldbpac
 
 `PackageDeploymentTool.exe` provides the programming and command-line interfaces that help to deploy U-SQL databases. The SDK is included in the [U-SQL SDK Nuget package](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), located at `build/runtime/PackageDeploymentTool.exe`.
 
-[Learn more about the SDK and how to set up CI/CD pipeline for U-SQL database deployment](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
+[Learn more about the SDK and how to set up CI/CD pipeline for U-SQL database deployment](data-lake-analytics-cicd-overview.md).
 
 ## Reference a U-SQL database project
 

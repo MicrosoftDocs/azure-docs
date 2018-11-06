@@ -26,20 +26,20 @@ These are transaction offers which are deployed and billed through the Marketpla
 
 ## Free Trial 
 
-You can arrange for users to test your offer by accessing limited term software licenses when using the Bring Your Own License (BYOL) blling model. Below are the requirements to deploy this offer. 
+You can arrange for users to test your offer by accessing limited term software licenses when using the Bring Your Own License (BYOL) billing model. Below are the requirements to deploy this offer. 
 
 |Requirements  |Details  |
 |---------|---------|
-|Free trial period and trial experience     |   Your customer may try your app for free for a limited time. Your customer is not required to pay any license or subscription fees for your offer. Your customers are not required to pay for the underlying Microsoft first-party product or service. All trial options are deployed to your Azure subscription. You have sole control of the cost optimization and management. You may choose a free trial or interactive demo. No matter what you choose, your free trial must provide the customer a pre-set amount of time to try your offer at no additional cost.|
+|Free trial period and trial experience     |   Your customers may try your app for free for a limited time. Your customers are note required to pay any license or subscription fees for your offer. Your customers are not required to pay for the underlying Microsoft first-party product or service. All trial options are deployed to your Azure subscription. You have sole control of the cost optimization and management. You may choose a free trial or interactive demo. No matter what you choose, your free trial must provide customers a pre-set amount of time to try your offer at no additional cost.|
 |Easily configurable, ready-to-use solution    |  Your app must be easy and quick to configure and set up.       |
 |Availability / uptime    |    Your SaaS app or platform must have an uptime of at least 99.9%.     |
 |Azure Active Directory     |    Your offer must allow Azure Active Directory (Azure AD) federated single sign-on (SSO) (Azure AD federated SSO) with consent enabled.     |
 
 ## Test Drive
 
-You deploy one or more virtual machines through infrastructure-as-a-service(IaaS) or SaaS apps. A benefit of the test drive publishing option is the automated provisioning of a virtual machine or entire solution led by a partner-hosted guided tour. A test drive provides an evaluation at no additional cost to your customer. Your customer does not need to be an existing Azure customer to engage with the trial experience. 
+You deploy one or more virtual machines through infrastructure-as-a-service (IaaS) or software-as-a-service (SaaS) apps. A benefit of the test drive publishing option is the automated provisioning of a virtual machine or entire solution led by a partner-hosted guided tour. A test drive provides an evaluation at no additional cost to your customer. Your customer does not need to be an existing Azure customer to engage with the trial experience. 
 
-Email amp-testdrive@microsoft.com to get started. 
+Contact us at [amp-testdrive](mailto:amp-testdrive@microsoft.com) to get started. 
 
 |Requirements  |Details |
 |---------|---------|

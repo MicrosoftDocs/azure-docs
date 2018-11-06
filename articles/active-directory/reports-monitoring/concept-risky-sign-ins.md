@@ -26,14 +26,23 @@ Azure AD detects suspicious actions that are related to your user accounts. For 
 
 The detected risk events are used to calculate:
 
-- **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more details, see [Risky sign-ins](../identity-protection/overview.md#risky-sign-ins). 
+- **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more details, see [How to configure the sign-in risk policy](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see [Users flagged for risk](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see [How to configure the user risk policy](../identity-protection/howto-user-risk-policy.md).  
 
 In [the Azure portal](https://portal.azure.com), you can find the security reports on the **Azure Active Directory** blade in the **Security** section. 
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/10.png)
 
+## Who can access the risky sign-ins report?
+
+The risky sign-ins reports are available to users in the following roles:
+
+- Security Administrator
+- Global Administrator
+- Security Reader
+
+To learn how to assign administrative roles to a user in Azure Active Directory, see [View and assign administrator roles in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-manage-roles-portal).
 
 ## What Azure AD license do you need to access a security report?  
 
@@ -45,8 +54,6 @@ However, the level of report granularity varies between the editions:
 - The **Azure Active Directory Premium 1** edition extends this model by also enabling you to examine some of the underlying risk events that have been detected for each report. 
 
 - The **Azure Active Directory Premium 2** edition provides you with the most detailed information about all underlying risk events and it also enables you to configure security policies that automatically respond to configured risk levels.
-
-
 
 ## Azure Active Directory free and basic edition
 
@@ -70,7 +77,7 @@ Based on your investigation of the risky sign-in, you can provide feedback to Az
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/21.png)
 
-For more details, see [Closing risk events manually](../identity-protection/overview.md#closing-risk-events-manually).
+
 
 This report provides you with an option to:
 
@@ -95,13 +102,13 @@ The risky sign-ins report in the Azure Active Directory premium editions provide
 
 When you select a risk event, you get a detailed report view for this risk event that enables you to:
 
-- An option to configure a [user risk remediation policy](../identity-protection/overview.md#user-risk-security-policy)  
+- An option to configure a [user risk remediation policy](../identity-protection/howto-user-risk-policy.md)  
 
 - Review the detection timeline for the risk event  
 
 - Review a list of users for which this risk event has been detected
 
-- [Manually close risk events](../identity-protection/overview.md#closing-risk-events-manually) or reactivate a manually closed risk event. 
+- Manually close risk events. 
 
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/457.png)
@@ -121,7 +128,7 @@ When you select a user, you get a detailed report view for this user that enable
 
 
 To investigate a risk event, select one from the list.  
-This opens the **Details** blade for this risk event. On the **Details** blade, you have the option to either [manually close a risk event](../identity-protection/overview.md#closing-risk-events-manually) or reactivate a manually closed risk event. 
+This opens the **Details** blade for this risk event. On the **Details** blade, you have the option to either manually close a risk event or reactivate a manually closed risk event. 
 
 
 ![Risky Sign-ins](./media/concept-risky-sign-ins/325.png)

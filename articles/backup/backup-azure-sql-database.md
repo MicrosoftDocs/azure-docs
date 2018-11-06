@@ -699,7 +699,7 @@ When you stop protection for a SQL Server database, Azure Backup requests whethe
 * Stop all future backup jobs and delete all recovery points.
 * Stop all future backup jobs, but leave the recovery points.
 
-There's a cost to leave the recovery points. The recovery points for SQL incur the SQL protected instance pricing charge, plus the storage consumed. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/). 
+If you choose Stop backup with retain data, recovery points will be cleaned up as per the backup policy. You will incur the SQL protected instance pricing charge, plus the storage consumed till all recovery points are cleaned. For more information about Azure Backup pricing for SQL, see the [Azure Backup pricing page](https://azure.microsoft.com/pricing/details/backup/). 
 
 To stop protection for a database:
 
@@ -819,6 +819,10 @@ Trigger a full backup. Log backups begin as expected.
 ### Can I protect SQL Always On Availability Groups where the primary replica is on premises
 
 No. Azure Backup protects SQL Servers running in Azure. If an Availability Group (AG) is spread between Azure and on-premises machines, the AG can be protected only if the primary replica is running in Azure. Additionally, Azure Backup only protects the nodes running in the same Azure region as the Recovery Services vault.
+
+### Can I protect SQL Always On Availability Groups which are spread across Azure regions
+Azure Backup Recovery Services Vault can detect and protect all nodes which are in the same region as the Recovery Services Vault. If you have a SQL Always On Availability group spanning multiple Azure regions, you need to configure backup from the region which has the primary node. Azure Backup will be able to detect and protect all databases in the availability group as per backup preference. If the backup preference is not met, backups will fail and you will get the failure alert.
+
 
 ## Next steps
 

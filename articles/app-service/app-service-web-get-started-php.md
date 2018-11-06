@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 12/13/2017
+ms.date: 08/24/2018
 ms.author: cephalin;cfowler
 ms.custom: mvc
 ---
@@ -40,7 +40,7 @@ To complete this quickstart:
 
 ## Download the sample locally
 
-In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code.
+In a terminal window, run the following commands. This will clone the sample application to your local machine, and navigate to the directory containing the sample code. 
 
 ```bash
 git clone https://github.com/Azure-Samples/php-docs-hello-world
@@ -49,7 +49,7 @@ cd php-docs-hello-world
 
 ## Run the app locally
 
-Run the application locally by opening a terminal window and using the `php` command to launch the built-in PHP web server.
+Run the application locally so that you see how it should look when you deploy it to Azure. Open a terminal window and use the `php` command to launch the built-in PHP web server.
 
 ```bash
 php -S localhost:8080

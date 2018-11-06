@@ -1,17 +1,19 @@
 ---
-title: C# Quickstart for Azure Cognitive Services, Bing News Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing News Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing News Search API, C#"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing News Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
 
-# Quickstart for Bing News Search API with C#
+# Quickstart: Bing News Search API with C#
 
 This article shows you how use the Bing Search API, part of Microsoft Cognitive Services on Azure. While this article employs C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 

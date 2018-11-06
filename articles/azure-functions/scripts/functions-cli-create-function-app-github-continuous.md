@@ -2,11 +2,11 @@
 title: Create a function in Azure that is deployed from GitHub | Microsoft Docs 
 description: Create a function app and deploy function code from a GitHub repository using Azure Functions.
 services: functions 
-ms.service: functions
+ms.service: azure-functions
 keywords: 
 ms.devlang: azurecli
 
-author: syntaxc4
+author: ggailey777
 ms.author: glenga
 ms.date: 07/03/2018
 ms.topic: sample
@@ -27,7 +27,7 @@ In this sample, you need:
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you rather use the Azure CLI locally, you must install and use version 2.0 or a later version. To determine the Azure CLI version, run `az --version`. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you rather use the Azure CLI locally, you must install and use version 2.0 or a later version. To determine the Azure CLI version, run `az --version`. If you need to install or upgrade, see [Install the Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## Sample script
 

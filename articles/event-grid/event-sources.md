@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 09/19/2018
 ms.author: tomfitz
 ---
 
@@ -34,6 +34,7 @@ Subscribe to Container Registry events to respond to changes in images.
 
 |Title |Description  |
 |---------|---------|
+| [Quickstart: send container registry events](../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Shows how to use Azure CLI to send Container Registry events. |
 | [Event schema](event-schema-container-registry.md) | Shows fields in Container Registry events. |
 
 ## Custom topics
@@ -53,7 +54,7 @@ Subscribe to custom topics to respond to application events.
 | [PowerShell: subscribe to events for a custom topic](./scripts/event-grid-powershell-subscribe-custom-topic.md)|Sample script that creates a subscription for a custom topic. It sends events to a WebHook.|
 | [Resource Manager template: custom topic and WebHook endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid) | A Resource Manager template that creates a custom topic and subscription for that custom topic. It sends events to a WebHook. |
 |
-| [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeCustomTopicToEventHub.json)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
+| [Resource Manager template: custom topic and Event Hubs endpoint](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-event-hubs-handler)| A Resource Manager template that creates a subscription for a custom topic. It sends events to an Azure Event Hubs. |
 | [Event schema](event-schema.md) | Shows fields in custom events. |
 
 ## Event Hubs
@@ -69,13 +70,14 @@ For examples of Event Hubs as a handler, see [Event Hubs handler](event-handlers
 
 ## IoT Hub
 
-Subscribe to IoT Hub events to respond to device created and deleted events.
+Subscribe to IoT Hub events to respond to device created, deleted, connected and disconnected events.
 
 |Title  |Description  |
 |---------|---------|
-| [Tutorial: send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT hub. |
-| [Overview: react to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Overview of integrating Iot Hubs with Event Grid. |
+| [Send email notifications about Azure IoT Hub events using Logic Apps](publish-iot-hub-events-to-logic-apps.md) | A logic app sends a notification email every time a device is added to your IoT Hub. |
+| [React to IoT Hub events by using Event Grid to trigger actions](../iot-hub/iot-hub-event-grid.md) | Overview of integrating IoT Hub with Event Grid. |
 | [Event schema](event-schema-iot-hub.md) | Shows fields in IoT Hub events. |
+| [Order device connected and device disconnected events](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Shows how to order device connection state events. |
 
 ## Media Services
 
@@ -98,7 +100,7 @@ Subscribe to resource group events to respond to changes in resources across a r
 | [Azure CLI: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-cli-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
 | [PowerShell: subscribe to events for a resource group](./scripts/event-grid-powershell-resource-group.md) | Sample script that subscribes to events for a resource group. It sends events to a WebHook. |
 | [PowerShell: subscribe to events for a resource group and filter for a resource](./scripts/event-grid-powershell-resource-group-filter.md) | Sample script that subscribes to events for a resource group and filters events for one resource. |
-| [Resource Manager template: resource group subscription](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/subscribeResourceGroupToWebHook.json) | Subscribes to events for a resource group. It sends events to a WebHook. |
+| [Resource Manager template: resource subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-resource-events-to-webhook) | Subscribes to events for an Azure subscription or resource group. It sends events to a WebHook. |
 | [Event Schema](event-schema-resource-groups.md) | Shows fields in resource group events. |
 
 ## Service Bus
@@ -122,7 +124,7 @@ Subscribe to Blob Storage events to respond to blob created and deleted events.
 | [Quickstart: create and route Blob storage events with the Azure portal](blob-event-quickstart-portal.md) | Shows how to use the portal to send blob storage events to a WebHook. |
 | [Azure CLI: subscribe to events for a Blob storage account](./scripts/event-grid-cli-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
 | [PowerShell: subscribe to events for a Blob storage account](./scripts/event-grid-powershell-blob.md) | Sample script that subscribes to event for a Blob storage account. It sends the event to a WebHook. |
-| [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/createBlobAndSubscribe.json) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
+| [Resource Manager template: Create Blob storage and subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/101-event-grid-subscription-and-storage) | Deploys an Azure Blob storage account and subscribes to events for that storage account. It sends events to a WebHook. |
 | [Overview: reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) | Overview of integrating Blob storage with Event Grid. |
 | [Event schema](event-schema-blob-storage.md) | Shows fields in Blob Storage events. |
 

@@ -17,7 +17,7 @@
 | --- | --- | --- |
 | Virtual networks |50 |100 |
 | Local network sites |20 |contact support |
-| DNS Servers per virtual network |20 |100 |
+| DNS Servers per virtual network |20 |20 |
 | Private IP Addresses per virtual network |4096 |4096 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |500K |
 | Network Security Groups (NSG) |100 |200 |
@@ -56,6 +56,8 @@ The following limits apply only for networking resources managed through Azure R
 | User defined route tables |200 |
 | User defined routes per route table |400 |
 | Point-to-Site Root Certificates per VPN Gateway |20 |
+| Virtual network TAPs |100 |
+| Network interface TAP configurations per virtual network TAP |100 |
 
 #### <a name="publicip-address"></a>Public IP address limits
 

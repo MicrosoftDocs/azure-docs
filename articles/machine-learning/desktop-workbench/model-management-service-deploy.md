@@ -11,8 +11,15 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/03/2018
+
+ROBOTS: NOINDEX
 ---
+
 # Deploying a Machine Learning Model as a web service
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 Azure Machine Learning Model Management provides interfaces to deploy models as containerized Docker-based web services. You can deploy models you create using frameworks such as Spark, the Microsoft Cognitive Toolkit (CNTK), Keras, Tensorflow, and Python. 
 
@@ -126,6 +133,7 @@ Example of a simple run function processing the input and returning the predicti
 
 ```python
 def run(input_df):
+    # clf2 is the same model as clf1, but loaded from the model.pkl file
     global clf2, inputs_dc, prediction_dc
     try:
         prediction = model.predict(input_df)

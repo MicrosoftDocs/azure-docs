@@ -56,9 +56,9 @@ If you are using Pivotal Cloud Foundry, the service broker is also [available as
 
 ## Related resources
 
-### Visual Studio Team Services plugin
+### Azure DevOps Services plugin
 
-Cloud Foundry is well suited to agile software development, including the use of continuous integration (CI) and continuous delivery (CD). If you use Visual Studio Team Services (VSTS) to manage your projects and would like to set up a CI/CD pipeline targeting Cloud Foundry, you can use the [VSTS Cloud Foundry build extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). The plugin makes it simple to configure and automate deployments to Cloud Foundry, whether running in Azure or another environment.
+Cloud Foundry is well suited to agile software development, including the use of continuous integration (CI) and continuous delivery (CD). If you use Azure DevOps Services to manage your projects and would like to set up a CI/CD pipeline targeting Cloud Foundry, you can use the [Azure DevOps Services Cloud Foundry build extension](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). The plugin makes it simple to configure and automate deployments to Cloud Foundry, whether running in Azure or another environment.
 
 ## Next steps
 

@@ -3,18 +3,18 @@ title: Enable auditing and threat detection on SQL servers in Azure Security Cen
 description: This document shows you how to implement the Azure Security Center recommendation **Enable Auditing & Threat detection on SQL servers**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 042fca4d-7dab-4172-8614-e8c21ccb4960
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/30/2017
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Enable auditing and threat detection on SQL servers in Azure Security Center

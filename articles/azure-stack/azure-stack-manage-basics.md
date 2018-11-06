@@ -3,7 +3,7 @@ title: Azure Stack administration basics | Microsoft Docs
 description: Learn what you need to know to administer Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2018
-ms.author: mabrigg
+ms.date: 10/15/2018
+ms.author: jeffgilb
 
 ---
 # Azure Stack administration basics
@@ -140,6 +140,6 @@ For the development kit, you can ask support-related questions in the [Microsoft
 
 ## Next steps
 
-- [Region management in Azure Stack](azure-stack-region-management.md)
+[Region management in Azure Stack](azure-stack-region-management.md)
 
 

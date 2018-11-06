@@ -66,7 +66,9 @@ If you don’t want the parent runbook to be blocked on waiting, you can invoke 
 
 Parameters for a child runbook started with a cmdlet are provided as a hashtable as described in [Runbook Parameters](automation-starting-a-runbook.md#runbook-parameters). Only simple data types can be used. If the runbook has a parameter with a complex data type, then it must be called inline.
 
-If working with multiple subscriptions the subscription context might be lost when invoking child runbooks. To ensure that the subscription context is passed to the child runbooks, add the `DefaultProfile` parameter to the cmdlet and pass the context to it.
+The subscription context might be lost when invoking child runbooks as separate jobs. In order for the child runbook to invoke Azure RM cmdlets against a desired Azure subscription, the child runbook must authenticate to this subscription independently of the parent runbook.
+
+If jobs within the same Automation account work with multiple subscriptions, selecting a subscription in one job may change the currently selected subscription context for other jobs as well, which is not normally desired. In order to avoid this problem, save the result of the `Select-AzureRmSubscription` cmdlet invocation and pass this object to the `DefaultProfile` parameter of all the subsequent Azure RM cmdlets invocations. This pattern must be consistently applied to all runbooks running in this Automation account.
 
 ### Example
 

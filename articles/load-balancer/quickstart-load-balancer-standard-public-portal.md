@@ -81,9 +81,9 @@ In this section, you create a virtual network, create two virtual machines for t
 6. Click **OK**, review the settings on the summary page, and then click **Create**.
 7. Using steps 1-6, create a second VM, named, *VM2* with *myAvailibilityset* as the Availability set, *myVnet* as its virtual network, *myBackendSubnet* and its subnet, and **myNetworkSecurityGroup* as its network security group. 
 
-### Create NSG rules
+### Create NSG rule
 
-In this section, you create NSG rules to allow inbound connections using HTTP and RDP.
+In this section, you create a NSG rule to allow inbound connections using HTTP.
 
 1. Click **All resources** in the left-hand menu, and then from the resources list click **myNetworkSecurityGroup** that is located in the **myResourceGroupSLB** resource group.
 2. Under **Settings**, click **Inbound security rules**, and then click **Add**.

@@ -11,20 +11,26 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017 
+
+ROBOTS: NOINDEX
 ---
 
+
 # Roaming and collaboration in Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 This article describes how you can use Azure Machine Learning Workbench to set up projects for roaming between computers and collaborate with team members. 
 
 When you create an Azure Machine Learning project that has a remote Git repository (repo) link, the project metadata and snapshots are stored in the cloud. You can use the cloud link to access the project from a different computer (roaming). You can also collaborate with team members by giving them access to the project. 
 
 ## Prerequisites
-1. Install the Machine Learning Workbench app. Ensure that you have access to an Azure Machine Learning Experimentation account. For more information, see the [installation guide](../service/quickstart-installation.md).
+1. Install the Machine Learning Workbench app. Ensure that you have access to an Azure Machine Learning Experimentation account. For more information, see the [installation guide](quickstart-installation.md).
 
-2. Access [Visual Studio Team Services](https://www.visualstudio.com) (Team Services), and then create a repo to link your project to. For more information, see [Using a Git repo with a Machine Learning Workbench project](using-git-ml-project.md).
+2. Access [Azure DevOps](https://www.visualstudio.com) and then create a repo to link your project to. For more information, see [Using a Git repo with a Machine Learning Workbench project](using-git-ml-project.md).
 
 ## Create a new Machine Learning project
-Open Machine Learning Workbench, and then create a new project (for example, a project named iris). In the **Visualstudio.com GIT Repository URL** box, enter a valid URL for a Team Services Git repo. 
+Open Machine Learning Workbench, and then create a new project (for example, a project named iris). In the **Visualstudio.com GIT Repository URL** box, enter a valid URL for an Azure DevOps Git repo. 
 
 > [!IMPORTANT]
 > If you choose the blank project template, the Git repo you choose to use might already have a master branch. Machine Learning simply clones the master branch locally. It adds the aml_config folder and other project metadata files to the local project folder. 
@@ -57,7 +63,7 @@ $ git push origin master
 <a name="roaming"></a>
 
 ### Open Machine Learning Workbench on a second computer
-After the Team Services Git repo is linked with your project, you can access the iris project from any computer that has Machine Learning Workbench installed. 
+After the Azure DevOps Git repo is linked with your project, you can access the iris project from any computer that has Machine Learning Workbench installed. 
 
 To access the iris project on another computer, you must sign in to the app by using the same credentials that you used to create the project. You also need to be in the same Machine Learning Experimentation account and workspace. The iris project is alphabetically listed with other projects in the workspace. 
 
@@ -79,11 +85,11 @@ In a future release, we plan to enhance functionality so that you can select a d
 
 
 ### Work on the downloaded project 
-The newly downloaded project reflects the project state at the last run in the project. A snapshot of the project state is automatically committed to the run history branch in the Team Services Git repo every time you submit a run. The snapshot that is associated with the latest run is used to instantiate the project on the second computer. 
+The newly downloaded project reflects the project state at the last run in the project. A snapshot of the project state is automatically committed to the run history branch in the Azure DevOps Git repo every time you submit a run. The snapshot that is associated with the latest run is used to instantiate the project on the second computer. 
  
 
 ## Collaboration
-You can collaborate with team members on projects that are linked to a Team Services Git repo. You can assign permissions to users for the Machine Learning Experimentation account, workspace, and project. Currently, you can perform Azure Resource Manager commands by using Azure CLI. You can also use the [Azure portal](https://portal.azure.com). For more information, see [Use the Azure portal to add users](#portal).    
+You can collaborate with team members on projects that are linked to an Azure DevOps Git repo. You can assign permissions to users for the Machine Learning Experimentation account, workspace, and project. Currently, you can perform Azure Resource Manager commands by using Azure CLI. You can also use the [Azure portal](https://portal.azure.com). For more information, see [Use the Azure portal to add users](#portal).    
 
 ### Use the command line to add users
 As an example, Alice is the Owner of the iris project. Alice wants to share access to the project with Bob. 
@@ -124,16 +130,16 @@ Find the resource that you want to add users to by using the **All Resources** v
 ## Sample collaboration workflow
 To illustrate the collaboration workflow, let's walk through an example. Contoso employees Alice and Bob want to collaborate on a data science project by using Machine Learning Workbench. Their identities belong to the same Contoso Azure Active Directory (Azure AD) tenant. Here are the steps Alice and Bob take:
 
-1. Alice creates an empty Git repo in a Team Services project. The Team Services project should be in an Azure subscription that is created under the Contoso Azure AD tenant. 
+1. Alice creates an empty Git repo in an Azure DevOps project. The Azure DevOps project should be in an Azure subscription that is created under the Contoso Azure AD tenant. 
 
-2. Alice creates a Machine Learning Experimentation account, a workspace, and a Machine Learning Workbench project on her computer. When she creates the project, she enters the Team Services Git repo URL.
+2. Alice creates a Machine Learning Experimentation account, a workspace, and a Machine Learning Workbench project on her computer. When she creates the project, she enters the Azure DevOps Git repo URL.
 
-3. Alice starts to work on the project. She creates some scripts and executes a few runs. For each run, a snapshot of the entire project folder is automatically pushed as a commit to a run history branch of the Team Services Git repo that Machine Learning Workbench creates.
+3. Alice starts to work on the project. She creates some scripts and executes a few runs. For each run, a snapshot of the entire project folder is automatically pushed as a commit to a run history branch of the Azure DevOps Git repo that Machine Learning Workbench creates.
 
-4. Alice is happy with the work in progress. She wants to commit her changes in the local master branch and then push them to the Team Services Git repo master branch. With the project open, in Machine Learning Workbench, she opens the Command Prompt window, and then enters these commands:
+4. Alice is happy with the work in progress. She wants to commit her changes in the local master branch and then push them to Azure DevOps Git repo master branch. With the project open, in Machine Learning Workbench, she opens the Command Prompt window, and then enters these commands:
     
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
@@ -145,11 +151,11 @@ To illustrate the collaboration workflow, let's walk through an example. Contoso
     # Commit changes with a comment.
     $ git commit -m "this is a good milestone"
 
-    # Push the commit to the master branch of the remote Git repo in Team Services.
+    # Push the commit to the master branch of the remote Git repo in Azure DevOps.
     $ git push
     ```
 
-5. Alice adds Bob to the workspace as a Contributor. She can do this in the Azure portal, or by using the `az role assignment` command, as demonstrated earlier. Alice also grants Bob read/write permissions to the Team Services Git repo.
+5. Alice adds Bob to the workspace as a Contributor. She can do this in the Azure portal, or by using the `az role assignment` command, as demonstrated earlier. Alice also grants Bob read/write permissions to the Azure DevOps Git repo.
 
 6. Bob signs in to Machine Learning Workbench on his computer. He can see the workspace that Alice shared with him. He can see the iris project listed under that workspace. 
 
@@ -162,13 +168,13 @@ To illustrate the collaboration workflow, let's walk through an example. Contoso
 9. Bob wants to get the latest changes that Alice pushed, and then start working in a different branch. In Machine Learning Workbench, Bob opens a Command Prompt window and executes the following commands:
 
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
     $ git branch
 
-    # Get the latest commit in the Team Services Git master branch and overwrite current files.
+    # Get the latest commit in the Azure DevOps Git master branch and overwrite current files.
     $ git pull --force
 
     # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
@@ -189,7 +195,7 @@ To illustrate the collaboration workflow, let's walk through an example. Contoso
     # Commit the changes with a comment.
     $ git commit -m "I found a cool new trick."
 
-    # Create a new branch on the remote Team Services Git repo, and then push the changes.
+    # Create a new branch on the remote Azure DevOps Git repo, and then push the changes.
     $ git push origin bob
     ```
 

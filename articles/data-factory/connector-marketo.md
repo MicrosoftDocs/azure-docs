@@ -1,5 +1,5 @@
 ---
-title: Copy data from Marketo using Azure Data Factory | Microsoft Docs
+title: Copy data from Marketo using Azure Data Factory (Preview) | Microsoft Docs
 description: Learn how to copy data from Marketo to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: jingwang
 
 ---
-# Copy data from Marketo using Azure Data Factory
+# Copy data from Marketo using Azure Data Factory (Preview)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Marketo. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -28,6 +28,9 @@ This article outlines how to use the Copy Activity in Azure Data Factory to copy
 You can copy data from Marketo to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
+
+>[!NOTE]
+>This Marketo connector is built on top of the Marketo REST API. Be aware that the Marketo has [concurrent request limit](http://developers.marketo.com/rest-api/) on service side. If you hit errors saying "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" or "Error while attempting to use REST API: Concurrent access limit '10' reached (615)", consider to reduce the concurrent copy activity runs to reduce the number of requests to the service.
 
 ## Getting started
 

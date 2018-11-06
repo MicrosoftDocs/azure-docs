@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/19/2018
+ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
 ---
@@ -59,45 +59,7 @@ To use a certificate in App Service, the certificate must meet all the following
 > [!NOTE]
 > **Elliptic Curve Cryptography (ECC) certificates** can work with App Service but are not covered by this article. Work with your certificate authority on the exact steps to create ECC certificates.
 
-## Prepare your web app
-
-To bind a custom SSL certificate to your web app, your [App Service plan](https://azure.microsoft.com/pricing/details/app-service/) must be in the **Basic**, **Standard**, or **Premium** tier. In this step, you make sure that your web app is in the supported pricing tier.
-
-### Log in to Azure
-
-Open the [Azure portal](https://portal.azure.com).
-
-### Navigate to your web app
-
-From the left menu, click **App Services**, and then click the name of your web app.
-
-![Select web app](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-You have landed in the management page of your web app.  
-
-### Check the pricing tier
-
-In the left-hand navigation of your web app page, scroll to the **Settings** section and select **Scale up (App Service plan)**.
-
-![Scale-up menu](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Check to make sure that your web app is not in the **F1** or **D1** tier. Your web app's current tier is highlighted by a dark blue box.
-
-![Check pricing tier](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-Custom SSL is not supported in the **F1** or **D1** tier. If you need to scale up, follow the steps in the next section. Otherwise, close the **Scale up** page and skip to [Upload and bind your SSL certificate](#upload).
-
-### Scale up your App Service plan
-
-Select any of the non-free tiers (**B1**, **B2**, **B3**, or any tier in the **Production** category). For additional options, click **See additional options**.
-
-Click **Apply**.
-
-![Choose pricing tier](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-When you see the following notification, the scale operation is complete.
-
-![Scale up notification](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 
@@ -233,11 +195,11 @@ When the operation is complete, navigate to any of the HTTP URLs that point to y
 - `http://contoso.com`
 - `http://www.contoso.com`
 
-## Enforce TLS 1.1/1.2
+## Enforce TLS versions
 
-Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.0 by default, which is no longer considered secure by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce higher TLS versions, follow these steps:
+Your app allows [TLS](https://wikipedia.org/wiki/Transport_Layer_Security) 1.2 by default, which is the recommended TLS level by industry standards, such as [PCI DSS](https://wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard). To enforce different TLS versions, follow these steps:
 
-In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want.
+In your web app page, in the left navigation, select **SSL settings**. Then, in **TLS version**, select the minimum TLS version you want. This setting controls the inbound calls only. 
 
 ![Enforce TLS 1.1 or 1.2](./media/app-service-web-tutorial-custom-ssl/enforce-tls1.2.png)
 

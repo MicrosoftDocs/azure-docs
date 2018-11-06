@@ -2,12 +2,16 @@
 title: "Best practices for Azure SQL Data Sync | Microsoft Docs"
 description: "Learn about best practices for configuring and running Azure SQL Data Sync."
 services: sql-database
-ms.date: 08/20/2018
+ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.service: "sql-database"
 author: "allenwux"
 ms.author: "xiwu"
+ms.reviewer: 
 manager: "craigg"
+ms.date: 10/22/2018
 ---
 # Best practices for SQL Data Sync 
 
@@ -60,6 +64,10 @@ You don't have to include all the tables that are in a database in a sync group.
 Each table in a sync group must have a primary key. The SQL Data Sync service can't sync a table that doesn't have a primary key.
 
 Before using SQL Data Sync in production, test initial and ongoing sync performance.
+
+#### Empty tables provide the best performance
+
+Empty tables provide the best performance at initialization time. If the target table is empty, Data Sync uses bulk insert to load the data. Otherwise, Data Sync does a row-by-row comparison and insertion to check for conflicts. If performance is not a concern, however, you can set up sync between tables that already contain data.
 
 ### <a name="provisioning-destination-databases"></a> Provisioning destination databases
 

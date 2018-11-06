@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.reviewer: brenduns
+ms.reviewer: sethm
 
 ---
 # App Service on Azure Stack update 3 release notes
@@ -174,6 +174,21 @@ Validate
     ```sql
         SELECT containment FROM sys.databases WHERE NAME LIKE (SELECT DB_NAME())
     ```
+
+### Known issues (post-installation)
+
+- Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network.  This is also called out in the Azure App Service on Azure Stack deployment documentation.
+
+If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+ * Source: Any
+ * Source port range: *
+ * Destination: IP Addresses
+ * Destination IP address range: Range of IPs for your file server
+ * Destination port range: 445
+ * Protocol: TCP
+ * Action: Allow
+ * Priority: 700
+ * Name: Outbound_Allow_SMB445
 
 ### Known issues for Cloud Admins operating Azure App Service on Azure Stack
 

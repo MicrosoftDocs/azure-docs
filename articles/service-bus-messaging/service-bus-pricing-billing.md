@@ -3,7 +3,7 @@ title: Service Bus pricing and billing | Microsoft Docs
 description: Overview of Service Bus pricing structure.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/21/2017
-ms.author: sethm
+ms.date: 09/21/2018
+ms.author: spelluru
 
 ---
 # Service Bus pricing and billing
