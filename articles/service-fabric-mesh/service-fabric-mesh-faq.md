@@ -21,7 +21,7 @@ Ask questions, get answers from Microsoft engineers, and report issues in the [s
 
 **What is the cost of participating in the preview?**
 
-There are no charges for deploying applications or containers to the Mesh preview currently. However,  we encourage you to to delete the resources you deploy and not leave them running unless you're actively testing them.
+There are no charges for deploying applications or containers to the Mesh preview currently. However,  we encourage you to delete the resources you deploy and not leave them running unless you're actively testing them.
 
 **Is there a quota limit of the number of cores and RAM?**
 
