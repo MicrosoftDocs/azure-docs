@@ -1,7 +1,8 @@
 ---
-layout: LandingPage
-title: Azure Monitor Logs Documentation - Tutorials, API Reference | Microsoft Docs
-description: Azure Monitor Logs is a sophisticated tool for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.
+layout: HubPage
+hide_bc: false
+title: Azure Monitor logs Documentation - Tutorials, API Reference | Microsoft Docs
+description: Azure Monitor logs is a sophisticated tool for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.
 services: azure-monitor
 author: mgoedtel
 manager: carmonm
@@ -11,15 +12,16 @@ ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: landing-page
-ms.date: 09/06/2018
+ms.date: 11/06/2018
 ms.author: magoedte
-experimental: true
-experiment_id: "
 ---
 
-# Azure Monitor logs documentation
-
-Azure Monitor logs is a sophisticated tools for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications. 
+div id="main" class="v2">
+    <div class="container">
+        <h1>Azure Monitor logs Documentation</h1>
+        <p>Azure Monitor logs is a sophisticated tools for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.</p>
+        <hr style="margin: 30px 0;" />
+        <ul class="pivots">
 
 <ul class="panelContent cardsF">
     <li>
