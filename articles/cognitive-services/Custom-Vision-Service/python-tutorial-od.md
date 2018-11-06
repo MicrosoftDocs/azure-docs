@@ -32,15 +32,9 @@ pip install azure-cognitiveservices-vision-customvision
 
 You can download the images with the [Python Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples).
 
-## Get the training and prediction keys
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-The project needs a valid set of subscription keys in order to interact with the service. To get a set of free trial keys, go to the [Custom Vision website](https://customvision.ai) and sign in with a Microsoft account. Select the __gear icon__ in the upper right. In the __Accounts__ section, see the values in the __Training Key__ and __Prediction Key__ fields. You will need these later. 
-
-![Image of the keys UI](./media/csharp-tutorial/training-prediction-keys.png)
-
-## Get the sample images
-
-This example uses the images from the **samples/vision/images** directory of the [Cognitive Services Python SDK Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) repo on GitHub. Clone or download this repository to your development environment.
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
 ## Add the code
 
@@ -206,12 +200,7 @@ python sample.py
 
 The output of the application should appear in the console. You can then verify that the test image (found in **samples/vision/images/Test**) is tagged appropriately and that the region of detection is correct.
 
-## Clean up resources
-If you wish to implement your own object detection project (or try an [image classification](python-tutorial.md) project instead), you may want to delete the fork/scissors detection project from this example. A free trial allows for two Custom Vision projects.
-
-On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
-
-![Screenshot of a panel labelled My New Project with a trash can icon](media/csharp-tutorial/delete_od_project.png)
+[!INCLUDE [clean-od-project](includes/clean-od-project.md)]
 
 ## Next steps
 

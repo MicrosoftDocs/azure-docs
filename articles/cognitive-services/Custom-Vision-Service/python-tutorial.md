@@ -30,15 +30,10 @@ To install the Custom Vision service SDK for Python, run the following command i
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-## Get the training and prediction keys
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
-The project needs a valid set of subscription keys in order to interact with the service. To get a set of free trial keys, go to the [Custom Vision website](https://customvision.ai) and sign in with a Microsoft account. Select the __gear icon__ in the upper right. In the __Accounts__ section, see the values in the __Training Key__ and __Prediction Key__ fields. You will need these later. 
+[!INCLUDE [python-get-images](includes/python-get-images.md)]
 
-![Image of the keys UI](./media/csharp-tutorial/training-prediction-keys.png)
-
-## Get the sample images
-
-This example uses the images from the **samples/vision/images** directory of the [Cognitive Services Python SDK Samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) repo on GitHub. Clone or download this repository to your development environment.
 
 ## Add the code
 
@@ -155,12 +150,7 @@ Done!
 
 You can then verify that the test image (found in **<base_image_url>/Images/Test/**) is tagged appropriately. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
-## Clean up resources
-If you wish to implement your own image classification project (or try an [object detection](python-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
-
-On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
-
-![Screenshot of a panel labelled My New Project with a trash can icon](media/csharp-tutorial/delete_project.png)
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 
 ## Next steps
 

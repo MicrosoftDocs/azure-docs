@@ -30,11 +30,7 @@ Clone or download the [Cognitive Services .NET Samples](https://github.com/Azure
 
 This Visual Studio project creates a new Custom Vision project named __My New Project__, which can be accessed through the [Custom Vision website](https://customvision.ai/). It then uploads images to train and test a classifier. In this project, the classifier is intended to determine whether a tree is a __Hemlock__ or a __Japanese Cherry__.
 
-## Get the training and prediction keys
-
-The project needs a valid set of subscription keys in order to interact with the service. To get a set of free trial keys, go to the [Custom Vision website](https://customvision.ai) and sign in with a Microsoft account. Select the __gear icon__ in the upper right. In the __Accounts__ section, see the values in the __Training Key__ and __Prediction Key__ fields. You will need these later. 
-
-![Image of the keys UI](./media/csharp-tutorial/training-prediction-keys.png)
+[!INCLUDE [get-keys](includes/get-keys.md)]
 
 ## Understand the code
 
@@ -95,12 +91,7 @@ Making a prediction:
 
 You can then verify that the test image (found in **Images/Test/**) is tagged appropriately. Press any key to exit the application. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
-## Clean up resources
-If you wish to implement your own image classification project (or try an [object detection](csharp-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
-
-On the [Custom Vision website](https://customvision.ai), navigate to **Projects** and select the trash can under My New Project.
-
-![Screenshot of a panel labelled My New Project with a trash can icon](media/csharp-tutorial/delete_project.png)
+[!INCLUDE [clean-ic-project](includes/clean-ic-project.md)]
 
 ## Next steps
 
