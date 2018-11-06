@@ -50,11 +50,8 @@ When your SQL Database experiences downtime, analysis is performed to determine 
 #### Planned Maintenance
 The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones.
 
-#### Planned Reconfiguration
-Due to changes in the datacenter, we needed to move your database.
-
-#### Unplanned Failure
-Azure SQL DB encountered a failure and needed to failover your database to recover.
+#### Reconfiguration
+Due to changes in the datacenter, we needed to move your database. 
 
 ## Resource Health Alerts
 
