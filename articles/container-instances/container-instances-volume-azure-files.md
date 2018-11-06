@@ -2,13 +2,13 @@
 title: Mount an Azure Files volume in Azure Container Instances
 description: Learn how to mount an Azure Files volume to persist state with Azure Container Instances
 services: container-instances
-author: seanmck
+author: dlepow
 manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
 ms.date: 11/05/2018
-ms.author: seanmck
+ms.author: danlep
 ms.custom: mvc
 ---
 
