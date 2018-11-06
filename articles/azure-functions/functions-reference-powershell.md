@@ -37,11 +37,11 @@ PSFunctionApp
  | | - function.json
  | - Modules
  | | - myFirstHelperModule
- | | | - myFirstHelperModule.psm1
  | | | - myFirstHelperModule.psd1
+ | | | - myFirstHelperModule.psm1
  | | - mySecondHelperModule
- | | | - mySecondHelperModule.psm1
  | | | - mySecondHelperModule.psd1
+ | | | - mySecondHelperModule.psm1
  | - local.settings.json
  | - host.json
  | - extensions.csproj
@@ -62,6 +62,22 @@ Your script is passed a number of arguments on execution. The powershell script 
 # $TriggerMetadata is optional here. If you don't need it, you can safely remove it from the param block
 param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 ```
+
+### TriggerMetadata parameter
+
+The `TriggerMetadata` parameter is used to supply additional information about the trigger. The additional metadata varies from binding to binding but they all contain a `sys` property that contains the following data:
+
+```powershell
+$TriggerMetadata.sys
+```
+
+| Property   | Description                                     | Type     |
+|------------|-------------------------------------------------|----------|
+| UtcNow     | When, in UTC, the function was triggered        | DateTime |
+| MethodName | The name of the Function that was triggered     | string   |
+| RandGuid   | a unique guid to this execution of the function | string   |
+
+Every trigger type has a different set of metadata. For example, the `$TriggerMetadata` for `QueueTrigger` contains the `InsertionTime`, `Id`, `DequeueCount`, among other things. For more information on the queue trigger's metadata, go to the [official documentation for queue triggers](https://docs.microsoft.com/en-us/azure/azure-functions/functions-bindings-storage-queue#trigger---message-metadata). Check the documentation on the [triggers](functions-triggers-bindings.md) you're working with to see what comes inside the trigger metadata.
 
 ## Bindings
 
@@ -240,12 +256,15 @@ The Request object that's passed into the script comes from a type called `HttpR
 
 | Property  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| _Body_    | An object that contains the body of the request.               | object                    |
+| _Body_    | An object that contains the body of the request.               | object*                   |
 | _Headers_ | A dictionary that contains the request headers.                | Dictionary<string,string> |
 | _Method_  | The HTTP method of the request.                                | string                    |
 | _Params_  | An object that contains the routing parameters of the request. | Dictionary<string,string> |
 | _Query_   | An object that contains the query parameters.                  | Dictionary<string,string> |
 | _Url_     | The URL of the request.                                        | string                    |
+
+> [!Note]
+> The body is serialized into a type that makes sense for the data. If it's json, it's passed in as a hashtable. If it's a string, it's passed in as a string.
 
 > [!Note]
 > All `Dictionary<string,string>` keys are case-insensitive.
