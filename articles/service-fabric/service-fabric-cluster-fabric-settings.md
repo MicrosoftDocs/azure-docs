@@ -14,7 +14,7 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/27/2018
+ms.date: 10/08/2018
 ms.author: aljo
 
 ---
@@ -358,6 +358,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |DeploymentMaxFailureCount|int, default is 20| Dynamic|Application deployment will be retried for DeploymentMaxFailureCount times before failing the deployment of that application on the node.| 
 |DeploymentMaxRetryInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(3600)|Dynamic| Specify timespan in seconds. Max retry interval for the deployment. On every continuous failure the retry interval is calculated as Min( DeploymentMaxRetryInterval; Continuous Failure Count * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| TimeSpan, default is Common::TimeSpan::FromSeconds(10)|Dynamic|Specify timespan in seconds. Back-off interval for the deployment failure. On every continuous deployment failure the system will retry the deployment for up to the MaxDeploymentFailureCount. The retry interval is a product of continuous deployment failure and the deployment backoff interval. |
+|DisableDockerRequestRetry|bool, default is FALSE |Dynamic| By default SF communicates with DD (docker dameon) with a timeout of 'DockerRequestTimeout' for each http request sent to it. If DD does not responds within this time period; SF resends the request if top level operation still has remining time.  With hyperv container; DD sometimes take much more time to bring up the container or deactivate it. In such cases DD request times out from SF perspective and SF retries the operation. Sometimes this seems to adds more pressure on DD. This config allows to disable this retry and wait for DD to respond. |
 |EnableActivateNoWindow| bool, default is FALSE|Dynamic| The activated process is created in the background without any console. |
 |EnableContainerServiceDebugMode|bool, default is TRUE|Static|Enable/disable logging for docker containers.  Windows only.|
 |EnableDockerHealthCheckIntegration|bool, default is TRUE|Static|Enables integration of docker HEALTHCHECK events with Service Fabric system health report |
@@ -419,6 +420,7 @@ The following is a list of Fabric settings that you can customize, organized by 
 |SharedLogId |string, default is "" |Static|Unique guid for shared log container. Use "" if using default path under fabric data root. |
 |SharedLogPath |string, default is "" |Static|Path and file name to location to place shared log container. Use "" for using default path under fabric data root. |
 |SharedLogSizeInMB |Int, default is 8192 |Static|The number of MB to allocate in the shared log container. |
+|SharedLogThrottleLimitInPercentUsed|int, default is 0 | Static | The percentage of usage of the shared log that will induce throttling. Value should be between 0 and 100. A value of 0 implies using the default percentage value. A value of 100 implies no throttling at all. A value between 1 and 99 specifies the percentage of log usage above which throttling will occur; for example if the shared log is 10GB and the value is 90 then throttleing will occur once 9GB is in use. Using the default value is recommended.|
 |WriteBufferMemoryPoolMaximumInKB | Int, default is 0 |Dynamic|The number of KB to allow the write buffer memory pool to grow up to. Use 0 to indicate no limit. |
 |WriteBufferMemoryPoolMinimumInKB |Int, default is 8388608 |Dynamic|The number of KB to initially allocate for the write buffer memory pool. Use 0 to indicate no limit Default should be consistent with SharedLogSizeInMB below. |
 

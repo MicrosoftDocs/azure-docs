@@ -1,5 +1,6 @@
 ---
-title: Create a new app with LUIS
+title: Create a new app with Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Create and manage your applications on the Language Understanding (LUIS) webpage.
 services: cognitive-services
 author: diberry
@@ -17,9 +18,9 @@ There are a couple of ways to create a LUIS app. You can create a LUIS app in th
 ## Using the LUIS portal
 You can create a new app in the LUIS portal in several ways:
 
-* [Start](#create-new-app) with an empty app and create intents, utterances, and entities.
-* [Start](#create-new-app) with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
-* [Import a LUIS app](#import-new-app) from a JSON file that already contains intents, utterances, and entities.
+* Start with an empty app and create intents, utterances, and entities.
+* Start with an empty app and add a [prebuilt domain](luis-how-to-use-prebuilt-domains.md).
+* Import a LUIS app from a JSON file that already contains intents, utterances, and entities.
 
 ## Using the authoring APIs
 You can create a new app with the authoring APIs in a couple of ways:

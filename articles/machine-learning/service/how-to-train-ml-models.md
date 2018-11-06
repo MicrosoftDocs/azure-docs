@@ -115,10 +115,10 @@ run = experiment.submit(cntk_est)
 
 ## Examples
 For a tutorial on training a sklearn model, see:
-* `tutorials/01.train-models.ipynb`
+* [tutorials/01.train-models.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/01.train-models.ipynb)
 
 For a tutorial on distributed CNTK using custom docker, see:
-* `training/06.distributed-cntk-with-custom-docker`
+* [training/06.distributed-cntk-with-custom-docker](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/06.distributed-cntk-with-custom-docker)
 
 Get these notebooks:
 

@@ -48,7 +48,7 @@ After you've added the solution and an assessment is completed, summary informat
 
 To perform the health check against your SQL Server servers, they require an agent and connectivity to Log Analytics using one of the following supported methods:
 
-1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
+1. Install the [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) if the server is not already monitored by System Center 2016 - Operations Manager or Operations Manager 2012 R2.
 2. If it is monitored with System Center 2016 - Operations Manager or Operations Manager 2012 R2 and the management group is not integrated with the Log Analytics service, the server can be multi-homed with Log Analytics to collect data and forward to the service and still be monitored by Operations Manager.  
 3. Otherwise, if your Operations Manager management group is integrated with the service, you need to add the domain controllers for data collection by the service following the steps under [add agent-managed computers](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) after you enable the solution in your workspace.  
 
@@ -81,7 +81,7 @@ Use the following information to set the Operations Manager Run As account for S
 >
 
 1. In Operations Manager, open the Operations console, and then click **Administration**.
-2. Under **Run As Configuration**, click **Profiles**, and open **OMS SQL Assessment Run As Profile**.
+2. Under **Run As Configuration**, click **Profiles**, and open **SQL Assessment Run As Profile**.
 3. On the **Run As Accounts** page, click **Add**.
 4. Select a Windows Run As account that contains the credentials needed for SQL Server, or click **New** to create one.
 
@@ -118,7 +118,7 @@ Open a PowerShell window and run the following script after you’ve updated it 
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
-    $profile = Get-SCOMRunAsProfile -DisplayName "OMS SQL Assessment Run As Profile"
+    $profile = Get-SCOMRunAsProfile -DisplayName "SQL Assessment Run As Profile"
     $account = Get-SCOMrunAsAccount | Where-Object {$_.Name -eq "<your run as account name>"}
     Set-SCOMRunAsProfile -Action "Add" -Profile $Profile -Account $Account
 ```
@@ -179,7 +179,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-queries.md), then the above query would change to the following.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -204,7 +204,7 @@ If you have recommendations that you want to ignore, you can create a text file 
     ```
 
     >[!NOTE]
-    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+    > If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-queries.md), then the above query would change to the following.
     >
     > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
@@ -260,4 +260,4 @@ If you have recommendations that you want to ignore, you can create a text file 
 * Yes, see [Ignore recommendations](#ignore-recommendations) section above.
 
 ## Next steps
-* [Search logs](log-analytics-log-searches.md) to learn how to analyze detailed SQL Health Check data and recommendations.
+* [Search logs](log-analytics-queries.md) to learn how to analyze detailed SQL Health Check data and recommendations.

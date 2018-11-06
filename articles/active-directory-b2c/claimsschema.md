@@ -84,7 +84,7 @@ In the following example, when the Identity Experience Framework interacts with 
 </ClaimType>
 ```
 
-As a result, the JWT token issued by Azure AD B2C, omits the `family_name` instead of ClaimType name **surname**.
+As a result, the JWT token issued by Azure AD B2C, emits the `family_name` instead of ClaimType name **surname**.
  
 ```JSON
 {

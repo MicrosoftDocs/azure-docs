@@ -40,7 +40,7 @@ An Azure IoT Edge device:
 
 Cloud resources:
 
-* A free-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
+* A free or standard-tier [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) in Azure. 
 * An Azure Machine Learning workspace. Follow the instructions in [Prepare to deploy models on IoT Edge](../machine-learning/service/how-to-deploy-to-iot.md) to create one.
 
 
@@ -203,8 +203,5 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to any of the other tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Filter sensor data using C# code](tutorial-csharp-module.md)
+> [Classify images with Custom Vision service](tutorial-deploy-custom-vision.md)
 
-<!--Links-->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

@@ -38,7 +38,7 @@ An API profile is a combination of resource providers and API versions. You can 
     
       - This is to be specified in the Pom.xml file as a dependency, which loads modules automatically if you choose the right class from the dropdown list as you would with .NET.
         
-          - The top of each module appears as follows:         
+      - The top of each module appears as follows:         
            `Import com.microsoft.azure.management.resources.v2018_03_01.ResourceGroup`
              
 
@@ -91,11 +91,11 @@ To use the Azure Java SDK with Azure Stack, you must supply the following values
 
 | Value                     | Environment variables | Description                                                                                                                                                                                                          |
 | ------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Tenant ID                 | TENANT_ID            | The value of your Azure Stack [<span class="underline">tenant ID</span>](../azure-stack-identity-overview.md).                                                          |
-| Client ID                 | CLIENT_ID             | The service principal application ID saved when service principal was created on the previous section of this document.                                                                                              |
-| Subscription ID           | SUBSCRIPTION_ID      | The [<span class="underline">subscription ID</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack.                |
-| Client Secret             | CLIENT_SECRET        | The service principal application Secret saved when service principal was created.                                                                                                                                   |
-| Resource Manager Endpoint | ENDPOINT              | See [<span class="underline">the Azure Stack resource manager endpoint</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
+| Tenant ID                 | AZURE_TENANT_ID            | The value of your Azure Stack [<span class="underline">tenant ID</span>](../azure-stack-identity-overview.md).                                                          |
+| Client ID                 | AZURE_CLIENT_ID             | The service principal application ID saved when service principal was created on the previous section of this document.                                                                                              |
+| Subscription ID           | AZURE_SUBSCRIPTION_ID      | The [<span class="underline">subscription ID</span>](../azure-stack-plan-offer-quota-overview.md#subscriptions) is how you access offers in Azure Stack.                |
+| Client Secret             | AZURE_CLIENT_SECRET        | The service principal application Secret saved when service principal was created.                                                                                                                                   |
+| Resource Manager Endpoint | ARM_ENDPOINT              | See [<span class="underline">the Azure Stack resource manager endpoint</span>](../user/azure-stack-version-profiles-ruby.md#the-azure-stack-resource-manager-endpoint). |
 | Location                  | RESOURCE_LOCATION    | Local for Azure Stack                                                                                                                                                                                                |
 
 To find the tenant ID for your Azure Stack, please follow the instructions found [here](../azure-stack-csp-ref-operations.md). To set your environment variables, do the following:
@@ -105,7 +105,7 @@ To find the tenant ID for your Azure Stack, please follow the instructions found
 To set the environment variables in a Windows command prompt, use the following format:
 
 ```shell
-Set Azure_Tenant_ID=<Your_Tenant_ID>
+Set AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### MacOS, Linux, and Unix-based systems
@@ -113,7 +113,7 @@ Set Azure_Tenant_ID=<Your_Tenant_ID>
 In Unix based systems, you can use the following command:
 
 ```shell
-Export Azure_Tenant_ID=<Your_Tenant_ID>
+Export AZURE_TENANT_ID=<Your_Tenant_ID>
 ```
 
 ### The Azure Stack resource manager endpoint
@@ -161,7 +161,8 @@ The following code authenticates the service principal on Azure Stack. It create
 ```java
 AzureTokenCredentials credentials = new ApplicationTokenCredentials(client, tenant, key, AZURE_STACK)
                     .withDefaultSubscriptionId(subscriptionId);
-            Azure azureStack = Azure.configure().withLogLevel(com.microsoft.rest.LogLevel.BASIC)
+Azure azureStack = Azure.configure()
+                    .withLogLevel(com.microsoft.rest.LogLevel.BASIC)
                     .authenticate(credentials, credentials.defaultSubscriptionId());
 ```
 
@@ -181,7 +182,7 @@ AzureEnvironment AZURE_STACK = new AzureEnvironment(new HashMap<String, String>(
                     put("activeDirectoryResourceId", settings.get("audience"));
                     put("activeDirectoryGraphResourceId", settings.get("graphEndpoint"));
                     put("storageEndpointSuffix", armEndpoint.substring(armEndpoint.indexOf('.')));
-                    put("keyVaultDnsSuffix", ".adminvault" + armEndpoint.substring(armEndpoint.indexOf('.')));
+                    put("keyVaultDnsSuffix", ".vault" + armEndpoint.substring(armEndpoint.indexOf('.')));
                 }
             });
 ```
@@ -204,8 +205,7 @@ HttpGet getRequest = new
 HttpGet(String.format("%s/metadata/endpoints?api-version=1.0",
 armEndpoint));
 
-// Add additional header to getRequest which accepts application/xml
-data
+// Add additional header to getRequest which accepts application/xml data
 getRequest.addHeader("accept", "application/xml");
 
 // Execute request and catch response
@@ -216,37 +216,37 @@ HttpResponse response = httpClient.execute(getRequest);
 
 You can use the following GitHub samples as references for creating solutions with .NET and Azure Stack API profiles:
 
-  - [Manage Resource Groups](https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid)
+  - [Manage Resource Groups](https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group)
 
-  - [Manage Storage Accounts](https://github.com/viananth/storage-java-manage-storage-accounts/tree/stack/Hybrid)
+  - [Manage Storage Accounts](https://github.com/Azure-Samples/hybrid-storage-java-manage-storage-accounts)
 
-  - [Manage a Virtual Machine](https://github.com/viananth/compute-java-manage-vm/tree/stack/Hybrid)
+  - [Manage a Virtual Machine](https://github.com/Azure-Samples/hybrid-compute-java-manage-vm)
 
 ### Sample Unit Test Project 
 
 1.  Clone the repository using the following command:
     
-    `git clone https://github.com/viananth/resources-java-manage-resource-group/tree/stack/Hybrid`
+    `git clone https://github.com/Azure-Samples/Hybrid-resources-java-manage-resource-group.git`
 
 2.  Create an Azure service principal and assign a role to access the subscription. For instructions on creating a service principal, see [Use Azure PowerShell to create a service principal with a certificate](../azure-stack-create-service-principals.md).
 
 3.  Retrieve the following required environment variable values:
     
-   1.  TENANT_ID
-   2.  CLIENT_ID
-   3.  CLIENT_SECRET
-   4.  SUBSCRIPTION_ID
-   5.  ARM_ENDPOINT
-   6.  RESOURCE_LOCATION
+    -  AZURE_TENANT_ID
+    -  AZURE_CLIENT_ID
+    -  AZURE_CLIENT_SECRET
+    -  AZURE_SUBSCRIPTION_ID
+    -  ARM_ENDPOINT
+    -  RESOURCE_LOCATION
 
 4.  Set the following environment variables using the information you retrieved from the Service Principal you created using the command prompt:
     
-   1. export TENANT_ID={your tenant id}
-   2. export CLIENT_ID={your client id}
-   3. export CLIENT_SECRET={your client secret}
-   4. export SUBSCRIPTION_ID={your subscription id}
-   5. export ARM_ENDPOINT={your Azure Stack Resource manager URL}
-   6. export RESOURCE_LOCATION={location of Azure Stack}
+    - export AZURE_TENANT_ID={your tenant id}
+    - export AZURE_CLIENT_ID={your client id}
+    - export AZURE_CLIENT_SECRET={your client secret}
+    - export AZURE_SUBSCRIPTION_ID={your subscription id}
+    - export ARM_ENDPOINT={your Azure Stack Resource manager URL}
+    - export RESOURCE_LOCATION={location of Azure Stack}
 
    In Windows, use **set** instead of **export**.
 

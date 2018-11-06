@@ -1,19 +1,20 @@
 ---
-title: Troubleshoot the Cognitive Services Speech SDK
-description: Troubleshoot the Cognitive Services Speech SDK.
+title: Troubleshoot the Speech Service SDK
 titleSuffix: Azure Cognitive Services
+description: Troubleshoot the Speech Service SDK.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: wolfma
 ---
-# Troubleshoot the Speech SDK
+# Troubleshoot the Speech Service SDK
 
-This article provides information to help you solve issues you might encounter when you use the Speech SDK.
+This article provides information to help you solve issues you might encounter when you use the Speech Service SDK.
 
 ## Error: WebSocket Upgrade failed with an authentication error (403)
 

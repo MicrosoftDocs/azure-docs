@@ -72,7 +72,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
 
     b. If it points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
-1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges] (https://www.microsoft.com/download/details.aspx?id=41653).
+1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
  
 1. If you're using the new configuration, have verified that the VM connects from the Azure IP range, and still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
 

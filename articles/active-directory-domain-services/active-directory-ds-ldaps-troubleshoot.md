@@ -3,7 +3,7 @@ title: Troubleshoot Secure LDAP (LDAPS) in Azure AD Domain Services | Microsoft 
 description: Troubleshoot Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Troubleshoot Secure LDAP (LDAPS) for an Azure AD Domain Services managed domain

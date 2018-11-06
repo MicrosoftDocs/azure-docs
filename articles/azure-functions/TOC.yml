@@ -59,7 +59,7 @@
 - name: Samples
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=functions
+    href: https://azure.microsoft.com/resources/samples/?service=functions
   - name: Azure CLI
     href: functions-cli-samples.md
   - name: Azure Functions Recipes
@@ -155,7 +155,9 @@
      - name: Manage connections
        href: manage-connections.md
      - name: Error handling
-       href: functions-bindings-error-pages.md 
+       href: functions-bindings-error-pages.md
+     - name: Debug Event Grid trigger locally
+       href: functions-debug-event-grid-trigger-local.md
   - name: Deploy
     items:
     - name: Continuous deployment
@@ -178,8 +180,6 @@
       href: install-update-binding-extensions-manual.md
     - name: Disable a function 
       href: disable-function.md
-    - name: Troubleshoot storage
-      href: functions-recover-storage-account.md
   - name: Monitor
     href: functions-monitoring.md
   - name: Integrate
@@ -261,7 +261,11 @@
     - name: Twilio
       href: functions-bindings-twilio.md    
   - name: host.json reference
-    href: functions-host-json.md  
+    items:
+    - name: Functions 2.x
+      href: functions-host-json.md  
+    - name: Functions 1.x
+      href: functions-host-json-v1.md  
   - name: App settings reference
     href: functions-app-settings.md     
   - name: OpenAPI reference
@@ -289,4 +293,4 @@
   - name: Azure Functions GitHub repository
     href: https://github.com/Azure/Azure-Functions/
   - name: Service updates
-    href: https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=
+    href: https://azure.microsoft.com/updates/?product=functions&updatetype=&platform=

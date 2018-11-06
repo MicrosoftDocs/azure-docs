@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/05/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -58,9 +58,9 @@ You can define an ADFS account as a claims provider by adding it to the **Claims
           <Description>Login with your ADFS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
-            <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -162,9 +162,30 @@ Open a browser and navigate to the URL. Make sure you type the correct URL and t
 9. Select **Add Rule**.  
 10. In **Claim rule template**, select **Send LDAP attributes as claims**.
 11. Provide a **Claim rule name**. For the **Attribute store**, select **Select Active Directory**, add the following claims, then click **Finish** and **OK**.
+
+    | LDAP attrubute | Outgoing claim type |
+    | -------------- | ------------------- |
+    | User-Principal-Name | userPricipalName |
+    | Surname | family_name |
+    | Given-Name | given_name |
+    | E-Mail-Address | email |
+    | Display-Name | name |
+    
 12.  Based on your certificate type, you may need to set the HASH algorithm. On the relying party trust (B2C Demo) properties window, select the **Advanced** tab and change the **Secure hash algorithm** to `SHA-1` or `SHA-256`, and click **Ok**.  
 13. In Server Manager, select **Tools**, and then select **ADFS Management**.
 14. Select the relying party trust you created, select **Update from Federation Metadata**, and then click **Update**. 
+
+## Create an Azure AD B2C application
+
+Communication with Azure AD B2c occurs through an application that you create in your tenant. This section lists optional steps you can complete to create a test application if you haven't already done so.
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+3. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+4. Select **Applications**, and then select **Add**.
+5. Enter a name for the application, for example *testapp1*.
+6. For **Web App / Web API**, select `Yes`, and then enter `https://jwt.ms` for the **Reply URL**.
+7. Click **Create**.
 
 ### Update and test the relying party file
 
@@ -174,4 +195,6 @@ Update the relying party (RP) file that initiates the user journey that you crea
 2. Open the new file and update the value of the **PolicyId** attribute for **TrustFrameworkPolicy** with a unique value. For example, `SignUpSignInADFS`.
 3. Update the value of **PublicPolicyUri** with the URI for the policy. For example,`http://contoso.com/B2C_1A_signup_signin_adfs">
 4. Update the value of the **ReferenceId** attribute in **DefaultUserJourney** to match the ID of the new user journey that you created (SignUpSignInADFS).
-5. Save your changes, upload the file, and test it by opening it and clicking **Run now**.
+5. Save your changes, upload the file, and then select the new policy in the list.
+6. Make sure that Azure AD B2C application that you created is selected in the **Select application** field, and then test it by clicking **Run now**.
+

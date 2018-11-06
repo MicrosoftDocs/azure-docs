@@ -116,7 +116,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 ```bash
 export SSL_VERSION=TLSv1_2 
-SSL_CERTIFICATE=<path to Baltimore root ca cert>
+export SSL_CERTFILE=<path to Baltimore root ca cert>
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> –ssl 
 ```
 
@@ -155,7 +155,7 @@ Azure Cosmos DB Cassandra API provides choice of consistency for read operations
 
 ## Permission and role management
 
-Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com. Azure Cosmos DB does not yet support users and roles for data plane activities. 
+Azure Cosmos DB supports role-based access control (RBAC) and read-write and read-only passwords/keys that can be obtained through the [Azure portal](https://portal.azure.com). Azure Cosmos DB does not yet support users and roles for data plane activities. 
 
 ## Planned support 
 * Using timestamp and TTL together  

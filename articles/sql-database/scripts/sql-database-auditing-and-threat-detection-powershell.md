@@ -15,7 +15,7 @@ ms.date: 09/07/2018
 ---
 # Use PowerShell to configure SQL Database auditing and threat detection
 
-This PowerShell script example configures SQL Database auditing and threat detection. 
+This PowerShell script example configures SQL Database auditing and threat detection.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]

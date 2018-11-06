@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 
@@ -71,6 +71,25 @@ The following information applies to the RP and MySQL hosting servers:
 ## Increase backend database capacity
 
 You can increase backend database capacity by deploying more MySQL servers in the Azure Stack portal. Add these servers to a new or existing SKU. If you add a server to an existing SKU, make sure that the server characteristics are the same as the other servers in the SKU.
+
+## SKU notes
+Use a SKU name that describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU. For example, you can use SKU names to differentiate service offerings by the following characteristics:
+  
+* high capacity
+* high-performance
+* high availability
+
+As a best practice, all the hosting servers in a SKU should have the same resource and performance characteristics.
+
+SKUs can't be assigned to specific users or groups.
+
+SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
+
+To edit a SKU, go to **All services** > **MySQL Adapter** > **SKUs**. Select the SKU to modify, make any necessary changes, and click **Save** to save changes. 
+To delete a SKU that is no longer needed, go to **All services** > **MySQL Adapter** > **SKUs**. Right-click the SKU name and select **Delete** to delete it.
+
+> [!TIP]
+> You can edit or delete MySQL resource provider quotas in the same location.
 
 ## Make MySQL database servers available to your users
 

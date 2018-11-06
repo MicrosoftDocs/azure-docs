@@ -56,7 +56,7 @@ To boot a VM you must have the PA installed on the VM, however the WinGA does no
 If you do not have the Agents installed, you cannot use some Azure services, such as Azure Backup or Azure Security. These services require an extension to be installed. If you have deployed a VM without the WinGA, you can install the latest version of the agent later.
 
 ### Manual installation
-The Windows VM agent can be manually installed with a Windows installer package. Manual installation may be necessary when you create a custom VM image that is deployed to Azure. To manually install the Windows VM Agent, [download the VM Agent installer](http://go.microsoft.com/fwlink/?LinkID=394789).
+The Windows VM agent can be manually installed with a Windows installer package. Manual installation may be necessary when you create a custom VM image that is deployed to Azure. To manually install the Windows VM Agent, [download the VM Agent installer](https://go.microsoft.com/fwlink/?LinkID=394789).
 
 The VM Agent can be installed by double-clicking the Windows installer file. For an automated or unattended installation of the VM agent, run the following command:
 
@@ -97,7 +97,8 @@ foreach ($vm in $vms) {
 ```
 
 ### Manual Detection
-When logged in to a Windows Azure VM, Task Manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager, click the *Details* tab, and look for a process name **WindowsAzureGuestAgent.exe**. The presence of this process indicates that the VM agent is installed.
+
+When logged in to a Windows VM, Task Manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager, click the *Details* tab, and look for a process name **WindowsAzureGuestAgent.exe**. The presence of this process indicates that the VM agent is installed.
 
 
 ## Upgrade the VM Agent

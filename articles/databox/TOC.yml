@@ -1,5 +1,5 @@
-- name: Documentation - Azure Data Box for offline transfer
-  href: /azure/databox/
+- name:  Azure Data Box Documentation - Offline Transfer
+  href: /azure/databox
   items:
   - name: Data Box
     items:
@@ -40,6 +40,8 @@
         href: data-box-portal-admin.md
       - name: Manage via local web UI
         href: data-box-local-web-ui-admin.md
+      - name: Cable the device
+        href: data-box-cable-options.md
       - name: Contact Support
         href: data-box-disk-contact-microsoft-support.md  
     
@@ -60,7 +62,7 @@
         href: data-box-disk-deploy-ordered.md
       - name: 2 - Set up
         href: data-box-disk-deploy-set-up.md
-      - name: 3 - Copy data
+      - name: 3 - Copy and validate
         href: data-box-disk-deploy-copy-data.md 
       - name: 4 - Return, upload, verify
         href: data-box-disk-deploy-picked-up.md  
@@ -91,13 +93,12 @@
         href: data-box-heavy-overview.md
   - name: Resources
     items:
-    - name: Azure roadmap
-      href: https://azure.microsoft.com/roadmap/?category=storage
-    - name: Azure Data Box marketing
-      href: https://azure.microsoft.com/services/storage/databox/
-    - name: Pricing
+    - name: Data Box product
+      href: https://azure.microsoft.com/services/storage/databox/data/
+    - name: Data Box pricing
       href: https://azure.microsoft.com/pricing/details/storage/databox/
-    - name: Service updates
-      href: https://azure.microsoft.com/updates/?product=databox
+    - name: Data Box Disk pricing
+      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
+
 
 

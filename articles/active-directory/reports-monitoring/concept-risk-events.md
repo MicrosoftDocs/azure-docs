@@ -151,7 +151,7 @@ This risk event identifies IP addresses, not user devices. If several devices ar
 
 We recommend that you contact the user and scan all the user's devices. It is also possible that a user's personal device is infected, or as mentioned earlier, that someone else was using an infected device from the same IP address as the user. Infected devices are often infected by malware that have not yet been identified by anti-virus software, and may also indicate as bad user habits that may have caused the device to become infected.
 
-For more information about how to address malware infections, see the [Malware Protection Center](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
+For more information about how to address malware infections, see the [Malware Protection Center](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 
 ### Sign-ins from IP addresses with suspicious activity

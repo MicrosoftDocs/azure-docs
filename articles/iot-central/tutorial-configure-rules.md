@@ -3,7 +3,7 @@ title: Configure rules and actions in Azure IoT Central | Microsoft Docs
 description: This tutorial shows you, as a builder, how to configure telemetry-based rules and actions in your Azure IoT Central application.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 04/16/2018
+ms.date: 10/12/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
@@ -91,6 +91,9 @@ When you define a rule, you also define an action to run when the rule condition
 Shortly after you save the rule, it becomes live. When the conditions defined in the rule are met, your application sends a message to the email address you specified in the action.
 
 ![Email action](media/tutorial-configure-rules/email.png)
+
+> [!NOTE]
+> After your testing is complete, turn off the rule to stop receiving alerts in your Inbox. 
 
 ## Next steps
 

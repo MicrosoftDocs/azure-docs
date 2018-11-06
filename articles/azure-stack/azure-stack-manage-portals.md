@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 
 ---
@@ -36,6 +36,8 @@ To access the administrator portal, browse to the portal URL and sign in by usin
 | | |
 
  ![The administrator portal](media/azure-stack-manage-portals/admin-portal.png)
+
+Note that the default time zone for all Azure Stack deployments is set to Coordinated Universal Time (UTC). You can select a time zone when installing Azure Stack, however it automatically reverts to UTC as the default during installation.
 
 In the administrator portal, you can do things such as:
 

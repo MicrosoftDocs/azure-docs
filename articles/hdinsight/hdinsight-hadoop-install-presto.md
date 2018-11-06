@@ -2,14 +2,14 @@
 title: Install Presto on Azure HDInsight Linux clusters 
 description: Learn how to install Presto and Airpal on Linux-based HDInsight Hadoop clusters using Script Actions.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Install and use Presto on HDInsight Hadoop clusters
