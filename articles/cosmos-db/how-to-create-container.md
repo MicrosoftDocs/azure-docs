@@ -66,7 +66,7 @@ This article explains the different ways to create a container (collection, tabl
 
 ![Cassandra API creates a collection](./media/how-to-create-container/partitioned-collection-create-cassandra.png)
 
-> [!Note]
+> [!NOTE]
 > For Cassandra API, the primary key is used as the partition key.
 
 ### <a id="portal-gremlin"></a>Gremlin API

@@ -22,7 +22,7 @@ Let’s suppose that you are creating a new and shiny social network, where your
 
 So, how do you store this and where?
 
-Many of you might have experience on SQL databases or at least have notion of [relational modeling of data](https://en.wikipedia.org/wiki/Relational_model) and you might be tempted to start drawing something as following:
+You might have experience on SQL databases or have a notion of [relational modeling of data](https://en.wikipedia.org/wiki/Relational_model) and you may start drawing something as follows:
 
 ![Diagram illustrating a relative relational model](./media/social-media-apps/social-media-apps-sql.png) 
 
