@@ -70,7 +70,7 @@ If you are using Ubuntu 16.04, before starting Eclipse, run the following comman
 
      [!code-xml[POM Repositories](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#repositories)]
 
-  * Also add a `dependencies` element, with the Speech SDK version 1.0.1 as a dependency:
+  * Also add a `dependencies` element, with the Speech SDK version 1.1.0 as a dependency:
 
      [!code-xml[POM Dependencies](~/samples-cognitive-services-speech-sdk/quickstart/java-jre/pom.xml#dependencies)]
 

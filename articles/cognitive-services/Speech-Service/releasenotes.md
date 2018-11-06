@@ -15,7 +15,38 @@ ms.author: wolfma
 
 # Release notes
 
-## Speech Service SDK 1.0.1
+## Speech Service SDK 1.1.0
+
+**New Features**
+
+* Support for Android x86/x64
+* Proxy Support: In the SpeechConfig object you can now call a function to set the proxy information (hostname, port, username, and password). Proxy support is currently not available on iOS, this will be added in an upcoming release.
+* Improved error code and messages. If a recognition returned an error, this did already set `Reason` (in canceled event) or `CancellationDetails` (in recognition result) to `Error`. The canceled event contains now two additional members, `ErrorCode` and `ErrorDetails`. If the server returned additional error information with the reported error, it will now be available in the new members.
+
+**Improvements**
+
+* Added additional verification in the recognizer configuration, and added additional error message.
+* Improved handling of long-time silence in middle of an audio file.
+* NuGet package: for .NET Framework projects prevent building with AnyCPU configuration
+
+**Bug fixes**
+
+* Fixed several exceptions found in recognizers. In addition exceptions are caught and converted into Canceled event.
+* Fix a memory leak in property management
+* Fixed bug in which an audio input file could crash the recognizer
+* Fixed a bug where events could be received after a session stop event.
+* Fixed some race conditions in threading.
+* Fixed an iOS compatibility issue that could result in a crash
+* Stability improvements for Android microphone support.
+* Fixed a bug where a recognizer in JavaScript would ignore the recognition language
+* Fixed a bug preventing setting the EndpointId (in some cases) in JavaScript
+* Changed parameter order in AddIntent in JavaScript, and added missing AddIntent JavaScript signature
+
+**Samples**
+
+* Added C++ sample for pull and push stream usage in our [sample repository](https://aka.ms/csspeech/samples)
+
+## Speech Service SDK 1.1.1
 
 Reliability improvements and bug fixes:
 
