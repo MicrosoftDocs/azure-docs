@@ -31,7 +31,7 @@ Click the ellipsis on the right of each row to open the detailed description of 
 
 ## View my roles
 
-It's easy to view your own permissions as well. Select **Your Role** on the **Roles and administrators** page to get quick access to all of your active assigned roles.
+It's easy to view your own permissions as well. Select **Your Role** on the **Roles and administrators** page to see the roles that are currently assigned to you.
 
 ## View assignments for a role
 
