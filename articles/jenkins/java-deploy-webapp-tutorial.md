@@ -47,8 +47,9 @@ and Maven tools installed on an Azure Linux VM
 
 * A [GitHub](https://github.com) account
 
-* [Azure CLI](/cli/azure) where you can use either your local 
-command line or [Azure Cloud Shell](/azure/cloud-shell/overview)
+* [Azure CLI](/cli/azure/install-azure-cli), 
+which you can run from either your local command line 
+or [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 ## Install Jenkins plug-ins
 
@@ -125,7 +126,7 @@ by choosing **Test connection**.
 
 ## Create service principal
 
-In a later section, you'll create a pipeline job in Jenkins for building your app. 
+In a later section, you'll create a Jenkins pipeline job for buliding your app. 
 To authenticate running the pipeline job from a script, create an 
 [Azure Active Directory service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 
 A service principal is an identity you can assign specific permissions 
@@ -135,15 +136,19 @@ To create the service principal, run the Azure CLI
 command, either from your local command line or Azure Cloud Shell:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name your-service-principal-ID --password your-secure-password
+az ad sp create-for-rbac --name "your_jenkins_sp_name" --password your_secure_password
 ```
+
+Make sure you create a strong password based on the 
+[Azure Active Directory password rules and restrictions](). If you don't provide a password, the Azure CLI creates a password for you. 
+Here's the output from the `create-for-rbac` command: 
 
 ```json
 {
-   "appId": "<web-app-client-ID>",
-   "displayName": "<your-service-principal-ID>",
-   "name": "http://<your-service-prinicipal-ID>",
-   "password": "<your-secure-password>",
+   "appId": "<app-ID>",
+   "displayName": "your_jenkins_sp_name",
+   "name": "http://your_jenkins_sp_name",
+   "password": "<your_secure_password>",
    "tenant": "<Azure-Active-Directory-tenant-ID>"
 }
 ```
