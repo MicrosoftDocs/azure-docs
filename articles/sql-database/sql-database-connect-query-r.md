@@ -28,13 +28,13 @@ The public preview of Machine Learning Services (with R) in SQL Database is not 
 
 Once you are enrolled in the program, Microsoft will onboard you to the public preview and either migrate your existing database or create a new databases on an R enabled service.
 
-Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor Managed Instance are supported. You should not use Machine Learning Services with R for production workloads during the public preview.
+Machine Learning Services (with R) in SQL Database is currently only available in the vCore-based purchasing model in the **General Purpose** and **Business Critical** service tiers for single and pooled databases. In this initial public preview, neither the **Hyperscale** service tier nor **Managed Instance** are supported. You should not use Machine Learning Services with R for production workloads during the public preview.
 
-When your Machine Learning Services (with R) has been enabled for your SQL database, return to this page to learn how to execute R scripts in the context of a stored procedure.
+When Machine Learning Services (with R) has been enabled for your SQL database, return to this page to learn how to execute R scripts in the context of a stored procedure.
 
 ## Prerequisites
 
-To run the example code in these exercises, you must first have an SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable Machine Learning Services for your existing or new database.
+To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database.
 
 You can connect to the SQL Database and run the R scripts any database management or query tool, as long as it can connect to a SQL Database, and run a T-SQL query or stored procedure. This quickstart uses [SQL Server Management Studio](sql-database-connect-query-ssms.md).
 
@@ -376,7 +376,9 @@ Use the model you created in the previous section to score predictions against n
     In this example, because your model is based on the **rxLinMod** algorithm provided as part of the **RevoScaleR** package, you call the [rxPredict](https://docs.microsoft.com/r-server/r-reference/revoscaler/rxpredict) function, rather than the generic R `predict` function.
 
     ```sql
-    DECLARE @speedmodel varbinary(max) = (SELECT model FROM dbo.stopping_distance_models WHERE model_name = 'latest model');
+    DECLARE @speedmodel varbinary(max) = 
+        (SELECT model FROM dbo.stopping_distance_models WHERE model_name = 'latest model');
+
     EXEC sp_execute_external_script
         @language = N'R'
         , @script = N'
@@ -412,53 +414,20 @@ Use the model you created in the previous section to score predictions against n
 
 ## Add a package
 
-TODO
+If you need a package that is not already installed in your SQL database, you can install it using [sqlmlutils](https://github.com/Microsoft/sqlmlutils). Follow the steps below to install a package.
 
-1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. 
+1. Download the latest **sqlmlutils** zip file from [github.com/Microsoft/sqlmlutils/tree/master/R/dist](https://github.com/Microsoft/sqlmlutils/tree/master/R/dist) to your local computer. You do not need to unzip the file.
+
 1. If you don't have R installed, download R from [www.r-project.org/](https://www.r-project.org/) and install it on your local computer. R is available for Windows, MacOS, and Linux. In this example, we are using Windows.
-1. First, install **RODBCext**, which is a prerequisite for **sqlmlutils**. Open a **Command Prompt** and run the following command:
+
+1. First, install the **RODBCext** package, which is a prerequisite for **sqlmlutils**. **RODBCext** also installs the dependency the **RODBC** package. Open a **Command Prompt** and run the following command:
 
     ```cmd
     R -e "install.packages('RODBCext', repos='https://cran.microsoft.com')"
     ```
 
-    The output should look similar to this:
-
-    ```text
-    R version 3.5.1 (2018-07-02) -- "Feather Spray"
-    Copyright (C) 2018 The R Foundation for Statistical Computing
-    Platform: x86_64-w64-mingw32/x64 (64-bit)
-
-    R is free software and comes with ABSOLUTELY NO WARRANTY.
-    You are welcome to redistribute it under certain conditions.
-    Type 'license()' or 'licence()' for distribution details.
-
-      Natural language support but running in an English locale
-
-    R is a collaborative project with many contributors.
-    Type 'contributors()' for more information and
-    'citation()' on how to cite R or R packages in publications.
-
-    Type 'demo()' for some demos, 'help()' for on-line help, or
-    'help.start()' for an HTML browser interface to help.
-    Type 'q()' to quit R.
-
-    > install.packages('RODBCext', repos='https://cran.microsoft.com')
-    Installing package into 'C:/Users/youruser/Documents/R/win-library/3.5'
-    (as 'lib' is unspecified)
-    trying URL 'https://cran.microsoft.com/bin/windows/contrib/3.5/RODBCext_0.3.1.zip'
-    Content type 'application/zip' length 283032 bytes (276 KB)
-    ==================================================
-    downloaded 276 KB
-
-    package 'RODBCext' successfully unpacked and MD5 sums checked
-
-    The downloaded binary packages are in
-            C:\Users\youruser\AppData\Local\Temp\RtmpyyuQf2\downloaded_packages
-    ```
-
     > [!NOTE]
-    > If you are receiving the error like *'R' is not recognized as an internal or external command, operable program or batch file.*, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`).
+    > If you are receiving the error like **'R' is not recognized as an internal or external command, operable program or batch file.**, it likely means that path to R.exe is not included in your **PATH** environment variable on Windows. You can either add the directory to the environment variable or navigate to the directory in the command prompt (for example `cd C:\Program Files\R\R-3.5.1\bin`).
 
 1. Use the **R CMD INSTALL** command to install **sqlmlutils**. Specify the path to the directory you have downloaded the zip file to and the name of the zip file. For example:
 
@@ -476,19 +445,62 @@ TODO
 
 1. In this example you will use RStudio Desktop as the IDE. You can use another IDE if you prefer. Download and install RStudio Desktop from [www.rstudio.com/products/rstudio/download/](https://www.rstudio.com/products/rstudio/download/), if you don't already have RStudio installed.
 
-1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using sqlmlutils.
+1. Open **RStudio** and create a new **R Script** file. Use the following R code to install a package using sqlmlutils. In the example below, you will install the [glue]https://cran.r-project.org/web/packages/glue/) package, which can format and interpolate a string.
 
     ```R
     library(sqlmlutils) 
     connection <- connectionInfo(server= "yourserver.database.windows.net", database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
-    sql_install.packages(connectionString = connection, pkgs = “packageName”, verbose = TRUE, scope = “PUBLIC”)
+    sql_install.packages(connectionString = connection, pkgs = "glue", verbose = TRUE, scope = "PUBLIC")
     ```
-    
-1. Once the package is installed, you can use it in your R script through **sp_execute_external_script**.
+
+1. Now, verify that the **glue** package has been installed.
+
+    ```R
+    r<-sql_installed.packages(connectionString = connection, fields=c("Package", "LibPath", "Attributes", "Scope"))
+    View(r)
+    ```
+
+    **Results**
+
+    ![Contents of the RTestData table](./media/sql-database-connect-query-r/r-verify-package-install.png)
+
+
+1. Once the package is installed, you can use it in your R script through **sp_execute_external_script**. Open **SQL Server Management Studio** and connect to your SQL database. Run the following script:
 
     ```sql
-    -- SQL script goes here...
+    EXEC sp_execute_external_script @language = N'R'
+    , @script = N'
+    library(glue)
+
+    name <- "Fred"
+    age <- 50
+    anniversary <- as.Date("2020-06-14")
+    text <- glue(''My name is {name}, '',
+        ''my age next year is {age + 1}, '',
+        ''my anniversary is {format(anniversary, "%A, %B %d, %Y")}.'')
+    print(text)
+    ';
     ```
+
+    You will see the following result in the Messages tab.
+
+    **Results**
+
+    ```text
+    STDOUT message(s) from external script:
+    My name is Fred, my age next year is 51, my anniversary is Sunday, June 14, 2020.
+    ```
+
+1. If you would like to remove the package, run the following R script in **RStudio** on your local computer.
+
+    ```R
+    library(sqlmlutils) 
+    connection <- connectionInfo(server= "yourserver.database.windows.net", database = "yourdatabase", uid = "yoursqluser", pwd = "yoursqlpassword")
+    sql_remove.packages(connectionString = connection, pkgs = "glue", scope = "PUBLIC") 
+    ```
+
+> [!NOTE]
+> Another way to install R packages to your SQL database is to uploads the R package to from the  byte stream with [CREATE EXTERNAL LIBRARY](https://docs.microsoft.com/sql/t-sql/statements/create-external-library-transact-sql).
 
 ## Next steps
 
