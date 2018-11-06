@@ -259,6 +259,10 @@ select **Pipeline script from SCM**.
 
    1. When you're done, choose **Save**.
 
+   For example:
+
+   ![Point pipeline at build script](media/jenkins-java-quickstart/set-up-jenkins-github.png)
+
 1. To test your pipeline job, return to your pipeline 
 job page in Jenkins, and select **Build Now**.
 
@@ -267,9 +271,9 @@ job page in Jenkins, and select **Build Now**.
 ## Deploy to Azure manually
 
 1. With the Azure CLI, either from the command line or Azure Cloud Shell, create an 
-[Azure App Service Web App on Linux](/azure/app-service/containers/app-service-linux-intro) 
-where Jenkins deploys your web app from GitHub after finishing a build. Make sure your 
-App Service web app uses a unique name.
+[Azure App Service web app on Linux](/azure/app-service/containers/app-service-linux-intro) 
+where Jenkins can deploy your Java web app from GitHub after finishing a build. 
+Make sure your App Service web app uses a unique name.
 
    ```azurecli-interactive
    az group create --name your-Azure-resource-group-for-Jenkins-name --location your-Azure-region
