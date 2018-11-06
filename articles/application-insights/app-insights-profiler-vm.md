@@ -61,11 +61,8 @@ This page will guide you through the steps needed to get Application Insights pr
 
 1. Deploy your application.
 
-## Enable Profiler on on-premises servers
-
-Enabling Profiler on an on-premises server is also known as running Application Insights Profiler in standalone mode. It's not tied to Azure Diagnostics extension modifications.
-
-We have no plan to officially support Profiler for on-premises servers. If you're interested in experimenting with this scenario, you can [download support code](https://github.com/ramach-msft/AIProfiler-Standalone). We are *not* responsible for maintaining that code, or for responding to issues and feature requests that are related to the code.
+## Can profiler run on on-premises servers?
+We have no plans to support Applciation Insights Profiler for on-premises servers. 
 
 ## Next steps
 
