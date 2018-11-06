@@ -195,11 +195,7 @@ Yes. Virtual machines deployed in virtual networks connected to the same Express
 
 ### Can I use site-to-site connectivity for virtual networks in conjunction with ExpressRoute?
 
-Yes. ExpressRoute can coexist with site-to-site VPNs.
-
-### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
-
-Yes. You will have to create an ExpressRoute gateway within your virtual network. There is a small downtime associated with the process.
+Yes. ExpressRoute can coexist with site-to-site VPNs. See [Configure ExpressRoute and site-to-site coexisting connections](expressroute-howto-coexist-resource-manager.md).
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 

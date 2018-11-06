@@ -3,8 +3,8 @@ title: Use Apache Spark to analyze data in Azure Data Lake Store
 description: Run Spark jobs to analyze data stored in Azure Data Lake Store
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual

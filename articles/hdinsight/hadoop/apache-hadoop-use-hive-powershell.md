@@ -2,14 +2,14 @@
 title: Use Hadoop Hive with PowerShell in HDInsight - Azure 
 description: Use PowerShell to run Hive queries in Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Run Hive queries using PowerShell

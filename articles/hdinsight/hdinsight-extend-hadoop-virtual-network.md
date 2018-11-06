@@ -2,8 +2,8 @@
 title: Extend HDInsight with Virtual Network - Azure
 description: Learn how to use Azure Virtual Network to connect HDInsight to other cloud resources, or resources in your datacenter
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
@@ -19,7 +19,7 @@ Learn how to use HDInsight with an [Azure Virtual Network](../virtual-network/vi
 
 * Connecting HDInsight to data stores in an Azure Virtual network.
 
-* Directly accessing Hadoop services that are not available publicly over the internet. For example, Kafka APIs or the HBase Java API.
+* Directly accessing Apache Hadoop services that are not available publicly over the internet. For example, Kafka APIs or the HBase Java API.
 
 > [!WARNING]
 > The information in this document requires an understanding of TCP/IP networking. If you are not familiar with TCP/IP networking, you should partner with someone who is before making modifications to production networks.
