@@ -13,7 +13,7 @@ ms.topic: quickstart
 ---
 # Quickstart: Build, deploy, and use a custom model for translation
 
-This article provides step-by-step instruction to build a translation system with Custom Translator.
+This article provides step-by-step instructions to build a translation system with Custom Translator.
 
 ## Prerequisites
 
@@ -99,4 +99,4 @@ Reference](https://docs.microsoft.com/azure/cognitive-services/translator/refere
 
 ## Next steps
 
-- Learn about [workspace and projects](workspace-and-project.md) to get better concepts how to get started with Custom Translator.
+- Learn how to navigate the [Custom Translator workspace and manage your projects](workspace-and-project.md).

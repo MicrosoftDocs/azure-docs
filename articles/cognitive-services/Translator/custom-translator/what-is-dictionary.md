@@ -14,7 +14,7 @@ ms.topic: article
 
 # What is a dictionary?
 
-A dictionary is an aligned pair of documents that specifies a list of phrases or sentences and their corresponding translations. When a dictionary is used during training, Microsoft Translator will always translate any instances of the source phrase or sentence using the translation you provide.  Dictionaries are sometimes called glossaries or term bases. You can think of the dictionary as a brute force “copy and replace” for all the terms you list.
+A dictionary is an aligned pair of documents that specifies a list of phrases or sentences and their corresponding translations. Use a dictionary in your training, when you want Microsoft Translator to always translate any instances of the source phrase or sentence, using the translation you've provided in the dictionary. Dictionaries are sometimes called glossaries or term bases. You can think of the dictionary as a brute force “copy and replace” for all the terms you list.
 
 Dictionaries only work for projects in language pairs that have a fully supported Microsoft neural machine translation (NMT) system behind them. See http://www.aka.ms/translatorlanguages for a complete list of languages.
 

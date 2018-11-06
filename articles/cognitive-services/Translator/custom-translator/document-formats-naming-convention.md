@@ -14,10 +14,9 @@ ms.topic: conceptual
 
 # Document formats and naming convention guidance
 
-File names must be at least **four** characters in length.
+Any file used for custom translation must be at least **four** characters in length.
 
-Use any of these formats to build your translation system:
-
+This table includes all supported file formats that you can use to build your translation system:
 
 | Format            | Extensions   | Description                                                                                                                                                                                                                                                                    |
 |-------------------|--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

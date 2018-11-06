@@ -9,12 +9,12 @@ ms.component: custom-translator
 ms.date: 11/13/2018
 ms.author: v-rada
 ms.topic: article
-#Customer intent: As a Custom Translator user, I want to understand how to manage settings, so that manage settings I can create workspace, share workspace, and manage subscription key.
+#Customer intent: As a Custom Translator user, I want to understand how to manage settings, so that I can create workspace, share workspace, and manage subscription key in Custom Translator.
 ---
 
-# Manage settings
+# How to manage settings
 
-Within the Custom Translator settings page, you can create a new workspace, share your workspace, and add or modify your Microsoft Translation Subscription Key.
+Within the Custom Translator settings page, you can create a new workspace, share your workspace, and add or modify your Microsoft Translation subscription key.
 
 To access the settings page:
 

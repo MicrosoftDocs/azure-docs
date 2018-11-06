@@ -14,7 +14,7 @@ ms.topic: overview
 
 # What is Custom Translator?
 
-[Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service. With Custom Translator enterprises, app developers, and language service providers can build neural machine translation (NMT). These are the systems that understand the terminology used in their own business and industry. The customized translation system seamlessly integrates into existing applications, workflows, and websites.
+[Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service, which enables Translator enterprises, app developers, and language service providers to build neural machine translation (NMT). These are the systems that understand the terminology used in their own business and industry. The customized translation system seamlessly integrates into existing applications, workflows, and websites.
 
 Microsoft Translator released [Neural Machine Translation (NMT)](https://blogs.msdn.microsoft.com/translation/2016/11/15/microsoft-translator-launching-neural-network-based-translations-for-all-its-speech-languages/) in 2016. NMT provided major advances in translation quality over the then industry-standard [Statistical Machine Translation (SMT)](https://en.wikipedia.org/wiki/Statistical_machine_translation) technology. Because NMT better captures the context of full sentences before translating them, it provides higher quality, more human-sounding, and more fluent translations. [Custom Translator](https://portal.customtranslator.azure.ai/) offers similar capabilities to what [Microsoft Translator Hub](https://hub.microsofttranslator.com/) does for Statistical Machine Translation (SMT), but exclusively for Neural Machine Translation (NMT) systems.
 
@@ -28,12 +28,12 @@ Custom Translator provides different features to build custom translation system
 |---------|---------|
 |[Create a project](how-to-create-project.md)     |  Create your project for required language pair. Your project contains all your custom models.       |
 |[Upload documents](how-to-upload-document.md)     |  Upload your parallel documents and dictionaries to train your custom model.       |
-|[Create model](how-to-train-model.md)     |   Train and build your custom models with the uploaded documents .       |
+|[Create model](how-to-train-model.md)     |   Train and build your custom models with the uploaded documents.       |
 |[Deploy model](how-to-view-system-test-results.md#deploy-a-model)     |   Deploy custom models and access via Microsoft Translator [Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).     |
 |[Share your work](how-to-manage-settings.md#share-your-workspace)     |  Share your works with different people when there is a need.       |
 
 
-## Get Better translations
+## Get better translations
 
 You can use previously translated documents to build a translation system. These documents include domain-specific terminology and style, better than a generic translation system. Users can upload ALIGN, PDF, LCL, HTML, HTM, XLF, TMX, XLIFF, TXT, DOCX, and XLSX documents.
 

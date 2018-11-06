@@ -18,7 +18,7 @@ When your training is successful, review system tests to analyze your training r
 
 ## System test results page
 
-Go to specific project, go to models tab of that project, then go to appropriate model and select test tab.
+Select a project, then select the models tab of that project, locate the model you want to use and finally select the test tab.
 
 The test tab shows you:
 
