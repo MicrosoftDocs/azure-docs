@@ -190,4 +190,4 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 ## Next steps
 * [Collect logs and metrics for Azure services](log-analytics-azure-storage.md) for supported Azure services.
 * [Enable Solutions](../monitoring/monitoring-solutions.md) to provide insight into the data.
-* [Use search queries](log-analytics-log-search.md) to analyze the data.
+* [Use search queries](log-analytics-queries.md) to analyze the data.
