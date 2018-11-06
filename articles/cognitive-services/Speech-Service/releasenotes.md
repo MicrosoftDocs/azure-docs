@@ -20,7 +20,7 @@ ms.author: wolfma
 **New Features**
 
 * Support for Android x86/x64
-* Proxy Support: In the SpeechConfig object you can now call a function to set the proxy information (hostname, port, username, and password). Proxy support is currently not available on iOS, this will be added in an upcoming release.
+* Proxy Support: In the SpeechConfig object you can now call a function to set the proxy information (hostname, port, username, and password). This feature is not yet available on iOS.
 * Improved error code and messages. If a recognition returned an error, this did already set `Reason` (in canceled event) or `CancellationDetails` (in recognition result) to `Error`. The canceled event contains now two additional members, `ErrorCode` and `ErrorDetails`. If the server returned additional error information with the reported error, it will now be available in the new members.
 
 **Improvements**
