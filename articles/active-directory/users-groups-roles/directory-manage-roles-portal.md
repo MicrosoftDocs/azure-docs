@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/05/2018
+ms.date: 11/06/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
