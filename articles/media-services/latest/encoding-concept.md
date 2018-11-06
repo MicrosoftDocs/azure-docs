@@ -46,7 +46,7 @@ Currently, customers have to use the Azure portal or AMS v2 APIs to set RUs (as 
 
 ### Tutorials
 
-The following tutoral shows how to encode your content with Media Services:
+The following tutorial shows how to encode your content with Media Services:
 
 * [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md)
 
