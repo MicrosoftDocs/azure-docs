@@ -301,7 +301,7 @@ The following table shows the PowerShell version used by each major version of t
 | Functions version | PowerShell version                             |
 |-------------------|------------------------------------------------|
 | 1.x               | Windows PowerShell 5.1 (locked by the runtime) |
-| 2.x               | PowerShell Core 6.1                            |
+| 2.x               | PowerShell Core 6                              |
 
 You can see the current version by printing `$PSVersionTable` from any function.
 
