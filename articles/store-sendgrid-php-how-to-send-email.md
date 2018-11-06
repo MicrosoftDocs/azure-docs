@@ -183,7 +183,7 @@ code to the example script for sending an email with Swift Mailer.
   * Create the body of the message (a plain-text and an HTML version).
   * $text is your plain-text email
   * $html is your html version of the email
-  * If the reciever is able to view html emails then only the html
+  * If the receiver is able to view html emails then only the html
   * email will be displayed
   */
  $text = "Hi!\nHow are you?\n";
