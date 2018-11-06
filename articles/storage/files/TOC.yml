@@ -36,8 +36,6 @@
       href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Geo-redundant storage
       href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Diagnostics
-    href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
   - name: Azure file share snapshots
     href: storage-snapshots-files.md
   - name: Scalability and performance targets
@@ -62,6 +60,8 @@
       href: ../common/storage-compliance-offerings.md
   - name: Metrics
     items:
+    - name: Diagnostics
+      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json 
     - name: Storage Analytics
       href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Metrics in Azure Monitor
