@@ -43,5 +43,5 @@ When you create a storage account, you select the primary region for the account
 
 ## See also
 - [Azure Storage replication](storage-redundancy.md)
-- [Locally-redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md)
+- [Locally redundant storage (LRS): Low-cost data redundancy for Azure Storage](storage-redundancy-lrs.md)
 - [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md)
