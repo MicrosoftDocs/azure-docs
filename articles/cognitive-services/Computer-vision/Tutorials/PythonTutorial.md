@@ -32,7 +32,7 @@ To use this notebook, you will need a subscription key for the Computer Vision A
 ```python
 # Variables
 _region = 'westcentralus' #Here you enter the region of your subscription
-_url = 'https://{}.api.cognitive.microsoft.com/vision/v1.0/analyze'.format(_region)
+_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(_region)
 _key = None #Here you have to paste your primary key
 _maxNumRetries = 10
 ```
