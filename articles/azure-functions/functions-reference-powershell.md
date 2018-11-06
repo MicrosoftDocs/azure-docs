@@ -12,7 +12,7 @@ ms.service: azure-functions
 ms.devlang: powershell
 ms.topic: reference
 ms.date: 11/5/2018
-ms.author: tyleonha
+ms.author: tylerleonhardt
 
 ---
 # Azure Functions PowerShell developer guide
@@ -36,8 +36,12 @@ PSFunctionApp
  | | - run.ps1
  | | - function.json
  | - Modules
- | | - myFirstHelperModule.psm1
- | | - mySecondHelperModule.psm1
+ | | - myFirstHelperModule
+ | | | - myFirstHelperModule.psm1
+ | | | - myFirstHelperModule.psd1
+ | | - mySecondHelperModule
+ | | | - mySecondHelperModule.psm1
+ | | | - mySecondHelperModule.psd1
  | - local.settings.json
  | - host.json
  | - extensions.csproj
@@ -46,7 +50,7 @@ PSFunctionApp
 
 At the root of the project, there's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.ps1) and binding configuration file (function.json). The name of `function.json`'s parent directory is always the name of your function.
 
-The binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+Depending on the bindings you are using, an `extensions.csproj` might be needed. Binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
 
 ## Defining a PowerShell script to be a function
 
@@ -90,9 +94,11 @@ You can also pass in a hashtable that contains the names of output bindings to t
 ```powershell
 param($MyFirstInputBinding, $MySecondInputBinding)
 
+$myValue = "myData"
+
 $hashtable = @{
-    myQueue = "myData"
-    myOtherQueue = "myData"
+    myQueue = $myValue
+    myOtherQueue = $myValue
 }
 
 Push-OutputBinding -InputObject $hashtable
@@ -232,25 +238,28 @@ HTTP and webhook triggers and HTTP output bindings use request and response obje
 
 The Request object that's passed into the script comes from a type called `HttpRequestContext` which has the following properties:
 
-| Property  | Description                                                    |
-|-----------|----------------------------------------------------------------|
-| _Body_    | An object that contains the body of the request.               |
-| _Headers_ | A dictionary that contains the request headers.                |
-| _Method_  | The HTTP method of the request.                                |
-| _Params_  | An object that contains the routing parameters of the request. |
-| _Query_   | An object that contains the query parameters.                  |
-| _Url_     | The URL of the request.                                        |
+| Property  | Description                                                    | Type                      |
+|-----------|----------------------------------------------------------------|---------------------------|
+| _Body_    | An object that contains the body of the request.               | object                    |
+| _Headers_ | A dictionary that contains the request headers.                | Dictionary<string,string> |
+| _Method_  | The HTTP method of the request.                                | string                    |
+| _Params_  | An object that contains the routing parameters of the request. | Dictionary<string,string> |
+| _Query_   | An object that contains the query parameters.                  | Dictionary<string,string> |
+| _Url_     | The URL of the request.                                        | string                    |
+
+> [!Note]
+> All `Dictionary<string,string>` keys are case-insensitive.
 
 ### Response object
 
 The Response object that you should send back comes from a type called `HttpResponseContext` which has the following properties:
 
-| Property      | Description                                                 |
-|---------------|-------------------------------------------------------------|
-| _Body_        | An object that contains the body of the response.           |
-| _ContentType_ | A short hand for setting the content type for the response. |
-| _Headers_     | An object that contains the response headers.               |
-| _StatusCode_  | The HTTP status code of the response.                       |
+| Property      | Description                                                 | Type                      |
+|---------------|-------------------------------------------------------------|---------------------------|
+| _Body_        | An object that contains the body of the response.           | object                    |
+| _ContentType_ | A short hand for setting the content type for the response. | string                    |
+| _Headers_     | An object that contains the response headers.               | Dictionary or Hashtable   |
+| _StatusCode_  | The HTTP status code of the response.                       | string or int             |
 
 ### Accessing the request and response
 
