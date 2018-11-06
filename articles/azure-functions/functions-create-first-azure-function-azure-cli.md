@@ -103,17 +103,19 @@ After the function app has been created, the Azure CLI shows information similar
 }
 ```
 
-## Configure the function app
+### Configure the function app (Node.js)
 
-Core Tools version 2.x creates projects using templates for the Azure Functions 2.x runtime. Because of this, you need to make sure that the version 2.x runtime is used in Azure. Setting the `FUNCTIONS_WORKER_RUNTIME` application setting to `~2` pins the function app to the latest 2.x version. Set application settings with the [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) command.
+When you create a JavaScript function app, it's important to target the correct Node.js version. Version 2.x of the Functions runtime requires Node.js version 8.x. The application setting `WEBSITE_NODE_DEFAULT_VERSION` controls the version of Node.js that is used by the function app in Azure. Use the [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) command to set the Node.js version to `8.11.1`.
 
 In the following Azure CLI command, `<app_name> is the name of your function app.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <app_name> \
 --resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~2
+--settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
+
+Verify the new setting in the output.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
@@ -122,3 +124,4 @@ az functionapp config appsettings set --name <app_name> \
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+
