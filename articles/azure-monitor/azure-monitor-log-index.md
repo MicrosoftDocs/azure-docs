@@ -23,7 +23,7 @@ ms.author: magoedte
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
 
-<ul class="panelContent cardsF">
+<ul class="panelContent cards">
     <li>
         <div class="cardSize">
             <div class="cardPadding">
