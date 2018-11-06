@@ -34,34 +34,35 @@ ms.author: hermannd
 [sles-12-for-sap]:https://www.suse.com/media/white-paper/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 
 
-This article helps you check the Pacemaker cluster configuration for SAP HANA scale-out that runs on Azure virtual machines. The cluster setup was accomplished in combination with SAP HANA System Replication (HSR) and the SUSE RPM package SAPHanaSR-ScaleOut. All tests were done on SUSE SLES 12 SP3 only. There are several sections, which cover different areas and include sample commands and excerpts from config files. We recommend these samples as a method to verify and check the whole cluster setup.
+This article helps you check the Pacemaker cluster configuration for SAP HANA scale-out that runs on Azure virtual machines (VMs). The cluster setup was accomplished in combination with SAP HANA System Replication (HSR) and the SUSE RPM package SAPHanaSR-ScaleOut. All tests were done on SUSE SLES 12 SP3 only. The article's sections cover different areas and include sample commands and excerpts from config files. We recommend these samples as a method to verify and check the whole cluster setup.
 
 
 
 ## Important notes
 
-All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only. The operating system version was SUSE Linux Enterprise Server 12 SP3 for SAP Applications. In addition the latest RPM package, SAPHanaSR-ScaleOut from SUSE was used to set up the pacemaker cluster.
-SUSE published a [detailed description of this performance optimized setup][sles-hana-scale-out-ha-paper].
+All testing for SAP HANA scale-out in combination with SAP HANA System Replication and Pacemaker was done with SAP HANA 2.0 only. The operating system version was SUSE Linux Enterprise Server 12 SP3 for SAP applications. The latest RPM package, SAPHanaSR-ScaleOut from SUSE, was used to set up the Pacemaker cluster.
+SUSE published a [detailed description of this performance-optimized setup][sles-hana-scale-out-ha-paper].
 
-For virtual machine types, which are supported for SAP HANA scale-out, check the [SAP HANA certified IaaS directory][sap-hana-iaas-list].
+For virtual machine types that are supported for SAP HANA scale-out, check the [SAP HANA certified IaaS directory][sap-hana-iaas-list].
 
-There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. It's mandatory to use the latest SAP HANA 2.0 patches where this issue got fixed. The following SAP HANA versions are supported: 
+There was a technical issue with SAP HANA scale-out in combination with multiple subnets and vNICs and setting up HSR. It's mandatory to use the latest SAP HANA 2.0 patches where this issue was fixed. The following SAP HANA versions are supported: 
 
-**rev2.00.024.04 or higher & rev2.00.032 or higher.**
+* rev2.00.024.04 or higher 
+* rev2.00.032 or higher
 
-If there's a situation that requires support from SUSE, follow this [guide][suse-pacemaker-support-log-files]. Collect all information about the SAP HANA HA cluster as described in the article. SUSE support needs this information for further analysis.
+If you have a situation that requires support from SUSE, follow this [guide][suse-pacemaker-support-log-files]. Collect all the information about the SAP HANA high-availability (HA) cluster as described in the article. SUSE support needs this information for further analysis.
 
-During internal testing, it happened that the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore, we recommend that you test a cluster failover by other methods. Use methods like forcing a kernel panic or shut down the networks or migrate the **msl** resource (see details in the sections below). The assumption is that a standard shutdown happens with intention. The best example for an intentional shutdown is maintenance (see details in the section about planned maintenance).
+During internal testing, the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. Therefore, we recommend that you test a cluster failover by other methods. Use methods like forcing a kernel panic, or shut down the networks or migrate the **msl** resource. See details in the following sections. The assumption is that a standard shutdown happens with intention. The best example of an intentional shutdown is for maintenance. See details in the **Planned maintenance** section.
 
-During internal testing it happened that the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. It's recommended to switch it back manually again, before ending the cluster maintenance mode. Another option is to trigger a failover before putting the cluster into maintenance mode (see the section about planned maintenance for more details). The documentation from SUSE describes how you can reset the cluster in this regard using the crm command. But the approach mentioned before seemed to be robust during internal testing and never showed any unexpected side effects.
+Also, during internal testing, the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. We recommend switching it back again manually before ending the cluster maintenance mode. Another option is to trigger a failover before putting the cluster into maintenance mode. For more details, see the Planned Maintenance section. The documentation from SUSE describes how you can reset the cluster in this regard by using the **crm** command. But the approach mentioned previously was robust during internal testing and never showed any unexpected side effects.
 
-When using the crm migrate command don't miss cleaning up the cluster configuration. It adds location constraints, which you might not be aware of. These constraints have an impact on the cluster behavior (see more details in the section about planned maintenance).
+When you use the **crm migrate** command, make sure to clean up the cluster configuration. It adds location constraints that you might not be aware of. These constraints impact the cluster behavior. See more details in the **Planned maintenance** section.
 
 
 
 ## Test system description
 
-For SAP HANA scale-out HA verification and certification a setup was used, consisting of two systems with three SAP HANA nodes each - one master and two workers. Here is the list of VM names and internal IP addresses. All verification samples further down were done on these VMs. Using these VM names and IP addresses in the command samples should help to better understand the commands and their outputs.
+For SAP HANA scale-out HA verification and certification a setup was used. The setups consisted of two systems with three SAP HANA nodes each: one master and two workers. The following tabls lists VM names and internal IP addresses. All the verification samples that follow were done on these VMs. By using these VM names and IP addresses in the command samples, you can better understand the commands and their outputs.
 
 
 | Node type | VM name | IP address |
@@ -84,24 +85,24 @@ For SAP HANA scale-out HA verification and certification a setup was used, consi
 
 ## Multiple subnets and vNICs
 
-Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in non-shared mode, which means that every node uses local disk volumes for **/hana/data** and **/hana/log**. Because of using only local disk volumes it's not necessary to define a separate subnet for storage:
+Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in nonshared mode. That means every node uses local disk volumes for **/hana/data** and **/hana/log**. Because the nodes only use local disk volumes, it's not necessary to define a separate subnet for storage:
 
-- 10.0.2.0/24   for SAP HANA inter-node communication
-- 10.0.1.0/24   for SAP HANA System Replication HSR
-- 10.0.0.0/24   for everything else
+- 10.0.2.0/24 for SAP HANA internode communication.
+- 10.0.1.0/24 for SAP HANA System Replication (HSR).
+- 10.0.0.0/24 for everything else.
 
-For information about SAP HANA configuration related to using multiple networks see the section **global.ini** further down.
+For information about SAP HANA configuration related to using multiple networks, see the **SAP HANA global.ini** section.
 
-Corresponding to the number of subnets every VM in the cluster has three vNICs. [This][azure-linux-multiple-nics] article describes a potential routing issue on Azure when deploying a Linux VM. This specific routing topic applies only for usage of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. The article from SUSE about this topic can be found [here][suse-cloud-netconfig].
+Every VM in the cluster has three vNICs that correspond to the number of subnets. [How to create a Linux virtual machine in Azure with multiple network interface cards][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing topic applies only for usage of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see the [article from SUSE about this topic][suse-cloud-netconfig].
 
 
-As a basic check to verify if SAP HANA is configured correctly for using multiple networks, run the following commands. First step is simply to double-check on OS level that all three internal IP addresses for all three subnets are active. In case you defined the subnets with different IP address ranges you have to adapt the commands:
+As a basic check to verify if SAP HANA is configured correctly to use multiple networks, run the following commands. First double-check on the OS level that all three internal IP addresses for all three subnets are active. If you defined the subnets with different IP address ranges, you have to adapt the commands:
 
 <pre><code>
 ifconfig | grep "inet addr:10\."
 </code></pre>
 
-Here is a sample output from the second worker node on site 2. You can see three different internal IP addresses from eth0, eth1, and eth2:
+The following sample output is from the second worker node on site 2. You can see three different internal IP addresses from eth0, eth1, and eth2:
 
 <pre><code>
 inet addr:10.0.0.42  Bcast:10.0.0.255  Mask:255.255.255.0
@@ -110,9 +111,9 @@ inet addr:10.0.2.42  Bcast:10.0.2.255  Mask:255.255.255.0
 </code></pre>
 
 
-Second step is verification of SAP HANA ports for nameserver and HSR. SAP HANA should listen on the corresponding subnets. Depending on the SAP HANA instance number, you have to adapt the commands. For the test system, the instance number was **00**. There are different ways to figure out which ports are used. 
+Next, verify the SAP HANA ports for the name server and HSR. SAP HANA should listen on the corresponding subnets. Depending on the SAP HANA instance number, you have to adapt the commands. For the test system, the instance number was **00**. There are different ways to figure out which ports are used. 
 
-Below you see a SQL statement, which returns instance ID and instance number among other information:
+The following SQL statement returns the instance ID, instance number, and other information:
 
 <pre><code>
 select * from "SYS"."M_SYSTEM_OVERVIEW"
