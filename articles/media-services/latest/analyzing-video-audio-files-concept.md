@@ -35,7 +35,7 @@ Media Services currently supports the following built-in analyzer presets:
 
 ### AudioAnalyzerPreset
 
-**AudioAnalyzerPreset** enables you to extract multiple audio insights from an audio or video file. The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
+The preset enables you to extract multiple audio insights from an audio or video file. The output includes a JSON file (with all the insights) and VTT file for the audio transcript. This preset accepts a property that specifies the language of the input file in the form of a [BCP47](https://tools.ietf.org/html/bcp47) string. The audio insights include:
 
 * Audio transcription – a transcript of the spoken words with timestamps. Multiple languages are supported
 * Speaker indexing – a mapping of the speakers and the corresponding spoken words
@@ -44,7 +44,7 @@ Media Services currently supports the following built-in analyzer presets:
 
 ### VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
+The preset enables you to extract multiple audio and video insights from a video file. The output includes a JSON file (with all the insights), a VTT file for the video transcript, and a collection of thumbnails. This preset also accepts a [BCP47](https://tools.ietf.org/html/bcp47) string (representing the language of the video) as a property. The video insights include all the audio insights mentioned above and the following additional items:
 
 * Face tracking – the time during which faces are present in the video. Each face has a face id and a corresponding collection of thumbnails
 * Visual text – the text that is detected via optical character recognition. The text is time stamped and also used to extract keywords (in addition to the audio transcript)
