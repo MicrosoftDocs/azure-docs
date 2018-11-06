@@ -46,8 +46,8 @@ let https = require('https');
 // Replace the subscriptionKey string value with your valid subscription key.
 let subscriptionKey = 'your-access-key';
 
-let host = 'www.bingapis.com';
-let path = '/api/v7/localbusinesses/search';
+let host = 'api.cognitive.microsoft.com/bing';
+let path = '/v7.0/localbusinesses/search';
 
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';

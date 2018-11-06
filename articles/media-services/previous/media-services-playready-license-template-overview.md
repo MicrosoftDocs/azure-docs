@@ -2,7 +2,7 @@
 title: Media Services PlayReady license template overview
 description: This topic gives an overview of a PlayReady license template that is used to configure PlayReady licenses.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 11/05/2018
 ms.author: juliako
 
 ---
@@ -77,7 +77,7 @@ As the "top-level" class in the template hierarchy, the response template includ
 > 
 > 
 
-For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](http://go.microsoft.com/fwlink/?LinkId=617318).
+For an example of the protection levels that Silverlight supports, see [Silverlight support for output protections](https://go.microsoft.com/fwlink/?LinkId=617318).
 
 ## <a id="schema"></a>PlayReady license template XML schema
     <?xml version="1.0" encoding="utf-8"?>

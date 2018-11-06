@@ -16,7 +16,7 @@ Runbooks in Azure Automation are implemented as Windows PowerShell Workflows.  A
 
 A workflow is a sequence of programmed, connected steps that perform long-running tasks or require the coordination of multiple steps across multiple devices or managed nodes. The benefits of a workflow over a normal script include the ability to simultaneously perform an action against multiple devices and the ability to automatically recover from failures. A Windows PowerShell Workflow is a Windows PowerShell script that uses Windows Workflow Foundation. While the workflow is written with Windows PowerShell syntax and launched by Windows PowerShell, it is processed by Windows Workflow Foundation.
 
-For complete details on the topics in this article, see [Getting Started with Windows PowerShell Workflow](http://technet.microsoft.com/library/jj134242.aspx).
+For complete details on the topics in this article, see [Getting Started with Windows PowerShell Workflow](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## Basic structure of a workflow
 
@@ -39,9 +39,9 @@ PowerShell workflow code looks almost identical to PowerShell script code except
 
 ### Activities
 
-An activity is a specific task in a workflow. Just as a script is composed of one or more commands, a workflow is composed of one or more activities that are carried out in a sequence. Windows PowerShell Workflow automatically converts many of the Windows PowerShell cmdlets to activities when it runs a workflow. When you specify one of these cmdlets in your runbook, the corresponding activity is run by Windows Workflow Foundation. For those cmdlets without a corresponding activity, Windows PowerShell Workflow automatically runs the cmdlet within an [InlineScript](#inlinescript) activity. There is a set of cmdlets that are excluded and cannot be used in a workflow unless you explicitly include them in an InlineScript block. For further details on these concepts, see [Using Activities in Script Workflows](http://technet.microsoft.com/library/jj574194.aspx).
+An activity is a specific task in a workflow. Just as a script is composed of one or more commands, a workflow is composed of one or more activities that are carried out in a sequence. Windows PowerShell Workflow automatically converts many of the Windows PowerShell cmdlets to activities when it runs a workflow. When you specify one of these cmdlets in your runbook, the corresponding activity is run by Windows Workflow Foundation. For those cmdlets without a corresponding activity, Windows PowerShell Workflow automatically runs the cmdlet within an [InlineScript](#inlinescript) activity. There is a set of cmdlets that are excluded and cannot be used in a workflow unless you explicitly include them in an InlineScript block. For further details on these concepts, see [Using Activities in Script Workflows](https://technet.microsoft.com/library/jj574194.aspx).
 
-Workflow activities share a set of common parameters to configure their operation. For details about the workflow common parameters, see [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Workflow activities share a set of common parameters to configure their operation. For details about the workflow common parameters, see [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### Positional parameters
 
@@ -146,7 +146,7 @@ While InlineScript activities may be critical in certain workflows, they do not 
 * You cannot use [parallel execution](#parallel-processing) inside an InlineScriptBlock.
 * InlineScript affects scalability of the workflow since it holds the Windows PowerShell session for the entire length of the InlineScript block.
 
-For more information on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](http://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+For more information on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](https://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
 ## Parallel processing
 
@@ -285,7 +285,7 @@ workflow CreateTestVms
 
 This is not required if you are authenticating using a Run As account configured with a service principal.
 
-For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](http://technet.microsoft.com/library/jj574114.aspx).
+For more information about checkpoints, see [Adding Checkpoints to a Script Workflow](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## Next steps
 

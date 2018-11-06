@@ -3,7 +3,7 @@ title: Understand outputs from Azure Stream Analytics
 description: This article describes data output options available in Azure Stream Analytics, including Power BI for analysis results.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
@@ -318,10 +318,11 @@ The following table explains some of the considerations to output batching:
 | Azure Service Bus queue	| 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Azure Service Bus topic | 256 KB per message</br> See also [Service Bus limits](../service-bus-messaging/service-bus-quotas.md) | Single event per message |
 | Azure Cosmos DB	| See [Azure Cosmos DB limits](../azure-subscription-service-limits.md#azure-cosmos-db-limits) | Batch size and Write frequency is adjusted dynamically based CosmosDB responses. </br> No predetermined limitations from Stream Analytics. |
-| Azure Functions	| | Default batch size is 246 KB. </br> Default event count per batch is 100. </br> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions). 
+| Azure Functions	| | Default batch size is 256 KB. </br> Default event count per batch is 100. </br> The batch size is configurable and can be increased or decreased in the Stream Analytics [output options](#azure-functions). 
 
 ## Next steps
 > [!div class="nextstepaction"]
+
 > [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->

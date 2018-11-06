@@ -90,15 +90,21 @@
       - name: Conflict resolution policies
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
-        href: global-dist-under-the-hood.md  
-    - name: Throughput
+        href: global-dist-under-the-hood.md
+    - name: Partitioning
       items:
       - name: Overview
+        href: partitioning-overview.md  
+      - name: Logical partitions
+        href: partition-data.md
+      - name: Creating a synthetic partition key
+        href: synthetic-partition-keys.md
+    - name: Provisioned throughput
+      items:
+      - name: Request units
         href: request-units.md
-      - name: Get and set throughput
+      - name: Provision throughput on containers and databases
         href: set-throughput.md
-    - name: Partitioning and data distribution
-      href: partition-data.md
     - name: Indexing
       href: indexing-policies.md
     - name: Change feed
@@ -192,8 +198,6 @@
           href: programming.md
         - name: SQL data partitioning
           href: sql-api-partition-data.md
-        - name: Troubleshoot Java Async SDK 
-          href: troubleshoot-java-async-sdk.md
         - name: Data types
           items:
           - name: DateTime
@@ -392,6 +396,8 @@
       items:
       - name: Manage using PowerShell
         href: manage-account-with-powershell.md
+      - name: Manage using Azure CLI
+        href: manage-with-cli.md
       - name: Manage using Storage Explorer
         href: storage-explorer.md
       - name: Manage using data explorer
@@ -422,12 +428,24 @@
       href: tutorial-setup-ci-cd.md
     - name: Global distribution
       items:
-        - name: Manage Database Account
-          href: how-to-manage-database-account.md
-        - name: Manage Consistency
-          href: how-to-manage-consistency.md
-        - name: Manage Conflicts
-          href: how-to-manage-conflicts.md
+      - name: Manage Database Account
+        href: how-to-manage-database-account.md
+      - name: Manage Consistency
+        href: how-to-manage-consistency.md
+      - name: Manage Conflicts
+        href: how-to-manage-conflicts.md
+    - name: Provisioned throughput
+      items:
+      - name: Provision container throughput
+        href: how-to-provision-container-throughput.md
+      - name: Provision database throughput
+        href: how-to-provision-database-throughput.md
+    - name: Working with containers and items
+      items:
+      - name: Create a container
+        href: how-to-create-container.md
+      - name: Query a container
+        href: how-to-query-container.md
     - name: Best practices
       items:
       - name: Performance tips
@@ -484,6 +502,10 @@
       items: 
       - name: About bulk executor library
         href: bulk-executor-overview.md
+  - name: Troubleshooting guides
+    items:
+    - name: Troubleshoot Java Async SDK
+      href: troubleshoot-java-async-sdk.md
   - name: Resources
     items:
     - name: Build your skills with Microsoft Learn

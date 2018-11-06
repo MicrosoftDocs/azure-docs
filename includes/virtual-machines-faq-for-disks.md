@@ -287,7 +287,7 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them see our [blog post](http://aka.ms/azure-large-disk-32TB-preview-blog).
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them see our [blog post](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 
