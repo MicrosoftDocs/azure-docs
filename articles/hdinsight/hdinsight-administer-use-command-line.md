@@ -1,6 +1,6 @@
 ---
-title: Manage Hadoop clusters using Azure Classic CLI - Azure HDInsight
-description: Learn how to use the Azure classic CLI to manage Hadoop clusters in Azure HDInsight.
+title: Manage Apache Hadoop clusters using Azure Classic CLI - Azure HDInsight
+description: Learn how to use the Azure classic CLI to manage Apache Hadoop clusters in Azure HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
 author: hrasheed-msft
@@ -12,10 +12,10 @@ ms.date: 05/14/2018
 ms.author: hrasheed
 
 ---
-# Manage Hadoop clusters in HDInsight using the Azure Classic CLI
+# Manage Apache Hadoop clusters in HDInsight using the Azure Classic CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use the [Azure Classic CLI](../cli-install-nodejs.md) to manage Hadoop clusters in Azure HDInsight. The classic CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
+Learn how to use the [Azure Classic CLI](../cli-install-nodejs.md) to manage Apache Hadoop clusters in Azure HDInsight. The classic CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
