@@ -41,7 +41,7 @@ You will:
 
 ## Sign in to the Azure portal
 
-Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. The Azure DevOps Project also creates Azure resources in the Azure subscription of your choice.
+Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. Azure DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -67,7 +67,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 
 ## Configure Azure DevOps and an Azure subscription 
 
-1. Create a new Azure DevOps organization or choose an existing organization.
+1. Create a new Azure DevOps organization or select an existing organization.
 
 	a. Enter a name for your project in Azure DevOps. 
 	
@@ -81,20 +81,20 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 	
 Azure DevOps Projects automatically configures a CI build and release trigger. Your code remains in your GitHub repository or another external repository. 
 
-## Commit changes to GitHub and automatically deploy to Azure 
+## Commit changes to GitHub and automatically deploy them to Azure 
 
 You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure.
 
 1. Make a change to your application, and then commit the change to your GitHub repository.  
 	After a few moments, a build starts in Azure Pipelines. You can monitor the build status in the Azure DevOps Projects dashboard or you can monitor it in the browser with your Azure DevOps organization.
 
-1. After the build is completed, verify your changes by refreshing your application.
+1. After the build is completed, refresh your application to verify your changes.
 
 ## Examine the CI/CD pipeline
 
 Azure DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps organization. Explore and customize the pipeline as needed. To familiarize yourself with the build and release pipelines, do the following:
 
-1. At the top of the DevOps Projects Dashboard, select **Build Pipelines**.  
+1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
 	A browser tab displays the build pipeline for your new project.
 
 1. Point to the **Status** field, and then select the ellipsis (...).  
@@ -113,11 +113,12 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in your Azure De
 	You see an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
-	Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. You can optionally choose to include or exclude branches from the CI process.
+	Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
 
-1. Select **Retention**. Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
+1. Select **Retention**.  
+        Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-1. Select **Build and Release**, and then choose **Releases**.  
+1. Select **Build and Release**, and then select **Releases**.  
 	Azure DevOps Projects creates a release pipeline to manage deployments to Azure.
 
 1. Select the ellipsis (...) next to your release pipeline, and then select **Edit**.  
@@ -126,11 +127,11 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in your Azure De
 1. Under **Artifacts**, select **Drop**.  
 	The build pipeline you examined in the previous steps produces the output that's used for the artifact. 
 
-1. Next to the **Drop** icon, select the **Continuous deployment trigger**.  
+1. Next to the **Drop** icon, select **Continuous deployment trigger**.  
 	This release pipeline has an enabled CD trigger, which executes a deployment every time there is a new build artifact available. Optionally, you can disable the trigger so that your deployments require manual execution. 
 
 1. At the left, select **Tasks**.  
-	The tasks are the activities your deployment process performs. In this example, a task was created to deploy to the Azure App service.
+	Tasks are the activities that your deployment process executes. In this example, a task was created to deploy to the Azure App service.
 
 1. At the right, select **View releases** to display a history of releases.
 
@@ -141,13 +142,13 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in your Azure De
 	This view shows code commits that are associated with this deployment. 
 
 1. Select **Logs**.  
-	The logs contain useful information about the deployment process. They can be viewed both during and after deployments.
+	The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
 ## Configure Azure Application Insights monitoring
 
 With Azure Application insights, you can easily monitor your application's performance and usage. Azure DevOps Projects automatically configures an Application Insights resource for your application. You can further configure various alerts and monitoring capabilities as needed.
 
-1. In the Azure portal, go to the **Azure DevOps Project** dashboard. 
+1. In the Azure portal, go to the Azure DevOps Projects dashboard. 
 
 1. At the lower right, select the **Application Insights** link for your app.  
 	The **Application Insights** pane opens. This view contains usage, performance, and availability monitoring information for your app.
@@ -155,11 +156,11 @@ With Azure Application insights, you can easily monitor your application's perfo
     ![The Application Insights pane](_img/azure-devops-project-github/appinsights.png) 
 
 1. Select **Time range**, and then select **Last hour**. To filter the results, select **Update**.  
-	You now see all activity from the last 60 minutes. To exit the time range, select **x**.
+	You can now view all activity from the last 60 minutes. To exit the time range, select **x**.
 
 1. Select **Alerts**, and then select **Add metric alert**. 
 
-1. Enter a **Name** for the alert.
+1. Enter a name for the alert.
 
 1. In the **Source Alter on** drop-down list, select your **App Service resource.** <!-- Please confirm whether this should be "Source Alter on" or "Source Alert on" -->
 
@@ -176,12 +177,12 @@ With Azure Application insights, you can easily monitor your application's perfo
 
 1. Select **Availability**, and then select **Add test**. 
 
-1. Enter a **Test name**, and then select **Create**.  
+1. Enter a test name, and then select **Create**.  
 	A simple ping test is created to verify the availability of your application. After a few minutes, test results are available, and the Application Insights dashboard displays an availability status.
 
 ## Clean up resources
 
-When they are no longer needed, you can delete the Azure App service and related resources that you created in this quickstart. To do so, use the **Delete** functionality on the Azure DevOps Project dashboard.
+When they are no longer needed, you can delete the Azure App service and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the Azure DevOps Project dashboard.
 
 ## Next steps
 
