@@ -143,7 +143,6 @@ We'll be installing the Istio resources into the `istio-system` namespace, which
 ```azurecli-interactive
 helm install install/kubernetes/helm/istio --name istio --namespace istio-system \
   --set global.controlPlaneSecurityEnabled=true \
-  --set global.mtls.enabled=true \
   --set grafana.enabled=true \
   --set tracing.enabled=true \
   --set kiali.enabled=true
@@ -210,12 +209,11 @@ grafana-59b787b9b-cr6d7                  1/1       Running     0          6m
 istio-citadel-78df8c67d9-9lfpf           1/1       Running     0          6m
 istio-egressgateway-6b96cd7f5-k848h      1/1       Running     0          6m
 istio-galley-58f566cb66-8mhbv            1/1       Running     0          6m
-istio-grafana-post-install-4gfr6         0/1       Completed   0          6m
 istio-ingressgateway-6cbbf596f6-6jz8g    1/1       Running     0          6m
 istio-pilot-8449d555fc-sl6kp             2/2       Running     0          6m
 istio-policy-6b99d88bc5-55s52            2/2       Running     0          6m
 istio-sidecar-injector-b88dfb954-8m86s   1/1       Running     0          6m
-istio-telemetry-675cb4cb9d-662kf         2/2       Running     0          6m
+istio-telemetry-675cb4cb9d-8s7wd         2/2       Running     0          6m
 istio-tracing-7596597bd7-sbnt9           1/1       Running     0          6m
 kiali-5fbd6ffb-4qcxw                     1/1       Running     0          6m
 prometheus-76db5fddd5-2tkxs              1/1       Running     0          6m

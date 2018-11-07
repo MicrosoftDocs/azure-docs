@@ -197,7 +197,7 @@ deployment.apps/voting-analytics-1-1 created
 
 Open the AKS Voting app in a browser again, using the ip address of the Istio Ingress Gateway that you obtained earlier.
 
-Your browser will alternate between the two views shown below every time you hit refresh. Since we are using a Kubernetes [Service][kubernetes-service] for the `voting-analytics` component with only a single label selector (`app: voting-analytics`), we will observe Kubernetes' default behavior of round-robining between the pods that match that selector. In this case, it is both version `1.0` and `1.1` of our `voting-analytics` pods.
+Your browser will alternate between the two views shown below. Since we are using a Kubernetes [Service][kubernetes-service] for the `voting-analytics` component with only a single label selector (`app: voting-analytics`), we will observe Kubernetes' default behavior of round-robining between the pods that match that selector. In this case, it is both version `1.0` and `1.1` of our `voting-analytics` pods.
 
 ![Version 1.0 of the analytics component running in our AKS Voting app.](media/istio/deploy-app-01.png)
 
@@ -222,12 +222,16 @@ The following example output shows the relevant part of the returned web site:
 
 Let's lock down traffic to only version `1.1` of our `voting-analytics` component and to version `1.0` or our `voting-storage` component. We will also need to define routing rules for all of the other components, otherwise routing will not work.
 
-We'll use the `istioctl` client binary to replace the Virtual Service definition on our `voting-app` and add [Destination Rules][istio-reference-destinationrule] and [Virtual Services][istio-reference-virtualservice] for the other components.
+We'll use the `istioctl` client binary to replace the Virtual Service definition on our `voting-app` and add [Destination Rules][istio-reference-destinationrule] and [Virtual Services][istio-reference-virtualservice] for the other components. 
+
+We'll also add a [Policy][istio-reference-policy] to the `voting` namespace that will ensure that all communicate between services is secured using mutual TLS and client certificates.
 
 > [!NOTE]
 > A Virtual Service defines a set of routing rules for one or more destination services.
 >
 > A Destination Rule defines traffic policies and version specific policies.
+>
+> A Policy defines what authentication methods can be accepted on workload(s).
 
 We will be using the `istioctl replace` command since we have an existing Virtual Service definition for `voting-app` that we are replacing.
 
@@ -241,17 +245,20 @@ The following example output shows the Istio Virtual Service being updated:
 Updated config virtual-service/voting/voting-app to revision 141902
 ```
 
-Next we'll use the `istioctl create` command to add all the new Destination Rules and Virtual Services for all the other components. 
+Next we'll use the `istioctl create` command to add the new Policy and also the new Destination Rules and Virtual Services for all the other components.
 
-We also ensure that we have set the `trafficPolicy.tls.mode` to `ISTIO_MUTUAL` in all our Destination Rules. Istio will ensure that our services are given strong identities and only allow configured services to communicate with each other.
+The Policy has `peers.mtls.mode` set to `STRICT` to ensure that mutual TLS is enforced between our services within the `voting` namespace.
+
+We also ensure that we have set the `trafficPolicy.tls.mode` to `ISTIO_MUTUAL` in all our Destination Rules. Istio will provide our services with strong identities and will secure communications between services using mutual TLS and client certificates that Istio transparently manages for us.
 
 ```azurecli-interactive
 istioctl create -f istio/step-2b-add-routing-for-all-components.yaml --namespace voting
 ```
 
-The following example output shows the new Destination Rules and Virtual Services being created:
+The following example output shows the new Policy, Destination Rules and Virtual Services being created:
 
 ```console
+Created config policy/voting/default to revision 142118
 Created config destination-rule/voting/voting-app at revision 142119
 Created config destination-rule/voting/voting-analytics at revision 142120
 Created config virtual-service/voting/voting-analytics at revision 142121
@@ -278,6 +285,28 @@ The following example output shows the relevant part of the returned web site:
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
+```
+
+We will now also confirm that Istio is using mutual TLS to secure communications between each of our services. The following commands check the tls settings for each of the `voting-app` services.
+
+```azurecli-interactive
+istioctl authn tls-check voting-app.voting.svc.cluster.local
+istioctl authn tls-check voting-analytics.voting.svc.cluster.local
+istioctl authn tls-check voting-storage.voting.svc.cluster.local
+```
+
+You should see output that looks like the following. This shows that mutual TLS is enforced for each of the services via the Policy and Destination Rules we applied.
+
+
+```console
+HOST:PORT                                    STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-app.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-app/voting
+
+HOST:PORT                                          STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-analytics.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-analytics/voting
+
+HOST:PORT                                        STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
+voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS       default/voting     voting-storage/voting
 ```
 
 ## Roll out a canary release of the application
@@ -324,6 +353,12 @@ deployment.apps/voting-analytics-2-0 created
 deployment.apps/voting-app-2-0 created
 ```
 
+Wait until all the version `2.0` pods are running. You can verify this with the following command:
+
+```azurecli-interactive
+kubectl get pods -n voting
+```
+
 You should now be able to switch between the version `1.0` and version `2.0` (canary) of the voting application. The feature flag toggle at the bottom of the screen will set a cookie. This cookie is used by the `voting-app` Virtual Service to route users to the new version `2.0`.
 
 The other thing that you may notice, is that vote counts are different between the versions of the app. This difference highlights that we are using two different storage backends.
@@ -361,6 +396,7 @@ You can also explore additional scenarios using the Bookinfo Application example
 [istio-github]: https://github.com/istio/istio
 [istio-requirements-pods-and-services]: https://istio.io/docs/setup/kubernetes/spec-requirements/
 [istio-reference-gateway]: https://istio.io/docs/reference/config/istio.networking.v1alpha3/#Gateway
+[istio-reference-policy]: https://istio.io/docs/reference/config/istio.authentication.v1alpha1/#Policy
 [istio-reference-virtualservice]: https://istio.io/docs/reference/config/istio.networking.v1alpha3/#VirtualService
 [istio-reference-destinationrule]: https://istio.io/docs/reference/config/istio.networking.v1alpha3/#DestinationRule
 [kubernetes-service]: https://kubernetes.io/docs/concepts/services-networking/service/
