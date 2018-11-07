@@ -46,8 +46,7 @@ If you want to use **Azure PowerShell** to deploy the Resource Manager template,
 If you want to use **Azure CLI** to deploy the Resource Manager template, [Install  Azure CLI]( /cli/azure/install-azure-cli).
 
 ## Create the Resource Manager template JSON 
-This template creates a standard Service Bus namespace.
-
+Create a JSON file named **MyServiceBusNamespace.json** with the following content: 
 
 ```json
 {
@@ -94,8 +93,12 @@ This template creates a standard Service Bus namespace.
 }
 ```
 
+This template creates a standard Service Bus namespace.
+
 ## Create the parameters JSON
 The template you created in the previous step has a section called `Parameters`. You define parameters for those values that vary based on the project you are deploying or based on the target environment. This template defines the following parameters: **serviceBusNamespaceName**, **serviceBusSku**, and **location**. To learn more about SKUs of Service Bus, see [Service Bus SKUs](https://azure.microsoft.com/pricing/details/service-bus/) to create.
+
+Create a JSON file named **MyServiceBusNamespace-Parameters.json** with the following content: 
 
 ```json
 {
@@ -115,6 +118,8 @@ The template you created in the previous step has a section called `Parameters`.
 }
 ```
 
+> [!NOTE] Specify a name for your Service Bus namespace. 
+
 ## Use Azure PowerShell to deploy the template
 
 ### Sign in to Azure
@@ -132,20 +137,26 @@ The template you created in the previous step has a section called `Parameters`.
    ```
 
 ### Deploy resources
-To deploy the resources using Azure PowerShell, switch to the C:\EventHubsQuickStart\ARM\ folder, run the following commands:
+To deploy the resources using Azure PowerShell, switch to the folder where you saved the JSON files, and run the following commands:
 
 > [!IMPORTANT]
 > Specify a name for the Azure resource group as a value for $resourceGroupName before running the commands. 
 
-```azurepowershell
-$resourceGroupName = "<Specify a name for the Azure resource group>"
+1. Declare a variable for the resource group name, and specify a value for it. 
 
-# Create an Azure resource group
-New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    ```azurepowershell
+    $resourceGroupName = "<Specify a name for the Azure resource group>"
+    ```
+2. Create an Azure resource group.
 
-# Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
-New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyEventHub.json -TemplateParameterFile MyEventHub-Parameters.json
-```
+    ```azurepowershell
+    New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    ```
+3. Deploy the Resource Manager template. Specify the names of deployment itself, resource group, JSON file for the template, JSON file for parameters
+
+    ```azurepowershell
+    New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $resourceGroupName -TemplateFile MyServiceBusNamespace.json -TemplateParameterFile MyServiceBusNamespace-Parameters.json
+    ```
 
 ## Use Azure CLI to deploy the template
 
@@ -163,18 +174,21 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $res
     ``` 
 
 ### Deploy resources
-To deploy the resources using Azure CLI, switch to the C:\EventHubsQuickStart\ARM\ folder, and run the following commands:
+To deploy the resources using Azure CLI, switch to the folder with JSON files, and run the following commands:
 
 > [!IMPORTANT]
 > Specify a name for the Azure resource group in the az group create command. .
 
-```azurecli
-# Create an Azure resource group
-az group create --name <YourResourceGroupName> --location eastus
+1. Create an Azure resource group. 
+    ```azurecli
+    az group create --name <YourResourceGroupName> --location eastus
+    ```
 
-# # Deploy the Resource Manager template. Specify the names of resource group, deployment, JSON file for the template, JSON file for parameters
-az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyEventHub.json --parameters @MyEventHub-Parameters.json
-```
+2. Deploy the Resource Manager template. Specify the names of resource group, deployment, JSON file for the template, JSON file for parameters.
+
+    ```azurecli
+    az group deployment create --name <Specify a name for the deployment> --resource-group <YourResourceGroupName> --template-file MyServiceBusNamespace.json --parameters @MyServiceBusNamespace-Parameters.json
+    ```
 
 ## Next steps
 In this article, you created a Service Bus namespace. See the other quickstarts to learn how to create queues, topics/subscriptions, and use them: 
