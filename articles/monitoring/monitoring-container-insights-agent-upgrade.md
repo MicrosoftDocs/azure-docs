@@ -34,4 +34,4 @@ To install the new version of the agent, follow the steps described in the [Onbo
 After you've re-enabled monitoring, it might take about 15 minutes before you can view  updated health metrics for the cluster. 
 
 ## Next steps
-If you experience issues while updating the agents, review the [troubleshooting guide](monitoring-container-insights-troubleshoot.md) for support.
+If you experience issues while upgrading the agent, review the [troubleshooting guide](monitoring-container-insights-troubleshoot.md) for support.
