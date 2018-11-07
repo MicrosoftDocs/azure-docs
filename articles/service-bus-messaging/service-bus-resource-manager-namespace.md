@@ -149,7 +149,7 @@ New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName $res
 
 ## Use Azure CLI to deploy the template
 
-## Sign in to Azure
+### Sign in to Azure
 
 1. Run the following command to sign in to Azure:
 
