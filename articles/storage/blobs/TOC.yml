@@ -470,10 +470,6 @@
         href: https://github.com/Azure/azure-storage-ios
 - name: Azure Blob Storage for Big Data Analytics
   items:
-    - name: Overview
-      items:
-      - name: Introduction
-        href: introduction.md
     - name: Quickstarts
       items:
       - name: Create a Data Lake Storage Gen2 capable Storage account
@@ -494,6 +490,8 @@
       items:
       - name: The Azure Blob FileSystem driver for Hadoop
         href: abfs-driver.md
+      - name: Introduction to Azure Data Lake Storage Gen2
+        href: introduction.md
       - name: Introduction to the Azure Blob File System URI
         href: introduction-abfs-uri.md
       - name: The Hierarchical Namespace Service
