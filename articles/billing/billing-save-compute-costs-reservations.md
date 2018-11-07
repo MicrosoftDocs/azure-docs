@@ -33,14 +33,14 @@ Software plans:
 
 ## Why buy a reservation?
 
-If you have virtual machines, Azure Cosmos DB, or SQL databases that run for long periods of time, purchasing a reservation gives you the most cost-effective option. For example, if you continuously run four instances of a service without a reservation, you're charged at pay-as-you-go rates. If you buy a reservation for those resources, you immediately get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
+If you have virtual machines, Azure Cosmos DB, or SQL databases that run for long periods of time, buying a reservation gives you the most cost-effective option. For example, when you continuously run four instances of a service without a reservation, you're charged at pay-as-you-go rates. If you buy a reservation for those resources, you immediately get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
 
 ## Charges covered by reservation
 
 Service plans:
 
 - Reserved Virtual Machine Instance: A reservation only covers the virtual machine compute costs. It doesn't cover additional software, networking, or storage charges.
-- Azure Cosmos DB reserved capacity: A reservation covers throughput provisioned for your resources, it does not cover the storage and networking charges. 
+- Azure Cosmos DB reserved capacity: A reservation covers throughput provisioned for your resources. It doesn't cover the storage and networking charges.
 - SQL Database reserved vCore: Only the compute costs are included with a reservation. The license is billed separately.
 
 Software plans:
