@@ -68,7 +68,7 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
 
     - **Download appliance for one-time discovery**: This appliance discovers on-premises machines at a single point in time. It gathers VM metadata, and gather performance data based on the last month of historical data stored in vCenter Server. It collects average counters for utilization data. If your on-premises environment changes, you need to run discovery again to reflect those changes.
     - **Download appliance for continuous discovery**: This appliance continually profiles the on-premise environment to gather real-time utilization data for VMs. It gathers VM metadata, and collects peak counters to measure utilization. It doesn't use vCenter Server statistics settings. You can stop discovery at any time. This appliance is in preview.
-    - [Learn more](concepts-collector.md#what-data-is-collected)) about the data collected by Azure Migrate.
+    - [Learn more](concepts-collector.md#discovery-process) about the data collected by Azure Migrate.
 
 3. In **Copy project credentials**, copy the project ID and key. You need these when you configure the collector.
 
