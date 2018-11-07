@@ -46,9 +46,9 @@ Azure Event Hubs requires SSL or TLS for all communication and uses Shared Acces
 
 The Event Hubs for Kafka feature enables you to write with one protocol and read with another, so that your current Kafka producers can continue publishing via Kafka, and you can add readers with Event Hubs, such as Azure Stream Analytics or Azure Functions. Additionally, Event Hubs features such as [Capture](event-hubs-capture-overview.md) and [Geo Disaster-Recovery](event-hubs-geo-dr.md) also work with the Event Hubs for Kafka feature.
 
-## Features that are not supported
+## Features that are not yet supported 
 
-The following Kafka features are not supported:
+Here is the list of Kafka features that are not yet supported:
 
 *	Idempotent producer
 *	Transaction
