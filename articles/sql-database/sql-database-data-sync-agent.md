@@ -29,11 +29,11 @@ To install the Data Sync Agent silently from the command prompt, enter a command
 msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
 ```
 
-## Sync data with on-premises SQL Server databases
+## Sync data with SQL Server on-premises
 
 To configure the Data Sync Agent so you can sync data with one or more on-premises SQL Server databases, see [Add an on-premises SQL Server database](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
-## <a name="agent-faq"></a> Agent FAQ
+## <a name="agent-faq"></a> Data Sync Agent FAQ
 
 ### Why do I need a client agent
 
