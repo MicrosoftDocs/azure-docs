@@ -18,11 +18,11 @@ Living in a massively interconnected society means that, at some point in life, 
 
 As engineers or developers, you might have wondered how do these networks store and interconnect your data, or might have even been tasked to create or architect a new social network for a specific niche market yourselves. That’s when the significant question arises: How is all this data stored?
 
-Let’s suppose that you are creating a new and shiny social network, where your users can post articles with related media like, pictures, videos, or even music. Users can comment on posts and give points for ratings. There will be a feed of posts that users will see and be able to interact with on the main website landing page. This doesn’t sound complex (at first), but for the sake of simplicity, let’s stop there (you can delve into custom user feeds affected by relationships, but it exceeds the goal of this article).
+Let’s suppose that you are creating a new and shiny social network, where your users can post articles with related media like, pictures, videos, or even music. Users can comment on posts and give points for ratings. There will be a feed of posts that users will see and be able to interact with on the main website landing page. This method doesn’t sound complex (at first), but for the sake of simplicity, let’s stop there (you can delve into custom user feeds affected by relationships, but it exceeds the goal of this article).
 
 So, how do you store this and where?
 
-Many of you might have experience on SQL databases or at least have notion of [relational modeling of data](https://en.wikipedia.org/wiki/Relational_model) and you might be tempted to start drawing something like this:
+You might have experience on SQL databases or have a notion of [relational modeling of data](https://en.wikipedia.org/wiki/Relational_model) and you may start drawing something as follows:
 
 ![Diagram illustrating a relative relational model](./media/social-media-apps/social-media-apps-sql.png) 
 
@@ -30,9 +30,9 @@ A perfectly normalized and pretty data structure… that doesn't scale.
 
 Don’t get me wrong, I’ve worked with SQL databases all my life, they are great, but like every pattern, practice and software platform, it’s not perfect for every scenario.
 
-Why isn't SQL the best choice in this scenario? Let’s look at the structure of a single post, if I wanted to show that post in a website or application, I’d have to do a query with… Eight table joins (!) just to show one single post, now, picture a stream of posts that dynamically load and appear on the screen and you might see where I am going.
+Why isn't SQL the best choice in this scenario? Let’s look at the structure of a single post, if I wanted to show that post in a website or application, I’d have to do a query with… by joining eight tables(!) just to show one single post, now, picture a stream of posts that dynamically load and appear on the screen and you might see where I am going.
 
-You could, of course, use a enormous SQL instance with enough power to solve thousands of queries with these many joins to serve your content, but truly, why would you, when a simpler solution exists?
+You could use an enormous SQL instance with enough power to solve thousands of queries with many joins to serve your content, but truly, why would you, when a simpler solution exists?
 
 ## The NoSQL road
 This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
@@ -55,7 +55,7 @@ This article will guide you into modeling your social platform's data with Azure
         ]
     }
 
-And it can be obtained with a single query, and with no joins. This is much more simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
+And it can be obtained with a single query, and with no joins. This query is much simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
 
 Azure Cosmos DB makes sure that all the properties are indexed with its automatic indexing, which can even be [customized](indexing-policies.md). The schema-free approach lets us store documents with different and dynamic structures, maybe tomorrow you want posts to have a list of categories or hashtags associated with them, Cosmos DB will handle the new Documents with the added attributes with no extra work required by us.
 
@@ -161,7 +161,7 @@ The smallest step is called a UserChunk, the minimal piece of information that i
 
 The middle step is called the user, it’s the full data that will be used on most performance-dependent queries on Cosmos DB, the most accessed and critical. It includes the information represented by a UserChunk.
 
-The largest is the Extended User. It includes all the critical user information plus other data that doesn’t really require to be read quickly or it’s usage is eventual (like the login process). This data can be stored outside of Cosmos DB, in Azure SQL Database or Azure Storage Tables.
+The largest is the Extended User. It includes all the critical user information plus other data that doesn’t really require to be read quickly or its usage is eventual (like the login process). This data can be stored outside of Cosmos DB, in Azure SQL Database or Azure Storage Tables.
 
 Why would you split the user and even store this information in different places? Because from a performance point of view, the bigger the documents, the costlier the queries. Keep documents slim, with the right information to do all your performance-dependent queries for your social network, and store the other extra information for eventual scenarios like, full profile edits, logins, even data mining for usage analytics and Big Data initiatives. You really don’t care if the data gathering for data mining is slower because it’s running on Azure SQL Database, you do have concern though that your users have a fast and slim experience. A user, stored on Cosmos DB, would look like this:
 
@@ -212,12 +212,12 @@ Now that I got you hooked, you’ll probably think you need some PhD in math sci
 
 To achieve any of these Machine Learning scenarios, you can use [Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/) to ingest the information from different sources, and use [U-SQL](https://azure.microsoft.com/documentation/videos/data-lake-u-sql-query-execution/) to process the information and generate an output that can be processed by Azure Machine Learning.
 
-Another available option is to use [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services) to analyze your users content; not only can you understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)) , but you could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services includes many out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
+Another available option is to use [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) to analyze your users content; not only can you understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)) , but you could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services includes many out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
 
 ## A planet-scale social experience
 There is a last, but not least, important article I must address: **scalability**. When designing an architecture it's crucial that each component can scale on its own, either because you need to process more data or because you want to have a bigger geographical coverage (or both!). Thankfully, achieving such a complex task is a **turnkey experience** with Cosmos DB.
 
-Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box by automatically creating partitions based on a given **partition key** (defined as one of the attributes in your documents). Defining the correct partition key must be done at design time and keeping in mind the [best practices](../cosmos-db/partition-data.md#designing-for-partitioning) available; in the case of a social experience, your partitioning strategy must be aligned with the way you query (reads within the same partition are desirable) and write (avoid "hot spots" by spreading writes on multiple partitions). Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, by user; it all really depends on how you will query the data and show it in your social experience. 
+Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box by automatically creating partitions based on a given **partition key** (defined as one of the attributes in your documents). Defining the correct partition key must be done at design time, to learn more, see [choose the right partition key](partitioning-overview.md#choose-partitionkey) article. In case of a social experience, your partitioning strategy must be aligned with the way you query (reads within the same partition are desirable) and write (avoid "hot spots" by spreading writes on multiple partitions). Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, by user; it all really depends on how you will query the data and show it in your social experience. 
 
 One interesting point worth mentioning is that Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, you don't need to add any logic as your data grows.
 
@@ -229,7 +229,7 @@ What happens if things keep getting better and users from another region, countr
 
 But wait... you soon realize their experience with your platform is not optimal; they are so far away from your operational region that the latency is terrible, and you obviously don't want them to quit. If only there was an easy way of **extending your global reach**... but there is!
 
-Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-sql-api.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-sql-api.md). This also means that you can have [multiple failover regions](regional-failover.md). 
+Cosmos DB lets you [replicate your data globally](../cosmos-db/tutorial-global-distribution-sql-api.md) and transparently with a couple of clicks and automatically select among the available regions from your [client code](../cosmos-db/tutorial-global-distribution-sql-api.md). This also means that you can have [multiple failover regions](high-availability.md). 
 
 When you replicate your data globally, you need to make sure that your clients can take advantage of it. If you are using a web frontend or accessing APIs from mobile clients, you can deploy [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) and clone your Azure App Service on all the desired regions, using a performance configuration to support your extended global coverage. When your clients access your frontend or APIs, they will be routed to the closest App Service, which in turn, will connect to the local Cosmos DB replica.
 

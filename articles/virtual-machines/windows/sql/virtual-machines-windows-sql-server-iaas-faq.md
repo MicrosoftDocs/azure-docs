@@ -1,5 +1,5 @@
 ---
-title: SQL Server on Windows Azure Virtual Machines FAQ | Microsoft Docs
+title: SQL Server on Windows Virtual Machines in Azure FAQ | Microsoft Docs
 description: This article provides answers to frequently asked questions about running SQL Server on Azure VMs.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -17,13 +17,13 @@ ms.workload: iaas-sql-server
 ms.date: 07/12/2018
 ms.author: v-shysun
 ---
-# Frequently asked questions for SQL Server running on Windows Azure Virtual Machines
+# Frequently asked questions for SQL Server running on Windows virtual machines in Azure
 
 > [!div class="op_single_selector"]
 > * [Windows](virtual-machines-windows-sql-server-iaas-faq.md)
 > * [Linux](../../linux/sql/sql-server-linux-faq.md)
 
-This article provides answers to some of the most common questions about running [SQL Server on Windows Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/sql-server/).
+This article provides answers to some of the most common questions about running [SQL Server on Windows Virtual Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/).
 
 > [!NOTE]
 > This article focuses on issues specific to SQL Server on Windows VMs. If you are running SQL Server on Linux VMs, see the [Linux FAQ](../../linux/sql/sql-server-linux-faq.md).
@@ -74,7 +74,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
-   If you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/) then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
+   If you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](https://azure.microsoft.com/pricing/licensing-faq/) then you do not have to pay to license one SQL Server participating as a passive secondary replica in an HA deployment. Otherwise, you need to pay to license it.
 
 
 ## Administration

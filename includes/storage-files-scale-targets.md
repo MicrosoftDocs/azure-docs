@@ -1,4 +1,11 @@
-| Resource | Standard file shares shares | Premium file shares (preview) |
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
+| Resource | Standard file shares | Premium file shares (preview) |
 |----------|---------------|------------------------------------------|
 | Minimum size of a file share | (no minimum; pay as you go) | 100 GiB |
 | Max size of a file share | 5 TiB | 5 TiB |

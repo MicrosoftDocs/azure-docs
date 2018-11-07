@@ -101,8 +101,6 @@
     href: service-fabric-content-roadmap.md
   - name: Application scenarios
     href: service-fabric-application-scenarios.md
-  - name: Patterns and scenarios
-    href: service-fabric-patterns-and-scenarios.md
   - name: Architecture
     href: service-fabric-architecture.md
   - name: Terminology
@@ -299,6 +297,8 @@
       href: service-fabric-health-introduction.md
     - name: Report health events
       href: service-fabric-report-health.md
+    - name: Monitoring partners
+      href: service-fabric-diagnostics-partners.md
   - name: Integration with API Management
     href: service-fabric-api-management-overview.md
 - name: How-to guides

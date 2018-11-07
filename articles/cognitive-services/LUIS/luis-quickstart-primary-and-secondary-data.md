@@ -296,7 +296,7 @@ Open the [jobs-phrase-list.csv](https://github.com/Microsoft/LUIS-Samples/blob/m
 
     [![](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png "Screenshot of create new phrase list dialog pop-up with words in phrase list values box")](media/luis-quickstart-primary-and-secondary-data/hr-create-phrase-list-2.png#lightbox)
 
-5. [Train](#train-the-luis-app) and [publish](#publish-the-app-to-get-the-endpoint-URL) the app again to use phrase list.
+5. [Train](#train) and [publish](#publish) the app again to use phrase list.
 
 6. Requery at the endpoint with the same utterance: `This is the lead welder paperwork.`
 

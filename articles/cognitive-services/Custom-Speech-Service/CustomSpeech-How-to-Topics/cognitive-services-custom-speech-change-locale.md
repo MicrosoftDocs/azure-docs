@@ -1,20 +1,20 @@
 ---
-title: Supported locales and languages - Custom Speech Service
-titlesuffix: Azure Cognitive Services
+title: Supported locales and languages in Custom Speech Service on Azure | Microsoft Docs
 description: Overview of supported languages of Custom Speech Service in Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
-
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
 ---
 
 # Supported locales in Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 The Custom Speech Service currently supports customization of models in the following locales:
 
 | Model Type | Language Support |

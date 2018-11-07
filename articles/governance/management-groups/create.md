@@ -8,7 +8,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/21/2018
+ms.date: 10/10/2018
 ms.author: rithorn
 ---
 # Create management groups for resource organization and management
@@ -49,7 +49,7 @@ can't use Resource Manager templates to create management groups.
 
 ### Create in PowerShell
 
-Within PowerShell, you use the New-AzureRmManagementGroups cmdlets:
+Within PowerShell, you use the New-AzureRmManagementGroup cmdlet:
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -75,15 +75,15 @@ management.
 On Azure CLI, you use the az account management-group create command.
 
 ```azurecli-interactive
-az account management-group create --group-name 'Contoso'
+az account management-group create --name 'Contoso'
 ```
 
 ## Next steps
 
-To Learn more about management groups, see:
+To learn more about management groups, see:
 
 - [Organize your resources with Azure management groups](overview.md)
 - [How to change, delete, or manage your management groups](manage.md)
-- [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
+- [Install the Azure PowerShell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
 - [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Install the Azure CLI Extension](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

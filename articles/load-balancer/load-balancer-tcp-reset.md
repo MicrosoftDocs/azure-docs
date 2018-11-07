@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2018
+ms.date: 10/08/2018
 ms.author: kumud
 ---
 
@@ -39,7 +39,7 @@ Carefully examine the entire end to end scenario to decide whether you benefit f
 
 ## Enabling TCP Reset on idle timeout
 
-Using API version 2018-08-01, you can enable sending of bidirectional TCP Resets on idle timeout on a per rule basis:
+Using API version 2018-07-01, you can enable sending of bidirectional TCP Resets on idle timeout on a per rule basis:
 
 ```json
       "loadBalancingRules": [

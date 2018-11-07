@@ -77,6 +77,7 @@
 #### [HA on Windows with Shared Disk for (A)SCS Instance](sap-high-availability-guide-wsfc-shared-disk.md)
 #### [HA on Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-guide-wsfc-file-share.md)
 #### [HA on SUSE Linux for (A)SCS Instance](high-availability-guide-suse.md)
+#### [HA on Red Hat Enterprise Linux for (A)SCS Instance](high-availability-guide-rhel.md)
 ### Azure Infrastructure Preparation
 #### [Windows with Shared Disk for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-shared-disk.md)
 #### [Windows with SOFS File Share for (A)SCS Instance](sap-high-availability-infrastructure-wsfc-file-share.md)

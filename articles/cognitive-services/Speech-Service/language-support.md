@@ -1,15 +1,16 @@
 ---
 title: Language support - Speech Service API
-description: A list of natural languages supported by Speech Service.
 titleSuffix: Azure Cognitive Services
+description: A list of natural languages supported by Speech Service.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # Language and region support for Speech Service API

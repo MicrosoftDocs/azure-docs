@@ -4,7 +4,7 @@ description: Move data from flat files or from an on-premises SQL Server to SQL 
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 2c9ef1d3-4f5c-4b1f-bf06-223646c8af06
