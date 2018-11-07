@@ -93,11 +93,19 @@ For an example of using Azure Notebooks with the Azure Machine Learning service,
   - Integrated development environments (IDEs) such as PyCharm and RStudio
   - Packages such as Jupyter Notebooks and Tensorflow
 
-The DSVM comes with multiple Anaconda environments already installed. To use the Azure Machine Learning Python SDK without any package installation, open a command prompt window and activate the following environment.
+The DSVM comes with multiple Anaconda environments already installed. To use the Azure Machine Learning Python SDK without any package installation, open a command prompt/shell and use one of the following commands to activate the environment:
 
-```shell
-conda activate AzureML
-```
+* On the __Ubuntu__ DSVM, use this command:
+
+    ```shell
+    conda activate py36
+    ```
+
+* On the __Windows__ DSVM, use this command:
+
+    ```shell
+    conda activate AzureML
+    ```
 
 Once in this environment, you can immediately import the Azure Machine Learning SDK in the build tool of your choice, without installing the package.
 

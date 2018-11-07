@@ -34,7 +34,7 @@ In addition to disk I/O, MySQL performance improves when you increase the RAID l
 
 You might also want to consider the chunk size. In general, when you have a larger chunk size, you get lower overhead, especially for large writes. However, when the chunk size is too large, it might add additional overhead that prevents you from taking advantage of RAID. The current default size is 512 KB, which is proven to be optimal for most general production environments. See [Appendix C](#AppendixC) for details.   
 
-There are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual machine and cloud service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). You will need four attached data disks to follow the RAID example in this article, although you can choose to set up RAID with fewer disks.  
+There are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual machine and cloud service sizes for Azure](https://msdn.microsoft.com/library/azure/dn197896.aspx). You will need four attached data disks to follow the RAID example in this article, although you can choose to set up RAID with fewer disks.  
 
 This article assumes you have already created a Linux virtual machine and have MYSQL installed and configured. For more information on getting started, see How to install MySQL on Azure.  
 
