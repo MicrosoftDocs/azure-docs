@@ -45,12 +45,8 @@ The health status of Unknown indicates that Resource Health hasn't received info
 If the resource is running as expected, the status of the resource will change to Available after a few minutes.
 If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
 
-![Unknown](./media/sql-database-resource-health/sql-resource-health-unknown.jpg)
-
 ## Historical Information
 You can access up to 14 days of health history in the Health history section of Resource Health. The section will also contain the downtime reason (when available) for the downtimes reported by Resource Health. Currently, Azure shows the downtime for your SQL database resource at a two-minute granularity. The actual downtime is likely less than a minute – average is 8s.
-
-![HealthHistory](./media/sql-database-resource-health/sql-resource-health-healthhistory.jpg)
 
 ### Downtime Reasons
 When your SQL Database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health.
@@ -59,7 +55,7 @@ When your SQL Database experiences downtime, analysis is performed to determine 
 The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and retry logic helps reduce the impact. If you continue to experience login errors, please contact support.
 
 #### Reconfiguration
-(Add Text from Tina RCA)
+Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing, upgrades, software or hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next Steps
 [Configure resource health alerts](/articles/service-health/resource-health-alert-arm-template-guide.md)
