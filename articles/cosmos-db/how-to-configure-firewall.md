@@ -1,6 +1,6 @@
 ---
 title: How-to configure IP firewall for your Cosmos account
-description: Learn how to use IP access control policies for firewall support on Azure Cosmos DB database accounts.
+description: Learn how to configure IP access control policies for firewall support on Azure Cosmos DB database accounts.
 author: kanshiG
 
 ms.service: cosmos-db
@@ -39,7 +39,7 @@ When you enable an IP access control policy programmatically, you need to add th
 |US Gov|52.244.48.71|
 |All regions except the above three|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 
-You can enable access to the Azure portal by choosing the **Allow access from Azure Portal** option as shown in the following screenshot: 
+You can enable access to the Azure portal by choosing the **Allow access from Azure portal** option as shown in the following screenshot: 
 
 ![Screenshot showing how to enable Azure portal access](./media/how-to-configure-firewall/enable-azure-portal.png)
 
@@ -82,7 +82,7 @@ When you add additional virtual machine instances to the group, they are automat
 
 When you access your Cosmos account from a computer on the internet, the client IP address or IP address range of the machine must be added to the allowed list of IP address for your Cosmos account.
 
-## Configure IP firewall using Resource Manager template
+## <a id="configure-ip-firewall-arm"></a>Configure IP firewall using Resource Manager template
 
 To configure access control to your Cosmos account, the Resource Manager template should specify the **ipRangeFilter** attribute with a list of IP ranges, which should be whitelisted. For example, add the following JSON code to your template:
 
@@ -100,7 +100,7 @@ To configure access control to your Cosmos account, the Resource Manager templat
    }
 ```
 
-## Configuring IP access control policy using Azure CLI
+## <a id="configure-ip-firewall-cli"></a>Configuring IP access control policy using Azure CLI
 
 The following command shows how to create a Cosmos account with IP access control: 
 
@@ -123,27 +123,28 @@ az cosmosdb update \
       --ip-range-filter "183.240.196.255, 104.42.195.92,40.76.54.131, 52.176.6.30,52.169.50.45,52.187.184.26"
 ```
 
-## How to troubleshoot IP access control policy issues
+## <a id="troubleshoot-ip-firewall"></a>How to troubleshoot IP access control policy issues
 
 You can troubleshoot IP access control policy issues by using the following options: 
 
-### Azure Portal 
+### Azure portal 
 By enabling an IP access control policy for your Cosmos account, all requests to your Cosmos account from machines outside the allowed list of IP address ranges are blocked. Therefore, if you want to enable portal data plane operations like browsing containers and query documents, you need to explicitly allow Azure portal access using the **Firewall** pane in the portal.
 
 ### SDKs 
 When you access Cosmos resources by using SDKs from machines that are not in the allowed list, **a generic 404 Not Found response is returned with no additional details**. Verify the allowed IP list for your Cosmos account and ensure that the correct policy configuration is applied to your Cosmos account. 
 
 ### Check source IPs in blocked requests
-Enable diagnostic logging on your Cosmos account, these logs would show each request and response. **The firewall related messages are internally logged with a 403 return code**. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging]().
+Enable diagnostic logging on your Cosmos account, these logs would show each request and response. **The firewall-related messages are internally logged with a 403 return code**. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](logging.md).
 
 ### Requests from subnet with service endpoint for Cosmos DB enabled
-Requests from a subnet in VNET that has service endpoint for Cosmos DB enabled sends VNET and subnet identity to Cosmos. These requests do not have the public IP of the source so they are rejected by IP filters. To allow access from specific subnets in VNETs, please add VNET access control list outlined in [How to configure virtual network and subnet-based access for your Cosmos account](). Note that it can take up to 15 minutes for firewall rules to apply.
+Requests from a subnet in VNET that has service endpoint for Cosmos DB enabled sends VNET and subnet identity to Cosmos. These requests do not have the public IP of the source so they are rejected by IP filters. To allow access from specific subnets in VNETs, add VNET access control list outlined in [How to configure virtual network and subnet-based access for your Cosmos account](how-to-configure-vnet-service-endpoint.md). It can take up to 15 minutes for firewall rules to apply.
 
 
 ## Next steps
 
-* IP firewall for your Cosmos account
-* VNET and subnet access control for your Cosmos account
-* How to configure virtual network and subnet based access for your Cosmos account
+To configure virtual network service endpoint for your Cosmos DB account, see the following articles:
+
+* [VNET and subnet access control for your Cosmos account](vnet-service-endpoint.md)
+* [How to configure virtual network and subnet based access for your Cosmos account](how-to-configure-vnet-service-endpoint.md)
 
 
