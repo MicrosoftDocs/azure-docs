@@ -11,17 +11,17 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
 ---
 
-# Encoding with Azure Media Services
+# Encoding with Media Services
 
-Azure Media Services enables you to encode your high-quality digital media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Media Services also lets you analyze your video or audio content. This topic give you guidance on how to encode your content with Media Services v3.
+Azure Media Services enables you to encode your high-quality digital media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. This topic gives you guidance on how to encode your content with Media Services v3.
 
 To encode with Media Services v3, you need to create a transform and a job. A transform defines the recipe for your encoding settings and outputs, and the job is an instance of the recipe. For more information, see [Transforms and Jobs](transform-concept.md)
 
-When encoding with Azure Media Services, you use presets to tell the encoder how the input media files should be processed. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content. 
+When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content. 
 
 You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](customize-encoder-presets-how-to.md). 
 
@@ -31,8 +31,6 @@ Media Services currently supports the following built-in encoding presets:
 
 |**Preset name**|**Scenario**|**Details**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analyzing audio|The preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.<br/>You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region' (for example, 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
-|**VideoAnalyzerPreset**|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
 |**BuiltInStandardEncoderPreset**|Streaming|Used to set a built-in preset for encoding the input video with the Standard Encoder. <br/>The following presets are currently supported:<br/>**EncoderNamedPreset.AdaptiveStreaming** (recommended). For more information, see [auto-generating a bitrate ladder](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** - produces a single MP4 file containing only stereo audio encoded at 192 kbps.<br/>**EncoderNamedPreset.H264MultipleBitrate1080p** - produces a set of 8 GOP-aligned MP4 files, ranging from 6000 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 1080p and goes down to 360p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** - produces a set of 6 GOP-aligned MP4 files, ranging from 3400 kbps to 400 kbps, and stereo AAC audio. Resolution starts at 720p and goes down to 360p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** - produces a set of 5 GOP-aligned MP4 files, ranging from 1600kbps to 400 kbps, and stereo AAC audio. Resolution starts at 480p and goes down to 360p.<br/><br/>For more information, see [Uploading, encoding, and streaming files](stream-files-tutorial-with-api.md).|
 |**StandardEncoderPreset**|Streaming|Describes settings to be used when encoding the input video with the Standard Encoder. <br/>Use this preset when customizing Transform presets. For more information, see [How to customize Transform presets](customize-encoder-presets-how-to.md).|
 
@@ -42,16 +40,15 @@ Media Services fully supports customizing all values in presets to meet your spe
 
 ## Scaling encoding in v3
 
-Currently, customers have to use the Azure portal or AMS v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
+Currently, customers have to use the Azure portal or Media Services v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
 
 ## Next steps
 
 ### Tutorials
 
-The following tutorals show how to encode your content with Media Services:
+The following tutorial shows how to encode your content with Media Services:
 
-* [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md)
-* [Analyze videos with Azure Media Services](analyze-videos-tutorial-with-api.md)
+* [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
 
 ### Code samples
 
