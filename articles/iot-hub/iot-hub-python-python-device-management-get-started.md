@@ -43,8 +43,6 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
-
 ## Create a simulated device app
 In this section, you will:
 

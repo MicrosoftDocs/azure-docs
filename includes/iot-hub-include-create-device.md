@@ -19,14 +19,14 @@ In this section, you create a device identity in the identity registry in your I
 
 1. Provide a name for your new device, such as **myDeviceId**, and click **Save**. This action creates a new device identity for your IoT hub.
 
-   ![Add a new device](./media/iot-hub-include-create-identity/create-a-device.png)
+   ![Add a new device](./media/iot-hub-include-create-device/create-a-device.png)
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 
 1. After the device is created, open the device from the list in the **IoT devices** pane. Copy the **Connection string---primary key** to use later.
 
-    ![Device connection string](./media/iot-hub-include-create-identity/device-details.png)
+    ![Device connection string](./media/iot-hub-include-create-device/device-details.png)
 
 > [!NOTE]
 > The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials, and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. For more information, see [IoT Hub developer guide](../articles/iot-hub/iot-hub-devguide-identity-registry.md).
