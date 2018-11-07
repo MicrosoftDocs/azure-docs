@@ -40,16 +40,16 @@ As described in step 8 of the article on [creating a log alert rule in Azure por
     ![Suppress Alerts](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
 ### Metric measurement alert rule is incorrect
-Metric measurement type of log alert rule is subtype of log alerts, which have special capabilities but in turn employs restriction on the alert query syntax. Metric measurement log alert rule requires the output of alert query to provide a metric time series - a table with distinct equally sized time periods along with corresponding values of AggregatedValue computed. Additionally, users can choose to have in the table additional variables alongside AggregatedValue like Computer, Node, etc. using which data in the table can be sorted.
+**Metric measurement log alerts** are a subtype of log alerts, which have special capabilities and a restricted alert query syntax. A metric measurement log alert rule requires the query output to be a metric time series; that is, a table with distinct equally sized time periods along with corresponding aggregated values. Additionally, users can choose to have additional variables in the table alongside AggregatedValue. These variables may be used to sort the table. 
 
-For example, suppose metric measurement log alert rule was configured as:
+For example, suppose a metric measurement log alert rule was configured as:
 - query was: `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - time period of 6 hours
 - threshold of 50
 - alert logic of three consecutive breaches
 - Aggregate Upon chosen as $table
 
-Now since in command, we have used summarize … by and provided two variables: timestamp & $table; alert service will choose $table to “Aggregate Upon” - basically sort the result table by field: $table - as shown below and then look at the multiple AggregatedValue for each table type (like availabilityResults) to see if there was consecutive breaches of 3 or more.
+Since the command includes *summarize … by* and provided two variables (timestamp & $table), the system chooses $table to “Aggregate Upon”. It sorts the result table by the field *$table* as shown below and then looks at the multiple AggregatedValue for each table type (like availabilityResults) to see if there was consecutive breaches of 3 or more.
 
    ![Metric Measurement query execution with multiple values](./media/monitor-alerts-unified/LogMMQuery.png)
 
