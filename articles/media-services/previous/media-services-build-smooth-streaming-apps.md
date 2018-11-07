@@ -504,7 +504,7 @@ You have completed lesson 2.  In this lesson you added a slider to application.
 Smooth Streaming is capable to stream content with multiple language audio tracks that are selectable by the viewers.  In this lesson, you will enable viewers to select streams. This lesson contains the following procedures:
 
 1. Modify the XAML file
-2. Modify the code behand file
+2. Modify the code behind file
 3. Compile and test the application
 
 **To modify the XAML file**
