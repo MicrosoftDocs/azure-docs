@@ -20,12 +20,11 @@ ms.author: cwatson
 
 Azure Reservations helps you save money by pre-paying for one-year or three-years of virtual machine, SQL Database compute capacity, Azure Cosmos DB throughput, or other Azure resources. Pre-paying allows you to get a discount on the resources you use. Reservations can significantly reduce your virtual machine, SQL database compute, Azure Cosmos DB, or other resource costs up to 72% on pay-as-you-go prices. Reservations provide a billing discount and don't affect the runtime state of your resources.
 
-You can buy a reservation in the [Azure portal](https://aka.ms/reservations). For more information, see the following topics:
+You can buy a reservation in the [Azure portal](https://aka.ms/reservations). For more information, see the following articles:
 
 Service plans:
 - [Virtual Machines with Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md)
-
 - [SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 
 Software plans:
@@ -34,7 +33,7 @@ Software plans:
 
 ## Why buy a reservation?
 
-If you have virtual machines, Azure Cosmos DB or SQL databases that run for long periods of time, purchasing a reservation gives you the most cost-effective option. For example, if you continuously run four instances of a service without a reservation, you are charged at pay-as-you-go rates. If you purchase a reservation for those resources, you immediately get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
+If you have virtual machines, Azure Cosmos DB, or SQL databases that run for long periods of time, purchasing a reservation gives you the most cost-effective option. For example, if you continuously run four instances of a service without a reservation, you're charged at pay-as-you-go rates. If you buy a reservation for those resources, you immediately get the reservation discount. The resources are no longer charged at the pay-as-you-go rates.
 
 ## Charges covered by reservation
 
@@ -58,7 +57,7 @@ Azure customers with these subscriptions types can buy a reservation:
 
 - Enterprise agreement subscription offer type (MS-AZR-0017P).
 - [Pay-As-You-Go](https://azure.microsoft.com/offers/ms-azr-0003p/) subscription offer type (MS-AZR-003P). You must have the “Owner” role on the subscription to buy a reservation.
-- Cloud Solution Provider (CSP) partners can use Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to purchase Azure Reservations.
+- Cloud Solution Provider (CSP) partners can use Azure portal or [Partner Center](https://docs.microsoft.com/partner-center/azure-reservations) to buy Azure Reservations.
 
 A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types.
 
@@ -72,27 +71,33 @@ The reservation discount applies to the resource usage that matches the attribut
 
 A reservation discount only applies to resources associated with Enterprise, Pay-As-You-Go, or CSP subscription types. Resources that run in a subscription with other offer types don't receive the reservation discount. For enterprise enrollments, enterprise Dev/Test subscriptions aren’t eligible for the reservation benefits.
 
-To better understand how Reservations affects your billing, see the following topics:
+To better understand how Reservations affects your billing, see the following articles:
+
+Service plans:
 
 -  [Understand Azure Reserved VM Instances discount](billing-understand-vm-reservation-charges.md)
 - [Understand Azure reservation discount](billing-understand-vm-reservation-charges.md)
 - [Understand Azure Cosmos DB reservation discount](billing-understand-cosmosdb-reservation-charges.md)
+
+Software plans:
+
+- Understand Azure reservation discount and usage for RedHat
 - [Understand Azure reservation discount and usage for SUSE](billing-understand-suse-reservation-charges.md)
 
 ## When the reservation term expires
 
 At the end of the reservation term, the billing discount expires, and the virtual machine, SQL database, Azure Cosmos DB, or other resource is billed at the pay-as-you go price. Azure Reservations don't auto-renew. To continue getting the billing discount, you must buy a new reservation for eligible services and software.
 
-## Discount applies to different sizes 
+## Discount applies to different sizes
 
-When you buy a reservation, the discount can apply to other instances with attributes that are within the same size group. The flexibility of the discount coverage depends on the type of reservation and the attributes you pick when you buy the reservation.
+When you buy a reservation, the discount can apply to other instances with attributes that are within the same size group. This feature is known as instance size flexibility. The flexibility of the discount coverage depends on the type of reservation and the attributes you pick when you buy the reservation.
 
 Service plans:
-- Reserved VM Instances: When you buy the reservation, if you select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+
+- Reserved VM Instances: When you buy the reservation and select **Optimized for**: **instance size flexibility**, the discount coverage depends on the VM size you select. The reservation can apply to the virtual machines (VMs) sizes in the same size series group. For more information, see [Virtual machine size flexibility with Reserved VM Instances](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
 - SQL Database reserved capacity: The discount coverage depends on the performance tier you pick. For more information, see [Understand how an Azure reservation discount is applied](billing-understand-reservation-charges.md).
 - Azure Cosmos DB reserved capacity: The discount coverage depends on the provisioned throughput. For more information, see [Understand how an Azure Cosmos DB reservation discount is applied](billing-understand-cosmosdb-reservation-charges.md).
 
- 
 Software plans:
 
 - SUSE Linux Enterprise software plan: The discount coverage depends on the vCPUs of the VMs where you run the SUSE software. For more information, see [Understand how the SUSE Linux Enterprise software plan discount is applied](billing-understand-suse-reservation-charges.md).
@@ -100,7 +105,7 @@ Software plans:
 
 ## Next steps
 
-Start saving on your virtual machines by purchasing a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md), or [Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md).
+Start saving on your virtual machines by buying a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md), or [Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md). Save on Linux software costs by buying a [RedHat Enterprise Linux software plan](../virtual-machines/linux/prepay-rhel-software-charges.md) or  [SUSE software plan](../virtual-machines/linux/prepay-suse-software-charges.md).
 
 To learn more about Azure Reservations, see the following articles:
 
