@@ -184,8 +184,7 @@ At the bottom, choose **OK**.
    ![Select "Pipeline"](media/jenkins-java-quickstart/jenkins-select-pipeline.png)
 
 1. On the **General** tab, select **Prepare an environment for the run**. 
-In the **Properties Content** box that appears, 
-add these environment variables:
+In the **Properties Content** box that appears, add these environment variables:
 
    ```text
    AZURE_CRED_ID=<yourAzureServicePrincipalID>
@@ -193,11 +192,13 @@ add these environment variables:
    WEB_APP=<yourWebAppName>
    ```
 
-   ![Select "Prepare an environment for the run"](media/jenkins-java-quickstart/prepare-environment-for-run.png)
-
    This step sets up Jenkins with your service principal 
    so you can run the pipeline job and deploy to Azure 
    without entering your own credentials.
+
+   For example:
+
+   ![Select "Prepare an environment for the run"](media/jenkins-java-quickstart/prepare-environment-for-run.png)
 
 1. When you're done, choose **Save**.
 
@@ -245,10 +246,12 @@ script file named `Jenkinsfile` that contains this text
    }
    ```
 
-1. Commit both `web.config` and `Jenkinsfile` to your GitHub fork, 
-and push your changes.
+1. Commit both `web.config` and `Jenkinsfile` 
+to your GitHub fork, and push your changes.
 
 ## Point pipeline at build script
+
+Now specify the build script you want Jenkins to use.
 
 1. In Jenkins, select your previously created pipeline job. 
 
@@ -287,19 +290,22 @@ job page in Jenkins, and select **Build Now**.
 
 1. With the Azure CLI, either from the command line or Azure Cloud Shell, create an 
 [Azure App Service web app on Linux](/azure/app-service/containers/app-service-linux-intro) 
-where Jenkins can deploy your web app after finishing a build. 
-Make sure your App Service web app uses a unique name.
+where Jenkins deploys your web app after finishing a build. Make sure the web app 
+you create uses a unique name.
 
    ```azurecli-interactive
-   az group create --location your-Azure-region --name your-Azure-resource-group-name
-   az appservice plan create --name your-Linux-App-Service-Plan-name --resource-group your-Azure-resource-group-for-Jenkins-name --is-linux
-   az webapp create --name your-web-app-name --resource-group your-Azure-resource-group-for-Jenkins-name --plan your-Linux-App-Service-Plan --runtime "java|1.8|Tomcat|8.5"
+   az group create --name yourAzureResourceGroupName --location yourAzureRegion
+   az appservice plan create --name yourLinuxAppServicePlanName --resource-group yourAzureResourceGroupName --is-linux
+   az webapp create --name yourWebAppName --resource-group yourAzureResourceGroupName --plan yourLinuxAppServicePlanName --runtime "java|1.8|Tomcat|8.5"
    ```
 
-   For more information about these commands, see these pages:
+   For more information about these Azure CLI commands, see these pages:
 
    * [**`az group create`**](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create)
+
    * [**`az appservice plan create`**](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
+
+   * [**`az webapp create`**](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
 
 1. In Jenkins, select your pipeline job, and then select **Build Now**.
 
