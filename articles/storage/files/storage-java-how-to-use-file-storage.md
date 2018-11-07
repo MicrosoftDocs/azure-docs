@@ -226,6 +226,6 @@ If you would like to learn more about other Azure storage APIs, follow these lin
 * [Azure Storage SDK for Android](https://github.com/azure/azure-storage-android)
 * [Azure Storage Client SDK Reference](http://dl.windowsazure.com/storage/javadoc/)
 * [Azure Storage Services REST API](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Azure Storage Team Blog](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Azure Storage Team Blog](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Transfer data with the AzCopy Command-Line Utility](../common/storage-use-azcopy.md)
 * [Troubleshooting Azure Files problems - Windows](storage-troubleshoot-windows-file-connection-problems.md)

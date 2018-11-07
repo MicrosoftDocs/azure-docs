@@ -565,6 +565,6 @@ The destruction process can take several minutes to complete.
 In this article, you learned how to use Terraform to create an Azure virtual machine scale set. Here are some additional resources to help you learn more about Terraform on Azure: 
 
  [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Terraform Azure provider documentation](http://aka.ms/terraform)  
- [Terraform Azure provider source](http://aka.ms/tfgit)  
- [Terraform Azure modules](http://aka.ms/tfmodules)
+ [Terraform Azure provider documentation](https://aka.ms/terraform)  
+ [Terraform Azure provider source](https://aka.ms/tfgit)  
+ [Terraform Azure modules](https://aka.ms/tfmodules)
