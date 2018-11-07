@@ -148,7 +148,7 @@ To retrieve the product code from the agent install package directly, you can us
 
     ```
 
-4. Update the `ProductId` value in the script with the product code extracted with the latest version of the agent install package using the methods recommended earlier. 
+4. Update the `ProductId` value in the script with the product code extracted from the latest version of the agent install package using the methods recommended earlier. 
 5. [Import the MMAgent.ps1 configuration script](../automation/automation-dsc-getting-started.md#importing-a-configuration-into-azure-automation) into your Automation account. 
 5. [Assign a Windows computer or node](../automation/automation-dsc-getting-started.md#onboarding-an-azure-vm-for-management-with-azure-automation-state-configuration) to the configuration. Within 15 minutes, the node checks its configuration and the agent is pushed to the node.
 
