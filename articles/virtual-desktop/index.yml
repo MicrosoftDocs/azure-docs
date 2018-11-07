@@ -23,7 +23,6 @@ sections:
     items:
     - html: <a href="/azure/virtual-desktop/windows-virtual-desktop-overview">What is Windows Virtual Desktop?</a>
     - html: <a href="/azure/virtual-desktop/wvd-and-rds-comparison">Windows Virtual Desktop and Remote Desktop Services comparison</a>
-    - html: <a href="/azure/virtual-desktop/set-up-wvd-environment">Set up a Windows Virtual Desktop environment</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph
@@ -45,8 +44,14 @@ sections:
     items: 
     - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-ad">Set up tenants in Azure Active Directory</a>
     - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-rd">Connect to a Remote Desktop environment</a>
-    - html: <a href="/azure/virtual-desktop/hoster-admin-delegated-administration">Hoster admin delegated administration</a>
+- title: Concepts
+  items: 
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-desktop/delegated-access-windows-virtual-desktop">Delegated access in Windows Virtual Desktop</a>
     - html: <a href="/azure/virtual-desktop/introducing-the-new-diagnostics-role-service">Introducing the new diagnostics role service</a>
+    - html: <a href="/azure/virtual-desktop/set-up-wvd-environment">Guidelines for a Windows Virtual Desktop environment</a>
 - title: Reference
   items: 
   - type: list
