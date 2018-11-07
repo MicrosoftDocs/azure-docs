@@ -58,22 +58,44 @@ To redirect the user post-sign-in to a custom URL, use the `post_login_redirect_
 
 ## Validate tokens from providers
 
-In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](app-service-authentication-overview.md#authentication-flow)). To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
+In a client-directed sign-in, the application signs in the user to the provider manually and then submits the authentication token to App Service for validation (see [Authentication flow](app-service-authentication-overview.md#authentication-flow)). This validation itself doesn't actually grant you access to the desired app resources, but a successful validation will give you a session token that you can use to access app resources. 
+
+To validate the provider token, App Service app must first be configured with the desired provider. At runtime, after you retrieve the authentication token from your provider, post the token to `/.auth/login/<provider>` for validation. For example: 
 
 ```
-POST /.auth/login/aad HTTP/1.1
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
 Content-Type: application/json
 
-{"id_token":"<JWT>","access_token":"<JWT>"}
+{"id_token":"<token>","access_token":"<token>"}
 ```
 
 The token format varies slightly according to the provider. See the following table for details:
 
-| Provider | Request body |
+| Provider | Request body | Comments |
 |-|-|
-| `aad` | `"id_token":"<token>"}`,`"access_token":"<token>"}` |
-| `microsoftaccount` | `{"authenticationToken":"<token>"}` |
-| `facebook`, `google`, `twitter` | `{"access_token":"<token>"}` |
+| `aad` | `"{id_token":"<id_token>","access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | When requesting the token from Live services, always request the `wl.basic` scope (see [Single Sign On using Microsoft Account with the Live SDK](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#client-livesdk) for an example). |
+| `google` | `"{id_token":"<id_token>"}` | |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
+| `twitter` | `{"access_token":"<access_token>":"access_token_secret":"<acces_token_secret>"}` | |
+
+If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+Once you have this session token, you can access protected app resources by adding the `X-ZUMO-AUTH` header to your HTTP requests. For example: 
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
+```
 
 ## Sign out of a session
 
