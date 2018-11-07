@@ -24,9 +24,9 @@ A transient error, also known as a transient fault, is an error that will resolv
 
 Transient errors should be handled using retry logic. Situations that must be considered:
 
-1. An error occurs when you try to open a connection
-2. An idle connection is dropped on the server side. When you try to issue a command it can't be executed
-3. An active connection that currently is executing a command is dropped.
+* An error occurs when you try to open a connection
+* An idle connection is dropped on the server side. When you try to issue a command it can't be executed
+* An active connection that currently is executing a command is dropped.
 
 The first and second case are fairly straight forward to handle. Try to open the connection again. When you succeed, the transient error has been mitigated by the system. You can use your Azure Database for PostgreSQL again. We recommend having waits before retrying the connection. Back off if the initial retries fail. This way the system can use all resources available to overcome the error situation. A good pattern to follow is:
 
