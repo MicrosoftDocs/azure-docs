@@ -73,7 +73,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 
 ### W3C Distributed Tracing
 
-We are transitioning to (W3C Distributed tracing format)[https://w3c.github.io/distributed-tracing/report-trace-context.html]. It defines:
+We are transitioning to [W3C Distributed tracing format](https://w3c.github.io/distributed-tracing/report-trace-context.html). It defines:
 - `traceparent` - carries globally unique operation id and unique identifier of the call
 - `tracestate` - carries tracing system specific context.
 
