@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/13/2018
+ms.date: 11/06/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
@@ -33,6 +33,11 @@ The uniqueness of Azure for SAP HANA is a unique offer that sets Azure apart fro
 Hosting SAP workload scenarios in Azure also can create requirements of Identity integration and Single-Sign-On using Azure Activity Directory to different SAP components and SAP SaaS or PaaS offers. A list of such integration and Single-Sign-On scenarios with Azure Active Directory (AAD) and SAP entities is described and documented in the section "AAD SAP Identity Integration and Single-Sign-On."
 
 ## Latest Changes
+
+Clarification around usage an configuration of [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in latency critical communication paths of SAP systems in:
+
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 Documentation around SAP HANA  Dynamic Tiering for Azure VMs
 
