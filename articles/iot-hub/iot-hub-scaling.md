@@ -110,7 +110,7 @@ While a single IoT hub can scale to millions of devices, sometimes your solution
 
 ## Next steps
 
-* For additional information about IoT Hub capabilities and performance details, see [IoT Hub pricing][link-pricing] or [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
+* For additional information about IoT Hub capabilities and performance details, see [IoT Hub pricing][lnk-pricing] or [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
 * To change your IoT Hub tier, follow the steps in [Upgrade your IoT hub](iot-hub-upgrade.md).
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
