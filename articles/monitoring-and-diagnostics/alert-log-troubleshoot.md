@@ -10,23 +10,23 @@ ms.author: vinagara
 ms.component: alerts
 ---
 # Troubleshooting log alerts in Azure Monitor  
-
 ## Overview
-This article shows you handle common issues seen while setting up log alerts inside Azure monitor. And provide solution to frequently asked questions regarding functionality or configuration of log alerts. 
-The term **Log Alerts** to describe alerts where signal is custom query based on [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types from [Log alerts - Overview](monitor-alerts-unified-log.md).
+This article shows you how to resolve common issues seen when setting up log alerts in Azure monitor. It also provides solutions to frequently asked questions regarding functionality or configuration of log alerts. 
+
+The term **Log Alerts** to describe alerts that fire based on a custom query in [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Learn more about functionality, terminology, and types in [Log alerts - Overview](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> This article doesn't consider cases when the alert rule is shown as triggered in Azure portal and notification via associated Action Group(s). For such cases, please refer to details in the article on [Action Groups](monitoring-action-groups.md).
+> This article doesn't consider cases when the Azure portal shows and alert rule triggered and a notification performed by an associated Action Group(s). For such cases, please refer to details in the article on [Action Groups](monitoring-action-groups.md).
 
 
 ## Log alert didn't fire
 
-Detailed next are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) doesn't get triggered when viewed in [Azure Alerts](monitoring-alerts-managing-alert-states.md), when you expect it to be fired. 
+Here are some common reasons why a configured [log alert rule in Azure Monitor](alert-log.md) state doesn't show [as *fired* when expected](monitoring-alerts-managing-alert-states.md). 
 
 ### Data Ingestion time for Logs
-Log alert works by periodically running customer provided query based on [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Both are powered by the power of Analytics, which processes vast amounts of log data and provides functionality on the same. As the Log Analytics service involves processing many terabytes of data from thousands of customers and from varied sources across the world - the service is susceptible to time delay. For more information, see [Data ingestion time in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+Log alert periodically runs your query based on [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-analytics.md). Because Log Analytics processes many terabytes of data from thousands of customers from varied sources across the world, the service is susceptible to a varying time delay. For more information, see [Data ingestion time in Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-To overcome the data ingestion delay that may occur in Log Analytics or Application Insights logs; log alert waits and retries after some time when it finds data is not yet ingested for the alerting time period. Log Alerts has an exponentially increasing wait time set, so as to make sure we wait necessary time for data to be ingested by Log Analytics. Hence if the logs queried by your log alert rule are affected by ingestion delays, then log alert will trigger only after the data is available in Log Analytics post-ingestion and after exponential time gap due to log alert service retrying multiple times in the interim.
+To mitigate data ingestion delay, the system waits and retries the alert query multiple times if it finds the needed data is not yet ingested. The system has an exponentially increasing wait time set. The log alert only triggers after the data is available so they delay could be due to slow log data ingestion. 
 
 ### Incorrect time period configured
 As described in the article on [terminology for log alerts](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), time period stated in configuration specifies the time range for the query. The query returns only records that were created within this range of time. Time period restricts the data fetched for log query to prevent abuse and circumvents any time command (like ago) used in log query. 
