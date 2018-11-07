@@ -9,8 +9,6 @@ ms.date: 11/02/2018
 ms.author: robinsh
 ms.custom: include file
 ---
-<!-- trying to consolidate the multiple versions of create-an-iot-hub into one -->
-<!-- let's call this one iot-hub-include-create-hub -->
 
 This section describes how to create an IoT hub using the [Azure portal](https://portal.azure.com).
 
