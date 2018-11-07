@@ -30,7 +30,7 @@ If you are going to use the snapshot to create a new VM, we recommend that you c
 3. In the **Snapshot** window, select **Create**. The **Create snapshot** window appears.
 4. Enter a **Name** for the snapshot.
 5. Select an existing [Resource group](../../azure-resource-manager/resource-group-overview.md#resource-groups) or enter the name of a new one. 
-6. Select an Azure datacenter **Location**.  
+6. Select an Azure datacenter **Location**.  Make sure select the same location as the disk of which you want to create a snapshot!
 7. For **Source disk**, select the managed disk to snapshot.
 8. Select the **Account type** to use to store the snapshot. Select **Standard_HDD**, unless you need the snapshot to be stored on a high-performing disk.
 9. Select **Create**.
