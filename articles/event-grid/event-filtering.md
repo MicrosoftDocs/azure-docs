@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/05/2018
 ms.author: tomfitz
 ---
 
@@ -53,9 +53,9 @@ The JSON syntax for filtering by event type is:
 
 To filter by values in the data fields and specify the comparison operator, use the advanced filtering option. In advanced filtering, you specify the:
 
-* operator - The type of comparison.
+* operator type - The type of comparison.
 * key - The field in the event data that you're using for filtering. It can be a number, boolean, or string.
-* values - The values to compare to the key.
+* value or values - The value or values to compare to the key.
 
 The JSON syntax for using advanced filters is:
 
@@ -63,14 +63,14 @@ The JSON syntax for using advanced filters is:
 "filter": {
   "advancedFilters": [
     {
-      "Operator": "NumberGreaterThanOrEquals",
-      "Key": "Data.Key1",
-      "Values": 5
+      "operatorType": "NumberGreaterThanOrEquals",
+      "key": "Data.Key1",
+      "value": 5
     },
     {
-      "Operator": "StringContains",
-      "Key": "Subject",
-      "Values": ["container1", "container2"]
+      "operatorType": "StringContains",
+      "key": "Subject",
+      "values": ["container1", "container2"]
     }
   ]
 }
@@ -118,7 +118,7 @@ For events in Cloud Events schema, use the following values for the key:
 * EventTypeVersion
 * Event data (like Data.key1)
 
-For custom input schema, use the event data fields (like Data.key1 Data.key1.key2).
+For custom input schema, use the event data fields (like Data.key1).
 
 ### Values
 
@@ -136,7 +136,7 @@ Advanced filtering has the following limitations:
 * Five advanced filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
-* The key can only have two levels of nesting (like data.key1.key2)
+* The key can only have one level of nesting (like data.key1)
 
 The same key can be used in more than one filter.
 

@@ -937,9 +937,9 @@ With the below simple guard clause, we can check if trimming is required and dec
 ```
 
 ## Also see
-[Introducing Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
+[Introducing Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services)
 
-[How to Use Premium Encoding in Azure Media Services](http://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
+[How to Use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services)
 
 [Encoding On-Demand Content with Azure Media Service](media-services-encode-asset.md#media-encoder-premium-workflow)
 
@@ -947,7 +947,7 @@ With the below simple guard clause, we can check if trimming is required and dec
 
 [Sample workflow files](http://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows)
 
-[Azure Media Services Explorer tool](http://aka.ms/amse)
+[Azure Media Services Explorer tool](https://aka.ms/amse)
 
 ## Media Services learning paths
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
