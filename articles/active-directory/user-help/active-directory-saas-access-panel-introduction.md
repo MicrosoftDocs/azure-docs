@@ -135,7 +135,7 @@ If you are an Azure administrator and you are signed in to the Azure portal by u
 To test in a *different* user account, do the following:
 
 1. At the upper right of the Azure portal or the MyApps portal, select **Sign Out**. 
-2. Go to the [MyApps portal](http://myapps.microsoft.com).
+2. Go to the [MyApps portal](https://myapps.microsoft.com).
 3. On the sign-in page, type the username and password for the account in your directory that you want to test.
 
 
