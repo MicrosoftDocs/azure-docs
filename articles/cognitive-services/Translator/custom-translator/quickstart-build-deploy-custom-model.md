@@ -13,7 +13,7 @@ ms.topic: quickstart
 ---
 # Quickstart: Build, deploy, and use a custom model for translation
 
-This article provides step-by-step instruction to build a translation system with Custom Translator.
+This article provides step-by-step instructions to build a translation system with Custom Translator.
 
 ## Prerequisites
 
@@ -27,21 +27,20 @@ This article provides step-by-step instruction to build a translation system wit
     [Custom Translator](https://portal.customtranslator.azure.ai) portal. Once
     on the Custom Translator portal,
     navigate to the Settings page where you can associate your Microsoft
-    Translator Text API subscription Key with your workspace.
+    Translator Text API subscription key with your workspace. 
 
 ## Create a project
 
 On the Custom Translator portal landing page, click New Project. On the dialog you can enter your desired project
 name, language pair, and category, as well as other relevant fields. Then, save
-your project. For more details, visit [Create Project](https://aka.ms/customtranslatorplaceholder).
+your project. For more details, visit [Create Project](how-to-create-project.md).
 
 ![Create project](media/quickstart/ct-how-to-create-project.png)
 
 
 ## Upload documents
 
-Next, upload training, tuning and testing document sets [Link to concepts:
-Training/ other data set]. You can upload both [parallel](https://aka.ms/customtranslatorplaceholder) and combo documents. You can also upload [dictionary](https://aka.ms/customtranslatorplaceholder).
+Next, upload [training](training-and-model.md#training-dataset-for-custom-translator), [tuning](training-and-model.md#tuning-dataset-for-custom-translator) and [testing](training-and-model.md#testing-dataset-for-custom-translator) document sets. You can upload both [parallel](what-are-parallel-documents.md) and combo documents. You can also upload [dictionary](what-is-dictionary.md).
 
 You can upload documents from either the documents tab or from a specific
 project's page.
@@ -50,7 +49,7 @@ project's page.
 
 When uploading documents, choose the document type (training, tuning, or
 testing), and the language pair. When uploading parallel documents, you'll need
-to additionally specify a document name. For more details, visit [Upload document](https://aka.ms/customtranslatorplaceholder).
+to additionally specify a document name. For more details, visit [Upload document](how-to-upload-document.md).
 
 ## Create a model
 
@@ -59,8 +58,8 @@ model.
 
 Select the project you've created. You'll see all the documents you've uploaded
 that share a language pair with this project. Select the documents that you want
-included in your model. You can select [training](https://aka.ms/customtranslatorplaceholder),
-[tuning](https://aka.ms/customtranslatorplaceholder), and [test](https://aka.ms/customtranslatorplaceholder) data or select just
+included in your model. You can select [training](training-and-model.md#training-dataset-for-custom-translator),
+[tuning](training-and-model.md#tuning-dataset-for-custom-translator), and [test](training-and-model.md#testing-dataset-for-custom-translator) data or select just
 training data and let Custom Translator automatically build tuning and test sets
 for your model.
 
@@ -70,7 +69,7 @@ When you have finished selecting your desired documents, click Create Model butt
 create your model and start training. You can see the status of your training,
 and details for all the models you have trained, in the Models tab.
 
-For more details, visit [Train Model](https://aka.ms/customtranslatorplaceholder).
+For more details, visit [Create a Model](how-to-train-model.md).
 
 ## Analyze your model
 
@@ -80,14 +79,14 @@ manually compare the translations made with your custom model to the
 translations provided in your test set by navigating to the "Test" tab and
 clicking "System Results." Manually inspecting a few of these translations will
 give you a good idea of the quality of translation produced by your system. For
-more details, visit [System Test Results](https://aka.ms/customtranslatorplaceholder).
+more details, visit [System Test Results](how-to-view-system-test-results.md).
 
 ## Deploy a trained model
 
 When you are ready to deploy your trained model, click the "Deploy" button. You
 can have one deployed model per project, and you can view the status of your
 deployment in the Status column. For more details, visit [Model
-Deployment](https://aka.ms/customtranslatorplaceholder)
+Deployment](how-to-view-system-test-results.md#deploy-a-model)
 
 ![Deploy a trained model](media/quickstart/ct-how-to-deploy.png)
 
@@ -100,4 +99,4 @@ Reference](https://docs.microsoft.com/azure/cognitive-services/translator/refere
 
 ## Next steps
 
-- Learn about [workspace and projects](https://aka.ms/customtranslatorplaceholder) to get better concepts how to get started with Custom Translator.
+- Learn how to navigate the [Custom Translator workspace and manage your projects](workspace-and-project.md).
