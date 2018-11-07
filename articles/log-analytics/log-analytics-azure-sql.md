@@ -41,8 +41,8 @@ As the solution does not use agents to connect to the Log Analytics service, the
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics doesn't read the data from a storage account. |
-| [Windows agents](log-analytics-windows-agent.md) | No | Direct Windows agents aren't used by the solution. |
-| [Linux agents](log-analytics-linux-agents.md) | No | Direct Linux agents aren't used by the solution. |
+| [Windows agents](log-analytics-agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
+| [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
 | [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
 
 ## Configuration
@@ -187,7 +187,7 @@ Automated alerting in the solution is based on writing a Log Analytics query tha
 
 ### Creating alerts for Azure SQL Database
 
-You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-searches.md) queries that you can use with a log alert:
+You can easily [create alerts](../monitoring-and-diagnostics/alert-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-queries.md) queries that you can use with a log alert:
 
 *High CPU on Azure SQL Database*
 
@@ -284,6 +284,6 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 ## Next steps
 
-- Use [Log Searches](log-analytics-log-searches.md) in Log Analytics to view detailed Azure SQL data.
+- Use [Log Searches](log-analytics-queries.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](log-analytics-dashboards.md) showing Azure SQL data.
-- [Create alerts](log-analytics-alerts.md) when specific Azure SQL events occur.
+- [Create alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) when specific Azure SQL events occur.
