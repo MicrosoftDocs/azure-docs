@@ -7,7 +7,7 @@ ms.author: andrela
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/10/2018
+ms.date: 11/07/2018
 ---
 
 # How to create and manage read replicas in Azure Database for MySQL using the Azure CLI
