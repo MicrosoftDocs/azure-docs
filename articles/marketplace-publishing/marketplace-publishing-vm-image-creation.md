@@ -144,11 +144,11 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 **Configure a VM and create your SKU**
 
-After the operating system VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/library/hh846766.aspx).
+After the operating system VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### 3.4 Choose the correct VHD size
 The Windows operating system VHD in your VM image should be created as a 128-GB fixed-format VHD.  
