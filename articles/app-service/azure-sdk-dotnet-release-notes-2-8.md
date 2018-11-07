@@ -24,9 +24,9 @@ For complete list of new features and updates made in this release, see the [Azu
 
 ## Azure SDK for .NET 2.8
 ### Download Azure SDK for .NET 2.8
-[Azure SDK for .NET 2.8 for Visual Studio 2015](http://go.microsoft.com/fwlink/?LinkId=699285) 
+[Azure SDK for .NET 2.8 for Visual Studio 2015](https://go.microsoft.com/fwlink/?LinkId=699285) 
 
-[Azure SDK for .NET 2.8 for Visual Studio 2013](http://go.microsoft.com/fwlink/?LinkId=699287)
+[Azure SDK for .NET 2.8 for Visual Studio 2013](https://go.microsoft.com/fwlink/?LinkId=699287)
 
 ### .NET 4.5.2 support
 #### Known issues
@@ -44,7 +44,7 @@ The PowerShell script provided by the Azure Resource Group project has been upda
 
 Scripts from projects created in earlier versions of the SDK will not run from within Visual Studio when using the 2.8 SDK.  All scripts will continue to work outside of Visual Studio with the appropriate version of the Azure PowerShell cmdlets.  
 
-The 2.8 SDK requires version 1.0 of the Azure PowerShell cmdlets.  All other versions of the SDK require version 0.9.8 of the Azure PowerShell cmdlets.  For more information see [this](http://go.microsoft.com/fwlink/?LinkID=623011) blog.
+The 2.8 SDK requires version 1.0 of the Azure PowerShell cmdlets.  All other versions of the SDK require version 0.9.8 of the Azure PowerShell cmdlets.  For more information see [this](https://go.microsoft.com/fwlink/?LinkID=623011) blog.
 
 ### Web Tools Extensions
 #### Known issues

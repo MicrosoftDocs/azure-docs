@@ -110,7 +110,7 @@ You can download a complete version of the project created in this tutorial from
 
 * An [Azure event hub](../../event-hubs/event-hubs-create.md).
 
-* The [Azure .NET SDK](http://azure.microsoft.com/downloads/).
+* The [Azure .NET SDK](https://azure.microsoft.com/downloads/).
 
 * The [HDInsight tools for Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md).
 
