@@ -1,6 +1,6 @@
 ---
-title: Create Hadoop clusters using .NET - Azure HDInsight 
-description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
+title: Create Apache Hadoop clusters using .NET - Azure HDInsight 
+description: Learn how to create Apache Hadoop, Apache HBase, Apache Storm, or Apache Spark clusters on Linux for HDInsight using the HDInsight .NET SDK.
 services: hdinsight
 author: mamccrea
 ms.reviewer: jasonh
@@ -15,7 +15,7 @@ ms.author: mamccrea
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
 
-Learn how to create a Hadoop cluster in Azure HDInsight cluster using the .NET SDK.
+Learn how to create a Apache Hadoop cluster in Azure HDInsight cluster using the .NET SDK.
 
 > [!IMPORTANT]
 > The steps in this document create a cluster with one worker node. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, you need to select a head node size with at least 8 cores and 14GB ram.

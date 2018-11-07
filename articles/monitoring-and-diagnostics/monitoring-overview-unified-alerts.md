@@ -1,4 +1,4 @@
-﻿---
+---
 title: Unified alerts in Azure Monitor
 description: Description of unified alerts in Azure that allow you to manage alerts and alerts rules across Azure services.
 author: manishsm-msft
@@ -77,9 +77,9 @@ You create a new alert rule with the following three steps:
  
 This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select, and it guides you through defining the logic of the alert rule.
 
-You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](monitor-alerts-unified-usage.md).
+You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](alert-metric.md).
 
-Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](./monitoring-overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported by the unified alert experience.
+Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../azure-monitor/overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported by the unified alert experience.
 
 | **Monitor source** | **Signal type**  | **Description** | 
 |-------------|----------------|-------------|
@@ -219,7 +219,7 @@ The smart group detail page includes the following sections.
 | History | Lists each action taken by the smart group and any changes that are made to it. This is currently limited to state changes and alert membership changes. |
 
 ## Next steps
-- [Learn how to use the new Alerts experience to create, view, and manage alerts](monitor-alerts-unified-usage.md)
+- [Learn how to use the new Alerts experience to create, view, and manage alerts](alert-metric.md)
 - [Learn about log alerts in the Alerts experience](monitor-alerts-unified-log.md)
 - [Learn about metric alerts in the Alerts experience](monitoring-near-real-time-metric-alerts.md)
-- [Learn about Activity log alerts in the Alerts experience](monitoring-activity-log-alerts-new-experience.md)
+- [Learn about Activity log alerts in the Alerts experience](alert-activity-log.md)

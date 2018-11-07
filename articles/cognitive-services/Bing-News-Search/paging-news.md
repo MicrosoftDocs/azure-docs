@@ -54,3 +54,6 @@ Host: api.cognitive.microsoft.com
   
 > [!NOTE]
 > Paging applies only to news search (/news/search), and not to trending topics (/news/trendingtopics) or news categories (/news).
+
+> [!NOTE]
+> The `TotalEstimatedAnswers` field is an estimate of the total number of search results you can retrieve for the current query.  When you set `count` and `offset` parameters, the `TotalEstimatedAnswers` number may change. 

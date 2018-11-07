@@ -14,4 +14,4 @@ ms.custom: include file
 ---
 
 > [!NOTE]
-> Anomaly Finder is now in  Private Preview. See [Anomaly Finder Private Preview documentation](https://aka.ms/AnomalyFinderPrivatePreview) for more information.
+> Anomaly Finder is now in  Private Preview. See [Anomaly Finder Private Preview documentation](https://aka.ms/AnomalyFinderPrivatePreview) for more information. To join the Anomaly Finder Private Preview, [contact us](mailto:kenshoteam@microsoft.com).

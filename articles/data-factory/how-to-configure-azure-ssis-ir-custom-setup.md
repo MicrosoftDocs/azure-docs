@@ -8,7 +8,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/31/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
@@ -92,7 +92,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        ![Copy and save the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
 
-    1.  When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, before you start your Azure-SSIS IR, enter the SAS URI of your container in the appropriate field:
+    1.  When you provision or reconfigure your Azure-SSIS IR with Data Factory UI, before you start your Azure-SSIS IR, enter the SAS URI of your container in the appropriate field on **Advanced Settings** panel:
 
        ![Enter the Shared Access Signature](media/tutorial-create-azure-ssis-runtime-portal/advanced-settings.png)
 
@@ -135,6 +135,8 @@ To customize your Azure-SSIS IR, you need the following things:
 
        1. A `.NET FRAMEWORK 3.5` folder, which contains a custom setup to install an earlier version of the .NET Framework that might be required for custom components on each node of your Azure-SSIS IR.
 
+       1. An `AAS` folder, which contains a custom setup to install client libraries on each node of your Azure-SSIS IR that enable your Analysis Services tasks to connect to Azure Analysis Services (AAS) instance using service principal authentication. First, download the latest **MSOLAP (amd64)** and **AMO** client libraries/Windows installers - for example, `x64_15.0.900.108_SQL_AS_OLEDB.msi` and `x64_15.0.900.108_SQL_AS_AMO.msi` - from [here](https://docs.microsoft.com/azure/analysis-services/analysis-services-data-providers), then upload them all together with `main.cmd` into your container.  
+
        1. A `BCP` folder, which contains a custom setup to install SQL Server command-line utilities (`MsSqlCmdLnUtils.msi`), including the bulk copy program (`bcp`), on each node of your Azure-SSIS IR.
 
        1. An `EXCEL` folder, which contains a custom setup to install open-source assemblies (`DocumentFormat.OpenXml.dll`, `ExcelDataReader.DataSet.dll`, and `ExcelDataReader.dll`) on each node of your Azure-SSIS IR.
@@ -149,7 +151,7 @@ To customize your Azure-SSIS IR, you need the following things:
 
        1. A `STORAGE` folder, which contains a custom setup to install Azure PowerShell on each node of your Azure-SSIS IR. This setup lets you deploy and run SSIS packages that run [PowerShell scripts to manipulate your Azure Storage account](https://docs.microsoft.com/azure/storage/blobs/storage-how-to-use-blobs-powershell). Copy `main.cmd`, a sample `AzurePowerShell.msi` (or install the latest version), and `storage.ps1` to your container. Use PowerShell.dtsx as a template for your packages. The package template combines an [Azure Blob Download Task](https://docs.microsoft.com/sql/integration-services/control-flow/azure-blob-download-task), which downloads `storage.ps1` as a modifiable PowerShell script, and an [Execute Process Task](https://blogs.msdn.microsoft.com/ssis/2017/01/26/run-powershell-scripts-in-ssis/)  that executes the script on each node.
 
-       1. A `TERADATA` folder, which contains a custom setup script (`main.cmd)`, its associated file (`install.cmd`), and installer packages (`.msi`). These files install Teradata connectors, the TPT API, and the ODBC driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Teradata Connection Manager, Source, and Destination. First, download the Teradata Tools and Utilities (TTU) 15.x zip file (for example,  `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) from [Teradata](http://partnerintelligence.teradata.com), and then upload it together with the above `.cmd` and `.msi` files into your container.
+       1. A `TERADATA` folder, which contains a custom setup script (`main.cmd`), its associated file (`install.cmd`), and installer packages (`.msi`). These files install Teradata connectors, the TPT API, and the ODBC driver on each node of your Azure-SSIS IR Enterprise Edition. This setup lets you use the Teradata Connection Manager, Source, and Destination. First, download the Teradata Tools and Utilities (TTU) 15.x zip file (for example,  `TeradataToolsAndUtilitiesBase__windows_indep.15.10.22.00.zip`) from [Teradata](http://partnerintelligence.teradata.com), and then upload it together with the above `.cmd` and `.msi` files into your container.
 
     ![Folders in the user scenarios folder](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
 
