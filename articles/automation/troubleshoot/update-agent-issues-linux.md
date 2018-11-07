@@ -4,7 +4,7 @@ description: Learn how to troubleshoot issues with the Update Management agent.
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/25/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 ms.service: automation
 ms.component: update-management
@@ -112,6 +112,53 @@ This check verifies that your machine has access to the endpoints needed by the 
 You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The python script, [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) can be found in Script Center. An example of the output of this script is shown in the following example:
 
 ```output
+Debug: Machine Information:   Static hostname: LinuxVM2
+         Icon name: computer-vm
+           Chassis: vm
+        Machine ID: 00000000000000000000000000000000
+           Boot ID: 00000000000000000000000000000000
+    Virtualization: microsoft
+  Operating System: Ubuntu 16.04.5 LTS
+            Kernel: Linux 4.15.0-1025-azure
+      Architecture: x86-64
+
+
+Passed: Operating system version is supported
+
+Passed: Microsoft Monitoring agent is installed
+
+Debug: omsadmin.conf file contents:
+        WORKSPACE_ID=00000000-0000-0000-0000-000000000000
+        AGENT_GUID=00000000-0000-0000-0000-000000000000
+        LOG_FACILITY=local0
+        CERTIFICATE_UPDATE_ENDPOINT=https://00000000-0000-0000-0000-000000000000.oms.opinsights.azure.com/ConfigurationService.Svc/RenewCertificate
+        URL_TLD=opinsights.azure.com
+        DSC_ENDPOINT=https://scus-agentservice-prod-1.azure-automation.net/Accou            nts/00000000-0000-0000-0000-000000000000/Nodes\(AgentId='00000000-0000-0000-0000-000000000000'\)
+        OMS_ENDPOINT=https://00000000-0000-0000-0000-000000000000.ods.opinsights            .azure.com/OperationalData.svc/PostJsonDataItems
+        AZURE_RESOURCE_ID=/subscriptions/00000000-0000-0000-0000-000000000000/re            sourcegroups/myresourcegroup/providers/microsoft.compute/virtualmachines/linuxvm            2
+        OMSCLOUD_ID=0000-0000-0000-0000-0000-0000-00
+        UUID=00000000-0000-0000-0000-000000000000
+
+
+Passed: Microsoft Monitoring agent is running
+
+Passed: Machine registered with log analytics workspace:['00000000-0000-0000-0000-000000000000']
+
+Passed: Hybrid worker package is present
+
+Passed: Hybrid worker is running
+
+Passed: Machine is connected to internet
+
+Passed: TCP test for {scus-agentservice-prod-1.azure-automation.net} (port 443)             succeeded
+
+Passed: TCP test for {eus2-jobruntimedata-prod-su1.azure-automation.net} (port 4            43) succeeded
+
+Passed: TCP test for {00000000-0000-0000-0000-000000000000.ods.opinsights.azure.            com} (port 443) succeeded
+
+Passed: TCP test for {00000000-0000-0000-0000-000000000000.oms.opinsights.azure.            com} (port 443) succeeded
+
+Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ```
 
