@@ -16,7 +16,7 @@ In this article, you will learn how to create and manage read replicas within th
 
 ## Prerequisites
 
-- [Install Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+- [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 - An [Azure Database for MySQL server](quickstart-create-mysql-server-database-using-azure-portal.md) that will be used as the master server. 
 
 > [!IMPORTANT]
