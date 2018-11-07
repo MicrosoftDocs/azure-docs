@@ -133,6 +133,8 @@ The Azure CycleCloud End User License Agreement will be displayed - click to acc
 
 ![CycleCloud Create New User screen](~/images/create-new-user.png)
 
+Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.
+
 That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template.
 
 > [!div class="nextstepaction"]
