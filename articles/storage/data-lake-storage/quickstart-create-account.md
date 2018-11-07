@@ -11,22 +11,11 @@ ms.date: 11/06/2018
 ms.author: jamesbak
 ---
 
-<<<<<<< HEAD
 # Quickstart: Create an Azure Data Lake Storage Gen2 storage account
 
 Azure Data Lake Storage Gen2 [supports a Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
 
 This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
-=======
-# Quickstart: Create a storage account for analytics
-
-Storage accounts with Data Lake Storage Gen2 Preview enabled [support an hierarchical namespace service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
-
-To enable Data Lake Storage Gen2 capabilities on your storage account, [fill out the preview survey to request access](https://aka.ms/adlsgen2signup). Once approved, then you are able to create a storage account with Data Lake Storage Gen2 enabled. This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
-
-> [!NOTE]
-> The create account UI in the Azure portal is updated once you are approved to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved for the preview.
->>>>>>> 3bb590d84a42a0d790071db1d1d9221107647192
 
 ## Prerequisites
 
