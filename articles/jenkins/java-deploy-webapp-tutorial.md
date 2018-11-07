@@ -12,11 +12,11 @@ ms.date: 11/10/2018
 
 # Tutorial: Deploy Java web apps from GitHub to Azure App Service with continuous integration and deployment in Jenkins
 
-This tutorial shows how to deploy a Java web app from GitHub to 
+This tutorial deploys a Java web app from GitHub to 
 [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro) 
-by using continuous integration (CI) and continuous deployment (CD) in Jenkins. 
+by setting up continuous integration (CI) and continuous deployment (CD) in Jenkins. 
 That way, when you update your app by pushing commits to GitHub, 
-Jenkins automatically builds and redeploys your app to Azure. 
+Jenkins automatically builds and republishes your app to Azure. 
 The sample app in this tutorial was developed by using the 
 [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
 
@@ -135,7 +135,7 @@ builds your app by using a script for automating and deploying to Azure.
 automate running your pipeline job and deploying the finished app to Azure, 
 create a [service principal in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 
 A service principal is a separate identity you can use for 
-accessing Azure resoruces without entering your own credentials. 
+accessing Azure resources without entering your own credentials. 
 Your pipeline job can use this service principal to work with Azure. 
 To create the service principal, run the Azure CLI command 
 [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), either from your local command line or Azure Cloud Shell, 
