@@ -121,9 +121,9 @@
           href: database-encryption-at-rest.md
         - name: Secure access to data
           href: secure-access-to-data.md
-        - name: Firewall support
+        - name: IP Firewall
           href: firewall-support.md
-        - name: Setup VNet endpoint
+        - name: Virtual network service endpoints
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
@@ -446,6 +446,12 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+    - name: Security
+      items:
+      - name: Configure IP firewall
+        href: how-to-configure-firewall.md
+      - name: Configure virtual network service endpoints
+        href: how-to-configure-vnet-service-endpoint.md
     - name: Best practices
       items:
       - name: Performance tips

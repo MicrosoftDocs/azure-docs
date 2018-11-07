@@ -5,7 +5,7 @@ author: kanshiG
 
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/06/2018
+ms.date: 11/06/2018
 ms.author: govindk
 
 ---
