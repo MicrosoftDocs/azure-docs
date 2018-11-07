@@ -28,7 +28,7 @@ Log data collected by Azure Monitor is stored in a Log Analytics workspace, whic
 
 ## Log queries
 
-You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](log-analytics-log-search-portals.md), [configuring an alert rule](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Log Analytics and provides concepts that should understand before creating one.
+You require a log query to retrieve any data from Log Analytics.  Whether you're [analyzing data in the portal](log-analytics-log-search-portals.md), [configuring an alert rule](../monitoring-and-diagnostics/alert-metric.md) to be notified of a particular condition, or retrieving data using the [Log Analytics API](https://dev.loganalytics.io/), you will use a query to specify the data you want.  This article describes how log queries are used in Log Analytics and provides concepts that should understand before creating one.
 
 
 

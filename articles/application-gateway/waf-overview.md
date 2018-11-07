@@ -2,9 +2,9 @@
 title: Introduction to web application firewall (WAF) for Azure Application Gateway
 description: This article provides an overview of web application firewall (WAF) for Application Gateway
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
 ---
 
@@ -34,7 +34,7 @@ The following are the core benefits that Application Gateway and web application
 
 * Monitor your web application against attacks using a real-time WAF log. This log is integrated with [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) to track WAF alerts and logs and easily monitor trends.
 
-* WAF will be integrated with Azure Security Center soon. Azure Security Center allows for a central view of the security state of all your Azure resources.
+* WAF is integrated with Azure Security Center. Azure Security Center allows for a central view of the security state of all your Azure resources.
 
 ### Customization
 

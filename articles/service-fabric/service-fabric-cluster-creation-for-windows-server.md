@@ -23,7 +23,7 @@ You can use Azure Service Fabric to create Service Fabric clusters on any virtua
 This article walks you through the steps for creating a Service Fabric standalone cluster.
 
 > [!NOTE]
-> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
+> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "[Preview features included in this package](#previewfeatures_anchor)." section for the list of the preview features. You can [download a copy of the EULA](https://go.microsoft.com/fwlink/?LinkID=733084) now.
 > 
 > 
 
@@ -31,7 +31,7 @@ This article walks you through the steps for creating a Service Fabric standalon
 
 ## Get support for the Service Fabric for Windows Server package
 * Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
-* Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* Open a ticket for [Professional Support for Service Fabric](https://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about Professional Support from Microsoft [here](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 * You can also get support for this package as a part of [Microsoft Premier Support](https://support.microsoft.com/en-us/premier).
 * For more details, please see [Azure Service Fabric support options](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
 * To collect logs for support purposes, run the [Service Fabric Standalone Log collector](service-fabric-cluster-standalone-package-contents.md).
@@ -40,7 +40,7 @@ This article walks you through the steps for creating a Service Fabric standalon
 
 ## Download the Service Fabric for Windows Server package
 To create the cluster, use the Service Fabric for Windows Server package (Windows Server 2012 R2 and newer) found here: <br>
-[Download Link - Service Fabric Standalone Package - Windows Server](http://go.microsoft.com/fwlink/?LinkId=730690)
+[Download Link - Service Fabric Standalone Package - Windows Server](https://go.microsoft.com/fwlink/?LinkId=730690)
 
 Find details on contents of the package [here](service-fabric-cluster-standalone-package-contents.md).
 

@@ -219,7 +219,7 @@ In this section, you update the code in the project you completed for the [Tutor
     ```
 1. Right-click the **WindowsApp** project, click **Add**, and then click **Class**. Name the class **RegisterClient.cs**, then click **OK** to generate the class.
    
-   This class wraps the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](http://msdn.microsoft.com/library/dn743807.aspx). It uses an authorization token stored in local storage when you click the **Login and register** button.
+   This class wraps the REST calls required to contact the app backend, in order to register for push notifications. It also locally stores the *registrationIds* created by the Notification Hub as detailed in [Registering from your app backend](https://msdn.microsoft.com/library/dn743807.aspx). It uses an authorization token stored in local storage when you click the **Login and register** button.
 2. Add the following `using` statements at the top of the RegisterClient.cs file:
 
     ```csharp   
