@@ -303,6 +303,8 @@
           href: v2-oauth2-on-behalf-of-flow.md
         - name: OAuth 2.0 client credentials grant
           href: v2-oauth2-client-creds-grant-flow.md
+        - name: OAuth 2.0 resource owner password credentials grant
+          href: v2-oauth2-ropc.md
       - name: ID tokens
         href: id-tokens.md
       - name: Access tokens
