@@ -219,7 +219,7 @@ To quickly access the data from your blob:
 
 1. Create New Table and select **Other Data Sources** -> Azure Blob Storage -> Create Table in Notebook.
 
-    [![DB table](media/how-to-enable-data-collection/dbtable.png)](./media/how-to-enable-data-collection/dbtable.png#lightbox)
+    [![DB table](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
 1. Update the location of  your data. Here is an example:
 
