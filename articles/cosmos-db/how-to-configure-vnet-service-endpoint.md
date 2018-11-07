@@ -13,7 +13,7 @@ ms.author: govindk
 
 # How to configure virtual network and subnet-based access for your Cosmos account
 
-Azure CosmosDB accounts can be configured to allow access only from specific subnet of Azure Virtual Network. There are 2 steps required to limit access to Cosmos account with connections from a subnet in a Virtual Network (VNET).
+Azure CosmosDB accounts can be configured to allow access only from specific subnet of Azure Virtual Network. There are two steps required to limit access to Cosmos account with connections from a subnet in a Virtual Network (VNET).
  
 1. Enable the subnet to send the subnet and VNET identity to Cosmos DB. You can achieve this by enabling service endpoint for Cosmos DB on the specific subnet.
 
@@ -262,7 +262,7 @@ Once service endpoint for Cosmos account is turned on for a subnet, the requests
     -Name $acctName -Properties $CosmosDBProperties
    ```
 
-1. Repeat step 1-3 for all Cosmos accounts you access from the subnet.
+1. Repeat steps 1-3 for all Cosmos accounts you access from the subnet.
 
 1.	Wait for 15 mins and then update subnet to enable service endpoint.
 
@@ -286,5 +286,5 @@ Once service endpoint for Cosmos account is turned on for a subnet, the requests
 
 ## Next steps
 
-* To configure a firewall for Azure Cosmos DB see [firewall support](firewall-support.md) article.
+* To configure a firewall for Azure Cosmos DB, see [firewall support](firewall-support.md) article.
 
