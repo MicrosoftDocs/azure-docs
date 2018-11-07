@@ -1,28 +1,25 @@
 ---
-title: Create an Azure Data Lake Storage Gen2 Preview storage account | Microsoft Docs
-description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 Preview using the Azure portal, Azure PowerShell, or the Azure CLI
+title: Create an Azure Data Lake Storage Gen2 storage account | Microsoft Docs
+description: Quickly learn to create a new storage account with access to Data Lake Storage Gen2 using the Azure portal, Azure PowerShell, or the Azure CLI
 services: storage
 author: jamesbak
 ms.component: data-lake-storage-gen2
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 06/27/2018
+ms.date: 11/06/2018
 ms.author: jamesbak
 ---
 
-# Quickstart: Create an Azure Data Lake Storage Gen2 Preview storage account
+# Quickstart: Create an Azure Data Lake Storage Gen2 storage account
 
-Azure Data Lake Storage Gen2 Preview accounts [support an Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
+Azure Data Lake Storage Gen2 [supports a Hierarchical Namespace Service](introduction.md) which provides a native directory-based file system tailored to work with the Hadoop Distributed File System (HDFS). Access to Data Lake Storage Gen2 data from the HDFS is available through the [ABFS driver](abfs-driver.md).
 
-To enable Data Lake Storage Gen2 capabilities on your storage account, [fill out the preview survey to request access](https://aka.ms/adlsgen2signup). Once approved, then you are able to create a new Data Lake Storage Gen2 account. This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
-
-> [!NOTE]
-> The create account UI in the Azure portal is updated once you are approved to create a Data Lake Storage Gen2 account. In the same way, the Data Lake Storage Gen2-related PowerShell and CLI arguments only work once you are approved for the preview.
+This quickstart demonstrates how to create an account using the [Azure portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), or via the [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 |           | Prerequisite |
 |-----------|--------------|
@@ -82,7 +79,7 @@ To create a resource group in the Azure portal, follow these steps:
 To create a general-purpose v2 storage account in the Azure portal, follow these steps:
 
 > [!NOTE]
-> The hierarchical namespace is currently available in all public regions but none of the private regions. It is currently unavailable in sovereign clouds.
+> The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
 2. Enter a name for your storage account.
@@ -94,7 +91,7 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 8. Choose the subscription in which you want to create the storage account.
 9. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
 10. Keep the default value for **Virtual Networks**
-11. In the **Data Lake Storage Gen2 (preview)** section set **Hierarchical namespace** to **Enabled**.
+11. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
 12. Click **Create** to create the storage account.
 
 ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create.png)
@@ -130,7 +127,7 @@ Then restart your shell.
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
 > [!NOTE]
-> > The hierarchical namespace is currently available in all public regions but none of the private regions. It is currently unavailable in sovereign clouds.
+> > The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -191,7 +188,7 @@ az group create \
 ```
 
 > [!NOTE]
-> > The hierarchical namespace is currently available in all public regions but none of the private regions. It is currently unavailable in sovereign clouds.
+> > The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
 
 ### Create a general-purpose v2 storage account
 

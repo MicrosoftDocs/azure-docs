@@ -19,10 +19,10 @@ ms.author: stewu
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen2](data-lake-store-get-started-portal.md)
-* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. See [Create an HDInsight cluster with Data Lake Storage Gen2](data-lake-store-hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
+* **An Azure Data Lake Storage Gen2 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen2](get-started-portal.md)
+* **Azure HDInsight cluster** with access to a Data Lake Storage Gen2 account. See [Create an HDInsight cluster with Data Lake Storage Gen2](hdinsight-hadoop-use-portal.md). Make sure you enable Remote Desktop for the cluster.
 * **Using MapReduce on HDInsight**.  For more information, see [Use MapReduce in Hadoop on HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-use-mapreduce)
-* **Performance tuning guidelines on Data Lake Storage Gen2**.  For general performance concepts, see [Data Lake Storage Gen2 Performance Tuning Guidance](data-lake-store-performance-tuning-guidance.md)
+* **Performance tuning guidelines on Data Lake Storage Gen2**.  For general performance concepts, see [Data Lake Storage Gen2 Performance Tuning Guidance](performance-tuning-guidance.md)
 
 ## Parameters
 
