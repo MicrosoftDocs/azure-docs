@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 03/03/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -22,11 +22,11 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 ## Create a container registry
 
-Select **Create a resource** > **Containers** > **Azure Container Registry**.
+Select **Create a resource** > **Containers** > **Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group in the `East US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
@@ -66,18 +66,17 @@ To push an image to your Azure Container Registry, you must first have an image.
 docker pull microsoft/aci-helloworld
 ```
 
-Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag][docker-tag] command. Replace *login server* with the login server name you recorded earlier. Add a *repository name* to place your image in a repository.
+Before you push the image to your registry, you must tag the image with the ACR login server name. Tag the image using the [docker tag][docker-tag] command. Replace *login server* with the login server name you recorded earlier. Add a *repository name* such as **`myrepo`** to place your image in a repository.
 
 ```bash
 docker tag microsoft/aci-helloworld <login server>/<repository name>/aci-helloworld:v1
 ```
 
-Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace *login server* with the login server name of your ACR instance.
+Finally, use [docker push][docker-push] to push the image to the ACR instance. Replace *login server* with the login server name of your ACR instance, and replace the *repository name* with the name of the repository you used in the previous command.
 
 ```bash
 docker push <login server>/<repository name>/aci-helloworld:v1
 ```
-In this example, let's use **`myrepo`** as the *<repository name>* for aci-helloworld image.
 
 Output from a successful `docker push` command is similar to:
 
@@ -132,7 +131,7 @@ Once the container is in the **Running** state, use your favorite browser to nav
 
 To clean up your resources navigate to the **myResourceGroup** resource group in the portal. Once the resource group is loaded click on **Delete resource group** to remove the resource group, the Azure Container Registry, and all Azure Container Instances.
 
-![Creating a container registry in the Azure portal][qs-portal-08]
+![Delete resource group in the Azure portal][qs-portal-08]
 
 ## Next steps
 
