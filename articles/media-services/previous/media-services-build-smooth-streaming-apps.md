@@ -763,7 +763,7 @@ Smooth Streaming is capable to stream content with multiple language audio track
 2. Press **F5** to run the application.
 3. At the top of the application, you can either use the default Smooth Streaming URL or enter a different one. 
 4. Click **Set Source**. 
-5. The default language is audio_eng. Try to switch between audio_eng and audio_es. Everytime, you select a new stream, you must click the Submit button.
+5. The default language is audio_eng. Try to switch between audio_eng and audio_es. Every time, you select a new stream, you must click the Submit button.
 
 You have completed lesson 3.  In this lesson, you add the functionality to choose streams.
 
