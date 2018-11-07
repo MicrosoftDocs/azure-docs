@@ -291,7 +291,7 @@ Forwarding from 127.0.0.1:20001 -> 20001
 Forwarding from [::1]:20001 -> 20001
 ```
 
-You can now reach the Kiali service mesh observability dashboard at the following url on your client machine: http://localhost:16686. The default username and password for the Kiali dashboard is `username:admin/password:admin`. These can be configured via the `kiali.dashboard.username` and `kiali.dashboard.passphrase` Helm values.
+You can now reach the Kiali service mesh observability dashboard at the following url on your client machine: http://localhost:20001. The default username and password for the Kiali dashboard is `username:admin/password:admin`. These can be configured via the `kiali.dashboard.username` and `kiali.dashboard.passphrase` Helm values.
 
 ## Next steps
 
