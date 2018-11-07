@@ -32,6 +32,8 @@ Machine Learning Services (with R) in SQL Database is currently only available i
 
 When Machine Learning Services (with R) has been enabled for your SQL database, return to this page to learn how to execute R scripts in the context of a stored procedure.
 
+Currently, R is the only supported language. There is no support for Python at this time.
+
 ## Prerequisites
 
 To run the example code in these exercises, you must first have a SQL database with Machine Learning Services (with R) enabled. During the public preview, Microsoft will onboard you and enable machine learning for your existing or new database, as described above.
@@ -49,7 +51,7 @@ The functionality of Machine Learning Services (with R) in Azure SQL Database is
 - R only. Currently there is no support for Python.
 - No need to configure `external scripts enabled` via `sp_configure`.
 - No need to give script execution permission to users.
-- Packages have to be installed via **sqlmkutils**.
+- Packages have to be installed via **sqlmlutils**.
 - There is no separate external resource governance. R resources are a certain percentage of the SQL resources, depending on the tier.
 
 ## Verify R exists
