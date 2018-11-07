@@ -11,7 +11,7 @@ ms.author: govindk
 
 ---
 
-# How to configure virtual network and subnet-based access for your Cosmos account
+# How to access Azure Cosmos DB resources from virtual networks
 
 Azure CosmosDB accounts can be configured to allow access only from specific subnet of Azure Virtual Network. There are two steps required to limit access to Cosmos account with connections from a subnet in a Virtual Network (VNET).
  
