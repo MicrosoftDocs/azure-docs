@@ -58,7 +58,7 @@ When your program communicates with SQL Database through third-party middleware,
 ### Interval increase between retries
 We recommend that you wait for 5 seconds before your first retry. Retrying after a delay shorter than 5 seconds risks overwhelming the cloud service. For each subsequent retry, the delay should grow exponentially, up to a maximum of 60 seconds.
 
-For a discussion of the blocking period for clients that use ADO.NET, see [SQL Server connection pooling (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
+For a discussion of the blocking period for clients that use ADO.NET, see [SQL Server connection pooling (ADO.NET)](https://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 You also might want to set a maximum number of retries before the program self-terminates.
 
@@ -110,13 +110,13 @@ To make this test practical, your program recognizes a runtime parameter that ca
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
 ## .NET SqlConnection parameters for connection retry
-If your client program connects to SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, use .NET 4.6.1 or later (or .NET Core) so that you can use its connection retry feature. For more information on the feature, see [this webpage](http://go.microsoft.com/fwlink/?linkid=393996).
+If your client program connects to SQL Database by using the .NET Framework class **System.Data.SqlClient.SqlConnection**, use .NET 4.6.1 or later (or .NET Core) so that you can use its connection retry feature. For more information on the feature, see [this webpage](https://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
 
-When you build the [connection string](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) for your **SqlConnection** object, coordinate the values among the following parameters:
+When you build the [connection string](https://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) for your **SqlConnection** object, coordinate the values among the following parameters:
 
 * **ConnectRetryCount**:&nbsp;&nbsp;Default is 1. Range is 0 through 255.
 * **ConnectRetryInterval**:&nbsp;&nbsp;Default is 1 second. Range is 1 through 60.
@@ -208,7 +208,7 @@ If your program fails to connect to SQL Database, one diagnostic option is to tr
 On any Windows computer, you can try these utilities:
 
 * SQL Server Management Studio (ssms.exe), which connects by using ADO.NET
-* sqlcmd.exe, which connects by using [ODBC](http://msdn.microsoft.com/library/jj730308.aspx)
+* sqlcmd.exe, which connects by using [ODBC](https://msdn.microsoft.com/library/jj730308.aspx)
 
 After your program is connected, test whether a short SQL SELECT query works.
 
@@ -223,7 +223,7 @@ On Linux, the following utilities might be helpful:
 * `nmap -sS -O 127.0.0.1`
   * Change the example value to be your IP address.
 
-On Windows, the [PortQry.exe](http://www.microsoft.com/download/details.aspx?id=17148) utility might be helpful. Here's an example execution that queried the port situation on a SQL Database server and that was run on a laptop computer:
+On Windows, the [PortQry.exe](https://www.microsoft.com/download/details.aspx?id=17148) utility might be helpful. Here's an example execution that queried the port situation on a SQL Database server and that was run on a laptop computer:
 
 ```
 [C:\Users\johndoe\]
@@ -250,7 +250,7 @@ An intermittent problem is sometimes best diagnosed by detection of a general pa
 
 Your client can assist in a diagnosis by logging all errors it encounters. You might be able to correlate the log entries with error data that SQL Database logs itself internally.
 
-Enterprise Library 6 (EntLib60) offers .NET managed classes to assist with logging. For more information, see [5 - As easy as falling off a log: Use the Logging Application Block](http://msdn.microsoft.com/library/dn440731.aspx).
+Enterprise Library 6 (EntLib60) offers .NET managed classes to assist with logging. For more information, see [5 - As easy as falling off a log: Use the Logging Application Block](https://msdn.microsoft.com/library/dn440731.aspx).
 
 <a id="h-diagnostics-examine-logs-errors" name="h-diagnostics-examine-logs-errors"></a>
 
@@ -259,8 +259,8 @@ Here are some Transact-SQL SELECT statements that query error logs and other inf
 
 | Query of log | Description |
 |:--- |:--- |
-| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |The [sys.event_log](http://msdn.microsoft.com/library/dn270018.aspx) view offers information about individual events, which includes some that can cause transient errors or connectivity failures.<br/><br/>Ideally, you can correlate the **start_time** or **end_time** values with information about when your client program experienced problems.<br/><br/>You must connect to the *master* database to run this query. |
-| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |The [sys.database_connection_stats](http://msdn.microsoft.com/library/dn269986.aspx) view offers aggregated counts of event types for additional diagnostics.<br/><br/>You must connect to the *master* database to run this query. |
+| `SELECT e.*`<br/>`FROM sys.event_log AS e`<br/>`WHERE e.database_name = 'myDbName'`<br/>`AND e.event_category = 'connectivity'`<br/>`AND 2 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, e.end_time, GetUtcDate())`<br/>`ORDER BY e.event_category,`<br/>&nbsp;&nbsp;`e.event_type, e.end_time;` |The [sys.event_log](https://msdn.microsoft.com/library/dn270018.aspx) view offers information about individual events, which includes some that can cause transient errors or connectivity failures.<br/><br/>Ideally, you can correlate the **start_time** or **end_time** values with information about when your client program experienced problems.<br/><br/>You must connect to the *master* database to run this query. |
+| `SELECT c.*`<br/>`FROM sys.database_connection_stats AS c`<br/>`WHERE c.database_name = 'myDbName'`<br/>`AND 24 >= DateDiff`<br/>&nbsp;&nbsp;`(hour, c.end_time, GetUtcDate())`<br/>`ORDER BY c.end_time;` |The [sys.database_connection_stats](https://msdn.microsoft.com/library/dn269986.aspx) view offers aggregated counts of event types for additional diagnostics.<br/><br/>You must connect to the *master* database to run this query. |
 
 <a id="d-search-for-problem-events-in-the-sql-database-log" name="d-search-for-problem-events-in-the-sql-database-log"></a>
 
@@ -306,12 +306,12 @@ database_xml_deadlock_report  2015-10-16 20:28:01.0090000  NULL   NULL   NULL   
 <a id="l-enterprise-library-6" name="l-enterprise-library-6"></a>
 
 ## Enterprise Library 6
-Enterprise Library 6 (EntLib60) is a framework of .NET classes that helps you implement robust clients of cloud services, one of which is the SQL Database service. To locate topics dedicated to each area in which EntLib60 can assist, see [Enterprise Library 6 - April 2013](http://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
+Enterprise Library 6 (EntLib60) is a framework of .NET classes that helps you implement robust clients of cloud services, one of which is the SQL Database service. To locate topics dedicated to each area in which EntLib60 can assist, see [Enterprise Library 6 - April 2013](https://msdn.microsoft.com/library/dn169621%28v=pandp.60%29.aspx).
 
-Retry logic for handling transient errors is one area in which EntLib60 can assist. For more information, see [4 - Perseverance, secret of all triumphs: Use the Transient Fault Handling Application Block](http://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
+Retry logic for handling transient errors is one area in which EntLib60 can assist. For more information, see [4 - Perseverance, secret of all triumphs: Use the Transient Fault Handling Application Block](https://msdn.microsoft.com/library/dn440719%28v=pandp.60%29.aspx).
 
 > [!NOTE]
-> The source code for EntLib60 is available for public download from the [Download Center](http://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
+> The source code for EntLib60 is available for public download from the [Download Center](https://go.microsoft.com/fwlink/p/?LinkID=290898). Microsoft has no plans to make further feature updates or maintenance updates to EntLib.
 >
 >
 
@@ -338,7 +338,7 @@ In the namespace **Microsoft.Practices.EnterpriseLibrary.TransientFaultHandling.
 
 Here are some links to information about EntLib60:
 
-* Free book download: [Developer's Guide to Microsoft Enterprise Library, 2nd edition](http://www.microsoft.com/download/details.aspx?id=41145).
+* Free book download: [Developer's Guide to Microsoft Enterprise Library, 2nd edition](https://www.microsoft.com/download/details.aspx?id=41145).
 * Best practices: [Retry general guidance](../best-practices-retry-general.md) has an excellent in-depth discussion of retry logic.
 * NuGet download: [Enterprise Library - Transient Fault Handling Application Block 6.0](http://www.nuget.org/packages/EnterpriseLibrary.TransientFaultHandling/).
 
