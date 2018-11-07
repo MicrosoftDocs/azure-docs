@@ -10,11 +10,11 @@ ms.author: wolfma
 
 1. From the menu bar in Visual Studio, select **Tools > Get Tools** and make sure that the **.Net desktop development** workload is available. If the workload hasn't been installed, mark the checkbox, then click **Modify** to start the installation. It may take a few minutes to download and install.
 
-   If the checkbox next to **.Net desktop development** is selected, you can close the dialog box now.
+   If the checkbox next to **.NET desktop development** is selected, you can close the dialog box now.
 
    ![Enable .NET desktop development](~/articles/cognitive-services/speech-service/media/sdk/vs-enable-net-desktop-workload.png)
 
-1. Next, let's create a project. From the menu bar select **File > New > Project**. When the dialog box appears, in the left panel and expand **Installed > Visual C# > Windows Desktop** and select **Console App (.NET Framework)**. Name this project: *helloworld*.
+1. Next, let's create a project. From the menu bar select **File > New > Project**. When the dialog box appears, from the left panel expand these sections **Installed > Visual C# > Windows Desktop** and select **Console App (.NET Framework)**. Name this project *helloworld*.
 
     ![Create Visual C# Console App (.NET Framework)](~/articles/cognitive-services/speech-service/media/sdk/qs-csharp-dotnet-windows-01-new-console-app.png "Create Visual C# Console App (.NET Framework)")
 

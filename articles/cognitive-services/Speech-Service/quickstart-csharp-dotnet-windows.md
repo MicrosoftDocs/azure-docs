@@ -18,7 +18,7 @@ ms.author: wolfma
 
 Use this guide to create a speech-to-text console application using the .NET framework for Windows and the Speech SDK. When finished, you can use your computer's microphone to transcribe speech to text in real time.
 
-This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Microsoft Speech enabled. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/en-us/try/cognitive-services/my-apis/?api=speech) to get a subscription key.
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with Microsoft Speech enabled. If you don't have an account, you can use the [free trial](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) to get a subscription key.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ To complete this project, you'll need:
 
     [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Locate and replace the string `YourSubscriptionKey` with your Speech service subscription key.
+1. Locate and replace the string `YourSubscriptionKey` with your Speech Service subscription key.
 
 1. Locate and replace the string `YourServiceRegion` with the [region](regions.md) associated with your subscription. For example, if you're using the free trial, the region is `westus`.
 
@@ -54,7 +54,7 @@ To complete this project, you'll need:
 
     ![Screenshot of Visual Studio application, with Start Debugging option highlighted](media/sdk/qs-csharp-dotnet-windows-09-start-debugging.png "Start the app into debugging")
 
-1. A console window will appear, prompting you to speak. Now, say something in English. Your speech is transmitted to the Speech service and transcribed to text in real time. The result is printed to the console.
+1. A console window will appear, prompting you to speak. Now, say something in English. Your speech is transmitted to the Speech Service and transcribed to text in real time. The result is printed to the console.
 
     ![Screenshot of console output after successful recognition](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console output after successful recognition")
 
