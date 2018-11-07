@@ -1,6 +1,6 @@
 ---
 title: Optimize Hive queries in Azure HDInsight 
-description: This article describes how to optimize your Hive queries for Hadoop in HDInsight.
+description: This article describes how to optimize your Apache Hive queries for Hadoop in HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -12,7 +12,7 @@ ms.date: 11/06/2018
 ---
 # Optimize Hive queries in Azure HDInsight
 
-In Azure HDInsight there are multiple approaches to run Hive queries. Choose the right cluster type to help optimize performance for your workload needs. 
+In Azure HDInsight, there are several cluster types and technologies that can run Apache Hive queries. When you create your HDInsight cluster, choose the appropriate cluster type to help optimize performance for your workload needs. 
 
 For example, choose **Interactive Query** cluster type to optimize for ad-hoc, interactive queries. Choose Apache **Hadoop** cluster type to optimize for Hive queries used as a batch process. **Spark** and **HBase** cluster types can also run Hive queries. For more information on running Hive queries on various HDInsight cluster types, see [What is Apache Hive and HiveQL on Azure HDInsight?](hadoop/hdinsight-use-hive.md).
 
@@ -66,7 +66,7 @@ Some partitioning considerations:
 
 * **Do not under partition** - Partitioning on columns with only a few values can cause few partitions. For example, partitioning on gender only creates two partitions to be created (male and female), thus only reduce the latency by a maximum of half.
 * **Do not over partition** - On the other extreme, creating a partition on a column with a unique value (for example, userid) causes multiple partitions. Over partition causes much stress on the cluster namenode as it has to handle the large number of directories.
-* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. An example is partitioning on *State* may cause the number of records under California to be almost 30x that of Vermont due to the difference in population.
+* **Avoid data skew** - Choose your partitioning key wisely so that all partitions are even size. For example, partitioning on *State* column may skew the distribution of data. Since the state of California has a population almost 30x that of Vermont, the parition size is potentially skewed and performance may vary tremendously.
 
 To create a partition table, use the *Partitioned By* clause:
 
@@ -84,7 +84,7 @@ To create a partition table, use the *Partitioned By* clause:
    
 Once the partitioned table is created, you can either create static partitioning or dynamic partitioning.
 
-* **Static partitioning** means that you have already sharded data in the appropriate directories and you can ask Hive partitions manually based on the directory location. The following code snippet is an example.
+* **Static partitioning** means that you have already sharded data in the appropriate directories. With static partitions, you add Hive partitions manually based on the directory location. The following code snippet is an example.
   
    ```hive
    INSERT OVERWRITE TABLE lineitem_part
@@ -96,7 +96,7 @@ Once the partitioned table is created, you can either create static partitioning
    LOCATION ‘wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
    
-* **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since we have already created the partitioning table from the staging table, all we need to do is insert data to the partitioned table:
+* **Dynamic partitioning** means that you want Hive to create partitions automatically for you. Since you have already created the partitioning table from the staging table, all you need to do is insert data to the partitioned table:
   
    ```hive
    SET hive.exec.dynamic.partition = true;
