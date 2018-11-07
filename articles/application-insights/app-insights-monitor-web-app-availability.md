@@ -72,7 +72,7 @@ Open the Availability blade and add a test.
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
 > [!NOTE]
-> There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+> There is a charge for multi-step web tests. [Pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
