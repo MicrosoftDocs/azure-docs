@@ -24,7 +24,7 @@ When you initially access DevTest Labs and want to create your first VM, you wil
 This tutorial walks you through using the Azure portal to add your first VM to a lab in DevTest Labs.
 
 ## Steps to add your first VM to a lab in Azure DevTest Labs
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the lab in which you want to create the VM.  
 1. On the lab's **Overview** blade, select **+ Add**.  
