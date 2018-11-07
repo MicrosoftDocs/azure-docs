@@ -232,11 +232,11 @@ The last part of the workflow is to trigger an email when the sentiment is score
 
     ![Configure the email for the send an email action.](media/functions-twitter-email/21-configure-email.png)
     
-    | Setting      |  Suggested value   | Description  |
-    | ----------------- | ------------ | ------------- |
-    | **To** | Type your email address | The email address that receives the notification. |
-    | **Subject** | Negative tweet sentiment detected  | The subject line of the email notification.  |
-    | **Body** | Tweet text, Location | Click the **Tweet text** and **Location** parameters. |
+| Setting      |  Suggested value   | Description  |
+| ----------------- | ------------ | ------------- |
+| **To** | Type your email address | The email address that receives the notification. |
+| **Subject** | Negative tweet sentiment detected  | The subject line of the email notification.  |
+| **Body** | Tweet text, Location | Click the **Tweet text** and **Location** parameters. |
 
 5.  Click **Save**.
 
