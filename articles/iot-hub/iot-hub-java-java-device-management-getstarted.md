@@ -61,8 +61,6 @@ To complete this tutorial, you need:
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-## Register a new device in the IoT hub
-
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Trigger a remote reboot on the device using a direct method
