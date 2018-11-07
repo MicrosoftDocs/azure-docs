@@ -72,7 +72,7 @@ Content-Type: application/json
 The token format varies slightly according to the provider. See the following table for details:
 
 | Provider | Request body | Comments |
-|-|-|
+|-|-|-|
 | `aad` | `"{id_token":"<id_token>","access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | When requesting the token from Live services, always request the `wl.basic` scope (see [Single Sign On using Microsoft Account with the Live SDK](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#client-livesdk) for an example). |
 | `google` | `"{id_token":"<id_token>"}` | |
