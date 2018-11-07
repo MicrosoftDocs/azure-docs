@@ -118,7 +118,7 @@ If you already have a service with the dependencies installed in your **environm
 
 1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-   ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+   ![Edit Service](media/how-to-enable-data-collection/EditService.PNG)
 
 1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
@@ -139,7 +139,7 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-    [![Edit Service](media/how-to-enable-data-collection/EditService.png)](./media/how-to-enable-data-collection/EditService.png#lightbox)
+    [![Edit Service](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
@@ -219,7 +219,7 @@ To quickly access the data from your blob:
 
 1. Create New Table and select **Other Data Sources** -> Azure Blob Storage -> Create Table in Notebook.
 
-    [![DB table](media/how-to-enable-data-collection/dbtable.png)](./media/how-to-enable-data-collection/dbtable.png#lightbox)
+    [![DB table](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
 1. Update the location of  your data. Here is an example:
 
