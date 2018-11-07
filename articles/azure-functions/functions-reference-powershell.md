@@ -256,7 +256,7 @@ The Request object that's passed into the script comes from a type called `HttpR
 
 | Property  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| _Body_    | An object that contains the body of the request.               | object*                   |
+| _Body_    | An object that contains the body of the request.               | object                    |
 | _Headers_ | A dictionary that contains the request headers.                | Dictionary<string,string> |
 | _Method_  | The HTTP method of the request.                                | string                    |
 | _Params_  | An object that contains the routing parameters of the request. | Dictionary<string,string> |
