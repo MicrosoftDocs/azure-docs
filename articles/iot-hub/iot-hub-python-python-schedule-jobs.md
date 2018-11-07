@@ -58,8 +58,9 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
-[!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
+## Register a new device in the IoT hub
 
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Create a simulated device app
 In this section, you create a Python console app that responds to a direct method called by the cloud, which triggers a simulated **lockDoor** method.

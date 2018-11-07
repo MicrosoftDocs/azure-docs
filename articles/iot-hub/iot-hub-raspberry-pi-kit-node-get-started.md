@@ -58,8 +58,15 @@ The following items are optional:
 > [!NOTE] 
 > If you don't have the optional items, you can use simulated sensor data.
 
-<!-- robinsh NEED SEPARATE INCLUDES FOR CREATE HUB, find connection string, AND CREATE DEVICE HERE -->
-[!INCLUDE [iot-hub-get-started-create-hub-and-device](../../includes/iot-hub-get-started-create-hub-and-device.md)]
+## Create an IoT hub
+
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
+
+[!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
+
+## Register a new device in the IoT hub
+
+[!INCLUDE [iot-hub-include-create-device](../../includes/iot-hub-include-create-device.md)]
 
 ## Set up Raspberry Pi
 
