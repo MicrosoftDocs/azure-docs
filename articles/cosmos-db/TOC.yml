@@ -123,7 +123,7 @@
           href: secure-access-to-data.md
         - name: IP Firewall
           href: firewall-support.md
-        - name: Virtual network service endpoints
+        - name: Access from virtual networks
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
@@ -450,7 +450,7 @@
       items:
       - name: Configure IP firewall
         href: how-to-configure-firewall.md
-      - name: Configure virtual network service endpoints
+      - name: Configure access from virtual networks
         href: how-to-configure-vnet-service-endpoint.md
     - name: Best practices
       items:
