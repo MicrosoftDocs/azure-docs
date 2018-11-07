@@ -9,7 +9,7 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 11/6/2018
 ---
 
 # Configure a development environment for Azure Machine Learning
@@ -79,14 +79,40 @@ The Azure Machine Learning SDK uses the workspace configuration file to communic
 
 Azure Notebooks and Azure Data Science Virtual Machines (DSVMs) come configured to work with the Azure Machine Learning service. These environments include required components such as the Azure Machine Learning SDK.
 
+### Azure Notebooks
+
 - Azure Notebooks is a Jupyter Notebook service in the Azure cloud.
-- The Data Science Virtual Machine is a customized virtual machine (VM) image designed for data science work. It includes:
-  - Popular tools
-  - Integrated development environments (IDEs)
-  - Packages such as Jupyter Notebooks, PyCharm, and Tensorflow
 - You'll still need a workspace configuration file to use these environments.
 
 For an example of using Azure Notebooks with the Azure Machine Learning service, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+
+### Data Science Virtual Machines
+
+- The Data Science Virtual Machine is a customized virtual machine (VM) image designed for data science work. It includes:
+  - Popular data science tools
+  - Integrated development environments (IDEs) such as PyCharm and RStudio
+  - Packages such as Jupyter Notebooks and Tensorflow
+
+The DSVM comes with multiple Anaconda environments already installed. To use the Azure Machine Learning Python SDK without any package installation, open a command prompt/shell and use one of the following commands to activate the environment:
+
+* On the __Ubuntu__ DSVM, use this command:
+
+    ```shell
+    conda activate py36
+    ```
+
+* On the __Windows__ DSVM, use this command:
+
+    ```shell
+    conda activate AzureML
+    ```
+
+Once in this environment, you can immediately import the Azure Machine Learning SDK in the build tool of your choice, without installing the package.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 For more information on the Data Science Virtual Machines, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
@@ -115,12 +141,16 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
-    > [!NOTE]
-    > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
-    >
-    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   You can see the Python reference docs for classes and methods in the following SDKs:
+   + [Azure Machine Learning SDK for Python](https://aka.ms/aml-sdk)
+   + [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
-    It might take several minutes to install the SDK.
+   > [!NOTE]
+   > If you get a message that `PyYAML` can't be uninstalled, use the following command instead:
+   >
+   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+
+   It might take several minutes to install the SDK.
 
 1. Install packages for your machine learning experimentation. Use the following command and replace `<new package>` with the package you want to install:
 

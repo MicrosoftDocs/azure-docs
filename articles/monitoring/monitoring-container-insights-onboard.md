@@ -1,5 +1,5 @@
 ---
-title: How to onboard Azure Monitor for containers | Microsoft Docs
+title: How to onboard Azure Monitor for containers (Preview) | Microsoft Docs
 description: This article describes how you onboard and configure Azure Monitor for containers so you can understand how your container is performing and what performance-related issues have been identified.
 services: azure-monitor
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/04/2018
+ms.date: 11/05/2018
 ms.author: magoedte
 ---
 
-# How to onboard Azure Monitor for containers
+# How to onboard Azure Monitor for containers (Preview) 
 This article describes how to set up Azure Monitor for containers to monitor the performance of workloads that are deployed to Kubernetes environments and hosted on [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/).
 
 ## Prerequisites 
@@ -241,7 +241,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
     ```json
     {
-       "$schema": "https://schema.management.azure.com/  schemas/2015-01-01/deploymentParameters.json#",
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
        "contentVersion": "1.0.0.0",
        "parameters": {
          "aksResourceId": {

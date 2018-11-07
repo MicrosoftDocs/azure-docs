@@ -241,6 +241,9 @@
   - name: Update Management
     href: troubleshoot/update-management.md
     displayName: troubleshoot
+  - name: Shared resources
+    href: troubleshoot/shared-resources.md
+    displayName: module, import
   - name: Troubleshoot Update Agent issues
     items:
     - name: Windows

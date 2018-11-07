@@ -37,7 +37,7 @@ Push notifications are vital for consumer apps in increasing app engagement and 
 For more information on push notifications for a few popular platforms, see the following topics: 
 * [iOS](https://developer.apple.com/notifications/)
 * [Android](https://developer.android.com/guide/topics/ui/notifiers/notifications.html)
-* [Windows](http://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
+* [Windows](https://msdn.microsoft.com/library/windows/apps/hh779725.aspx)
 
 ## How push notifications work?
 Push notifications are delivered through platform-specific infrastructures called *Platform Notification Systems* (PNSes). They offer barebone push functionalities to deliver a message to a device with a provided handle, and have no common interface. To send a notification to all customers across the iOS, Android, and Windows versions of an app, the developer must work with Apple Push Notification Service(APNS), Firebase Cloud Messaging(FCM), and Windows Notification Service(WNS).
