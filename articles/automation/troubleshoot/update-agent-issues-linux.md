@@ -13,7 +13,7 @@ manager: carmonm
 
 # Understand the Linux agent check results in Update Management
 
-There may be many reasons your Non-Azure machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
+There may be many reasons your machine is not showing **Ready** in Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
 
 ## Start the troubleshooter
 
@@ -109,7 +109,7 @@ This check verifies that your machine has access to the endpoints needed by the 
 
 ## Troubleshoot offline
 
-You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The script, [scriptname](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) can be found on the PowerShell Gallery. An example of the output of this script is shown in the following example:
+You can use the troubleshooter offline on a Hybrid Runbook Worker by running the script locally. The python script, [update_mgmt_health_check.py](https://gallery.technet.microsoft.com/scriptcenter/Troubleshooting-utility-3bcbefe6) can be found in Script Center. An example of the output of this script is shown in the following example:
 
 ```output
 
