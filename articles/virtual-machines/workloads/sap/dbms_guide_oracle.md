@@ -339,7 +339,7 @@ Only the two guest operating systems of are supported Windows and Oracle Linux. 
 ## Specifics to Oracle Database on Windows
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs on Windows
 
-In accordance to SAP installation manual, all Oracle related files should not be installed or located into system driver for VM's OS disk (drive c:). Different sizes of virtual machines support a different number of disks to be attached. With smaller virtual machine types allowing a smaller number of disks to be attached. In cases of such smaller VMs, we recommend installing/locating <pre><code> Oracle home, stage, saptrace, saparch, sapbackup, sapcheck, sapreorg </code></pre> to OS disk. This part of Oracle database is not heavy on IO and OS disk can handle the IO requirements.  The default size of OS disk is 127GB. If the free space available is not enough, the disk can be resized to 2048 GB. https://docs.microsoft.com/en-us/azure/virtual-machines/windows/expand-os-disk. Other locations of Oracle related files should be stored on separate data disks.  That must be configured to handle the workload of SAP applications. !!!!There is an exception with Temporary tablespace. 'Tempfiles' can be created on D:/ (non-persistend drive). The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). In order to determine the proper 'tempfiles' space, you can check the 'tempfiles' sizes on existing systems. !!!!
+In accordance to SAP installation manual, all Oracle related files should not be installed or located into system driver for VM's OS disk (drive c:). Different sizes of virtual machines support a different number of disks to be attached. With smaller virtual machine types allowing a smaller number of disks to be attached. In cases of such smaller VMs, we recommend installing/locating Oracle home, stage, saptrace, saparch, sapbackup, sapcheck, sapreorg to OS disk. This part of Oracle database is not heavy on IO and OS disk can handle the IO requirements. The default size of OS disk is 127GB. If the free space available is not enough, the disk can be [resized](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/expand-os-disk) to 2048 GB. Oracle database and redo log files need to be stored on separate data disks. There is an exception with  the Oracle Temporary tablespace. Tempfiles can be created on D:/ (non-persistend drive). The non-persistent D:\ drive also offers better I/O latency and throughput (with the exception of A-Series VMs). In order to determine the proper tempfiles space, you can check the tempfiles sizes on existing systems.
 
 ### Storage configuration
 Only single instance Oracle using NTFS formatted disks is supported. All database files must be stored on the NTFS file system on Managed Disks (recommended) or VHDs. These disks are mounted to the Azure VM and are based on Azure Page BLOB Storage (<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) or Managed Disks (<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>). 
@@ -369,7 +369,7 @@ Minimum configuration:
 | Oracle Home, saptrace, ... | OS disk | | Not needed |
 
 
-Disks selection for hosting online redo logs should be driven by IOPs requirements. It is possible to store all sapdata1..n (tablespaces) on one single mounted disk as long as size, IOPS, and throughput satisfy the requirements. 
+Disks selection for hosting online redo logs should be driven by IOPs requirements. It is possible to store all sapdata1...n (tablespaces) on one single mounted disk as long as size, IOPS, and throughput satisfy the requirements. 
 
 Performance configuration:
 | Component | Disk | Caching | Storage pool |
@@ -422,7 +422,7 @@ General information about running SAP Business Suite on Oracle can be found in <
 
 ### Oracle Configuration Guidelines for SAP Installations in Azure VMs on Linux
 
-In accordance to SAP installation manual, all Oracle related files should not be installed or located into system driver for VM's boot disk. Different sizes of virtual machines support a different number of disks to be attached. With smaller virtual machine types allowing a smaller number of disks to be attached. In this case, we recommend installing/locate <pre><code> Oracle home, stage, saptrace, saparch, sapbackup, sapcheck, sapreorg </code></pre> to boot disk. Free space  This part of Oracle database is not heavy on IO and OS disk can handle the IO requirements.  The default disk size is 30GB. You can expand the boot disk by using Azure Portal/PowerShell/CLI. Once boot disk is expanded, you can add additional partition for Oracle binaries.
+In accordance to SAP installation manual, all Oracle related files should not be installed or located into system driver for VM's boot disk. Different sizes of virtual machines support a different number of disks to be attached. With smaller virtual machine types allowing a smaller number of disks to be attached. In this case, we recommend installing/locate Oracle home, stage, saptrace, saparch, sapbackup, sapcheck, sapreorg to boot disk. This part of Oracle database is not heavy on IO and OS disk can handle the IO requirements.  The default size of OS disk is 30GB. You can expand the boot disk by using Azure Portal/PowerShell/CLI. Once the boot disk is expanded, you can add additional partition for Oracle binaries.
 
 
 ### Storage configuration
@@ -453,7 +453,7 @@ Minimum configuration:
 
 *Stripping: LVM stripe or MDADM using RAID0
 
-Disks selection for hosting online redo logs should be driven by IOPs requirements. It is possible to store all sapdata1..n (tablespaces) on one single mounted disk as long as size, IOPS, and throughput satisfy the requirements. 
+Disks selection for hosting online redo logs should be driven by IOPs requirements. It is possible to store all sapdata1...n (tablespaces) on one single mounted disk as long as size, IOPS, and throughput satisfy the requirements. 
 
 Performance configuration:
 | Component | Disk | Caching | Stripping* |
