@@ -12,7 +12,7 @@ ms.author: govindk
 
 # VNET and subnet access control for a Cosmos account
 
-You can configure the Cosmos account to allow access only from a specific subnet of virtual network (VNET). By enabling [Service endpoint](../azure/virtual-network/virtual-network-service-endpoints-overview.md) to Cosmos DB on the subnet within a VNET, the traffic from that subnet is sent to Cosmos DB with the identity of the subnet and Virtual Network. Once the Cosmos DB service endpoint is enabled, you can limit access to the subnet by adding it to your Cosmos account.
+You can configure the Cosmos account to allow access only from a specific subnet of virtual network (VNET). By enabling [Service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to Cosmos DB on the subnet within a VNET, the traffic from that subnet is sent to Cosmos DB with the identity of the subnet and Virtual Network. Once the Cosmos DB service endpoint is enabled, you can limit access to the subnet by adding it to your Cosmos account.
 
 ![Virtual network service endpoint architecture](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
 
