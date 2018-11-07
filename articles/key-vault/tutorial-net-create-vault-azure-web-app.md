@@ -52,7 +52,7 @@ Before proceeding, read [Key Vault basic concepts](key-vault-whatis.md#basic-con
 
 Azure Key Vault stores credentials securely so they aren’t in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
 
-Here’s how it works! When you enable MSI for an Azure service (for example: Virtual Machines, App Service, or Functions) Azure creates a [Service Principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the credentials for the Service Principal into that instance.
+When you enable MSI for an Azure service (for example: Virtual Machines, App Service, or Functions) Azure creates a [Service Principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the credentials for the Service Principal into that instance.
 
 ![MSI diagram](media/MSI.png)
 
@@ -84,7 +84,7 @@ You use this resource group throughout this tutorial.
 
 To create a key vault in your resource group, you'll need to provide the following information:
 
-* Key vault name: a string of 3 - 24 characters that can contain only numbers, letters, and '-' (for example 0-9, a-z, A-Z, and -)
+* Key vault name: a string of 3 - 24 characters that can contain only numbers, letters, and hyphens (for example 0-9, a-z, A-Z, and -)
 * Resource group name
 * Location: **West US**
 
@@ -123,8 +123,8 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
 
 1. Navigate to **Pages** > **About.cshtml.cs** file.
 2. Install these NuGet packages:
-   -[AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
-   -[KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
+   - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
+   - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
 3. Import the following code in the About.cshtml.cs file:
 
    ```
@@ -250,4 +250,5 @@ Now, you've now successfully created a web app in .NET that stores and fetches i
 
 ## Next steps
 
-[!div class="nextstepaction"] Azure Key Vault Developer's Guide
+>[!div class="nextstepaction"]
+>[Azure Key Vault Developer's Guide](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-developers-guide)
