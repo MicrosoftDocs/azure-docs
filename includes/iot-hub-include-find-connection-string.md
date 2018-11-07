@@ -12,7 +12,7 @@ ms.custom: include file
 <!-- this tells how to get the connection string for your hub -->
 <!-- This assumes the user is looking at his hub in the portal. -->
 
-After your hub has been created, retrieve the connection string for the hub. THis is used to connect devices and applications to your hub. 
+After your hub has been created, retrieve the connection string for the hub. This is used to connect devices and applications to your hub. 
 
 1. Click on your hub to see the IoT Hub pane with Settings, and so on. Click **Shared access policies**.
    
