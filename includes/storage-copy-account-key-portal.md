@@ -12,7 +12,7 @@ ms.custom: "include file"
 
 ## Copy your credentials from the Azure portal
 
-The sample application needs to authorize access to your storage account. Provide your storage account credentials to the the application in the form of a connection string. To view your storage account credentials:
+The sample application needs to authorize access to your storage account. Provide your storage account credentials to the application in the form of a connection string. To view your storage account credentials:
 
 1. Navigate to the [Azure portal](https://portal.azure.com).
 2. Locate your storage account.
