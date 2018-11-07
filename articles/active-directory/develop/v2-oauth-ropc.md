@@ -27,9 +27,12 @@ Azure AD supports the [resource owner password credential grant](https://tools.i
 > [!Important]
 > The v2.0 endpoint only supports ROPC for Azure AD tenants, not personal accounts.  This means that you must use a tenanted endpoint or the organizations endpoint.  
 >
-> Personal accounts that are invited to an Azure AD tenant will be able to use the device flow grant, but only in the context of the tenant.
+> Personal accounts that are invited to an Azure AD tenant cannot use ROPC.
 >
 > Accounts that don't have passwords cannot sign in via ROPC - for this reason, we encourage your app to use a different flow instead.
+>
+> If a user would have to perform MFA to log in to the application, they will be blocked instead.
+
 
 > [!NOTE]
 > The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
@@ -37,41 +40,34 @@ Azure AD supports the [resource owner password credential grant](https://tools.i
 
 ## Protocol diagram
 
-The entire device code flow looks similar to the next diagram. We describe each of the steps later in this article.
+The ROPC flow looks similar to the next diagram.
 
 ![ROPC flow](media/v2-oauth2-ropc/v2-oauth-ropc.png)
 
-## Device authorization request
+## Authorization request
 
-The client must first check with the authentication server for a device and user code, used to initiate authentication.  The client collects this request from the `/devicecode` endpoint. In this request, the client should also include the permissions it needs to acquire from the user.  From the moment this request is sent, the user has only 15 minutes to sign in (the usual value for `expires_in`), so only make this request when the user has indicated they're ready to sign in.
+The ROPC flow is a single request - sending the client identification and user's credentials to the IDP, and receiving tokens back.  The client must request the user's email address (UPN) and password before doing so.  Immediately after a succesful request, the client should securely release the user's credentials from memory.  It must never save them.
 
 ```
-// Line breaks are for legibility only.
+// Line breaks and spaces are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/devicecode
-Content-Type: application/x-www-form-urlencoded
+POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/authorize?
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
-scope=user.read%20openid%20profile
-
+&scope=user.read%20openid%20profile%20offline_access
+&client_secret=wkubdywbc2894u
+&username=MyUsername@myTenant.com
+&password=SuperS3cret
+&grant_type=password
 ```
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| tenant |Required |The directory tenant that you want to log the user into. This can be in GUID or friendly name format.  |
+| tenant |Required |The directory tenant that you want to log the user into. This can be in GUID or friendly name format, and cannot be `common` or `consumers` but may be `organizations`.  |
 | grant_type |Required | Must be `password`.  |
-|username| Required| The user's username,  |
+|username| Required| The user's email address. |
 |password| Required| The user's password.  |
-| scope | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md) that the app requires.  These must be pre-consented to by an admin. |
-
-### Expected errors
-
-Because the device code flow is a polling protocol, your client must expect to receive errors before the user has finished authenticating.  
-
-| Error | Description | Client Action |
-|------ | ----------- | -------------|
-| `authorization_pending` |  The user has not yet finished authenticating, but has not canceled the flow. | Repeat the request after at least `interval` seconds. |
-| `invalid_grant` | The authentication failed. | The credentials were incorrect or the client does not have consent for the 
+| scope | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md) that the app requires.  These must be consented to ahead of time, either by an admin or by the user in an interactive flow. |
 
 ### Succesful authentication response
 
@@ -98,3 +94,11 @@ A successful token response will look like:
 |`refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`.  |
 
 The refresh token can be used to acquire new access tokens and refresh tokens using the same flow detailed in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+
+### Error response
+
+If the user has not provided the correct username or password, or the client has not recieved the consent requested, the authentication will fail.
+
+| Error | Description | Client Action |
+|------ | ----------- | -------------|
+| `invalid_grant` | The authentication failed. | The credentials were incorrect or the client does not have consent for the requested scopes.  If the scopes are not granted, a suberror will be returned - `consent_required`.  If this occurs, the client should send the user to an interactive prompt using a webview or browser.|
