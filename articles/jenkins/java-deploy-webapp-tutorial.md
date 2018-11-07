@@ -90,7 +90,7 @@ in Jenkins.
 > [!NOTE]
 > 
 > These steps create personal access token credentials for Jenkins 
-> Jenkins to work with GitHub by using your GitHub username and password. 
+> to work with GitHub by using your GitHub username and password. 
 > However, if your GitHub account uses two-factor authentication, 
 > create your token in GitHub and set up Jenkins to use that token instead. 
 > For more information, see the 
@@ -164,15 +164,22 @@ Here's the output from the **`create-for-rbac`** command:
 The `appId`, `password`, and `tenant` values are used for authentication. 
 The `displayName` is used when searching for an existing service principal.
 
-## Fork sample repo and create pipeline job 
+## Fork sample repo
 
-Now create your working copy, or fork, for the GitHub repo that has the sample Java 
-web app. You'll then create the pipeline job in Jenkins for building that app.
+To create your working copy of the GitHub repo with the 
+sample Java web app, fork the repo to your GitHub account. 
 
 1. Go to the [GitHub repo for the Spring Boot sample app](https://github.com/spring-guides/gs-spring-boot). 
-To fork the repo to your GitHub account, choose **Fork** in the upper-right corner.
+
+1. In the upper-right corner in GitHub, choose **Fork**.
 
    ![Fork sample repo from GitHub](media/jenkins-java-quickstart/fork-github-repo.png)
+
+1. Follow the prompts to select your GitHub account and finish forking.
+
+## Create pipeline for build and deployment
+
+Create the pipeline job in Jenkins for building and deploying your app.
 
 1. Return to your Jenkins home page, and select **New Item**. 
 
@@ -203,7 +210,7 @@ In the **Properties Content** box that appears, add these environment variables:
 
 1. When you're done, choose **Save**.
 
-## Create build and deployment files
+## Create build and deployment scripts
 
 1. In your GitHub fork's `src/main/resources/` folder, 
 create a config file named `web.config` that contains this XML 
@@ -222,8 +229,8 @@ but replaces `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
    </configuration>
    ```
 
-1. In your GitHub fork's root folder, create a build and 
-deployment file named `Jenkinsfile` that contains this text 
+1. In your GitHub fork's root folder, create a build and deployment 
+script named `Jenkinsfile` that contains this text 
 ([source in GitHub here](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
    ```text  
@@ -247,7 +254,7 @@ deployment file named `Jenkinsfile` that contains this text
    }
    ```
 
-1. Commit both `web.config` and `Jenkinsfile` 
+1. Commit both `web.config` and `Jenkinsfile` files 
 to your GitHub fork, and push your changes.
 
 ## Point pipeline at script
