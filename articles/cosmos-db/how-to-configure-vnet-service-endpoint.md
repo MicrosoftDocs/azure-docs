@@ -19,7 +19,7 @@ Azure CosmosDB accounts can be configured to allow access only from specific sub
 
 1. Add a rule in Cosmos account specifying the subnet as a source from which, the account can be accessed.
 
-> [NOTE]
+> [!NOTE]
 > Once service endpoint for your Cosmos account is enabled on a subnet, the source of the traffic reaching Cosmos DB switches from public IP to VNET and subnet. The traffic switching applies for any Cosmos account being accessed from this subnet. If your Cosmos account(s) have IP based firewall to allow this subnet, requests from service enabled subnet would no longer match the IP firewall rules and they are rejected. To learn more, see the steps outlined in [migrating from IP firewall rule to VNET Access Control List](#migrate-from-firewall-to-vnet) section of this article. 
 
 The following sections describe how to configure VNET service endpoint for a Cosmos DB account.
@@ -46,7 +46,7 @@ The following sections describe how to configure VNET service endpoint for a Cos
 > [!NOTE]
 > To enable Virtual network service endpoints, you would need the following subscription permissions:
   * Subscription with VNET: Network contributor
-  1. * Subscription with Cosmos account: DocumentDB Account Contributor
+  * Subscription with Cosmos account: DocumentDB Account Contributor
 
 ### Configure service endpoint for a new Azure virtual network and subnet
 
@@ -78,7 +78,7 @@ To ensure you have access to Azure Cosmos DB metrics from the portal, you need t
 
 4.	Click **Save** to apply your changes.
 
-## <a id="configure-using-powershell></a>Configure service endpoint by using Azure PowerShell 
+## <a id="configure-using-powershell"></a>Configure service endpoint by using Azure PowerShell 
 
 Use the following steps to configure service endpoint to a Cosmos DB account by using Azure PowerShell:  
 
