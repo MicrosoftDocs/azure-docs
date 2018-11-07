@@ -256,7 +256,7 @@ The Request object that's passed into the script comes from a type called `HttpR
 
 | Property  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| _Body_    | An object that contains the body of the request.               | object*                   |
+| _Body_    | An object that contains the body of the request.               | object                    |
 | _Headers_ | A dictionary that contains the request headers.                | Dictionary<string,string> |
 | _Method_  | The HTTP method of the request.                                | string                    |
 | _Params_  | An object that contains the routing parameters of the request. | Dictionary<string,string> |
@@ -264,7 +264,7 @@ The Request object that's passed into the script comes from a type called `HttpR
 | _Url_     | The URL of the request.                                        | string                    |
 
 > [!Note]
-> The body is serialized into a type that makes sense for the data. If it's json, it's passed in as a hashtable. If it's a string, it's passed in as a string.
+> The `Body` is serialized into a type that makes sense for the data. If it's json, it's passed in as a hashtable. If it's a string, it's passed in as a string.
 
 > [!Note]
 > All `Dictionary<string,string>` keys are case-insensitive.
