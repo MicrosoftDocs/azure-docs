@@ -107,7 +107,7 @@ To view it:
 
     [![AppInsightsLoc](media/how-to-enable-app-insights/AppInsightsLoc.png)](./media/how-to-enable-app-insights/AppInsightsLoc.png#lightbox)
 
-1. The **Overview** tab shows you the basic set of metrics for your service.
+1. Select the **Overview** tab to see a basic set of metrics for your service.
 
    [![Overview](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
