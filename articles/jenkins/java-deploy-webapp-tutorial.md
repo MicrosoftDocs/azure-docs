@@ -20,6 +20,8 @@ Jenkins automatically builds and republishes your app to Azure.
 The sample app in this tutorial was developed by using the 
 [Spring Boot](http://projects.spring.io/spring-boot/) framework. 
 
+![Overview](media/jenkins-java-quickstart/overview.png)
+
 In this tutorial, you'll complete these tasks:
 
 > [!div class="checklist"]
