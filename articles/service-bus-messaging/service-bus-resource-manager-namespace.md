@@ -179,8 +179,8 @@ az group deployment create --name <Specify a name for the deployment> --resource
 ## Next steps
 In this article, you created a Service Bus namespace. See the other quickstarts to learn how to create queues, topics/subscriptions, and use them: 
 
-- [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues)
-- [Get started with Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions)
+- [Get started with Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+- [Get started with Service Bus topics](service-bus-dotnet-how-to-use-topics-subscriptions.md)
 
 [Authoring Azure Resource Manager templates]: ../azure-resource-manager/resource-group-authoring-templates.md
 [Service Bus namespace template]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-servicebus-create-namespace/
