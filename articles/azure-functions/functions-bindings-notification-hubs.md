@@ -3,7 +3,7 @@ title: Notification Hubs bindings for Azure Functions
 description: Understand how to use Azure Notification Hub binding in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
+ms.author: cshoe
 ---
 
 # Notification Hubs output binding for Azure Functions
