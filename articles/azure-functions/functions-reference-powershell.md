@@ -379,7 +379,6 @@ When you start your Function App, the PowerShell language worker will add this `
 
 We ship a few commonly used modules in the last position of the `PSModulePath`. The current list of modules are:
 
-- [PowerShellGet](https://www.powershellgallery.com/packages/powershellget)
 - [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)
 - [Az](https://www.powershellgallery.com/packages/Az)
 
