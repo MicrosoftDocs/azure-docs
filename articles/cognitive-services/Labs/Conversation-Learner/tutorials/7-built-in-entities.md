@@ -17,7 +17,7 @@ This tutorial shows how to add "pre-built" entities to your Conversation Learner
 
 ## Video
 
-[![Tutorial 7 Preview](http://aka.ms/cl-tutorial-07-preview)](http://aka.ms/blis-tutorial-07)
+[![Tutorial 7 Preview](https://aka.ms/cl-tutorial-07-preview)](https://aka.ms/blis-tutorial-07)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

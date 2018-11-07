@@ -22,7 +22,7 @@ Here are some frequently asked questions (FAQs) and corresponding answers about 
 
 **Have a question you can't find here?**
 
-Azure Machine Learning has a forum on MSDN where members of the data science community can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to the [Azure Machine Learning Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to search for answers or to post a new question of your own.
+Azure Machine Learning has a forum on MSDN where members of the data science community can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to the [Azure Machine Learning Forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to search for answers or to post a new question of your own.
 
 ## General questions
 **What is Azure Machine Learning?**
@@ -119,7 +119,7 @@ You can learn about image input capability in the [Import Images][image-reader] 
 ### Modules
 **The algorithm, data source, data format, or data transformation operation that I am looking for isn't in Azure Machine Learning Studio. What are my options?**
 
-You can go to the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231) to see feature requests that we are tracking. Add your vote to a request if a capability that you're looking for has already been requested. If the capability that you're looking for doesn't exist, create a new request. You can view the status of your request in this forum, too. We track this list closely and update the status of feature availability frequently. In addition, you can use the built-in support for R and Python to create custom transformations when needed.
+You can go to the [user feedback forum](https://go.microsoft.com/fwlink/?LinkId=404231) to see feature requests that we are tracking. Add your vote to a request if a capability that you're looking for has already been requested. If the capability that you're looking for doesn't exist, create a new request. You can view the status of your request in this forum, too. We track this list closely and update the status of feature availability frequently. In addition, you can use the built-in support for R and Python to create custom transformations when needed.
 
 **Can I bring my existing code into Machine Learning Studio?**
 
@@ -178,7 +178,7 @@ Currently, you can only use R to create new custom modules.
 ### R module
 **What R packages are available in Machine Learning Studio?**
 
-Machine Learning Studio supports more than 400 CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R](extend-your-experiment-with-r.md) to learn how to retrieve this list yourself. If the package that you want is not in this list, provide the name of the package at the [user feedback forum](http://go.microsoft.com/fwlink/?LinkId=404231).
+Machine Learning Studio supports more than 400 CRAN R packages today, and here is the [current list](http://az754797.vo.msecnd.net/docs/RPackages.xlsx) of all included packages. Also, see [Extend your experiment with R](extend-your-experiment-with-r.md) to learn how to retrieve this list yourself. If the package that you want is not in this list, provide the name of the package at the [user feedback forum](https://go.microsoft.com/fwlink/?LinkId=404231).
 
 **Is it possible to build a custom R module?**
 
@@ -308,7 +308,7 @@ You can also find training at [Microsoft Virtual Academy](http://www.microsoftvi
 
 To get technical support for Azure Machine Learning, go to [Azure Support](https://azure.microsoft.com/support/options/), and select **Machine Learning**.
 
-Azure Machine Learning also has a community forum on MSDN where you can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
+Azure Machine Learning also has a community forum on MSDN where you can ask questions about Azure Machine Learning. The Azure Machine Learning team monitors the forum. Go to [Azure Forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
 ## Billing questions
 **How does Machine Learning billing work?**

@@ -9,12 +9,10 @@
     href: quick-start.md
   - name: Using the .NET SDK
     items:
-    - name: Check image content
+    - name: Analyze image content for objectionable material
       href: image-moderation-quickstart-dotnet.md
-    - name: Check text content
-      href: text-moderation-quickstart-dotnet.md
-    - name: Check video content
-      href: video-moderation-api.md
+    - name: Analyze text content for objectionable material
+      href: text-moderation-quickstart-dotnet.md   
 - name: Concepts
   items:
   - name: Image moderation
@@ -35,6 +33,8 @@
       items:
       - name: Using the .NET SDK
         items:
+        - name: Check video content
+          href: video-moderation-api.md
         - name: Check images against custom lists
           href: image-lists-quickstart-dotnet.md
         - name: Check text against custom terms

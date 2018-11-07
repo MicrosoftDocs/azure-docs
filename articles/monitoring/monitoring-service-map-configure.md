@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: daseidma;bwren
+ms.author: bwren
 
 ---
 # Configure Service Map in Azure
