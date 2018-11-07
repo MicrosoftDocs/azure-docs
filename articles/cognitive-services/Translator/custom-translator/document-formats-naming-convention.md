@@ -31,6 +31,12 @@ This table includes all supported file formats that you can use to build your tr
 | Aligned text file | .ALIGN       | The extension `.ALIGN` is a special extension that you can use if you know that the sentences in the document pair are perfectly aligned. If you provide a `.ALIGN` file, Custom Translator will not align the sentences for you. |
 | Excel file        | .XLSX        | Excel file (2013 or later). First line/ row of the spreadsheet should be language code.                                                                                                                                                                                                                                                      |
 
+## Dictionary formats
+
+For dictionaries, Custom Translator supports all file formats those are supported for training set. If you are using Excel dictionary, please make sure the first line/ row of the spreadsheet should be language codes.
+
+## Zip file formats
+
 Documents can be grouped into a single zip file and uploaded. The Custom Translator supports zip file formats (ZIP, GZ, and TGZ).
 
 Each document in the zip file must follow this naming convention:
@@ -40,8 +46,6 @@ where {document name} is the name of your document, {language code} is the ISO L
 
 For example, to upload two parallel documents within a zip for an English to
 Spanish system, the files should be named “data_en” and “data_es”.
-
-For dictionaries, Custom Translator supports all file formats those are supported for training set.
 
 ## Next steps
 

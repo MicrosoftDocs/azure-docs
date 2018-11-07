@@ -130,3 +130,8 @@ If you want more detailed migration report about your projects, trainings and do
 
 >[!Note]
 >Migration is only supported to the language pairs where NMT languages exist. Please check the list of currently [supported NMT languages](https://www.microsoft.com/translator/business/languages/). For the language pairs where NMT languages does not exist, data will be moved from Hub to Custom Translator, but trainings can't be conducted on those language pairs.
+
+## Next steps
+
+- [Train a model](how-to-train-model.md).
+- Start using your deployed custom translation model via [Microsoft Translator Text API V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-translate?tabs=curl).

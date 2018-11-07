@@ -16,11 +16,14 @@ ms.author: v-rada
 
 [BLEU (Bilingual Evaluation Understudy)](https://en.wikipedia.org/wiki/BLEU) is a measurement of the differences between an automatic translation and
 one or more human-created reference translations of the same source sentence.
+
+## Scoring process
+
 The BLEU algorithm compares consecutive phrases of the automatic translation
 with the consecutive phrases it finds in the reference translation, and counts
 the number of matches, in a weighted fashion. These matches are position
 independent. A higher match degree indicates a higher degree of similarity with
-the reference translation. Intelligibility and grammatical correctness are not
+the reference translation, and higher score. Intelligibility and grammatical correctness are not
 taken into account.
 
 ## How BLEU works?
