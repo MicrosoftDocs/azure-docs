@@ -31,8 +31,11 @@ Azure Site Recovery consistently replicates data from source region to the disas
 ### <a name="high-data-change-rate-on-the-source-virtal-machine"></a>High data change rate on the source Virtual machine
 Azure Site Recovery fires an event if the data change rate on the source virtual machine is higher than the supported limits. To check if the issue is due to high churn, go to Replicated items> VM > click on “Events -last 72 hours”.
 You should see the event “Data Change rate beyond supported limits” as shown in the screenshot below
+
 ![data_change_rate_high](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event.png)
+
 If you click on the event you should be able to see the exact disk information as shown in the screenshot below
+
 ![data_change_rate_event](./media/site-recovery-azure-to-azure-troubleshoot/data_change_event2.png)
 
 
@@ -49,7 +52,8 @@ Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
-**Source data churn** | **Maximium Limit**
+
+**Source data churn** | **Maximium limit**
 ---|---
 Average data churn per VM| 25 MB/s
 Peak data churn across all disks on a VM | 54 MB/s
@@ -60,9 +64,9 @@ To find the  data change rate of the affected virtual machine. Go to the source 
 
 ![high_data_change_rate](./media/site-recovery-azure-to-azure-troubleshoot/churn.png)
 
-1.) Click on "Add metric" and add "OS Disk Write Bytes/sec" and "Data Disk Write Bytes/sec". </br>
-2.) Monitor the spike as shown in the screenshot.</br>
-3.) It will show  the total writes operation happening across OS disk and all data disks combined. Now these metrics might not tell you per disk level information but is a good indicator of the total data churn pattern.</br>
+1. Click on "Add metric" and add "OS Disk Write Bytes/sec" and "Data Disk Write Bytes/sec".
+2. Monitor the spike as shown in the screenshot.
+3. It will show  the total writes operation happening across OS disk and all data disks combined. Now these metrics might not tell you per disk level information but is a good indicator of the total data churn pattern.
 
 In cases like above if it is an occasional data burst and the data change rate is greater than 10 MBps (for Premium) and 2 MBps (for Standard) for some time and comes down, replication will catch up. However if the churn is well beyond the supported limit most of the time then you should consider one of the below option if possible:
 
@@ -75,4 +79,4 @@ This option is only possible if the  disk data churn is less than 10 MB/s. Let s
 ### <a name="Network-connectivity-issue"></a>Network connectivity issue
 
 For Site Recovery replication to work, outbound connectivity to specific URLs or IP ranges is required from the VM. If your VM is behind a firewall or uses network security group (NSG) rules to control outbound connectivity, you might face one of these issues.</br>
-Refer to [Outbound connectivity for Site Recovery URLs](https://review.docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?branch=pr-en-us-56546#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
+Refer to [Outbound connectivity for Site Recovery URLs](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-troubleshoot-errors?#outbound-connectivity-for-site-recovery-urls-or-ip-ranges-error-code-151037-or-151072)
