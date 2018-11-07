@@ -24,7 +24,7 @@ Azure DevTest Labs lets you control cost and minimize waste in your labs by mana
 ## Set allowed virtual machine sizes
 The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
 
-1. In the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab and then select **Configuration and policies**.
+1. In the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040), select a lab and then select **Configuration and policies**.
 
     ![Access the lab's configuration and policies](./media/devtest-lab-set-lab-policy/policies-menu.png)
 

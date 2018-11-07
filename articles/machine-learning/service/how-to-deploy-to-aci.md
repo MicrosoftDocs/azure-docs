@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 11/06/2018
 ---
 
 # Deploy web services to Azure Container Instances 
@@ -22,6 +22,9 @@ This article shows three different ways to deploy a model on ACI. They differ in
 * Deploy from model file using `Webservice.deploy()` 
 * Deploy from registered model using `Webservice.deploy_from_model()`
 * Deploy registered model from image using `Webservice.deploy_from_image()`
+
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.74
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -125,7 +128,7 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
 
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3CreateImage)]
 
-**Time estimate**: Approximately 3 minutes.
+    **Time estimate**: Approximately 3 minutes.
 
 1. Deploy the Docker image as a service using `Webservice.deploy_from_image()`
 
@@ -133,7 +136,7 @@ Deploy a registered model (`model`) using `Webservice.deploy_from_image()`. This
         
     [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-deploy-to-aci/how-to-deploy-to-aci.py?name=option3Deploy)]
  
-**Time estimate**: Approximately 3 minutes.
+    **Time estimate**: Approximately 3 minutes.
 
 This method gives you the most control over creating and naming the components in the deployment.
 
