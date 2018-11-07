@@ -25,7 +25,7 @@ Azure Monitor provides unified user interfaces for monitoring across various Azu
 
 Azure Monitor provides multiple ways to access metrics. You can either access metrics through the [Azure portal](https://portal.azure.com), or use the Azure Monitor APIs (REST and .NET) and analysis solutions such as Log Analytics and Event Hubs. For more information, see [Monitoring data collected by Azure Monitor](../monitoring/monitoring-data-collection.md).
 
-Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
+Metrics are enabled by default, and you can access the most recent 30 days of data. If you need to retain data for a longer period of time, you can archive metrics data to an Azure Storage account. This value is configured in [diagnostic settings](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) in Azure Monitor.
 
 ## Access metrics in the portal
 
@@ -111,7 +111,7 @@ Azure Service Bus supports the following dimensions for metrics in Azure Monitor
 
     ![Metrics page - Configure alerts menu](./media/service-bus-metrics-azure-monitor/metrics-page-configure-alerts-menu.png)
 2. Select **Select target**, and do the following actions on the **Select a resource** page: 
-    1. Select **Serive Bus Namespaces** for the **Fileter by resource type** field. 
+    1. Select **Service Bus Namespaces** for the **Filter by resource type** field. 
     2. Select your subscription for the **Filter by subscription** field.
     3. Select the **service bus namespace** from the list. 
     4. Select **Done**. 
