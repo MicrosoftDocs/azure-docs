@@ -32,7 +32,7 @@ The sample device also:
 * Responds to actions triggered from the **Devices** page in the solution.
 * Responds to configuration changes send from the **Devices** page in the solution.
 
-To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](http://azure.microsoft.com/pricing/free-trial/).
+To complete this tutorial, you need an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Before you start
 

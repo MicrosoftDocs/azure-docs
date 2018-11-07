@@ -43,13 +43,13 @@ Here are some considerations when using an Azure Storage account with HDInsight 
 * **Public files in storage accounts that are NOT connected to a cluster** expose read-only permissions to the files in the file system.
   
   > [!NOTE]
-  > Public file systems allow you to get a list of all files available in the file system and access metadata. Public file systems allow you to access files only if you know the exact URL. For more information, see [Restrict access to containers and blobs](http://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (the rules for containers and blobs work the same fore files and the file system).
+  > Public file systems allow you to get a list of all files available in the file system and access metadata. Public file systems allow you to access files only if you know the exact URL. For more information, see [Restrict access to containers and blobs](https://msdn.microsoft.com/library/windowsazure/dd179354.aspx) (the rules for containers and blobs work the same fore files and the file system).
  
 * **Private file systems in storage accounts that are NOT connected to a cluster** do not allow access files in the file system unless you define the storage account when you submit the WebHCat jobs. Reasons for this restriction are explained later in this article.
 
 The storage accounts that are defined in the creation process and their keys are stored in *%HADOOP_HOME%/conf/core-site.xml* on the cluster nodes. The default behavior of HDInsight is to use the storage accounts defined in the *core-site.xml* file. You can modify this setting using [Ambari](../../hdinsight/hdinsight-hadoop-manage-ambari.md)
 
-Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This approach currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](http://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
+Multiple WebHCat jobs, including Hive, MapReduce, Hadoop streaming, and Pig, can carry a description of storage accounts and metadata with them. (This approach currently works for Pig with storage accounts, but not for metadata.) For more information, see [Using an HDInsight Cluster with Alternate Storage Accounts and Metastores](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx).
 
 ## <a id="benefits"></a>Benefits of Azure Storage
 
