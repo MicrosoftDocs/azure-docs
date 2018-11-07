@@ -25,13 +25,13 @@ In this tutorial, you'll complete these tasks:
 > [!div class="checklist"]
 > * Install Jenkins plug-ins so you can work with GitHub, 
 > deploy to Azure App Service, and other related tasks.
-> * Set up Jenkins integration with GitHub.
+> * Connect Jenkins to GitHub.
 > * Create an Azure service principal for authentication 
 > without using your own credentials. 
 > * Fork the GitHub sample repo and create a Jenkins pipeline that 
 > builds your app when you push a commit to the app in GitHub.
-> * Create build files for your Jenkins pipeline.
-> * Point your Jenkins pipeline at a build script.
+> * Create a build and deployment script for your Jenkins pipeline.
+> * Point your Jenkins pipeline at the build and deployment script.
 > * Deploy your sample app to Azure by running a manual build.
 > * Push app updates in GitHub, which then trigger a Jenkins build and redeploy to Azure.
 
@@ -82,25 +82,26 @@ the Jenkins management page for the next steps.
 
 ## Connect Jenkins to GitHub
 
-To have Jenkins monitor and receive GitHub events when new 
-commits for your web app are pushed to GitHub, enable 
-[GitHub webhooks](https://developer.github.com/webhooks/) in Jenkins.
+To have Jenkins monitor GitHub and respond when new 
+commits get pushed to your web app in your GitHub fork, 
+enable [GitHub webhooks](https://developer.github.com/webhooks/) 
+in Jenkins.
 
 > [!NOTE]
 > 
-> These steps create token credentials in Jenkins 
-> by using your GitHub login and password. 
+> These steps create personal access token credentials for Jenkins 
+> Jenkins to work with GitHub by using your GitHub username and password. 
 > However, if your GitHub account uses two-factor authentication, 
-> create your token in GitHub and set up Jenkins to use that token. 
-> For more information, see the documentation for the 
-> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin).
+> create your token in GitHub and set up Jenkins to use that token instead. 
+> For more information, see the 
+> [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation.
 
 1. From the **Manage Jenkins** page, select **Configure System**. 
 
    ![Configure system](media/jenkins-java-quickstart/manage-jenkins-configure-system.png)
 
-1. In **GitHub** section, provide details for your GitHub server, 
-if you haven't already. Choose **Add GitHub Server**, and select **GitHub Server**. 
+1. In **GitHub** section, provide details for your GitHub server. 
+From the **Add GitHub Server** list, select **GitHub Server**. 
 
    ![Add GitHub server](media/jenkins-java-quickstart/add-GitHub-server.png)
 
@@ -109,34 +110,35 @@ Choose **Advanced** so you can specify other settings.
 
    ![Choose "Advanced" for more settings](media/jenkins-java-quickstart/advanced-GitHub-settings.png)
 
-1. Choose **Manage additional GitHub actions**, 
-and select **Convert login and password to token**.
+1. From the **Manage additional GitHub actions** list, 
+select **Convert login and password to token**.
 
    ![Choose "Manage additional GitHub actions"](media/jenkins-java-quickstart/manage-additional-actions.png)
 
 1. Select **From login and password** so you 
 can enter your GitHub username and password. 
 When you're done, choose **Create token credentials**, 
-which creates a [GitHub Personal Access Token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
+which creates a [GitHub personal access token (PAT)](https://help.github.com/articles/creating-a-personal-access-token-for-the-command-line/).   
 
    ![Create GitHub PAT from login and password](media/jenkins-java-quickstart/create-github-token-credentials.png)
 
-1. In the **GitHub Server** section, open the **Credentials** list, 
-and select your new token. Check that authentication is working 
+1. In the **GitHub Server** section, from the **Credentials** list, 
+select your new token. Check that authentication is working 
 by choosing **Test connection**.
 
    ![Check connection to GitHub server with new PAT](media/jenkins-java-quickstart/check-github-connection.png)
 
 ## Create service principal
 
-In later sections, you'll create a Jenkins pipeline job that 
-builds your app and uses a script for automating those builds. 
-To run your pipeline job and deploy the finished app to Azure, 
+Later in this tutorial, you create a Jenkins pipeline job that 
+builds your app by using a script for automating and deploying to Azure. 
+automate running your pipeline job and deploying the finished app to Azure, 
 create a [service principal in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 
-Your Jenkins pipeline job can then use this service principal as an 
-identity for accessing Azure without entering your own credentials. 
+A service principal is a separate identity you can use for 
+accessing Azure resoruces without entering your own credentials. 
+Your pipeline job can use this service principal to work with Azure. 
 To create the service principal, run the Azure CLI command 
-[`az ad sp create-for-rbac`](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), either from your local command line or Azure Cloud Shell, 
+[**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), either from your local command line or Azure Cloud Shell, 
 for example: 
 
 ```azurecli-interactive
@@ -148,7 +150,7 @@ Also, create a strong password based on the
 [Azure Active Directory password rules and restrictions](/azure/active-directory/active-directory-passwords-policy). 
 If you don't provide a password, the Azure CLI creates a password for you. 
 
-Here's the output from the `create-for-rbac` command: 
+Here's the output from the **`create-for-rbac`** command: 
 
 ```json
 {
@@ -192,9 +194,9 @@ In the **Properties Content** box that appears, add these environment variables:
    WEB_APP=<yourWebAppName>
    ```
 
-   This step sets up Jenkins with your service principal 
-   so you can run the pipeline job and deploy to Azure 
-   without entering your own credentials.
+   This step sets up Jenkins with your service 
+   principal so you can have Jenkins deploy to 
+   Azure without entering your own credentials.
 
    For example:
 
@@ -202,7 +204,7 @@ In the **Properties Content** box that appears, add these environment variables:
 
 1. When you're done, choose **Save**.
 
-## Create build files
+## Create build and deployment files
 
 1. In your GitHub fork's `src/main/resources/` folder, 
 create a config file named `web.config` that contains this XML 
@@ -221,8 +223,8 @@ but replaces `$(JAR_FILE_NAME)` with `gs-spring-boot-0.1.0.jar`:
    </configuration>
    ```
 
-1. In your GitHub fork's root folder, create a build 
-script file named `Jenkinsfile` that contains this text 
+1. In your GitHub fork's root folder, create a build and 
+deployment file named `Jenkinsfile` that contains this text 
 ([source in GitHub here](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/doc/resources/jenkins/Jenkinsfile-webapp-se)):
 
    ```text  
@@ -249,9 +251,9 @@ script file named `Jenkinsfile` that contains this text
 1. Commit both `web.config` and `Jenkinsfile` 
 to your GitHub fork, and push your changes.
 
-## Point pipeline at build script
+## Point pipeline at script
 
-Now specify the build script you want Jenkins to use.
+Now specify the build and deployment script you want Jenkins to use.
 
 1. In Jenkins, select your previously created pipeline job. 
 
@@ -279,7 +281,7 @@ select **Pipeline script from SCM**.
 
    For example:
 
-   ![Point pipeline at build script](media/jenkins-java-quickstart/set-up-jenkins-github.png)
+   ![Point pipeline at script](media/jenkins-java-quickstart/set-up-jenkins-github.png)
 
 1. To test your pipeline job, return to your pipeline 
 job page in Jenkins, and select **Build Now**.
@@ -307,7 +309,7 @@ you create uses a unique name.
 
    * [**`az webapp create`**](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
 
-1. In Jenkins, select your pipeline job, and then select **Build Now**.
+1. In Jenkins, select your pipeline job, and select **Build Now**.
 
 1. After the build finishes, Jenkins deploys your app, 
 which is now live on Azure at the publication URL, for example: 
@@ -332,7 +334,7 @@ and commit the change to the repo's `master` branch.
    ```
 
    This commit in the `master` branch starts a build in Jenkins. 
-   When the build finishes, reload your app in Azure.     
+   After the build finishes and redeploys to Azure, reload your app in Azure.     
 
    ![View your deployed app on Azure](media/jenkins-java-quickstart/greetings-edited.png)
 
