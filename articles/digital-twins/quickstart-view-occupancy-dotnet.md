@@ -19,6 +19,10 @@ The Azure Digital Twins service allows you to recreate a digital image of your p
 
 This quickstart uses [a pair of .NET samples](https://github.com/Azure-Samples/digital-twins-samples-csharp) to digitize an imaginary office building, and shows you how to find available rooms in that building. With Digital Twins, you can associate multiple sensors with your environment. Along with room availability, you can also find out if the air quality of your available room is optimal, with the help of a simulated sensor for carbon dioxide. One of the sample applications will generate random sensor data to help you visualize this scenario.
 
+The following video summarizes quickstart setup:
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
+
 ## Prerequisites
 
 1. If you don't have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
