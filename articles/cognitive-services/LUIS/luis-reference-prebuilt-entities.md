@@ -19,9 +19,9 @@ Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity
 |Culture|Subcultures|
 |--|--|
 |Chinese|[zh-CN](#chinese-entity-support)|
-|Dutch|nl-NL|
-|English|en-US (American)|
-|French|fr-FR (France), fr-CA (Canada)|
+|Dutch|[nl-NL](#dutch-entity-support)|
+|English|[en-US (American)](#english-american-entity-support)|
+|French|fr-CA (Canada), [fr-FR (France)](#french-canadian-entity-support), |
 |German|de-DE|
 |Italian|it-IT|
 |Japanese|ja-JP|
@@ -31,9 +31,30 @@ Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity
 
 ## Chinese entity support
 
-The following entities are supported for the Chinese (zh-CN) culture
+The following entities are supported:
 
 |Prebuilt entity|Chinese<br>```zh-CN``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    ✔   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## Dutch entity support
+
+The following entities are supported:
+
+|Prebuilt entity|Dutch<br>```nl-NL``` |
 ------|:------:|
 [Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
 [Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    ✔   |
@@ -50,7 +71,47 @@ The following entities are supported for the Chinese (zh-CN) culture
 [Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
 [URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
+## English (American) entity support
 
+The following entities are supported:
+
+|Prebuilt entity|Dutch<br>```en-US``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    ✔   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
+
+## English (American) entity support
+
+The following entities are supported:
+
+|Prebuilt entity|Dutch<br>```en-US``` |
+------|:------:|
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    ✔   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    ✔   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    ✔   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
+[GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
+[KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
+[Number](luis-reference-prebuilt-number.md)   |    ✔   |  
+[Ordinal](luis-reference-prebuilt-ordinal.md)   |    ✔   |  
+[Percentage](luis-reference-prebuilt-percentage.md)   |    ✔   | 
+[PersonName](luis-reference-prebuilt-person.md)   |    ✔   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    ✔   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    ✔   | 
+[URL](luis-reference-prebuilt-url.md)   |    ✔   |
 
 Prebuilt entity   |   English (United States)<br>```En-us```   |   French (France)<br>```fr-FR```   |   Italian (Italy)<br>```it-IT```   |   Spanish (Spain)<br>```es-ES```   |   Chinese<br>```zh-CN```   |   German<br>```de-DE```   |   Portuguese (Brazil)<br>```pt-BR```   |   Japanese (Japan)<br>```ja-JP```   |   Korean (Korea)<br>```ko-kr```   | French (Canada)<br>```fr-CA```   |   Spanish (Mexico)<br>```es-MX```   |   Dutch (Netherlands)<br>```nl-NL```   |
 ------|:------:|------|------|------|------|------|------|------|------|------|------|------|
