@@ -36,7 +36,7 @@ Before you proceed, follow the steps in the first tutorial to [create your Azure
 
 Before jumping into code, it is always good to start off with a design. Store locators can be as simple or as complicated as you want them to be. In this tutorial, we will focus on creating a store locator. We will include some tips along the way to help you extend certain functionalities if you desire. We will create a store locator for a fictional company called Contoso Coffee. Following is a wireframe of the general layout of the locator we will build.
 
-
+<br/>
 <center>![wireframe](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
 To maximize the usefulness of this store locator, we will also include a responsive layout that adjusts when the screen width is fewer than 700 pixels wide. It makes it easy to use the store locator on small screens, such as mobile devices. Here is a wireframe of what this small screen layout will look like.  
@@ -64,7 +64,7 @@ In the wireframes above you can see a fairly straight forward application, with 
 
 Before we start developing an application, we first need to create a data set of the stores we want to display on the map. For this tutorial, we will be using a data set for a fictitious coffee shop called Contoso Coffee. In the spirit of creating a “simple” store locator, this data set is managed in an Excel spreadsheet and consists of 10,213 locations spread across nine countries; USA, Canada, UK, France, Germany, Italy, Netherlands, Denmark, and Spain. Here is a screenshot of what the data looks like.
 
-
+<br/>
 <center>![Data-Spreadsheet](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 You can download the spreadsheet [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Looking at the screenshot we can make the following observations:
@@ -77,12 +77,12 @@ There are many ways in which you can expose the data set to the application. One
 
 To convert the spreadsheet into a flat text file, we will save it as a tab-delimited file.  It will spec each column out with a tab character, which will make it easy to parse in our code. You can use CSV (comma-separated value) but that would require more parsing logic as any field that has a comma around it would be wrapped with quotes. To export this data as a Tab-delimited file in Excel press the **Save As** button and in the **Save as type** drop-down select **Text (Tab delimited)(*.txt)**. We will call this file **ContosoCoffee.txt**. 
 
-
+<br/>
 <center>![Save-As](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
 
 If you open the text file in notepad, it will look something like below;
 
-
+<br/>
 <center>![Tab-File](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
@@ -90,8 +90,7 @@ If you open the text file in notepad, it will look something like below;
 
 To create the project, you can use [Visual Studio](https://visualstudio.microsoft.com) or any editor of your choice. In your project folder, create three files; `index.html`, `index.css`, and `index.js`. These files will define the layout, styles, and logic for the application. Create a folder called `data` and add ContosoCoffee.txt file to it. Create another folder and call it `images`. There are 10 images we will use in this application for icons, buttons, and markers on the map. You can download these images [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Your project folder should now look like the one below.
 
-
-
+<br/>
 <center>![VS-layout](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## Create the user interface
@@ -159,7 +158,7 @@ Putting it all together your `index.html` should look like [index.html](https://
 
 The next step is to define the CSS styles, which will define how everything is laid out and styled. Open the `index.css` file and add the following pieces of code to it. Note the `@media` style, which defines alternate styling options to be used when the page width is fewer than 700 pixels.  
 
-    ```CSS
+    ```css
     html, body { 
         padding: 0; 
         margin: 0; 
@@ -896,18 +895,18 @@ At this point, we have all that we need from the user interface side of things. 
 
 At this point, you should have a fully functional store locator. Open the `index.html` file in a web browser. Once the clusters are rendered on the map you can search for a location using the search box, press the “My Location” button, click on clusters, or zoom into the map to see individual locations. The first time a user presses the “My Location” button the browser will display a security warning asking for permission to access the user’s location. If they agree to share, then the map will zoom into their location and nearby coffee shops will be displayed. 
 
+<br/>
 <center>![Browser-Warning](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
-
 
 Once you zoom in close enough into an area that has locations, the clusters will break apart into their individual locations. Click on one of the icons on the map or an item in the side panel to see a popup with information for that location.
 
-
+<br/>
 <center>![Final-Locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 
 If you resize the browser window to less than 700 pixels wide or open the application on a mobile device, you will see the layout change to be better suited for smaller screens. 
 
-
+<br/>
 <center>![Final-Locator-small](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## Next Steps
