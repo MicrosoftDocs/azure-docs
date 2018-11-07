@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/07/2018
 ms.author: danlep
 
 ---
@@ -38,8 +38,12 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 | A-series | Standard_A0 |
 | B-series | All |
 
-M-series VMs are supported only for low-priority nodes.
+The following VMs are supported only for low-priority nodes:
 
+| Family  | Supported sizes  |
+|---------|---------|
+| M-series | Standard_M64ms |
+| M-series | Standard_M128s |
 
 ### Pools in Cloud Service configuration
 
