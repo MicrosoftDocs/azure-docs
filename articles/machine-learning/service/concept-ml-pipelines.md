@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
-ms.date: 09/24/2018
+ms.date: 11/07/2018
 ---
 
 # Pipelines and Azure Machine Learning
@@ -17,11 +17,11 @@ In this article, learn about the machine learning pipelines you can build with t
 
 ## What are machine learning pipelines?
 
-Machine learning (ML) pipelines are used by data scientists to build, optimize, and manage their machine learning workflows. A typical pipeline involves a sequence of steps that cover the following areas:
-
+Using machine learning (ML) pipelines, data scientists, data engineers, and IT professionals can collaborate on the steps involved in:
 + Data preparation, such as normalizations and transformations
-+ Model training, such as hyper parameter tuning and validation
-+ Model deployment and evaluation  
++ Model training
++ Model evaluation
++ Deployment 
 
 The following diagram shows an example pipeline:
 
@@ -34,7 +34,7 @@ The [Azure Machine Learning SDK for Python](#the-python-sdk-for-pipelines) can b
 
 With pipelines, you can optimize your workflow with simplicity, speed, portability, and reuse. When building pipelines with Azure Machine Learning, you can focus on what you know best &mdash; machine learning &mdash; rather than infrastructure.
 
-Using distinct steps makes it possible to rerun only the steps you need as you tweak and test your workflow. A step is a computational unit in the pipeline. As shown in the diagram above, the task of preparing data may involve many steps including, but not limited to, normalization, transformation, validation, and featurization.
+Using distinct steps makes it possible to rerun only the steps you need as you tweak and test your workflow. A step is a computational unit in the pipeline. As shown in the diagram above, the task of preparing data may involve many steps including, but not limited to, normalization, transformation, validation, and featurization. Data sources and intermediate data are reused across the pipeline, which saves compute time and resources. Compute targets and storage resources can be managed directly from the SDK.
 
 Once the pipeline is designed, there is often more fine-tuning around the training loop of the pipeline. When you rerun a pipeline, the run jumps to the steps that need to be rerun, such as an updated training script, and skips what hasn't changed. The same paradigm applies to unchanged scripts used for the execution of the step. 
 
