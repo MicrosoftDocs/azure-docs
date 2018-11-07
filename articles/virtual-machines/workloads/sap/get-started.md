@@ -36,8 +36,8 @@ Hosting SAP workload scenarios in Azure also can create requirements of Identity
 
 Clarification around usage and configuration of [Azure Network Virtual Appliances](https://azure.microsoft.com/solutions/network-appliances/) in latency critical communication paths of SAP systems in:
 
-- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms_guide_general)
-- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations)
+- [Considerations for Azure Virtual Machines DBMS deployment for SAP workload](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
+- [SAP HANA infrastructure configurations and operations on Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 
 Documentation around SAP HANA  Dynamic Tiering for Azure VMs
 
