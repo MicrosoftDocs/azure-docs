@@ -248,8 +248,8 @@ curl -X POST -H "aeg-sas-key: $key" -d "$event" $topicEndpoint
 For PowerShell, use:
 
 ```azurepowershell-interactive
-$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName myResourceGroup -Name $topicName).Endpoint
-$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName myResourceGroup -Name $topicName
+$endpoint = (Get-AzureRmEventGridTopic -ResourceGroupName gridResourceGroup -Name $topicName).Endpoint
+$keys = Get-AzureRmEventGridTopicKey -ResourceGroupName gridResourceGroup -Name $topicName
 
 $eventID = Get-Random 99999
 $eventDate = Get-Date -Format s
