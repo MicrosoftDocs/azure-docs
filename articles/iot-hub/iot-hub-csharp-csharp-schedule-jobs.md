@@ -45,7 +45,7 @@ At the end of this tutorial, you have two .NET (C#) console apps:
 To complete this tutorial, you need the following:
 
 * Visual Studio 2017.
-* An active Azure account. If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
+* An active Azure account. If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -135,7 +135,7 @@ In this section, you create a .NET console app that responds to a direct method 
 9. Save your work and build your solution.         
 
 > [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the MSDN article [Transient Fault Handling](https://docs.microsoft.com/azure/architecture/best-practices/transient-faults).
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as connection retry), as suggested in the article, [Transient Fault Handling](/azure/architecture/best-practices/transient-faults).
 > 
 
 ## Schedule jobs for calling a direct method and sending device twin updates

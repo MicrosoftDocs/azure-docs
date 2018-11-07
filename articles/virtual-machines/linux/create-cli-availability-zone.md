@@ -25,7 +25,7 @@ This article steps through using the Azure CLI to create a Linux VM in an Azure 
 
 To use an availability zone, create your virtual machine in a [supported Azure region](../../availability-zones/az-overview.md#regions-that-support-availability-zones).
 
-Make sure that you have installed the latest [Azure CLI 2.0](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index#az_login).
+Make sure that you have installed the latest [Azure CLI](/cli/azure/install-az-cli2) and logged in to an Azure account with [az login](/cli/azure/reference-index#az_login).
 
 
 ## Check VM SKU availability

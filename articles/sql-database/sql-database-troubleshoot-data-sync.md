@@ -2,13 +2,16 @@
 title: "Troubleshoot Azure SQL Data Sync | Microsoft Docs"
 description: "Learn how to troubleshoot common issues with Azure SQL Data Sync."
 services: sql-database
-ms.date: 07/16/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
+ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
+ms.date: 07/16/2018
 ---
 # Troubleshoot issues with SQL Data Sync
 
@@ -137,7 +140,7 @@ The client agent doesn't work, even after you cancel its uninstallation.
 - **Resolution**. You can try these two solutions:
 
     -   Use services.msc to reenter the credentials for the client agent.
-    -   Uninstall this client agent and then install a new one. Download and install the latest client agent from [Download Center](http://go.microsoft.com/fwlink/?linkid=221479).
+    -   Uninstall this client agent and then install a new one. Download and install the latest client agent from [Download Center](https://go.microsoft.com/fwlink/?linkid=221479).
 
 ### <a name="agent-list"></a> My database isn't listed in the agent list
 

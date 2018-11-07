@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/11/2018
+ms.date: 11/06/2018
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -46,7 +46,7 @@ To resolve this problem, follow these steps:
     | Azuregateway-*GUID*.cloudapp.net  | Current User\Trusted Root Certification Authorities|
     | AzureGateway-*GUID*.cloudapp.net, AzureRoot.cer    | Local Computer\Trusted Root Certification Authorities|
 
-3. Go to Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
+3. Go to C:\Users\<UserName>\AppData\Roaming\Microsoft\Network\Connections\Cm\<GUID>, manually install the certificate (*.cer file) on the user and computer's store.
 
 For more information about how to install the client certificate, see [Generate and export certificates for point-to-site connections](vpn-gateway-certificates-point-to-site.md).
 
@@ -216,7 +216,7 @@ To resolve this problem, redeploy the Point to Site package on all clients.
 
 ## Too many VPN clients connected at once
 
-For each VPN gateway, the maximum number of allowable connections is 128. You can see the total number of connected clients in the Azure portal.
+The maximum number of allowable connections is reached. You can see the total number of connected clients in the Azure portal.
 
 ## Point-to-site VPN incorrectly adds a route for 10.0.0.0/8 to the route table
 
@@ -271,13 +271,13 @@ You remove the point-to-site VPN connection and then reinstall the VPN client. I
 
 ### Solution
 
-To resolve the problem, delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>**, and then run the VPN client installer again.
+To resolve the problem, delete the old VPN client configuration files from **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>**, and then run the VPN client installer again.
 
 ## Point-to-site VPN client cannot resolve the FQDN of the resources in the local domain
 
 ### Symptom
 
-When the client connects to Azure by using point-to-site VPN connection, it cannot resolve the FQND of the resources in your local domain.
+When the client connects to Azure by using point-to-site VPN connection, it cannot resolve the FQDN of the resources in your local domain.
 
 ### Cause
 
@@ -356,7 +356,7 @@ This problem can be caused by the previous VPN client installations.
 
 ### Solution
 
-Delete the old VPN client configuration files from **C:\users\username\AppData\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again. 
+Delete the old VPN client configuration files from **C:\Users\UserName\AppData\Roaming\Microsoft\Network\Connections\<VirtualNetworkId>** and run the VPN client installer again. 
 
 ## The VPN client hibernates or sleep after some time
 

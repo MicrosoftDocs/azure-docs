@@ -12,6 +12,9 @@ ms.author: panosper
 ---
 
 # Supported locales in Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 The Custom Speech Service currently supports customization of models in the following locales:
 
 | Model Type | Language Support |

@@ -1,14 +1,14 @@
 ---
-title: Bing Visual Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: Bing Visual Search SDK
+titleSuffix: Azure Cognitive Services
 description: Bing Visual Search SDK for applications that search the web.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-visual-search
-ms.topic: article
+ms.component: bing-visual-search
+ms.topic: conceptual
 ms.date: 4/19/2018
 ms.author: scottwhi
 ---

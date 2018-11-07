@@ -4,7 +4,7 @@ description: Provides an overview of the Azure Migrate service.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/10/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -25,12 +25,15 @@ Azure Migrate helps you to:
 
 ## Current limitations
 
-- Currently, you can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
-- If you want to assess Hyper-VMs and physical servers, use the [Azure Site Recovery Deployment Planner](http://aka.ms/asr-dp-hyperv-doc) for Hyper-V, and our [partner tools](https://azure.microsoft.com/migration/partners/) for physical machines.
+- You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs. The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
+- If you want to assess Hyper-VMs and physical servers, use the [Azure Site Recovery Deployment Planner](https://aka.ms/asr-dp-hyperv-doc) for Hyper-V, and our [partner tools](https://azure.microsoft.com/migration/partners/) for physical machines.
 - You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment.
 - If you want to discover a larger environment, you can split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md). Azure Migrate supports up to 20 projects per subscription.
-- You can only create an Azure Migrate project in West Central US or East US region. This doesn't impact your ability to plan migration to any target Azure location. The location of the migration project is used only to store metadata discovered from the on-premises environment. [Learn more](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) about the data collected by Azure Migrate.
 - Azure Migrate only supports managed disks for migration assessment.
+-  You can only create an Azure Migrate project in the United States geography. However, you can plan a migration to any target Azure location.
+    - Only metadata discovered from the on-premises environment is stored in the migration project region.
+    - Metadata is stored in one of the regions in the geography: West Central US/East US.
+    - If you use dependency visualization with a Log Analytics workspace, it's created in the same region as the project.
 
 
 ## What do I need to pay for?

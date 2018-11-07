@@ -20,7 +20,7 @@ ms.author: gokuma
 ---
 
 # Deep Learning and AI frameworks
-The [Data Science Virtual Machine](http://aka.ms/dsvm) (DSVM) and the [Deep Learning VM](http://aka.ms/dsvm/deeplearning) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding. 
+The [Data Science Virtual Machine](https://aka.ms/dsvm) (DSVM) and the [Deep Learning VM](https://aka.ms/dsvm/deeplearning) supports a number of deep learning frameworks to help build Artificial Intelligence (AI) applications with predictive analytics and cognitive capabilities like image and language understanding. 
 
 Here are the details on all the deep learning frameworks available on the DSVM.
 
@@ -171,7 +171,7 @@ Log in to the VM with X2Go. At a terminal, start the service:
 
     sudo systemctl start digits
 
-The service takes about one minute to start. Start a web browser and navigate to `http://localhost:5000`.
+The service takes about one minute to start. Start a web browser and navigate to `http://localhost:5000`. Note that DIGITS does not provide a secure login and should not be exposed outside the VM.
 
 
 

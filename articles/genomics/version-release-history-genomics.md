@@ -1,14 +1,12 @@
 ---
-title: Version release history | Microsoft Docs
+title: Version release history - Microsoft Genomics
 titleSuffix: Azure
 description: The Microsoft Genomics regularly updates the Microsoft Genomics Python client for fixes and new functionality. 
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: article
 ms.date: 03/02/2018
 ---
@@ -17,7 +15,7 @@ ms.date: 03/02/2018
 The Microsoft Genomics team regularly updates the Microsoft Genomics Python client for fixes and new functionality. 
 
 ## Latest release
-The current Python client is version 0.7.4. It was released March 5 2018 and utilizes GATK 3.3. 
+The current Python client is version 0.7.4. It was released March 5 2018 and supports running workflows with GATK 3.5 and GATK4.
 
 
 ## Release history 

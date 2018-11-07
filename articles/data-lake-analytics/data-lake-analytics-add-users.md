@@ -26,12 +26,12 @@ ms.date: 05/24/2018
 Grant "R-X" or "RWX", as needed, on folders containing input data and output data.
 
 
-## Optionally, add the user to the Azure Data Lake Store role **Reader** role.
-1.	Find your Azure Data Lake Store account.
+## Optionally, add the user to the Azure Data Lake Storage Gen1 role **Reader** role.
+1.	Find your Azure Data Lake Storage Gen1 account.
 2.	Click on **Users**.
 3. Click **Add**.
 4.	Select an Azure RBAC Role to assign this group.
-5.	Assign to Reader role. This role has the minimum set of permissions required to browse/manage data stored in ADLS. Assign to this role if the Group is not intended for managing Azure services.
+5.	Assign to Reader role. This role has the minimum set of permissions required to browse/manage data stored in ADLSGen1. Assign to this role if the Group is not intended for managing Azure services.
 6.	Type in the name of the Group.
 7.	Click **OK**.
 

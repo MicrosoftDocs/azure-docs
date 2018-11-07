@@ -50,6 +50,10 @@
     href: load-balancer-multivip-overview.md
   - name: Outbound connections
     href: load-balancer-outbound-connections.md
+  - name: Outbound Rules
+    href: load-balancer-outbound-rules-overview.md
+  - name: TCP reset on idle timeout
+    href: load-balancer-tcp-reset.md
   - name: Standard Load Balancer and Availability Zones
     href: load-balancer-standard-availability-zones.md
   - name: Standard Load Balancer metrics and diagnostics
@@ -74,6 +78,8 @@
     href: load-balancer-standard-public-zone-redundant-cli.md
   - name: Load balance VMs within a zone (CLI)
     href: load-balancer-standard-public-zonal-cli.md
+  - name: Configure outbound rules
+    href: configure-load-balancer-outbound-cli.md
   - name: Create an Azure Load Balancer using REST API
     href: create-load-balancer-rest-api.md 
   - name: Create Basic Load Balancer (Template)
@@ -140,7 +146,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer
+    href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
     href: /powershell/module/azurerm.network
   - name: Azure CLI
@@ -175,6 +181,8 @@
     href: /azure/dns/
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Pricing

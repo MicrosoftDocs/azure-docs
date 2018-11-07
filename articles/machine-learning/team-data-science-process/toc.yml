@@ -54,12 +54,6 @@
       href: predict-twitter-sentiment.md
     - name: Sentiment classification using AML text analytics package
       href: predict-twitter-sentiment-amltextpackage.md
-    - name: US income classification
-      href: ../desktop-workbench/scenario-tdsp-classifying-us-incomes.md
-      maintainContext: true
-    - name: Biomedical entity recognition
-      href: ../desktop-workbench/scenario-tdsp-biomedical-recognition.md
-      maintainContext: true
     - name: Skin cancer image classification using AML vision package
       href: isic-image-classification.md
       maintainContext: true
@@ -213,13 +207,10 @@
         maintainContext: true
   - name: Deploy models in production
     href: deploy-models-in-production.md
-  - name: Use TDSP in Azure ML
-    href: ../desktop-workbench/how-to-use-tdsp-in-azure-ml.md
-    maintainContext: true
 - name: Related
   items:
-  - name: Azure Machine Learning - AML
-    href: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+  - name: Azure Machine Learning
+    href: ../service/
   - name: Microsoft Cognitive Toolkit - CNTK
     href: https://docs.microsoft.com/cognitive-toolkit/
     maintainContext: true

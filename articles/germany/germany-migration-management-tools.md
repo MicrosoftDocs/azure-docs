@@ -209,11 +209,11 @@ az policy assignment list
 
 ## Next Steps
 
-- Refresh your knowledge about Azure Policy with [this Step-by-Step tutorial](../azure-policy/create-manage-policy.md).
+- Refresh your knowledge about Azure Policy with [this Step-by-Step tutorial](../governance/policy/tutorials/create-and-manage.md).
 
 ## References
 
-- [View policies with CLI](../azure-policy/create-manage-policy.md#view-policy-definitions-with-azure-cli)
-- [Create policy definition with CLI](../azure-policy/create-manage-policy.md#create-a-policy-definition-with-azure-cli)
-- [View policies with PowerShell](../azure-policy/create-manage-policy.md#view-policy-definitions-with-powershell)
-- [Create policy definition with PowerShell](../azure-policy/create-manage-policy.md#create-a-policy-definition-with-powershell)
+- [View policies with CLI](../governance/policy/tutorials/create-and-manage.md#view-policy-definitions-with-azure-cli)
+- [Create policy definition with CLI](../governance/policy/tutorials/create-and-manage.md#create-a-policy-definition-with-azure-cli)
+- [View policies with PowerShell](../governance/policy/tutorials/create-and-manage.md#view-policy-definitions-with-powershell)
+- [Create policy definition with PowerShell](../governance/policy/tutorials/create-and-manage.md#create-a-policy-definition-with-powershell)

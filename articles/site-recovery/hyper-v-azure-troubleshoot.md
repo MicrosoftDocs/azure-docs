@@ -1,14 +1,13 @@
 ---
-title: Troubleshoot Hyper-V to Azure replication with Azure Site Recovery | Microsoft Docs
-description: Describes how to troubleshooting issues with Hyper-V to Azure replication using Azure Site Recovery
+title: Troubleshoot Hyper-V to Azure disaster recovery with Azure Site Recovery | Microsoft Docs
+description: Describes how to troubleshoot disaster recovery issues with Hyper-V to Azure replication using Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: rayne
+ms.date: 10/10/2018
+ms.author: ramamill
 
 ---
 # Troubleshoot Hyper-V to Azure replication and failover
@@ -163,6 +162,6 @@ All Hyper-V replication event are logged in the Hyper-V-VMMS\Admin log, located 
 
 These tools can help with advanced troubleshooting:
 
--	For VMM, perform Site Recovery log collection using the [Support Diagnostics Platform (SDP) tool](http://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
+-	For VMM, perform Site Recovery log collection using the [Support Diagnostics Platform (SDP) tool](https://social.technet.microsoft.com/wiki/contents/articles/28198.asr-data-collection-and-analysis-using-the-vmm-support-diagnostics-platform-sdp-tool.aspx).
 -	For Hyper-V without VMM, [download this tool](https://dcupload.microsoft.com/tools/win7files/DIAG_ASRHyperV_global.DiagCab), and run it on the Hyper-V host to collect the logs.
 

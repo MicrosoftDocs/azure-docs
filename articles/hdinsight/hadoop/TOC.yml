@@ -10,6 +10,9 @@
   - name: Hadoop components on HDInsight
     href: ../hdinsight-component-versioning.md
     maintainContext: true
+  - name: HDInsight 4.0
+    href: ../hdinsight-version-release.md
+    maintainContext: true
 - name: Quickstart
   items:
   - name: Create Hadoop cluster - Portal
@@ -249,6 +252,26 @@
     - name: Authorize users for Ambari Views
       href: ../hdinsight-authorize-users-to-ambari.md
       maintainContext: true
+  - name: Migrate
+    items:
+    - name: Motivation and benefits
+      href: apache-hadoop-on-premises-migration-motivation.md
+      maintainContext: true
+    - name: Best practices - architecture
+      href: apache-hadoop-on-premises-migration-best-practices-architecture.md
+      maintainContext: true
+    - name: Best practices - infrastructure
+      href: apache-hadoop-on-premises-migration-best-practices-infrastructure.md
+      maintainContext: true
+    - name: Best practices - storage
+      href: apache-hadoop-on-premises-migration-best-practices-storage.md
+      maintainContext: true
+    - name: Best practices - data migration
+      href: apache-hadoop-on-premises-migration-best-practices-data-migration.md
+      maintainContext: true
+    - name: Best practices - security and DevOps
+      href: apache-hadoop-on-premises-migration-best-practices-security-devops.md
+      maintainContext: true
   - name: Manage
     items:
     - name: Create Linux clusters
@@ -264,7 +287,7 @@
       - name: Use the .NET SDK
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
       - name: Use the Azure portal
@@ -283,7 +306,7 @@
       - name: Use Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
-      - name: Use the Azure CLI
+      - name: Use the Azure Classic CLI
         href: ../hdinsight-administer-use-command-line.md
         maintainContext: true
     - name: Manage clusters using the Ambari web UI
@@ -437,11 +460,17 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
+    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: .NET (Hadoop)
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
+  - name: .NET SDK
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
+  - name: Python SDK
+    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
+  - name: Java SDK
+    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
+  - name: Go SDK
+    href: ../hdinsight-go-sdk-overview.md
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)

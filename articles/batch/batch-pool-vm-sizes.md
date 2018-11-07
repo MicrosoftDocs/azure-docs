@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 11/07/2018
 ms.author: danlep
 
 ---
@@ -37,9 +37,15 @@ Batch pools in the Virtual Machine configuration support all VM sizes ([Linux](.
 | Basic A-series | Basic_A0 (A0) |
 | A-series | Standard_A0 |
 | B-series | All |
-| M-series | All |
 
+The following VM sizes are supported only for low-priority nodes:
 
+| Family  | Supported sizes  |
+|---------|---------|
+| M-series | Standard_M64ms |
+| M-series | Standard_M128s |
+
+Other VM sizes in the M-series family are currently unsupported.
 
 ### Pools in Cloud Service configuration
 
@@ -51,6 +57,7 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 | Av2-series | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## Restricted VM families
+
 The following VM families can be allocated in Batch pools, but you must request a specific quota increase (see [this article](batch-quota-limit.md#increase-a-quota)):
 * NCv2-series
 * NCv3-series

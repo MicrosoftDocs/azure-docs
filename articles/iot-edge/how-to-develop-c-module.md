@@ -7,7 +7,7 @@ author: shizn
 manager: timlt
 
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
 
@@ -18,10 +18,10 @@ ms.service: iot-edge
 You can turn your business logic into modules for Azure IoT Edge. This article shows you how to use Visual Studio Code (VS Code) as the main tool to develop and debug C modules.
 
 ## Prerequisites
-This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. And you simulate your IoT Edge device on your development machine.
+This article assumes that you use a computer or virtual machine running Windows or Linux as your development machine. And you simulate your IoT Edge device on your development machine with IoT Edge security daemon.
 
 > [!NOTE]
-> This debugging article demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug C modules in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging). 
+> This debugging article demonstrates how to attach a process in a module container and debug it with VS Code. You can only debug C modules in Linux amd64 containers. If you aren't familiar with the debugging capabilities of Visual Studio Code, read about [Debugging](https://code.visualstudio.com/Docs/editor/debugging).
 
 Because this article uses Visual Studio Code as the main development tool, install VS Code. Then add the necessary extensions:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -34,7 +34,7 @@ To create a module, you need Docker to build the module image, and a container r
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * You can use a local Docker registry for prototype and testing purposes instead of a cloud registry. 
 
-To test your module on a device, you need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Windows](quickstart.md) or [Linux](quickstart-linux.md). 
+To test your module on a device, you need an active IoT hub with at least one IoT Edge device. To use your computer as an IoT Edge device, follow the steps in the quickstart for [Linux](quickstart-linux.md). 
 
 ## Create a new solution template
 
@@ -94,7 +94,7 @@ In each module folder, there are several Docker files for different container ty
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. In the VS Code command palette, enter and run the command **Edge: Build IoT Edge solution**.
+2. In the VS Code command palette, enter and run the command **Azure IoT Edge: Build and Push IoT Edge solution**.
 3. Select the `deployment.template.json` file for your solution from the command palette. 
 4. In Azure IoT Hub Device Explorer, right-click an IoT Edge device ID. Then select **Create deployment for Single Device**. 
 5. Open your solution's **config** folder. Then select the `deployment.json` file. Choose **Select Edge Deployment Manifest**. 
@@ -108,7 +108,7 @@ VS Code keeps debugging configuration information in a `launch.json` file locate
 
 1. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (C)**
 
-   ![Select debug configuration](./media/how-to-develop-c-module/debug-config.png).
+   ![Select debug configuration](./media/how-to-develop-c-module/debug-config.png)
 
 2. Navigate to `main.c`. Add a breakpoint in this file.
 

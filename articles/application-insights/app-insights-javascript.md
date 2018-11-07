@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights for JavaScript web apps | Microsoft Docs
 description: Get page view and session counts, web client data, and track usage patterns. Detect exceptions and performance issues in JavaScript web pages.
 services: application-insights
@@ -44,12 +44,6 @@ If you don't have one, create it:
 *Questions already?* [More about creating a resource](app-insights-create-new-resource.md).
 
 ### Add the SDK script to your app or web pages
-In Quick Start, get the script for web pages:
-
-![On your app overview blade, choose Quick Start, Get code to monitor my web pages. Copy the script.](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> The *Getting Started* experience varies depending on the application type you select when creating your Application Insights resource. If the script is not present for your app as seen in the preceding screenshot, just use the following script.
 
 ```HTML
 <!-- 
@@ -232,7 +226,7 @@ The page name can contain the same characters as a URL, but anything after "#" o
 ## Usage tracking
 Want to find out what your users do with your app?
 
-* [Learn about the user behavior analytics tools](app-insights-web-track-usage.md)
+* [Learn about the user behavior analytics tools](app-insights-usage-overview.md)
 * [Learn about custom events and metrics API](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Video
@@ -243,7 +237,7 @@ Want to find out what your users do with your app?
 
 
 ## <a name="next"></a> Next steps
-* [Track usage](app-insights-web-track-usage.md)
+* [Track usage](app-insights-usage-overview.md)
 * [Custom events and metrics](app-insights-api-custom-events-metrics.md)
-* [Build-measure-learn](app-insights-web-track-usage.md)
+* [Build-measure-learn](app-insights-usage-overview.md)
 

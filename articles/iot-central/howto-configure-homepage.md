@@ -12,7 +12,7 @@ manager: peterpr
 
 ## Configuring Homepage
 
-The Homepage is the page that loads when users that have access navigate to the application's URL. If you selected either the "Sample Contoso" or "Sample Devkits" Application Templates while creating your application, your application will have pre-defined Homepages. If on the other hand you selected the "Custom Application" Application Template, your Homepage will be blank.
+The Homepage is the page that loads when users who have access to the application navigate to the application's URL. If you selected either the "Sample Contoso" or "Sample Devkits" Application Templates while creating your application, your application will have pre-defined Homepages. If on the other hand you selected the "Custom Application" Application Template, your Homepage will be blank.
 
 For example, here's the Homepage for applications based on the "Sample Contoso" template. To customize the Homepage for your application, first select **Edit** on the top right. 
 
@@ -22,7 +22,7 @@ Selecting **Edit**, will open the dashboard library in a panel to the left. Ther
 
 ![Dashboard library](media\howto-configure-homepage\image2.png)
 
-For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. In this case we've selected **Fan Speed**. Clicking **Done** will cause this tile to appear on the Homepage.
+For example, you can add a **Settings and Properties** tile to show a selection of the current values of settings and properties. To do so, first select a **Device Template** then select a **Device Instance**. After that give the tile a title and select a **Setting** or a **Property** to display. In this case we've selected **Set Temperature**. Clicking **Done** will cause this tile to appear on the Homepage.
 
 !["Configure Device Details" form with details for settings and properties](media\howto-configure-homepage\image3.png)
 

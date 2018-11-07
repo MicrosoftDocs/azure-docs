@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Automate Log Analytics processes with the connector for Microsoft Flow
@@ -24,7 +24,7 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 
 ## Step 1: Create a flow
-1. Sign in to [Microsoft Flow](http://flow.microsoft.com), and select **My Flows**.
+1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My Flows**.
 2. Click **+ Create from blank**.
 
 ## Step 2: Create a trigger for your flow
@@ -74,7 +74,7 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 ## Next steps
 
-- Learn more about [log searches in Log Analytics](log-analytics-log-search-new.md).
+- Learn more about [log searches in Log Analytics](log-analytics-queries.md).
 - Learn more about [Microsoft Flow](https://ms.flow.microsoft.com).
 
 

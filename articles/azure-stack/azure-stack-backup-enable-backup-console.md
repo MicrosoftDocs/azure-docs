@@ -13,8 +13,9 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
+ms.reviewer: hectorl
 ---
 # Enable backup for Azure Stack from the administration portal
 Enable the Infrastructure Backup Service through the administration portal so that Azure Stack can generate backups. You can use these backups to restore your environment using cloud recovery in the event of [a catastrophic failure](.\azure-stack-backup-recover-data.md). The purpose of cloud recovery is to ensure that your operators and users can log back into the portal after recovery is complete. Users will have their subscriptions restored including role-based access permissions and roles, original plans, offers, and previously defined compute, storage, and network quotas.
@@ -57,7 +58,7 @@ Administrators and users are responsible for backing up and restoring IaaS and P
 ## Start backup
 To start a backup, click on **Backup now** to start an on-demand backup. An on-demand backup will not modify the time for the next scheduled backup. After the task completes, you can confirm the settings in **Essentials**:
 
-![Azure Stack - on-demand backup](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - on-demand backup](media\azure-stack-backup\scheduled-backup.png)
 
 You can also run the PowerShell cmdlet **Start-AzsBackup** on your Azure Stack administration computer. For more information, see [Back up Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 

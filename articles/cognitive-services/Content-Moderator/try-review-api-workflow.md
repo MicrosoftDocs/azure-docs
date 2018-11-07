@@ -1,12 +1,14 @@
 ---
-title: Azure Content Moderator - Content moderation workflows from the API console | Microsoft Docs
+title: Content moderation workflows from the API console - Content Moderator
+titlesuffix: Azure Cognitive Services
 description: Learn how to use content moderation workflows from the API console.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/05/2018
 ms.author: sajagtap
 ---
