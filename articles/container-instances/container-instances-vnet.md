@@ -68,7 +68,7 @@ The subnet that you use for container groups may contain only container groups. 
 
 A network profile is a network configuration template for Azure resources. It specifies certain network properties for the resource, for example, the subnet into which it should be deployed. When you first use the [az container create][az-container-create] command to deploy a container group to a subnet (and thus a virtual network), Azure creates a network profile for you. You can then use that network profile for future deployments to the subnet. 
 
-To use a Resource Manager template, YAML file, or a programmatic method to deploy a container group to a subnet, you need to provide the full Resource Manager resource ID of a network profile. You can use a profile previously created using [az container create][az-container-create], or create a profile using a Resource Manager template (see [example](https://azure.microsoft.com/resources/templates/)). To get the ID of a previously created profile, use the [az network profile list][az-network-profile-list] command. 
+To use a Resource Manager template, YAML file, or a programmatic method to deploy a container group to a subnet, you need to provide the full Resource Manager resource ID of a network profile. You can use a profile previously created using [az container create][az-container-create], or create a profile using a Resource Manager template (see [reference](https://docs.microsoft.com/azure/templates/microsoft.network/networkprofiles)). To get the ID of a previously created profile, use the [az network profile list][az-network-profile-list] command. 
 
 In the following diagram, several container groups have been deployed to a subnet delegated to Azure Container Instances. Once you've deployed one container group to a subnet, you can deploy additional container groups to it by specifying the same network profile.
 
@@ -76,9 +76,7 @@ In the following diagram, several container groups have been deployed to a subne
 
 ## Deploy to virtual network
 
-You can deploy container groups to a new virtual network and allow Azure to create the required network resources for you, or deploy to an existing virtual network. The following examples show how to use [az container create][az-container-create] to deploy container groups to a virtual network. 
-
-Alternatively, for a Resource Manager template to deploy a new virtual network, delegated subnet, network profile, and container group, see the [Quickstart templates](https://azure.microsoft.com/resources/templates/)
+You can use [az container create][az-container-create] to deploy container groups to a new virtual network and allow Azure to create the required network resources for you, or deploy to an existing virtual network. 
 
 ### New virtual network
 
@@ -126,7 +124,7 @@ az container create \
 
 When you deploy to a new virtual network by using this method, the deployment can take a few minutes while the network resources are created. After the initial deployment, additional container group deployments complete more quickly.
 
-## Deploy to existing virtual network
+### Deploy container group to existing virtual network
 
 Now that you've deployed a container group to a new virtual network, deploy a second container group to the same subnet, and verify communication between the two container instances.
 
@@ -174,7 +172,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 The log output should show that `wget` was able to connect and download the index file from the first container using its private IP address on the local subnet. Network traffic between the two container groups remained within the virtual network.
 
-## Deploy to existing virtual network - YAML
+### Deploy container group to existing virtual network - YAML
 
 You can also deploy a container group to an existing virtual network by using a YAML file. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
 
@@ -242,87 +240,6 @@ Name              ResourceGroup    Status    Image                     IP:ports 
 ----------------  ---------------  --------  ------------------------  -----------  ---------  ---------------  --------  ----------
 appcontaineryaml  myResourceGroup  Running   microsoft/aci-helloworld  10.0.0.5:80  Private    1.0 core/1.5 gb  Linux     westus
 ```
-
-## Create network profile with Resource Manager template
-
-The following template creates a virtual network, a subnet delegated to Azure Container Instances, and a network profile. Use the network profile created by this template for programmatic deployments of a container group in a virtual network. 
-
-```JSON
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {
-      "vnet_name": "ACIVNet",
-      "subnet_name": "ACISubnet"
-    },
-    "resources": [
-        {
-            "apiVersion": "2018-08-01",
-            "type": "Microsoft.Network/virtualNetworks",
-            "name": "[variables('vnet_name')]",
-            "location": "[resourceGroup().location]",
-            "comments": "This is the vNet for ACI",
-            "properties": {
-                "addressSpace": {
-                    "addressPrefixes": [
-                        "10.0.0.0/16"
-                    ]
-                },
-                "subnets": [
-                    {
-                        "name": "[variables('subnet_name')]",
-                        "properties":{  
-                            "addressPrefix":"10.0.0.0/24",
-                            "serviceEndpoints":[  
-                            ],
-                            "delegations":[  
-                               {  
-                                  "name":"aciDelegation",
-                                  "properties":{  
-                                     "serviceName":"Microsoft.ContainerInstance/containerGroups"
-                                  }
-                               }
-                            ]
-                         }
-                    }
-                ]
-            }
-        },
-        {  
-            "name":"ACINetworkProfile",
-            "type": "Microsoft.Network/networkProfiles",
-            "apiVersion": "2018-08-01",
-            "location":"[resourceGroup().location]",
-            "dependsOn": [
-                "[variables('vnet_name')]"
-            ],
-            "properties":{  
-               "containerNetworkInterfaceConfigurations":[  
-                  {  
-                     "name":"eth0",
-                     "properties":{  
-                        "ipConfigurations":[  
-                           {  
-                              "name":"ipconfigprofile1",
-                              "properties":{  
-                                 "subnet":{  
-                                    "id":"[concat(subscription().id, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Network/virtualNetworks/', variables('vnet_name'), '/subnets/', variables('subnet_name'))]"
-                                 }
-                              }
-                           }
-                        ]
-                     }
-                  }
-               ]
-            }
-        }
-    ]
-}
-
-```
-
 
 ## Clean up resources
 
