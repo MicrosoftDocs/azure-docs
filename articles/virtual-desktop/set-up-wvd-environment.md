@@ -1,5 +1,5 @@
 ---
-title: Set up a Windows Virtual Desktop environment
+title: Windows Virtual Desktop environment guidelines
 description: How to set up a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
@@ -9,7 +9,7 @@ ms.topic: overview
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Set up a Windows Virtual Desktop environment
+# Windows Virtual Desktop environment guidelines
 
 Windows Virtual Desktop is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
 
