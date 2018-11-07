@@ -476,6 +476,8 @@
       items:
       - name: SQL Data Sync
         href: sql-database-sync-data.md
+      - name: Data Sync Agent
+        href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
         href: sql-database-update-sync-schema.md
       - name: Monitor with OMS
