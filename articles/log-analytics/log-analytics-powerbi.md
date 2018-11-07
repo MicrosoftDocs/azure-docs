@@ -28,7 +28,7 @@ To import data from a Log Analytics workspace into Power BI, you create a datase
 ![Log Analytics to Power BI](media/log-analytics-powerbi/overview.png)
 
 ## Export query
-Start by creating a [log search](log-analytics-log-search-new.md) that returns the data from Log Analytics that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](https://msdn.microsoft.com/library/mt807488.aspx) which can be used by Power BI Desktop.
+Start by creating a [log search](log-analytics-queries.md) that returns the data from Log Analytics that you want to populate the Power BI dataset.  You then export that query to [Power Query (M) language](https://msdn.microsoft.com/library/mt807488.aspx) which can be used by Power BI Desktop.
 
 1. Create the log search in Log Analytics to extract the data for your dataset.
 2. If you're using the log search portal, click **Power BI**.  If you're using the Analytics portal, select **Export** > **Power BI Query (M)**.  Both of these options export the query to a text file called **PowerBIQuery.txt**. 
