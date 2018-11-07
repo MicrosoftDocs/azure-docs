@@ -292,7 +292,9 @@ Save the file and exit.
 
 Run the script by typing the filename you created. (Example: `./create-cloudbacked-cluster-west1`)  
 
-Consider running this command inside a [terminal multiplexer](http://linuxcommand.org/lc3_adv_termmux.php) like `screen` or `tmux` in case you lose your connection.  
+> [!TIP]
+> Consider running this command inside a [terminal multiplexer](http://linuxcommand.org/lc3_adv_termmux.php) like `screen` or `tmux` in case you lose your connection.  
+
 The output also is logged to `~/vfxt.log`.
 
 When the script completes, copy the management IP address, which is needed for cluster administration.
