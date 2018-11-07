@@ -61,7 +61,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 
    	![Dashboard view](_img/azure-devops-project-php/dashboardnopreview.png) 
 	
-Azure DevOps Projects automatically configures a CI build and release trigger.  You're now ready to collaborate with a team on a PHP app with a CI/CD process that automatically deploys your latest work to your web site.
+Azure DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a PHP app with a CI/CD process that automatically deploys your latest work to your web site.
 
 ## Commit code changes and execute CI/CD
 
@@ -105,7 +105,7 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in Azure Pi
 	The **History** pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
-	 Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. You can optionally choose to include or exclude branches from the CI process.
+	 Azure DevOps Projects automatically created a CI trigger, and every commit to the repository starts a new build. You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.   
 	Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
