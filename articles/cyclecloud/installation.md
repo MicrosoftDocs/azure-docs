@@ -92,6 +92,11 @@ You will now set up the local administrator account for CycleCloud. This account
 > * Contain at least one number
 > * Contain at least one special character: @ # $ % ^ & * - _ ! + = [ ] { } | \ : ' , . ?
 
+### Step 4: Set Your SSH Key
+
+Once you have set up your administrator account, you can set your SSH public key so that you can easily access any Linux machines started by CycleCloud. To set your SSH public key, go to "My Profile" under the user menu in the top right and choose "Edit Profile". [Learn about creating SSH keys here.](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys)
+
+
 ## Update CycleCloud
 
 See the [Update Azure CycleCloud](~/cyclecloud-references/upgrade-and-migrate.md) page.
