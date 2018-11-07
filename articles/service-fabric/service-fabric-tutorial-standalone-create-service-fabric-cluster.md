@@ -32,7 +32,7 @@ In part two of the series, you learn how to:
 
 ## Download the Service Fabric for Windows Server package
 
-Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](http://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
+Service Fabric provides a setup package to create Service Fabric standalone clusters.  [Download the setup package](https://go.microsoft.com/fwlink/?LinkId=730690) on your local computer.  Once it has successfully downloaded copy it over the RDP connection to your EC2 instance, and paste it on the Desktop.
 
 Select the zip file and open the context menu and select **Extract All** > **Extract**.  As you extract the files, you will generate a folder on the desktop that is the same as the zip file name.
 

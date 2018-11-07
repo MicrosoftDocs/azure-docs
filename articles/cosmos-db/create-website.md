@@ -14,7 +14,7 @@ ms.custom: mvc
 
 ---
 # Deploy Azure Cosmos DB and Azure App Service Web Apps using an Azure Resource Manager Template
-This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), an [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
+This tutorial shows you how to use an Azure Resource Manager template to deploy and integrate [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), an [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) web app, and a sample web application.
 
 Using Azure Resource Manager templates, you can easily automate the deployment and configuration of your Azure resources.  This tutorial shows how to deploy a web application and automatically configure Azure Cosmos DB account connection information.
 
@@ -113,7 +113,7 @@ Now let's deploy your second template.  This template is useful to show how you 
 9. Note how there are application settings present for the Azure Cosmos DB endpoint and each of the Azure Cosmos DB master keys.
 
     ![Screenshot of application settings](./media/create-website/TemplateDeployment10.png)  
-10. Feel free to continue exploring the Azure Portal, or follow one of our Azure Cosmos DB [samples](http://go.microsoft.com/fwlink/?LinkID=402386) to create your own Azure Cosmos DB application.
+10. Feel free to continue exploring the Azure Portal, or follow one of our Azure Cosmos DB [samples](https://go.microsoft.com/fwlink/?LinkID=402386) to create your own Azure Cosmos DB application.
 
 <a name="NextSteps"></a>
 
@@ -121,14 +121,14 @@ Now let's deploy your second template.  This template is useful to show how you 
 Congratulations! You've deployed Azure Cosmos DB, App Service web app and a sample web application using Azure Resource Manager templates.
 
 * To learn more about Azure Cosmos DB, click [here](http://azure.com/docdb).
-* To learn more about Azure App Service Web apps, click [here](http://go.microsoft.com/fwlink/?LinkId=325362).
+* To learn more about Azure App Service Web apps, click [here](https://go.microsoft.com/fwlink/?LinkId=325362).
 * To learn more about Azure Resource Manager templates, click [here](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## What's changed
-* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)
+* For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
+> If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://go.microsoft.com/fwlink/?LinkId=523751), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.
 > 
 > 
 

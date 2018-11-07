@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
 
