@@ -55,6 +55,7 @@ Batch pools in the Cloud Service configuration support all [VM sizes for Cloud S
 | Av2-series | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## Restricted VM families
+
 The following VM families can be allocated in Batch pools, but you must request a specific quota increase (see [this article](batch-quota-limit.md#increase-a-quota)):
 * NCv2-series
 * NCv3-series
