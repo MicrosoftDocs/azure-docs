@@ -26,7 +26,7 @@ Select **Create a resource** > **Containers** > **Container Registry**.
 
 ![Creating a container registry in the Azure portal][qs-portal-01]
 
-Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. Create a new resource group in the `East US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
+Enter values for **Registry name** and **Resource group**. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. For this quickstart create a new resource group in the `West US` location named `myResourceGroup`, and for **SKU**, select 'Basic'. Select **Create** to deploy the ACR instance.
 
 ![Creating a container registry in the Azure portal][qs-portal-03]
 
