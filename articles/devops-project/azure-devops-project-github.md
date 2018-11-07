@@ -49,7 +49,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 
 1. In the search box, type **DevOps Project**, and then select **Create**.
 
-   	![The Dashboard](_img/azure-devops-project-github/fullbrowser.png)
+   	![The DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
 1. Select **Bring your own code**, and then select **Next**.
 
@@ -61,7 +61,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 
    	![.NET framework](_img/azure-devops-project-github/webframework.png)
 
-	The application framework, which you chose previously, dictates the type of Azure service deployment target available here. 
+	The application framework, which you chose previously, dictates the type of Azure service deployment target that's available here. 
 	
 1. Select the target service, and then select **Next**.
 
