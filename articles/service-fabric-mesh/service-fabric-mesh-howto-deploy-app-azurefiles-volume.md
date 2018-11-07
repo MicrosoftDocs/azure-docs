@@ -63,16 +63,7 @@ The following command deploys a Linux application using the [mesh_rp.linux.json 
 az mesh deployment create --resource-group myResourceGroup --template-uri https://sfmeshsamples.blob.core.windows.net/templates/counter/mesh_rp.linux.json  --parameters "{\"location\": {\"value\": \"eastus\"}, \"fileShareName\": {\"value\": \"<fileShareName>\"}, \"storageAccountName\": {\"value\": \"<storageAccountName>\"}, \"storageAccountKey\": {\"value\": \"<storageAccountKey>\"}}"
 ```
 
-This command will produce a JSON snippet. Under the ```outputs``` section of the JSON output, copy the ```publicIPAddress``` property. 
-
-```json
-"outputs": {
-    "publicIPAddress": {
-    "type": "String",
-    "value": "40.83.78.216"
-    }
-}
-```
+In a few minutes, the command should return with `counterApp has been deployed successfully on counterAppNetwork with public ip address <IP Address>`
 
 ## Open the application
 
