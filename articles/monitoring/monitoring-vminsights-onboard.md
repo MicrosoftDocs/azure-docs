@@ -242,7 +242,7 @@ In this section instructions on how to perform the at scale deployment of Azure 
 
 Summarized are the steps you need to perform to pre-configure your Log Analytics workspace before you can proceed with onboarding your virtual machines.
 
-1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../log-analytics/log-analytics-manage-access?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
 3. Install and enable the **ServiceMap** and **InfrastructureInsights** solution in your workspace.  
 
 ### Setup Log Analytics workspace
