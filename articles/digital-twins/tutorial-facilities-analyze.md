@@ -16,7 +16,7 @@ After you deploy your Azure Digital Twins instance, provision your spaces, and i
 
 In [the first tutorial](tutorial-facilities-setup.md), you configured the spatial graph of an imaginary building, with a room that contains sensors for motion, carbon dioxide, and temperature. In [the second tutorial](tutorial-facilities-udf.md), you provisioned your graph and a user-defined function. The function monitors these sensor values and triggers notifications for the right conditions. That is, the room is empty, and the temperature and carbon dioxide levels are normal. 
 
-This tutorial shows you how you can integrate the notifications and data coming from your Azure Digital Twins setup with Azure Time Series Insights. You can then visualize your sensor values over time. You can look for trends such as which room is getting the most use and which is the busiest times of the day. You can also detect anomalies such as which rooms feel stuffier and hotter, or whether an area in your building is sending consistently high temperature values, indicating faulty air conditioning.
+This tutorial shows you how you can integrate the notifications and data coming from your Azure Digital Twins setup with Azure Time Series Insights. You can then visualize your sensor values over time. You can look for trends such as which room is getting the most use and which are the busiest times of the day. You can also detect anomalies such as which rooms feel stuffier and hotter, or whether an area in your building is sending consistently high temperature values, indicating faulty air conditioning.
 
 In this tutorial, you learn how to:
 

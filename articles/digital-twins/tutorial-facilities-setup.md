@@ -37,7 +37,7 @@ These tutorials use and modify the same samples that the [quickstart to find ava
 
 - An Azure subscription. If you don’t have an Azure account, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- The right SDK. The Azure Digital Twins samples used in these tutorials are written in C#. Make sure to install [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check that the right version is installed on your machine by running `dotnet --version` in a command window.
+- The .NET Core SDK. The Azure Digital Twins samples used in these tutorials are written in C#. Make sure to install [.NET Core SDK version 2.1.403 or later](https://www.microsoft.com/net/download) on your development machine to build and run the sample. Check that the right version is installed on your machine by running `dotnet --version` in a command window.
 
 - [Visual Studio Code](https://code.visualstudio.com/) to explore the sample code. 
 
@@ -56,7 +56,7 @@ Use the steps in this section to create a new instance of the Azure Digital Twin
 
 Digital Twins uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) to control [read/write access](../active-directory/develop/v1-permissions-and-consent.md) to the service. Any application that needs to connect with your Digital Twins instance must be registered with Azure AD. The steps in this section show how to register your sample app.
 
-If you already have an app registration, you can reuse it for your sample. But browse through this section to make sure your app registration is configured correctly.
+If you already have an app registration, you can reuse it for your sample. However, browse through this section to make sure your app registration is configured correctly.
 
 [!INCLUDE [digital-twins-permissions](../../includes/digital-twins-permissions.md)]
 

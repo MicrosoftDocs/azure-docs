@@ -123,19 +123,19 @@ Also note the section named **roleassignments**. It assigns the Space Administra
     f. Remove the following *if-else* code block after the comment `// Modify this code block for your sensor`:
 
         ```JavaScript
-            // If carbonDioxide is less than the threshold and no presence is in the room => log, notify, and set the parent space computed value
+            // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
             if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
                 log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
                 setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
 
-                // Set up a custom notification for air quality
+                // Set up custom notification for air quality
                 parentSpace.Notify(JSON.stringify(availableFresh));
             }
             else {
                 log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
                 setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-                // Set up a custom notification for air quality
+                // Set up custom notification for air quality
                 parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
             }
         ```
@@ -143,20 +143,20 @@ Also note the section named **roleassignments**. It assigns the Space Administra
     And replace it with the following *if-else* block:
 
         ```JavaScript
-            // If sensor values are within range and the room is available
+            // If sensor values are within range and room is available
             if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
                 log(`${alert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
 
-                // Log, notify, and set the parent space computed value
+                // log, notify and set parent space computed value
                 setSpaceValue(parentSpace.Id, spaceAvailFresh, alert);
 
-                // Set up notifications for this alert
+                // Set up notification for this alert
                 parentSpace.Notify(JSON.stringify(alert));
             }
             else {
                 log(`${noAlert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
     
-                // Log, notify, and set the parent space computed value
+                // log, notify and set parent space computed value
                 setSpaceValue(parentSpace.Id, spaceAvailFresh, noAlert);
             }
         ```
