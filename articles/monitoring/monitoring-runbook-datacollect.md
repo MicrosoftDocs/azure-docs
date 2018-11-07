@@ -194,7 +194,7 @@ Once the schedule is created, you need to set the parameter values that will be 
 8. Click **OK**. 
 
 ## 9. Verify runbook starts on schedule
-Everytime a runbook is started, [a job is created](../automation/automation-runbook-execution.md) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
+Every time a runbook is started, [a job is created](../automation/automation-runbook-execution.md) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
 
 ![Jobs](media/monitoring-runbook-datacollect/jobs.png)
 
