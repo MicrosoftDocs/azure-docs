@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2018
+ms.date: 11/07/2018
 ms.author: magoedte
 ---
 
 # How to onboard the Azure Monitor for VMs (Preview)
-This article describes how to set up Azure Monitor for VMs to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
+This article describes how to set up Azure Monitor for VMs to monitor the operating system health of your Azure virtual machines and virtual machine scale sets, and virtual machines in your environment, including discovery and mapping of application dependencies that may be hosted on them.  
 
 Enabling Azure Monitor for VMs is accomplished by using one of the following methods, and details on using each method are provided later in the article.  
 
@@ -53,10 +53,10 @@ To enable the solution, you need to be a member of the Log Analytics contributor
 
 Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
 
-* Install the **ServiceMap** and **InfrastructureInsights** solutions
-* Configure the Log Analytics workspace to collect performance counters
+* Install the **ServiceMap** and **InfrastructureInsights** solutions. This can only be accomplished by using an Azure Resource Manager template provided in this article.   
+* Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for this scenario, see [Setup Log Analytics workspace](#setup-log-analytics-workspace).
+To configure your workspace for the at scale scenario, see [Setup Log Analytics workspace for the at scale deployment](#setup-log-analytics-workspace).
 
 ### Supported operating systems
 
@@ -215,16 +215,15 @@ Azure Monitor for VMs configures a Log Analytics Workspace to collect performanc
 |Network |Total Bytes Transmitted |  
 |Processor |% Processor Time |  
 
-## Sign in to Azure portal
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
 
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
-1. In the Azure portal, select **Virtual Machines**. 
-2. From the list, select a VM. 
-3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
-4. On the **Insights (preview)** page, select **Try now**.
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+2. In the Azure portal, select **Virtual Machines**. 
+3. From the list, select a VM. 
+4. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+5. On the **Insights (preview)** page, select **Try now**.
 
     ![Enable Azure Monitor for VMs for a VM](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
@@ -239,7 +238,12 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 
 
 ## On-boarding at scale
-In this section instructions on how to perform the at scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  The first step required is to configure your Log Analytics workspace.  
+In this section instructions on how to perform the at scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  
+
+Summarized are the steps you need to perform to pre-configure your Log Analytics workspace before you can proceed with onboarding your virtual machines.
+
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../log-analytics/log-analytics-manage-access?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
+3. Install and enable the **ServiceMap** and **InfrastructureInsights** solution in your workspace.  
 
 ### Setup Log Analytics workspace
 If you do not have a Log Analytics workspace, review the available methods suggested under the [Prerequisites](#log-analytics) section to create one.  
@@ -335,7 +339,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 ### Enable using Azure Policy
-To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../governance/policy/overview.md) is recommended. These policies:
+To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended. These policies:
 
 * Deploy Log Analytics agent and Dependency agent 
 * Report on compliance results 
@@ -572,14 +576,14 @@ Failed: (0)
 ## Enable for Hybrid environment
 This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment for monitoring by Azure Monitor for VMs.  
 
-The Azure Monitor for VMs Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Map is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
+The Azure Monitor for VMs Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
 
-Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).
+Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).  
 
 Summarized steps:
 
 1. Install Log Analytics Agent for Windows or Linux
-2. Install Azure Monitor for VMs Map Dependency agent
+2. [Download](#hybrid-environment-connected-sources) and install Azure Monitor for VMs Map Dependency agent
 3. Enable collection of performance counters
 4. Onboard Azure Monitor for VMs
 
