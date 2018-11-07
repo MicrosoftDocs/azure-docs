@@ -135,7 +135,7 @@ Now you have a function that categorizes sentiment scores. Next, you create a lo
  
 3. Then, type a value for **Name** like `TweetSentiment`, and use the settings as specified in the table.
 
-    ![Create logic app in the Azure portal](./media/functions-twitter-email/new_logic_app.png)
+    ![Create logic app in the Azure portal](./media/functions-twitter-email/08-logic-app-create.png)
 
     | Setting      |  Suggested value   | Description                                        |
     | ----------------- | ------------ | ------------- |
