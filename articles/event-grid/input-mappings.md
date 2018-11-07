@@ -7,13 +7,15 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/07/2018
 ms.author: tomfitz
 ---
 
 # Map custom fields to Event Grid schema
 
 If your event data doesn't match the expected [Event Grid schema](event-schema.md), you can still use Event Grid to route event to subscribers. This article describes how to map your schema to the Event Grid schema.
+
+## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
