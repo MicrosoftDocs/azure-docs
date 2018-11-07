@@ -355,7 +355,7 @@ To deploy the application, run the following:
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json
 ```
 
-This command will produce a JSON snippet. Under the ```outputs``` section of the JSON output, copy the ```publicIPAddress``` property. 
+This command will produce a JSON snippet that is shown below. Under the ```outputs``` section of the JSON output, copy the ```publicIPAddress``` property.
 
 ```json
 "outputs": {
@@ -364,6 +364,17 @@ This command will produce a JSON snippet. Under the ```outputs``` section of the
     "value": "40.83.78.216"
     }
 }
+```
+
+This information comes from the ```outputs``` section in the ARM template. As shown below, this section references the Gateway resource to fetch the public IP address. 
+
+```json
+  "outputs": {
+    "publicIPAddress": {
+      "value": "[reference('helloWorldGateway').ipAddress]",
+      "type": "string"
+    }
+  }
 ```
 
 ## Open the application
