@@ -126,7 +126,7 @@ by choosing **Test connection**.
 
 ## Create service principal
 
-In a later section, you'll create a Jenkins pipeline job for buliding your app. 
+In a later section, you'll create a Jenkins pipeline job for building your app. 
 To authenticate running the pipeline job from a script, create an 
 [Azure Active Directory service principal](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 
 A service principal is an identity you can assign specific permissions 
