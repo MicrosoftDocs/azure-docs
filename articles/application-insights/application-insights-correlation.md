@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
