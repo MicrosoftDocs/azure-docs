@@ -27,11 +27,11 @@ With Azure Active Directory (Azure AD) reports, you can get the information you 
 The reporting architecture consists of the following components:
 
 - **Activity** 
-    - **Sign-ins** – Information about the usage of managed applications and user sign-in activities.
+    - **Sign-ins** – The [sign-ins report](concept-sign-ins.md) provides information about the usage of managed applications and user sign-in activities.
     - **Audit logs** - Provides traceability through logs for all changes done by various features within Azure AD. Examples of audit logs include changes made to any resources within Azure AD like adding or removing users, apps, groups, roles and policies.
 - **Security** 
-    - **Risky sign-ins** - A risky sign-in is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. For more details, see [Risky sign-ins](concept-risky-sign-ins.md).
-    - **Users flagged for risk** - A risky user is an indicator for a user account that might have been compromised. For more details, see Users flagged for risk.
+    - **Risky sign-ins** - A [risky sign-in](concept-risky-sign-ins.md) is an indicator for a sign-in attempt that might have been performed by someone who is not the legitimate owner of a user account. 
+    - **Users flagged for risk** - A [risky user](concept-user-at-risk.md) is an indicator for a user account that might have been compromised.
 
 This article gives you an overview of the audit report.
  
@@ -62,7 +62,6 @@ You can customize the list view by clicking **Columns** in the toolbar.
 This enables you to display additional fields or remove fields that are already displayed.
 
 ![Audit logs](./media/concept-audit-logs/21.png "Audit logs")
-
 
 Select an item in the list view to get more detailed information.
 
