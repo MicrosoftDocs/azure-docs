@@ -5,7 +5,7 @@
  author: alinamstanciu
  ms.service: digital-twins
  ms.topic: include
- ms.date: 09/19/2018
+ ms.date: 11/7/2018
  ms.author: alinast
  ms.custom: include file
 ---
@@ -15,7 +15,7 @@
     ![Azure Active Directory directory id](./media/digital-twins-permissions/aad-app-reg-tenant.png)
 
 1. Open the **App registrations** pane, and then click **New application registration** button.
-    
+
     ![Azure Active Directory app registration new](./media/digital-twins-permissions/aad-app-reg-start.png)
 
 1. Give a friendly name for this app registration in the **Name** field. Choose **Application type** as **_Native_**, and **Redirect URI** as **_https://microsoft.com_**. Click **Create**.
