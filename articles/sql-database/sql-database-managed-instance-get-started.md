@@ -11,9 +11,9 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: Carlrab
 manager: craigg
-ms.date: 09/23/2018
+ms.date: 11/01/2018
 ---
-# Create an Azure SQL Database Managed Instance
+# Quickstart: Create an Azure SQL Database Managed Instance
 
 This quickstart walks through how to create an Azure SQL Database [Managed Instance](sql-database-managed-instance.md) in the Azure portal. 
 

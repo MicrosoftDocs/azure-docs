@@ -18,7 +18,7 @@ Learn how Azure SQL Data Warehouse combines massively parallel processing (MPP) 
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## MPP architecture components
-SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a data warehouse unit. SQL Data Warehouse separates compute from storage which enables you to scale compute independently of the data in your system.
+SQL Data Warehouse leverages a scale out architecture to distribute computational processing of data across multiple nodes. The unit of scale is an abstraction of compute power that is known as a [data warehouse unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Data Warehouse separates compute from storage which enables you to scale compute independently of the data in your system.
 
 ![SQL Data Warehouse Architecture](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

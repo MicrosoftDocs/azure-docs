@@ -341,7 +341,7 @@
       - name: Advanced monitoring
         items:
         - name: Azure SQL Analytics monitoring
-          href: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql
+          href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
         - name: Diagnostic telemetry logging
           href: sql-database-metrics-diag-logging.md
       - name: Automated troubleshooting
@@ -370,7 +370,7 @@
       items:
       - name: Manual tuning
         href: sql-database-performance-guidance.md
-      - name: Use DMVs to monitor perf
+      - name: Use DMVs to monitor performance
         href: sql-database-monitoring-with-dmvs.md
       - name: Operate query store
         href: sql-database-operate-query-store.md
