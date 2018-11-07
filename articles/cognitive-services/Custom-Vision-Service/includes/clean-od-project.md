@@ -1,3 +1,11 @@
+---
+ author: PatrickFarley
+ ms.service: cognitive-services
+ ms.topic: include
+ ms.date: 11/07/2018
+ ms.author: pafarley
+---
+
 ## Clean up resources
 If you wish to implement your own object detection project (or try an [image classification](../csharp-tutorial.md) project instead), you may want to delete the fork/scissors detection project from this example. A free trial allows for two Custom Vision projects.
 

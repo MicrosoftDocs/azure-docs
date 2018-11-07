@@ -1,3 +1,11 @@
+---
+ author: PatrickFarley
+ ms.service: cognitive-services
+ ms.topic: include
+ ms.date: 11/07/2018
+ ms.author: pafarley
+---
+
 ## Clean up resources
 If you wish to implement your own image classification project (or try an [object detection](../csharp-tutorial-od.md) project instead), you may want to delete the tree identification project from this example. A free trial allows for two Custom Vision projects.
 
