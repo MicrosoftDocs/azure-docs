@@ -118,7 +118,7 @@ If you already have a service with the dependencies installed in your **environm
 
 1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-   ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+   ![Edit Service](media/how-to-enable-data-collection/EditService.PNG)
 
 1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
