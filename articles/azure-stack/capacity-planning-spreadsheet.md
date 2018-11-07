@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
 ---
@@ -22,7 +22,7 @@ ms.reviewer: prchint
 The Azure Stack Capacity Planner is a spreadsheet used for Azure Stack resource capacity planning. The capacity planner provides you with the ability to design various allocations of computing resources and see how these would fit across a selection of hardware offerings. Detailed instructions for the use of the Azure Stack Calculator are provided below.
 
 ## Worksheet descriptions
-The following is a short summary of the worksheets contained in the Azure Stack Capacity Planner spreadsheet that can be downloaded from [http://aka.ms/azstackcapacityplanner](http://aka.ms/azstackcapacityplanner):
+The following is a short summary of the worksheets contained in the Azure Stack Capacity Planner spreadsheet that can be downloaded from [http://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):
 
 |Tab Name|Description|
 |-----|-----|
@@ -52,7 +52,7 @@ This tool provides two methods for allocating VM resources; either as one single
 ## DefineByVMFootprint instructions
 To create a model using a single collection of various sizes and quantities of VMs, select the "DefineByVMFootprint" Tab and follow this sequence of steps.
 
-1. In the upper right corner of this worksheet, use the provided pull-down list box controls to select an initial number of servers (between 4 and 12) you want installed in each hardware system (SKU). This number of servers may be modified at any time during the modeling process to see how this affects overall available resources for your resource allocation model.
+1. In the upper right corner of this worksheet, use the provided pull-down list box controls to select an initial number of servers (between 4 and 16) you want installed in each hardware system (SKU). This number of servers may be modified at any time during the modeling process to see how this affects overall available resources for your resource allocation model.
 2. If you want to model various VM resource allocations against one specific hardware configuration, find the blue pull-down list box directly below the "Current SKU" label in the upper right-hand corner of the page. Pull down this list box and select your desired hardware SKU.
 3. You are now ready to begin adding various sized VMs to your model. To include a particular VM type, enter a quantity value into the blue outlined box to the left of that VM entry.
 
@@ -69,7 +69,7 @@ To create a model using a collection of Azure Stack Workloads, select the "Defin
 > [!TIP]
 > To change the provided storage size for an Azure Stack VM, see the note from step three in the preceding section.
 
-1. In the upper right corner of this page, use the provided pull-down list box controls to select an initial number of servers (between 4 and 12) you want installed in each hardware system (SKU).
+1. In the upper right corner of this page, use the provided pull-down list box controls to select an initial number of servers (between 4 and 16) you want installed in each hardware system (SKU).
 2. If you want to model various VM resource allocations against one specific hardware configuration, find the blue pull-down list box directly below the "Current SKU" label in the upper right-hand corner of the page. Pull down this list box and select your desired hardware SKU.
 3. Select the appropriate storage size for each of your desired Azure Stack VMs on the DefineByVMFootprint page as described above in step three of DefineByVMFootprint instructions. The storage size per VM is defined in the DefineByVMFootprint sheet.
 4. Starting on the upper left of the DefineByWorkloadFootprint page, create configurations for up to six different Workload types by entering the quantity of each VM type contained within that Workload. This is done by placing numeric values into the column directly below that Workload's name. Workload names may be modified to reflect the type of workloads that will be supported by this particular configuration.
