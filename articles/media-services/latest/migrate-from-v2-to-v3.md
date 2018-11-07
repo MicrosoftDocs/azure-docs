@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/04/2018
+ms.date: 11/05/2018
 ms.author: juliako
 ---
 
 # Migration guidance for moving from Media Services v2 to v3
 
-This article describes changes that were introduced in Azure Media Services (AMS) v3, shows differences between two versions, and provides the migration guidance.
+This article describes changes that were introduced in Azure Media Services v3, shows differences between two versions, and provides the migration guidance.
 
-If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview.md), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Azure Media Services. However, as called out in the  [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
+If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview.md), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Media Services. However, as called out in the  [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
 
 ## Benefits of Media Services v3
 
@@ -59,9 +59,11 @@ If you have a video service developed today on top of the [legacy Media Services
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed
     * JobOutput replaces Task, and is now part of a Job.
-    * LiveEvent replaces Channel.
-    * LiveOutput replaces Program.
     * StreamingLocator replaces Locator.
+    * LiveEvent replaces Channel.
+        
+        LiveEvents billing is based on Live Channel meters. For more information, see [Live streaming overview](live-streaming-overview.md#billing) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveOutput replaces Program.
 * LiveOutputs do not need to be started explicitly, they start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 
 ## Feature gaps with respect to v2 APIs

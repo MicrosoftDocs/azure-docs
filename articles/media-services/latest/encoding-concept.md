@@ -15,13 +15,13 @@ ms.date: 11/05/2018
 ms.author: juliako
 ---
 
-# Encoding with Azure Media Services
+# Encoding with Media Services
 
 Azure Media Services enables you to encode your high-quality digital media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. This topic gives you guidance on how to encode your content with Media Services v3.
 
 To encode with Media Services v3, you need to create a transform and a job. A transform defines the recipe for your encoding settings and outputs, and the job is an instance of the recipe. For more information, see [Transforms and Jobs](transform-concept.md)
 
-When encoding with Azure Media Services, you use presets to tell the encoder how the input media files should be processed. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content. 
+When encoding with Media Services, you use presets to tell the encoder how the input media files should be processed. For example, you can specify the video resolution and/or the number of audio channels you want in the encoded content. 
 
 You can get started quickly with one of the recommended built-in presets based on industry best practices or you can choose to build a custom preset to target your specific scenario or device requirements. For more information, see [Encode with a custom Transform](customize-encoder-presets-how-to.md). 
 
@@ -40,7 +40,7 @@ Media Services fully supports customizing all values in presets to meet your spe
 
 ## Scaling encoding in v3
 
-Currently, customers have to use the Azure portal or AMS v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
+Currently, customers have to use the Azure portal or Media Services v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
 
 ## Next steps
 
@@ -48,7 +48,7 @@ Currently, customers have to use the Azure portal or AMS v2 APIs to set RUs (as 
 
 The following tutorial shows how to encode your content with Media Services:
 
-* [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md)
+* [Upload, encode, and stream using Media Services](stream-files-tutorial-with-api.md)
 
 ### Code samples
 
