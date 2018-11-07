@@ -221,7 +221,6 @@ After VMs are discovered, you group them and create an assessment.
 
 An assessment includes information about whether the on-premises VMs are compatible for Azure, what would be the right VM size for running the VM in Azure and the estimated monthly Azure costs.
 
-![Assessment report](./media/tutorial-assessment-vmware/assessment-report.png)
 
 #### Azure readiness
 
@@ -239,7 +238,7 @@ The VMs for which Azure Migrate cannot identify Azure readiness (due to data una
 
 In addition to Azure readiness and sizing, Azure Migrate also suggests tools that you can use for the migrating the VM. This requires a deeper discovery of on the on-premises environment. [Learn more](how-to-get-migration-tool.md) about how you can do a deeper discovery by installing agents on the on-premises machines. If the agents are not installed on the on-premises machines, lift and shift migration is suggested using [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). If the agents are installed on the on-premises machine, Azure Migrate looks at the processes running inside the machine and identifies whether the machine is a database machine or not. If the machine is a database machine, [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview) is suggested, else Azure Site Recovery is suggested as the migration tool.
 
-  ![Assessment readiness](./media/tutorial-assessment-vmware/assessment-suitability.png)  
+   
 
 #### Monthly cost estimate
 
@@ -250,7 +249,6 @@ This view shows the total compute and storage cost of running the VMs in Azure a
 
 Estimated monthly costs for compute and storage are aggregated for all VMs in the group.
 
-![Assessment VM cost](./media/tutorial-assessment-vmware/assessment-vm-cost.png)
 
 #### Confidence rating
 
