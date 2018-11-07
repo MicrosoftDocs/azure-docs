@@ -52,10 +52,12 @@ The following fields are sent in the HTTP request header.
 
 ### Audio format
 
-The audio is sent in the body of the HTTP `POST` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
+Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
-* WAV format with PCM codec
-* Ogg format with OPUS codec
+| Format | Codec | Bitrate | Sample Rate |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 16 kHz, mono |
+| OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec.
@@ -99,7 +101,7 @@ The following is a typical request.
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
