@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Enable password hash synchroniza
 description: Getting started with Azure Active Directory Domain Services
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Enable password hash synchronization to Azure Active Directory Domain Services
@@ -49,7 +49,7 @@ This password change process causes the password hashes that are required by Azu
 ### Enable NTLM and Kerberos password hash generation for a cloud-only user account
 Here are the instructions you need to provide users, so they can change their passwords:
 
-1. Go to the [Azure AD Access Panel](http://myapps.microsoft.com) page for your organization.
+1. Go to the [Azure AD Access Panel](https://myapps.microsoft.com) page for your organization.
 
     ![Launch the Azure AD access panel](./media/active-directory-domain-services-getting-started/access-panel.png)
 

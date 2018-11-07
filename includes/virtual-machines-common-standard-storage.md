@@ -21,7 +21,7 @@ This article focuses on the use of standard SSD and HDD disks. For more informat
 There are two ways to create standard disks for Azure VMs:
 
 **Unmanaged disks**:
-This type of disk is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 PiB of storage per VM. If you use the preview disk sizes, you can have up to around 2 PiB of storage per VM. 
+This type of disk is the original method where you manage the storage accounts used to store the VHD files that correspond to the VM disks. VHD files are stored as page blobs in storage accounts. Unmanaged disks can be attached to any Azure VM size, including the VMs that primarily use Premium Storage, such as the DSv2 and GS series. Azure VMs support attaching several standard disks, allowing up to 256 TiB of storage per VM. If you use the preview disk sizes, you can have up to around 2 PiB of storage per VM.
 
 [**Azure Managed Disks**](../articles/virtual-machines/windows/managed-disks-overview.md):
 This feature manages the storage accounts used for the VM disks for you. You specify the type (Premium SSD, Standard SSD, or Standard HDD) and size of disk you need, and Azure creates and manages the disk for you. You don't have to worry about placing the disks across multiple storage accounts in order to ensure you stay within the scalability limits for the storage accounts -- Azure handles that for you.
@@ -111,7 +111,7 @@ If a managed disk is attached to a VM, certain API operations are not permitted 
 
 When using Standard Storage, the following billing considerations apply:
 
-* Standard storage unmanaged disks/data size 
+* Standard storage unmanaged disks/data size
 * Standard managed disks
 * Standard storage snapshots
 * Outbound data transfers
@@ -121,7 +121,9 @@ When using Standard Storage, the following billing considerations apply:
 
 **Managed disks:** Billing for standard managed disks depends on the provisioned size of the disk. Azure maps the provisioned size (rounded up) to the nearest Managed Disks option as specified in the tables below. Each managed disk maps to one of the supported provisioned sizes and is billed accordingly. For example, if you create a standard managed disk and specify a provisioned size of 200 GiB, you are billed as per the pricing of the S15 Disk type.
 
-| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Sizes denoted with an asterisk are currently in preview.
+
+| **Standard HDD Managed <br>Disk Type** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Disk Size        | 32 GiB  | 64 GiB  | 128 GiB | 256 GiB | 512 GiB | 1,024 GiB (1 TiB) | 2,048 GiB (2 TiB) | 4,095 GiB (4 TiB) | 8,192 GiB (8 TiB) | 16,385 GiB (16 TiB) | 32,767 GiB (32 TiB) |
 

@@ -4,7 +4,7 @@ description: Anomaly Detection API is an example built with Microsoft Azure Mach
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824

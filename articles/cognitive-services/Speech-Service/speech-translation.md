@@ -1,22 +1,23 @@
 ---
 title: About Speech Translation
+titlesuffix: Azure Cognitive Services
 description: An overview of the capabilities of Speech Translation
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
-ms.author: v-jerkin
+ms.author: erhopf
 ---
 
 # About the Speech Translation API
 
-The Microsoft Speech API lets you add end-to-end, real-time, multi-language translation  of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
+The Speech Service API lets you add end-to-end, real-time, multi-language translation  of speech to your applications, tools, and devices. The same API can be used for both speech-to-speech and speech-to-text translation.
 
-With the Microsoft Translator Speech API, client applications stream speech audio to the service and receive back a stream of results. These results include the recognized text in the source language and its translation in the target language. Interim translations can be provided until an utterance is complete, at which time a final translation is provided.
+With the Translator Speech API, client applications stream speech audio to the service and receive back a stream of results. These results include the recognized text in the source language and its translation in the target language. Interim translations can be provided until an utterance is complete, at which time a final translation is provided.
 
 Optionally, a synthesized audio version of the final translation can be prepared, enabling true speech-to-speech translation.
 

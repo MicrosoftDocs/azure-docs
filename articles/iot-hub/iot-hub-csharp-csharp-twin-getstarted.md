@@ -29,7 +29,7 @@ At the end of this tutorial, you will have these .NET console apps:
 To complete this tutorial you need the following:
 
 * Visual Studio 2017.
-* An active Azure account. (If you don't have an account, you can create a [free account](http://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
+* An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial/) in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -231,4 +231,4 @@ Use the following resources to learn how to:
 
 * configure devices using device twin's desired properties with the [Use desired properties to configure devices](tutorial-device-twins.md) tutorial,
 
-* control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-node.md) tutorial.
+* control devices interactively (such as turning on a fan from a user-controlled app) with the [Use direct methods](quickstart-control-device-dotnet.md) tutorial.

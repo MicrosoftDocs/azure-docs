@@ -2,18 +2,12 @@
 title: Microsoft Azure Data Box Disk overview | Microsoft Docs in data 
 description: Describes Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
@@ -27,7 +21,7 @@ You can quickly configure, connect, and unlock the disks via the Data Box servic
 
 > [!IMPORTANT]
 > - Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
-> - You need to sign up for this service. To sign up, go to the [Preview portal](http://aka.ms/azuredataboxfromdiskdocs).
+> - You need to sign up for this service. To sign up, go to the [Preview portal](https://aka.ms/azuredataboxfromdiskdocs).
 > - During preview, Data Box Disk can be shipped to customers in US and European Union. For more information, go to [Region availability](#region-availability).
 
 ## Use cases
@@ -114,7 +108,7 @@ During the preview, Data Box Disk can transfer data to the following Azure regio
 
 ## Pricing
 
-During the preview, Data Box Disk is available free of charge. This will change when Data Box Disk is generally available.
+For information on pricing, go to [Preview Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## Next steps
 

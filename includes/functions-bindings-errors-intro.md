@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+---
 Azure Functions [triggers and bindings](..\articles\azure-functions\functions-triggers-bindings.md) communicate with various Azure services. When integrating with these services, you may have errors raised that originate from the APIs of the underlying Azure services. Errors can also occur when you try to communicate with other services from your function code by using REST or client libraries. To avoid loss of data and ensure good behavior of your functions, it is important to handle errors from either source.
 
 The following triggers have built-in retry support:

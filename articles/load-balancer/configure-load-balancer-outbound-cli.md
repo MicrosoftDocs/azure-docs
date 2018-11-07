@@ -4,8 +4,6 @@ description: This article shows how to configure load balancing and outbound rul
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -17,7 +15,7 @@ ms.author: kumud
 ---
 # Configure load balancing and outbound rules in Standard Load Balancer using Azure CLI
 
-This quickstart shows you how configure outbound rules in Standard Load Balancer using Azure CLI.  
+This quickstart shows you how to configure outbound rules in Standard Load Balancer using Azure CLI.  
 
 When you are done, the Load Balancer resource contains two frontends and rules associated with them: one for inbound and another for outbound.  Each frontend has a reference to a public IP address and this scenario uses a different public IP address for inbound versus outbound.   The load balancing rule provides only inbound load balancing and the outbound rule controls the outbound NAT provided for the VM.
 
@@ -58,7 +56,7 @@ To access your web app on the Internet, you need a public IP address for the loa
 
 ## Create outbound public IP address 
 
-Create a Standard IP address for Load Balancer's frontend outbound configuration [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) named *mypublicipoutbound* in *myresourcegroupoutbound*.
+Create a Standard IP address for Load Balancer's frontend outbound configuration using [az network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create).
 
 ```azurecli-interactive
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
@@ -76,7 +74,7 @@ This section details how you can create and configure the following components o
 
 ### Create Load Balancer
 
-Create a Load Balancer with the inbound IP address using [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named *lb* that includes an inbound frontend IP configuration named *myfrontendinbound*, a backend pool named *bepool* that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
+Create a Load Balancer with the inbound IP address using [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest#create) named *lb* that includes an inbound frontend IP configuration and a backend pool that is associated with the public IP address *mypublicipinbound* that you created in the preceding step.
 
 ```azurecli-interactive
   az network lb create \

@@ -73,6 +73,9 @@ Open a web browser and navigate to your new team project at: [https://&lt;myacco
 
 Select the **Build and release** tab, then **Builds**, then click **New Pipeline**.
 
+>[!NOTE]
+>If you do not see the build definition template, make sure the **New YAML pipeline creation experience** feature is turned off. This feature is configured within the **Preview Features** section of your DevOps account.
+
 ![New Pipeline][new-pipeline]
 
 Select **VSTS Git** as source, **Voting** Team project, **Voting** Repository, and **master** Default branch or manual and scheduled builds.  Then click **Continue**.
