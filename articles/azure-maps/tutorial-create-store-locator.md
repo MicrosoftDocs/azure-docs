@@ -91,7 +91,8 @@ If you open the text file in notepad, it will look something like below;
 To create the project, you can use [Visual Studio](https://visualstudio.microsoft.com) or any editor of your choice. In your project folder, create three files; `index.html`, `index.css`, and `index.js`. These files will define the layout, styles, and logic for the application. Create a folder called `data` and add ContosoCoffee.txt file to it. Create another folder and call it `images`. There are 10 images we will use in this application for icons, buttons, and markers on the map. You can download these images [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Your project folder should now look like the one below.
 
 <br/>
-<center>![VS-layout](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
+<img style="float: right;" src="./media/tutorial-create-store-locator/StoreLocatorVSProject.png">
+
 
 ## Create the user interface
 
@@ -921,5 +922,5 @@ In this tutorial, you have seen how easy it is to create a store locator using A
 * Add support to specify an initial search value using a query string. It will allow users to bookmark and share searches and will also provide an easy method for you to pass searches to this page from another page.  
 * [Deploy as an Azure Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 * Store your data in a database and search for nearby locations. 
-    - [SQL Server Spatial Data Types Overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
-    - [Query Spatial Data for Nearest Neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
+    * [SQL Server Spatial Data Types Overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
+    * [Query Spatial Data for Nearest Neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
