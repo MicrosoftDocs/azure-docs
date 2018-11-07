@@ -74,7 +74,7 @@ In the following diagram, several container groups have been deployed to a subne
 
 ![Container groups within a virtual network][aci-vnet-01]
 
-## Deploy to virtual network
+## Deployment scenarios
 
 You can use [az container create][az-container-create] to deploy container groups to a new virtual network and allow Azure to create the required network resources for you, or deploy to an existing virtual network. 
 
@@ -103,9 +103,11 @@ To deploy a container group to an existing virtual network:
 
 Once you deploy your first container group to an existing subnet, Azure delegates that subnet to Azure Container Instances. You can no longer deploy resources other than container groups to that subnet.
 
+## Deployment examples
+
 The following sections describe how to deploy container groups to a virtual network with the Azure CLI. The command examples are formatted for the **Bash** shell. If you prefer another shell such as PowerShell or Command Prompt, adjust the line continuation characters accordingly.
 
-## Deploy to new virtual network
+### Deploy to a new virtual network
 
 First, deploy a container group and specify the parameters for a new virtual network and subnet. When you specify these parameters, Azure creates the virtual network and subnet, delegates the subnet to Azure Container instances, and also creates a network profile. Once these resources are created, your container group is deployed to the subnet.
 
@@ -124,7 +126,7 @@ az container create \
 
 When you deploy to a new virtual network by using this method, the deployment can take a few minutes while the network resources are created. After the initial deployment, additional container group deployments complete more quickly.
 
-### Deploy container group to existing virtual network
+### Deploy to existing virtual network
 
 Now that you've deployed a container group to a new virtual network, deploy a second container group to the same subnet, and verify communication between the two container instances.
 
@@ -172,7 +174,7 @@ index.html           100% |*******************************|  1663   0:00:00 ETA
 
 The log output should show that `wget` was able to connect and download the index file from the first container using its private IP address on the local subnet. Network traffic between the two container groups remained within the virtual network.
 
-### Deploy container group to existing virtual network - YAML
+### Deploy to existing virtual network - YAML
 
 You can also deploy a container group to an existing virtual network by using a YAML file. To deploy to a subnet in a virtual network, you specify several additional properties in the YAML:
 
