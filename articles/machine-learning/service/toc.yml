@@ -67,7 +67,8 @@
       href: how-to-write-data.md
   - name: Train models
     items:    
-    - name: Set up training environments	
+    - name: Set up training environments
+      displayName: compute target, train
       href: how-to-set-up-training-targets.md
     - name: Access data in training
       href: how-to-access-data.md
