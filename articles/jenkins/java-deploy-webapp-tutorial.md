@@ -131,13 +131,12 @@ by choosing **Test connection**.
 ## Create service principal
 
 Later in this tutorial, you create a Jenkins pipeline job that 
-builds your app by using a script for automating and deploying to Azure. 
-automate running your pipeline job and deploying the finished app to Azure, 
+builds your app from GitHub and deploys your app to Azure. 
+To have Jenkins work access Azure without entering your credentials, 
 create a [service principal in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 
-A service principal is a separate identity you can use for 
-accessing Azure resources without entering your own credentials. 
-Your pipeline job can use this service principal to work with Azure. 
-To create the service principal, run the Azure CLI command 
+A service principal is a separate identity that Jenkins 
+can use for authenticating and accessing Azure resources. 
+To create this service principal, run the Azure CLI command 
 [**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), either from your local command line or Azure Cloud Shell, 
 for example: 
 
