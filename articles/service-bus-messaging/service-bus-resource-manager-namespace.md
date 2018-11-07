@@ -100,6 +100,10 @@ The template you created in the previous step has a section called `Parameters`.
 
 Create a JSON file named **MyServiceBusNamespace-Parameters.json** with the following content: 
 
+> [!NOTE] 
+> Specify a name for your Service Bus namespace. 
+
+
 ```json
 {
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -118,7 +122,6 @@ Create a JSON file named **MyServiceBusNamespace-Parameters.json** with the foll
 }
 ```
 
-> [!NOTE] Specify a name for your Service Bus namespace. 
 
 ## Use Azure PowerShell to deploy the template
 
