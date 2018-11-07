@@ -70,7 +70,7 @@ Perform the following steps to connect and unlock your disks.
     In this procedure, you will use only the Data Box Disk Unlock tool. The other two tools will be used later.
 
     > [!div class="nextstepaction"]
-    > [Download Data Box Disk toolset for Windows](http://aka.ms/databoxdisktoolswin)         
+    > [Download Data Box Disk toolset for Windows](https://aka.ms/databoxdisktoolswin)         
 
 3. Extract the toolset on the same computer that you will use to copy the data. 
 4. Open a Command Prompt window or run Windows PowerShell as administrator on the same computer.
@@ -126,7 +126,7 @@ Perform the following steps to connect and unlock your disks.
 2. Download the Data Box Disk toolset corresponding to the Linux client.  
 
     > [!div class="nextstepaction"]
-    > [Download Data Box Disk toolset for Linux](http://aka.ms/databoxdisktoolslinux) 
+    > [Download Data Box Disk toolset for Linux](https://aka.ms/databoxdisktoolslinux) 
 
 3. On your Linux client, open a terminal. Navigate to the folder where you downloaded the software. Change the file permissions so that you can execute these files. Type the following command: 
 
