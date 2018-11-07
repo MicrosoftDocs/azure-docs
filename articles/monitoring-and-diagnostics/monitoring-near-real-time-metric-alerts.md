@@ -14,6 +14,7 @@ ms.component: alerts
 
 Azure Monitor now supports a [new metric alert type](monitoring-overview-alerts.md) which has significant benefits over the older [classic metric alerts](monitoring-overview-alerts-classic.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). The newer alerts support a (growing) subset of the resource types. This article lists that subset.
 
+
 You can also use newer metric alerts on popular Log Analytics logs extracted as metrics. For more information, view [Metric Alerts for Logs](monitoring-metric-alerts-logs.md).
 
 ## Portal, PowerShell, CLI, REST support

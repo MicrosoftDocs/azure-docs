@@ -24,7 +24,7 @@ In the past Azure Monitor, Application Insights, Log Analytics and Service Healt
 
 You can view classic alerts only in the classic alerts user screen in the Azure Portal. You get this screen from the **View classic alerts** button on the alerts screen. 
 
- ![Alert choices in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Alert choices in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 The new alerts user experience has the following benefits over the classic alerts experience:
 -	**Better notification system** - All newer alerts use action groups, which are named groups of notifications and actions that can be reused in multiple alerts. Classic metric alerts and older Log Analytics alerts do not use action groups.
@@ -35,7 +35,7 @@ The new alerts user experience has the following benefits over the classic alert
 -   **Smart Alerts consolidation** and **setting alert state**  -  Newer alerts include auto grouping functionality showing similar alerts together to reduce overload in the user interface. 
 
 The newer metric alerts have the following benefits over the classic metric alerts:
--	**Improved latency**: Newer metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes. Newer alerts have increasing smaller delay from issue occurance to notification or action (3 to 5 minutes). Older alerts are 5 to 15 minutes depending on the type.  Log alerts typically have 10 to 15 minute delay due to the time is takes to ingest the logs, but newer processing methods is reducing that time. 
+-	**Improved latency**: Newer metric alerts can run as frequently as every one minute. Older metric alerts always run at a frequency of 5 minutes. Newer alerts have increasing smaller delay from issue occurrence to notification or action (3 to 5 minutes). Older alerts are 5 to 15 minutes depending on the type.  Log alerts typically have 10 to 15 minute delay due to the time is takes to ingest the logs, but newer processing methods is reducing that time. 
 -	**Support for multi-dimensional metrics**: You can alert on dimensional metrics allowing you to monitor an interesting segment of the metric.
 -	**More control over metric conditions**: You can define richer alert rules. The newer alerts support monitoring the maximum, minimum, average, and total values of metrics.
 -	**Combined monitoring of multiple metrics**: You can monitor multiple metrics (currently, up to two metrics) with a single rule. An alert is triggered if both metrics breach their respective thresholds for the specified time-period.
