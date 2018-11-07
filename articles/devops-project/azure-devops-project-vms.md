@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Deploy your ASP.NET app to Azure Virtual Machines with Azure DevOps Projects'
-description: Azure DevOps Projects makes it easy to get started on Azure and to deploy your ASP.NET app to Azure Virtual Machines in a few quick steps.
+title: 'Tutorial: Deploy your ASP.NET app to Azure virtual machines by using Azure DevOps Projects'
+description: Azure DevOps Projects makes it easy to get started on Azure and to deploy your ASP.NET app to Azure virtual machines in a few quick steps.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -12,7 +12,7 @@ monikerRange: 'vsts'
 ---
 
 
-# Tutorial: Deploy your ASP.NET app to Azure Virtual Machines with Azure DevOps Projects
+# Tutorial: Deploy your ASP.NET app to Azure virtual machines by using Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository. Or you can choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
@@ -47,7 +47,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 
 1. In the search box, type **DevOps Project**, and then select **Create**.
 
-   	![The Dashboard](_img/azure-devops-project-github/fullbrowser.png)
+   	![The DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
 1. Select **.NET**, and then select **Next**.
 
@@ -63,7 +63,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 1. Enter a name for your Azure DevOps project. 
 
 1. Select your Azure subscription services.  
-	Optionally, you can select the **Change** and then enter more configuration details, such as the location of the Azure resources.
+	Optionally, you can select **Change** and then enter more configuration details, such as the location of the Azure resources.
  
 1. Enter a virtual machine name, username, and password for your new Azure virtual machine resource, and then select **Done**.  
 	After a few minutes, the Azure virtual machine will be ready. A sample ASP.NET application is set up in a repository in your Azure DevOps organization, a build and release is executed, and your application is deployed to the newly created Azure VM. 
@@ -96,7 +96,7 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in your Azure De
 1. Change the name of your build pipeline to something more descriptive, select **Save & queue**, and then select **Save**.
 
 1. Under your build pipeline name, select **History**.  
-	You see an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
+	This pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
 	Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
@@ -104,7 +104,7 @@ Azure DevOps Projects automatically configures a CI/CD pipeline in your Azure De
 1. Select **Retention**.  
     Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-## Examine the Azure DevOps CD pipeline
+## Examine the CD pipeline
 
 Azure DevOps Projects automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription. These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription. The automation also creates a CD pipeline, which provides the CD to the Azure virtual machine. To learn more about the Azure DevOps CD pipeline, do the following:
 
@@ -140,7 +140,7 @@ Azure DevOps Projects automatically creates and configures the necessary steps t
 
 ## Commit changes to Azure DevOps and automatically deploy them to Azure 
 
-You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the steps below, or use other techniques to commit changes to your repository. The code changes initiate the CI/CD process and automatically deploy your new changes to the IIS website on the Azure VM.
+You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repository. The code changes initiate the CI/CD process and automatically deploy your changes to the IIS website on the Azure VM.
 
 1. In the left pane, select **Code**, and then go to your repository.
 
@@ -149,7 +149,7 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 1. Make a change to the file, such as adding some text within one of the div tags. 
 
 1. At the top right, select **Commit**, and then select **Commit** again to push your change.  
-	After a few moments, a build starts in Azure DevOps, and then a release executes to deploy the changes. Monitor the build status in the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
+	After a few moments, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status in the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
 
 1. After the release is completed, refresh your application to verify your changes.
 
