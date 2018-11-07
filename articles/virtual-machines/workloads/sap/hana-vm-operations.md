@@ -76,13 +76,13 @@ For a list of storage types and their SLAs in IOPS and storage throughput, revie
 
 ### Configuring the Storage for Azure virtual machines
 
-So far as you bought SAP HANA appliances for on-premises, you never had to care about the I/O subsystems and its capabilities. Because the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements. And also understand the configuration requirements suggested in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
+So far you never had to care about the I/O subsystems and its capabilities. Reason was that the appliance vendor needed to make sure that the minimum storage requirements are met for SAP HANA. As you build the Azure infrastructure yourself, you also should be aware of some of those requirements. And also understand the configuration requirements suggested in the following sections. Or for cases where you are configuring the Virtual Machines you want run SAP HANA on. Some of the characteristics that are asked are resulting in the need to:
 
 - Enable read/write volume on **/hana/log** of a 250 MB/sec at minimum with 1 MB I/O sizes
 - Enable read activity of at least 400 MB/sec for **/hana/data** for 16 MB and 64 MB I/O sizes
 - Enable write activity of at least 250 MB/sec for **/hana/data** with 16 MB and 64 MB I/O sizes
 
-Given that low storage latency is critical for DBMS systems, even as those DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks. And use the RAID volumes as **/hana/data** and **/hana/log** volumes. As stripe sizes for the RAID 0 the recommendation is to use:
+Given that low storage latency is critical for DBMS systems, even as DBMS, like SAP HANA, keep data in-memory. The critical path in storage is usually around the transaction log writes of the DBMS systems. But also operations like writing savepoints or loading data in-memory after crash recovery can be critical. Therefore, it is mandatory to leverage Azure Premium Disks for **/hana/data** and **/hana/log** volumes. In order to achieve the minimum throughput of **/hana/log** and **/hana/data** as desired by SAP, you need to build a RAID 0 using MDADM or LVM over multiple Azure Premium Storage disks. And use the RAID volumes as **/hana/data** and **/hana/log** volumes. As stripe sizes for the RAID 0 the recommendation is to use:
 
 - 64 KB or 128 KB for **/hana/data**
 - 32 KB for **/hana/log**
@@ -180,7 +180,7 @@ Check whether the storage throughput for the different suggested volumes will me
 
 
 > [!NOTE]
-> The disk configuration recommendations stated are targeting minimum requirements SAP expresses towards  their infrastructure providers. In real customer deployments and workload scenarios, situations were encountered where these recommendations still did not provide sufficient capabilities. These could be situations where a customer required a faster reload of the data after a HANA restart or where backup configurations required higher bandwidth to the storage. Other cases included **/hana/log** where 5000 IOPS was not sufficient for the specific workload. So take these recommendations as a starting point and adapt based on the requirements of the workload.
+> The disk configuration recommendations stated are targeting minimum requirements SAP expresses towards  their infrastructure providers. In real customer deployments and workload scenarios, situations were encountered where these recommendations still did not provide sufficient capabilities. These could be situations where a customer required a faster reload of the data after a HANA restart or where backup configurations required higher bandwidth to the storage. Other cases included **/hana/log** where 5000 IOPS were not sufficient for the specific workload. So take these recommendations as a starting point and adapt based on the requirements of the workload.
 >  
 
 ### Set up Azure virtual networks
@@ -271,7 +271,7 @@ Sizing the volumes for the nodes is the same as for scale-up, except **/hana/sha
 
 Check whether the storage throughput for the different suggested volumes will meet the workload that you want to run. If the workload requires higher volumes for **/hana/data** and **/hana/log**, you need to increase the number of Azure Premium Storage VHDs. Sizing a volume with more VHDs than listed will increase the IOPS and I/O throughput within the limits of the Azure virtual machine type. Also apply Azure Write Accelerator to the disks that form the **/hana/log** volume.
  
-In the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), a formula is named that defines the size of the **/hana/shared** volume for scale-out as the memory size of a single worker node per 4 worker nodes.
+In the document [SAP HANA TDI Storage Requirements](https://www.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html), a formula is named that defines the size of the **/hana/shared** volume for scale-out as the memory size of a single worker node per four worker nodes.
 
 Assuming you take the SAP HANA scale-out certified M128s Azure VM with roughly 2 TB memory, the SAP recommendations can be summarized like:
 
@@ -320,9 +320,9 @@ If you want to share the highly available NFS cluster between SAP HANA configura
 Installing a scale-out SAP configuration, you need to perform rough steps of:
 
 - Deploying new or adapting new Azure VNet infrastructure
-- Deploying the new VMs using Azure managed Premium Storage volumes
+- Deploying the new VMs using Azure Managed Premium Storage volumes
 - Deploying a new or adapt an existing highly available NFS cluster
-- Adapt network routing to make sure that, e.g. intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.
+- Adapt network routing to make sure that, for example, intra-node communication between VMs is not routed through an [NVA](https://azure.microsoft.com/solutions/network-appliances/). Same is true for traffic between the VMs and the highly available NFS cluster.
 - Install the SAP HANA master node.
 - Adapt configuration parameters of the SAP HANA master node
 - Continue with the installation of the SAP HANA worker nodes
@@ -351,14 +351,14 @@ SAP HANA Dynamic Tiering 2.0 isn't supported by SAP BW or S4HANA. Main use cases
 ### Overview
 
 The picture below gives an overview regarding DT 2.0 support on Microsoft Azure. There is a set of mandatory requirements, which
-has to be followed to comply with the official certification :
+has to be followed to comply with the official certification:
 
 - DT 2.0 must be installed on a dedicated Azure VM. It may not run on the same VM where SAP HANA runs
 - SAP HANA and DT 2.0 VMs must be deployed within the same Azure Vnet
 - The SAP HANA and DT 2.0 VMs must be deployed with Azure accelerated networking enabled
 - Storage type for the DT 2.0 VMs must be Azure Premium Storage
 - Multiple Azure disks must be attached to the DT 2.0 VM
-- It's required to create a software raid / striped volume ( either via lvm or mdadm ) using striping across the Azure disks
+- It's required to create a software raid / striped volume (either via lvm or mdadm) using striping across the Azure disks
 
 More details will be explained in the following sections.
 
@@ -369,16 +369,17 @@ More details will be explained in the following sections.
 ### Dedicated Azure VM for SAP HANA DT 2.0
 
 On Azure IaaS, DT 2.0 is only supported on a dedicated VM. It is not allowed to run DT 2.0 on the same Azure VM where the HANA
-instance is running. Initially two VM types can be used to run SAP HANA DT 2.0 :
+instance is running. Initially two VM types can be used to run SAP HANA DT 2.0:
 
-M64-32ms, E32sv3 
+- M64-32ms 
+- E32sv3 
 
 See VM type description [here](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory)
 
 Given the basic idea of DT 2.0, which is about offloading "warm" data in order to save costs it makes sense to use corresponding
 VM sizes. There is no strict rule though regarding the possible combinations. It depends on the specific customer workload.
 
-Recommended configurations would be :
+Recommended configurations would be:
 
 | SAP HANA VM type | DT 2.0 VM type |
 | --- | --- | 
@@ -388,7 +389,7 @@ Recommended configurations would be :
 | M64s | E32sv3 |
 
 
-All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs (M64-32ms, E32sv3) are possible.
+All combinations of SAP HANA-certified M-series VMs with supported DT 2.0 VMs (M64-32ms and E32sv3) are possible.
 
 
 ### Azure networking and SAP HANA DT 2.0
@@ -401,10 +402,10 @@ See additional information about Azure accelerated networking [here](https://doc
 ### VM Storage for SAP HANA DT 2.0
 
 According to DT 2.0 best practice guidance, the disk IO throughput should be minimum 50 MB/sec per physical core. Looking at the spec for the two 
-Azure VM types, which are supported for DT 2.0 one will see the maximum disk IO throughput limit for the VM :
+Azure VM types, which are supported for DT 2.0 one will see the maximum disk IO throughput limit for the VM:
 
-- E32sv3    :   768 MB/sec ( uncached ) which means a ratio of 48 MB/sec per physical core
-- M64-32ms  :  1000 MB/sec ( uncached ) which means a ratio of 62.5 MB/sec per physical core
+- E32sv3    :   768 MB/sec (uncached) which means a ratio of 48 MB/sec per physical core
+- M64-32ms  :  1000 MB/sec (uncached) which means a ratio of 62.5 MB/sec per physical core
 
 It is required to attach multiple Azure disks to the DT 2.0 VM and create a software raid (striping) on OS level to achieve the max limit of disk throughput 
 per VM. A single Azure disk cannot provide the throughput to reach the max VM limit in this regard. Azure Premium storage is mandatory to run DT 2.0. 
@@ -416,9 +417,9 @@ per VM. A single Azure disk cannot provide the throughput to reach the max VM li
 Depending on size requirements, there are different options to reach the max throughput of a VM. Here are possible data volume disk configurations 
 for every DT 2.0 VM type to achieve the upper VM throughput limit. The E32sv3 VM should be considered as an entry level for smaller workloads. In case it
 should turn out that it's not fast enough it might be necessary to resize the VM to M64-32ms.
-As the M64-32ms VM has much memory, the IO load might not reach the limit especially for read intensive workloads. Therefore less disks in the stripe set
+As the M64-32ms VM has much memory, the IO load might not reach the limit especially for read intensive workloads. Therefore fewer disks in the stripe set
 might be sufficient depending on the customer specific workload. But to be on the safe side the disk configurations below were chosen to guarantee the
-maximum throughput :
+maximum throughput:
 
 
 | VM SKU | Disk Config 1 | Disk Config 2 | Disk Config 3 | Disk Config 4 | Disk Config 5 | 
@@ -431,13 +432,13 @@ Especially in case the workload is read-intense it could boost IO performance to
 data volumes of database software. Whereas for the transaction log Azure host disk cache must be "none". 
 
 Regarding the size of the log volume a recommended starting point is a heuristic of 15% of the data size. The creation of the log volume  can be accomplished by using different
-Azure disk types depending on cost and throughput requirements. Also for the log volume high throughput is preferred and in case of M64-32ms it is 
-strongly recommended to turn Write Accelerator on (which is mandatory for SAP HANA). This provides optimal disk write latency for the transaction
-log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about WA can be
+Azure disk types depending on cost and throughput requirements. For the log volume high I/O throughput is required.  In case of using the VM type M64-32ms it is 
+strongly recommended to enable [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/linux/how-to-enable-write-accelerator). Azure Write Accelerator provides optimal disk write latency for the transaction
+log (only available for M-series). There are some items to consider though like the maximum number of disks per VM type. Details about Write Accelerator can be
 found [here](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator)
 
 
-Here are a few examples about sizing the log volume :
+Here are a few examples about sizing the log volume:
 
 | data volume size and disk type | log volume and disk type config 1 | log volume and disk type config 2 |
 | --- | --- | --- |

@@ -61,7 +61,7 @@ Throughout the document, the following terms are used:
 * SAP Component: An individual SAP application such as ECC, BW, Solution Manager, or EP.  SAP components can be based on traditional ABAP or Java technologies or a non-NetWeaver based application such as Business Objects.
 * SAP Environment: one or more SAP components logically grouped to perform a business function such as Development, QAS, Training, DR, or Production.
 * SAP Landscape: This term refers to the entire SAP assets in a customer's IT landscape. The SAP landscape includes all production and non-production environments.
-* SAP System: The combination of DBMS layer and application layer of, for example, an SAP ERP development system, SAP BW test system, SAP CRM production system, etc. In Azure deployments, it is not supported to divide these two layers between on-premises and Azure. This means an SAP system is either deployed on-premises or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape in Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but the SAP CRM production system on-premises.
+* SAP System: The combination of DBMS layer and application layer of, for example, an SAP ERP development system, SAP BW test system, SAP CRM production system, etc. In Azure deployments, it is not supported to divide these two layers between on-premises and Azure. As a result, an SAP system is either deployed on-premises or it is deployed in Azure. However, you can deploy the different systems of an SAP landscape in Azure or on-premises. For example, you could deploy the SAP CRM development and test systems in Azure but the SAP CRM production system on-premises.
 * Cross-Premises: Describes a scenario where VMs are deployed to an Azure subscription that has site-to-site, multi-site, or ExpressRoute connectivity between the on-premises datacenter(s) and Azure. In common Azure documentation, these kinds of deployments are also described as Cross-Premises scenarios. The reason for the connection is to extend on-premises domains, on-premises Active Directory, and on-premises DNS into Azure. The on-premises landscape is extended to the Azure assets of the subscription. Having this extension, the VMs can be part of the on-premises domain. Domain users of the on-premises domain can access the servers and can run services on those VMs (like DBMS services). Communication and name resolution between VMs deployed on-premises and VMs deployed in Azure is possible. This scenario is the most common scenario for deploying SAP assets on Azure. For more information, see [Planning and design for VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 > [!NOTE]
@@ -158,7 +158,7 @@ As already stated, if your IOPS requirement exceeds what a single VHD can provid
 >
 
 ### Managed or non-managed disks
-An Azure Storage Account is not only an administrative construct, but also a subject of limitations. The limitations are different between Azure Standard Storage Accounst and Azure Premium Storage Accounts. The exact capabilities and limitations are listed in the article [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
+An Azure Storage Account is not only an administrative construct, but also a subject of limitations. The limitations are different between Azure Standard Storage Account and Azure Premium Storage Accounts. The exact capabilities and limitations are listed in the article [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)
 
 For Azure Standard Storage, it is important to recall that there is a limit on the IOPS per storage account (Row containing **Total Request Rate** in the article [Azure Storage Scalability and Performance Targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets)). In addition, there is an initial limit of the number of Storage Accounts per Azure subscription. Therefore, you need to balance VHDs for larger SAP landscape across different storage accounts to avoid hitting the limits of these storage accounts. A tedious work when you are talking about a few hundred virtual machines with more than thousand VHDs. 
 
@@ -324,7 +324,7 @@ In order to further reduce network latency between Azure VMs, it is highly recom
 ## Deployment of Host Monitoring
 For production usage of SAP Applications in Azure Virtual Machines, SAP requires the ability to get host monitoring data from the physical hosts running the Azure Virtual Machines. A specific SAP Host Agent patch level is required that enables this capability in SAPOSCOL and SAP Host Agent. The exact patch level is documented in SAP Note [1409604].
 
-For the details regarding deployment of components that deliver host data to SAPOSCOL and SAP Host Agent and the life cycle management of those components, refer to the [Deployment Guide][deployment-guide]
+For the details regarding deployment of components that deliver host data to SAPOSCOL and SAP Host Agent and the life-cycle management of those components, refer to the [Deployment Guide][deployment-guide]
 
 
 ## Next Steps
@@ -334,7 +334,7 @@ For documentation on particular DBMS, consult these articles:
 - [Oracle Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_oracle.md)
 - [IBM DB2 Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_ibm.md)
 - [SAP ASE Azure Virtual Machines DBMS deployment for SAP workload](dbms_guide_sapase.md)
-- [SAP maxDB, Live Cache and Content Server deployment on Azure](dbms_guide_maxdb.md)
+- [SAP maxDB, Live Cache, and Content Server deployment on Azure](dbms_guide_maxdb.md)
 - [SAP HANA on Azure operations guide](hana-vm-operations.md)
 - [SAP HANA high availability for Azure virtual machines](sap-hana-availability-overview.md)
 - [Backup guide for SAP HANA on Azure Virtual Machines](sap-hana-backup-guide.md)
