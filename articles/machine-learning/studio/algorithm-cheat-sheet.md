@@ -23,7 +23,7 @@ The **Azure Machine Learning Algorithm Cheat Sheet** helps you choose the right 
 
 ## Download: Machine learning algorithm cheat sheet
 
-**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](http://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
+**Download the cheat sheet here: [Machine Learning Algorithm Cheat Sheet (11x17 in.)](https://download.microsoft.com/download/A/6/1/A613E11E-8F9C-424A-B99D-65344785C288/microsoft-machine-learning-algorithm-cheat-sheet-v7.pdf)**
 
 ![Machine learning algorithm cheat sheet: Learn how to choose a Machine Learning algorithm.][cheat-sheet]
 

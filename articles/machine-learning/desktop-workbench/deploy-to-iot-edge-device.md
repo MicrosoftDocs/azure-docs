@@ -16,7 +16,7 @@ ms.date: 08/24/2018
 
 Azure Machine Learning models can be containerized as Docker-based web services. Azure IoT Edge enables you to deploy containers remotely onto devices. Use these services together to run your models at the edge for faster response times and less data transfer. 
 
-Additional scripts and instructions can be found in the [AI Toolkit for Azure IoT Edge](http://aka.ms/AI-toolkit).
+Additional scripts and instructions can be found in the [AI Toolkit for Azure IoT Edge](https://aka.ms/AI-toolkit).
 
 ## Operationalize the model
 

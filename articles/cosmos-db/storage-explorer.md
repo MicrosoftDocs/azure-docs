@@ -127,7 +127,7 @@ By right-clicking on a subscription in the Explorer pane, you can perform many q
 
 2. Select **Unlimited** to be able to specify partition key, then click **OK** to finish.
 
-    If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection. For information on partition key settings, see [Design for partitioning](partition-data.md#designing-for-partitioning).
+    If a partition key is used when creating a collection, once creation is completed, the partition key value can't be changed on the collection.
 
     ![Partition key](./media/storage-explorer/partitionkey.png)
 

@@ -19,7 +19,7 @@ ms.author: pbutlerm
 
 # IoT Edge module offer publishing overview
 
-<table> <tr> <td>This section explains how to publish a new Azure IoT Edge module offer to the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>. An IoT Edge module is a Docker-compatible container that's made to run on an IoT Edge device. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services or custom solution-specific code. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
+<table> <tr> <td>This section explains how to publish a new Azure IoT Edge module offer to the Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a>. An IoT Edge module is a Docker-compatible container that's made to run on an IoT Edge device. Azure IoT Edge modules are the smallest unit of computation managed by IoT Edge, and can contain Azure services or custom solution code. </td> <td><img src="./media/iotedge-icon1.png"  alt="Azure IoT Edge module icon" /></td> </tr> </table>
 
 ## Publishing process
 
