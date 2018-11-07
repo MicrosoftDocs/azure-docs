@@ -77,7 +77,7 @@ In the **SETTINGS** section:
 * Virtual network resource group, name, and subnet name - Type the names of existing resources (if using an existing vnet) or type new names if creating a new vnet
 * **Controller name** - Set a name for the controller VM
 * Controller administrator username - The default is `azureuser`
-* SSH key - Paste the public key to associate with the administrator username. Read [How to create and use SSH keys](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) if you need help.
+* SSH key - Paste the public key to associate with the administrator username. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.
 
 Under **TERMS AND CONDITIONS**: 
 
@@ -120,7 +120,7 @@ In the first panel, fill in or confirm these basic options:
   * Select either Username/Password or SSH public key (recommended).
   
     > [!TIP] 
-    > An SSH key is more secure. Read [How to create and use SSH keys](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows) if you need help. 
+    > An SSH key is more secure. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help. 
   * Specify the username 
   * Paste the SSH key, or enter and confirm the password
 * **Inbound port rules** - If using a public IP address, open port 22 (SSH)
