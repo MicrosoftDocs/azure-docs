@@ -26,13 +26,13 @@ When new items are added to the container or if the throughput provisioned on th
 
 ## Physical partitions
 
-A Cosmos container is scaled by distributing the data and the throughput across a large number of logical partitions. Internally, one or more logical partitions are mapped to a **resource partition** that consists of a set of replicas also referred to as a replica-set. Each replica-set hosts an instance of the Cosmos database engine. A replica-set makes the data stored within the resource partition durable, highly available, and consistent. A resource partition supports a fixed, maximum amount of storage and RUs. Each replica comprising the resource partition inherits the storage quota. And all replicas of a resource partition collectively support the throughput allocated to the resource partition. The following image shows how logical partitions are mapped to resource partitions that are distributed globally:
+A Cosmos container is scaled by distributing the data and the throughput across a large number of logical partitions. Internally, one or more logical partitions are mapped to a **resource partition** that consists of a set of replicas also referred to as a replica-set. Each replica-set hosts an instance of the Cosmos database engine. A replica-set makes the data stored within the resource partition durable, highly available, and consistent. A resource partition supports a fixed, maximum amount of storage and RUs. Each replica comprising the resource partition inherits the storage quota. And all replicas of a resource partition collectively support the throughput allocated to the resource partition. The following image shows how logical partitions are mapped to physical partitions that are distributed globally:
 
 ![Azure Cosmos DB partitioning](./media/partition-data/logical-partitions.png)
 
-Throughput provisioned for a container is divided evenly among the resource partitions. Therefore a partition key design that doesn't distribute the throughput requests evenly can create "hot" partitions. Hot partitions can result in rate-limiting and inefficient use of the provisioned throughput.
+Throughput provisioned for a container is divided evenly among the physical partitions. Therefore a partition key design that doesn't distribute the throughput requests evenly can create "hot" partitions. Hot partitions can result in rate-limiting and inefficient use of the provisioned throughput.
 
-Unlike logical partitions, resource partitions are an internal implementation of the system. You can't control their size, placement, the count, or the mapping between the logical partitions and the resource partitions. However, you can control the number of logical partitions and the distribution of data and throughput by choosing the right partition key.
+Unlike logical partitions, physical partitions are an internal implementation of the system. You can't control their size, placement, the count, or the mapping between the logical partitions and the physical partitions. However, you can control the number of logical partitions and the distribution of data and throughput by choosing the right partition key.
 
 ## Next steps
 
