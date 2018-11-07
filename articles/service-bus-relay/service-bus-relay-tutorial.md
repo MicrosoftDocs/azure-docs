@@ -90,7 +90,7 @@ The service contract specifies what operations (the web service terminology for 
     ```
 
    > [!NOTE]
-   > Typically, the service contract namespace contains a naming scheme that includes version information. Including version information in the service contract namespace enables services to isolate major changes by defining a new service contract with a new namespace and exposing it on a new endpoint. In this manner, clients can continue to use the old service contract without having to be updated. Version information can consist of a date or a build number. For more information, see [Service Versioning](http://go.microsoft.com/fwlink/?LinkID=180498). For the purposes of this tutorial, the naming scheme of the service contract namespace does not contain version information.
+   > Typically, the service contract namespace contains a naming scheme that includes version information. Including version information in the service contract namespace enables services to isolate major changes by defining a new service contract with a new namespace and exposing it on a new endpoint. In this manner, clients can continue to use the old service contract without having to be updated. Version information can consist of a date or a build number. For more information, see [Service Versioning](https://go.microsoft.com/fwlink/?LinkID=180498). For the purposes of this tutorial, the naming scheme of the service contract namespace does not contain version information.
    >
    >
 8. Within the `IEchoContract` interface, declare a method for the single operation the `IEchoContract` contract exposes in the interface and apply the `OperationContractAttribute` attribute to the method that you want to expose as part of the public WCF Relay contract, as follows:
