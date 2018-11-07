@@ -35,15 +35,6 @@ The TTL value is set in seconds and is interpreted as a delta from the time that
 
 TTL based deletion is completely free. There is no additional cost (i.e., no RUs are consumed) when item is deleted due to TTL expiration.
 
-## TTL supported APIs and client SDKs
-
-| Client drivers | SQL API | Cassandra API | MongoDB API | Gremlin API | Table API |
-|---------|---------|---------|---------|---------|---------|
-| .NET | Yes | No | No | No | No |
-| Java | Yes | No | No | No | No |
-| Python | Yes | No | No | No | No |
-| Node/JS | Yes | No | No | No | No |
-
 ## Next steps
 
 Learn more about time to live in the following articles:

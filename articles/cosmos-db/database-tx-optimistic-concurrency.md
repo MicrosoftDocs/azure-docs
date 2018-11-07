@@ -46,17 +46,6 @@ The JavaScript-based stored procedures, triggers, UDFs and merge procedures are 
 
 The ability to execute JavaScript directly within the database engine enables performant and transactional execution of database operations against the items of a container. Furthermore, since Cosmos DB database engine natively supports JSON and JavaScript, there is no impedance mismatch between the type systems of an application and the database.
 
-## Database transactions supported APIs and client SDKs
-
-This feature is currently supported by the following Cosmos DB APIs and client SDKs.
-
-| Client drivers | SQL API | Cassandra API | MongoDB API | Gremlin API | Table API |
-|---------|---------|---------|---------|---------|---------|
-| .NET | Yes | No | No | No | No |
-| Java | Yes | No | No | No | No |
-| Python | Yes | No | No | No | No |
-| Node/JS | Yes | No | No | No | No |
-
 ## Optimistic concurrency control to prevent lost updates and deletes
 
 The previous section gave an overview of how concurrent operations within a logical partition are executed under an ACID transaction. Concurrent, conflicting operations are subjected to the regular pessimistic locking (as a part of the transaction manager) of the database engine hosted by the logical partition owning the item. When two concurrent operations attempting to update the latest version of an item within a logical partition, one of them will win and the other will fail. But what if one or two operations attempting to concurrently update the same item had previously read an older value of the item (instead of the latest value)? In such a case, the database doesn’t know if the previously read value by either or both the conflicting operations was indeed the latest value of the item. Fortunately, this situation can be detected even before letting the two operations enter the transaction boundary inside the database engine with the Optimistic Concurrency Control (OCC). OCC protects your data from accidentally overwriting changes that were made by others; it also prevents others from accidentally overwriting your own changes.
@@ -66,17 +55,6 @@ The concurrent updates of an item by multiple clients are subjected to the OCC b
 Every item stored in a Cosmos container has a system defined `__etag` property. The value of the `__etag` is automatically generated and updated by the server every time the item is updated. `__etag` can be used with the client supplied if-match request header to allow the server to decide whether an item can be conditionally updated. The value of the if-match header matches the value of the `__etag` at the server, the item is then updated. If the value of the if-match request header is no longer current, the server rejects the operation with an "HTTP 412 Precondition failure" response message. The client then can re-fetch the item to acquire the current version of the item on the server or overrides the server version with its own `__etag` value for the item. In addition, `__etag` can be used with the if-none-match header to determine whether a re-fetch of a resource is needed. See [how to use optimistic concurrency control](tbd.md).
 
 The item’s __etag value changes every time the item is updated. For replace item operations, if-match must be explicitly expressed as a part of the request options. You can [see sample code here](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/DocumentManagement/Program.cs#L398-L446). `__etag` values are implicitly checked for all written items touched by a stored procedure. If any conflict is detected, the stored procedure will rollback the transaction (all writes within the stored procedure are applied atomically – all or none) and will throw an exception. This is a signal to the application to re-apply updates and retry the original client request.
-
-## Optimistic concurrency control supported APIs and client SDKs
-
-This feature is currently supported by the following Cosmos DB APIs and client SDKs.
-
-| Client drivers | SQL API | Cassandra API | MongoDB API | Gremlin API | Table API |
-|---------|---------|---------|---------|---------|---------|
-| .NET | Yes | No | No | No | Yes |
-| Java | Yes | No | No | No | Yes |
-| Python | Yes | No | No | No | Yes |
-| Node/JS | Yes | No | No | No | Yes |
 
 ## Next steps
 
