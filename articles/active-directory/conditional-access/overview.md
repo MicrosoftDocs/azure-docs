@@ -108,4 +108,4 @@ Using conditional access requires an Azure AD Premium license. To find the right
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
 
-- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](http://aka.ms/conditionalaccessdeploymentplan)
+- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](https://aka.ms/conditionalaccessdeploymentplan)

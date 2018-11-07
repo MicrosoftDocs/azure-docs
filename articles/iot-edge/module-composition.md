@@ -169,7 +169,7 @@ The deployment manifest can specify desired properties for the module twin of ea
 
 If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub will not modify the module twin in any way, and you will be able to set the desired properties programmatically.
 
-The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [device twin developer guide](../iot-hub/iot-hub-devguide-device-twins.md).   
+The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [module twin developer guide](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## Deployment manifest example
 
