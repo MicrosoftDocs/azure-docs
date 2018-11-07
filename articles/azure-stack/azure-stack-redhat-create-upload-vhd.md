@@ -26,7 +26,7 @@ For Red Hat Enterprise Linux support information, refer to [Red Hat and Azure St
 
 ## Prepare a Red Hat-based virtual machine from Hyper-V Manager
 
-This section assumes that you already have an ISO file from the Red Hat website and installed the RHEL image to a virtual hard disk (VHD). For more information about how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](http://technet.microsoft.com/library/hh846766.aspx).
+This section assumes that you already have an ISO file from the Red Hat website and installed the RHEL image to a virtual hard disk (VHD). For more information about how to use Hyper-V Manager to install an operating system image, see [Install the Hyper-V Role and Configure a Virtual Machine](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### RHEL installation notes
 
