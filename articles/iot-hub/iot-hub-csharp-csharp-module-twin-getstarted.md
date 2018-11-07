@@ -34,6 +34,8 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+### Retrieve connection string for IoT hub
+
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 You have now created your IoT hub, and you have the host name and IoT Hub connection string that you need to complete the rest of this tutorial.

@@ -41,6 +41,8 @@ To complete this tutorial, you need the following:
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
+### Retrieve connection string for IoT hub
+
 [!INCLUDE [iot-hub-include-find-connection-string](../../includes/iot-hub-include-find-connection-string.md)]
 
 ## Create a simulated device app
