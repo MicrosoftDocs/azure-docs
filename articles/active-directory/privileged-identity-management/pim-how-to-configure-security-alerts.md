@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 11/07/2018
+ms.date: 11/08/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -50,6 +50,15 @@ This section lists all the security alerts for directory roles, along with how t
 | **How to fix?** | Review the list of roles and [require MFA](pim-how-to-change-default-settings.md) for every role. |
 | **Prevention** | [Require MFA](pim-how-to-change-default-settings.md) for every role.  |
 | **In-portal mitigation action** | Makes MFA required for activation of the privileged role. |
+
+### The tenant doesn't have Azure AD Premium P2
+
+| | |
+| --- | --- |
+| **Severity** | Low |
+| **Why do I get this alert?** | The current tenant does not have Azure AD Premium P2. |
+| **How to fix?** | Review information about [Azure AD editions](../fundamentals/active-directory-whatis.md). |
+| **Prevention** | Upgrade to Azure AD Premium P2.  |
 
 ### Roles are being assigned outside of PIM
 
