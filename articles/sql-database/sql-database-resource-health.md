@@ -26,22 +26,22 @@ Resource Health determines the health of your SQL resource by examining the succ
 ## Health States
 
 ### Available
-A status of Available means that Resource Health has not detected logins failures to your SQL resource.
+A status of **Available** means that Resource Health has not detected logins failures to your SQL resource.
 
 ![Available](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
 ### Degraded
-A status of Degraded means that Resource Health has detected a majority of successful logins, but some failures as well. These are most likely transient login errors. To reduce the impact of connection issues caused by transient login errors, please implement [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) in your code.
+A status of **Degraded** means that Resource Health has detected a majority of successful logins, but some failures as well. These are most likely transient login errors. To reduce the impact of connection issues caused by transient login errors, please implement [retry logic](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors) in your code.
 
 ![Degraded](./media/sql-database-resource-health/sql-resource-health-degraded.jpg)
 
 ### Unavailable
-A status of Unavailable means that Resource Health has detected consistent login failures to your SQL resource. If your resource remains in this state for an extended period of time, please contact support.
+A status of **Unavailable** means that Resource Health has detected consistent login failures to your SQL resource. If your resource remains in this state for an extended period of time, please contact support.
 
 ![Unavailable](./media/sql-database-resource-health/sql-resource-health-unavailable.jpg)
 
 ### Unknown
-The health status of Unknown indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process.
+The health status of **Unknown** indicates that Resource Health hasn't received information about this resource for more than 10 minutes. Although this status isn't a definitive indication of the state of the resource, it is an important data point in the troubleshooting process.
 If the resource is running as expected, the status of the resource will change to Available after a few minutes.
 If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
 
@@ -58,8 +58,8 @@ The Azure infrastructure periodically performs planned maintenance – upgrade o
 Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing, upgrades, software or hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next Steps
-Learn more about [retry logic for transient errors](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
-[Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md)
-Learn more about [configuring Resource Health alerts](/articles/service-health/resource-health-alert-arm-template-guide.md)
-Get an overview of [Resource Health](/articles/service-health/resource-health-overview.md)
-[Resource Health FAQ](/articles/service-health/resource-health-faq.md) 
+* Learn more about [retry logic for transient errors](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
+* [Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md)
+* Learn more about [configuring Resource Health alerts](/articles/service-health/resource-health-alert-arm-template-guide.md)
+* Get an overview of [Resource Health](/articles/service-health/resource-health-overview.md)
+* [Resource Health FAQ](/articles/service-health/resource-health-faq.md) 
