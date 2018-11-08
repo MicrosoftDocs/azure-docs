@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
 
 ---
@@ -122,6 +122,26 @@ A LiveEvent supports up to three concurrently running LiveOutputs so you can cre
 Once you have the stream flowing into the LiveEvent, you can begin the streaming event by creating an Asset, LiveOutput, and StreamingLocator. This will archive the stream and make it available to viewers through the [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints).
 
 When your Media Services account is created a default streaming endpoint is added to your account in the Stopped state. To start streaming your content and take advantage of dynamic packaging and dynamic encryption, the streaming endpoint from which you want to stream content has to be in the Running state.
+
+## Latency
+
+This section discusses typical results that you see when using the low latency settings and various players. The results vary based on CDN and network latency.
+
+To use the new LowLatency feature, you can set the **StreamOptionsFlag** to **LowLatency** on the LiveEvent. Once the stream is up and running, you can use the [Azure Media Player](http://ampdemo.azureedge.net/) (AMP) demo page, and set the playback options to use the "Low Latency Heuristics Profile".
+
+### Pass-through LiveEvents
+
+||2s GOP low latency enabled|1s GOP low latency enabled|
+|---|---|---|
+|DASH in AMP|10s|8s|
+|HLS on native iOS player|14s|10s|
+|HLS.JS in Mixer Player|30s|16s|
+
+### Basic LiveEvents (live encoding with Media Services)
+
+||2s GOP low latency enabled|1s GOP low latency enabled|
+|---|---|---|
+||||
 
 ## Billing
 
