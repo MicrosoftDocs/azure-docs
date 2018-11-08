@@ -265,17 +265,19 @@ The following fields are sent in the HTTP request header.
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. See [Authentication](#authentication) for additional information. | Either this header or `Ocp-Apim-Subscription-Key` is required. |
-| `Content-type` | Describes the format and codec of the provided audio data. This value must be `audio/wav; codec=audio/pcm; samplerate=16000`. | Required |
-| `Transfer-Encoding` | If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.| Optional |
-| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.|
-| `Accept` | Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`.)|
+| `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codec=audio/pcm; samplerate=16000` and `audio/ogg; codec=audio/pcm; samplerate=16000`. | Required |
+| `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
+| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
+| `Accept` | If provided, it must be `application/json`. The Speech Service provides results in JSON. Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`. | Optional, but recommended. | 
 
 ### Audio formats
 
-The audio is sent in the body of the HTTP `POST` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
+Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
-* WAV format with PCM codec
-* Ogg format with OPUS codec
+| Format | Codec | Bitrate | Sample Rate |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 16 kHz, mono |
+| OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec.
