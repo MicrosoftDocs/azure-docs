@@ -49,16 +49,16 @@ The connections category tracks device connect and disconnect events from an IoT
 {
 	"records":
 	[
-	{
-	    "time": "UTC timestamp",
-	    "resourceId": "Resource Id",
-	    "operationName": "deviceConnect",
-	    "category": "Connections",
-	    "level": "Information",
-	    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
-	    "location": "Resource location"
-        }
-    ]
+		{
+		    "time": "UTC timestamp",
+		    "resourceId": "Resource Id",
+		    "operationName": "deviceConnect",
+		    "category": "Connections",
+		    "level": "Information",
+		    "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}", 
+		    "location": "Resource location"
+	        }
+	]
 }
 ```
 
