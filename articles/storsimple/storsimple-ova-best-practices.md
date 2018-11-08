@@ -245,7 +245,7 @@ Keep the following best practices in mind when deactivating your virtual array:
 ### Monitoring
 To ensure that your StorSimple Virtual Array is in a continuous healthy state, you need to monitor the array and ensure that you receive information from the system including alerts. To monitor the overall health of the virtual array, implement the following best practices:
 
-* Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager (SCOM) to monitor your virtualization hosts.
+* Configure monitoring to track the disk usage of your virtual array data disk as well as the OS disk. If running Hyper-V, you can use a combination of System Center Virtual Machine Manager (SCVMM) and System Center Operations Manager to monitor your virtualization hosts.
 * Configure email notifications on your virtual array to send alerts at certain usage levels.                                                                                                                                                                                                
 
 ### Index search and virus scan applications
