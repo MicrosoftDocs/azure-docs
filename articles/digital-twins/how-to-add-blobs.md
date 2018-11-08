@@ -56,7 +56,7 @@ The four main JSON schemas used are:
 * BlobMetadataCreate
 * BlobMetadataUpdate
 
-Consult your supplied Swagger instance for more information about the right JSON schemas to use:
+For more information, see your Swagger reference documentation:
 
 ![Space blobs][1]
 
@@ -146,10 +146,10 @@ yourManagementApiUrl/devices/blobs/{id}
 
 Successful requests will return a DeviceBlob JSON object in the response. DeviceBlobs conform to the following JSON schema:
 
-|SpaceBlob Attribute | Type | Description | Examples |
+| Attribute name | Type | Description | Examples |
 | --- | --- | --- | --- |
 | DeviceBlobType | String | A Blob category that can be attached to a Device | `Model` and `Specification` |
-| DeviceBlobSubtype* | String | A **Blob** subcategory that is more granular than *DeviceBlobType* | `"PhysicalModel"`, `"LogicalModel"`, `"KitSpecification"`, and `"FunctionalSpecification"` |
+| DeviceBlobSubtype* | String | A Blob subcategory that is more granular than DeviceBlobType | `PhysicalModel`, `LogicalModel`, `KitSpecification`, and `FunctionalSpecification` |
 
 > [!TIP]
 > Use the table above to handle successfully returned request data.
@@ -174,7 +174,7 @@ Making PATCH request to the same endpoint will allow you to update a metadata de
 
 Successful operations will return a SpaceBlob that conforms to the following schema and can be used to consume returned data:
 
-|SpaceBlob attribute | Type | Description | Examples |
+| Attribute name | Type | Description | Examples |
 | --- | --- | --- | --- |
 | SpaceBlobType | String | A Blob category that can be attached to a Space | `Map` and `Image` |
 | SpaceBlobSubtype | String | A Blob subcategory that is more granular than SpaceBlobType | `GenericMap`, `ElectricalMap`, `SatelliteMap`, and `WayfindingMap` |
@@ -197,7 +197,7 @@ yourManagementApiUrl/users/blobs/{id}
 
 Returned JSON (UserBlobs) will conform to the following JSON models:
 
-|SpaceBlob attribute | Type | Description | Examples |
+| Attribute name | Type | Description | Examples |
 | --- | --- | --- | --- |
 | UserBlobType | String | A Blob category that can be attached to a User | `Image` and `Video` |
 | UserBlobSubtype |  String | A Blob subcategory that is more granular than UserBlobType | `ProfessionalImage`, `VacationImage`, and `CommercialVideo` |
