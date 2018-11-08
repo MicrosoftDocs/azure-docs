@@ -1,6 +1,6 @@
 ---
 title: Deploy the remote monitoring solution locally (via Visual Studio IDE) - Azure | Microsoft Docs 
-description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine for testing and development.
+description: This how-to guide shows you how to deploy the remote monitoring solution accelerator to your local machine using Visual Studio for testing and development.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -14,7 +14,7 @@ ms.topic: conceptual
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. The article shows you how to run the microservices in Visual Studio. A local microservices deployment uses the following cloud services: IoT Hub, Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
+This article shows you how to deploy the Remote Monitoring solution accelerator to your local machine for testing and development. You learn how to run the microservices in Visual Studio. A local microservices deployment uses the following cloud services: IoT Hub, Cosmos DB, Azure Streaming Analytics, and Azure Time Series Insights services in the cloud.
 
 If you want to run the Remote Monitoring solution accelerator in Docker on your local machine, see [Deploy the Remote Monitoring solution accelerator locally - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -110,14 +110,4 @@ You can also delete the local copy of the Remote Monitoring repository created w
 
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up a local development environment
-> * Configure the solution accelerator
-> * Deploy the solution accelerator
-> * Sign in to the solution accelerator
-
 Now that you've deployed the Remote Monitoring solution, the next step is to [explore the capabilities of the solution dashboard](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->
