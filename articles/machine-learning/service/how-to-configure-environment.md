@@ -204,6 +204,8 @@ To use Visual Studio Code for development, use the following steps:
 
 1. To install the Visual Studio code Tools for AI extension, see the [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) page.
 
+For more information, see the [Use VS Code Tools for AI with Azure Machine Learning](how-to-vscode-tools.md) document.
+
 ## <a id="workspace"></a>Create a workspace configuration file
 
 The workspace configuration file is a JSON document that tells the SDK how to communicate with your Azure Machine Learning service workspace. The file is named `config.json` and it has the following format:
