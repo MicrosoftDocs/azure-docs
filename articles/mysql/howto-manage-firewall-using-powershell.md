@@ -1,17 +1,3 @@
----
-title: Create and manage Azure Database for MySQL firewall rules using PowerShell
-description: This article describes how to create and manage Azure Database for MySQL firewall rules using PowerShell.
-services: mysql
-author: lwsrbrts
-ms.author: 
-manager: 
-editor: 
-ms.service: mysql
-ms.devlang: azure-powershell
-ms.topic: article
-ms.date: 11/08/2018
----
-
 # Create and manage Azure Database for MySQL firewall rules using PowerShell
 Server-level firewall rules allow administrators to manage access to an Azure Database for MySQL Server from a specific IP address or a range of IP addresses. Using PowerShell, you can create, update, delete, list, and show firewall rules to manage your MySQL server. For an overview of Azure Database for MySQL firewalls, see [Azure Database for MySQL server firewall rules](./concepts-firewall-rules.md)
 
