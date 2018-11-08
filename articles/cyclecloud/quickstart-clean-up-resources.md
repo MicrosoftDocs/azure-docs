@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart | Microsoft Docs
+title: Azure CycleCloud Quickstart | Microsoft Docs
 description: In this quickstart, you will clean up your resources acquired in the previous quickstarts
 services: azure cyclecloud
 author: KimliW
@@ -10,7 +10,7 @@ ms.date: 08/01/2018
 ms.author: adjohnso
 ---
 
-# Azure CycleCloud QuickStart 4: Clean Up Resources
+# Azure CycleCloud Quickstart 4: Clean Up Resources
 
 > [!NOTE]
 > If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled. Follow the steps below to free up resources.

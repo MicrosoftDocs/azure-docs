@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart - Install and Setup CycleCloud | Microsoft Docs
+title: Azure CycleCloud Quickstart - Install and Setup CycleCloud | Microsoft Docs
 description: In this quickstart, you will install and setup Azure CycleCloud
 services: azure cyclecloud
 author: KimliW
@@ -10,9 +10,9 @@ ms.date: 08/01/2018
 ms.author: adjohnso
 ---
 
-# Azure CycleCloud QuickStarts
+# Azure CycleCloud Quickstarts
 
-There are four parts to the Azure CycleCloud QuickStart:
+There are four parts to the Azure CycleCloud Quickstart:
 
 1. Install and setup CycleCloud on a Virtual Machine
 2. Configure and create a simple HPC cluster consisting of a job scheduler and an NFS file server, and create a usage alert to monitor cost
@@ -21,7 +21,7 @@ There are four parts to the Azure CycleCloud QuickStart:
 
 Working through all the quickstarts should take 60 to 90 minutes. You will get the most out of them if they are done in order. As most HPC environments run on Linux, this quickstart assumes basic Linux familiarity.
 
-## QuickStart 1: Install and Setup Azure CycleCloud
+## Quickstart 1: Install and Setup Azure CycleCloud
 
 Azure CycleCloud is a free application that provides a simple, secure, and scalable way to manage compute and storage resources for HPC and Big Compute/Data workloads. In this quickstart, you will install CycleCloud on Azure resources, using an Azure Resource Manager (ARM) template that is stored on GitHub. The ARM template:
 
@@ -135,7 +135,7 @@ The Azure CycleCloud End User License Agreement will be displayed - click to acc
 
 Once you have created your user, you may want to set your SSH key so that you can more easily access any Linux VMs created by CycleCloud. To add an SSH key, edit your profile by clicking on your name in the upper right hand corner of the screen.
 
-That's the end of QuickStart 1, which covered the installation and setup of Azure CycleCloud via ARM Template.
+That's the end of Quickstart 1, which covered the installation and setup of Azure CycleCloud via ARM Template.
 
 > [!div class="nextstepaction"]
 > [Continue to Quickstart 2](quickstart-create-and-run-cluster.md)

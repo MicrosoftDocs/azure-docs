@@ -4,7 +4,7 @@
   items:
   - name: What is Azure CycleCloud?
     href: overview.md
-- name: QuickStarts
+- name: Quickstarts
   items:
   - name: Install and Setup
     href: quickstart-install-cyclecloud.md
