@@ -212,8 +212,7 @@ This method gives you the most control over creating and naming the components i
 
 You can now test the web service.
 
-<a name='test-web-service'/>
-## Test the web service
+## <a name='test-web-service'/>Test the web service
 
 The web service is the same no matter which method was used.  To get predictions, use the `run` method of the service.  
 
