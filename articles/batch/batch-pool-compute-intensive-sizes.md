@@ -1,7 +1,6 @@
 ---
 title: Use compute-intensive Azure VMs with Batch | Microsoft Docs
-description: How to take advantage of RDMA-capable or GPU-enabled VM sizes in Azure Batch pools
-services: batch
+description: How to take advantage of HPC and GPU VM sizes in Azure Batch pools
 documentationcenter: ''
 author: dlepow
 manager: jeconnoc
@@ -13,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/01/2018
+ms.date: 11/07/2018
 ms.author: danlep
 
 
 ---
-# Use RDMA-capable or GPU-enabled instances in Batch pools
+# Use RDMA or GPU instances in Batch pools
 
-To run certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, to run multi-instance [MPI workloads](batch-mpi.md), you can choose A8, A9, or H-series sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications. Or for CUDA applications, you can choose N-series sizes that include NVIDIA Tesla graphics processing unit (GPU) cards.
+To run certain Batch jobs, you might want to take advantage of Azure VM sizes designed for large-scale computation. For example, to run multi-instance [MPI workloads](batch-mpi.md), you can choose H-series and certain other sizes that have a network interface for Remote Direct Memory Access (RDMA). These sizes connect to an InfiniBand network for inter-node communication, which can accelerate MPI applications. Or for CUDA applications, choose N-series sizes that include NVIDIA Tesla graphics processing unit (GPU) cards.
 
 This article provides guidance and examples to use some of Azure's specialized sizes in Batch pools. For specs and background, see:
 
@@ -28,16 +27,8 @@ This article provides guidance and examples to use some of Azure's specialized s
 
 * GPU-enabled VM sizes ([Linux](../virtual-machines/linux/sizes-gpu.md), [Windows](../virtual-machines/windows/sizes-gpu.md)) 
 
-
-## Subscription and account limits
-
-* **Quotas and limits** - The [cores quota per Batch account](batch-quota-limit.md#resource-quotas) can limit the number of nodes of a given size you can add to a Batch pool. You are more likely to reach a quota when you choose RDMA-capable, GPU-enabled, or other multicore VM sizes. 
-
-  Additionally, use of certain VM families in your Batch account, such as NCv2, NCv3, and ND, is restricted because of limited capacity. Use of these families is only available by requesting a quota increase from the default of 0 cores.  
-
-  If you need to, [request a quota increase](batch-quota-limit.md#increase-a-quota) at no charge.
-
-* **Region availability** - Compute-intensive VMs might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/).
+> [!NOTE]
+> Certain VM sizes might not be available in the regions where you create your Batch accounts. To check that a size is available, see [Products available by region](https://azure.microsoft.com/regions/services/) and [Choose a VM size for a Batch pool](batch-pool-vm-sizes.md).
 
 
 ## Dependencies
@@ -49,23 +40,21 @@ The RDMA and GPU capabilities of compute-intensive sizes are supported only in c
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, ND series*](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers | N/A | 
-| [NV series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC, or<br/>CentOS-based HPC<br/>(Azure Marketplace) | Intel MPI 5 | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, NCv3, ND series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series)<br/>RDMA (select sizes) | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 or 7.4, or<br/>CentOS 7.3 or 7.4<br/>(Azure Marketplace) | NVIDIA CUDA Toolkit drivers* | N/A | 
+| [NV, NVv2 series](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3, or<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID drivers* | N/A |
 
-*RDMA connectivity on RDMA-capable N-series VMs may require [additional configuration](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) that varies by distribution.
-
-
+*On Batch compute nodes, NVIDIA GPU drivers must be installed from driver packages. The [NVIDIA GPU Driver Extension](../virtual-machines/extensions/hpccompute-gpu-linux.md) is not supported.
 
 ### Windows pools - Virtual machine configuration
 
 | Size | Capability | Operating systems | Required software | Pool settings |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012 (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
-| [NC, NCv2, NCv3, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit drivers| N/A | 
-| [NV series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs](../virtual-machines/windows/n-series-driver-setup.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, or<br/>2012* (Azure Marketplace) | Microsoft MPI 2012 R2 or later, or<br/> Intel MPI 5<br/><br/>HpcVMDrivers Azure VM extension | Enable inter-node communication, disable concurrent task execution |
+| [NC, NCv2, NCv3, ND series*](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU (varies by series) | Windows Server 2016 or <br/>2012 R2 (Azure Marketplace) | NVIDIA Tesla drivers or CUDA Toolkit drivers*| N/A | 
+| [NV, NVv2 series](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 or<br/>2012 R2 (Azure Marketplace) | NVIDIA GRID drivers* | N/A |
 
-*RDMA connectivity on RDMA-capable N-series VMs is supported on Windows Server 2016 or Windows Server 2012 R2 (from Azure Marketplace) with HpcVMDrivers extension and Microsoft MPI or Intel MPI.
+*On Batch pools, NVIDIA GPU drivers must be installed from driver packages. The [NVIDIA GPU Driver Extension](../virtual-machines/extensions/hpccompute-gpu-windows.md) is not supported.
 
 ### Windows pools - Cloud services configuration
 
@@ -98,24 +87,24 @@ To configure a specialized VM size for your Batch pool, the Batch APIs and tools
 * [Batch Shipyard](https://github.com/Azure/batch-shipyard) automatically configures the GPU and RDMA to work transparently with containerized workloads on Azure Batch. Batch Shipyard is entirely driven with configuration files. There are many sample recipe configurations available that enable GPU and RDMA workloads such as the [CNTK GPU Recipe](https://github.com/Azure/batch-shipyard/tree/master/recipes/CNTK-GPU-OpenMPI)  which preconfigures GPU drivers on N-series VMs and loads Microsoft Cognitive Toolkit software as a Docker image.
 
 
-## Example: Microsoft MPI on an A8 VM pool
+## Example: Microsoft MPI on an H16r VM pool
 
-To run Windows MPI applications on a pool of Azure A8 nodes, you need to install a supported MPI implementation. Here are sample steps to install [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) on a Windows pool using a Batch application package.
+To run Windows MPI applications on a pool of Azure H16r nodes, you need to install a supported MPI implementation. Here are sample steps to install [Microsoft MPI](https://docs.microsoft.com/en-us/message-passing-interface/microsoft-mpi) on a Windows pool using a Batch application package.
 
-1. Download the [setup package](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) for the latest version of Microsoft MPI.
+1. Download the [setup package](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup.exe) for the latest version of Microsoft MPI.
 2. Create a zip file of the package.
-3. Upload the package to your Batch account. For steps, see the [application packages](batch-application-packages.md) guidance. Specify an application id such as *MSMPI*, and a version such as *8.1*. 
+3. Upload the package to your Batch account. For steps, see the [application packages](batch-application-packages.md) guidance. Specify an application id such as *MSMPI*, and a version such as *10.0*. 
 4. Using the Batch APIs or Azure portal, create a pool in the cloud services configuration with the desired number of nodes and scale. The following table shows sample settings to set up MPI in unattended mode using a start task:
 
 | Setting | Value |
 | ---- | ----- | 
 | **Image Type** | Cloud Services |
-| **OS family** | Windows Server 2012 R2 (OS family 4) |
-| **Node size** | A8 Standard |
+| **OS family** | Windows Server 2016 (OS family 5) |
+| **Node size** | H16r Standard |
 | **Internode communication enabled** | True |
 | **Max tasks per node** | 1 |
 | **Application package references** | MSMPI |
-| **Start task enabled** | True<br>**Command line** - `"cmd /c %AZ_BATCH_APP_PACKAGE_MSMPI#8.1%\\MSMpiSetup.exe -unattend -force"`<br/>**User identity** - Pool autouser, admin<br/>**Wait for success** - True
+| **Start task enabled** | True<br>**Command line** - `cmd /c "%AZ_BATCH_APP_PACKAGE_MSMPI#10.0%\\MSMpiSetup.exe -unattend -force"`<br/>**User identity** - Pool autouser, admin<br/>**Wait for success** - True
 
 ## Example: NVIDIA Tesla drivers on NC VM pool
 
