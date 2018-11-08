@@ -29,7 +29,7 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
   
     |Goal|Action|
     |--|--|
-    |Add URL|You can add new URLs to add new FAQ content to Knowledgebase by clicking **Manage knowledge base -> '+ Add URL'** link.|
+    |Add URL|You can add new URLs to add new FAQ content to Knowledge base by clicking **Manage knowledge base -> '+ Add URL'** link.|
     |Delete URL|You can delete existing URLs by selecting the delete icon, the trash can.|
     |Refresh URL content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content.|
     |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
