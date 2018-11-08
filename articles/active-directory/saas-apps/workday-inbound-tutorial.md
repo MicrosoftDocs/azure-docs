@@ -63,16 +63,16 @@ This Workday user provisioning solution is presently in public preview, and is i
 
 This section describes the end-to-end user provisioning solution architecture for common hybrid environments. There are two related flows:
 
-* **Authoritative HR Data Flow – from Workday to on-premise Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud Workday HR tenant and then the event data flows into on-premise Active Directory through Azure AD and the Provisioning Agent. Depending on the event, it may lead to create/update/enable/disable operations in AD.
-* **Email Writeback Flow – from on-premise Active Directory to Workday:** Once the account creation is complete in Active Directory, it is synced with Azure AD through Azure AD Connect and email attribute sourced from Active Directory can be written back to Workday.
+* **Authoritative HR Data Flow – from Workday to on-premises Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud Workday HR tenant and then the event data flows into on-premises Active Directory through Azure AD and the Provisioning Agent. Depending on the event, it may lead to create/update/enable/disable operations in AD.
+* **Email Writeback Flow – from on-premises Active Directory to Workday:** Once the account creation is complete in Active Directory, it is synced with Azure AD through Azure AD Connect and email attribute sourced from Active Directory can be written back to Workday.
 
 ![Overview](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### End-to-end user data flow
 
 1. The HR team performs worker transactions (Joiners/Movers/Leavers or New Hires/Transfers/Terminations) in Workday HCM
-2. The Azure AD Provisioning Service runs scheduled synchronizations of identities from Workday HR and identifies changes that need to be processed for sync with on-premise Active Directory.
-3. The Azure AD Provisioning Service invokes the on-premise AAD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
+2. The Azure AD Provisioning Service runs scheduled synchronizations of identities from Workday HR and identifies changes that need to be processed for sync with on-premises Active Directory.
+3. The Azure AD Provisioning Service invokes the on-premises AAD Connect Provisioning Agent with a request payload containing AD account create/update/enable/disable operations.
 4. The Azure AD Connect Provisioning Agent uses a service account to add/update AD account data.
 5. The Azure AD Connect / AD Sync engine runs delta sync to pull updates in AD.
 6. The Active Directory updates are synced with Azure Active Directory.
@@ -113,9 +113,9 @@ The Workday to AD User Provisioning solution requires deploying one or more Prov
 
 * Ensure that the host server running the Provisioning Agent has network access to the target AD domain
 * The Provisioning Agent Configuration Wizard registers the agent with your Azure AD tenant and the registration process requires access to *.msappproxy.net at port 8082. Ensure that outbound firewall rules are in place that enable this communication.
-* The Provisioning Agent uses a service account to communicate with the on-premise AD domain(s). Prior to installation of the agent, it is recommended that you create a service account with User properties Read/Write permissions and a password that does not expire.  
+* The Provisioning Agent uses a service account to communicate with the on-premises AD domain(s). Prior to installation of the agent, it is recommended that you create a service account with User properties Read/Write permissions and a password that does not expire.  
 * During the Provisioning Agent configuration, you can select domain controllers that should handle provisioning requests. If you have several geographically distributed domain controllers, install the Provisioning Agent in the same site as your preferred domain controller(s) to improve the reliability and performance of the end-to-end solution
-* For high availability, you can deploy more than one Provisioning Agent and register it to handle the same set of on-premise AD domains.
+* For high availability, you can deploy more than one Provisioning Agent and register it to handle the same set of on-premises AD domains.
 
 > [!IMPORTANT]
 > In production environments, Microsoft recommends that you have a minimum of 3 Provisioning Agents configured with your Azure AD tenant for high availability.
