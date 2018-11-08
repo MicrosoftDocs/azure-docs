@@ -15,6 +15,10 @@ ms.author: tulasim
 
 ## Manage the knowledge base
 
+### I accidentally deleted a part of my QnA Maker, what should I do? 
+
+All deletes are permanent, including question and answer pairs, files, URLs, custom questions and answers, knowledge bases, or Azure resources. Make sure you export your knowledge base from the **Settings** page before deleting any part of your knowledge base. 
+
 ### Why is my URL(s)/file(s) is not extracting question-answer pairs?
 
 It's possible that QnA Maker can't auto-extract some question-and-answer (QnA) content from valid FAQ URLs. In such cases, you can paste the QnA content in a .txt file and see if the tool can ingest it. Alternately, you can editorially add content to your knowledge base through the [QnA Maker portal](https://qnamaker.ai).
@@ -105,4 +109,8 @@ Follow these steps to embed the QnA Maker service as a web-chat control in your 
 1. Create your FAQ bot by following the instructions [here](./Tutorials/create-qna-bot.md).
 2. Enable the web chat by following the steps [here](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
+## Data storage
 
+### What data is stored and where is it stored? 
+
+When you create your QnA Maker service, you selected an Azure region. Your knowledge bases and log files are stored in this region. 

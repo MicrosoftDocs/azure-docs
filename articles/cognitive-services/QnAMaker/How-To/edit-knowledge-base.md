@@ -74,7 +74,7 @@ Add metadata pairs by selecting the filter icon
 ## Manage large knowledge bases
 
 1. The QnAs are **grouped** by the data source from which they were extracted. You can expand or collapse the data source.
-2. You can **search** the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer or metadata content. Click on the X icon to remove the search filter.
+2. You can **search** the knowledge base by typing in the text box at the top of the Knowledge Base table. Click enter to search on the question, answer, or metadata content. Click on the X icon to remove the search filter.
 3. **Pagination** allows you to manage large knowledge bases
 
     ![Search, Paginate, Group](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
@@ -84,6 +84,10 @@ Add metadata pairs by selecting the filter icon
 Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal. 
 
 If you share your KB with [collaborators](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB. 
+
+## Delete Azure resources 
+
+If you delete any of the Azure resources used for your QnA Maker knowledge bases, the knowledge bases will no longer function. Before deleting any resources, make sure you export your knowledge bases from the **Settings** page. 
 
 ## Next steps
 

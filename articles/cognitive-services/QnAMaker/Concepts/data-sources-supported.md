@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/08/2018
 ms.author: tulasim
 ---
 
@@ -126,6 +126,10 @@ Importing a knowledge base replaces the content of the existing knowledge base. 
 ## Editorially add to knowledge base
 
 If you do not have pre-existing content to populate the knowledge base, you can add QnAs editorially in QnA Maker Knowledge base. Learn how to update your knowledge base [here](../How-To/edit-knowledge-base.md).
+
+## Formatting considerations
+
+After importing a file or URL, it is converted into Markdown and stored in that format. If the conversion process is not correctly converting links in your files and URLs, you should edit the questions and answers on the **Edit** page. 
 
 ## Next steps
 
