@@ -3,25 +3,20 @@ title: 'Incrementally copy a table by using Azure Data Factory | Microsoft Docs'
 description: 'In this tutorial, you create an Azure data factory pipeline that copies data incrementally from an Azure SQL database to Azure Blob storage.'
 services: data-factory
 documentationcenter: ''
-author: sharonlo101
-manager: jhubbard
-editor: spelluru
+author: dearandyxu
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: tutorial
 ms.date: 01/11/2018
-ms.author: shlo
+ms.author: yexu
 ---
 # Incrementally load data from an Azure SQL database to Azure Blob storage
 In this tutorial, you create an Azure data factory with a pipeline that loads delta data from a table in an Azure SQL database to Azure Blob storage. 
-
-
-> [!NOTE]
-> This article applies to version 2 of Azure Data Factory, which is currently in preview. If you use version 1 of the Data Factory service, which is generally available, see the [documentation for Data Factory version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
-
 
 You perform the following steps in this tutorial:
 
@@ -65,7 +60,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 * **Azure SQL Database**. You use the database as the source data store. If you don't have a SQL database, see [Create an Azure SQL database](../sql-database/sql-database-get-started-portal.md) for steps to create one.
-* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for steps to create one. Create a container named adftutorial. 
+* **Azure Storage**. You use the blob storage as the sink data store. If you don't have a storage account, see [Create a storage account](../storage/common/storage-quickstart-create-account.md) for steps to create one. Create a container named adftutorial. 
 
 ### Create a data source table in your SQL database
 1. Open SQL Server Management Studio. In **Server Explorer**, right-click the database, and choose **New Query**.
@@ -168,7 +163,7 @@ END
       - Select **Create new**, and enter the name of a resource group.   
          
         To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
-4. Select **V2 (Preview)** for the **version**.
+4. Select **V2** for the **version**.
 5. Select the **location** for the data factory. Only locations that are supported are displayed in the drop-down list. The data stores (Azure Storage, Azure SQL Database, etc.) and computes (HDInsight, etc.) used by data factory can be in other regions.
 6. Select **Pin to dashboard**.     
 7. Click **Create**.      
@@ -295,7 +290,7 @@ In this tutorial, you create a pipeline with two Lookup activities, one Copy act
 29. In the **Activities** toolbox, expand **General**, and drag-drop the **Stored Procedure** activity from the **Activities** toolbox to the pipeline designer surface. **Connect** the green (Success) output of the **Copy** activity to the **Stored Procedure** activity. 
     
     ![Copy activity - source](./media/tutorial-incremental-copy-portal/connect-copy-to-stored-procedure-activity.png)
-24. Select **Storage Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
+24. Select **Stored Procedure Activity** in the pipeline designer, change its name to **StoredProceduretoWriteWatermarkActivity**. 
 
     ![Stored Procedure Activity - name](./media/tutorial-incremental-copy-portal/stored-procedure-activity-name.png)
 25. Switch to the **SQL Account** tab, and select *AzureSqlDatabaseLinkedService** for **Linked service**. 

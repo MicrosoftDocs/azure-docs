@@ -1,24 +1,19 @@
 ---
-title: Convert XML data with transforms - Azure Logic Apps | Microsoft Docs
-description: Create transforms or mapps to convert XML data between formats in logic apps by using the Enterprise Integration SDK
+title: Transform XML between formats - Azure Logic Apps | Microsoft Docs
+description: Create transforms or maps that convert XML between formats in Azure Logic Apps with Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: anneta
-editor: cgronlun
-
-ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: add01429-21bc-4bab-8b23-bc76ba7d0bde
 ms.date: 07/08/2016
-ms.author: LADocs; padmavc
-
 ---
-# Enterprise integration with XML transforms
-## Overview
+
+# Create maps that transform XML between formats in Azure Logic Apps with Enterprise Integration Pack
+
 The Enterprise integration Transform connector converts data from one format to another format. For example, you may have an incoming message that contains the current date in the YearMonthDay format. You can use a transform to reformat the date to be in the MonthDayYear format.
 
 ## What does a transform do?
@@ -65,6 +60,7 @@ At this point, you are finished setting up your map. In a real world application
 
 You can now test your transform by making a request to the HTTP endpoint.  
 
+
 ## Features and use cases
 * The transformation created in a map can be simple, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.  
 * Multiple map operations or functions are readily available, including strings, date time functions, and so on.  
@@ -74,11 +70,49 @@ You can now test your transform by making a request to the HTTP endpoint.
 * Upload existing maps  
 * Includes support for the XML format.
 
-## Adanced features
-The following features can only be accessed from the code view.
+## Advanced features
+
+### Reference assembly or custom code from maps 
+The transform action also supports maps or transforms with reference to external assembly. This capability enables calls to custom .NET code directly from XSLT maps. Here are the prerequisites to use assembly in maps.
+
+* The map and the assembly referenced from the map needs to be [uploaded to integration account](./logic-apps-enterprise-integration-maps.md). 
+
+  > [!NOTE]
+  > Map and assembly are required to be uploaded in a specific order. You must upload the assembly before you upload the map that references the assembly.
+
+* The map must also have these attributes and a CDATA section that contains the call to the assembly code:
+
+    * **name** is the custom assembly name.
+    * **namespace** is the namespace in your assembly that includes the custom code.
+
+  This example shows a map that references an assembly named "XslUtilitiesLib" and calls the `circumreference` method from the assembly.
+
+  ````xml
+  <?xml version="1.0" encoding="UTF-8"?>
+  <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:user="urn:my-scripts">
+  <msxsl:script language="C#" implements-prefix="user">
+    <msxsl:assembly name="XsltHelperLib"/>
+    <msxsl:using namespace="XsltHelpers"/>
+    <![CDATA[public double circumference(int radius){ XsltHelper helper = new XsltHelper(); return helper.circumference(radius); }]]>
+  </msxsl:script>
+  <xsl:template match="data">
+	 <circles>
+		<xsl:for-each select="circle">
+			<circle>
+				<xsl:copy-of select="node()"/>
+					<circumference>
+						<xsl:value-of select="user:circumference(radius)"/>
+					</circumference>
+			</circle>
+		</xsl:for-each>
+	 </circles>
+	</xsl:template>
+    </xsl:stylesheet>
+  ````
+
 
 ### Byte Order Mark
-By default, the response from the transformation will start with the Byte Order Mark (BOM). To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
+By default, the response from the transformation starts with the Byte Order Mark (BOM). You can access this functionality only while working in the Code View editor. To disable this functionality, specify `disableByteOrderMark` for the `transformOptions` property:
 
 ````json
 "Transform_XML": {
@@ -95,6 +129,10 @@ By default, the response from the transformation will start with the Byte Order 
     "type": "Xslt"
 }
 ````
+
+
+
+
 
 ## Learn more
 * [Learn more about the Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  

@@ -3,21 +3,22 @@ title: Analyzing Customer Churn using Machine Learning | Microsoft Docs
 description: Case study of developing an integrated model for analyzing and scoring customer churn
 services: machine-learning
 documentationcenter: ''
-author: jeannt
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 1333ffe2-59b8-4f40-9be7-3bf1173fc38d
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: jeannt
 
 ---
-# Analyzing Customer Churn by using Azure Machine Learning
+# Analyzing Customer Churn using Azure Machine Learning
 ## Overview
 This article presents a reference implementation of a customer churn analysis project that is built by using Azure Machine Learning. In this article, we discuss associated generic models for holistically solving the problem of industrial customer churn. We also measure the accuracy of models that are built by using Machine Learning, and assess directions for further development.  
 

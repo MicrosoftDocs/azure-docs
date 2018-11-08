@@ -10,14 +10,14 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 02/28/2018
+ms.date: 04/05/2018
 ---
 # Monitor and scale a single PostgreSQL server using Azure CLI
 This sample CLI script scales a single Azure Database for PostgreSQL server to a different performance level after querying the metrics. 
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI.
+If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI.
 
 ## Sample script
 In this sample script, edit the highlighted lines to update the admin username and password to your own. Replace the SubscriptionID used in the `az monitor` commands with your own subscription ID.
@@ -38,6 +38,6 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview)
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure)
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - Read more information on scaling: [Service Tiers](../concepts-service-tiers.md) and [Compute Units and Storage Units](../concepts-compute-unit-and-storage.md)

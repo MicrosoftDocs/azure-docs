@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: service-fabric
-ms.date: 12/13/2017
+ms.date: 04/09/2018
 ms.author: ryanwi
 ms.custom: mvc
 ---

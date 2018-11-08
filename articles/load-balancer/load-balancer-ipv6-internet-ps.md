@@ -1,14 +1,10 @@
----
+﻿---
 title: Create an Azure Internet-facing load balancer with IPv6 - PowerShell  | Microsoft Docs
 description: Learn how to create an Internet facing load balancer with IPv6 using PowerShell for Resource Manager
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-
-ms.assetid: d4c649e3-84ad-4343-8b6a-0e89f0b9e518
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -26,7 +22,7 @@ ms.author: kumud
 > * [Template](load-balancer-ipv6-internet-template.md)
 
 
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
+
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
@@ -65,7 +61,7 @@ Make sure you have the latest production version of the Azure Resource Manager m
 1. Sign into Azure
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
     Enter your credentials when prompted.

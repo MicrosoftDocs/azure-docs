@@ -1,44 +1,50 @@
 ---
-title: Delegate your domain to Azure DNS | Microsoft Docs
-description: Understand how to change domain delegation and use Azure DNS name servers to provide domain hosting.
+title: Tutorial - Host your domain and subdomain in Azure DNS
+description: This tutorial shows you how to configure Azure DNS to host your DNS zones.
 services: dns
-documentationcenter: na
-author: KumudD
+author: vhorne
 manager: jeconnoc
 
-ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/18/2017
-ms.author: kumud
+ms.topic: tutorial
+ms.date: 6/13/2018
+ms.author: victorh
+#Customer intent: As an experienced network administrator I want to configure Azure DNS, so I can host DNS zones.
 ---
 
-# Delegate a domain to Azure DNS
+# Tutorial: Host your domain in Azure DNS
 
-You can use Azure DNS to host a DNS zone and manage the DNS records for a domain in Azure. For a domain's DNS queries to reach Azure DNS, the domain has to be delegated to Azure DNS from the parent domain. Keep in mind that Azure DNS is not the domain registrar. This article explains how to delegate your domain to Azure DNS.
+You can use Azure DNS to host your DNS domain and manage your DNS records. By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services. 
 
-For domains that you purchase from a registrar, your registrar offers the option to set up the NS records. You don't have to own a domain to create a DNS zone with that domain name in Azure DNS. However, you do need to own the domain to set up the delegation to Azure DNS with the registrar.
+Suppose you buy the domain contoso.net from a domain name registrar and then create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the name server (NS) records for your domain. The registrar stores the NS records in the .net parent zone. Internet users around the world are then directed to your domain in your Azure DNS zone when they're trying to resolve DNS records in contoso.net.
 
-For example, suppose you purchase the domain contoso.net and create a zone with the name contoso.net in Azure DNS. Because you're the owner of the domain, your registrar offers you the option to configure the name server addresses (that is, the NS records) for your domain. The registrar stores these NS records in the parent domain, .net. Clients around the world can then be directed to your domain in the Azure DNS zone when they're trying to resolve DNS records in contoso.net.
+
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Create a DNS zone
+> * Retrieve a list of name servers
+> * Delegate the domain
+> * Verify that the delegation is working
+
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Create a DNS zone
 
 1. Sign in to the Azure portal.
-1. On the **Hub** menu, select **New** > **Networking** > **DNS zone** to open the **Create DNS zone** page.
+1. On the upper left, select **Create a resource** > **Networking** > **DNS zone** to open the **Create DNS zone** page.
 
-   ![DNS zone](./media/dns-domain-delegation/dns.png)
+   ![DNS zone](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. On the **Create DNS zone** page, enter the following values, and then select **Create**:
 
    | **Setting** | **Value** | **Details** |
    |---|---|---|
-   |**Name**|contoso.net|Provide the name of the DNS zone.|
-   |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
-   |**Resource group**|**Create new:** contosoRG|Create a resource group. The resource group name must be unique within the subscription that you selected. To learn more about resource groups, read the [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
-   |**Location**|West US||
+   |**Name**|[your domain name] |The domain name you bought. This tutorial uses contoso.net as an example.|
+   |**Subscription**|[Your subscription]|Select a subscription to create the zone in.|
+   |**Resource group**|**Create new:** contosoRG|Create a resource group. The resource group name must be unique within the subscription that you selected. |
+   |**Location**|East US||
 
 > [!NOTE]
 > The location of the resource group has no impact on the DNS zone. The DNS zone location is always "global," and is not shown.
@@ -47,97 +53,45 @@ For example, suppose you purchase the domain contoso.net and create a zone with 
 
 Before you can delegate your DNS zone to Azure DNS, you need to know the name servers for your zone. Azure DNS allocates name servers from a pool each time a zone is created.
 
-1. With the DNS zone created, in the Azure portal **Favorites** pane, select **All resources**. On the **All resources** page, select the **contoso.net** DNS zone. If the subscription that you selected already has several resources in it, you can enter **contoso.net** in the **Filter by name** box to easily access the application gateway. 
+1. With the DNS zone created, in the Azure portal **Favorites** pane, select **All resources**. On the **All resources** page, select your DNS zone. If the subscription that you selected already has several resources in it, you can type your domain name in the **Filter by name** box to easily access the application gateway. 
 
-1. Retrieve the name servers from the DNS zone page. In this example, the zone contoso.net has been assigned name servers ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org, and ns4-01.azure-dns.info:
+1. Retrieve the name servers from the DNS zone page. In this example, the zone contoso.net has been assigned name servers *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org*, and *ns4-01.azure-dns.info*:
 
-   ![List of name servers](./media/dns-domain-delegation/viewzonens500.png)
+   ![List of name servers](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 
-Azure DNS automatically creates authoritative NS records in your zone to contain the assigned name servers. To see the name servers via Azure PowerShell or Azure CLI, retrieve these records.
+Azure DNS automatically creates authoritative NS records in your zone for the assigned name servers.
 
-The following examples provide the steps to retrieve the name servers for a zone in Azure DNS by using PowerShell and Azure CLI.
-
-### PowerShell
-
-```powershell
-# The record name "@" is used to refer to records at the top of the zone.
-$zone = Get-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
-Get-AzureRmDnsRecordSet -Name "@" -RecordType NS -Zone $zone
-```
-
-The following example is the response:
-
-```
-Name              : @
-ZoneName          : contoso.net
-ResourceGroupName : contosorg
-Ttl               : 172800
-Etag              : 03bff8f1-9c60-4a9b-ad9d-ac97366ee4d5
-RecordType        : NS
-Records           : {ns1-07.azure-dns.com., ns2-07.azure-dns.net., ns3-07.azure-dns.org.,
-                    ns4-07.azure-dns.info.}
-Metadata          :
-```
-
-### Azure CLI
-
-```azurecli
-az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
-```
-
-The following example is the response:
-
-```json
-{
-  "etag": "03bff8f1-9c60-4a9b-ad9d-ac97366ee4d5",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosoRG/providers/Microsoft.Network/dnszones/contoso.net/NS/@",
-  "metadata": null,
-  "name": "@",
-  "nsRecords": [
-    {
-      "nsdname": "ns1-07.azure-dns.com."
-    },
-    {
-      "nsdname": "ns2-07.azure-dns.net."
-    },
-    {
-      "nsdname": "ns3-07.azure-dns.org."
-    },
-    {
-      "nsdname": "ns4-07.azure-dns.info."
-    }
-  ],
-  "resourceGroup": "contosoRG",
-  "ttl": 172800,
-  "type": "Microsoft.Network/dnszones/NS"
-}
-```
 
 ## Delegate the domain
 
-Now that the DNS zone is created and you have the name servers, you need to update the parent domain with the Azure DNS name servers. Each registrar has its own DNS management tools to change the name server records for a domain. In the registrar's DNS management page, edit the NS records and replace the NS records with the ones that Azure DNS created.
+Now that the DNS zone is created and you have the name servers, you need to update the parent domain with the Azure DNS name servers. Each registrar has its own DNS management tools to change the name server records for a domain. In the registrar's DNS management page, edit the NS records and replace the NS records with the Azure DNS name servers.
 
 When you're delegating a domain to Azure DNS, you must use the name servers that Azure DNS provides. We recommend that you use all four name servers, regardless of the name of your domain. Domain delegation does not require a name server to use the same top-level domain as your domain.
 
-Do not use *glue records* to point to the Azure DNS name server IP addresses, because these IP addresses might change in future. Delegations that use name servers in your own zone, sometimes called *vanity name servers*, are not currently supported in Azure DNS.
+> [!NOTE]
+> When you copy each name server address, make sure you copy the trailing period at the end of the address. The trailing period indicates the end of a fully qualified domain name. Some registrars may append the period if the NS name doesn't have it at the end. But to be compliant with the DNS RFC, you should include the trailing period as you can't assume every registrar append it for you.
 
-## Verify that name resolution is working
+Delegations that use name servers in your own zone, sometimes called *vanity name servers*, are not currently supported in Azure DNS.
 
-After you complete the delegation, you can verify that name resolution is working by using a tool such as nslookup to query the SOA record for your zone. (The SOA record is automatically created when the zone is created.)
+## Verify that the delegation is working
+
+After you complete the delegation, you can verify that it is working by using a tool such as *nslookup* to query the Start of Authority (SOA) record for your zone. The SOA record is automatically created when the zone is created. You may need to wait 10 minutes or longer after you complete the delegation before you can successfully verify that it is working. It can take a while for changes to propagate through the DNS system.
 
 You do not have to specify the Azure DNS name servers. If the delegation is set up correctly, the normal DNS resolution process finds the name servers automatically.
 
+From a command prompt, type a nslookup command similar to following:
+
 ```
-nslookup -type=SOA contoso.com
+nslookup -type=SOA contoso.net
 ```
 
-The following is an example response from the preceding command:
+Here's an example response from the preceding command:
 
 ```
 Server: ns1-04.azure-dns.com
 Address: 208.76.47.4
 
-contoso.com
+contoso.net
 primary name server = ns1-04.azure-dns.com
 responsible mail addr = msnhst.microsoft.com
 serial = 1
@@ -147,161 +101,13 @@ expire = 604800 (7 days)
 default TTL = 300 (5 mins)
 ```
 
-## Delegate subdomains in Azure DNS
+## Clean up resources
 
-If you want to set up a separate child zone, you can delegate a subdomain in Azure DNS. For example, suppose that you set up and delegated contoso.net in Azure DNS. You now want to set up a separate child zone, partners.contoso.net.
-
-1. Create the child zone partners.contoso.net in Azure DNS.
-2. Look up the authoritative NS records in the child zone to obtain the name servers that host the child zone in Azure DNS.
-3. Delegate the child zone by configuring NS records in the parent zone that point to the child zone.
-
-### Create a DNS zone
-
-1. Sign in to the Azure portal.
-1. On the **Hub** menu, select **New** > **Networking** > **DNS zone** to open the **Create DNS zone** page.
-
-   ![DNS zone](./media/dns-domain-delegation/dns.png)
-
-1. On the **Create DNS zone** page, enter the following values, and then select **Create**:
-
-   | **Setting** | **Value** | **Details** |
-   |---|---|---|
-   |**Name**|partners.contoso.net|Provide the name of the DNS zone.|
-   |**Subscription**|[Your subscription]|Select a subscription to create the application gateway in.|
-   |**Resource group**|**Use Existing:** contosoRG|Create a resource group. The resource group name must be unique within the subscription that you selected. To learn more about resource groups, read the [Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups) overview article.|
-   |**Location**|West US||
-
-> [!NOTE]
-> The location of the resource group has no impact on the DNS zone. The DNS zone location is always "global," and is not shown.
-
-### Retrieve name servers
-
-1. With the DNS zone created, in the Azure portal **Favorites** pane, select **All resources**. Select the **partners.contoso.net** DNS zone on the **All resources** page. If the subscription that you selected already has several resources in it, you can enter **partners.contoso.net** in the **Filter by name** box to easily access the DNS zone.
-
-1. Retrieve the name servers from the DNS zone page. In this example, the zone contoso.net has been assigned name servers ns1-01.azure-dns.com, ns2-01.azure-dns.net, ns3-01.azure-dns.org, and ns4-01.azure-dns.info:
-
-   ![List of name servers](./media/dns-domain-delegation/viewzonens500.png)
-
-Azure DNS automatically creates authoritative NS records in your zone to contain the assigned name servers.  To see the name servers via Azure PowerShell or Azure CLI, retrieve these records.
-
-### Create a name server record in the parent zone
-
-1. In the Azure portal, browse to the **contoso.net** DNS zone.
-1. Select **+ Record set**.
-1. On the **Add record set** page, enter the following values, and then select **OK**:
-
-   | **Setting** | **Value** | **Details** |
-   |---|---|---|
-   |**Name**|partners|Enter the name of the child DNS zone.|
-   |**Type**|NS|Use NS for name server records.|
-   |**TTL**|1|Enter the time to live.|
-   |**TTL unit**|Hours|Set the time-to-live unit to hours.|
-   |**NAME SERVER**|{name servers from partners.contoso.net zone}|Enter all four of the name servers from the partners.contoso.net zone. |
-
-   ![Values for the name server record](./media/dns-domain-delegation/partnerzone.png)
-
-
-### Delegate subdomains in Azure DNS by using other tools
-
-The following examples provide the steps to delegate subdomains in Azure DNS by using PowerShell and Azure CLI.
-
-#### PowerShell
-
-The following PowerShell example demonstrates how this works. You can complete the same steps via the Azure portal, or via the cross-platform Azure CLI tool.
-
-```powershell
-# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
-$parent = New-AzureRmDnsZone -Name contoso.net -ResourceGroupName contosoRG
-$child = New-AzureRmDnsZone -Name partners.contoso.net -ResourceGroupName contosoRG
-
-# Retrieve the authoritative NS records from the child zone as shown in the next example. This information contains the name servers assigned to the child zone.
-$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
-
-# Create the corresponding NS record set in the parent zone to complete the delegation. The record set name in the parent zone matches the child zone name (in this case, "partners").
-$parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-$parent_ns_recordset.Records = $child_ns_recordset.Records
-Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
-```
-
-Use `nslookup` to verify that everything is set up correctly by looking up the SOA record of the child zone.
-
-```
-nslookup -type=SOA partners.contoso.com
-```
-
-```
-Server: ns1-08.azure-dns.com
-Address: 208.76.47.8
-
-partners.contoso.com
-    primary name server = ns1-08.azure-dns.com
-    responsible mail addr = msnhst.microsoft.com
-    serial = 1
-    refresh = 900 (15 mins)
-    retry = 300 (5 mins)
-    expire = 604800 (7 days)
-    default TTL = 300 (5 mins)
-```
-
-#### Azure CLI
-
-```azurecli
-#!/bin/bash
-
-# Create the parent and child zones. These can be in the same resource group or different resource groups, because Azure DNS is a global service.
-az network dns zone create -g contosoRG -n contoso.net
-az network dns zone create -g contosoRG -n partners.contoso.net
-```
-
-Retrieve the name servers for the `partners.contoso.net` zone from the output.
-
-```
-{
-  "etag": "00000003-0000-0000-418f-250de2b2d201",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contosorg/providers/Microsoft.Network/dnszones/partners.contoso.net",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "partners.contoso.net",
-  "nameServers": [
-    "ns1-09.azure-dns.com.",
-    "ns2-09.azure-dns.net.",
-    "ns3-09.azure-dns.org.",
-    "ns4-09.azure-dns.info."
-  ],
-  "numberOfRecordSets": 2,
-  "resourceGroup": "contosorg",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones"
-}
-```
-
-Create the record set and NS records for each name server.
-
-```azurecli
-#!/bin/bash
-
-# Create the record set
-az network dns record-set ns create --resource-group contosorg --zone-name contoso.net --name partners
-
-# Create an NS record for each name server.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns1-09.azure-dns.com.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns2-09.azure-dns.net.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns3-09.azure-dns.org.
-az network dns record-set ns add-record --resource-group contosorg --zone-name contoso.net --record-set-name partners --nsdname ns4-09.azure-dns.info.
-```
-
-## Delete all resources
-
-To delete all resources created in this article, complete the following steps:
-
-1. In the Azure portal **Favorites** pane, select **All resources**. On the **All resources** page, select the **contosorg** resource group. If the subscription that you selected already has several resources in it, you can enter **contosorg** in the **Filter by name** box to easily access the resource group.
-1. On the **contosorg** page, select the **Delete** button.
-1. The portal requires you to type the name of the resource group to confirm that you want to delete it. Type **contosorg** for the resource group name, and then select **Delete**. 
-
-Deleting a resource group deletes all resources in the resource group. Always be sure to confirm the contents of a resource group before you delete it. The portal deletes all resources in the resource group, and then deletes the resource group itself. This process takes several minutes.
+You can keep the **contosoRG** resource group if you intend to do the next tutorial. Otherwise, delete the **contosoRG** resource group to delete the resources created in this tutorial. To do so, click the **contosoRG** resource group and then click **Delete resource group**. 
 
 ## Next steps
 
-[Manage DNS zones](dns-operations-dnszones.md)
+In this tutorial, you've created a DNS zone for your domain and delegated it to Azure DNS. To learn about Azure DNS and web apps, continue with the tutorial for web apps.
 
-[Manage DNS records](dns-operations-recordsets.md)
+> [!div class="nextstepaction"]
+> [Create DNS records for a web app in a custom domain](./dns-web-sites-custom-domain.md)

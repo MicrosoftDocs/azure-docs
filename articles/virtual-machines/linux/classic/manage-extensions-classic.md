@@ -4,7 +4,7 @@ description: Describes how to add, find, update, and remove extensions for Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: squillace
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-service-management
 ROBOTS: NOINDEX

@@ -3,18 +3,19 @@ title: Clean and prepare data for Azure Machine Learning | Microsoft Docs
 description: Pre-process and clean data to prepare it for machine learning.
 services: machine-learning
 documentationcenter: ''
-author: bradsev
+author: deguhath
 manager: cgronlun
 editor: cgronlun
 
 ms.assetid: bdf659ec-4881-4324-8b9c-747cbfa0c3cd
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: bradsev
+ms.author: deguhath
 
 ---
 # Tasks to prepare data for enhanced machine learning

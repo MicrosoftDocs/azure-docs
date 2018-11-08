@@ -2,20 +2,16 @@
 title: Using MongoDB Read Preference with the Azure Cosmos DB MongoDB API  | Microsoft Docs
 description: Learn how to use MongoDB Read Preference with the Azure Cosmos DB MongoDB API
 services: cosmos-db
-documentationcenter: ''
 author: vidhoonv
-manager: jhubbard
-editor: ''
+manager: kfile
 
-ms.assetid: 
 ms.service: cosmos-db
+ms.component: cosmosdb-mongo
 ms.custom:
-ms.workload: 
-ms.tgt_pltfrm: na
-ms.devlang: 
-ms.topic: article
+ms.devlang: nodejs
+ms.topic: conceptual
 ms.date: 02/26/2018
-ms.author: viviswan
+ms.author: sclyon
 
 ---
 # How to globally distribute reads using Read Preference with the Azure Cosmos DB MongoDB API 
@@ -36,7 +32,9 @@ Run the following commands to clone the sample repository. Based on your platfor
 
 1. [.NET sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference)
 2. [NodeJS sample application]( https://github.com/Azure-Samples/azure-cosmos-db-mongodb-node-geo-readpreference)
-3. [Java sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+3. [Mongoose sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-mongoose-geo-readpreference)
+4. [Java sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference)
+5. [SpringBoot sample application](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-spring)
 
 
 ```bash
@@ -109,6 +107,28 @@ Similarly, the snippet below shows how to configure the SECONDARY_PREFERRED Read
     assert.equal(null, err);
     console.log("readFromSecondaryPreferredfunc query completed!");
   });
+```
+
+The Read Preference can also be set by passing `readPreference` as a parameter in the connection string URI options:
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017?ssl=true&replicaSet=globaldb&readPreference=nearest';
+
+// Database Name
+const dbName = 'myproject';
+
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  console.log("Connected correctly to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});
 ```
 
 Refer to the corresponding sample application repos for other platforms, such as [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) and [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference).

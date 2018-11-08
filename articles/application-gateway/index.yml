@@ -1,0 +1,73 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Application Gateway Documentation
+metadata:
+  title: Azure Application Gateway Documentation - Tutorials, API Reference
+  meta.description: Learn how to create application gateways. Documentation helps you plan, deploy, and manage web traffic to your Azure resources.
+  services: application-gateway
+  author: davidmu1
+  manager: jeconnocfte
+  ms.service: application-gateway
+  ms.topic: landing-page
+  ms.date: 02/01/2018
+  ms.author: davidmu
+abstract:
+  description: Learn how to deploy Application Gateway, an application delivery controller (ADC) as a service. Tutorials, API references, and other documentation show you how to set up application-level routing and load balancing services that let you build a scalable and highly-available web front end.
+sections:
+- title: 5-Minute Quickstarts
+  items: 
+  - type: paragraph
+    text: 'Learn how to manage web traffic to your resources using Application Gateway:'
+  - type: list
+    style: icon48
+    items: 
+    - image: 
+        src: https://docs.microsoft.com/azure/application-gateway/media/index/portal.svg
+      text: Azure Portal
+      href: https://docs.microsoft.com/azure/application-gateway/quick-create-portal
+    - image: 
+        src: https://docs.microsoft.com/azure/application-gateway/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: https://docs.microsoft.com/azure/application-gateway/quick-create-powershell
+    - image: 
+        src: https://docs.microsoft.com/azure/application-gateway/media/index/cli.svg
+      text: Azure CLI
+      href: https://docs.microsoft.com/azure/application-gateway/quick-create-cli
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: Learn how to deploy, manage, and monitor application gateways on Azure
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/application-gateway/tutorial-manage-web-traffic-cli">Manage web traffic with an application gateway.</a>
+    - html: <a href="/azure/application-gateway/tutorial-restrict-web-traffic-cli">Restrict web traffic with a web application firewall on an application gateway.</a>
+    - html: <a href="/azure/application-gateway/tutorial-ssl-cli">Enable SSL termination on an application gateway.</a>
+    - html: <a href="/azure/application-gateway/tutorial-multiple-sites-cli">Host multiple web sites using an application gateway.</a>
+    - html: <a href="/azure/application-gateway/tutorial-url-route-cli">Route traffic based on the URL in an application gateway.</a>
+    - html: <a href="/azure/application-gateway/tutorial-url-redirect-cli">Redirect traffic to specific servers in an application gateway pool.</a>
+- title: Samples
+  items:
+  - type: paragraph
+    text: Manage web traffic with an application gateway.
+  - type: list
+    style: unordered
+    className: spaced noBullet
+    items:
+    - html: <a href="/azure/application-gateway/cli-samples">Azure CLI</a>
+    - html: <a href="/azure/application-gateway/powershell-samples">Azure PowerShell</a>
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: Command-Line
+      html: <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p><p><a href="/cli/azure/network/application-gateway">Azure CLI</a></p>
+    - title: Languages
+      html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/com.microsoft.azure.management.network">Java</a></p><p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways">Node​.js</a></p><p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations#azure.mgmt.network.operations.ApplicationGatewaysOperations">Python</a></p>
+    - title: REST
+      html: <p><a href="https://msdn.microsoft.com/library/mt684941">Compute REST API Reference</a></p>
+
+
+

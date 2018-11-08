@@ -12,8 +12,8 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/21/2018
+ms.topic: conceptual
+ms.date: 11/08/2018
 ms.author: tomfitz
 ---
 
@@ -28,7 +28,7 @@ As an administrator, you may need to lock a subscription, resource group, or res
 
 When you apply a lock at a parent scope, all resources within that scope inherit the same lock. Even resources you add later inherit the lock from the parent. The most restrictive lock in the inheritance takes precedence.
 
-Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
+Unlike role-based access control, you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
 
 Resource Manager locks apply only to operations that happen in the management plane, which consists of operations sent to `https://management.azure.com`. The locks do not restrict how resources perform their own functions. Resource changes are restricted, but resource operations are not restricted. For example, a ReadOnly lock on a SQL Database prevents you from deleting or modifying the database, but it does not prevent you from creating, updating, or deleting data in the database. Data transactions are permitted because those operations are not sent to `https://management.azure.com`.
 
@@ -100,7 +100,7 @@ The following example shows a template that creates an app service plan, a web s
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroup -Name sitegroup -Location southcentralus
 New-AzureRmResourceGroupDeployment -ResourceGroupName sitegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/lock.json -hostingPlanName plan0103
 ```
@@ -117,44 +117,44 @@ You lock deployed resources with Azure PowerShell by using the [New-AzureRmResou
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockLevel CanNotDelete -LockName LockSite -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 To lock a resource group, provide the name of the resource group.
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceLock -LockName LockGroup -LockLevel CanNotDelete -ResourceGroupName exampleresourcegroup
 ```
 
 To get information about a lock, use [Get-​Azure​Rm​Resource​Lock](/powershell/module/azurerm.resources/get-azurermresourcelock). To get all the locks in your subscription, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock
 ```
 
 To get all locks for a resource, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceName examplesite -ResourceType Microsoft.Web/sites -ResourceGroupName exampleresourcegroup
 ```
 
 To get all locks for a resource group, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup
 ```
 
 To delete a lock, use:
 
-```powershell
+```azurepowershell-interactive
 $lockId = (Get-AzureRmResourceLock -ResourceGroupName exampleresourcegroup -ResourceName examplesite -ResourceType Microsoft.Web/sites).LockId
 Remove-AzureRmResourceLock -LockId $lockId
 ```
 
 ## Azure CLI
 
-You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az_lock_create) command.
+You lock deployed resources with Azure CLI by using the [az lock create](/cli/azure/lock#az-lock-create) command.
 
 To lock a resource, provide the name of the resource, its resource type, and its resource group name.
 
@@ -168,7 +168,7 @@ To lock a resource group, provide the name of the resource group.
 az lock create --name LockGroup --lock-type CanNotDelete --resource-group exampleresourcegroup
 ```
 
-To get information about a lock, use [az lock list](/cli/azure/lock#az_lock_list). To get all the locks in your subscription, use:
+To get information about a lock, use [az lock list](/cli/azure/lock#az-lock-list). To get all the locks in your subscription, use:
 
 ```azurecli
 az lock list
@@ -215,5 +215,5 @@ In the request, include a JSON object that specifies the properties for the lock
 * To learn about logically organizing your resources, see [Using tags to organize your resources](resource-group-using-tags.md)
 * To change which resource group a resource resides in, see [Move resources to new resource group](resource-group-move-resources.md)
 * You can apply restrictions and conventions across your subscription with customized policies. For more information, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).
 

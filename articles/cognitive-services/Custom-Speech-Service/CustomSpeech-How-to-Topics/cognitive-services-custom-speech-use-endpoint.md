@@ -4,15 +4,17 @@ description: Learn how to use a custom speech-to-text endpoint with the Custom S
 services: cognitive-services
 author: PanosPeriorellis
 manager: onano
-
 ms.service: cognitive-services
-ms.technology: custom-speech-service
+ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
 ---
 
 # Use a custom speech-to-text endpoint
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 You can send requests to an Azure Custom Speech Service speech-to-text endpoint, in a similar way as you can to the default Cognitive Services speech endpoint. These endpoints are functionally identical to the default endpoints of the Speech API. Thus, the same functionality that's available via the client library or the REST API for the Speech API is also available for your custom endpoint.
 
 The endpoints you create by using this service can process different numbers of concurrent requests. The volume depends on the pricing tier associated with your subscription. If too many requests are received, an error occurs. The free tier has a monthly limit of requests.
@@ -126,7 +128,7 @@ For more information about HTTP post parameters and the response format, see the
 The Service Library enables your service to make use of the Microsoft Speech transcription cloud to convert spoken language to text in real-time, so that your client app can send audio and receive partial recognition results back simultaneously and asynchronously. Detail of the Service SDK can be found [here](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedcsharpservicelibrary)
 
 > [!NOTE]
-> When using the Service librady you have to change the URI of the authorization provider in the implementation of **IAuthorizationProvider** to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
+> When using the Service Library you have to change the URI of the authorization provider in the implementation of **IAuthorizationProvider** to https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken.
 
 ## Next steps
 * Improve accuracy with your [custom acoustic model](cognitive-services-custom-speech-create-acoustic-model.md).

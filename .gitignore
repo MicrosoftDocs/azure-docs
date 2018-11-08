@@ -1,16 +1,22 @@
-log/
-obj/
-_site/
-.optemp/
-_themes/
-_themes.MSDN.Modern/
-_themes.VS.Modern/
-.DS_Store
+# Operating System files
+ .DS_Store
 Thumbs.db
-.openpublishing.buildcore.ps1
-AzureMigration.ps1
-.migrationtemp
-articles/directories.txt
+
+# Visual Studio and VS Code files
+.settings.json
 .vscode/*
 .vs/*
-.settings.json
+log/
+obj/
+
+# APEX and OPS Files
+.migrationtemp
+.openpublishing.buildcore.ps1
+.optemp/
+_repo.*/
+_site/
+_themes*/
+_themes.MSDN.Modern/
+_themes.VS.Modern/
+articles/directories.txt
+AzureMigration.ps1

@@ -3,18 +3,19 @@ title: Manage experiment iterations in Machine Learning Studio | Microsoft Docs
 description: How to manage experiment iterations in Azure Machine Learning Studio
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: 6a53530f-20d5-40ae-9b49-7b499ccb44b7
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.author: garye
 
 ---
 # Manage experiment iterations in Azure Machine Learning Studio

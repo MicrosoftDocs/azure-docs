@@ -30,6 +30,10 @@
     href: app-service-app-service-environment-geo-distributed-scale.md
   - name: ASEv1
     href: app-service-app-service-environment-intro.md
+  - name: Diagnostics
+    href: ../app-service-diagnostics.md
+  - name: Certificates
+    href: certificates.md
 - name: How-To guides
   items:
   - name: Use an ASE
@@ -40,6 +44,8 @@
     href: create-from-template.md
   - name: Forced tunnel configuration
     href: forced-tunnel-support.md
+  - name: Firewall integration
+    href: firewall-integration.md
 - name: Reference
   items:
   - name: Management addresses
@@ -62,8 +68,6 @@
       href: app-service-app-service-environment-network-architecture-overview.md
     - name: Create web app in ASEv1
       href: app-service-web-how-to-create-a-web-app-in-an-ase.md
-    - name: High density hosting
-      href: app-service-high-density-hosting.md
     - name: Connect to back end
       href: app-service-app-service-environment-securely-connecting-to-backend-resources.md
     - name: Configure ExpressRoute
@@ -72,15 +76,6 @@
       href: app-service-app-service-environment-control-inbound-traffic.md
     - name: Use layered security
       href: app-service-app-service-environment-layered-security.md
-  - name: CLI 2.0
-- name: Reference
-  items:
-  - name: Azure CLI
-    href: /cli/azure/appservice
-  - name: Azure PowerShell
-    href: /powershell
-  - name: REST API
-    href: /rest/api/appservice/
 - name: Resources
   items:
   - name: Azure Roadmap

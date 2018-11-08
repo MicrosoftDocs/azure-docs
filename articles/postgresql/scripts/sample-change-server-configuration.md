@@ -18,7 +18,7 @@ This sample CLI script lists all available configuration parameters as well as t
 
 [!INCLUDE [cloud-shell-try-it](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI 2.0]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
+If you choose to run the CLI locally, this article requires Azure CLI version 2.0 or later. Check the version by running `az --version`. See [Install Azure CLI]( /cli/azure/install-azure-cli) to install or upgrade your version of Azure CLI. 
 
 ## Sample script
 In this sample script, edit the highlighted lines to update the admin username and password to your own.
@@ -41,6 +41,6 @@ This script uses the commands outlined in the following table:
 | [az group delete](/cli/azure/group#az_group_delete) | Deletes a resource group including all nested resources. |
 
 ## Next steps
-- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure/overview).
+- Read more information on the Azure CLI: [Azure CLI documentation](/cli/azure).
 - Try additional scripts: [Azure CLI samples for Azure Database for PostgreSQL](../sample-scripts-azure-cli.md)
 - For more information on server parameters, see [How To Configure server parameters in Azure portal](../howto-configure-server-parameters-using-portal.md).

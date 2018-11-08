@@ -3,15 +3,11 @@ title: Task hubs in Durable Functions - Azure
 description: Learn what a task hub is in the Durable Functions extension for Azure Functions. Learn how to configure configure task hubs.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/29/2017
 ms.author: azfuncdf
 ---
@@ -31,6 +27,7 @@ A task hub consists of the following storage resources:
 * One or more control queues.
 * One work-item queue.
 * One history table.
+* One instances table.
 * One storage container containing one or more lease blobs.
 
 All of these resources are created automatically in the default Azure Storage account when orchestrator or activity functions run or are scheduled to run. The [Performance and Scale](durable-functions-perf-and-scale.md) article explains how these resources are used.

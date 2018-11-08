@@ -4,7 +4,7 @@
 ## [FAQ](faq-classic.md)
 
 # Get Started
-## [Create a Linux VM with Azure portal](createportal-classic.md)
+## [Create a Linux VM](createportal-classic.md)
 
 # How to
 ## Compute
@@ -33,7 +33,6 @@
 ### [Ruby on Rails web application](ruby-rails-web-app.md)
 ### [Cassandra and Node.js client](cassandra-nodejs.md)
 ### [Tomcat](setup-tomcat.md)
-### [RDMA cluster to run MPI applications](rdma-cluster.md)
 ### HPC Pack
 #### [Create a cluster for Linux workloads](hpcpack-cluster-powershell-script.md)
 #### [Manage a cluster with Linux nodes](hpcpack-cluster.md)

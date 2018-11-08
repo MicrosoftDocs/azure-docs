@@ -1,22 +1,14 @@
 ---
-title: 'Stream Analytics: Rotate login credentials for inputs and outputs | Microsoft Docs'
-description: Learn how to update the credentials for Stream Analytics inputs and outputs.
-keywords: login credentials
+title: Rotate login credentials in Azure Stream Analytics jobs
+description: This article describes how to update the credentials of inputs and output sinks in Azure Stream Analytics jobs.
 services: stream-analytics
-documentationcenter: ''
-author: SnehaGunda
+author: jasonwhowell
+ms.author: mamccrea
 manager: kfile
-editor: cgronlun
-
-ms.assetid: 42ae83e1-cd33-49bb-a455-a39a7c151ea4
+ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 01/11/2018
-ms.author: sngun
-
 ---
 # Rotate login credentials for inputs and outputs of a Stream Analytics Job
 
@@ -36,7 +28,7 @@ In this section, we will walk you through regenerating credentials for Blob Stor
 6. Find the **Storage Account Key** field and paste your newly generated key > click **Save**.    
 7. A connection test will automatically start when you save your changes, you can view it from the notifications tab. There are two notifications- one corresponds to saving the update and other corresponds to testing the connection:  
    ![Notifications after editing the key](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. Proceed to [start your job from the last stopped time] (#start-your-job-from-the-last-stopped-time) section.
+8. Proceed to [start your job from the last stopped time](#start-your-job-from-the-last-stopped-time) section.
 
 ### Event hubs
 

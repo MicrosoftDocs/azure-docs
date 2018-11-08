@@ -3,7 +3,7 @@ title: View Azure Application Insights app data | Microsoft Docs
 description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when monitored with Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,15 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-
+ms.component: 
 ---
 
 # Application Insights Connector management solution (Preview)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> With the support of [cross-resource queries](log-analytics-cross-workspace-search.md), the Application Insights connector management solution is no longer required and will be deprecated. Starting July, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until November 2018. For more information, see [OMS portal moving to Azure](log-analytics-oms-portal-transition.md).
 
 The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
@@ -36,8 +39,8 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agent.md) | No | The solution does not collect information from Windows agents. |
-| [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect information from Linux agents. |
+| [Windows agents](log-analytics-agent-windows.md) | No | The solution does not collect information from Windows agents. |
+| [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collection information from Azure storage. |
 
@@ -49,9 +52,9 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 ## Configuration
 
-1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-2. In the OMS portal, click **Settings** &gt; **Data** &gt; **Application Insights**.
-3. Under **Select a subscription**, select a subscription that has Application Insights resources and then under **Application Name**, select one or more applications.
+1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+2. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Application Insights. Then, search for Application Insights. 
+3. Under **Subscriptions**, select a subscription that has Application Insights resources and then under **Name**, select one or more applications.
 4. Click **Save**.
 
 In approximately 30 minutes, data becomes available and the Application Insights tile is updated with data, like the following image:
@@ -61,7 +64,7 @@ In approximately 30 minutes, data becomes available and the Application Insights
 Other points to keep in mind:
 
 - You can only link Application Insights apps to one Log Analytics workspace.
-- You can only link [Standard or Premium Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to Log Analytics. However, you can use the Free tier of Log Analytics.
+- You can only link [Basic or Enterprise Application Insights resources](https://azure.microsoft.com/pricing/details/application-insights) to Log Analytics. However, you can use the Free tier of Log Analytics.
 
 ## Management packs
 
@@ -81,16 +84,15 @@ Click the **Application Insights** tile to open the **Application Insights** das
 
 The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Column** | **Description** |
 | --- | --- |
-| Applications - Number of applications | Shows the number of applications in Application resources. Also lists application names and for each, the count of application records. Click the number to run a log search for <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by ApplicationName</code> <br><br>  Click an application name to run a log search for the application that shows application records per host, records by telemetry type, and all data by type (based on the last day). |
-| Data Volume – Hosts sending data | Shows the number of computer hosts that are sending data. Also lists computer hosts and record count for each host. Click the number to run a log search for <code>Type=ApplicationInsights &#124; measure sum(SampledCount) by Host</code> <br><br> Click on a computer name to run a log search for the host that shows application records per host, records by telemetry type, and all data by type (based on the last day). |
-| Availability – Webtest results | Shows a doughnut chart for web test results, indicating pass or fail. Click the chart to run a log search for <code>Type=ApplicationInsights TelemetryType=Availability &#124; measure sum(SampledCount) by AvailabilityResult</code> <br><br> Results show the number of passes and failures for all tests. It shows all Web Apps with traffic for the last minute. Click an application name to view a log search showing details of failed web tests. |
-| Server Requests – Requests per hour | Shows a line chart of the server requests per hour for various applications. Hover over a line in the chart to see the top 3 applications receiving requests for a point in time. Also shows a list of the applications receiving requests and the number of requests for the selected period. <br><br>Click the graph to run a log search for <code>Type=ApplicationInsights TelemetryType=Request &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> that shows a more detailed line chart of the server requests per hour for various applications. <br><br> Click an application in the list to run a log search for <code>Type=ApplicationInsights  ApplicationName=yourapplicationname  TelemetryType=Request</code> that shows a list of requests, charts for requests over time and request duration and a list of request response codes.   |
-| Failures – Failed requests per hour | Shows a line chart of failed application requests per hour. Hover over the chart to see the top 3 applications with failed requests for a point in time. Also shows a list of applications with the number of failed requests for each. Click the chart to run a log search for <code>Type=ApplicationInsights TelemetryType=Request  RequestSuccess = false &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> that shows a more detailed line chart of failed application requests. <br><br>Click an item in the list to run a log search for <code>Type=ApplicationInsights ApplicationName=yourapplicationname TelemetryType=Request  RequestSuccess=false</code>  that shows failed requests, charts for failed requests over time and request duration and a list of failed request response codes. |
-| Exceptions – Exceptions per hour | Shows a line chart of exceptions per hour. Hover over the chart to see the top 3 applications with exceptions for a point in time. Also shows a list of applications with the number of exceptions for each. Click the chart to run a log search for <code>Type=ApplicationInsights TelemetryType=Exception &#124; measure sum(SampledCount) by ApplicationName interval 1hour</code> that shows a more detailed link chart of exceptions. <br><br>Click an item in the list to run a log search for <code>Type=ApplicationInsights  ApplicationName=yourapplicationname TelemetryType=Exception</code> that shows a list of exceptions, charts for exceptions over time and failed requests, and a list of exception types.  |
+| Applications - Number of applications | Shows the number of applications in Application resources. Also lists application names and for each, the count of application records. Click the number to run a log search for <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Click an application name to run a log search for the application that shows application records per host, records by telemetry type, and all data by type (based on the last day). |
+| Data Volume – Hosts sending data | Shows the number of computer hosts that are sending data. Also lists computer hosts and record count for each host. Click the number to run a log search for <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Click on a computer name to run a log search for the host that shows application records per host, records by telemetry type, and all data by type (based on the last day). |
+| Availability – Webtest results | Shows a doughnut chart for web test results, indicating pass or fail. Click the chart to run a log search for <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Results show the number of passes and failures for all tests. It shows all Web Apps with traffic for the last minute. Click an application name to view a log search showing details of failed web tests. |
+| Server Requests – Requests per hour | Shows a line chart of the server requests per hour for various applications. Hover over a line in the chart to see the top 3 applications receiving requests for a point in time. Also shows a list of the applications receiving requests and the number of requests for the selected period. <br><br>Click the graph to run a log search for <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> that shows a more detailed line chart of the server requests per hour for various applications. <br><br> Click an application in the list to run a log search for <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> that shows a list of requests, charts for requests over time and request duration and a list of request response codes.   |
+| Failures – Failed requests per hour | Shows a line chart of failed application requests per hour. Hover over the chart to see the top 3 applications with failed requests for a point in time. Also shows a list of applications with the number of failed requests for each. Click the chart to run a log search for <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> that shows a more detailed line chart of failed application requests. <br><br>Click an item in the list to run a log search for <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code>  that shows failed requests, charts for failed requests over time and request duration and a list of failed request response codes. |
+| Exceptions – Exceptions per hour | Shows a line chart of exceptions per hour. Hover over the chart to see the top 3 applications with exceptions for a point in time. Also shows a list of applications with the number of exceptions for each. Click the chart to run a log search for <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> that shows a more detailed link chart of exceptions. <br><br>Click an item in the list to run a log search for <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> that shows a list of exceptions, charts for exceptions over time and failed requests, and a list of exception types.  |
 
 ### View the Application Insights perspective with log search
 
@@ -126,7 +128,7 @@ Perspective components are updated depending on the search query. This means tha
 
 ### Pivot to an app in the Azure portal
 
-Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the OMS portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
+Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the Azure portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
 
 To pivot, click the ellipses (**…**) that appears at the end of each line, and select **Open in Application Insights**.
 
@@ -142,7 +144,7 @@ Application Insights provides *[sampling correction](../application-insights/app
 Here is an example of sampling correction in a log search query:
 
 ```
-Type=ApplicationInsights | measure sum(SampledCount) by TelemetryType
+ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by TelemetryType
 ```
 
 The **Sampled Count** field is present in all entries and shows the number of data points that the entry represents. If you turn on sampling for your Application Insights app, **Sampled Count** is greater than 1. To count the actual number of entries that your application generates, sum the **Sampled Count** fields.
@@ -260,4 +262,4 @@ This solution does not have a set of sample log searches shown on the dashboard.
 
 ## Next steps
 
-- Use [Log Search](log-analytics-log-searches.md) to view detailed information for your Application Insights apps.
+- Use [Log Search](log-analytics-queries.md) to view detailed information for your Application Insights apps.

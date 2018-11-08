@@ -4,7 +4,7 @@ description: Lists the different sizes available for Windows high performance co
 services: virtual-machines-windows
 documentationcenter: ''
 author: jonbeck7
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager,azure-service-management
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2018
+ms.date: 10/12/2018
 ms.author: jonbeck
 
 ---
@@ -27,16 +27,8 @@ ms.author: jonbeck
 
 [!INCLUDE [virtual-machines-common-a8-a9-a10-a11-specs](../../../includes/virtual-machines-common-a8-a9-a10-a11-specs.md)]
 
-## RDMA-capable instances
-A subset of the compute-intensive instances (H16r, H16mr, A8, and A9) feature a network interface for remote direct memory access (RDMA) connectivity. This interface is in addition to the standard Azure network interface available to other VM sizes. 
-  
-This interface allows the RDMA-capable instances to communicate over an InfiniBand network, operating at FDR rates for H16r and H16mr virtual machines, and QDR rates for A8 and A9 virtual machines. These RDMA capabilities can boost the scalability and performance of Message Passing Interface (MPI) applications.
-
-Following are requirements for RDMA-capable Windows VMs to access the Azure RDMA network: 
 
 * **Operating system** - Windows Server 2016, Windows Server 2012 R2, Windows Server 2012
-
-* **Availability set or cloud service** – Deploy the RDMA-capable VMs in the same availability set (when you use the Azure Resource Manager deployment model) or the same cloud service (when you use the classic deployment model). If you use Azure Batch, the RDMA-capable VMs must be in the same pool.
 
 * **MPI** - Microsoft MPI (MS-MPI) 2012 R2 or later, Intel MPI Library 5.x
 
@@ -55,13 +47,19 @@ Following are requirements for RDMA-capable Windows VMs to access the Azure RDMA
   
   For more information, see [Virtual machine extensions and features](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). You can also work with extensions for VMs deployed in the [classic deployment model](classic/manage-extensions.md).
 
+### Cluster configuration options
 
-## Using HPC Pack
+Azure provides several options to create clusters of Windows HPC VMs that can communicate using the RDMA network, including: 
 
-[Microsoft HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), Microsoft’s free HPC cluster and job management solution, is one option for you to create a compute cluster in Azure to run Windows-based MPI applications and other HPC workloads. HPC Pack 2012 R2 and later versions include a runtime environment for MS-MPI that uses the Azure RDMA network when deployed on RDMA-capable VMs.
+* **Virtual machines**  - Deploy the RDMA-capable HPC VMs in the same availability set (when you use the Azure Resource Manager deployment model). If you use the classic deployment model, deploy the VMs in the same cloud service. 
 
+* **Virtual machine scale sets** - In a VM scale set, ensure that you limit the deployment to a single placement group. For example, in a Resource Manager template, set the `singlePlacementGroup` property to `true`. 
 
+* **Azure CycleCloud** - Create an HPC cluster in [Azure CycleCloud](/azure/cyclecloud/) to run MPI jobs on Windows nodes.
 
+* **Azure Batch** - Create an [Azure Batch](/azure/batch/) pool to run MPI workloads on Windows Server compute nodes. For more information, see [Use RDMA-capable or GPU-enabled instances in Batch pools](../../batch/batch-pool-compute-intensive-sizes.md). Also see the [Batch Shipyard](https://github.com/Azure/batch-shipyard) project, for running container-based workloads on Batch.
+
+* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) includes a runtime environment for MS-MPI that uses the Azure RDMA network when deployed on RDMA-capable Windows VMs. For example deployments, see [Set up a Windows RDMA cluster with HPC Pack to run MPI applications](classic/hpcpack-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Other sizes
 - [General purpose](sizes-general.md)
@@ -69,6 +67,7 @@ Following are requirements for RDMA-capable Windows VMs to access the Azure RDMA
 - [Memory optimized](../virtual-machines-windows-sizes-memory.md)
 - [Storage optimized](../virtual-machines-windows-sizes-storage.md)
 - [GPU optimized](sizes-gpu.md)
+- [Previous generations](sizes-previous-gen.md)
 
 ## Next steps
 

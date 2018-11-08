@@ -4,18 +4,19 @@ description: An easy-to-understand overview of machine learning basics includes 
 keywords: machine learning basics,algorithm examples,machine learning for beginners,machine learning questions,popular algorithms,algorithm infographic
 services: machine-learning
 documentationcenter: ''
-author: garyericson
-manager: jhubbard
+author: heatherbshapiro
+ms.author: hshapiro
+manager: hjerez
 editor: cgronlun
 
 ms.assetid: cf4e2308-9285-4adc-9f00-408e3ee7931b
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.author: garye
 
 ---
 # Downloadable Infographic: Machine learning basics with algorithm examples
@@ -26,7 +27,7 @@ Download this easy-to-understand infographic overview of machine learning basics
 [Azure AI Gallery](https://gallery.cortanaintelligence.com/). The Gallery contains example experiments and tutorials that demonstrate how these algorithms can be applied in many real-world solutions.
 
 ## Download the infographic with algorithm examples
-**[Download: Infographic of machine learning basics with links to algorithm examples (PDF)](http://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
+**[Download: Infographic of machine learning basics with links to algorithm examples (PDF)](https://download.microsoft.com/download/0/5/A/05AE6B94-E688-403E-90A5-6035DBE9EEC5/machine-learning-basics-infographic-with-algorithm-examples.pdf)**
 
 ![Infographic: Machine learning basics with algorithm examples. Popular algorithms. Machine learning for beginners.](./media/basics-infographic-with-algorithm-examples/machine-learning-basics-infographic-with-algorithm-examples.png)
 

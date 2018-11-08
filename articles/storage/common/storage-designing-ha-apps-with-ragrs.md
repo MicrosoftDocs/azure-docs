@@ -1,36 +1,29 @@
 ---
 title: Designing Highly Available Applications using Azure Read-Access Geo-Redundant Storage (RA-GRS) | Microsoft Docs
-description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages. 
+description: How to use Azure RA-GRS storage to architect a highly available application flexible enough to handle outages.
 services: storage
-documentationcenter: .net
 author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid: 8f040b0f-8926-4831-ac07-79f646f31926
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/11/2017
+ms.date: 03/21/2018
 ms.author: tamram
-
+ms.component: common
 ---
 # Designing Highly Available Applications using RA-GRS
 
 A common feature of cloud-based infrastructures like Azure Storage is that they provide a highly available platform for hosting applications. Developers of cloud-based applications must consider carefully how to leverage this platform to deliver highly available applications to their users. This article focuses on how developers can use Read Access Geo-Redundant Storage (RA-GRS) to ensure that their Azure Storage applications are highly available.
 
-Azure Storage offers four choices for redundancy for data in your storage account:
+[!INCLUDE [storage-common-redundancy-options](../../../includes/storage-common-redundancy-options.md)]
 
-- LRS (Locally Redundant Storage)
-- ZRS (Zone Redundant Storage) 
-- GRS (Geo-Redundant Storage)
-- RA-GRS (Read Access Geo-Redundant Storage). 
+This article focuses on GRS and RA-GRS. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS offers geo-redundant storage with read access to the secondary copy.
 
-This article focuses on GRS and RA-GRS. With GRS, three copies of your data are kept in the primary region you selected when setting up the storage account. Three additional copies are maintained asynchronously in a secondary region specified by Azure. RA-GRS is the same thing as GRS except that you have read access to the secondary copy. For more information about the different Azure Storage redundancy options, see [Azure Storage replication](https://docs.microsoft.com/azure/storage/storage-redundancy). The replication article also shows the pairings of the primary and secondary regions.
+For information about which primary regions are paired with which secondary regions, see [Business continuity and disaster recovery (BCDR): Azure Paired Regions](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 There are code snippets included in this article, and a link to a complete sample at the end that you can download and run.
+
+> [!NOTE]
+> Azure Storage now supports zone-redundant storage (ZRS) for building highly available applications. ZRS offers a simple solution for the redundancy needs of many applications. ZRS provides protection from hardware failures or catastrophic disasters affecting a single datacenter. For more information, see [Zone-redundant storage (ZRS): Highly available Azure Storage applications](storage-redundancy-zrs.md).
 
 ## Key features of RA-GRS
 
@@ -150,7 +143,7 @@ Another consideration is how to handle multiple instances of an application, and
 
 You have three main options for monitoring the frequency of retries in the primary region in order to determine when to switch over to the secondary region and change the application to run in read-only mode.
 
-*   Add a handler for the [**Retrying**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) event on the [**OperationContext**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
+*   Add a handler for the [**Retrying**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.retrying.aspx) event on the [**OperationContext**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.operationcontext.aspx) object you pass to your storage requests – this is the method displayed in this article and used in the accompanying sample. These events fire whenever the client retries a request, enabling you to track how often the client encounters retryable errors on a primary endpoint.
 
     ```csharp 
     operationContext.Retrying += (sender, arguments) =>
@@ -161,7 +154,7 @@ You have three main options for monitoring the frequency of retries in the prima
     };
     ```
 
-*   In the [**Evaluate**](http://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
+*   In the [**Evaluate**](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.retrypolicies.iextendedretrypolicy.evaluate.aspx) method in a custom retry policy, you can run custom code whenever a retry takes place. In addition to recording when a retry happens, this also gives you the opportunity to modify your retry behavior.
 
     ```csharp 
     public RetryInfo Evaluate(RetryContext retryContext,

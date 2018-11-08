@@ -1,21 +1,23 @@
 ---
-title: Entity search SDK Node quickstart | Microsoft Docs
-description: Setup for Entity search SDK console application.
-titleSuffix: Azure cognitive services
+title: "Quickstart: Bing Entity search SDK, Node"
+titleSuffix: Azure Cognitive Services
+description: Setup for Entity search SDK console application with Node.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
+ms.component: bing-entity-search
+ms.topic: quickstart
 ms.date: 02/12/2018
 ms.author: v-gedod
 ---
 
-# Entity Search SDK Node quickstart (preview)
+# Quickstart: Bing Entity Search SDK with Node
 
 The Bing Entity Search SDK contains the functionality of the REST API for entity queries and parsing results. 
 
+The [source code for C# Bing Entity Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/entitySearch.js) is available on Git Hub.
 ## Application dependencies
 
 To set up a console application using the Bing Entity Search SDK, run `npm install azure-cognitiveservices-entitysearch` in your development environment.
@@ -45,7 +47,9 @@ The code prints `result.value` items to the console without parsing any text.  T
 - _type: 'Thing'
 - _type: 'ImageObject'
 
+<!-- Removing until we can replace with a sanitized version.
 ![Entity results](media/entity-search-sdk-node-quickstart-results.png)
+-->
 
 ## Next steps
 

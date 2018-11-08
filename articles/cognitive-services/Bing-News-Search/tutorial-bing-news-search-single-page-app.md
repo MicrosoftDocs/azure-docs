@@ -1,20 +1,23 @@
 ---
-title: Bing single-page News search app | Microsoft Docs
+title: "Tutorial: Bing News Search single-page app"
+titlesuffix: Azure Cognitive Services
 description: Explains how to use the Bing News Search API in a single-page Web application.
 services: cognitive-services
 author: mikedodaro
-manager: ronakshah
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-news-search
-ms.topic: article
+ms.component: bing-news-search
+ms.topic: tutorial
 ms.date: 10/30/2017
 ms.author: v-gedod
 ---
 # Tutorial: Single-page News Search app
 The Bing News Search API lets you search the Web and obtain results of the news type relevant to a search query. In this tutorial, we build a single-page Web application that uses the Bing News Search API to display search results on the page. The application includes HTML, CSS, and JavaScript components.
 
+<!-- Remove until we can replace it with sanitized copy
 ![Single-page Bing News Search app](media/news-search-singlepage.png)
+-->
 
 > [!NOTE]
 > The JSON and HTTP headings at the bottom of the page when clicked show the JSON response and HTTP request information. These details can be useful when exploring the service.
@@ -316,7 +319,7 @@ The Bing News Search API returns up to four different kinds of related results, 
 
 As previously seen in `renderSearchResults()`, we render only the `relatedItems` suggestions and place the resulting links in the page's sidebar.
 
-##Rendering result items
+## Rendering result items
 
 In the JavaScript code the object, `searchItemRenderers`, contains *renderers:* functions that generate HTML for each kind of search result.
 

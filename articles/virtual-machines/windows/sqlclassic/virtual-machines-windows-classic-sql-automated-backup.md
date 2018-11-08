@@ -45,7 +45,7 @@ To use Automated Backup, consider the following prerequisites:
 * SQL Server 2014 Enterprise
 
 > [!NOTE]
-> Automated Backup for SQL Server 2016 is supported with Resource Manager virtual machines. For more information, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
+> Automated Backup for SQL Server 2016 is supported with Resource Manager virtual machines. For more information, see [Automated Backup v2 for SQL Server 2016 Azure Virtual Machines (Resource Manager)](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-automated-backup-v2).
 
 **Database configuration**:
 

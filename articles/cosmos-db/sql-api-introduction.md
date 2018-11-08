@@ -4,23 +4,17 @@ description: Learn how you can use Azure Cosmos DB to store and query massive vo
 keywords: json database, document database
 services: cosmos-db
 author: rafats
-manager: jhubbard
-editor: monicar
-documentationcenter: ''
+manager: kfile
 
-ms.assetid: 686cdd2b-704a-4488-921e-8eefb70d5c63
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-sql
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 05/22/2017
 ms.author: rafats
 
 ---
 # Introduction to Azure Cosmos DB: SQL API
-
-[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 [Azure Cosmos DB](introduction.md) is Microsoft's globally distributed, multi-model database service for mission-critical applications. Azure Cosmos DB provides [turn-key global distribution](distribute-data-globally.md), [elastic scaling of throughput and storage](partition-data.md) worldwide, single-digit millisecond latencies at the 99th percentile, [five well-defined consistency levels](consistency-levels.md), and guaranteed high availability, all backed by [industry-leading SLAs](https://azure.microsoft.com/support/legal/sla/cosmos-db/). Azure Cosmos DB [automatically indexes data](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) without requiring you to deal with schema and index management. It is multi-model and supports document, key-value, graph, and columnar data models.
 
@@ -69,14 +63,10 @@ Azure Cosmos DB exposes resources through the REST APIs that can be called by an
 
 | Download | Documentation |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET library](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Node.js SDK](http://go.microsoft.com/fwlink/?LinkID=402990) |[Node.js library](http://azure.github.io/azure-documentdb-node/) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java library](/java/api/com.microsoft.azure.documentdb) |
-| [JavaScript SDK](http://go.microsoft.com/fwlink/?LinkID=402991) |[JavaScript library](http://azure.github.io/azure-documentdb-js/) |
-| n/a |[Server-side JavaScript SDK](http://azure.github.io/azure-documentdb-js-server/) |
-| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python library](http://azure.github.io/azure-documentdb-python/) |
-| n/a | [API for MongoDB](mongodb-introduction.md)
-
+| [.NET SDK](https://go.microsoft.com/fwlink/?LinkID=402989) |[.NET reference docs](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [Java SDK](https://go.microsoft.com/fwlink/?LinkID=402380) |[Java reference docs](/java/api/com.microsoft.azure.documentdb) |
+| [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) |[JavaScript reference docs](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
+| [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python reference docs](https://github.com/Azure/azure-cosmos-python) |
 
 Using the [Azure Cosmos DB Emulator](local-emulator.md), you can develop and test your application locally with the SQL API, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the emulator, you can switch to using an Azure Cosmos DB account in the cloud.
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure solutions with PowerShell | Microsoft Docs
 description: Use Azure PowerShell and Resource Manager to manage your resources.
 services: azure-resource-manager
@@ -12,22 +12,22 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
-ms.topic: article
-ms.date: 02/16/2018
+ms.topic: conceptual
+ms.date: 07/20/2018
 ms.author: tomfitz
 
 ---
 # Manage resources with Azure PowerShell
 
-[!include[Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
+[!INCLUDE [Resource Manager governance introduction](../../includes/resource-manager-governance-intro.md)]
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Login-AzureRmAccount` to create a connection with Azure.
+If you choose to install and use the PowerShell locally, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). If you are running PowerShell locally, you also need to run `Connect-AzureRmAccount` to create a connection with Azure.
 
 ## Understand scope
 
-[!include[Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
+[!INCLUDE [Resource Manager governance scope](../../includes/resource-manager-governance-scope.md)]
 
 In this article, you apply all management settings to a resource group so you can easily remove those settings when done.
 
@@ -42,17 +42,17 @@ Currently, the resource group is empty.
 
 ## Role-based access control
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
+[!INCLUDE [Resource Manager governance policy](../../includes/resource-manager-governance-rbac.md)]
 
 ### Assign a role
 
 In this article, you deploy a virtual machine and its related virtual network. For managing virtual machine solutions, there are three resource-specific roles that provide commonly needed access:
 
-* [Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor)
-* [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor)
-* [Storage Account Contributor](../active-directory/role-based-access-built-in-roles.md#storage-account-contributor)
+* [Virtual Machine Contributor](../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
+* [Network Contributor](../role-based-access-control/built-in-roles.md#network-contributor)
+* [Storage Account Contributor](../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../active-directory/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
+Instead of assigning roles to individual users, it's often easier to [create an Azure Active Directory group](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) for users who need to take similar actions. Then, assign that group to the appropriate role. To simplify this article, you create an Azure Active Directory group without members. You can still assign this group to a role for a scope. 
 
 The following example creates a group and assigns it to the Virtual Machine Contributor role for the resource group. To run the `New-AzureAdGroup` command, you must either use the [Azure Cloud Shell](/azure/cloud-shell/overview) or [download the Azure AD PowerShell module](https://www.powershellgallery.com/packages/AzureAD/).
 
@@ -68,13 +68,9 @@ New-AzureRmRoleAssignment -ObjectId $adgroup.ObjectId `
 
 Typically, you repeat the process for **Network Contributor** and **Storage Account Contributor** to make sure users are assigned to manage the deployed resources. In this article, you can skip those steps.
 
-## Azure policies
+## Azure Policy
 
-[!include[Resource Manager governance policy](../../includes/resource-manager-governance-policy.md)]
-
-### Apply policies
-
-Your subscription already has several policy definitions. To see the available policy definitions, use:
+[Azure Policy](../azure-policy/azure-policy-introduction.md) helps you make sure all resources in subscription meet corporate standards. Your subscription already has several policy definitions. To see the available policy definitions, use:
 
 ```azurepowershell-interactive
 (Get-AzureRmPolicyDefinition).Properties | Format-Table displayName, policyType
@@ -128,7 +124,7 @@ After your deployment finishes, you can apply more management settings to the so
 
 ## Lock resources
 
-[!include[Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
+[!INCLUDE [Resource Manager governance locks](../../includes/resource-manager-governance-locks.md)]
 
 ### Lock a resource
 
@@ -151,11 +147,11 @@ The virtual machine can only be deleted if you specifically remove the lock. Tha
 
 ## Tag resources
 
-[!include[Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
+[!INCLUDE [Resource Manager governance tags](../../includes/resource-manager-governance-tags.md)]
 
 ### Tag resources
 
-[!include[Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
+[!INCLUDE [Resource Manager governance tags Powershell](../../includes/resource-manager-governance-tags-powershell.md)]
 
 To apply tags to a virtual machine, use:
 
@@ -219,4 +215,4 @@ Remove-AzureRmResourceGroup -Name myResourceGroup
 * To learn about monitoring your virtual machines, see [Monitor and update a Windows Virtual Machine with Azure PowerShell](../virtual-machines/windows/tutorial-monitoring.md).
 * To learn about using Azure Security Center to implement recommended security practices, [Monitor virtual machine security by using Azure Security Center](../virtual-machines/windows/tutorial-azure-security.md).
 * You can move existing resources to a new resource group. For examples, see [Move Resources to New Resource Group or Subscription](resource-group-move-resources.md).
-* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
+* For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance).

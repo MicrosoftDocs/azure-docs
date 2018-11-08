@@ -1,23 +1,16 @@
 ---
-title: Set up IP addressing to connect after failover to Azure with Azure Site Recovery | Microsoft Docs
-description: Describes how to set up IP addressing to connect to Azure VMs after failover from on-premises with Azure Site Recovery
+title: Set up IP addressing to connect after disaster recovery and failover to Azure with Azure Site Recovery | Microsoft Docs
+description: Describes how to set up IP addressing to connect to Azure VMs after disaster recovery and failover from on-premises with Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
-manager: carmonm
-editor: ''
-
-ms.assetid: f02cdbea-0940-48bf-9fa5-f38d9e584fae
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 02/27/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
-# Set up IP addressing to connect after failover to Azure
+# Set up IP addressing to connect to Azure VMs after failover
 
 This article explains the networking requirements for connecting to Azure VMs, after using the [Azure Site Recovery](site-recovery-overview.md) service for replication and failover to Azure.
 
@@ -46,9 +39,9 @@ Site Recovery provides the capability to retain fixed IP addresses when failing 
 
 ### Failover example
 
-Let's look at an example for failover to Azure usng a ficticious company, Woodgrove Bank.
+Let's look at an example for failover to Azure using a fictitious company, Woodgrove Bank.
 
-- Woodgrove Bank hosts that business apps in an on-premises site. They host their mobile apps on Azure.
+- Woodgrove Bank hosts their business apps in an on-premises site. They host their mobile apps on Azure.
 - There's VPN site-to-site connectivity between their on-premises edge network and the Azure virtual network. Because of the VPN connection, the virtual network in Azure appears as an extension of the on-premises network.
 - Woodgrove wants to replicate on-premises workloads to Azure with Site Recovery.
  - Woodgrove has apps which depend on hard-coded IP addresses, so they need to retain IP addresses for the apps, after failover to Azure.
@@ -83,7 +76,7 @@ In addition to the vnet-to-vnet connection, after failover, Woodgrove can set up
 
 ## Assigning new IP addresses
 
-This [blog post](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers.
+This [blog post](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explains how to set up the Azure networking infrastructure when you don't need to retain IP addresses after failover. It starts with an application description, looks at how to set up networking on-premises and in Azure, and concludes with information about running failovers.
 
 ## Next steps
 [Run a failover](site-recovery-failover.md)

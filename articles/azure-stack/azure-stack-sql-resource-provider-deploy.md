@@ -3,8 +3,8 @@ title: Using SQL databases on Azure Stack | Microsoft Docs
 description: Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server resource provider adapter.
 services: azure-stack
 documentationCenter: ''
-author: JeffGoldner
-manager: bradleyb
+author: jeffgilb
+manager: femila
 editor: ''
 
 ms.service: azure-stack
@@ -12,214 +12,66 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
-ms.author: JeffGo
-
+ms.date: 10/16/2018
+ms.author: jeffgilb
+ms.reviewer: quying
 ---
 
-# Use SQL databases on Microsoft Azure Stack
+# Deploy the SQL Server resource provider on Azure Stack
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Use the Azure Stack SQL Server resource provider to expose SQL databases as an Azure Stack service. The SQL resource provider runs as a service on a Windows Server 2016 Server Core virtual machine (VM).
 
-Use the SQL Server resource provider adapter to expose SQL databases as a service of [Azure Stack](azure-stack-poc.md). After you install the resource provider and connect it to one or more SQL Server instances, you and your users can create:
-- Databases for cloud-native apps.
-- Websites that are based on SQL.
-- Workloads that are based on SQL.
-You don't have to provision a virtual machine (VM) that hosts SQL Server each time.
+> [!IMPORTANT]
+> Only the resource provider is supported to create items on servers that host SQL or MySQL. Items created on a host server that are not created by the resource provider might result in a mismatched state.
 
-The resource provider does not support all the database management capabilities of [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). For example, Elastic Database pools and the ability to dial database performance up and down automatically aren't available. However, the resource provider does support similar create, read, update, and delete (CRUD) operations. The API is not compatible with SQL Database.
+## Prerequisites
 
-## SQL resource provider adapter architecture
-The resource provider consists of three components:
+There are several prerequisites that need to be in place before you can deploy the Azure Stack SQL resource provider. To meet these requirements, complete the following steps on a computer that can access the privileged endpoint VM:
 
-- **The SQL resource provider adapter VM**, which is a Windows virtual machine that runs the provider services.
-- **The resource provider itself**, which processes provisioning requests and exposes database resources.
-- **Servers that host SQL Server**, which provide capacity for databases called hosting servers.
+- If you haven't already done so, [register Azure Stack](azure-stack-registration.md) with Azure so you can download Azure marketplace items.
+- You must install the Azure and Azure Stack PowerShell modules on the system where you  will run this installation. That system must be a Windows 10 or Windows Server 2016 image with the latest version of the .NET runtime. See [Install PowerShell for Azure Stack](.\azure-stack-powershell-install.md).
+- Add the required Windows Server core VM to the Azure Stack marketplace by downloading the **Windows Server 2016 Datacenter - Server Core** image.
+- Download the SQL resource provider binary and then run the self-extractor to extract the contents to a temporary directory. The resource provider has a minimum corresponding Azure Stack build.
 
-You must create one (or more) intances of SQL Server and/or provide access to external SQL Server instances.
+    |Minimum Azure Stack version|SQL RP version|
+    |-----|-----|
+    |Version 1804 (1.0.180513.1)|[SQL RP version 1.1.24.0](https://aka.ms/azurestacksqlrp)
+    |     |     |
 
-## Deploy the resource provider
+- Ensure datacenter integration prerequisites are met:
 
-1. If you have not already done so, register your development kit and download the Windows Server 2016 Datacenter Core image downloadable through Marketplace Management. You must use a Windows Server 2016 Core image. You can also use a script to create a [Windows Server 2016 image](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-default-image). (Be sure to select the core option). The .NET 3.5 runtime is no longer required.
+    |Prerequisite|Reference|
+    |-----|-----|
+    |Conditional DNS forwarding is set correctly.|[Azure Stack datacenter integration - DNS](azure-stack-integrate-dns.md)|
+    |Inbound ports for resource providers are open.|[Azure Stack datacenter integration - Publish endpoints](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
+    |PKI certificate subject and SAN are set correctly.|[Azure Stack deployment mandatory PKI prerequisites](azure-stack-pki-certs.md#mandatory-certificates)[Azure Stack deployment PaaS certificate prerequisites](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |     |     |
 
-2. Sign in to a host that can access the privileged endpoint VM.
+### Certificates
 
-    - On Azure Stack Development Kit installations, sign in to the physical host.
+_For integrated systems installations only_. You must provide the SQL PaaS PKI certificate described in the optional PaaS certificates section of [Azure Stack deployment PKI requirements](.\azure-stack-pki-certs.md#optional-paas-certificates). Place the .pfx file in the location specified by the **DependencyFilesLocalPath** parameter. Do not provide a certificate for ASDK systems.
 
-    - On multi-node systems, the host must be a system that can access the privileged endpoint.
-    
-    >[!NOTE]
-    > The system where the script is being run *must* be a Windows 10 or Windows Server 2016 system with the latest version of the .NET runtime installed. Installation fails otherwise. The Azure Stack SDK host meets this criterion.
+## Deploy the SQL resource provider
 
+After you've got all the prerequisites installed, run the **DeploySqlProvider.ps1** script to deploy the SQL resource provider. The DeploySqlProvider.ps1 script is extracted as part of the SQL resource provider binary that you downloaded for your version of Azure Stack.
 
-3. Download the SQL resource provider binary. Then run the self-extractor to extract the contents to a temporary directory.
+To deploy the SQL resource provider, open a **new** elevated PowerShell window (not PowerShell ISE) and change to the directory where you extracted the SQL resource provider binary files. We recommend using a new PowerShell window to avoid potential problems caused by PowerShell modules that are already loaded.
 
-    >[!NOTE] 
-    > The resource provider build corresponds to Azure Stack builds. Be sure to download the correct binary for the version of Azure Stack that is running.
+Run the DeploySqlProvider.ps1 script, which completes the following tasks:
 
-    | Azure Stack build | SQL resource provider installer |
-    | --- | --- |
-    |1.0.180102.3, 1.0.180103.2 or 1.0.180106.1 (multi-node) | [SQL RP version 1.1.14.0](https://aka.ms/azurestacksqlrp1712) |
-    | 1.0.171122.1 | [SQL RP version 1.1.12.0](https://aka.ms/azurestacksqlrp1711) |
-    | 1.0.171028.1 | [SQL RP version 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
-  
-
-4. The Azure Stack root certificate is retrieved from the privileged endpoint. For the Azure Stack SDK, a self-signed certificate is created as part of this process. For multi-node, you must provide an appropriate certificate.
-
-   To provide your own certificate, place a .pfx file in the **DependencyFilesLocalPath** as follows:
-
-    - Either a wildcard certificate for \*.dbadapter.\<region\>.\<external fqdn\> or a single site certificate with a common name of sqladapter.dbadapter.\<region\>.\<external fqdn\>.
-
-    - This certificate must be trusted. That is, the chain of trust must exist without requiring intermediate certificates.
-
-    - Only a single certificate file exists in the DependencyFilesLocalPath.
-
-    - The file name must not contain any special characters.
-
-
-5. Open a **new** elevated (administrative) PowerShell console and change to the directory where you extracted the files. Use a new window to avoid problems that might arise from incorrect PowerShell modules that are already loaded on the system.
-
-6. [Install Azure PowerShell version 1.2.11](azure-stack-powershell-install.md).
-
-7. Run the DeploySqlProvider.ps1 script, which performs these steps:
-
-    - Uploads the certificates and other artifacts to a storage account on Azure Stack.
-    - Publishes gallery packages so that you can deploy SQL databases through the gallery.
-    - Publishes a gallery package for deploying hosting servers.
-    - Deploys a VM by using the Windows Server 2016 image that was created in step 1, and then installs the resource provider.
-    - Registers a local DNS record that maps to your resource provider VM.
-    - Registers your resource provider with the local Azure Resource Manager (user and admin).
+- Uploads the certificates and other artifacts to a storage account on Azure Stack.
+- Publishes gallery packages so you can deploy SQL databases using the gallery.
+- Publishes a gallery package for deploying hosting servers.
+- Deploys a VM using the Windows Server 2016 core image you downloaded, and then installs the SQL resource provider.
+- Registers a local DNS record that maps to your resource provider VM.
+- Registers your resource provider with the local Azure Resource Manager for the operator account.
 
 > [!NOTE]
-> If the installation takes more than 90 minutes, it might fail. If it fails, you see a failure message on the screen and in the log file, but the deployment is retried from the failing step. Systems that do not meet the recommended memory and vCPU specifications might not be able to deploy the SQL resoure provider.
->
-
-Here's an example you can run from the PowerShell prompt. (Be sure to change the account information and passwords as needed.)
-
-```
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
-Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
-
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
-$domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
-
-# Point to the directory where the resource provider installation files were extracted.
-$tempDir = 'C:\TEMP\SQLRP'
-
-# The service admin account (can be Azure Active Directory or Active Directory Federation Services).
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
-
-# Set credentials for the new Resource Provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
-
-# And the cloudadmin credential that's required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
-
-# Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-
-# Change directory to the folder where you extracted the installation files.
-# Then adjust the endpoints.
-. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
- ```
+> When the SQL resource provider deployment starts, the **system.local.sqladapter** resource group is created. It may take up to 75 minutes to finish the required deployments to this resource group.
 
 ### DeploySqlProvider.ps1 parameters
-You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters.
 
-| Parameter name | Description | Comment or default value |
-| --- | --- | --- |
-| **CloudAdminCredential** | The credential for the cloud administrator, necessary for accessing the privileged endpoint. | _Required_ |
-| **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials as you used for deploying Azure Stack. | _Required_ |
-| **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
-| **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
-| **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory as well. | _Optional_ (_mandatory_ for multi-node) |
-| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
-| **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 |
-| **RetryDuration** | The timeout interval between retries, in seconds. | 120 |
-| **Uninstall** | Removes the resource provider and all associated resources (see the following notes). | No |
-| **DebugMode** | Prevents automatic cleanup on failure. | No |
-
-
-## Verify the deployment using the Azure Stack portal
-
-> [!NOTE]
->  After the installation script finishes running, you need to refresh the portal to see the admin blade.
-
-
-1. Sign in to the admin portal as the service administrator.
-
-2. Verify that the deployment succeeded. Go to **Resource Groups**. Then select the **system.\<location\>.sqladapter** resource group. Verify that all four deployments succeeded.
-
-      ![Verify deployment of the SQL resource provider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
-
-
-## Update the SQL resource provider adapter (multi-node only, builds 1710 and later)
-Whenever the Azure Stack build is updated, a new SQL resource provider adapter is released. The existing adapter might continue to work. However, we recommend updating to the latest build as soon as possible after the Azure Stack is updated. 
-
-The update process is similar to the installation process that's described earlier. You create a new VM with the latest resource provider code. In addition, you migrate settings to this new instance, including database and hosting server information. You also migrate the necessary DNS record.
-
-Use the UpdateSQLProvider.ps1 script with the same arguments that we described earlier. You must provide the certificate here as well.
-
-> [!NOTE]
-> This update process is only supported on multi-node systems.
-
-```
-# Install the AzureRM.Bootstrapper module, set the profile, and install the AzureRM and AzureStack modules.
-Install-Module -Name AzureRm.BootStrapper -Force
-Use-AzureRmProfile -Profile 2017-03-09-profile
-Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
-
-# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack and the default prefix is AzS.
-# For integrated systems, the domain and the prefix are the same.
-$domain = "AzureStack"
-$prefix = "AzS"
-$privilegedEndpoint = "$prefix-ERCS01"
-
-# Point to the directory where the resource provider installation files were extracted.
-$tempDir = 'C:\TEMP\SQLRP'
-
-# The service admin account (can be Azure AD or AD FS).
-$serviceAdmin = "admin@mydomain.onmicrosoft.com"
-$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
-
-# Set credentials for the new Resource Provider VM.
-$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
-
-# And the cloudadmin credential required for privileged endpoint access.
-$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
-
-# Change the following as appropriate.
-$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
-
-# Change directory to the folder where you extracted the installation files.
-# Then adjust the endpoints.
-. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
-  -VMLocalCredential $vmLocalAdminCreds `
-  -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint $privilegedEndpoint `
-  -DefaultSSLCertificatePassword $PfxPass `
-  -DependencyFilesLocalPath $tempDir\cert
- ```
-
-### UpdateSQLProvider.ps1 parameters
-You can specify these parameters in the command line. If you do not, or if any parameter validation fails, you are prompted to provide the required parameters.
+You can specify the following parameters from the command line. If you don't, or if any parameter validation fails, you're prompted to provide the required parameters.
 
 | Parameter name | Description | Comment or default value |
 | --- | --- | --- |
@@ -227,38 +79,80 @@ You can specify these parameters in the command line. If you do not, or if any p
 | **AzCredential** | The credentials for the Azure Stack service admin account. Use the same credentials that you used for deploying Azure Stack. | _Required_ |
 | **VMLocalCredential** | The credentials for the local administrator account of the SQL resource provider VM. | _Required_ |
 | **PrivilegedEndpoint** | The IP address or DNS name of the privileged endpoint. |  _Required_ |
-| **DependencyFilesLocalPath** | Your certificate .pfx file must be placed in this directory as well. | _Optional_ (_mandatory_ for multi-node) |
-| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _required_ |
-| **MaxRetryCount** | The number of times you want to retry each operation if there is a failure.| 2 |
-| **RetryDuration** |The timeout interval between retries, in seconds. | 120 |
+| **AzureEnvironment** | The Azure environment of the service admin account which you used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are **AzureCloud**, **AzureUSGovernment**, or if using a China Azure Active Directory, **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | For integrated systems only, your certificate .pfx file must be placed in this directory. You can optionally copy one Windows Update MSU package here. | _Optional_ (_mandatory_ for integrated systems) |
+| **DefaultSSLCertificatePassword** | The password for the .pfx certificate. | _Required_ |
+| **MaxRetryCount** | The number of times you want to retry each operation if there's a failure.| 2 |
+| **RetryDuration** | The timeout interval between retries, in seconds. | 120 |
 | **Uninstall** | Removes the resource provider and all associated resources (see the following notes). | No |
 | **DebugMode** | Prevents automatic cleanup on failure. | No |
 
+## Deploy the SQL resource provider using a custom script
+
+To eliminate any manual configuration when deploying the resource provider, you can customize the following script.  
+
+Change the default account information and passwords as needed for your Azure Stack deployment.
 
 
-## Remove the SQL resource provider adapter
+```powershell
+# Install the AzureRM.Bootstrapper module, set the profile and install the AzureStack module
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module  -Name AzureStack -RequiredVersion 1.4.0
 
-To remove the resource provider, it is essential to first remove any dependencies.
+# Use the NetBIOS name for the Azure Stack domain. On the Azure Stack SDK, the default is AzureStack but could have been changed at install time.
+$domain = "AzureStack"
 
-1. Ensure that you have the original deployment package that you downloaded for this version of the SQL resource provider adapter.
+# For integrated systems, use the IP address of one of the ERCS virtual machines
+$privilegedEndpoint = "AzS-ERCS01"
 
-2. All user databases must be deleted from the resource provider. (Deleting the user databases doesn't delete the data.) This task should be performed by the users themselves.
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
-3. The administrator must delete the hosting servers from the SQL resource provider adapter.
+# Point to the directory where the resource provider installation files were extracted.
+$tempDir = 'C:\TEMP\SQLRP'
 
-4. The administrator must delete any plans that reference the SQL resource provider adapter.
+# The service admin account can be Azure Active Directory or Active Directory Federation Services.
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
 
-5. The administrator must delete any SKUs and quotas that are associated with the SQL resource provider adapter.
+# Set credentials for the new resource provider VM local administrator account.
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
 
-6. Rerun the deployment script with the following elements:
-    - The -Uninstall parameter
-    - The Azure Resource Manager endpoints
-    - The DirectoryTenantID
-    - The credentials for the service administrator account
+# Add the cloudadmin credential that's required for privileged endpoint access.
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
 
+# Change the following as appropriate.
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change to the directory folder where you extracted the installation files. Do not provide a certificate on ASDK!
+. $tempDir\DeploySQLProvider.ps1 `
+    -AzCredential $AdminCreds `
+    -VMLocalCredential $vmLocalAdminCreds `
+    -CloudAdminCredential $cloudAdminCreds `
+    -PrivilegedEndpoint $privilegedEndpoint `
+    -AzureEnvironment $AzureEnvironment `
+    -DefaultSSLCertificatePassword $PfxPass `
+    -DependencyFilesLocalPath $tempDir\cert
+
+ ```
+
+When the resource provider installation script finishes, refresh your browser to make sure you can see the latest updates.
+
+## Verify the deployment using the Azure Stack portal
+
+You can use the following steps verify that the SQL resource provider is successfully deployed.
+
+1. Sign in to the admin portal as the service administrator.
+2. Select **Resource Groups**.
+3. Select the **system.\<location\>.sqladapter** resource group.
+4. On the summary page for Resource group Overview, there should be no failed deployments.
+      ![Verify deployment of the SQL resource provider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Finally, select **Virtual machines** in the admin portal to verify that the SQL resource provider VM was successfully created and is running.
 
 ## Next steps
 
-[Add hosting servers](azure-stack-sql-resource-provider-hosting-servers.md) and [create databases](azure-stack-sql-resource-provider-databases.md).
-
-Try other [PaaS services](azure-stack-tools-paas-services.md) like the [MySQL Server resource provider](azure-stack-mysql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).
+[Add hosting servers](azure-stack-sql-resource-provider-hosting-servers.md)

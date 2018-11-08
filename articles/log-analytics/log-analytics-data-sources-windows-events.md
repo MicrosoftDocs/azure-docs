@@ -10,13 +10,14 @@ editor: tysonn
 ms.assetid: ee52f564-995b-450f-a6ba-0d7b1dac3f32
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
-
+ms.component: 
 ---
+
 # Windows event log data sources in Log Analytics
 Windows Event logs are one of the most common [data sources](log-analytics-data-sources.md) for collecting data using Windows agents since many applications write to the Windows event log.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
 
@@ -71,6 +72,6 @@ The following table provides different examples of log searches that retrieve Wi
 
 ## Next steps
 * Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
 * Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
 * Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.

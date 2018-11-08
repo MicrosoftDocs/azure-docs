@@ -4,7 +4,7 @@ description: This article explains how Azure Security Center uses role-based acc
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 
 ms.assetid:
@@ -12,15 +12,15 @@ ms.service: security-center
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 06/13/2017
-ms.author: terrylan
+ms.topic: conceptual
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 
 # Permissions in Azure Security Center
 
-Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Azure Security Center uses [Role-Based Access Control (RBAC)](../role-based-access-control/role-assignments-portal.md), which provides [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
 
@@ -41,7 +41,7 @@ The following table displays roles and allowed actions in Security Center. An X 
 | Role | Edit security policy | Apply security recommendations for a resource | Dismiss alerts and recommendations | View alerts and recommendations |
 |:--- |:---:|:---:|:---:|:---:|
 | Subscription Owner | X | X | X | X |
-| Subscription Contributor | X | X | X | X |
+| Subscription Contributor | -- | X | X | X |
 | Resource Group Owner | -- | X | -- | X |
 | Resource Group Contributor | -- | X | -- | X |
 | Reader | -- | -- | -- | X |

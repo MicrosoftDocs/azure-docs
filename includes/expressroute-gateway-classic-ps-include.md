@@ -1,3 +1,14 @@
+---
+ title: include file
+ description: include file
+ services: expressroute
+ author: cherylmc
+ ms.service: expressroute
+ ms.topic: include
+ ms.date: 11/05/2018
+ ms.author: cherylmc
+ ms.custom: include file
+---
 You must create a VNet and a gateway subnet first, before working on the following tasks.
 
 > [!NOTE]
@@ -9,7 +20,7 @@ You must create a VNet and a gateway subnet first, before working on the followi
 Use the command below to create a gateway. Be sure to substitute any values for your own.
 
 ```powershell
-New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayName "ERGateway" -GatewayType DynamicRouting -GatewaySKU  Standard
+New-AzureVNetGateway -VNetName "MyAzureVNET" -GatewayType DynamicRouting -GatewaySKU  Standard
 ```
 
 ## Verify the gateway was created

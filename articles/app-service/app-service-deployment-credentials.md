@@ -17,7 +17,7 @@ ms.author: dariagrigoriu
 
 ---
 # Configure deployment credentials for Azure App Service
-[Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](app-service-deploy-local-git.md) 
+[Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) supports two types of credentials for [local Git deployment](app-service-deploy-local-git.md) 
 and [FTP/S deployment](app-service-deploy-ftp.md). These are not the same as your Azure Active Directory credentials.
 
 * **User-level credentials**: one set of credentials for the entire Azure account. It can be used to deploy to App Service for any app, in any subscription, that the Azure account has permission to access. These are the default
@@ -47,7 +47,7 @@ To configure your user-level credentials:
 1. In the [Azure portal](https://portal.azure.com), click App Service > **&lt;any_app>** > **Deployment credentials**.
 
     > [!NOTE]
-    > In the portal, you must have at least one app before you can access the deployment credentials page. However, with the [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az_webapp_deployment_user_set), you can configure user-level credentials without an existing app.
+    > In the portal, you must have at least one app before you can access the deployment credentials page. However, with the [Azure CLI](/cli/azure/webapp/deployment/user?view=azure-cli-latest#az-webapp-deployment-user-set), you can configure user-level credentials without an existing app.
 
 2. Configure the user name and password, and then click **Save**.
 

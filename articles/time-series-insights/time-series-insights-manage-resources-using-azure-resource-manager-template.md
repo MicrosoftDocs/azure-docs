@@ -1,16 +1,14 @@
----
+﻿---
 title: How to manage your Azure Time Series Insights environment using Azure Resource Manager templates| Microsoft Docs
 description: This article describes how to manage your Azure Time Series Insights environment programmatically using Azure Resource Manager.
-services: time-series-insights
 ms.service: time-series-insights
-author: sandshadow
-ms.author: edett
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
-ms.reviewer: anshan
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
 ---
 # Create Time Series Insights resources using Azure Resource Manager templates
@@ -148,7 +146,7 @@ For more information, see the [Parameters](../azure-resource-manager/resource-gr
 From a PowerShell prompt, run the following command:
 
 ```powershell
-Login-AzureRmAccount
+Connect-AzureRmAccount
 ```
 
 You are prompted to log on to your Azure account. After logging on, run the following command to view your available subscriptions:
@@ -191,7 +189,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 
 ### Create the deployment
 
-To create the new deployment, run the `New-AzureRmResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
+To create the new deployment, run the `New-AzureRmResourceGroupDeployment` cmdlet, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/deployment-modes.md).
 
 The following command prompts you for the five required parameters in the PowerShell window:
 
@@ -211,7 +209,7 @@ You can also use inline parameters when you run the deployment cmdlet. The comma
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-To run a [complete](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) deployment, set the **Mode** parameter to **Complete**:
+To run a [complete](../azure-resource-manager/deployment-modes.md) deployment, set the **Mode** parameter to **Complete**:
 
 ```powershell
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

@@ -1,18 +1,18 @@
 ---
 title: Query data from an Azure Time Series Insights environment using C# code | Microsoft Docs
 description: This article describes how to query data from an Azure Time Series Insights environment by coding a custom app written in the  C# (C-sharp) .NET language.
-services: time-series-insights
 ms.service: time-series-insights
-author: ankryach
-ms.author: ankryach
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
-reviewer: v-mamcge, jasonwhowell, kfile, tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
+reviewer: jasonwhowell, kfile, tsidocs
 ms.devlang: csharp
 ms.workload: big-data
-ms.topic: article
-ms.date: 11/15/2017
+ms.topic: conceptual
+ms.date: 03/23/2018
 ---
+
 # Query data from the Azure Time Series Insights environment using C#
 
 This C# example demonstrates how to query data from the Azure Time Series Insights environment.
@@ -21,6 +21,11 @@ The sample shows several basic examples of Query API usage:
 2. The list of environments that the user has access to is obtained. One of the environments is picked up as the environment of interest, and further data is queried for this environment.
 3. As an example of HTTPS request, availability data is requested for the environment of interest.
 4. As an example of web socket request, event aggregates data is requested for the environment of interest. Data is requested for the whole availability time range.
+
+This example code is also available at [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights)
+
+## Project References
+Add NuGet packages `Microsoft.IdentityModel.Clients.ActiveDirectory` and `Newtonsoft.Json` for this example. 
 
 ## C# example
 

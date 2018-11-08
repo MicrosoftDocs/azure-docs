@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights
@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
 
@@ -23,7 +23,7 @@ ms.author: mbullwin
 
 * [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure diagnostics](app-insights-azure-diagnostics.md)
+* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Java web app](app-insights-java-troubleshoot.md)
 
 *I get no data from my server*
@@ -57,7 +57,7 @@ The Enterprise plan incurs a charge for each day that each web server node sends
 
 ## How much is it costing?
 
-* Open the **Features + pricing** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
+* Open the **Usage and estimated costs page** page in an Application Insights resource. There's a chart of recent usage. You can set a data volume cap, if you want.
 * Open the [Azure Billing blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) to see your bills across all resources.
 
 ## <a name="q14"></a>What does Application Insights modify in my project?
@@ -107,7 +107,7 @@ From server web apps:
 
 From [client web pages](app-insights-javascript.md):
 
-* [Page view counts](app-insights-web-track-usage.md)
+* [Page view counts](app-insights-usage-overview.md)
 * [AJAX calls](app-insights-asp-net-dependencies.md) Requests made from a running script.
 * Page view load data
 * User and session counts
@@ -115,10 +115,10 @@ From [client web pages](app-insights-javascript.md):
 
 From other sources, if you configure them:
 
-* [Azure diagnostics](app-insights-azure-diagnostics.md)
+* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Docker containers](app-insights-docker.md)
 * [Import tables to Analytics](app-insights-analytics-import.md)
-* [OMS (Log Analytics)](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
+* [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
 * [Logstash](app-insights-analytics-import.md)
 
 ## Can I filter out or modify some telemetry?
@@ -251,15 +251,38 @@ Allow your web server to send telemetry to our endpoints https://dc.services.vis
 
 ### Proxy
 
-Route traffic from your server to a gateway on your intranet, by setting this in ApplicationInsights.config:
+Route traffic from your server to a gateway on your intranet, by overwritting these settings in the example ApplicationInsights.config.
+If these "Endpoint" properties are not present in your config, these classes will be using the default values shown in the example below.
 
-```XML
-<TelemetryChannel>
-    <EndpointAddress>your gateway endpoint</EndpointAddress>
-</TelemetryChannel>
+#### Example ApplicationInsights.config:
+```xml
+<ApplicationInsights>
+    ...
+    <TelemetryChannel>
+         <EndpointAddress>https://dc.services.visualstudio.com/v2/track</EndpointAddress>
+    </TelemetryChannel>
+    ...
+    <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
+        <ProfileQueryEndpoint>https://dc.services.visualstudio.com/api/profiles/{0}/appId</ProfileQueryEndpoint>
+    </ApplicationIdProvider>
+    ...
+</ApplicationInsights>
 ```
 
-Your gateway should route the traffic to https://dc.services.visualstudio.com:443/v2/track
+_Note ApplicationIdProvider is available starting in v2.6.0_
+
+Your gateway should route the traffic to https://dc.services.visualstudio.com:443
+
+Replace the values above with: `http://<your.gateway.address>/<relative path>`
+ 
+Example: 
+```
+http://<your.gateway.endpoint>/v2/track 
+http://<your.gateway.endpoint>/api/profiles/{0}/apiId
+```
+
+
+
 
 ## Can I run Availability web tests on an intranet server?
 

@@ -1,20 +1,23 @@
 ---
-title: Video Search SDK Node quickstart | Microsoft Docs
-description: Setup for Video Search SDK console application.
-titleSuffix: Azure cognitive services
+title: "Quickstart: Bing Video Search SDK, Node"
+titleSuffix: Azure Cognitive Services
+description: Setup for Bing Video Search SDK console application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: bing-video-search
-ms.topic: article
+ms.component: bing-video-search
+ms.topic: quickstart
 ms.date: 02/12/2018
-ms.author: v-gedod
+ms.author: rosh
 ---
 
-# Video Search SDK Node quickstart (preview)
+# Quickstart: Bing Video Search SDK with Node
 
 The Bing Video Search SDK contains the functionality of the REST API for video queries and parsing results. 
+
+The [source code for Node Bing Video Search SDK samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/videoSearch.js) is available on Git Hub.
 
 ## Application dependencies
 
@@ -40,10 +43,13 @@ client.videosOperations.search('Interstellar Trailer').then((result) => {
 });
 
 ```
+
+<!-- Remove until the response can be replace with a sanitized version.
 The code prints `result.value` items to the console without parsing any text. The results will be:
 - _type: 'VideoObjectElementType'
 
 ![Video results](media/video-search-sdk-node-results.png)
+-->
 
 ## Next steps
 

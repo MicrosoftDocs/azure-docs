@@ -1,21 +1,21 @@
 ---
-title: PHP Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using PHP to call the Text Analytics API'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: luiscabrer
+author: noellelacharite
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 08/24/2017
-ms.author: luisca
-
+ms.component: text-analytics
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: nolachar
 ---
-# Quickstart for Text Analytics API with PHP 
+# Quickstart: Using PHP to call the Text Analytics Cognitive Service
 <a name="HOLTop"></a>
 
-This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with PHP.
+This article shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), [extract key phrases](#KeyPhraseExtraction), and [identify linked entities](#Entities) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with PHP.
 
 Refer to the [API definitions](//go.microsoft.com/fwlink/?LinkID=759346) for technical documentation for the APIs.
 
@@ -350,6 +350,238 @@ A successful response is returned in JSON, as shown in the following example:
 }
 ```
 
+<a name="Entities"></a>
+
+## Identify entities
+
+The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+
+1. Create a new PHP project in your favorite IDE.
+2. Add the code provided below.
+3. Replace the `accessKey` value with an access key valid for your subscription.
+4. Replace the location in `host` (currently `westus`) to the region you signed up for.
+5. Run the program.
+
+```php
+<?php
+
+// NOTE: Be sure to uncomment the following line in your php.ini file.
+// ;extension=php_openssl.dll
+
+// **********************************************
+// *** Update or verify the following values. ***
+// **********************************************
+
+// Replace the accessKey string value with your valid access key.
+$accessKey = 'enter key here';
+
+// Replace or verify the region.
+
+// You must use the same region in your REST API call as you used to obtain your access keys.
+// For example, if you obtained your access keys from the westus region, replace 
+// "westcentralus" in the URI below with "westus".
+
+// NOTE: Free trial access keys are generated in the westcentralus region, so if you are using
+// a free trial access key, you should not need to change this region.
+$host = 'https://westus.api.cognitive.microsoft.com';
+$path = '/text/analytics/v2.1-preview/entities';
+
+function GetEntities ($host, $path, $key, $data) {
+
+	$headers = "Content-type: text/json\r\n" .
+		"Ocp-Apim-Subscription-Key: $key\r\n";
+
+	$data = json_encode ($data);
+
+	// NOTE: Use the key 'http' even if you are making an HTTPS request. See:
+	// http://php.net/manual/en/function.stream-context-create.php
+	$options = array (
+		'http' => array (
+			'header' => $headers,
+			'method' => 'POST',
+			'content' => $data
+		)
+	);
+	$context  = stream_context_create ($options);
+	$result = file_get_contents ($host . $path, false, $context);
+	return $result;
+}
+
+$data = array (
+	'documents' => array (
+		array ( 'id' => '1', 'language' => 'en', 'text' => 'Jeff bought three dozen eggs because there was a 50% discount.' ),
+		array ( 'id' => '2', 'language' => 'en', 'text' => 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.' )
+	)
+);
+
+print "Please wait a moment for the results to appear.";
+
+$result = GetEntities ($host, $path, $accessKey, $data);
+
+echo json_encode (json_decode ($result), JSON_PRETTY_PRINT);
+?>
+
+```
+
+**Entity extraction response**
+
+A successful response is returned in JSON, as shown in the following example: 
+
+```json
+{
+    "Documents": [
+        {
+            "Id": "1",
+            "Entities": [
+                {
+                    "Name": "Jeff",
+                    "Matches": [
+                        {
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "Person"
+                },
+                {
+                    "Name": "three dozen",
+                    "Matches": [
+                        {
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        },
+        {
+            "Id": "2",
+            "Entities": [
+                {
+                    "Name": "Great Depression",
+                    "Matches": [
+                        {
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        }
+    ],
+    "Errors": []
+}
+```
 
 ## Next steps
 

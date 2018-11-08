@@ -1,18 +1,48 @@
-### Prerequisites
-* A [GitHub](http://GitHub.com) account 
+---
+title: include file 
+description: include file 
+services: logic-apps
+author: MandiOhlinger
+ms.service: logic-apps
+ms.topic: include 
+ms.date: 03/02/2018
+ms.author: mandia
+ms.custom: include file
+---
 
-Before you can use your GitHub account in a Logic app, you must authorize the Logic app to connect to your GitHub account. Fortunately, you can do this easily from within your Logic app on the Azure Portal. 
+1. In the [Azure portal](https://portal.azure.com), 
+create a blank logic app. 
 
-Here are the steps to authorize your Logic app to connect to your GitHub account:
+2. In the Logic Apps Designer, 
+enter "github" as your filter. 
 
-1. To create a connection to GitHub, in the Logic app designer, select **Show Microsoft managed APIs** in the drop down list then enter *GitHub* in the search box. Select the trigger or action you'll like to use:  
-   ![](./media/connectors-create-api-github/github-1.png)
-2. If you haven't created any connections to GitHub before, you'll get prompted to provide your GitHub credentials. These credentials will be used to authorize your Logic app to connect to, and access your GitHub account's data:  
-   ![](./media/connectors-create-api-github/github-2.png)
-3. Provide your GitHub user name and password to authorize your Logic app:  
-   ![](./media/connectors-create-api-github/github-3.png)   
-4. Confirm your intentions:  
-   ![](./media/connectors-create-api-github/github-4.png)   
-5. Notice the connection has been created in the portal. You can now proceed with creating your Logic app and using GitHub in it:   
-   ![](./media/connectors-create-api-github/github-5.png)   
+3. Select the GitHub connector and the trigger 
+that you want to use.
+
+   ![Select the GitHub connector and a trigger](./media/connectors-create-api-github/github-connector.png)
+
+   > [!NOTE]
+   > All logic app workflows must start with a trigger. 
+   > You can select actions only when your logic workflow 
+   > already starts with a trigger. 
+
+4. If you didn't previously create a connection, 
+choose **Sign in** so you can provide 
+your GitHub credentials when prompted.  
+
+   ![Sign in with your GitHub credentials](./media/connectors-create-api-github/github-connector-sign-in-credentials.png)
+
+   Your logic app uses these credentials to authorize 
+   connecting and accessing data for your GitHub account. 
+
+5. Provide your GitHub user name and password, then confirm your authorization.
+
+   ![Provide credentials and confirm authorization](./media/connectors-create-api-github/github-connector-authorize.png)   
+
+   Your connection is now created in the Azure portal 
+   and is ready for use.
+
+6. Continue defining your logic app workflow.
+
+   ![Add more actions to your logic app workflow](./media/connectors-create-api-github/github-connector-logic-app.png)
 

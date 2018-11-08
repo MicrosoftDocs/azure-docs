@@ -4,7 +4,7 @@ description: Schedule events by using Azure Metadata Service for your Linux virt
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: ericrad
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: ''
 
@@ -128,7 +128,7 @@ In the case where there are scheduled events, the response contains an array of 
 | ResourceType | Type of resource this event affects. <br><br> Values: <ul><li>`VirtualMachine`|
 | Resources| List of resources this event affects. The list is guaranteed to contain machines from at most one [update domain](manage-availability.md), but it might not contain all machines in the UD. <br><br> Example: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | Status of this event. <br><br> Values: <ul><li>`Scheduled`: This event is scheduled to start after the time specified in the `NotBefore` property.<li>`Started`: This event has started.</ul> No `Completed` or similar status is ever provided. The event is no longer returned when the event is finished.
-| NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> 2016-09-19T18:29:47Z  |
+| NotBefore| Time after which this event can start. <br><br> Example: <br><ul><li> Mon, 19 Sep 2016 18:29:47 GMT  |
 
 ### Event Scheduling
 Each event is scheduled a minimum amount of time in the future based on the event type. This time is reflected in an event's `NotBefore` property. 
@@ -156,7 +156,7 @@ The following JSON sample is expected in the `POST` request body. The request sh
 
 #### Bash sample
 ```
-curl -H Metadata:true -X POST -d '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H Metadata:true -X POST -d '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 

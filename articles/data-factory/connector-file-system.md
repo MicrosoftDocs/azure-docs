@@ -4,15 +4,15 @@ description: Learn how to copy data from file system to supported sink data stor
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 04/13/2018
 
 ms.author: jingwang
 
@@ -20,13 +20,10 @@ ms.author: jingwang
 
 # Copy data to or from a file system by using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](v1/data-factory-onprem-file-system-connector.md)
-> * [Version 2 - Preview](connector-file-system.md)
+> * [Version 1](v1/data-factory-onprem-file-system-connector.md)
+> * [Current version](connector-file-system.md)
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from and to file system. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [File System connector in V1](v1/data-factory-onprem-file-system-connector.md).
 
 ## Supported capabilities
 
@@ -64,8 +61,11 @@ The following properties are supported for file system linked service:
 
 | Scenario | "host" in linked service definition | "folderPath" in dataset definition |
 |:--- |:--- |:--- |
-| Local folder on Integration Runtime machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |D:\\\\ |.\\\\ or folder\\\\subfolder |
-| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |\\\\\\\\myserver\\\\share |.\\\\ or folder\\\\subfolder |
+| Local folder on Integration Runtime machine: <br/><br/>Examples: D:\\\* or D:\folder\subfolder\\* |In JSON: `D:\\`<br/>On UI: `D:\` |In JSON: `.\\` or `folder\\subfolder`<br>On UI: `.\` or `folder\subfolder` |
+| Remote shared folder: <br/><br/>Examples: \\\\myserver\\share\\\* or \\\\myserver\\share\\folder\\subfolder\\* |In JSON: `\\\\myserver\\share`<br/>On UI: `\\myserver\share` |In JSON: `.\\` or `folder\\subfolder`<br/>On UI: `.\` or `folder\subfolder` |
+
+>[!NOTE]
+>When authoring via UI, you don't need to input double backslash (`\\`) to escape like you do via JSON, specify single backslash.
 
 **Example:**
 
@@ -99,12 +99,16 @@ To copy data from/to file system, set the type property of the dataset to **File
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **FileShare** |Yes |
-| folderPath | Path to the folder. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
-| fileName | Specify the name of the file in the **folderPath** if you want to copy to/from a specific file. If you do not specify any value for this property, the dataset points to all files in the folder as source, and automatically generates file name.<br/><br/>**fileName auto generation for sink:** when fileName is not specified for an output dataset and **preserveHierarchy** is not specified in activity sink, copy activity generates the file name with the following pattern: <br/>- `Data_[activity run id]_[GUID].[format].[compression if configured]`. For example: `Data_0a405f8a-93ff-4c6f-b3be-f69616f1df7a_0d143eda-d5b8-44df-82ec-95c50895ff80.txt.gz` <br/>- or `[Table name].[format].[compression if configured]` for relational source when query is not specified. For example: MySourceTable.orc. |No |
-| fileFilter | Specify a filter to be used to select a subset of files in the folderPath rather than all files. Applies only when fileName is not specified. <br/><br/>Allowed wildcards are: `*` (multiple characters) and `?` (single character).<br/>- Example 1: `"fileFilter": "*.log"`<br/>- Example 2: `"fileFilter": 2017-09-??.txt"` |No |
+| folderPath | Path to the folder. Wildcard filter is not supported. See [Sample linked service and dataset definitions](#sample-linked-service-and-dataset-definitions) for examples. |Yes |
+| fileName | **Name or wildcard filter** for the file(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the file name with the following format: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]"*. An example is "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |No |
 | format | If you want to **copy files as-is** between file-based stores (binary copy), skip the format section in both input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**. Set the **type** property under format to one of these values. For more information, see [Text Format](supported-file-formats-and-compression-codecs.md#text-format), [Json Format](supported-file-formats-and-compression-codecs.md#json-format), [Avro Format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc Format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet Format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are: **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are: **Optimal** and **Fastest**. |No |
 
+>[!TIP]
+>To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with folder part and **fileName** with file name.<br>To copy a subset of files under a folder, specify **folderPath** with folder part and **fileName** with wildcard filter.
+
+>[!NOTE]
+>If you were using "fileFilter" property for file filter, it is still supported as-is, while you are suggested to use the new filter capability added to "fileName" going forward.
 
 **Example:**
 

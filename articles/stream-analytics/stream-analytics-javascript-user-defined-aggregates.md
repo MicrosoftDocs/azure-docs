@@ -1,23 +1,17 @@
 ---
-title: Azure Stream Analytics JavaScript user-defined aggregates | Microsoft Docs
-description: Perform advanced query mechanics with JavaScript user-defined aggregates
-keywords: javascript, user defined aggregates, uda
+title: JavaScript user-defined aggregates in Azure Stream Analytics
+description: This article describes how to perform advanced query mechanics with JavaScript user-defined aggregates in Azure Stream Analytics.
 services: stream-analytics
-author: minhe-msft
-manager: santoshb
-editor: cgronlun
-
-ms.assetid:
+author: rodrigoamicrosoft
+ms.author: rodrigoa
+manager: kfile
+ms.reviewer: mamccrea
 ms.service: stream-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: data-services
+ms.topic: conceptual
 ms.date: 10/28/2017
-ms.author: minhe
 ---
 # Azure Stream Analytics JavaScript user-defined aggregates (Preview)
-
+ 
 Azure Stream Analytics supports user-defined aggregates (UDA) written in JavaScript, it enables you to implement complex stateful business logic. Within UDA you have full control of the state data structure, state accumulation, state decumulation, and aggregate result computation. The article introduces the two different JavaScript UDA interfaces, steps to create a UDA, and how to use UDA with window-based operations in Stream Analytics query.
 
 ## JavaScript user-defined aggregates
@@ -80,7 +74,7 @@ Each JavaScript UDA is defined by a Function object declaration. Following are t
 
 ### Function alias
 
-Function alias is the UDA identifier. When called in Stream Analytics query, always use UDA alias together with a “uda.” prefix.
+Function alias is the UDA identifier. When called in Stream Analytics query, always use UDA alias together with a "uda." prefix.
 
 ### Function type
 
@@ -169,13 +163,13 @@ Now let’s create a JavaScript UDA under an existing ASA job by following steps
     }
     ````
 
-1. Once you click the “Save” button, your UDA shows up on the function list.
+1. Once you click the "Save" button, your UDA shows up on the function list.
 
-1. Click on the new function “TWA”, you can check the function definition.
+1. Click on the new function "TWA", you can check the function definition.
 
 ## Calling JavaScript UDA in ASA query
 
-In Azure portal and open your job, edit the query and call TWA() function with a mandate prefix “uda.”. For example:
+In Azure portal and open your job, edit the query and call TWA() function with a mandate prefix "uda.". For example:
 
 ````SQL
 WITH value AS
@@ -227,7 +221,7 @@ Create a local JSON file with below content, upload the file to Stream Analytics
 
 ## Get help
 
-For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureStreamAnalytics).
+For additional help, try our [Azure Stream Analytics forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics).
 
 ## Next steps
 

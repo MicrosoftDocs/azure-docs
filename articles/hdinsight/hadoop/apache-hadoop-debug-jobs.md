@@ -1,22 +1,15 @@
 ---
-title: 'Debug Hadoop in HDInsight: View logs and interpret error messages - Azure | Microsoft Docs'
+title: 'Debug Hadoop in HDInsight: View logs and interpret error messages - Azure '
 description: Learn about the error messages you might receive when administering HDInsight using PowerShell, and steps you can take to recover.
 services: hdinsight
-tags: azure-portal
-editor: cgronlun
-manager: jhubbard
+ms.reviewer: jasonh
 author: ashishthaps
-documentationcenter: ''
 
-ms.assetid: 7e6ceb0e-8be8-4911-bc80-20714030a3ad
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/14/2017
-ms.author: ashish
+ms.author: ashishth
 
 ---
 # Analyze Hadoop logs
@@ -62,7 +55,7 @@ There are many tools available for accessing data in these tables:
 * Power Query for Excel
 
 #### Use Power Query for Excel
-Power Query can be installed from [Microsoft Power Query for Excel](http://www.microsoft.com/en-us/download/details.aspx?id=39379). See the download page for the system requirements.
+Power Query can be installed from [Microsoft Power Query for Excel](https://www.microsoft.com/en-us/download/details.aspx?id=39379). See the download page for the system requirements.
 
 **Use Power Query to open and analyze the service log**
 

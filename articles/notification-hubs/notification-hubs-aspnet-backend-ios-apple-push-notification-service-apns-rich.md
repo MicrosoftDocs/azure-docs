@@ -3,9 +3,9 @@ title: Azure Notification Hubs Rich Push
 description: Learn how to send rich push notifications to an iOS app from Azure. Code samples written in Objective-C and C#.
 documentationcenter: ios
 services: notification-hubs
-author: ysxu
-manager: erikre
-editor: ''
+author: dimazaid
+manager: kpiteira
+editor: spelluru
 
 ms.assetid: 590304df-c0a4-46c5-8ef5-6a6486bb3340
 ms.service: notification-hubs
@@ -13,8 +13,8 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 06/29/2016
-ms.author: yuaxu
+ms.date: 04/25/2018
+ms.author: dimazaid
 
 ---
 # Azure Notification Hubs Rich Push
@@ -90,7 +90,7 @@ At a high level:
         }
    
    > [!NOTE]
-   > (optional) Refer to [How to embed and access resources by using Visual C#](http://support.microsoft.com/kb/319292) for more information on how to add and obtain project resources.
+   > (optional) Refer to [How to embed and access resources by using Visual C#](https://support.microsoft.com/kb/319292) for more information on how to add and obtain project resources.
    > 
    > 
 7. In **NotificationsController.cs**, redefine **NotificationsController**  with the following snippets. This sends an initial silent rich notification id to device and allows client-side retrieval of image:
@@ -132,7 +132,7 @@ Now that you have modified your app backend to send just the *id* of a notificat
 2. Click on **Capabilities**, turn on **Background Modes**, and check the **Remote Notifications** checkbox.
    
     ![][IOS3]
-3. Go to **Main.storyboard**, and make sure you have a View Controller (refered to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
+3. Go to **Main.storyboard**, and make sure you have a View Controller (referred to as Home View Controller in this tutorial) from [Notify User](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) tutorial.
 4. Add a **Navigation Controller** to your storyboard, and control-drag to Home View Controller to make it the **root view** of navigation. Make sure the **Is Initial View Controller** in Attributes inspector is selected for the Navigation Controller only.
 5. Add a **View Controller** to storyboard and add an **Image View**. This is the page users will see once they choose to learn more by clicking on the notifiication. Your storyboard should look as follows:
    

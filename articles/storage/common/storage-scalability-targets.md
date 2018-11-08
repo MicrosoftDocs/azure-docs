@@ -2,27 +2,19 @@
 title: Azure Storage Scalability and Performance Targets | Microsoft Docs
 description: Learn about the scalability and performance targets for Azure Storage, including capacity, request rate, and inbound and outbound bandwidth for both standard and premium storage accounts. Understand performance targets for partitions within each of the Azure Storage services.
 services: storage
-documentationcenter: na
-author: tamram
-manager: timlt
-editor: tysonn
-
-ms.assetid: be721bd3-159f-40a1-88c1-96418537fe75
+author: roygara
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage
 ms.date: 10/24/2017
-ms.author: tamram
-
+ms.author: rogarana
+ms.component: common
 ---
 # Azure Storage Scalability and Performance Targets
 ## Overview
 This article describes the scalability and performance topics for Azure Storage. For a summary of other Azure limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md).
 
 > [!NOTE]
-> All storage accounts run on the new flat network topology and support the scalability and performance targets outlined in this article, regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
+> All storage accounts run on the new flat network topology and support the scalability and performance targets outlined in this article, regardless of when they were created. For more information on the Azure Storage flat network architecture and on scalability, see [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
 > 
 
 > [!IMPORTANT]
@@ -37,6 +29,8 @@ If the needs of your application exceed the scalability targets of a single stor
 ## Scalability targets for a storage account
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
+### Storage resource provider limits 
+
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ## Azure Blob storage scale targets
@@ -48,6 +42,8 @@ For more information on the scale and performance targets for Azure Files and Az
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### Azure File Sync scale targets
+With Azure File Sync, we have tried as much as possible to design for limitless usage, however this is not always possible. The below table indicates the boundaries of our testing and which targets are actually hard limits:
+
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
 ## Azure Queue storage scale targets
@@ -61,5 +57,5 @@ For more information on the scale and performance targets for Azure Files and Az
 * [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
 * [Azure Storage Replication](../storage-redundancy.md)
 * [Microsoft Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)
-* [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

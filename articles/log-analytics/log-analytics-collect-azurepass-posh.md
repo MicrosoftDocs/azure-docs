@@ -3,7 +3,7 @@ title: Collect Azure PaaS resource metrics with Log Analytics | Microsoft Docs
 description: Learn how to enable Azure PaaS resource metrics collection using PowerShell for retention and analysis in Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 
@@ -11,9 +11,10 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/13/2017
+ms.topic: conceptual
+ms.date: 10/23/2018
 ms.author: magoedte
+ms.component: 
 ---
 
 # Configure collection of Azure PaaS resource metrics with Log Analytics
@@ -36,7 +37,7 @@ Verify you have the following Azure Resource Manager modules installed on your c
 To install the latest version of the Azure Resource Manager modules on your computer, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## Enable Azure Diagnostics  
-Configuring Azure Diagnostics for PaaS resources is accomplished by executing the script, **Enable-AzureRMDiagnostics.ps1**, which is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  The script supports the following scenarios:
+Configuring Azure Diagnostics for PaaS resources is accomplished by executing the script, **Enable-AzureRMDiagnostics.ps1**, which is available from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52).  The script supports the following scenarios:
   
 * Specifying a resource related to one or more resource groups in a subscription  
 * Specifying a resource related to a specific resource group in a subscription  
@@ -53,7 +54,7 @@ Perform the following steps to download and execute the script.
     PS C:\> save-script -Name Enable-AzureRMDiagnostics -Path "C:\users\<username>\desktop\temp"
     ```
 
-3. Run `Login-AzureRmAccount` to create a connection with Azure.   
+3. Run `Connect-AzureRmAccount` to create a connection with Azure.   
 4. Run the following script `.\Enable-AzureRmDiagnostics.ps1` without any parameters to enable data collection from a specific resource in your subscription or with the parameter `-ResourceGroup <myResourceGroup>` to specify a resource in a specific resource group.   
 5. Select the appropriate subscription from the list if you have more than one, by entering the correct value.<br><br> ![Select subscription returned by script](./media/log-analytics-collect-azurepass-posh/script-select-subscription.png)<br> Otherwise, it automatically selects the single subscription available.
 6. Next, the script returns a list of Log Analytics workspaces registered in the subscription.  Select the appropriate one from the list.<br><br> ![Select workspace returned by script](./media/log-analytics-collect-azurepass-posh/script-select-workspace.png)<br> 
@@ -75,7 +76,7 @@ You will be prompted to answer the same information as when you ran the script t
 
 ## Next steps
 
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
 
 * Use [Custom Fields](log-analytics-custom-fields.md)( to parse the event records into individual fields.
 

@@ -1,21 +1,13 @@
 ---
-title: Configure Azure Diagnostics to send data to Application Insights | Microsoft Docs
+title: Configure Azure Diagnostics to send data to Application Insights
 description: Update the Azure Diagnostics public configuration to send data to Application Insights.
-services: monitoring-and-diagnostics
-documentationcenter: .net
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-
-ms.assetid: f9e12c3e-c307-435e-a149-ef0fef20513a
-ms.service: monitoring-and-diagnostics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: azure-monitor
+ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
-
+ms.component: diagnostic-extension
 ---
 # Send Cloud Service, Virtual Machine, or Service Fabric diagnostic data to Application Insights
 Cloud services, Virtual Machines, Virtual Machine Scale Sets and Service Fabric all use the Azure Diagnostics extension to collect data.  Azure diagnostics sends data to Azure Storage tables.  However, you can also pipe all or a subset of the data to other locations using Azure Diagnostics extension 1.5 or later.
@@ -79,11 +71,11 @@ A channel acts like a filter and allows you to select specific log levels to sen
 
 The following graphic shows this relationship.
 
-![Diagnostics Public Configuration](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![Diagnostics Public Configuration](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
 The following graphic summarizes the configuration values and how they work. You can include multiple sinks in the configuration at different levels in the hierarchy. The sink at the top level acts as a global setting and the one specified at the individual element acts like an override to that global setting.
 
-![Diagnostics Sinks  Configuration with Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![Diagnostics Sinks  Configuration with Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## Complete sink configuration example
 Here is a complete example of the public configuration file that
@@ -219,4 +211,4 @@ In the previous configuration, the following lines have the following meanings:
 ## Next Steps
 * Learn how to [view your Azure diagnostics information](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) in Application Insights.
 * Use [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) to enable the Azure diagnostics extension for your application.
-* Use [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) to enable the Azure diagnostics extension for your application
+* Use [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) to enable the Azure diagnostics extension for your application

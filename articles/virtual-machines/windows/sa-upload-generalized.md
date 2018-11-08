@@ -1,10 +1,10 @@
----
+﻿---
 title: Upload a generalize VHD to create multiple VMs in Azure | Microsoft Docs
 description: Upload a generalized VHD to an Azure storage account to create a Windows VM to use with the Resource Manager deployment model.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 
@@ -37,7 +37,7 @@ A generalized VHD has had all of your personal account information removed using
   * Generalize the virtual machine using Sysprep
 
 ### Generalize a Windows virtual machine using Sysprep
-This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+This section shows you how to generalize your Windows virtual machine for use as an image. Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx).
 
 Make sure the server roles running on the machine are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -71,7 +71,7 @@ If you don't already have PowerShell version 1.4 or above installed, read [How t
 1. Open Azure PowerShell and sign in to your Azure account. A pop-up window opens for you to enter your Azure account credentials.
    
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 2. Get the subscription IDs for your available subscriptions.
    

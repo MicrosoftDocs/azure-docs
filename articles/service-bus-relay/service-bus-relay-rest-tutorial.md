@@ -3,7 +3,7 @@ title: REST tutorial using Azure Relay | Microsoft Docs
 description: Build a simple Azure Service Bus Relay host application that exposes a REST-based interface.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Azure WCF Relay REST tutorial
@@ -61,7 +61,7 @@ The primary difference between a WCF contract and a REST-style contract is the a
     {
         ...
     ```
-8. Directly after the opening curly brace of the namespace declaration, define a new interface named **IImageContract** and apply the **ServiceContractAttribute** attribute to the interface with a value of `http://samples.microsoft.com/ServiceModel/Relay/`. The namespace value differs from the namespace that you use throughout the scope of your code. The namespace value is used as a unique identifier for this contract, and should have version information. For more information, see [Service Versioning](http://go.microsoft.com/fwlink/?LinkID=180498). Specifying the namespace explicitly prevents the default namespace value from being added to the contract name.
+8. Directly after the opening curly brace of the namespace declaration, define a new interface named **IImageContract** and apply the **ServiceContractAttribute** attribute to the interface with a value of `http://samples.microsoft.com/ServiceModel/Relay/`. The namespace value differs from the namespace that you use throughout the scope of your code. The namespace value is used as a unique identifier for this contract, and should have version information. For more information, see [Service Versioning](https://go.microsoft.com/fwlink/?LinkID=180498). Specifying the namespace explicitly prevents the default namespace value from being added to the contract name.
    
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]
@@ -557,7 +557,6 @@ After building the solution, do the following to run the application:
 ## Next steps
 Now that you've built an application that uses the Azure Relay service, see the following articles to learn more:
 
-* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
 * [Azure Relay overview](relay-what-is-it.md)
 * [How to use the WCF relay service with .NET](relay-wcf-dotnet-get-started.md)
 

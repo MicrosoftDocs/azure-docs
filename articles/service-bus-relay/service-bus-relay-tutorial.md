@@ -3,7 +3,7 @@ title: Azure Service Bus WCF Relay tutorial | Microsoft Docs
 description: Build a client and service application using WCF Relay.
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,12 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 # Azure WCF Relay tutorial
 
-This tutorial describes how to build a simple WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+This tutorial describes how to build a simple WCF Relay client application and service using Azure Relay. For a similar tutorial that uses [Service Bus messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 Working through this tutorial gives you an understanding of the steps that are required to create a WCF Relay client and service application. Like their original WCF counterparts, a service is a construct that exposes one or more endpoints, each of which exposes one or more service operations. The endpoint of a service specifies an address where the service can be found, a binding that contains the information that a client must communicate with the service, and a contract that defines the functionality provided by the service to its clients. The main difference between WCF and WCF Relay is that the endpoint is exposed in the cloud instead of locally on your computer.
 
@@ -31,7 +31,7 @@ The final three steps describe how to create a client application, configure the
 
 To complete this tutorial, you'll need the following:
 
-* [Microsoft Visual Studio 2015 or higher](http://visualstudio.com). This tutorial uses Visual Studio 2017.
+* [Microsoft Visual Studio 2015 or higher](https://visualstudio.com). This tutorial uses Visual Studio 2017.
 * An active Azure account. If you don't have one, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
 ## Create a service namespace
@@ -77,7 +77,7 @@ The service contract specifies what operations (the web service terminology for 
     ```
 
    > [!NOTE]
-   > Typically, the service contract namespace contains a naming scheme that includes version information. Including version information in the service contract namespace enables services to isolate major changes by defining a new service contract with a new namespace and exposing it on a new endpoint. In this manner, clients can continue to use the old service contract without having to be updated. Version information can consist of a date or a build number. For more information, see [Service Versioning](http://go.microsoft.com/fwlink/?LinkID=180498). For the purposes of this tutorial, the naming scheme of the service contract namespace does not contain version information.
+   > Typically, the service contract namespace contains a naming scheme that includes version information. Including version information in the service contract namespace enables services to isolate major changes by defining a new service contract with a new namespace and exposing it on a new endpoint. In this manner, clients can continue to use the old service contract without having to be updated. Version information can consist of a date or a build number. For more information, see [Service Versioning](https://go.microsoft.com/fwlink/?LinkID=180498). For the purposes of this tutorial, the naming scheme of the service contract namespace does not contain version information.
    >
    >
 8. Within the `IEchoContract` interface, declare a method for the single operation the `IEchoContract` contract exposes in the interface and apply the `OperationContractAttribute` attribute to the method that you want to expose as part of the public WCF Relay contract, as follows:
@@ -713,11 +713,10 @@ namespace Microsoft.ServiceBus.Samples
 
 ## Next steps
 
-This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md#brokered-messaging), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
+This tutorial showed how to build an Azure Relay client application and service using the WCF Relay capabilities of Service Bus. For a similar tutorial that uses [Service Bus Messaging](../service-bus-messaging/service-bus-messaging-overview.md), see [Get started with Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md).
 
 To learn more about Azure Relay, see the following topics.
 
-* [Azure Service Bus architectural overview](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md#relays)
 * [Azure Relay overview](relay-what-is-it.md)
 * [How to use the WCF relay service with .NET](relay-wcf-dotnet-get-started.md)
 

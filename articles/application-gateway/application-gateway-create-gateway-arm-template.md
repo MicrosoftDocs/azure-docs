@@ -3,8 +3,8 @@ title: Create an Azure Application Gateway - templates | Microsoft Docs
 description: This page provides instructions to create an Azure application gateway by using the Azure Resource Manager template
 documentationcenter: na
 services: application-gateway
-author: davidmu1
-manager: timlt
+author: vhorne
+manager: jpconnock
 editor: tysonn
 
 ms.service: application-gateway
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
-ms.author: davidmu
+ms.author: victorh
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
@@ -126,7 +126,7 @@ If you have never used Azure PowerShell, visit: [How to install and configure Az
 1. Login to PowerShell
 
     ```powershell
-    Login-AzureRmAccount
+    Connect-AzureRmAccount
     ```
 
 1. Check the subscriptions for the account.

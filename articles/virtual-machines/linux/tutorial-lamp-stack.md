@@ -1,10 +1,10 @@
 ---
-title: Deploy LAMP on a Linux virtual machine in Azure | Microsoft Docs
-description: Tutorial - Install the LAMP stack on a Linux VM in Azure
+title: Tutorial - Deploy LAMP on a Linux virtual machine in Azure | Microsoft Docs
+description: In this tutorial, you learn how to install the LAMP stack on a Linux virtual machine in Azure
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: dlepow
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 
@@ -17,8 +17,11 @@ ms.topic: tutorial
 ms.date: 11/27/2017
 ms.author: danlep
 
+#Customer intent: As an IT administrator, I want to learn how to install the LAMP stack so that I can quickly prepare a Linux VM to run web applications.
 ---
-# Install a LAMP web server on an Azure VM
+
+# Tutorial: Install a LAMP web server on a Linux virtual machine in Azure
+
 This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on an Ubuntu VM in Azure. If you prefer the NGINX web server, see the [LEMP stack](tutorial-lemp-stack.md) tutorial. To see the LAMP server in action, you can optionally install and configure a WordPress site. In this tutorial you learn how to:
 
 > [!div class="checklist"]
@@ -28,12 +31,11 @@ This article walks you through how to deploy an Apache web server, MySQL, and PH
 > * Verify installation and configuration
 > * Install WordPress on the LAMP server
 
-
 This setup is for quick tests or proof of concept. For more on the LAMP stack, including recommendations for a production environment, see the [Ubuntu documentation](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+If you choose to install and use the CLI locally, this tutorial requires that you are running the Azure CLI version 2.0.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [virtual-machines-linux-tutorial-stack-intro.md](../../../includes/virtual-machines-linux-tutorial-stack-intro.md)]
 

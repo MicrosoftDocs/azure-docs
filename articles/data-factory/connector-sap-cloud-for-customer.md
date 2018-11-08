@@ -4,24 +4,21 @@ description: Learn how to copy data from SAP Cloud for Customer to supported sin
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 04/17/2018
 ms.author: jingwang
 
 ---
 # Copy data from SAP Cloud for Customer (C4C) using Azure Data Factory
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from/to SAP Cloud for Customer (C4C). It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 ## Supported capabilities
 
@@ -139,7 +136,7 @@ Sample query to get data for a specific day:
         ],
         "typeProperties": {
             "source": {
-                "type": "SAPC4CSource",
+                "type": "SapCloudForCustomerSource",
                 "query": "<custom query e.g. $top=10>"
             },
             "sink": {
@@ -185,7 +182,7 @@ To copy data to SAP Cloud for Customer, set the sink type in the copy activity t
                 "writeBatchSize": 30
             },
             "parallelCopies": 10,
-            "cloudDataMovementUnits": 4,
+            "dataIntegrationUnits": 4,
             "enableSkipIncompatibleRow": true,
             "redirectIncompatibleRowSettings": {
                 "linkedServiceName": {

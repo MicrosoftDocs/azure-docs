@@ -1,9 +1,9 @@
 ---
-title: Get started with Azure Relay Hybrid Connections in .NET | Microsoft Docs
-description: Write a C# console application for Azure Relay Hybrid Connections.
+title: Get started with Azure Relay Hybrid Connections Websockets in .NET | Microsoft Docs
+description: Write a C# console application for Azure Relay Hybrid Connections Websockets.
 services: service-bus-relay
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 12/15/2017
-ms.author: sethm
+ms.author: spelluru
 
 ---
 
-# Get started with Relay Hybrid Connections
+# Get started with Relay Hybrid Connections Websockets in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
 
 This tutorial provides an introduction to [Azure Relay Hybrid Connections](relay-what-is-it.md#hybrid-connections). Learn how to use Microsoft .NET to create a client application that sends messages to a corresponding listener application. 
@@ -35,7 +35,7 @@ Hybrid Connections requires both a client component and a server component. In t
 
 To complete this tutorial, you need the following prerequisites:
 
-* [Visual Studio 2015 or later](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
+* [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
 * An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]

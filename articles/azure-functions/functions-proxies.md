@@ -2,17 +2,13 @@
 title: Work with proxies in Azure Functions | Microsoft Docs
 description: Overview of how to use Azure Functions Proxies
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 
 ms.assetid: 
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
 
@@ -103,7 +99,7 @@ For example, a back-end URL of *https://%ORDER_PROCESSING_HOST%/api/orders* woul
 
 ## <a name="debugProxies"></a>Troubleshoot Proxies
 
-By adding the flag `"debug":true` to any proxy in your `proxy.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
+By adding the flag `"debug":true` to any proxy in your `proxies.json` you will enable debug logging. Logs are stored in `D:\home\LogFiles\Application\Proxies\DetailedTrace` and accessible through the advanced tools (kudu). Any HTTP responses will also contain a `Proxy-Trace-Location` header with a URL to access the log file.
 
 You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` header set to `true`. This will also log a trace to the file system, and return the trace URL as a header in the response.
 
@@ -111,7 +107,7 @@ You can debug a proxy from the client side by adding a `Proxy-Trace-Enabled` hea
 
 For security reasons you may not want to allow anyone calling your service to generate a trace. They will not be able to access the trace contents without your login credentials, but generating the trace consumes resources and exposes that you are using Function Proxies.
 
-Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxy.json`.
+Disable traces altogether by adding `"debug":false` to any particular proxy in your `proxies.json`.
 
 ## Advanced configuration
 

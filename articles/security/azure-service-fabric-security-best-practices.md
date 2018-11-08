@@ -5,7 +5,7 @@ description: This article provides a set of best practices for Azure Service Fab
 services: security
 documentationcenter: na
 author: unifycloud
-manager: swadhwa
+manager: mbaldwin
 editor: tomsh
 
 ms.assetid: 

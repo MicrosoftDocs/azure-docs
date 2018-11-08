@@ -4,24 +4,21 @@ description: Learn how to copy data from Phoenix to supported sink data stores b
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: jhubbard
-editor: spelluru
+manager: craigg
+ms.reviewer: douglasl
 
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/07/2017
+ms.topic: conceptual
+ms.date: 09/19/2018
 ms.author: jingwang
 
 ---
 # Copy data from Phoenix using Azure Data Factory 
 
 This article outlines how to use the Copy Activity in Azure Data Factory to copy data from Phoenix. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
-
-> [!NOTE]
-> This article applies to version 2 of Data Factory, which is currently in preview. If you are using version 1 of the Data Factory service, which is generally available (GA), see [Copy Activity in V1](v1/data-factory-data-movement-activities.md).
 
 ## Supported capabilities
 
@@ -31,7 +28,7 @@ Azure Data Factory provides a built-in driver to enable connectivity, therefore 
 
 ## Getting started
 
-[!INCLUDE [data-factory-v2-connector-get-started-2](../../includes/data-factory-v2-connector-get-started-2.md)]
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 The following sections provide details about properties that are used to define Data Factory entities specific to Phoenix connector.
 
@@ -43,8 +40,8 @@ The following properties are supported for Phoenix linked service:
 |:--- |:--- |:--- |
 | type | The type property must be set to: **Phoenix** | Yes |
 | host | The IP address or host name of the Phoenix server. (that is, 192.168.222.160)  | Yes |
-| port | The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765.  | No |
-| httpPath | The partial URL corresponding to the Phoenix server. (that is, /gateway/sandbox/phoenix/version). The default value is `hbasephoenix` if using WindowsAzureHDInsightService.  | No |
+| port | The TCP port that the Phoenix server uses to listen for client connections. The default value is 8765. If you connect to Azure HDInsights, specify port as 443. | No |
+| httpPath | The partial URL corresponding to the Phoenix server. (that is, /gateway/sandbox/phoenix/version). Specify `/hbasephoenix0` if using HDInsights cluster.  | No |
 | authenticationType | The authentication mechanism used to connect to the Phoenix server. <br/>Allowed values are: **Anonymous**, **UsernameAndPassword**, **WindowsAzureHDInsightService** | Yes |
 | username | The user name used to connect to the Phoenix server.  | No |
 | password | The password corresponding to the user name. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
@@ -55,6 +52,9 @@ The following properties are supported for Phoenix linked service:
 | allowSelfSignedServerCert | Specifies whether to allow self-signed certificates from the server. The default value is false.  | No |
 | connectVia | The [Integration Runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use Self-hosted Integration Runtime or Azure Integration Runtime (if your data store is publicly accessible). If not specified, it uses the default Azure Integration Runtime. |No |
 
+>[!NOTE]
+>If your cluster doesn't support sticky session e.g. HDInsight, explicitly add node index at the end of the http path setting, e.g. specify `/hbasephoenix0` instead of `/hbasephoenix`.
+
 **Example:**
 
 ```json
@@ -64,8 +64,8 @@ The following properties are supported for Phoenix linked service:
         "type": "Phoenix",
         "typeProperties": {
             "host" : "<cluster>.azurehdinsight.net",
-            "port" : "<port>",
-            "httpPath" : "hbasephoenix",
+            "port" : "443",
+            "httpPath" : "/hbasephoenix0",
             "authenticationType" : "WindowsAzureHDInsightService",
             "username" : "<username>",
             "password": {

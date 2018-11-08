@@ -1,19 +1,15 @@
 ---
-title: Deploy an Azure Resource Manager template in an Azure Automation runbook | Microsoft Docs
+title: Deploy an Azure Resource Manager template in an Azure Automation runbook
 description: How to deploy an Azure Resource Manager template stored in Azure Storage from a runbook
 services: automation
-documentationcenter: dev-center-name
+ms.service: automation
+ms.component: process-automation
 author: georgewallace
+ms.author: gwallace
+ms.date: 03/16/2018
+ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-
-ms.service: automation
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: powershell
-ms.workload: TBD
-ms.date: 07/09/2017
-ms.author: gwallace
 ---
 
 # Deploy an Azure Resource Manager template in an Azure Automation PowerShell runbook
@@ -32,7 +28,7 @@ In this topic, we create a PowerShell runbook that uses an Resource Manager temp
 
 To complete this tutorial, you need the following:
 
-* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or <a href="/pricing/free-account/" target="_blank">[sign up for a free account](https://azure.microsoft.com/free/).
+* Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or [sign up for a free account](https://azure.microsoft.com/free/).
 * [Automation account](automation-sec-configure-azure-runas-account.md) to hold the runbook and authenticate to Azure resources.  This account must have permission to start and stop the virtual machine.
 * [Azure Storage account](../storage/common/storage-create-storage-account.md) in which to store the Resource Manager template
 * Azure Powershell installed on a local machine. See [Install and configure Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) for information about how to get Azure PowerShell.
@@ -60,6 +56,13 @@ In a text editor, copy the following text:
       "metadata": {
         "description": "Storage Account type"
       }
+    },
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]",
+      "metadata": {
+        "description": "Location for all resources."
+      }
     }
   },
   "variables": {
@@ -69,8 +72,8 @@ In a text editor, copy the following text:
     {
       "type": "Microsoft.Storage/storageAccounts",
       "name": "[variables('storageAccountName')]",
-      "apiVersion": "2016-01-01",
-      "location": "[resourceGroup().location]",
+      "apiVersion": "2018-02-01",
+      "location": "[parameters('location')]",
       "sku": {
           "name": "[parameters('storageAccountType')]"
       },
@@ -101,7 +104,7 @@ and upload the Resource Manager template to that file share.
 
 ```powershell
 # Login to Azure
-Login-AzureRmAccount
+Connect-AzureRmAccount
 
 # Get the access key for your storage account
 $key = Get-AzureRmStorageAccountKey -ResourceGroupName 'MyAzureAccount' -Name 'MyStorageAccount'
@@ -148,7 +151,7 @@ param (
 
 # Authenticate to Azure if running from Azure Automation
 $ServicePrincipalConnection = Get-AutomationConnection -Name "AzureRunAsConnection"
-Add-AzureRmAccount `
+Connect-AzureRmAccount `
     -ServicePrincipal `
     -TenantId $ServicePrincipalConnection.TenantId `
     -ApplicationId $ServicePrincipalConnection.ApplicationId `

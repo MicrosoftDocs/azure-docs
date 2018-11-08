@@ -2,20 +2,13 @@
 title: Transfer Data with the Microsoft Azure Storage Data Movement Library | Microsoft Docs
 description: Use the Data Movement Library to move or copy data to or from blob and file content. Copy data to Azure Storage from local files, or copy data within or between storage accounts. Easily migrate your data to Azure Storage.
 services: storage
-documentationcenter: ''
 author: seguler
-manager: jahogg
-editor: tysonn
-
-ms.assetid: 
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-
+ms.component: common
 ---
 # Transfer Data with the Microsoft Azure Storage Data Movement Library
 
@@ -36,10 +29,10 @@ This document demonstrates how to create a .NET Core console application that ru
 **What you need:**
 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* An [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
+* An [Azure storage account](storage-quickstart-create-account.md)
 
 > [!NOTE]
-> This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation is helpful. Most importantly, you need to [create a Storage account](storage-create-storage-account.md#create-a-storage-account) to start using the Data Movement Library.
+> This guide assumes that you are already familiar with [Azure Storage](https://azure.microsoft.com/services/storage/). If not, reading the [Introduction to Azure Storage](storage-introduction.md) documentation is helpful. Most importantly, you need to [create a Storage account](storage-quickstart-create-account.md) to start using the Data Movement Library.
 > 
 > 
 

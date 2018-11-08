@@ -1,6 +1,6 @@
 ---
-title: Collect Linux application performance in OMS Log Analytics | Microsoft Docs
-description: This article provides details for configuring the OMS Agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
+title: Collect Linux application performance in Log Analytics | Microsoft Docs
+description: This article provides details for configuring the Log Analytics agent for Linux to collect performance counters for MySQL and Apache HTTP Server. 
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -10,26 +10,28 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-
+ms.component: 
 ---
+
 # Collect performance counters for Linux applications in Log Analytics 
-This article provides details for configuring the [OMS Agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications.  The applications included in this article are:  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications.  The applications included in this article are:  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
 
 ## MySQL
-If MySQL Server or MariaDB Server is detected on the computer when the OMS agent is installed, a performance monitoring provider for MySQL Server will be automatically installed. This provider connects to the local MySQL/MariaDB server to expose performance statistics. MySQL user credentials must be configured so that the provider can access the MySQL Server.
+If MySQL Server or MariaDB Server is detected on the computer when the Log Analytics agent is installed, a performance monitoring provider for MySQL Server will be automatically installed. This provider connects to the local MySQL/MariaDB server to expose performance statistics. MySQL user credentials must be configured so that the provider can access the MySQL Server.
 
 ### Configure MySQL credentials
 The MySQL OMI provider requires a preconfigured MySQL user and installed MySQL client libraries in order to query the performance and health information from the MySQL instance.  These credentials are stored in an authentication file that's stored on the Linux agent.  The authentication file specifies what bind-address and port the MySQL instance is listening on and what credentials to use to gather metrics.  
 
-During installation of the OMS Agent for Linux the MySQL OMI provider will scan MySQL my.cnf configuration files (default locations) for bind-address and port and partially set the MySQL OMI authentication file.
+During installation of the Log Analytics agent for Linux the MySQL OMI provider will scan MySQL my.cnf configuration files (default locations) for bind-address and port and partially set the MySQL OMI authentication file.
 
 The MySQL authentication file is stored at `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -75,9 +77,9 @@ The following table provides details on the syntax for using mycimprovauth.
 
 | Operation | Example | Description
 |:--|:--|:--|
-| autoupdate *false\|true* | mycimprovauth autoupdate false | Sets whether or not the authentication file will be automatically updated on restart or update. |
+| autoupdate *false or true* | mycimprovauth autoupdate false | Sets whether or not the authentication file will be automatically updated on restart or update. |
 | default *bind-address username password* | mycimprovauth default 127.0.0.1 root pwd | Sets the default instance in the MySQL OMI authentication file.<br>The password field should be entered in plain text - the password in the MySQL OMI authentication file will be Base 64 encoded. |
-| delete *default\|port_num* | mycimprovauth 3308 | Deletes the specified instance by either default or by port number. |
+| delete *default or port_num* | mycimprovauth 3308 | Deletes the specified instance by either default or by port number. |
 | help | mycimprov help | Prints out a list of commands to use. |
 | print | mycimprov print | Prints out an easy to read MySQL OMI authentication file. |
 | update port_num *bind-address username password* | mycimprov update 3307 127.0.0.1 root pwd | Updates the specified instance or adds the instance if it does not exist. |
@@ -110,7 +112,7 @@ These privileges can be granted by running the following grant commands.
 
 ### Define performance counters
 
-Once you configure the OMS Agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -146,7 +148,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### Define performance counters
 
-Once you configure the OMS Agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -164,4 +166,4 @@ Once you configure the OMS Agent for Linux to send data to Log Analytics, you mu
 
 ## Next steps
 * [Collect performance counters](log-analytics-data-sources-performance-counters.md) from Linux agents.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 

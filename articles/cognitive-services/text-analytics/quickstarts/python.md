@@ -1,16 +1,19 @@
 ---
-title: Python Quickstart for Azure Cognitive Services, Text Analytics API | Microsoft Docs
+title: 'Quickstart: Using Python to call the Text Analytics API'
+titleSuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Text Analytics API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-author: luiscabrer
+author: ashmaka
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: article
-ms.date: 08/24/2017
-ms.author: luisca
+ms.component: text-analytics
+ms.topic: quickstart
+ms.date: 10/01/2018
+ms.author: ashmaka
 ---
 
-# Quickstart for Text Analytics API with Python 
+# Quickstart: Using Python to call the Text Analytics Cognitive Service 
 <a name="HOLTop"></a>
 
 This walkthrough shows you how to [detect language](#Detect), [analyze sentiment](#SentimentAnalysis), and [extract key phrases](#KeyPhraseExtraction) using the [Text Analytics APIs](//go.microsoft.com/fwlink/?LinkID=759711) with Python.
@@ -31,7 +34,7 @@ To continue with this walkthrough, replace `subscription_key` with a valid subsc
 
 
 ```python
-subscription_key="5d162a1f02724f6daf4489f4220413a4"
+subscription_key = None
 assert subscription_key
 ```
 
@@ -178,27 +181,26 @@ The collection of documents is the same as what was used for sentiment analysis.
 
 
 ```python
-pprint(documents)
-```
-
-    {'documents': [{'id': '1', 'text': 'This is a document written in English.'},
-                   {'id': '2', 'text': 'Este es un document escrito en Español.'},
-                   {'id': '3', 'text': '这是一个用中文写的文件'}]}
-
-
-
-```python
-headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
+documents = {'documents' : [
+  {'id': '1', 'language': 'en', 'text': 'I had a wonderful experience! The rooms were wonderful and the staff was helpful.'},
+  {'id': '2', 'language': 'en', 'text': 'I had a terrible time at the hotel. The staff was rude and the food was awful.'},  
+  {'id': '3', 'language': 'es', 'text': 'Los caminos que llevan hasta Monte Rainier son espectaculares y hermosos.'},  
+  {'id': '4', 'language': 'es', 'text': 'La carretera estaba atascada. Había mucho tráfico el día de ayer.'}
+]}
+headers   = {'Ocp-Apim-Subscription-Key': subscription_key}
 response  = requests.post(key_phrase_api_url, headers=headers, json=documents)
 key_phrases = response.json()
 pprint(key_phrases)
 ```
 
-    {'documents': [{'id': '1', 'keyPhrases': ['document', 'English']},
-                   {'id': '2',
-                    'keyPhrases': ['Este es', 'document escrito en Español']},
-                   {'id': '3', 'keyPhrases': ['这是一个用中文写的文件']}],
-     'errors': []}
+
+    {'documents': [
+        {'keyPhrases': ['wonderful experience', 'staff', 'rooms'], 'id': '1'},
+        {'keyPhrases': ['food', 'terrible time', 'hotel', 'staff'], 'id': '2'},
+        {'keyPhrases': ['Monte Rainier', 'caminos'], 'id': '3'},
+        {'keyPhrases': ['carretera', 'tráfico', 'día'], 'id': '4'}],
+     'errors': []
+    }
 
 
 The JSON object can once again be rendered as an HTML table using the following lines of code:
@@ -212,6 +214,195 @@ for document in key_phrases["documents"]:
     phrases = ",".join(document["keyPhrases"])
     table.append("<tr><td>{0}</td><td>{1}</td>".format(text, phrases))
 HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".join(table)))
+```
+
+## Identify entities
+
+The Entities API identifies well-known entities in a text document, using the [Entities method](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). The following example identifies entities for English documents.
+
+The service endpoint for the entity linking service is accessed via the following URL:
+
+
+```python
+entity_linking_api_url = text_analytics_base_url + "entities"
+print(entity_linking_api_url)
+```
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
+
+
+The collection of documents is below:
+
+
+```python
+documents = {'documents' : [
+  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
+  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
+]}
+```
+
+Now, the documents can be sent to the Text Analytics API to receive the response.
+
+```python
+headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
+response  = requests.post(entity_linking_api_url, headers=headers, json=documents)
+entities = response.json()
+```
+
+```json
+{
+    "Documents": [
+        {
+            "Id": "1",
+            "Entities": [
+                {
+                    "Name": "Jeff",
+                    "Matches": [
+                        {
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "Person"
+                },
+                {
+                    "Name": "three dozen",
+                    "Matches": [
+                        {
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        },
+        {
+            "Id": "2",
+            "Entities": [
+                {
+                    "Name": "Great Depression",
+                    "Matches": [
+                        {
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
+                }
+            ]
+        }
+    ],
+    "Errors": []
+}
 ```
 
 ## Next steps

@@ -3,17 +3,13 @@ title: Manage an Azure Cosmos DB account via the Azure Portal | Microsoft Docs
 description: Learn how to manage your Azure Cosmos DB account via the Azure Portal. Find a guide on using the Azure Portal to view, copy, delete and access accounts.
 keywords: Azure Portal, azure, Microsoft azure
 services: cosmos-db
-documentationcenter: ''
 author: kirillg
-manager: jhubbard
+manager: kfile
 editor: cgronlun
 
-ms.assetid: 00fc172f-f86c-44ca-8336-11998dcab45c
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: kirillg
 
@@ -97,7 +93,7 @@ To remove an Azure Cosmos DB account from the Azure portal that you are no longe
 ![How to delete an Azure Cosmos DB account in the Azure portal](./media/manage-account/delete-account-confirm.png)
 
 ## <a id="next"></a>Next steps
-Learn how to [get started with your Azure Cosmos DB account](http://go.microsoft.com/fwlink/p/?LinkId=402364).
+Learn how to [get started with your Azure Cosmos DB account](https://go.microsoft.com/fwlink/p/?LinkId=402364).
 
 <!--Image references-->
 [5]: ./media/manage-account/documentdb_change_consistency-1.png

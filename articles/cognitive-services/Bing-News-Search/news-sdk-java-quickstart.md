@@ -1,23 +1,26 @@
 ---
-title: News Search SDK Java quickstart | Microsoft Docs
-description: Setup for News Search SDK console application.
+title: "Quickstart: Bing News Search SDK, Java"
 titleSuffix: Azure Cognitive Services
+description: Learn how to set up the Bing News Search SDK console application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
-ms.technology: bing-news-search
-ms.topic: article
+ms.component: bing-news-search
+ms.topic: quickstart
 ms.date: 02/16/2018
 ms.author: v-gedod
 ---
-# News Search SDK Java quickstart
+# Quickstart: Bing News Search SDK with Java
 
-The Bing News Search SDK contains the functionality of the REST API for news queries and parsing results. 
+The Bing News Search SDK provides the REST API functionality for news queries and parsing results. 
+
+The [source code for Java Bing News Search SDK samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master/Search/BingNewsSearch) is available on Git Hub.
 
 ## Application dependencies
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. 
-Install Bing News Search SDK dependencies using Maven, Gradle, or another dependency management system. The Maven POM file requires:
+Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**. 
+Install the Bing News Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the declaration:
 ```
   <dependencies>
   	<dependency>
@@ -28,7 +31,7 @@ Install Bing News Search SDK dependencies using Maven, Gradle, or another depend
   </dependencies>
 ```
 ## News Search client
-Add imports to the class implementation:
+Add imports to the class implementation.
 ```
 import com.microsoft.azure.cognitiveservices.newssearch.*;
 import com.microsoft.azure.cognitiveservices.newssearch.implementation.NewsInner;
@@ -41,7 +44,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 import java.io.IOException;
 ```
-Implement the `NewsSearchAPIImpl` client, which requires an instance of the `ServiceClientCredentials`:
+Implement the **NewsSearchAPIImpl** client, which requires an instance of the **ServiceClientCredentials** class.
 ```
 public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
     return new NewsSearchAPIImpl("https://api.cognitive.microsoft.com/bing/v7.0/",
@@ -54,7 +57,7 @@ public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
                                 public Response intercept(Chain chain) throws IOException {
                                     Request request = null;
                                     Request original = chain.request();
-                                    // Request customization: add request headers
+                                    // Request customization: add request headers.
                                     Request.Builder requestBuilder = original.newBuilder()
                                             .addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
                                     request = requestBuilder.build();
@@ -67,7 +70,7 @@ public static NewsSearchAPIImpl getClient(final String subscriptionKey) {
 
 
 ```
-Search for results.  The following method searches using a single query, "Quantum  Computing", with `market` and `count` parameters.  It verifies the number of results and prints `totalEstimatedMatches`, `name`, `URL`, `datePublished`, `description`, and `name` of `provider` of the first news result.
+Search for news with the single query "Quantum Computing." Filter the search with the *market* and *count* parameters. Verify the number of results. Print information about the first news result: name, URL, publication date, description, provider name, and total number of estimated matches.
 ```
 public static void newsSearch(String subscriptionKey)
 {
@@ -114,12 +117,12 @@ public static void newsSearch(String subscriptionKey)
 }
 
 ```
-Search for  most recent news for "Artificial Intelligence" with `freshness` and `sortBy` parameters. Verify number of results and print `totalEstimatedMatches`, `name`, `URL`, `description`, `datePublished`, and `name` of `provider` of the first news result.
+Search for recent news about "Artificial Intelligence." Filter the search with the *freshness* and *sortBy* parameters. Verify the number of results. Print information about the first news result: name, URL, publication date, description, provider name, and total number of estimated matches.
 ```
 /**
- * This will search most recent news for (Artificial Intelligence) with freshness and sortBy parameters then
- * verify number of results and print out totalEstimatedMatches, name, url, description, published time and
- * name of provider of the first news result
+ * Search recent news for (Artificial Intelligence) with the freshness and sortBy parameters.
+ * Verify the number of results. Print the totalEstimatedMatches, name, url, description,
+ * published time, and provider name for the first news result.
  * @param subscriptionKey cognitive services subscription key
  */
 public static void newsSearchWithFilters(String subscriptionKey)
@@ -165,11 +168,11 @@ public static void newsSearchWithFilters(String subscriptionKey)
 }
 
 ```
-Search `category` news for `movie and TV entertainment` with safe search. Verify number of results and print `category`, `name`, `URL`, `description`, `datePublished`, and `name` of `provider` of the first news result.
+Search the news **category** for *movie and TV entertainment* topics and use the *safe search* feature. Verify the number of results. Print the category, name, URL, description, publication date, and provider name for the first news result.
 ```
 /**
- * This will search category news for movie and TV entertainment with safe search then verify number of results
- * and print out category, name, url, description, published time and name of provider of the first news result
+ * Search the news category for (movie and TV entertainment) with safe search. Verify the number of results. 
+ * Print the category, name, url, description, published time, and provider name for the first news result.
  * @param subscriptionKey cognitive services subscription key
  */
 public static void newsCategory(String subscriptionKey)
@@ -216,7 +219,7 @@ public static void newsCategory(String subscriptionKey)
 }
 
 ```
-Search news `trendingTopics`.  Verify the number of results and print `name`, `text` of query, `webSearchUrl`, and `newsSearchUrl` of the first news result.
+Search for trending news topics. Verify the number of results. Print the name, query text, web search URL, and news search URL for the first news result.
 ```
 public static void trendingTopics(String subscriptionKey)
 {
@@ -258,7 +261,7 @@ public static void trendingTopics(String subscriptionKey)
     }
 }
 ```
-Add the previous methods to a class with main function to run the code:
+Add the methods described in this article to a class with a main function for executing the code.
 ```
 package javaNewsSDK;
 import com.microsoft.azure.cognitiveservices.newssearch.*;
@@ -274,7 +277,7 @@ public class NewsSearchSDK {
 		NewsSearchSDK.trendingTopics("YOUR-SUBSCRIPTION-KEY");
 	}
 
-	// Add methods previously documented.
+    // Include the methods described in this article.
 }
 ```
 ## Next steps

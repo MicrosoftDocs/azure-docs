@@ -2,19 +2,12 @@
 title: Azure Traffic Manager with Azure Site Recovery | Microsoft Docs
 description: Describes how to use Azure Traffic Manager with Azure Site Recovery for disaster recovery and migration
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
-editor: ''
-
-ms.assetid: ''
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 02/27/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Azure Traffic Manager with Azure Site Recovery
@@ -46,11 +39,11 @@ In a disaster event, Company A can trigger a [failover](site-recovery-failover.m
 
 Depending on business requirements, **Company A** can choose a higher or lower [probing frequency](../traffic-manager/traffic-manager-monitoring.md) to switch between on-premises to Azure in a disaster event, and ensure minimal downtime for users.
 
-When the disaster is contained, **Company A** can failback from Azure to its on-premises environment ([VMware](site-recovery-how-to-failback-azure-to-vmware.md) or [Hyper-V](site-recovery-failback-from-azure-to-hyper-v.md)) using Azure Site Recovery. Now, when Traffic Manager detects that the **Primary** endpoint is healthy again, it automatically utilizes the **Primary** endpoint in its DNS responses.
+When the disaster is contained, **Company A** can failback from Azure to its on-premises environment ([VMware](vmware-azure-failback.md) or [Hyper-V](hyper-v-azure-failback.md)) using Azure Site Recovery. Now, when Traffic Manager detects that the **Primary** endpoint is healthy again, it automatically utilizes the **Primary** endpoint in its DNS responses.
 
 ## On-premises to Azure migration
 
-In addition to disaster recovery, Azure Site Recovery also enables [migrations to Azure](site-recovery-migrate-to-azure.md). Using Azure Site Recovery’s powerful test failover capabilities, customers can assess application performance on Azure without affecting their on-premises environment. And when customers are ready to migrate, they can choose to migrate entire workloads together or choose to migrate and scale gradually.
+In addition to disaster recovery, Azure Site Recovery also enables [migrations to Azure](migrate-overview.md). Using Azure Site Recovery’s powerful test failover capabilities, customers can assess application performance on Azure without affecting their on-premises environment. And when customers are ready to migrate, they can choose to migrate entire workloads together or choose to migrate and scale gradually.
 
 Azure Traffic Manager’s [Weighted](../traffic-manager/traffic-manager-configure-weighted-routing-method.md) routing method can be used to direct some part of incoming traffic to Azure while directing the majority to the on-premises environment. This approach can help assess scale performance as you can continue increasing the weight assigned to Azure as you migrate more and more of your workloads to Azure.
 

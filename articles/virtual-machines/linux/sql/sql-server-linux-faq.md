@@ -66,13 +66,17 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   No. You cannot switch from pay-per-minute licensing to using your own license. You must create a new Linux VM, install SQL Server, and migrate your data. See the previous question for more details about bringing your own license.
+   No. You cannot switch from pay-per-second licensing to using your own license. You must create a new Linux VM, install SQL Server, and migrate your data. See the previous question for more details about bringing your own license.
 
 ## Administration
 
 1. **Can I manage a Linux SQL Server virtual machine with SQL Server Management Studio (SSMS)?**
 
-   Yes, but SSMS is currently a Windows-only tool. You must connect remotely from a Windows machine to use SSMS with Linux SQL Server VMs. Locally on Linux, the new [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) tool can perform many administrative tasks. To preview a cross-platform database management tool, see [SQL Server Operations Studio (preview)](https://docs.microsoft.com/sql/sql-operations-studio/what-is).
+   Yes, but SSMS is currently a Windows-only tool. You must connect remotely from a Windows machine to use SSMS with Linux SQL Server VMs. Locally on Linux, the new [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) tool can perform many administrative tasks. For a cross-platform database management tool, see [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+
+1. **Can I remove SQL Server completely from a SQL VM?**
+
+   Yes, but you will continue to be charged for your SQL VM as described in [Pricing guidance for SQL Server Azure VMs](../../windows/sql/virtual-machines-windows-sql-server-pricing-guidance.md?toc=%2fazure%2fvirtual-machines%2flinux%2fsql%2ftoc.json). If you no longer need SQL Server, you can deploy a new virtual machine and migrate the data and applications to the new virtual machine. Then you can remove the SQL Server virtual machine.
 
 ## Updating and Patching
 

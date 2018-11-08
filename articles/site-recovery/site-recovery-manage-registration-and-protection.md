@@ -1,12 +1,11 @@
 ---
 title: Remove servers and disable protection | Microsoft Docs
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 02/07/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
 
 ---
@@ -21,8 +20,8 @@ This article describes how to unregister servers from a Recovery Services vault,
 If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can unregister an unconnected configuration server from a vault as follows:
 
 1. [Disable protection of virtual machines](#disable-protection-for-a-vmware-vm-or-physical-server-vmware-to-azure).
-2. [Disassociate](site-recovery-setup-replication-settings-vmware.md#dissociate-a-configuration-server-from-a-replication-policy) and [delete](site-recovery-setup-replication-settings-vmware.md#delete-a-replication-policy) all Replication policies
-3. [Delete the configuration server](site-recovery-vmware-to-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
+2. [Disassociate or delete](vmware-azure-set-up-replication.md#disassociate-or-delete-a-replication-policy) replication policies.
+3. [Delete the configuration server](vmware-azure-manage-configuration-server.md#delete-or-unregister-a-configuration-server)
 
 ## Unregister a VMM server
 
@@ -31,7 +30,7 @@ If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can 
 3. Note the ID of the VMM server.
 4. Disassociate replication policies from clouds on the VMM server you want to remove.  In **Site Recovery Infrastructure** > **For System Center VMM** >  **Replication Policies**, double-click the associated policy. Right-click the cloud > **Disassociate**.
 5. Delete the VMM server or active node. In **Site Recovery Infrastructure** > **For System Center VMM** > **VMM Servers**, right-click the server > **Delete**.
-6. If your VMM server was in a Disconnected state, then download and run the [cleanup script](http://aka.ms/asr-cleanup-script-vmm) on the VMM server. Open PowerShell with the **Run as Administrator** option, to change the execution policy for the default (LocalMachine) scope. In the script, specify the ID of the VMM server you want to remove. The script removes registration and cloud pairing information from the server.
+6. If your VMM server was in a Disconnected state, then download and run the [cleanup script](https://aka.ms/asr-cleanup-script-vmm) on the VMM server. Open PowerShell with the **Run as Administrator** option, to change the execution policy for the default (LocalMachine) scope. In the script, specify the ID of the VMM server you want to remove. The script removes registration and cloud pairing information from the server.
 5. Run the cleanup script on any secondary VMM server.
 6. Run the  cleanup script on any other passive VMM cluster nodes that have the Provider installed.
 7. Uninstall the Provider manually on the VMM server. If you have a cluster, remove from all nodes.

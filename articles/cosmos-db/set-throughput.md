@@ -1,108 +1,82 @@
 ---
-title: Provision throughput for Azure Cosmos DB | Microsoft Docs
-description: Learn  how to set provisioned throughput for your Azure Cosmos DB containsers, collections, graphs, and tables.
-services: cosmos-db
-author: mimig1
-manager: jhubbard
-editor: ''
-documentationcenter: ''
+title: Provision throughput for Azure Cosmos DB 
+description: Learn how to set provisioned throughput for your Azure Cosmos DB containers and databases.
+author: aliuy
 
-ms.assetid: f98def7f-f012-4592-be03-f6fa185e1b1e
 ms.service: cosmos-db
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 01/02/2018
-ms.author: mimig
+ms.topic: conceptual
+ms.date: 10/25/2018
+ms.author: andrl
 
 ---
 
-# Set throughput for Azure Cosmos DB containers
+# Provision throughput for Cosmos DB containers and databases
 
-You can set throughput for your Azure Cosmos DB containers in the Azure portal or by using the client SDKs. 
+A Cosmos database is a unit of management for a set of containers. A database consists of a set of schema-agnostic containers. A Cosmos container is the unit of scalability for both throughput and storage. A container is horizontally partitioned across a set of machines within an Azure region and is distributed across all Azure regions associated with your Cosmos account.
 
-The following table lists the throughput available for containers:
+Azure Cosmos DB allows you to configure throughput at two granularities - **Cosmos containers** and **Cosmos databases**.
 
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Single Partition Container</strong></p></td>
-            <td valign="top"><p><strong>Partitioned Container</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Minimum Throughput</p></td>
-            <td valign="top"><p>400 request units per second</p></td>
-            <td valign="top"><p>1000 request units per second</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Maximum Throughput</p></td>
-            <td valign="top"><p>10,000 request units per second</p></td>
-            <td valign="top"><p>Unlimited</p></td>
-        </tr>
-    </tbody>
-</table>
+# Setting throughput on a Cosmos container  
 
-## To set the throughput by using the Azure portal
+The throughput provisioned on a Cosmos container is exclusively reserved for the container. The container receives the provisioned throughput all the time. The provisioned throughput on a container is financially backed by SLAs. To configure throughput on a container, see [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md).
 
-1. In a new window, open the [Azure portal](https://portal.azure.com).
-2. On the left bar, click **Azure Cosmos DB**, or click **All services** at the bottom, then scroll to **Databases**, and then click **Azure Cosmos DB**.
-3. Select your Cosmos DB account.
-4. In the new window, click **Data Explorer** in the navigation menu.
-5. In the new window, expand your database and container and then click **Scale & Settings**.
-6. In the new window, type the new throughput value in the **Throughput** box, and then click **Save**.
+Setting provisioned throughput on a container is the widely used option. While you can elastically scale throughput for a container by provisioning any amount of throughput (RUs), you cannot selectively specify the throughput for logical partition(s). When the workload running on a logical partition consumes more than the throughput that was allocated to the specific logical partition, your operations will get rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire container or retry the operation. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-<a id="set-throughput-sdk"></a>
+It is recommended that you configure throughput at the container granularity when you want guaranteed performance for the container.
 
-## To set the throughput by using the SQL API for .NET
+Throughput provisioned on a Cosmos container is uniformly distributed across all the logical partitions of the container. Since one or more logical partitions of a container are hosted by a resource partition, the physical partitions belong exclusively to the container and support the throughput provisioned on the container. The following image shows how a resource partition hosts one or more logical partitions of a container:
 
-```csharp
-// Fetch the offer of the collection whose throughput needs to be updated
-Offer offer = client.CreateOfferQuery()
-    .Where(r => r.ResourceLink == collection.SelfLink)    
-    .AsEnumerable()
-    .SingleOrDefault();
+![Resource partition](./media/set-throughput/resource-partition.png)
 
-// Set the throughput to the new value, for example 12,000 request units per second
-offer = new OfferV2(offer, 12000);
+# Setting throughput on a Cosmos database
 
-// Now persist these changes to the collection by replacing the original offer resource
-await client.ReplaceOfferAsync(offer);
-```
+When you provision throughput on a Cosmos database, the throughput is shared across all the containers in the database, unless you’ve specified a provisioned throughput on specific containers. Sharing the database throughput among its containers is analogous to hosting a database on a cluster of machines. Since all containers within a database share the resources available on a machine, you naturally do not get predictable performance on any specific container. To configure throughput on a database, see [how to configure provisioned throughput on a Cosmos database](how-to-provision-database-throughput.md).
 
-<a id="set-throughput-java"></a>
+Setting throughput on a Cosmos database guarantees that you receive the provisioned throughput all the time. Since all containers within the database share the provisioned throughput, Cosmos DB does not provide any predictable throughput guarantees for a particular container in that database. The portion of the throughput that a specific container can receive is dependent on:
 
-## To set the throughput by using the SQL API for Java
+* The number of containers
+* The choice of partition keys for various containers and
+* The distribution of the workload across various logical partitions of the containers. 
 
-This snippet is taken from the OfferCrudSamples.java file in the [azure-documentdb-java](https://github.com/Azure/azure-documentdb-java/blob/master/documentdb-examples/src/test/java/com/microsoft/azure/documentdb/examples/OfferCrudSamples.java) repo. 
+It is recommended that you configure throughput on a database when you want to share the throughput across multiple containers, but do not want to dedicate the throughput to any particular container. Following are some examples where it is preferred to provision throughput at the database level:
 
-```Java
-// find offer associated with this collection
-Iterator < Offer > it = client.queryOffers(
-    String.format("SELECT * FROM r where r.offerResourceId = '%s'", collectionResourceId), null).getQueryIterator();
-assertThat(it.hasNext(), equalTo(true));
+* Sharing a database’s provisioned throughput across a set of containers is useful for a multi-tenant application. Each user can be represented by a distinct Cosmos container.
 
-Offer offer = it.next();
-assertThat(offer.getString("offerResourceId"), equalTo(collectionResourceId));
-assertThat(offer.getContent().getInt("offerThroughput"), equalTo(throughput));
+* Sharing a database’s provisioned throughput across a set of containers is useful when you are migrating a NoSQL database (such as MongoDB, Cassandra) hosted from a cluster of VMs or from on-premises physical servers to Cosmos DB. You can think of the provisioned throughput configured on your Cosmos database as a logical equivalent (but more cost-effective and elastic) to that of the compute capacity of your MongoDB or Cassandra cluster.  
 
-// update the offer
-int newThroughput = 10300;
-offer.getContent().put("offerThroughput", newThroughput);
-client.replaceOffer(offer);
-```
+At any given point of time, the throughput allocated to a container within a database is distributed across all the logical partitions of that container. When you have containers sharing provisioned throughput on a database, you can't selectively apply the throughput to a specific container or a logical partition. If the workload on a logical partition consumes more than the throughput that is allocated to a specific logical partition, your operations will be rate-limited. When rate-limiting occurs, you can either increase the throughput for the entire container or retry the operation. For more information on partitioning, see [Logical partitions](partition-data.md).
 
-## Throughput FAQ
+Multiple logical partitions sharing the throughput provisioned to a database can be hosted on a single resource partition. While a single logical partition of a container is always scoped within a resource partition, 'L' logical partitions across 'C' containers sharing the provisioned throughput of a database can be mapped and hosted on 'R' physical partitions. The following image shows how a resource partition can host one or more logical partitions that belong to different containers within a database:
 
-**Can I set my throughput to less than 400 RU/s?**
+![Resource partition](./media/set-throughput/resource-partition2.png)
 
-400 RU/s is the minimum throughput available on Cosmos DB single partition containers (1000 RU/s is the minimum for partitioned containers). Request units are set in 100 RU/s intervals, but throughput cannot be set to 100 RU/s or any value smaller than 400 RU/s. If you're looking for a cost effective method to develop and test Cosmos DB, you can use the free [Azure Cosmos DB Emulator](local-emulator.md), which you can deploy locally at no cost. 
+## Setting throughput on a Cosmos database and a container
 
-**How do I set througput using the MongoDB API?**
+You can combine the two models, provisioning throughput on both database and the container is allowed. The following example shows how to provision throughput on a Cosmos database and a container:
 
-There's no MongoDB API extension to set throughput. The recommendation is to use the SQL API, as shown in [To set the throughput by using the SQL API for .NET](#set-throughput-sdk).
+* You can create a Cosmos database named 'Z' with provisioned throughput of 'K' RUs. 
+* Next, create five containers named A, B, C, D, and E within the database.
+* You can explicitly configure 'P' RUs of provisioned throughput on the container 'B'.
+* The 'K' RUs throughput is shared across the four containers – A, C, D, and E. The exact amount of throughput available to A, C, D, or E will vary and there are no SLAs for each individual container’s throughput.
+* The Container 'B' is guaranteed to get the 'P' RUs throughput all the time and it is backed by SLAs.
+
+## Comparison of models
+
+|**Quota**  |**Throughput provisioned on a database**  |**Throughput provisioned on a container**|
+|---------|---------|---------|
+|Unit of scalability|Container|Container|
+|Minimum RUs |400 |400|
+|Minimum RUs per container|100|400|
+|Minimum RUs required to consume 1 GB of storage|40|40|
+|Maximum RUs|Unlimited, on the database|Unlimited, on the container|
+|RUs assigned/available to a specific container|No guarantees. RUs assigned to a given container depend on the properties such as - choice of partition keys of containers that share the throughput, distribution of workload, number of containers. |All the RUs configured on the container are exclusively reserved for the container.|
+|Maximum storage for a container|Unlimited|Unlimited|
+|Maximum throughput per logical partition of a container|10K RUs|10K RUs|
+|Maximum storage (data + index) per logical partition of a container|10 GB|10 GB|
 
 ## Next steps
 
-To learn more about provisioning and going planet-scale with Cosmos DB, see [Partitioning and scaling with Cosmos DB](partition-data.md).
+* Learn more about [logical partitions](partition-data.md)
+* Learn [how to provision throughput on a Cosmos container](how-to-provision-container-throughput.md)
+* Learn [how to provision throughput on a Cosmos database](how-to-provision-database-throughput.md)
+

@@ -56,7 +56,6 @@ to send email using SMTP is to do the following:
 
 ```
         import java.util.Properties;
-        import javax.activation.*;
         import javax.mail.*;
         import javax.mail.internet.*;
 
@@ -99,7 +98,7 @@ to send email using SMTP is to do the following:
    content values. This is shown in the [How To: Create an Email](#how-to-create-an-email) section.
 4. Send the message through a
    *javax.mail.Transport* object. This
-   is shown in the [How To: Send an Email][How to: Send an Email]
+   is shown in the [How To: Send an Email][#how-to-send-an-email]
    section.
 
 ## How to: Create an email
@@ -184,8 +183,7 @@ see [Filter Settings][Filter Settings].
           {\"enable\":1}}}}");
 
 ## How to: Update email properties
-Some email properties can be overwritten using **set*Property*** or
-appended using **add*Property***.
+Some email properties can be overwritten using **set Property** or appended using **add Property**.
 
 For example, to specify **ReplyTo** addresses, use the following:
 

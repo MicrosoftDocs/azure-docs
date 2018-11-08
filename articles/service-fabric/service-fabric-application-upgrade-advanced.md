@@ -10,11 +10,11 @@ editor: ''
 ms.assetid: e29585ff-e96f-46f4-a07f-6682bbe63281
 ms.service: service-fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar;chackdan
+ms.author: subramar
 
 ---
 # Service Fabric application upgrade: advanced topics

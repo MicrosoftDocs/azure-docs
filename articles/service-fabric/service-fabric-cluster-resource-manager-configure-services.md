@@ -1,6 +1,6 @@
 ---
-title: Specify metrics and placement settings in Azure microservices | Microsoft Docs
-description: Describing a Service Fabric service by specifying metrics, placement constraints, and other placement policies.
+title: Specify metrics and placement settings in Azure Service Fabric | Microsoft Docs
+description: Learn how to describe a Service Fabric service by specifying metrics, placement constraints, and other placement policies.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -10,7 +10,7 @@ editor: ''
 ms.assetid: 16e135c1-a00a-4c6f-9302-6651a090571a
 ms.service: Service-Fabric
 ms.devlang: dotnet
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017

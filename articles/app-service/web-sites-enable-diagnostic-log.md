@@ -19,7 +19,7 @@ ms.author: cephalin
 ---
 # Enable diagnostics logging for web apps in Azure App Service
 ## Overview
-Azure provides built-in diagnostics to assist with debugging an [App Service web app](http://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
+Azure provides built-in diagnostics to assist with debugging an [App Service web app](https://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
 This article uses the [Azure portal](https://portal.azure.com), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -33,10 +33,10 @@ You can enable or disable the following kinds of logs:
 
 * **Detailed Error Logging** - Detailed error information for HTTP status codes that indicate a failure (status code 400 or greater). It may contain information that can help determine why the server returned the error code.
 * **Failed Request Tracing** - Detailed information on failed requests, including a trace of the IIS components used to process the request and the time taken in each component. It is useful if you are attempting to increase site performance or isolate what is causing a specific HTTP error to be returned.
-* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
+* **Web Server Logging** - Information about HTTP transactions using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). It is useful when determining overall site metrics such as the number of requests handled or how many requests are from a specific IP address.
 
 ### Application diagnostics
-Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
+Application diagnostics allows you to capture information produced by a web application. ASP.NET applications can use the [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) class to log information to the application diagnostics log. For example:
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -78,10 +78,10 @@ Any combination of file system, table storage, or blob storage can be enabled at
 While all three storage locations provide the same basic information for logged events, **table storage** and **blob storage** log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
 
 > [!NOTE]
-> Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](/downloads/#).
+> Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](https://azure.microsoft.com/downloads/).
 >
 > [!NOTE]
-> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
@@ -93,8 +93,8 @@ The directory structure that the logs are stored in is as follows:
 * **Application logs** - /LogFiles/Application/. This folder contains one or more text files containing information produced by application logging.
 * **Failed Request Traces** - /LogFiles/W3SVC#########/. This folder contains an XSL file and one or more XML files. Ensure that you download the XSL file into the same directory as the XML file(s) because the XSL file provides functionality for formatting and filtering the contents of the XML file(s) when viewed in Internet Explorer.
 * **Detailed Error Logs** - /LogFiles/DetailedErrors/. This folder contains one or more .htm files that provide extensive information for any HTTP errors that have occurred.
-* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
-* **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure web apps, as well as logs for Git deployments.
+* **Web Server Logs** - /LogFiles/http/RawLogs. This folder contains one or more text files formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Deployment logs** - /LogFiles/Git. This folder contains logs generated by the internal deployment processes used by Azure web apps, as well as logs for Git deployments. You can also find deployment logs under D:\home\site\deployments.
 
 ### FTP
 
@@ -110,19 +110,19 @@ To download the log files, start a new instance of Azure PowerShell and use the 
 This command saves the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
 >
 >
 
 ### Download with Azure Command-Line Interface
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
-    azure site log download webappname
+    az webapp log download --resource-group resourcegroupname --name webappname
 
 This command saves the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
+> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -167,7 +167,7 @@ To filter specific log types, such as HTTP, use the **-Path** parameter. For exa
 To see a list of available paths, use the -ListPath parameter.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -260,7 +260,7 @@ Failed request traces are stored in XML files named **fr######.xml**. To make it
 Detailed error logs are HTML documents that provide more detailed information on HTTP errors that have occurred. Since they are simply HTML documents, they can be viewed using a web browser.
 
 ### Web server logs
-The web server logs are formatted using the [W3C extended log file format](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This information can be read using a text editor or parsed using utilities such as [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
+The web server logs are formatted using the [W3C extended log file format](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). This information can be read using a text editor or parsed using utilities such as [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > The logs produced by Azure web apps do not support the **s-computername**, **s-ip**, or **cs-version** fields.
@@ -270,7 +270,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 ## <a name="nextsteps"></a> Next steps
 * [How to Monitor Web Apps](web-sites-monitor.md)
 * [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analyze web app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > If you want to get started with Azure App Service before signing up for an Azure account, go to [Try App Service](https://azure.microsoft.com/try/app-service/), where you can immediately create a short-lived starter web app in App Service. No credit cards required; no commitments.

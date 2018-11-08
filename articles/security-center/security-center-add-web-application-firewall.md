@@ -3,18 +3,18 @@ title: Add a web application firewall in Azure Security Center | Microsoft Docs
 description: This document shows you how to implement the Azure Security Center recommendations **Add a web application firewall** and **Finalize application protection**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
 ms.assetid: 8f56139a-4466-48ac-90fb-86d002cf8242
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/31/2018
-ms.author: terrylan
+ms.date: 10/28/2018
+ms.author: rkarlin
 
 ---
 # Add a web application firewall in Azure Security Center
@@ -22,7 +22,7 @@ Azure Security Center may recommend that you add a web application firewall (WAF
 
 A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).
 
-Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on external App Service Environments. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).
+Security Center recommends that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on external App Service Environments (ASE) deployed under the [Isolated](https://azure.microsoft.com/pricing/details/app-service/windows/) service plan. The Isolated plan hosts your apps in a private, dedicated Azure environment and is ideal for apps that require secure connections with your on-premises network, or additional performance and scale. In addition to your app being in an isolated environment, your app needs to have an external IP address load balancer. To learn more about ASE, see the [App Service Environment Documentation](../app-service/environment/intro.md).
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This document is not a step-by-step guide.
@@ -74,7 +74,7 @@ To learn more about Security Center, see the following:
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Managing security recommendations in Azure Security Center](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) -- Find blog posts about Azure security and compliance.
 
 <!--Image references-->
 [1]: ./media/security-center-add-web-application-firewall/secure-web-application.png

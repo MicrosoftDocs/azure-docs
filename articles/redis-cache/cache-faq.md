@@ -108,7 +108,7 @@ The following are considerations for choosing a Cache offering.
 * **Redis Cluster**: To create caches larger than 53 GB, or to shard data across multiple Redis nodes, you can use Redis clustering, which is available in the Premium tier. Each node consists of a primary/replica cache pair for high availability. For more information, see [How to configure clustering for a Premium Azure Redis Cache](cache-how-to-premium-clustering.md).
 * **Enhanced security and network isolation**: Azure Virtual Network (VNET) deployment provides enhanced security and isolation for your Azure Redis Cache, as well as subnets, access control policies, and other features to further restrict access. For more information, see [How to configure Virtual Network support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 * **Configure Redis**: In both the Standard and Premium tiers, you can configure Redis for Keyspace notifications.
-* **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/).
+* **Maximum number of client connections**: The Premium tier offers the maximum number of clients that can connect to Redis, with a higher number of connections for larger sized caches. Clustering does not increase the number of connections available for a clustered cache. For more information, see [Azure Redis Cache pricing](https://azure.microsoft.com/pricing/details/cache/).
 * **Dedicated Core for Redis Server**: In the Premium tier, all cache sizes have a dedicated core for Redis. In the Basic/Standard tiers, the C1 size and above have a dedicated core for Redis server.
 * **Redis is single-threaded** so having more than two cores does not provide additional benefit over having just two cores, but larger VM sizes typically have more bandwidth than smaller sizes. If the cache server or client reaches the bandwidth limits, then you receive timeouts on the client side.
 * **Performance improvements**: Caches in the Premium tier are deployed on hardware that has faster processors, giving better performance compared to the Basic or Standard tier. Premium tier Caches have higher throughput and lower latencies.
@@ -243,12 +243,10 @@ You can use any of the commands listed at [Redis commands](http://redis.io/comma
 * You can also use the Redis command-line tools. To use them, perform the following steps:
 * Download the [Redis command-line tools](https://github.com/MSOpenTech/redis/releases/).
 * Connect to the cache using `redis-cli.exe`. Pass in the cache endpoint using the -h switch and the key using -a as shown in the following example:
-* `redis-cli -h <your cache="" name="">
-  .redis.cache.windows.net -a <key>
-  `
+* `redis-cli -h <redis cache name>.redis.cache.windows.net -a <key>`
 
 > [!NOTE]
-> The Redis command-line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+> The Redis command-line tools do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 >
 >
 
@@ -293,7 +291,7 @@ Redis server does not natively support SSL, but Azure Redis Cache does. If you a
 >
 >
 
-Redis tools such as `redis-cli` do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](http://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
+Redis tools such as `redis-cli` do not work with the SSL port, but you can use a utility such as `stunnel` to securely connect the tools to the SSL port by following the directions in the [Announcing ASP.NET Session State Provider for Redis Preview Release](https://blogs.msdn.com/b/webdev/archive/2014/05/12/announcing-asp-net-session-state-provider-for-redis-preview-release.aspx) blog post.
 
 For instructions on downloading the Redis tools, see the [How can I run Redis commands?](#cache-commands) section.
 
@@ -356,7 +354,7 @@ The following commands provide an example of using redis-benchmark.exe. For accu
 ### Important details about ThreadPool growth
 The CLR ThreadPool has two types of threads - "Worker" and "I/O Completion Port" (aka IOCP) threads.
 
-* Worker threads are used when for things like processing `Task.Run(…)` or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
+* Worker threads are used for things like processing the `Task.Run(…)`, or `ThreadPool.QueueUserWorkItem(…)` methods. These threads are also used by various components in the CLR when work needs to happen on a background thread.
 * IOCP threads are used when asynchronous IO happens (e.g. reading from the network).
 
 The thread pool provides new worker threads or I/O completion threads on demand (without any throttling) until it reaches the "Minimum" setting for each type of thread. By default, the minimum number of threads is set to the number of processors on a system.
@@ -384,13 +382,16 @@ Given this information, we strongly recommend that customers set the minimum con
 
 How to configure this setting:
 
-* In ASP.NET, use the ["minIoThreads" configuration setting]["minIoThreads" configuration setting] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to configure this setting programmatically (see below) from your Application_Start method in global.asax.cs.
+* In ASP.NET, use the ["minIoThreads" or "minWorkerThreads" configuration setting]["minIoThreads" configuration setting] under the `<processModel>` configuration element in web.config. If you are running inside of Azure WebSites, this setting is not exposed through the configuration options. However, you should still be able to configure this setting programmatically (see below) from your Application_Start method in global.asax.cs.
 
   > [!NOTE] 
   > The value specified in this configuration element is a *per-core* setting. For example, if you have a 4 core machine and want your minIOThreads setting to be 200 at runtime, you would use `<processModel minIoThreads="50"/>`.
   >
 
-* Outside of ASP.NET, use the [ThreadPool.SetMinThreads(…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+* Outside ASP.NET, and Azure WebSites global.asax, use the [ThreadPool.SetMinThreads (...)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) API.
+
+  > [!NOTE]
+  > The value specified by this API is a global setting, affecting the whole AppDomain. If you have a 4 core machine, and want to set minWorkerThreads and minIOThreads to 50 per CPU during run-time, you would use ThreadPool.SetMinThreads (200, 200).
 
 <a name="server-gc"></a>
 

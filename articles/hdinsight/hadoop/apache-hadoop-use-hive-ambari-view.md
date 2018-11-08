@@ -1,22 +1,15 @@
 ---
-title: Use Ambari Views to work with Hive on HDInsight (Hadoop) - Azure | Microsoft Docs
+title: Use Ambari Views to work with Hive on HDInsight (Hadoop) - Azure 
 description: Learn how to use the Hive View from your web browser to submit Hive queries. The Hive View is part of the Ambari Web UI provided with your Linux-based HDInsight cluster.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 1abe9104-f4b2-41b9-9161-abbc43de8294
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 02/13/2018
-ms.author: larryfr
+ms.topic: conceptual
+ms.date: 05/16/2018
+ms.author: hrasheed
 
 ---
 # Use Ambari Hive View with Hadoop in HDInsight
@@ -169,7 +162,7 @@ You can then use the UDF in your query. For example, `SELECT myawesomeudf(name) 
 For more information on using UDFs with Hive on HDInsight, see the following articles:
 
 * [Using Python with Hive and Pig in HDInsight](python-udf-hdinsight.md)
-* [How to add a custom Hive UDF to HDInsight](http://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
+* [How to add a custom Hive UDF to HDInsight](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/14/how-to-add-custom-hive-udfs-to-hdinsight.aspx)
 
 ## Hive settings
 

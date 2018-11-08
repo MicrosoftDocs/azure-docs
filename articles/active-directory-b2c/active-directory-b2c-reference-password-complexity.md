@@ -1,26 +1,22 @@
 ---
-title: 'Password complexity - Azure AD B2C | Microsoft Docs'
-description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C
+title: Password complexity in Azure Active Directory B2C | Microsoft Docs
+description: How to configure complexity requirements for passwords supplied by consumers in Azure Active Directory B2C.
 services: active-directory-b2c
-documentationcenter: ''
-author: saeedakhter-msft
+author: davidmu1
 manager: mtillman
-editor: parakhj
 
-ms.assetid: 53ef86c4-1586-45dc-9952-dbbd62f68afc
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/16/2017
-ms.author: saeeda
-
+ms.author: davidmu
+ms.component: B2C
 ---
+
 # Azure AD B2C: Configure complexity requirements for passwords
 
 > [!NOTE]
-> **This feature is in preview.**  Contact [AADB2CPreview@microsoft.com](mailto:AADB2CPreview@microsoft.com) to have your test tenant enabled with this feature.  Do not test this on production tenants.
+> **This feature is in public preview.**
 
 Azure Active Directory B2C (Azure AD B2C) supports changing the complexity requirements for passwords supplied by an end user when creating an account.  By default, Azure AD B2C uses `Strong` passwords.  Azure AD B2C also supports configuration options to control the complexity of passwords that customers can use.
 
@@ -38,11 +34,10 @@ Here are the types of policies where password complexity can be configured:
 
 ## How to configure password complexity
 
-1. Follow these steps to [navigate to Azure AD B2C settings](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
 1. Open **Sign-up or sign-in polices**.
-1. Select a policy, and click **Edit**.
-1. Open **Password complexity**.
-1. Change the password complexity for this policy to **Simple**, **Strong**, or **Custom**.
+2. Select a policy, and click **Edit**.
+3. Open **Password complexity**.
+4. Change the password complexity for this policy to **Simple**, **Strong**, or **Custom**.
 
 ### Comparison Chart
 
