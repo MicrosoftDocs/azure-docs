@@ -31,7 +31,7 @@ In this tutorial, you configure continuous deployment for a custom container ima
 3. Select the name of the app for which you want to configure ACR continuous deployment.
 4. On the **Container Settings** page, select **Single Container**
 5. Select **Azure Container Registry**
-6. Select **On**
+6. Select **Continuous Deployment > On**
 7. Select **Save** to enable continuous deployment.
 
 ## Use the ACR webhook
@@ -44,11 +44,13 @@ In your Container Registry, click on Webhooks to view the current webhooks.
 
 ## Enable continuous deployment with Docker Hub (optional)
 
-In the [Azure portal](https://portal.azure.com/), select the **App Service** option on the left side of the page.
-
-Select the name of the app for which you want to configure Docker Hub continuous deployment.
-
-On the **Docker Container** page, select **On**, and then select **Save** to enable continuous deployment.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Select the **App Service** option on the left side of the page.
+3. Select the name of the app for which you want to configure ACR continuous deployment.
+4. On the **Container Settings** page, select **Single Container**
+5. Select **Docker Hub**
+6. Select **Continuous Deployment > On**
+7. Select **Save** to enable continuous deployment.
 
 ![Screenshot of app setting](./media/app-service-webapp-service-linux-ci-cd/ci-cd-docker-02.png)
 
