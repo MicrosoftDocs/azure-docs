@@ -1214,4 +1214,10 @@
         href: workplacebyfacebook-provisioning-tutorial.md
       - name: Zendesk
         href: zendesk-provisioning-tutorial.md
+  - name: User Provisioning FAQs
+    expanded: true
+    items:
+    - name: Workday to AD User Provisioning FAQ
+      href: workday-inbound-faq.md
+        
 
