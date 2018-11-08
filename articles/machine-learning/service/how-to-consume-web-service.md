@@ -14,7 +14,7 @@ ms.date: 10/30/2018
 
 # How to consume an Azure ML model deployed as a web service
 
-Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to use C#, Go, Java, and Python to send and receive data from a web service created with the Azure Machine Learning service.
+Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to use C#, Go, Java, and Python to consume a web service created with the Azure Machine Learning service.
 
 ## About the web service
 
@@ -22,7 +22,7 @@ A web service is created when you deploy an image to an Azure Container Instance
 
 The URI used to access a web service can be retrieved using the Azure Machine Learning SDK. If authentication is enabled, you can also use the SDK to get the authentication keys.
 
-> ![IMPORTANT]
+> [!IMPORTANT]
 > The request data format is not standardized for the web services. By default, a JSON document is exptected, but a model may expect an array of 5 numbers, a string value, an image, or some other format. This can be modified by the scoring file. For example, the scoring file might accept a string value that is the URL of an image, and then handle loading the image into the format expected by the model. You should always verify what data the model and scoring file expect before creating a client.
 
 The web service can accept multiple sets of scoring data in one request, and returns a JSON document containing an array of responses.
