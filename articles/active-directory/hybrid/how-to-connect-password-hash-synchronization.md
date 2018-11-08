@@ -132,7 +132,7 @@ The synchronization of a password has no impact on the Azure user who is signed 
 ## Enable password hash synchronization
 
 >[!IMPORTANT]
->If you are migrating from AD FS (or other federation technologies) to Password Hash Synchronization, we highly recommend that you follow our detailed deployment guide published [here](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+>If you are migrating from AD FS (or other federation technologies) to Password Hash Synchronization, we highly recommend that you follow our detailed deployment guide published [here](https://aka.ms/adfstophsdpdownload).
 
 When you install Azure AD Connect by using the **Express Settings** option, password hash synchronization is automatically enabled. For more details, see [Getting started with Azure AD Connect using express settings](how-to-connect-install-express.md).
 
