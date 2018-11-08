@@ -256,4 +256,5 @@ service.delete()
 
 ## Next steps
 
-Learn how to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) for a larger scale deployment. 
+* Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
+* Learn how to [deploy to Azure Kubernetes Service](how-to-deploy-to-aks.md) for a larger scale deployment. 

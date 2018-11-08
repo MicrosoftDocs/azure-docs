@@ -185,3 +185,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## Next steps
+
+Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
