@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/06/2018
 ms.author: tulasim
 ---
 # Edit a knowledge base
@@ -83,6 +83,12 @@ Add metadata pairs by selecting the filter icon
 3. **Pagination** allows you to manage large knowledge bases
 
     ![Search, Paginate, Group](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+## Delete knowledge bases
+
+Deleting a knowledge base (KB) is a permanent operation. It can't be undone. Before deleting a knowledge base, you should export the knowledge base from the **Settings** page of the QnA Maker portal. 
+
+If you share your KB with [collaborators](collaborate-knowledge-base.md) then delete it, everyone loses access to the KB. 
 
 ## Next steps
 
