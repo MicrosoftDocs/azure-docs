@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for Python with Azure DevOps Projects"
+title: 'Quickstart: Create a CI/CD pipeline for Python with Azure DevOps Projects
 description: DevOps Projects makes it easy to get started with Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
 ## Sign in to the Azure portal
 
-Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines.  You can create a free new Azure DevOps Services organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
+ DevOps Projects creates a CI/CD pipeline in Azure Pipelines.  You can create a free new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
@@ -42,7 +42,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines.  You can crea
 
 1. Select the Python sample application. The Python samples include a choice of several application frameworks.
 
-1. The default sample framework is Django. Leave the default setting, and then select **Next**.  
+1. The default sample framework is Django. Leave the default setting, and then select **Next**.    
 Web App For Containers is the default deployment target. The application framework, which you chose previously, dictates the type of Azure service deployment target available here. 
 
 3. Leave the default service, and then select **Next**.
@@ -64,7 +64,7 @@ Azure DevOps Projects automatically configures a CI build and release trigger. Y
 
 ## Commit code changes and execute CI/CD
 
-Azure DevOps Projects creates a Git repository in your Azure DevOps organization or GitHub account. To view the repository and make code changes to your application, do the following: 
+ DevOps Projects creates a Git repository in your Azure DevOps organization or GitHub account. To view the repository and make code changes to your application, do the following: 
 
 1. On the left side of the DevOps Projects dashboard, select the link for your master branch.  
 		This link opens a view to the newly created Git repository.
@@ -83,9 +83,9 @@ You can clone your Git repository in your favorite IDE.  In the next few steps, 
 
 ## Examine the CI/CD pipeline
 
-Azure DevOps Projects automatically configures a full CI/CD pipeline. Explore and customize the pipeline as needed. To familiarize yourself with the build and release pipelines, do the following:
+In the previous step, DevOps Projects automatically configured a full CI/CD pipeline. Explore and customize the pipeline as needed. To familiarize yourself with the build and release pipelines, do the following:
 
-1. At the top of the Azure DevOps Projects dashboard, select **Build Pipelines**.  
+1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
 A browser tab displays the build pipeline for your new project.
 
 1. Point to the **Status** field, and then select the **ellipsis** (...).  
@@ -109,14 +109,14 @@ A browser tab displays the build pipeline for your new project.
 1. Select **Retention**.  
 		Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-1. Select **Build and Release**, and then choose **Releases**. 
- 		Azure DevOps Projects created a release pipeline to manage deployments to Azure.
+1. Select **Build and Release**, and then choose **Releases**.   
+ DevOps Projects created a release pipeline to manage deployments to Azure.
 
-1. Select the ellipsis next to your release pipeline, and then select **Edit**.
-		The release pipeline contains a pipeline, which defines the release process.  
+1. Select the ellipsis next to your release pipeline, and then select **Edit**.  
+The release pipeline contains a pipeline, which defines the release process.  
 		
-12. Under **Artifacts**, select **Drop**. 
-		The build pipeline you examined in the previous steps produces the output that's used for the artifact. 
+12. Under **Artifacts**, select **Drop**.   
+The build pipeline you examined in the previous steps produces the output that's used for the artifact. 
 
 1. Next to the **Drop** icon, select the **Continuous deployment trigger**.  
 		The release pipeline has an enabled CD trigger, which runs a deployment every time there's a new build artifact available. Optionally, you can disable the trigger so that your deployments require manual execution. 
@@ -133,7 +133,7 @@ The tasks are the activities that your deployment process performs. In this exam
 		This view shows the code commits that are associated with the specific deployment. 
 
 1. Select **Logs**.   
-The logs contain useful information about the deployment process. You can view the both during and after deployments.
+The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
 ## Clean up resources
 
