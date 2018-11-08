@@ -21,7 +21,7 @@
 > Ensure that you install or upgrade to the latest CUDA drivers for your distribution. Drivers older than version R390 might have problems with updated Linux kernels.
 >
 
-### NV-series - NVIDIA GRID drivers
+### NV and NVv2-series - NVIDIA GRID drivers
 
 | Distribution | Driver |
 | --- | --- | 
