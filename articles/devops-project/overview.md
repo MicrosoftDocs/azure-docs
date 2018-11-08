@@ -71,6 +71,6 @@ After creating your DevOps Project, you can:
 
 * [Get started with DevOps Projects](https://docs.microsoft.com/azure/devops-project/azure-devops-project-github)
 
-## Azure DevOps Projects videos
+##  DevOps Projects videos
 
 * [Create CI/CD with the Azure DevOps Project](https://channel9.msdn.com/Events/Connect/2017/T174/player/)

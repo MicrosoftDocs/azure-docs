@@ -15,7 +15,7 @@ metadata:
   ms.date: 07/06/2018
   ms.author: mlearned
 abstract:
-  description: Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a Continuous Integration (CI) and Continuous Delivery (CD) pipeline to Azure.
+  description: Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository, or choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure.
   aside:
     image:
       alt: 
@@ -73,8 +73,8 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/devops-project/azure-devops-project-github">Bring your own code with GitHub</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-vms">Deploy your ASP.NET App to Azure Virtual Machines</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Deploy your ASP.NET App and Azure SQL Database</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-aks">Deploy your App to Azure Container Service and Kubernetes</a>
-    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Deploy your App to Azure Service Fabric</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-vms">Deploy your ASP.NET app to Azure Virtual Machines</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-sql-database">Deploy your ASP.NET app and Azure SQL Database</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-aks">Deploy your app to Azure Container Service and Kubernetes</a>
+    - html: <a href="/azure/devops-project/azure-devops-project-service-fabric">Deploy your app to Azure Service Fabric</a>
 
