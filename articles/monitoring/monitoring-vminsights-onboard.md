@@ -47,10 +47,6 @@ This region does not currently support the Health feature of Azure Monitor for V
 
 If you do not have a workspace, you can create it through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
 
-To enable the solution, you need to be a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md). To view the performance, health, and map data you need to be a member of the Log Analytics reader role.  
-
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-
 Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
 
 * Install the **ServiceMap** and **InfrastructureInsights** solutions. This can only be accomplished by using an Azure Resource Manager template provided in this article.   
@@ -167,6 +163,15 @@ The Dependency agent can be downloaded from the following location.
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
+
+## Role-based access control
+The following access needs to be granted to your users in order to enable and access features in Azure Monitor for VMs.  
+  
+To enable the solution, you need to be added as a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md). 
+
+To view the performance, health, and map data, you need to added as a member of the Monitoring Reader role for the Azure VM and the Log Analytics workspace configured with Azure Monitor for VMs.   
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 ## Performance counters enabled
 Azure Monitor for VMs configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
