@@ -18,7 +18,7 @@ ms.author: genli
 
 #  Cannot remote desktop to Azure Virtual Machines because of static IP
 
-This article describes an error that you cannot remote desktop to Azure Virtual Machines (VMs) because of static IP is configured in the VM.
+This article describes a problem that you cannot remote desktop to Azure Virtual Machines (VMs) because of static IP is configured in the VM.
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
@@ -48,7 +48,7 @@ This problem may occur because a static IP is used on the network interface in W
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, reset the network interface by using Serial control or Azure portal.
+To troubleshoot this issue, use Serial control to enable DHCP or [reset network interface](reset-network-interface.md) for the VM.
 
 ### Method 1: Use Serial control
 
@@ -63,7 +63,7 @@ To troubleshoot this issue, reset the network interface by using Serial control 
         
     For example, if the interwork interface names "Ethernet 2", run the following command:
 
-        netsh interface ip set address name="Ethernet " source=dhc
+        netsh interface ip set address name="Ethernet 2" source=dhc
 
 
 4. Query the IP configuration again to make sure that the interface is set up properly now, and the new IP address which should match the one given by the Azure portal:
