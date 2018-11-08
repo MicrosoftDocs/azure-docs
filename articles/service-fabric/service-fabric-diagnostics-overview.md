@@ -40,7 +40,7 @@ Monitoring your Service Fabric cluster is critical in ensuring that the platform
 Service Fabric provides a comprehensive set of events out of the box. These [Service Fabric events](service-fabric-diagnostics-events.md) can be accessed through the EventStore or the operational channel (event channel exposed by the platform). 
 * EventStore - The EventStore is a feature offered by the platform that provides Service Fabric platform events available in the Service Fabric Explorer and through REST API. You can see a snapshot view of what's going on in your cluster for each entity e.g. node, service, application and query based on the time of the event. You can also  Read more about the EventStore at the [EventStore Overview](service-fabric-diagnostics-eventstore.md).
 
-<!-- INSERT EVENTSTORE SCREENSHOT -->
+    ![EventStore](media/service-fabric-diagnostics-overview/EventStore.png)
 
 * Service Fabric event channels - On Windows, Service Fabric events are available from a single ETW provider with a set of relevant `logLevelKeywordFilters` used to pick between Operational and Data & Messaging channels - this is the way in which we separate out outgoing Service Fabric events to be filtered on as needed. On Linux, Service Fabric events come through LTTng and are put into one Storage table, from where they can be filtered as needed. These channels contain curated, structured events that can be used to better understand the state of your cluster. Diagnostics are enabled by default at the cluster creation time, which create an Azure Storage table where the events from these channels are sent for you to query in the future. 
 
