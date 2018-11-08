@@ -56,12 +56,6 @@ The `runpi.sh` script prepares a sample job that contains 1000 individual tasks,
 Verify that the job is now in the queue with `qstat -Q`:
 
 ``` output
-Your job-array 1.1-100:1 ("hostname") has been submitted
-```
-
-The command you ran tells the node the following:
-
-``` output
 [name@ip-0A000404 ~]$ qstat -Q
 Queue              Max   Tot Ena Str   Que   Run   Hld   Wat   Trn   Ext Type
 ---------------- ----- ----- --- --- ----- ----- ----- ----- ----- ----- ----
@@ -76,7 +70,7 @@ Return to the web interface to see the execute nodes being provisioned. After pr
 
 Verify that the job is complete by running `qstat -Q` in your shell periodically. The Queued column (Que) should be 0, indicating that no more jobs are awaiting execution. In this quickstart, jobs typically finish in a minute or two.
 
-When there are no more jobs in the queue, the execute nodes will start auto-stopping, and your cluster will return to just having the master node.
+Once the job queue has been empty for five minutes, the execute nodes will begin to auto-stop and your cluster will return to just having the master node.
 
 QuickStart 3 is complete. In this exercise, you've submitted 100 jobs to your Master Node, confirmed the request went through, and observed the auto scaling via the GUI. When the jobs are complete, you will need to clean up the resources used to free them for other activity.
 
