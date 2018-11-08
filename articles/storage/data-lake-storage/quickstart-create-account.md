@@ -72,7 +72,7 @@ To create a resource group in the Azure portal, follow these steps:
 5. Choose the location for the resource group.
 6. Click the **Create** button.  
 
-![Screen shot showing resource group creation in the Azure portal](./media/quickstart-create-account/create-resource-group.png)
+   ![Screen shot showing resource group creation in the Azure portal](./media/quickstart-create-account/create-resource-group.png)
 
 ### Create a general-purpose v2 storage account
 
@@ -86,15 +86,19 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 3. Leave **Deployment model** set to the default value.
 4. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
 5. Set **Location** to **West US 2**
-6. Leave the **Replication** field set to **Locally-redundant storage (LRS)**.
-7. Leave these fields set to their defaults: **Replication**. **Performance**, **Access tier**.
+6. Set the **Replication** field to **Locally-redundant storage (LRS)**.
+7. Leave these fields set to their defaults: **Performance**, **Access tier**.
 8. Choose the subscription in which you want to create the storage account.
-9. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
-10. Keep the default value for **Virtual Networks**
-11. In the **Data Lake Storage Gen2** section set **Hierarchical namespace** to **Enabled**.
-12. Click **Create** to create the storage account.
+9. In the **Resource group** section, choose the resource group you created in the previous section.
 
-![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create.png)
+   ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create.png)
+
+10. Choose the **Advanced** tab. 
+11. Keep the default value for **Secure transfer required** and **Virtual Networks**.
+12. In the **Data Lake Storage Gen2** section, set **Hierarchical namespace** to **Enabled**.
+13. Click **Review + create** to create the storage account.
+
+    ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
 Your storage account is now created through the portal.
 
