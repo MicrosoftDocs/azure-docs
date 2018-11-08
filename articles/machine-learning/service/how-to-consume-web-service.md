@@ -14,7 +14,7 @@ ms.date: 10/30/2018
 
 # How to consume an Azure ML model deployed as a web service
 
-Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to use C#, Go, Java, and Python to consume a web service created with the Azure Machine Learning service.
+Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service using C#, Go, Java, and Python.
 
 ## About the web service
 
@@ -23,9 +23,9 @@ A web service is created when you deploy an image to an Azure Container Instance
 The URI used to access a web service can be retrieved using the Azure Machine Learning SDK. If authentication is enabled, you can also use the SDK to get the authentication keys.
 
 > [!IMPORTANT]
-> The request data format is not standardized for the web services. By default, a JSON document is exptected, but a model may expect an array of 5 numbers, a string value, an image, or some other format. This can be modified by the scoring file. For example, the scoring file might accept a string value that is the URL of an image, and then handle loading the image into the format expected by the model. You should always verify what data the model and scoring file expect before creating a client.
+> The request data format is not standardized for the web services. A model may expect an array of 5 numbers, a string value, an image, etc. The scoring file can be used to transform data received by the service into the format expected by the model. You should always verify what data the model and scoring file expect before creating a client.
 
-The web service can accept multiple sets of scoring data in one request, and returns a JSON document containing an array of responses.
+The web service can accept multiple sets of data in one request. It returns a JSON document containing an array of responses.
 
 The general workflow when creating a client that uses an ML web service is:
 
@@ -39,7 +39,7 @@ The general workflow when creating a client that uses an ML web service is:
 > [!NOTE]
 > The Azure Machine Learning SDK is used to get the web service information. This is a Python SDK. While it is used to retrieve information about the web services, you can use any language to create a client for the service.
 
-The web service connection information can be retrieved using the Azure Machine Learning SDK. The [azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information necessary to create a client for the REST API exposed by the web service. The following `Webservice` properties that are useful when creating a client application:
+The web service connection information can be retrieved using the Azure Machine Learning SDK. The [azureml.core.Webservice](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) class provides the information needed to create a client. The following `Webservice` properties that are useful when creating a client application:
 
 * `auth_enabled` - If authentication is enabled, `True`; otherwise, `False`.
 * `scoring_uri` - The REST API address.
@@ -64,7 +64,7 @@ There are a three ways to retrieve this information for deployed web services:
     print(services[0].scoring_uri)
     ```
 
-* If you know the name of the deployed service, you can create a new instance of `Webservice` and provide the workspace and service name as parameters. Since the service already exists, it does not create the deployment. Instead, it returns an object containing information about the deployed service.
+* If you know the name of the deployed service, you can create a new instance of `Webservice` and provide the workspace and service name as parameters. The new object contains information about the deployed service.
 
     ```python
     service = Webservice(workspace=ws, name='myservice')
@@ -103,9 +103,9 @@ The REST API expects the body of the request to be a JSON document with the foll
 }
 ```
 
-The structure of the data needs to match what the scoring script for the service expects. The script might modify the data before passing it to the model, or it might pass it directly to the model. 
+The structure of the data needs to match what the scoring script and model in the service expect. The scoring script might modify the data before passing it to the model.
 
-For example, the `scoring.py` file in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example creates a Numpy array from the data and passes it to the model. In this case, the model expects an array of 10 values. The following JSON document is an example of the data this model expects:
+For example, the model in the [Train within notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/01.getting-started/01.train-within-notebook) example expects an array of 10 numbers. The scoring script for this example creates a Numpy array from the request and passes it to the model. The following example shows the data this service expects:
 
 ```json
 {
