@@ -34,8 +34,8 @@ The training data used in machine learning can often be enhanced by extraction o
 
 To create features for data in specific environments, see the following articles:
 
-* [Create features for data in SQL Server](../articles/machine-learning/team-data-science-process/create-features-sql-server.md)
-* [Create features for data in a Hadoop cluster using Hive queries](../articles/machine-learning/team-data-science-process/create-features-hive.md)
+* [Create features for data in SQL Server](create-features-sql-server.md)
+* [Create features for data in a Hadoop cluster using Hive queries](create-features-hive.md)
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
