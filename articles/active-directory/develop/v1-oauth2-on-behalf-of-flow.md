@@ -31,7 +31,7 @@ The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a serv
 
 ## On-Behalf-Of flow diagram
 
-The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application sends an access token (token A) to middle-tier web API (API A) containing the user’s claims and consent to access API A. Next, API A makes an authenticated request to the downstream web API (API B).
+The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application sends an access token (token A) to the middle-tier web API (API A) containing the user’s claims and consent to access API A. Next, API A makes an authenticated request to the downstream web API (API B).
 
 These steps constitute the On-Behalf-Of flow:
 ![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
@@ -58,7 +58,7 @@ Register both the middle-tier service and the client application in Azure AD.
 1. Enter a friendly name for the application and select the application type.
     1. Depending upon the application type, set either the sign-on URL or the redirect URL to the base URL.
     1. Select **Create** to create the application.
-1. Record your key value before exiting the Azure portal.
+1. Generate a client secret before exiting the Azure portal.
     1. In the Azure portal, choose your application and select **Settings**.
     1. Select **Keys** in the Settings menu and add a key with a key duration of either one year or two years.
     1. When you save this page, the Azure portal displays the key value. Copy and save the key value in a safe location.
