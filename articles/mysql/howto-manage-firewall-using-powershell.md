@@ -19,7 +19,7 @@ Server-level firewall rules allow administrators to manage access to an Azure Da
 * An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-cli.md).
 
 ## Firewall rule commands:
-There are no native Azure PowerShell commands for controlling Azure Database for MySQL firewall rules, so it is necessary to use Get-AzureRmResource and New-AzureRmResource instead.
+There are no Azure PowerShell specific cmdlets for controlling Azure Database for MySQL firewall rules, so it is necessary to use `Get-AzureRmResource` and `New-AzureRmResource` instead.
 You can use these cmdlets to create, delete, list, show, and update firewall rules.
 
 ## Log in to Azure and list your Azure Database for MySQL Servers
@@ -54,7 +54,7 @@ The output lists the rules, if any, as PowerShell objects.
 To review the details of a single rule, use the following command:
 
 ```azurepowershell-interactive
-Get-AzureRmResource -ResourceType 'Microsoft.DBforMySQL/servers/firewallRules' -ApiVersion 2017-12-01 -ResourceName "my-mysql-server/FirewallRule1" -ResourceGroupName 'my-mysql-server-resourcegroup'
+Get-AzureRmResource -ResourceType 'Microsoft.DBforMySQL/servers/firewallRules' -ApiVersion 2017-12-01 -ResourceName 'my-mysql-server/FirewallRule1' -ResourceGroupName 'my-mysql-server-resourcegroup'
 ```
 
 If the name of the rule being requested does not exist, an error will be returned.
@@ -109,7 +109,7 @@ New-AzureRmResource -ResourceId "$($MySQLServer.Id)/firewallRules/FirewallRule1"
 Upon success, the command output lists the details of the firewall rule you have updated.
 
 > [!NOTE]
-> If the firewall rule does not exist, the rule is created by the update command.
+> If the firewall rule does not exist, the rule is created.
 
 ## Delete a firewall rule on Azure Database for MySQL Server
 
@@ -124,4 +124,4 @@ Upon success, a boolean value (true or false) is returned. Upon failure, an erro
 ## Next steps
 - Understand more about [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md).
 - [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md).
-- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-azurecli.md).
+- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md).
