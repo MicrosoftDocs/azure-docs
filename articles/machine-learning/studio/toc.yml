@@ -4,18 +4,23 @@
   expanded: true
   items:
   - name: Machine Learning Studio
+    displayName: overview
     href: what-is-ml-studio.md
   - name: ML Studio capabilities
+    displayName: overview
     href: studio-overview-diagram.md
   - name: ML Studio basics (infographic)
+    displayName: algorithm, algorithms
     href: basics-infographic-with-algorithm-examples.md
   - name: Frequently asked questions
+    displayName: FAQ
     href: faq.md
   - name: What's new?
     href: whats-new.md
 - name: Get Started
   items:
   - name: Create your first experiment
+    displayName: quickstart
     href: create-experiment.md
   - name: Example walkthrough
     items:
@@ -30,8 +35,10 @@
     - name: 4 - Train and evaluate
       href: walkthrough-4-train-and-evaluate-models.md
     - name: 5 - Deploy web service
+      displayName: publish
       href: walkthrough-5-publish-web-service.md
     - name: 6 - Access web service
+      displayName: consume
       href: walkthrough-6-access-web-service.md
   - name: Data Science for Beginners
     items:
@@ -62,6 +69,7 @@
       - name: Deploy using ARM
         href: deploy-with-resource-manager-template.md
       - name: View and delete Studio account data
+        displayName: export
         href: export-delete-personal-data-dsr.md
   - name: Acquire and understand data
     items:
@@ -76,6 +84,7 @@
       - name: From an experiment
         href: import-data-from-an-experiment.md
       - name: Use on-prem SQL
+        displayName: on-premises
         href: use-data-from-an-on-premises-sql-server.md
   - name: Develop models
     items:
@@ -86,6 +95,7 @@
       - name: Manage experiment iterations
         href: manage-experiment-iterations.md
       - name: Use PowerShell to create models
+        displayName: endpoint, endpoints
         href: create-models-and-endpoints-with-powershell.md
       - name: Select algorithms
         items:
@@ -102,6 +112,7 @@
         - name: Evaluate performance
           href: evaluate-model-performance.md
         - name: Optimize parameters
+          displayName: optimization
           href: algorithm-parameters-optimize.md
         - name: Interpret results
           href: interpret-model-results.md
@@ -116,20 +127,25 @@
         - name: Execute Python scripts
           href: execute-python-scripts.md
   - name: Operationalize models
+    displayName: deploy
     items:
     - name: Overview
+      displayName: deploy, consume, web service
       href: deploy-consume-web-service-guide.md
     - name: Deploy models
       items:
       - name: Deploy a web service
+        displayName: publish
         href: publish-a-machine-learning-web-service.md
       - name: How it works
         href: model-progression-experiment-to-web-service.md
       - name: Prepare for deployment
         href: convert-training-experiment-to-scoring-experiment.md
       - name: Use external data
+        displayName: import, export
         href: web-services-that-use-import-export-modules.md
       - name: Deploy in multi-regions
+        displayName: multiple regions
         href: how-to-deploy-to-multiple-regions.md
       - name: Use web service parameters
         href: web-service-parameters.md
@@ -140,6 +156,7 @@
       - name: Use Web Services portal
         href: manage-new-webservice.md
       - name: Manage with APIs
+        displayName: endpoint, endpoints
         href: manage-web-service-endpoints-using-api-management.md
       - name: Create endpoints
         href: create-endpoint.md
