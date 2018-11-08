@@ -31,7 +31,7 @@ The OAuth 2.0 On-Behalf-Of (OBO) flow enables an application that invokes a serv
 
 ## On-Behalf-Of flow diagram
 
-The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application has an access token (token A) with the user’s claims and consent to access the middle-tier web API (API A). Next, API A needs to make an authenticated request to the downstream web API (API B).
+The OBO flow starts after the user has been authenticated on an application that uses the [OAuth 2.0 authorization code grant flow](v1-protocols-oauth-code.md). At that point, the application sends an access token (token A) to middle-tier web API (API A) containing the user’s claims and consent to access API A. Next, API A makes an authenticated request to the downstream web API (API B).
 
 These steps constitute the On-Behalf-Of flow:
 ![OAuth2.0 On-Behalf-Of Flow](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
