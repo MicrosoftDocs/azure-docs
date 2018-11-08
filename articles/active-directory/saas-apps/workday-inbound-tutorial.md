@@ -412,7 +412,7 @@ The [Windows Event Log](https://technet.microsoft.com/library/cc722404(v=ws.11).
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
         the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
 
-![Azure portal](./media/workday-inbound-tutorial/WD_1.PNG)
+![Azure portal](./media/workday-inbound-tutorial/wd_1.png)
 
 ### Part 2: Configure attribute mappings 
 
