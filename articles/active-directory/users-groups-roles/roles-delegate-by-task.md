@@ -1,5 +1,5 @@
 ---
-title: Delegate  roles in Azure Active Directory | Microsoft Docs
+title: Delegate least privileged roles by task in Azure Active Directory | Microsoft Docs
 description: Roles to delegate for identity tasks in Azure Active Directory
 services: active-directory
 documentationcenter: ''
@@ -130,12 +130,12 @@ Manage Application Proxy | Application administrator |
 Manage user settings | Global Administrator | 
 Read access review of a group or of an app | Security Reader | Security Administrator, User Administrator
 Read all configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
-Update enterprise application assignments | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, Application administrator
-Update enterprise application owners | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)[Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, Application administrator
-Update enterprise application properties | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, Application administrator
-Update enterprise application provisioning | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, Application administrator
-Update enterprise application self-service | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, Application administrator
-Update single sign-on properties | [Enterprise application owner](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions) | Cloud application administrator, Application administrator
+Update enterprise application assignments | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
+Update enterprise application owners | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
+Update enterprise application properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
+Update enterprise application provisioning | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
+Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
+Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
 ## Azure AD groups
 
