@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 09/07/2018
+ms.date: 10/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
@@ -27,21 +27,49 @@ When key events occur in Azure AD Privileged Identity Management (PIM), email no
 - When a privileged role is assigned
 - When Azure AD PIM is enabled
 
-Email notifications are sent to the following administrators:
+## PIM emails for Azure AD roles
 
-- Privileged Role Administrator
-- Security Administrator
+The email notifications sent for Azure AD roles depends on your role, the event, and notifications setting:
 
-Email notifications are also sent to the end user who has the privileged role for the following events:
+| User | Role activation is pending approval | Role activation request is completed | Role is activated | Role is assigned | PIM is enabled |
+| --- | --- | --- | --- | --- | --- |
+| Privileged Role Administrator | Yes | Yes | Yes | Yes | Yes |
+| Security Administrator | Yes* | Yes* | Yes* | Yes* | Yes* |
+| Global Administrator | Yes* | Yes* | Yes* | Yes* | Yes* |
+| Eligible role member | No | Yes | No | Yes | No |
 
-- When a privileged role activation request is completed
-- When a privileged role is assigned
+\* If **Notifications** setting is set to **Enable**.
 
-Starting at the end of July 2018, email notifications sent through PIM have a new sender email address and a new visual design. This update will impact both PIM for Azure AD and PIM for Azure resources. All events that previously triggered an email notification will continue to send out an email. Some emails will have updated content providing more targeted information.
+Starting at the end of July 2018, the PIM email notifications for Azure AD roles have an updated design. All events that previously triggered an email notification will continue to send an email. Some emails will have updated content providing more targeted information. The following shows an example email that is sent when a user activates a privileged role for the fictional Contoso organization.
+
+![New PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-new.png)
+
+Previously, when a user activated a privileged role, the email looked like the following.
+
+![Old PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-old.png)
+
+## PIM emails for Azure resource roles
+
+The email notifications sent for Azure resource roles depends on your role and the event:
+
+| User | Role activation is pending approval | Role activation request is completed | Role is activated | Role is assigned | PIM is enabled |
+| --- | --- | --- | --- | --- | --- |
+| Privileged Role Administrator | Yes | Yes | Yes | Yes | Yes |
+| Security Administrator | No | No | No | No | No |
+| Global Administrator | No | No | No | No | No |
+| Eligible role member | No | Yes | No | Yes | No |
+
+Starting at the end of July 2018, the PIM email notifications for Azure resource roles have an updated design. All events that previously triggered an email notification will continue to send an email. Some emails will have updated content providing more targeted information. The following shows an example email that is sent when a user is assigned a privileged role for the fictional Contoso organization.
+
+![New PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-new.png)
+
+Previously, when a user was assigned a privileged role, the email looked like the following.
+
+![Old PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-old.png)
 
 ## Sender email address
 
-Starting at the end of July 2018, email notifications have the following address:
+Starting at the end of July 2018, email notifications sent through PIM have a new sender email address for both Azure AD and Azure resource roles. Email notifications have the following address:
 
 - Email address:  **azure-noreply@microsoft.com**
 - Display name: Microsoft Azure
@@ -53,29 +81,9 @@ Previously, email notifications had the following address:
 
 ## Email subject line
 
-Starting at the end of July 2018, email notifications for both Azure AD and Azure resource roles will have a **PIM** prefix in the subject line. Here's an example:
+Starting at the end of July 2018, email notifications for both Azure AD and Azure resource roles have a **PIM** prefix in the subject line. Here's an example:
 
 - PIM: Alain Charon was permanently assigned the Backup Reader role.
-
-## PIM emails for Azure AD roles
-
-Starting at the end of July 2018, the PIM email notifications for Azure AD roles have an updated design. The following shows an example email that is sent when a user activates a privileged role for the fictional Contoso organization.
-
-![New PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-new.png)
-
-Previously, when a user activated a privileged role, the email looked like the following.
-
-![Old PIM email for Azure AD roles](./media/pim-email-notifications/email-directory-old.png)
-
-## PIM emails for Azure resource roles
-
-Starting at the end of July 2018, the PIM email notifications for Azure resource roles have an updated design. The following shows an example email that is sent when a user is assigned a privileged role for the fictional Contoso organization.
-
-![New PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-new.png)
-
-Previously, when a user was assigned a privileged role, the email looked like the following.
-
-![Old PIM email for Azure resource roles](./media/pim-email-notifications/email-resources-old.png)
 
 ## Next steps
 
