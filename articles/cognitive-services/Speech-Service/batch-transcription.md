@@ -170,7 +170,7 @@ Now that you've made the request, you can query and download the transcription r
 For full details about the preceding calls, see our [swagger document](https://westus.cris.ai/swagger/ui/index). For the full sample shown here, go to [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> In the preceding code, the subscription key is from the Speech resource that you create in the Azure portal. Keys that you get from the Custom Speech Service resource do not work.
+> In the preceeding code, the subscription key is from the Speech resource that you create in the Azure portal. Keys that you get from the Custom Speech Service resource do not work. Free subscription keys are not supported for the Batch Transcription API.
 
 Take note of the asynchronous setup for posting audio and receiving transcription status. The client that you create is a .NET HTTP client. There's a `PostTranscriptions` method for sending the audio file details and a `GetTranscriptions` method for receiving the results. `PostTranscriptions` returns a handle, and `GetTranscriptions` uses it to create a handle to get the transcription status.
 
