@@ -68,7 +68,7 @@ sections:
 - title: Step-by-step tutorials
   items:
   - type: paragraph
-    text: Learn how to use Azure DevOps Projects to create release pipelines
+    text: Learn how to use DevOps Projects to create release pipelines
   - type: list
     style: ordered
     items:
