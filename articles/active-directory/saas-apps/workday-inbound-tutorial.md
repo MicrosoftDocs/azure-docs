@@ -66,7 +66,7 @@ This section describes the end-to-end user provisioning solution architecture fo
 * **Authoritative HR Data Flow – from Workday to on-premise Active Directory:** In this flow worker events (such as New Hires, Transfers, Terminations) first occur in the cloud Workday HR tenant and then the event data flows into on-premise Active Directory through Azure AD and the Provisioning Agent. Depending on the event, it may lead to create/update/enable/disable operations in AD.
 * **Email Writeback Flow – from on-premise Active Directory to Workday:** Once the account creation is complete in Active Directory, it is synced with Azure AD through Azure AD Connect and email attribute sourced from Active Directory can be written back to Workday.
 
-![Overview](./media/workday-inbound-tutorial/WD_Overview.PNG)
+![Overview](./media/workday-inbound-tutorial/wd_overview.png)
 
 ### End-to-end user data flow
 
@@ -133,7 +133,7 @@ When integrating Workday and Active Directory, there are multiple source and tar
 
 To facilitate provisioning workflows between Workday and Active Directory, Azure AD provides multiple provisioning connector apps that you can add from the Azure AD app gallery:
 
-![AAD App Gallery](./media/workday-inbound-tutorial/WD_Gallery.PNG)
+![AAD App Gallery](./media/workday-inbound-tutorial/wd_gallery.png)
 
 * **Workday to Active Directory Provisioning** - This app facilitates user account provisioning from Workday to a single Active Directory domain. If you have multiple domains, you can add one instance of this app from the Azure AD app gallery for each Active Directory domain you need to provision to.
 
@@ -351,7 +351,7 @@ Once you have deployed .NET 4.7+, you can download the **[on-premises provisioni
 11. Verify the installation of the Agent and make sure it is running by opening the “Services” Snap-In and look for the Service named “Microsoft Azure AD Connect Provisioning Agent”
 
 
-![Services](./media/workday-inbound-tutorial/Services.png)  
+![Services](./media/workday-inbound-tutorial/services.png)  
 
 
 **Agent troubleshooting**
@@ -809,7 +809,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 5. Select **External**, and select the Human_Resources WSDL file you downloaded in step 2.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/WDstudio1.PNG)
+    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio1.png)
 
 6. Set the **Location** field to `https://IMPL-CC.workday.com/ccx/service/TENANT/Human_Resources`, but replacing "IMPL-CC" with your actual instance type, and "TENANT" with your real tenant name.
 
@@ -817,7 +817,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 8.	Click the small **configure** link below the Request/Response panes to set your Workday credentials. Check **Authentication**, and then enter the user name and password for your Workday integration system account. Be sure to format the user name as name@tenant, and leave the **WS-Security UsernameToken** option selected.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/WDstudio2.PNG)
+    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio2.png)
 
 9. Select **OK**.
 
@@ -856,7 +856,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 13. In the command bar of Workday Studio, select **File > Open File...** and open the XML file you saved. This opens it in the Workday Studio XML editor.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/WDstudio3.PNG)
+    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio3.png)
 
 14. In the file tree, navigate through **/env: Envelope > env: Body > wd:Get_Workers_Response > wd:Response_Data > wd: Worker** to find your user's data. 
 
@@ -883,7 +883,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 5. Select **Edit attribute list for Workday**.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/WDstudio_AAD1.PNG)
+    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad1.png)
 
 6. Scroll to the bottom of the attribute list to where the input fields are.
 
@@ -895,7 +895,7 @@ To do this, you must use [Workday Studio](https://community.workday.com/studio-d
 
 10. Select **Add Attribute**.
 
-    ![Workday Studio](./media/workday-inbound-tutorial/WDstudio_AAD2.PNG)
+    ![Workday Studio](./media/workday-inbound-tutorial/wdstudio_aad2.png)
 
 11. Select **Save** above, and then **Yes** to the dialog. Close the Attribute-Mapping screen if it is still open.
 
