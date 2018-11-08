@@ -106,7 +106,7 @@ The Provider coordinates communications between VMM servers.
 
 **Latest** | **Updates**
 --- | --- | --- | --- | ---
-5.1.19 ([available from portal](http://aka.ms/downloaddra) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
+5.1.19 ([available from portal](https://aka.ms/downloaddra) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 
 
 

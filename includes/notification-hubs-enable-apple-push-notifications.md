@@ -35,7 +35,7 @@ Next, you register your app with Apple, enable push notifications, and upload th
 
 To be able to send push notifications to an iOS app, you must register your application with Apple and also register for push notifications.  
 
-1. If you have not already registered your app, navigate to the [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center, sign in with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
+1. If you have not already registered your app, navigate to the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456) at the Apple Developer Center, sign in with your Apple ID, click **Identifiers**, then click **App IDs**, and finally click on the **+** sign to register a new app.
 
     ![iOS Provisioning Portal App IDs page](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-ios-appids.png)
 
@@ -105,7 +105,7 @@ To be able to send push notifications to an iOS app, you must register your appl
 
 ## Create a provisioning profile for the app
 
-1. Back in the [iOS Provisioning Portal](http://go.microsoft.com/fwlink/p/?LinkId=272456), select **Provisioning Profiles**, select **All**, and then click the **+** (plus) button to create a new profile. You see the **Add iOS Provisioning Profile** wizard:
+1. Back in the [iOS Provisioning Portal](https://go.microsoft.com/fwlink/p/?LinkId=272456), select **Provisioning Profiles**, select **All**, and then click the **+** (plus) button to create a new profile. You see the **Add iOS Provisioning Profile** wizard:
 
     ![Provisioning profile list](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-new-provisioning-profile.png)
 
