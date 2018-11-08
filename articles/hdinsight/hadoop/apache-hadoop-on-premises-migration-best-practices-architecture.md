@@ -86,8 +86,7 @@ HDInsight uses Azure SQL Database for Hive and Oozie metastores. There are two w
     - Clusters can be created and deleted without losing metadata including Hive schema Oozie job details.
     - Single metastore db can be shared with different types of clusters
     - Metastore can be scaled up as needed
-
-For more information, see the article: [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
+    - For more information, see [Use external metadata stores in Azure HDInsight](../hdinsight-use-external-metadata-stores.md).
 
 ## Best practices for Hive Metastore
 
@@ -99,20 +98,20 @@ Some HDInsight Hive metastore best practices are as follows:
 - Back up the custom metastore periodically.
 - Keep the metastore and HDInsight cluster in the same region.
 - Monitor the metastore for performance and availability using Azure SQL Database Monitoring tools, like Azure portal or Azure Log Analytics.
-- Execute the **ANALYZE TABLE** command as required to generate statistics for tables and columns. For example, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- Execute the **ANALYZE TABLE** command as required to generate statistics for tables and columns. For example, `ANALYZE TABLE [table_name] COMPUTE STATISTICS`.
 
 ## Best practices for different types of workloads
 
 - Consider using LLAP cluster for interactive Hive queries with improved response time [LLAP](https://cwiki.apache.org/confluence/display/Hive/LLAP) is a new feature in Hive 2.0 that allows in-memory caching of queries. LLAP makes Hive queries much faster, up to [26x faster than Hive 1.x in some cases](https://hortonworks.com/blog/announcing-apache-hive-2-1-25x-faster-queries-much/).
-- Consider using Spark jobs in place of Hive jobs
-- Consider replacing impala-based queries with LLAP queries
-- Consider replacing MapReduce jobs with Spark jobs
-- Consider replacing low-latency Spark batch jobs using Spark Structured Streaming jobs
-- Data orchestration -- consider using Azure Data Factory(ADF) 2.0
-- Consider Ambari for Cluster Management
-- Change data storage from on-premises HDFS to WASB or ADLS or ADFS for processing scripts
-- Consider using Ranger RBAC on Hive tables and auditing
-- Consider using CosmosDB in place of MongoDB or Cassandra
+- Consider using Spark jobs in place of Hive jobs.
+- Consider replacing impala-based queries with LLAP queries.
+- Consider replacing MapReduce jobs with Spark jobs.
+- Consider replacing low-latency Spark batch jobs using Spark Structured Streaming jobs.
+- Consider using Azure Data Factory (ADF) 2.0 for data orchestration.
+- Consider Ambari for Cluster Management.
+- Change data storage from on-premises HDFS to WASB or ADLS or ADFS for processing scripts.
+- Consider using Ranger RBAC on Hive tables and auditing.
+- Consider using CosmosDB in place of MongoDB or Cassandra.
 
 ## Next steps
 

@@ -11,7 +11,7 @@ tags: top-support-issue, azure-resource-manager
 ms.service: virtual-machines-windows
 ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 
 ---

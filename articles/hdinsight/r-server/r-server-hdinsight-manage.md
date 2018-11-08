@@ -3,12 +3,12 @@ title: Manage ML Services cluster on HDInsight - Azure
 description: Learn how to manage an ML Services cluster in Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
+ms.date: 11/06/2018
 ---
 # Manage ML Services cluster on Azure HDInsight
 
@@ -74,7 +74,7 @@ Note also that the newly added users do not have root privileges in Linux system
 
 ## Connect remotely to Microsoft ML Services
 
-You can set up access to the HDInsight Hadoop Spark compute context from a remote instance of ML Client running on your desktop. To do so, you must specify the options (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript) when defining the RxSpark compute context on your desktop: For example:
+You can set up access to the HDInsight Spark compute context from a remote instance of ML Client running on your desktop. To do so, you must specify the options (hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript) when defining the RxSpark compute context on your desktop: For example:
 
     myNameNode <- "default"
     myPort <- 0
@@ -220,16 +220,13 @@ A compute context allows you to control whether computation is performed locally
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for ML Services cluster on HDInsight](r-server-compute-contexts.md).
-
 ## Distribute R code to multiple nodes
 
 With ML Services on HDInsight, you can take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This function is useful when doing a parameter sweep or simulations. The following code is an example of how to use `rxExec`:
 
 	rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-If you are still using the Spark or MapReduce context, this  command returns the nodename value for the worker nodes that the code `(Sys.info()["nodename"])` is run on. For example, on a four node cluster, you expect to receive output similar to the following snippet:
+If you are still using the Spark context, this  command returns the nodename value for the worker nodes that the code `(Sys.info()["nodename"])` is run on. For example, on a four node cluster, you expect to receive output similar to the following snippet:
 
     $rxElem1
         nodename

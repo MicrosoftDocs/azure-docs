@@ -9,7 +9,7 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 8/28/2018
+ms.date: 11/02/2018
 ms.author: dech
 
 ---
@@ -30,40 +30,38 @@ To use the build task, we first need to install it onto our Azure DevOps organiz
 Next, choose the organization in which to install the extension. 
 
 > [!NOTE]
-> To install an extension to a Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/en-us/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
+> To install an extension to a Azure DevOps organization, you must be an account owner or project collection administrator. If you do not have permissions, but you are an account member, you can request extensions instead. [Learn more.](https://docs.microsoft.com/azure/devops/marketplace/faq-extensions?view=vsts#install-request-assign-and-access-extensions)
 
 ![Choose a Azure DevOps organization in which to install an extension](./media/tutorial-setup-ci-cd/addExtension_2.png)
 
 ## Create a build definition
 
-Now that the extension is installed, we need to add it to a [build definition.](https://docs.microsoft.com/en-us/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) You may modify an existing build definition, or create a new one. If you already have an existing build definition, you may skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
+Now that the extension is installed, sign in to your Azure DevOps account and find your project from the projects dashboard. You can add a [build pipeline](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) to your project or modify an existing build pipeline. If you already have a build pipeline, you can skip ahead to [Add the Emulator build task to a build definition](#addEmulatorBuildTaskToBuildDefinition).
 
-To create a new build definition, navigate to the **Build and Release** tab in Azure DevOps. Select **+New.**
+1. To create a new build definition, navigate to the **Builds** tab in Azure DevOps. Select **+New.** > **New build pipeline**
 
-![Create a new build definition](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
-Select the desired team project, repository, and branch to enable builds. 
+   ![Create a new build pipeline](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 
-![Select the team project, repository, and branch for the build definition ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
+2. Select the desired **source**, **Team project**, **Repository**, and the **Default branch for manual and scheduled builds**. After choosing the required options, select **Continue**
 
-Finally, select the desired template for the build definition. We'll select the **ASP.NET** template in this tutorial. 
+   ![Select the team project, repository, and branch for the build pipeline ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_2.png)
 
-![Select the desired build definition template ](./media/tutorial-setup-ci-cd/CreateNewBuildDef_3.png)
+3. Finally, select the desired template for the build pipeline. We'll select the **ASP.NET** template in this tutorial. 
 
-Now we have a build definition that we can set up to use the Azure Cosmos DB emulator build task that looks like the one below. 
+Now we have a build pipeline that we can set up to use the Azure Cosmos DB emulator build task. 
 
-![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_4.png)
+## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the task to a build pipeline
 
-## <a name="addEmulatorBuildTaskToBuildDefinition"></a>Add the task to a build definition
+1. Before adding a task to the build pipeline, you should add an agent job. Navigate to your build pipeline, select the **...** and choose **Add an agent job**.
 
-To add the emulator build task, search for **cosmos** in the search box and select **Add.** The build task will start up a container with an instance of the Cosmos DB emulator already running, so the task needs to be placed before any other tasks that expect the emulator to be running.
+1. Next select the **+** symbol next to the agent job to add the emulator build task. Search for **cosmos** in the search box, select **Azure Cosmos DB Emulator** and add it to the agent job. The build task will start up a container with an instance of the Cosmos DB emulator already running on it. The Azure Cosmos DB Emulator task should be placed before any other tasks that expect the emulator to be in running state.
 
-![Add the Emulator build task to the build definition](./media/tutorial-setup-ci-cd/addExtension_3.png)
-In this tutorial, we'll add the task to the beginning of Phase 1 to ensure the emulator is available before our tests execute.
-The completed build definition now looks like this. 
+   ![Add the Emulator build task to the build definition](./media/tutorial-setup-ci-cd/addExtension_3.png)
 
-![ASP.NET build definition template](./media/tutorial-setup-ci-cd/CreateNewBuildDef_5.png)
+In this tutorial, you'll add the task to the beginning to ensure the emulator is available before our tests execute.
 
 ## Configure tests to use the emulator
+
 Now, we'll configure our tests to use the emulator. The emulator build task exports an environment variable – ‘CosmosDbEmulator.Endpoint’ – that any tasks further in the build pipeline can issue requests against. 
 
 In this tutorial, we'll use the [Visual Studio Test task](https://github.com/Microsoft/azure-pipelines-tasks/blob/master/Tasks/VsTestV2/README.md) to run unit tests configured via a **.runsettings** file. To learn more about unit test setup, visit the [documentation](https://docs.microsoft.com/visualstudio/test/configure-unit-tests-by-using-a-dot-runsettings-file?view=vs-2017).
@@ -80,6 +78,7 @@ Below is an example of a **.runsettings** file that defines parameters to be pas
   </TestRunParameters>
 </RunSettings>
 ```
+
 These parameters `TestRunParameters` are referenced via a `TestContext` property in the application's test project. Here is an example of a test that runs against Cosmos DB.
 
 ```csharp
@@ -133,7 +132,8 @@ Navigate to the Execution Options in the Visual Studio Test task. In the **Setti
 ![Override endpoint variable with Emulator build task endpoint](./media/tutorial-setup-ci-cd/addExtension_5.png)
 
 ## Run the build
-Now, save and queue the build. 
+
+Now, **Save and queue** the build. 
 
 ![Save and run the build](./media/tutorial-setup-ci-cd/runBuild_1.png)
 

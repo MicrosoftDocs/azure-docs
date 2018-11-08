@@ -59,7 +59,7 @@ The following table lists the differences.
 
 <tr>
 <td><strong>Starting price</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure Pricing Calculator</a></td>
+<td colspan="5"><a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a> <br/><br/> <a HREF="https://azure.microsoft.com/pricing/calculator/?scenario=full"> Azure Pricing Calculator</a></td>
 </tr>
 <tr>
 <td><strong>Default minimum configuration</strong></td>
@@ -149,7 +149,7 @@ Includes TPM agreements</td>
 <tr>
 <td><strong>High availability</strong>
 <br/><br/>
-For Service Level Agreement (SLA), see <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.
+For Service Level Agreement (SLA), see <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Azure BizTalk Services Pricing</a>.
 </td>
 <td>Not included</td>
 <td>Not included</td>
@@ -238,10 +238,10 @@ The Free edition cannot be migrated or 'scaled up' to another tier, and cannot b
 For the remaining editions, use the backup and restore for migrating your artifacts from one tier to another. For example, backup your artifacts in the Standard tier, and then restore them to the Premium tier. [BizTalk Services: Backup and Restore](biztalk-backup-restore.md) describes the supported migration paths and lists what artifacts are backed up. Note that Hybrid Connections are not backed up. After backing up and restoring to a new tier, you then recreate the hybrid connections.  
 
 #### Is the BizTalk Adapter Service included in the service? How do I receive the software?
-Yes, the BizTalk Adapter Service with the BizTalk Adapter Pack are included with the Azure BizTalk Services SDK [download](http://www.microsoft.com/download/details.aspx?id=39087).
+Yes, the BizTalk Adapter Service with the BizTalk Adapter Pack are included with the Azure BizTalk Services SDK [download](https://www.microsoft.com/download/details.aspx?id=39087).
 
 ## Next steps
-To create Azure BizTalk Services in the Azure portal, go to [BizTalk Services: Provisioning using the Azure portal](biztalk-provision-services.md). To start creating applications, go to [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+To create Azure BizTalk Services in the Azure portal, go to [BizTalk Services: Provisioning using the Azure portal](biztalk-provision-services.md). To start creating applications, go to [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## Additional resources
 * [BizTalk Services: Provisioning using the Azure portal](biztalk-provision-services.md)<br/>
@@ -250,5 +250,5 @@ To create Azure BizTalk Services in the Azure portal, go to [BizTalk Services: P
 * [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
 * [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)<br/>
 * [BizTalk Services: Issuer Name and Issuer Key](biztalk-issuer-name-issuer-key.md)<br/>
-* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [How do I Start Using the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

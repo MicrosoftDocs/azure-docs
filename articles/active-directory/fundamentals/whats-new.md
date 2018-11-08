@@ -134,7 +134,7 @@ To start using this one-click experience, go to the **Azure portal** > **SSO con
 
 Select your company's region from the **Azure Active Directory - Where is your data located** page to view which Azure datacenter houses your Azure AD data at rest for all Azure AD services. You can filter the information by specific Azure AD services for your company's region.
 
-To access this feature and for more information, see [Azure Active Directory - Where is your data located](http://aka.ms/AADDataMap).
+To access this feature and for more information, see [Azure Active Directory - Where is your data located](https://aka.ms/AADDataMap).
 
 ---
 

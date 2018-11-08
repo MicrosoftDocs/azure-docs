@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 10/29/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk? (Preview)
@@ -39,10 +39,10 @@ Disks are encrypted using Microsoft BitLocker drive encryption, and your encrypt
 A. If you have 40 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
 
 ### Q. What is the price of Data Box Disks?
-A. During the preview, Data Box Disks are available for no charge. Shipping is also free, however, the charges for Azure storage will apply.
+A. For information on the price of Data Box Disks, go to [Preview Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### Q. How do I get Data Box Disks? 
-A.  To get Azure Data Box Disks, first sign up for the [Data Box Disk preview](http://aka.ms/AzureDataBox). Next log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.   
+A.  To get Azure Data Box Disks, first sign up for the [Data Box Disk preview](https://aka.ms/AzureDataBox). Next log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.   
 
 ### Q. What is the maximum amount of data I can transfer with Data Box Disks in one instance?
 A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance.  To transfer more data, you need to order more disks.
@@ -52,21 +52,6 @@ A.  Data Box Disks are available in US, Canada, Australia, and all the countries
 
 ### Q. Which regions can I store data in with Data Box Disks?
 A. Data Box Disk is supported for all regions within US, Canada, Australia, and West Europe and North Europe for preview. Only the Azure public cloud regions are supported. The Azure Government or other sovereign clouds are not supported.
-
-### Q. How is Data Box Disk different from Import/Export service?
-A. The differences between the two solutions are tabulated below:
-
-   |                       |Data Box Disk                                                                                                                                                      |    Import/Export                                                                                                                                                                  |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-|Hardware               |Microsoft sends 8 TB (7 TB usable) SSDs <br> Up to 5 disks per order and 35 TB maximum per order. Can have 5 active orders at a time. For example, a maximum of 175 TB.     | Customer sends their own internal disks for ingestion. <br>Up to 10 disks per import job. For example, 10 TB x 10 disks = maximum 100 TB ingested per order.               | 
-|Interface              |USB 3.1/SATA                                                                                                                                                       | SATA II/III only                                                                                                                                                                  |  
-|Destination support    |Azure Blobs                                                                                                                                                        | Azure Blobs, Azure Files                                                                                                                                                          |  
-|Shipping               |Microsoft takes care of forward and return shipping.                | Customer has to take care of forward and return shipping.|
-|Ease of use            |Disks are pre-encrypted.<br>Disks require no preparation when customer receives the disks. <br>Simple drag and drop copy. <br>Easier and simpler to use compared to Import/Export service.|Pre-processing of disks is required. <br>Tool needed to copy and generate journal file.                                                                    |
-|Availability           |Preview in US, EU, Canada, Australia. Available for shipping immediately.                                                                                          | Generally Available (GA)                                                                                                                                                                            |
-|Data movement restrictions|Suitable for data movement within the commerce boundary (for example within EU only, within US only). The same is true for Australia and Canada.|Suitable when data needs to move across geographic boundaries (for example, US to EU). Support for within the region also available.|
-|Pricing                |[Preview pricing](https://azure.microsoft.com/pricing/details/storage/databox/disk/) applicable from November 1, 2018                                                                                                                    |[Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/) |
-
 
 ### Q. Whom should I contact if I encounter any issues  with Data Box Disks?
 A. If you encounter any issues with Data Box Disks, please contact [Data Box Disk Support](mailto:expresspodsupport@microsoft.com).

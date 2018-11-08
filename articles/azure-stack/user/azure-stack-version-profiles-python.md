@@ -154,4 +154,4 @@ os_disk = compute_client.disks.get(GROUP_NAME, os_disk_name)
 - [Azure Python Development Center](https://azure.microsoft.com/develop/python/)
 - [Azure Virtual Machines documentation](https://azure.microsoft.com/services/virtual-machines/)
 - [Learning Path for Virtual Machines](https://azure.microsoft.com/documentation/learning-paths/virtual-machines/)
-- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](http://go.microsoft.com/fwlink/?LinkId=330212).
+- If you don't have a Microsoft Azure subscription, you can get a FREE trial account [here](https://go.microsoft.com/fwlink/?LinkId=330212).

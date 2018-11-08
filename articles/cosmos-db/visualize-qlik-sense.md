@@ -16,7 +16,7 @@ ms.author: sngun
 Qlik Sense is a data visualization tool that combines data from different sources into a single view. Qlik Sense indexes every possible relationship in your data so that you can gain immediate insights to the data. You can visualize Azure Cosmos DB data by using Qlik Sense. This article describes the steps required to connect Azure Cosmos DB to Qlik Sense and visualize your data. 
 
 > [!NOTE]
-> Connecting Azure Cosmos DB to Qlik Sense is currently supported for Azure Cosmos DB SQL API accounts only.
+> Connecting Qlik Sense to Azure Cosmos DB is currently supported for Azure Cosmos DB SQL API and MongoDB API accounts only.
 
 You can Connect Qlik Sense to Azure Cosmos DB with:
 
