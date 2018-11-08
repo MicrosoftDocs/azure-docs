@@ -139,8 +139,8 @@ create a [service principal in Azure Active Directory](https://docs.microsoft.co
 A service principal is a separate identity that Jenkins 
 can use for authenticating and accessing Azure resources. 
 To create this service principal, run the Azure CLI command 
-[**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), either from your local command line or Azure Cloud Shell, 
-for example: 
+[**`az ad sp create-for-rbac`**](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest), either from your local command line 
+or Azure Cloud Shell, for example: 
 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "yourServicePrincipalName" --password yourSecurePassword
@@ -155,16 +155,23 @@ Here's the output from the **`create-for-rbac`** command:
 
 ```json
 {
-   "appId": "yourAppID",
+   "appId": "yourAzureServicePrincipal-ID",
    "displayName": "yourServicePrincipalName",
    "name": "http://yourServicePrincipalName",
    "password": "yourSecurePassword",
-   "tenant": "yourAzureActiveDirectoryTenantID"
+   "tenant": "yourAzureActiveDirectoryTenant-ID"
 }
 ```
 
-The `appId`, `password`, and `tenant` values are used for authentication. 
-The `displayName` is used when searching for an existing service principal.
+> [!TIP]
+> 
+> If you already have a service principal,
+> you can reuse that identity instead.
+> When providing service principal values for authentication, 
+> use the `appId`, `password`, and `tenant` property values. 
+> When searching for an existing service principal, 
+> use the `displayName` property value.
+> 
 
 ## Fork sample repo
 
@@ -194,12 +201,13 @@ At the bottom, choose **OK**.
    ![Select "Pipeline"](media/jenkins-java-quickstart/jenkins-select-pipeline.png)
 
 1. On the **General** tab, select **Prepare an environment for the run**. 
-In the **Properties Content** box that appears, add these environment variables:
+In the **Properties Content** box that appears, add these environment 
+variables and their values:
 
    ```text
-   AZURE_CRED_ID=<yourAzureServicePrincipalID>
-   RES_GROUP=<yourWebAppAzureResourceGroupName>
-   WEB_APP=<yourWebAppName>
+   AZURE_CRED_ID=yourAzureServicePrincipal-ID
+   RES_GROUP=yourWebAppAzureResourceGroupName
+   WEB_APP=yourWebAppName
    ```
 
    This step sets up Jenkins with your service 
@@ -296,17 +304,16 @@ job page in Jenkins, and select **Build Now**.
 
    ![Run a test build for your app](media/jenkins-java-quickstart/test-build-project.png)
 
-## Deploy to Azure manually
+## Build and deploy to Azure
 
 1. With the Azure CLI, either from the command line or Azure Cloud Shell, create an 
 [Azure App Service web app on Linux](/azure/app-service/containers/app-service-linux-intro) 
-where Jenkins deploys your web app after finishing a build. Make sure the web app 
-you create uses a unique name.
+where Jenkins deploys your web app after finishing a build. Make sure your web app has a unique name.
 
    ```azurecli-interactive
-   az group create --name yourAzureResourceGroupName --location yourAzureRegion
-   az appservice plan create --name yourLinuxAppServicePlanName --resource-group yourAzureResourceGroupName --is-linux
-   az webapp create --name yourWebAppName --resource-group yourAzureResourceGroupName --plan yourLinuxAppServicePlanName --runtime "java|1.8|Tomcat|8.5"
+   az group create --name yourWebAppAzureResourceGroupName --location yourAzureRegion
+   az appservice plan create --name yourLinuxAppServicePlanName --resource-group yourWebAppAzureResourceGroupName --is-linux
+   az webapp create --name yourWebAppName --resource-group yourWebAppAzureResourceGroupName --plan yourLinuxAppServicePlanName --runtime "java|1.8|Tomcat|8.5"
    ```
 
    For more information about these Azure CLI commands, see these pages:
