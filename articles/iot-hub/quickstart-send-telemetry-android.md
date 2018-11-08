@@ -26,8 +26,11 @@ The quickstart uses a pre-written Android application to send the telemetry. The
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
+The sample application you run in this quickstart is written in Android and you need Android SDK 27
 
---- Add Android Studio & Android SDK requirements ---
+To run the application, we are using Android studio IDE.
+
+You can download Android studio from https://developer.android.com/studio/ and install it. For more information regarding Android studio installation, see the [android-installation]
 
 Download the sample Android project from https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/android-sample.
 
@@ -41,9 +44,9 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
 
-   **MyAndroidDevice** : This is the name given for the registered device. Use MyAndroidDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyAndroidDevice: MyAndroidDevice is the name given for the registered device. Use MyAndroidDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -51,7 +54,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
-    **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+    **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidDevice --output table
@@ -63,42 +66,34 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     You use this value later in the quickstart.
 
-3. You also need the _Event Hubs-compatible endpoint_, _Event Hubs-compatible path_, and _iothubowner primary key_ from your IoT hub to enable the back-end application to connect to your IoT hub and retrieve the messages. The following commands retrieve these values for your IoT hub:
-
-     **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
-
-    ```azurecli-interactive
-    az iot hub show --query properties.eventHubEndpoints.events.endpoint --name YourIoTHubName
-
-    az iot hub show --query properties.eventHubEndpoints.events.path --name YourIoTHubName
-
-    az iot hub policy show --name iothubowner --query primaryKey --hub-name YourIoTHubName
-    ```
-
-    Make a note of these three values, which you use later in the quickstart.
-
 ## Send simulated telemetry
 
---- Update this section for android sample code ---
+ Open the github sample Android project in Android Studio. Navigate to app/src/main/java/com/iothub/azure/microsoft/com/MainActivity.java file.
 
-The simulated device application connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
+Replace the value of the `connString` variable with the device connection string you made a note of previously. Then save your changes to MainActivity.java file.
 
+You can run the application using emulator or by connecting Android device. For more Information, see the [running-app]
+
+Once the app loads, You can see the following screen:
+
+![Application](media/quickstart-send-telemetry-android/edited-image.png)
+
+Upon clicking `Send Message` button in the Android application, the simulated device connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
 
 ## Read the telemetry from your hub
-
---- Update this section with new screenshot ---
 
 In this section, you will use the Azure Cloud Shell with the [IoT extension](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot?view=azure-cli-latest) to monitor the device messages that are sent by the simulated device.
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 
-   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
+The following screenshot shows the output as the IoT hub receives telemetry sent by the simulated device:
 
-    ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-c/read-device-to-cloud-messages-app.png)
+  ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
 
 
 ## Clean up resources
@@ -113,3 +108,7 @@ To learn how to control your simulated device from a back-end application, conti
 
 > [!div class="nextstepaction"]
 > [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-java.md)
+
+<!--Links-->
+[running-app]: https://developer.android.com/training/basics/firstapp/running-app
+[android-installation]: https://developer.android.com/studio/install 
