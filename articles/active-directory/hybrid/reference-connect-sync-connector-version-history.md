@@ -29,7 +29,7 @@ This topic list all versions of the Connectors that have been released.
 
 Related links:
 
-* [Download Latest Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
+* [Download Latest Connectors](https://go.microsoft.com/fwlink/?LinkId=717495)
 * [Generic LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) reference documentation
 * [Generic SQL Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) reference documentation
 * [Web Services Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation
@@ -103,7 +103,7 @@ Related links:
 * Generic Web Services:
   * The Wsconfig tool did not convert correctly the Json array from "sample request" for the REST service method. This caused problems with serialization this Json array for the REST request.
   * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names 
-    * A Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * A Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key="JSONSpaceNamePattern" value="__" /> </appSettings>```
 > [!NOTE]
 > JSONSpaceNamePattern key is required as for export you will recieve the following error: Message: Empty name is not legal. 
 

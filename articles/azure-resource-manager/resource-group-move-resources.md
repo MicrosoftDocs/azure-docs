@@ -11,7 +11,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.author: tomfitz
 
 ---
@@ -24,8 +24,10 @@ When moving resources, both the source group and the target group are locked dur
 You can't change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that doesn't change the location of the resource.
 
 > [!NOTE]
-> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from pay-as-you-go to pre-pay) while continuing to work with your existing resources, see [Switch your Azure subscription to another offer](../billing/billing-how-to-switch-azure-offer.md).
->
+> This article describes how to move resources within an existing Azure account offering. If you actually want to change your Azure account offering (such as upgrading from free to pay-as-you-go) you need to convert your subscription. 
+> * To upgrade a free trial, see [Upgrade your Free Trial or Microsoft Imagine Azure subscription to Pay-As-You-Go](..//billing/billing-upgrade-azure-subscription.md).
+> * To change a pay-as-you-go account, see [Change your Azure Pay-As-You-Go subscription to a different offer](../billing/billing-how-to-switch-azure-offer.md).
+> * If you can't convert the subscription, [create an Azure support request](../azure-supportability/how-to-create-azure-support-request.md). Select **Subscription Management** for the issue type.
 >
 
 ## Checklist before moving resources
@@ -106,7 +108,7 @@ Contact [support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAn
 
 ## Validate move
 
-The [validate move operation](/rest/api/resources/resources/resources_validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
+The [validate move operation](/rest/api/resources/resources/validatemoveresources) lets you test your move scenario without actually moving the resources. Use this operation to determine if the move will succeed. To run this operation, you need the:
 
 * name of the source resource group
 * resource ID of the target resource group
@@ -265,7 +267,7 @@ The following list provides a general summary of Azure services that can't be mo
 
 Managed disks are supported for move as of September 24, 2018. 
 
-1. You'll have to register to enable this feature.
+1. In the source subscription, register this feature.
 
   ```azurepowershell-interactive
   Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute

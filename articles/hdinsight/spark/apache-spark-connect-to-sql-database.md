@@ -2,8 +2,8 @@
 title: Use Apache Spark to read and write data to Azure SQL database 
 description: Learn how to set up a connection between HDInsight Spark cluster and an Azure SQL database to read data, write data, and stream data into a SQL database
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -229,7 +229,7 @@ In this section, we stream data into the **hvactable** that you already created 
         
          var streamingQuery = WriteToSQLQuery.start()
 
-1. Verify that the data is being streamed into the **hvactable** by running the following query in SQL Server Management Studio (SSMS). Everytime you run the query, it shows the number of rows in the table increasing.
+1. Verify that the data is being streamed into the **hvactable** by running the following query in SQL Server Management Studio (SSMS). Every time you run the query, it shows the number of rows in the table increasing.
 
         SELECT COUNT(*) FROM hvactable
 

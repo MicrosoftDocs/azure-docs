@@ -35,7 +35,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
 6. After the deployment completes, select **Go to Resource Group**. You see a list of newly created resources.
 
-    ![Grafana resource group objects](.\media\monitor-how-to-grafana\grafana1.png)
+    ![Grafana resource group objects](media/monitor-send-to-grafana/grafana1.png)
 
     If you select the network security group (*grafana-nsg* in this case), you can see that port 3000 is used to access Grafana server.
 
@@ -47,7 +47,7 @@ To set up a local Grafana server, [download and install Grafana in your local en
 
     ![Grafana login screen](.\media\monitor-how-to-grafana\grafana-login-screen.png)
 
-2. Log in with the user name as *admin* and the Grafana server admin password you created earlier. If you're using a local setup, the default password would be *admin*, and you'd be requested to change it on your first login.
+2. Log in with the user name *admin* and the Grafana server admin password you created earlier. If you're using a local setup, the default password would be *admin*, and you'd be requested to change it on your first login.
 
 ## Configure data source plugin
 
@@ -78,7 +78,6 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 5. If you use Application Insights, you can also include your Application Insights API and application ID to collect Application Insights based metrics. For more information, see [Getting your API key and Application ID](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 
 6. Select **Save**, and Grafana will test the credentials for each API. You should see a message similar to the following one.  
-
     ![Grafana data source config approved](.\media\monitor-how-to-grafana\grafana-data-source-config-approved-dark.png)
 
 ## Build a Grafana dashboard
@@ -88,7 +87,6 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 2. In the new dashboard, select the **Graph**. You can try other charting options but this article uses *Graph* as an example.
 
 3. A blank graph shows up on your dashboard. Click on the panel title and select **Edit** to enter the details of the data you want to plot in this graph chart.
-
     ![Grafana new graph](.\media\monitor-how-to-grafana\grafana-new-graph-dark.png)
 
 4. Select the Azure Monitor data source you've configured.
@@ -105,7 +103,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 
 5. Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
 
-![Grafana Two Charts Example](.\media\monitor-how-to-grafana\grafana6.png)
+![Grafana Two Charts Example](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## Optional: Monitor your custom metrics in the same Grafana server
@@ -122,7 +120,7 @@ Here are good reference articles on how to use Telegraf, InfluxDB, Prometheus, a
  - [A monitoring solution for Docker hosts, containers, and containerized services](https://stefanprodan.com/2016/a-monitoring-solution-for-docker-hosts-containers-and-containerized-services/)
 
 Here is an image of a full Grafana dashboard that has metrics from Azure Monitor and Application Insights.
-![Grafana Example Metrics](.\media\monitor-how-to-grafana\grafana8.png)
+![Grafana Example Metrics](media/monitor-send-to-grafana/grafana8.png)
 
 ## Advanced Grafana features
 
@@ -166,4 +164,4 @@ If you've setup a Grafana environment on Azure, you are charged when VMs are run
 2. On your resource group page, click **Delete**, type **Grafana** in the text box, and then click **Delete**.
 
 ## Next steps
-* [Overview of Azure Monitor Metrics](monitoring-overview-metrics.md)
+* [Overview of Azure Monitor Metrics](../monitoring/monitoring-data-collection.md)

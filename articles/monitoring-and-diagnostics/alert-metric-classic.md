@@ -18,11 +18,11 @@ Classic metric alerts in Azure Monitor provide a way to get notified when one of
 
 2. In the **MONITORING** section, select **Alerts (Classic)**. The text and icon might vary slightly for different resources. If you don't find **Alerts (Classic)** here, you might find it in **Alerts** or **Alert Rules**.
 
-    ![Monitoring](./media/alerts-metric-classic/AlertRulesButton.png)
+    ![Monitoring](media/alert-metric-classic/AlertRulesButton.png)
 
 3. Select the **Add metric alert (classic)** command, and then fill in the fields.
 
-    ![Add Alert](./media/alerts-metric-classic/AddAlertOnlyParamsPage.png)
+    ![Add Alert](media/alert-metric-classic/AddAlertOnlyParamsPage.png)
 
 4. **Name** your alert rule. Then choose a **Description**, which also appears in notification emails.
 
@@ -118,6 +118,7 @@ This sections shows how to use PowerShell commands create, view and manage class
 
     ```PowerShell
     Get-AzureRmAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
+    ```
 
 8. You can use the `Add-AlertRule` cmdlet to create, update, or disable an alert rule. You can create email and webhook properties using  `New-AzureRmAlertRuleEmail` and `New-AzureRmAlertRuleWebhook`, respectively. In the Alert rule cmdlet, assign these properties as actions to the **Actions** property of the Alert Rule. The following table describes the parameters and values used to create an alert using a metric.
 

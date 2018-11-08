@@ -272,143 +272,62 @@ FROM(SELECT DISTINCT plan_handle, [Database], [Schema], [table]
 Use the following query to identify long running transactions. Long running transactions prevent version store cleanup.
 
 ```sql
-SELECT DB.database_id,
-    SessionTrans.session_id AS SPID,
-    enlist_count AS [Active Requests],
-    ActiveTrans.transaction_id AS ID,
-    ActiveTrans.name AS Name,
-    ActiveTrans.transaction_begin_time AS [Start Time],
-    CASE transaction_type
-        WHEN 1 THEN
-            'Read/Write'
-        WHEN 2 THEN
-            'Read-Only'
-        WHEN 3 THEN
-            'System'
-        WHEN 4 THEN
-            'Distributed'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), transaction_type)
-       END AS [Transaction Type],
-    CASE transaction_state
-        WHEN 0 THEN
-            'Uninitialized'
-        WHEN 1 THEN
-            'Not Yet Started'
-        WHEN 2 THEN
-            'Active'
-        WHEN 3 THEN
-            'Ended (Read-Only)'
-        WHEN 4 THEN
-            'Committing'
-        WHEN 5 THEN
-            'Prepared'
-        WHEN 6 THEN
-            'Committed'
-        WHEN 7 THEN
-            'Rolling Back'
-        WHEN 8 THEN
-            'Rolled Back'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), transaction_state)
-    END AS 'State',
-    CASE dtc_state
-        WHEN 0 THEN
-            NULL
-        WHEN 1 THEN
-            'Active'
-        WHEN 2 THEN
-            'Prepared'
-        WHEN 3 THEN
-            'Committed'
-        WHEN 4 THEN
-            'Aborted'
-        WHEN 5 THEN
-            'Recovered'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), dtc_state)
-    END AS 'Distributed State',
-       DB.name AS 'Database',
-       database_transaction_begin_time AS [DB Begin Time],
-    CASE database_transaction_type
-        WHEN 1 THEN
-            'Read/Write'
-        WHEN 2 THEN
-            'Read-Only'
-        WHEN 3 THEN
-            'System'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_type)
-    END AS 'DB Type',
-    CASE database_transaction_state
-        WHEN 1 THEN
-            'Uninitialized'
-        WHEN 3 THEN
-            'No Log Records'
-        WHEN 4 THEN
-            'Log Records'
-        WHEN 5 THEN
-            'Prepared'
-        WHEN 10 THEN
-            'Committed'
-        WHEN 11 THEN
-            'Rolled Back'
-        WHEN 12 THEN
-            'Committing'
-        ELSE
-            'Unknown - ' + CONVERT(VARCHAR(20), database_transaction_state)
-    END AS 'DB State',
-       database_transaction_log_record_count AS [Log Records],
-       database_transaction_log_bytes_used / 1024 AS [Log KB Used],
-       database_transaction_log_bytes_reserved / 1024 AS [Log KB Reserved],
-       database_transaction_log_bytes_used_system / 1024 AS [Log KB Used (System)],
-       database_transaction_log_bytes_reserved_system / 1024 AS [Log KB Reserved (System)],
-       database_transaction_replicate_record_count AS [Replication Records],
-       command AS [Command Type],
-       total_elapsed_time AS [Elapsed Time],
-       cpu_time AS [CPU Time],
-       wait_type AS [Wait Type],
-       wait_time AS [Wait Time],
-       wait_resource AS [Wait Resource],
-       reads AS Reads,
-       logical_reads AS [Logical Reads],
-       writes AS Writes,
-       SessionTrans.open_transaction_count AS [Open Transactions],
-       open_resultset_count AS [Open Result Sets],
-       row_count AS [Rows Returned],
-       nest_level AS [Nest Level],
-       granted_query_memory AS [Query Memory],
-       SUBSTRING(
-            SQLText.text,
-            ExecReqs.statement_start_offset / 2,
-            (CASE
-                WHEN ExecReqs.statement_end_offset = -1 THEN
-                    LEN(CONVERT(NVARCHAR(MAX), SQLText.text)) * 2
-                ELSE
-                    ExecReqs.statement_end_offset
-                END - ExecReqs.statement_start_offset
-                ) / 2
-                ) AS query_text
-FROM sys.dm_tran_active_transactions AS ActiveTrans (NOLOCK)
-    INNER JOIN sys.dm_tran_database_transactions AS DBTrans (NOLOCK)
-        ON DBTrans.transaction_id = ActiveTrans.transaction_id
-    INNER JOIN sys.databases AS DB (NOLOCK)
-        ON DB.database_id = DBTrans.database_id
-    LEFT JOIN sys.dm_tran_session_transactions AS SessionTrans (NOLOCK)
-        ON SessionTrans.transaction_id = ActiveTrans.transaction_id
-    LEFT JOIN sys.dm_exec_requests AS ExecReqs (NOLOCK)
-        ON ExecReqs.session_id = SessionTrans.session_id
-           AND ExecReqs.transaction_id = SessionTrans.transaction_id
-    OUTER APPLY sys.dm_exec_sql_text(ExecReqs.sql_handle) AS SQLText
-WHERE ActiveTrans.transaction_type <> 2 --ignore read only transactions
-    AND SessionTrans.session_id IS NOT NULL
-ORDER BY database_id ASC,
-    start_time ASC;
+SELECT DB_NAME(dtr.database_id) 'database_name',
+       sess.session_id,
+       atr.name AS 'tran_name',
+       atr.transaction_id,
+       transaction_type,
+       transaction_begin_time,
+       database_transaction_begin_time transaction_state,
+       is_user_transaction,
+       sess.open_transaction_count,
+       LTRIM(RTRIM(REPLACE(
+                              REPLACE(
+                                         SUBSTRING(
+                                                      SUBSTRING(
+                                                                   txt.text,
+                                                                   (req.statement_start_offset / 2) + 1,
+                                                                   ((CASE req.statement_end_offset
+                                                                         WHEN -1 THEN
+                                                                             DATALENGTH(txt.text)
+                                                                         ELSE
+                                                                             req.statement_end_offset
+                                                                     END - req.statement_start_offset
+                                                                    ) / 2
+                                                                   ) + 1
+                                                               ),
+                                                      1,
+                                                      1000
+                                                  ),
+                                         CHAR(10),
+                                         ' '
+                                     ),
+                              CHAR(13),
+                              ' '
+                          )
+                  )
+            ) Running_stmt_text,
+       recenttxt.text 'MostRecentSQLText'
+FROM sys.dm_tran_active_transactions AS atr
+    INNER JOIN sys.dm_tran_database_transactions AS dtr
+        ON dtr.transaction_id = atr.transaction_id
+    LEFT JOIN sys.dm_tran_session_transactions AS sess
+        ON sess.transaction_id = atr.transaction_id
+    LEFT JOIN sys.dm_exec_requests AS req
+        ON req.session_id = sess.session_id
+           AND req.transaction_id = sess.transaction_id
+    LEFT JOIN sys.dm_exec_connections AS conn
+        ON sess.session_id = conn.session_id
+    OUTER APPLY sys.dm_exec_sql_text(req.sql_handle) AS txt
+    OUTER APPLY sys.dm_exec_sql_text(conn.most_recent_sql_handle) AS recenttxt
+WHERE atr.transaction_type != 2
+      AND sess.session_id != @@spid
+ORDER BY start_time ASC;
 ```
 
 ## Identify memory grant wait performance issues
 
-If your top wait type is `RESOURCE_SEMAHPORE` and you don't have high a CPU issue, you may have a memory grant waiting issue.
+If your top wait type is `RESOURCE_SEMAHPORE` and you don't have a high CPU usage issue, you may have a memory grant waiting issue.
 
 ### Determine if a `RESOURCE_SEMAHPORE` wait is a top wait
 
@@ -757,7 +676,7 @@ For SQL Database analysis, you can get historical statistics on sessions by quer
 
 ## Monitoring query performance
 
-Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
+Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
 
 ### Finding top N queries
 

@@ -55,6 +55,9 @@ If you are in a reauthentication loop, or have changed the UPN of one of your ac
 2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
 3. If you are on Mac or Linux, you will also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On Mac, the keystore is the "Gnome Keychain" application. For Linux, the application is usually called "Keyring", but the name may be different depending on your distribution.
 
+### Conditional Access
+Conditional access is not supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is due to a limitation in the AAD Library used by Storage Explorer.
+
 ## Mac Keychain errors
 The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
 1. Close Storage Explorer.
@@ -138,6 +141,12 @@ If your proxy settings are correct, you may have to contact your proxy server ad
 ## "Unable to Retrieve Children" error message
 
 If you are connected to Azure through a proxy, verify that your proxy settings are correct. If you were granted access to a resource from the owner of the subscription or account, verify that you have read or list permissions for that resource.
+
+## Connection String Does Not Have Complete Configuration Settings
+
+If you receive this error message, it is possible that you do not have the needed permissions to obtain the keys for your Storage account. To confirm if this is the case, go to the portal and locate your Storage account. You can quickly do this by right clicking on the node for your Storage account and clicking "Open in Portal". Once you do, go to the "Access Keys" blade. If you do not have permissions to view keys then you will see a page with the message "You do not have access". To workaround this issue, you can either obtain the account key from someone else and attach with name and key, or you can ask someone for a SAS to the Storage account and use it to attach the Storage account.
+
+If you do see the account keys, then please file an issue on GitHub so we can help you resolve the issue.
 
 ## Issues with SAS URL
 If you're connecting to a service using a SAS URL and experiencing this error:

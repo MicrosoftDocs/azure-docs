@@ -3,12 +3,12 @@ title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight '
 description: Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
-ms.date: 04/17/2018
+ms.date: 11/06/2018
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 You must have the following components installed in your development environment:
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
+* [Java JDK 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/)
 
@@ -80,7 +80,7 @@ The important things to understand in the `pom.xml` file are:
 
 ### Stream.java
 
-The `Stream.java` file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
+The [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
 
 The following code defines the word count application:
 

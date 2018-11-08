@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+---
 This is reference information for Azure Functions developers. If you're new to Azure Functions, start with the following resources:
 
 * [Create your first function](../articles/azure-functions/functions-create-first-azure-function.md)

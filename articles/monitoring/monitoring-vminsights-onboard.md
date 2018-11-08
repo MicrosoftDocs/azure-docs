@@ -1,5 +1,5 @@
 ---
-title: Onboard Azure Monitor for VMs | Microsoft Docs
+title: Onboard Azure Monitor for VMs (Preview) | Microsoft Docs
 description: This article describes how you onboard and configure Azure Monitor for VMs so you can start understanding how your distributed application is performing and what health issues have been identified.
 services: azure-monitor
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
 ---
 
-# How to onboard the Azure Monitor for VMs 
+# How to onboard the Azure Monitor for VMs (Preview)
 This article describes how to set up Azure Monitor for VMs to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
 
 Enabling Azure Monitor for VMs is accomplished by using one of the following methods, and details on using each method are provided later in the article.  
@@ -27,7 +27,7 @@ Enabling Azure Monitor for VMs is accomplished by using one of the following met
 * Multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using PowerShell.
 
 ## Prerequisites
-Before you start, make sure that you have the following as described in the subsections below.
+Before you start, make sure that you understand the following as described in the subsections below.
 
 ### Log Analytics 
 
@@ -335,7 +335,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 ### Enable using Azure Policy
-To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended. These policies:
+To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../governance/policy/overview.md) is recommended. These policies:
 
 * Deploy Log Analytics agent and Dependency agent 
 * Report on compliance results 

@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 
 ---
@@ -46,7 +46,7 @@ Before you begin, note that:
 
 ### Set up an Azure account
 
-Get a Microsoft [Azure account](http://azure.microsoft.com/).
+Get a Microsoft [Azure account](https://azure.microsoft.com/).
 
 - You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 - Learn about [Site Recovery pricing](site-recovery-faq.md#pricing), and get [pricing details](https://azure.microsoft.com/pricing/details/site-recovery/).

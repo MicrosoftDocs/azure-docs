@@ -83,7 +83,7 @@ A: This region is at temporary capacity limit. The limit is planned to be addres
 
 ### Q. Does Log Analytics use the same agent as Azure Security Center?
 
-A: In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-platform-migration-faq.md).
+A: In early June 2017, Azure Security Center began using the Microsoft Monitoring Agent to collect and store data. To learn more, see [Azure Security Center Platform Migration FAQ](../security-center/security-center-enable-data-collection.md).
 
 ### Q. What checks are performed by the AD and SQL Assessment solutions?
 
@@ -132,7 +132,7 @@ Log Analytics uses UTC time and each day starts at midnight UTC. If the workspac
 
 ### Q. How can I be notified when data collection stops?
 
-A: Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection stops.
+A: Use the steps described in [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) to be notified when data collection stops.
 
 When creating the alert for when data collection stops, set the:
 
@@ -155,7 +155,7 @@ A. No, it is not currently possible to read from arbitrary tables or containers 
 
 ### Q. What IP addresses does the Log Analytics service use? How do I ensure that my firewall only allows traffic to the Log Analytics service?
 
-A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/download/details.aspx?id=41653).
+A. The Log Analytics service is built on top of Azure. Log Analytics IP addresses are in the [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653).
 
 As service deployments are made, the actual IP addresses of the Log Analytics service change. The DNS names to allow through your firewall are documented in [network requirements](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -167,7 +167,7 @@ Traffic to Log Analytics uses the public-peering ExpressRoute circuit.
 
 ### Q. Is there a simple and easy way to move an existing Log Analytics workspace to another Log Analytics workspace/Azure subscription?
 
-A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+A. The `Move-AzureRmResource` cmdlet lets you move a Log Analytics workspace, and also an Automation account from one Azure subscription to another. For more information, see [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 This change can also be made in the Azure portal.
 
@@ -228,4 +228,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## Next steps
-* [Get started with Log Analytics](log-analytics-get-started.md) to learn more about Log Analytics and get up and running in minutes.
+* [Get started with Log Analytics](../azure-monitor/overview.md) to learn more about Log Analytics and get up and running in minutes.
