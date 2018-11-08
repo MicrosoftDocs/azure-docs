@@ -15,14 +15,14 @@ ms.author: erhopf
 
 In addition to the [Speech SDK](speech-sdk.md), the Speech service enables you to convert speech-to-text and text-to-speech via a set REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
 
-Before using the REST APIs in your application, please consider:
+Before using the REST APIs, please consider:
 * The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 * The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For additional details, see [Authorization]().
 
 ## Authentication
 
-Each request to either the speech-to-text or text-to-speech REST API requires an authorization header. This table illustrates support by service:
+Each request to either the speech-to-text or text-to-speech REST API requires an authorization header. This table illustrates which headers are supported for each service:
 
 | Supported auth headers | Speech-to-text | Text-to-speech |
 |------------------------|----------------|----------------|
@@ -237,13 +237,13 @@ public class Authentication
 
 ## Speech-to-text
 
-The speech-to-text endpoint only supports short utterances. Requests may contain up to 10 seconds of audio with a total duration of 14 seconds. The REST API  only returns the final results, not partial or interim results.
+The speech-to-text REST API only supports short utterances. Requests may contain up to 10 seconds of audio with a total duration of 14 seconds. The REST API only returns the final results, not partial or interim results.
 
 If sending longer audio is a requirement for your application, consider using the [Speech SDK](speech-sdk.md) or [batch transcription](batch-transcription.md).
 
 ### Regions and endpoints
 
-These regions are supported for speech-to-text using the REST API. Make sure that you select the endpoint that matches your subscription region.
+These regions are supported for speech-to-text transcription using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -251,26 +251,26 @@ These regions are supported for speech-to-text using the REST API. Make sure tha
 
 The following parameters may be included in the query string of the REST request.
 
-|Parameter name|Required/optional|Meaning|
-|-|-|-|
-|`language`|Required|The identifier of the language to be recognized. See [Supported languages](language-support.md#speech-to-text).|
-|`format`|Optional<br>default: `simple`|Result format, `simple` or `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and duration. Detailed results include multiple candidates with confidence values and four different representations.|
-|`profanity`|Optional<br>default: `masked`|How to handle profanity in recognition results. May be `masked` (replaces profanity with asterisks), `removed` (removes all profanity), or `raw` (includes profanity).
+| Parameter | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
+| `format` | Specifies the result format, `simple` or `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed results include multiple candidates with confidence values and four different representations. The default setting is `simple`. | Optional |
+| `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which remove all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
 
 ### Request headers
 
 The following fields are sent in the HTTP request header.
 
-|Header|Meaning|
-|------|-------|
-|`Ocp-Apim-Subscription-Key`|Your Speech service subscription key. Either this header or `Authorization` must be provided.|
-|`Authorization`|An authorization token preceded by the word `Bearer`. Either this header or `Ocp-Apim-Subscription-Key` must be provided. See [Authentication](#authentication).|
-|`Content-type`|Describes the format and codec of the audio data. Currently, this value must be `audio/wav; codec=audio/pcm; samplerate=16000`.|
-|`Transfer-Encoding`|Optional. If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.|
-|`Expect`|If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.|
-|`Accept`|Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`.)|
+|Header| Description | Required / Optional |
+|------|-------------|---------------------|
+| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. See [Authentication](#authentication) for additional information. | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| `Content-type` | Describes the format and codec of the provided audio data. This value must be `audio/wav; codec=audio/pcm; samplerate=16000`. | Required |
+| `Transfer-Encoding` | If given, must be `chunked` to allow audio data to be sent in multiple small chunks instead of a single file.| Optional |
+| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.|
+| `Accept` | Optional. If provided, must include `application/json`, as the Speech service provides results in JSON format. (Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`.)|
 
-### Audio format
+### Audio formats
 
 The audio is sent in the body of the HTTP `POST` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
 
