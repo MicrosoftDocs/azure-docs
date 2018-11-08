@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Deploy your ASP.NET app and Azure SQL database instance by using Azure DevOps Projects'
-description: Azure DevOps Projects makes it easy to get started on Azure. With Azure DevOps Projects, you can deploy your ASP.NET app with an Azure SQL database instance in a few quick steps.
+description: DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET app with an Azure SQL database instance in a few quick steps.
 ms.author: mlearned
 ms.manager: douge
 ms.prod: devops
@@ -25,7 +25,7 @@ DevOps Projects also:
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create a project in Azure DevOps Projects for an ASP.NET app and an Azure SQL database instance
+> * Create a project in DevOps Projects for an ASP.NET app and an Azure SQL database instance
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
@@ -37,9 +37,9 @@ In this tutorial, you will:
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## Create a project in Azure DevOps Projects for an ASP.NET app and an Azure SQL database instance
+## Create a project in DevOps Projects for an ASP.NET app and an Azure SQL database instance
 
-Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. Azure DevOps Projects also creates Azure resources such as an Azure SQL database instance in the Azure subscription of your choice.
+DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as an Azure SQL database instance, in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -72,7 +72,7 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can creat
 	
 ## Examine the CI pipeline
 
-Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with the Azure DevOps build pipeline, do the following:
+DevOps Projects automatically configures a full CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with the Azure DevOps build pipeline, do the following:
 
 1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
 	A browser tab displays the build pipeline for your new project.
@@ -93,17 +93,17 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azu
 	This pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
-	Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
+	DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  
     Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 ## Examine the CD pipeline
 
-Azure DevOps Projects automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription. These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription. The automation also creates a CD pipeline, which provides the CD to the Azure virtual machine. To learn more about the Azure DevOps CD pipeline, do the following:
+DevOps Projects automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription. These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription. The automation also creates a CD pipeline, which provides the CD to the Azure virtual machine. To learn more about the Azure DevOps CD pipeline, do the following:
 
 1. Select **Build and Release**, and then select **Releases**.  
-	Azure DevOps Projects creates a release pipeline to manage deployments to Azure.
+	DevOps Projects creates a release pipeline to manage deployments to Azure.
 
 1. Select the ellipsis (...) next to your release pipeline, and then select **Edit**.  
 	The release pipeline contains a *pipeline*, which defines the release process.
@@ -114,7 +114,7 @@ Azure DevOps Projects automatically creates and configures the necessary steps t
 1. Next to the **Drop** icon, select **Continuous deployment trigger**.  
 	This release pipeline has an enabled CD trigger, which executes a deployment every time there is a new build artifact available. Optionally, you can disable the trigger so that your deployments require manual execution. 
 
-    Azure DevOps Projects sets up a random SQL password and uses it for the release pipeline.
+    DevOps Projects sets up a random SQL password and uses it for the release pipeline.
     
 1. At the left, select **Variables**. 
 
@@ -123,18 +123,16 @@ Azure DevOps Projects automatically creates and configures the necessary steps t
   
 1. Next to the **Value** box, select the padlock icon, enter the new password, and then select **Save**.
 
-1. On the left-hand side of the browser, select **Tasks**, and then select your **environment**. 
-
 1. At the left, select **Tasks**, and then select your environment.  
-	Tasks are the activities that your deployment process executes, and they are grouped in phases. There is a single phase for this release pipeline. The phase contains an *Azure App Service Deploy* and *Azure SQL Database Deployment* task.
+	Tasks are the activities that your deployment process executes, and they are grouped in phases. This release pipeline has a single phase, which contains an *Azure App Service Deploy* and *Azure SQL Database Deployment* task.
 
-1. Select the *Execute Azure SQL* task, and examine the various properties used for the SQL deployment.  
-    Under **Deployment Package**, note that the task uses a *SQL DACPAC* file.
+1. Select the *Execute Azure SQL* task, and examine the various properties that are used for the SQL deployment.  
+    Under **Deployment Package**, the task uses a *SQL DACPAC* file.
 
 1. At the right, select **View releases** to display a history of releases.
 
 1. Select the ellipsis (...) next to a release, and then select **Open**.  
-	There are several menus to explore, such as a release summary, associated work items, and tests.
+	You can explore several menus, such as a release summary, associated work items, and tests.
 
 1. Select **Commits**.  
 	This view shows code commits that are associated with this deployment. Compare releases to view the commit differences between deployments.
@@ -145,7 +143,7 @@ Azure DevOps Projects automatically creates and configures the necessary steps t
 ## Commit changes to Azure DevOps and automatically deploy them to Azure 
 
  > [!NOTE]
- > The following procedure tests the CI/CD pipeline with a simple text change. To test the SQL deployment process, you may optionally make a SQL Server schema change to the table.
+ > The following procedure tests the CI/CD pipeline with a simple text change. To test the SQL deployment process, you can optionally make a SQL Server schema change to the table.
 
 You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repository. The code changes initiate the CI/CD process and automatically deploy your changes to Azure.
 
@@ -187,10 +185,10 @@ You need appropriate permissions to connect to the Azure SQL database instance.
 
 ## Clean up resources
 
-If you are testing, you can clean up resources to avoid accruing billing charges. When they are no longer needed, you can delete the Azure SQL database instance and related resources that you created in this tutorial. To do so, you use the **Delete** functionality on the Azure DevOps Project dashboard.
+If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure SQL database instance and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the Azure DevOps Projects dashboard.
 
 > [!CAUTION]
-> The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in Azure DevOps Projects in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
+> The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in DevOps Projects in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
 
 1. In the Azure portal, go to the Azure DevOps Projects dashboard.
 2. At the top right, select **Delete**. 
@@ -201,7 +199,7 @@ If you are testing, you can clean up resources to avoid accruing billing charges
 You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other projects. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a project in Azure DevOps Projects for an ASP.NET app and an Azure SQL database instance
+> * Create a project in DevOps Projects for an ASP.NET app and an Azure SQL database instance
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
