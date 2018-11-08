@@ -21,7 +21,7 @@ ms.author: routlaw
 
 The concepts of triggers and bindings are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
 
-A function should be a stateless method to process input and produce output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. You need to make sure all the function methods are `public` accessible and method with annotation @FunctionName is unique as that defines the entry for the the function.
+A function should be a stateless method to process input and produce output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All the function methods should be `public` and method with annotation @FunctionName must be unique as method name defines the entry for a function.
 
 ## Folder structure
 
@@ -112,7 +112,7 @@ The `com.microsoft.azure.functions:azure-functions-java-library` dependency is p
 
 ## Data type support
 
-You can use Plain old Java objects (POJOs) and primitive dataType such as String, Ineteger and types defined in `azure-functions-java-library` package for input and output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code.
+You can use Plain old Java objects (POJOs), primitive dataTypes such as String, Ineteger and types defined in `azure-functions-java-library` package for input and output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
 ### Strings
 
