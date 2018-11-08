@@ -3,7 +3,7 @@ title: Service Fabric Azure Files Volume Driver (Preview) | Microsoft Docs
 description: Service Fabric supports using Azure Files to backup volumes from your container. This is currently in preview.
 services: service-fabric
 documentationcenter: other
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 6/10/2018
-ms.author: subramar
+ms.author: twhitney, subramar
 ---
 
 # Service Fabric Azure Files Volume Driver (Preview)
