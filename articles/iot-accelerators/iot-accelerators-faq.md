@@ -75,7 +75,7 @@ Currently, you cannot create a solution accelerator with a [Microsoft Azure for 
 
 ### How do I delete an AAD tenant?
 
-See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
 ### Next steps
 

@@ -25,7 +25,7 @@ Dynamic threshold-based alerts are available for all Azure monitor based metric 
 
 ## Sign up to access the preview
 
-To take this capability for a spin, [sign up for the preview](http://aka.ms/DynamicThresholdMetricAlerts). As always, we would love to hear your feedback, keep it coming at [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
+To take this capability for a spin, [sign up for the preview](https://aka.ms/DynamicThresholdMetricAlerts). As always, we would love to hear your feedback, keep it coming at [azurealertsfeedback@microsoft.com](mailto:azurealertsfeedback@microsoft.com)
 
 ## How to configure alerts with dynamic thresholds
 
