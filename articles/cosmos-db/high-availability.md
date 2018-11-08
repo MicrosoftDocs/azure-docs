@@ -16,7 +16,7 @@ ms.reviewer: sngun
 
 Azure Cosmos DB transparently replicates your data across all the Azure regions associated with your Cosmos account. Cosmos DB employs multiple layers of redundancy for your data as shown in the following image:
 
-![Resource partitioning](./media/high-availability/figure1.png) 
+![Resource partitioning](./media/high-availability/figure1.png)
 
 - The data within Cosmos containers is horizontally partitioned.
 
@@ -26,7 +26,7 @@ Azure Cosmos DB transparently replicates your data across all the Azure regions 
 
 If your Cosmos account is distributed across N Azure regions, there will be at least N x 4 copies of all your data. In addition to providing low latency data access and scaling write/read throughput across the regions associated with your Cosmos account, having more regions (higher N) also improves availability.  
 
-## SLAs for availability   
+## SLAs for availability
 
 As a globally distributed database, Cosmos DB provides comprehensive SLAs that encompass throughput, latency at the 99th percentile, consistency, and high availability. In the following table, we describe the guarantees pertaining to high availability provided by Cosmos DB for single and multi-region accounts. For high availability, configure your Cosmos accounts to have multiple write regions.
 
@@ -40,7 +40,7 @@ As a globally distributed database, Cosmos DB provides comprehensive SLAs that e
 
 ## Regional outages
 
-Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database is always available. The following details capture Cosmos DB behavior during an outage, depending on your Cosmos account's configuration: 
+Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database is always available. The following details capture Cosmos DB behavior during an outage, depending on your Cosmos account's configuration:
 
 - Multi-region accounts configured with multiple-write regions will remain highly available for both writes and reads. Regional failovers are instantaneous and do not require any changes from the application.
 
@@ -49,6 +49,18 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 - Multi-region accounts with a single-write region: During a read region outage, these accounts will remain highly available for reads and writes. The impacted region is automatically disconnected from the write region and will be marked offline. The Cosmos DB SDKs will redirect read calls to the next available region in the preferred region list. If none of the regions in the preferred region list is available, calls automatically fall back to the current write region. No changes are required in your application code to handle read region outage. Eventually, when the impacted region is back online, the previously impacted read region will automatically sync with the current write region and will be available again to serve read requests. Subsequent reads are redirected to the recovered region without requiring any changes to your application code. During both failover and rejoining of a previously failed region, read-consistency guarantees continue to be honored by Cosmos DB.
 
 - Single-region accounts may lose availability in the event of regional outage. It's recommended to setup at least two regions (preferably, at least two write regions) with your Cosmos account to ensure high availability at all times.
+
+### Durability in the event of a regional disaster
+
+Before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations. The following table summarizes the potential data loss window under various consistency levels in the event of an unrecoverable regional disaster for the Cosmos accounts that span several regions.
+
+| **Consistency level** | **Potential data loss window in the event of a regional disaster** |
+| - | - |
+| Strong | Zero |
+| Bounded Staleness | Confined to the “staleness window” you configure on the Cosmos account. |
+| Session | Up to 5 seconds |
+| Consistent Prefix | Up to 5 seconds |
+| Eventual | Up to 5 seconds |
 
 ## Building highly available applications
 

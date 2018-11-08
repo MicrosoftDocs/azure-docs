@@ -31,20 +31,6 @@ Distributed databases relying on replication for high availability, low latency 
 
 - For a given type of write operation such as insert, replace, upsert, delete, etc. the write throughput for request units is identical for all consistency levels.
 
-## Consistency levels and durability
-
-Before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations. Moreover, if the container is configured with consistent indexing policy, the index is also synchronously updated, replicated, and durably committed by the quorum of replicas before the acknowledgement of write operation is sent to the client.
-
-The following table summarizes the potential data loss window in the event of a regional disaster for the Cosmos accounts that span several regions.
-
-| **Consistency level** | **Potential data loss window in the event of a regional disaster** |
-| - | - |
-| Strong | Zero |
-| Bounded Staleness | Confined to the “staleness window” you configure on the Cosmos account. |
-| Session | Up to 5 seconds |
-| Consistent Prefix | Up to 5 seconds |
-| Eventual | Up to 5 seconds |
-
 ## Next steps
 
 Next you can learn more about global distribution and general consistency tradeoffs in distributed systems using the following articles:
