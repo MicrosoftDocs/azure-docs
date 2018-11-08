@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 01/15/2018
+ms.date: 11/08/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
 

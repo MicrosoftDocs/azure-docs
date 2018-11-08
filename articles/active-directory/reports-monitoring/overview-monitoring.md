@@ -15,9 +15,11 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/24/2018
+ms.date: 11/08/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
+
+# Customer intent: As an Azure AD administrator, I want to understand what monitoring solutions are available for Azure AD activity data and how they can help me manage my tenant.
 ---
 
 # What is Azure Active Directory monitoring? (preview)
@@ -29,7 +31,6 @@ Currently, you can route the logs to:
 - An Azure storage account.
 - An Azure event hub, so you can integrate with your Splunk and Sumologic instances.
 - Azure Log Analytics workspace, wherein you can analyze the data, create dashboard and alert on specific events
-
 
 ## Diagnostic settings configuration
 
