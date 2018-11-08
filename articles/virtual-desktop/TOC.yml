@@ -27,7 +27,7 @@
     href: set-up-wvd-tenants-in-rd.md
 - name: Concepts
   items:
-  - name: Windows Virtual Desktop environment guidelines
+  - name: Windows Virtual Desktop environment
     href: set-up-wvd-environment.md
   - name: Introducing the new diagnostics role service
     href: introducing-the-new-diagnostics-role-service.md

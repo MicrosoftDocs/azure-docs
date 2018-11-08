@@ -1,15 +1,15 @@
 ---
-title: Windows Virtual Desktop environment guidelines
-description: How to set up a Windows Virtual Desktop environment.
+title: Windows Virtual Desktop environment
+description: The basic elements of a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr
 
 ms.service: virtual-desktop
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: helohr
 ---
-# Windows Virtual Desktop environment guidelines
+# Windows Virtual Desktop environment
 
 Windows Virtual Desktop is a multi-tenant environment where infrastructure roles are deployed as PaaS services. The infrastructure consists of the following roles:
 
@@ -18,15 +18,7 @@ Windows Virtual Desktop is a multi-tenant environment where infrastructure roles
 * **RD Gateway** securely connects users to their sessions over the Internet. Besides the session hosts themselves, RD Gateway is the only other role used throughout the lifespan of a session.
 * **RD Web** lists the apps and resources assigned to users. RD clients query the RD Web to find which apps users have been assigned and then launch those apps in the client itself. RD Web has built-in caching capabilities to reduce the chance of throttling the RD Broker and the database.
 
-Following these guidelines will lead to successful Windows Virtual Desktop deployment. Take note of the following items as they are outputted to you, as you will need these for Remote Desktop tenant deployment:
-
-* RD Broker URL
-* RD Diagnostics URL
-* RD Gateway URL
-* RD Web URL
-* Admin UPN
-
-For a visual outline of how to set up and run a Windows Virtual Desktop environment, download the [Windows Virtual Desktop planning poster](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-poster).
+When deploying Windows Virtual Desktop, take note of the URLs for each role and the admin UPN as they are outputted to you, as you'll need that information for when you start deploying tenants.
 
 ## Tenants
 
@@ -36,10 +28,20 @@ Each session host must have an Windows Virtual Desktop host agent installed and 
 
 Each host pool may have one or more app groups. An app group is a logical grouping of the applications that are installed on the session hosts in the host pool. There are two types of app groups, desktop and RemoteApp. A desktop app group is used to publish the full desktop and provide access to all the apps installed on the session hosts in the host pool. A RemoteApp app group is used to publish one or more RemoteApps which display on the RD client as the application window on the local RD client desktop.
 
-Use the guide in this section to set up a tenant environment that lets end users connect to published apps and desktops using Remote Desktop clients. In case of connection issues, your tenant admin can use the newly introduced diagnostics role service to identify the root cause.
+In case of connection issues, your tenant admin can use the newly introduced [diagnostics role service](introducing-the-new-diagnostics-role-service.md) to identify the root cause.
 
-## End-users
+## End users
 
-You can connect to a Windows Virtual Desktop deployment using either a Windows client or the new web client. This document covers the details of these two clients and the validations steps for each.
+Once their accounts are set up, users can connect to a Windows Virtual Desktop deployment with either a Windows Virtual Desktop client or the [web client](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-web-client).
 
-Before starting, confirm with the administrator of the deployment that your user account is set up and has access to some published apps or desktops. Some of the validation steps below expect Microsoft Office to be available.
+## Next steps
+
+Learn more about infrastructure roles and how to assign roles to users at [Delegated Access in Windows Virtual Desktop](delegated-access-windows-virtual-desktop.md).
+
+To learn how to set up a tenant environment, see one of the following tutorials:
+
+* (Set up Windows Virtual Desktop tenants in Azure Active Directory)[set-up-wvd-tenants-in-ad.md]
+* (Set up Windows Virtual Desktop tenants in Azure Active Directory)[set-up-wvd-tenants-in-azure-active-directory.md]
+* (Connect to an existing Remote Desktop environment)[set-up-wvd-tenants-in-rd.md]
+
+To learn how to connect to Windows virtual desktop, see the [Connect to Windows Virtual Desktop](connect-to-windows-virtual-desktop.md) tutorial.
