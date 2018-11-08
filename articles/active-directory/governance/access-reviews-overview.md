@@ -43,7 +43,7 @@ With Azure AD, companies collaborate with partners outside of their organization
 
 ## Where do you create reviews?
 
-Depending on what you want to review, you will create your access review in Azure AD Privileged Identity Management (PIM), Azure AD Access Reviews, or Azure AD enterprise apps (in preview).
+Depending on what you want to review, you will create your access review in [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md), Azure AD Access Reviews, or Azure AD enterprise apps (in preview).
 
 | Access rights of users | Reviewers can be | Review created in | Reviewer experience |
 | --- | --- | --- | --- |
