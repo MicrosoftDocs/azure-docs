@@ -76,7 +76,7 @@ cassandra_username=<FILLME_with_USERNAME>
 cassandra_password=<FILLME_with_PRIMARY PASSWORD> 
 ```
 
-Alternatively, you can also build the sample from scratch.  
+Alternatively, you can build the sample from scratch.  
 
 1. From the terminal or command prompt, create a new Maven project called Cassandra-demo. 
 
