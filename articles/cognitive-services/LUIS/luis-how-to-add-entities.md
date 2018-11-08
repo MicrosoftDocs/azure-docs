@@ -111,7 +111,7 @@ In the utterance `Where is Request relocation from employee new to the company o
 
 1. From the **Build** section, select **Entities** in the left panel, and then select **Create new entity**.
 
-1. In the **Add Entity** dialog box, enter  in the Entity name box, and select **Pattern.any** as the **Entity type**.
+1. In the **Add Entity** dialog box, enter `HumanResourcesFormTitle` in the **Entity name** box, and select **Pattern.any** as the **Entity type**.
 
     To use the pattern.any entity, add a pattern on the **Patterns** page, in the **Improve app performance** section, with the correct curly brace syntax, such as `Where is **{HumanResourcesFormTitle}** on the server?`.
 

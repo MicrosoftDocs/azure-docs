@@ -11,9 +11,9 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 11/07/2018
 ---
-# Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises
+# Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises
 
 In this tutorial, you learn how to set up Azure SQL Data Sync by creating a hybrid sync group that contains both Azure SQL Database and SQL Server instances. The new sync group is fully configured and synchronizes on the schedule you set.
 
@@ -123,7 +123,7 @@ On the **Configure On-Premises** page, do the following things:
 
     If you chose **Create a new agent**, do the following things:
 
-   1. Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
+   1. Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located. You can also download the data sync agent directly from [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
@@ -247,35 +247,7 @@ After you export a database as a `.bacpac` file and import the file to create a 
 
 ## FAQ about the client agent
 
-### Why do I need a client agent
-
-The SQL Data Sync service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This design provides a high level of security for your data.
-
-### How many instances of the local agent UI can be run
-
-Only one instance of the UI can be run.
-
-### How can I change my service account
-
-After you install a client agent, the only way to change the service account is to uninstall it and install a new client agent with the new service account.
-
-### How do I change my agent key
-
-An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent, you must be sure that the same key is recorded with the client agent and with the SQL Data Sync service.
-
-### How do I retire a client agent
-
-To immediately invalidate or retire an agent, regenerate its key in the portal but do not submit it in the Agent UI. Regenerating a key invalidates the previous key irrespective if the corresponding agent is online or offline.
-
-### How do I move a client agent to another computer
-
-If you want to run the local agent from a different computer than it is currently on, do the following things:
-
-1. Install the agent on desired computer.
-2. Log in to the SQL Data Sync portal and regenerate an agent key for the new agent.
-3. Use the new agent's UI to submit the new agent key.
-4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
-5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
+For frequently asked questions about the client agent, see [Agent FAQ](sql-database-data-sync-agent.md#agent-faq).
 
 ## Next steps
 

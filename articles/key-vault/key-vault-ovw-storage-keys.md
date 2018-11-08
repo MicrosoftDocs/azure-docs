@@ -30,14 +30,17 @@ Prerequisites
     - **Naming guidance:**
       Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.        
       
-Step by step instructions
--------------------------
+Step by step instructions on how to use Key Vault to manage Storage Account Keys
+--------------------------------------------------------------------------------
 In the below instructions, we are assigning Key Vault as a service to have operator permissions on your storage account
+
+> [!NOTE]
+> Please note that once you've set up Azure Key Vault managed storage account keys they should **NO** longer be changed except via Key Vault. Managed Storage account keys means that Key Vault would manage rotating the storage account key
 
 1. After creating a storage account run the following command to get the resource ID of the storage account, you want to manage
 
     ```
-    az storage account show -n storageaccountname (Copy ID out of the result of this command)
+    az storage account show -n storageaccountname (Copy ID field out of the result of this command)
     ```
     
 2. Get Application ID of Azure Key Vault's service principal 
@@ -49,7 +52,7 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 3. Assign Storage Key Operator role to Azure Key Vault Identity
 
     ```
-    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id hhjkh --scope idofthestorageaccount
+    az role assignment create --role "Storage Account Key Operator Service Role"  --assignee-object-id <ApplicationIdOfKeyVault> --scope <IdOfStorageAccount>
     ```
     
 4. Create a Key Vault Managed Storage Account.     <br /><br />
@@ -67,6 +70,8 @@ In the below instructions, we are assigning Key Vault as a service to have opera
 
     az keyvault set-policy --name <YourVaultName> --object-id <ObjectId> --storage-permissions backup delete list regeneratekey recover     purge restore set setsas update
     ```
+### Relavant Azure CLI cmdlets
+- [Azure CLI Storage Cmdlets](https://docs.microsoft.com/cli/azure/keyvault/storage?view=azure-cli-latest)
 
 ### Relevant Powershell cmdlets
 

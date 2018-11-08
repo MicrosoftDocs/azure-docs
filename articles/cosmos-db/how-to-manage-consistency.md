@@ -10,7 +10,7 @@ ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Manage consistency
+# Manage consistency levels in Azure Cosmos DB
 
 This article explains the different ways to set default consistency, overrides that consistency on the client, manually manage session tokens, and understand the Probabilistically Bounded Staleness (PBS) metric.
 
@@ -66,7 +66,7 @@ To view or modify the default consistency level, sign in to Azure portal. Find y
 
 Clients can override the default consistency level that is set by the service. This can be done for the whole client, or per request.
 
-### <a id="override-default-consistency-dotnet"></a>.NET
+### <a id="override-default-consistency-dotnet"></a>.NET SDK
 
 ```csharp
 // Override consistency at the client level
@@ -84,7 +84,7 @@ RequestOptions requestOptions = new RequestOptions { ConsistencyLevel = Consiste
 var response = await client.CreateDocumentAsync(collectionUri, document, requestOptions);
 ```
 
-### <a id="override-default-consistency-java-async"></a>Java Async
+### <a id="override-default-consistency-java-async"></a>Java Async SDK
 
 ```java
 // Override consistency at the client level
@@ -98,7 +98,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="override-default-consistency-java-sync"></a>Java Sync
+### <a id="override-default-consistency-java-sync"></a>Java Sync SDK
 
 ```java
 // Override consistency at the client level
@@ -106,7 +106,7 @@ ConnectionPolicy connectionPolicy = new ConnectionPolicy();
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy, ConsistencyLevel.Strong);
 ```
 
-### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="override-default-consistency-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Override consistency at the client level
@@ -119,7 +119,7 @@ const client = new CosmosClient({
 const { body } = await item.read({ consistencyLevel: ConsistencyLevel.Eventual });
 ```
 
-### <a id="override-default-consistency-python"></a>Python
+### <a id="override-default-consistency-python"></a>Python SDK
 
 ```python
 # Override consistency at the client level
@@ -131,7 +131,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 If you want to manually manage session tokens, you can get from them from responses and set them per request. If you don't have a need to manually manage session tokens, you don't need to use the below samples. The SDK will automatically keep track of session tokens and use the most recent session token if you don't set the session token yourself.
 
-### <a id="utilize-session-tokens-dotnet"></a>.NET
+### <a id="utilize-session-tokens-dotnet"></a>.NET SDK
 
 ```csharp
 var response = await client.ReadDocumentAsync(
@@ -144,7 +144,7 @@ var response = await client.ReadDocumentAsync(
                 UriFactory.CreateDocumentUri(databaseName, collectionName, "SalesOrder1"), options);
 ```
 
-### <a id="utilize-session-tokens-java-async"></a>Java Async
+### <a id="utilize-session-tokens-java-async"></a>Java Async SDK
 
 ```java
 // Get session token from response
@@ -166,7 +166,7 @@ requestOptions.setSessionToken(sessionToken);
 Observable<ResourceResponse<Document>> readObservable = client.readDocument(document.getSelfLink(), options);
 ```
 
-### <a id="utilize-session-tokens-java-sync"></a>Java Sync
+### <a id="utilize-session-tokens-java-sync"></a>Java Sync SDK
 
 ```java
 // Get session token from response
@@ -179,7 +179,7 @@ options.setSessionToken(sessionToken);
 ResourceResponse<Document> response = client.readDocument(documentLink, options);
 ```
 
-### <a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="utilize-session-tokens-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Get session token from response
@@ -190,7 +190,7 @@ const sessionToken = headers["x-ms-session-token"];
 const { body } = await item.read({ sessionToken });
 ```
 
-### <a id="utilize-session-tokens-python"></a>Python
+### <a id="utilize-session-tokens-python"></a>Python SDK
 
 ```python
 // Get the session token from the last response headers
@@ -210,7 +210,7 @@ To view the PBS metric, go to your Cosmos DB Account in the Azure portal, and th
 
 ![Picture of the PBS graph in the Azure portal](./media/how-to-manage-consistency/pbs-metric.png)
 
-You must use the Cosmos DB metrics menu to see this metric. It will not show up in the Azure Monitoring metrics experience.
+Use the Cosmos DB metrics menu to see this metric. It will not show up in the Azure Monitoring metrics experience.
 
 ## Next steps
 

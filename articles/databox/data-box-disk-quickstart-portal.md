@@ -26,11 +26,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin:
 
-- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](http://aka.ms/azuredataboxfromdiskdocs).
+- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Sign in to the Azure portal at [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## Order
 
@@ -65,11 +65,11 @@ This step takes roughly 5 minutes.
     3. Run the Data Box Disk Unlock tool and supply the passkey. For any disk reinserts, run the unlock tool again and provide the passkey. **Do not use the BitLocker dialog or the BitLocker key to unlock the disk.** For more information on how to unlock disks, go to [Unlock disks on a Windows client]() or [Unlock disks on a Linux client]().
     4. The drive letter assigned to the disk is displayed by the tool. Make a note of the disk drive letter. This is used in the subsequent steps.
 
-## Copy data and verify
+## Copy data and validate
 
 The time to complete this operation depends upon your data size. 
 
-1. The drive contains *PageBlob*, *BlockBlob*, *AzureImportExport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder.
+1. The drive contains *PageBlob*, *BlockBlob*, *DataBoxDiskImport* folders. Drag and drop to copy the data that needs to be imported as block blobs in to *BlockBlob* folder. Similarly, drag and drop data such as VHD/VHDX to *PageBlob* folder.
 
     A container is created in the Azure storage account for each sub-folder under *BlockBlob* and *PageBlob* folder. All files under *BlockBlob* and *PageBlob* folders are copied into a default container `$root` under the Azure Storage account.
 
@@ -77,7 +77,7 @@ The time to complete this operation depends upon your data size.
     > - All the containers and blobs should conform to [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). If these rules are not followed, the data upload to Azure will fail.
     > - Ensure that files do not exceed ~4.75 TiB for block blobs and ~8 TiB for page blobs.
 
-2. (Optional) After the copy is complete, we recommend that you run the `DataBoxDiskValidation.cmd` provided in the *AzureImportExport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
+2. (Optional) After the copy is complete, we recommend that you run the `DataBoxDiskValidation.cmd` provided in the *DataBoxDiskImport* folder to generate checksums for validation. Depending upon the data size, this step may take time. 
 3. Unplug the drive. 
 
 

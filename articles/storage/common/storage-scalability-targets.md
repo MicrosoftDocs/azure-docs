@@ -49,5 +49,5 @@ Azure File Sync has been designed with the goal of limitless usage, but limitles
 * [Azure Subscription and Service Limits, Quotas, and Constraints](../../azure-subscription-service-limits.md)
 * [Azure Storage Replication](../storage-redundancy.md)
 * [Microsoft Azure Storage Performance and Scalability Checklist](../storage-performance-checklist.md)
-* [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+* [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

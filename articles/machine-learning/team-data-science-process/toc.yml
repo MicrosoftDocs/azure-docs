@@ -234,9 +234,9 @@
       items:
       - name: Overview
         href: cortana-analytics-playbook-vehicle-telemetry.md
-      - name: Playbook
+      - name: Playbook Deep Dive
         href: cortana-analytics-playbook-vehicle-telemetry-deep-dive.md
-      - name: Setup
+      - name: Power BI Setup
         href: cortana-analytics-playbook-vehicle-telemetry-powerbi.md
 - name: Resources
   items:
