@@ -200,23 +200,23 @@ At the bottom, choose **OK**.
 
    ![Select "Pipeline"](media/jenkins-java-quickstart/jenkins-select-pipeline.png)
 
-1. On the **General** tab, select **Prepare an environment for the run**. 
-In the **Properties Content** box that appears, add these environment 
-variables and their values:
+1. Set up Jenkins with your service principal so Jenkins 
+can deploy to Azure without using your own credentials.
 
-   ```text
-   AZURE_CRED_ID=yourAzureServicePrincipal-ID
-   RES_GROUP=yourWebAppAzureResourceGroupName
-   WEB_APP=yourWebAppName
-   ```
+   1. On the **General** tab, select 
+   **Prepare an environment for the run**. 
 
-   This step sets up Jenkins with your service 
-   principal so you can have Jenkins deploy to 
-   Azure without entering your own credentials.
+   1. After the **Properties Content** box appears, 
+   add these environment variables and their values. 
+   For example, use the service principal ID you created earlier.
 
-   For example:
-
-   ![Select "Prepare an environment for the run"](media/jenkins-java-quickstart/prepare-environment-for-run.png)
+      ```text
+      AZURE_CRED_ID=yourAzureServicePrincipal-ID
+      RES_GROUP=yourWebAppAzureResourceGroupName
+      WEB_APP=yourWebAppName
+      ```
+  
+      ![Select "Prepare an environment for the run" and set environment variables](media/jenkins-java-quickstart/prepare-environment-for-run.png)
 
 1. When you're done, choose **Save**.
 
