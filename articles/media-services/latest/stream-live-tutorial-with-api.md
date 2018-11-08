@@ -1,5 +1,5 @@
 ---
-title: Stream live with Azure Media Services v3 using APIs | Microsoft Docs
+title: Stream live with Azure Media Services v3 | Microsoft Docs
 description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET Core.
 services: media-services
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 
-# Tutorial: Stream live with Azure Media Services v3 
+# Tutorial: Stream live with Azure Media Services v3 using APIs
 
 In Azure Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
