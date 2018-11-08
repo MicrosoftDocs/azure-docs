@@ -1,5 +1,5 @@
 ---
-title: Customize authentication and authorization in Azure App Service | Microsoft Docs
+title: Advance usage of authentication and authorization in Azure App Service | Microsoft Docs
 description: Shows how to customize authentication and authorization in App Service, and get user claims and different tokens.
 services: app-service
 documentationcenter: ''
@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
 ---
 
-# Customize authentication and authorization in Azure App Service
+# Advance usage of authentication and authorization in Azure App Service
 
-This article shows you how to customize [authentication and authorization in App Service](app-service-authentication-overview.md), and to manage identity from your application. 
+This article shows you how to customize the built-in [authentication and authorization in App Service](app-service-authentication-overview.md), and to manage identity from your application. 
 
 To get started quickly, see one of the following tutorials:
 
@@ -71,11 +71,11 @@ Content-Type: application/json
 
 The token format varies slightly according to the provider. See the following table for details:
 
-| Provider value | Request body | Comments |
+| Provider value | Required in request body | Comments |
 |-|-|-|
-| `aad` | `{"id_token":"<id_token>", "access_token":"<access_token>"}` | |
-| `microsoftaccount` | `{"access_token":"<token>"}` | When requesting the token from Live services, always request the `wl.basic` scope. |
-| `google` | `{"id_token":"<id_token>"}` | |
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | The `expires_in` property is optional. <br/>When requesting the token from Live services, always request the `wl.basic` scope. |
+| `google` | `{"id_token":"<id_token>"}` | The `authorization_code` property is optional. When specified, it can also optionally be accompanied by the `redirect_uri` property. |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
 | | | |
