@@ -155,7 +155,7 @@
           href: explore-data.md
         - name: Explore Azure Blob storage
           href: explore-data-blob.md
-        - name: Explore SQL VM
+        - name: Explore SQL on a VM
           href: explore-data-sql-server.md
         - name: Explore Hive tables
           href: explore-data-hive-tables.md
