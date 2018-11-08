@@ -76,6 +76,10 @@ If you have content from multiple languages, be sure to create a separate servic
 
 ## Manage service
 
+### When should I restart my app service? 
+
+Refresh your app service when the caution icon is next to the version value for the knowledge base in the **Endpoint keys** table on the **User Settings** [page](https://www.qnamaker.ai/UserSettings).
+
 ### When should I refresh my endpoint keys?
 
 Refresh your endpoint keys if you suspect that they have been compromised.
