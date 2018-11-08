@@ -1,6 +1,6 @@
 ---
-title: Move Data to and from Azure Blob Storage | Microsoft Docs
-description: Move Data to and from Azure Blob Storage
+title: Move Data to and from Azure Blob storage | Microsoft Docs
+description: Move Data to and from Azure Blob storage
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
@@ -18,12 +18,15 @@ ms.date: 11/04/2017
 ms.author: deguhath
 
 ---
-# Move data to and from Azure Blob Storage
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+# Move data to and from Azure Blob storage
 
-<!-- just in case, adding this to separate these two include references -->
+The Team Data Science Process requires that data be ingested or loaded into a variety of different storage environments to be processed or analyzed in the most appropriate way in each stage of the process.
+The following articles describe how to move data to and from Azure Blob storage using different technologies.
 
-[!INCLUDE [blob-storage-tool-selector](../../../includes/machine-learning-blob-storage-tool-selector.md)]
+* [Azure Storage-Explorer](move-data-to-azure-blob-using-azure-storage-explorer.md)
+* [AzCopy](move-data-to-azure-blob-using-azcopy.md)
+* [Python](move-data-to-azure-blob-using-python.md)
+* [SSIS](move-data-to-azure-blob-using-ssis.md)
 
 Which method is best for you depends on your scenario. The [Scenarios for advanced analytics in Azure Machine Learning](plan-sample-scenarios.md) article helps you determine the resources you need for a variety of data science workflows used in the advanced analytics process.
 

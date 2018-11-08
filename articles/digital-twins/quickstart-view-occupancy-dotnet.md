@@ -36,7 +36,7 @@ The following video summarizes quickstart setup:
 
 Create a new instance of the Digital Twins in the [portal](https://portal.azure.com) using the steps in this section.
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## Set permissions for your app
 
