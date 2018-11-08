@@ -58,6 +58,8 @@
     href: service-fabric-mesh-howto-setup-developer-environment-sdk.md
   - name: Set up Service Fabric Mesh CLI
     href: service-fabric-mesh-howto-setup-cli.md
+  - name: Containerize an existing .NET app
+    href: service-fabric-mesh-howto-containerize-vs.md
   - name: Optimize Visual Studio performance
     href: service-fabric-mesh-howto-optimize-vs.md
   - name: Auto scale services
