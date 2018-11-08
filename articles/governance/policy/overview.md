@@ -19,7 +19,7 @@ Does your company experience a significant number of IT issues that never seem t
 Good IT governance involves planning your initiatives and setting priorities on a strategic level
 to help manage and prevent issues. This is where Azure Policy comes in.
 
-Azure Policy is a service in Azure that you use to create, assign and, manage policies. These
+Azure Policy is a service in Azure that you use to create, assign and manage policies. These
 policies enforce different rules and effects over your resources, so those resources stay compliant
 with your corporate standards and service level agreements. Azure Policy does this by running
 evaluations of your resources and scanning for those not compliant with the policies you have
