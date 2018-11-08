@@ -1,0 +1,76 @@
+---
+title: How to configure Postman for Azure Digital Twins | Microsoft Docs
+description: How to configure Postman for Azure Digital Twins
+author: kingdomofends
+manager: alinast
+ms.service: digital-twins
+services: digital-twins
+ms.topic: conceptual
+ms.date: 11/8/2018
+ms.author: adgera
+---
+
+# How to configure Postman for Azure Digital Twins
+
+This article first describes how to configure Azure Active Directory to accept OAuth 2.0 authenticated requests. Then, it demonstrates how to configure the Postman REST client to make authenticated HTTP request to your Management APIs.
+
+## Postman summary
+
+
+
+## Configure Azure Active Directory to accept OAuth 2.0
+
+Get started quickly by using a REST client tool such as [Postman](https://www.getpostman.com/) to prepare your local testing environment. The Postman client helps to quickly create complex HTTP requests.
+
+Configure your app to allow OAuth 2.0 authenticated requests in Azure Active Directory.
+
+1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application. Or you can reuse an existing registration.
+1. Under **Required permissions**, enter `Azure Digital Twins` and select **Delegated Permissions**. Then select **Grant Permissions**.
+
+    ![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+
+1. Click **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
+
+      ![Azure AD implicit flow][1]
+
+1. Configure a **Reply URL** to [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback).
+
+      ![Azure AD Reply URL][2]
+
+## Configure the Postman client
+
+Next, set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
+
+1. Go to [www.getpostman.com]([https://www.getpostman.com/) to download the app.
+1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
+
+    |**Field**  |**Value** |
+    |---------|---------|
+    | Grant Type | `Implicit` |
+    | Callback URL | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
+    | Auth URL | https://login.microsoftonline.com/yourAzureTenant.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
+    | Client ID | Use the Application ID for the Azure AD app that was created or repurposed from Step 2 |
+    | Scope | leave blank |
+    | State | leave blank |
+    | Client Authentication | `Send as Basic Auth header` |
+
+1. The client should now look like:
+
+   ![Postman client example][3]
+
+1. Click **Request Token**.
+
+    >[!NOTE]
+    >If you receive error message "OAuth 2 couldn’t be completed," try the following:
+    > * Close Postman and reopen it and try again.
+
+1. Scroll down, and select **Use Token**.
+
+## Next steps
+
+To learn about authenticating with the Management APIs, read [Authenticate with APIs](./security-authenticating-apis.md).
+
+<!-- Images -->
+[1]: media/how-to-configure-postman/implicit-flow.png
+[2]: media/how-to-configure-postman/reply-url.png
+[3]: media/how-to-configure-postman/postman-oauth-token.png

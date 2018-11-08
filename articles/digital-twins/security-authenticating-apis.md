@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 11/8/2018
 ms.author: lyrana
 ---
 
@@ -30,10 +30,19 @@ The Windows Azure Authentication Library offers many ways to acquire Active Dire
 
 ## Call Digital Twins from a middle-tier web API
 
-When developers architect Digital Twins solutions, they typically create a middle-tier application or API. The app or API then calls the Digital Twins API downstream. Users first authenticate to the mid-tier application, and then an on-behalf-of token flow is used to call downstream. For instructions about how to orchestrate the on-behalf-of flow, see [this page](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples on [this page](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
+When developers architect Digital Twins solutions, they typically create a middle-tier application or API. The app or API then calls the Digital Twins API downstream.
 
-[!INCLUDE [digital-twins-oauth](../../includes/digital-twins-oauth.md)]
+Users first:
+
+1. Authenticate with the middle-tier application
+1. The supplied OAuth 2.0 On-Behalf-Of token is used to authenticate or call APIs that are further downstream.
+
+To get started, read about how to [configure and test](./how-to-configure-postman.md) your app using the Postman client.
+
+For instructions about how to orchestrate the on-behalf-of flow, see [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples in [Calling a downstream web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 
 ## Next steps
+
+To configure and test OAuth 2.0 with Azure Digital Twins, read [Configure Postman](./how-to-configure-postman.md).
 
 To learn about Azure Digital Twins security, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
