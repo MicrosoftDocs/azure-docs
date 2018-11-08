@@ -31,11 +31,11 @@ The following steps walk you through using the AzCopy command-line utility to up
 
 ## Step-by-step instructions
 
-The following steps walk you through uploading a VHD file to Azure DevTest Labs using [AzCopy](http://aka.ms/downloadazcopy). 
+The following steps walk you through uploading a VHD file to Azure DevTest Labs using [AzCopy](https://aka.ms/downloadazcopy). 
 
 1. Get the name of the lab's storage account using the Azure portal:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **All services**, and then select **DevTest Labs** from the list.
 
@@ -64,7 +64,7 @@ The first parameter (*Destination*) contains the URI for a blob container (*uplo
 
 1. Upload the VHD file using AzCopy:
  
-1. [Download and install the latest version of AzCopy](http://aka.ms/downloadazcopy).
+1. [Download and install the latest version of AzCopy](https://aka.ms/downloadazcopy).
 
 1. Open a command window and navigate to the AzCopy installation directory. Optionally, you can add the AzCopy installation location to your system path. By default, AzCopy is installed to the following directory:
 
