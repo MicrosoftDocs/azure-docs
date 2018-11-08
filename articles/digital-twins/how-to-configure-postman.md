@@ -58,12 +58,12 @@ Next, set up and configure Postman to obtain an Azure Active Directory token. Af
 
    ![Postman client example][3]
 
-1. Click **Request Token**.
+1. Select **Request Token**.
 
     >[!NOTE]
-    >If you receive error message "OAuth 2 couldn’t be completed," try the following:
-    > * Close Postman and reopen it and try again.
-
+    >If you receive the error message "OAuth 2 couldn’t be completed," try the following:
+    > * Close Postman, and reopen it and try again.
+  
 1. Scroll down, and select **Use Token**.
 
 ## Next steps
