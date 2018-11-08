@@ -138,11 +138,11 @@ You should now see a build in progress. The changes you just 	made are automatic
 
 ## Clean up resources
 
-You can delete Azure App Service and related resources from this quickstart when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
+You can delete Azure App Service and other related resources that you created in this quickstart when you don't need them anymore. Use the Delete functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
-When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see this tutorial:
+When you configured your CI/CD process, build and release pipelines were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see this tutorial:
 
 > [!div class="nextstepaction"]
 > [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
