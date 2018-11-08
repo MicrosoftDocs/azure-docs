@@ -59,17 +59,17 @@ The following examples illustrate how you can size a virtual array based on your
 #### Example 1:
 On your virtual array, you want to be able to
 
-* provision a 2 TB tiered volume or share.
-* provision a 1 TB tiered volume or share.
-* provision a 300 GB of locally pinned volume or share.
+* provision a 2-TB tiered volume or share.
+* provision a 1-TB tiered volume or share.
+* provision a 300-GB of locally pinned volume or share.
 
 For the preceding volumes or shares, let us calculate the space requirements on the local tier.
 
 First, for each tiered volume/share, local reservation would be equal to 12% of the volume/share size. For the locally pinned volume/share, local reservation is 10 % of the locally pinned volume/share size (in addition to the provisioned size). In this example, you need
 
-* 240 GB local reservation (for a 2 TB tiered volume/share)
-* 120 GB local reservation (for a 1 TB tiered volume/share)
-* 330 GB for locally pinned volume or share (adding 10 % of local reservation to the 300 GB provisioned size)
+* 240-GB local reservation (for a 2-TB tiered volume/share)
+* 120-GB local reservation (for a 1-TB tiered volume/share)
+* 330-GB for locally pinned volume or share (adding 10 % of local reservation to the 300 GB provisioned size)
 
 The total space required on the local tier so far is: 240 GB + 120 GB + 330 GB = 690 GB.
 
@@ -87,13 +87,13 @@ Factoring in unexpected growth and new restores, you should provision a local di
 #### Example 2:
 On your virtual array, you want to be able to
 
-* provision a 2 TB tiered volume
-* provision a 300 GB locally pinned volume
+* provision a 2-TB tiered volume
+* provision a 300-GB locally pinned volume
 
 Based on 12 % of local space reservation for tiered volumes/shares and 10 % for locally pinned volumes/shares, we need
 
-* 240 GB local reservation (for 2 TB tiered volume/share)
-* 330 GB for locally pinned volume or share (adding 10% of local reservation to the 300 GB provisioned space)
+* 240-GB local reservation (for 2 TB tiered volume/share)
+* 330-GB for locally pinned volume or share (adding 10% of local reservation to the 300 GB provisioned space)
 
 Total space required on the local tier is: 240 GB + 330 GB = 570 GB
 
@@ -118,7 +118,7 @@ The network configuration for your virtual array is done through the local web U
 
 When deploying your virtual array, we recommend that you follow these best practices:
 
-* Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5 Mbps Internet bandwidth (or more).
+* Ensure that the network in which the virtual array is deployed always has the capacity to dedicate 5-Mbps Internet bandwidth (or more).
   
   * Internet bandwidth need varies depending on your workload characteristics and the rate of data change.
   * The data change that can be handled is directly proportional to your Internet bandwidth. As an example when taking a backup, a 5 Mbps bandwidth can accommodate a data change of around 18 GB in 8 hours. With four times more bandwidth (20 Mbps), you can handle four times more data change (72 GB).
