@@ -25,8 +25,6 @@ This feature helps to secure your Data Lake Storage account from external threat
 Virtual network integration for Data Lake Storage Gen1 makes use of the virtual network service endpoint security between your virtual network and Azure Active Directory (Azure AD) to generate additional security claims in the access token. These claims are then used to authenticate your virtual network to your Data Lake Storage Gen1 account and allow access.
 
 > [!NOTE]
-> This technology is in preview. We don't recommend it for use in production environments.
->
 > There's no additional charge associated with using these capabilities. Your account is billed at the standard rate for Data Lake Storage Gen1. For more information, see [pricing](https://azure.microsoft.com/pricing/details/data-lake-store/?cdn=disable). For all other Azure services that you use, see [pricing](https://azure.microsoft.com/pricing/#product-picker).
 
 ## Scenarios for virtual network integration for Data Lake Storage Gen1
