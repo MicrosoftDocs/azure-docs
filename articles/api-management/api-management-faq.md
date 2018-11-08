@@ -72,7 +72,7 @@ You have several options if you want to copy an API Management instance to a new
 Yes, you can manage API Management programmatically by using:
 
 * The [API Management REST API](https://msdn.microsoft.com/library/azure/dn776326.aspx).
-* The [Microsoft Azure ApiManagement Service Management Library SDK](http://aka.ms/apimsdk).
+* The [Microsoft Azure ApiManagement Service Management Library SDK](https://aka.ms/apimsdk).
 * The [Service deployment](https://docs.microsoft.com/powershell/module/wds) and [Service management](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) PowerShell cmdlets.
 
 ### How do I add a user to the Administrators group?
@@ -99,7 +99,7 @@ To set up multiple environments, for example, a test environment and a productio
 * Host the same APIs on different tenants.
 
 ### Can I use SOAP with API Management?
-[SOAP pass-through](http://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
+[SOAP pass-through](https://blogs.msdn.microsoft.com/apimanagement/2016/10/13/soap-pass-through/) support is now available. Administrators can import the WSDL of their SOAP service, and Azure API Management will create a SOAP front end. Developer portal documentation, test console, policies and analytics are all available for SOAP services.
 
 ### Is the API Management gateway IP address constant? Can I use it in firewall rules?
 In all tiers of API Management, the public IP address (VIP) of the API Management tenant is static for the lifetime of the tenant, with some exceptions. The IP address changes in these circumstances:
@@ -121,7 +121,7 @@ To learn how to configure an OAuth 2.0 authorization server with Active Director
 API Management uses the [performance traffic routing method](../traffic-manager/traffic-manager-routing-methods.md#performance) in deployments to multiple geographic locations. Incoming traffic is routed to the closest API gateway. If one region goes offline, incoming traffic is automatically routed to the next closest gateway. Learn more about routing methods in [Traffic Manager routing methods](../traffic-manager/traffic-manager-routing-methods.md).
 
 ### Can I use an Azure Resource Manager template to create an API Management service instance?
-Yes. See the [Azure API Management Service](http://aka.ms/apimtemplate) QuickStart templates.
+Yes. See the [Azure API Management Service](https://aka.ms/apimtemplate) QuickStart templates.
 
 ### Can I use a self-signed SSL certificate for a back end?
 Yes. This can be done through PowerShell or by directly submitting to the API. This will disable certificate chain validation and will allow you to use self-signed or privately-signed certificates when communicating from API Management to the back end services.

@@ -47,7 +47,7 @@ This article gives a brief overview of on demand media encoders and provides lin
 [Formats and codecs](media-services-media-encoder-standard-formats.md)
 
 ### Presets
-Media Encoder Standard is configured using one of the encoder presets described [here](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard is configured using one of the encoder presets described [here](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### Input and output metadata
 The encoders input metadata is described [here](media-services-input-metadata-schema.md).
