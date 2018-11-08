@@ -147,6 +147,9 @@ X-Powered-By: ASP.NET
 
 ```
 
+> [!TIP]
+> The number of values in a *GET* response is limited to 200 for a 'page'. Use the 'nextLink' field to get the URL for next set of responses.
+
 The response contains the list of all unprotected Azure VMs and each `{value}` contains all the information required by Azure Recovery Service to configure backup. To configure backup, note the `{name}` field and the `{virtualMachineId}` field in `{properties}` section. Construct two variables from these field values as mentioned below.
 
 - containerName = "iaasvmcontainer;"+`{name}`

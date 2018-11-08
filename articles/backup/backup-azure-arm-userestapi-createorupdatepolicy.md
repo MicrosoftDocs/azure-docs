@@ -143,6 +143,9 @@ The policy says:
 }
 ```
 
+> [!IMPORTANT]
+> The time formats for schedule and retention support only DateTime. They do not support Time format alone.
+
 ## Responses
 
 The backup policy creation/update is a [asynchronous operation](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations). It means this operation creates another operation that needs to be tracked separately.
