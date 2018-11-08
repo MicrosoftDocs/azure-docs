@@ -140,7 +140,7 @@ The logs contain useful information about the deployment process. They can be vi
 
 ## Clean up resources
 
-You can delete Azure App Service and related resources from this quickstart when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
+You can delete Azure App Service and other related resources that you created in this quickstart when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
