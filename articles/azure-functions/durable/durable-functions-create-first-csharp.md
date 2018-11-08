@@ -95,23 +95,23 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     This request will query this orchestration instance for the status. You should get an eventual response that looks like the following.  This shows us the instance has completed, and includes the outputs or results of the durable function.
 
-```json
-{
-    "instanceId": "d495cb0ac10d4e13b22729c37e335190",
-    "runtimeStatus": "Completed",
-    "input": null,
-    "customStatus": null,
-    "output": [
-        "Hello Tokyo!",
-        "Hello Seattle!",
-        "Hello London!"
-    ],
-    "createdTime": "2018-11-08T07:07:40Z",
-    "lastUpdatedTime": "2018-11-08T07:07:52Z"
-}
-```
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
 
-4. To stop debugging, press **Shift + F5**.
+5. To stop debugging, press **Shift + F5**.
 
 After you have verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
