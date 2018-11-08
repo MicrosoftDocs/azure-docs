@@ -51,9 +51,17 @@ Get-AzureRmResource -ResourceId "$($MySQLServer.Id)/firewallRules" -ApiVersion 2
 
 The output lists the rules, if any, as PowerShell objects.
 
+To review the details of a single rule, use the following command:
+
+```azurepowershell-interactive
+Get-AzureRmResource -ResourceType 'Microsoft.DBforMySQL/servers/firewallRules' -ApiVersion 2017-12-01 -ResourceName "my-mysql-server/FirewallRule1" -ResourceGroupName 'my-mysql-server-resourcegroup'
+```
+
+If the name of the rule being requested does not exist, an error will be returned.
+
 ## Create a firewall rule on Azure Database for MySQL Server
 
-Create an object which we will use when creating the rule that reflects the start and end IP addresses of the range to be allowed in the rule.
+Firstly, create an object which we will use when creating the rule that reflects the start and end IP addresses of the range to be allowed in the rule.
 ```azurepowershell-interactive
 $Range = @{
     startIpAddress = '20.0.0.1' # The start IP address of the range for the rule. 
@@ -62,45 +70,58 @@ $Range = @{
 ```
 
 Now create the firewall rule, providing the object (`$Range`) we created in the earlier step. `FirewallRule1` is the name of the new rule to be created.
+
 ```azurepowershell-interactive
 New-AzureRmResource -ResourceId "$($MySQLServer.Id)/firewallRules/FirewallRule1" -Properties $Range -ApiVersion 2017-12-01
-``
+```
 
-To allow applications from Azure IP addresses to connect to your Azure Database for MySQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example.
+You will be prompted to confirm creation of the new rule. Enter `y` to confirm and press Enter. Note you can use the `-Force` and `-Confirm:$false` defaults in an automation script if required.
+
+To allow applications from Azure IP addresses to connect to your Azure Database for MySQL server, provide the IP address 0.0.0.0 as the Start IP and End IP, as in this example. Note the name of the rule.
+
 ```azurepowershell-interactive
-az mysql server firewall-rule create --resource-group myresourcegroup --server mysql --name "AllowAllWindowsAzureIps" --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+$Range = @{
+    startIpAddress = '0.0.0.0'
+    endIpAddress   = '0.0.0.0'
+}
+
+New-AzureRmResource -ResourceId "$($MySQLServer.Id)/firewallRules/AllowAllWindowsAzureIps" -Properties $Range -ApiVersion 2017-12-01
 ```
 
 > [!IMPORTANT]
-> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorized users.
+> This option configures the firewall to allow all connections from Azure including connections from the subscriptions of other customers. When selecting this option, make sure your login and user permissions limit access to only authorised users.
 > 
 
-Upon success, each create command output lists the details of the firewall rule you have created, in JSON format (by default). If there is a failure, the output shows error message text instead.
+Upon success, the command returns an object containing the details of the firewall rule you have created.
 
 ## Update a firewall rule on Azure Database for MySQL server 
-Using the Azure MySQL server name and the resource group name, update an existing firewall rule on the server. Use the [az mysql server firewall update](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-update) command. Provide the name of the existing firewall rule as input, as well as the start IP and end IP attributes to update.
-```azurecli-interactive
-az mysql server firewall-rule update --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1 --start-ip-address 13.83.152.0 --end-ip-address 13.83.152.1
+To update a firewall rule, follow the same process as though you are creating a new rule but specify the name of an existing rule.
+
+```azurepowershell-interactive
+$Range = @{
+    startIpAddress = '20.0.0.1' # The start IP address of the range for the rule. 
+    endIpAddress   = '20.0.0.200' # The end IP address of the range for the rule.
+}
+
+New-AzureRmResource -ResourceId "$($MySQLServer.Id)/firewallRules/FirewallRule1" -Properties $Range -ApiVersion 2017-12-01
 ```
-Upon success, the command output lists the details of the firewall rule you have updated, in JSON format (by default). If there is a failure, the output shows error message text instead.
+
+Upon success, the command output lists the details of the firewall rule you have updated.
 
 > [!NOTE]
 > If the firewall rule does not exist, the rule is created by the update command.
 
-## Show firewall rule details on Azure Database for MySQL Server
-Using the Azure MySQL server name and the resource group name, show the existing firewall rule details from the server. Use the [az mysql server firewall show](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-show) command. Provide the name of the existing firewall rule as input.
-```azurecli-interactive
-az mysql server firewall-rule show --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
-```
-Upon success, the command output lists the details of the firewall rule you have specified, in JSON format (by default). If there is a failure, the output shows error message text instead.
-
 ## Delete a firewall rule on Azure Database for MySQL Server
-Using the Azure MySQL server name and the resource group name, remove an existing firewall rule from the server. Use the [az mysql server firewall delete](/cli/azure/mysql/server/firewall-rule#az-mysql-server-firewall-rule-delete) command. Provide the name of the existing firewall rule.
-```azurecli-interactive
-az mysql server firewall-rule delete --resource-group myresourcegroup --server-name mydemoserver --name FirewallRule1
+
+To delete a firewall rule, ensure that the `$MySQLServer` object that the rule relates to is populated, or specify the name of the server and resource group manually.
+
+```azurepowershell-interactive
+Remove-AzureRmResource -ResourceType 'Microsoft.DBforMySQL/servers/firewallRules' -ApiVersion 2017-12-01 -ResourceName "$($MySQLServer.Name)/FirewallRule1" -ResourceGroupName $MySQLServer.ResourceGroupName
 ```
-Upon success, there is no output. Upon failure, error message text displays.
+
+Upon success, a boolean value (true or false) is returned. Upon failure, an error message is displayed.
 
 ## Next steps
 - Understand more about [Azure Database for MySQL Server firewall rules](./concepts-firewall-rules.md).
 - [Create and manage Azure Database for MySQL firewall rules using the Azure portal](./howto-manage-firewall-using-portal.md).
+- [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-azurecli.md).
