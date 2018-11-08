@@ -22,7 +22,7 @@ To deploy your solution, you can use either a single template or a main template
 
 For small to medium solutions, a single template is easier to understand and maintain. You can see all the resources and values in a single file. For advanced scenarios, linked templates enable you to break down the solution into targeted components, and reuse templates.
 
-When using linked template, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
+When using linked templates, you create a main template that receives the parameter values during deployment. The main template contains all the linked templates and passes values to those templates as needed.
 
 For a tutorial, see [Tutorial: create linked Azure Resource Manager templates](./resource-manager-tutorial-create-linked-templates.md).
 
