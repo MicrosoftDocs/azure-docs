@@ -13,7 +13,7 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 11/05/2018
 ---
-# Use Resource Health to troubleshoot connectivity for Azure SQL Database and Data Warehouse
+# Use Resource Health to troubleshoot connectivity for Azure SQL Database
 
 ## Overview
 Resource health for SQL Database helps you diagnose and get support when an Azure issue impacts your SQL resources. It informs you about the current and past health of your resources and helps you mitigate issues. Resource health provides technical support when you need help with Azure service issues.
@@ -58,5 +58,8 @@ The Azure infrastructure periodically performs planned maintenance – upgrade o
 Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing, upgrades, software or hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next Steps
-[Configure resource health alerts](/articles/service-health/resource-health-alert-arm-template-guide.md)
-[Troubleshoot performance issues]
+Learn more about [retry logic for transient errors](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
+[Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md)
+Learn more about [configuring Resource Health alerts](/articles/service-health/resource-health-alert-arm-template-guide.md)
+Get an overview of [Resource Health](/articles/service-health/resource-health-overview.md)
+[Resource Health FAQ](/articles/service-health/resource-health-faq.md) 
