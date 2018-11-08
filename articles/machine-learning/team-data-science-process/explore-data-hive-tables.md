@@ -19,11 +19,10 @@ ms.author: deguhath
 
 ---
 # Explore data in Hive tables with Hive queries
-This document provides sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 
-The following **menu** links to topics that describe how to use tools to explore data from various storage environments.
+This article provides sample Hive scripts that are used to explore data in Hive tables in an HDInsight Hadoop cluster.
 
-[!INCLUDE [cap-explore-data-selector](../../../includes/cap-explore-data-selector.md)]
+This task is a step in the [Team Data Science Process](overview.md).
 
 ## Prerequisites
 This article assumes that you have:
