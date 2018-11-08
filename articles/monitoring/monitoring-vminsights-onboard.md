@@ -167,9 +167,11 @@ The Dependency agent can be downloaded from the following location.
 ## Role-based access control
 The following access needs to be granted to your users in order to enable and access features in Azure Monitor for VMs.  
   
-To enable the solution, you need to be added as a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md). 
+- To enable the solution, you need to be added as a member of the Log Analytics contributor role.  
 
-To view the performance, health, and map data, you need to added as a member of the Monitoring Reader role for the Azure VM and the Log Analytics workspace configured with Azure Monitor for VMs.   
+- To view the performance, health, and map data, you need to added as a member of the Monitoring Reader role for the Azure VM and the Log Analytics workspace configured with Azure Monitor for VMs.   
+
+For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
