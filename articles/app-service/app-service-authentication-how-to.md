@@ -71,13 +71,14 @@ Content-Type: application/json
 
 The token format varies slightly according to the provider. See the following table for details:
 
-| Provider | Request body | Comments |
+| Provider value | Request body | Comments |
 |-|-|-|
 | `aad` | `{"id_token":"<id_token>", "access_token":"<access_token>"}` | |
 | `microsoftaccount` | `{"access_token":"<token>"}` | When requesting the token from Live services, always request the `wl.basic` scope. |
 | `google` | `{"id_token":"<id_token>"}` | |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
 | `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
 
@@ -156,7 +157,7 @@ Your application can also obtain additional details on the authenticated user by
 
 From your server code, the provider-specific tokens are injected into the request header, so you can easily access them. The following table shows possible token header names:
 
-| | |
+| Provider | Header names |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Facebook Token | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |
