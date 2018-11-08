@@ -93,7 +93,7 @@ The following table highlights the specific Log Analytics parameters supported b
 
 ## Install the agent using DSC in Azure Automation
 
-You can use the following script example to install the agent using Azure Automation DSC.   If you do not have an Automation account, see [Get started with Azure Automation](../automation/automation-offering-get-started.md) to understand requirements and steps for creating an Automation account required before using Automation DSC.  If you are not familiar with Automation DSC, review [Getting started with Automation DSC](../automation/automation-dsc-getting-started.md).
+You can use the following script example to install the agent using Azure Automation DSC.   If you do not have an Automation account, see [Get started with Azure Automation](/azure/automation/) to understand requirements and steps for creating an Automation account required before using Automation DSC.  If you are not familiar with Automation DSC, review [Getting started with Automation DSC](../automation/automation-dsc-getting-started.md).
 
 The following example installs the 64-bit agent, identified by the `URI` value. You can also use the 32-bit version by replacing the URI value. The URIs for both versions are:
 
