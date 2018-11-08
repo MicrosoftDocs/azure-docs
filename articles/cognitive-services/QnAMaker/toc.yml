@@ -89,7 +89,7 @@
     - name: Publish a knowledge base
       href: How-To/publish-knowledge-base.md
     - name: Test a knowledge base
-    href: How-To/test-knowledge-base.md
+      href: How-To/test-knowledge-base.md
   - name: Integrate with other services
     - name: Integrate QnA Maker and LUIS
       href: Tutorials/integrate-qnamaker-luis.md
