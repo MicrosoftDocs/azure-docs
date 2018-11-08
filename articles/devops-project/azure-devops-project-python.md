@@ -60,7 +60,7 @@ Web App For Containers is the default deployment target. The application framewo
 
    	![Dashboard view](_img/azure-devops-project-python/dashboardnopreview.png) 
 	
-Azure DevOps Projects automatically configures a CI build and release trigger. You're now ready to collaborate with a team on a Python app by using a CI/CD process that automatically deploys your latest work to your website.
+ DevOps Projects automatically configures a CI build and release trigger. You're now ready to collaborate with a team on a Python app by using a CI/CD process that automatically deploys your latest work to your website.
 
 ## Commit code changes and execute CI/CD
 
@@ -78,7 +78,7 @@ You can clone your Git repository in your favorite IDE.  In the next few steps, 
 
 1. Select **Commit**, and then save your changes.
 
-1. In your browser, go to the Azure DevOps Projects dashboard.   
+1. In your browser, go to the DevOps Projects dashboard.   
 	You should now see a build in progress. The changes you just made are automatically built and deployed via a CI/CD pipeline.
 
 ## Examine the CI/CD pipeline
@@ -104,13 +104,13 @@ A browser tab displays the build pipeline for your new project.
 		You see an audit trail of your recent changes for the build.  Azure DevOps  keeps track of any changes made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
-		Azure DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
+		 DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  
 		Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 1. Select **Build and Release**, and then choose **Releases**.   
- DevOps Projects created a release pipeline to manage deployments to Azure.
+ DevOps Projects creates a release pipeline to manage deployments to Azure.
 
 1. Select the ellipsis next to your release pipeline, and then select **Edit**.  
 The release pipeline contains a pipeline, which defines the release process.  
@@ -127,7 +127,7 @@ The tasks are the activities that your deployment process performs. In this exam
 1. On the right, select **View releases** to display a history of releases.  
 		
 1. Select the ellipsis (...) next to one of your releases, and then select **Open**.  
-		There are several menus to explore from this view such as a release summary, associated work items, and tests.
+		There are several menus to explore from this view, such as a release summary, associated work items, and tests.
 
 1. Select **Commits**. 
 		This view shows the code commits that are associated with the specific deployment. 
@@ -137,7 +137,7 @@ The logs contain useful information about the deployment process. You can view t
 
 ## Clean up resources
 
-You can delete Azure App Service and related resources from this quickstart when you don't need them anymore. Use the **Delete** functionality on the Azure DevOps Projects dashboard.
+You can delete Azure App Service and related resources from this quickstart when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
