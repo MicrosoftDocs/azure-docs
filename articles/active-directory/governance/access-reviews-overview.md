@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 11/01/2018
+ms.date: 11/08/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
@@ -101,4 +101,5 @@ Microsoft Graph APIs are available for administrators. What you do to manage Acc
 
 - [Create an access review for members of a group or access to an application](create-access-review.md)
 - [Create an access review of users in an Azure AD administrative role](../privileged-identity-management/pim-how-to-start-security-review.md)
-- [What is Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
+- [Perform an access review with Azure AD Access Reviews](perform-access-review.md)
+- [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
