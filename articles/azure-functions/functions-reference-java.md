@@ -19,7 +19,7 @@ ms.author: routlaw
 
 ## Programming model 
 
-Your Azure function should be a stateless class method that processes input and produces output. Although you can write instance methods, your function must not depend on any instance fields of the class. All function methods must have a `public` access modifier.
+Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data. A function should be a stateless method to process input and produce output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. You need to make sure all the function methods are `public` accessible and method with annotation @FunctionName is unique as that defines the entry for the the function.
 
 ## Folder structure
 
@@ -74,24 +74,12 @@ public class Function {
 }
 ```
 
-The same function written without annotations:
-
-```java
-package com.example;
-
-public class MyClass {
-    public static String echo(String in) {
-        return in;
-    }
-}
-```
-
-with the corresponding `function.json`:
+here is the generated corresponding `function.json`:
 
 ```json
 {
   "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
+  "entryPoint": "com.example.Function.echo",
   "bindings": [
     {
       "type": "httpTrigger",
@@ -118,11 +106,11 @@ Download and use the [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-fo
 
 Azure Functions supports the use of third-party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader at runtime.
 
-The `com.microsoft.azure.functions:azure-functions-java-library` dependency is provided on the classpath by default, and does not need to be included in the `lib` directory.
+The `com.microsoft.azure.functions:azure-functions-java-library` dependency is provided on the classpath by default, and does not need to be included in the `lib` directory. Also, depe listed [here](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) are added to classpath at runtime.
 
 ## Data type support
 
-You can use any data types in Java for the input and output data, including native types; customized Java types and specialized Azure types defined in `azure-functions-java-library` package. The Azure Functions runtime attempts convert the input received into the type requested by your code.
+You can use POJOs and primitive dataType such as String, Ineteger and types defined in `azure-functions-java-library` package for input and output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
 ### Strings
 
@@ -134,8 +122,8 @@ Strings formatted with JSON will be cast to Java types if the input signature of
 
 POJO types used as inputs to functions must the same `public` access modifier as the function methods they are being used in. You don't have to declare POJO class fields `public`. For example, a JSON string `{ "x": 3 }` is able to be converted to the following POJO type:
 
-```Java
-public class MyData {
+```java
+public class TestData {
     private int x;
 }
 ```
@@ -147,7 +135,7 @@ Binary data is represented as a `byte[]` in your Azure functions code. Bind bina
 ```json
  {
   "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.MyClass.echo",
+  "entryPoint": "com.example.Function.echo",
   "bindings": [
     {
       "type": "blob",
@@ -171,11 +159,6 @@ public static String echoLength(byte[] content) {
 
 Empty input values could be `null` as your functions argument, but a recommended way to deal with potential empty values is to use `Optional<T>`.
 
-
-## Function method overloading
-
-You are allowed to overload function methods with the same name but with different types. For example, you can have both `String echo(String s)` and `String echo(MyType s)` in a class. Azure Functions decides which method to invoke based on the input type (for HTTP input, MIME type `text/plain` leads to `String` while `application/json` represents `MyType`).
-
 ## Inputs
 
 Input are divided into two categories in Azure Functions: one is the trigger input and the other is the additional input. Although they are different in `function.json`, the usage is identical in Java code. Let's take the following code snippet as an example:
@@ -185,23 +168,23 @@ package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("echo")
     public static String echo(
         @HttpTrigger(name = "req", methods = { "put" }, authLevel = AuthorizationLevel.ANONYMOUS, route = "items/{id}") String in,
-        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") MyObject obj
+        @TableInput(name = "item", tableName = "items", partitionKey = "Example", rowKey = "{id}", connection = "AzureWebJobsStorage") TestInputData inputData
     ) {
-        return "Hello, " + in + " and " + obj.getKey() + ".";
+        return "Hello, " + in + " and " + inputData.getKey() + ".";
     }
 
-    public static class MyObject {
+    public static class TestInputData {
         public String getKey() { return this.RowKey; }
         private String RowKey;
     }
 }
 ```
 
-When this function is triggered, the HTTP request is passed to the function by `String in`. An entry will be retrieved from the Azure Table Storage based on the ID in the route URL and made avaialble as `obj` in the function body.
+When this function is invoked, the HTTP request payload will be passed as the `String` for argument `in`; and one entry will be retrieved from the Azure Table Storage and be passed to argument `inputData` as `TestInputData` type.
 
 ## Outputs
 
@@ -218,7 +201,7 @@ package com.example;
 
 import com.microsoft.azure.functions.annotation.*;
 
-public class MyClass {
+public class Function {
     @FunctionName("copy")
     @StorageAccount("AzureWebJobsStorage")
     @BlobOutput(name = "$return", path = "samples-output-java/{name}")
@@ -230,6 +213,25 @@ public class MyClass {
 
 Use `OutputBinding<byte[]`>  to make a binary output value (for parameters); for return values, just use `byte[]`.
 
+To receive events in a batch when using EventHubTrigger, set cardinality to many and change input type to an array or List<>
+
+```java
+@FunctionName("ProcessIotMessages")
+    public void processIotMessages(
+        @EventHubTrigger(name = "message", eventHubName = "%AzureWebJobsEventHubPath%", connection = "AzureWebJobsEventHubSender", cardinality = Cardinality.MANY) List<TestEventData> messages,
+        final ExecutionContext context)
+    {
+        context.getLogger().info("Java Event Hub trigger received messages. Batch size: " + messages.size());
+    }
+    
+    public class TestEventData {
+    public String id;
+}
+
+```
+
+Note: You can also bind to 'String[]', 'TestEventData[]' or 'List<String>'
+
 ## Specialized Types
 
 Sometimes a function must have detailed control over inputs and outputs. Specialized types in the `azure-functions-java-core` package are provided for you to manipulate request information and tailor the return status of an HTTP trigger:
@@ -237,7 +239,7 @@ Sometimes a function must have detailed control over inputs and outputs. Special
 | Specialized Type      |       Target        | Typical Usage                  |
 | --------------------- | :-----------------: | ------------------------------ |
 | `HttpRequestMessage<T>`  |    HTTP Trigger     | Get method, headers, or queries |
-| `HttpResponseMessage<T>` | HTTP Output Binding | Return status other than 200   |
+| `HttpResponseMessage` | HTTP Output Binding | Return status other than 200   |
 
 > [!NOTE] 
 > You can also use `@BindingName` annotation to get HTTP headers and queries. For example, `@BindingName("name") String query` iterates the HTTP request headers and queries and pass that value to the method. For example,  `query` will be `"test"` if the request URL is `http://example.org/api/echo?name=test`.
@@ -255,7 +257,7 @@ import java.util.Optional;
 import com.microsoft.azure.functions.annotation.*;
 
 
-public class MyClass {
+public class Function {
     @FunctionName("metadata")
     public static String metadata(
         @HttpTrigger(name = "req", methods = { "get", "post" }, authLevel = AuthorizationLevel.ANONYMOUS) Optional<String> body,
