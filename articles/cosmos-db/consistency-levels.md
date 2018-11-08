@@ -18,15 +18,11 @@ ms.custom: H1Hack27Feb2017
 
 Distributed databases relying on replication for high availability, low latency or both, make the fundamental tradeoff between the read consistency vs. availability, latency and throughput. Most commercially available distributed databases ask developers to choose between the two extreme consistency models: strong consistency and eventual consistency. While the [linearizability](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf) or the strong consistency model is the gold standard of data programmability, it adds a steep price of higher latency (in steady state) and reduced availability (during failures). On the other hand, eventual consistency offers higher availability and better performance, but is hard to program applications.
 
-Cosmos DB approaches data consistency as a spectrum of choices instead of the two extremes. While strong consistency and eventual consistency are the two ends of the spectrum, there are many consistency choices along the spectrum. These consistency options enable developers to make precise choices and granular tradeoffs with respect to high availability or performance. Cosmos DB enabled developers to choose among the five well-defined consistency models from the consistency spectrum (strongest to weakest) – **strong**, **bounded staleness**, **session**, **consistent prefix**, and **eventual**. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by comprehensive SLAs.
+Cosmos DB approaches data consistency as a spectrum of choices instead of the two extremes. While strong consistency and eventual consistency are the two ends of the spectrum, there are many consistency choices along the spectrum. These consistency options enable developers to make precise choices and granular tradeoffs with respect to high availability or performance. Cosmos DB enabled developers to choose among the five well-defined consistency models from the consistency spectrum (strongest to weakest) – **strong**, **bounded staleness**, **session**, **consistent prefix**, and **eventual**. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by comprehensive SLAs. The following image shows different consistency levels as a spectrum:
 
 ![Consistency as a spectrum](./media/consistency-levels/five-consistency-levels.png)
 
-The consistency levels are region-agnostic. The consistency level of your Cosmos DB account, is guaranteed for all read operations regardless of the following properties:
-
-- The region from which the reads and writes are served
-- The number of regions associated with your Cosmos account
-- Whether your account is configured with a single or multiple write regions
+The consistency levels are region-agnostic. The consistency level of your Cosmos DB account, is guaranteed for all read operations regardless of the region from which the reads and writes are served, the number of regions associated with your Cosmos account or whether your account is configured with a single or multiple write regions.
 
 ## Scope of the read-consistency
 
