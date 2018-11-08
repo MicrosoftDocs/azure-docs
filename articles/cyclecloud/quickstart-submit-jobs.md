@@ -30,7 +30,7 @@ Copy the appropriate string and use your SSH client or Cloud Shell to connect to
 
 Check the status of the job queue with the following commands:
 
-```azurecli-interactive
+```CMD
 $ qstat
 $ qstat -f
 ```
@@ -46,7 +46,7 @@ workq                0     0 yes yes     0     0     0     0     0     0 Exec
 
 Change to the "demo" directory and submit the LAMMPS job using the existing `runpi.sh` script:
 
-```azurecli-interactive
+```CMD
 cd demo
 ./runpi.sh
 ```
