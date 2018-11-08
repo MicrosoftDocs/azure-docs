@@ -5,7 +5,7 @@ services: service-fabric-mesh
 keywords:  containerize service fabric mesh
 author: tylermsft
 ms.author: twhitney
-ms.date: 11/07/2018
+ms.date: 11/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc  
@@ -57,8 +57,10 @@ A Service Fabric Mesh application project is also added to your solution. It con
 
 Once container orchestration support is added to your app, you can press **F5** to run your .NET app on your local Service Fabric Mesh cluster.
 
-[JTW - Add picture of running app here]
+Here is the eShop ASP.NET app running on a Service Fabric Mesh cluster: 
+
+![eShop app](./media/service-fabric-mesh-howto-containerize-vs/eshop-running.png)
 
 ## Next steps
 
-Read through the [?](*.md)
+Try out a quickstart: [Deploy a web app to Azure Service Fabric Mesh](service-fabric-mesh-quickstart-dotnet-core.md)
