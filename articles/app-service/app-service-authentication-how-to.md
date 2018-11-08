@@ -73,11 +73,11 @@ The token format varies slightly according to the provider. See the following ta
 
 | Provider | Request body | Comments |
 |-|-|-|
-| `aad` | `"{id_token":"<id_token>","access_token":"<access_token>"}` | |
-| `microsoftaccount` | `{"access_token":"<token>"}` | When requesting the token from Live services, always request the `wl.basic` scope (see [Single Sign On using Microsoft Account with the Live SDK](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#client-livesdk) for an example). |
-| `google` | `"{id_token":"<id_token>"}` | |
+| `aad` | `{"id_token":"<id_token>", "access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | When requesting the token from Live services, always request the `wl.basic` scope. |
+| `google` | `{"id_token":"<id_token>"}` | |
 | `facebook`| `{"access_token":"<user_access_token>"}` | Use a valid [user access token](https://developers.facebook.com/docs/facebook-login/access-tokens) from Facebook. |
-| `twitter` | `{"access_token":"<access_token>":"access_token_secret":"<acces_token_secret>"}` | |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
 
 If the provider token is validated successfully, the API returns with an `authenticationToken` in the response body, which is your session token. 
 
