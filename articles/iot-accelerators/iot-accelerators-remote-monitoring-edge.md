@@ -6,7 +6,7 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/12/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 
@@ -135,7 +135,10 @@ An Edge device requires the Edge runtime to be installed. In this tutorial, you 
 
     ```azurecli-interactive
     sudo apt-get update
-    sudo apt-get install moby-engine moby-cli iotedge
+    sudo apt-get install moby-engine
+    sudo apt-get install moby-cli
+    sudo apt-get update
+    sudo apt-get install iotedge
     ```
 
 1. To configure the Edge runtime with the device connection string, edit the configuration file:
@@ -308,14 +311,34 @@ You need to wait several minutes for the package to deploy to your device and fo
 
 You can view the temperature telemetry from your oil pump device in the Remote Monitoring web UI:
 
-* Navigate to the **Devices** page and select your oil pump device.
-* In the **Telemetry** section of the **Device details** panel, click **Temperature**:
+1. Navigate to the **Devices** page and select your oil pump device.
+1. In the **Telemetry** section of the **Device details** panel, click **Temperature**:
 
     [![View telemetry](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-inline.png)](./media/iot-accelerators-remote-monitoring-edge/viewtelemetry-expanded.png#lightbox)
 
 You can see how the temperature rises until it reaches a threshold. The Stream Analytics Edge module detects when the temperature reaches this threshold and sends a command to the device to reduce the temperature immediately. All of this processing happens on the device without communicating with the cloud.
 
-If you want to notify operators when the threshold was reached, you can [create a rule in the Remote Monitoring web UI](iot-accelerators-remote-monitoring-automate.md).
+If you want to notify operators when the threshold was reached, you can create a rule in the Remote Monitoring web UI:
+
+1. Navigate to the **Rules** page and click **+ New rule**.
+1. Create a new rule with the following settings:
+
+    | Option | Value |
+    | ------ | ----- |
+    | Rule name | Oil pump temperature |
+    | Description | Oil pump temperature exceeded 300 |
+    | Device group | OilPumps |
+    | Calculation | Instant |
+    | Field | temperature |
+    | Operator | > |
+    | Value | 300 |
+    | Severity level | Info |
+
+    [![Create rule](./media/iot-accelerators-remote-monitoring-edge/newrule-inline.png)](./media/iot-accelerators-remote-monitoring-edge/newrule-expanded.png#lightbox)
+
+    Click **Apply**.
+
+1. Navigate to the **Dashboard** page. An alert shows in the **Alerts** panel when the temperature in the **oil-pump** device goes over 300.
 
 ## Next steps
 
