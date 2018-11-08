@@ -1,6 +1,6 @@
 - name: Azure Storage Documentation
   href: /azure/storage/
-- name: Overview of Azure Blob Storage
+- name: Overview of Azure Blob storage
   items:
   - name: What is Azure Blob storage?
     href: 
