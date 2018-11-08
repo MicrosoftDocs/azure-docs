@@ -153,11 +153,11 @@
         items:
         - name: Overview
           href: explore-data.md
-        - name: Use Pandas
+        - name: Explore Azure Blob storage
           href: explore-data-blob.md
-        - name: Use SQL VM
+        - name: Explore SQL VM
           href: explore-data-sql-server.md
-        - name: Use Hive tables
+        - name: Explore Hive tables
           href: explore-data-hive-tables.md
       - name: Sample data
         items:
