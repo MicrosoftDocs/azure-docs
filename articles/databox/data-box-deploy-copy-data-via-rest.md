@@ -7,18 +7,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 11/08/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
-# Tutorial: Copy data to Azure Data Box 
+# Tutorial: Copy data via Azure Data Box Blob storage REST APIs  
 
-This tutorial describes how to connect to and copy data from your host computer using the local web UI, and then prepare to ship Data Box.
+This tutorial describes procedures to connect a Windows systems to Data Box using Azure Blob storage REST APIs. The connection to the Azure Blob service REST APIs can be over HTTP or HTTPS. Once connected, the steps required to copy data to Data Box and prepare the Data Box to ship are also described.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Connect to Data Box
+> * Connect to Data Box over http
+> * Connect to Data Box over https
 > * Copy data to Data Box
 > * Prepare to ship Data Box.
 
@@ -31,12 +32,14 @@ Before you begin, make sure that:
 3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted.
+4. You have the latest version of AzCopy on Linux or Windows. You will use AzCopy to copy data to Azure from your host computer.
+5. You have access to a GPv1 storage account associated with your Data Box. You will copy data to this account.
 
 ## Connect to Data Box
 
 Based on the storage account selected, Data Box creates upto:
 - Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium or blob storage account. 
+- One share for premium or blob storage account.
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
@@ -49,46 +52,107 @@ Consider the following example.
 
 Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to connect and copy can be different.
 
-### Connect via http to Azure Blob storage REST
+## Connect to Azure Blob storage REST via http
 
-If you are using Azure Blob storage (REST APIs), perform the following steps to connect to the Data Box.
+### Add device IP address and blob service endpoint to the remote host
 
-1. The first step is to authenticate and start a session. Go to **Connect and copy**. Click **Get credentials** to get the access credentials for the shares associated with your storage account. 
+1. Sign into the Data Box device. Ensure it is unlocked.
+2. Go to **Set network interfaces**. Make a note of the device IP address for the network interface used to connect to the client.
+3. Go to **Connect and copy** and click **Rest (Preview)**.
+4. From the **Access Storage account and upload data** dialog, copy the **Blob Service Endpoint**.
+5. Start **Notepad** as an administrator, and then open the **hosts** file located at `C:\Windows\System32\Drivers\etc`.
+6. Add the following entry to your **hosts** file: `<device IP address> <Blob service endpoint>`
+7. For reference, use the following image. Save the **hosts** file.
 
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials1.png)
+### Configure partner software and verify connection
 
-2. In the Access share and copy data dialog box, copy the **Username** and the **Password** corresponding to the share. Click **OK**.
-    
-    ![Get share credentials 1](media/data-box-deploy-copy-data/get-share-credentials2.png)
+Configure the partner software to connect to the client. To connect to the partner software, for example, Commvault, you need the following information you gathered from the local web UI in the previous step:
 
-3. Access the shares associated with your storage account (Mystoracct in the following example). Use the `\\<IP of the device>\ShareName` path to access the shares. Depending upon your data format, connect to the shares (use the share name) at the following address: 
-    - *\\<IP address of the device>\Mystoracct_Blob*
-    - *\\<IP address of the device>\Mystoracct_Page*
-    - *\\<IP address of the device>\Mystoracct_AzFile*
-    
-    To connect to the shares from your host computer, open a command window. At the command prompt, type:
+- Storage account name
+- Access key
+- Blob service endpoint
+ 
+To verify that the connection is successfully established, use Storage Explorer to attach to an external storage account. If you do not have Storage Explorer, download Storage Explorer.
 
-    `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
+If this is the first time you are using Storage Explorer, you need to perform the following steps.
 
-    Enter the password for the share when prompted. The following sample shows connecting to a share via the preceding command.
+1. From the top command bar, go to **Edit > Target Azure Stack**.
+2. Restart the Storage Explorer for the changes to take effect.
 
-    ```
-    C:\Users\Databoxuser>net use \\10.126.76.172\devicemanagertest1_BlockBlob /u:devicemanagertest1
-    Enter the password for 'devicemanagertest1' to connect to '10.126.76.172':
-    The command completed successfully.
-    ```
+Perform the following steps to connect to the storage account and verify the connection.
 
-4. Press  Windows + R. In the **Run** window, specify the `\\<device IP address>`. Click **OK**. This opens File Explorer. You should now be able to see the shares as folders.
-    
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer1.png)
-
-5.  **Always create a folder for the files that you intend to copy under the share and then copy the files to that folder**. Occassionally, the folders may show a gray cross. The cross does not denote an error condition. The folders are flagged by the application to track the status.
-    
-    ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) ![Connect to share via File Explorer 2](media/data-box-deploy-copy-data/connect-shares-file-explorer2.png) 
+1. In Storage Explorer, open the **Connect to Azure Storage** dialog.
+2. In the **Connect to Azure Storage** dialog, select **Use a storage account name and key**.
+3. Paste your **Account name** and **Account key** (key 1 value from your storage account in the Azure portal). Select Storage endpoints domain as **Other** (enter below) and then provide the string from the local web UI Connect and Copy page saved in step 3 of to add device IP and blob service endpoint to remote host. Check **Use HTTP** option. Select **Next**.
+4. In the **Connection Summary** dialog, review the provided information. Select **Connect**.
+5. The account that you successfully added is displayed in the left pane of Storage Explorer with (External, Other) appended to its name. Click **Blob Containers** to view the container.
 
 
-### Connect via https to Azure Blob storage REST
+## Connect to Azure Blob storage REST via https
 
+### Download certificate
+
+Use the Azure portal to download certificate.
+
+1. Sign into the Azure portal.
+2. Go to your Data Box order and navigate to **General > Device details**.
+3. Under **Device credentials**, go to **API access** to device. Click **Download**. This downloads a **<your order name>.cer** certificate file. **Save** this file. You need to install this certificate on the client or host computer that you will use to connect to the device.
+ 
+### Prepare the host for remote management
+
+To prepare the Windows client for a remote connection that uses an HTTPS session, perform the following procedures:
+
+- Import the .cer file into the root store of the client or remote host.
+- Add the device IP address and blob service endpoint to the hosts file on your Windows client.
+
+Each of the preceding procedures, is described below.
+
+Import the certificate on the remote host
+
+You can use Windows PowerShell or the Windows Server UI to import and install the certificate on your host system.
+
+**Using PowerShell**
+
+1. Start a Windows PowerShell session as an administrator. 
+2. At the command prompt, type:
+
+Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
+
+**Using Windows Server UI**
+
+1.	Right-click the .cer file and select Install certificate. This starts the Certificate Import Wizard.
+ 
+2.	For Store location, select Local Machine, and then click Next.
+3.	Select Place all certificates in the following store, and then click Browse. Navigate to the root store of your remote host, and then click Next.
+4.	Click Finish. A message that tells you that the import was successful appears.
+
+
+### To add device IP address and blob service endpoint to the remote host
+
+
+
+### Configure partner software to establish connection
+
+Configure the partner software to connect to the client. To connect to the partner software, for example, Commvault, you need the following information you gathered from the local web UI in the previous step:
+
+- Storage account name
+- Access key
+- Blob service endpoint
+ 
+To verify that the connection is successfully established, use Storage Explorer to attach to an external storage account. If you do not have Storage Explorer, download Storage Explorer.
+
+If this is the first time you are using Storage Explorer, you need to perform the following steps.
+
+1. From the top command bar, go to **Edit > Target Azure Stack**.
+2. Restart the Storage Explorer for the changes to take effect.
+
+Perform the following steps to connect to the storage account and verify the connection.
+
+1. In Storage Explorer, open the **Connect to Azure Storage** dialog.
+2. In the **Connect to Azure Storage** dialog, select **Use a storage account name and key**.
+3. Paste your **Account name** and **Account key** (key 1 value from your storage account in the Azure portal). Select Storage endpoints domain as **Other** (enter below) and then provide the string from the local web UI Connect and Copy page saved in step 3 of to add device IP and blob service endpoint to remote host. Check **Use HTTP** only if transferring over *http*. If using *https*, leave the option unchecked. Select **Next**.
+4. In the **Connection Summary** dialog, review the provided information. Select **Connect**.
+5. The account that you successfully added is displayed in the left pane of Storage Explorer with (External, Other) appended to its name. Click **Blob Containers** to view the container.
 
 ## Copy data to Data Box
 
@@ -97,8 +161,47 @@ Once you are connected to the Data Box shares, the next step is to copy data. Pr
 - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
-- We recommend that you do not use both SMB and NFS concurrently or copy same data to same end destination on Azure. In such cases, the final outcome cannot be determined.
 
+You will use AzCopy to copy data to Azure. The copy procedure has the following three steps:
+
+- Create a container
+- Upload contents of a folder to Data Box Blob storage
+- Upload modified files to Data Box Blob storage
+
+Each of these steps is described in detail in the following sections. For more up-to-date and complete information on how to migrate data using AzCopy, go to [Tutorial: Migrate on-premises data to cloud storage by using AzCopy](/azure/storage/common/storage-use-azcopy-migrate-on-premises-data#upload-contents-of-a-folder-to-blob-storage).
+
+### Create a container
+
+The first step is to create a container, because blobs are always uploaded into a container. Containers organize groups of blobs like you organize files in folders on your computer.
+
+Follow these steps to create a container:
+
+
+
+### Upload contents of a folder to Data Box Blob storage
+
+You can use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. To upload all blobs in a folder, enter the following AzCopy command:
+
+Linux
+Windows
+
+Copy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
+Replace <key> and key with your account key. In the Azure portal, you can retrieve your account key by selecting Access keys under Settings in your storage account. Select a key, and paste it into the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace myaccount in the destination URL with your storage account name.
+
+To upload the contents of the specified directory to Blob storage recursively, specify the --recursive (Linux) or /S (Windows) option. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
+
+### Upload modified files to Data Box Blob storage
+
+You can use AzCopy to upload files based on their last-modified time. To try this, modify or create new files in your source directory for test purposes. To upload only updated or new files, add the --exclude-older (Linux) or /XO (Windows) parameter to the AzCopy command.
+
+If you only want to copy source resources that do not exist in the destination, specify both --exclude-older and --exclude-newer (Linux) or /XO and /XN (Windows) parameters in the AzCopy command. AzCopy uploads only the updated data, based on its time stamp.
+
+Linux
+Windows
+
+Copy
+AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 
 ## Prepare to ship
 
