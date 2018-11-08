@@ -54,14 +54,14 @@ Create, read, update, and delete users | Global Administrator ([see documentatio
 Read all configuration | Global Administrator | 
 Read B2C audit logs | Global Administrator ([see documentation](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
-## company branding
+## Company branding
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
 Configure company branding | Global Administrator | 
 Read all configuration | Directory readers | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## company properties
+## Company properties
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -93,7 +93,7 @@ View metrics and alerts | Reader ([see documentation](https://docs.microsoft.com
 View sync service metrics and alerts | Reader ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | Contributor, Owner
 
 
-## custom domain names
+## Custom domain names
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -108,7 +108,7 @@ Create Azure AD Domain Services instance | Global Administrator |
 Peform all Azure AD Domain Services tasks | Azure AD DC Administrators group ([see documentation](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-domain#administrative-tasks-you-can-perform-on-a-managed-domain)) | 
 Read all configuration | Reader on Azure subscription containing AD DS service | 
 
-## devices
+## Devices
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -117,7 +117,7 @@ Enable device | Cloud device administrator |
 Read basic configuration | Default user role ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 Read Bitlocker keys | Security Reader | Password administrator, Security administrator
 
-## enterprise applications
+## Enterprise applications
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -137,7 +137,7 @@ Update enterprise application provisioning | Enterprise application owner ([see 
 Update enterprise application self-service | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 Update single sign-on properties | Enterprise application owner ([see documentation](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | Cloud application administrator, Application administrator
 
-## groups
+## Groups
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -169,7 +169,7 @@ Read all configuration | Security Reader |
 Read all risk events | Security Reader | 
 Read vulnerabilities | Security Reader | 
 
-## licenses
+## Licenses
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -178,7 +178,20 @@ Read all configuration | Directory readers | Default user role ([see documentati
 Revoke license | License administrator | User account administrator
 Try or buy subscription | Billing administrator | 
 
-## Multi-Factor Authentication
+
+## Monitoring - Audit logs
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Read audit logs | Reports reader | Security Reader, Security administrator
+
+## Monitoring - Sign-ins
+
+Task | Least privileged role | Additional roles
+---- | --------------------- | ----------------
+Read sign-in logs | Reports reader | Security Reader, Security administrator
+
+## Multi-factor authentication
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -189,19 +202,24 @@ Manage MFA service settings | Global Administrator |
 Require selected users to provide contact methods again | Global Administrator | 
 Restore multi-factor authentication on all remembered devices  | Global Administrator | 
 
-## monitoring - Audit logs
+## MFA Server
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
-Read audit logs | Reports reader | Security Reader, Security administrator
+Block/unblock users | Global Administrator | 
+Configure account lockout | Global Administrator | 
+Configure caching rules | Global Administrator | 
+Configure fraud alert | Global Administrator
+Configure notifications | Global Administrator | 
+Configure one-time bypass | Global Administrator | 
+Configure phone call settings | Global Administrator | 
+Configure providers | Global Administrator | 
+Configure server settings | Global Administrator | 
+Read activity report | Global Administrator | 
+Read all configuration | Global Administrator | 
+Read server status | Global Administrator |  
 
-## monitoring - Sign-ins
-
-Task | Least privileged role | Additional roles
----- | --------------------- | ----------------
-Read sign-in logs | Reports reader | Security Reader, Security administrator
-
-## organizational relationships
+## Organizational relationships
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -210,7 +228,7 @@ Manage settings | Global Administrator |
 Manage terms of use | Global Administrator | 
 Read all configuration | Global Administrator | 
 
-## password reset
+## Password reset
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -222,7 +240,7 @@ Configure password reset properties | Global Administrator |
 Configure registration | Global Administrator | 
 Read all configuration | Security Administrator	User Administrator | 
 
-## privileged identity management
+## Privileged identity management
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -231,7 +249,7 @@ Configure role settings | Privileged role administrator |
 View audit activity | Security reader | 
 View role memberships | Security reader | 
 
-## roles and administrators
+## Roles and administrators
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -246,7 +264,7 @@ Task | Least privileged role | Additional roles
 Configure authentication methods | Global Administrator | 
 Read all configuration | Global Administrator | 
 
-## security - Conditional access
+## Security - Conditional access
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -289,7 +307,7 @@ Dismiss all events | Security Administrator |
 Read all configuration | Security Reader | 
 Read users flagged for risk | Security Reader | 
 
-## users
+## Users
 
 Task | Least privileged role | Additional roles
 ---- | --------------------- | ----------------
@@ -312,22 +330,6 @@ Update User Principal Name for limited admins (see documentation) | User account
 Update User Principal Name property on privileged admins (see documentation) | Global Administrator | 
 Update user settings | Global Administrator | 
 
-## MFA Server
-
-Task | Least privileged role | Additional roles
----- | --------------------- | ----------------
-Block/unblock users | Global Administrator | 
-Configure account lockout | Global Administrator | 
-Configure caching rules | Global Administrator | 
-Configure fraud alert | Global Administrator
-Configure notifications | Global Administrator | 
-Configure one-time bypass | Global Administrator | 
-Configure phone call settings | Global Administrator | 
-Configure providers | Global Administrator | 
-Configure server settings | Global Administrator | 
-Read activity report | Global Administrator | 
-Read all configuration | Global Administrator | 
-Read server status | Global Administrator | 
 
 ## Support
 
