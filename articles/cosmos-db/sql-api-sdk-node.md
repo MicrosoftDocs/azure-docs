@@ -42,6 +42,26 @@ ms.custom: H1Hack27Feb2017
 
 ## Release notes
 
+### <a name="2.0.5"/>2.0.5</a>
+* Adds interface for node Agent type. Typescript users no longer have to install @types/node as a dependency
+* Preferred locations are now properly honored
+* Improvements to contributing developer documentation
+* Various typo fixes
+
+### <a name="2.0.4"/>2.0.4</a>
+* Fixes type defenition issue introduced in 2.0.3
+
+### <a name="2.0.3"/>2.0.3</a>
+* Remove `big-integer` dependency
+* Switch to reference directives for AsyncIterable type. Typescript users no longer have to customize their "lib" setting.
+* Typo Fixes
+
+### <a name="2.0.2"/>2.0.2</a>
+* Fix readme links
+
+### <a name="2.0.1"/>2.0.1</a>
+* Fix retry interface implementation
+
 ### <a name="2.0.0"/>2.0.0</a>
 * GA of Version 2.0.0 of the JavaScript SDK
 * Added support for multi-region writes.
