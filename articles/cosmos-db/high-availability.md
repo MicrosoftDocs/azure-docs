@@ -66,7 +66,7 @@ Next you can learn about scaling throughput in the following article:
 
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
 
-* [Scaling throughput globally](scaling-throughput.md)
+* [Scaling provisioned throughput globally](scaling-throughput.md)
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 

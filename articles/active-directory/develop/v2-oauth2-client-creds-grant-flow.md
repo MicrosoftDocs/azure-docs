@@ -56,7 +56,7 @@ Instead of using ACLs, you can use APIs to expose a set of application permissio
 * Send mail as any user
 * Read directory data
 
-For more information about application permissions, go to [Microsoft Graph](https://graph.microsoft.io).
+For more information about application permissions, go to [Microsoft Graph](https://developer.microsoft.com/graph).
 
 To use application permissions in your app, do the steps we discuss in the next sections.
 
