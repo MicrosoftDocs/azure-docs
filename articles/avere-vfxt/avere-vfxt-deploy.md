@@ -96,9 +96,6 @@ Find the controller template by searching the Azure Marketplace for the name ``A
 
 If you have not already done so, accept the terms and enable programmatic access for the Marketplace image by clicking the "Want to deploy programmatically?" link underneath the **Create** button.
 
-> [!NOTE] 
-> During the first week of General Availability (October 31 - November 7, 2018), you must use the command-line option to accept terms for two software images instead of following this procedure. Follow the instructions in [Accept software terms in advance](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
-
 ![Screenshot of a link to programmatic access, which is below the Create button](media/avere-vfxt-deploy-programmatically.png)
 
 Click the **Enable** button and save the setting.
