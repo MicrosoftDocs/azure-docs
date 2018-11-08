@@ -1,6 +1,6 @@
 ---
 
-title: Tutorial: How to download and use a script to access signin logs | Microsoft Docs
+title: Tutorial How to download and use a script to access signin logs | Microsoft Docs
 description: Learn how to download and use a PowerShell script to access signin logs.
 services: active-directory
 documentationcenter: ''
