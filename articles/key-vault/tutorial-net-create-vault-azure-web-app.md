@@ -84,7 +84,7 @@ You use this resource group throughout this tutorial.
 
 To create a key vault in your resource group, you'll need to provide the following information:
 
-* Key vault name: a string of 3 - 24 characters that can contain only numbers, letters, and hyphens (for example 0-9, a-z, A-Z, and -)
+* Key vault name: a string of 3 - 24 characters that can contain only numbers, letters, and hyphens (for example: 0-9, a-z, A-Z, and - )
 * Resource group name
 * Location: **West US**
 
@@ -98,7 +98,7 @@ At this point, your Azure account is the only one that's authorized to perform a
 
 ## Add a secret to the key vault
 
-Now you can add a secret. It might be a SQL connection string or any other information that you need to keep secure but also available to your application.
+Now you can add a secret. It might be a SQL connection string or any other information that you need to keep both secure and available to your application.
 
 Type the following command to create a secret in the key vault called **AppSecret**. This secret stores the value **MySecret**.
 
@@ -116,7 +116,8 @@ This command shows the secret information, including the URI. After you complete
 
 ## Create a .NET Core web app
 
-Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to create a .NET Core web app and **publish** it to Azure. You can also watch the video below:
+Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to create a .NET Core web app and **publish** it to Azure. You can also watch the following video:
+
 >[!VIDEO https://www.youtube.com/embed/EdiiEH7P-bU]
 
 ## Open and edit the solution
@@ -133,7 +134,7 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
     using Microsoft.Azure.Services.AppAuthentication;
    ```
 
-4. Your code in the AboutModel class should look like below:
+4. Your code in the AboutModel class should like this:
 
    ```
     public class AboutModel : PageModel
@@ -228,7 +229,7 @@ Azure Key Vault provides a way to securely store credentials and other secrets, 
 
 ## Assign permissions to your application to read secrets from Key Vault
 
-Run the following command by using the name of your key vault and the value of **PrincipalId**:
+Replace \<YourKeyVaultName\> with the name of your key vault and \<PrincipalId\> with the value of the **PrincipalId** in the following command:
 
 ```azurecli
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get list
