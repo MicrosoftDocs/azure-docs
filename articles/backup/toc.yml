@@ -177,7 +177,7 @@
       href: backup-azure-arm-userestapi-backupazurevms.md
     - name: Restore Azure VMs
       href: backup-azure-arm-userestapi-restoreazurevms.md
-    - name: Manage Azure backup jobs
+    - name: Manage Azure Backup jobs
       href: backup-azure-arm-userestapi-managejobs.md
   - name: SQL on Azure VMs
     items:
