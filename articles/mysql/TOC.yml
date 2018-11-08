@@ -115,6 +115,8 @@
       href: howto-manage-firewall-using-portal.md
     - name: Azure CLI
       href: howto-manage-firewall-using-cli.md
+    - name: PowerShell
+      href: howto-manage-firewall-using-powershell.md
   - name: Restore a server
     items:
     - name: Azure portal
