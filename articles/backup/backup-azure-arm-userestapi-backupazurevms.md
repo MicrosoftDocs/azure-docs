@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Backup Azure VMs using REST API'
+title: 'Azure Backup: Back up Azure VMs using REST API'
 description: Manage backup operations of Azure VM Backup using REST API
 services: backup
 author: pvrk
@@ -12,7 +12,7 @@ ms.author: pullabhk
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
 ---
 
-# Backup an Azure VM using Azure Backup via REST API
+# Back up an Azure VM using Azure Backup via REST API
 
 This article describes how to manage backups for an Azure VM using Azure Backup via REST API. Configure protection for the first time for a previously unprotected Azure VM, trigger an on-demand backup for a protected Azure VM and modify backup properties of a backed up VM via REST API as explained here.
 
