@@ -5,7 +5,7 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 11/08/2018
 ms.author: rogarana
 ms.component: common
 ---
