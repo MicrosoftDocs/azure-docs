@@ -177,7 +177,7 @@ To quickly access the data from your blob:
 
 1. Download and Open [PowerBi Desktop](http://www.powerbi.com)
 
-1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/en-us/power-bi/desktop-data-sources).
+1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
 
     [![PBI Blob setup](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
@@ -209,7 +209,7 @@ To quickly access the data from your blob:
 
 ### Analyzing model data using Databricks
 
-1. Create a [Databricks workspace](https://docs.microsoft.com/en-us/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
+1. Create a [Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
 
 1. Go to your Databricks workspace. 
 
