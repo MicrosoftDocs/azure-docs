@@ -12,15 +12,15 @@ ms.author: adgera
 
 # How to configure Postman for Azure Digital Twins
 
-This article first describes how to configure Azure Active Directory to accept OAuth 2.0 authenticated requests. Then, it demonstrates how to configure the Postman REST client to make authenticated HTTP request to your Management APIs.
+This article describes how to configure Azure Active Directory to accept OAuth 2.0 authenticated HTTP requests. Then, it discusses how to configure the Postman REST client to make authenticated HTTP requests to your Management APIs.
 
 ## Postman summary
 
+Get started on Azure Digital Twins by using a REST client tool such as [Postman](https://www.getpostman.com/) to prepare your local testing environment. The Postman client helps to quickly create complex HTTP requests.
 
+[Postman](https://www.getpostman.com/) is a REST testing tool that locates key HTTP request functionalities into a useful desktop and plugin-based GUI. Through the Postman client, solutions developers can make POST, GET, UPDATE, and DELETE HTTP operations over HTTP and HTTPS. Postman supports adding HTTP request headers, parameters, form-data, and bodies.
 
 ## Configure Azure Active Directory to accept OAuth 2.0
-
-Get started quickly by using a REST client tool such as [Postman](https://www.getpostman.com/) to prepare your local testing environment. The Postman client helps to quickly create complex HTTP requests.
 
 Configure your app to allow OAuth 2.0 authenticated requests in Azure Active Directory.
 
