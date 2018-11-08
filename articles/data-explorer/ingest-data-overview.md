@@ -30,16 +30,16 @@ The Azure Data Explorer data management service, which is responsible for data i
 
 1. **Commit the data ingest**: Makes the data available for query.
 
-> [!NOTE]
-> The effective retention policy of ingested data is derived from the database's retention policy. See [retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy) for details. Ingesting data requires **Table ingestor** or **Database ingestor** permissions.
-
 ## Ingestion methods
 
-Azure Data Explorer supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Azure Data Explorer offers connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
+Azure Data Explorer supports several ingestion methods, each with its own target scenarios, advantages, and disadvantages. Azure Data Explorer offers pipelines and connectors to common services, programmatic ingestion using SDKs, and direct access to the engine for exploration purposes.
 
-### Ingestion using connectors
+### Ingestion using pipelines
 
-Azure Data Explorer currently supports the Event Hub connector, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
+Azure Data Explorer currently supports the Event Hub pipeline, which can be managed using the management wizard in the Azure portal. For more information, see [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md).
+
+### Ingestion using connectors and plugins
+Azure Data Explorer currently supports the Logstash plugin. For more information, see [Logstash Output Plugin for Azure Data Explorer](https://github.com/Azure/logstash-output-kusto/blob/master/README.md).
 
 ### Programmatic ingestion
 
@@ -55,7 +55,7 @@ Kusto offers client SDK that can be used to ingest and query data with :
 
 * [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
 
-* [Node SDK]
+* [Node SDK](https://docs.microsoft.com/azure/kusto/api/node/kusto-node-client-library)
 
 * [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
@@ -113,7 +113,11 @@ For all ingestion methods other than ingest from query, the data must be formatt
 > [!NOTE]
 > When data is being ingested, data types are inferred based on the target table columns. If a record is incomplete or a field cannot be parsed as the required data type, the corresponding table columns will be populated with null values.
 
-## Schema Mapping
+## Ingestion recommendations and limitations
+* The effective retention policy of ingested data is derived from the database's retention policy. See [retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy) for details. Ingesting data requires **Table ingestor** or **Database ingestor** permissions.
+* Ingestion supports a maximum file size of 5GB. The recommendation is to ingest files between 100MB and 1GB.
+
+## Schema mapping
 
 Schema mapping helps deterministically bind source data fields to destination table columns.
 
@@ -125,4 +129,6 @@ Schema mapping helps deterministically bind source data fields to destination ta
 [Quickstart: Ingest data from Event Hub into Azure Data Explorer](ingest-data-event-hub.md)
 
 [Quickstart: Ingest data using the Azure Data Explorer Python library](python-ingest-data.md)
+
+[Quickstart: Ingest data using the Azure Data Explorer Node library](node-ingest-data.md)
 

@@ -161,9 +161,9 @@ demo_make_series1
 
 ![Time series operations](media/time-series-analysis/time-series-operations.png)
 
-Blue: original time series
-Red: smoothed time series
-Green: residual time series
+- Blue: original time series
+- Red: smoothed time series
+- Green: residual time series
 
 ## Time series workflow at scale
 
