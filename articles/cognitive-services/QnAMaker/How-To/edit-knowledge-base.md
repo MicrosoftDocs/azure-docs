@@ -23,30 +23,25 @@ QnA Maker allows you to manage the content of your knowledge base by providing a
 
     ![My Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Select a particular knowledge base to make edits to it.
+1. Select a particular knowledge base to make edits to it.
  
-3. Click on **Settings**.
-
-   Here you can edit mandatory field Service Name.
+1. Select **Settings**. Here you can edit mandatory field Service Name.
   
-   You can add new Urls to add new FAQ content to Knowledgebase by clicking **Manage knowledgebase -> '+ Add URL'** link.
-   
-   You can delete existing URLs by clicking on **delete icon**.
-   
-   If you want Knowledgebase to Crawl the latest content of existing URLs, tick the Check Box name **'Refresh'**, this will update the   Knowledgebase with latest URL content.
-   
-You can add supported file document to be part of knowledgebase, by clicking **Manage knowledgebase -> '+ Add File'**
+    |Goal|Action|
+    |--|--|
+    |Add URL|You can add new URLs to add new FAQ content to Knowledgebase by clicking **Manage knowledge base -> '+ Add URL'** link.|
+    |Delete URL|You can delete existing URLs by selecting the delete icon, the trash can.|
+    |Refresh URL content|If you want your knowledge base to crawl the latest content of existing URLs, select the **Refresh** checkbox. This will update the knowledge base with latest URL content.|
+    |Add file|You can add a supported file document to be part of a knowledge base, by selecting **Manage knowledge base**, then selecting **+ Add File**|
+    |Import|You can also import any existing knowledge base by selecting **Ímport Knowledge base** button. |
+    |Update|Updating of knowledge base depends on **management pricing tier** used while creating QnA Maker service associated with your knowledge base. You can also update the management tier from Azure portal if required.
 
-You can also import any existing knowledgebase by clicking **'Ímport Knowledgebase'** button. 
-   
-Updation of knowledgebase depends on **management pricing tier** being used while creating QnA Maker service associated with your knowledgbase. You can also update the management tier from Azure portal if required.
-
-4. Once you are done making changes to the Knowledge base, click on **Save and train** in the top right corner of the page in order to persist the changes.    
+1. Once you are done making changes to the knowledge base, select **Save and train** in the top right corner of the page in order to persist the changes.    
 
     ![Save and Train](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
-    >[!NOTE]
-	Leaving the page before clicking on Save and train will not persist the changes.
+    >[!CAUTION]
+	>If you leave the page before selecting **Save and train**, all changes will be lost.
 
 ## Add a QnA pair
 
@@ -56,7 +51,7 @@ Select **Add QnA pair** to add a new row to the knowledge base table.
 
 ## Delete a QnA pair
 
-To delete a QnA, click the **delete** icon on the far right of the QnA row.
+To delete a QnA, click the **delete** icon on the far right of the QnA row. This is a permanent operation. It can't be undone. Consider exporting your KB from the **Publish** page before deleting pairs. 
 
 ![Delete QnA pair](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
