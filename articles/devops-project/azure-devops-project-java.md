@@ -85,7 +85,7 @@ You should now see a build in progress. The changes you just made are automatica
 
 ## Examine the CI/CD pipeline
 
- DevOps Projects automatically configures a full CI/CD pipeline. Explore and customize the pipeline as needed. Take the following steps to familiarize yourself with the build and release pipelines.
+ In the previous step, DevOps Projects automatically configured a full CI/CD pipeline. Explore and customize the pipeline as needed. Take the following steps to familiarize yourself with the build and release pipelines.
 
 1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
 This link opens a browser tab and the build pipeline for your new project.
