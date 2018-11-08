@@ -20,12 +20,11 @@ ms.date: 11/01/2018
 
 In this article, you learn how to use the Yeoman module generator to create a base Terraform template. You will then learn how to test your new Terraform template using two different methods:
 
-- Running your Terraform module using a Docker file you will be creating
-- Running your Terraform module natively in Azure Cloud Shell
+- Run your Terraform module using a Docker file that you create in this article.
+- Run your Terraform module natively in Azure Cloud Shell.
 
 ## Prerequisites
 
-- A computer running Windows 10, Linux, or macOS 10.10+.
 - **Azure subscription**: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - **Visual Studio Code**: We will be using [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) to examine files created by the Yeoman generator. However, you may use any code editor of your choice.
 - **Terraform**: You will need an installation of [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) to run the module created by Yeoman.
@@ -213,7 +212,7 @@ To confirm that Docker is actually running, enter `docker info`.
 
 ## Use Yeoman generator to create and test a module in Cloud Shell
 
-In the previous section you learned how to test a Terraform module using a Docker file. In this section you will use the Yeoman generator to create and test a module in Cloud Shell.
+In the previous section, you learned how to test a Terraform module using a Docker file. In this section, you will use the Yeoman generator to create and test a module in Cloud Shell.
 
 Using Cloud Shell instead of using a Docker file greatly simplifies the process. Using Cloud Shell:
 
@@ -227,7 +226,7 @@ All of these items are pre-installed in Cloud Shell.
 
 1. Start an Azure Cloud Shell session via either the [Azure portal](https:/portal.azure.com/), [shell.azure.com](https://shell.azure.com), or the [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
 
-1. The Welcome to Azure Cloud Shell page opens. Select **Bash (Linux)**. (Power Shell is not supported.)
+1. **The Welcome to Azure Cloud Shell** page opens. Select **Bash (Linux)**. (Power Shell is not supported.)
 
     ![Welcome to Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
 
@@ -244,7 +243,7 @@ All of these items are pre-installed in Cloud Shell.
 
 ### Prepare a folder to hold your Terraform module
 
-1. At this point, Cloud Shell will have already configured GOPATH in youe environment variables for you. To see the path, enter `go env`.
+1. At this point, Cloud Shell will have already configured GOPATH in your environment variables for you. To see the path, enter `go env`.
 
 1. Create the $GOPATH folder, if one does not already exist: Enter `mkdir ~/go`.
 
