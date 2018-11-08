@@ -276,11 +276,10 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    const databaseId = config.database.id;
    const containerId = config.container.id;
 
-
-   /**
+    /**
     * Create the database if it does not exist
     */
-   async function createDatabase() {
+    async function createDatabase() {
      const { database } = await client.databases.createIfNotExists({ id: databaseId });
      console.log(`Created database:\n${database.id}\n`);
    }

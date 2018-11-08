@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 ---
@@ -41,7 +41,7 @@ The identity provider that you choose can limit your options, including support 
 |Applications can use identity provider for sign-in |Yes |Yes. Requires applications to federate with on-premises AD FS instances. |
 
 ## Topologies
-The following sections discus the various identity topologies that you can use.
+The following sections discuss the various identity topologies that you can use.
 
 ### Azure AD: single-tenant topology 
 By default, when you install Azure Stack and use Azure AD, Azure Stack uses a single-tenant topology. 

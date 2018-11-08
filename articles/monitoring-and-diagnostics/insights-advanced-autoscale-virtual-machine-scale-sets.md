@@ -15,7 +15,7 @@ You can scale-in and scale-out in Virtual Machine Scale Sets based on performanc
 
 > [!NOTE]
 > While this walkthrough explains the steps for VM Scale Sets, the same information applies to autoscaling [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts)
-> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) and [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) documents
+> For a simple scale in/out setting on a VM Scale Set based on a simple performance metric such as CPU, refer to the [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) and [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) documents
 >
 >
 
