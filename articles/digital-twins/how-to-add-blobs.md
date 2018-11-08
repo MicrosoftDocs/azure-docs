@@ -56,7 +56,9 @@ The four main JSON schemas used are:
 * BlobMetadataCreate
 * BlobMetadataUpdate
 
-Consult your supplied Swagger instance for more information about the right JSON schemas to use.
+Consult your supplied Swagger instance for more information about the right JSON schemas to use:
+
+![Space blobs][1]
 
 > [!TIP]
 > A Swagger sneak preview is provided to demonstrate the API feature set. It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index).
@@ -130,7 +132,7 @@ Below, a walkthrough of core end-points and their specific functionalities is pr
 
 Blobs can be attached to Devices. The image below (depicting the Swagger reference documentation for your Management APIs) specifies Device-related API endpoints for Blob consumption and any required path parameters to pass into them:
 
-![Device blobs][1]
+![Device blobs][2]
 
 For example, to update or create a Blob and attach the Blob to a Device, a PATCH request is made to:
 
@@ -156,7 +158,7 @@ Successful requests will return a DeviceBlob JSON object in the response. Device
 
 Blobs can also be attached to Spaces. The image below lists all Space API endpoints responsible for handling Blobs along with any path parameters to pass into them:
 
-![Space blobs][2]
+![Space blobs][3]
 
 For example, to return a Blob attached to a Space, make a GET request to:
 
@@ -181,7 +183,7 @@ Successful operations will return a SpaceBlob that conforms to the following sch
 
 Blobs can be attached to User models (to say associate a profile picture). The image below depicts relevant Users API endpoints and any required path parameters like an `id`:
 
-![User blobs][3]
+![User blobs][4]
 
 For example, to fetch a Blob attached to a User, make a GET request with any required form-data to:
 
@@ -218,6 +220,7 @@ Not including the correct header information:
 To learn more about supplied Azure Digital Twins Swagger reference documentation, read [How to use Digital Twins Swagger](how-to-use-swagger.md).
 
 <!-- Images -->
-[1]: media/how-to-add-blobs/blobs-device-api.PNG
-[2]: media/how-to-add-blobs/blobs-space-api.PNG
-[3]: media/how-to-add-blobs/blobs-users-api.PNG
+[1]: media/how-to-add-blobs/blob-models.PNG
+[2]: media/how-to-add-blobs/blobs-device-api.PNG
+[3]: media/how-to-add-blobs/blobs-space-api.PNG
+[4]: media/how-to-add-blobs/blobs-users-api.PNG
