@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Add a popup to the map
 
-This article shows you different ways for how to add a popup to a map.  
+This article shows you different ways for how to add a popup to points and shapes on a map.
 
 ## Understand the code
 
@@ -22,11 +22,9 @@ This article shows you different ways for how to add a popup to a map.
 <iframe height='500' scrolling='no' title='Add a pop up using Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Add a pop up using Azure Maps</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions. It also creates content to be displayed within a popup. Popup content is HTML element.
 
-The second block of code creates content to be displayed within a popup. Popup content is HTML element.
-
-The third block of code creates a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A point is then created and added to data source. A point is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) of the [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) class. A point object with a name and description properties is then created and added to the data source. 
+The third block of code creates a data source object is created using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A point is then created and added to data source. A point is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) of the [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) class. A point object with a name and description properties is then created and added to the data source.
 
 A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as symbols on the map.  A symbol layer is created in the fourth block of code. The data source is added to the symbol layer which in turn is added to the map.
 
