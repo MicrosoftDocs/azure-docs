@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/30/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -16,6 +16,8 @@ Azure Event Grid is an eventing service for the cloud. Azure Queue storage is on
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
