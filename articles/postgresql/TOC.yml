@@ -103,14 +103,16 @@
   items:
   - name: Create users 
     href: howto-create-users.md
-  - name: Optimize bulk inserts
-    href: howto-optimize-bulk-inserts.md
-  - name: Optimize autovacuum
-    href: howto-optimize-autovacuum.md
-  - name: Optimize query stats collection
-    href: howto-optimize-query-stats-collection.md
-  - name: Use toast table strategy
-    href: howto-optimize-query-time-with-toast-table-storage-strategy.md
+  - name: Optimize
+    items: 
+      - name: Bulk inserts
+        href: howto-optimize-bulk-inserts.md
+      - name: Autovacuum
+        href: howto-optimize-autovacuum.md
+      - name: Query stats collection
+        href: howto-optimize-query-stats-collection.md
+      - name: Using toast table strategy
+        href: howto-optimize-query-time-with-toast-table-storage-strategy.md
   - name: Manage firewall
     items:
     - name: Azure portal
