@@ -30,3 +30,4 @@ During the scale operation, an interruption to the database connections occurs. 
 
 ## Next steps
 - For an overview of the service, see [Azure Database for MySQL Overview](overview.md)
+- For an overview on retry logic, see [Handling of transient connectivity errors for Azure Database for MySQL](concepts-connectivity.md)
