@@ -181,7 +181,7 @@ The **FIELD NAME** column contains the parameters. The following table provides 
 | *Retrievable* |Specifies whether a field can be returned in a search result. |
 | *Filterable* |Allows the field to be used in filter queries. |
 | *Sortable* |Allows a query to sort search results using this field. |
-| *Facetable* |Allows a field to be used in a faceted navigation structure for user self-directed filtering. Typically fields containing repetitive values that you can use to group multiple documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
+| *Facetable* |Allows a field to be used in a faceted navigation structure for user self-directed filtering. Typically, fields containing repetitive values that you can use to group documents together (for example, multiple documents that fall under a single brand or service category) work best as facets. |
 | *Searchable* |Marks the field as full-text searchable. |
 
 
