@@ -312,7 +312,7 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
 
 2. StreamingEndpoint's hostname. In this case, the name is "amsaccount-usw22.streaming.media.azure.net".
 
-    To get the hostname you can use the following GET operation:
+    To get the hostname, you can use the following GET operation:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
