@@ -12,7 +12,7 @@ ms.custom: mvc
 ---
 # What is Azure Policy?
 
-IT Governance ensures that your organization is able to achieve its goals through an effective and
+IT Governance ensures that your organization can achieve its goals through an effective and
 efficient use of IT. It does this by creating clarity between your business goals and IT projects.
 
 Does your company experience a significant number of IT issues that never seem to get resolved?
