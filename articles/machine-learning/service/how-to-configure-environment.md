@@ -16,10 +16,10 @@ ms.date: 11/6/2018
 
 In this document, learn how to configure a development environment to work with the Azure Machine Learning service. The Azure Machine Learning service is platform agnostic. The only requirements for your development environment are __Python 3__, __Conda__ (for isolated environments), and a configuration file that contains your Azure Machine Learning workspace information.
 
-This document provides specific guidance on the following development environments:
+This document focuses on the following specific environments and tools:
 
-* [Azure Notebooks](#aznotebooks): A Jupyter Notebooks service hosted in the Azure cloud. It is pre-configured with Python 3 and the Azure Machine Learning SDK. You can quickly copy our example notebooks to this service and begin developing ML models.
-* [The Data Science Virtual Machine](#dsvm): A virtual machine in the Azure cloud that is pre-configured with Python 3, the Azure Machine Learning SDK, popular ML frameworks, tools, and editors. You can quickly begin developing using Jupyter Notebooks, PyCharm, and many other popular Python development utilities.
+* [Azure Notebooks](#aznotebooks): A Jupyter Notebooks service hosted in the Azure cloud. It is __the easiest__ way to get started, as the Azure Machine Learning SDK is already installed.
+* [The Data Science Virtual Machine](#dsvm): A virtual machine in the Azure cloud that is __designed for data science work__. Python 3, Conda, Jupyter Notebooks, and the Azure Machine Learning SDK are already installed. The VM comes with popular ML frameworks, tools, and editors for developing ML solutions. It is probably __the most complete__ development environment for ML on the Azure platform.
 * [Jupyter Notebooks](#jupyter): If you're already using Jupyter Notebooks, the SDK has some extras that you should install.
 * [Visual Studio Code](#vscode): If you use Visual Studio Code, there are some useful extensions that you can install.
 
