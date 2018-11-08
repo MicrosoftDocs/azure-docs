@@ -61,12 +61,12 @@ To troubleshoot this issue, reset the network interface by using Serial control 
 
         netsh interface ip set address name="<NIC Name>" source=dhc
         
-    For example, if the interwork interncae names "Ethernet 2", run the following command:
+    For example, if the interwork interface names "Ethernet 2", run the following command:
 
         netsh interface ip set address name="Ethernet " source=dhc
 
 
-4. Query the IP configuration again to make sure that the interface is setup properly now, and the new IP address which should match the one given by the Azure portal:
+4. Query the IP configuration again to make sure that the interface is set up properly now, and the new IP address which should match the one given by the Azure portal:
 
         netsh interface ip show config
 
