@@ -3,7 +3,7 @@ title: PowerShell developer reference for Azure Functions | Microsoft Docs
 description: Understand how to develop functions by using PowerShell.
 services: functions
 documentationcenter: na
-author: tyleonha
+author: tylerleonhardt
 manager: slee
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture
 
@@ -21,11 +21,11 @@ This guide contains information about the intricacies of writing Azure Functions
 
 A PowerShell function is represented as a PowerShell script that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The powershell script takes in parameters that match the names of all the input bindings. In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete the Functions quickstart to create your first function, using [Visual Studio Code](functions-create-first-function-vs-code.md) or [via the Azure Functions Core Tools](functions-create-first-azure-function.md).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete the Functions quickstart to create your first function, using [the Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md) or [the Azure Portal](functions-create-first-azure-function.md).
 
 ## Folder structure
 
-The required folder structure for a PowerShell project looks like the following. This default can be changed. For more information, see the [scriptFile](#using-scriptfile) section below.
+The required folder structure for a PowerShell project looks like the following. This default can be changed. For more information, see the [scriptFile](#configure-function-scriptfile) section below.
 
 ```
 PSFunctionApp
@@ -218,14 +218,13 @@ Logging in PowerShell functions works similarly to regular PowerShell logging. Y
 | `Write-Verbose`     | Trace              | Writes to _Trace_ level logging.       |
 | `Write-Debug`       | Debug              | Writes to _Debug_ level logging.       |
 
-[!Note]
-Verbose maps to the Functions log level `Trace`.
+> [!NOTE]
+> Verbose maps to the Functions log level `Trace`.
 
 In addition to these cmdlets, anything written to the pipeline will be written to the `Information` log level.
 
-You can [configure the trace-level threshold for logging](#configure-the-trace-level-for-console-logging) in the host.json file. For more information on writing logs, see [writing trace outputs](#writing-trace-output-to-the-console) below.
-
-Read [monitoring Azure Functions](functions-monitoring.md) to learn more about viewing and querying function logs.
+> [!IMPORTANT]
+> Using `Write-Verbose` or `Write-Debug` is not enough to see Verbose and Debug logging. You need to also configure the "log level threshold" which declares what level of logs you actually care about. See [Configuring the log level for a Function App](#configuring-the-log-level-for-a-function-app) on how to do that.
 
 ### Configuring the log level for a Function App
 
@@ -246,6 +245,12 @@ The following example sets the threshold to enable verbose logging for all funct
 
 For more information, see [host.json reference](functions-host-json.md).
 
+### Viewing the logs
+
+If your Function App is running in Azure, you can use Application Insights to monitor it. Read [monitoring Azure Functions](functions-monitoring.md) to learn more about viewing and querying function logs.
+
+If you're running your Function App locally for development, logs default to the file system. To see the logs in the console, set the `AZURE_FUNCTIONS_ENVIRONMENT` environment variable to `Development` before starting the Function App.
+
 ## HTTP triggers and bindings
 
 HTTP and webhook triggers and HTTP output bindings use request and response objects to represent the HTTP messaging.  
@@ -263,10 +268,10 @@ The Request object that's passed into the script comes from a type called `HttpR
 | _Query_   | An object that contains the query parameters.                  | Dictionary<string,string> |
 | _Url_     | The URL of the request.                                        | string                    |
 
-> [!Note]
+> [!NOTE]
 > The `Body` is serialized into a type that makes sense for the data. If it's json, it's passed in as a hashtable. If it's a string, it's passed in as a string.
 
-> [!Note]
+> [!NOTE]
 > All `Dictionary<string,string>` keys are case-insensitive.
 
 ### Response object
@@ -357,7 +362,7 @@ mkdir ./Modules
 Save-Module MyGalleryModule -Path ./Modules
 ```
 
->[!Note]
+> [!NOTE]
 > Remember, your Function App is the container of _all_ of you're functions for a particular project.
 
 Use `Save-Module` to save all of the modules you depend on or copy your own custom modules to the `Modules` folder. Your folder structure should look like this:
