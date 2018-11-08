@@ -1,7 +1,7 @@
 ---
 
 title: Tutorial How to download and use a script to access signin logs | Microsoft Docs
-description: Learn how to download and use a Powershell script to access signin logs.
+description: Learn how to download and use a PowerShell script to access signin logs.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -15,7 +15,7 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 10/23/2018
+ms.date: 11/08/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk  
 ---
@@ -42,7 +42,7 @@ You need
 4. Select **Apply** and verify that the filter is applied as expected. 
 5. Select **Script** from the top menu to download the Powershell script with the applied filters.
 
-![Download script](./media/tutorial-signin-logs-download-script/download-script.png)
+     ![Download script](./media/tutorial-signin-logs-download-script/download-script.png)
      
 6. Open the **Task Scheduler** application on your Windows machine and select **Create Basic Task**.
 7. Enter a name and description for the task and click **Next**.
@@ -50,11 +50,11 @@ You need
 9. In the action menu, select **Start a program** and select the downloaded script and select **Next**. 
 10. Review the scheduled task and select **Finish** to create the task.
 
-![Create task](./media/tutorial-signin-logs-download-script/create-task.png)
+     ![Create task](./media/tutorial-signin-logs-download-script/create-task.png)
 
-Now, your task will run every day and save the sign-in records from the last 24 hours into a file of the format **AAD_SignInReport_YYYYMMDD_HHMMSS.csv**. You can also edit the downloaded Powershell script to save it under a different file name, or to modify the number of records downloaded. 
+Now, your task will run every day and save the sign-in records from the last 24 hours into a file of the format **AAD_SignInReport_YYYYMMDD_HHMMSS.csv**. You can also edit the downloaded PowerShell script to save it under a different file name, or to modify the number of records downloaded. 
 
-## Next Steps
+## Next steps
 
 * [Azure Active Directory report retention policies](reference-reports-data-retention.md)
 * [Getting started with the Azure Active Directory reporting API](concept-reporting-api.md)

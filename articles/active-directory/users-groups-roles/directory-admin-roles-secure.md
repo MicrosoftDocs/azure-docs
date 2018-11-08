@@ -385,7 +385,7 @@ Determine if you need to [transfer ownership of an Azure subscription to another
 
 8. Make sure you save backups of relevant logs for potential forensic and legal investigation.
 
-For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](http://aka.ms/Office365SIM).
+For more information about how Microsoft Office 365 handles security incidents, see [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM).
 
 ## FAQ: Common questions we receive regarding securing privileged access  
 

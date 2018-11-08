@@ -121,6 +121,6 @@ To maintain a familiar model between infrastructure metrics already collected by
 | values[] | CounterValue |
 
 ## Next steps
-* Learn about [log searches](log-analytics-log-search.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
 * Use [Custom Fields](log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
 
