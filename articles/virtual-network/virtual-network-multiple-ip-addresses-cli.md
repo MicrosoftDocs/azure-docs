@@ -107,7 +107,7 @@ az network nic ip-config create \
 
 # Create a third IP configuration, and associate it to the NIC. This configuration has  static private IP address and	# no public IP address.
 
-azure network nic ip-config create \
+az network nic ip-config create \
 --resource-group $RgName \
 --nic-name $NicName \
 --private-ip-address 10.0.0.6 \
