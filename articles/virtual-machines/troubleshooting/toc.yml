@@ -30,6 +30,8 @@
     href: troubleshoot-authentication-error-rdp-vm.md
   - name: Troubleshoot Azure VM RDP connection issues by Event ID
     href: event-id-troubleshoot-vm-rdp-connecton.md
+  - name: Troubleshoot RDP error in VM with static IP
+  - href: troubleshoot-rdp-static-ip
 - name: SSH
   items:
   - name: SSH troubleshooting
