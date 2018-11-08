@@ -13,7 +13,7 @@ ms.author: erhopf
 
 # Speech Service REST APIs
 
-In addition to the [Speech SDK](speech-sdk.md), the Speech service enables you to convert speech-to-text and text-to-speech via a set REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
+In addition to the [Speech SDK](speech-sdk.md), the Speech Service enables you to convert speech-to-text and text-to-speech via a set REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
 
 Before using the REST APIs, please consider:
 * The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
@@ -41,9 +41,103 @@ These regions and endpoints are supported:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
+[HTTP](#tab/http)
+
+The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
+
+```
+POST /sts/v1.0/issueToken HTTP/1.1
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.api.cognitive.microsoft.com
+Content-type: application/x-www-form-urlencoded
+Content-Length: 0
+```
+
+The body of the response to this request is the access token in Java Web Token (JWT) format.
+
+[Powershell](#tab/powershell)
+
+The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+
+```Powershell
+$FetchTokenHeader = @{
+  'Content-type'='application/x-www-form-urlencoded';
+  'Content-Length'= '0';
+  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+}
+
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
+ -Headers $FetchTokenHeader
+
+# show the token received
+$OAuthToken
+
+```
+
+[cURL](#tab/curl)
+
+The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+
+```Powershell
+$FetchTokenHeader = @{
+  'Content-type'='application/x-www-form-urlencoded';
+  'Content-Length'= '0';
+  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+}
+
+$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
+ -Headers $FetchTokenHeader
+
+# show the token received
+$OAuthToken
+
+```
+
+[.NET](#tab/dotnet)
+
+The following C# class illustrates how to obtain an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
+
+```cs
+/*
+    * This class demonstrates how to get a valid access token.
+    */
+public class Authentication
+{
+    public static readonly string FetchTokenUri =
+        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+    private string subscriptionKey;
+    private string token;
+
+    public Authentication(string subscriptionKey)
+    {
+        this.subscriptionKey = subscriptionKey;
+        this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
+    }
+
+    public string GetAccessToken()
+    {
+        return this.token;
+    }
+
+    private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(fetchUri);
+
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
+            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+            return await result.Content.ReadAsStringAsync();
+        }
+    }
+}
+```
+---
+
 #### Get a token: HTTP
 
-The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
+The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -57,7 +151,7 @@ The body of the response to this request is the access token in Java Web Token (
 
 #### Get a token: PowerShell
 
-The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -76,7 +170,7 @@ $OAuthToken
 
 #### Get a token: cURL
 
-cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
 
 > [!NOTE]
 > The command is shown on multiple lines for readability, but enter it on a single line at a shell prompt.
@@ -91,7 +185,7 @@ curl -v -X POST
 
 #### Get a token: C#
 
-The following C# class illustrates how to obtain an access token. Pass your Speech service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
+The following C# class illustrates how to obtain an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
 
 ```cs
 /*
@@ -263,12 +357,12 @@ The following fields are sent in the HTTP request header.
 
 |Header| Description | Required / Optional |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | Your Speech service subscription key. | Either this header or `Authorization` is required. |
+| `Ocp-Apim-Subscription-Key` | Your Speech Service subscription key. | Either this header or `Authorization` is required. |
 | `Authorization` | An authorization token preceded by the word `Bearer`. See [Authentication](#authentication) for additional information. | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codec=audio/pcm; samplerate=16000` and `audio/ogg; codec=audio/pcm; samplerate=16000`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
-| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
-| `Accept` | If provided, it must be `application/json`. The Speech Service provides results in JSON. Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`. | Optional, but recommended. | 
+| `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech Service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
+| `Accept` | If provided, it must be `application/json`. The Speech Service provides results in JSON. Some Web request frameworks provide an incompatible default value if you do not specify one, so it is good practice to always include `Accept`. | Optional, but recommended. |
 
 ### Audio formats
 
@@ -284,7 +378,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 ### Chunked transfer
 
-Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
+Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech Service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
 
 The following code illustrates how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
@@ -420,7 +514,7 @@ These regions are supported for text-to-speech via the REST API. Make sure that 
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-The Speech service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24-KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
+The Speech Service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24-KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
