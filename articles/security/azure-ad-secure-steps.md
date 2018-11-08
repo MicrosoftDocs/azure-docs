@@ -44,7 +44,7 @@ All set? Let's get started on the checklist.
 ## Step 1 - Strengthen your credentials 
 
 Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (45 min):
-> [!VIDEO https://www.youtube.com/watch?v=uy0j1_t5Hd4]
+> [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
 If users in your identity system are using weak passwords and not strengthening them with multi-factor authentication, it isn't a matter of if or when you get compromised – just "how often."
 
@@ -77,7 +77,7 @@ Learn more about how [password hash sync](https://docs.microsoft.com/azure/activ
 
 ### Implement AD FS extranet smart lockout
 
-Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). If you use AD FS in Windows Server 2012R2, implement AD FS [extranet lockout protection](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). If you use AD FS on Windows Server 2016, implement [extranet smart lockout](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart Extranet lockout protects against brute force attacks, which target AD FS while preventing users from being locked out in Active Directory.
+Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). If you use AD FS in Windows Server 2012R2, implement AD FS [extranet lockout protection](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). If you use AD FS on Windows Server 2016, implement [extranet smart lockout](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart Extranet lockout protects against brute force attacks, which target AD FS while preventing users from being locked out in Active Directory.
 
 ### Take advantage of intrinsically secure, easier to use credentials
 
@@ -101,7 +101,7 @@ Using the assume breach mentality, you should reduce the impact of compromised u
 
 ### Block end-user consent
 
-By default, all users in Azure AD are allowed to grant applications that leverage OAuth 2.0 and the Microsoft identity [consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/consent-framework) permissions to access company data. While consenting does allow users to easily acquire useful applications that integrate with Microsoft 365 and Azure, it can represent a risk if not used and monitored carefully. [Disabling all future user consent operations](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/methods-for-removing-user-access) can help reduce your surface area and mitigate this risk. If end-user consent is disabled previous consent grants will still be honored, but all future consent operations must be performed by an administrator. Before disabling this functionality it is recommended to ensure that users will understand how to request admin approval for new applications; doing this should help reduce user friction, minimize support volume, and make sure users do not sign up for applications using non-Azure AD credentials.
+By default, all users in Azure AD are allowed to grant applications that leverage OAuth 2.0 and the Microsoft identity [consent framework](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) permissions to access company data. While consenting does allow users to easily acquire useful applications that integrate with Microsoft 365 and Azure, it can represent a risk if not used and monitored carefully. [Disabling all future user consent operations](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access) can help reduce your surface area and mitigate this risk. If end-user consent is disabled previous consent grants will still be honored, but all future consent operations must be performed by an administrator. Before disabling this functionality it is recommended to ensure that users will understand how to request admin approval for new applications; doing this should help reduce user friction, minimize support volume, and make sure users do not sign up for applications using non-Azure AD credentials.
 
 ### Implement Azure AD Privileged Identity Management
 
