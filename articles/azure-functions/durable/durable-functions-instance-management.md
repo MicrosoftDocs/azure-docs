@@ -326,22 +326,20 @@ public static Task Run(
 }
 ```
 
-And the second one will remove the history for all instances for specified time period and provided runtime status:
+And the second one will remove the history for all instances for specified time period and provided runtime status. The sample below will run once per day at 12 AM. And it will purge the data for all orchestration instances completed 30 or more days ago:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
-    [ManualTrigger] DateTime startDateTime)
+    [TimerTrigger("0 0 12 * * *")]TimerInfo myTimer)
 {
     return client.InnerClient.PurgeInstanceHistoryAsync( 
-                    startDateTime, 
-                    DateTime.UtcNow,  
+                    DateTime.MinValue,
+                    DateTime.UtcNow.AddDays(-30),  
                     new List<OrchestrationStatus> 
                     { 
-                        OrchestrationStatus.Completed, 
-                        OrchestrationStatus.Terminated, 
-                        OrchestrationStatus.Failed, 
+                        OrchestrationStatus.Completed
                     }); 
 }
 ```
