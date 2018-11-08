@@ -61,7 +61,7 @@ For stereo audio streams, batch transcription splits the left and right channel 
 
 ## Authorization token
 
-As with all features of the Speech service, you create a subscription key from the [Azure portal](https://portal.azure.com) by following our [Get started guide](get-started.md). If you plan to get transcriptions from our baseline models, creating a key is all you need to do. 
+As with all features of the Speech service, you create a non free subscription key from the [Azure portal](https://portal.azure.com).
 
 If you plan to customize and use a custom model, add the subscription key to the custom speech portal by doing the following:
 
