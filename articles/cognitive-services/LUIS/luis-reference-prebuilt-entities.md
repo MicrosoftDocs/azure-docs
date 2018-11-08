@@ -21,13 +21,13 @@ Language Understanding (LUIS) provides prebuilt entities. When a prebuilt entity
 |Chinese|[zh-CN](#chinese-entity-support)|
 |Dutch|[nl-NL](#dutch-entity-support)|
 |English|[en-US (American)](#english-american-entity-support)|
-|French|fr-CA (Canada), [fr-FR (France)](#french-canadian-entity-support), |
-|German|de-DE|
-|Italian|it-IT|
-|Japanese|ja-JP|
-|Korean|ko-KR|
-|Portuguese|pt-BR (Brazil)|
-|Spanish|es-ES (Spain), es-MX (Mexico)|
+|French|[fr-CA (Canada)]#french-canadian-entity-support), [fr-FR (France)](#french-franch-entity-support), |
+|German|[de-DE](#german-entity-support)|
+|Italian|[it-IT](#italian-entity-support)|
+|Japanese|[ja-JP](#japanese-entity-support)|
+|Korean|[ko-KR](#korean-entity-support)|
+|Portuguese|[pt-BR (Brazil)](#portuguese-brazil-entity-support)|
+|Spanish|[es-ES (Spain)](#spanish-spain-entity-support), [es-MX (Mexico)](#spanish-mexico-entity-support)|
 
 ## Chinese entity support
 
