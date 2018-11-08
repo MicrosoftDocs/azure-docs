@@ -16,7 +16,7 @@ ms.author: mjbrown
 
 Many of today’s applications run at planet scale. These applications are always on and accessible to users all around the globe. Managing the global distribution of data that is used by these applications while providing high performance and high availability is a hard problem. Azure Cosmos DB is a globally distributed database service that is designed to provide high performance and high availability. Due to these reasons, Azure Cosmos DB is best suited for these real-time applications.
 
-Cosmos DB is a foundational Azure service and it is available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) by default. Microsoft operates Azure data centers in more than 50 regions around the world and continues to expand to meet the growing needs of the customers. When you create a Cosmos DB account, you decide which region(s) it should be deployed in. Microsoft operates the Cosmos DB service 24/7, so you can focus on your applications.
+Cosmos DB is a foundational Azure service and it is available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) by default. Microsoft operates Azure data centers in 54+ regions around the world and continues to expand to meet the growing needs of the customers. When you create a Cosmos DB account, you decide which region(s) it should be deployed in. Microsoft operates the Cosmos DB service 24/7, so you can focus on your applications.
 
 You can configure your databases to be globally distributed and available in any of the 50+ Azure regions. To lower the latency, you should place the data closer to your user’s location. Choosing the required regions depends on the global reach of your application and where your users are located. Cosmos DB transparently replicates the data within your account to all the configured regions. It provides a single system image of your Cosmos database and containers by which your application can read and write locally. With Cosmos DB, you can add or remove the regions associated with your account at any time. Your application does not need to be paused or redeployed to add or remove a region. It continues to be highly available all the time because of the multi-homing capabilities that the service provides.
 
@@ -44,5 +44,5 @@ Read more about global distribution in the following articles:
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 * [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [How to add/remove regions from your database](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [How to add/remove regions from your Cosmos account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
