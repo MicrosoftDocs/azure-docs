@@ -158,7 +158,7 @@ Putting it all together your `index.html` should look like [index.html](https://
 
 The next step is to define the CSS styles, which will define how everything is laid out and styled. Open the `index.css` file and add the following pieces of code to it. Note the `@media` style, which defines alternate styling options to be used when the page width is fewer than 700 pixels.  
 
-    ```css
+```css
     html, body { 
         padding: 0; 
         margin: 0; 
@@ -359,7 +359,8 @@ The next step is to define the CSS styles, which will define how everything is l
             box-shadow: 0 0 0 0 rgba(0, 204, 255, 0); 
         } 
     }
-    ```
+
+```
 
 If you run the application now, you will see the header, search box, and search button, but the map will still not be visible because it hasn’t been loaded yet. And if you try to do a search, nothing will happen. We need to wire the JavaScript logic below for all the functionalities.
 
@@ -921,5 +922,5 @@ In this tutorial, you have seen how easy it is to create a store locator using A
 * Add support to specify an initial search value using a query string. It will allow users to bookmark and share searches and will also provide an easy method for you to pass searches to this page from another page.  
 * [Deploy as an Azure Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 * Store your data in a database and search for nearby locations. 
-    * [SQL Server Spatial Data Types Overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
-    * [Query Spatial Data for Nearest Neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
+    - [SQL Server Spatial Data Types Overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
+    - [Query Spatial Data for Nearest Neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
