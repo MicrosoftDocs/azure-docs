@@ -91,6 +91,7 @@
     - name: Test a knowledge base
       href: How-To/test-knowledge-base.md
   - name: Integrate with other services
+    items:
     - name: Integrate QnA Maker and LUIS
       href: Tutorials/integrate-qnamaker-luis.md
   - name: Manage service
