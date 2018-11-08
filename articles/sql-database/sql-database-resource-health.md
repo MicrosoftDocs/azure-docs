@@ -1,6 +1,6 @@
 ---
 title: Use Azure Resource Health to monitor SQL Database health | Microsoft Docs
-description: Use the Azure portal to create SQL Database alerts, which can trigger notifications or automation when the conditions you specify are met.
+description: Use Azure Resource Health to monitor SQL Database health, helps you diagnose and get support when an Azure issue impacts your SQL resources.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitoring
@@ -55,7 +55,7 @@ When your SQL Database experiences downtime, analysis is performed to determine 
 The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and retry logic helps reduce the impact. If you continue to experience login errors, please contact support.
 
 #### Reconfiguration
-Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing, upgrades, software or hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
+Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
 ## Next Steps
 * Learn more about [retry logic for transient errors](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
