@@ -21,12 +21,12 @@ Resource health for SQL Database helps you diagnose and get support when an Azur
 ![Overview](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
 ## Health Checks
-Resource Health determines the health of your SQL resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL DB resource only examines failures caused by SQL (or the system) and not by the user.
+Resource Health determines the health of your SQL resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL DB resource only examines login failures due to system error and not user error. The Resource Health status is updated every 1-2 minutes.
 
 ## Health States
 
 ### Available
-A status of **Available** means that Resource Health has not detected logins failures to your SQL resource.
+A status of **Available** means that Resource Health has not detected logins failures due to system errors on your SQL resource.
 
 ![Available](./media/sql-database-resource-health/sql-resource-health-available.jpg)
 
@@ -49,7 +49,7 @@ If you're experiencing problems with the resource, the Unknown health status mig
 You can access up to 14 days of health history in the Health history section of Resource Health. The section will also contain the downtime reason (when available) for the downtimes reported by Resource Health. Currently, Azure shows the downtime for your SQL database resource at a two-minute granularity. The actual downtime is likely less than a minute – average is 8s.
 
 ### Downtime Reasons
-When your SQL Database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health.
+When your SQL Database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published 30 minutes after an event.
 
 #### Planned Maintenance
 The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and retry logic helps reduce the impact. If you continue to experience login errors, please contact support.
