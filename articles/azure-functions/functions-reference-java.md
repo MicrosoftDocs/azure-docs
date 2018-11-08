@@ -19,7 +19,9 @@ ms.author: routlaw
 
 ## Programming model 
 
-Azure Functions supports triggers, which are ways to start execution of your code, and bindings, which are ways to simplify coding for input and output data. A function should be a stateless method to process input and produce output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. You need to make sure all the function methods are `public` accessible and method with annotation @FunctionName is unique as that defines the entry for the the function.
+The concepts of triggers and bindings are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
+
+A function should be a stateless method to process input and produce output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. You need to make sure all the function methods are `public` accessible and method with annotation @FunctionName is unique as that defines the entry for the the function.
 
 ## Folder structure
 
@@ -106,11 +108,11 @@ Download and use the [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-fo
 
 Azure Functions supports the use of third-party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the `mvn package` goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader at runtime.
 
-The `com.microsoft.azure.functions:azure-functions-java-library` dependency is provided on the classpath by default, and does not need to be included in the `lib` directory. Also, depe listed [here](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) are added to classpath at runtime.
+The `com.microsoft.azure.functions:azure-functions-java-library` dependency is provided on the classpath by default, and does not need to be included in the `lib` directory. Also, depedencies listed [here](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) are added to classpath at runtime.
 
 ## Data type support
 
-You can use POJOs and primitive dataType such as String, Ineteger and types defined in `azure-functions-java-library` package for input and output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code.
+You can use Plain old Java objects (POJOs) and primitive dataType such as String, Ineteger and types defined in `azure-functions-java-library` package for input and output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code.
 
 ### Strings
 
@@ -197,7 +199,7 @@ public class Function {
 }
 ```
 
-When this function is invoked, the HTTP request payload will be passed as the `String` for argument `in`; and one entry will be retrieved from the Azure Table Storage and be passed to argument `inputData` as `TestInputData` type.
+When this function is invoked, the HTTP request payload is passed as the `String` for argument `in`; and one entry will be retrieved from the Azure Table Storage and is passed to argument `inputData` as `TestInputData` type.
 
 ## Outputs
 
@@ -226,7 +228,7 @@ public class Function {
 
 Use `OutputBinding<byte[]`>  to make a binary output value (for parameters); for return values, just use `byte[]`.
 
-To receive events in a batch when using EventHubTrigger, set cardinality to many and change input type to an array or List<>
+To receive events in a batch when using EventHubTrigger, set cardinality to many and change input type to an array or `List<T>`
 
 ```java
 @FunctionName("ProcessIotMessages")
@@ -242,8 +244,8 @@ To receive events in a batch when using EventHubTrigger, set cardinality to many
 }
 
 ```
-
-Note: You can also bind to 'String[]', 'TestEventData[]' or 'List<String>'
+>[!NOTE] 
+>You can also bind to `String[]`, `TestEventData[]` or `List<String>`
 
 ## Specialized Types
 
