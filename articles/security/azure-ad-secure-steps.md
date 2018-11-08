@@ -43,7 +43,7 @@ All set? Let's get started on the checklist.
 
 ## Step 1 - Strengthen your credentials 
 
-Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (45m):
+Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (45 min):
 > [!VIDEO https://www.youtube.com/watch?v=uy0j1_t5Hd4]
 
 If users in your identity system are using weak passwords and not strengthening them with multi-factor authentication, it isn't a matter of if or when you get compromised – just "how often."
@@ -54,16 +54,14 @@ Given the frequency of passwords being guessed, phished, stolen with malware, or
 
 ### Start banning commonly attacked passwords and turn off traditional complexity, and expiration rules.
 
-Many organizations use the traditional complexity (for example, special characters) and password expiration rules. Microsoft's research has shown these policies are harmful, causing users to choose passwords that are easier to guess.
-
-Many organizations use the traditional complexity (requiring special characters, numbers, uppercase and lowercase) and password expiration rules. [Microsoft's research](https://aka.ms/passwordguidance) has shown these policies cause users to choose passwords that are easier to guess.
+Many organizations use the traditional complexity (requiring special characters, numbers, uppercase, and lowercase) and password expiration rules. [Microsoft's research](https://aka.ms/passwordguidance) has shown these policies cause users to choose passwords that are easier to guess.
 
 Azure AD's [dynamic banned password](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) feature uses current attacker behavior to prevent users from setting passwords that can easily be guessed. This capability is always on when users are created in the cloud, but is now also available for hybrid organizations when they deploy [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD password protection blocks users from choosing these common passwords and can be extended to block password containing custom keywords you specify. For example, you can prevent your users from choosing passwords containing your company’s product names or a local sport team.
 
 Microsoft recommends adopting the following modern password policy based on [NIST guidance](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Require passwords have at least 8 characters. Longer isn't necessarily better, as they cause users to choose predictable passwords, save passwords in files, or write them down.
-2. Disable expiration rules, which drive users to easily guessed passwords such as **Summer2018!**.
+2. Disable expiration rules, which drive users to easily guessed passwords such as **Summer2018!**
 3. Disable character-composition requirements and prevent users from choosing commonly attacked passwords, as they cause users to choose predictable character substitutions in passwords.
 
 You can use [PowerShell to prevent passwords from expiring](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) for users if you create identities in Azure AD directly. Hybrid organizations should implement these policies using [domain group policy settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10) or [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
@@ -101,9 +99,9 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 Using the assume breach mentality, you should reduce the impact of compromised user credentials when they happen. For each app in your environment consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. With [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access their apps and resources based on specific conditions you define.
 
-### Block end user consent
+### Block end-user consent
 
-By default, all Users in Azure AD are allowed to grant applications that leverage OAuth 2.0 and the Microsoft identity [consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/consent-framework) permissions to access company data. While this does allow end-users to easily acquire useful applications that integrate with Microsoft 365 and Azure, it can represent a risk if not used and monitored carefully. [Disabling all future user consent operations](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/methods-for-removing-user-access) can help reduce your surface area and mitigate this risk. If end-user consent is disabled previous consent grants will still be honored, but all future consent operations must be performed by an administrator. Before disabling this functionality it is recommended to ensure that Users will understand how to request admin approval for new applications; doing this should help reduce user friction, minimize support volume, and ensure that users do not sign up for applications using non-Azure AD credentials.
+By default, all users in Azure AD are allowed to grant applications that leverage OAuth 2.0 and the Microsoft identity [consent framework](https://docs.microsoft.com/en-us/azure/active-directory/develop/consent-framework) permissions to access company data. While consenting does allow users to easily acquire useful applications that integrate with Microsoft 365 and Azure, it can represent a risk if not used and monitored carefully. [Disabling all future user consent operations](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/methods-for-removing-user-access) can help reduce your surface area and mitigate this risk. If end-user consent is disabled previous consent grants will still be honored, but all future consent operations must be performed by an administrator. Before disabling this functionality it is recommended to ensure that users will understand how to request admin approval for new applications; doing this should help reduce user friction, minimize support volume, and make sure users do not sign up for applications using non-Azure AD credentials.
 
 ### Implement Azure AD Privileged Identity Management
 
@@ -162,7 +160,7 @@ Azure AD Identity Protection provides two important reports you should monitor d
 
 ### Audit apps and consented permissions
 
-Users can be tricked into navigating to a compromised web sites or apps which will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) the permissions given by users.
+Users can be tricked into navigating to a compromised web site or apps which will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) the permissions given by users.
 
 ## Step 5 - Enable end-user self-help
 
