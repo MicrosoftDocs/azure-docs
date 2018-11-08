@@ -2,7 +2,7 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: About SQL DB
+  - name: What is SQL DB
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md  
