@@ -21,7 +21,7 @@ This guide contains information about the intricacies of writing Azure Functions
 
 A PowerShell function is represented as a PowerShell script that executes when triggered ([triggers are configured in function.json](functions-triggers-bindings.md)). The powershell script takes in parameters that match the names of all the input bindings. In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function.
 
-This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md). You should also complete the Functions quickstart to create your first function, using [the Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md) or [the Azure Portal](functions-create-first-azure-function.md).
+This article assumes that you have already read the [Azure Functions developer reference](functions-reference.md) and completed the Functions quickstart to create your first function, using [the Azure Functions Core Tools](functions-create-first-azure-function-azure-cli.md) or [the Azure portal](functions-create-first-azure-function.md).
 
 ## Folder structure
 
@@ -50,13 +50,13 @@ PSFunctionApp
 
 At the root of the project, there's a shared [host.json](functions-host-json.md) file that can be used to configure the function app. Each function has a folder with its own code file (.ps1) and binding configuration file (function.json). The name of `function.json`'s parent directory is always the name of your function.
 
-Depending on the bindings you are using, an `extensions.csproj` might be needed. Binding extensions required in [version 2.x](functions-versions.md) of the Functions runtime are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
+Certain bindings require the presence of an `extensions.csproj`. Binding extensions, required in [version 2.x](functions-versions.md) of the Functions runtime, are defined in the `extensions.csproj` file, with the actual library files in the `bin` folder. When developing locally, you must [register binding extensions](functions-triggers-bindings.md#local-development-azure-functions-core-tools). When developing functions in the Azure portal, this registration is done for you.
 
 ## Defining a PowerShell script to be a function
 
 By default, the Functions runtime looks for your function in `run.ps1`, where `run.ps1` shares the same parent directory as its corresponding `function.json`.
 
-Your script is passed a number of arguments on execution. The powershell script takes in parameters that match the names of all the input bindings. In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function. You can define this at the top of your script by adding a `param` block:
+Your script is passed a number of arguments on execution. The powershell script takes in parameters that match the names of all the input bindings. In addition to those inputs, a parameter is available to you called `TriggerMetadata` that contains additional information on the trigger that started the function. To handle these parameters, add a `param` block to the top of your script like so:
 
 ```powershell
 # $TriggerMetadata is optional here. If you don't need it, you can safely remove it from the param block
@@ -176,7 +176,7 @@ PARAMETERS
         about_CommonParameters (https://go.microsoft.com/fwlink/?LinkID=113216). 
 ```
 
-If you want to retrieve what you're output bindings are currently set to, you can use the cmdlet `Get-OutputBinding` which will retrieve a hashtable containing the names of the output bindings to their respective values.
+If you want to retrieve what your output bindings are currently set to, you can use the cmdlet `Get-OutputBinding`, which will retrieve a hashtable containing the names of the output bindings to their respective values.
 
 ```powershell
 Get-OutputBinding
@@ -228,7 +228,7 @@ In addition to these cmdlets, anything written to the pipeline will be written t
 
 ### Configuring the log level for a Function App
 
-Functions lets you define the threshold level for writing to the logs, which makes it easy to control the way logs are written to the console from your function. To set the threshold for all traces written to the console, use the `logging.logLevel.default` property in the `host.json` file. This setting applies to all functions in your function app.
+Azure Functions lets you define the threshold level for writing to the logs, which makes it easy to control the way logs are written to the console from your function. To set the threshold for all traces written to the console, use the `logging.logLevel.default` property in the `host.json` file. This setting applies to all functions in your function app.
 
 The following example sets the threshold to enable verbose logging for all functions, but sets the threshold to enable debug logging for a single function:
 
@@ -257,7 +257,7 @@ HTTP and webhook triggers and HTTP output bindings use request and response obje
 
 ### Request object
 
-The Request object that's passed into the script comes from a type called `HttpRequestContext` which has the following properties:
+The Request object that's passed into the script comes from a type called `HttpRequestContext`, which has the following properties:
 
 | Property  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
@@ -276,7 +276,7 @@ The Request object that's passed into the script comes from a type called `HttpR
 
 ### Response object
 
-The Response object that you should send back comes from a type called `HttpResponseContext` which has the following properties:
+The Response object that you should send back comes from a type called `HttpResponseContext`, which has the following properties:
 
 | Property      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
@@ -344,7 +344,7 @@ You can see the current version by printing `$PSVersionTable` from any function.
 
 Leveraging your own custom modules or modules from the [PowerShell Gallery](https://powershellgallery.com) is a little different than how you would do it normally.
 
-When you install the module on your local machine, it goes in one of the globally available folders in your `$env:PSModulePath`. Since your function will be running in Azure, you won't have access to the modules installed on your machine so the `$env:PSModulePath` for a PowerShell Function App is different than that of regular PowerShell.
+When you install the module on your local machine, it goes in one of the globally available folders in your `$env:PSModulePath`. Since your function will be running in Azure, you won't have access to the modules installed on your machine so the `$env:PSModulePath` for a PowerShell Function App is different than regular PowerShell's `$env:PSModulePath`.
 
 A PowerShell Function App's `PSModulePath` contains two paths:
 
@@ -355,7 +355,7 @@ A PowerShell Function App's `PSModulePath` contains two paths:
 
 In order to leverage custom modules or PowerShell modules from the PowerShell Gallery (via `Save-Module`), you can place modules that your function depends on in the well-known `Modules` folder and they will be automatically available for you inside the Functions runtime.
 
-To take advantage of this, from the root of your _Function App_, create a `Modules` folder if it doesn't already exist and save the module you want to it.
+To take advantage of this feature, from the root of your _Function App_, create a `Modules` folder if it doesn't already exist and save the module you want to it.
 
 ```powershell
 mkdir ./Modules
@@ -365,7 +365,7 @@ Save-Module MyGalleryModule -Path ./Modules
 > [!NOTE]
 > Remember, your Function App is the container of _all_ of you're functions for a particular project.
 
-Use `Save-Module` to save all of the modules you depend on or copy your own custom modules to the `Modules` folder. Your folder structure should look like this:
+Use `Save-Module` to save all of the modules you depend on or copy your own custom modules to the `Modules` folder. Your folder structure should look like the following:
 
 ```
 PSFunctionApp
@@ -384,12 +384,12 @@ When you start your Function App, the PowerShell language worker will add this `
 
 ### Language worker level `Modules` folder
 
-We ship a few commonly used modules in the last position of the `PSModulePath`. The current list of modules are:
+We ship a few commonly used modules in the last position of the `PSModulePath`. The current list of modules is:
 
-- [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive)
-- [Az](https://www.powershellgallery.com/packages/Az)
+- [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive) - The module for working with archives like `.zip`'s, `.nupkg`'s, etc.
+- [Az](https://www.powershellgallery.com/packages/Az) - The Azure PowerShell module
 
-We ship the latest of these modules. If you would like to use a specific version of these, you can put them in the Function App level `Modules` folder.
+We ship the latest of these modules. If you would like to use a specific version of these modules, you can put them in the Function App level `Modules` folder.
 
 ## Environment variables
 
@@ -447,7 +447,7 @@ When developing Azure Functions in the serverless hosting model, cold starts are
 
 ### Bundle modules instead of using `Install-Module`
 
-Your script will get run on every invocation. You should refrain from using `Install-Module` in your script and instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module.
+Your script will get run on every invocation. Refrain from using `Install-Module` in your script and instead use `Save-Module` before publishing so that your function doesn't have to waste time downloading the module.
 
 ## Next steps
 
