@@ -301,6 +301,6 @@ When the script completes, copy the management IP address, which is needed for c
 
 ![Command line output of the script displaying the management IP address near the end](media/avere-vfxt-mgmt-ip.png)
 
-### Next step
+## Next step
 
 Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support and add storage if needed.
