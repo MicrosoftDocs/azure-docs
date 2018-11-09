@@ -11,7 +11,7 @@
   - name: 2017-08-31
     items:
     - name: Managed Clusters
-      href: ./Microsoft.ContainerService/2017-08-31/managedClusters
+      href: /azure/templates/Microsoft.ContainerService/2017-08-31/managedClusters
       maintainContext: true
 - name: Analysis Services
   items:
