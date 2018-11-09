@@ -30,31 +30,30 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 4.	[Export](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway. 
 5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this, and using an OpenSSL on your machine is one. 
 
-```
-openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
-```
+  ```
+  openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
+  ```
   The profileinfo.txt file will contain the private key and the thumbprint for the CA and the Client certificate. Please be sure to use   the thumbprint of the client certificate
-
 6. Open the profileinfo.txt in Notepad. To get the thumbprint of the client (child) certificate, select the text including and between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-
 7.	Now switch to vpnconfig.ovpn file you opened in Notepad from step 3. Find the section shown below replace everything between the and "cert" and "/cert"
-```
-# P2S client certificate
-# please fill this field with a PEM formatted cert
-<cert>
-$CLIENTCERTIFICATE
-</cert>
-```
-8.	Open the profileinfo.txt in Notepad. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
 
+  ```
+  # P2S client certificate
+  # please fill this field with a PEM formatted cert
+  <cert>
+  $CLIENTCERTIFICATE
+  </cert>
+  ```
+8.	Open the profileinfo.txt in Notepad. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
 9.	Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and "key" and "/key"
-```
-# P2S client root certificate private key
-# please fill this field with a PEM formatted key
-<key>
-$PRIVATEKEY
-</key>
-```
+
+  ```
+  # P2S client root certificate private key
+  # please fill this field with a PEM formatted key
+  <key>
+  $PRIVATEKEY
+  </key>
+  ```
 10. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
 11. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
 12. Right-click the OpenVPN icon in the system tray and click connect.
