@@ -129,4 +129,4 @@ The profileinfo.txt file will contain the private key and the thumbprint for the
 
 ## Next steps
 
-If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [Vnet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Please be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Please be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
