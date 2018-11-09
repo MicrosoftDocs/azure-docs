@@ -24,9 +24,11 @@ The Team Data Science Process uses various data science environments for the sto
 * For guidance on questions to consider when making this decision, see [Plan Your Azure Machine Learning Data Science Environment](plan-your-environment.md). 
 * For a catalog of some of the scenarios you might encounter when doing advanced analytics, see [Scenarios for the Team Data Science Process](plan-sample-scenarios.md)
 
-This menu links to topics that describe how to set up the various data science environments used by the Team Data Science Process.
+The following articles describe how to set up the various data science environments used by the Team Data Science Process.
 
-[!INCLUDE [data-science-environment-setup](../../../includes/cap-setup-environments.md)]
+* [Azure storage-account](../../storage/common/storage-quickstart-create-account.md)
+* [HDInsight (Hadoop) cluster](customize-hadoop-cluster.md)
+* [Azure Machine Learning Studio workspace](../studio/create-workspace.md)
 
 The **Microsoft Data Science Virtual Machine (DSVM)** is also available as an Azure virtual machine (VM) image. This VM is pre-installed and configured with several popular tools that are commonly used for data analytics and machine learning. The DSVM is available on both Windows and Linux. For more information, see [Introduction to the cloud-based Data Science Virtual Machine for Linux and Windows](../data-science-virtual-machine/overview.md).
 
