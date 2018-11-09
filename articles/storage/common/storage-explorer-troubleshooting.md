@@ -76,7 +76,7 @@ The macOS Keychain can sometimes get into a state that causes issues for Storage
 * Restart Storage Explorer
 * If the authentication window is blank, wait at least one minute before closing the authentication dialog box.
 * Ensure that your proxy and certificate settings are properly configured for both your machine and Storage Explorer.
-* If you are on Windows and have access to Visual Studio 2017 on the same machine and login, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel. 
+* If you are on Windows and have access to Visual Studio 2017 on the same machine and login, try signing in to Visual Studio 2017. After a successful sign-in to Visual Studio 2017, you should be able to open Storage Explorer and see your account in the account panel.
 
 If none of these methods work [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -110,6 +110,8 @@ First, make sure that the following information you entered are all correct:
 
 * The proxy URL and port number
 * Username and password if required by the proxy
+
+Note that Storage Explorer does not support .pac file for configuring proxy settings.
 
 ### Common solutions
 
