@@ -1,6 +1,6 @@
 ---
-title: Query data from an Azure Cosmos DB Cassandra API account
-description: This article shows how to query user data from Azure Cosmos DB Cassandra API account by using a Java application.
+title: 'Tutorial: Query data from an Azure Cosmos DB Cassandra API account'
+description: This tutorial shows how to query user data from an Azure Cosmos DB Cassandra API account by using a Java application.
 services: cosmos-db
 ms.service: cosmos-db
 author: kanshiG
@@ -13,17 +13,19 @@ ms.date: 09/24/2018
 
 # Tutorial: Query data from an Azure Cosmos DB Cassandra API account
 
-This tutorial shows how to query user data from Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, user city. 
+This tutorial shows how to query user data from an Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and queries user data such as user ID, user name, and user city. 
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
-> * Query data from Cassandra table
+> * Query data from a Cassandra table
 > * Run the app
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
-* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to [create the Cassandra API account, keyspace, table, and [load sample data into the table](cassandra-api-load-data.md). 
+* This article belongs to a multi-part tutorial. Before you start, make sure to complete the previous steps to create the Cassandra API account, keyspace, table, and [load sample data into the table](cassandra-api-load-data.md). 
 
 ## Query data
 
@@ -86,7 +88,7 @@ Use the following steps to query data from your Cassandra API account:
 ## Run the Java app
 1. Open a command prompt or terminal window. Paste the following code block. 
 
-   This code changes directory (cd) to the folder path where you created the project. Then, it runs the `mvn clean install` command to generate the `cosmosdb-cassandra-examples.jar` file within the target folder. Finally, it runs the Java application.
+   This code changes the directory (cd) to the folder path where you created the project. Then, it runs the `mvn clean install` command to generate the `cosmosdb-cassandra-examples.jar` file within the target folder. Finally, it runs the Java application.
 
    ```bash
    cd "cassandra-demo"
@@ -100,7 +102,7 @@ Use the following steps to query data from your Cassandra API account:
 
 ## Next steps
 
-* In this tutorial, you've learned how to query data from Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
+* In this tutorial, you've learned how to query data from an Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Migrate data to Cassandra API account](cassandra-import-data.md)
