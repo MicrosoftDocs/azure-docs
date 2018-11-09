@@ -16,7 +16,7 @@ ms.author: ganesr;cherylmc
 > * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Azure CLI](howto-circuit-cli.md)
-> * [Video - Azure portal](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [Video - Azure portal](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
 > * [PowerShell (classic)](expressroute-howto-circuit-classic.md)
 >
 
@@ -43,7 +43,7 @@ To sign in to your Azure account, use the following example:
 
 1. Open your PowerShell console with elevated rights and connect to your account. Use the following example to help you connect:
 
-  ```powershel
+  ```powershell
   Connect-AzureRmAccount
   ```
 2. Check the subscriptions for the account.

@@ -1,23 +1,16 @@
 ---
 title: Azure Data Box Gateway limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: alkohli
-ms.custom: 
-
 ---
+
 # Azure Data Box Gateway limits (Preview)
 
 
@@ -40,7 +33,7 @@ The following table describes the limits for the Data Box Gateway device.
 |---|---|
 |No. of files per device |100 million <br> Limit is ~ 25 million files for every 2 TB of disk space with maximum limit at 100 million |
 |No. of shares per device |24 |
-|Maximum file size written to a share|5 TB |
+|Maximum file size written to a share|For a 2 TB virtual device, maximum file size is 500 GB. <br> The maximum file size increases with the data disk size in the preceding ratio until it reaches a maximum of 5 TB. |
 
 ## Azure storage limits
 

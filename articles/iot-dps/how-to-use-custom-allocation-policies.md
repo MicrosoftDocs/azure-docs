@@ -14,7 +14,7 @@ manager: timlt
 # How to use custom allocation policies
 
 
-A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an [Azure Function](../azure-functions/functions-overview.md) to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing the IoT hub group. Your function code returns the IoT hub information for provisioning the device.
+A custom allocation policy gives you more control over how devices are assigned to an IoT hub. This is accomplished by using custom code in an [Azure Function](../azure-functions/functions-overview.md) to assign devices to an IoT hub. The device provisioning service calls your Azure Function code providing all relevant information about the device and the enrollment. Your function code is executed and returns the IoT hub information used to provisioning the device.
 
 By using custom allocation policies you define your own allocation policies when the policies provided by the Device Provisioning Service do not meet the requirements of your scenario.
 
@@ -103,7 +103,9 @@ In this section, you will create a new enrollment group that uses the custom all
     ![Add custom allocation enrollment group for symmetric key attestation](./media/how-to-use-custom-allocation-policies/create-custom-allocation-enrollment.png)
 
 
-4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your new divisional IoT hubs.
+4. On **Add Enrollment Group**, click **Link a new IoT hub** to link both of your new divisional IoT hubs. 
+
+    You must execute this step for both of your divisional IoT hubs.
 
     **Subscription**: If you have multiple subscriptions, choose the subscription where you created the divisional IoT hubs.
 
@@ -274,9 +276,9 @@ In this section, you will create a new enrollment group that uses the custom all
 
 In this section, you will create two unique device keys. One key will be used for a simulated toaster device. The other key will be used for a simulated heat pump device.
 
-To generate the device key, use the **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base64 format.
+To generate the device key, you will use the **Primary Key** you noted earlier to compute the [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the device registration ID for each device and convert the result into Base64 format. For more information on creating derived device keys with enrollment groups, see the group enrollments section of [Symmetric key attestation](concepts-symmetric-key-attestation.md).
 
-Use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
+For the example in this article, use the following two device registration IDs and compute a device key for both devices. Both registration IDs have a valid suffix to work with the example code for the custom allocation policy:
 
 - **breakroom499-contoso-tstrsd-007**
 - **mainbuilding167-contoso-hpsd-088**
@@ -285,53 +287,53 @@ Use the following two device registration IDs and compute a device key for both 
 
 If you are using a Linux workstation, you can use openssl to generate your derived device keys as shown in the following example.
 
-Replace the value of **KEY** with the **Primary Key** you noted earlier.
+1. Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
-```bash
-KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
+    ```bash
+    KEY=oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA==
 
-REG_ID1=breakroom499-contoso-tstrsd-007
-REG_ID2=mainbuilding167-contoso-hpsd-088
+    REG_ID1=breakroom499-contoso-tstrsd-007
+    REG_ID2=mainbuilding167-contoso-hpsd-088
 
-keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
-devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
-devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
+    devkey1=$(echo -n $REG_ID1 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
+    devkey2=$(echo -n $REG_ID2 | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64)
 
-echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
-```
+    echo -e $"\n\n$REG_ID1 : $devkey1\n$REG_ID2 : $devkey2\n\n"
+    ```
 
-```bash
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```bash
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 #### Windows-based workstations
 
 If you are using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
 
-Replace the value of **KEY** with the **Primary Key** you noted earlier.
+1. Replace the value of **KEY** with the **Primary Key** you noted earlier.
 
-```PowerShell
-$KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
+    ```PowerShell
+    $KEY='oiK77Oy7rBw8YB6IS6ukRChAw+Yq6GC61RMrPLSTiOOtdI+XDu0LmLuNm11p+qv2I+adqGUdZHm46zXAQdZoOA=='
 
-$REG_ID1='breakroom499-contoso-tstrsd-007'
-$REG_ID2='mainbuilding167-contoso-hpsd-088'
+    $REG_ID1='breakroom499-contoso-tstrsd-007'
+    $REG_ID2='mainbuilding167-contoso-hpsd-088'
 
-$hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
-$hmacsha256.key = [Convert]::FromBase64String($key)
-$sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
-$sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
-$derivedkey1 = [Convert]::ToBase64String($sig1)
-$derivedkey2 = [Convert]::ToBase64String($sig2)
+    $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
+    $hmacsha256.key = [Convert]::FromBase64String($key)
+    $sig1 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID1))
+    $sig2 = $hmacsha256.ComputeHash([Text.Encoding]::ASCII.GetBytes($REG_ID2))
+    $derivedkey1 = [Convert]::ToBase64String($sig1)
+    $derivedkey2 = [Convert]::ToBase64String($sig2)
 
-echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
-```
+    echo "`n`n$REG_ID1 : $derivedkey1`n$REG_ID2 : $derivedkey2`n`n"
+    ```
 
-```PowerShell
-breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
-mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
-```
+    ```PowerShell
+    breakroom499-contoso-tstrsd-007 : JC8F96eayuQwwz+PkE7IzjH2lIAjCUnAa61tDigBnSs=
+    mainbuilding167-contoso-hpsd-088 : 6uejA9PfkQgmYylj8Zerp3kcbeVrGZ172YLa7VSnJzg=
+    ```
 
 
 The simulated devices will use the derived device keys with each registration ID to perform symmetric key attestation.
@@ -384,7 +386,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
 4. Run the following command, which builds a version of the SDK specific to your development client platform. A Visual Studio solution for the simulated device will be generated in the `cmake` directory. 
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
     
     If `cmake` does not find your C++ compiler, you might get build errors while running the above command. If that happens, try running this command in the [Visual Studio command prompt](https://docs.microsoft.com/dotnet/framework/tools/developer-command-prompt-for-vs). 
@@ -392,7 +394,7 @@ This section is oriented toward a Windows-based workstation. For a Linux example
     Once the build succeeds, the last few output lines will look similar to the following output:
 
     ```cmd/sh
-    $ cmake -Duse_prov_client:BOOL=ON ..
+    $ cmake -Dhsm_type_symm_key:BOOL=ON ..
     -- Building for: Visual Studio 15 2017
     -- Selecting Windows SDK version 10.0.16299.0 to target Windows 10.0.17134.
     -- The C compiler identification is MSVC 19.12.25835.0

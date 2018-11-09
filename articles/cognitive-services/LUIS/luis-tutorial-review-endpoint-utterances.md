@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Improve app predictions by verifying or correcting utterances received via the LUIS HTTP endpoint that LUIS is unsure of. Some utterances may be to be verified for intent and others may need to be verified for entity. You should review endpoint utterances as a regular part of you scheduled LUIS maintenance. 
 services: cognitive-services
 author: diberry
-manager: cjgronlund
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding
@@ -59,7 +59,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## Review endpoint utterances
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Review endpoint utterances** from the left navigation. The list is filtered for the **ApplyForJob** intent. 
 

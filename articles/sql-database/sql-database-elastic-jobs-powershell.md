@@ -2,14 +2,16 @@
 title: Create and manage elastic jobs using PowerShell | Microsoft Docs
 description: PowerShell used to manage Azure SQL Database pools
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: operations
+ms.custom: 
+ms.devlang: pwershell
 ms.topic: conceptual
-ms.date: 06/14/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: 
+manager: craigg
+ms.date: 06/14/2018
 ---
 # Create and manage SQL Database elastic jobs using PowerShell (preview)
 

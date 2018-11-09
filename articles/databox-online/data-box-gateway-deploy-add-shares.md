@@ -1,21 +1,14 @@
 ---
 title: Transfer data with Azure Data Box Gateway | Microsoft Docs
 description: Learn how to add and connect to shares on Data Box Gateway device.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.custom: 
 #Customer intent: As an IT admin, I need to understand how to add and connect to shares on Data Box Gateway so I can use it to transfer data to Azure.
 ---
 # Tutorial: Transfer data with Azure Data Box Gateway (Preview)
@@ -51,7 +44,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
 
 1. Return to the Azure portal. Go to **All resources**, and search for your Data Box Gateway resource.
     
-2. In the filtered list of resources, select your Data Box Gateway resource and and then navigate to **Overview**. Click **+ Add share** on the device command bar.
+2. In the filtered list of resources, select your Data Box Gateway resource and then navigate to **Overview**. Click **+ Add share** on the device command bar.
    
    ![Add a share](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
@@ -149,6 +142,6 @@ In this tutorial, you learned about  Data Box Gateway topics such as:
 Advance to the next tutorial to learn how to administer your Data Box Gateway.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer a Data Box Gateway](http://aka.ms/dbg-docs)
+> [Use local web UI to administer a Data Box Gateway](https://aka.ms/dbg-docs)
 
 

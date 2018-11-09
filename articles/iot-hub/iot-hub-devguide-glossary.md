@@ -214,7 +214,7 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), reported pr
 [Azure Resource Manager](#azure-resource-manager) uses resource groups to group related resources together. You can use a resource group to perform operations on all the resources on the group simultaneously.
 
 ## Retry policy
-You use a retry policy to handle [transient errors](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) when you connect to a cloud service.
+You use a retry policy to handle [transient errors](/azure/architecture/best-practices/transient-faults) when you connect to a cloud service.
 
 ## Routing rules
 You configure [routing rules](iot-hub-devguide-messages-read-custom.md) in your IoT hub to route device-to-cloud messages to a [built-in endpoint](#built-in-endpoints) or to [custom endpoints](#custom-endpoints) for processing by your solution back end.

@@ -3,7 +3,7 @@ title: Azure Custom Script Extension for Windows | Microsoft Docs
 description: Automate Windows VM configuration tasks by using the Custom Script extension
 services: virtual-machines-windows
 documentationcenter: ''
-author: zroiy
+author: roiyz-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -69,7 +69,7 @@ These items should be treated as sensitive data and specified in the extensions 
 
 ```json
 {
-	"apiVersion": "2015-06-15",
+	"apiVersion": "2018-06-01",
 	"type": "Microsoft.Compute/virtualMachines/extensions",
 	"name": "config-app",
 	"location": "[resourceGroup().location]",
@@ -131,7 +131,10 @@ Public settings are sent in clear text to the VM where the script will be execut
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. A sample template that includes the Custom Script Extension can be found here, [GitHub](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows).
+Azure VM extensions can be deployed with Azure Resource Manager templates. The JSON schema detailed in the previous section can be used in an Azure Resource Manager template to run the Custom Script Extension during an Azure Resource Manager template deployment. The following samples show how to use the Custom Script extension:
+
+* [Tutorial: Deploy virtual machine extensions with Azure Resource Manager templates](../../azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)
+* [Deploy Two Tier Application on Windows and Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-windows)
 
 ## PowerShell deployment
 
@@ -194,7 +197,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ### How to run custom script more than once with CLI
 If you want to run the custom script extension more than once, you can only do this under these conditions:
 1. The extension 'Name' parameter is the same as the previous deployment of the extension.
-2. You must updated the configuration otherwise the command will not re-executed, for example, you could add in a dynamic property in to the command, such as a timestamp. 
+2. You must update the configuration otherwise the command will not be re-executed, for example, you could add in a dynamic property in to the command, such as a timestamp. 
 
 ## Troubleshoot and support
 

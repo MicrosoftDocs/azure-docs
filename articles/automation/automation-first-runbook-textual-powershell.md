@@ -77,7 +77,17 @@ The runbook that you created is still in Draft mode. you need to publish it befo
 12. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Step 5 - Add authentication to manage Azure resources
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). You do that with the **Connect-AzureRmAccount** cmdlet.
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). You do that with the **Connect-AzureRmAccount** cmdlet. If you are managing resources across multiple subscriptions you need to use the **-AzureRmContext** parameter along with [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+
+   ```powershell
+   $Conn = Get-AutomationConnection -Name AzureRunAsConnection
+   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+-ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+
+   $AzureContext = Select-AzureRmSubscription -SubscriptionId $ServicePrincipalConnection.SubscriptionID
+
+   Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $AzureContext
+   ```
 
 1. Open the textual editor by clicking **Edit** on the MyFirstRunbook-PowerShell page.
 2. You don't need the **Write-Output** line anymore, so go ahead and delete it.

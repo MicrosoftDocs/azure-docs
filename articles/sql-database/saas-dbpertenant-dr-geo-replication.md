@@ -1,15 +1,17 @@
 ---
 title: Disaster Recovery for SaaS apps using Azure SQL Database Geo Replication | Microsoft Docs
 description: "Learn how to use Azure SQL Database geo-replicas to recover a multi-tenant SaaS app in the event of an outage"
-keywords: sql database tutorial
 services: sql-database
-author: AyoOlubeko
-manager: craigg
 ms.service: sql-database
-ms.custom: saas apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/09/2018
+author: AyoOlubeko
 ms.author: ayolubek
+ms.reviewer: sstein
+manager: craigg
+ms.date: 04/09/2018
 ---
 # Disaster recovery for a multi-tenant SaaS application using database geo-replication
 

@@ -13,7 +13,7 @@ ms.date: 06/27/2018
 
 # Quickstart: Run a Spark job on Azure Databricks using the Azure portal
 
-This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in Azure Data Lake Storage Gen2 Preview.
+This quickstart shows how to run an Apache Spark job using Azure Databricks to perform analytics on data stored in a storage account with Azure Data Lake Storage Gen2 preview enabled.
 
 As part of the Spark job, you analyze a radio channel subscription data to gain insights into free/paid usage based on demographics.
 
@@ -21,7 +21,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Prerequisites
 
-- [Create a Azure Data Lake Storage Gen2 Account](quickstart-create-account.md)
+- [Create a storage account with Data Lake Storage Gen2 enabled](quickstart-create-account.md)
 
 ## Set aside storage account configuration
 
@@ -34,7 +34,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 In this section, you create an Azure Databricks workspace using the Azure portal.
 
-1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**. 
+1. In the Azure portal, select **Create a resource** > **Analytics** > **Azure Databricks**.
 
     ![Databricks on Azure portal](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks on Azure portal")
 
@@ -43,13 +43,13 @@ In this section, you create an Azure Databricks workspace using the Azure portal
     ![Create an Azure Databricks workspace](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Create an Azure Databricks workspace")
 
     Provide the following values:
-     
+
     |Property  |Description  |
     |---------|---------|
     |**Workspace name**     | Provide a name for your Databricks workspace        |
     |**Subscription**     | From the drop-down, select your Azure subscription.        |
     |**Resource group**     | Specify whether you want to create a new resource group or use an existing one. A resource group is a container that holds related resources for an Azure solution. For more information, see [Azure Resource Group overview](../../azure-resource-manager/resource-group-overview.md). |
-    |**Location**     | Select **West US 2**. For other available regions, see [Azure services available by region](https://azure.microsoft.com/regions/services/).        |
+    |**Location**     | Select **West US 2**. Feel free to select another public region if you prefer.        |
     |**Pricing Tier**     |  Choose between **Standard** or **Premium**. For more information on these tiers, see [Databricks pricing page](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Select **Pin to dashboard** and then click **Create**.
@@ -101,7 +101,7 @@ In this section, you create a notebook in Azure Databricks workspace and then ru
     ```scala
     spark.conf.set("fs.azure.account.key.<ACCOUNT_NAME>.dfs.core.windows.net", "<ACCOUNT_KEY>") 
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "true")
-    dbutils.fs.ls("abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.ls("abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/")
     spark.conf.set("fs.azure.createRemoteFileSystemDuringInitialization", "false") 
     ```
 
@@ -115,13 +115,13 @@ Before you begin with this section, you must complete the following prerequisite
 
 Enter the following code into a notebook cell:
 
-    %sh wget -P /tmp https://github.com/Azure/usql/blob/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
+    %sh wget -P /tmp https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json
 
 In the cell, press `Shift` + `Enter` to run the code.
 
 Now in a new cell below this one, enter the following code (replace **FILE_SYSTEM** and **ACCOUNT_NAME** with the same values you used earlier:
 
-    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfs://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
+    dbutils.fs.cp("file:///tmp/small_radio_json.json", "abfss://<FILE_SYSTEM>@<ACCOUNT_NAME>.dfs.core.windows.net/")
 
 In the cell, press `Shift` + `Enter` to run the code.
 
@@ -137,7 +137,7 @@ Perform the following tasks to run a Spark SQL job on the data.
     CREATE TABLE radio_sample_data
     USING json
     OPTIONS (
-     path  "abfs://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
+     path  "abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>/small_radio_json.json"
     )
     ```
 
@@ -187,7 +187,7 @@ If you do not manually terminate the cluster it automatically stops, provided yo
 
 ## Next steps
 
-In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in Data Lake Storage Gen2. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
+In this article, you created a Spark cluster in Azure Databricks and ran a Spark job using data in a storage account with Data Lake Storage Gen2 enabled. You can also look at [Spark data sources](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) to learn how to import data from other data sources into Azure Databricks. Advance to the next article to learn how to perform an ETL operation (extract, transform, and load data) using Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extract, transform, and load data using Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)

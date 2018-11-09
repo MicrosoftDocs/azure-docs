@@ -32,7 +32,7 @@ You do not need to change your protocol clients or run your own clusters when yo
 To complete this quickstart, make sure you have the following prerequisites:
 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks).
 * [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
 * An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-quickstart-create-account.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 
@@ -70,8 +70,8 @@ You can now stream events from your applications that use the Kafka protocol int
 
 ## Send messages with Kafka in Event Hubs
 
-1. Clone the [Azure Event Hubs repository](https://github.com/Azure/azure-event-hubs) to your machine.
-2. Navigate to the folder: `azure-event-hubs/samples/kafka/quickstart/producer`. 
+1. Clone the [Azure Event Hubs for Kafka repository](https://github.com/Azure/azure-event-hubs-for-kafka) to your machine.
+2. Navigate to the folder: `azure-event-hubs-for-kafka/quickstart/java/producer`. 
 4. Update the configuration details for the producer in `src/main/resources/producer.config`. Specify the **name** and **connection string** for the **event hub namespace**. 
 
     ```xml
@@ -81,7 +81,7 @@ You can now stream events from your applications that use the Kafka protocol int
     sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="$ConnectionString" password="{CONNECTION STRING for EVENT HUB NAMESPACE}";
     ```
 
-5. Navigate to `azure-event-hubs/samples/kafka/quickstart/producer/src/main/java/com/example/app`, and open **TestDataReporter.java** file in an editor of your choice. 
+5. Navigate to `azure-event-hubs-for-kafka/quickstart/java/producer/src/main/java/com/example/app`, and open **TestDataReporter.java** file in an editor of your choice. 
 6. Comment out the following line of code:
 
     ```java
@@ -94,7 +94,7 @@ You can now stream events from your applications that use the Kafka protocol int
     ```
 
     This code sends the event data in **JSON** format. When you configure input for a Stream Analytics job, you specify JSON as the format for the input data. 
-7. **Run the producer** and stream into Kafka-enabled Event Hubs. On a Windows machine, when using a **Node.js command prompt**, switch to the `azure-event-hubs/samples/kafka/quickstart/producer` folder before running these commands. 
+7. **Run the producer** and stream into Kafka-enabled Event Hubs. On a Windows machine, when using a **Node.js command prompt**, switch to the `azure-event-hubs-for-kafka/quickstart/java/producer` folder before running these commands. 
    
     ```shell
     mvn clean package
@@ -202,7 +202,15 @@ After you have a Stream Analytics job setup to read an incoming data stream, the
 
 
 ## Next steps
-In this article, you learned how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. To learn more, continue with the following tutorial:
+In this article, you learned how to stream into Kafka-enabled Event Hubs without changing your protocol clients or running your own clusters. To learn more about Event Hubs and Event Hubs for Kafka, see the following topic:  
 
-> [!div class="nextstepaction"]
-> [Use Kafka MirrorMaker with Event Hubs](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Learn about Event Hubs](event-hubs-what-is-event-hubs.md)
+- [Event Hubs for Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+- [How to create Kafka enabled Event Hubs](event-hubs-create-kafka-enabled.md)
+- [Stream into Event Hubs from your Kafka applications](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Mirror a Kafka broker in a Kafka-enabled event hub](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Connect Apache Spark to a Kafka-enabled event hub](event-hubs-kafka-spark-tutorial.md)
+- [Connect Apache Flink to a Kafka-enabled event hub](event-hubs-kafka-flink-tutorial.md)
+- [Integrate Kafka Connect with a Kafka-enabled event hub](event-hubs-kafka-connect-tutorial.md)
+- [Connect Akka Streams to a Kafka-enabled event hub](event-hubs-kafka-akka-streams-tutorial.md)
+- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka) 

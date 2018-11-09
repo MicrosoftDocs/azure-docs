@@ -56,23 +56,28 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/common/dotnet.svg
       text: .NET
-      href: quick-monitor-portal
+      href: /azure/application-insights/quick-monitor-portal
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
       text: .NET Core
-      href: app-insights-dotnetcore-quick-start
+      href: /azure/application-insights/app-insights-dotnetcore-quick-start
     - image: 
         src: https://docs.microsoft.com/media/common/nodejs.svg
       text: Node.js
-      href: app-insights-nodejs-quick-start
+      href: /azure/application-insights/app-insights-nodejs-quick-start
     - image: 
         src: https://docs.microsoft.com/media/common/java.svg
       text: Java
-      href: app-insights-java-quick-start
+      href: /azure/application-insights/app-insights-java-quick-start
     - image:
         src: /azure/application-insights/media/index/mobile-center.png
       text: Mobile
-      href: app-insights-mobile-center-quickstart
+      href: /azure/application-insights/app-insights-mobile-center-quickstart
+    - image:
+        src: https://docs.microsoft.com/media/common/i_web-color.svg
+      text: Website
+      href: /azure/application-insights/app-insights-website-monitoring
+
 - title: Step-by-step Tutorials
   items:
   - type: paragraph
@@ -82,8 +87,8 @@ sections:
     items:
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-viewdata">View or analyze data collected</a>
     - html: <a href="/azure/log-analytics/log-analytics-tutorial-dashboards">Create and share dashboards</a>
-    - html: <a href="monitor-tutorial-autoscale-performance-schedule">Autoscale based on schedule or application performance</a>
-    - html: <a href="monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
+    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-autoscale-performance-schedule">Autoscale based on schedule or application performance</a>
+    - html: <a href="/azure/monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data">Archive monitoring data</a>
   - type: paragraph
     text: Learn how to continuously improve the performance and usage of your web applications.
   - type: list

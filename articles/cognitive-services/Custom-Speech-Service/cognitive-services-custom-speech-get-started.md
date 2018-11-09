@@ -9,10 +9,11 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
 ---
 
 # Get Started with Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Explore the main features of the Custom Speech Service and learn how to build, deploy and use acoustic and language models for your application needs. More extensive documentation and step-by-step instructions can be found after you sign up on the Custom Speech Services portal.
 

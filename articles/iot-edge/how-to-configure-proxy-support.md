@@ -4,7 +4,7 @@ description: How to configure the Azure IoT Edge runtime and any internet-facing
 author: kgremban
 manager: 
 ms.author: kgremban
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -16,9 +16,37 @@ IoT Edge devices send HTTPS requests to communicate with IoT Hub. If your device
 
 Configuring an IoT Edge device to work with a proxy server follows these basic steps: 
 
-1. Configure the Docker daemon and the IoT Edge daemon on your device to use the proxy server.
-2. Configure the edgeAgent properties in the config.yaml file on your device.
-3. Set environment variables for the IoT Edge runtime and other IoT Edge modules in the deployment manifest. 
+1. Install the IoT Edge runtime on your device. 
+2. Configure the Docker daemon and the IoT Edge daemon on your device to use the proxy server.
+3. Configure the edgeAgent properties in the config.yaml file on your device.
+4. Set environment variables for the IoT Edge runtime and other IoT Edge modules in the deployment manifest. 
+
+## Know your proxy URL
+
+To configure both the Docker daemon and IoT Edge on your device, you need to know your proxy URL. 
+
+Proxy URLs take the following format: **protocol**://**proxy_host**:**proxy_port**. 
+
+* The **protocol** is either HTTP or HTTPS. The Docker daemon can be configured with either protocol, depending on your container registry settings, but the IoT Edge daemon and runtime containers should always use HTTPS.
+
+* The **proxy_host** is an address for the proxy server. If your proxy server requires authentication, you can provide your credentials as part of the proxy_host in the format of **user**:**password**@**proxy_host**. 
+
+* The **proxy_port** is the network port at which the proxy responds to network traffic. 
+
+## Install the runtime
+
+If you're installing the IoT Edge runtime on a Linux device, configure the package manager to go through your proxy server to access the installation package. For example, [Set up apt-get to use a http-proxy](https://help.ubuntu.com/community/AptGet/Howto/#Setting_up_apt-get_to_use_a_http-proxy). Once your package manager is configured, follow the instructions in [Install Azure IoT Edge runtime on Linux (ARM32v7/armhf)](how-to-install-iot-edge-linux-arm.md) or [Install the Azure IoT Edge runtime on Linux (x64)](how-to-install-iot-edge-linux.md) as usual. 
+
+If you're installing the IoT Edge runtime on a Windows device, you need to go through the proxy server to access the installation package. You can configure proxy information in Windows settings, or include your proxy information directly in the installation script. The following powershell script is an example of a windows installation using the `-proxy` argument:
+
+```powershell
+. {Invoke-WebRequest -proxy <proxy URL> -useb aka.ms/iotedge-win} | Invoke-Expression; `
+Install-SecurityDaemon -Manual -ContainerOs Windows
+```
+
+For more information and installation options, see [Install Azure IoT Edge runtime on Windows to use with Windows containers](how-to-install-iot-edge-windows-with-windows.md) or [Install Azure IoT Edge runtime on Windows to use with Linux containers](how-to-install-iot-edge-windows-with-linux.md).
+
+Once the IoT Edge runtime is installed, use the following section to configure it with your proxy information. 
 
 ## Configure the daemons
 
@@ -26,7 +54,7 @@ The Docker and IoT Edge daemons running on your IoT Edge device need to be confi
 
 ### Docker daemon
 
-Refer to the Docker documentation to configure the Docker daemon with environment variables. Most container registries (including DockerHub and Azure Container Registries) support HTTPS requests, so the variable that you should set is **HTTPS_PROXY**. If you're pulling images from a registry that doesn't support transport layer security (TLS) then you may should set the **HTTP_PROXY**. 
+Refer to the Docker documentation to configure the Docker daemon with environment variables. Most container registries (including DockerHub and Azure Container Registries) support HTTPS requests, so the parameter that you should set is **HTTPS_PROXY**. If you're pulling images from a registry that doesn't support transport layer security (TLS), then you should set the **HTTP_PROXY** parameter. 
 
 Choose the article that applies to your Docker version: 
 
@@ -92,7 +120,9 @@ Open the config.yaml file on your IoT Edge device. On Linux systems, this file i
 
 In the config.yaml file, find the **Edge Agent module spec** section. The Edge agent definition includes an **env** parameter where you can add environment variables. 
 
+<!--
 ![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Remove the curly brackets that are placeholders for the env parameter, and add the new variable on a new line. Remember that indents in YAML are two spaces. 
 
@@ -180,7 +210,7 @@ If you included the **UpstreamProtocol** environment variable in the confige.yam
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

@@ -2,8 +2,8 @@
 title: 'Tutorial: Create a Scala Maven application for Spark in Azure HDInsight using IntelliJ'
 description: Create a Spark application written in Scala with Apache Maven as the build system and an existing Maven archetype for Scala provided by IntelliJ IDEA.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
@@ -37,7 +37,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 ## Prerequisites
 
 * An Apache Spark cluster on HDInsight. For instructions, see [Create Apache Spark clusters in Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Oracle Java Development kit. You can install it from [here](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Oracle Java Development kit. You can install it from [here](https://aka.ms/azure-jdks).
 * A Java IDE. This article uses IntelliJ IDEA 18.1.1. You can install it from [here](https://www.jetbrains.com/idea/download/).
 
 ## Use IntelliJ to create application

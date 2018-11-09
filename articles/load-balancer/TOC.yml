@@ -146,7 +146,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=load-balancer
+    href: https://azure.microsoft.com/resources/samples/?service=load-balancer
   - name: Azure PowerShell
     href: /powershell/module/azurerm.network
   - name: Azure CLI
@@ -181,6 +181,8 @@
     href: /azure/dns/
 - name: Resources
   items:
+  - name: Build your skills with Microsoft Learn
+    href: /learn/browse/?products=azure-virtual-machines
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Pricing

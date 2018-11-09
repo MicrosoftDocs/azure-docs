@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # OMS portal moving to Azure
@@ -51,7 +51,7 @@ Refer to [Common questions for transition from OMS portal to Azure portal for Lo
 Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Manage workspaces](log-analytics-manage-access.md#manage-accounts-and-users) for details of access management in Log Analytics.
 
 > [!NOTE]
-> Previous versions of this article stated that the permissions would automatically be converted from the OMS portal to the Azure portal. This automatic conversation is no longer planned, and you must perform the conversion yourself.
+> Previous versions of this article stated that the permissions would automatically be converted from the OMS portal to the Azure portal. This automatic conversion is no longer planned, and you must perform the conversion yourself.
 
 You may already have appropriate access in the Azure portal in which case you don't need to make any changes. There are a couple of cases where you may not have appropriate access in which case your administrator must assign you permissions.
 
@@ -94,7 +94,7 @@ With the support of [cross-resource queries](log-analytics-cross-workspace-searc
 
 
 ## Azure Network Security Group Analytics
-The [Azure Network Security Group Analytics solution](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
+The [Azure Network Security Group Analytics solution](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) will be replaced with the recently launched [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) which provides visibility into user and application activity on cloud networks. Traffic Analytics helps you audit your organization's network activity, secure applications and data, optimize workload performance and stay compliant. 
 
 This solution analyzes NSG Flow logs and provides insights into the following.
 

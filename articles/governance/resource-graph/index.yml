@@ -29,3 +29,15 @@ sections:
         src: ./media/powershell.svg
       text: Azure PowerShell
       href: first-query-powershell.md
+- title: Feedback
+  items:
+  - type: paragraph
+    text: To provide feedback on this feature or to get assistance with queries, visit the <b>Resource Graph (preview)</b> page from <b>Azure Policy</b> in the Azure portal and click feedback. You can also send us suggestions on <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.
+- title: Reference
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST API
+      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Resources</a></p>

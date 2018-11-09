@@ -75,6 +75,8 @@ As a developer, you can focus on writing your solution. Rather than researching 
 
 You can find code samples to help you integrate your solution with your preferred language with Azure Stack by using profiles. Currently, you can find guidance and samples for the following languages:
 
+- **.NET**
+You can use the .NET API profile to get the latest, most stable version of each resource type in a resource provider package. For more information, see [Use API version profiles with .NET in Azure Stack](azure-stack-version-profiles-net.md).
 - **PowerShell**  
 You can use the  **AzureRM.Bootstrapper** module available through the PowerShell Gallery to get the PowerShell cmdlets required to work with API version profiles. For information, see [Use API version profiles for PowerShell](azure-stack-version-profiles-powershell.md).
 - **Azure CLI**  
@@ -84,7 +86,7 @@ In the GO SDK, a profile is a combination of different resource types with diffe
 - **Ruby**  
 The Ruby SDK for the Azure Stack Resource Manager provides tools to help you build and manage your infrastructure. Resource providers in the SDK include compute, virtual networks, and storage with the Ruby language. For information, see [Use API version profiles with Ruby](azure-stack-version-profiles-ruby.md)
 - **Python**  
-- The Python SDK supports API version profiles to target different cloud platforms such as Azure Stack and global Azure. You can use API profiles in creating solutions for a hybrid cloud. For information, see [Use API version profiles with Python](azure-stack-version-profiles-python.md)
+The Python SDK supports API version profiles to target different cloud platforms such as Azure Stack and global Azure. You can use API profiles in creating solutions for a hybrid cloud. For information, see [Use API version profiles with Python](azure-stack-version-profiles-python.md)
 
 ## Next steps
 

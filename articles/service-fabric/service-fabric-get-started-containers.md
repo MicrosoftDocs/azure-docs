@@ -3,7 +3,7 @@ title: Create an Azure Service Fabric container application | Microsoft Docs
 description: Create your first Windows container application on Azure Service Fabric. Build a Docker image with a Python application, push the image to a container registry, build and deploy a Service Fabric container application.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: 'vturecek'
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
-ms.author: ryanwi
+ms.author: twhitney
 
 ---
 
@@ -229,6 +229,7 @@ These environment variables can be overridden in the application manifest:
 ```xml
 <ServiceManifestImport>
   <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <EnvironmentOverrides CodePackageRef="FrontendService.Code">
     <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
   </EnvironmentOverrides>
   ...
@@ -574,7 +575,7 @@ The default time interval is set to 10 seconds. Since this configuration is dyna
 
 ## Configure the runtime to remove unused container images
 
-You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node. To enable this feature, update the `Hosting` section in the cluster manifest as shown in the following snippet: 
+You can configure the Service Fabric cluster to remove unused container images from the node. This configuration allows disk space to be recaptured if too many container images are present on the node. To enable this feature, update the [Hosting](service-fabric-cluster-fabric-settings.md#hosting) section in the cluster manifest as shown in the following snippet: 
 
 
 ```json
@@ -595,7 +596,7 @@ You can configure the Service Fabric cluster to remove unused container images f
 } 
 ```
 
-For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter. 
+For images that shouldn't be deleted, you can specify them under the `ContainerImagesToSkip` parameter.  
 
 
 ## Configure container image download time

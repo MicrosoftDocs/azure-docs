@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 09/21/2018
+ms.date: 09/25/2018
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
 ---
@@ -31,7 +31,7 @@ To create a Site-to-Site connection using Virtual WAN, you can either go through
 
 When you work with a Virtual WAN partner, the process is:
 
-1. The branch device (VPN/SDWAN) controller is authenticated to export site-centric information into Azure by using an [Azure Service Principal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+1. The branch device (VPN/SDWAN) controller is authenticated to export site-centric information into Azure by using an [Azure Service Principal](../active-directory/develop/howto-create-service-principal-portal.md).
 2. The branch device (VPN/SDWAN) controller obtains the Azure connectivity configuration and updates the local device. This automates the configuration download, editing, and updating of the on-premises VPN device.
 3. Once the device has the right Azure configuration, a site-to-site connection (two active tunnels) is established to the Azure WAN. Azure supports both IKEv1 and IKEv2. BGP is optional.
 
@@ -39,6 +39,8 @@ When you work with a Virtual WAN partner, the process is:
 If you don't want to use a preferred partner, you can configure the connection manually, see [Create a Site-to-Site connection using Virtual WAN](virtual-wan-site-to-site-portal.md).
 
 ## <a name="p2s"></a>Point-to-site connections (Preview)
+
+A Point-to-Site (P2S) connection lets you create a secure connection to your virtual hub from an individual client computer. A P2S connection is established by starting it from the client computer. This solution is useful for telecommuters who want to connect from a remote location, such as from home or a conference. P2S VPN is also a useful solution to use instead of S2S VPN when you have only a few clients that need to connect.
 
 To create the connection manually, see [Create a point-to-site connection using Virtual WAN](https://go.microsoft.com/fwlink/p/?linkid=2020051&clcid).
 

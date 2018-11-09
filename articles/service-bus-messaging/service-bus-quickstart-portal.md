@@ -9,7 +9,7 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 05/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
 # Customer intent: In a retail scenario, how do I update inventory assortment and send a set of messages from the back office to the stores?
 
@@ -29,7 +29,7 @@ If you don't have an Azure subscription, you can create a [free account][] befor
 
 To complete this tutorial, make sure you have installed:
 
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 ## Log on to the Azure portal

@@ -1,17 +1,15 @@
 ---
-title: Get started with Azure Table storage and Azure Cosmos DB Table API using .NET | Microsoft Docs
+title: Get started with Azure Table storage and Azure Cosmos DB Table API using .NET
 description: Store structured data in the cloud using Azure Table storage or the Azure Cosmos DB Table API.
 services: cosmos-db
 author: SnehaGunda
 manager: kfile
-
 ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 08/17/2018
 ms.author: sngun
-
 ---
 # Get started with Azure Table storage and the Azure Cosmos DB Table API using .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -117,7 +115,6 @@ For more information about connection strings, see [Configure a connection strin
 
 > [!NOTE]
 > Your account key is similar to the root password for your storage account. Always be careful to protect your storage account key. Avoid distributing it to other users, hard-coding it, or saving it in a plain-text file that is accessible to others. Regenerate your key by using the Azure portal if you believe it may have been compromised.
-> 
 > 
 
 To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your account, and `account-key` with your account access key:
@@ -566,8 +563,8 @@ Now that you've learned the basics of Table storage, follow these links to learn
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * See more Table storage samples in [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
 * View the Table service reference documentation for complete details about available APIs:
-* [Storage Client Library for .NET reference](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-* [REST API reference](http://msdn.microsoft.com/library/azure/dd179355)
+* [Storage Client Library for .NET reference](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+* [REST API reference](https://msdn.microsoft.com/library/azure/dd179355)
 * Learn how to simplify the code you write to work with Azure Storage by using the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki)
 * View more feature guides to learn about additional options for storing data in Azure.
 * [Get started with Azure Blob storage using .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) to store unstructured data.

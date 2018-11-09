@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 09/26/2018
 ms.author: cherylmc
 
 ---
@@ -16,7 +16,30 @@ This article helps you set up OpenVPN on Azure VPN Gateway. The article assumes 
 
 > [!IMPORTANT]
 > This Public Preview is provided without a service level agreement and should not be used for production workloads. Certain features may not be supported, may have constrained capabilities, or may not be available in all Azure locations. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+
+## <a name="register"></a>Register this feature
+
+Click the **TryIt** in these steps to register this feature easily using Azure Cloud Shell.
+
+>[!NOTE]
+>If you don't register this feature, you will not be able to use it.
 >
+
+After clicking **TryIt** to open the Azure Cloud Shell, copy and paste the following commands:
+
+```azurepowershell-interactive
+Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+ 
+```azurepowershell-interactive
+Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+```
+
+Once the feature shows as registered, reregister the subscription to Microsoft.Network namespace.
+
+```azurepowershell-interactive
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+```
 
 ## <a name="vnet"></a>1. Create a point-to-site VPN
 

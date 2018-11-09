@@ -1,5 +1,5 @@
 ---
-title: Use the Azure Database Migration Service to perform an online migration of PostgreSQL to Azure Database for MySQL | Microsoft Docs
+title: "Tutorial: Use the Azure Database Migration Service to perform an online migration of PostgreSQL to Azure Database for MySQL | Microsoft Docs"
 description: Learn to perform an online migration from PostgreSQL on-premises to Azure Database for PostgreSQL by using the Azure Database Migration Service.
 services: dms
 author: HJToland3
@@ -10,10 +10,10 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/22/2018
+ms.date: 09/26/2018
 ---
 
-# Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
+# Tutorial: Migrate PostgreSQL to Azure Database for PostgreSQL online using DMS
 You can use the Azure Database Migration Service to migrate the databases from an on-premises PostgreSQL instance to [Azure Database for PostgreSQL](https://docs.microsoft.com/azure/postgresql/) with minimal downtime. In other words, migration can be achieved with minimum downtime to the application. In this tutorial, you migrate the **DVD Rental** sample database from an on-premises instance of PostgreSQL 9.6 to Azure Database for PostgreSQL by using an online migration activity in the Azure Database Migration Service.
 
 In this tutorial, you learn how to:
@@ -176,7 +176,7 @@ To complete all the database objects like table schemas, indexes and stored proc
 2.	Provision an instance of DMS by running the following command:
 
     ```
-    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name GeneralPurpose_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
+    az dms create -l [location] -n <newServiceName> -g <yourResourceGroupName> --sku-name BusinessCritical_4vCores --subnet/subscriptions/{vnet subscription id}/resourceGroups/{vnet resource group}/providers/Microsoft.Network/virtualNetworks/{vnet name}/subnets/{subnet name} –tags tagName1=tagValue1 tagWithNoValue
     ```
 
     For example the following command will create a service in:
@@ -186,7 +186,7 @@ To complete all the database objects like table schemas, indexes and stored proc
     - DMS Service Name: PostgresCLI
 
     ```
-    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name GeneralPurpose_4vCores
+    az dms create -l eastus2 -g PostgresDemo -n PostgresCLI --subnet /subscriptions/97181df2-909d-420b-ab93-1bff15acb6b7/resourceGroups/ERNetwork/providers/Microsoft.Network/virtualNetworks/AzureDMS-CORP-USC-VNET-5044/subnets/Subnet-1 --sku-name BusinessCritical_4vCores
     ```
     It takes about 10-12 minutes to create the instance of the DMS service.
 

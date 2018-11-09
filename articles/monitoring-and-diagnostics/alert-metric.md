@@ -8,13 +8,13 @@ ms.date: 09/18/2018
 ms.author: snmuvva
 ms.component: alerts
 ---
-# Create, view, and manage Metric Alerts using Azure Monitor
+# Create, view, and manage metric alerts using Azure Monitor
 
 Metric alerts in Azure Monitor provide a way to get notified when one of your metrics cross a threshold. Metric alerts work on a range of multi-dimensional platform metrics, custom metrics, Application Insights standard and custom metrics. In this article, we will describe how to create, view and manage metric alert rules through Azure portal and Azure CLI. You can also create metric alert rules using Azure Resource Manager templates which is described in [a separate article](monitoring-enable-alerts-using-template.md).
 
 You can learn more about how metric alerts work from [metric alerts overview](alert-metric-overview.md).
 
-## Create a metric alert rule using Azure portal
+## Create with Azure portal
 
 The following procedure describes how to create a metric alert rule in Azure portal:
 
@@ -52,7 +52,7 @@ The following procedure describes how to create a metric alert rule in Azure por
 > [!NOTE]
 > Metric alert rules created through portal are created in the same resource group as the target resource.
 
-## View and manage metric alert rules using Azure portal
+## View and manage with Azure portal
 
 You can view and manage metric alert rules using the Manage Rules blade under Alerts. The procedure below shows you how to view your metric alert rules and edit one of them.
 
@@ -74,9 +74,9 @@ You can view and manage metric alert rules using the Manage Rules blade under Al
 
 6. Click **Done** to save your edits.
 
-## Create, view and manage metric alert rules using Azure CLI
+## With Azure CLI
 
-The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud shell.
+The previous sections described how to create, view and manage metric alert rules using Azure portal. This section will describe how to do the same using cross-platform [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest). Quickest way to start using Azure CLI is through [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest). For this article, we will use Cloud shell.
 
 1. Go to Azure portal, click on **Cloud shell**.
 

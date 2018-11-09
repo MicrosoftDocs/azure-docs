@@ -1,18 +1,19 @@
 ---
 title: 'Azure portal: Create a SQL database | Microsoft Docs'
 description: Create a SQL Database logical server, server-level firewall rule, and database in the Azure portal, and query it.
-keywords: sql database tutorial, create a sql database
 services: sql-database
-author: sachinpMSFT
-manager: craigg
 ms.service: sql-database
-ms.custom: mvc,DBs & servers
+ms.subservice: security
+ms.custom: 
+ms.devlang: 
 ms.topic: quickstart
-ms.date: 09/07/2018
+author: sachinpMSFT
 ms.author: sachinp
-
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 11/01/2018
 ---
-# Create an Azure SQL database in the Azure portal
+# Quickstart: Create an Azure SQL database in the Azure portal
 
 This quickstart walks through how to create a SQL database in Azure using the [DTU-based purchasing model](sql-database-service-tiers-dtu.md). Azure SQL Database is a “Database-as-a-Service” offering that enables you to run and scale highly available SQL Server databases in the cloud. This quickstart shows you how to get started by creating and then querying a SQL database using the Azure portal.
 
@@ -129,6 +130,6 @@ Save these resources if you want to go to [Next steps](#next-steps) and learn ho
 - Now that you have a database, you need to create a server-level firewall rule to connect to it from your on-premises tools. See [Create server-level firewall rule](sql-database-get-started-portal-firewall.md)
 - If creating a server-level firewall rule, you can [connect and query](sql-database-connect-query.md) using one of your favorite tools or languages, including
   - [Connect and query using SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Connect and query using SQL Server Operations Studio](https://docs.microsoft.com/sql/sql-operations-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [Connect and query using Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - To create databases using Azure CLI, see [Azure CLI samples](sql-database-cli-samples.md)
 - To create databases using Azure PowerShell, see [Azure PowerShell samples](sql-database-powershell-samples.md)

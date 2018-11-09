@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/18/2018
+ms.date: 10/04/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -20,7 +20,7 @@ ms.author: billmath
 # Custom installation of Azure AD Connect
 Azure AD Connect **Custom settings** is used when you want more options for the installation. It is used if you have multiple forests or if you want to configure optional features not covered in the express installation. It is used in all cases where the [**express installation**](how-to-connect-install-express.md) option does not satisfy your deployment or topology.
 
-Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). Also make sure you have required accounts available as described in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
+Before you start installing Azure AD Connect, make sure to [download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771) and complete the pre-requisite steps in [Azure AD Connect: Hardware and prerequisites](how-to-connect-install-prerequisites.md). Also make sure you have required accounts available as described in [Azure AD Connect accounts and permissions](reference-connect-accounts-permissions.md).
 
 If customized settings does not match your topology, for example to upgrade DirSync, see [related documentation](#related-documentation) for other scenarios.
 
@@ -51,10 +51,10 @@ After installing the required components, you are asked to select your users sin
 | Federation with AD FS |Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises AD FS instance to sign in and authentication occurs on-premises. |
 | Federation with PingFederate|Users are able to sign in to Microsoft cloud services, such as Office 365, using the same password they use in their on-premises network.  The users are redirected to their on-premises PingFederate instance to sign in and authentication occurs on-premises. |
 | Do not configure |No user sign-in feature is installed and configured. Choose this option if you already have a 3rd party federation server or another existing solution in place. |
-|Enable Single Sign on|This options is available with both password sync and Pass-through authentication and provides a single sign on experience for desktop users on the corporate network. See [Single sign-on](how-to-connect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.</br>
+|Enable Single Sign on|This options is available with both password hash sync and pass-through authentication and provides a single sign on experience for desktop users on the corporate network. See [Single sign-on](how-to-connect-sso.md) for more information. </br>Note for AD FS customers this option is not available because AD FS already offers the same level of single sign on.</br>
 
 ### Connect to Azure AD
-On the Connect to Azure AD screen, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, do not sign in with an account in a domain you plan to enable for federation. A recommendation is to use an account in the default **onmicrosoft.com** domain, which comes with your Azure AD directory.
+On the Connect to Azure AD screen, enter a global admin account and password. If you selected **Federation with AD FS** on the previous page, do not sign in with an account in a domain you plan to enable for federation. A recommendation is to use an account in the default **onmicrosoft.com** domain, which comes with your Azure AD tenant.
 
 This account is only used to create a service account in Azure AD and is not used after the wizard has completed.  
 ![User Sign in](./media/how-to-connect-install-custom/connectaad.png)
@@ -88,7 +88,7 @@ This page allows you to review the UPN domains present in on-premises AD DS and 
 ![Unverified domains](./media/how-to-connect-install-custom/aadsigninconfig2.png)  
 Review every domain marked **Not Added** and **Not Verified**. Make sure those domains you use have been verified in Azure AD. Click the Refresh symbol when you have verified your domains. For more information, see [add and verify the domain](../active-directory-domains-add-azure-portal.md)
 
-**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with both password sync and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value.
+**UserPrincipalName** - The attribute userPrincipalName is the attribute users use when they sign in to Azure AD and Office 365. The domains used, also known as the UPN-suffix, should be verified in Azure AD before the users are synchronized. Microsoft recommends to keep the default attribute userPrincipalName. If this attribute is non-routable and cannot be verified, then it is possible to select another attribute. You can for example select email as the attribute holding the sign-in ID. Using another attribute than userPrincipalName is known as **Alternate ID**. The Alternate ID attribute value must follow the RFC822 standard. An Alternate ID can be used with password hash sync, pass-through authentication, and federation. The attribute must not be defined in Active Directory as multi-valued, even if it only has a single value.
 
 >[!NOTE]
 > When you enable Pass-through Authentication you must have at least one verified domain in order to continue through the wizard.
@@ -134,7 +134,7 @@ The attribute sourceAnchor is an attribute that is immutable during the lifetime
 | Let Azure manage the source anchor for me | Select this option if you want Azure AD to pick the attribute for you. If you select this option, Azure AD Connect wizard applies the sourceAnchor attribute selection logic described in article section [Azure AD Connect: Design concepts - Using ms-DS-ConsistencyGuid as sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). The wizard informs you which attribute has been picked as the Source Anchor attribute after Custom installation completes. |
 | A specific attribute | Select this option if you wish to specify an existing AD attribute as the sourceAnchor attribute. |
 
-Since the attribute cannot be changed, you must plan for a good attribute to use. A good candidate is objectGUID. This attribute is not changed, unless the user account is moved between forests/domains. In a multi-forest environment where you move accounts between forests, another attribute must be used, such as an attribute with the employeeID. Avoid attributes that would change when a person marries or change assignments. You cannot use attributes with an @-sign, so email and userPrincipalName cannot be used. The attribute is also case-sensitive so when you move an object between forests, make sure to preserve the upper/lower case. Binary attributes are base64-encoded, but other attribute types remain in its unencoded state. In federation scenarios and some Azure AD interfaces, this attribute is also known as immutableID. More information about the source anchor can be found in the [design concepts](plan-connect-design-concepts.md#sourceanchor).
+Since the attribute cannot be changed, you must plan for a good attribute to use. A good candidate is objectGUID. This attribute is not changed, unless the user account is moved between forests/domains. Avoid attributes that would change when a person marries or change assignments. You cannot use attributes with an @-sign, so email and userPrincipalName cannot be used. The attribute is also case-sensitive so when you move an object between forests, make sure to preserve the upper/lower case. Binary attributes are base64-encoded, but other attribute types remain in its unencoded state. In federation scenarios and some Azure AD interfaces, this attribute is also known as immutableID. More information about the source anchor can be found in the [design concepts](plan-connect-design-concepts.md#sourceanchor).
 
 ### Sync filtering based on groups
 The filtering on groups feature allows you to sync only a small subset of objects for a pilot. To use this feature, create a group for this purpose in your on-premises Active Directory. Then add users and groups that should be synchronized to Azure AD as direct members. You can later add and remove users to this group to maintain the list of objects that should be present in Azure AD. All objects you want to synchronize must be a direct member of the group. Users, groups, contacts, and computers/devices must all be direct members. Nested group membership is not resolved. When you add a group as a member, only the group itself is added and not its members.
@@ -151,12 +151,19 @@ In a full-blown production deployment, it is going to be hard to maintain a sing
 ### Optional Features
 This screen allows you to select the optional features for your specific scenarios.
 
+>[!WARNING]
+>Azure AD Connect versions **1.0.8641.0** and older rely on the Azure Access Control service for password writeback.  This service will be retired on **November 7th 2018**.  If you are using any of these versions of Azure AD Connect and have enabled password writeback, users may lose the ability to change or reset their passwords once the service is retired. Password writeback with these versions of Azure AD Connect will not be supported.
+>
+>For more information on the Azure Access Control service see [How to: Migrate from the Azure Access Control service](../develop/active-directory-acs-migration.md)
+>
+>To download the latest version of Azure AD Connect click [here](https://www.microsoft.com/en-us/download/details.aspx?id=47594).
+
 ![Optional features](./media/how-to-connect-install-custom/optional2.png)
 
 > [!WARNING]
 > If you currently have DirSync or Azure AD Sync active, do not activate any of the writeback features in Azure AD Connect.
->
->
+
+
 
 | Optional Features | Description |
 | --- | --- |
@@ -185,6 +192,9 @@ Based on the services selected in the previous step, this page shows all attribu
 
 ### Directory Extension attribute sync
 You can extend the schema in Azure AD with custom attributes added by your organization or other attributes in Active Directory. To use this feature, select **Directory Extension attribute sync** on the **Optional Features** page. You can select more attributes to sync on this page.
+
+>[!NOTE]
+>The Available attributes box is case sensitive.
 
 ![Directory extensions](./media/how-to-connect-install-custom/extension2.png)
 
@@ -215,7 +225,7 @@ On a computer that has the Group Policy management tools.
 
 		Value: `https://autologon.microsoftazuread-sso.com`  
 		Data: 1  
-	
+
 
 5.	It should look similar to the following:  
 ![Intranet Zones](./media/how-to-connect-install-custom/sitezone.png)
@@ -378,7 +388,7 @@ To validate end-to-end authentication is successful you should manually perform 
 ## Troubleshooting
 The following section contains troubleshooting and information that you can use if you encounter an issue installing Azure AD Connect.
 
-### “The ADSync database already contains data and cannot be overwritten” 
+### “The ADSync database already contains data and cannot be overwritten”
 When you custom install Azure AD Connect and select the option **Use an existing SQL server** on the **Install required components** page, you might encounter an error that states **The ADSync database already contains data and cannot be overwritten. Please remove the existing database and try again.**
 
 ![Error](./media/how-to-connect-install-custom/error1.png)
@@ -389,7 +399,7 @@ This typically occurs after you have uninstalled Azure AD Connect.  The database
 
 To fix this issue, first verify that the **ADSync** database that was used by Azure AD Connect prior to being uninstalled, is no longer being used.
 
-Next, it is recommended that you backup the database prior to deleting it. 
+Next, it is recommended that you backup the database prior to deleting it.
 
 Finally, you need to delete the database.  You can do this by using **Microsoft SQL Server Management Studio** and connect to the SQL instance. Find the **ADSync** database, right click on it, and select **Delete** from the context menu.  Then click **OK** button to delete it.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Glossary
 services: cognitive-services
 author: tulasim88
-manager: cjgronlund
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article

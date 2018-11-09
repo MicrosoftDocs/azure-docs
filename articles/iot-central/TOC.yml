@@ -85,7 +85,9 @@
     items:
       - name: Administer your application
         href: howto-administer.md  
-        name: Manage IoT Central from the Azure Management Portal
+      - name: Prepare and upload image
+        href: howto-prepare-images.md
+      - name: Manage IoT Central from the Azure Management Portal
         href: howto-manage-iot-central-from-portal.md
       - name: As a CSP create and manage an application
         href: howto-create-and-manage-applications-as-CSP.md
@@ -121,5 +123,5 @@
   items:
   - name: Customer data requests
     href: iot-central-customer-data-requests.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-iot-central
+  - name: Supported browsers
+    href: iot-central-supported-browsers.md

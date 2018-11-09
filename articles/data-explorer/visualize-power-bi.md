@@ -2,8 +2,8 @@
 title: 'Tutorial: Visualize data from Azure Data Explorer in Power BI'
 description: 'In this tutorial, you learn how to connect to Azure Data Explorer with Power BI, and visualize your data.'
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: tutorial
@@ -105,7 +105,7 @@ Now that you have a connection to Azure Data Explorer, you edit the data in Powe
 
     ![Filter column](media/visualize-power-bi/filter-column.png)
 
-1. Select the arrow for the **BeginLat** column, clear the **null** check box, then select **OK**.
+1. Right-click the **StormSummary** column header, then select **Remove**.
 
     ![Remove column](media/visualize-power-bi/remove-column.png)
 

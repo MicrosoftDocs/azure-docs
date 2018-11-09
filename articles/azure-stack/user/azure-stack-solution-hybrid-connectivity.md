@@ -12,9 +12,9 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/25/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
-ms.reviewer: Anjay.Ajodha
+ms.reviewer: anajod
 ---
 
 # Tutorial: configure hybrid cloud connectivity with Azure and Azure Stack

@@ -18,7 +18,7 @@ This tutorial shows how to do end-user testing within the Conversation Learner i
 
 ## Video
 
-[![Tutorial 9 Preview](http://aka.ms/cl-tutorial-09-preview)](http://aka.ms/blis-tutorial-09)
+[![Tutorial 9 Preview](https://aka.ms/cl-tutorial-09-preview)](https://aka.ms/blis-tutorial-09)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -71,7 +71,7 @@ You now have two actions.
 
 Add another example dialog:
 
-1. Click New Action, then New Train Dialog.
+1. Click Train Dialogs and then New Train Dialog.
 2. Type 'what's the weather in Seattle?'. Notice Seattle is tagged as an entity.
 5. Click Score Actions 
 6. Select 'The weather in $city is probably sunny'.
@@ -81,7 +81,7 @@ Add another example dialog:
 Let's imagine that we have deployed this bot to users.
 
 1. Click on Log Dialogs.
-2. Click New Chat Session.
+2. Click New Log Dialog.
 	- This presents the bot as the user would experience it in the web chat control on the left of the UI. You can ignore the white-space area on the right.
 3. Type 'hello'.
 4. Bot response: 'which city?'
@@ -92,10 +92,10 @@ Let's imagine that we have deployed this bot to users.
 
 Let's start a new session:
 
-2. Click New Chat Session.
+2. Click New Log Dialog.
 3. Type 'forecast for Boston'.
 4. Bot response: 'which city?'
-2. Click Done Teaching.
+2. Click Done Testing.
 
 Now let's make corrections to the second dialog:
 

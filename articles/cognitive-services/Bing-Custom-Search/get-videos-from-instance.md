@@ -1,12 +1,14 @@
 ---
-title: Get videos from your custom view | Microsoft Docs
+title: Get videos from your custom view - Bing Custom Search
+titlesuffix: Azure Cognitive Services
 description: High-level overview about using Bing Custom Search to get videos from your custom view of the Web.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: scottwhi
 ---

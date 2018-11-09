@@ -33,7 +33,7 @@ This guide shows how to authenticate Azure Resource Manager requests, and how to
 ## Authenticating Azure Resource Manager requests
 
 > [!IMPORTANT]
-> The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](http://msdn.microsoft.com/library/azure/dn790557.aspx).
+> The REST API for backup and restore uses Azure Resource Manager and has a different authentication mechanism than the REST APIs for managing your API Management entities. The steps in this section describe how to authenticate Azure Resource Manager requests. For more information, see [Authenticating Azure Resource Manager requests](https://msdn.microsoft.com/library/azure/dn790557.aspx).
 
 All of the tasks that you do on resources using the Azure Resource Manager must be authenticated with Azure Active Directory using the following steps:
 
@@ -69,7 +69,7 @@ All of the tasks that you do on resources using the Azure Resource Manager must 
 
 7. Click **Delegated Permissions** beside the newly added application, check the box for **Access Azure Service Management (preview)**.
 8. Press **Select**.
-9. Click **Grant Permisssions**.
+9. Click **Grant Permissions**.
 
 ### Configuring your app
 
@@ -117,7 +117,7 @@ Replace `{tentand id}`, `{application id}`, and `{redirect uri}` using the follo
 
 ## Calling the backup and restore operations
 
-The REST APIs are [Api Management Service - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/backup) and [Api Management Service - Restore](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/restore).
+The REST APIs are [Api Management Service - Backup](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_backup) and [Api Management Service - Restore](https://docs.microsoft.com/rest/api/apimanagement/apimanagementservice/apimanagementservice_restore).
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 
@@ -199,7 +199,7 @@ Restore is a long running operation that may take up to 30 or more minutes to co
 > **Changes** made to the service configuration (for example, APIs, policies, developer portal appearance) while restore operation is in progress **could be overwritten**.
 
 > [!NOTE]
-> Backup and restore operations can also be performed with Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
+> Backup and restore operations can also be performed with PowerShell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement* commands respectively.
 
 ## Next steps
 
@@ -207,7 +207,7 @@ Check out the following resources for different walkthroughs of the backup/resto
 
 * [Replicate Azure API Management Accounts](https://www.returngis.net/en/2015/06/replicate-azure-api-management-accounts/)
 * [Automating API Management Backup and Restore with Logic Apps](https://github.com/Azure/api-management-samples/tree/master/tutorials/automating-apim-backup-restore-with-logic-apps)
-* [Azure API Management: Backing Up and Restoring Configuration](http://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
+* [Azure API Management: Backing Up and Restoring Configuration](https://blogs.msdn.com/b/stuartleeks/archive/2015/04/29/azure-api-management-backing-up-and-restoring-configuration.aspx)
   *The approach detailed by Stuart does not match the official guidance but it is interesting.*
 
 [Backup an API Management service]: #step1

@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 12/7/2017
+ms.date: 09/07/2018
 ms.author: spelluru
 
 ---
@@ -30,13 +30,13 @@ This tutorial covers the following steps:
 
 ## Prerequisites
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 2. An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## 1. Create a namespace using the Azure portal
+## Create a namespace using the Azure portal
 
 > [!NOTE] 
 > You can also create a Service Bus namespace and messaging entities using [PowerShell](/powershell/azure/get-started-azureps). For more information, see [Use PowerShell to manage Service Bus resources](service-bus-manage-with-ps.md).
@@ -45,13 +45,13 @@ If you have already created a Service Bus Messaging namespace, jump to the [Crea
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## 2. Create a queue using the Azure portal
+## Create a queue using the Azure portal
 
 If you have already created a Service Bus queue, jump to the [Send messages to the queue](#3-send-messages-to-the-queue) section.
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## 3. Send messages to the queue
+## Send messages to the queue
 
 To send messages to the queue, write a C# console application using Visual Studio.
 
@@ -169,7 +169,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
                 queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
                 Console.WriteLine("======================================================");
-                Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
+                Console.WriteLine("Press ENTER key to exit after sending all the messages.");
                 Console.WriteLine("======================================================");
 
                 // Send Messages
@@ -210,7 +210,7 @@ Launch Visual Studio and create a new **Console App (.NET Core)** project.
    
       ![Message size][queue-message]
 
-## 4. Receive messages from the queue
+## Receive messages from the queue
 
 To receive the messages you just sent, create another .NET Core console application and install the **Microsoft.Azure.ServiceBus** NuGet package, similar to the previous sender application.
 

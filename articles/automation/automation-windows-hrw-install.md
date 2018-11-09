@@ -43,7 +43,7 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 Perform the following steps to automate the installation and configuration of the Windows Hybrid Worker role:
 
-1. Download the New-OnPremiseHybridWorker.ps1 script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker/DisplayScript) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment. Copy the script to the worker.
+1. Download the New-OnPremiseHybridWorker.ps1 script from the [PowerShell Gallery](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker) directly from the computer running the Hybrid Runbook Worker role or from another computer in your environment. Copy the script to the worker.
 
    The New-OnPremiseHybridWorker.ps1 script requires the following parameters during execution:
 
@@ -126,7 +126,7 @@ To receive detailed information about the installation, use the **-Verbose** swi
 
 Runbooks can use any of the activities and cmdlets defined in the modules that are installed in your Azure Automation environment. These modules are not automatically deployed to on-premises computers, so you must install them manually. The exception is the Azure module, which is installed by default and provides access to cmdlets for all Azure services and activities for Azure Automation.
 
-Because the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources. For information on installing Windows PowerShell modules, see [Installing Modules](http://msdn.microsoft.com/library/dd878350.aspx). 
+Because the primary purpose of the Hybrid Runbook Worker feature is to manage local resources, you most likely need to install the modules that support these resources. For information on installing Windows PowerShell modules, see [Installing Modules](https://msdn.microsoft.com/library/dd878350.aspx). 
 
 Modules that are installed must be in a location referenced by the **PSModulePath** environment variable so that the hybrid worker can automatically import them. For more information, see [Modifying the PSModulePath Installation Path](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx).
 

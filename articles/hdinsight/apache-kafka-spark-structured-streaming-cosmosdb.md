@@ -1,22 +1,22 @@
 ---
-title: Apache Spark Structured Streaming from Kafka to Azure Cosmos DB - Azure HDInsight 
+title: Apache Spark Structured Streaming from Apache Kafka to Azure Cosmos DB - Azure HDInsight 
 description: Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka and then store it into Azure Cosmos DB. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 ---
-# Use Spark Structured Streaming with Kafka and Azure Cosmos DB
+# Use Apache Spark Structured Streaming with Kafka and Azure Cosmos DB
 
-Learn how to use Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight, and then store the data into Azure Cosmos DB.
+Learn how to use Apache Spark Structured Streaming to read data from Apache Kafka on Azure HDInsight, and then store the data into Azure Cosmos DB.
 
 Azure Cosmos DB is a globally distributed, multi-model database. This example uses a SQL API database model. For more information, see the [Welcome to Azure Cosmos DB](../cosmos-db/introduction.md) document.
 
-Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide [Alpha]](http://spark.apache.org/docs/2.1.0/structured-streaming-programming-guide.html) at Apache.org.
+Spark structured streaming is a stream processing engine built on Spark SQL. It allows you to express streaming computations the same as batch computation on static data. For more information on Structured Streaming, see the [Structured Streaming Programming Guide](https://spark.apache.org/docs/2.2.0/structured-streaming-programming-guide.html) at Apache.org.
 
 > [!IMPORTANT]
 > This example used Spark 2.2 on HDInsight 3.6.
@@ -89,7 +89,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
+4. Finally, select **Purchase**. It takes about 20 minutes to create the clusters.
 
 > [!IMPORTANT]
 > It may take up to 45 minutes to create the clusters, virtual network, and Cosmos DB account.

@@ -13,7 +13,7 @@ ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 07/03/2018
+ms.date: 09/03/2018
 ms.author: spelluru
 
 ---
@@ -31,7 +31,7 @@ This tutorial covers the following steps:
 
 ## Prerequisites
 
-1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+1. [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 2. [NET Core SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 2. An Azure subscription.
 

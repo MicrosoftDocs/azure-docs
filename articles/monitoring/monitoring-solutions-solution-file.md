@@ -23,7 +23,7 @@ ms.custom: H1Hack27Feb2017
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in Azure which are currently in preview. Any schema described below is subject to change.  
 
-Management solutions in Azure are implemented as [Resource Manager templates](../azure-resource-manager/resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../azure-resource-manager/resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to configure typical solution resources.
+Management solutions in Azure are implemented as [Resource Manager templates](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  The main task in learning how to author management solutions is learning how to [author a template](../azure-resource-manager/resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to configure typical solution resources.
 
 
 ## Tools
@@ -31,7 +31,7 @@ Management solutions in Azure are implemented as [Resource Manager templates](..
 You can use any text editor to work with solution files, but we recommend leveraging the features provided in Visual Studio or Visual Studio Code as described in the following articles.
 
 - [Creating and deploying Azure resource groups through Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Working with Azure Resource Manager Templates in Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
+- [Working with Azure Resource Manager Templates in Visual Studio Code](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 

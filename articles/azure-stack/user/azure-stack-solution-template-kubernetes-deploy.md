@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
 
@@ -23,9 +23,9 @@ ms.reviewer: waltero
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
 > [!Note]  
-> Kubernetes on Azure Stack is in preview. Your Azure Stack operator will need to request access to the Kubernetes Cluster Marketplace item needed to perform the instructions in this article.
+> Kubernetes on Azure Stack is in preview.
 
-The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud. Note the template is not the same managed AKS service offered in global Azure, but closer to the ACS service.
+The following article looks at using an Azure Resource Manager solution template to deploy and provision the resources for Kubernetes in a single, coordinated operation. You will need to collect the required information about your Azure Stack installation, generate the template, and then deploy to your cloud. Note the template is not the same managed AKS service offered in global Azure.
 
 ## Kubernetes and containers
 
@@ -36,6 +36,8 @@ You can use Kubernetes to:
 - Develop massively scalable, upgradable, applications that can be deployed in seconds. 
 - Simplify the design of your application and improve its reliability by different Helm applications. [Helm](https://github.com/kubernetes/helm) is an open-source packaging tool that helps you install and manage the lifecycle of Kubernetes applications.
 - Easily monitor and diagnose the health of your applications with scale and upgrade functionality.
+
+You will only be charged for the compute usage required by the nodes supporting your cluster. For more information, see [Usage and billing in Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
 ## Prerequisites 
 
@@ -51,7 +53,9 @@ To get started, make sure you have the right permissions and that your Azure Sta
 
 1. Check that you have a valid subscription in your Azure Stack tenant portal, and that you have enough public IP addresses available to add new applications.
 
-    The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use a User** subscription. 
+    The cluster cannot be deployed to an Azure Stack **Administrator** subscription. You must use a **User** subscription. 
+
+1. If you do not have Kubernetes Cluster in your marketplace, talk to the administrator of Azure Stack.
 
 ## Create a service principal in Azure AD
 
@@ -110,9 +114,23 @@ Give the service principal access to your subscription so that the principal can
 
     ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/01_kub_market_item.png)
 
-1. Select **Basics** in the Create Kubernetes.
+### 1. Basics
+
+1. Select **Basics** in Create Kubernetes Cluster.
 
     ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/02_kub_config_basic.png)
+
+1. Select your **Subscription** ID.
+
+1. Enter the name of a new resource group or select an existing resource group. The resource name needs to be alphanumeric and lowercase.
+
+1. Select the **Location** of the resource group. This is the region you choose for your Azure Stack installation.
+
+### 2. Kubernetes Cluster Settings
+
+1. Select **Kubernetes Cluster Settings** in Create Kubernetes Cluster.
+
+    ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
 
 1. Enter the **Linux VM Admin Username**. User name for the Linux Virtual Machines that are part of the Kubernetes cluster and DVM.
 
@@ -123,28 +141,32 @@ Give the service principal access to your subscription so that the principal can
     > [!Note]  
     > For each cluster, use a new and unique master profile DNS prefix.
 
-1. Enter the **Agent Pool Profile Count**. The count contains the number of agents in the cluster. There can be from 1 to 4.
+1. Select the **Kubernetes Master Pool Profile Count**. The count contains the number of nodes in the master pool. There can be from 1 to 7. This value should be an odd number.
 
-1. Enter the **Service Principal ClientId** This is used by the Kubernetes Azure cloud provider.
+1. Select **The VMSize of the Kubernetes master VMs**.
 
-1. Enter the **Service Principal Client Secret** that you created when creating service principal application.
+1. Select the **Kubernetes Node Pool Profile Count**. The count contains the number of agents in the cluster. 
+
+1. Select the **Storage Profile**. You can choose **Blob Disk** or **Managed Disk**. This specifies the VM Size of Kubernetes node VMs. 
+
+1. Enter the **Service Principal ClientId** This is used by the Kubernetes Azure cloud provider. The Client ID identified as the Application ID when your created your service principal.
+
+1. Enter the **Service Principal Client Secret** that you created when creating your service principal.
 
 1. Enter the **Kubernetes Azure Cloud Provider Version**. This is the version for the Kubernetes Azure provider. Azure Stack releases a custom Kubernetes build for each Azure Stack version.
 
-1. Select your **Subscription** ID.
+### 3. Summary
 
-1. Enter the name of a new resource group or select an existing resource group. The resource name needs to be alphanumeric and lowercase.
+1. Select Summary. The blade displays a validation message for your Kubernetes Cluster configurations settings.
 
-1. Select the **Location** of the resource group. This is the region you choose for your Azure Stack installation.
+    ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/04_preview.png)
 
-### Specify the Azure Stack settings
+2. Review your settings.
 
-1. Select the **Azure Stack Stamp Settings**.
+3. Select **OK** to deploy your cluster.
 
-    ![Deploy Solution Template](media/azure-stack-solution-template-kubernetes-deploy/03_kub_config_settings.png)
-
-1. Enter the **Tenant Arm Endpoint**. This is the Azure Resource Manager endpoint to connect to create the resource group for the Kubernetes cluster. You will need to get the endpoint from your Azure Stack operator for an integrated system. For the Azure Stack Development Kit (ASDK), you can use `https://management.local.azurestack.external`.
-
+> [!TIP]  
+>  If you have questions about your deployment, you can post your question or see if someone has already answered the question in the [Azure Stack Forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## Connect to your cluster
 

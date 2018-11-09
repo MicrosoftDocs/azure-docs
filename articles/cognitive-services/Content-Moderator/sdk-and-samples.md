@@ -1,12 +1,14 @@
 ---
-title: Content Moderation SDKs and samples for the Azure Content Moderator | Microsoft Docs
+title: SDKs and samples - Content Moderator, Python, Java, Node.js, and .NET
+titlesuffix: Azure Cognitive Services
 description: Get SDKs and samples for Content Moderator
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: sample
 ms.date: 02/27/2018
 ms.author: sajagtap
 ---

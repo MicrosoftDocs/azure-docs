@@ -23,119 +23,67 @@ ms.reviewer: raluthra
 
 # How To: Configure the user risk policy
 
-All active [risk events](../reports-monitoring/concept-risk-events.md) that were detected by Azure Active Directory for a user contribute to a logical concept called user risk. A user flagged for risk is an indicator for a user account that might have been compromised.
+With the user risk, Azure AD detects the probability that a user account has been compromised. As an administrator, you can configure a user risk conditional access policy, to automatically respond to a specific user risk level.
+ 
+This article provides you with the information you need to configure a user risk policy.
 
-![Users flagged for risk](./media/howto-user-risk-policy/1200.png)
+
+## What is a user risk policy?
+
+Azure AD analyzes each sign-in of a user. The objective of the analysis is to detect suspicious actions that come along with the sign-in. In Azure AD, the suspicious actions the system can detect are also known as risk events. While some risk events can be detected in real-time, there are also risk events requiring more time. For example, to detect an impossible travel to atypical locations, the system requires an initial learning period of 14 days to learn about a user's regular behavior. There are several options to resolve detected risk events. For example, you can resolve individual risk events manually, or you can get them resolved using a sign-in risk or a user risk conditional access policy.
+
+All risk events that have been detected for a user and didn't get resolved are known as active risk events. The active risk events that are associated with a user are known as user risk. Based on the user risk, Azure AD calculates a probability (low, medium, high) that a user has been compromised. The probability is called user  risk level.
+
+![User risks](./media/howto-user-risk-policy/1031.png)
+
+The user risk policy is an automated response you can configure for a specific user risk level. With a user risk policy, you can block access to your resources or require a password change to get a user account back into a clean state.
 
 
-## User risk level
+## How do I access the user risk policy?
+   
+The sign-in risk policy is in the **Configure** section on the [Azure AD Identity Protection page](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+   
+![User risk policy](./media/howto-user-risk-policy/1014.png)
 
-A user risk level is an indication (High, Medium, or Low) of the likelihood that the user’s identity has been compromised. It is calculated based on the user risk events that are associated with a user's identity.
 
-The status of a risk event is either **Active** or **Closed**. Only risk events that are **Active** contribute to the user risk level calculation.
 
-The user risk level is calculated using the following inputs:
+## Policy settings
 
-* Active risk events impacting the user
-* Risk level of these events
-* Whether any remediation actions have been taken
+When you configure the sign-in risk policy, you need to set:
 
-![User risks](./media/howto-user-risk-policy/1031.png "User risks")
+- The users and groups the policy applies to:
 
-You can use the user risk levels to create conditional access policies that block risky users from signing in, or force them to securely change their password.
+    ![Users and groups](./media/howto-user-risk-policy/11.png)
 
-## Closing risk events manually
+- The sign-in risk level that triggers the policy:
 
-In most cases, you will take remediation actions such as a secure password reset to automatically close risk events. However, this might not always be possible.  
-This is, for example, the case, when:
+    ![User risk level](./media/howto-user-risk-policy/12.png)
 
-* A user with Active risk events has been deleted
-* An investigation reveals that a reported risk event has been perform by the legitimate user
+- The type of access you want to be enforced when your sign-in risk level has been met:  
 
-Because risk events that are **Active** contribute to the user risk calculation, you may have to manually lower a risk level by closing risk events manually.  
-During the course of investigation, you can choose to take any of these actions to change the status of a risk event:
+    ![Access](./media/howto-user-risk-policy/13.png)
 
-![Actions](./media/howto-user-risk-policy/34.png "Actions")
+- The state of your policy:
 
-* **Resolve** - If after investigating a risk event, you took an appropriate remediation action outside Identity Protection, and you believe that the risk event should be considered closed, mark the event as Resolved. Resolved events will set the risk event’s status to Closed and the risk event will no longer contribute to user risk.
-* **Mark as false-positive** - In some cases, you may investigate a risk event and discover that it was incorrectly flagged as a risky. You can help reduce the number of such occurrences by marking the risk event as False-positive. This will help the machine learning algorithms to improve the classification of similar events in the future. The status of false-positive events is to **Closed** and they will no longer contribute to user risk.
-* **Ignore** - If you have not taken any remediation action, but want the risk event to be removed from the active list, you can mark a risk event Ignore and the event status will be Closed. Ignored events do not contribute to user risk. This option should only be used under unusual circumstances.
-* **Reactivate** - Risk events that were manually closed (by choosing **Resolve**, **False positive**, or **Ignore**) can be reactivated, setting the event status back to **Active**. Reactivated risk events contribute to the user risk level calculation. Risk events closed through remediation (such as a secure password reset) cannot be reactivated.
+    ![Enforce policy](./media/howto-user-risk-policy/14.png)
 
-**To open the related configuration dialog**:
+The policy configuration dialog provides you with an option to estimate the impact of your configuration.
 
-1. On the **Azure AD Identity Protection** blade, under **Investigate**, click **Risk events**.
+![Estimated impact](./media/howto-user-risk-policy/15.png)
 
-    ![Manual password reset](./media/howto-user-risk-policy/1002.png "Manual password reset")
-2. In the **Risk events** list, click a risk.
+## What you should know
 
-    ![Manual password reset](./media/howto-user-risk-policy/1003.png "Manual password reset")
-3. On the risk blade, right-click a user.
+You can set a user risk security policy to block users upon sign-in depending on the risk level.
 
-    ![Manual password reset](./media/howto-user-risk-policy/1004.png "Manual password reset")
+![Blocking](./media/howto-user-risk-policy/16.png)
 
-## Closing all risk events for a user manually
-Instead of manually closing risk events for a user individually, Azure Active Directory Identity Protection also provides you with a method to close all events for a user with one click.
 
-![Actions](./media/howto-user-risk-policy/2222.png "Actions")
+Blocking a sign-in:
 
-When you click **Dismiss all events**, all events are closed and the affected user is no longer at risk.
+* Prevents the generation of new user risk events for the affected user
+* Enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
 
-## Remediating user risk events
-
-A remediation is an action to secure an identity or a device that was previously suspected or known to be compromised. A remediation action restores the identity or device to a safe state, and resolves previous risk events associated with the identity or device.
-
-To remediate user risk events, you can:
-
-* Perform a secure password reset to remediate user risk events manually
-* Configure a user risk security policy to mitigate or remediate user risk events automatically
-* Re-image the infected device  
-
-### Manual secure password reset
-A secure password reset is an effective remediation for many risk events, and when performed, automatically closes these risk events and recalculates the user risk level. You can use the Identity Protection dashboard to initiate a password reset for a risky user.
-
-The related dialog provides two different methods to reset a password:
-
-**Reset password** - Select **Require the user to reset their password** to allow the user to self-recover if the user has registered for multi-factor authentication. During the user's next sign-in, the user will be required to solve a multi-factor authentication challenge successfully and then, forced to change the password. This option isn't available if the user account is not already registered multi-factor authentication.
-
-**Temporary password** - Select **Generate a temporary password** to immediately invalidate the existing password, and create a new temporary password for the user. Send the new temporary password to an alternate email address for the user or to the user's manager. Because the password is temporary, the user will be prompted to change the password upon sign-in.
-
-![Policy](./media/howto-user-risk-policy/1005.png "Policy")
-
-**To open the related configuration dialog**:
-
-1. On the **Azure AD Identity Protection** blade, click **Users flagged for risk**.
-
-    ![Manual password reset](./media/howto-user-risk-policy/1006.png "Manual password reset")
-2. From the list of users, select a user with at least one risk events.
-
-    ![Manual password reset](./media/howto-user-risk-policy/1007.png "Manual password reset")
-3. On the user blade, click **Reset password**.
-
-    ![Manual password reset](./media/howto-user-risk-policy/1008.png "Manual password reset")
-
-## User risk security policy
-A user risk security policy is a conditional access policy that evaluates the risk level to a specific user and applies remediation and mitigation actions based on predefined conditions and rules.
-
-![User risk policy](./media/howto-user-risk-policy/1009.png "User risk policy")
-
-Azure AD Identity Protection helps you manage the mitigation and remediation of users flagged for risk by enabling you to:
-
-* Set the users and groups the policy applies to:
-
-    ![User risk policy](./media/howto-user-risk-policy/1010.png "User risk policy")
-* Set the user risk level threshold (low, medium, or high) that triggers the policy:
-
-    ![User risk policy](./media/howto-user-risk-policy/1011.png "User risk policy")
-* Set the controls to be enforced when the policy triggers:
-
-    ![User risk policy](./media/howto-user-risk-policy/1012.png "User risk policy")
-* Switch the state of your policy:
-
-    ![User risk policy](./media/howto-user-risk-policy/403.png "MFA Registration")
-* Review and evaluate the impact of a change before activating it:
-
-    ![User risk policy](./media/howto-user-risk-policy/1013.png "User risk policy")
+## Best practices
 
 Choosing a **High** threshold reduces the number of times a policy is triggered and minimizes the impact to users.
 However, it excludes **Low** and **Medium** users flagged for risk from the policy, which may not secure identities or devices that were previously suspected or known to be compromised.
@@ -160,13 +108,7 @@ For an overview of the related user experience, see:
 
     ![User risk policy](./media/howto-user-risk-policy/1009.png "User risk policy")
 
-## Mitigating user risk events
-Administrators can set a user risk security policy to block users upon sign-in depending on the risk level.
 
-Blocking a sign-in:
-
-* Prevents the generation of new user risk events for the affected user
-* Enables administrators to manually remediate the risk events affecting the user's identity and restore it to a secure state
 
 
 ## Next steps

@@ -1,21 +1,14 @@
 ---
 title: Connect to, configure, and activate Azure Data Box Gateway in Azure portal | Microsoft Docs
 description: Third tutorial to deploy Data Box Gateway instructs you to connect, set up, and activate your virtual device.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 09/27/2018
 ms.author: alkohli
-ms.custom:
 #Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Gateway so I can use it to transfer data to Azure. 
 ---
 # Tutorial: Connect, set up, activate Azure Data Box Gateway (Preview) 
@@ -118,7 +111,7 @@ You are now at the **Dashboard** of your device.
        
          ![](./media/data-box-gateway-deploy-connect-setup-activate/image10.png)
     
-    3. This restarts the device. You may need to wait for 2-3 minutes before the device is successfully activated. After the device has restarted, you will be taken to the sign in page.
+    3. You may need to wait a minute before the device is successfully activated. After the activation, the page updates to indicate that the device is successfully activated.
 
 
 ## Next steps

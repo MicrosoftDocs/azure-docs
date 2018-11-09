@@ -25,7 +25,7 @@ This article describes basic aggregation operations against Azure Cosmos DB Cass
 
 ```scala
 import org.apache.spark.sql.cassandra._
-//datastax Spark connector
+//Spark connector
 import com.datastax.spark.connector._
 import com.datastax.spark.connector.cql.CassandraConnector
 

@@ -1,15 +1,17 @@
 ---
 title: Single-tenant SaaS tutorial - Azure SQL Database | Microsoft Docs
 description: "Deploy and explore a standalone single-tenant SaaS application, that uses Azure SQL Database."
-keywords: sql database tutorial
 services: sql-database
-author: stevestein
-manager: craigg
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scenario
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/19/2018
+author: MightyPen
 ms.author: genemi
+ms.reviewer: sstein
+manager: craigg
+ms.date: 09/19/2018
 ---
 # Deploy and explore a standalone single-tenant application that uses Azure SQL Database
 
@@ -19,7 +21,7 @@ The standalone application or app-per-tenant pattern deploys an application inst
 
 In this tutorial, you will deploy three standalone applications for three tenants into your Azure subscription.  You have full access to explore and work with the individual application components.
 
-The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo.
+The application source code and management scripts are available in the [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp) GitHub repo. The application was created using Visual Studio 2015, and does not successfully open and compile in Visual Studio 2017 without updating.
 
 
 In this tutorial you learn:
@@ -36,11 +38,11 @@ Additional tutorials will be released. They will allow you to explore a range of
 Deploy the app for the three provided tenants:
 
 1. Click each blue **Deploy to Azure** button to open the deployment template in the [Azure portal](https://portal.azure.com). Each template requires two parameter values; a name for a new resource group, and a user name that distinguishes this deployment from other deployments of the app. The next step provides details for setting these values.<br><br>
-    <a href="http://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
+    <a href="https://aka.ms/deploywingtipsa-contoso" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Contoso Concert Hall**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
+    <a href="https://aka.ms/deploywingtipsa-dogwood" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Dogwood Dojo**
 <br><br>
-    <a href="http://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
+    <a href="https://aka.ms/deploywingtipsa-fabrikam" target="_blank"><img style="vertical-align:middle" src="media/saas-standaloneapp-get-started-deploy/deploy.png"/></a> &nbsp; **Fabrikam Jazz Club**
 
 2. Enter required parameter values for each deployment.
 

@@ -2,14 +2,16 @@
 title: Using Recovery Manager to fix shard map problems | Microsoft Docs
 description: Use the RecoveryManager class to solve problems with shard maps
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: scale-out
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer: 
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Using the RecoveryManager class to fix shard map problems
 The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) class provides ADO.Net applications the ability to easily detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database environment. 

@@ -77,7 +77,8 @@ Built-in actions, such as actions that call HTTP, Azure Functions, or API Manage
 and also control flow steps are metered as native actions, which have their respective types. 
 Actions that call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. 
 These connectors are classified as standard or enterprise connectors, 
-which are metered based on their respective [pricing][pricing]. 
+which are metered based on their respective [pricing][pricing]. Enterprise connectors in *Preview* are charged as standard
+connectors.
 
 All successfully and unsuccessfully run actions are counted and metered as action executions. 
 However, actions that are skipped, due to unmet conditions, or actions that don't run, 

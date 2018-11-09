@@ -1,6 +1,6 @@
 ---
-title: Quickstart to search for and view your groups and assigned members using Azure Active Directory | Microsoft Docs
-description: Quickstart with steps for how to search for and view all of your groups and their assigned members using Azure Active Directory.
+title: Quickstart to view your organization's groups and members in Azure Active Directory | Microsoft Docs
+description: Quickstart with steps about how to search for and view your organization's groups and their assigned members using the Azure portal.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -9,38 +9,79 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/30/2018
+ms.date: 09/24/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
 ---
-# Quickstart: Search for a specific group and view its members using Azure Active Directory
-You can search for a specific group and review the assigned members using Azure Active Directory.
+<!--As a brand-new Azure AD administrator, I need to view my organization’s groups along with the assigned members, so I can manage permissions to apps and services for people in my organization-->
 
-In this quickstart, you’ll view all your existing groups, select the **MDM policy – West** group, and then view the assigned members.
+# Quickstart: View your organization's groups and members in Azure Active Directory
+You can view your organization's existing groups and group members using the Azure portal. Groups are used to manage users (members) that all need the same access and permissions for potentially restricted apps and services.
+
+In this quickstart, you’ll view all of your organization's existing groups and view the assigned members.
 
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
 
 ## Prerequisites
 Before you begin, you’ll need to:
 
-1. Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
-
-2.	Create the _MDM policy - West_ group and add member, _Alain Charon_. For more information, see [Create a basic group and add members](active-directory-groups-create-azure-portal.md).
+- Create an Azure Active Directory tenant. For more information, see [Access the Azure Active Directory portal and create a new tenant](active-directory-access-create-new-tenant.md).
 
 ## Sign in to the Azure portal
 You must sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator account for the directory.
 
-## View your existing groups
+## Create a new group 
+Create a new group, named _MDM policy - West_. For more information about creating a group, see [How to create a basic group and add members](active-directory-groups-create-azure-portal.md).
+
+1. Select **Azure Active Directory**, **Groups**, and then select **New group**.
+
+2. Complete the **Group** page:
+    
+    - **Group type:** Select **Security**
+    
+    - **Group name:** Type _MDM policy - West_
+    
+    - **Membership type:** Select **Assigned**.
+
+3. Select **Create**.
+
+## Create a new user
+Create a new user, named _Alain Charon_. A user must exist before being added as a group member. For more information about creating a user, see [How to add or delete users](add-users-azure-active-directory.md).
+
+1. Select **Azure Active Directory**, **Users**, and then select **New user**.
+
+2. Complete the **User** page:
+
+    - **Name:** Type _Alain Charon_.
+
+    - **User name:** Type *alain@contoso.com*.
+
+3. Copy the auto-generated password provided in the **Password** box, and then select **Create**.
+
+## Add a group member
+Now that you have a group and a user, you can add _Alain Charon_ as a member to the _MDM policy - West_ group. For more information about adding group members, see [How to add or remove group members](active-directory-groups-members-azure-portal.md).
+
+1. Select **Azure Active Directory** > **Groups**.
+
+2. From the **Groups - All groups** page, search for and select the **MDM policy - West** group.
+
+3. From the **MDM policy - West Overview** page, select **Members** from the **Manage** area.
+
+4. Select **Add members**, and then search and select **Alain Charon**.
+
+5. Choose **Select**.
+
+## View all groups
 You can see all the groups for your organization in the **Groups - All groups** page of the Azure portal.
 
-- Select Azure **Active Directory**, and then select **Groups**.
+- Select Azure **Active Directory** > **Groups**.
 
     The **Groups - All groups** page appears, showing all your active groups.
 
     ![Groups-All groups page, showing all existing groups](media/active-directory-groups-view-azure-portal/groups-all-groups-blade-with-all-groups.png)
 
-## Search for a specific group
+## Search for the group
 Search the **Groups – All groups** page to find the **MDM policy – West** group.
 
 1. From the **Groups - All groups** page, type _MDM_ into the **Search** box.
@@ -55,7 +96,7 @@ Search the **Groups – All groups** page to find the **MDM policy – West** gr
 
     ![MDM policy – West Overview page with member info](media/active-directory-groups-view-azure-portal/group-overview-blade.png)
 
-## View members of the MDM policy – West group
+## View group members
 Now that you’ve found the group, you can view all the assigned members.
 
 - Select **Members** from the **Manage** area, and then review the complete list of member names assigned to that specific group, including _Alain Charon_.
@@ -63,7 +104,7 @@ Now that you’ve found the group, you can view all the assigned members.
     ![List of members assigned to the MDM policy – West group](media/active-directory-groups-view-azure-portal/groups-all-members.png)
 
 ## Clean up resources
-If you’re not going to continue to use this application, you can delete the group and its assigned members with the following steps:
+This group is used in several of the how-to processes that are available in the **How-to guides** section of this documentation. However, if you'd rather not use this group, you can delete it and its assigned members using the following steps:
 
 1. On the **Groups - All groups** page, search for the **MDM policy - West** group.
 
@@ -81,11 +122,7 @@ If you’re not going to continue to use this application, you can delete the gr
     >This doesn't delete the user Alain Charon, just his membership in the deleted group.
 
 ## Next steps
-After you find your group and see the members, you can continue to:
-- [Add or remove members](active-directory-groups-members-azure-portal.md)
+Advance to the next article to learn how to associate a subscription to your Azure AD directory.
 
-- [Use the group to manage access to resources](active-directory-manage-groups.md)
-
-- [Add group owners](active-directory-accessmanagement-managing-group-owners.md)
-
-For more complex concepts and processes about groups, such as creating and using dynamic groups, delegating, and working with SaaS apps, see the [Azure Active Directory users, groups, roles, and licenses documentation](https://docs.microsoft.com/azure/active-directory/users-groups-roles/).
+> [!div class="nextstepaction"]
+> [Associate an Azure subscription](active-directory-how-subscriptions-associated-directory.md)

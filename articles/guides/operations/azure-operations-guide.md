@@ -223,11 +223,7 @@ For more information, see [Gain insights into your Microsoft Azure resource cons
 
 ### Forecast cost with the pricing calculator
 
-The pricing for each service in Azure is different. Many Azure services provide Basic, Standard, and Premium tiers. Usually, each tier has several price and performance levels. By using the [online pricing calculator](http://azure.microsoft.com/pricing/calculator), you can create pricing estimates. The calculator includes flexibility to estimate cost on a single resource or a group of resources.
-
-### Set up billing alerts
-
-After you have deployed your application or solution on Azure, you can create alerts that send you email when you approach spending limits defined in the alert. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](../../billing/billing-set-up-alerts.md).
+The pricing for each service in Azure is different. Many Azure services provide Basic, Standard, and Premium tiers. Usually, each tier has several price and performance levels. By using the [online pricing calculator](https://azure.microsoft.com/pricing/calculator), you can create pricing estimates. The calculator includes flexibility to estimate cost on a single resource or a group of resources.
 
 ## Azure Resource Manager
 

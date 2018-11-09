@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
@@ -62,7 +62,7 @@ Now when the call `GET /api/stock/value` made to an external service you want to
 
 ## Correlation headers
 
-We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). This proposal defines two headers:
+We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). This proposal defines two headers:
 
 - `Request-Id` carry the globally unique id of the call
 - `Correlation-Context` - carry the name value pairs collection of the distributed trace properties
@@ -73,7 +73,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 
 ### W3C Distributed Tracing
 
-We are transitioning to (W3C Distributed tracing format)[https://w3c.github.io/distributed-tracing/report-trace-context.html]. It defines:
+We are transitioning to [W3C Distributed tracing format](https://w3c.github.io/trace-context/). It defines:
 - `traceparent` - carries globally unique operation id and unique identifier of the call
 - `tracestate` - carries tracing system specific context.
 
@@ -101,17 +101,19 @@ public void ConfigureServices(IServiceCollection services)
 
 ## Open tracing and Application Insights
 
-[Open Tracing](http://opentracing.io/) and Application Insights data models looks 
+The [Open Tracing data model specification](http://opentracing.io/) and Application Insights data models map in the following way:
 
-- `request`, `pageView` maps to **Span** with `span.kind = server`
-- `dependency` maps to **Span** with `span.kind = client`
-- `id` of a `request` and `dependency` maps to **Span.Id**
-- `operation_Id` maps to **TraceId**
-- `operation_ParentId` maps to **Reference** of type `ChildOf`
+| Application Insights               	| Open Tracing                                    	|
+|------------------------------------	|-------------------------------------------------	|
+| `Request`, `PageView`              	| `Span` with `span.kind = server`                	|
+| `Dependency`                       	| `Span` with `span.kind = client`                	|
+| `Id` of `Request` and `Dependency` 	| `SpanId`                                        	|
+| `Operation_Id`                     	| `TraceId`                                       	|
+| `Operation_ParentId`               	| `Reference` of type `ChildOf` (the parent span) 	|
 
-See [data model](application-insights-data-model.md) for Application Insights types and data model.
+For more information on the Application Insights data model, see [data model](application-insights-data-model.md). 
 
-See [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
+See the Open Tracing [specification](https://github.com/opentracing/specification/blob/master/specification.md) and [semantic_conventions](https://github.com/opentracing/specification/blob/master/semantic_conventions.md) for definitions of Open Tracing concepts.
 
 
 ## Telemetry correlation in .NET
@@ -150,7 +152,7 @@ public class CloudRoleNameInitializer extends WebTelemetryInitializerBase {
     }
   }
 ```
-Via the [device context class](https://docs.microsoft.com/et-ee/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
+Via the [device context class](https://docs.microsoft.com/java/api/com.microsoft.applicationinsights.extensibility.context._device_context) (only this telemetry item is tagged)
 ```Java
 telemetry.getContext().getDevice().setRoleName("My Component Name");
 ```
@@ -161,5 +163,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Onboard all components of your micro service on Application Insights. Check out [supported platforms](app-insights-platforms.md).
 - See [data model](application-insights-data-model.md) for Application Insights types and data model.
 - Learn how to [extend and filter telemetry](app-insights-api-filtering-sampling.md).
-- [Application Insights confg reference](app-insights-configuration-with-applicationinsights-config.md)
+- [Application Insights config reference](app-insights-configuration-with-applicationinsights-config.md)
 

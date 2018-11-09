@@ -1,13 +1,13 @@
 ---
 title: "Tutorial: Recognize intents from speech by using the Speech SDK for C#"
-titleSuffix: "Microsoft Cognitive Services"
-description: |
-  In this tutorial, you learn how to recognize intents from speech using the Speech SDK for C#.
+titleSuffix: Azure Cognitive Services
+description: In this tutorial, you learn how to recognize intents from speech using the Speech SDK for C#.
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: Speech
+ms.component: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
@@ -107,9 +107,9 @@ Replace the placeholders in this method with your LUIS subscription key, region,
 
 |Placeholder|Replace with|
 |-----------|------------|
-|YourLanguageUnderstandingSubscriptionKey|Your LUIS endpoint key. As previously noted, this must be a key obtained from your Azure dashboard, not a "starter key." You can find it on your app's Publish page in the [LUIS portal](https://www.luis.ai/home).|
-|YourLanguageUnderstandingServiceRegion|The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md).|
-|YourLanguageUnderstandingAppId|The LUIS app ID. You can find it on your app's Settings page of the [LUIS portal](https://www.luis.ai/home).|
+|`YourLanguageUnderstandingSubscriptionKey`|Your LUIS endpoint key. As previously noted, this must be a key obtained from your Azure dashboard, not a "starter key." You can find it on your app's Keys and Endpoints page (under Manage) in the [LUIS portal](https://www.luis.ai/home).|
+|`YourLanguageUnderstandingServiceRegion`|The short identifier for the region your LUIS subscription is in, such as `westus` for West US. See [Regions](regions.md).|
+|`YourLanguageUnderstandingAppId`|The LUIS app ID. You can find it on your app's Settings page of the [LUIS portal](https://www.luis.ai/home).|
 
 With these changes made, you can build (Control-Shift-B) and run (F5) the tutorial application. When prompted, try saying "Turn off the lights" into your PC's  microphone. The result is displayed in the console window.
 
@@ -121,7 +121,7 @@ The following sections include a discussion of the code.
 The first step in recognizing intents in speech is to create a speech config from your LUIS endpoint key and region. Speech configs can be used to create recognizers for the various capabilities of the Speech SDK. The speech config has multiple ways to specify the subscription you want to use; here, we use `FromSubscription`, which takes the subscription key and region.
 
 > [!NOTE]
-> Use the key and region of your LUIS subscription, not your Speech subscription.
+> Use the key and region of your LUIS subscription, not of a Speech Service subscription.
 
 Next, create an intent recognizer using `new IntentRecognizer(config)`. Since the configuration already knows which subscription to use, there's no need to specify the subscription key and endpoint again when creating the recognizer.
 
@@ -164,7 +164,7 @@ The tutorial application doesn't parse the JSON result, only displaying it in th
 
 ## Specify recognition language
 
-By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our tutorial application before creating the recognizer to recognize intents in German.
+By default, LUIS recognizes intents in US English (`en-us`). By assigning a locale code to the `SpeechRecognitionLanguage` property of the speech configuration, you can recognize intents in other languages. For example, add `config.SpeechRecognitionLanguage = "de-de";` in our tutorial application before creating the recognizer to recognize intents in German. See [Supported Languages](language-support.md#speech-to-text).
 
 ## Continuous recognition from a file
 

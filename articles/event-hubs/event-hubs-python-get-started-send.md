@@ -2,37 +2,35 @@
 title: Send events to Azure Event Hubs using Python | Microsoft Docs
 description: Get started sending events to Event Hubs using Python
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: femila
 
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
-ms.author: sethm
+ms.date: 10/16/2018
+ms.author: shvija
 
 ---
 
 # Send events to Event Hubs using Python
 
-Azure Event Hubs is a highly scalable event management system that can handle millions of events per second, enabling applications to process and analyze massive amounts of data produced by connected devices and other systems. Once collected into an event hub, you can receive and handle events using in-process handlers or by forwarding to other analytics systems.
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-To learn more about Event Hubs, see the [Event Hubs overview][Event Hubs overview].
+This tutorial describes how to send events to an event hub from an application written in Python. 
 
-This tutorial describes how to send events to an event hub from an application written in Python. To receive events, see [the corresponding Receive article](event-hubs-python-get-started-receive.md).
-
-Code in this tutorial is taken from [these GitHub samples](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), which you can examine to see the full working application, including import
-statements and variable declarations. Other examples are available in the same GitHub folder.
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
 To complete this tutorial, you need the following prerequisites:
 
 - Python 3.4 or later.
-- An existing Event Hubs namespace and event hub. You can create these entities by following the instructions in [this article](event-hubs-create.md). 
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
+## Create an Event Hubs namespace and an event hub
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
 ## Install Python package
 
@@ -96,23 +94,18 @@ except KeyboardInterrupt:
     pass
 ```
 
-## Send events
+## Run application to send events
 
 To run the script, open a command prompt that has Python in its path, and then run this command:
 
 ```bash
 start python send.py
 ```
+
+Congratulations! You have now sent messages to an event hub.
  
 ## Next steps
-
-Now that you've sent events to an event hub using Python, to receive events see [the corresponding Receive article](event-hubs-python-get-started-receive.md).
-
-Visit the following pages to learn more about Event Hubs:
-
-* [Event Hubs overview][Event Hubs overview]
-* [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you have sent messages to an event hub using Python. To learn how to receive events from an event hub using Python, see [Receive events from event hub - Python](event-hubs-python-get-started-receive.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

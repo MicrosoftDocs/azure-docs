@@ -2,21 +2,13 @@
 title: Azure Data Box Disk limits | Microsoft Docs
 description: Describes system limits and recommended sizes for the Microsoft Azure Data Box Disk.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/04/2018
 ms.author: alkohli
-ms.custom: 
-
 ---
 # Azure Data Box Disk limits (Preview)
 
@@ -60,7 +52,7 @@ For the latest information on Azure storage service limits and best practices fo
 
 ## Azure storage account size limits
 
-Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
+Here are the limits on the size of the data that is copied into storage account. Make sure that the data you upload conforms to these limits. For the most up-to-date information on these limits, go to [Azure blob storage scale targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-blob-storage-scale-targets) and [Azure Files scale targets](https://docs.microsoft.com/azure/storage/common/storage-scalability-targets#azure-files-scale-targets).
 
 | Size of data copied into Azure storage account                      | Default limit          |
 |---------------------------------------------------------------------|------------------------|

@@ -23,25 +23,25 @@ When an IoT Edge device goes into offline mode, the Edge hub takes on three role
 
 The following example shows how an IoT Edge scenario operates in offline mode:
 
-1. Configure an IoT Edge device. 
+1. **Configure an IoT Edge device.**
 
    IoT Edge devices automatically have offline capabilities enabled. To extend that capability to other IoT devices, you need to declare a parent-child relationship between the devices in IoT Hub. 
 
-2. Sync with IoT Hub.
+2. **Sync with IoT Hub.**
 
    At least once after installation of the IoT Edge runtime, the IoT Edge device needs to be online to sync with IoT Hub. In this sync, the IoT Edge device gets details about any child devices assigned to it. The IoT Edge device also securely updates its local cache to enable offline operations and retrieves settings for local storage of telemetry messages. 
 
-3. Go offline. 
+3. **Go offline.**
 
    While disconnected from IoT Hub, the IoT Edge device, its deployed modules, and any children IoT devices can operate indefinitely. Modules and child devices can start and restart by authenticating with the Edge hub while offline. Telemetry bound upstream to IoT Hub is stored locally. Communication between modules or between child IoT devices is maintained through direct methods or messages. 
 
-4. Reconnect and re-sync with IoT Hub.
+4. **Reconnect and re-sync with IoT Hub.**
 
    Once the connection with IoT Hub is restored, the IoT Edge device syncs again. Locally stored messages are delivered in the same order in which they were stored. Any differences between the desired and reported properties of the modules and devices are reconciled. The IoT Edge device updates any changes to its set of assigned child IoT devices.
 
 ## Restrictions and limits
 
-The extended offline capabilities described in this article are available in [IoT Edge version 1.0.2 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features. 
+The extended offline capabilities described in this article are available in [IoT Edge version 1.0.4 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features. 
 
 Extended offline support is available in all regions where IoT Hub is available, except East US and West Europe. 
 
@@ -51,32 +51,7 @@ IoT Edge devices and their assigned child devices can function indefinitely offl
 
 ## Set up an Edge device
 
-For any IoT Edge device that you want to perform during extended offline periods, configure the IoT Edge runtime to communicate over MQTT. 
-
 For an IoT Edge device to extend its extended offline capabilities to child IoT devices, you need to declare the parent-child relationships in the Azure portal.
-
-### Set the upstream protocol to MQTT
-
-Configure both the Edge hub and the Edge agent to communicate with MQTT as the upstream protocol. This protocol is declared using environment variables in the deployment manifest. 
-
-In the Azure portal, you can access the Edge hub and Edge agent module definitions by selecting the **Configure advanced Edge Runtime settings** button when setting modules for a deployment. For both modules, create an environment variable called **UpstreamProtocol** and set its value to **MQTT**. 
-
-In the deployment template JSON, environment variables are declared as shown in the following example: 
-
-```json
-"edgeAgent": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-agent:1.0",
-        "createOptions": ""
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-}
-```
 
 ### Assign child devices
 
@@ -119,11 +94,11 @@ You can configure environment variables and the create options for the Edge hub 
     "type": "docker",
     "settings": {
         "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"Binds\":[\"C:\\\\HostStoragePath:C:\\\\ModuleStoragePath\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
+        "createOptions": "{\"HostConfig\":{\"Binds\":[\"<HostStoragePath>:<ModuleStoragePath>\"],\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
     },
     "env": {
         "storageFolder": {
-            "value": "C:\\\\ModuleStoragePath"
+            "value": "<ModuleStoragePath>"
         }
     },
     "status": "running",
@@ -131,6 +106,8 @@ You can configure environment variables and the create options for the Edge hub 
 }
 ```
 
+Replace `<HostStoragePath>` and `<ModuleStoragePath>` with your host and module storage path; both host and module storage path must be an absolute path.  For example, `\"Binds\":[\"/etc/iotedge/storage/:/iotedge/storage/"` means host path `/etc/iotedge/storage` is mapped to container path `/iotedge/storage/`.  You can also find more details about createOptions from [docker docs](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
 ## Next steps
 
-Enable extended offline operations in your transparent gateway scenarios for [Linux](how-to-create-transparent-gateway-linux.md) or [Windows](how-to-create-transparent-gateway-windows.md) devices. 
+Enable extended offline operations in your [transparent gateway](how-to-create-transparent-gateway.md) scenarios.

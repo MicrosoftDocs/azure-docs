@@ -4,7 +4,7 @@ titleSuffix: Azure Cognitive Services
 description: Add a composite entity to bundle extracted data of various types into a single containing entity. By bundling the data, the client application can easily extract related data in different data types.
 services: cognitive-services
 author: diberry
-manager: cjgronlund 
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: language-understanding
@@ -93,7 +93,7 @@ The extracted data from the endpoint should contain this information and return 
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. On the **Intents** page, select **MoveEmployee** intent. 
 
