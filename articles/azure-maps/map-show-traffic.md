@@ -34,7 +34,7 @@ Learn more about the classes and methods used in this article:
 See the following articles for full code samples:
 
 > [!div class="nextstepaction"]
-> [Code sample page](http://aka.ms/AzureMapsSamples)
+> [Code sample page](https://aka.ms/AzureMapsSamples)
 
 Enhance your user experiences:
 

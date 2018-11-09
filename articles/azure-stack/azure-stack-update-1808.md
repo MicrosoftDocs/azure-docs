@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -250,8 +250,11 @@ The following are post-installation known issues for this build version.
 
 ### Compute
 
+<!-- TBD – IS, ASDK -->
+- Reattaching a detached disk to the same virtual machine (VM) with the same name and LUN fails with an error such as **Cannot attach data disk 'datadisk' to VM 'vm1'**. The error occurs because the disk is currently being detached or the last detach operation failed. Please wait until the disk is completely detached and then try again or delete/detach the disk explicitly again. The workaround is to reattach it with a different name, or on a different LUN. 
+
 <!-- 3099544 – IS, ASDK --> 
-- When you create a new virtual machine (VM) using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
+- When you create a new VM using the Azure Stack portal, and you select the VM size, the USD/Month column is displayed with an **Unavailable** message. This column should not appear; displaying the VM pricing column is not supported in Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - After applying the 1808 update, you may encounter the following issues when deploying VMs with Managed Disks:

@@ -35,7 +35,7 @@ The information in this document summarizes the differences between the two serv
 It supplements the information that's available through the following sources:
 
 * [Azure Government](http://www.azure.com/gov "Azure Government") site 
-* [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN
+* [Microsoft Azure Technical Library](https://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN
 * [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center")
 * [Azure Documentation Center](https://azure.microsoft.com/documentation/)
 * [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs")
@@ -102,5 +102,5 @@ For more information about Azure Government, see the following resources:
 * [Acquiring and accessing Azure Government](http://azure.com/gov)
 * [Ask questions via the azure-gov tag in StackOverflow](https://stackoverflow.com/tags/azure-gov)
 * [Azure Government Overview](documentation-government-welcome.md)
-* [Azure Government Blog](http://blogs.msdn.microsoft.com/azuregov/)
+* [Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
 * [Azure Compliance](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings)

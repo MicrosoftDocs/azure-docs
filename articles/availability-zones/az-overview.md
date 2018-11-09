@@ -80,4 +80,4 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 
 
 ## Next steps
-- [Quickstart templates](http://aka.ms/azqs)
+- [Quickstart templates](https://aka.ms/azqs)

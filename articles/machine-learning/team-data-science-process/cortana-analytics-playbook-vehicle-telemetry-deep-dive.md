@@ -119,7 +119,7 @@ The following Stream Analytics query is used to persist the data into Blob stora
 
 
 ### Batch analysis
-An additional volume of simulated vehicle signals and diagnostic data set is also generated for richer batch analytics. This additional volume is required to ensure a good representative data volume for batch processing. For this purpose, PrepareSampleDataPipeline is used in the Data Factory workflow to generate one year's worth of simulated vehicle signals and diagnostic data set. To download the Data Factory custom .NET activity Visual Studio solution for customizations based on your requirements, go to the [Data Factory custom activity](http://go.microsoft.com/fwlink/?LinkId=717077) webpage. 
+An additional volume of simulated vehicle signals and diagnostic data set is also generated for richer batch analytics. This additional volume is required to ensure a good representative data volume for batch processing. For this purpose, PrepareSampleDataPipeline is used in the Data Factory workflow to generate one year's worth of simulated vehicle signals and diagnostic data set. To download the Data Factory custom .NET activity Visual Studio solution for customizations based on your requirements, go to the [Data Factory custom activity](https://go.microsoft.com/fwlink/?LinkId=717077) webpage. 
 
 This workflow shows sample data prepared for batch processing.
 
@@ -670,4 +670,4 @@ This document contains a detailed drill-down of the Vehicle Telemetry Analytics 
 * [Azure Event Hubs SDK for stream ingestion](../../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 * [Azure Data Factory data movement capabilities](../../data-factory/copy-activity-overview.md)
 * [Azure Data Factory .NET activity](../../data-factory/transform-data-using-dotnet-custom-activity.md)
-* [Azure Data Factory .NET activity Visual Studio solution used to prepare sample data](http://go.microsoft.com/fwlink/?LinkId=717077) 
+* [Azure Data Factory .NET activity Visual Studio solution used to prepare sample data](https://go.microsoft.com/fwlink/?LinkId=717077) 

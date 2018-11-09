@@ -177,4 +177,4 @@ There are many aspects to a secure Identity infrastructure, but this five-step c
 We appreciate how seriously you take Identity Security and hope this document is a useful roadmap to a more secure posture for your organization.
 
 ## Next steps
-If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](http://aka.ms/deploymentplans) for help.
+If you need assistance to plan and deploy the recommendations, refer to the [Azure AD project deployment plans](https://aka.ms/deploymentplans) for help.

@@ -77,9 +77,7 @@
       - name: PyTorch
         href: how-to-train-pytorch.md
       - name: TensorFlow
-        href: how-to-train-tensorflow.md
-  - name: Tune models
-    items:    
+        href: how-to-train-tensorflow.md  
     - name: Tune hyperparameters
       href: how-to-tune-hyperparameters.md    
     - name: Track experiments and metrics
