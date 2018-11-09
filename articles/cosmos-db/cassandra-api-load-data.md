@@ -1,6 +1,6 @@
 ---
-title: Load sample data into an Azure Cosmos DB Cassandra API table by using a Java application | Microsoft Docs
-description: This article shows how to load sample user data to a table in Azure Cosmos DB Cassandra API account by using a java application.
+title: 'Tutorial: Load sample data into an Azure Cosmos DB Cassandra API table by using a Java application | Microsoft Docs'
+description: This tutorial shows how to load sample user data to a table in Azure Cosmos DB Cassandra API account by using a java application.
 services: cosmos-db
 author: kanshiG
 
@@ -15,13 +15,15 @@ ms.reviewer: sngun
 
 # Tutorial: Load sample data into an Azure Cosmos DB Cassandra API table
 
-This tutorial shows how to load sample user data to a table in Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and loads user data such as user ID, user name, user city. 
+This tutorial shows how to load sample user data to a table in an Azure Cosmos DB Cassandra API account by using a Java application. The Java application uses the [Java driver](https://github.com/datastax/java-driver) and loads user data such as user ID, user name, and user city. 
 
 This tutorial covers the following tasks:
 
 > [!div class="checklist"]
 > * Load data into Cassandra table
 > * Run the app
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
 
@@ -31,7 +33,7 @@ This tutorial covers the following tasks:
 
 Use the following steps to load data into your Cassandra API table:
 
-1. Open the “UserRepository.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder and append the code to insert the user_id, user_name and user_bcity fields into the table:
+1. Open the “UserRepository.java” file under the “src\main\java\com\azure\cosmosdb\cassandra” folder and append the code to insert the user_id, user_name and user_bcity fields into the table:
 
    ```java
    /**
@@ -57,7 +59,7 @@ Use the following steps to load data into your Cassandra API table:
    }
    ```
  
-2. Open the “UserProfile.java” file under “src\main\java\com\azure\cosmosdb\cassandra” folder. This class contains the main method that calls the createKeyspace and createTable methods you defined earlier. Now append the following code to insert some sample data into the Cassandra API table.
+2. Open the “UserProfile.java” file under the “src\main\java\com\azure\cosmosdb\cassandra” folder. This class contains the main method that calls the createKeyspace and createTable methods you defined earlier. Now append the following code to insert some sample data into the Cassandra API table.
 
    ```java
    //Insert rows into user table
@@ -71,7 +73,7 @@ Use the following steps to load data into your Cassandra API table:
 
 ## Run the app
 
-Open command prompt or terminal window and change the folder path to where you have created the project. Run “mvn clean install” command to generate the cosmosdb-cassandra-examples.jar file within the target folder and run the application. 
+Open a command prompt or terminal window and change the folder path to where you have created the project. Run the “mvn clean install” command to generate the cosmosdb-cassandra-examples.jar file within the target folder and run the application. 
 
 ```bash
 cd "cassandra-demo"
@@ -85,7 +87,7 @@ You can now open Data Explorer in the Azure portal to confirm that the user info
 	
 ## Next steps
 
-In this tutorial, you've learned how to load sample data to Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
+In this tutorial, you've learned how to load sample data to an Azure Cosmos DB Cassandra API account. You can now proceed to the next article:
 
 > [!div class="nextstepaction"]
 > [Query data from the Cassandra API account](cassandra-api-query-data.md)
