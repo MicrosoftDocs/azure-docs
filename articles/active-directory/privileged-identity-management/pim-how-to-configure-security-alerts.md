@@ -36,7 +36,7 @@ This section lists all the security alerts for directory roles, along with how t
 | **Severity** | Low |
 | **Why do I get this alert?** | Users that have been assigned privileged roles they don't need increases the chance of an attack. It is also easier for attackers to remain unnoticed in accounts that are not actively being used. |
 | **How to fix?** | Review the users in the list and remove them from privileged roles they do not need. |
-| **Prevention** | Only assign privileged roles to users that have a business justification. </br>Schedule regular access reviews to verify that users still need their access. |
+| **Prevention** | Only assign privileged roles to users that have a business justification. </br>Schedule regular [access reviews](pim-how-to-start-security-review.md) to verify that users still need their access. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 | **Trigger** | Triggered if a user goes a certain amount of time without activating a role. |
 | **Number of days** | This setting specifies the number of days, from 0 to 100, that a user can go without activating a role.|
@@ -103,7 +103,7 @@ This section lists all the security alerts for directory roles, along with how t
 | **Severity** | Medium |
 | **Why do I get this alert?** | Accounts that have not changed their password recently might be service or shared accounts that aren't being maintained. These accounts in privileged roles are vulnerable to attackers. |
 | **How to fix?** | Review the accounts in the list. If they no longer need access, remove them from their privileged roles. |
-| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using access reviews and remove role assignments that are no longer needed. |
+| **Prevention** | Ensure that accounts that are shared are rotating strong passwords when there is a change in the users that know the password. </br>Regularly review accounts with privileged roles using [access reviews](pim-how-to-start-security-review.md) and remove role assignments that are no longer needed. |
 | **In-portal mitigation action** | Removes the account from their privileged role. |
 
 ## Configure security alert settings
