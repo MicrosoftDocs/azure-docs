@@ -128,6 +128,8 @@
       href: directory-assign-admin-roles.md
     - name: View and assign roles   
       href: directory-manage-roles-portal.md
+    - name: Least-privileged roles by task   
+      href: roles-delegate-by-task.md
     - name: Administrator role security    
       items:   
       - name: Role security planning    

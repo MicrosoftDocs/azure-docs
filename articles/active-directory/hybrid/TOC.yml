@@ -30,7 +30,7 @@
        href: concept-azure-ad-connect-sync-default-configuration.md
      - name: Understanding users and contacts
        href: concept-azure-ad-connect-sync-user-and-contacts.md
-     - name: Understandingr shadow attributes
+     - name: Understanding shadow attributes
        href: how-to-connect-syncservice-shadow-attributes.md
    - name: Identity synchronization and duplicate attribute resiliency
      href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
