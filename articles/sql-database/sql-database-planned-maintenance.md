@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/19/2018
+ms.date: 11/12/2018
 ms.author: aamalvea
 ms.reviewer: carlrab
 ---
