@@ -56,7 +56,6 @@ POST yourManagementApiUrl/matchers
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
 | *yourSpaceIdentifier* | Which server region your instance is hosted on |
 
 ## Create a user-defined function (UDF)
