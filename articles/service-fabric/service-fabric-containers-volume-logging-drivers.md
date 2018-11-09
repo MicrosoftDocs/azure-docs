@@ -164,12 +164,10 @@ In the **Volume** element in the snippet above, the Azure Files volume plugin re
 - **Destination** - This tag is the location that the volume is mapped to within the running container. Thus, your destination can't be a location that already exists within your container
 
 As shown in the **DriverOption** elements in the snippet above, the Azure Files volume plugin supports the following driver options:
-
-Supported Driver Options:
-- **shareName** - Name of the Azure Files file share that provides the volume for the container
-- **storageAccountName** - Name of the Azure storage account that contains the Azure Files file share
-- **storageAccountKey** - Access key for the Azure storage account that contains the Azure Files file share
-- **storageAccountFQDN** - Domain name associated with the storage account. If storageAccountFQDN is not specified, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName. 
+- **shareName** - Name of the Azure Files file share that provides the volume for the container.
+- **storageAccountName** - Name of the Azure storage account that contains the Azure Files file share.
+- **storageAccountKey** - Access key for the Azure storage account that contains the Azure Files file share.
+- **storageAccountFQDN** - Domain name associated with the storage account. If storageAccountFQDN is not specified, domain name will be formed by using the default suffix(.file.core.windows.net) with the storageAccountName.  
 
     ```xml
     - Example1: 
