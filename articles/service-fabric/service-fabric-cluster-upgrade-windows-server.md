@@ -39,9 +39,9 @@ You can upgrade your cluster to the new version only if you're using a productio
 Two distinct workflows can upgrade your cluster to the latest version or a supported Service Fabric version. One workflow is for clusters that have connectivity to download the latest version automatically. The other workflow is for clusters that don't have connectivity to download the latest Service Fabric version.
 
 ### Upgrade clusters that have connectivity to download the latest code and configuration
-Use these steps to upgrade your cluster to a supported version if your cluster nodes have internet connectivity to the [Microsoft Download Center](http://download.microsoft.com).
+Use these steps to upgrade your cluster to a supported version if your cluster nodes have internet connectivity to the [Microsoft Download Center](https://download.microsoft.com).
 
-For clusters that have connectivity to the [Microsoft Download Center](http://download.microsoft.com), Microsoft periodically checks for the availability of new Service Fabric versions.
+For clusters that have connectivity to the [Microsoft Download Center](https://download.microsoft.com), Microsoft periodically checks for the availability of new Service Fabric versions.
 
 When a new Service Fabric version is available, the package is downloaded locally to the cluster and provisioned for upgrade. Additionally, to inform the customer of this new version, the system shows an explicit cluster health warning that's similar to the following:
 
@@ -103,7 +103,7 @@ When you see the cluster health warning, do the following:
     After you fix the issues that resulted in the rollback, initiate the upgrade again by following the same steps as previously described.
 
 ### Upgrade clusters that have *no connectivity* to download the latest code and configuration
-Use these steps to upgrade your cluster to a supported version if your cluster nodes don't have internet connectivity to the [Microsoft Download Center](http://download.microsoft.com).
+Use these steps to upgrade your cluster to a supported version if your cluster nodes don't have internet connectivity to the [Microsoft Download Center](https://download.microsoft.com).
 
 > [!NOTE]
 > If you're running a cluster that isn't connected to the internet, you have to monitor the Service Fabric team blog to learn about new releases. The system doesn't show a cluster health warning to alert you of new releases.  

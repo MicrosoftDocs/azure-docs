@@ -9,7 +9,7 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ---
 
 # Configure a development environment for Azure Machine Learning
@@ -79,14 +79,40 @@ The Azure Machine Learning SDK uses the workspace configuration file to communic
 
 Azure Notebooks and Azure Data Science Virtual Machines (DSVMs) come configured to work with the Azure Machine Learning service. These environments include required components such as the Azure Machine Learning SDK.
 
+### Azure Notebooks
+
 - Azure Notebooks is a Jupyter Notebook service in the Azure cloud.
-- The Data Science Virtual Machine is a customized virtual machine (VM) image designed for data science work. It includes:
-  - Popular tools
-  - Integrated development environments (IDEs)
-  - Packages such as Jupyter Notebooks, PyCharm, and Tensorflow
 - You'll still need a workspace configuration file to use these environments.
 
 For an example of using Azure Notebooks with the Azure Machine Learning service, see [Get started with Azure Machine Learning service](quickstart-get-started.md).
+
+### Data Science Virtual Machines
+
+- The Data Science Virtual Machine is a customized virtual machine (VM) image designed for data science work. It includes:
+  - Popular data science tools
+  - Integrated development environments (IDEs) such as PyCharm and RStudio
+  - Packages such as Jupyter Notebooks and Tensorflow
+
+The DSVM comes with multiple Anaconda environments already installed. To use the Azure Machine Learning Python SDK without any package installation, open a command prompt/shell and use one of the following commands to activate the environment:
+
+* On the __Ubuntu__ DSVM, use this command:
+
+    ```shell
+    conda activate py36
+    ```
+
+* On the __Windows__ DSVM, use this command:
+
+    ```shell
+    conda activate AzureML
+    ```
+
+Once in this environment, you can immediately import the Azure Machine Learning SDK in the build tool of your choice, without installing the package.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 For more information on the Data Science Virtual Machines, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 

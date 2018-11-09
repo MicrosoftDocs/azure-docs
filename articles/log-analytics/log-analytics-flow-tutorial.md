@@ -24,7 +24,7 @@ The tutorial in this article shows you how to create a flow that automatically s
 
 
 ## Step 1: Create a flow
-1. Sign in to [Microsoft Flow](http://flow.microsoft.com), and select **My Flows**.
+1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and select **My Flows**.
 2. Click **+ Create from blank**.
 
 ## Step 2: Create a trigger for your flow

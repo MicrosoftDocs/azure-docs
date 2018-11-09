@@ -33,7 +33,7 @@ Before you start, make sure you have the following:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).  
 * Log in to the [Azure portal](https://portal.azure.com/).  
-* Download the phone call event generator app [TelcoGenerator.zip](http://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
+* Download the phone call event generator app [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip) from the Microsoft Download Center or get the source code from [GitHub](https://aka.ms/azure-stream-analytics-telcogenerator).
 * You will need Power BI account.
 
 ## Create an Azure Event Hub 
@@ -225,7 +225,7 @@ You can test a query from the query editor using sample data. Run the following 
 
 2. In the **Query** pane, select the dots next to the *CallStream* input and then select **Sample data from input**. 
 
-3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is then sampled from the input stream and you when the sample data is ready. You can view the status of sampling from the notification bar. 
+3. Set **Minutes** to 3 and select **OK**. Three minutes worth of data is then sampled from the input stream and you are notified when the sample data is ready. You can view the status of sampling from the notification bar. 
 
    The sample data is stored temporarily and is available while you have the query window open. If you close the query window, the sample data is discarded, and you'll have to create a new set of sample data if you want to test. Alternatively, you can use a sample data JSON file from [GitHub](https://github.com/Azure/azure-stream-analytics/blob/master/Sample%20Data/telco.json), and then upload that JSON file to use as sample data for the *CallStream* input.
 

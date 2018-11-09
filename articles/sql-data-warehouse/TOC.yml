@@ -77,6 +77,8 @@
       href: sql-data-warehouse-auditing-overview.md
     - name: Column-level security
       href: column-level-security.md
+    - name: Row-level security
+      href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json
   - name: Data loading
     items:
     - name: Overview

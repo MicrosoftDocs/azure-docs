@@ -55,6 +55,9 @@ If you are in a reauthentication loop, or have changed the UPN of one of your ac
 2. Delete the .IdentityService folder from your machine. On Windows, the folder is located at `C:\users\<username>\AppData\Local`. For Mac and Linux, you can find the folder at the root of your user directory.
 3. If you are on Mac or Linux, you will also need to delete the Microsoft.Developer.IdentityService entry from your OS' keystore. On Mac, the keystore is the "Gnome Keychain" application. For Linux, the application is usually called "Keyring", but the name may be different depending on your distribution.
 
+### Conditional Access
+Conditional access is not supported when Storage Explorer is being used on Windows 10, Linux, or macOS. This is due to a limitation in the AAD Library used by Storage Explorer.
+
 ## Mac Keychain errors
 The macOS Keychain can sometimes get into a state that causes issues for Storage Explorer's authentication library. To get the keychain out of this state try the following steps:
 1. Close Storage Explorer.

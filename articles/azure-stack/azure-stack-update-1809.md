@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -36,7 +36,7 @@ The Azure Stack 1809 update build number is **1.1809.0.90**.
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
+- With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
@@ -68,6 +68,17 @@ This update includes the following improvements for Azure Stack:
 - <!-- 2702741 -  IS, ASDK --> Fixed issue in which public IPs that were deployed by using the Dynamic allocation method were not guaranteed to be preserved after a Stop-Deallocate is issued. They are now preserved.
 
 - <!-- 3078022 - IS, ASDK --> If a VM was stop-deallocated before 1808 it could not be re-allocated after the 1808 update.  This issue is fixed in 1809. Instances that were in this state and could not be started can be started in 1809 with this fix. The fix also prevents this issue from reoccurring.
+
+<!-- 3090289 – IS, ASDK --> 
+- Fixed the issue where after applying the 1808 update, you might encounter the following issues when deploying VMs with Managed Disks:
+
+   1. If the subscription was created before the 1808 update, deploying VM with Managed Disks may fail with an internal error message. To resolve the error, follow these steps for each subscription:
+      1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
+      2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
+   2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
+      2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+
 
 ### Changes
 
@@ -126,7 +137,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
-- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/en-us/help/4468920).
+- Install the latest Azure Stack Hotfix for 1808 before applying 1809. For more information, see [KB 4471992 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/).
 
   > [!TIP]  
   > Subscribe to the following *RRS* or *Atom* feeds to keep up with Azure Stack Hotfixes:
@@ -155,9 +166,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 > [!Important]  
 > Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - [Link to KB]()  
- -->
+After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
+- [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/)  
 
 ## Known issues (post-installation)
 

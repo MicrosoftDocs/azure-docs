@@ -1,9 +1,9 @@
 ---
  title: include file
  description: include file
- services: azure-digital-twins
+ services: digital-twins
  author: alinamstanciu
- ms.service: azure-digital-twins
+ ms.service: digital-twins
  ms.topic: include
  ms.date: 09/19/2018
  ms.author: alinast

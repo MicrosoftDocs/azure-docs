@@ -20,7 +20,7 @@ In this article we show how you can use an [Azure Resource Manager template](../
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
 * **Non-Compute** resources (for example, Network Security Groups, Logic Apps, Automation) use [Diagnostic Settings described in this article](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
-* **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md).
+* **Compute** (WAD/LAD-based) resources use the [WAD/LAD configuration file described in this article](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 In this article we describe how to configure diagnostics using either method.
 

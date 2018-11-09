@@ -101,8 +101,6 @@
     href: service-fabric-content-roadmap.md
   - name: Application scenarios
     href: service-fabric-application-scenarios.md
-  - name: Patterns and scenarios
-    href: service-fabric-patterns-and-scenarios.md
   - name: Architecture
     href: service-fabric-architecture.md
   - name: Terminology

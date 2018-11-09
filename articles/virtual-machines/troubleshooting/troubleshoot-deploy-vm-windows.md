@@ -71,7 +71,7 @@ For more information, see the following resources:
 
  - [Azure Hybrid Use Benefit overview ](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
- - [Downloadable FAQ](http://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
+ - [Downloadable FAQ](https://download.microsoft.com/download/4/2/1/4211AC94-D607-4A45-B472-4B30EDF437DE/Windows_Server_Azure_Hybrid_Use_FAQ_EN_US.pdf)
 
  - [Azure Hybrid Use Benefit for Windows Server and Windows Client](../windows/hybrid-use-benefit-licensing.md).
 
