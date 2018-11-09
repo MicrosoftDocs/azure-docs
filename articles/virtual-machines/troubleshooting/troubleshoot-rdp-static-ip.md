@@ -48,12 +48,12 @@ The VM has a static IP address that's defined on the network interface within Wi
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, use Serial control to enable DHCP or [reset network interface](reset-network-interface.md) for the VM.
+To resolve this issue, use Serial control to enable DHCP or [reset network interface](reset-network-interface.md) for the VM.
 
 ### Use Serial control
 
 1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
-). If the Serial Console is not enabled on your VM, go to the [Reset network interface by using Azure portal](#repair-the-vm-offline) section.
+). If the Serial Console is not enabled on your VM, see [Reset network interface](reset-network-interface.md).
 2. Check if the DHCP is disabled on the network interface:
 
         netsh interface ip show config
@@ -72,7 +72,3 @@ To troubleshoot this issue, use Serial control to enable DHCP or [reset network 
     You don't have to restart the VM at this point. The VM will be back reachable.
 
 After that, if you want to configure the static IP for the VM, see [Configure static IP addresses for a VM](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
-
-## Reset network interface
-
-To reset network interface by using Azure portal, see [How to reset network interface for Azure Windows VM](reset-network-interface.md).
