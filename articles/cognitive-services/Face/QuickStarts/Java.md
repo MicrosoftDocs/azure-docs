@@ -70,7 +70,7 @@ public class Main
     // subscription keys from westus, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the westcentralus region. If you
+    // Free trial subscription keys are generated in the westus region. If you
     // use a free trial subscription key, you shouldn't need to change this region.
     private static final String uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect";

@@ -116,7 +116,7 @@ namespace FaceTutorial
         // keys. For example, if you obtained your subscription keys from the
         // westus region, replace "westcentralus" with "westus".
         //
-        // NOTE: Free trial subscription keys are generated in the westcentralus
+        // NOTE: Free trial subscription keys are generated in the westus
         // region, so if you are using a free trial subscription key, you should
         // not need to change this region.
         private const string faceEndpoint =
