@@ -4,7 +4,7 @@ description: Learn about the Azure Machine Learning CLI extension for the Azure 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
-ms.topic: reference
+ms.topic: conceptual
 
 ms.reviewer: jmartens
 ms.author: jordane

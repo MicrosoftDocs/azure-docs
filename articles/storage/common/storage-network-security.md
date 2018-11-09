@@ -288,7 +288,7 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing.  [Learn more](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights| Allows writing of monitoring data to a secured storaage account [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights| Allows writing of monitoring data to a secured storage account [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
 |
 
 
