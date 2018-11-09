@@ -334,8 +334,8 @@ Once you have deployed .NET 4.7+, you can download the **[on-premises provisioni
 7. After configuring the domain, the installer displays a list of configured domains. On this screen, you can repeat step #5 and #6 to add more domains or click on **Next** to proceed to agent registration. 
 ![Configured Domains](./media/workday-inbound-tutorial/pa_install_screen_6.png "Configured Domains")
 
-> [!NOTE]
-> If you have multiple AD domains (e.g. na.contoso.com, emea.contoso.com), then please add each domain individually to the list. Only adding the parent domain (e.g. contoso.com) is not sufficient and it is recommended that you register each child domain with the agent. 
+   > [!NOTE]
+   > If you have multiple AD domains (e.g. na.contoso.com, emea.contoso.com), then please add each domain individually to the list. Only adding the parent domain (e.g. contoso.com) is not sufficient and it is recommended that you register each child domain with the agent. 
 
 8. Review the configuration details and click on **Confirm** to register the agent. 
 ![Confirm Screen](./media/workday-inbound-tutorial/pa_install_screen_7.png "Confirm Screen")
