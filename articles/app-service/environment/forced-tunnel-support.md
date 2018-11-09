@@ -45,7 +45,7 @@ To enable your ASE to go directly to the internet even if your Azure virtual net
 * Configure ExpressRoute to advertise 0.0.0.0/0. By default, it routes all outbound traffic on-premises.
 * Create a UDR with an address prefix of 0.0.0.0/0, a next hop type of Internet and apply it to the ASE subnet.
 
-If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet isn't forced down the ExpressRoute connection.
+If you make these two changes, internet-destined traffic that originates from the App Service Environment subnet is forced down the ExpressRoute connection.
 
 If the network is already routing traffic on premises, then you need to create the subnet to host your ASE and configure the UDR for it before attempting to deploy the ASE.  
 
