@@ -38,7 +38,7 @@ When developers architect Digital Twins solutions, they typically create a middl
    > Read about how to [configure and test](./how-to-configure-postman.md) your app using the Postman client.
 
 1. An OAuth 2.0 On-Behalf-Of token is acquired during authentication
-1. The On-Behalf-Of Token is used to authenticate with or call APIs that are further downstream using the On-Behalf-Of flow
+1. The acquired token is then used to authenticate with or call APIs that are further downstream using the On-Behalf-Of flow
 
     For instructions about how to orchestrate the on-behalf-of flow, see [OAuth 2.0 On-Behalf-Of flow](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-on-behalf-of-flow). You also can view code samples in [Calling a downstream web API](https://azure.microsoft.com/resources/samples/active-directory-dotnet-webapi-onbehalfof/).
 

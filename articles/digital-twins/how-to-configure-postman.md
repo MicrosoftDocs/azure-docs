@@ -12,7 +12,7 @@ ms.author: adgera
 
 # How to configure Postman for Azure Digital Twins
 
-This article describes how to configure Azure Active Directory to accept OAuth 2.0 authenticated HTTP requests. Then, it discusses how to configure the Postman REST client to make authenticated HTTP requests to your Management APIs.
+This article describes how to configure an Azure Active Directory (Azure AD) application to use the OAuth 2.0 implicit grant flow. Then, it discusses how to configure the Postman REST client to make token-bearing HTTP requests to your Management APIs.
 
 ## Postman summary
 
@@ -20,14 +20,14 @@ Get started on Azure Digital Twins by using a REST client tool such as [Postman]
 
 [Postman](https://www.getpostman.com/) is a REST testing tool that locates key HTTP request functionalities into a useful desktop and plugin-based GUI. Through the Postman client, solutions developers can make POST, GET, UPDATE, and DELETE HTTP operations over HTTP and HTTPS. Postman supports adding HTTP request headers, parameters, form-data, and bodies.
 
-## Configure Azure Active Directory to accept OAuth 2.0
+## Configure Azure Active Directory to use the OAuth 2.0 implicit grant flow
 
-Configure your app to allow OAuth 2.0 authenticated requests in Azure Active Directory.
+Configure your Azure AD app to use the OAuth 2.0 implicit grant flow.
 
 1. Follow the steps in [this quickstart](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) to create an Azure AD application. Or you can reuse an existing registration.
 1. Under **Required permissions**, enter `Azure Digital Twins` and select **Delegated Permissions**. Then select **Grant Permissions**.
 
-    ![Azure Active Directory app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
+    ![Azure AD app registrations add api](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)
 
 1. Click **Manifest** to open the application manifest for your app. Set *oauth2AllowImplicitFlow* to `true`.
 
@@ -39,7 +39,7 @@ Configure your app to allow OAuth 2.0 authenticated requests in Azure Active Dir
 
 ## Configure the Postman client
 
-Next, set up and configure Postman to obtain an Azure Active Directory token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
+Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
 1. Go to [www.getpostman.com]([https://www.getpostman.com/) to download the app.
 1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
