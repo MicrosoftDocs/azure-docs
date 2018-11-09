@@ -19,7 +19,7 @@ ms.author: genli
 
 # Back-end server certificate is not whitelisted for an application gateway using an ILB ASE
 
-This article troubleshoots the issue in which a certificate isn't whitelisted when you create an application gateway by using an Internal Load Balancer (ILB) together with an App Service Environment (ASE) at the back end with end-to-end SSL in Azure.
+This article troubleshoots the following issue: A certificate isn't whitelisted when you create an application gateway by using an Internal Load Balancer (ILB) together with an App Service Environment (ASE) at the back end when using end-to-end SSL in Azure.
 
 ## Symptoms
 
@@ -52,7 +52,7 @@ When you access the application gateway, you receive the following error message
 
 ## Solution
 
-If you don't use a host name to access a HTTPS website, the back-end server will return the configured certificate on the default website. For an ILB ASE, the default certificate comes from the ILB certificate. If there are no configured certificates for the ILB, the certificate comes from the ASE App certificate.
+When you don't use a host name to access a HTTPS website, the back-end server will return the configured certificate on the default website. For an ILB ASE, the default certificate comes from the ILB certificate. If there are no configured certificates for the ILB, the certificate comes from the ASE App certificate.
 
 When you use a fully qualified domain name (FQDN) to access the ILB, the back-end server will return the correct certificate that's uploaded in the HTTP settings. In this case, consider the following options:
 
@@ -64,7 +64,7 @@ When you use a fully qualified domain name (FQDN) to access the ILB, the back-en
 
 - Clear the **Use for App service** option for the application gateway.
 
-To reduce overhead, you can upload the ILB certificate in the HTTP settings to make the probe path work. (This is just for whitelisting. It won't be used for SSL communication.) The ILB certificate can be retrieved by accessing the ILB with its IP address on HTTPS, then exporting the SSL certificate in a Base-64 encoded CER format and uploading the certificate on the respective HTTP settings.
+To reduce overhead, you can upload the ILB certificate in the HTTP settings to make the probe path work. (This step is just for whitelisting. It won't be used for SSL communication.) You can retrieve the ILB certificate by accessing the ILB with its IP address on HTTPS then exporting the SSL certificate in a Base-64 encoded CER format and uploading the certificate on the respective HTTP settings.
 
 ## Need help? Contact support
 
