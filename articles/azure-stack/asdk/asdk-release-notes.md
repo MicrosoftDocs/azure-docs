@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2018 
+ms.date: 11/07/2018 
 ms.author: sethm
 ms.reviewer: misainat
 
@@ -97,6 +97,9 @@ For more information, see [Azure Stack syslog forwarding](../azure-stack-integra
 
 
 #### Compute 
+
+<!-- TBD – IS, ASDK -->
+- Reattaching a detached disk to the same virtual machine (VM) with the same name and LUN fails with an error such as **Cannot attach data disk 'datadisk' to VM 'vm1'**. The error occurs because the disk is currently being detached or the last detach operation failed. Please wait until the disk is completely detached and then try again or delete/detach the disk explicitly again. The workaround is to reattach it with a different name, or on a different LUN. 
 
 <!-- 3235634 – IS, ASDK -->
 - To deploy VMs with sizes containing a **v2** suffix; for example, **Standard_A2_v2**, please specify the suffix as **Standard_A2_v2** (lowercase v). Do not use **Standard_A2_V2** (uppercase V). This works in global Azure and is an inconsistency on Azure Stack.

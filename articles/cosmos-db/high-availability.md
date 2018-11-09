@@ -62,11 +62,9 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 Next you can learn about scaling throughput in the following article:
 
-* [Scaling throughput](scaling-throughput.md)
-
 * [Availability and performance tradeoffs for various consistency levels](consistency-levels-tradeoffs.md)
 
-* [Scaling throughput globally](scaling-throughput.md)
+* [Globally scaling provisioned throughput](scaling-throughput.md)
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 

@@ -85,7 +85,7 @@
         href: consistency-levels-tradeoffs.md
       - name: High availability
         href: high-availability.md
-      - name: Scale throughput globally
+      - name: Globally scaling provisioned throughput
         href: scaling-throughput.md
       - name: Conflict resolution policies
         href: conflict-resolution-policies.md

@@ -30,7 +30,7 @@ For answers to frequently-asked questions about Competitions, see [Microsoft Cor
 ## Discover
 The
 **[Competitions](https://gallery.cortanaintelligence.com/competitions)**
- page ([aka.ms/CIComp](http://aka.ms/CIComp)) displays a list of the most popular
+ page ([aka.ms/CIComp](https://aka.ms/CIComp)) displays a list of the most popular
 competitions.
 
 ![Select Competitions from the Gallery home page](./media/gallery-competitions/select-competitions-in-gallery.png)

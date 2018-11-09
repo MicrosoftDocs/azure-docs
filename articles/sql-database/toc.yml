@@ -58,6 +58,8 @@
       href: sql-database-connect-query-python.md
     - name: Ruby
       href: sql-database-connect-query-ruby.md
+    - name: R
+      href: sql-database-connect-query-r.md
 - name: Tutorials
   items:
   - name: 1 - Design DB using SSMS

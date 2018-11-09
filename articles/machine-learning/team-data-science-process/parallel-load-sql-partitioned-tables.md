@@ -98,7 +98,7 @@ For more information, see [Create Partitioned Tables and Indexes](https://msdn.m
 * [Alter the database](https://msdn.microsoft.com/library/bb522682.aspx) to change transaction logging scheme to BULK_LOGGED to minimize overhead of logging, for example:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* To expedite data loading, launch the bulk import operations in parallel. For tips on expediting bulk importing of big data into SQL Server databases, see [Load 1TB in less than 1 hour](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* To expedite data loading, launch the bulk import operations in parallel. For tips on expediting bulk importing of big data into SQL Server databases, see [Load 1TB in less than 1 hour](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 The following PowerShell script is an example of parallel data loading using BCP.
 

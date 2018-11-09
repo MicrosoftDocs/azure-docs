@@ -59,6 +59,10 @@
       href: data-box-edge-deploy-add-shares.md
     - name: 5 - Configure compute
       href: data-box-edge-deploy-configure-compute.md
+  - name: Concepts
+    items:
+    - name: Review requirements
+      href: data-box-edge-system-requirements.md
   - name: How to
     items:
     - name: Develop C# module

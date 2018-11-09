@@ -26,7 +26,7 @@ After an offer/SKU is staged in the [Azure portal](http://portal.azure.com), you
 * **SKU Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
 * **Publisher Namespace**: In the Publishing portal, go to **virtual machines** > **Walkthrough** > **Tell Us About Your Company** (found under “Step 2 Register Your Company”) > **Publisher Namespace** > **Namespace**.
 
-After the offer/SKU is listed in the [Marketplace](http://azure.microsoft.com/marketplace), you can't change the following text boxes:
+After the offer/SKU is listed in the [Marketplace](https://azure.microsoft.com/marketplace), you can't change the following text boxes:
 
 * **Offer Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **VM IMAGES** > **Offer Identifier**.
 * **SKU Identifier**: In the Publishing portal, go to **virtual machines** and select your offer. Then click **SKUS** > **Add a SKU**.
