@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Detect faces in an image with the Face service .NET SDK"
+title: "Quickstart: Detect faces in an image with the Azure Face .NET SDK"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you will use the Face service SDK with C# to detect faces in an image.
+description: In this quickstart, you will use the Azure Face SDK with C# to detect faces in an image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
@@ -13,7 +13,8 @@ ms.date: 11/07/2018
 ms.author: pafarley
 #Customer intent: As a C# developer, I want to implement a simple Face detection scenario with the .NET SDK, so that I can build more complex scenarios later on.
 ---
-# Quickstart: Detect faces in an image using the .NET SDK
+
+# Quickstart: Detect faces in an image using the Face .NET SDK
 
 In this quickstart, you will use the Face service SDK with C# to detect human faces in an image. For a working example of the code in this quickstart, see the Face project in the [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) repo on GitHub.
 
@@ -31,43 +32,21 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 1. Get the required NuGet packages. Right-click on your project in the Solution Explorer and select **Manage NuGet Packages**. Click the **Browse** tab and select **Include prerelease**; then find and install the following package:
     - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-
-## DetectWithUrlAsync method
-
-The `DetectWithUrlAsync` and `DetectWithStreamAsync` methods wrap the [Face - Detect API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for remote and local images, respectively. You can use these methods to detect faces in an image and return face attributes including:
-* Face ID: Unique ID used in several Face API scenarios.
-* Face Rectangle: The left, top, width, and height indicating the location of the face in the image.
-* Landmarks: An array of 27-point face landmarks pointing to the important positions of face components.
-* Facial attributes including age, gender, smile intensity, head pose, and facial hair.
-
 ## Add face detection code
 
-1. Replace *Program.cs* with the following code.
-1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change `faceEndpoint` to the Azure region associated with your subscription keys, if necessary.
-1. Optionally, replace <`LocalImage>` with the path and file name of a local image (will be ignored if not set).
-1. Optionally, set `remoteImageUrl` to a different image.
-1. Run the program.
+Open the new project's *Program.cs* file. Here, you will add the code needed to load images and detect faces.
 
 ### Include namespaces
 
 Add the following `using` statements to the top of your *Program.cs* file.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
-
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
-```
+[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
 ### Add essential fields
 
-Add the following fields to the **Program** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `faceEndpoint` string so that it contains the correct region identifier.
+Add the following fields to the **Program** class. This data specifies how to connect to the Face service and where to get the input data. You'll need to update the `subscriptionKey` field with the value of your subscription key, and you may need to change the `faceEndpoint` string so that it contains the correct region identifier. You'll also need to set the `localImagePath` and/or `remoteImageUrl` values to paths that point to actual image files.
 
-The `faceAttributes` field is simply an array of certain types of attributes. It will be used to specify which information to retrieve about the detected faces.
+The `faceAttributes` field is simply an array of certain types of attributes. It will specify which information to retrieve about the detected faces.
 
 [!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
