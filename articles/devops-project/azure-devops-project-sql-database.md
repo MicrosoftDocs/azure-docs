@@ -14,7 +14,7 @@ monikerRange: 'vsts'
 
 # Tutorial: Deploy your ASP.NET app and Azure SQL database instance by using Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository. Or you can choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
+Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository. Or you can choose one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Projects also:
 * Automatically creates Azure resources, such as an Azure SQL database instance.
@@ -31,7 +31,7 @@ In this tutorial, you will:
 > * Examine the CD pipeline
 > * Commit changes to Azure DevOps and automatically deploy them to Azure
 > * Connect to the Azure SQL database instance 
-> * Clean up resources
+> * Clean up your resources
 
 ## Prerequisites
 
@@ -60,12 +60,12 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 ## Configure Azure DevOps and an Azure subscription
 
-1. Create a new Azure DevOps organization or select an existing organization. 
+1. Create a new Azure DevOps organization, or select an existing organization. 
 
 1. Enter a name for your Azure DevOps project. 
 
 1. Select your Azure subscription services.  
-	Optionally, you can select **Change** to view additional Azure configuration settings and identify the username in the **Database Server Login Details** section. Store the username for future steps in this tutorial. If you perform this optional step, exit the Azure configuration area before you select **Done**.
+	Optionally, to view additional Azure configuration settings and to identify the username in the **Database Server Login Details** section, you can select **Change**. Store the username for future steps in this tutorial. If you perform this optional step, exit the Azure configuration area before you select **Done**.
  
 1. Select **Done**.  
     After a few minutes, the process is completed and the Azure DevOps Projects dashboard opens in the Azure portal. You can also navigate to the dashboard directly from **All resources** in the Azure portal. At the right, select **Browse** to view your running application.
@@ -111,8 +111,8 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 1. Under **Artifacts**, select **Drop**.  
 	The build pipeline you examined in the previous steps produces the output that's used for the artifact. 
 
-1. Next to the **Drop** icon, select **Continuous deployment trigger**.  
-	This release pipeline has an enabled CD trigger, which executes a deployment every time there is a new build artifact available. Optionally, you can disable the trigger so that your deployments require manual execution. 
+1. At the right of the **Drop** icon, select **Continuous deployment trigger**.  
+	This release pipeline has an enabled CD trigger, which executes a deployment every time a new build artifact is available. Optionally, you can disable the trigger so that your deployments require manual execution. 
 
     DevOps Projects sets up a random SQL password and uses it for the release pipeline.
     
@@ -183,7 +183,7 @@ You need appropriate permissions to connect to the Azure SQL database instance.
  > [!NOTE]
  > If you change your password for the SQL login, you must change the password in the release pipeline variable, as described in the "Examine the CD pipeline" section.
 
-## Clean up resources
+## Clean up your resources
 
 If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure SQL database instance and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the Azure DevOps Projects dashboard.
 
@@ -205,7 +205,7 @@ You can optionally modify these build and release pipelines to meet the needs of
 > * Examine the CD pipeline
 > * Commit changes to Azure DevOps and automatically deploy them to Azure
 > * Connect to the Azure SQL Server Database 
-> * Clean up resources
+> * Clean up your resources
 
 To learn more about the CI/CD pipeline, see:
 
