@@ -1,5 +1,5 @@
 ---
-title: Create a CI/CD pipeline for .NET with the Azure DevOps Project  | Quickstart
+title: Create a CI/CD pipeline for .NET with Azure DevOps Projects  | Quickstart
 description: The DevOps Project makes it easy to get started on Azure. It helps you launch a .NET app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
