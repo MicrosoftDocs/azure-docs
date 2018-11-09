@@ -450,8 +450,6 @@ This table lists required and optional headers for speech-to-text requests.
 
 This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type.
 
-The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both a bit rate and an encoding.
-
 |||
 |-|-|
 | `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
@@ -470,9 +468,9 @@ The text to be converted to speech is sent as the body of an HTTP `POST` request
 
 ### Sample request
 
-The following HTTP request uses an SSML body to choose the voice. The body must be no longer than 1,000 characters.
+The following HTTP request uses SSML to specify the voice and language. The body cannot exceed 1,000 characters.
 
-```xml
+```http
 POST /cognitiveservices/v1 HTTP/1.1
 
 X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
@@ -487,20 +485,20 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-### HTTP response
+### HTTP status codes
 
-The HTTP status of the response indicates success or common error conditions.
+The HTTP status code for each response indicates success or common errors.
 
-HTTP code|Meaning|Possible reason
--|-|-|
-200|OK|The request was successful; the response body is an audio file.
-400 |Bad Request |A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long.
-401|Unauthorized |The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region.
-413|Request Entity Too Large|The SSML input is longer than 1024 characters.
-429|Too Many Requests|You have exceeded the quota or rate of requests allowed for your subscription.
-502|Bad Gateway	| Network or server-side issue. May also indicate invalid headers.
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 200 | OK | The request was successful; the response body is an audio file. |
+| 400 | Bad Request | A required parameter is missing, empty, or null. Or, the value passed to either a required or optional parameter is invalid. A common issue is a header that is too long. |
+| 401 | Unauthorized | The request is not authorized. Check to make sure your subscription key or token is valid and in the correct region. |
+| 413 | Request Entity Too Large | The SSML input is longer than 1024 characters. |
+| 429 | Too Many Requests | You have exceeded the quota or rate of requests allowed for your subscription. |
+| 502 | Bad Gateway	| Network or server-side issue. May also indicate invalid headers. |
 
-If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred or saved to a buffer or file for later playback or other use.
+If the HTTP status is `200 OK`, the body of the response contains an audio file in the requested format. This file can be played as it's transferred, saved to a buffer, or saved to a file.
 
 ## Next steps
 
