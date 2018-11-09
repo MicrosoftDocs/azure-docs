@@ -40,7 +40,7 @@ Open the new project's *Program.cs* file. Here, you will add the code needed to 
 
 Add the following `using` statements to the top of your *Program.cs* file.
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
 ### Add essential fields
 
@@ -48,37 +48,37 @@ Add the following fields to the **Program** class. This data specifies how to co
 
 The `faceAttributes` field is simply an array of certain types of attributes. It will specify which information to retrieve about the detected faces.
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
 ### Create and use the Face client
 
 Next, add the following code to the **Main** method of the **Program** class. This sets up a Face API client.
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
 
 Also in the **Main** method, add the following code to use the newly-created Face client to detect faces in a remote and local image. The detection methods will be defined next. 
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
 
 ### Detect faces
 
 Add the following method to the **Program** class. It uses the Face service client to detect faces in a remote image, referenced by a URL. Note that it uses the `faceAttributes` field&mdash;the **DetectedFace** objects added to `faceList` will have the specified attributes (in this case, age and gender).
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
 Similarly, add the **DetectLocalAsync** method. It uses the Face service client to detect faces in a local image, referenced by a file path.
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
 
 ### Retrieve and display face attributes
 
 Next, define the **GetFaceAttributes** method. It returns a string with the relevant attribute information.
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
 Finally, define the **DisplayAttributes** method to write face attribute data to the console output.
 
-[!code-csharp[](cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
 
 ## Run the app
 
