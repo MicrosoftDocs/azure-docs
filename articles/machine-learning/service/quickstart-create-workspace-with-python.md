@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 11/06/2018
+ms.date: 11/09/2018
 ---
 
 # Quickstart: Use Python to get started with Azure Machine Learning
@@ -32,7 +32,6 @@ The following Azure resources are added automatically to your workspace when the
 - [Azure Storage](https://azure.microsoft.com/services/storage/)
 - [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
 - [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 0.1.74 
 
@@ -65,9 +64,10 @@ Activate the environment.
 
 ### Install the SDK
 
-In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes **approximately four minutes** to finish.
+In the activated conda environment, install the SDK. The below command installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes a few minutes to finish, depending on the configuration of your machine.
 
 ```shell
+# install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
 ```
 
@@ -162,9 +162,33 @@ You need a few more packages in your environment to use it with Machine Learning
 1. In the command-line window, use `Ctrl`+`C` to stop the notebook server.
 1. Install additional packages.
 
-    ```sh
+    ```shell
+
+    # install run history widget
+    jupyter nbextension install --py --user azureml.train.widgets
+    
+    # enable run history widget
+    jupyter nbextension enable --py --user azureml.train.widgets
+
+    # install other packages 
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
+    ```
+    You can also use different "extra" keywords to install additional components of the SDK.
+    
+    ```shell
+    # install the base SDK and auto ml components
+    pip install azureml-sdk[automl]
+    
+    # install the base SDK and model explainability component
+    pip install azureml-sdk[explain]
+    
+    # install the base SDK and experimental components
+    pip install azureml-sdk[contrib]
+    
+    # install the base SDK and automl components in Azure Databricks environment
+    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+    pip install azureml-sdk[databricks]
     ```
 
 After you install these packages, follow the tutorials to train and deploy a model. 
