@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/08/2018
 ms.author: tomfitz
 ---
 
@@ -34,7 +34,7 @@ You can perform these steps through the portal, PowerShell, or Azure CLI.
 
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
@@ -52,7 +52,7 @@ Microsoft.CognitiveServices      Registered
 
 Registering a resource provider configures your subscription to work with the resource provider. The scope for registration is always the subscription. By default, many resource providers are automatically registered. However, you may need to manually register some resource providers. To register a resource provider, you must have permission to perform the `/register/action` operation for the resource provider. This operation is included in the Contributor and Owner roles.
 
-```powershell
+```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -69,7 +69,7 @@ You cannot unregister a resource provider when you still have resource types fro
 
 To see information for a particular resource provider, use:
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -86,7 +86,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 
 To see the resource types for a resource provider, use:
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
@@ -99,11 +99,11 @@ locations
 locations/quotas
 ```
 
-The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. 
+The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API.
 
 To get the available API versions for a resource type, use:
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
@@ -117,11 +117,11 @@ Which returns:
 2015-07-01
 ```
 
-Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. 
+Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource.
 
 To get the supported locations for a resource type, use.
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
@@ -136,6 +136,7 @@ West US
 ```
 
 ## Azure CLI
+
 To see all resource providers in Azure, and the registration status for your subscription, use:
 
 ```azurecli
@@ -200,7 +201,7 @@ locations
 locations/quotas
 ```
 
-The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API. 
+The API version corresponds to a version of REST API operations that are released by the resource provider. As a resource provider enables new features, it releases a new version of the REST API.
 
 To get the available API versions for a resource type, use:
 
@@ -220,7 +221,7 @@ Result
 2015-07-01
 ```
 
-Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource. 
+Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. In addition, there may be limitations on your subscription that prevent you from using some regions that support the resource.
 
 To get the supported locations for a resource type, use.
 
@@ -285,7 +286,7 @@ The API version corresponds to a version of REST API operations that are release
 ![Show API versions](./media/resource-manager-supported-services/show-api-versions.png)
 
 ## Next steps
+
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about deploying resources, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md).
 * To view the operations for a resource provider, see [Azure REST API](/rest/api/).
-
