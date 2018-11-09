@@ -2,7 +2,7 @@
     "redirections": [
         {
             "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
-            "redirect_url": "/machine-learning/service/how-to-configure-environment.md",
+            "redirect_url": "/machine-learning/service/how-to-configure-environment",
             "redirect_document_id": false
         },
         {
