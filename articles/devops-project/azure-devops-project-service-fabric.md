@@ -1,5 +1,5 @@
 ---
-title: Tutorial: Deploy your ASP.NET Core app to Azure Service Fabric by using Azure DevOps Projects
+title: 'Tutorial: Deploy your ASP.NET Core app to Azure Service Fabric by using Azure DevOps Projects'
 description: Azure DevOps Projects makes it easy to get started on Azure. With DevOps Projects, you can deploy your ASP.NET Core app to Azure Service Fabric in a few quick steps.
 ms.author: mlearned
 ms.manager: douge
