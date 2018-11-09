@@ -14,14 +14,14 @@ monikerRange: 'vsts'
 
 # Tutorial: Deploy your ASP.NET Core app to Azure Kubernetes Service (AKS) by using Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository. Or you can choose one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
+Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repo. Or you can choose one of the sample apps to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Projects also:
 * Automatically creates Azure resources, such as Azure Kubernetes Service (AKS).
-* Creates and configures a release pipeline in Azure DevOps that includes a build and release pipeline for CI/CD.
+* Creates and configures a release pipeline in Azure DevOps that sets up a build and release pipeline for CI/CD.
 * Creates an Azure Application Insights resource for monitoring.
 
-In this tutorial, you will::
+In this tutorial, you will:
 
 > [!div class="checklist"]
 > * Create a project in DevOps Projects for an ASP.NET Core app and AKS
@@ -66,11 +66,11 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 	This pane displays various options for configuring the type and location of Azure services.
  
 1. Exit the Azure configuration area, and then select **Done**.  
-	After a few minutes, the process is completed. A sample ASP.NET Core application is set up in a Git repository in your Azure DevOps organization, an AKS cluster is created, a CI/CD pipeline is executed, and your application is deployed to Azure. 
+	After a few minutes, the process is completed. A sample ASP.NET Core app is set up in a Git repo in your Azure DevOps organization, an AKS cluster is created, a CI/CD pipeline is executed, and your app is deployed to Azure. 
 
 	After all this is completed, the Azure DevOps Project dashboard is displayed in the Azure portal. You can also go to the Azure DevOps Projects dashboard directly from **All resources** in the Azure portal. 
 
-	This dashboard provides visibility into your Azure Repos code repository, your CI/CD pipeline, and your AKS cluster. You can further configure additional CI/CD options in your Azure DevOps pipeline. At the right, select **Browse** to view your running application.
+	This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your AKS cluster. You can configure additional CI/CD options in your Azure DevOps pipeline. At the right, select **Browse** to view your running app.
 
 ## Examine the AKS cluster
 
@@ -99,7 +99,7 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 1. Select **Edit**.
 
 1. In this pane, you can examine the various tasks for your build pipeline.  
-	The build performs various tasks, such as fetching sources from the Git repository, restoring dependencies, and publishing outputs used for deployments.
+	The build performs various tasks, such as fetching sources from the Git repo, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build pipeline, select the build pipeline name.
 
@@ -109,14 +109,14 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 	This pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
-	DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
+	DevOps Projects automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  
     Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
 ## Examine the CD release pipeline
 
-DevOps Projects automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription. These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription. The automation also creates a release pipeline, and the release pipeline provides the CD to Azure. To learn more about the release pipeline, do the following:
+DevOps Projects automatically creates and configures the necessary steps to deploy from your Azure DevOps organization to your Azure subscription. These steps include configuring an Azure service connection to authenticate Azure DevOps to your Azure subscription. The automation also creates a release pipeline, which provides the CD to Azure. To learn more about the release pipeline, do the following:
 
 1. Select **Build and Release**, and then select **Releases**.  
 	DevOps Projects creates a release pipeline to manage deployments to Azure.
@@ -144,20 +144,20 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 ## Commit changes to Azure DevOps and automatically deploy them to Azure 
 
  > [!NOTE]
- > The following procedure tests the CI/CD pipeline with a simple text change.
+ > The following procedure tests the CI/CD pipeline by making a simple text change.
 
-You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repository. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
+You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. For example, you can clone the Git repo in your favorite tool or IDE, and then push changes to this repo.
 
-1. In the Azure DevOps menu, select **Code** > **Files**, and then go to your repository.
+1. In the Azure DevOps menu, select **Code** > **Files**, and then go to your repo.
 
 1. Go to the *Views\Home* directory, select the ellipsis (...) next to the *Index.cshtml* file, and then select **Edit**.
 
 1. Make a change to the file, such as adding some text within one of the div tags. 
 
 1. At the top right, select **Commit**, and then select **Commit** again to push your change.  
-	After a few moments, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status in the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
+	After a few moments, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status on the Azure DevOps Projects dashboard or in the browser with your Azure DevOps organization.
 
-1. After the release is completed, refresh your application to verify your changes.
+1. After the release is completed, refresh your app to verify your changes.
 
 ## Clean up your resources
 
