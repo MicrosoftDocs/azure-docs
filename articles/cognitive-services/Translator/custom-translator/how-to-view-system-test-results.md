@@ -82,7 +82,7 @@ To request a deployment:
 5.  You can view the status of your model in the “Status” column.
 
 >[!Note]
->If a model is deployed already, you'll see “Undeploy” button for that model. To undeploy a model click "Undeploy".
+>If a model is already deployed, you'll see an "Undeploy" button for that model. To undeploy a model click "Undeploy".
 
 ## Next steps
 
