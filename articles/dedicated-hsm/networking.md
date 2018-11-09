@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/09/2018
 ms.author: barclayn
 
 ---
@@ -31,12 +31,13 @@ For more information on integrating Azure services into the virtual network and 
 
 ### Virtual networks
 
-Before provisioning a Dedicated HSM device, customers will first need to create a Virtual Network in Azure or use one that already exists in the customers subscription. The virtual network defines the security perimeter for the Dedicated HSM device. For more information on creating virtual networks, see [virtual network documentation](../virtual-network/virtual-networks-overview.md).
+Before provisioning a Dedicated HSM device, customers will first need to create a Virtual Network in Azure or use one that already exists in the customers subscription. The virtual network defines the security perimeter for the Dedicated HSM device. For further information on creating virtual networks, see [virtual network documentation](../virtual-network/virtual-networks-overview.md).
 
 ### Subnetworks
 
-Dedicated HSMs are deployed into a specific subnet and virtual network. Each Dedicated HSM device that is deployed in the customer’s subnet will receive a private IP address from this subnet. 
-The subnet in which the HSM device is deployed first needs to be explicitly delegated to the service:ft.HardwareSecurityModules/dedicatedHSMs. Delegation ensures that the subnet is dedicated for use by the service. Delegation to Dedicated HSMs imposes certain policy restrictions on the subnet. Network Security Groups (NSGs) and User-Defined Routes (UDRs) are not currently supported on delegated subnets. These restrictions when lifted in the future will be appropriately documented. 
+Subnets segment the virtual network into separate address spaces usable by the Azure resources you place in them. Dedicated HSMs are deployed into a subnet in the virtual network. Each Dedicated HSM device that is deployed in the customer’s subnet will receive a private IP address from this subnet. 
+The subnet in which the HSM device is deployed needs to be explicitly delegated to the service : Microsoft.HardwareSecurityModules/dedicatedHSMs. This grants certain permissions to the HSM service for deployment into the subnet. Delegation to Dedicated HSMs imposes certain policy restrictions on the subnet. Network Security Groups (NSGs) and User Defined Routes (UDRs) are currently not supported on delegated subnets. As a result, once a subnet is delegated to dedicatedHSMs, it can only be used to deploy HSM resources. Deployment of any other customer resources into the subnet will fail.
+
 
 ### ExpressRoute gateway
 
@@ -52,9 +53,13 @@ For more information on connectivity options, see [VPN Gateway planning options]
 
 A point-to-site Virtual Private Network is the simplest form of secure connection to a single endpoint on-premises. This may be relevant if you intend to only have a single administration workstation for Azure-based dedicated HSMs.
 
+![point to site](media/networking/p2s.png)
+
 ### Site-to-Site VPN
 
 A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premise and needing a connection between the two for running the backup.
+
+![site to site](media/networking/site-to-site.png)
 
 ## Connecting virtual networks
 
@@ -63,6 +68,8 @@ A typical deployment architecture for Dedicated HSM will start with a single vir
 ### Virtual network peering
 
 When there are multiple virtual networks within a region that need to access each other’s resources, Virtual Network Peering can be used to create secure communication channels between them.  Virtual network peering provides not only secure communications but also ensures a low-latency and high-bandwidth connections between the resources in Azure.
+
+![network peering](media/networking/peering.png)
 
 ## Connecting across Azure Regions
 
@@ -76,3 +83,9 @@ For globally distributed applications or for high availability regional failover
 Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time. 
 
 ![global-vnet](media/networking/global-vnet.png)
+
+## Next steps
+
+- [Frequently asked questions](faq.md)
+- [Supportability](supportability.md)
+- [High availability](high-availability.md)
