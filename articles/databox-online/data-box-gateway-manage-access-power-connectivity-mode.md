@@ -34,7 +34,7 @@ The access to your Data Box Gateway device is controlled by the use of a device 
 If you forgot your password, then you can change the password. Follow these steps in the local UI to change the device administrator password.
 
 1. In the local web UI, go to **Maintenance > Password change**.
-2. Enter the current password and then the new password. The supplied password must be between 8 and 16 characters. The password must contain 3 of the following characters: uppercase, lowercase, numeric, and special characters. Confirm the new password.
+2. Enter the current password and then the new password. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Confirm the new password.
 
     ![Change password](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
 
@@ -49,7 +49,7 @@ The reset workflow does not require the user to recall the old password and is u
     ![Reset password](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
-2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must contain 3 of the following characters: uppercase, lowercase, numeric, and special characters. Click **Reset**.
+2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must have 3 of the following characters: uppercase, lowercase, numeric, and special characters. Click **Reset**.
 
     ![Reset password](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
@@ -68,7 +68,7 @@ Apart from the default normal mode, your device can also run in partially discon
 To change device mode, follow these steps:
 
 1. In the local web UI of your device, go to **Configuration > Cloud settings**.
-2. Set the **Cloud upload and download** to **disabled**. 
+2. Disable the **Cloud upload and download**.
 3. To run the device in partially disconnected mode, enable **Azure portal management**.
 
     ![Connectivity mode](media/data-box-gateway-manage-access-power-connectivity-mode/connectivity-mode-1.png)
