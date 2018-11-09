@@ -310,18 +310,16 @@ Follow these instructions to configure user account provisioning from Workday to
 To provision to Active Directory on-premises, an agent must be installed on a server that has .NET 4.7+ Framework and network access to the desired Active Directory domain(s).
 
 > [!TIP]
-> You can check the version of the .NET framework on your server using the instructions provided [here](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
-> If the server does not have .NET 4.7 or higher installed, you can download it from [here](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).  
+> You can check the version of the .NET framework on your server using the instructions provided [here](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed).
+> If the server does not have .NET 4.7 or higher installed, you can download it from [here](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).  
 
 Once you have deployed .NET 4.7+, you can download the **[on-premises provisioning agent here](https://go.microsoft.com/fwlink/?linkid=847801)** and follow the steps given below to complete the agent configuration.
 
 1. Login to the Windows Server where you want to install the new agent.
 2. Launch the Provisioning Agent installer, agree to the terms and click on the **Install** button.
-
 ![Install Screen](./media/workday-inbound-tutorial/pa_install_screen_1.png "Install Screen")
 
 3. After installation is complete, the wizard will launch and you will see the **Connect Azure AD** screen. Click on the **Authenticate** button to connect to your Azure AD instance.
-
 ![Connect Azure AD](./media/workday-inbound-tutorial/pa_install_screen_2.png "Connect Azure AD")
 
 4. Authenticate to your Azure AD instance using Global Admin Credentials. 
@@ -349,8 +347,6 @@ Once you have deployed .NET 4.7+, you can download the **[on-premises provisioni
 ![Exit Screen](./media/workday-inbound-tutorial/pa_install_screen_9.png "Exit Screen")
 
 11. Verify the installation of the Agent and make sure it is running by opening the “Services” Snap-In and look for the Service named “Microsoft Azure AD Connect Provisioning Agent”
-
-
 ![Services](./media/workday-inbound-tutorial/services.png)  
 
 
@@ -407,7 +403,7 @@ The [Windows Event Log](https://technet.microsoft.com/library/cc722404(v=ws.11).
    * **Notification Email –** Enter your email address, and check the
         “send email if failure occurs” checkbox.
 > [!NOTE]
-> The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
+> The Azure AD Provisioning Service sends email notification if the provisioning job goes into a [quarantine](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#quarantine) state.
 
    * Click the **Test Connection** button. If the connection test succeeds, click the **Save** button at
         the top. If it fails, double-check that the Workday credentials and the AD credentials configured on the agent setup are valid.
