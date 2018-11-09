@@ -12,7 +12,7 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/31/2018
+ms.date: 11/09/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
@@ -82,59 +82,6 @@ You can also find these values in the [Azure portal](https://portal.azure.com):
 * `<storageAccountName>` - Under **Storage Accounts**, the name of the storage account used to create the file share.
 * `<storageAccountKey>` - Select your storage account under **Storage Accounts** and then select **Access keys** and use the value under **key1**.
 * `<fileShareName>` - Select your storage account under  **Storage Accounts** and then select **Files**. The name to use is the name of the file share you created.
-
-## Declare a volume resource and update the service resource (YAML)
-
-Add a new *volume.yaml* file in the *App resources* directory for your application.  Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). `<fileShareName>`, `<storageAccountName>`, and `<storageAccountKey>` are the values you found in a previous step.
-
-```yaml
-volume:
-  schemaVersion: 1.0.0-preview2
-  name: testVolume
-  properties:
-    description: Azure Files storage volume for counter App.
-    provider: SFAzureFile
-    azureFileParameters: 
-        shareName: <fileShareName>
-        accountName: <storageAccountName>
-        accountKey: <storageAccountKey>
-```
-
-Update the *service.yaml* file in the *Service Resources* directory to mount the volume in your service.  Add the `volumeRefs` element to the `codePackages` element.  `name` is the resource ID for the volume (or a deployment template parameter for the volume resource) and the name of the volume declared in the volume.yaml resource file.  `destinationPath` is the local directory that the volume will be mounted to.
-
-```yaml
-## Service definition ##
-application:
-  schemaVersion: 1.0.0-preview2
-  name: VolumeTest
-  properties:
-    services:
-      - name: VolumeTestService
-        properties:
-          description: VolumeTestService description.
-          osType: Windows
-          codePackages:
-            - name: VolumeTestService
-              image: volumetestservice:dev
-              volumeRefs:
-                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
-                  destinationPath: C:\app\data
-              endpoints:
-                - name: VolumeTestServiceListener
-                  port: 20003
-              environmentVariables:
-                - name: ASPNETCORE_URLS
-                  value: http://+:20003
-                - name: STATE_FOLDER_NAME
-                  value: TestVolumeData
-              resources:
-                requests:
-                  cpu: 0.5
-                  memoryInGB: 1
-          replicaCount: 1
-          networkRefs:
-            - name: VolumeTestNetwork
-```
 
 ## Declare a volume resource and update the service resource (JSON)
 
@@ -248,6 +195,59 @@ To mount the volume in your service, add a `volumeRefs` to the `codePackages` el
     ...
   ]
 }
+```
+
+## Declare a volume resource and update the service resource (YAML)
+
+Add a new *volume.yaml* file in the *App resources* directory for your application.  Specify a name and the provider ("SFAzureFile" to use the Azure Files based volume). `<fileShareName>`, `<storageAccountName>`, and `<storageAccountKey>` are the values you found in a previous step.
+
+```yaml
+volume:
+  schemaVersion: 1.0.0-preview2
+  name: testVolume
+  properties:
+    description: Azure Files storage volume for counter App.
+    provider: SFAzureFile
+    azureFileParameters: 
+        shareName: <fileShareName>
+        accountName: <storageAccountName>
+        accountKey: <storageAccountKey>
+```
+
+Update the *service.yaml* file in the *Service Resources* directory to mount the volume in your service.  Add the `volumeRefs` element to the `codePackages` element.  `name` is the resource ID for the volume (or a deployment template parameter for the volume resource) and the name of the volume declared in the volume.yaml resource file.  `destinationPath` is the local directory that the volume will be mounted to.
+
+```yaml
+## Service definition ##
+application:
+  schemaVersion: 1.0.0-preview2
+  name: VolumeTest
+  properties:
+    services:
+      - name: VolumeTestService
+        properties:
+          description: VolumeTestService description.
+          osType: Windows
+          codePackages:
+            - name: VolumeTestService
+              image: volumetestservice:dev
+              volumeRefs:
+                - name: "[resourceId('Microsoft.ServiceFabricMesh/volumes', 'testVolume')]"
+                  destinationPath: C:\app\data
+              endpoints:
+                - name: VolumeTestServiceListener
+                  port: 20003
+              environmentVariables:
+                - name: ASPNETCORE_URLS
+                  value: http://+:20003
+                - name: STATE_FOLDER_NAME
+                  value: TestVolumeData
+              resources:
+                requests:
+                  cpu: 0.5
+                  memoryInGB: 1
+          replicaCount: 1
+          networkRefs:
+            - name: VolumeTestNetwork
 ```
 
 ## Next steps
