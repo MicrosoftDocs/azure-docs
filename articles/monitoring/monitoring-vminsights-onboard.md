@@ -143,7 +143,7 @@ The Performance feature of Azure Monitor for VMs is only available from Azure Mo
 |12 SP3 | 4.4.* |
 
 ### Microsoft Dependency agent
-Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. When you enable Azure Monitor for VMs for a single Azure VM or when using the methods for the at scale deployment, the Azure VM Dependency agent extension is used. With a hybrid environment, the Dependency agent can be downloaded and installed manually or using an automated deployment method to those virtual machines hosted outside of Azure.  
+Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. When you enable Azure Monitor for VMs for a single Azure VM or when using the methods for the at scale deployment, the Azure VM Dependency agent extension is used to install the agent as part of that onboarding experience. With a hybrid environment, the Dependency agent can be downloaded and installed manually or using an automated deployment method to those virtual machines hosted outside of Azure.  
 
 The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
