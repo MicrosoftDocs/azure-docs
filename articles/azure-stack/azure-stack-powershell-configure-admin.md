@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -40,11 +40,12 @@ Configure the Azure Stack operator environment with PowerShell. Run one of the f
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
     # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRmEnvironment -Name "AzureStackAdmin" -ARMEndpoint $ArmEndpoint -AzureKeyVaultDnsSuffix adminvault.local.azurestack.external -AzureKeyVaultServiceEndpointResourceId https://adminvault.local.azurestack.external
+
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $tenantId
 ````
 
 ## Test the connectivity

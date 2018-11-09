@@ -167,6 +167,18 @@
       href: backup-dpm-automation.md
     - name: Windows Server in Azure portal
       href: backup-client-automation.md
+  - name: Use Azure Backup REST API
+    items:
+    - name: Create Recovery Services vault
+      href: backup-azure-arm-userestapi-createorupdatevault.md
+    - name: Create and update backup policy
+      href: backup-azure-arm-userestapi-createorupdatepolicy.md
+    - name: Back up Azure VMs
+      href: backup-azure-arm-userestapi-backupazurevms.md
+    - name: Restore Azure VMs
+      href: backup-azure-arm-userestapi-restoreazurevms.md
+    - name: Manage Azure Backup jobs
+      href: backup-azure-arm-userestapi-managejobs.md
   - name: SQL on Azure VMs
     items:
     - name: Back up SQL database in Azure
