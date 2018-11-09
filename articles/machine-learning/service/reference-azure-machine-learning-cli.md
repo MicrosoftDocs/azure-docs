@@ -20,7 +20,7 @@ The Azure Machine Learning CLI is an extension to the [Azure CLI](https://docs.m
 
 + Register machine learning models for customer usage
 
-+ Package, deploy and track the lifecycle of your machine learning models
++ Package, deploy, and track the lifecycle of your machine learning models
 
 The CLI is not a replacement for the Azure Machine Learning SDK. It is a complementary tool that is optimized to handle highly parameterized tasks such as:
 
@@ -51,7 +51,7 @@ az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-
 
 When prompted, select `y` to install the extension.
 
-To verify that the extension has been installed, use the following command to display a list of ML specific sub-commands:
+To verify that the extension has been installed, use the following command to display a list of ML-specific subcommands:
 
 ```azurecli-interactive
 az ml -h
@@ -85,7 +85,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
    az configure --defaults aml_workspace=myworkspace group=myresourcegroup
    ```
 
-+ Create a DSVM (data science VM). You can also create BatchAI clusters for distributed training or AKS clusters for deployment. TBD: change to managed compute and maybe add an example for aci showing how to attach an external.
++ Create a DSVM (data science VM). You can also create BatchAI clusters for distributed training or AKS clusters for deployment.
 
 
   ```azurecli-interactive
@@ -96,7 +96,7 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 The following commands demonstrate how to use the CLI to work with experiments:
 
-* Attach a project (run configuration) before submitting an experiment. This enables Azure Machine Learning to keep track of experiment runs:
+* Attach a project (run configuration) before submitting an experiment:
 
     ```azurecli-interactive
     az ml project attach --experiment-name myhistory
@@ -114,7 +114,7 @@ The following commands demonstrate how to use the CLI to work with experiments:
     az ml history list
     ```
 
-## Model registration, image ceation & deployment
+## Model registration, image creation & deployment
 
 The following commands demonstrate how to register a trained model, and then deploy it as a production service:
 
