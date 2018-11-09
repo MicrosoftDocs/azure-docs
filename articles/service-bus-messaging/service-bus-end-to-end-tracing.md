@@ -179,7 +179,7 @@ In every event, you can access `Activity.Current` that holds current operation c
 
 #### Logging additional properties
 
-`Activty.Current` provides detailed context of current operation and its parents. For more information, see [Activity documentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) for more details.
+`Activity.Current` provides detailed context of current operation and its parents. For more information, see [Activity documentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) for more details.
 Service Bus instrumentation provides additional information in the `Activity.Current.Tags` - they hold `MessageId` and `SessionId` whenever they are available.
 
 Activities that track 'Receive', 'Peek' and 'ReceiveDeferred' event also may have `RelatedTo` tag. It holds distinct list of `Diagnostic-Id`(s) of messages that were received as a result.

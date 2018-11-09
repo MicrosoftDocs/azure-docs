@@ -76,7 +76,7 @@ val df_write = df.writeStream
 ```
 
 ## Write to Event Hubs for Kafka
-You can also write to Event Hubs the same way you you write to Kafka. Don't forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace.  For the full sample code, see sparkProducer.scala file on the GitHub. 
+You can also write to Event Hubs the same way you write to Kafka. Don't forget to update your configuration to change **BOOTSTRAP_SERVERS** and **EH_SASL** with information from your Event Hubs namespace.  For the full sample code, see sparkProducer.scala file on the GitHub. 
 
 ```scala
 df = /**Dataframe**/

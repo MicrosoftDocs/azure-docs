@@ -10,7 +10,7 @@ ms.author: v-erkell
 
 # Deploy the vFXT cluster
 
-To create a vFXT cluster, the easiest way is to use a cluster controller, which is a VM that has the required scripts, templates, and software infrastructure for creating and managing the vFXT cluster.
+The easiest way to create a vFXT cluster in Azure is to use a cluster controller. The cluster controller is a VM that includes the required scripts, templates, and software infrastructure for creating and managing the vFXT cluster.
 
 Deploying a new vFXT cluster includes these steps:
 
@@ -63,7 +63,7 @@ Provide the following information.
 
 In the **BASIC** section:  
 
-* **Subcription** for the cluster
+* **Subscription** for the cluster
 * **Resource group** for the cluster 
 * **Location** 
 
@@ -77,7 +77,7 @@ In the **SETTINGS** section:
 * Virtual network resource group, name, and subnet name - Type the names of existing resources (if using an existing vnet) or type new names if creating a new vnet
 * **Controller name** - Set a name for the controller VM
 * Controller administrator username - The default is `azureuser`
-* SSH key - Paste the public key to associate with the administrator username. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help.
+* SSH key - Paste the public key to associate with the administrator username. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help.
 
 Under **TERMS AND CONDITIONS**: 
 
@@ -88,16 +88,13 @@ Under **TERMS AND CONDITIONS**:
 
 Click **Purchase** when finished. After five or six minutes, your controller node will be up and running.
 
-You should visit the outputs page to gather information needed for the cluster. Read [Inputs needed for cluster creation](#inputs-needed-for-cluster-creation) to learn more.
+Visit the outputs page to gather the controller information that you need to create the cluster. Read [Information needed to create the cluster](#information-needed-to-create-the-cluster) to learn more.
 
 ### Create controller - Azure Marketplace image
 
-Find the controller template by searching the Azure Marketplace for the name ``Avere``. Select the **Avere vFXT for Azure Controller** template. 
+Find the controller template by searching the Azure Marketplace for the name ``Avere``. Select the **Avere vFXT for Azure Controller** template.
 
 If you have not already done so, accept the terms and enable programmatic access for the Marketplace image by clicking the "Want to deploy programmatically?" link underneath the **Create** button.
-
-> [!NOTE] 
-> During the first week of General Availability (October 31 - November 7, 2018), you must use the command-line option to accept terms for two software images instead of following this procedure. Follow the instructions in [Accept software terms in advance](avere-vfxt-prereqs.md#accept-software-terms-in-advance). 
 
 ![Screenshot of a link to programmatic access, which is below the Create button](media/avere-vfxt-deploy-programmatically.png)
 
@@ -120,7 +117,7 @@ In the first panel, fill in or confirm these basic options:
   * Select either Username/Password or SSH public key (recommended).
   
     > [!TIP] 
-    > An SSH key is more secure. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) if you need help. 
+    > An SSH key is more secure. Read [How to create and use SSH keys](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) if you need help. 
   * Specify the username 
   * Paste the SSH key, or enter and confirm the password
 * **Inbound port rules** - If using a public IP address, open port 22 (SSH)
@@ -167,29 +164,31 @@ If you are using Azure Blob storage for your back-end data storage, you should c
 
   ![Azure portal screenshot with annotations for the steps of creating the service endpoint](media/avere-vfxt-service-endpoint.png)
 
-## Gather needed inputs
+## Information needed to create the cluster
 
-You need the following information to create the cluster. 
+After you create the cluster controller, make sure you have the information you need for the next steps. 
 
-If you created the controller node by using the Resource Manager template, you can [get the information from the template output](#finding-template-output). 
+Information needed to connect to the controller: 
 
-Needed to connect to the controller: 
-
-* Controller username and SSH key or password
+* Controller username and SSH key (or password)
 * Controller IP address or other method to connect to the controller VM
 
-Needed for cluster creation: 
+Information needed for the cluster: 
 
 * Resource group name
 * Azure location 
 * Virtual network name
 * Subnet name
-* Cluster node role name
+* Cluster node role name - this name is set when you create the role, described [below](#create-the-cluster-node-access-role)
 * Storage account name if creating a Blob container
 
-You also can find missing information by browsing to the controller VM information page. For example, click **All resources** and search for the controller name, then click the controller name to see the details.
+If you created the controller node by using the Resource Manager template, you can get the information from the [template output](#find-template-output). 
 
-### Finding template output
+If you used the Azure Marketplace image to create the controller, you supplied most of these items directly. 
+
+Find any missing items by browsing to the controller VM information page. For example, click **All resources** and search for the controller name, then click the controller name to see its details.
+
+### Find template output
 
 To find this information from the Resource Manager template output, follow this procedure:
 
@@ -210,7 +209,7 @@ To do the rest of the deployment steps, you need to connect to the cluster contr
 1. The method to connect to your cluster controller depends on your setup.
 
    * If the controller has a public IP address, SSH to the controller's IP as the administrator username you set (for example, ``ssh azureuser@40.117.136.91``).
-   * If the controller does not have a public IP, use an [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) or a VPN connection to your vnet.
+   * If the controller does not have a public IP, use a VPN or [ExpressRoute](https://docs.microsoft.com/azure/expressroute/) connection to your vnet.
 
 1. After logging in to your controller, authenticate by running `az login`. Copy the authentication code supplied in the shell, then use a web browser to load [https://microsoft.com/devicelogin](https://microsoft.com/devicelogin) and authenticate with the Microsoft system. Return to the shell for confirmation.
 
@@ -287,15 +286,18 @@ RESOURCE_GROUP=
 Save the file and exit.
 
 ### Run the script
+
 Run the script by typing the filename you created. (Example: `./create-cloudbacked-cluster-west1`)  
 
-Consider running this command inside a [terminal multiplexer](http://linuxcommand.org/lc3_adv_termmux.php) like `screen` or `tmux` in case you lose your connection.  
+> [!TIP]
+> Consider running this command inside a [terminal multiplexer](http://linuxcommand.org/lc3_adv_termmux.php) like `screen` or `tmux` in case you lose your connection.  
+
 The output also is logged to `~/vfxt.log`.
 
 When the script completes, copy the management IP address, which is needed for cluster administration.
 
 ![Command line output of the script displaying the management IP address near the end](media/avere-vfxt-mgmt-ip.png)
 
-### Next step
+## Next step
 
 Now that the cluster is running and you know its management IP address, you can [connect to the cluster configuration tool](avere-vfxt-cluster-gui.md) to enable support and add storage if needed.
