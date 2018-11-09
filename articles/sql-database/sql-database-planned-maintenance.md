@@ -30,4 +30,4 @@ Any client production application that connects to a cloud database service shou
 
 ## Next steps
 * Learn more about [Resource Health](sql-database-resource-health.md) for SQL Database
-* For more information about retry logic, see [Retry logic for transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors
+* For more information about retry logic, see [Retry logic for transient errors](sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
