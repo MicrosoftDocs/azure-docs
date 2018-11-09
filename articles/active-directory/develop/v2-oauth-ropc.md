@@ -7,14 +7,13 @@ author: CelesteDG
 manager: mtillman
 editor: ''
 
-ms.assetid: 7abdf119-8200-45d7-9f40-940d612c01f7
 ms.service: active-directory
 ms.component: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/5/2018
+ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
@@ -22,31 +21,26 @@ ms.custom: aaddev
 
 # Azure Active Directory v2.0 and the OAuth 2.0 resource owner password credential
 
-Azure AD supports the [resource owner password credential grant](https://tools.ietf.org/html/rfc6749#section-4.3) (ROPC), which allows an application to sign in the user by directly handling their password.  Because this flow requires a high degree of trust and user exposure, the ROPC flow should only be used when the other, more secure flows, cannot be used.
+Azure Active Directory (Azure AD) supports the [resource owner password credential (ROPC) grant](https://tools.ietf.org/html/rfc6749#section-4.3), which allows an application to sign in the user by directly handling their password. The ROPC flow requires a high degree of trust and user exposure and developers should only be used when the other, more secure, flows can't be used.
 
 > [!Important]
-> The v2.0 endpoint only supports ROPC for Azure AD tenants, not personal accounts.  This means that you must use a tenanted endpoint or the organizations endpoint.  
+> The v2.0 endpoint only supports ROPC for Azure AD tenants, not personal accounts. This means that you must use a tenanted endpoint or the organization's endpoint.
 >
-> Personal accounts that are invited to an Azure AD tenant cannot use ROPC.
+> Personal accounts that are invited to an Azure AD tenant can't use ROPC.
 >
-> Accounts that don't have passwords cannot sign in via ROPC - for this reason, we encourage your app to use a different flow instead.
+> Accounts that don't have passwords can't sign in through ROPC - for this reason, we encourage that you use a different flow for your app instead.
 >
-> If a user would have to perform MFA to log in to the application, they will be blocked instead.
-
-
-> [!NOTE]
-> The v2.0 endpoint doesn't support all Azure Active Directory scenarios and features. To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
->
+> If users need to use multi-factor authentication (MFA) to log in to the application, they will be blocked instead.
 
 ## Protocol diagram
 
-The ROPC flow looks similar to the next diagram.
+The following diagram shows the ROPC flow.
 
 ![ROPC flow](media/v2-oauth2-ropc/v2-oauth-ropc.png)
 
 ## Authorization request
 
-The ROPC flow is a single request - sending the client identification and user's credentials to the IDP, and receiving tokens back.  The client must request the user's email address (UPN) and password before doing so.  Immediately after a succesful request, the client should securely release the user's credentials from memory.  It must never save them.
+The ROPC flow is a single request: sending the client identification and user's credentials to the IDP, and then receiving tokens back. The client must request the user's email address (UPN) and password before doing so. Immediately after a successful request, the client should securely release the user's credentials from memory. It must never save them.
 
 ```
 // Line breaks and spaces are for legibility only.
@@ -63,13 +57,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 | Parameter | Condition | Description |
 | --- | --- | --- |
-| tenant |Required |The directory tenant that you want to log the user into. This can be in GUID or friendly name format, and cannot be `common` or `consumers` but may be `organizations`.  |
-| grant_type |Required | Must be `password`.  |
-|username| Required| The user's email address. |
-|password| Required| The user's password.  |
-| scope | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md) that the app requires.  These must be consented to ahead of time, either by an admin or by the user in an interactive flow. |
+| `tenant` |Required | The directory tenant that you want to log the user into. This can be in GUID or friendly name format, and cannot be `common` or `consumers` but may be `organizations`. |
+| `grant_type` | Required | Must be set to `password`. |
+| `username` | Required | The user's email address. |
+| `password` | Required | The user's password. |
+| `scope` | Recommended | A space-separated list of [scopes](v2-permissions-and-consent.md) that the app requires. These must be consented to ahead of time either by an admin or by the user in an interactive flow. |
 
-### Succesful authentication response
+### Successful authentication response
 
 A successful token response will look like:
 
@@ -86,19 +80,23 @@ A successful token response will look like:
 
 | Parameter | Format | Description |
 | --------- | ------ | ----------- |
-|`token_type` | String| Always "Bearer. |
-|`scope` | Space seperated strings | If an access token was returned, this lists the scopes the access token is valid for. |
-|`expires_in`| int | Number of seconds before the included access token is valid for. |
-|`access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested.  |
-|`id_token`   | JWT | Issued if the original `scope` parameter included the `openid` scope.  |
-|`refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`.  |
+| `token_type` | String | Always set to `Bearer`. |
+| `scope` | Space separated strings | If an access token was returned, this parameter lists the scopes the access token is valid for. |
+| `expires_in`| int | Number of seconds that the included access token is valid for. |
+| `access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested. |
+| `id_token` | JWT | Issued if the original `scope` parameter included the `openid` scope. |
+| `refresh_token` | Opaque string | Issued if the original `scope` parameter included `offline_access`. |
 
-The refresh token can be used to acquire new access tokens and refresh tokens using the same flow detailed in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+You can use the refresh to acquire new access tokens and refresh tokens using the same flow described in the [OAuth Code flow documentation](v2-oauth2-auth-code-flow.md#refresh-the-access-token).
 
 ### Error response
 
-If the user has not provided the correct username or password, or the client has not recieved the consent requested, the authentication will fail.
+If the user hasn't provided the correct username or password, or the client hasn't received the requested consent, authentication will fail.
 
-| Error | Description | Client Action |
+| Error | Description | Client action |
 |------ | ----------- | -------------|
-| `invalid_grant` | The authentication failed. | The credentials were incorrect or the client does not have consent for the requested scopes.  If the scopes are not granted, a suberror will be returned - `consent_required`.  If this occurs, the client should send the user to an interactive prompt using a webview or browser.|
+| `invalid_grant` | The authentication failed. | The credentials were incorrect or the client doesn't have consent for the requested scopes. If the scopes aren't granted, a `consent_required` suberror will be returned. If this occurs, the client should send the user to an interactive prompt using a webview or browser.|
+
+## Learn more
+
+* To determine whether you should use the v2.0 endpoint, read about [v2.0 limitations](active-directory-v2-limitations.md).
