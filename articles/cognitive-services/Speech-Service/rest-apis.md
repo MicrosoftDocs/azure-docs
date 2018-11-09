@@ -1,13 +1,14 @@
 ---
-title: Speech Service REST APIs
-description: Reference for REST APIs for the Speech Service.
+title: Speech Service REST APIs - Speech Service
+titleSuffix: Azure Cognitive Services
+description: REST API reference and how-to documentation for the Azure Speech Service.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/09/2018
 ms.author: erhopf
 ---
 
