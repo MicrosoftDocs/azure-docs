@@ -22,7 +22,7 @@
     - name: Azure portal
       href: tutorial-design-database-using-portal.md
     - name: Azure CLI
-      href: tutorial-design-database-using-cli.md
+      href: tutorial-design-database-cli.md
 - name: Concepts
   items:
   - name: DB & Servers
