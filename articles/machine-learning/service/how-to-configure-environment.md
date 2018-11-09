@@ -130,14 +130,12 @@ When using a local computer (which might also be a remote virtual machine), use 
     conda install <new package>
     ```
 
-1. To verify that the SDK is installed, use the `python` command to start a new interactive Python session. Then use the following code to load the SDK and display the version information.
+1. To verify that the SDK is installed, the following Python code:
 
     ```python
     import azureml.core
     azureml.core.VERSION
     ```
-
-    To exit the Python session, enter `exit()`.
 
 ### <a id="jupyter"></a>Jupyter Notebooks
 
