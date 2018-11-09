@@ -33,9 +33,9 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   ```
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
   ```
-  The profileinfo.txt file will contain the private key and the thumbprint for the CA and the Client certificate. Please be sure to use   the thumbprint of the client certificate
-6. Open the profileinfo.txt in Notepad. To get the thumbprint of the client (child) certificate, select the text including and between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-7.	Now switch to vpnconfig.ovpn file you opened in Notepad from step 3. Find the section shown below replace everything between the and "cert" and "/cert"
+  The profileinfo.txt file will contain the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate
+6. Open the profileinfo.txt in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between)"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
+7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below replace everything between "cert" and "/cert".
 
   ```
   # P2S client certificate
@@ -44,7 +44,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   $CLIENTCERTIFICATE
   </cert>
   ```
-8.	Open the profileinfo.txt in Notepad. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
+8.	Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
 9.	Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and "key" and "/key"
 
   ```
@@ -72,7 +72,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 
 ## <a name="linux"></a>Linux clients
 
-1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time
+1. Open a new Terminal session. You can open a new session by pressing 'Ctrl + Alt + t' at the same time.
 2. Enter the following command to install needed components:
 
   ```
@@ -82,16 +82,16 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   ```
 3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal.
 4.	[Export](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway. 
-5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this, and using an OpenSSL on your machine is one. 
+5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using an OpenSSL on your computer is one way.
 
 	```
 	openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
 	```
-The profileinfo.txt file will contain the private key and the thumbprint for the CA and the Client certificate. Please be sure to use the thumbprint of the client certificate
+  The *profileinfo.txt* file will contain the private key and the thumbprint for the CA, and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
-6. Open the profileinfo.txt in a text editor. To get the thumbprint of the client (child) certificate, select the text including and between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
+6. Open *profileinfo.txt* in a text editor. To get the thumbprint of the client (child) certificate, select the text including and between "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
 
-7.	Open the vpnconfig.ovpn file and find the section shown below. Replace everything between the and "cert" and "/cert"
+7.	Open the *vpnconfig.ovpn* file and find the section shown below. Replace everything between the and "cert" and "/cert".
 
 	```
 	# P2S client certificate
@@ -102,7 +102,7 @@ The profileinfo.txt file will contain the private key and the thumbprint for the
 	```
 8.	Open the profileinfo.txt in a text editor. To get the private key, select the text including and between "-----BEGIN PRIVATE KEY-----" and "-----BEGIN PRIVATE KEY-----" and copy it.
 
-9.	Open the vpnconfig.ovpn file in a text editor and find this section. Paste the private key replacing everything between and "key" and "/key"
+9.	Open the vpnconfig.ovpn file in a text editor and find this section. Paste the private key replacing everything between and "key" and "/key".
 
 	```
 	# P2S client root certificate private key
@@ -113,7 +113,7 @@ The profileinfo.txt file will contain the private key and the thumbprint for the
 	```
 
 10. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-11. To connect using the command line, type the following:
+11. To connect using the command line, type the following command:
   
   ```
   Sudo openvpn –config <name and path of your VPN profile file>
@@ -121,7 +121,7 @@ The profileinfo.txt file will contain the private key and the thumbprint for the
 12. To connect using the GUI, go to system settings.
 13. Click **+** to add a new VPN connection.
 14. Under **Add VPN**, pick **Import from file…**
-15. Browse to the profile file and double-click or pick **Open**
+15. Browse to the profile file and double-click or pick **Open**.
 16. Click **Add** on the **Add VPN** window.
   
   ![Import from file](./media/vpn-gateway-howto-openvpn-clients/importfromfile.png)
@@ -129,4 +129,4 @@ The profileinfo.txt file will contain the private key and the thumbprint for the
 
 ## Next steps
 
-If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Please be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
+If you want the VPN clients to be able to access resources in another vnet (production), then follow the instructions on the [VNet-to-VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) article to set up a vnet-to-vnet connection. Be sure to enable BGP on the gateways and the connections, otherwise traffic will not flow.
