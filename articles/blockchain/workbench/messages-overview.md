@@ -16,7 +16,311 @@ manager: femila
 
 In addition to providing a REST API, Azure Blockchain Workbench also provides messaging-based integration. Workbench publishes ledger-centric events via Azure Event Grid, enabling downstream consumers to ingest data or take action based on these events. For those clients that require reliable messaging, Azure Blockchain Workbench delivers messages to an Azure Service Bus endpoint as well.
 
-Developers have also expressed interest in the ability to have external systems communicate initiate transactions to create users, create contracts, and update contracts on a ledger. While this functionality is not currently exposed in public preview, a sample that delivers that capability can be found at [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample).
+## Input APIs
+
+If want to initiate transactions from external systems to create users, create contracts, and update contracts, you can use messaging input APIs to perform transactions on a ledger. See [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample) for a sample that demonstrates input APIs.
+
+The following are the currently available input APIs.
+
+### Create user
+
+Creates a new user.
+
+The request requires the following fields:
+
+| **Name**             | **Description**                                      |
+|----------------------|------------------------------------------------------|
+| requestId            | Client supplied GUID.                                |
+| firstName            | First name of the user.                              |
+| lastName             | Last name of the user.                               |
+| emailAddress         | Email Address of the user.                           |
+| externalId           | Azure AD object ID of the user.                      |
+| connectionId         | The unique identifier for the blockchain connection. |
+| messageSchemaVersion | Messaging Schema Version.                            |
+| messageName          | **CreateUserRequest**                                |
+
+Example:
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bbbb-edba8e44562d",
+    "firstName": "Ali",
+    "lastName": "Alio",
+    "emailAddress": "aa@contoso.com",
+    "externalId": "6a9b7f65-ffff-442f-b3b8-58a35abd1bcd",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateUserRequest"
+}
+```
+
+Blockchain Workbench returns a response with the following fields:
+
+| **Name**              | **Description**                                                                                                             |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
+| requestId             | Client supplied GUID.                                                                                                       |
+| userId                | ID of the user that was created                                                                                             |
+| userChainIdentifier   | Address of the user that was created on the blockchain network. In Ethereum, this would be the user's **on-chain** address. |
+| connectionId          | The unique identifier for the blockchain connection.                                                                        |
+| messageSchemaVersion  | Messaging Schema Version.                                                                                                   |
+| messageName           | **CreateUserUpdate**                                                                                                        |
+| status                | Status of the user creation request.  If successful, value is **Success**. On failure, value is **Failure**.     |
+| additionalInformation | Additional information provided based on the status.                                                            |
+
+Example successful **create user** response from Blockchain Workbench:
+
+``` json
+{ 
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Success", 
+    "additionalInformation": { } 
+} 
+```
+
+If the request was unsuccessful, details about the failure are include in additional information.
+
+``` json
+{
+    "requestId": "e2264523-6147-41fc-bb59-edba8e44562d", 
+    "userId": 15, 
+    "userChainIdentifier": null, 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateUserUpdate", 
+    "status": "Failure", 
+    "additionalInformation": { 
+        "errorCode": 4000, 
+        "errorMessage": "User cannot be provisioned on connection." 
+    }
+}
+```
+
+### Create contract
+
+Creates a new contract.
+
+The request requires the following fields:
+
+| **Name**             | **Description**                                                                                                           |
+|----------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId            | Client supplied GUID.                                                                                                     |
+| userChainIdentifier  | Address of the user that was created on the blockchain network. In Ethereum, this would be the user’s “on chain” address. |
+| applicationName      | Name of the application.                                                                                                  |
+| workflowName         | Name of the workflow.                                                                                                     |
+| parameters           | Parameters input for contract creation.                                                                                   |
+| connectionId         | The unique identifier for the blockchain connection.                                                                      |
+| messageSchemaVersion | Messaging Schema Version.                                                                                                 |
+| messageName          | **CreateContractRequest**                                                                                              |
+
+Example:
+
+``` json
+{ 
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211", 
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398", 
+    "applicationName": "AssetTransfer", 
+    "workflowName": "AssetTransfer", 
+    "parameters": [ 
+        { 
+            "name": "description", 
+            "value": "a 1969 dodge charger" 
+        }, 
+        { 
+            "name": "price", 
+            "value": "12345" 
+        } 
+    ], 
+    "connectionId": 1, 
+    "messageSchemaVersion": "1.0.0", 
+    "messageName": "CreateContractRequest" 
+}
+```
+
+Blockchain Workbench returns a response with the following fields:
+
+| **Name**                 | **Description**                                                                   |
+|--------------------------|-----------------------------------------------------------------------------------|
+| requestId                | Client supplied GUID.                                                             |
+| contractId               | This is the unique identifier for the contract inside Azure Blockchain Workbench. |
+| contractLedgerIdentifier | Address of the contract on the ledger.                                            |
+| connectionId             | The unique identifier for the blockchain connection                               |
+| messageSchemaVersion     | Messaging Schema Version.                                                         |
+| messageName              | **CreateContractUpdate**                                                      |
+| status                   | Status of the contract creation request.  Possible values: **Submitted**, **Committed**, **Failure**.  |
+| additionalInformation    | Additional information provided based on the status.                              |
+
+Example of a submitted **create contract** response from Blockchain Workbench:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Submitted"
+    "additionalInformation": { }
+}
+```
+
+Example of a committed **create contract** response from Blockchain Workbench:
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Committed",
+    "additionalInformation": { }
+}
+```
+
+If the request was unsuccessful, details about the failure are include in additional information.
+
+``` json
+{
+    "requestId": "ce3c429b-a091-4baa-b29b-5b576162b211",
+    "contractId": 55,
+    "contractLedgerIdentifier": null,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract cannot be provisioned on connection."
+    }
+}
+```
+
+### Create contract action
+
+Creates a new contract action.
+
+The request requires the following fields:
+
+| **Name**                 | **Description**                                                                                                           |
+|--------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| requestId                | Client supplied GUID.                                                                                                     |
+| userChainIdentifier      | Address of the user that was created on the blockchain network. In Ethereum, this would be the user’s “on chain” address. |
+| contractLedgerIdentifier | Address of the contract on the ledger.                                                                                    |
+| workflowFunctionName     | Name of the workflow function.                                                                                            |
+| parameters               | Parameters input for contract creation.                                                                                   |
+| connectionId             | The unique identifier for the blockchain connection.                                                                      |
+| messageSchemaVersion     | Messaging Schema Version.                                                                                                 |
+| messageName              | **CreateContractActionRequest**                                               |
+
+Example:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "userChainIdentifier": "0x9a8DDaCa9B7488683A4d62d0817E965E8f248398",
+    "contractLedgerIdentifier": "0xde0B295669a9FD93d5F28D9Ec85E40f4cb697BAe",
+    "workflowFunctionName": "modify",
+    "parameters": [
+        {
+            "name": "description",
+            "value": "a 1969 dodge charger"
+        },
+        {
+            "name": "price",
+            "value": "12345"
+        }
+    ],
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionRequest"
+}
+```
+
+Blockchain Workbench returns a response with the following fields:
+
+| **Name**              | **Description**                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------|
+| requestId             | Client supplied GUID.                                                             |
+| contractId            | This is the unique identifier for the contract inside Azure Blockchain Workbench. |
+| connectionId          | The unique identifier for the blockchain connection                               |
+| messageSchemaVersion  | Messaging Schema Version.                                                         |
+| messageName           | **CreateContractActionUpdate**                                                     |
+| status                | Status of the contract action request. Possible values: **Submitted**, **Committed**, **Failure**.                         |
+| additionalInformation | Additional information provided based on the status.                              |
+
+Example of a submitted **create contract action** response from Blockchain Workbench:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Submitted",
+    "additionalInformation": { }
+}
+```
+
+Example of a committed **create contract action** response from Blockchain Workbench:
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Committed"
+    "additionalInformation": { }
+}
+```
+
+If the request was unsuccessful, details about the failure are include in additional information.
+
+``` json
+{
+    "requestId": "a5530932-9d6b-4eed-8623-441a647741d3",
+    "contractId": 105,
+    "connectionId": 1,
+    "messageSchemaVersion": "1.0.0",
+    "messageName": "CreateContractActionUpdate",
+    "status": "Failure"
+    "additionalInformation": {
+        "errorCode": 4000,
+        "errorMessage": "Contract action cannot be provisioned on connection."
+    }
+}
+```
+
+### Input API error codes and messages
+
+**Error code 4000: Bad request error**
+- Invalid connectionId
+- CreateUserRequest deserialization failed
+- CreateContractRequest deserialization failed
+- CreateContractActionRequest deserialization failed
+- Application {identified by application name} does not exist
+- Application {identified by application name} does not have workflow
+- UserChainIdentifier does not exist
+- Contract {identified by ledger identifier} does not exist
+- Contract {identified by ledger identifier} does not have function {workflow function name}
+- UserChainIdentifier does not exist
+
+**Error code 4090: Conflict error**
+- User already exists
+- Contract already exists
+- Contract action already exists
+
+**Error code 5000: Internal server error**
+- Exception messages
 
 ## Event notifications
 
