@@ -1,6 +1,6 @@
 ---
-title: About the Azure Machine Learning CLI extension
-description: Learn about the machine learning CLI extension for Azure Machine Learning. 
+title: How to use the Azure Machine Learning CLI extension
+description: Learn about the Azure Machine Learning CLI extension for the Azure CLI. The Azure CLI is a cross-platform command-line utility that enables you to work with resources in the Azure cloud. The Machine Learning extension enables you to work with the Azure Machine Learning Service. 
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -12,7 +12,7 @@ author: jpe316
 ms.date: 09/24/2018
 ---
 
-# What is the Azure Machine Learning CLI?
+# How to use the Azure Machine Learning CLI extension
 
 The Azure Machine Learning CLI is an extension to the [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest), a cross-platform command-line interface for the Azure platform. This extension provides commands for working with the Azure Machine Learning service from the command line. It allows you to create scripts that automate your machine learning workflows. For example, you can create scripts that perform the following actions:
 
@@ -46,7 +46,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 To install the Machine Learning CLI extension, use the following command:
 
 ```azurecli-interactive
-az extension add TBD
+az extension add -s https://azuremlsdktestpypi.blob.core.windows.net/wheels/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1/azure_cli_ml-0.1.68-py2.py3-none-any.whl --pip-extra-index-urls  https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1
 ```
 
 When prompted, select `y` to install the extension.
@@ -94,11 +94,29 @@ The following commands demonstrate how to use the CLI to manage resources used b
 
 ## Experiments
 
-TBD: commands for submitting/working with experiments
+The following commands demonstrate how to use the CLI to work with experiments:
+
+* Attach a project (run configuration) before submitting an experiment. This enables Azure Machine Learning to keep track of experiment runs:
+
+    ```azurecli-interactive
+    az ml project attach --experiment-name myhistory
+    ```
+
+* Start a run of your experiment. When using this command, specify a compute target. In this example, `local` uses the local computer to train the model using the `train.py` script:
+
+    ```azurecli-interactive
+    az ml run submit -c local train.py
+    ```
+
+* View a list of submitted experiments:
+
+    ```azurecli-interactive
+    az ml history list
+    ```
 
 ## Model registration, image ceation & deployment
 
-TBD: Validate these re: aml compute vs. external
+The following commands demonstrate how to register a trained model, and then deploy it as a production service:
 
 + Register a model with Azure Machine Learning:
 
@@ -117,7 +135,3 @@ TBD: Validate these re: aml compute vs. external
   ```azurecli-interactive
   az ml service create aci -n myaciservice --image-id myimage:1
   ```
-    
-## Next steps
-
-TBD

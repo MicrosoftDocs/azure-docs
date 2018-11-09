@@ -119,14 +119,15 @@
       href: how-to-enable-app-insights.md 
   - name: Manage resource quotas
     href: how-to-manage-quotas.md
+  - name: Use the Machine Learning CLI
+    displayName: cli, command line, command-line
+    href: reference-azure-machine-learning-cli.md
 - name: Reference
   items:    
   - name: Machine learning SDK
     href: http://aka.ms/aml-sdk
   - name: Data prep SDK
-    href: http://aka.ms/data-prep-sdk
-  - name: Machine learning CLI
-    href: reference-azure-machine-learning-cli.md   
+    href: http://aka.ms/data-prep-sdk   
 - name: Resources
   items:  
   - name: Azure roadmap
