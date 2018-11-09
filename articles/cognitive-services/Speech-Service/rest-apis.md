@@ -286,7 +286,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech Service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
 
-This code sample illustrates how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
+This code sample shows how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
