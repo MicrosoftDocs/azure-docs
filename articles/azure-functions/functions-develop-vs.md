@@ -184,7 +184,7 @@ To learn more about using the Azure Functions Core Tools, see [Code and test Azu
 
 Any settings you added in the local.settings.json must be also added to the function app in Azure. These settings are not uploaded automatically when you publish the project.
 
-The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project. 
+The easiest way to upload the required settings to your function app in Azure is to use the **Manage Application Settings...** link that is displayed after you successfully publish your project.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -192,11 +192,13 @@ This displays the **Application Settings** dialog for the function app, where yo
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Local** represents a setting value in the local.settings.json file, and **Remote** is the current setting in the function app in Azure.  Choose **Add setting** to create a new app setting. Use the **Insert value from Local** link to copy a setting value to the **Remote** field. Pending changes are written to the local settings file and the function app when you select **OK**.
+
 You can also manage application settings in one of these other ways:
 
 * [Using the Azure portal](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Using the `--publish-local-settings` publish option in the Azure Functions Core Tools](functions-run-local.md#publish).
-* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Using the Azure CLI](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## Monitoring functions
 
