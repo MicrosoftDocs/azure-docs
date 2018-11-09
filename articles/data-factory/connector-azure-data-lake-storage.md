@@ -32,7 +32,7 @@ Specifically, this connector supports:
 >If you enable the hierarchical namespace, currently there is no interoperability of operations between Blob and ADLS Gen2 APIs. In case you hit the error of "ErrorCode=FilesystemNotFound" with detailed message as "The specified filesystem does not exist.", it's caused by the specified sink file system was created via Blob API instead of ADLS Gen2 API elsewhere. To fix the issue, please specify a new file system with a name that does not exist as the name of a Blob container, and ADF will automatically create that file system during data copy.
 
 >[!NOTE]
->If you enables _"Allow trusted Microsoft services to access this storage account"_ option on Azure Storage firewall settings, using Azure Integration Runtime to connect to Blob storage will fail with forbidden error, as ADF are not treated as trusted Microsoft service. Please use Self-hosted Integration Runtime as connect via instead.
+>If you enables _"Allow trusted Microsoft services to access this storage account"_ option on Azure Storage firewall settings, using Azure Integration Runtime to connect to Data Lake Storage Gen2 will fail with forbidden error, as ADF are not treated as trusted Microsoft service. Please use Self-hosted Integration Runtime as connect via instead.
 
 ## Get started
 
