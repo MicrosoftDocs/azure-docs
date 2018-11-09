@@ -14,16 +14,7 @@ ms.author: alinast
 
 [User-defined functions](./concepts-user-defined-functions.md) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
-In the examples below, `https://yourManagementApiUrl` refers to the URI of the Digital Twins APIs:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management
-```
-
-| Custom Attribute Name | Replace With |
-| --- | --- |
-| *yourInstanceName* | The name of your Azure Digital Twins instance |
-| *yourLocation* | Which server region your instance is hosted on |
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## Client library reference
 
@@ -48,7 +39,7 @@ Valid matcher condition targets:
 The following example matcher will evaluate to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/matchers
+POST yourManagementApiUrl/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -80,12 +71,8 @@ After the matchers have been created, upload the function snippet with the follo
 > - Replace in `userDefinedBoundary` section `SpaceId` and `Machers` Guids.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
-
-| Custom Attribute Name | Replace With |
-| --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
 
 Body:
 
@@ -194,30 +181,25 @@ We need to create a role assignment for the user-defined function to execute und
 1. Query for roles and get the ID of the role you want to assign to the UDF; pass it to **RoleId** below.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/system/roles
+GET yourManagementApiUrl/system/roles
 ```
-
-| Custom Attribute Name | Replace With |
-| --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
 
 2. **ObjectId** will be the UDF ID that was created earlier.
 3. Find the value of **Path** by querying your spaces with `fullpath`.
 4. Copy the returned `spacePaths` value. You will use that below.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/spaces?name=yourSpaceName&includes=fullpath
+GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
 ```
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
 | *yourSpaceName* | The name of the space you wish to use |
 
 4. Now, paste the returned `spacePaths` value into **Path** to create a UDF role assignment.
 
 ```plaintext
-POST https://yourManagementApiUrl/api/v1.0/roleassignments
+POST yourManagementApiUrl/roleassignments
 {
   "RoleId": "yourDesiredRoleIdentifier",
   "ObjectId": "yourUserDefinedFunctionId",
@@ -228,7 +210,6 @@ POST https://yourManagementApiUrl/api/v1.0/roleassignments
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
 | *yourDesiredRoleIdentifier* | The identifier for the desired role |
 | *yourUserDefinedFunctionId* | The ID for the UDF you want to use |
 | *yourAccessControlPath* | The access control path |
