@@ -154,4 +154,4 @@ The Azure template gallery has [examples of using Azure Automation](https://azur
 
 * [Use blob storage for IIS and table storage for events](log-analytics-azure-storage-iis-table.md) to read the logs for Azure services that write diagnostics to table storage or IIS logs written to blob storage.
 * [Enable Solutions](../monitoring/monitoring-solutions.md) to provide insight into the data.
-* [Use search queries](log-analytics-log-search.md) to analyze the data.
+* [Use search queries](log-analytics-queries.md) to analyze the data.

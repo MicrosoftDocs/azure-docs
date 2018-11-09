@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
 
 ---
@@ -58,7 +58,7 @@ To test the steps in this tutorial, you should follow these recommendations:
 **Supported Versions:**
 
 * JIRA Core and Software: 5.2
-* JIRA also supports 6.0 and 7.12. For more details, click [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
+* JIRA also supports 6.0 to 7.12. For more details, click [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md)
 
 ## Scenario description
 
@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Port is optional in case it’s a named URL. These values are received during the configuration of Jira plugin, which is explained later in the tutorial.
 
-5. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into notepad.
+5. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click the copy button to copy **App Federation Metadata Url** and paste it into Notepad.
 
 	![The Certificate download link](./media/jira52microsoft-tutorial/tutorial_metadataurl.png) 
 
