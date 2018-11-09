@@ -146,7 +146,7 @@ Cosmos DB emulator HTTPS certificate is self-signed. For SDK to work with emulat
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
 
-The async Java SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
+The Java Async SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
 
 For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath:
 
