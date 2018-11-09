@@ -1,6 +1,6 @@
 ---
 title: Start using PIM - Azure | Microsoft Docs
-description: Learn how to start using Azure AD Privileged Identity Management (PIM) in the Azure portal.
+description: Learn how to enable and get started using Azure AD Privileged Identity Management (PIM) in the Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.component: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/08/2018
+ms.date: 11/09/2018
 ms.author: rolyon
 ms.custom: pim  
 ---
@@ -19,7 +19,7 @@ ms.custom: pim
 
 With Azure Active Directory (Azure AD) Privileged Identity Management (PIM), you can manage, control, and monitor access within your organization. This scope includes access to Azure resources, Azure AD and other Microsoft online services like Office 365 or Microsoft Intune.
 
-This article tells you how to add the Azure AD PIM app to your Azure portal dashboard.
+This article describes how to enable and get started using PIM.
 
 ## Prerequisites
 
@@ -34,7 +34,7 @@ For more information, see [Subscription requirements to use PIM](subscription-re
 
 If you're the first person to use PIM in your directory, you are automatically assigned the [Security Administrator](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) and [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) roles in the directory. Only privileged role administrators can manage Azure AD directory role assignments of users. In addition, you may choose to run the [security wizard](pim-security-wizard.md) that walks you through the initial discovery and assignment experience.
 
-## Consent to PIM
+## Enable PIM
 
 To start using PIM in your directory, you must first enable PIM.
 
