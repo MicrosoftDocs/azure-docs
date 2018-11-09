@@ -229,6 +229,12 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-face-csharp-sample",
+      "url": "https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {
