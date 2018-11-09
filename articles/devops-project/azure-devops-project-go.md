@@ -85,7 +85,7 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azu
 
 1. Go to the Azure DevOps Projects dashboard.
 
-1. At the top of the dashboard, select **Build Pipelines**.  
+1. At the top, select **Build Pipelines**.  
 	A browser tab displays the build pipeline for your new project.
 
 1. Point to the **Status** field, and then select the ellipsis (...).  
