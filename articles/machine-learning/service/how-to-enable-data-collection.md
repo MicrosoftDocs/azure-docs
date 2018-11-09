@@ -108,11 +108,11 @@ If you already have a service with the dependencies installed in your **environm
 
 1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-   ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+   ![Edit Service](media/how-to-enable-data-collection/EditService.PNG)
 
 1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
-   ![Uncheck Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)
+    [![check Data Collection](media/how-to-enable-data-collection/CheckDataCollection.png)](./media/how-to-enable-data-collection/CheckDataCollection.png#lightbox)
 
    In this window, you can also choose to "Enable Appinsights diagnostics" to track the health of your service.  
 
@@ -129,11 +129,11 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
 
   1. Go to **Deployments** -> **Select service** -> **Edit**.
 
-     ![Edit Service](media/how-to-enable-data-collection/EditService.png)
+    [![Edit Service](media/how-to-enable-data-collection/EditService.PNG)](./media/how-to-enable-data-collection/EditService.PNG#lightbox)
 
   1. In **Advanced Settings**, deselect **Enable Model data collection**. 
 
-     ![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png) 
+    [![Uncheck Data Collection](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
   1. Select **Update** to apply the change.
 
@@ -143,6 +143,84 @@ You can stop collecting data any time. Use Python code or the Azure portal to di
   ## replace <service_name> with the name of the web service
   <service_name>.update(collect_model_data=False)
   ```
+
+## Validate your data and analyze it
+You can choose any tool of your preference to analyze the data collected into your Azure Blob. 
+
+To quickly access the data from your blob:
+1. Sign in to [Azure portal](https://portal.azure.com).
+
+1. Open your workspace.
+1. Click on **Storage**.
+
+    [![Storage](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
+
+1. Follow the path to the output data in the blob with this syntax:
+
+```
+/modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<identifier>/<year>/<month>/<day>/data.csv
+# example: /modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/12/31/data.csv
+```
+
+
+### Analyzing model data through Power BI
+
+1. Download and Open [PowerBi Desktop](http://www.powerbi.com)
+
+1. Select **Get Data** and click on [**Azure Blob Storage**](https://docs.microsoft.com/power-bi/desktop-data-sources).
+
+    [![PBI Blob setup](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
+
+
+1. Add your storage account name and enter your storage key. You can find this information in your blob's **Settings** >> Access keys. 
+
+1. Select the container **modeldata** and click on **Edit**. 
+
+    [![PBI Navigator](media/how-to-enable-data-collection/pbiNavigator.png)](./media/how-to-enable-data-collection/pbiNavigator.png#lightbox)
+
+1. In the query editor, click under “Name” column and add your Storage account 1. Model path into the filter. Note: if you want to only look into files from a specific year or month, just expand the filter path. For example, just look into March data: /modeldata/subscriptionid>/resourcegroupname>/workspacename>/webservicename>/modelname>/modelversion>/identifier>/year>/3
+
+1. Filter the data that is relevant to you based on **Name**. If you stored **predictions** and **inputs** you'll need to do create a query per each.
+
+1. Click on the double arrow aside the **Content** column to combine the files. 
+
+    [![PBI Content](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
+
+1. Click OK and the data will preload.
+
+    [![pbiCombine](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
+
+1. You can now click **Close and Apply** .
+
+1.  If you added inputs and predictions your tables will automatically correlate by **RequestId**.
+
+1. Start building your custom reports on your model data.
+
+
+### Analyzing model data using Databricks
+
+1. Create a [Databricks workspace](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). 
+
+1. Go to your Databricks workspace. 
+
+1. In your databricks workspace select **Upload Data**.
+
+    [![DB upload](media/how-to-enable-data-collection/dbupload.png)](./media/how-to-enable-data-collection/dbupload.png#lightbox)
+
+1. Create New Table and select **Other Data Sources** -> Azure Blob Storage -> Create Table in Notebook.
+
+    [![DB table](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
+
+1. Update the location of  your data. Here is an example:
+
+    ```
+    file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 
+    file_type = "csv"
+    ```
+ 
+    [![DBsetup](media/how-to-enable-data-collection/dbsetup.png)](./media/how-to-enable-data-collection/dbsetup.png#lightbox)
+
+1. Follow the steps on the template in order to view and analyze your data. 
 
 ## Example notebook
 
