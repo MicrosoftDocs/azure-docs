@@ -34,7 +34,7 @@ The access to your Data Box Gateway device is controlled by the use of a device 
 If you forgot your password, then you can change the password. Follow these steps in the local UI to change the device administrator password.
 
 1. In the local web UI, go to **Maintenance > Password change**.
-2. Enter the current password and then the new password. The supplied password must be between 8 and 16 characters. The password must contain 3 of the following: uppercase, lowercase, numeric, and special characters. Confirm the new password.
+2. Enter the current password and then the new password. The supplied password must be between 8 and 16 characters. The password must contain 3 of the following characters: uppercase, lowercase, numeric, and special characters. Confirm the new password.
 
     ![Change password](media/data-box-gateway-manage-access-power-connectivity-mode/change-password-1.png)
 
@@ -49,7 +49,7 @@ The reset workflow does not require the user to recall the old password and is u
     ![Reset password](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-1.png)
 
  
-2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must contain 3 of the following: uppercase, lowercase, numeric, and special characters. Click **Reset**.
+2. Enter the new password and then confirm it. The supplied password must be between 8 and 16 characters. The password must contain 3 of the following characters: uppercase, lowercase, numeric, and special characters. Click **Reset**.
 
     ![Reset password](media/data-box-gateway-manage-access-power-connectivity-mode/reset-password-2.png)
 
@@ -59,7 +59,7 @@ Apart from the default normal mode, your device can also run in partially discon
 
 - **Partially disconnected** – In this mode, the device cannot upload any data to the shares however can be managed via the Azure portal.
 
-    This mode is typically used when on a metered satellite network and the goal is to minimize network bandwidth consumption. Note that minimal network consumption may still occur for device monitoring operations.
+    This mode is typically used when on a metered satellite network and the goal is to minimize network bandwidth consumption. Minimal network consumption may still occur for device monitoring operations.
 
 - **Disconnected** – In this mode, the device is fully disconnected from the cloud and both the cloud uploads and downloads are disabled. The device can only be managed via the local web UI.
 
@@ -79,7 +79,7 @@ To change device mode, follow these steps:
 
 ## Manage power
 
-You can shut down or restart your physical and virtual device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. This will minimize any possibility of data corruption.
+You can shut down or restart your physical and virtual device using the local web UI. We recommend that before you restart, take the shares offline on the host and then the device. This action minimizes any possibility of data corruption.
 
 1. In the local web UI, go to **Maintenance > Power settings**.
 2. Click **Shutdown** or **Restart** depending on what you intend to do.
