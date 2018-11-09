@@ -45,7 +45,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the search box, type **DevOps Project**, and then select **Create**.
 
-   	![The DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
+   	![The Azure DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
 1. Select **.NET**, and then select **Next**.
 
@@ -110,7 +110,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 	The release pipeline contains a *pipeline*, which defines the release process.
 
 1. Under **Artifacts**, select **Drop**.  
-	The build pipeline you examined in the previous steps produces the output that's used for the artifact. 
+	The build pipeline you examined previously produces the output that's used for the artifact. 
 
 1. At the right of the **Drop** icon, select **Continuous deployment trigger**.  
 	This release pipeline has an enabled CD trigger, which executes a deployment every time a new build artifact is available. Optionally, you can disable the trigger so that your deployments require manual execution. 
