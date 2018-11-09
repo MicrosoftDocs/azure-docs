@@ -33,9 +33,9 @@ Start with this list:
 * Check the CPU usage on the host where the app is running. If CPU usage is 90 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
 
 #### Connection throttling
-Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
+Connection throttling can happen because of either [Connection limit on host machine] or [Azure SNAT (PAT) port exhaustion]:
 
-##### <a name="connection-limit-on-host"></a>Connection limit on a host machine
+##### <a name="connection-limit-on-host"></a>Connection limit on host machine
 Some Linux systems, such as Red Hat, have an upper limit on the total number of open files. Sockets in Linux are implemented as files, so this number limits the total number of connections, too.
 Run the following command.
 
