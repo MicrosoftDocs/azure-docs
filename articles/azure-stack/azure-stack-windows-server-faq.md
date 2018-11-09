@@ -18,7 +18,7 @@ ms.reviewer: avishwan
 
 ---
 
-# Windows Server images in the Azure Stack Marketplace FAQ
+# Windows Server in Azure Stack Marketplace FAQ
 
 This article answers some frequently asked questions about Windows Server images in the [Azure Stack Marketplace](azure-stack-marketplace.md).
 
