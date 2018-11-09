@@ -102,11 +102,11 @@ Run the `slmgr /ipk` command. Azure images may not correctly fall back to AVMA, 
 
 ### I have performed all of these steps but my virtual machines are still not activating.
 
-Contact your hardware supplier to validate that the correct BIOS markers were installed.
+Contact your hardware supplier to verify that the correct BIOS markers were installed.
 
 ### What about earlier versions of Windows Server?
 
-AVMA is not supported in earlier versions of Windows Server. You will have to activate the VMs manually.
+Automatic Virtual Machine Activation is not supported in earlier versions of Windows Server. You will have to activate the VMs manually.
 
 ## Next Steps
 
