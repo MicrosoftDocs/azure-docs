@@ -89,7 +89,7 @@ Running secret rotation using the instructions below will remediate these alerts
 5.  Store a back up to the certificates used for rotation in a secure backup location. If your rotation runs and then fails, replace the certificates in the file share with the backup copies before you rerun the rotation. Note, keep backup copies in the secure backup location.
 6.  Create a fileshare you can access from the ERCS VMs. The file share must be  readable and writable for the **CloudAdmin** identity.
 7.  Open a PowerShell ISE console from a computer where you have access to the fileshare. Navigate to your fileshare. 
-8.  Run **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
+8.  Run **[CertDirectoryMaker.ps1](https://www.aka.ms/azssecretrotationhelper)** to create the required directories for your external certificates.
 
 ## Rotating external and internal secrets
 

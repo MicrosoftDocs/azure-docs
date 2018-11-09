@@ -35,13 +35,16 @@ Fundamentally there are 3 ways to authenticate to Key Vault:
 2. **Using Service Principal and Certificate:** The 2nd option is to use a Service Principal and an associated certificate that has access to Key Vault. The onus of rotating the certificate is on the application owner or developer and hence this is not recommended.
 3. **Using Service Principal and Secret:** The 3rd option (not preferred option) is to use a Service Principal and a secret to authenticate to Key Vault.
 
+> [!NOTE]
+> The 3rd option above should not be used as it's hard to auto rotate the bootstrap secret used to authenticate to Key Vault.
+
 Here are some key terms:
 - **Tenant**: A tenant is the organization that owns and manages a specific instance of Microsoft cloud services. It’s most often used in an exact manner to refer to the set of Azure and Office 365 services for an organization.
 - **Vault owner**: A vault owner can create a key vault and gain full access and control over it. The vault owner can also set up auditing to log who accesses secrets and keys. Administrators can control the key lifecycle. They can roll to a new version of the key, back it up, and do related tasks.
 - **Vault consumer**: A vault consumer can perform actions on the assets inside the key vault when the vault owner grants the consumer access. The available actions depend on the permissions granted.
 - **Resource**: A resource is a manageable item that's available through Azure. Some common resources are a virtual machine, storage account, web app, database, and virtual network, but there are many more.
 - **Resource group**: A resource group is a container that holds related resources for an Azure solution. The resource group can include all the resources for the solution, or only those resources that you want to manage as a group. You decide how you want to allocate resources to resource groups, based on what makes the most sense for your organization.
-- **Service Principal** - In order to access resources that are secured by an Azure AD tenant, the entity that requires access must be represented by a security principal. This is true for both users (user principal) and applications (service principal). The security principal defines the access policy and permissions for the user/application in that tenant. This enables core features such as authentication of the user/application during sign-in, and authorization during resource access.
+- **Service Principal** - An Azure service principal is a security identity used by user-created apps, services, and automation tools to access specific Azure resources. Think of it as a 'user identity' (username and password or certificate) with a specific role, and tightly controlled permissions. A service principal should only need to do specific things, unlike a general user identity. It improves security if you only grant it the minimum permissions level needed to perform its management tasks.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD is the Active Directory service for a tenant. Each directory has one or more domains. A directory can have many subscriptions associated with it, but only one tenant. 
 - **Azure tenant ID**: A tenant ID is a unique way to identify an Azure AD instance within an Azure subscription.
 - **Managed identities for Azure resources**: Azure Key Vault provides a way to securely store credentials and other keys and secrets, but your code needs to authenticate to Key Vault to retrieve them. Using a managed identity makes solving this problem simpler by giving Azure services an automatically managed identity in Azure AD. You can use this identity to authenticate to Key Vault or any service that supports Azure AD authentication, without having any credentials in your code. For more information, see the image below and the [managed identities for Azure resources overview](../active-directory/managed-identities-azure-resources/overview.md).
@@ -74,12 +77,7 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 
 ## Next steps
 
-For a getting-started tutorial for an administrator, see [Get started with Azure Key Vault](key-vault-get-started.md).
-
-For more information about usage logging for Key Vault, see [Azure Key Vault logging](key-vault-logging.md).
-
-For more information about using keys and secrets with Azure Key Vault, see [About keys, secrets, and certificates](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
-
+Learn how to [secure your vault](key-vault-secure-your-key-vault.md)
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).

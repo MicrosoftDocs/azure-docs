@@ -13,7 +13,7 @@ ms.author: dineshm
 
 # Tutorial: Access Azure Data Lake Storage Gen2 Preview data with Azure Databricks using Spark
 
-In this tutorial, you learn how to run Spark queries on an Azure Databricks cluster to query data in Azure Data Lake Storage Gen2 Preview capable account.
+In this tutorial, you learn how to run Spark queries on an Azure Databricks cluster to query data in an Azure storage account with Azure Data Lake Storage Gen2 Preview enabled.
 
 > [!div class="checklist"]
 > * Create a Databricks cluster
@@ -27,9 +27,9 @@ This tutorial demonstrates how to consume and query airline flight data, which i
 > [!NOTE]
 > Click on the **Prezipped file** checkbox to select all data fields. The download will be many gigabytes in size, but this amount of data is necessary for analysis.
 
-## Create an Azure Data Lake Storage Gen2 account
+## Create an Azure storage account with analytic capabilities
 
-To begin, create a new [Azure Data Lake Storage Gen2 account](quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
+To begin, create a new [storage account with analytic capabilities](quickstart-create-account.md) and give it a unique name. Then navigate to the storage account to retrieve configuration settings.
 
 1. Under **Settings**, click  **Access keys**.
 2. Click the **Copy** button next to **key1** to copy the key value.
@@ -133,11 +133,12 @@ dbutils.fs.help()
 dbutils.fs.put(source + "/temp/1.txt", "Hello, World!", True)
 dbutils.fs.ls(source + "/temp/parquet/flights")
 ```
-With these code samples, you have explored the hierarchical nature of HDFS using data stored in an Azure Data Lake Storage Gen2 capable account.
+
+With these code samples, you have explored the hierarchical nature of HDFS using data stored in a storage account with Data Lake Storage Gen2 enabled.
 
 ## Query the data
 
-Next, you can begin to query the data you uploaded into Azure Data Lake Storage. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
+Next, you can begin to query the data you uploaded into your storage account. Enter each of the following code blocks into **Cmd 1** and press **Cmd + Enter** to run the Python script.
 
 ### Simple queries
 

@@ -58,9 +58,9 @@ You also can create custom .NET activities to move or process data with your own
 ## Architecture of a sample solution
   The architecture described in this article is for a simple solution. It's also relevant to complex scenarios, such as risk modeling by financial services, image processing and rendering, and genomic analysis.
 
-The diagram illustrates how Data Factory orchestrates data movement and processing. It also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
+The diagram illustrates how Data Factory orchestrates data movement and processing. It also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 The following list provides the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
 

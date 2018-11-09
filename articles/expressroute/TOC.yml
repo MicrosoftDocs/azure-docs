@@ -27,7 +27,7 @@
       href: expressroute-locations-providers.md
     - name: Locations by provider
       href: expressroute-locations.md
-  - name: Virtual network gateways for ExpressRoute
+  - name: About virtual network gateways
     href: expressroute-about-virtual-network-gateways.md
   - name: Prerequisites
     href: expressroute-prerequisites.md
