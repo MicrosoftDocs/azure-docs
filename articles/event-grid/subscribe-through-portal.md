@@ -6,7 +6,7 @@ author: tfitzmac
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
 ---
 
@@ -41,6 +41,16 @@ To create an Event Grid subscription for any of the supported [event sources](ev
 1. Provide additional details about the event subscription, such as the endpoint for handling events and a subscription name.
 
    ![Provide subscription details](./media/subscribe-through-portal/provide-subscription-details.png)
+
+1. To enable dead lettering and customize retry policies, select **Additional Features**.
+
+   ![Select additional features](./media/subscribe-through-portal/select-additional-features.png)
+
+1. Select a container to use for storing events that aren't delivered, and set how retries are sent.
+
+   ![Enable dead lettering and retry](./media/subscribe-through-portal/set-deadletter-retry.png)
+
+1. When done, select **Create**.
 
 ## Create subscription on resource
 
