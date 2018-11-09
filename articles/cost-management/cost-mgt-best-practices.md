@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
@@ -181,10 +181,6 @@ For more information, see [What are Azure Reservations?](../billing/billing-save
 If you already have Windows Server or SQL Server licenses in your on-premises deployments, you can use the Azure Hybrid Benefit program to save in Azure. With the Windows Server benefit, each license covers the cost of the OS (up to two virtual machines), and you only pay for base compute costs. You can use existing SQL Server licenses to save up to 55 percent on vCore-based SQL Database options. options include SQL Server in Azure Virtual Machines and SQL Server Integration Services.
 
 For more information, see [Azure Hybrid Benefit savings calculator](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### Monetary commitment
-
-Customers who sign an Enterprise Agreement can create an up-front monetary commitment to Microsoft. Along with providing a simple way to allocate budgets to cloud resources, monetary commitments enable you to have reduced rates on Azure. Rate reductions can lead to significant cost savings for your organization.
 
 ### Other resources
 
