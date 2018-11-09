@@ -12,6 +12,8 @@ ms.author: iainfou
 
 # Best practices for advanced scheduler features in Azure Kubernetes Service (AKS)
 
+As you manage clusters in Azure Kubernetes Service (AKS), you often need to isolate teams and workloads. The Kubernetes scheduler provides advanced features that let you control which pods can be scheduled on certain nodes, or how multi-pod applications can appropriately distributed across the cluster. 
+
 This best practices article focuses on advanced Kubernetes scheduling features for cluster operators. In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -156,6 +158,12 @@ This example is a more complex deployment than the use of node selectors or node
 
 ## Next steps
 
+This article focused on advanced Kubernetes scheduler features. For more information about cluster operations in AKS, see the following best practices:
+
+* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
+* [Authentication and authorization][aks-best-practices-identity]
+
 <!-- EXTERNAL LINKS -->
 [k8s-taints-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [k8s-node-selector]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
@@ -163,3 +171,6 @@ This example is a more complex deployment than the use of node selectors or node
 [k8s-pod-affinity]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#always-co-located-in-the-same-node
 
 <!-- INTERNAL LINKS -->
+[aks-best-practices-scheduler]: operator-best-practices-scheduler.md
+[aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[aks-best-practices-identity]: operator-best-practices-identity.md

@@ -104,5 +104,5 @@ To implement some of these best practices, see the following articles:
 <!-- INTERNAL LINKS -->
 [aks-kubeadvisor]: kube-advisor-tool.md
 [dev-spaces]: ../dev-spaces/get-started-netcore.md
-[operator-best-practices-isolation]: operator-best-practices-cluster-isolation-resource-management.md
-[resource-quotas]: operator-best-practices-cluster-isolation-resource-management.md#enforce-resource-quotas
+[operator-best-practices-isolation]: operator-best-practices-cluster-isolation.md
+[resource-quotas]: operator-best-practices-scheduler.md#enforce-resource-quotas

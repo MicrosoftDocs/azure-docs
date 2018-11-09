@@ -12,6 +12,8 @@ ms.author: iainfou
 
 # Best practices for basic scheduler features in Azure Kubernetes Service (AKS)
 
+As you manage clusters in Azure Kubernetes Service (AKS), you often need to isolate teams and workloads. The Kubernetes scheduler provides features that let you control the distribution of compute resources, or limit the impact of maintenance events.
+
 This best practices article focuses on basic Kubernetes scheduling features for cluster operators. In this article, you learn how to:
 
 > [!div class="checklist"]
@@ -124,6 +126,12 @@ In an AKS cluster that hosts multiple development teams and applications, it can
 
 ## Next steps
 
+This article focused on basic Kubernetes scheduler features. For more information about cluster operations in AKS, see the following best practices:
+
+* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
+* [Authentication and authorization][aks-best-practices-identity]
+
 <!-- EXTERNAL LINKS -->
 [k8s-resource-quotas]: https://kubernetes.io/docs/concepts/policy/resource-quotas/
 [configure-default-quotas]: https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
@@ -132,3 +140,6 @@ In an AKS cluster that hosts multiple development teams and applications, it can
 
 <!-- INTERNAL LINKS -->
 [resource-limits]: developer-best-practices-resource-management.md#define-pod-resource-requests-and-limits
+[aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-best-practices-identity]: operator-best-practices-identity.md

@@ -10,9 +10,9 @@ ms.date: 11/09/2018
 ms.author: iainfou
 ---
 
-# Best practices to manage authentication and authorization in Azure Kubernetes Service (AKS)
+# Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
 
-As you deploy and maintain clusters in Azure Kubernetes Service (AKS), you need to implement ways to manage access to resources and services. Without these controls, accounts may have access to resources and services they don't need, and it can be hard to track which set of credentials were used to make changes. To help you succeed, there are some best practices you can follow as you design and run AKS clusters.
+As you deploy and maintain clusters in Azure Kubernetes Service (AKS), you need to implement ways to manage access to resources and services. Without these controls, accounts may have access to resources and services they don't need, and it can be hard to track which set of credentials were used to make changes.
 
 This best practices article focuses on how a cluster operator can manage access and identity for AKS clusters. In this article, you learn how to:
 
@@ -42,7 +42,7 @@ To create an AKS cluster that uses Azure AD, see [Integrate Azure Active Directo
 
 ## Use role-based access controls (RBAC)
 
-In Kubernetes, you can provide granular control of access to resources in the cluster. Permissions can defined at the cluster level, or to specific namespaces. You can define what resources can be managed, and with what permissions. These roles are the applied to users or groups with a binding. For more information about *Roles*, *ClusterRoles*, and *Bindings*, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-concepts-identity].
+In Kubernetes, you can provide granular control of access to resources in the cluster. Permissions can be defined at the cluster level, or to specific namespaces. You can define what resources can be managed, and with what permissions. These roles are the applied to users or groups with a binding. For more information about *Roles*, *ClusterRoles*, and *Bindings*, see [Access and identity options for Azure Kubernetes Service (AKS)][aks-concepts-identity].
 
 As an example, you can create a Role that grants full access to resources in the namespace named *finance-app*, as shown in the following example YAML manifest:
 
@@ -89,7 +89,7 @@ Managed identities for Azure resources let you automatically request access to s
 * **The Node Management Identity (NMI) server** is a pod that runs as a DaemonSet on each node in the AKS cluster, and listens for pod requests to Azure services.
 * **The Managed Identity Controller (MIC)** is a central pod with permissions to query the Kubernetes API server and check for an Azure identity mapping that corresponds to a pod.
 
-When pods request access to an Azure service, network rules redirect the traffic to the Node Management Identity (NMI) server. The NMI server identifies pods that request access to Azure services based on their remote address, and queries the Managed Identity Controller (MIC). The MIC checks for Azure identity mappings in the AKS cluster, and the NMI server then requests an access token from Azure Active Directory (AD) based on the pod's identity mapping. Azure AD provides an access to the NMI server, which is returned to the pod. This access token can be used by the pod to then request access to services in Azure.
+When pods request access to an Azure service, network rules redirect the traffic to the Node Management Identity (NMI) server. The NMI server identifies pods that request access to Azure services based on their remote address, and queries the Managed Identity Controller (MIC). The MIC checks for Azure identity mappings in the AKS cluster, and the NMI server then requests an access token from Azure Active Directory (AD) based on the pod's identity mapping. Azure AD provides access to the NMI server, which is returned to the pod. This access token can be used by the pod to then request access to services in Azure.
 
 In the following example, a developer creates a pod that uses a managed identity to request access to an Azure SQL Server instance:
 
@@ -106,10 +106,16 @@ To use pod identities, see [Azure Active Directory identities for Kubernetes app
 
 ## Next steps
 
-This best practices article focused on how to secure your cluster and resources. To implement some of these best practices, see the following articles:
+This best practices article focused on authentication and authorization for your cluster and resources. To implement some of these best practices, see the following articles:
 
 * [Integrate Azure Active Directory with AKS][aks-aad]
 * [Use managed identities for Azure resources with AKS][aad-pod-identity]
+
+For more information about cluster operations in AKS, see the following best practices:
+
+* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
+* [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
 
 <!-- EXTERNAL LINKS -->
 [aad-pod-identity]: https://github.com/Azure/aad-pod-identity
@@ -118,3 +124,6 @@ This best practices article focused on how to secure your cluster and resources.
 [aks-concepts-identity]: concepts-identity.md
 [aks-aad]: aad-integration.md
 [managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md
+[aks-best-practices-scheduler]: operator-best-practices-scheduler.md
+[aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md

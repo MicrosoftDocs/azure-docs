@@ -63,7 +63,7 @@
       - name: Multi-tenancy and cluster isolation
         href: operator-best-practices-cluster-isolation.md
       - name: Basic scheduler features
-        href: operator-best-practices-basic-scheduler.md
+        href: operator-best-practices-scheduler.md
       - name: Advanced scheduler features
         href: operator-best-practices-advanced-scheduler.md
       - name: Authentication and authorization

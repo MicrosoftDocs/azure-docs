@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Best practices for cluster isolation in Azure Kubernetes Service (AKS)
 
-As you manage clusters in Azure Kubernetes Service (AKS), there are a few key areas to consider. How you manage your cluster and application deployments can negatively impact the end-user experience of services that you provide. To help you succeed, there are some best practices you can follow as you design and run AKS clusters.
+As you manage clusters in Azure Kubernetes Service (AKS), you often need to isolate teams and workloads. AKS provides flexibility in how you can run multi-tenant clusters and isolate resources. To maximize your investment in Kubernetes, these multi-tenancy and isolation features should be understood and implemented.
 
 This best practices article focuses on isolation for cluster operators. In this article, you learn how to:
 
@@ -24,10 +24,11 @@ This best practices article focuses on isolation for cluster operators. In this 
 
 Kubernetes provides features that let you logically isolate teams and workloads in the same cluster. The goal should be to provide the least number of privileges, scoped to the resources each team needs. A [Namespace][k8s-namespaces] in Kubernetes creates a logical isolation boundary. Additional kubernetes features and considerations for isolation and multi-tenancy include the following areas:
 
-* **Scheduling** includes the use of resource quotas and pod disruption budgets, or more advanced scheduling features like taints and tolerations, node selectors, and node and pod affinity or anti-affinity.
+* **Scheduling** includes the use of basic features such as resource quotas and pod disruption budgets. For more information about these features, see [Best practices for basic scheduler features in AKS][aks-best-practices-scheduler].
+  * More advanced scheduler features include taints and tolerations, node selectors, and node and pod affinity or anti-affinity. For more information about these features, see [Best practices for advanced scheduler features in AKS][aks-best-practices-advanced-scheduler].
 * **Networking** includes the use of network policies to control the flow of traffic in and out of pods.
-* **Authentication and authorization** include the user of role-based access control (RBAC) and Azure Active Directory (AD) integration, pod identities, and secrets in Azure Key Vault.
-* **Containers include pod security policies, pod security contexts, scanning images and runtimes for vulnerabilities, and App Armor or Seccomp (Secure Computing) to restrict container access to the underlying node.
+* **Authentication and authorization** include the user of role-based access control (RBAC) and Azure Active Directory (AD) integration, pod identities, and secrets in Azure Key Vault. For more information about these features, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
+* **Containers** include pod security policies, pod security contexts, scanning images and runtimes for vulnerabilities, and App Armor or Seccomp (Secure Computing) to restrict container access to the underlying node.
 
 ## Logically isolate clusters
 
@@ -51,7 +52,16 @@ Physically separate clusters usually have a low pod density. As each team or wor
 
 ## Next steps
 
+This article focused on cluster isolation. For more information about cluster operations in AKS, see the following best practices:
+
+* [Basic Kubernetes scheduler features][aks-best-practices-scheduler]
+* [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
+* [Authentication and authorization][aks-best-practices-identity]
+
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
 [k8s-namespaces]: concepts-clusters-workloads.md#namespaces
+[aks-best-practices-scheduler]: operator-best-practices-scheduler.md
+[aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[aks-best-practices-identity]: operator-best-practices-identity.md
