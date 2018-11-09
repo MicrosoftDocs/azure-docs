@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
 
@@ -77,11 +77,11 @@ The [AD DS Connector account](#active-directory-account) is created for reading 
 
 ![Express installation](./media/reference-connect-accounts-permissions/express.png)
 
-The following is a summary of the express installlation wizard pages, the credentials collected, and what they are used for.
+The following is a summary of the express installation wizard pages, the credentials collected, and what they are used for.
 
 | Wizard Page | Credentials Collected | Permissions Required | Used For |
 | --- | --- | --- | --- |
-| N/A |User running the installation wizard |Administrator of the local server |<li>Creates the [ADSync servcie account](#azure-ad-connect-sync-service-account) account that is used as to run the synchronization service. |
+| N/A |User running the installation wizard |Administrator of the local server |<li>Creates the [ADSync service account](#azure-ad-connect-sync-service-account) account that is used as to run the synchronization service. |
 | Connect to Azure AD |Azure AD directory credentials |Global administrator role in Azure AD |<li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the [Azure AD Connector account](#azure-ad-service-account) that is used for on-going sync operations in Azure AD.</li> |
 | Connect to AD DS |On-premises Active Directory credentials |Member of the Enterprise Admins (EA) group in Active Directory |<li>Creates the [AD DS Connector account](#active-directory-account) in Active Directory and grants permissions to it. This created account is used to read and write directory information during synchronization.</li> |
 
@@ -92,7 +92,7 @@ With the custom settings installation, the wizard offers you more choices and op
 
 ### Custom installation wizard summary
 
-The following is a summary of the custom installlation wizard pages, the credentials collected, and what they are used for.
+The following is a summary of the custom installation wizard pages, the credentials collected, and what they are used for.
 
 ![Express installation](./media/reference-connect-accounts-permissions/customize.png)
 
@@ -108,6 +108,12 @@ The following is a summary of the custom installlation wizard pages, the credent
 | AD FS Service Account page, "Use a domain user account option" |AD user account credentials |Domain user |The AD user account whose credentials are provided is used as the logon account of the AD FS service. |
 
 ### Create the AD DS Connector account
+
+>[!IMPORTANT]
+>A new PowerShell Module named ADSyncConfig.psm1 was introduced with build **1.1.880.0** (released in August 2018) that includes a collection of cmdlets to help you configure the correct Active Directory permissions for the Azure AD DS Connector account.
+>
+>For more information see [Azure AD Connect: Configure AD DS Connector Account Permission](how-to-connect-configure-ad-ds-connector-account.md)
+
 The account you specify on the **Connect your directories** page must be present in Active Directory prior to installation.  Azure AD Connect version 1.1.524.0 and later has the option to let the Azure AD Connect wizard create the **AD DS Connector account** used to connect to Active Directory.  
 
 It must also have the required permissions granted. The installation wizard does not verify the permissions and any issues are only found during synchronization.
@@ -230,7 +236,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 
 |Topic |Link|  
 | --- | --- |
-|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Download Azure AD Connect | [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Install using Express settings | [Express installation of Azure AD Connect](how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|

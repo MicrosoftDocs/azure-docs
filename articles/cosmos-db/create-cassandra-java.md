@@ -31,7 +31,7 @@ Azure Cosmos DB is Microsoft's globally distributed multi-model database service
 
 In addition, you need:
 
-* [Java Development Kit (JDK) 1.7+](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Java Development Kit (JDK) 1.7+](https://aka.ms/azure-jdks)
     * On Ubuntu, run `apt-get install default-jdk` to install the JDK.
     * Be sure to set the JAVA_HOME environment variable to point to the folder where the JDK is installed.
 * [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) a [Maven](http://maven.apache.org/) binary archive
@@ -159,7 +159,7 @@ Now go back to the Azure portal to get your connection string information and co
 
     Line 2 of config.properties should now look similar to 
 
-    `cassandra_host=cosmos-db-quickstarts.cassandra.cosmosdb.azure.com`
+    `cassandra_host=cosmos-db-quickstart.cassandra.cosmosdb.azure.com`
 
 3. Go back to portal and copy the USERNAME value. Past the USERNAME value from the portal over `<cassandra endpoint username>` on line 4.
 

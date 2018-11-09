@@ -126,7 +126,7 @@ To deploy App Service resource provider, follow these steps:
 11. Enter the SQL Server details for the server instance used to host the App Service resource provider databases and then select **Next**. The installer validates the SQL connection properties.
 
     > [!NOTE]
-    > The installer tries to test connectivity to the SQL Server before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might file. You're given a warning and a prompt to continue. If the SQL Server information is correct, continue the deployment.
+    > The installer tries to test connectivity to the SQL Server before proceeding. But, if you're deploying to an existing virtual network, this connectivity test might fail. You're given a warning and a prompt to continue. If the SQL Server information is correct, continue the deployment.
     >
     > From Azure App Service on Azure Stack 1.3 onwards, the installer will check that the SQL Server has database containment enabled at the SQL Server level.  If it is not, you will be prompted with the following exception:
     > ```sql

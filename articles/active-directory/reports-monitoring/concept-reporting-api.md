@@ -30,6 +30,7 @@ This article provides you with a roadmap for accessing the reporting data using 
 
 If you run into issues, see [how to get support for Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-troubleshooting-support-howto).
 
+This article applies to Azure AD Graph API.  For similar info related to Microsoft Graph API, see [directoryAudit resource type](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/directoryaudit).
 
 ## Prerequisites
 

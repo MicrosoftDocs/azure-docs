@@ -1,6 +1,6 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Speech Service SDK Documentation
+title: Speech Service Documentation
 metadata:
   title: Speech Service documentation - Tutorials, quickstarts, API reference - Cognitive Services | Microsoft Docs
   meta.description: |
@@ -113,6 +113,17 @@ sections:
         - href:
         - href:
       - title: Android (ARM32/ARM64)
+        values:
+        - href:
+        - href:
+        - href:
+        - href:
+        - href: quickstart-java-android
+        - href:
+        - href:
+        - href:
+        - href:
+      - title: Android (x86/x64)
         values:
         - href:
         - href:

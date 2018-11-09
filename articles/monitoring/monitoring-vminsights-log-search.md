@@ -1,5 +1,5 @@
 ---
-title: How to Query Logs from Azure Monitor for VMs | Microsoft Docs
+title: How to Query Logs from Azure Monitor for VMs (Preview) | Microsoft Docs
 description: Azure Monitor for VMs solution forwards metrics and log data to Log Analytics and this article describes the records and includes sample queries. 
 services: azure-monitor
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2018
+ms.date: 10/25/2018
 ms.author: magoedte
 ---
 
-# How to query logs from Azure Monitor for VMs
-Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics data store in Azure Monitor.  This data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+# How to query logs from Azure Monitor for VMs (Preview)
+Azure Monitor for VMs collects performance and connection metrics, computer and process inventory data, and health state information and forwards it to the Log Analytics data store in Azure Monitor.  This data is available for [search](../log-analytics/log-analytics-queries.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 ## Map records
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Azure Monitor for VMs Map feature. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 

@@ -71,7 +71,7 @@ and then choose **Add a parallel branch**.
 1. Now, in each parallel branch, add the steps you want. 
 To add another action to a branch, move your pointer under 
 the action where you want to add a sequential action. 
-Choose the  the **plus** (**+**) sign that appears, 
+Choose the **plus** (**+**) sign that appears, 
 and then select **Add an action**.
 
    ![Add sequential action to parallel branch](media/logic-apps-control-flow-branches/add-sequential-action.png)
@@ -211,7 +211,7 @@ structure in your logic app's JSON definition instead, for example:
 
 * For questions, visit the [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 * To submit or vote on features and suggestions, visit the 
-[Azure Logic Apps user feedback site](http://aka.ms/logicapps-wish).
+[Azure Logic Apps user feedback site](https://aka.ms/logicapps-wish).
 
 ## Next steps
 

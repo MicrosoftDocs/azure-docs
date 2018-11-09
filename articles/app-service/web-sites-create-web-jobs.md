@@ -4,7 +4,7 @@ description: Learn how to use WebJobs to run background tasks in Azure App Servi
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
 ---
 
 # Run Background tasks with WebJobs in Azure App Service
@@ -40,7 +40,7 @@ The following table describes the differences between *continuous* and *triggere
 | Supports remote debugging. | Doesn't support remote debugging.|
 
 > [!NOTE]
-> A web app can time out after 20 minutes of inactivity. Only requests to the scm (deployment) site or to the web app's pages in the portal reset the timer. Requests to the actual site don't reset the timer. If your app runs continuous or scheduled WebJobs, enable **Always On** to ensure that the WebJobs run reliably. This feature is available only in the Basic, Standard, and Premium [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+> A web app can time out after 20 minutes of inactivity. Only requests to the actual web app reset the timer. Viewing the app's configuration in the Azure portal or making requests to the advanced tools site (https://<app_name>.scm.azurewebsites.net) don't reset the timer. If your app runs continuous or scheduled WebJobs, enable **Always On** to ensure that the WebJobs run reliably. This feature is available only in the Basic, Standard, and Premium [pricing tiers](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
 ## <a name="acceptablefiles"></a>Supported file types for scripts or programs
 

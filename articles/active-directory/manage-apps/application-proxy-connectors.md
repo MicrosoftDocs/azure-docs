@@ -12,9 +12,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 ---
 
@@ -29,6 +29,7 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 ## Requirements and deployment
 
 To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a Windows Server 2012 R2 or 2016 machine. The connector needs to be able to communicate with the Application Proxy service as well as the on-premises applications that you publish. 
+Application Proxy also requires TLS 1.2 running on the underlying operating system. To change to TLS 1.2, follow the steps in [Enable TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). While the content is for Azure AD Connect, this procedure is the same for all .NET clients.
 
 For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-enable.md).
 
@@ -75,7 +76,7 @@ While connectors will automatically load balance within a connector group, it is
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* This machine had a connection limit of 800. For all other machines we used the default 200 connection limit.
+\* This machine used a custom setting to raise some of the default connection limits beyond .Net recommended settings. We recommend running a test with the default settings before contacting support to get this limit changed for your tenant.
  
 >[!NOTE]
 >There is not much difference in the maximum TPS between 4, 8, and 16 core machines. The main difference between those is in the expected latency.  

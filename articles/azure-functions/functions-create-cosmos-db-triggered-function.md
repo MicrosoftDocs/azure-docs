@@ -55,7 +55,7 @@ Next, you create a function in the new function app.
 
 1. In the search field, type `cosmos` and then choose the **Azure Cosmos DB trigger** template.
 
-1. If prompted, select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 
@@ -103,7 +103,7 @@ Next, you connect to your Azure Cosmos DB account and create the `Items` collect
     | **Collection ID** | Items | The name for the new collection. This must match the name defined in your function binding.  |
     | **Storage capacity** | Fixed (10 GB)|Use the default value. This value is the storage capacity of the database. |
     | **Throughput** |400 RU| Use the default value. If you want to reduce latency, you can scale up the throughput later. |
-    | **[Partition key](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
+    | **[Partition key](../cosmos-db/partition-data.md)** | /category|A partition key that distributes data evenly to each partition. Selecting the correct partition key is important in creating a performant collection. | 
 
 1. Click **OK** to create the Items collection. It may take a short time for the collection to get created.
 

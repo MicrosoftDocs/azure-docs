@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
 
 ---  
@@ -40,21 +40,40 @@ Many partner solutions are deployed on a customer’s subscription by using Reso
 
 To add a globally unique identifier (GUID), you make a single modification to the main template file:
 
-1. Create a GUID (for example, eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [Create a GUID](#create-guids) using the suggested method and [register the GUID](#register-guids-and-offers).
 
 1. Open the Resource Manager template.
 
 1. Add a new resource in the main template file. The resource needs to be in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 
-1. Enter the GUID value after the **pid-** prefix (for example, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Enter the GUID value after the **pid-** prefix (e.g., pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Check the template for any errors.
 
 1. Republish the template in the appropriate repositories.
 
-### Sample template code
+1. [Verify GUID success in the template deployment](#verify-the-guid-deployment).
 
-![Sample template code](media/marketplace-publishers-guide/tracking-sample-code-for-lu-1.PNG)
+### Sample Resource Manager template code
+Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
+The resource needs to be added in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
+```
+// Make sure to modify this sample code with your own inputs where applicable
+
+{ // add this resource to the mainTemplate.json (do not add the entire file)
+    "apiVersion": "2018-02-01",
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
+    "type": "Microsoft.Resources/deployments",
+    "properties": {
+        "mode": "Incremental",
+        "template": {
+            "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "resources": []
+        }
+    }
+} // remove all comments from the file when complete
+```
 
 ## Use the Resource Manager APIs
 
@@ -71,7 +90,7 @@ For this tracking approach, when you design your API calls, include a GUID in th
 > [!Note]
 > The format of the string is important. If the **pid-** prefix isn't included, it's not possible to query the data. Different SDKs track differently. To implement this method, review the support and tracking approach for your preferred Azure SDK. 
 
-### Example: The Python SDK
+#### Example: The Python SDK
 
 For Python, use the **config** attribute. You can only add the attribute to a UserAgent. Here's an example:
 
@@ -96,6 +115,24 @@ When you use the Azure CLI to append your GUID, set the **AZURE_HTTP_USER_AGENT*
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
 
+## Create GUIDs
+
+A GUID is a unique reference number that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. The Azure Storage team has created a [GUID generator form](https://aka.ms/StoragePartners) that will email you a GUID of the correct format and can be reused across the different tracking systems. 
+
+> [!Note]
+> It is highly recommend that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
+
+Create a unique GUID for every offer and distribution channel. If you deploy two solutions by using a template and each one is available in the Azure Marketplace and on GitHub, you need to create four GUIDS:
+
+*	Offer A in Azure Marketplace 
+*	Offer A on GitHub
+*	Offer B in Azure Marketplace 
+*	Offer B on GitHub
+
+Reporting is done by the partner value (Microsoft Partner ID) and the GUID. 
+
+You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
+
 ## Register GUIDs and offers
 
 To include a GUID in our tracking, the GUID must be registered.  
@@ -104,7 +141,7 @@ All registrations for template GUIDs are done via the Azure Marketplace Cloud Pa
 
 After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked. 
 
-1. Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) and get access to the CPP.
+1. Apply to [Azure Marketplace](https://aka.ms/listonazuremarketplace) and get access to the CPP.
 
    * Partners are required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
    * Partners can register multiple GUIDs.
@@ -178,21 +215,6 @@ foreach ($deployment in $deployments){
 
 }
 ```
-
-## Create GUIDs
-
-A GUID is a unique reference number that has 32 hexadecimal digits. To create GUIDs for tracking, you should use a GUID generator. There are multiple [online GUID generators](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) that you can use.
-
-Create a unique GUID for every offer and distribution channel. If you deploy two solutions by using a template and each one is available in the Azure Marketplace and on GitHub, you need to create four GUIDS:
-
-*	Offer A in Azure Marketplace 
-*	Offer A on GitHub
-*	Offer B in Azure Marketplace 
-*	Offer B on GitHub
-
-Reporting is done by the partner value (Microsoft Partner ID) and the GUID. 
-
-You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
 
 ## Notify your customers
 
@@ -271,3 +293,7 @@ Customers can track their usage of individual resources or customer-defined reso
 **Is this tracking methodology similar to the Digital Partner of Record (DPOR)?**
 
 This new method of connecting the deployment and usage to a partner's solution provides a mechanism to link a partner solution to Azure usage. DPOR is intended to associate a consulting (Systems Integrator) or management (Managed Service Provider) partner with a customer's Azure subscription.   
+
+**What's the benefit to using Azure Storage's GUID Generator form?**
+
+Azure Storage's GUID Generator form is guaranteed to generate a GUID of the required format. Additionally, if you are using any of Azure Storage's data plane tracking methods, you can leverage the same GUID for Marketplace control plane tracking. This allows you to leverage a singled unified GUID for Partner attribution without having to maintain separate GUIDS.

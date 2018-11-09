@@ -153,7 +153,7 @@ Open a web browser and navigate to the URL to see the website running in Azure. 
 
 In this part of the tutorial, you learned:
 > [!div class="checklist"]
-> * How to upgrade a Service Fabric Mess app by using Visual Studio
+> * How to upgrade a Service Fabric Mesh app by using Visual Studio
 
 Advance to the next tutorial:
 > [!div class="nextstepaction"]

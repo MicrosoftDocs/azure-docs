@@ -23,11 +23,11 @@ You can purchase and associate Azure Active Directory (Azure AD) Premium with yo
 
 Before you sign up for Active Directory Premium 1 or Premium 2, you must first determine which of your existing subscription or plan to use:
 
-    - Through your existing Azure or Office 365 subscription
+- Through your existing Azure or Office 365 subscription
 
-    - Through your Enterprise Mobility + Security licensing plan
+- Through your Enterprise Mobility + Security licensing plan
 
-    - Through a Microsoft Volume Licensing plan
+- Through a Microsoft Volume Licensing plan
 
 Signing up using your Azure subscription with previously purchased and activated Azure AD licenses, automatically activates the licenses in the same directory. If that's not the case, you must still activate your license plan and your Azure AD access. For more information about activating your license plan, see [Activate your new license plan](#activate-your-new-license-plan). For more information about activating your Azure AD access, see [Activate your Azure AD access](#activate-your-azure-ad-access). 
 
@@ -39,20 +39,20 @@ Enterprise Mobility + Security is suite, comprised of Azure AD Premium, Azure In
 
 For more information about EMS, see [Enterprise Mobility + Security web site](https://www.microsoft.com/cloud-platform/enterprise-mobility-security).
 
-    - Try out EMS with a free [Enterprise Mobility + Security E5 trial subscription](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
+- Try out EMS with a free [Enterprise Mobility + Security E5 trial subscription](https://signup.microsoft.com/Signup?OfferId=87dd2714-d452-48a0-a809-d2f58c4f68b7&ali=1)
 
-    - Purchase [Enterprise Mobility + Security E5 licenses](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
+- Purchase [Enterprise Mobility + Security E5 licenses](https://signup.microsoft.com/Signup?OfferId=e6de2192-536a-4dc3-afdc-9e2602b6c790&ali=1)
 
-    - Purchase [Enterprise Mobility + Security E3 licenses](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
+- Purchase [Enterprise Mobility + Security E3 licenses](https://signup.microsoft.com/Signup?OfferId=4BBA281F-95E8-4136-8B0F-037D6062F54C&ali=1)
 
 ## Sign up using your Microsoft Volume Licensing plan
 Through your Microsoft Volume Licensing plan, you can sign up for Azure AD Premium using one of these two programs, based on the number of licenses you want to get:
 
-    - **For 250 or more licenses.** [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
+- **For 250 or more licenses.** [Microsoft Enterprise Agreement](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise.aspx)
 
-    - **For 5 to 250 licenses.** [Open** Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
+- **For 5 to 250 licenses.** [Open Volume License](https://www.microsoft.com/en-us/licensing/licensing-programs/open-license.aspx)
 
-    For more information about volume licensing purchase options, see [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
+For more information about volume licensing purchase options, see [How to purchase through Volume Licensing](https://www.microsoft.com/en-us/licensing/how-to-buy/how-to-buy.aspx).
 
 ## Activate your new license plan
 If you signed up using a new Azure AD license plan, you must activate it for your organization, using the confirmation email sent after purchase.

@@ -1,11 +1,11 @@
 ---
-title: Manage the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
-description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site RecoveryS.
+title: Manage the configuration server for VMware and physical server disaster recovery with Azure Site Recovery | Microsoft Docs
+description: This article describes how to manage an existing configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 10/10/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
 ---
 
@@ -133,7 +133,10 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Links to update rollups for upgrading to all versions of the configuration server are available in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
+
+> [!IMPORTANT]
+> With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.
 
 Upgrade the server as follows:
 

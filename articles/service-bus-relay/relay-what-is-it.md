@@ -79,10 +79,9 @@ The following diagram shows you how incoming relay requests are handled by the A
 4. The gateway that receives the request looks up for the relay in the gateway store. 
 5. The gateway forwards the connection request to the right gateway mentioned in the gateway store. 
 6. The gateway sends a request to the listening client for it to create a temporary channel to the gateway node that's closest to the sending client. 
-7. Now, the listening client creates a temporary channel and sends a response message to the gateway that's closest to the sending client.
-8. The gateway forwards the response message to the sending client. 
-
-When the relay connection is established, the clients can exchange messages via the gateway node that is used for the rendezvous.
+7. The listening client creates a temporary channel to the gateway that's closest to the sending client. Now that the connection is established between clients via a gateway, the clients can exchange messages with each other. 
+8. The gateway forwards any messages form the listening client to the sending client. 
+9. The gateway forwards any messages from the sending client to the listening client.  
 
 ## Next steps
 * [Get started with .NET Websockets](relay-hybrid-connections-dotnet-get-started.md)

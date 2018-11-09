@@ -79,7 +79,7 @@ Add the following cell definition to the grid in the page content:
           </Cell>
 ```
 
-## Test the fly-out
+## Test the flyout
 
 If the web UI is not already running locally, run the following command in the root of your local copy of the repository:
 

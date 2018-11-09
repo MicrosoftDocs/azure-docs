@@ -4,7 +4,7 @@ description: Use the Azure CLI script to publish an asset.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: 
 
 ms.assetid:
@@ -13,7 +13,7 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ---
 

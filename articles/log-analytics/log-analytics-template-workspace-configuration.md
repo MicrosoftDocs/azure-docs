@@ -174,7 +174,7 @@ The following template sample illustrates how to:
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
       }
     },
     "location": {
@@ -514,9 +514,9 @@ The Azure quickstart template gallery includes several templates for Log Analyti
 * [Deploy a virtual machine running Linux with the Log Analytics VM extension](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Monitor Azure Site Recovery using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Monitor Azure Web Apps using an existing Log Analytics workspace](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Add an existing storage account to OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [Add an existing storage account to Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## Next steps
-* [Deploy Windows agent to Azure VMs using Resource Manager template](../virtual-machines/windows/extensions-oms.md).
-* [Deploy Linux agent to Azure VMs using Resource Manager template](../virtual-machines/linux/extensions-oms.md).
+* [Deploy Windows agent to Azure VMs using Resource Manager template](../virtual-machines/extensions/oms-windows.md).
+* [Deploy Linux agent to Azure VMs using Resource Manager template](../virtual-machines/extensions/oms-linux.md).
 

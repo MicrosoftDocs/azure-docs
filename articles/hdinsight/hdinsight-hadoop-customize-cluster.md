@@ -2,12 +2,12 @@
 title: Customize HDInsight Clusters using script actions - Azure 
 description: Learn how to customize HDInsight clusters using Script Action.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/05/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 ---
 # Customize Windows-based HDInsight clusters using Script Action
@@ -293,7 +293,7 @@ The following sample demonstrates how to install Spark on Windows based HDInsigh
 5. Press **F5** to run the application.
 
 ## Support for open-source software used on HDInsight clusters
-The Microsoft Azure HDInsight service is a flexible platform that enables you to build big-data applications in the cloud by using an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies, as discussed in the **Support Scope** section of the <a href="http://azure.microsoft.com/support/faq/" target="_blank">Azure Support FAQ website</a>. The HDInsight service provides an additional level of support for some of the components, as described below.
+The Microsoft Azure HDInsight service is a flexible platform that enables you to build big-data applications in the cloud by using an ecosystem of open-source technologies formed around Hadoop. Microsoft Azure provides a general level of support for open-source technologies, as discussed in the **Support Scope** section of the <a href="https://azure.microsoft.com/support/faq/" target="_blank">Azure Support FAQ website</a>. The HDInsight service provides an additional level of support for some of the components, as described below.
 
 There are two types of open-source components that are available in the HDInsight service:
 

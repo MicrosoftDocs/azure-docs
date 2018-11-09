@@ -127,8 +127,7 @@ Learn more about Kubernetes services at the [Kubernetes services documentation][
 [acs-engine]: https://github.com/Azure/acs-engine
 
 <!-- LINKS - Internal -->
-[advanced-networking]: networking-overview.md
-[deploy-advanced-networking]: networking-overview.md#configure-networking---cli
+[advanced-networking]: configure-advanced-networking.md
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [azure-lb-comparison]: ../load-balancer/load-balancer-overview.md#skus

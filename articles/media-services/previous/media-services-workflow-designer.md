@@ -4,7 +4,7 @@ description: Learn about how to create advanced encoding workflows with Workflow
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako;johndeu;anilmur
 
 ---

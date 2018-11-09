@@ -1,7 +1,6 @@
 ---
-title: Azure Site Recovery deployment planner for VMware-to-Azure| Microsoft Docs
-description: his article describes the mode of runnign Azure Site Recovery deployment planner for VMware to Azure scenario.
-services: site-recovery
+title: Run the Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure| Microsoft Docs
+description: This article describes how to run Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
@@ -10,7 +9,7 @@ ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---
-# Run Azure Site Recovery deployment planner for VMware to Azure
+# Run the Azure Site Recovery Deployment Planner for VMware disaster recovery to Azure
 This article is the Azure Site Recovery Deployment Planner user guide for VMware-to-Azure production deployments.
 
 
