@@ -13,9 +13,9 @@ ms.author: erhopf
 
 # Speech Service REST APIs
 
-In addition to the [Speech SDK](speech-sdk.md), the Speech Service enables you to convert speech-to-text and text-to-speech via a set REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
+In addition to the [Speech SDK](speech-sdk.md), the Speech Service enables you to convert speech-to-text and text-to-speech with a set of REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
 
-Before using the REST APIs, please consider:
+Before using the REST APIs, understand:
 * The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
 * The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For additional details, see [Authorization]().
@@ -33,7 +33,7 @@ When using the `Ocp-Apim-Subscription-Key` header, you're only required to provi
 
 When using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes.
 
-### How to obtain an access token
+### How to get an access token
 
 To get an access token, you'll need to make a request to the `issueToken` endpoint using the `Ocp-Apim-Subscription-Key` and your subscription key.
 
@@ -41,11 +41,13 @@ These regions and endpoints are supported:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
+Use these samples to create your access token request.
+
 # [HTTP](#tab/http)
 
-The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
+This example is a simple HTTP request to get a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
 
-```
+```http
 POST /sts/v1.0/issueToken HTTP/1.1
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.api.cognitive.microsoft.com
@@ -53,11 +55,11 @@ Content-type: application/x-www-form-urlencoded
 Content-Length: 0
 ```
 
-The body of the response to this request is the access token in Java Web Token (JWT) format.
+The body of the response contains the access token in Java Web Token (JWT) format.
 
 # [Powershell](#tab/powershell)
 
-The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+This example is a simple PowerShell script to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -76,26 +78,19 @@ $OAuthToken
 
 # [cURL](#tab/curl)
 
-The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
-```Powershell
-$FetchTokenHeader = @{
-  'Content-type'='application/x-www-form-urlencoded';
-  'Content-Length'= '0';
-  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
-}
-
-$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
- -Headers $FetchTokenHeader
-
-# show the token received
-$OAuthToken
-
+```curl
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
+ -H "Content-type: application/x-www-form-urlencoded" \
+ -H "Content-Length: 0" \
+ -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
 # [C#](#tab/csharp)
 
-The following C# class illustrates how to obtain an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
+The following C# class illustrates how to obtain an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
 
 ```cs
 /*
@@ -135,100 +130,11 @@ public class Authentication
 ```
 ---
 
-#### Get a token: HTTP
-
-The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
-
-```
-POST /sts/v1.0/issueToken HTTP/1.1
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.api.cognitive.microsoft.com
-Content-type: application/x-www-form-urlencoded
-Content-Length: 0
-```
-
-The body of the response to this request is the access token in Java Web Token (JWT) format.
-
-#### Get a token: PowerShell
-
-The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
-
-```Powershell
-$FetchTokenHeader = @{
-  'Content-type'='application/x-www-form-urlencoded';
-  'Content-Length'= '0';
-  'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
-}
-
-$OAuthToken = Invoke-RestMethod -Method POST -Uri https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken
- -Headers $FetchTokenHeader
-
-# show the token received
-$OAuthToken
-
-```
-
-#### Get a token: cURL
-
-cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
-
-> [!NOTE]
-> The command is shown on multiple lines for readability, but enter it on a single line at a shell prompt.
-
-```
-curl -v -X POST
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
- -H "Content-type: application/x-www-form-urlencoded"
- -H "Content-Length: 0"
- -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
-```
-
-#### Get a token: C#
-
-The following C# class illustrates how to obtain an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
-
-```cs
-/*
-    * This class demonstrates how to get a valid access token.
-    */
-public class Authentication
-{
-    public static readonly string FetchTokenUri =
-        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-    private string subscriptionKey;
-    private string token;
-
-    public Authentication(string subscriptionKey)
-    {
-        this.subscriptionKey = subscriptionKey;
-        this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
-    }
-
-    public string GetAccessToken()
-    {
-        return this.token;
-    }
-
-    private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
-    {
-        using (var client = new HttpClient())
-        {
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-            UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-            return await result.Content.ReadAsStringAsync();
-        }
-    }
-}
-```
-
 ### How to use an access token
 
 The access token should be sent to the service as the `Authorization: Bearer <TOKEN>` header. Each access token is valid for 10 minutes. You can obtain a new token at any time, however, to minimize network traffic and latency, we recommend using the same token for nine minutes.
 
-Here's a sample request to the text-to-speech REST API:
+Here's a sample HTTP request to the text-to-speech REST API:
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
