@@ -249,15 +249,17 @@ For a Batch container task:
 
 * All directories recursively below the `AZ_BATCH_NODE_ROOT_DIR` on the host node (the root of Azure Batch directories) are mapped into the container
 * All task environment variables are mapped into the container
-* The task working directory `AZ_BATCH_TASK_WORKING_DIR` on the node is set the same as for a regular task and mapped into the container. This mapping allows your container tasks to take advantage of Batch features for data input and output. For example, install applications using application packages, access resource files from Azure Storage, and persist task output files after the container stops.
+* The task working directory `AZ_BATCH_TASK_WORKING_DIR` on the node is set the same as for a regular task and mapped into the container. 
+
+These mappings allow you to work with container tasks in much the same way as non-container tasks. For example, install applications using application packages, access resource files from Azure Storage, use task environment settings, and persist task output files after the container stops.
 
 ### Troubleshoot container tasks
 
-If your container tasks don't run as you expect, you might need to get information about the WORKDIR or ENTRYPOINT configuration of a container image. To see the configuration, run the [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) command. 
+If your container task doesn't run as expected, you might need to get information about the WORKDIR or ENTRYPOINT configuration of the container image. To see the configuration, run the [docker image inspect](https://docs.docker.com/engine/reference/commandline/image_inspect/) command. 
 
-If needed, adjust the settings of the container task:
+If needed, adjust the settings of the container task based on the image:
 
-* Specify an absolute path in the task command line. If the image's default ENTRYPOINT is used, ensure that an absolute path is set.
+* Specify an absolute path in the task command line. If the image's default ENTRYPOINT is used for the task command line, ensure that an absolute path is set.
 
 * In the task's container run options, change the working directory to match the WORKDIR in the image. For example, set `--workdir /app`.
 
