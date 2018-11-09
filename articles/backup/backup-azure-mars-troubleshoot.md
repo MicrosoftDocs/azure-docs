@@ -72,7 +72,7 @@ If scheduled backups don't get triggered automatically, while manual backups wor
 
 ## Troubleshoot restore issues
 
-Azure Backup might not succcessfully mount the recovery volume, even after several minutes. You might also receive error messages during the process. To begin recovering normally, follow these steps:
+Azure Backup might not successfully mount the recovery volume, even after several minutes. You might also receive error messages during the process. To begin recovering normally, follow these steps:
 
 1.  Cancel the ongoing mount process, in case it has been running for several minutes.
 
