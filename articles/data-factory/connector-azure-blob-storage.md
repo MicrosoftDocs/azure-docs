@@ -32,6 +32,9 @@ Specifically, this Blob storage connector supports:
 - Copying blobs from block, append, or page blobs and copying data to only block blobs. Azure Premium Storage isn't supported as a sink because it's backed by page blobs.
 - Copying blobs as is or parsing or generating blobs with [supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md).
 
+>[!NOTE]
+>If you enables _"Allow trusted Microsoft services to access this storage account"_ option on Azure Storage firewall settings, using Azure Integration Runtime to connect to Blob storage will fail with forbidden error, as ADF are not treated as trusted Microsoft service. Please use Self-hosted Integration Runtime as connect via instead.
+
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
