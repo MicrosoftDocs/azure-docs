@@ -35,21 +35,21 @@ You can retrieve information from the activity logs through the portal, PowerShe
 ## Portal
 
 1. To view the activity logs through the portal, select **Monitor**.
-   
+
     ![select activity logs](./media/resource-group-audit/select-monitor.png)
 
    Or, to automatically filter the activity log for a particular resource or resource group, select **Activity log**. Notice that the activity log is automatically filtered by the selected resource.
-   
+
     ![filter by resource](./media/resource-group-audit/filtered-by-resource.png)
 2. In the **Activity Log**, you see a summary of recent operations.
-   
+
     ![show actions](./media/resource-group-audit/audit-summary.png)
 3. To restrict the number of operations displayed, select different conditions. For example, the following image shows the **Timespan** and **Event initiated by** fields changed to view the actions taken by a particular user or application for the past month. Select **Apply** to view the results of your query.
-   
+
     ![set filter options](./media/resource-group-audit/set-filter.png)
 
 4. If you need to run the query again later, select **Save** and give the query a name.
-   
+
     ![save query](./media/resource-group-audit/save-query.png)
 5. To quickly run a query, you can select one of the built-in queries, such as failed deployments.
 
@@ -57,7 +57,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
    The selected query automatically sets the required filter values.
 
-    ![view deployment errors](./media/resource-group-audit/view-failed-deployment.png)   
+    ![view deployment errors](./media/resource-group-audit/view-failed-deployment.png)
 
 6. Select one of the operations to see a summary of the event.
 
@@ -70,7 +70,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
   ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
   ```
-   
+
     The following example shows how to use the activity log to research operations taken during a specified time. The start and end dates are specified in a date format.
 
   ```azurepowershell-interactive
@@ -78,8 +78,8 @@ You can retrieve information from the activity logs through the portal, PowerShe
   ```
 
     Or, you can use date functions to specify the date range, such as the last 14 days.
-   
-  ```azurepowershell-interactive 
+
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
@@ -111,7 +111,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
 
 3. You can look up the actions taken by a particular user, even for a resource group that no longer exists.
 
-  ```azurepowershell-interactive 
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
@@ -124,7 +124,7 @@ You can retrieve information from the activity logs through the portal, PowerShe
 5. You can focus on one error by looking at the status message for that entry.
 
   ```azurepowershell-interactive
-        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
   ```
 
     Which returns:
