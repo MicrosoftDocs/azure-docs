@@ -451,11 +451,11 @@ During testing and verification, after the restart of a VM, the SBD device wasn'
 1. Start YaST2.
 2. Select **Network Services** on the left side.
 3. Scroll down on the right side to **iSCSI Initiator** and select it.
-4. On the next screen under the **Service** tab, you should see the unique initiator name for the node.
+4. On the next screen under the **Service** tab, you see the unique initiator name for the node.
 5. Above the initiator name, make sure that the **Service Start** value is set to **When Booting**.
 6. If it's not, then set it to **When Booting** instead of **Manually**.
 7. Next, switch the top tab to **Connected Targets**.
-8. On the **Connected Targets** screen, you should see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+8. On the **Connected Targets** screen, you see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
 9. Check if the **Start-Up** value is set to **on boot**.
 10. If not, choose **Edit** and change it.
 11. Save the changes and exit YaST2.
@@ -654,7 +654,9 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## Failover or takeover
 
-As discussed in the **Important notes** section, you shouldn't use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead, we recommend that you trigger a kernel panic, force a resource migration, or possibly shut down all networks on the OS level of a VM. Another method is the **crm \<node\> standby** command. See the [SUSE document][sles-12-ha-paper]. The following three sample commands can force a cluster failover:
+As discussed in the **Important notes** section, you shouldn't use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead, we recommend that you trigger a kernel panic, force a resource migration, or possibly shut down all networks on the OS level of a VM. Another method is the **crm \<node\> standby** command. See the [SUSE document][sles-12-ha-paper]. 
+
+The following three sample commands can force a cluster failover:
 
 <pre><code>
 echo c &gt /proc/sysrq-trigger
@@ -747,7 +749,7 @@ The procedure for maintenance on the current primary site is more complex:
 6. End the cluster maintenance mode.
 
 
-Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample:
+Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample process:
 
 1. First, force a cluster failover by migrating the MSL resource to the current secondary master node. This command gives a warning that a **move constraint** was created:
 
@@ -818,7 +820,7 @@ Migrating a resource adds an entry to the cluster configuration. An example is f
 
 ## hb_report to collect log files
 
-To analyze Pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all important logfiles that allow the analysis of what happened. This sample call uses a start and end time where a specific incident occurred. Also see the **Important notes** section:
+To analyze Pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all the log files that you need to analyze what happened. This sample call uses a start and end time where a specific incident occurred. Also see the **Important notes** section:
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
@@ -947,29 +949,29 @@ To use the browser interface, replace **\<node\>** with an actual SAP HANA node 
 https://&ltnode&gt:7630
 </code></pre>
 
-The following screenshot shows the cluster dashboard:
+This screenshot shows the cluster dashboard:
 
 
 ![Hawk cluster dashboard](media/hana-vm-scale-out-HA-troubleshooting/hawk-1.png)
 
 
-This example shows the location constraints caused by a cluster resource migration as explained in the **Planned maintenance**:
+This example shows the location constraints caused by a cluster resource migration as explained in the **Planned maintenance** section:
 
 
 ![Hawk list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-You can also upload an **hb_report** output in Hawk under **History**, shown as follows. See the **hb_report to collect log files** section: 
+You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See the **hb_report to collect log files** section: 
 
 ![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-The **History Explorer** then allows going through all the cluster transitions included in the **hb_report** output:
+Then, with the **History Explorer**, you can go through all the cluster transitions included in the **hb_report** output:
 
-![Hawk look at the transitions within the hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
+![Hawk transitions in the hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
-This final screenshot shows the details section of a single transition. The cluster reacted on a primary master node crash, node **hso-hana-vm-s1-0**. It's now promoting the secondary node as the new master, **hso-hana-vm-s2-0**:
+This final screenshot shows the **Details** section of a single transition. The cluster reacted on a primary master node crash, node **hso-hana-vm-s1-0**. It's now promoting the secondary node as the new master, **hso-hana-vm-s2-0**:
 
-![Hawk look at a single transition](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
+![Hawk single transition](media/hana-vm-scale-out-HA-troubleshooting/hawk-5.png)
 
 
 ## Next steps
