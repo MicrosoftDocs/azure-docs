@@ -42,7 +42,7 @@ When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-
 
 ## Cause
 
-The VM has a static IP address that's defined on the network interface within Windows. This IP address differs from the address that's defined in the portal.
+The VM has a static IP address that's defined on the network interface within Windows. This IP address differs from the address that's defined in the Azure portal.
 
 ## Solution 
 
@@ -57,7 +57,7 @@ To troubleshoot this issue, use Serial control to enable DHCP or [reset network 
 2. Check if the DHCP is disabled on the network interface:
 
         netsh interface ip show config
-3. If the DHCP is not enabled, revert the configuration of your network interface to DHCP 
+3. If the DHCP is disabled, revert the configuration of your network interface to use DHCP:
 
         netsh interface ip set address name="<NIC Name>" source=dhc
         
