@@ -12,7 +12,7 @@ ms.topic: overview
 #Customer intent: As a custom translator user, I want to understand what is Custom Translator, so that I can start using it.
 ---
 
-# What is Custom Translator?
+# What is Custom Translator (Preview)?
 
 [Custom Translator](https://portal.customtranslator.azure.ai) is a feature of the Microsoft Translator service, which enables Translator enterprises, app developers, and language service providers to build customized neural machine translation (NMT) systems. The customized translation systems seamlessly integrate into existing applications, workflows, and websites. [Custom Translator](https://portal.customtranslator.azure.ai/) offers similar capabilities to what [Microsoft Translator Hub](https://hub.microsofttranslator.com/) does for Statistical Machine Translation (SMT), but exclusively for Neural Machine Translation (NMT) systems.
 
@@ -48,20 +48,10 @@ With [Custom Translator](https://portal.customtranslator.azure.ai), training and
 
 Using the secure [Custom Translator](https://portal.customtranslator.azure.ai) portal, users can upload training data, train systems, test systems, and deploy them to a production environment through an intuitive user interface. The system will then be available for use at scale within a few hours (actual time depends on training data size).
 
-[Custom Translator](https://portal.customtranslator.azure.ai) can also be programmatically accessed through a [dedicated API](https://custom-api.cognitive.microsofttranslator.com/swagger/) (currently in preview). The API allows users to manage creating or updating training on a regular basis through their own app or webservice. 
+[Custom Translator](https://portal.customtranslator.azure.ai) can also be programmatically accessed through a [dedicated API](https://custom-api.cognitive.microsofttranslator.com/swagger/) (currently in preview). The API allows users to manage creating or updating training on a regular basis through their own app or webservice.
 
-The cost of using a custom model to translate content is based on the user’s Translator Text API pricing tier.
-
--   The cost of training a custom system is calculated at the rate of one character per character of training material in the source text.
-
--   The cost of hosting a deployed system is 1M characters per month per deployed system.
-
--   The cost of using a deployed customized translation system is the same as
-    the uncustomized system, which is based on the user’s Translator
-    Text API pricing tier. 
-
-See the Cognitive Services [Translator Text API pricing webpage](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
-for pricing tier details. 
+The cost of using a custom model to translate content is based on the user’s Translator Text API pricing tier. See the Cognitive Services [Translator Text API pricing webpage](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+for pricing tier details.
 
 ## Securely translate anytime, anywhere on all your apps and services
 

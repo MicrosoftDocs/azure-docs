@@ -74,10 +74,15 @@ To request a deployment:
 
     ![Deploy model](media/how-to/how-to-deploy-model.png)
 
-3.  Click on Deploy. You can view the status of your model in the “Status” column.
+3.  Click on Deploy.
+4.  Select the region(s) where you want your model to be deployed, and click Save. You can select multiple regions.
+
+    ![Deploy model](media/how-to/how-to-deploy-model-regions.png)
+
+5.  You can view the status of your model in the “Status” column.
 
 >[!Note]
->If a model is deployed already, you'll see “Undeploy” button for that model. To undeploy a model click "Undeploy" button.
+>If a model is already deployed, you'll see an "Undeploy" button for that model. To undeploy a model click "Undeploy".
 
 ## Next steps
 
