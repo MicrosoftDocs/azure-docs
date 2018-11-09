@@ -18,7 +18,7 @@ Azure DevOps Projects presents a simplified experience where you bring your exis
 
 DevOps Projects also:
 * Automatically creates Azure resources, such as an Azure SQL database instance.
-* Creates and configures a release pipeline in Azure DevOps that includes a build pipeline for CI.
+* Creates and configures a release pipeline in Azure Pipelines that includes a build pipeline for CI.
 * Sets up a release pipeline for CD. 
 * Creates an Azure Application Insights resource for monitoring.
 
@@ -29,7 +29,7 @@ In this tutorial, you will:
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
-> * Commit changes to Azure DevOps and automatically deploy them to Azure
+> * Commit changes to Azure Repos and automatically deploy them to Azure
 > * Connect to the Azure SQL database instance 
 > * Clean up your resources
 
@@ -140,7 +140,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 1. Select **Logs**.  
 	The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
-## Commit changes to Azure DevOps and automatically deploy them to Azure 
+## Commit changes to Azure Repos and automatically deploy them to Azure 
 
  > [!NOTE]
  > The following procedure tests the CI/CD pipeline with a simple text change. To test the SQL deployment process, you can optionally make a SQL Server schema change to the table.
@@ -203,7 +203,7 @@ You can optionally modify these build and release pipelines to meet the needs of
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
-> * Commit changes to Azure DevOps and automatically deploy them to Azure
+> * Commit changes to Azure Repos and automatically deploy them to Azure
 > * Connect to the Azure SQL Server Database 
 > * Clean up your resources
 
