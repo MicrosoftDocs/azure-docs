@@ -9,7 +9,7 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/07/2018
+ms.date: 11/09/2018
 ms.author: jingwang
 
 ---
@@ -30,6 +30,9 @@ Specifically, this connector supports:
 
 >[!TIP]
 >If you enable the hierarchical namespace, currently there is no interoperability of operations between Blob and ADLS Gen2 APIs. In case you hit the error of "ErrorCode=FilesystemNotFound" with detailed message as "The specified filesystem does not exist.", it's caused by the specified sink file system was created via Blob API instead of ADLS Gen2 API elsewhere. To fix the issue, please specify a new file system with a name that does not exist as the name of a Blob container, and ADF will automatically create that file system during data copy.
+
+>[!NOTE]
+>If you enables _"Allow trusted Microsoft services to access this storage account"_ option on Azure Storage firewall settings, using Azure Integration Runtime to connect to Data Lake Storage Gen2 will fail with forbidden error, as ADF are not treated as trusted Microsoft service. Please use Self-hosted Integration Runtime as connect via instead.
 
 ## Get started
 
@@ -80,7 +83,7 @@ For a full list of sections and properties available for defining datasets, see 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to **AzureBlobFSFile**. |Yes |
-| folderPath | Path to the folder in the Data Lake Storage Gen2. Wildcard filter is not supported. Example: rootfolder/subfolder/. |Yes |
+| folderPath | Path to the folder in the Data Lake Storage Gen2. Wildcard filter is not supported. If not specified, it points to the root. Example: rootfolder/subfolder/. |No |
 | fileName | **Name or wildcard filter** for the file(s) under the specified "folderPath". If you don't specify a value for this property, the dataset points to all files in the folder. <br/><br/>For filter, allowed wildcards are: `*` (matches zero or more characters) and `?` (matches zero or single character).<br/>- Example 1: `"fileName": "*.csv"`<br/>- Example 2: `"fileName": "???20180427.txt"`<br/>Use `^` to escape if your actual file name has wildcard or this escape char inside.<br/><br/>When fileName isn't specified for an output dataset and **preserveHierarchy** isn't specified in the activity sink, the copy activity automatically generates the file name with the following pattern: "*Data.[activity run id GUID].[GUID if FlattenHierarchy].[format if configured].[compression if configured]*". An example is "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz". |No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs.md#text-format), [JSON format](supported-file-formats-and-compression-codecs.md#json-format), [Avro format](supported-file-formats-and-compression-codecs.md#avro-format), [Orc format](supported-file-formats-and-compression-codecs.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs.md#parquet-format) sections. |No (only for binary copy scenario) |
 | compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
