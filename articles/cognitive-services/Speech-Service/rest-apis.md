@@ -18,9 +18,9 @@ In addition to the [Speech SDK](speech-sdk.md), the Speech Service enables you t
 Before using the REST APIs, understand:
 * The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
-* The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For more information, see [Authorization](#authorization).
+* The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For more information, see [Authentication](#authentication).
 
-## Authorization
+## Authentication
 
 Each request to either the speech-to-text or text-to-speech REST API requires an authorization header. This table illustrates which headers are supported for each service:
 
@@ -264,7 +264,7 @@ This table lists required and optional headers for speech-to-text requests.
 |Header| Description | Required / Optional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Your Speech Service subscription key. | Either this header or `Authorization` is required. |
-| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authorization](#authorization). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authentication](#authentication). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codec=audio/pcm; samplerate=16000` and `audio/ogg; codec=audio/pcm; samplerate=16000`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
 | `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech Service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
@@ -441,7 +441,7 @@ This table lists required and optional headers for speech-to-text requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
-| `Authorization` | An authorization token preceded by the word `Bearer`. For additional information, see [Authorization](#authorization). | Required |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For additional information, see [Authentication](#authentication). | Required |
 | `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
 | `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [audio outputs](#audio-outputs). | Required |
 | `User-Agent` | The application name. It must be less than 255 characters. | Required |
@@ -466,7 +466,7 @@ The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both
 
 ### Request body
 
-The text to be converted to speech is sent as the body of an HTTP `POST` request in either plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format (UTF-8). Plain text requests use the service's default voice and language. Send SSML to use a different voice.
+The text to be converted to speech is sent as the body of an HTTP `POST` request. It can be sent as plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format (UTF-8). Plain text requests use the Speech Service's default voice and language. With SSML you can specify the voice and language.
 
 ### Sample request
 
