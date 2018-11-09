@@ -70,7 +70,7 @@ You can add **licenseType: Windows_Server** in an Azure Resource Manager templat
 To activate a Windows Server virtual machine on Azure Stack, the following conditions must be true:
 
 1. The OEM has set the appropriate BIOS marker on every host system in Azure Stack.
-2. Windows Server 2012 R2 and Windows Server 2016 must use [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11). Key Management Service (KMS) and other activation services are not supported on Azure Stack.
+2. Windows Server 2012 R2 and Windows Server 2016 must use [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Key Management Service (KMS) and other activation services are not supported on Azure Stack.
 
 ### How can I verify that my virtual machine is activated?
 
@@ -90,7 +90,7 @@ Run the following command from an elevated command prompt:
 slmgr /ipk <AVMA key> 
 ```
 
-See the article [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11) for the keys to use for your image.
+See the article [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) for the keys to use for your image.
 
 ### I create my own Windows Server images, how can I make sure they use AVMA?
 
