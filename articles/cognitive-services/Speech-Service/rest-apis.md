@@ -18,9 +18,9 @@ In addition to the [Speech SDK](speech-sdk.md), the Speech Service enables you t
 Before using the REST APIs, understand:
 * The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
-* The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For additional details, see [Authorization]().
+* The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For more information, see [Authorization](#authorization).
 
-## Authentication
+## Authorization
 
 Each request to either the speech-to-text or text-to-speech REST API requires an authorization header. This table illustrates which headers are supported for each service:
 
@@ -161,8 +161,8 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
 
 ```cs
 /*
-    * This class demonstrates how to maintain a valid access token.
-    */
+    This class demonstrates how to maintain a valid access token.
+*/
 public class Authentication
 {
     public static readonly string FetchTokenUri =
@@ -254,17 +254,17 @@ The following parameters may be included in the query string of the REST request
 | Parameter | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
-| `format` | Specifies the result format, `simple` or `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed results include multiple candidates with confidence values and four different representations. The default setting is `simple`. | Optional |
+| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed results include multiple candidates with confidence values and four different representations. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which remove all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
 
 ### Request headers
 
-The following fields are sent in the HTTP request header.
+This table lists required and optional headers for speech-to-text requests.
 
 |Header| Description | Required / Optional |
 |------|-------------|---------------------|
 | `Ocp-Apim-Subscription-Key` | Your Speech Service subscription key. | Either this header or `Authorization` is required. |
-| `Authorization` | An authorization token preceded by the word `Bearer`. See [Authentication](#authentication) for additional information. | Either this header or `Ocp-Apim-Subscription-Key` is required. |
+| `Authorization` | An authorization token preceded by the word `Bearer`. For more information, see [Authorization](#authorization). | Either this header or `Ocp-Apim-Subscription-Key` is required. |
 | `Content-type` | Describes the format and codec of the provided audio data. Accepted values are `audio/wav; codec=audio/pcm; samplerate=16000` and `audio/ogg; codec=audio/pcm; samplerate=16000`. | Required |
 | `Transfer-Encoding` | Specifies that chunked audio data is being sent, rather than a single file. Only use this header if chunking audio data. | Optional |
 | `Expect` | If using chunked transfer, send `Expect: 100-continue`. The Speech Service acknowledges the initial request and awaits additional data.| Required if sending chunked audio data. |
@@ -286,7 +286,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 
 Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech Service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
 
-The following code illustrates how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
+This code sample illustrates how to send audio in chunks. Only the first chunk should contain the audio file's header. `request` is an HTTPWebRequest object connected to the appropriate REST endpoint. `audioFile` is the path to an audio file on disk.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -314,9 +314,9 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-### Example request
+### Sample request
 
-The following is a typical request.
+This is a typical HTTP request. The sample below includes the hostname and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended, however, not required.
 
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
@@ -328,34 +328,34 @@ Transfer-Encoding: chunked
 Expect: 100-continue
 ```
 
-### HTTP status
+### HTTP status codes
 
-The HTTP status of the response indicates success or common error conditions.
+The HTTP status code for each response indicates success or common errors.
 
-HTTP code|Meaning|Possible reason
--|-|-|
-100|Continue|The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.)
-200|OK|The request was successful; the response body is a JSON object.
-400|Bad request|Language code not provided or is not a supported language; invalid audio file.
-401|Unauthorized|Subscription key or authorization token is invalid in the specified region, or invalid endpoint.
-403|Forbidden|Missing subscription key or authorization token.
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.) |
+| 200 | OK | The request was successful; the response body is a JSON object. |
+| 400 | Bad request | Language code not provided or is not a supported language; invalid audio file. |
+| 401 | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
+| 403 | Forbidden | Missing subscription key or authorization token. |
 
 ### JSON response
 
-Results are returned in JSON format. The `simple` format includes only the following top-level fields.
+Results are provided as JSON. The `simple` format includes these top-level fields.
 
-|Field name|Content|
-|-|-|
+| Parameter | Description  |
+|-----------|--------------|
 |`RecognitionStatus`|Status, such as `Success` for successful recognition. See next table.|
 |`DisplayText`|The recognized text after capitalization, punctuation, inverse text normalization (conversion of spoken text to shorter forms, such as 200 for "two hundred" or "Dr. Smith" for "doctor smith"), and profanity masking. Present only on success.|
 |`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
 |`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
 
-The `RecognitionStatus` field might contain the following values.
+The `RecognitionStatus` field may contain these values:
 
-|Status value|Description
-|-|-|
-| `Success` | The recognition was successful and the DisplayText field is present. |
+| Status | Description |
+|--------|-------------|
+| `Success` | The recognition was successful and the `DisplayText` field is present. |
 | `NoMatch` | Speech was detected in the audio stream, but no words from the target language were matched. Usually means the recognition language is a different language from the one the user is speaking. |
 | `InitialSilenceTimeout` | The start of the audio stream contained only silence, and the service timed out waiting for speech. |
 | `BabbleTimeout` | The start of the audio stream contained only noise, and the service timed out waiting for speech. |
@@ -364,16 +364,20 @@ The `RecognitionStatus` field might contain the following values.
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
+The `detailed` format includes the same data as the `simple` format, along with `NBest`, a list of alternative interpretations of the same speech recognition result. These results are ranked from most likely to least likely The first entry is the same as the main recognition result.
 
-The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
+> [!NOTE]
+> When using the `detailed` format, `DisplayText` is provided as `Display` for each result in the `NBest` list.
 
-|Field name|Content|
-|-|-|
-|`Confidence`|The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence)
-|`Lexical`|The lexical form of the recognized text: the actual words recognized.
-|`ITN`|The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied.
-|`MaskedITN`| The ITN form with profanity masking applied, if requested.
-|`Display`| The display form of the recognized text, with punctuation and capitalization added. Same as `DisplayText` in the top-level result.
+Each object in the `NBest` list includes:
+
+| Parameter | Description |
+|-----------|-------------|
+| `Confidence` | The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence) |
+| `Lexical` | The lexical form of the recognized text: the actual words recognized. |
+| `ITN` | The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied. |
+| `MaskedITN` | The ITN form with profanity masking applied, if requested. |
+| `Display` | The display form of the recognized text, with punctuation and capitalization added. This parameter is the same as `DisplayText` provided when format is set to `simple`. |
 
 ### Sample responses
 
