@@ -16,7 +16,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2018
 ms.author: celested
-ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa
+ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali
 ms.custom: aaddev
 ---
 
@@ -35,7 +35,7 @@ When developing a new application, it's important to know the differences betwee
 * The v2.0 endpoint allows work and school accounts from Azure AD and personal Microsoft accounts (MSA), such as hotmail.com, outlook.com, and msn.com, to sign in.
 * Both v1.0 and v2.0 endpoints also accept sign-ins of *[guest users](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* of an Azure AD directory for applications configured as *[single-tenant](single-and-multi-tenant-apps.md)* or for *multi-tenant* applications configured to point to the tenant-specific endpoint (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-The v2.0 endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), the same code can access the email for both personal and work and school accounts.
+The v2.0 endpoint allows you to write apps that accept sign-ins from personal Microsoft accounts, and work and school accounts. This gives you the ability to write your app completely account-agnostic. For example, if your app calls the [Microsoft Graph](https://graph.microsoft.io), some additional functionality and data will be available to work accounts, such as their SharePoint sites or Directory data. But for many actions, such as [Reading a user's mail](https://developer.microsoft.com/graph/docs/api-reference/v1.0/api/user_list_messages), the same code can access the email for both personal and work and school accounts.
 
 For v2.0 endpoint, you can use the Microsoft Authentication Library (MSAL) to gain access to the consumer, educational, and enterprise worlds.
 
@@ -53,9 +53,7 @@ The permissions set directly on the application registration are **static**. Whi
 * The app needs to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
 * The app needs to request all the permissions it would ever need upon the user's first sign-in. In some cases this led to a long list of permissions, which discouraged end users from approving the app's access on initial sign-in.
 
-With the v2.0 endpoint, you can ignore the static permissions defined in the app registration information in the Azure portal and specify the permissions that your app needs **dynamically** at runtime, during regular use of your app. To do so, you can specify the scopes your app needs at any given point in time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information.
-
-If the user has yet not consented to new scopes added to the request, they will be prompted to consent only to the new permissions. To learn more, see [permissions, consent, and scopes](v2-permissions-and-consent.md).
+With the v2.0 endpoint, you can ignore the static permissions defined in the app registration information in the Azure portal and request permissions incrementally instead, for example, asking for a bare minimum set of permissions upfront and accruing more over time as the customer uses additional app features. To do so, you can specify the scopes your app needs at any given point in time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information. If the user has yet not consented to new scopes added to the request, they will be prompted to consent only to the new permissions. To learn more, see [permissions, consent, and scopes](v2-permissions-and-consent.md).
 
 Allowing an app to request permissions dynamically through the `scope` parameter gives developers full control over your user's experience. If you wish, you can also front load your consent experience and ask for all permissions in one initial authorization request. If your app requires a large number of permissions, you can gather those permissions from the user incrementally as they attempt to use certain features of your app over time.
 
@@ -132,9 +130,9 @@ The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that
 
 ### Restrictions on app registrations
 
-Currently, for each app that you want to integrate with the v2.0 endpoint, you must create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. Apps that are registered in any portal other than the Application Registration Portal are not compatible with the v2.0 endpoint.
+Currently, for each app that you want to integrate with the v2.0 endpoint, you must create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Alternatively, you can register an app using the **App registrations (Preview)** experience in the Azure portal. Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. 
 
-In addition, app registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
+Ap registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
 
 * Only two app secrets are allowed per application ID.
 * An app registration registered by a user with a personal Microsoft account can be viewed and managed only by a single developer account. It can't be shared between multiple developers. If you'd like to share your app registration with multiple developers, you can create the application by signing into the registration portal with an Azure AD account.
