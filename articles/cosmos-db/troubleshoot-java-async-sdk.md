@@ -50,7 +50,9 @@ If your app is deployed on Azure Virtual Machines without a public IP address, b
 
  Azure SNAT ports are used only when your VM has a private IP address and a process from the VM tries to connect to a public IP address. There are two workarounds to avoid Azure SNAT limitation:
 
-* Add your Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). When the service endpoint is enabled, the requests are no longer sent from a public IP to Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+* Add your Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+
+    When the service endpoint is enabled, the requests are no longer sent from a public IP to Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Assign a public IP to your Azure VM.
 
 #### HTTP proxy
@@ -203,7 +205,7 @@ Many connections to the Cosmos DB endpoint might be in the `CLOSE_WAIT` state. T
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Connection limit on host machine]: #connection-limit-on-a-host
+[Connection limit on host machine]: #connection-limit-on-host
 [Azure SNAT (PAT) port exhaustion]: #snat
 
 
