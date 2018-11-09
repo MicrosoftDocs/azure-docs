@@ -33,9 +33,9 @@ Start with this list:
 * Check the CPU usage on the host where the app is running. If CPU usage is 90 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
 
 #### Connection throttling
-Connection throttling can happen because of either [Connection limit on host machine] or [Azure SNAT (PAT) port exhaustion]:
+Connection throttling can happen because of either a [connection limit on a host machine] or [Azure SNAT (PAT) port exhaustion].
 
-##### <a name="connection-limit-on-host"></a>Connection limit on host machine
+##### <a name="connection-limit-on-host"></a>Connection limit on a host machine
 Some Linux systems, such as Red Hat, have an upper limit on the total number of open files. Sockets in Linux are implemented as files, so this number limits the total number of connections, too.
 Run the following command.
 
@@ -205,7 +205,7 @@ Many connections to the Cosmos DB endpoint might be in the `CLOSE_WAIT` state. T
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
 [Enable client SDK logging]: #enable-client-sice-logging
-[Connection limit on host machine]: #connection-limit-on-host
+[Connection limit on a host machine]: #connection-limit-on-host
 [Azure SNAT (PAT) port exhaustion]: #snat
 
 
