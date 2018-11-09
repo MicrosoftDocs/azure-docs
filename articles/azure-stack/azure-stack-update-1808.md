@@ -66,7 +66,8 @@ This update includes the following improvements for Azure Stack.
 <!-- | IS ASDK--> 
 - **The API version profile 2017-03-09-profile has been updated to 2018-03-01-hybrid**. API profiles specify the Azure resource provider and the API version for Azure REST endpoints. For more information about profiles, see [Manage API version profiles in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### Fixed issues
+### Fixed issues
+
 <!-- IS ASDK--> 
 - We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1. 
 
