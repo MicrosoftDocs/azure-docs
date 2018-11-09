@@ -25,7 +25,7 @@ A function should be a stateless method to process input and produce output. Alt
 
 ## Folder structure
 
-The folder structure for a Java project looks like the following:
+Here is the folder structure of an Azure Function Java project:
 
 ```
 FunctionsProject
@@ -57,7 +57,7 @@ You can put more than one function in a project. Avoid putting your functions in
 
  Azure functions are invoked by a trigger, such as an HTTP request, a timer, or an update to data. Your function needs to process that trigger and any other inputs to produce one or more outputs.
 
-Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. Sample code using the annotations is available in the [Java reference docs](/java/api/com.microsoft.azure.functions.annotation) for each annotation and in the Azure Functions binding reference documentation, such as the one for [HTTP triggers](/azure/azure-functions/functions-bindings-http-webhook).
+Use the Java annotations included in the [com.microsoft.azure.functions.annotation.*](/java/api/com.microsoft.azure.functions.annotation) package to bind input and outputs to your methods. See [Java reference docs](/java/api/com.microsoft.azure.functions.annotation) for more details.
 
 > [!IMPORTANT] 
 > You must configure an Azure Storage account in your [local.settings.json](/azure/azure-functions/functions-run-local#local-settings-file) to run Azure Storage Blob, Queue, or Table triggers locally.
@@ -100,17 +100,17 @@ here is the generated corresponding `function.json` by the [azure-functions-mave
 
 ## JDK runtime availability and support 
 
-Download and use the [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) for local development of Java function apps. JDKs are available for Windows, Linux, and macOS and [Azure support](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is available for issues encountered during development with a [qualified support plan](https://azure.microsoft.com/support/plans/).
+Download and use the [Azul Zulu for Azure](https://assets.azul.com/files/Zulu-for-Azure-FAQ.pdf) JDKs from [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/) for local development of Java function apps. JDKs are available for Windows, Linux, and macOS. [Azure support](https://support.microsoft.com/en-us/help/4026305/sql-contact-microsoft-azure-support) is available with a [qualified support plan](https://azure.microsoft.com/support/plans/).
 
 ## Third-party libraries 
 
 Azure Functions supports the use of third-party libraries. By default, all dependencies specified in your project `pom.xml` file will be automatically bundled during the [`mvn package`](https://github.com/Microsoft/azure-maven-plugins/blob/master/azure-functions-maven-plugin/README.md#azure-functionspackage) goal. For libraries not specified as dependencies in the `pom.xml` file, place them in a `lib` directory in the function's root directory. Dependencies placed in the `lib` directory will be added to the system class loader at runtime.
 
-The `com.microsoft.azure.functions:azure-functions-java-library` dependency is provided on the classpath by default, and does not need to be included in the `lib` directory. Also, depedencies listed [here](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) are added to the classpath by [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker).
+The `com.microsoft.azure.functions:azure-functions-java-library` dependency is provided on the classpath by default, and does not need to be included in the `lib` directory. Also, dependencies listed [here](https://github.com/Azure/azure-functions-java-worker/wiki/Azure-Java-Functions-Worker-Dependencies) are added to the classpath by [azure-functions-java-worker](https://github.com/Azure/azure-functions-java-worker).
 
 ## Data type support
 
-You can use Plain old Java objects (POJOs), primitive dataTypes such as String, Ineteger or types defined in `azure-functions-java-library` package for input and output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code. 
+You can use Plain old Java objects (POJOs), types defined in `azure-functions-java-library` or primitive dataTypes such as String, Integer to bind to input/output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code. 
 
 ### Plain old Java objects (POJOs)
 
@@ -187,7 +187,7 @@ public class Function {
 }
 ```
 
-This function is invoked with a HTTP request. HTTP request payload is passed as a `String` for the argument `inputReq`; and one entry is retrieved from the Azure Table Storage and is passed as `TestInputData` to the argument `inputData`.
+This function is invoked with an HTTP request. HTTP request payload is passed as a `String` for the argument `inputReq`; and one entry is retrieved from the Azure Table Storage and is passed as `TestInputData` to the argument `inputData`.
 
 To receive a batch of inputs bind to `String[]`, `POJO[]`, `List<String>` or `List<POJO>`
 
@@ -206,7 +206,7 @@ To receive a batch of inputs bind to `String[]`, `POJO[]`, `List<String>` or `Li
 
 ```
 
-This function gets triggered whenever there is new data in the configured eventhub. As the `cardinality` is set to `MANY`, function receives a batch of messages from event hub. EventData from eventhub gets converted to `TestEventData` for the function execution.
+This function gets triggered whenever there is new data in the configured event hub. As the `cardinality` is set to `MANY`, function receives a batch of messages from event hub. EventData from event hub gets converted to `TestEventData` for the function execution.
 
 ### Example Output binding
 
@@ -263,7 +263,7 @@ To send multiple output values, use `OutputBinding<T>` defined in the `azure-fun
     }
 ```
 
-Above function is invoked on a HttpRequest and writes multiple values to the Azure Queue
+Above function is invoked on an HttpRequest and writes multiple values to the Azure Queue
 
 ## HttpRequestMessage and HttpResponseMessage
 
@@ -317,7 +317,11 @@ In the example above, the `queryValue` is bound to query string parameter `name`
 
 ## Execution context
 
-`ExecutionContext` type defined in the `azure-functions-java-library` package contains Logger that can be used to write logs from function code and helper method to get the function invocation id
+`ExecutionContext` defined in the `azure-functions-java-library` contains helper methods to communicate with the functions runtime.
+
+### Logger
+
+Use `getLogger` defined in `ExecutionContext` to write logs from function code.
 
 Example:
 
@@ -338,7 +342,9 @@ public class Function {
 
 ## View logs and trace
 
-You can use the Azure CLI to stream Java standard out and error logging as well as other application logging. First, Configure your Function application to write application logging using the Azure CLI:
+You can use the Azure CLI to stream Java standard out and error logging as well as other application logging. 
+
+Configure your Function application to write application logging using the Azure CLI:
 
 ```azurecli-interactive
 az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
@@ -361,7 +367,7 @@ You must have enabled file system logging in the Azure Portal or Azure CLI befor
 
 ## Environment variables
 
-In Functions, [app settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), such as service connection strings, are exposed as environment variables during execution. You can access these settings using , `System.getenv("AzureWebJobsStorage")`
+In Functions, [app settings](https://docs.microsoft.com/en-us/azure/azure-functions/functions-app-settings), such as service connection strings, are exposed as environment variables during execution. You can access these settings using, `System.getenv("AzureWebJobsStorage")`
 
 Example:
 
