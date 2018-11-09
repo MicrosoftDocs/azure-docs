@@ -1,5 +1,5 @@
 ---
-title: Stream live with Azure Media Services v3 using .NET Core | Microsoft Docs
+title: Stream live with Azure Media Services v3 | Microsoft Docs
 description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET Core.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
 
 ---
 
-# Stream live with Azure Media Services v3 using .NET Core
+# Tutorial: Stream live with Media Services v3 using APIs
 
-In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
+In Azure Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
 > [!NOTE]
 > Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
