@@ -56,7 +56,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 > The region you specify in the previous command doesn't need to be the same as the region you specified when you retrieved the network watcher. The previous command simply requires that you specify an existing network watcher. The network watcher can be in any region. If you specify values for `-Country` and `-State`, they must be valid. The values are case-sensitive. Data is available for a limited number of countries, states, and cities. Run the commands in [View available countries, states, cities, and providers](#view-available) to view a list of available countries, cities, and states to use with the previous command. 
 
 > [!WARNING]
-> You must specify a date after November 14, 2017 for `-StartTime` and `-EndTime`. Specifying a date prior to November 14, 2017 returns no data. 
+> You must specify a date within the past 30 days for `-StartTime` and `-EndTime`. Specifying a prior date will result in no data being returned.
 
 The output from the previous command follows:
 
