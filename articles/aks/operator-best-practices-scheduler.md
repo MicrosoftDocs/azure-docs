@@ -128,7 +128,7 @@ In an AKS cluster that hosts multiple development teams and applications, it can
 
 This article focused on basic Kubernetes scheduler features. For more information about cluster operations in AKS, see the following best practices:
 
-* [Multi-tenancy and cluster isolation][aks-best-practices-scheduler]
+* [Multi-tenancy and cluster isolation][aks-best-practices-isolation]
 * [Advanced Kubernetes scheduler features][aks-best-practices-advanced-scheduler]
 * [Authentication and authorization][aks-best-practices-identity]
 
