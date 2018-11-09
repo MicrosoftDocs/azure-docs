@@ -56,22 +56,11 @@ Here are examples of queries that Hash, Range, and Spatial indexes can be used t
 
 Azure Cosmos DB returns an error when a query uses ORDER BY but doesn't have a Range index against the queried path with the maximum precision.
 
-## Examples
-
-- See how to increase precision for range indexes in [Indexing Examples](TBD)
-
-- See how to completely exclude paths from indexing in [Indexing Examples](TBD)
-
-- See how to exclude a subtree from indexing by using the * wildcard operator in [Indexing Examples](TBD)
-
 ## Next steps
 
 To learn more about indexing in Azure Cosmos DB, see the following articles:
 
-- [Overview of indexing](TBD)
-- [Indexing policy](TBD)
-- [Modifying indexing policy](TBD)
-- [Index paths](TBD)
-- [Opt in and opt out of indexing](TBD)
-- [Changes to the indexing policy specification](TBD)
-- [Indexing Examples](TBD)
+- [Overview of indexing](indexing-overview.md)
+- [Indexing policy](indexing-policies.md)
+- [Index paths](index-paths.md)
+

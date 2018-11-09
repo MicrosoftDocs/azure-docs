@@ -53,13 +53,13 @@ When creating an Azure Cosmos container, you configure throughput in one of the 
 
 An Azure Cosmos container can scale elastically, whether you create containers with either “shared” or “dedicated” provisioned throughput modes, that is, they can have unlimited storage and provisioned throughput.  
 
-An Azure Cosmos container is a schema-agnostic container of items. Items within a container can have arbitrary schemas. For example, an item representing a person, an item representing an automobile can be placed in the same container. By default, all items that you add to a container get automatically indexed without requiring any explicit index or schema management. You can customize the indexing behavior by configuring the indexing policy on a container. To learn more, see [How to configure indexing policy on your container](TBD).
+An Azure Cosmos container is a schema-agnostic container of items. Items within a container can have arbitrary schemas. For example, an item representing a person, an item representing an automobile can be placed in the same container. By default, all items that you add to a container get automatically indexed without requiring any explicit index or schema management. You can customize the indexing behavior by configuring the indexing policy on a container. 
 
 You can set Time To Live (TTL) on selected items within an Azure Cosmos container or for the entire container to gracefully purge those items out of the system. Azure Cosmos DB will automatically delete the items when they expire. It also guarantees that a query performed on the container does not return the expired items within a fixed bound. To learn more, see [How to configure TTL on your container](how-to-time-to-live.md).
 
-By using change feed, you can subscribe to the operations log that is managed for each of the logical partition of your container. The Change Feed provides the log of all the updates performed on the container along with the before and the after images of the items. See [How to build reactive applications using change feed](change-feed.md). You can also configure the retention duration for change feed by using the change feed policy on the container. See [How to configure retention policy for change feed](TBD).
+By using change feed, you can subscribe to the operations log that is managed for each of the logical partition of your container. The Change Feed provides the log of all the updates performed on the container along with the before and the after images of the items. See [How to build reactive applications using change feed](change-feed.md). You can also configure the retention duration for change feed by using the change feed policy on the container. 
 
-You can register stored procedures, triggers, user-defined functions (UDFs) and merge procedures with your Cosmos container. See [How to register stored procedures, triggers, UDFs, and merge procedures with your Cosmos containers](TBD).
+You can register stored procedures, triggers, user-defined functions (UDFs) and merge procedures with your Cosmos container. 
 
 You can specify a unique key on your Azure Cosmos container. By creating a unique key policy, you ensure the uniqueness of one or more values per logical partition key. Once a container has been created with a unique key policy, it prevents the creation of any new or updated items with values that duplicate the values specified by the unique key constraint. To learn more, see [Unique key constraints](unique-keys.md).
 
@@ -131,13 +131,8 @@ Azure Cosmos item supports the following operations that can be performed using 
 ## Next steps
 
 * [Logical partitions](partition-data.md)
-* [Partition key](TBD)
 * [How to configure provisioned throughput on a Cosmos database](how-to-provision-database-throughput.md)
 * [How to configure provisioned throughput on a Cosmos container](how-to-provision-container-throughput.md)
-* [Scaling Cosmos databases and containers](TBD)
-* [How to configure the indexing policy on Cosmos container](TBD)
-* [How to configure TTL on Cosmos container](TBD)
-* [How to build reactive applications using Change Feed](Tchange-feed.md)
-* [How to configure retention policy for change feed](TBD)
-* [How to register stored procedures, triggers, UDFs, and merge procedures with your Cosmos containers](TBD)
-* [How to configure unique key constraint on your Cosmos container](TBD)
+* [How to configure TTL on Cosmos container](how-to-time-to-live.md)
+* [How to build reactive applications using Change Feed](change-feed.md)
+* [How to configure unique key constraint on your Cosmos container](unique-keys.md)

@@ -56,7 +56,7 @@ If a TTL (Time to Live) property is set on an item to -1, change feed will persi
 
 ### Change feed and _etag, _lsn or _ts
 
-The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch id that is added for change feed only; it represents the transaction id. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control (see [Concurrency Control](TBD)), it tells about the version of the item, whereas ETag is used for sequencing the feed.
+The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch id that is added for change feed only; it represents the transaction id. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the version of the item, whereas ETag is used for sequencing the feed.
 
 ## Change feed use cases and scenarios
 
@@ -91,10 +91,8 @@ The following are some of the scenarios you can easily implement with change fee
 
 You can work with change feed using the following options:
 
-* [Using change feed with Azure Functions](TBD)
-* [Using change feed with SDK](TBD)
+* [Using change feed with Azure Functions](change-feed-functions.md)
 * [Using change feed with change feed processor library](change-feed-processor.md) 
-* [Using change feed with Spark](TBD)
 
 Change feed is available for each logical partition key within the container, and it can be distributed across one or more consumers for parallel processing as shown in the image below.
 
@@ -106,7 +104,7 @@ Change feed is available for each logical partition key within the container, an
 
 * You can use your [provisioned throughput](request-units.md) to read from the change feed, just like any other Azure Cosmos DB operation, in any of the regions associated with your Azure Cosmos database.
 
-* The change feed includes inserts and update operations made to items within the container. You can capture deletes by setting a "soft-delete" flag within your items (for example, documents) in place of deletes. Alternatively, you can set a finite expiration period for your items with the [TTL capability](TBD). For example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process the changes within a shorter time interval than the TTL expiration period. 
+* The change feed includes inserts and update operations made to items within the container. You can capture deletes by setting a "soft-delete" flag within your items (for example, documents) in place of deletes. Alternatively, you can set a finite expiration period for your items with the [TTL capability](time-to-live.md). For example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process the changes within a shorter time interval than the TTL expiration period. 
 
 * Each change to an item appears exactly once in the change feed, and the clients must manage the checkpointing logic. If you want to avoid the complexity of managing checkpoints, the change feed processor library provides automatic checkpointing and "at least once" semantics. See [using change feed with change feed processor library](change-feed-processor.md).
 
@@ -118,16 +116,10 @@ Change feed is available for each logical partition key within the container, an
 
 * Changes are available in parallel for all logical partition keys of an Azure Cosmos container. This capability allows changes from large containers to be processed in parallel by multiple consumers.
 
-* Applications can request multiple changes feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, wins over   the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. See an [example of getting a change feed from a specified time period](TBD).
+* Applications can request multiple changes feeds on the same container simultaneously. ChangeFeedOptions.StartTime can be used to provide an initial starting point. For example, to find the continuation token corresponding to a given clock time. The ContinuationToken, if specified, wins over   the StartTime and StartFromBeginning values. The precision of ChangeFeedOptions.StartTime is ~5 secs. 
 
 ## Next steps
 
 * [Ways to read change feed](change-feed-reading.md)
-* [Using change feed with Azure Functions](TBD)
-* [Using change feed with SDK](TBD)
+* [Using change feed with Azure Functions](change-feed-functions.md)
 * [Using change feed processor library](change-feed-processor.md)
-* [How to work with change feed processor library](TBD)
-* [How to work with change feed using JavaScript](TBD)
-* [How to work with change feed using Java](TBD)
-* [How to work with change feed using Spark](TBD)
-* [Concurrency Control](TBD)

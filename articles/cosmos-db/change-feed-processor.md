@@ -70,11 +70,4 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 
 * [Overview of change feed](change-feed.md)
 * [Ways to read change feed](change-feed-reading.md)
-* [Using change feed with Azure Functions](TBD)
-* [Using change feed with SDK](TBD)
-* [Using change feed processor library](change-feed-processor.md)
-* [How to work with change feed processor library](TBD)
-* [How to work with change feed using JavaScript](TBD)
-* [How to work with change feed using Java](TBD)
-* [How to work with change feed using Spark](TBD)
-* [Concurrency Control](TBD)
+* [Using change feed with Azure Functions](change-feed-functions.md)
