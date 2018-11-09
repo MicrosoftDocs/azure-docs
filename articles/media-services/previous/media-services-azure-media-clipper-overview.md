@@ -34,7 +34,7 @@ Azure Media Clipper enables you to:
 - Generate dynamic manifest filters over existing live and VOD assets with group-of-pictures (GOP) accuracy 
 - Produce encoding jobs against the assets in your media services account
 
-To request new features, provide ideas or feedback, submit to [UserVoice for Azure Media Services](http://aka.ms/amsvoice/). If you have and specific issues, questions or find any bugs, drop the Media Services team a line at amcinfo@microsoft.com.
+To request new features, provide ideas or feedback, submit to [UserVoice for Azure Media Services](https://aka.ms/amsvoice/). If you have and specific issues, questions or find any bugs, drop the Media Services team a line at amcinfo@microsoft.com.
 
 The following image illustrates the Clipper interface:
 ![Azure Media Clipper](media/media-services-azure-media-clipper-overview/media-services-azure-media-clipper-interface.PNG)

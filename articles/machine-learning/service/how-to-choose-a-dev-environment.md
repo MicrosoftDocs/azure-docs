@@ -55,7 +55,7 @@ We recommend [Visual Studio Code](https://code.visualstudio.com/), as it provide
 
 ## Data Science Virtual Machine
 
-The Data Science Virtual Machine (DSVM) is a combination of the previous environments. It's a VM on the Azure Platform that has Jupyter Notebooks, Visual Studio Code, and the Azure Machine Learning SDK pre-installed. Creating the VM is more complex than Azure Notebooks, but less complex than setting up a machine from scratch. Since the required software is pre-installed in the VM image, you can begin experimenting with Azure Machine Learning quickly once the VM has been created.
+The Data Science Virtual Machine (DSVM) is a combination of the previous environments. It's a VM on the Azure Platform that has Jupyter Notebooks, Visual Studio Code, and the Azure Machine Learning SDK pre-installed. Since the required software is pre-installed in the VM image, you can begin experimenting with Azure Machine Learning quickly once the VM has been created.
 
 The DSVM allows you to select compute resources you need, such as the CPU, GPU, and memory. It is also pre-installed with other editors such as PyCharm, as well as popular machine learning software such as TensorFlow, Keras, and PyTorch. If the software you need is not installed, you can install it yourself.
 

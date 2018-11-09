@@ -4,7 +4,7 @@ description: Learn how to use Azure Queue storage to monitor Media Services job 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f535d0b5-f86c-465f-81c6-177f4f490987
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2017
+ms.date: 11/05/2018
 ms.author: juliako
 
 ---
