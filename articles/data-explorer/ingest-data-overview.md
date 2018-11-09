@@ -49,21 +49,21 @@ Azure Data Explorer provides SDKs that can be used for query and data ingestion.
 
 Kusto offers client SDK that can be used to ingest and query data with :
 
-* [Python SDK](https://docs.microsoft.com/azure/kusto/api/python/kusto-python-client-library)
+* [Python SDK](/azure/kusto/api/python/kusto-python-client-library)
 
-* [.NET SDK](https://docs.microsoft.com/azure/kusto/api/netfx/about-the-sdk)
+* [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
 
-* [Java SDK](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
+* [Java SDK](/azure/kusto/api/java/kusto-java-client-library)
 
-* [Node SDK](https://docs.microsoft.com/azure/kusto/api/node/kusto-node-client-library)
+* [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [REST API](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Programmatic ingestion techniques**:
 
 * Ingesting data through the Azure Data Explorer data management service (high-throughput and reliable ingestion)
 
-  * [**Batch ingestion**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Azure Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable and cheap data ingestion.
+  * [**Batch ingestion**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Azure Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable and cheap data ingestion.
 
 * Ingesting data directly into the Azure Data Explorer engine (most appropriate for exploration and prototyping):
 
@@ -114,15 +114,15 @@ For all ingestion methods other than ingest from query, the data must be formatt
 > When data is being ingested, data types are inferred based on the target table columns. If a record is incomplete or a field cannot be parsed as the required data type, the corresponding table columns will be populated with null values.
 
 ## Ingestion recommendations and limitations
-* The effective retention policy of ingested data is derived from the database's retention policy. See [retention policy](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy) for details. Ingesting data requires **Table ingestor** or **Database ingestor** permissions.
+* The effective retention policy of ingested data is derived from the database's retention policy. See [retention policy](/azure/kusto/concepts/retentionpolicy) for details. Ingesting data requires **Table ingestor** or **Database ingestor** permissions.
 * Ingestion supports a maximum file size of 5GB. The recommendation is to ingest files between 100MB and 1GB.
 
 ## Schema mapping
 
 Schema mapping helps deterministically bind source data fields to destination table columns.
 
-* [CSV Mapping](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#csv-mapping) (optional) works with all ordinal-based formats and can be passed as the ingest command parameter or [pre-created on the table](https://docs.microsoft.com/azure/kusto/management/tables?branch=master#create-ingestion-mapping) and referenced from the ingest command parameter.
-* [JSON Mapping](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](https://docs.microsoft.com/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be passed as the ingest command parameter or [pre-created on the table](https://docs.microsoft.com/azure/kusto/management/tables#create-ingestion-mapping) and referenced from the ingest command parameter.
+* [CSV Mapping](/azure/kusto/management/mappings?branch=master#csv-mapping) (optional) works with all ordinal-based formats and can be passed as the ingest command parameter or [pre-created on the table](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) and referenced from the ingest command parameter.
+* [JSON Mapping](/azure/kusto/management/mappings?branch=master#json-mapping) (mandatory) and [Avro mapping](/azure/kusto/management/mappings?branch=master#avro-mapping) (mandatory) can be passed as the ingest command parameter or [pre-created on the table](/azure/kusto/management/tables#create-ingestion-mapping) and referenced from the ingest command parameter.
 
 ## Next steps
 

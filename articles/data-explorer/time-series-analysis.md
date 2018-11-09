@@ -126,6 +126,7 @@ demo_series3
 
 - Use [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) to automatically detect the periods in the time series. 
 - Use [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) if we know that a metric should have specific distinct period(s) and we want to verify that they exist.
+
 > [!NOTE]
 > It's an anomaly if specific distinct periods don't exist
 
