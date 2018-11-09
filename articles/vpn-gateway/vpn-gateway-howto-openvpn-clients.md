@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 11/09/2018
 ms.author: cherylmc
 
 ---
@@ -60,7 +60,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 5. To connect using the command line, type the following:
   
   ```
-  Sudo openvpn –config <name and path of your VPN profile file>
+  sudo openvpn –-config <name and path of your VPN profile file>
   ```
 5. To connect using the GUI, go to system settings.
 6. Click **+** to add a new VPN connection.
