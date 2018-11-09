@@ -1,5 +1,5 @@
 ---
-title: Tutorial - How to use Azure Key Vault with an Azure web app in .NET | Microsoft Docs
+title: Tutorial - Use Azure Key Vault with an Azure web app in .NET | Microsoft Docs
 description: Tutorial - Configure an ASP.NET core application to read a secret from Key vault
 services: key-vault
 documentationcenter: 
@@ -15,9 +15,9 @@ ms.author: pryerram
 ms.custom: mvc
 #Customer intent: As a developer I want to use Azure Key vault to store secrets for my app, so that they are kept secure.
 ---
-# Tutorial: How to use Azure Key Vault with an Azure web application in .NET
+# Tutorial: Use Azure Key Vault with an Azure web app in .NET
 
-Azure Key Vault helps you protect secrets such as API keys and database connection strings. It's secure and provides you with access to your applications, services, and IT resources.
+Azure Key Vault helps you protect secrets such as API keys and database connection strings. It provides you with access to your applications, services, and IT resources.
 
 In this tutorial, you learn how to create an Azure web application that can read information from an Azure key vault. The process uses managed identities for Azure resources. For more information about Azure web applications, see [Azure Web Apps](../app-service/app-service-web-overview.md).
 
@@ -82,13 +82,13 @@ You use this resource group throughout this tutorial.
 
 ## Create a key vault
 
-To create a key vault in your resource group, you'll need to provide the following information:
+To create a key vault in your resource group, provide the following information:
 
 * Key vault name: a string of 3 - 24 characters that can contain only numbers, letters, and hyphens (for example: 0-9, a-z, A-Z, and - )
 * Resource group name
 * Location: **West US**
 
-Enter the following command in Azure CLI:
+Enter the following command in the Azure CLI:
 
 ```azurecli
 az keyvault create --name "<YourKeyVaultName>" --resource-group "<YourResourceGroupName>" --location "West US"
@@ -239,7 +239,7 @@ This command gives the identity (MSI) of the app service permissions to do **get
 
 ## Publish the web application to Azure
 
-Publish your web app to Azure once again so you can see that your live web app is able to fetch the secret value.
+Publish your web app to Azure once again to see that your live web app can fetch the secret value.
 
 1. In Visual Studio, select the **key-vault-dotnet-core-quickstart** project.
 2. Select **Publish** > **Start**.
