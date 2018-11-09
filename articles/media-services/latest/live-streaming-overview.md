@@ -44,7 +44,7 @@ The following new improvements were done in the latest release.
 - Improved RTMP support (increased stability and more source encoder support).
 - RTMPS secure ingest.
 
-    When you create a LiveEvent you now get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
+    When you create a LiveEvent, you get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
 - 24 hour transcoding support. 
 - Improved ad-signaling support in RTMP via SCTE35.
 
@@ -78,7 +78,7 @@ When creating this type of LiveEvent, specify **None** (LiveEventEncodingType.No
 
 The following table compares features of the two LiveEvent types.
 
-| Feature | Pass-through LiveEvent | Basic LiveEvent |
+| Feature | Pass-through LiveEvent | Standard LiveEvent |
 | --- | --- | --- |
 | Single bitrate input is encoded into multiple bitrates in the cloud |No |Yes |
 | Maximum resolution, number of layers |4Kp30  |720p, 6 layers, 30 fps |
@@ -90,7 +90,7 @@ The following table compares features of the two LiveEvent types.
 | Support for ad signaling via SCTE35 inband|Yes |Yes |
 | Pass-through CEA 608/708 captions |Yes |Yes |
 | Ability to recover from brief stalls in contribution feed |Yes |No (LiveEvent will begin slating after 6+ seconds w/o input data)|
-| Support for non-uniform input GOPs |Yes |No – input must be fixed 2 sec GOPs |
+| Support for non-uniform input GOPs |Yes |No – input must be fixed 2-sec GOPs |
 | Support for variable frame rate input |Yes |No – input must be fixed frame rate.<br/>Minor variations are tolerated, for example, during high motion scenes. But encoder cannot drop to 10 frames/sec. |
 | Auto-shutoff of LiveEvent when input feed is lost |No |After 12 hours, if there is no LiveOutput running |
 
@@ -136,12 +136,6 @@ To use the new LowLatency feature, you can set the **StreamOptionsFlag** to **Lo
 |DASH in AMP|10s|8s|
 |HLS on native iOS player|14s|10s|
 |HLS.JS in Mixer Player|30s|16s|
-
-### Basic LiveEvents (live encoding with Media Services)
-
-||2s GOP low latency enabled|1s GOP low latency enabled|
-|---|---|---|
-||||
 
 ## Billing
 
