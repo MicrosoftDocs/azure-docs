@@ -13,12 +13,12 @@ ms.author: erhopf
 
 # Speech Service REST APIs
 
-In addition to the [Speech SDK](speech-sdk.md), the Speech Service enables you to convert speech-to-text and text-to-speech with a set of REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
+As an alternative to the [Speech SDK](speech-sdk.md), the Speech Service enables you to convert speech-to-text and text-to-speech with a set of REST APIs. Each accessible endpoint is associated with a region. Your application requires a subscription key for the endpoint you plan to use.
 
 Before using the REST APIs, understand:
 * The speech-to-text requests using the REST API can only contain 10 seconds of recorded audio.
 * The speech-to-text REST API only returns final results. Partial results are not provided.
-* The text-to-speech REST API requires an Authorization header. This means that you need to perform a token exchange to access the service. For more information, see [Authentication](#authentication).
+* The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
 
 ## Authentication
 
@@ -78,7 +78,7 @@ $OAuthToken
 
 # [cURL](#tab/curl)
 
-cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). The following cURL command illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
+cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). This cURL command illustrates how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
 ```curl
 curl -v -X POST
@@ -90,7 +90,7 @@ curl -v -X POST
 
 # [C#](#tab/csharp)
 
-The following C# class illustrates how to obtain an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
+This C# class illustrates how to get an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
 
 ```cs
 /*
@@ -132,7 +132,7 @@ public class Authentication
 
 ### How to use an access token
 
-The access token should be sent to the service as the `Authorization: Bearer <TOKEN>` header. Each access token is valid for 10 minutes. You can obtain a new token at any time, however, to minimize network traffic and latency, we recommend using the same token for nine minutes.
+The access token should be sent to the service as the `Authorization: Bearer <TOKEN>` header. Each access token is valid for 10 minutes. You can get a new token at any time, however, to minimize network traffic and latency, we recommend using the same token for nine minutes.
 
 Here's a sample HTTP request to the text-to-speech REST API:
 
@@ -152,7 +152,7 @@ Connection: Keep-Alive
 
 ### How to renew an access token using C#
 
-The following C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically obtains a new access token every nine minutes by using a timer. This approach ensures that a valid token is always available while your program is running.
+This C# code is a drop-in replacement for the class presented earlier. The `Authentication` class automatically gets a new access token every nine minutes by using a timer. This approach ensures that a valid token is always available while your program is running.
 
 > [!NOTE]
 > Instead of using a timer, you can store a timestamp of when the last token was obtained. Then you can request a new one only if it's close to expiring. This approach avoids requesting new tokens unnecessarily and might be more suitable for programs that make infrequent Speech requests.
@@ -249,12 +249,12 @@ These regions are supported for speech-to-text transcription using the REST API.
 
 ### Query parameters
 
-The following parameters may be included in the query string of the REST request.
+These parameters may be included in the query string of the REST request.
 
 | Parameter | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `language` | Identifies the spoken language that is being recognized. See [Supported languages](language-support.md#speech-to-text). | Required |
-| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed results include multiple candidates with confidence values and four different representations. The default setting is `simple`. | Optional |
+| `format` | Specifies the result format. Accepted values are `simple` and `detailed`. Simple results include `RecognitionStatus`, `DisplayText`, `Offset`, and `Duration`. Detailed responses include multiple results with confidence values and four different representations. The default setting is `simple`. | Optional |
 | `profanity` | Specifies how to handle profanity in recognition results. Accepted values are `masked`, which replaces profanity with asterisks, `removed`, which remove all profanity from the result, or `raw`, which includes the profanity in the result. The default setting is `masked`. | Optional |
 
 ### Request headers
@@ -381,7 +381,7 @@ Each object in the `NBest` list includes:
 
 ### Sample responses
 
-The following is a typical response for `simple` recognition.
+This is a typical response for `simple` recognition.
 
 ```json
 {
@@ -392,7 +392,7 @@ The following is a typical response for `simple` recognition.
 }
 ```
 
-The following is a typical response for `detailed` recognition.
+This is a typical response for `detailed` recognition.
 
 ```json
 {
@@ -464,11 +464,11 @@ This is a list of supported audio formats that are sent in each request as the `
 
 ### Request body
 
-The text to be converted to speech is sent as the body of an HTTP `POST` request. It can be sent as plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format (UTF-8). Plain text requests use the Speech Service's default voice and language. With SSML you can specify the voice and language.
+Text is sent as the body of an HTTP `POST` request. It can be plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) format (UTF-8). Plain text requests use the Speech Service's default voice and language. With SSML you can specify the voice and language.
 
 ### Sample request
 
-The following HTTP request uses SSML to specify the voice and language. The body cannot exceed 1,000 characters.
+This HTTP request uses SSML to specify the voice and language. The body cannot exceed 1,000 characters.
 
 ```http
 POST /cognitiveservices/v1 HTTP/1.1
