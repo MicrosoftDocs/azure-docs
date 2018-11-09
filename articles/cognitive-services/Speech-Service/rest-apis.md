@@ -41,7 +41,7 @@ These regions and endpoints are supported:
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
-[HTTP](#tab/http)
+# [HTTP](#tab/http)
 
 The following example is a sample HTTP request for obtaining a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
 
@@ -55,7 +55,7 @@ Content-Length: 0
 
 The body of the response to this request is the access token in Java Web Token (JWT) format.
 
-[Powershell](#tab/powershell)
+# [Powershell](#tab/powershell)
 
 The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
 
@@ -74,7 +74,7 @@ $OAuthToken
 
 ```
 
-[cURL](#tab/curl)
+# [cURL](#tab/curl)
 
 The following Windows PowerShell script illustrates how to obtain an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, change the host name of the given URI accordingly.
 
@@ -93,7 +93,7 @@ $OAuthToken
 
 ```
 
-[.NET](#tab/dotnet)
+# [C#](#tab/csharp)
 
 The following C# class illustrates how to obtain an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the host name of `FetchTokenUri` appropriately.
 
