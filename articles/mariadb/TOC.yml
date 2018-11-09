@@ -118,7 +118,7 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Request a feature
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
   - name: Region availability
     href: https://azure.microsoft.com/regions/services/
   - name: Support options
