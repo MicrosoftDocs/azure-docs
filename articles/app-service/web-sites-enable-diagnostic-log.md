@@ -21,7 +21,7 @@ ms.author: cephalin
 ## Overview
 Azure provides built-in diagnostics to assist with debugging an [App Service web app](https://go.microsoft.com/fwlink/?LinkId=529714). In this article, you learn how to enable diagnostic logging and add instrumentation to your application, as well as how to access the information logged by Azure.
 
-This article uses the [Azure portal](https://portal.azure.com), Azure PowerShell, and the Azure Command-Line Interface (Azure CLI) to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
+This article uses the [Azure portal](https://portal.azure.com) and Azure CLI to work with diagnostic logs. For information on working with diagnostic logs using Visual Studio, see [Troubleshooting Azure in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -61,7 +61,7 @@ For **Application logging**, you can turn on the file system option temporarily 
 
 For **Web server logging**, you can select **storage** or **file system**. Selecting **storage** allows you to select a storage account, and then a blob container that the logs are written to. 
 
-If you store logs on the file system, the files can be accessed by FTP, or downloaded as a Zip archive by using the Azure PowerShell or Azure Command-Line Interface (Azure CLI).
+If you store logs on the file system, the files can be accessed by FTP, or downloaded as a Zip archive by using Azure CLI.
 
 By default, logs are not automatically deleted (with the exception of **Application Logging (Filesystem)**). To automatically delete logs, set the **Retention Period (Days)** field.
 
@@ -80,13 +80,9 @@ While all three storage locations provide the same basic information for logged 
 > [!NOTE]
 > Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](https://azure.microsoft.com/downloads/).
 >
-> [!NOTE]
-> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
 
 ## <a name="download"></a> How to: Download logs
-Diagnostic information stored to the web app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure PowerShell or the Azure Command-Line Interface.
+Diagnostic information stored to the web app file system can be accessed directly using FTP. It can also be downloaded as a Zip archive using Azure CLI.
 
 The directory structure that the logs are stored in is as follows:
 
@@ -102,19 +98,7 @@ To open an FTP connection to your app's FTP server, see [Deploy your app to Azur
 
 Once connected to your web app's FTP/S server, open the **LogFiles** folder, where the log files are stored.
 
-### Download with Azure PowerShell
-To download the log files, start a new instance of Azure PowerShell and use the following command:
-
-    Save-AzureWebSiteLog -Name webappname
-
-This command saves the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
-
-> [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [Install and configure Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).
->
->
-
-### Download with Azure Command-Line Interface
+### Download with Azure CLI
 To download the log files using the Azure Command Line Interface, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
     az webapp log download --resource-group resourcegroupname --name webappname
@@ -122,7 +106,7 @@ To download the log files using the Azure Command Line Interface, open a new com
 This command saves the logs for the web app named 'webappname' to a file named **diagnostics.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface (Azure CLI), or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+> If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 >
 >
 
@@ -139,7 +123,7 @@ Visual Studio Application Insights provides tools for filtering and searching lo
 [Learn more about performance tracking with Application Insights](../application-insights/app-insights-azure-web-apps.md)
 
 ## <a name="streamlogs"></a> How to: Stream logs
-While developing an application, it is often useful to see logging information in near-real time. You can stream logging information to your development environment using either Azure PowerShell or the Azure Command-Line Interface.
+While developing an application, it is often useful to see logging information in near-real time. You can stream logging information to your development environment using Azure CLI.
 
 > [!NOTE]
 > Some types of logging buffer write to the log file, which can result in out of order events in the stream. For example, an application log entry that occurs when a user visits a page may be displayed in the stream before the corresponding HTTP log entry for the page request.
@@ -149,29 +133,7 @@ While developing an application, it is often useful to see logging information i
 >
 >
 
-### Streaming with Azure PowerShell
-To stream logging information, start a new instance of Azure PowerShell and use the following command:
-
-    Get-AzureWebSiteLog -Name webappname -Tail
-
-This command connects to the web app specified by the **-Name** parameter and begin streaming information to the PowerShell window as log events occur on the web app. Any information written to files ending in .txt, .log, or .htm that are stored in the /LogFiles directory (d:/home/logfiles) is streamed to the local console.
-
-To filter specific events, such as errors, use the **-Message** parameter. For example:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Message Error
-
-To filter specific log types, such as HTTP, use the **-Path** parameter. For example:
-
-    Get-AzureWebSiteLog -Name webappname -Tail -Path http
-
-To see a list of available paths, use the -ListPath parameter.
-
-> [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
->
->
-
-### Streaming with Azure Command-Line Interface
+### Streaming with Azure CLI
 To stream logging information, open a new command prompt, PowerShell, Bash, or Terminal session and enter the following command:
 
     az webapp log tail --name webappname --resource-group myResourceGroup
@@ -187,7 +149,7 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
     az webapp log tail --name webappname --resource-group myResourceGroup --path http
 
 > [!NOTE]
-> If you have not installed the Azure Command-Line Interface, or have not configured it to use your Azure Subscription, see [How to Use Azure Command-Line Interface](../cli-install-nodejs.md).
+> If you have not installed Azure CLI, or have not configured it to use your Azure Subscription, see [How to Use Azure CLI](../cli-install-nodejs.md).
 >
 >
 

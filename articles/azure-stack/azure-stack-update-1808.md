@@ -250,7 +250,7 @@ The following are post-installation known issues for this build version.
 
 ### Compute
 
-<!-- TBD – IS, ASDK -->
+<!-- 3164607 – IS, ASDK -->
 - Reattaching a detached disk to the same virtual machine (VM) with the same name and LUN fails with an error such as **Cannot attach data disk 'datadisk' to VM 'vm1'**. The error occurs because the disk is currently being detached or the last detach operation failed. Please wait until the disk is completely detached and then try again or delete/detach the disk explicitly again. The workaround is to reattach it with a different name, or on a different LUN. 
 
 <!-- 3099544 – IS, ASDK --> 

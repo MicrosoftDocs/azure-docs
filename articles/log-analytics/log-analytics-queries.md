@@ -19,7 +19,7 @@ ms.component:
 
 # Analyze Log Analytics data in Azure Monitor
 
-Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/data-explorer). It collects telemetry from a variety of sources and uses the [query language from Data Explorer](/kusto) to retrieve and analyze data.
+Log data collected by Azure Monitor is stored in a Log Analytics workspace, which is based on [Azure Data Explorer](/azure/data-explorer). It collects telemetry from a variety of sources and uses the [query language from Data Explorer](/azure/kusto/query) to retrieve and analyze data.
 
 > [!NOTE]
 > Log Analytics was previously treated as its own service in Azure. It is now considered a part of Azure Monitor and focuses on storage and analysis of log data using its query language. Features that were considered part of Log Analytics, such as Windows and Linux agents for data collection, views to visualize existing data, and alerts to proactively notify you of issues, have not changed but are now considered part of Azure Monitor.
