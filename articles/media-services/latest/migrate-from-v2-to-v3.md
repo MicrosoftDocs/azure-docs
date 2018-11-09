@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
 ---
 
@@ -41,7 +41,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * Introduces the concept of [Transforms](transforms-jobs-concept.md) for file-based Job processing. A Transform can be used to build reusable configurations, to create Azure Resource Manager Templates, and isolate processing settings between multiple customers or tenants.
 * An Asset can have [multiple StreamingLocators](streaming-locators-concept.md) each with different Dynamic Packaging and Dynamic Encryption settings.
 * [Content protection](content-key-policy-concept.md) supports multi-key features.
-* You can stream live events that are up to 24 hours long.
+* You can stream live events that are up to 24 hours long when using Media Services for transcoding a single bitrate contribution feed into an output stream that has multiple bitrates.
 * New Low Latency live streaming support on LiveEvents.
 * LiveEvent Preview supports Dynamic Packaging and Dynamic Encryption. This enables content protection on Preview as well as DASH and HLS packaging.
 * LiveOutput is simpler to use than the Program entity in the v2 APIs. 
