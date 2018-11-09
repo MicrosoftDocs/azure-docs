@@ -175,53 +175,6 @@ The following access needs to be granted to your users in order to enable and ac
 
 For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
-## Performance counters enabled
-Azure Monitor for VMs configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
-
-### Windows performance counters
-
-|Object name |Counter name |  
-|------------|-------------|  
-|LogicalDisk |% Free Space |  
-|LogicalDisk |Avg. Disk sec/Read |  
-|LogicalDisk |Avg. Disk sec/Transfer |  
-|LogicalDisk |Avg. Disk sec/Write |  
-|LogicalDisk |Disk Bytes/sec |  
-|LogicalDisk |Disk Read Bytes/sec |  
-|LogicalDisk |Disk Reads/sec |  
-|LogicalDisk |Disk Transfers/sec |  
-|LogicalDisk |Disk Write Bytes/sec |  
-|LogicalDisk |Disk Writes/sec |  
-|LogicalDisk |Free Megabytes |  
-|Memory |Available MBytes |  
-|Network Adapter |Bytes Received/sec |  
-|Network Adapter |Bytes Sent/sec |  
-|Processor |% Processor Time |  
-
-### Linux performance counters
-
-|Object name |Counter name |  
-|------------|-------------|  
-|Logical Disk |% Used Space |  
-|Logical Disk |Disk Read Bytes/sec |  
-|Logical Disk |Disk Reads/sec |  
-|Logical Disk |Disk Transfers/sec |  
-|Logical Disk |Disk Write Bytes/sec |  
-|Logical Disk |Disk Writes/sec |  
-|Logical Disk |Free Megabytes |  
-|Logical Disk |Logical Disk Bytes/sec |  
-|Memory |Available MBytes Memory |  
-|Network |Total Bytes Received |  
-|Network |Total Bytes Transmitted |  
-|Processor |% Processor Time |  
-
-## Diagnostic and usage data
-Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
-
-For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
-
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
@@ -732,6 +685,52 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 After you've enabled monitoring, it might take about 10 minutes before you can view health state and metrics for the hybrid computer. 
 
+## Performance counters enabled
+Azure Monitor for VMs configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
+
+### Windows performance counters
+
+|Object name |Counter name |  
+|------------|-------------|  
+|LogicalDisk |% Free Space |  
+|LogicalDisk |Avg. Disk sec/Read |  
+|LogicalDisk |Avg. Disk sec/Transfer |  
+|LogicalDisk |Avg. Disk sec/Write |  
+|LogicalDisk |Disk Bytes/sec |  
+|LogicalDisk |Disk Read Bytes/sec |  
+|LogicalDisk |Disk Reads/sec |  
+|LogicalDisk |Disk Transfers/sec |  
+|LogicalDisk |Disk Write Bytes/sec |  
+|LogicalDisk |Disk Writes/sec |  
+|LogicalDisk |Free Megabytes |  
+|Memory |Available MBytes |  
+|Network Adapter |Bytes Received/sec |  
+|Network Adapter |Bytes Sent/sec |  
+|Processor |% Processor Time |  
+
+### Linux performance counters
+
+|Object name |Counter name |  
+|------------|-------------|  
+|Logical Disk |% Used Space |  
+|Logical Disk |Disk Read Bytes/sec |  
+|Logical Disk |Disk Reads/sec |  
+|Logical Disk |Disk Transfers/sec |  
+|Logical Disk |Disk Write Bytes/sec |  
+|Logical Disk |Disk Writes/sec |  
+|Logical Disk |Free Megabytes |  
+|Logical Disk |Logical Disk Bytes/sec |  
+|Memory |Available MBytes Memory |  
+|Network |Total Bytes Received |  
+|Network |Total Bytes Transmitted |  
+|Processor |% Processor Time |  
+
+## Diagnostic and usage data
+Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
+
+For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 ## Next steps
 
 With monitoring enabled for your virtual machine, this information is available for analysis with Azure Monitor for VMs.  To learn how to use the Health feature, see [View Azure Monitor for VMs Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md).  
