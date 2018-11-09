@@ -13,9 +13,20 @@ ms.author: helohr
 
 ## Feature comparison
 
-|Feature|App service|Cloud services|Virtual machines|Service fabric|Notes|
-|---|---|---|---|---|---|
-|Example|||||Example|
+|Feature|Windows Virtual Desktop|Windows Server Remote Desktop Services on Azure|
+|---|---|---|
+|Managed service|||
+|Access multi-user Windows 10|||
+|Free Windows 7 ESU|||
+|Full network control|||
+|Built-in diagnostics|||
+|Multi-factor authentication|||
+|VM size flexibility|||
+|VM on-premise|||
+|Pooled or persistent assignment|||
+|RemoteApp or full desktop|||
+|Requires Azure AD|||
+|Supported in all Remote Desktop clients|||
 
 ## Scenarios and recommendations
 
