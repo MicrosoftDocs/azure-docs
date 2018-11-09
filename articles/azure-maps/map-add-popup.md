@@ -13,7 +13,7 @@ ms.custom: codepen
 
 # Add a popup to the map
 
-This article shows you different ways for how to add a popup to points and shapes on a map.
+This article shows you how to add a popup to a point on a map.
 
 ## Understand the code
 
