@@ -107,7 +107,7 @@ Change directories into the folder where your deployment manifest is saved. If y
 Use the following command to apply the configuration to an IoT Edge device:
 
    ```cli
-   az iot hub apply-configuration --device-id [device id] --hub-name [hub name] --content [file path]
+   az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
 The device id parameter is case-sensitive. The content parameter points to the deployment manifest file that you saved. 

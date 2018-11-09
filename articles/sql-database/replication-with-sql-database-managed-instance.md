@@ -71,7 +71,7 @@ Supports:
 ## Configure publishing and distribution example
 
 1. [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) in the portal.
-2. [Create an Azure Storage Account](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory.
+2. [Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory.
 
    Be sure to copy the storage keys. See [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -79,11 +79,11 @@ Supports:
 
    In the example scripts below, replace `<Publishing_DB>` with the name of this database.
 
-4. Create a database user with SQL Authentication for the distributor. See, [Creating database users](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use a secure password.
+4. Create a database user with SQL Authentication for the distributor. See, [Creating database users](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use a secure password.
 
    In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
 
-5. [Connect to the SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connect to the SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Run the following query to add the distributor and the distribution database.
 
@@ -191,4 +191,4 @@ The following features are not supported:
 
 ## See Also
 
-- [What is a Managed Instance?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [What is a Managed Instance?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

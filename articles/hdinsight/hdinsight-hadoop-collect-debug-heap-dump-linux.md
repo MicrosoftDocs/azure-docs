@@ -1,18 +1,18 @@
 ---
-title: Enable heap dumps for Hadoop services on HDInsight - Azure 
-description: Enable heap dumps for Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
+title: Enable heap dumps for Apache Hadoop services on HDInsight - Azure 
+description: Enable heap dumps for Apache Hadoop services from Linux-based HDInsight clusters for debugging and analysis.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
-# Enable heap dumps for Hadoop services on Linux-based HDInsight
+# Enable heap dumps for Apache Hadoop services on Linux-based HDInsight
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -25,11 +25,11 @@ Heap dumps contain a snapshot of the application's memory, including the values 
 
 You can enable heap dumps for the following services:
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache yarn** - resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** - datanode, secondarynamenode, namenode
 
 You can also enable heap dumps for the map and reduce processes ran by HDInsight.
 
@@ -45,7 +45,7 @@ Map and reduce processes are slightly different, as these operations are a child
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> We recommend using Ambari to modify both the scripts and mapred-site.xml settings, as Ambari handle replicating changes across nodes in the cluster. See the [Using Ambari](#using-ambari) section for specific steps.
+> We recommend using Apache Ambari to modify both the scripts and mapred-site.xml settings, as Ambari handle replicating changes across nodes in the cluster. See the [Using Ambari](#using-ambari) section for specific steps.
 
 ### Enable heap dumps
 

@@ -3,7 +3,7 @@ title: Securely saving secret application settings for a web application | Micro
 description: How to securely save secret application settings such as Azure credentials or third party API keys using ASP.NET core Key Vault Provider, User Secret, or .NET 4.7.1 configuration builders
 services: visualstudio
 documentationcenter: ''
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 

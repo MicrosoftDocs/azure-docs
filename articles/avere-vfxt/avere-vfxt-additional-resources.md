@@ -28,4 +28,4 @@ Additional Avere cluster documentation can be found on the website at <http://li
 
 ## vFXT creation and management documentation
 
-A full guide for using vfxt.py, the cloud cluster creation and management utility, is provided at <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>.  
+A full guide for using vfxt.py, the cloud cluster creation and management utility, is provided on GitHub: [Cloud cluster management with vfxt.py](https://github.com/Azure/AvereSDK/blob/master/docs/README.md).  

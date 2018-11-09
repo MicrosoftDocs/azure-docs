@@ -60,7 +60,7 @@ After the cookies are deleted, restart the browser and then go to the [Microsoft
 
 ## Comments
 
-Our goal is to make the Machine Learning experience as seamless as possible. Please post any comments and issues at the [Azure Machine Learning forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to help us serve you better.
+Our goal is to make the Machine Learning experience as seamless as possible. Please post any comments and issues at the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to help us serve you better.
 
 [screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:media/troubleshooting-creating-ml-workspace/screen2.png

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -36,7 +36,7 @@ The Azure Stack 1809 update build number is **1.1809.0.90**.
 
 This update includes the following improvements for Azure Stack:
 
-- With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](http://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
+- With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
 - <!--  2712869   | IS  ASDK -->  **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
@@ -152,7 +152,8 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Post-update steps
 
-*There are no post-update steps for update 1809.*
+> [!Important]  
+> Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 <!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
  - [Link to KB]()  

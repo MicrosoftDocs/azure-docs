@@ -3,7 +3,7 @@
 - name: Overview
   expanded: true
   items:
-  - name: What is Face API?
+  - name: What is the Face API?
     href: Overview.md
 - name: Quickstarts
   items:
@@ -38,7 +38,7 @@
     - name: C#
       href: Tutorials/FaceAPIinCSharpTutorial.md
     - name: Android
-    href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
+      href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How-to guides
   items:
   - name: First Face API apps

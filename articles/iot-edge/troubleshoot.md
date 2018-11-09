@@ -336,3 +336,5 @@ While IoT Edge provides enhanced configuration for securing Azure IoT Edge runti
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
 
+If you have more questions, create a [Support request](https://portal.azure.com/#create/Microsoft.Support) for help. 
+

@@ -4,13 +4,12 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: "09/26/2018"
 ms.topic: "tutorial"
 description: "Rapid Kubernetes development with containers and microservices on Azure"
 keywords: "Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers"
-manager: douge
 ---
 # Get Started on Azure Dev Spaces with Node.js
 
@@ -58,7 +57,7 @@ az account set --subscription <subscription ID>
 
 ## Create a Kubernetes cluster enabled for Azure Dev Spaces
 
-At the command prompt, create the resource group. Use one of the currently supported regions (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral, or CanadaEast).
+At the command prompt, create the resource group. Use one of the currently supported regions (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral, or CanadaEast).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>

@@ -64,7 +64,9 @@ The first Azure AD application is used to get a users Azure AD group membership.
 
   ![Set application graph permissions](media/aad-integration/delegated-permissions.png)
 
-7. Select **Done**, choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
+  Select **Done**.
+
+7. Choose *Microsoft Graph* from the list of APIs, then select **Grant Permissions**. This step will fail if the current account is not a tenant admin.
 
   ![Set application graph permissions](media/aad-integration/grant-permissions.png)
 
@@ -94,7 +96,9 @@ The second Azure AD application is used when logging in with the Kubernetes CLI 
 
   ![Select AKS AAD server application endpoint](media/aad-integration/select-server-app.png)
 
-4. Select **Done** and **Grant Permissions** to complete this step.
+  Select **Done**
+
+4. Select your server API from the list and then choose **Grant Permissions**:
 
   ![Grant permissions](media/aad-integration/grant-permissions-client.png)
 

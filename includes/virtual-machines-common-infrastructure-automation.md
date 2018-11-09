@@ -123,9 +123,9 @@ Learn how to:
 ## Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) is a suite of tools that help you share and track code, use automated builds, and create a complete continuous integration and development (CI/CD) pipeline. Azure DevOps Services integrates with Visual Studio and other editors to simplify usage. Azure DevOps Services can also create and configure Azure VMs and then deploy code to them.
 
-Learn how to:
+Learn more about:
 
-- [Create a continuous integration pipeline with Azure DevOps Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## Jenkins

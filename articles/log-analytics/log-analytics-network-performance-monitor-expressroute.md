@@ -134,4 +134,4 @@ Network Performance Monitor helps you diagnose several circuit connectivity issu
  
 
 ## Next steps
-[Search logs](log-analytics-log-searches.md) to view detailed network performance data records.
+[Search logs](log-analytics-queries.md) to view detailed network performance data records.

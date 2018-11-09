@@ -122,7 +122,7 @@ The [Azure Logic Apps](../logic-apps/logic-apps-overview.md) service allows you 
 
     1. Click within the **Content** field, and select **Body** from the **Dynamic content** list.
 
-    1. Click **Use sample to payload to generate schema**. Paste the following JSON payload, and then click **Done**.
+    1. Click **Use sample payload to generate schema**. Paste the following JSON payload, and then click **Done**.
 
         ```JSON
         {

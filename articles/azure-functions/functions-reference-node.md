@@ -105,8 +105,8 @@ module.exports = async function (context, req) {
 ## Bindings 
 In JavaScript, [bindings](functions-triggers-bindings.md) are configured and defined in a function's function.json. Functions interact with bindings a number of ways.
 
-### Reading trigger and input data
-Trigger and input bindings (bindings of `direction === "in"`) can be read by a function in three ways:
+### Inputs
+Input are divided into two categories in Azure Functions: one is the trigger input and the other is the additional input. Trigger and other input bindings (bindings of `direction === "in"`) can be read by a function in three ways:
  - **_[Recommended]_ As parameters passed to your function.** They are passed to the function in the same order that they are defined in *function.json*. Note that the `name` property defined in *function.json* does not need to match the name of your parameter, although it should.
  
    ```javascript
@@ -133,7 +133,7 @@ Trigger and input bindings (bindings of `direction === "in"`) can be read by a f
    };
    ```
 
-### Writing data
+### Outputs
 Outputs (bindings of `direction === "out"`) can be written to by a function in a number of ways. In all cases, the `name` property of the binding as defined in *function.json* corresponds to the name of the object member written to in your function. 
 
 You can assign data to output bindings in one of the following ways. You should not combine these methods.
