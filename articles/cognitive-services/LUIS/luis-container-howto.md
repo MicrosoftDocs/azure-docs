@@ -16,7 +16,7 @@ ms.author: diberry
 
 Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
-LUIS provides a standardized Linux container for Docker, named LUIS, which detects .... In addition to detection, LUIS can .... It can also ....
+LUIS allows you to get prediction queries to identify the intent and entities of conversational, natural language text, using LUIS applications that you create and export from the Language Understanding service. You can also capture and import application query logs to the Language Understanding service for review, to improve prediction accuracy through active learning.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
