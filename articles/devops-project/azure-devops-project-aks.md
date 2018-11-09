@@ -12,12 +12,12 @@ monikerRange: 'vsts'
 ---
 
 
-# Tutorial: Deploy your ASP.NET Core app to Azure Kubernetes Service (AKS) with the Azure DevOps Projects
+# Tutorial: Deploy your ASP.NET Core app to Azure Kubernetes Service (AKS) by using Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository. Or you can choose one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Projects also:
-* Automatically creates Azure resources, such as AKS.
+* Automatically creates Azure resources, such as Azure Kubernetes Service (AKS).
 * Creates and configures a release pipeline in Azure DevOps that includes a build and release pipeline for CI/CD.
 * Creates an Azure Application Insights resource for monitoring.
 
