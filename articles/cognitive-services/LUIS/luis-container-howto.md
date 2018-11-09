@@ -16,7 +16,7 @@ ms.author: diberry
 
 Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
-LUIS allows you to get prediction queries to identify the intent and entities of conversational, natural language text, using LUIS applications that you create and export from the Language Understanding service. You can also capture and import application query logs to the Language Understanding service for review, to improve prediction accuracy through active learning.
+LUIS allows you to get prediction queries to identify the intent and entities of conversational, natural language text, using LUIS applications that you create and export from the Language Understanding service. You can also capture and import application query logs to the Language Understanding service for review, to [improve prediction accuracy](luis-concept-review-endpoint-utterances.md) through active learning.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -36,20 +36,11 @@ For a primer on Docker and container basics, see the [Docker overview](https://d
 
 This container supports minimum and recommended values for the following:
 
-* CPU cores, at least 2.6 gigahertz (GHz) or faster
-* Memory, in gigabytes (GB)
-* Maximum transactions per second (TPS)
-
-The following table lists the minimum and recommended values for each container.
-
 |Setting| Minimum | Recommended |
 |-----------|---------|-------------|
-||||
-||||
-||||
-|[LUIS](#working-with-luis) |1 core, 2 GB memory, 20 TPS |1 cores, 4 GB memory, 40 TPS|
-|[Recognize Text](#working-with-recognize-text) | 1 core, 8 GB memory, 0.5 TPS | 2 cores, 8 GB memory, 1 TPS |
-|[Sentiment Analysis](#working-with-sentiment-analysis) | 1 core, 8 GB memory, 15 TPS | 1 core, 8 GB memory, 30 TPS |
+|Cores|1 core<BR>at least 2.6 gigahertz (GHz) or faster|1 core|
+|Memory|2 GB|4 GB|
+|Transactions per second<BR>(TPS)|20 TPS|40 TPS|
 
 ## Create a LUIS resource on Azure
 
@@ -85,7 +76,7 @@ The container image for the LUIS container is available from a private Docker co
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest LUIS container image from the repository, use the following command:
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-luiss:latest
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-luis:latest
 ```
 
 For a full description of available tags for the LUIS container, see [Recognize Text](https://go.microsoft.com/fwlink/?linkid=2018655) on Docker Hub.
@@ -103,7 +94,7 @@ For a full description of available tags for the LUIS container, see [Recognize 
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command:
 
 * Instantiates a container from the LUIS container image
-* Allocates two CPU cores and X gigabytes (GB) of memory
+* Allocates two CPU cores and 6 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits
 
@@ -127,20 +118,14 @@ http://localhost:5000/
 >  http://localhost:5000/swagger
 >  ```
 
-You can either [call the REST API operations](https://docs.microsoft.com/azure/cognitive-services/LUIS/XXX) available from your container, or use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.LUIS/) client library to call those operations.  
+You can either [call the Prediction REST API operations](https://aka.ms/LUIS-endpoint-APIs) available from your container, or use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) client library to call those operations.  
 > [!IMPORTANT]
-> You must have Azure Cognitive Services LUIS Client Library version X.0 or later if you want to use the client library with your container.
+> You must have Azure Cognitive Services LUIS Client Library version 2.0.0 or later if you want to use the client library with your container.
 
-The only difference between calling a given operation from your container and calling that same operation from a corresponding service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to call the operation. For example, if you wanted to use a LUIS instance running in the West US Azure region to detect XXX, you would call the following REST API operation:
-
-```http
-POST https://westus.api.cognitive.microsoft.com/ TBD
-```
-
-If you wanted to use a LUIS container running on your local machine under its default configuration to detect XXX, you would call the following REST API operation:
+The only difference between calling a given operation from your container and calling that same operation from a corresponding service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to call the operation. For example, if you wanted to use a LUIS instance running in the West US Azure region to detect intents, you would call the following REST API operation:
 
 ```http
-POST http://localhost:5000/ TBD
+POST https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}[?timezoneOffset][&verbose][&staging][&log]
 ```
 
 ### Billing
@@ -167,6 +152,7 @@ In this article, you learned concepts and workflow for downloading, installing, 
 * Container images run in Docker.
 * You can use either the REST API or SDK to call operations in LUIS containers by specifying the host URI of the container.
 * You must specify billing information when instantiating a container.
+* ** Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft.  
 
 ## Next steps
 
