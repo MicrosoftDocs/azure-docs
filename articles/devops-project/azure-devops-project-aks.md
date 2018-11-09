@@ -86,7 +86,7 @@ DevOps Projects automatically configures an AKS cluster, which you can explore a
 
 ## Examine the CI pipeline
 
-DevOps Projects automatically configures an Azure CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
+DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
 
 1. Go to the Azure DevOps Projects dashboard.
 
