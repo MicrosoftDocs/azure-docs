@@ -92,6 +92,7 @@ A SKU shows up under the parent offer in Azure Marketplace and shows up as its o
     - SKUs
     - Marketplace
     - Support
+
 Each view contains a set of fields for you to fill out. Required fields are indicated with a red asterix (\*)
 
 ## To configure Offer Settings
@@ -160,7 +161,7 @@ After you finish the SKU settings, provide the following Package Details.
 
 ![Package details](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
-- **Current version** - The version of the package that you will upload. It should be in the format - ..
+- **Current version** - The version of the package that you will upload. Version tags must be of the form X.Y.Z, where X, Y, and Z are integers.
 
 - **Package File** - This package contains the following files, which are saved in a .zip file.
 

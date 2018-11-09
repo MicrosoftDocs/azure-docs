@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 09/24/2018
+ms.date: 11/09/2018
 ---
 
 # Quickstart: Use Python to get started with Azure Machine Learning
@@ -64,11 +64,36 @@ Activate the environment.
 
 ### Install the SDK
 
-In the activated conda environment, install the SDK. This code installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes **approximately four minutes** to finish.
+In the activated conda environment, install the SDK. The below command installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes a few minutes to finish, depending on the configuration of your machine.
 
 ```sh
+# install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
+
+# install run histry widget
+jupyter nbextension install --py --user azureml.train.widgets
+
+# enable run histry widget
+jupyter nbextension enable --py --user azureml.train.widgets
 ```
+
+You can also use different "extra" keywords to install additional components of the SDK.
+
+```sh
+# install the base SDK and auto ml components
+pip install azureml-sdk[automl]
+
+# install the base SDK and model explainability component
+pip install azureml-sdk[explain]
+
+# install the base SDK and experimental components
+pip install azureml-sdk[contrib]
+
+# install the base SDK and automl components in Azure Databricks environment
+# read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+pip install azureml-sdk[databricks]
+```
+
 
 ## Create a workspace
 

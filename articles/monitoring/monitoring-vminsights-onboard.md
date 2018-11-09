@@ -335,7 +335,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 
 ### Enable using Azure Policy
-To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../azure-policy/azure-policy-introduction.md) is recommended. These policies:
+To enable Azure Monitor for VMs at scale that ensures consistent compliance and automatic enablement for new VMs provisioned, [Azure Policy](../governance/policy/overview.md) is recommended. These policies:
 
 * Deploy Log Analytics agent and Dependency agent 
 * Report on compliance results 

@@ -30,7 +30,7 @@ If you do not use the downloaded quickstart server project, you will need the pu
 
 This tutorial requires the  setup:
 
-* An active Google account. You can sign up for a Google account at [accounts.google.com](http://go.microsoft.com/fwlink/p/?LinkId=268302).
+* An active Google account. You can sign up for a Google account at [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
 * [Google Cloud Messaging Client Component](http://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Configure a Notification Hub
