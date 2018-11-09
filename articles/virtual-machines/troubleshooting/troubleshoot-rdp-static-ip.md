@@ -18,7 +18,7 @@ ms.author: genli
 
 #  Cannot remote desktop to Azure Virtual Machines because of static IP
 
-This article describes a problem that you cannot remote desktop to Azure Windows Virtual Machines (VMs) because of static IP is configured in the VM.
+This article describes a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) after a static IP is configured in the VM.
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
@@ -26,7 +26,7 @@ This article describes a problem that you cannot remote desktop to Azure Windows
 
 ## Symptoms 
 
-When you make an RDP connection to a VM in Azure, you may receive the following error message:
+When you make an RDP connection to a VM in Azure, you receive the following error message:
 
 **Remote Desktop can't connect to the remote computer for one of these reasons:**
 
@@ -42,7 +42,7 @@ When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-
 
 ## Cause
 
-This problem may occur because a static IP is used on the network interface in Windows, and this IP differs from the one in the portal.
+The VM has a static IP address that's defined on the network interface within Windows. This IP address differs from the address that's defined in the portal.
 
 ## Solution 
 
@@ -57,7 +57,7 @@ To troubleshoot this issue, use Serial control to enable DHCP or [reset network 
 2. Check if the DHCP is disabled on the network interface:
 
         netsh interface ip show config
-3. If the DHCP is not enabled, change the configuration of the network interface back to DHCP:
+3. If the DHCP is not enabled, revert the configuration of your network interface to DHCP 
 
         netsh interface ip set address name="<NIC Name>" source=dhc
         
@@ -65,12 +65,13 @@ To troubleshoot this issue, use Serial control to enable DHCP or [reset network 
 
         netsh interface ip set address name="Ethernet 2" source=dhc
 
-
-4. Query the IP configuration again to make sure that the interface is set up properly now, and the new IP address which should match the one given by the Azure portal:
+4. Query the IP configuration again to make sure that the network interface is now correctly set up. The new IP address should match the one that’s provided by the Azure.
 
         netsh interface ip show config
 
-5. You don't need to restart the VM. Try to connect to the VM by using remote desktop.
+    You don't have to restart the VM at this point. The VM will be back reachable.
+
+After that, if you want to configure the static IP for the VM, see [Configure static IP addresses for a VM](../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md).
 
 ## Reset network interface
 
