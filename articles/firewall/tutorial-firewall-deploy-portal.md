@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/9/2018
 ms.author: victorh
 ms.custom: mvc
 #Customer intent: As an administrator new to this service, I want to control outbound network access from resources located in an Azure subnet.
@@ -191,15 +191,16 @@ This is the application rule that allows outbound access to github.com.
 
 1. Open the **Test-FW-RG**, and click the **Test-FW01** firewall.
 2. On the **Test-FW01** page, under **Settings**, click **Rules**.
-3. Click **Add application rule collection**.
-4. For **Name**, type **App-Coll01**.
-5. For **Priority**, type **200**.
-6. For **Action**, select **Allow**.
-7. Under **Rules**, for **Name**, type **AllowGH**.
-8. For **Source Addresses**, type **10.0.2.0/24**.
-9. For **Protocol:port**, type **http, https**.
-10. For **Target FQDNS**, type **github.com**
-11. Click **Add**.
+3. Click the **Application rule collection** tab.
+4. Click **Add application rule collection**.
+5. For **Name**, type **App-Coll01**.
+6. For **Priority**, type **200**.
+7. For **Action**, select **Allow**.
+8. Under **Rules**, **Target FQDNs**, for **Name**, type **AllowGH**.
+9. For **Source Addresses**, type **10.0.2.0/24**.
+10. For **Protocol:port**, type **http, https**.
+11. For **Target FQDNS**, type **github.com**
+12. Click **Add**.
 
 Azure Firewall includes a built-in rule collection for infrastructure FQDNs that are allowed by default. These FQDNs are specific for the platform and can't be used for other purposes. For more information, see [Infrastructure FQDNs](infrastructure-fqdns.md).
 
@@ -207,6 +208,7 @@ Azure Firewall includes a built-in rule collection for infrastructure FQDNs that
 
 This is the network rule that allows outbound access to two IP addresses at port 53 (DNS).
 
+1. Click the **Network rule collection** tab.
 1. Click **Add network rule collection**.
 2. For **Name**, type **Net-Coll01**.
 3. For **Priority**, type **200**.
