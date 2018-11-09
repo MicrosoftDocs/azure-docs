@@ -77,7 +77,7 @@ This update includes the following improvements for Azure Stack:
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
       1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992).
-      2. Follow the steps in [this article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
+      2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
 
 
 ### Changes
