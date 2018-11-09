@@ -43,9 +43,12 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 ## Configure an image
 
 Configure the Docker image that is used to store all the model files.
-1. Create a scoring script (score.py) [using these instructions](tutorial-deploy-models-with-aml.md#create-scoring-script)
+1. Create a scoring script (score.py) [using these instructions](tutorial-deploy-models-with-aml.md#create-scoring-script).
 
-1. Create an environment file (myenv.yml) [using these instructions](tutorial-deploy-models-with-aml.md#create-environment-file) 
+    > [!IMPORTANT]
+    > The scoring script receives data submitted from clients and passes it to the model for scoring. Document the data structure that the script and model expect. Having this documentation makes things easier when building a client to consume the web service.
+
+1. Create an environment file (myenv.yml) [using these instructions](tutorial-deploy-models-with-aml.md#create-environment-file).
 
 1. Use these two files to configure the Docker image in Python using the SDK as follows:
 
