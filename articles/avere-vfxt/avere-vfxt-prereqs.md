@@ -75,11 +75,10 @@ To accept the software terms in advance:
     az account set --subscription abc123de-f456-abc7-89de-f01234567890​
    ```
 
-1. Issue this command to accept service terms and enable programmatic access for the Avere vFXT for Azure software images: 
+1. Issue this command to accept service terms and enable programmatic access for the Avere vFXT for Azure software image: 
 
    ```azurecli
    az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-controller:latest
-   az vm image accept-terms --urn microsoft-avere:vfxt:avere-vfxt-node:latest
    ```
 
 ## Next step: Create the vFXT cluster
