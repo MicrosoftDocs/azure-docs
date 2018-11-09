@@ -18,7 +18,7 @@ ms.author: genli
 
 #  Cannot remote desktop to Azure Virtual Machines because of static IP
 
-This article describes a problem that you cannot remote desktop to Azure Virtual Machines (VMs) because of static IP is configured in the VM.
+This article describes a problem that you cannot remote desktop to Azure Windows Virtual Machines (VMs) because of static IP is configured in the VM.
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
@@ -26,7 +26,7 @@ This article describes a problem that you cannot remote desktop to Azure Virtual
 
 ## Symptoms 
 
-When you make an RDP connection to a Window VM in Azure, you may receive the following general error message:
+When you make an RDP connection to a VM in Azure, you may receive the following error message:
 
 **Remote Desktop can't connect to the remote computer for one of these reasons:**
 
@@ -38,7 +38,7 @@ When you make an RDP connection to a Window VM in Azure, you may receive the fol
 
 **Make sure the remote computer is turned on and connected to the network, and that remote access is enabled.**
 
-When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) window, you see the VM boots normally and waits for credentials in the login screen.
+When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you see the VM boots normally and waits for credentials in the login screen.
 
 ## Cause
 
@@ -50,7 +50,7 @@ Before you follow these steps, take a snapshot of the OS disk of the affected VM
 
 To troubleshoot this issue, use Serial control to enable DHCP or [reset network interface](reset-network-interface.md) for the VM.
 
-### Method 1: Use Serial control
+### Use Serial control
 
 1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
 ). If the Serial Console is not enabled on your VM, go to the [Reset network interface by using Azure portal](#repair-the-vm-offline) section.
@@ -72,6 +72,6 @@ To troubleshoot this issue, use Serial control to enable DHCP or [reset network 
 
 5. You don't need to restart the VM. Try to connect to the VM by using remote desktop.
 
-## Method 2: Use Azure portal
+## Reset network interface
 
 To reset network interface by using Azure portal, see [How to reset network interface for Azure Windows VM](reset-network-interface.md)
