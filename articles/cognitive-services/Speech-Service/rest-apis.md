@@ -420,40 +420,46 @@ The following is a typical response for `detailed` recognition.
 
 ## Text-to-speech
 
-These regions are supported for text-to-speech via the REST API. Make sure that you select the endpoint that matches your subscription region.
+These regions are supported for text-to-speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-The Speech Service supports 24-KHz audio output in addition to the 16-Khz output supported by Bing Speech. Four 24-KHz output formats are available for use in the `X-Microsoft-OutputFormat` HTTP header, as are two 24-KHz voices, `Jessa24kRUS` and `Guy24kRUS`.
+The Speech Service supports 24-KHz audio output, along with the 16-Khz outputs that were supported by Bing Speech. Four 24-KHz output formats and two 24-KHz voices are supported.
 
-Locale | Language   | Gender | Service name mapping
--------|------------|--------|------------
-en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
-en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
+### Voices
 
-A full list of available voices is available in [Supported languages](language-support.md#text-to-speech).
+| Locale | Language   | Gender | Mapping |
+|--------|------------|--------|---------|
+| en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" |
+| en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)" |
+
+A full list of available voices, see [supported languages](language-support.md#text-to-speech).
 
 ### Request headers
 
-The following fields are sent in the HTTP request header.
+This table lists required and optional headers for speech-to-text requests.
 
-|Header|Meaning|
-|------|-------|
-|`Authorization`|An authorization token preceded by the word `Bearer`. Required. See [Authentication](#authentication).|
-|`Content-Type`|The input content type: `application/ssml+xml`.|
-|`X-Microsoft-OutputFormat`|The output audio format. See next table.|
-|`User-Agent`|Application name. Required; must contain fewer than 255 characters.|
+| Header | Description | Required / Optional |
+|--------|-------------|---------------------|
+| `Authorization` | An authorization token preceded by the word `Bearer`. For additional information, see [Authorization](#authorization). | Required |
+| `Content-Type` | Specifies the content type for the provided text. Accepted value: `application/ssml+xml`. | Required |
+| `X-Microsoft-OutputFormat` | Specifies the audio output format. For a complete list of accepted values, see [audio outputs](#audio-outputs). | Required |
+| `User-Agent` | The application name. It must be less than 255 characters. | Required |
+
+### Audio outputs
+
+This is a list of supported audio formats that are sent in each request as the `X-Microsoft-OutputFormat` header. Each incorporates a bitrate and encoding type.
 
 The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both a bit rate and an encoding.
 
 |||
 |-|-|
-`raw-16khz-16bit-mono-pcm`         | `raw-8khz-8bit-mono-mulaw`
-`riff-8khz-8bit-mono-mulaw`     | `riff-16khz-16bit-mono-pcm`
-`audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3`
-`audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm`
-`riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
-`audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
+| `raw-16khz-16bit-mono-pcm` | `raw-8khz-8bit-mono-mulaw` |
+| `riff-8khz-8bit-mono-mulaw` | `riff-16khz-16bit-mono-pcm` |
+| `audio-16khz-128kbitrate-mono-mp3` | `audio-16khz-64kbitrate-mono-mp3` |
+| `audio-16khz-32kbitrate-mono-mp3`  | `raw-24khz-16bit-mono-pcm` |
+| `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3` |
+| `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3` |
 
 > [!NOTE]
 > If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
