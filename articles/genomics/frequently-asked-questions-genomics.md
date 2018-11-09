@@ -60,7 +60,7 @@ Go to Azure portal and open your Genomics account page. Under the **Management**
 Go to Azure portal and open your Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
 
 ## Why do I need two access keys?
-You need two access keys in case you want to update (regenerate) them without interrupting usage of the service. For example, you want to update the first key. In that case, you switch all new workflows to using the second key. Then, wait until the already running workflows using the first key are finished. Only then, update the key.
+You need two access keys in case you want to update (regenerate) them without interrupting usage of the service. For example, if you want to update the first key, you should have all new workflows use the second key. Then, wait for all the workflows using the first key to finish before updating the first key.
 
 ## Do you save my storage account keys?
 Your storage account key is used to create short-term access tokens for the Microsoft Genomics service to read your input files and write the output files. The default token duration is 48 hours. The token duration can be changed with the `-sas/--sas-duration` option of the submit command; the value is in hours.
