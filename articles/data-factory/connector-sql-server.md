@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/08/2018
 ms.author: jingwang
 
 ---
@@ -115,7 +115,7 @@ To copy data from/to SQL Server database, set the type property of the dataset t
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **SqlServerTable** | Yes |
-| tableName |Name of the table or view in the SQL Server database instance that linked service refers to. | Yes |
+| tableName |Name of the table or view in the SQL Server database instance that linked service refers to. | No for source, Yes for sink |
 
 **Example:**
 
@@ -155,7 +155,6 @@ To copy data from SQL Server, set the source type in the copy activity to **SqlS
 
 - If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the SQL Server source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
 - If you do not specify either "sqlReaderQuery" or "sqlReaderStoredProcedureName", the columns defined in the "structure" section of the dataset JSON are used to construct a query (`select column1, column2 from mytable`) to run against the SQL Server. If the dataset definition does not have the "structure", all columns are selected from the table.
-- When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
 **Example: using SQL query**
 

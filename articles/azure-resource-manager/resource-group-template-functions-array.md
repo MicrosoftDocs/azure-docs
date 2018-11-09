@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 11/8/2018
 ms.author: tomfitz
 
 ---
@@ -115,7 +115,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/array.json
 ```
 
@@ -203,7 +203,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/coalesce.json
 ```
 
@@ -277,7 +277,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-array.json
 ```
 
@@ -317,7 +317,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/concat-string.json
 ```
 
@@ -411,7 +411,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/contains.json
 ```
 
@@ -491,7 +491,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/createarray.json
 ```
 
@@ -570,7 +570,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/empty.json
 ```
 
@@ -635,7 +635,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/first.json
 ```
 
@@ -714,7 +714,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/intersection.json
 ```
 
@@ -787,7 +787,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/json.json
 ```
 
@@ -852,7 +852,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/last.json
 ```
 
@@ -924,7 +924,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/length.json
 ```
 
@@ -999,7 +999,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/max.json
 ```
 
@@ -1063,7 +1063,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/min.json
 ```
 
@@ -1127,7 +1127,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/range.json
 ```
 
@@ -1208,7 +1208,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/skip.json
 ```
 
@@ -1289,7 +1289,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/take.json
 ```
 
@@ -1368,7 +1368,7 @@ az group deployment create -g functionexamplegroup --template-uri https://raw.gi
 
 To deploy this example template with PowerShell, use:
 
-```powershell
+```azurepowershell-interactive
 New-AzureRmResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/union.json
 ```
 
