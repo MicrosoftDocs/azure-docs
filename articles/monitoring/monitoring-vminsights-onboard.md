@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2018
+ms.date: 11/09/2018
 ms.author: magoedte
 ---
 
@@ -142,22 +142,16 @@ The Performance feature of Azure Monitor for VMs is only available from Azure Mo
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
 
-### Hybrid environment connected sources
-Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. The following table describes the connected sources that the Map feature supports in a hybrid environment.
+### Microsoft Dependency agent
+Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. When you enable Azure Monitor for VMs for a single Azure VM or when using the methods for the at scale deployment, the Azure VM Dependency agent extension is used. With a hybrid environment, the Dependency agent can be downloaded and installed manually or using an automated deployment method to those virtual machines hosted outside of Azure.  
+
+The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
 | Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | No | |  
-
-On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send monitoring data. System Center Operations Manager and Log Analytics provide different out-of-the box versions of the agent. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.  
-
-On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics.   
-
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-
-If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For more information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 The Dependency agent can be downloaded from the following location.
 
@@ -539,10 +533,12 @@ The Azure Monitor for VMs Map Dependency agent does not transmit any data itself
 
 Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).  
 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+
 Summarized steps:
 
 1. Install Log Analytics Agent for Windows or Linux
-2. [Download](#hybrid-environment-connected-sources) and install Azure Monitor for VMs Map Dependency agent
+2. Download and install Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
 3. Enable collection of performance counters
 4. Onboard Azure Monitor for VMs
 
