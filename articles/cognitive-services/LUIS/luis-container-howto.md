@@ -34,7 +34,22 @@ For a primer on Docker and container basics, see the [Docker overview](https://d
 
 ### Server requirements and recommendations
 
-The LUIS container requires a minimum of X CPU core, at least X gigahertz (GHz) or faster, and X gigabytes (GB) of allocated memory, but we recommend at least X CPU cores and X GB of allocated memory.
+This container supports minimum and recommended values for the following:
+
+* CPU cores, at least 2.6 gigahertz (GHz) or faster
+* Memory, in gigabytes (GB)
+* Maximum transactions per second (TPS)
+
+The following table lists the minimum and recommended values for each container.
+
+|Setting| Minimum | Recommended |
+|-----------|---------|-------------|
+||||
+||||
+||||
+|[LUIS](#working-with-luis) |1 core, 2 GB memory, 20 TPS |1 cores, 4 GB memory, 40 TPS|
+|[Recognize Text](#working-with-recognize-text) | 1 core, 8 GB memory, 0.5 TPS | 2 cores, 8 GB memory, 1 TPS |
+|[Sentiment Analysis](#working-with-sentiment-analysis) | 1 core, 8 GB memory, 15 TPS | 1 core, 8 GB memory, 30 TPS |
 
 ## Create a LUIS resource on Azure
 
