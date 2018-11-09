@@ -26,7 +26,7 @@ This article answers some frequently asked questions about Windows Server images
 
 ### Why are the only Windows Server Datacenter images available in the Azure Stack Marketplace?
 
-This is due to licensing and activation issues, and not cost.
+This limitation is due to licensing and activation issues, and not cost.
 
 ### How do I update to a newer Windows image?
 
@@ -40,7 +40,7 @@ Microsoft offers two versions of Windows Server images through the Azure Stack M
 
 1. **Pay as you use**: These images run the full price Windows meters. 
    Who should use: EA customers who use the *Consumption billing model*; CSPs who do not want to use SPLA licensing.
-2. **Bring Your Own Licence (BYOL)**: These images run basic meters.
+2. **Bring Your Own License (BYOL)**: These images run basic meters.
    Who should use: EA customers with a Windows Server license; CSPs who use SPLA licensing.
 
 Azure Hybrid Use Benefit (AHUB) is not supported on Azure Stack. Customers who license through the "Capacity" model must use the BYOL image. If you are testing with the Azure Stack Development Kit (ASDK), you can use either of these options.
@@ -59,15 +59,15 @@ See [Convert an existing VM using Azure Hybrid Benefit for Windows Server](../vi
 
 ### What about other VMs that use Windows Server, such as SQL or Machine Learning Server?
 
-These images do apply the **licenseType** parameter, so they are pay as you use. You can set this parameter (see the previous FAQ answer). This only applies to the Windows Server software, not to layered products such as SQL which require you to bring your own license. Pay as you use licensing does not apply to layered software products.
+These images do apply the **licenseType** parameter, so they are pay as you use. You can set this parameter (see the previous FAQ answer). This only applies to the Windows Server software, not to layered products such as SQL, which require you to bring your own license. Pay as you use licensing does not apply to layered software products.
 
 ### I have an EA and I create my own images; how do I make sure they are billed correctly?
 
-You can add **licenseType: Windows_Server** in an ARM template. This setting must be added to each virtual machine resource block.
+You can add **licenseType: Windows_Server** in an Azure Resource Manager template. This setting must be added to each virtual machine resource block.
 
 ## Activation
 
-To activate a Windows Server virtual machine on Azure Stack, the following must be true:
+To activate a Windows Server virtual machine on Azure Stack, the following conditions must be true:
 
 1. The OEM has set the appropriate BIOS marker on every host system in Azure Stack.
 2. Windows Server 2012 R2 and Windows Server 2016 must use [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11). Key Management Service (KMS) and other activation services are not supported on Azure Stack.
