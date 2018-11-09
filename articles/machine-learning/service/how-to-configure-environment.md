@@ -23,52 +23,23 @@ This document focuses on the following specific environments and tools:
 * [Jupyter Notebooks](#jupyter): If you're already using Jupyter Notebooks, the SDK has some extras that you should install.
 * [Visual Studio Code](#vscode): If you use Visual Studio Code, there are some useful extensions that you can install.
 
-If you already have a Python 3 environment, or just want the basic steps for installing the SDK, see the [basic installation](#python) section.
+If you already have a Python 3 environment, or just want the basic steps for installing the SDK, see the [Local computer](#local) section.
 
 ## Prerequisites
 
 - An Azure Machine Learning service workspace. Follow the steps in [Get started with Azure Machine Learning service](quickstart-get-started.md) to create one.
+
 - Either the [Continuum Anaconda](https://www.anaconda.com/download/) or [Miniconda](https://conda.io/miniconda.html) package manager.
+
+    > [!IMPORTANT]
+    > Anaconda and Miniconda are not required when using Azure Notebooks.
+
 - On Linux or Mac OS, you need the bash shell.
 
     > [!TIP]
     > If you are on Linux or Mac OS and use a shell other than bash (for example, zsh) you may receive errors when running some commands. To work around this problem, use the `bash` command to start a new bash shell and run the commands there.
 
 - On Windows, you need the command prompt or Anaconda prompt (installed by Anaconda and Miniconda).
-
-## <a id="python"></a>Basic installation
-
-If you already have a Python 3 development environment with Conda installed, use the following steps to install the SDK:
-
-1. Open a command prompt or shell.
-
-1. Create a conda environment with the following commands:
-
-    ```shell
-    # create a new conda environment with Python 3.6, numpy and cython
-    conda create -n myenv Python=3.6 cython numpy
-
-    # activate the conda environment
-    conda activate myenv
-
-    # If you are running Mac OS you should run
-    source activate myenv
-    ```
-
-1. Install the Azure Machine Learning SDK and Data Preparation SDK with the following command:
-
-    ```shell
-    pip install --upgrade azureml-sdk[automl] azureml-dataprep
-    ```
-
-1. To verify that the SDK has been installed, use the following code:
-
-    ```python
-    import azureml.core
-    azureml.core.VERSION
-    ```
-
-1. To configure the environment to use your Azure Machine Learning service workspace, see the [Configure workspace](#workspace) section.
 
 ## <a id="anotebooks"></a>Azure Notebooks
 
@@ -87,15 +58,12 @@ The Data Science Virtual Machine (DSVM) is a customized virtual machine (VM) ima
   - Integrated development environments (IDEs) such as PyCharm and RStudio
   - Packages such as Jupyter Notebooks and Tensorflow
 
-To use DSVM as a development environment, follow these steps:
+The Azure Machine Learning SDK works on either the Ubuntu or Windows version of DSVM. To use DSVM as a development environment, follow these steps:
 
 1. To create a Data Science Virtual Machine, follow the steps in one of the following documents:
 
     * [Create an Ubuntu Data Science Virtual machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
     * [Create a Windows Data Science Virtual Machine](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
-
-    > [!WARNING]
-    > The Azure Machine Learning service SDK does not work on the CentOS DSVM.
 
 1. The Azure Machine Learning SDK is **already installed** on the DSVM. To use the Conda environment that contains the SDK, use one of the following commands:
 
@@ -122,11 +90,9 @@ To use DSVM as a development environment, follow these steps:
 
 For more information on the Data Science Virtual Machines, see [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
-## <a id="jupyter"></a>Jupyter Notebooks
+## <a id="local"></a>Local computer
 
-Jupyter Notebooks are part of the [Jupyter Project](https://jupyter.org/). They provide an interactive coding experience where you create documents that mix live code with narrative text and graphics. Jupyter Notebooks are also a great way to share your results with others, as you can save the output of your code sections in the document. You can install Jupyter Notebooks on a variety of platforms.
-
-To configure a Jupyter Notebook environment, use the following steps:
+When using a local computer (which might also be a remote virtual machine), use the following steps to create a conda environment and install the SDK:
 
 1. Open a command prompt or shell.
 
@@ -164,7 +130,24 @@ To configure a Jupyter Notebook environment, use the following steps:
     conda install <new package>
     ```
 
-1. Install a conda-aware Jupyter Notebook server and enable experiment widgets (to view run information). Use the following commands:
+1. To verify that the SDK is installed, use the `python` command to start a new interactive Python session. Then use the following code to load the SDK and display the version information.
+
+    ```python
+    import azureml.core
+    azureml.core.VERSION
+    ```
+
+    To exit the Python session, enter `exit()`.
+
+### <a id="jupyter"></a>Jupyter Notebooks
+
+Jupyter Notebooks are part of the [Jupyter Project](https://jupyter.org/). They provide an interactive coding experience where you create documents that mix live code with narrative text and graphics. Jupyter Notebooks are also a great way to share your results with others, as you can save the output of your code sections in the document. You can install Jupyter Notebooks on a variety of platforms.
+
+The steps in the [Local computer](#local) section install optional components for Jupyter Notebooks. To enable these components in your Jupyter Notebook environment, use the following steps:
+
+1. Open a command prompt or shell.
+
+1. To install a conda-aware Jupyter Notebook server and enable experiment widgets, use the following commands:
 
     ```shell
     # install Jupyter
@@ -183,28 +166,35 @@ To configure a Jupyter Notebook environment, use the following steps:
     jupyter notebook
     ```
 
-1. Open a new notebook, select "myenv" as your kernel, and then validate that you have Azure Machine Learning SDK installed. Run the following command in a notebook cell:
+1. To verify that Jupyter Notebook can use the SDK, open a new notebook and select "myenv" as your kernel. Then run the following command in a notebook cell:
 
     ```python
     import azureml.core
     azureml.core.VERSION
     ```
 
-1. To configure the Jupyter Notebook environment to use your Azure Machine Learning service workspace, see the [Configure workspace](#workspace) section.
+1. To configure the Jupyter Notebook to use your Azure Machine Learning service workspace, see the [Configure workspace](#workspace) section.
 
-## <a id="vscode"></a>Visual Studio Code
+### <a id="vscode"></a>Visual Studio Code
 
 Visual Studio Code is a cross platform code editor. It relies on a local Python 3 and Conda installation for Python support, but it provides additional tools for working with AI. It also provides support for selecting the Conda environment from within the code editor.
 
 To use Visual Studio Code for development, use the following steps:
 
-1. To install the Azure Machine Learning service SDK, follow the steps in the [Existing Python 3 environment](#python) section.
-
 1. To learn how to use Visual Studio Code for Python development, see the [Get started with Python in VSCode](https://code.visualstudio.com/docs/python/python-tutorial) document.
+
+1. To select the Conda environment, open VS Code and then use __Ctrl-Shift-P__ (Linux and Windows) or __Command-Shift-P__ (Mac) to get the __Command Pallet__. Enter __Python: Select Interpreter__ and then select the conda environment.
+
+1. To validate that you can use the SDK, create a new Python file (.py) that contains the following code. Then run the file:
+
+    ```python
+    import azureml.core
+    azureml.core.VERSION
+    ```
 
 1. To install the Visual Studio code Tools for AI extension, see the [Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai) page.
 
-For more information, see the [Use VS Code Tools for AI with Azure Machine Learning](how-to-vscode-tools.md) document.
+    For more information, see the [Use VS Code Tools for AI with Azure Machine Learning](how-to-vscode-tools.md) document.
 
 ## <a id="workspace"></a>Create a workspace configuration file
 
