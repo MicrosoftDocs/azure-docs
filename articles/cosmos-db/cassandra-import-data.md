@@ -1,6 +1,6 @@
 ---
-title: Migrate your data to Azure Cosmos DB Cassandra API account
-description: Learn how to use the CQL Copy command & Spark to copy data from Apache Cassandra to Azure Cosmos DB Cassandra API.
+title: 'Tutorial: Migrate your data to Azure Cosmos DB Cassandra API account'
+description: In this tutorial, learn how to use the CQL Copy command & Spark to copy data from Apache Cassandra to Azure Cosmos DB Cassandra API.
 services: cosmos-db
 author: kanshiG
 
@@ -12,9 +12,9 @@ ms.date: 09/24/2018
 ms.reviewer: sngun
 ---
 
-# Tutorial: Migrate your data to Azure Cosmos DB Cassandra API account
+# Tutorial: Migrate your data to an Azure Cosmos DB Cassandra API account
 
-This tutorial provides instructions on how to migrate Apache Cassandra data into Azure Cosmos DB Cassandra API. 
+This tutorial provides instructions on how to migrate Apache Cassandra data into the Azure Cosmos DB Cassandra API. 
 
 This tutorial covers the following tasks:
 
@@ -22,11 +22,13 @@ This tutorial covers the following tasks:
 > * Plan for migration
 > * Prerequisites for migration
 > * Migrate data using cqlsh COPY command
-> * Migrate data using Spark 
+> * Migrate data using Spark
+
+If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Plan for migration
 
-Before migrating data to Azure Cosmos DB Cassandra API, you should estimate the throughput needs of your workload. In general, it's recommended to start with the average throughput required by the CRUD operations and then include the additional throughput required for the Extract Transform Load (ETL) or spiky operations. You need the following details to plan for migration: 
+Before migrating data to the Azure Cosmos DB Cassandra API, you should estimate the throughput needs of your workload. In general, it's recommended to start with the average throughput required by the CRUD operations and then include the additional throughput required for the Extract Transform Load (ETL) or spiky operations. You need the following details to plan for migration: 
 
 * **Existing data size or estimated data size:** Defines the minimum database size and throughput requirement. If you are estimating data size for a new application, you can assume that the data is uniformly distributed across the rows and estimate the value by multiplying with the data size. 
 
@@ -91,17 +93,17 @@ You can move data from existing Cassandra workloads to Azure Cosmos DB by using 
 
 ## Migrate data using Spark 
 
-Use the following steps to migrate data to Azure Cosmos DB Cassandra API with Spark:
+Use the following steps to migrate data to the Azure Cosmos DB Cassandra API with Spark:
 
-- Provision an [Azure Databricks](cassandra-spark-databricks.md) or a [HDInsight cluster](cassandra-spark-hdinsight.md) 
+- Provision an [Azure Databricks](cassandra-spark-databricks.md) or an [HDInsight cluster](cassandra-spark-hdinsight.md) 
 
-- Move data to destination Cassandra API endpoint by using [table copy operation](cassandra-spark-table-copy-ops.md) 
+- Move data to the destination Cassandra API endpoint by using the [table copy operation](cassandra-spark-table-copy-ops.md) 
 
-Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This option requires spark to be set up as intermediary for one time or regular ingestion. You can accelerate this migration by using express route connectivity between on-premise and Azure. 
+Migrating data by using spark jobs is a recommended option if you have data residing in an existing cluster in Azure virtual machines or any other cloud. This option requires spark to be set up as an intermediary for one time or regular ingestion. You can accelerate this migration by using express route connectivity between on-premises and Azure. 
 
 ## Next steps
 
-In this tutorial, you've learned how to migrate your data to Azure Cosmos DB Cassandra API account. You can now proceed to the concepts section for more information about Azure Cosmos DB. 
+In this tutorial, you've learned how to migrate your data to an Azure Cosmos DB Cassandra API account. You can now proceed to the concepts section for more information about Azure Cosmos DB. 
 
 > [!div class="nextstepaction"]
 > [Tunable data consistency levels in Azure Cosmos DB](../cosmos-db/consistency-levels.md)
