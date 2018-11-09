@@ -40,7 +40,11 @@ The URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` ind
 
 ### URL query string
 
-The query string of the Face endpoint URL (`?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise`) specifies which face attributes to retrieve. You may wish to change this string depending on your intended use.
+The query string of the Face endpoint URL specifies which face attributes to retrieve. You may wish to change this string depending on your intended use.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
 
 ### Image source URL
 The URL `https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg` indicates the image to use as input. You can change this to point to any image you wish to analyze.
