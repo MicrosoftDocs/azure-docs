@@ -66,13 +66,13 @@ The tool parses only public URLs and does not support authenticated data sources
 
 Every edit operation, whether in a table update, test, or setting, needs to be saved before it can be published. Be sure to click the **Save and train** button after every edit operation.
 
-## Does the knowledge base support rich data or multimedia?
+### Does the knowledge base support rich data or multimedia?
 
 The knowledge base supports Markdown. However, the auto-extraction from URLs has limited HTML-to-Markdown conversion capability. If you want to use full-fledged Markdown, you can modify your content directly in the table, or upload a knowledge base with the rich content.
 
 Multimedia, such as images and videos, is not supported at this time.
 
-## Does QnA Maker support non-English languages?
+### Does QnA Maker support non-English languages?
 
 See more details about [supported languages](./Overview/languages-supported.md).
 
