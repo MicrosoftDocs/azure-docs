@@ -42,7 +42,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. Select the **Go** sample app, and then select **Next**.  
 	
-1. **Simple Go app** is the default framework. Select **Next**. 
+1. **Simple Go app** is the default framework. Select **Next**.  
 	The app framework, which you chose previously, dictates the type of Azure service deployment targets that are available for deployment. 
 	
 1. Leave the default Azure service and select **Next**.
