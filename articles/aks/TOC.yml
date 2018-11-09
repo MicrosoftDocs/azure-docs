@@ -60,8 +60,14 @@
     items:
     - name: For cluster operators
       items:
-      - name: Cluster isolation and resource management
-        href: operator-best-practices-cluster-isolation-resource-management.md
+      - name: Multi-tenancy and cluster isolation
+        href: operator-best-practices-cluster-isolation.md
+      - name: Basic scheduler features
+        href: operator-best-practices-basic-scheduler.md
+      - name: Advanced scheduler features
+        href: operator-best-practices-advanced-scheduler.md
+      - name: Authentication and authorization
+        href: operator-best-practices-identity.md
     - name: For application developers
       items:
       - name: Resource management
