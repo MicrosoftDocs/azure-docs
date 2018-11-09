@@ -75,4 +75,4 @@ After that, if you want to configure the static IP for the VM, see [Configure st
 
 ## Reset network interface
 
-To reset network interface by using Azure portal, see [How to reset network interface for Azure Windows VM](reset-network-interface.md)
+To reset network interface by using Azure portal, see [How to reset network interface for Azure Windows VM](reset-network-interface.md).
