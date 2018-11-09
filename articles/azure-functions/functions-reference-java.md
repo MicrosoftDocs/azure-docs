@@ -21,7 +21,7 @@ ms.author: routlaw
 
 The concepts of [triggers and bindings](functions-triggers-bindings.md) are fundamental to Azure Functions. Triggers start the execution of your code. Bindings give you a way to pass data to and return data from a function, without having to write custom data access code.
 
-A function should be a stateless method to process input and produce output. Although you are allowed to write instance methods, your function must not depend on any instance fields of the class. All the function methods should be `public` and method with annotation @FunctionName must be unique as method name defines the entry for a function.
+A function should be a stateless method to process input and produce output. Your function cannot depend on any instance fields of the class. All the function methods should be `public` and method with annotation @FunctionName must be unique as method name defines the entry for a function.
 
 ## Folder structure
 
@@ -110,7 +110,7 @@ The `com.microsoft.azure.functions:azure-functions-java-library` dependency is p
 
 ## Data type support
 
-You can use Plain old Java objects (POJOs), types defined in `azure-functions-java-library` or primitive dataTypes such as String, Integer to bind to input/output bindings. The Azure Functions runtime attempts convert the input received into the type requested by your code. 
+You can use Plain old Java objects (POJOs), types defined in `azure-functions-java-library` or primitive dataTypes such as String, Integer to bind to input/output bindings.
 
 ### Plain old Java objects (POJOs)
 
@@ -118,34 +118,21 @@ For converting input data to POJO, [azure-functions-java-worker](https://github.
 
 ### Binary data
 
-Binary data is represented as a `byte[]` in your Azure functions code. Bind binary inputs or outputs to your functions by setting the `dataType` field in your function.json to `binary`:
-
-```json
- {
-  "scriptFile": "azure-functions-example.jar",
-  "entryPoint": "com.example.Function.echo",
-  "bindings": [
-    {
-      "type": "blob",
-      "name": "content",
-      "direction": "in",
-      "dataType": "binary",
-      "path": "container/myfile.bin",
-      "connection": "ExampleStorageAccount"
-    },
-  ]
-}
-```
-
-Then use it in your function code:
+Bind binary inputs or outputs to `byte[]` by setting the `dataType` field in your function.json to `binary`:
 
 ```java
-// Class definition and imports are omitted here
-public static String echoLength(byte[] content) {
-}
+   @FunctionName("BlobTrigger")
+    @StorageAccount("AzureWebJobsStorage")
+     public void blobTrigger(
+        @BlobTrigger(name = "content", path = "myblob/{fileName}", dataType = "binary") byte[] content,
+        @BindingName("fileName") String fileName,
+        final ExecutionContext context
+    ) {
+        context.getLogger().info("Java Blob trigger function processed a blob.\n Name: " + fileName + "\n Size: " + content.length + " Bytes");
+    }
 ```
 
-Empty input values could be `null` as your functions argument, but a recommended way to deal with potential empty values is to use `Optional<T>`.
+Use `Optional<T>` for if null values are expected
 
 ## Bindings
 
