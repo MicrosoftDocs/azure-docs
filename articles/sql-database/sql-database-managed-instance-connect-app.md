@@ -78,6 +78,10 @@ A special case of connecting Azure App Service to Managed Instance is when you i
 This scenario is illustrated in the following diagram:
 
 ![integrated app peering](./media/sql-database-managed-instance/integrated-app-peering.png)
+
+>[!NOTE]
+>The VNet Integration feature does not integrate an app with a VNet that has an ExpressRoute Gateway. Even if the ExpressRoute Gateway is configured in coexistence mode the VNet Integration does not work. If you need to access resources through an ExpressRoute connection, then you can use an App Service Environment, which runs in your VNet.
+>
  
 ## Troubleshooting connectivity issues
 
