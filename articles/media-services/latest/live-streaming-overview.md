@@ -40,7 +40,7 @@ If desired, you can also apply **Dynamic Filtering**, which can be used to contr
 
 The following new improvements were done in the latest release.
 
-- New low latency mode. For more information, see (#latency).
+- New low latency mode. For more information, see [latency](#latency).
 - Improved RTMP support (increased stability and more source encoder support).
 - RTMPS secure ingest.
 
