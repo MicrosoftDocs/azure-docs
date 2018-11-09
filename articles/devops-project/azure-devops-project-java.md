@@ -144,7 +144,7 @@ You can delete Azure App Service and other related resources that you created in
 
 ## Next steps
 
-When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created in Azure Pipelines. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
+When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
 
 > [!div class="nextstepaction"]
 > [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
