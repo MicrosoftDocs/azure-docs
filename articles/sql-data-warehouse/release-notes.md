@@ -25,7 +25,7 @@ Click on the links below to find out more about the new features and improvement
 - [June 2018](./release-notes-june-2018.md)
 - [May 2018](./release-notes-may-2018.md)
 
-## Next steps
+# Next steps
 - [Learn more](https://docs.microsoft.com/azure/sql-data-warehouse/viewing-maintenance-schedule) about viewing a maintenance schedule. 
 - [Learn more](https://docs.microsoft.com/azure/sql-data-warehouse/changing-maintenance-schedule) about changing a maintenance schedule.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric) about creating, viewing, and managing alerts by using Azure Monitor.
