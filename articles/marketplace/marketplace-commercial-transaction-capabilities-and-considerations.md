@@ -19,18 +19,22 @@ ms.author: yijenj
 ---  
 # Azure Marketplace ‎commercial transaction capabilities and considerations
 
-Azure marketplace publishing options offer unique ways to connect cloud software and service providers with customers. We will cover the following topics related to commerce in the Azure Marketplace:
+Azure Marketplace publishing options offer unique ways to connect cloud software and service providers with customers. This article covers the following commerce-related topics in the Azure Marketplace:
 
-* General and offer type specific requirements.
-* Free software trials and discounts.
-* Customer billing, invoicing, and payment.
-* Publisher pricing models, payout, and reporting.
+* Marketplace publishing options
+* Transact general overview
+* Transact billing models
+* Transact requirements
 
-**List & Trial publishing options**
+## Marketplace publishing options
 
-In Azure marketplace, publishers can leverage the list and trial publishing options for promotional and user acquisition purposes. With the list or trial publishing options, Microsoft does not participate directly in the publisher’s software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer. 
+The following publishing options are available to Azure Marketplace publishers.
 
-**Transact publishing option**
+### List & Trial publishing options
+
+In Azure Marketplace, publishers can leverage the list and trial publishing options for promotional and user acquisition purposes. With the list or trial publishing options, Microsoft doesn't participate directly in the publisher’s software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer. 
+
+### Transact publishing option
 
 In addition to the list and trial publishing options, the transact publishing option is available to Azure Marketplace publishers.   It takes advantage of Microsoft’s globally available commerce capabilities. This option allows Microsoft to host cloud marketplace transactions on behalf of the publisher.
 
@@ -38,41 +42,41 @@ In addition to the list and trial publishing options, the transact publishing op
 
 When using the transact publishing option, Microsoft enables the sale and deployment of third-party software to the customer’s Azure subscription. The publisher can  choose from pricing models supported in Azure Marketplace.
 
-To use the Transact publishing option in Azure Marketplace, create an offer using one of these three offer types: Virtual Machines, Azure Applications, or SaaS Apps. 
+The Transact publishing option in Azure Marketplace is currently supported in the following offer types: Virtual Machines, Azure Applications, or SaaS Apps.
 
 ![[Transacting Enterprise Deals in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
-**Virtual Machines and Azure Applications**
+### Virtual Machines and Azure Applications
 
 For Virtual Machines and Azure Applications, the Azure infrastructure usage fees are billed to the customer’s Azure subscription.  Infrastructure usage fees are priced and presented separately from the software provider’s licensing fees on the customer’s invoice.
 
-**SaaS Apps** 
+### SaaS Apps
 
-For SaaS Apps, the publisher must account for Azure infrastructure usage fees, and software licensing fees as a single cost item.  It is represented as a flat monthly fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly.  Actual infrastructure usage fees are not seen by the customer.  Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing.  Software licensing fees are not metered or consumption based.
+For SaaS Apps, the publisher must account for Azure infrastructure usage fees, and software licensing fees as a single cost item.  It is represented as a flat monthly fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly.  Actual infrastructure usage fees are not seen by the customer.  Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing.  Software licensing fees aren't metered or consumption based.
 
-**Private Offers** 
+### Private Offers 
 
 In addition to using offer types and billing models to monetize an offer, publishers can transact a private version of solution offer, complete with negotiated, deal-specific pricing, and custom configurations using a customized image. [Private offers](./private-offers.md) are supported by all 3 transact publishing options.
 
-## Transact billing models 
+## Transact billing models
 
-Depending on the transaction option used, the publisher’s software license fees can be presented as:  
+Depending on the transaction option used, the publisher’s software license fees can be presented as follows:  
 
 * Free: No charge for software licenses. 
 
 * Bring your own license (BYOL): Any applicable charges for software licenses are managed directly between the publisher and customer. Microsoft only passes through Azure infrastructure usage fees. (Virtual Machines and Azure Applications only.)
 
-* Pay-as-you-go (PAYG): Software license fees are presented as a per-hour, per core (aka vCPU) pricing rate based on the Azure infrastructure used. (Virtual Machines and Azure Applications only.)
+* Pay-as-you-go: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This only applies to Virtual Machines and Azure Applications.
 
 * Subscription pricing: Software license fees are presented as a monthly, recurring fee.  (SaaS Apps and Azure Applications – Managed Apps only.) 
 
-* Free software trial: No charge for software licenses for 30- or 90-days.
+* Free software trial: No charge for software licenses for 30-days or 90-days.
 
-**Free and bring-your-own-license (BYOL) pricing** 
+### Free and bring-your-own-license (BYOL) pricing
 
 When publishing a free or bring-your-own-license transaction offer, Microsoft does not play a role in facilitating the sales transaction for your software license fees. Like the list and trial publishing options, the publisher keeps 100% of software license fees. 
 
-**Pay-as-you-go (PAYGO) and subscription pricing** 
+### Pay-as-you-go and subscription pricing
 
 When publishing a pay-as-you-go or subscription transaction offer, Microsoft provides the technology and services to process software license purchases, returns, and chargebacks. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction, while retaining their designation as the seller, provider, distributor, and licensor.
 
@@ -80,45 +84,21 @@ Microsoft enables customers to order, license, and use publisher software, subje
 
 Orders processed through marketplace are billed to the customer’s Azure subscription in a single bill, the same billing method as the customer’s Azure infrastructure costs. Customers can use the preferred invoicing method and payment instrument used for their Azure subscription billing.
 
-**Free software trials** 
+### Free software trials
 
-For transact publishing scenarios, the publisher can make a software license available free for 30- or 90 days. This capability does not eliminate the cost of Azure infrastructure usage that is driven by use of the partner solution.
+For transact publishing scenarios, the publisher can make a software license available free for 30-days or 90 days. This capability does not eliminate the cost of Azure infrastructure usage that is driven by use of the partner solution.
 
-**Private offers and discounting** 
+### Private offers and discounting
 
 For each transact publishing scenario, the publisher can optionally make available privately negotiated pricing and terms for an offer. For a virtual machine offer, the publisher can also optionally make available custom images. For more information, see the [Private offers](./private-offers.md) documentation.
 
-## Transact requirements 
+This pricing option can be the higher or lower than the publicly displayed pricing.  Private offers can be used to discount, or add a premium for an offer. Private offers can be made available to one or more customers by white listing their Azure subscription at the offer level.
 
-The Transact requirements for different offer types are covered in this section.
+### Examples
 
-### For all offer types
+**Pay-As-You-Go** 
 
-**Dev Center and Microsoft account** 
-
-* Both a Dev Center and a Microsoft account are required for the transact publishing option, regardless of the offer’s pricing model.
-* The Dev Center account holds all relevant financial details required for Microsoft to collect fees from the customer on the publisher’s behalf and pay out the publisher.
-* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Publisher Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
-
-*For more information on setting up these accounts, see [Becoming a publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).*
-
-**For specific offer types** 
-
-The transact publishing option is only available for use with the following marketplace offer types: 
-
-**Virtual Machine** 
-
-Select from free, bring-your-own-license, or pay-as-you-go-pricing models and present as SKUs defined at the offer level. On the customer’s Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
-
-**Azure Applications: Solution Template or Managed App** 
-
-Must provision one or more virtual machines, and pulls through the sum of the virtual machine pricing. For managed apps on a single plan, flat-rate monthly subscription can be selected as the pricing model in lieu of the virtual machine pricing. In both cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement.
-
-**Pay-As-You-Go and Bring Your Own License billing options** 
-
-Consider the following examples.  
-
-* If you enable the Pay-As-You-Go option, then you have the following result.   
+* If you enable the Pay-As-You-Go option, then you have the following cost structure.
 
 |Your license cost  | $1.00 per hour  |
 |---------|---------|
@@ -133,7 +113,9 @@ Consider the following examples.
 |Microsoft keeps 20% of your license cost  |  $0.20 per hour       |
 |Microsoft keeps 100% of the Azure usage cost | $0.14 per hour |
 
-* If you enable the BYOL option, then you have the following result.
+**Bring Your Own License (BYOL)**
+
+* If you enable the BYOL option, then you have the following cost structure.
 
 |Your license cost  | License fee negotiated and billed by you  |
 |---------|---------|
@@ -147,13 +129,11 @@ Consider the following examples.
 |Microsoft keeps the Azure usage cost    |   $0.14 per hour     |
 |Microsoft keeps 0% of your license cost   |  $0.00 per hour       |
 
-**SaaS App subscription (aka Sell through Azure)** 
+**SaaS App subscription (Sell through Azure)** 
 
-Must be configured to sell through Microsoft and can be priced via one or more flat-rate monthly Plans defined at the offer level.
+This option must be configured to sell through Microsoft and can be priced using one or more flat-rate monthly Plans defined at the offer level.
 
-Consider the following examples.
-
-* If you enable the Sell through Azure option, then you have the following result.
+* If you enable the Sell through Azure option, then you have the following cost structure.
 
 |Your license cost       | $100.00 per month  |
 |--------------|---------|
@@ -167,11 +147,7 @@ Consider the following examples.
 |Microsoft pays you 80% of your license cost    |   $80.00 per month     |
 |Microsoft keeps 20% of your license cost   |  $20.00 per month       |
 
-### Private Offers
-
-This pricing can be the higher or lower than the publicly displayed pricing, and used to discount, or add a premium for an offer. Private offers can be made available to one or more customers by white-listing their Azure subscription at the offer level. See more information about configuring a private offer [here](./private-offers.md).
-
-#### Customer invoicing, payment, billing, and collections
+### Customer invoicing, payment, billing, and collections
 
 **Invoicing and Payment**
 
@@ -179,31 +155,13 @@ Publisher can use the customer’s preferred invoicing method to deliver subscri
 
 **Enterprise agreement** 
 
-If the customer’s preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed via this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
+If the customer’s preferred invoicing method is the Microsoft Enterprise Agreement, your software license fees will be billed using this invoicing method as an itemized cost, separate from any Azure-specific usage costs.
 
 **Credit cards and monthly invoice** 
 
 Customers can also pay using a credit card and a monthly invoice. In this case, your software license fees will be billed just like the Enterprise Agreement scenario, as an itemized cost, separate from any Azure-specific usage costs.
 
-**Free credits and monetary commitment** 
-
-Some customers elect to prepay Azure via a monetary commitment in the Enterprise Agreement or have been provided free credits for use with Azure. Although these credits can be used to pay for Azure usage, they cannot be used to pay for publisher software license fees.
-
-**Billing and collections** 
-
-Publisher software license billing is presented via the customer selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
-
-When subscription or PAYGO pricing models are selected, Microsoft acts as the agent of the publisher and is responsible for all aspects of billing, payment, and collection.
-
-#### Publisher payout and reporting
-
-* Any software licensing fees collected by Microsoft as an agent are subject to a 20% transaction fee unless otherwise specified, and are deducted at the time of publisher payout.
-
-* Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type dictates billing, invoicing, collection, and payout timing.
-
-Consider the following examples.
-
-If the customer purchases using a credit card:
+For example, if the customer purchases using a credit card:
 
 |Description    |    Date  |
 |----------|----------|
@@ -230,17 +188,59 @@ If the customer purchases using an Enterprise Agreement:
 |Payout Calculation Date (monthly on the 15th) | Jan 15, 2018 |
 |Payout Date | Feb 15, 2019 |
 
+**Free credits and monetary commitment** 
+
+Some customers elect to prepay Azure with a monetary commitment in the Enterprise Agreement or have been provided free credits for use with Azure. Although these credits can be used to pay for Azure usage, they can't be used to pay for publisher software license fees.
+
+**Billing and collections** 
+
+Publisher software license billing is presented using the customer selected method of invoicing and follows the invoicing timeline. Customers without an Enterprise Agreement in place are billed monthly for marketplace software licenses. Customers with an Enterprise Agreement are billed monthly via an invoice that is presented quarterly.
+
+When subscription or Pay-as-You-Go pricing models are selected, Microsoft acts as the agent of the publisher and is responsible for all aspects of billing, payment, and collection.
+
+### Publisher payout and reporting
+
+* Any software licensing fees collected by Microsoft as an agent are subject to a 20% transaction fee unless otherwise specified and are deducted at the time of publisher payout.
+
+* Customers typically purchase using the Enterprise Agreement or a credit-card enabled pay-as-you-go agreement. The agreement type determines billing, invoicing, collection, and payout timing.
+
 >[!NOTE] 
 >All reporting and insights for the transact publishing option are available via the Insights section of the Cloud Partner Portal.
 
 #### Billing questions and support
 
-For more information and legal policies, see the [Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (available via the Cloud Partner Portal).
+For more information and legal policies, see the [Publisher Agreement](https://cloudpartner.azure.com/Content/Unversioned/PublisherAgreement2.pdf) (available in the Cloud Partner Portal).
 
-To get help understanding any aspect of the transact publishing option, [create a support incident](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) and choose Virtual Machines or Web Apps (aka SaaS Apps) depending on the offer type used.
+To get help on billing questions, [create a support incident](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636764613233453423) and choose Virtual Machines or Web Apps (aka SaaS Apps) depending on the offer type used.
+
+## Transact requirements
+
+The transact requirements for different offer types are covered in this section.
+
+### Requirements for all offer types
+
+**Dev Center and Microsoft account** 
+
+* Both a Dev Center and a Microsoft account are required for the transact publishing option, regardless of the offer’s pricing model.
+* The Dev Center account holds all relevant financial details required for Microsoft to collect fees from the customer on the publisher’s behalf and pay out the publisher.
+* Although you may use the same organizational or Microsoft sign-in details across both accounts, Dev Center is a separate account from the Cloud Publisher Portal account. To use the transact publishing option, the publisher must complete the Dev Center account sign-up process, in addition to signing up for access to the Cloud Partner Portal.
+
+*For more information on setting up these accounts, see [Become a Cloud Marketplace Publisher](https://docs.microsoft.com/azure/marketplace/become-publisher).*
+
+### Requirements for specific offer types
+
+The transact publishing option is only available for use with the following marketplace offer types: 
+
+**Virtual Machine** 
+
+Select from free, bring-your-own-license, or pay-as-you-go-pricing models and present as SKUs defined at the offer level. On the customer’s Azure bill, Microsoft presents the publisher software license fees separately from the underlying Azure infrastructure fees. Azure infrastructure fees are driven by use of the publisher software.
+
+**Azure Applications: Solution Template or Managed App** 
+
+Must provision one or more virtual machines and pulls through the sum of the virtual machine pricing. For managed apps on a single plan, a flat-rate monthly subscription can be selected as the pricing model instead the virtual machine pricing. In both cases, Azure infrastructure usage fees are passed to the customer separately from software license fees, but on the same billing statement.
 
 ## Next steps
 
 * Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
 * Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
-* Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
+* Become a Marketplace publisher, and sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
