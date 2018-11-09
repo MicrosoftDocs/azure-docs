@@ -24,4 +24,4 @@
 | Maximum object (directories and files) security descriptor size | 4 KiB | Yes |
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | 64 KiB | Yes |
-| Concurrent sync sessions | V4 agent: Limit is based on available system resources. <BR> V3 agent: 2 active sync sessions per processor or maximum of 8 active sync sessions per server | Yes
+| Concurrent sync sessions | V4 agent: Limit varies based on available system resources. <BR> V3 agent: 2 active sync sessions per processor or maximum of 8 active sync sessions per server | Yes
