@@ -25,4 +25,4 @@ On some customer workloads, we have experienced approximately a 15-20 percent pe
 - You may convert an Unlogged Table to a logged table using the syntax: `ALTER <tableName> SET LOGGED`
 
 ## References
-PostgreSQL documentation - [Create Table SQL Commands](./quickstart-create-server-database-portal.md#connect-to-the-postgresql-database-by-using-psql-in-cloud-shell)
+PostgreSQL documentation - [Create Table SQL Commands](https://www.postgresql.org/docs/current/static/sql-createtable.html)
