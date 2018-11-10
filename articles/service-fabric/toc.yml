@@ -612,7 +612,11 @@
       - name: Configure
         href: service-fabric-cluster-manifest.md
       - name: Upgrade
-        href: service-fabric-cluster-upgrade-windows-server.md
+          items:
+          - name: Upgrade the Service Fabric version
+            href: service-fabric-cluster-upgrade-windows-server.md
+          - name: Upgrade cluster configuration
+            href: service-fabric-cluster-config-upgrade-windows-server.md
     - name: Visualize a cluster
       href: service-fabric-visualizing-your-cluster.md
     - name: Connect to a secure cluster
