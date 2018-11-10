@@ -237,7 +237,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ApiManagement/service/apis/products/read | Get all products which the API is part of |
 > | Action | Microsoft.ApiManagement/service/apis/read | Get list of all registered APIs or Get details of API |
 > | Action | Microsoft.ApiManagement/service/apis/releases/delete | Removes all releases of the API or Remove API release |
-> | Action | Microsoft.ApiManagement/service/apis/releases/read | Get releases for an API or Get details of API reelase |
+> | Action | Microsoft.ApiManagement/service/apis/releases/read | Get releases for an API or Get details of API release |
 > | Action | Microsoft.ApiManagement/service/apis/releases/write | Create new API release or Update existing API release |
 > | Action | Microsoft.ApiManagement/service/apis/revisions/delete | Removes all revisions of an API |
 > | Action | Microsoft.ApiManagement/service/apis/revisions/read | Get revisions belonging to an API |
