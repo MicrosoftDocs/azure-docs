@@ -227,7 +227,7 @@ The following steps show you the settings to use to enable reverse proxy and, op
 
    To learn more about configuring and managing certificates for a standalone cluster, as well as more detail about configuring certificates used to secure reverse proxy, see [X509 certificate-based security](./service-fabric-windows-cluster-x509-security.md).
 
-After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to push the changes to your cluster.
+After you've modified your ClusterConfig.json file to enable reverse proxy, follow the instructions in [Upgrade the cluster configuration](service-fabric-cluster-config-upgrade-windows-server.md) to push the changes to your cluster.
 
 
 ## Expose reverse proxy on a public port through Azure Load Balancer
