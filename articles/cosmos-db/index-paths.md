@@ -16,6 +16,8 @@ By using index paths in Azure Cosmos DB, you can choose to include or exclude a 
 
 Index paths can also use the `*` wildcard operator to specify the behavior for paths recursively under the prefix. For example, `/payload/*` can be used to exclude everything under the payload property from indexing.
 
+## Common patterns for index paths
+
 Here are the common patterns for specifying index paths:
 
 | **Path** | **Description/use case** |
@@ -29,7 +31,9 @@ Here are the common patterns for specifying index paths:
 
 When you set custom index paths, you're required to specify the default indexing rule for the entire item, denoted by the special path `/*`.
 
-### Next steps
+## Next steps
+
+Learn more about indexing in Azure Cosmos DB in the following articles:
 
 - [Overview of indexing](indexing-overview.md)
 - [Indexing policies in Azure Cosmos DB](indexing-policies.md)

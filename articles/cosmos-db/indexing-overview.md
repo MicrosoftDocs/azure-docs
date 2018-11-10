@@ -1,8 +1,6 @@
 ---
-title: Azure Cosmos DB Indexing | Microsoft Docs
+title: Indexing in Azure Cosmos DB 
 description: Understand how indexing works in Azure Cosmos DB.
-keywords: indexing, azure cosmos db, azure, Microsoft azure
-services: cosmos-db
 author: markjbrown
 
 ms.service: cosmos-db
@@ -11,7 +9,7 @@ ms.date: 11/10/2018
 ms.author: mjbrown
 ---
 
-# Indexing
+# Indexing in Azure Cosmos DB
 
 Cosmos DB is a schema-agnostic database and allows you to iterate your app quickly without having to deal with schema or index management. By default, Cosmos DB automatically indexes all items in your container without requiring schema or secondary indexes from developers.
 
@@ -29,7 +27,7 @@ Cosmos DB projects items as JSON documents and the index as trees. You can then 
 
 ## Indexing: Under the hood
 
-Cosmos DB applies automatic indexing, where every path in a tree is indexed (unless you configure it to exclude certain paths). See how to customize indexing policy in [Indexing Examples](indexing-examples.md).
+Cosmos DB applies automatic indexing, where every path in a tree is indexed (unless you configure it to exclude certain paths).
 
 Cosmos DB employs inverted index data structure to store the information of each item and to facilitate efficient representation for querying. The index tree is a document which is constructed out of the union of all of the trees representing individual items within the container. The index tree grows over time as new items get added or updated to the container. In contrast to relational database indexing, there is no need for restarting indexing from scratch as new fields are introduced.
 
@@ -59,5 +57,4 @@ Read more about indexing in the following articles:
 - [Indexing policy](indexing-policy.md)
 - [Index types](index-types.md)
 - [Index paths](index-paths.md)
-- [Indexing examples](indexing-examples.md)
 - [How to manage indexing policy](how-to-manage-indexing-policy.md)

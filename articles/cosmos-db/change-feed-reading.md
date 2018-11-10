@@ -9,7 +9,7 @@ ms.date: 11/06/2018
 ms.author: rafats
 
 ---
-# Accessing change feed in Azure Cosmos DB
+# Reading Azure Cosmos DB change feed
 
 You can work with the Azure Cosmos DB change feed using any of the following options:
 
@@ -30,6 +30,8 @@ The change feed processor library hides complexity and still gives you a complet
 With the SDK, you get a low-level control of the change feed. You can manage the checkpoint, access a particular logical partition key, etc. If you have multiple readers, you can use `ChangeFeedOptions` to distribute read load to different threads or different clients. 
 
 ## Next steps
+
+You can now proceed to learn more about change feed in the following articles:
 
 * [Overview of change feed](change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)

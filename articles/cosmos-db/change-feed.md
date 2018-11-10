@@ -19,7 +19,7 @@ Azure Cosmos DB is well-suited for IoT, gaming, retail, and operational logging 
 * Real-time stream processing for IoT or real-time analytics processing on operational data.
 * Additional data movement by either synchronizing with a cache or a search engine or a data warehouse or archiving data to cold storage.
 
-The **change feed** in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image:
+The change feed in Azure Cosmos DB enables you to build efficient and scalable solutions for each of these patterns, as shown in the following image:
 
 ![Using Azure Cosmos DB change feed to power real-time analytics and event-driven computing scenarios](./media/change-feed/changefeedoverview.png)
 
@@ -36,11 +36,7 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 
 ## Change feed and different operations
 
-Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted.
-
-### Can I read the change feed for historic items (for example, items that were added five years ago)?
-
-Yes, if the item is not deleted you can read the change feed as far as the origin of your container.
+Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted. You can read the change feed for historic items, for example, items that were added five years ago. If the item is not deleted you can read the change feed as far as the origin of your container.
 
 ### Sort order of items in change feed
 
@@ -56,7 +52,8 @@ If a TTL (Time to Live) property is set on an item to -1, change feed will persi
 
 ### Change feed and _etag, _lsn or _ts
 
-The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch id that is added for change feed only; it represents the transaction id. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the version of the item, whereas ETag is used for sequencing the feed.
+The _etag format is internal and you should not take dependency on it, because it can change anytime. _ts is a modification or a creation timestamp. You can use _ts for chronological comparison. _lsn is a batch id that is added for change feed only; it represents the transaction id. Many items may have same _lsn. ETag on FeedResponse is different from the _etag you see on the item. _etag is an internal identifier and is used for concurrency control tells about the 
+version of the item, whereas ETag is used for sequencing the feed.
 
 ## Change feed use cases and scenarios
 
@@ -87,7 +84,7 @@ The following are some of the scenarios you can easily implement with change fee
 * If you're using Azure Cosmos DB to build a game, you can, for example, use change feed to implement real-time leaderboards based on scores from completed games.
 
 
-### Ways to work with change feed
+## Working with change feed
 
 You can work with change feed using the following options:
 
@@ -98,7 +95,7 @@ Change feed is available for each logical partition key within the container, an
 
 ![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/changefeedvisual.png)
 
-### Features of change feed
+## Features of change feed
 
 * Change feed is enabled by default for all Azure Cosmos accounts.
 
@@ -120,6 +117,8 @@ Change feed is available for each logical partition key within the container, an
 
 ## Next steps
 
-* [Ways to read change feed](change-feed-reading.md)
+You can now proceed to learn more about change feed in the following articles:
+
+* [Options to read change feed](change-feed-reading.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)
 * [Using change feed processor library](change-feed-processor.md)

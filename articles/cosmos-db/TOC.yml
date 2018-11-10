@@ -114,18 +114,20 @@
     - name: Indexing
       items:
       - name: Overview
+        href: indexing-overview.md
+      - name: Indexing policy
         href: indexing-policies.md
-      - name: index types
+      - name: Index types
         href: index-types.md
-      - name: index paths
+      - name: Index paths
         href: index-paths.md
     - name: Change feed
       items:
       - name: Overview
         href: change-feed.md
-      - name: Access change feed
+      - name: Reading change feed
         href: change-feed-reading.md
-      - name: change feed processor
+      - name: Change feed processor
         href: change-feed-processor.md
       - name: Change feed with Azure Functions 
         href: change-feed-functions.md
@@ -434,6 +436,10 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+    - name: Indexing
+      items:
+      - name: Configure indexing
+        href: how-to-manage-indexing-policy.md
     - name : Manage
       items:
       - name: Manage using PowerShell
