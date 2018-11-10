@@ -25,45 +25,46 @@ Single sign-on enables a user to sign in once with a single user account. After 
 
 - **Without single sign-on**, users must remember application-specific passwords and sign in to each application. IT staff needs to create and update user accounts for each application such as Office 365, Box, and Salesforce. Users need to remember their passwords, plus spend the time to sign in to each application.
 
-### SAML for single sign on to cloud applications
-For cloud applications, we recommend using SAML single sign-on whenever the application supports one of the SAML-based protocols. With SAML sign-on, authentication is handled within Azure AD. SAML single sign-on is only available for cloud applications.
-
-### Application Proxy for single sign on to on-premises applications
-
-To single sign-on to on-premises applications, use [Azure AD Application Proxy](application-proxy.md). Once users authenticate to Azure AD in the cloud, the Application Proxy connector handles the authentication to the on-premises application. The on-premises application can't tell the difference between a remote user signing in through Application Proxy and a user signing in from a domain joined device.
-
-## Summary of single sign-on methods
-There are several ways to configure an application for single sign-on. The methods are described throughout this article. All of the single sign-on methods automatically sign users in to applications without requiring a second sign-on. The difference between approaches is how authentication works.
-
-This section introduces the single sign-on methods.  More details for each method are given later in the article.
-
-### SAML (cloud applications)
-
-SAML single sign-on enables rich and secure authentication to applications using the SAML protocol. For details, see [SAML SSO](#saml-sso).
-
-### Password-based (cloud and on-premises applications)
-
-Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This method uses the existing sign-in process provided by the application, but enables an administrator to manage the passwords. For details, see [Password-based SSO](#password-based-sso).
-
-### Linked (cloud and on-premises applications)
-
-Linked sign-on allows you to provide a link to an application in the Azure Active Directory MyApps access panel or the Office 365 application launcher. This option doesn't add single sign-on to the application, however the application may already have single sign-on implemented using another service such as Active Directory Federation Services. For details, see [Linked sign-on](#linked).
-
-### Integrated Windows Authentication (on-premises applications)
-Azure AD Application Proxy provides single sign-on (SSO) to applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. The Application Proxy connectors use Kerberos constrained delegation to authenticate users to the application. For details, see [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa).
-
-### Header-based (on-premises applications)
-Using PingAccess for Azure Active Directory, users can single sign-on to applications that use headers for authentication. Application Proxy treats these applications like any other using Azure AD to authenticate access and then passing traffic through the connector service. For details, see [Header-based SSO](#header-based-sso).
-
-### Disabled (cloud and on-premises applications)
-Disabled means that when a user signs in to the application, that user must manually enter their username and password. Users will need to enter their username and password every time they launch this application. For details, see [Disabled SSO](#disabled-sso).
-
+The remainder of this article describes the single sign-on methods, and helps you choose the best method for your applications.
 
 ## Choosing a single sign-on method
 
-The following flowchart shows the process you can use to decide which single sign-on method is best for your situation.
+There are several ways to configure an application for single sign-on. 
+
+- **We recommend using SAML single sign-on** whenever your cloud application supports one of the SAML-based protocols. This is the most secure method since Azure AD handles the authentication.
+- **Single sign-on works for on-premises applications through [Azure AD Application Proxy](application-proxy.md).** Once users authenticate to Azure AD in the cloud, the Application Proxy connector handles the authentication to the on-premises application. The on-premises application can't tell the difference between a remote user signing in through Application Proxy and a user signing in from a domain joined device.
+
+The following flowchart helps you decide which single sign-on method is best for your situation. The on-premises choices work when applications are configured for Application Proxy.
 
 ![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
+
+### Summary of the single sign-on methods
+
+
+All of the single sign-on methods automatically sign users in to applications without requiring a second sign-on. The difference between approaches is how authentication works.
+
+
+**SAML (cloud applications)**
+
+SAML single sign-on enables rich and secure authentication to applications using the SAML protocol. We recommend using SAML single sign-on** whenever the application supports one of the SAML-based protocols. For more information, see [SAML SSO](#saml-sso).
+
+**Password-based (cloud and on-premises applications)**
+
+Password-based single sign-on enables secure application password storage and replay using a web browser extension or mobile app. This method uses the existing sign-in process provided by the application, but enables an administrator to manage the passwords. For more information, see [Password-based SSO](#password-based-sso).
+
+**Linked (cloud and on-premises applications)**
+
+Linked sign-on allows you to provide a link to an application in the Azure Active Directory MyApps access panel or the Office 365 application launcher. This option doesn't add single sign-on to the application, however the application may already have single sign-on implemented using another service such as Active Directory Federation Services. For more information, see [Linked sign-on](#linked).
+
+**Integrated Windows Authentication (on-premises applications)**
+
+Azure AD Application Proxy provides single sign-on (SSO) to applications that use [Integrated Windows Authentication (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication), or claims-aware applications. The Application Proxy connectors use Kerberos constrained delegation to authenticate users to the application. For more information, see [Integrated Windows Authentication (IWA)](#integrated-windows-authentication-iwa).
+
+**Header-based (on-premises applications)**
+Using PingAccess for Azure Active Directory, users can single sign-on to applications that use headers for authentication. Application Proxy treats these applications like any other using Azure AD to authenticate access and then passing traffic through the connector service. For more information, see [Header-based SSO](#header-based-sso).
+
+**Disabled (cloud and on-premises applications)**
+Disabled means that when a user signs in to the application, that user must manually enter their username and password. Users will need to enter their username and password every time they launch this application. For more information, see [Disabled SSO](#disabled-sso).
 
 
 ## SAML SSO
@@ -194,7 +195,8 @@ Since this scenario is offered through a partnership between Azure Active Direct
 For more information, see [Azure Active Directory editions](../fundamentals/active-directory-whatis.md).
 
 ## Related articles
-* [List of Tutorials on How to Integrate SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Tutorials for integrating SaaS applications with Azure Active Directory](../saas-apps/tutorial-list.md)
+* [Tutorial for configuring single sign-on](configure-single-sign-on-portal.md)
 * [Introduction to Managing Access to applications](what-is-access-management.md)
 * Download link: [Single sign-on deployment plan](http://aka.ms/SSODeploymentPlan).
 
