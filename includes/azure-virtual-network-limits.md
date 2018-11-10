@@ -41,7 +41,7 @@ The following limits apply only for networking resources managed through Azure R
 | Virtual networks |1000 |
 | Subnets per virtual network |3000 |
 | Virtual network peerings per Virtual Network |100 |
-| DNS Servers per virtual network |25 |
+| DNS Servers per virtual network |20 |
 | Private IP Addresses per virtual network |65536 |
 | Private IP Addresses per network interface |256 |
 | Concurrent TCP or UDP flows per NIC of a virtual machine or role instance |500K |
