@@ -67,7 +67,7 @@
         href: tenant-restrictions.md
     - name: Single sign-on
       href: what-is-single-sign-on.md
-    - hame: End-user experiences
+    - name: End-user portal experiences
       href: end-user-experiences.md
   - name: How-to guides
     items:
