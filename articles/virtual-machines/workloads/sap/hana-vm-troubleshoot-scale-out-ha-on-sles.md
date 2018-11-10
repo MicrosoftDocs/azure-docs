@@ -751,7 +751,7 @@ The procedure for maintenance on the current primary site is more complex:
 6. End the cluster maintenance mode.
 
 
-Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample procedure:
+Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample.
 
 1. First, force a cluster failover by migrating the MSL resource to the current secondary master node. This command gives a warning that a **move constraint** was created:
 
