@@ -93,9 +93,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Setting | Description  |
     |---------|--------------|
     | Monitoring | Choose whether you want to enable Azure Monitor to monitor your blockchain network |
-    | Azure Active Directory settings | Choose **Add Now** |
-    | Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
-    | Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
+    | Azure Active Directory settings | Choose **Add Later**.</br> Note: If you chose to pre-configure Azure AD, choose to add now. |
     | VM selection | Choose the preferred VM size for your blockchain network. |
 
     For **Use existing**:
@@ -111,27 +109,16 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Setting | Description  |
     |---------|--------------|
     | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with http:// and ends with a port number. For example, `http://contoso-chain.onmicrosoft.com:8545` |
-    | Azure Active Directory settings | Choose **Add Now**. |
-    | Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
-    | Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
+    | Azure Active Directory settings | Choose **Add Later**.</br> Note: If you chose to pre-configure Azure AD, choose to add now.
     | VM selection | Choose the preferred VM size for your blockchain network. |
 
-9. Complete the **Advanced Settings > Azure Active Directory settings**.
+9. Select **OK** to finish Advanced Settings.
 
-    ![Azure AD Setup](media/deploy/blockchain-workbench-settings-aad.png)
-
-    | Setting | Description  |
-    |---------|--------------|
-    | Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
-    | Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
-
-10. Select **OK** to finish Advanced Settings.
-
-11. Review the summary to verify your parameters are accurate.
+10. Review the summary to verify your parameters are accurate.
 
     ![Summary](media/deploy/blockchain-workbench-summary.png)
 
-12. Select **Create** to agree to the terms and deploy your Azure Blockchain Workbench.
+11. Select **Create** to agree to the terms and deploy your Azure Blockchain Workbench.
 
 The deployment can take up to 90 minutes. You can use the Azure portal to monitor progress. In the newly created resource group, select **Deployments > Overview** to see the status of the deployed artifacts.
 
