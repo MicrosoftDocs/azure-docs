@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -26,27 +26,14 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
+Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data. For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
 
-
-|**Scope**|**Defined at**|**Required access to analyze costs on scope**|**Prerequisite EA setting**|**Consolidates billing data to**|
-|---                |---                  |---                   |---            |---           |
-|Billing account<sup>1</sup>|[https://ea.azure.com ](https://ea.azure.com )|Enterprise Admin|None|All subscriptions from the enterprise agreement|
-|Department|[https://ea.azure.com ](https://ea.azure.com )|Department Admin|DA view charges enabled|All subscriptions belonging to an enrollment account that is linked to the department|
-|Enrollment account<sup>2</sup2>|[https://ea.azure.com ](https://ea.azure.com )|Account Owner|AO view charges enabled|All subscriptions from the enrollment account|
-|Management group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All subscriptions below the management group|
-|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources/resource groups in the subscription|
-|Resource group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources in the resource group|
-
-<sup>1</sup>The billing account is often referred to as the Enterprise Agreement or Enrollment.
-
-<sup>2</sup>The enrollment account is often referred to as the account owner.
-
-For more information about configuring **DA view charges** and **AO view charges** settings, see [Enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Billing account
+- Department
+- Enrollment account
+- Management group
+- Subscription
+- Resource group
 
 ## Sign in to Azure
 

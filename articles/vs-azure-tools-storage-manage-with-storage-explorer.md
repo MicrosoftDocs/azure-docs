@@ -3,7 +3,7 @@ title: Get started with Storage Explorer | Microsoft Docs
 description: Manage Azure storage resources with Storage Explorer
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 

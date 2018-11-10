@@ -54,4 +54,4 @@ To create this credit risk assessment solution, we follow these steps:
 > You can find a working copy of the experiment that we develop in this walkthrough in the [Azure AI Gallery](https://gallery.cortanaintelligence.com). Go to **[Walkthrough - Credit risk prediction](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** and click **Open in Studio** to download a copy of the experiment into your Machine Learning Studio workspace.
 > 
 > This walkthrough is based on a simplified version of the sample experiment,
-[Binary Classification: Credit risk prediction](http://go.microsoft.com/fwlink/?LinkID=525270), also available in the [Gallery](http://gallery.cortanaintelligence.com/).
+[Binary Classification: Credit risk prediction](https://go.microsoft.com/fwlink/?LinkID=525270), also available in the [Gallery](http://gallery.cortanaintelligence.com/).

@@ -51,4 +51,4 @@ Check whether the account that you used is the Account Administrator. To verify 
 
 ## Need help? Contact support.
 
-If you still need help, [contact support](http://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 
+If you still need help, [contact support](https://go.microsoft.com/fwlink/?linkid=544831&clcid=0x409) to get your issue resolved quickly. 

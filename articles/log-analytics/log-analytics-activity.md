@@ -96,5 +96,5 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 ## Next steps
 
-- Create an [alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) when a specific activity happens.
-- Use [Log Search](log-analytics-log-search.md) to view detailed information from your activity logs.
+- Create an [alert](../monitoring-and-diagnostics/alert-metric.md) when a specific activity happens.
+- Use [Log Search](log-analytics-queries.md) to view detailed information from your activity logs.

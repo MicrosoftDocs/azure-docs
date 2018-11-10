@@ -72,7 +72,7 @@ Open the Availability blade and add a test.
 You can monitor a scenario that involves a sequence of URLs. For example, if you are monitoring a sales website, you can test that adding items to the shopping cart works correctly.
 
 > [!NOTE]
-> There is a charge for multi-step web tests. [Pricing scheme](http://azure.microsoft.com/pricing/details/application-insights/).
+> There is a charge for multi-step web tests. [Pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
 To create a multi-step test, you record the scenario by using Visual Studio Enterprise, and then upload the recording to Application Insights. Application Insights replays the scenario at intervals and verifies the responses.
@@ -211,6 +211,7 @@ The X out of Y locations alert rule is enabled by default in the [new unified al
 > [!NOTE]
 > * Configure the action groups to receive notifications when the alert triggers by following the steps above. Without this step, you will only receive in-portal notifications when the rule triggers.
 >
+
 ### Alert on availability metrics
 Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), you can alert on segmented aggregate availability and test duration metrics as well:
 
