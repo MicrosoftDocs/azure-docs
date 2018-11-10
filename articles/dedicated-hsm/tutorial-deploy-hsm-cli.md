@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2018
+ms.date: 11/10/2018
 ms.author: barclayn
 ---
 
@@ -26,7 +26,7 @@ This tutorial focuses on a pair of HSMs and required ExpressRoute Gateway (see S
 
 ## Pre-requisites
 
-Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command line or using PowerShell. This tutorial will use the command-line interface in the Azure Cloud Shell. If you are new to the Azure Command Line Interface, follow getting started instructions here: [Azure CLI 2.0 Get Started](../cli/azure/get-started-with-azure-cli.md?view=azure-cli-latest).
+Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command line or using PowerShell. This tutorial will use the command-line interface in the Azure Cloud Shell. If you are new to the Azure Command Line Interface, follow getting started instructions here: [Azure CLI 2.0 Get Started](../cli/azure/get-started-with-azure-cli.md).
 
 Assumptions:
 

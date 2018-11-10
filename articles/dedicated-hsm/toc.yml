@@ -4,16 +4,14 @@
   items:
   - name: Dedicated HSM Overview
     href: overview.md
-- name: Quickstarts
-  items:
-  - name: Provision dedicated HSM - CLI
-    href: quick-create-cli.md
-  - name: Provision dedicated HSM - PowerShell
-    href: quick-create-powershell.md
 - name: Tutorials
   items:
   - name: Provisioning Dedicated HSM in a multi-region scenario
     href: provisioning-dedicated-hsm-multi-region.md
+  - name: Deploying HSMs into an existing virtual network using CLI
+    href: tutorial-deploy-hsm-cli.md
+  - name: Deploying HSMs into an existing virtual network using PowerShell
+    href: tutorial-deploy-hsm-powershell.md
 - name: Concepts
   items:
   - name: High availability
