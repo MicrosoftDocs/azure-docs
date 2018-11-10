@@ -38,11 +38,9 @@ The following flowchart helps you decide which single sign-on method is best for
 
 ![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
 
-### Summary of the single sign-on methods
-
+### Summary of single sign-on methods
 
 All of the single sign-on methods automatically sign users in to applications without requiring a second sign-on. The difference between approaches is how authentication works.
-
 
 **SAML (cloud applications)**
 
