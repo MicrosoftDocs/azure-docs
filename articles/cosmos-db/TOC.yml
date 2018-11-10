@@ -69,8 +69,14 @@
         href: create-table-python.md
   - name: Concepts
     items:
+    - name: Working with Azure Cosmos DB account
+      href: account-overview.md
+    - name: Working with databases, containers, and items
+      href: databases-containers-items.md
     - name: Resource model
       href: sql-api-resources.md
+    - name: Transactions and Optimistic concurrency
+      href: database-transactions-optimistic-concurrency.md
     - name: Global distribution
       items:
       - name: Overview
@@ -106,12 +112,26 @@
       - name: Provision throughput on containers and databases
         href: set-throughput.md
     - name: Indexing
-      href: indexing-policies.md
+      items:
+      - name: Overview
+        href: indexing-policies.md
+      - name: index types
+        href: index-types.md
+      - name: index paths
+        href: index-paths.md
     - name: Change feed
-      href: change-feed.md
+      items:
+      - name: Overview
+        href: change-feed.md
+      - name: Access change feed
+        href: change-feed-reading.md
+      - name: change feed processor
+        href: change-feed-processor.md
+      - name: Change feed with Azure Functions 
+        href: change-feed-functions.md
     - name: Time to live
       href: time-to-live.md
-    - name: Unique keys
+    - name: Unique key constraints
       href: unique-keys.md
     - name: Security
       items:
@@ -392,6 +412,28 @@
             href: /rest/api/storageservices/Table-Service-Concepts
   - name: How-to guides
     items:
+    - name: Manage database account
+      href: how-to-manage-database-account.md
+    - name: Configure time to live
+      href: how-to-time-to-live.md
+    - name: Global distribution
+      items:
+      - name: Manage Consistency
+        href: how-to-manage-consistency.md
+      - name: Manage Conflicts
+        href: how-to-manage-conflicts.md
+    - name: Provisioned throughput
+      items:
+      - name: Provision container throughput
+        href: how-to-provision-container-throughput.md
+      - name: Provision database throughput
+        href: how-to-provision-database-throughput.md
+    - name: Working with containers and items
+      items:
+      - name: Create a container
+        href: how-to-create-container.md
+      - name: Query a container
+        href: how-to-query-container.md
     - name : Manage
       items:
       - name: Manage using PowerShell
@@ -402,8 +444,6 @@
         href: storage-explorer.md
       - name: Manage using data explorer
         href: data-explorer.md
-      - name: Manage your account
-        href: manage-account.md
     - name : Logging
       items:
       - name: Diagnostic logging
@@ -426,26 +466,6 @@
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
     - name: Set up Azure DevOps CI/CD pipeline
       href: tutorial-setup-ci-cd.md
-    - name: Global distribution
-      items:
-      - name: Manage Database Account
-        href: how-to-manage-database-account.md
-      - name: Manage Consistency
-        href: how-to-manage-consistency.md
-      - name: Manage Conflicts
-        href: how-to-manage-conflicts.md
-    - name: Provisioned throughput
-      items:
-      - name: Provision container throughput
-        href: how-to-provision-container-throughput.md
-      - name: Provision database throughput
-        href: how-to-provision-database-throughput.md
-    - name: Working with containers and items
-      items:
-      - name: Create a container
-        href: how-to-create-container.md
-      - name: Query a container
-        href: how-to-query-container.md
     - name: Best practices
       items:
       - name: Performance tips
