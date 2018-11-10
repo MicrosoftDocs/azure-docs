@@ -41,7 +41,7 @@ The cost of Blockchain Workbench is an aggregate of the cost of the underlying A
 
 ## Prerequisites
 
-Azure Blockchain Workbench requires Azure AD configuration and application registrations. You can choose to do the Azure AD [configurations manually](#azure-active-directory-configuration) before deployment or run a script post deployment.
+Azure Blockchain Workbench requires Azure AD configuration and application registrations. You can choose to do the Azure AD [configurations manually](#azure-ad-configuration) before deployment or run a script post deployment.
 
 > [!IMPORTANT]
 > Workbench does not have to be deployed in the same tenant as the one you are using to register an Azure AD application. Workbench must be deployed in a tenant where you have sufficient permissions to deploy resources. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md) and [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
@@ -158,10 +158,10 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
 6. You'll be prompted to authenticate to the Azure AD tenant using a browser. Open the web URL in a browser, enter the code, and authenticate.
 7. The script outputs several status messages. You get a **SUCCESS** status message if the tenant was successfully provisioned.
 8. Navigate to the Blockchain Workbench URL. You are asked to consent to grant read permissions to the directory. This allows the Blockchain Workbench web app access to the users in the tenant. You can choose to consent for the entire organization or allow each user to consent. Select **Accept** to consent.
-    ![Consent to read users profiles](media/deploy/graph-permission-consent.png)
+     ![Consent to read users profiles](media/deploy/graph-permission-consent.png)
 9. After consent, the Blockchain Workbench web app can be used.
 
-## Azure Active Directory configuration
+## Azure AD configuration
 
 If you choose to manually configure Azure AD prior to deployment, complete all steps in this section.
 
