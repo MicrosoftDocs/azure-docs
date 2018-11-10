@@ -63,7 +63,7 @@ For uploading web server log data, and also for uploading other kinds of data (e
 Most HDInsight cluster types (Hadoop, HBase, Storm) support Data Lake Storage Gen2 as a data storage repository. HDInsight clusters access data from Azure Storage Blobs (WASB). For better performance, you can copy the data from WASB into a Data Lake Storage Gen2 account associated with the cluster. You can use the following tools to copy the data.
 
 * [Apache DistCp](copy-data-wasb-distcp.md)
-* [AdlCopy Service](azure-storage-blob.md)
+* [AzCopy tool](storage-use-azcopy-v10.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### Data stored in on-premises or IaaS Hadoop clusters
@@ -72,7 +72,7 @@ Large amounts of data may be stored in existing Hadoop clusters, locally on mach
 | Approach | Details | Advantages | Considerations |
 | --- | --- | --- | --- |
 | Use Azure Data Factory (ADF) to copy data directly from Hadoop clusters to Azure Data Lake Storage Gen2 |[ADF supports HDFS as a data source](../data-factory/connector-hdfs.md) |ADF provides out-of-the-box support for HDFS and first class end-to-end management and monitoring |Requires Data Management Gateway to be deployed on-premises or in the IaaS cluster |
-| Use Distcp to copy data from Hadoop to Azure Storage. Then copy data from Azure Storage to Data Lake Storage Gen2 using appropriate mechanism. |You can copy data from Azure Storage to Data Lake Storage Gen2 using: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[AdlCopy tool](copy-data-azure-storage-blob.md)</li><li>[Apache DistCp running on HDInsight clusters](copy-data-wasb-distcp.md)</li></ul> |You can use open-source tools. |Multi-step process that involves multiple technologies |
+| Use Distcp to copy data from Hadoop to Azure Storage. Then copy data from Azure Storage to Data Lake Storage Gen2 using appropriate mechanism. |You can copy data from Azure Storage to Data Lake Storage Gen2 using: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[AzCopy tool](storage-use-azcopy-v10.md)</li><li>[Apache DistCp running on HDInsight clusters](copy-data-wasb-distcp.md)</li></ul> |You can use open-source tools. |Multi-step process that involves multiple technologies |
 
 ### Really large datasets
 For uploading datasets that range in several terabytes, using the methods described above can sometimes be slow and costly. In such cases, you can use the options below.
