@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/7/2018
+ms.date: 11/9/2018
 ms.author: adgera
 ---
 
 # How to add blobs to objects in Azure Digital Twins
 
-Blobs are unstructured representations of common file types (like pictures, logs, etc.). Blobs keep track of what kind of data they represent using a MIME type (for example: "image/jpeg") and metadata (name, description, type, etc.).
+Blobs are unstructured representations of common file types (like pictures and logs). Blobs keep track of what kind of data they represent using a MIME type (for example: "image/jpeg") and metadata (name, description, type, etc.).
 
-Azure Digital Twins supports attaching Blobs to Devices, Spaces, and Users. Such Blobs can represent a profile picture for a user, a device photo, a video, or a log.
+Azure Digital Twins supports attaching **Blobs** to **Devices**, **Spaces**, and **Users**. **Blobs** can represent a profile picture for a **User**, a **Device** photo, a video, or a log.
 
 > [!NOTE]
 > This article assumes:
@@ -41,9 +41,7 @@ Each multi-part request is broken into several chunks. Multi-part requests made 
 
 1. The second part contains the actual Blob contents (the unstructured contents of the file).  
 
-> [!TIP]
-> * Neither of the two parts are required for **PATCH** requests.
-> * Both are required for **POST** or create operations.
+Neither of the two parts are required for **PATCH** requests. Both are required for **POST** or create operations.
 
 ### Blob metadata
 
@@ -51,17 +49,26 @@ In addition to **Content-Type** and **Content-Disposition**, multi-part requests
 
 The four main JSON schemas used are:
 
-* BlobMetadataRetrieve
-* BlobMetadataContentInfo
-* BlobMetadataCreate
-* BlobMetadataUpdate
-
-For more information, see your Swagger reference documentation:
-
 ![Space blobs][1]
 
+These model schemas are described in full detail in the supplied Swagger documentation.
+
 > [!TIP]
-> A Swagger sneak preview is provided to demonstrate the API feature set. It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index).
+> A Swagger sneak preview is provided to demonstrate the API feature set.
+> It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
+
+You can access your own generated Management API Swagger documentation at:
+
+```plaintext
+https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
+```
+
+| Custom name | Replace with |
+| --- | --- |
+| yourInstanceName | The name of your Azure Digital Twins instance |
+| yourLocation | Which server region your instance is hosted on |
+
+Learn about using the supplied reference documentation by reading [How to use Swagger](./how-to-use-swagger.md).
 
 ### Examples
 
