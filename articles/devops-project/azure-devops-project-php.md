@@ -138,7 +138,7 @@ You should now see a build in progress. The changes you just 	made are automatic
 
 ## Clean up resources
 
-You can delete Azure App Service and other related resources that you created in this quickstart when you don't need them anymore. Use the Delete functionality on the DevOps Projects dashboard.
+You can delete Azure App Service and other related resources when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
