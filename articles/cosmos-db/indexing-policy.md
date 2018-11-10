@@ -67,5 +67,4 @@ Read more about the indexing in the following articles:
 - [Indexing Overview](indexing-overview.md)
 - [Index types](index-types.md)
 - [Index paths](index-paths.md)
-- [Indexing examples](indexing-examples.md)
 - [How to manage indexing policy](how-to-manage-indexing-policy.md)

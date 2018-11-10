@@ -17,7 +17,7 @@ Azure Cosmos DB is a fully managed platform-as-a-service (PaaS). To begin using 
 
 The Azure Cosmos DB account is the fundamental unit of global distribution and high availability. For globally distributing your data and throughput across multiple Azure regions, you can add and remove Azure regions to your account at any time. You can configure your account to have either a single or multiple write regions. For more information, see [how to add and remove Azure regions to your Azure Cosmos account](how-to-manage-database-account.md). You can configure the [default consistency](consistency-levels.md) level on Azure Cosmos account. Azure Cosmos DB provides comprehensive SLAs encompassing throughput, latency at the 99th percentile, consistency, and high availability. For more information, see [Azure Cosmos DB SLAs](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/).
 
-To securely manage access to all the data within your Azure Cosmos DB account, you can use the master keys associated with your account. To further secure access to your data, you can configure a VNET service endpoint and IP-firewall on your Azure Cosmos account. For more information, see [VNET and subnet access control for your Azure Cosmos account](how-to-configure-vnet-service-endpoint.md) and [IP-firewall for your Azure Cosmos account](how-to-configure-firewall.md).
+To securely manage access to all the data within your Azure Cosmos DB account, you can use the master keys associated with your account. To further secure access to your data, you can configure a VNET service endpoint and IP-firewall on your Azure Cosmos account. 
 
 ## Elements in an Azure Cosmos account
 
