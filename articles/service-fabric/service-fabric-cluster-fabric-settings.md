@@ -78,7 +78,7 @@ For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Di
       }
 ```
 
-After you've modified the settings in your ClusterConfig.json file, follow the directions in [Upgrade the cluster configuration](./service-fabric-cluster-upgrade-windows-server.md#upgrade-the-cluster-configuration) to apply the settings to your cluster. 
+After you've modified the settings in your ClusterConfig.json file, follow the directions in [Upgrade the cluster configuration](service-fabric-cluster-config-upgrade-windows-server.md) to apply the settings to your cluster. 
 
 
 The following is a list of Fabric settings that you can customize, organized by section.
