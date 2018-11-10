@@ -932,7 +932,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.ClassicCompute/virtualMachines/delete | Removes virtual machines. |
 > | Action | Microsoft.ClassicCompute/virtualMachines/detachDisk/action | Detaches a data disk from virtual machine. |
 > | Action | Microsoft.ClassicCompute/virtualMachines/diagnosticsettings/read | Get virtual machine diagnostics settings. |
-> | Action | Microsoft.ClassicCompute/virtualMachines/disks/read | Retrives list of data disks |
+> | Action | Microsoft.ClassicCompute/virtualMachines/disks/read | Retrieves list of data disks |
 > | Action | Microsoft.ClassicCompute/virtualMachines/downloadRemoteDesktopConnectionFile/action | Downloads the RDP file for virtual machine. |
 > | Action | Microsoft.ClassicCompute/virtualMachines/extensions/operationStatuses/read | Reads the operation status for the virtual machines extensions. |
 > | Action | Microsoft.ClassicCompute/virtualMachines/extensions/read | Gets the virtual machine extension. |
