@@ -639,7 +639,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     catch{Connect-AzureRmAccount}
     #EndRegion
 
-    #region - Create and validate Azure resouce group
+    #region - Create and validate Azure resource group
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
     }

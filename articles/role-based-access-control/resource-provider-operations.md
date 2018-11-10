@@ -3185,7 +3185,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action Type | Operation | Description |
 > | --- | --- | --- |
 > | Action | Microsoft.Migrate/locations/assessmentOptions/read | Gets the assessment options which are available in the given location |
-> | Action | Microsoft.Migrate/locations/checknameavailability/action | Checks availability of the resouce name for the given subscription in the given location |
+> | Action | Microsoft.Migrate/locations/checknameavailability/action | Checks availability of the resource name for the given subscription in the given location |
 > | Action | Microsoft.Migrate/Operations/read | Lists operations available on Microsoft.Migrate resource provider |
 > | Action | Microsoft.Migrate/projects/assessments/read | Lists assessments within a project |
 > | Action | Microsoft.Migrate/projects/delete | Deletes the project |

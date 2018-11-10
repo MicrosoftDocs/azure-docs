@@ -142,7 +142,7 @@ Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path $Vaultsettingsfile.File
 
 ```
 ```
-ResourceName         ResourceGroupName ResourceNamespace          ResouceType
+ResourceName         ResourceGroupName ResourceNamespace          ResourceType
 ------------         ----------------- -----------------          -----------
 a2aDemoRecoveryVault a2ademorecoveryrg Microsoft.RecoveryServices Vaults     
 ```

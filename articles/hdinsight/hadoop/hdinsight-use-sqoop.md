@@ -307,7 +307,7 @@ try{Get-AzureRmContext}
 catch{Connect-AzureRmAccount}
 #endregion
 
-#region - Create Azure resouce group
+#region - Create Azure resource group
 Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
 try{
     Get-AzureRmResourceGroup -Name $resourceGroupName
