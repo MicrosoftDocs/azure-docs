@@ -50,7 +50,7 @@ There was a technical issue with SAP HANA scale-out in combination with multiple
 * rev2.00.024.04 or higher 
 * rev2.00.032 or higher
 
-If you have a situation that requires support from SUSE, follow this [guide][suse-pacemaker-support-log-files]. Collect all the information about the SAP HANA high-availability (HA) cluster as described in the article. SUSE support needs this information for further analysis.
+If you need support from SUSE, follow this [guide][suse-pacemaker-support-log-files]. Collect all the information about the SAP HANA high-availability (HA) cluster as described in the article. SUSE support needs this information for further analysis.
 
 During internal testing, the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. So we recommend that you test a cluster failover by other methods. Use methods like forcing a kernel panic, or shut down the networks or migrate the MSL resource. See details in the following sections. The assumption is that a standard shutdown happens with intention. The best example of an intentional shutdown is for maintenance. See details in the **Planned maintenance** section.
 
@@ -62,7 +62,7 @@ When you use the **crm migrate** command, make sure to clean up the cluster conf
 
 ## Test system description
 
-A setup was used for SAP HANA scale-out HA verification and certification. The setups consisted of two systems with three SAP HANA nodes each: one master and two workers. The following table lists VM names and internal IP addresses. All the verification samples that follow were done on these VMs. By using these VM names and IP addresses in the command samples, you can better understand the commands and their outputs.
+ For SAP HANA scale-out HA verification and certification, a setup was used. It consisted of two systems with three SAP HANA nodes each: one master and two workers. The following table lists VM names and internal IP addresses. All the verification samples that follow were done on these VMs. By using these VM names and IP addresses in the command samples, you can better understand the commands and their outputs.
 
 
 | Node type | VM name | IP address |
@@ -85,7 +85,7 @@ A setup was used for SAP HANA scale-out HA verification and certification. The s
 
 ## Multiple subnets and vNICs
 
-Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in nonshared mode. That means every node uses local disk volumes for **/hana/data** and **/hana/log**. Because the nodes only use local disk volumes, it's not necessary to define a separate subnet for storage:
+Following SAP HANA network recommendations, three subnets were created within one Azure virtual network. SAP HANA scale-out on Azure has to be installed in nonshared mode. That means every node uses local disk volumes for **/hana/data** and **/hana/log**. Because the nodes use only local disk volumes, it's not necessary to define a separate subnet for storage:
 
 - 10.0.2.0/24 for SAP HANA internode communication
 - 10.0.1.0/24 for SAP HANA System Replication (HSR)
@@ -119,7 +119,7 @@ The following SQL statement returns the instance ID, instance number, and other 
 select * from "SYS"."M_SYSTEM_OVERVIEW"
 </code></pre>
 
-To find the correct port numbers, you can look, for example, in HANA Studio under ****Configuration**** or via a SQL statement:
+To find the correct port numbers, you can look, for example, in HANA Studio under **Configuration** or via a SQL statement:
 
 <pre><code>
 select * from M_INIFILE_CONTENTS WHERE KEY LIKE 'listen%'
@@ -168,7 +168,9 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 ## Corosync
 
 
-The **corosync** config file has to be correct on every node in the cluster including the majority maker node. If the cluster join of a node doesn't work as expected, create or copy **/etc/corosync/corosync.conf** manually onto all nodes and restart the service. The content of **corosync.conf** from the test system is an example.
+The **corosync** config file has to be correct on every node in the cluster including the majority maker node. If the cluster join of a node doesn't work as expected, create or copy **/etc/corosync/corosync.conf** manually onto all nodes and restart the service. 
+
+The content of **corosync.conf** from the test system is an example.
 
 The first section is **totem**, as described in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide], Cluster installation section, step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
 
@@ -279,7 +281,7 @@ systemctl restart corosync
 
 How to set up an SBD device on an Azure VM is described in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide] (section sbd-fencing).
 
-First, look on the SBD server VM to check if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
+First, check on the SBD server VM if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
 
 
 <pre><code>
@@ -387,7 +389,7 @@ The output should show **clear** for every node in the cluster:
 </code></pre>
 
 
-Another SBD check is the **dump** option of the **sbd** command. The following sample command and output is from the majority maker node where the device name was **sdd**, not **sdm**:
+Another SBD check is the **dump** option of the **sbd** command. In this sample command and output from the majority maker node, the device name was **sdd**, not **sdm**:
 
 <pre><code>
 sbd -d /dev/sdd dump
@@ -408,7 +410,7 @@ Timeout (msgwait)  : 120
 ==Header on disk /dev/sdd is dumped
 </code></pre>
 
-One more check for SBD is the possibility to send a message to another node. Run the following command on worker node 1 on site 2 to send a message to worker node 2 on site 2:
+One more check for SBD is the possibility to send a message to another node. To send a message to worker node 2 on site 2, run the following command on worker node 1 on site 2:
 
 <pre><code>
 sbd -d /dev/sdm message hso-hana-vm-s2-2 test
@@ -455,7 +457,7 @@ During testing and verification, after the restart of a VM, the SBD device wasn'
 5. Above the initiator name, make sure that the **Service Start** value is set to **When Booting**.
 6. If it's not, then set it to **When Booting** instead of **Manually**.
 7. Next, switch the top tab to **Connected Targets**.
-8. On the **Connected Targets** screen, you see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
+8. On the **Connected Targets** screen, you should see an entry for the SBD device like this sample: **10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**.
 9. Check if the **Start-Up** value is set to **on boot**.
 10. If not, choose **Edit** and change it.
 11. Save the changes and exit YaST2.
@@ -702,7 +704,7 @@ overall host status: ok
 </code></pre>
 
 
-There's another command to check current cluster activities. See the following command and the tail of the output after the master node of the primary site was killed. You can see the list of transition actions like **promoting** the former secondary master node, **hso-hana-vm-s2-0**, as the new primary master. If everything is fine, and all activities are finished, this list of **Transition Summary** has to be empty.
+There's another command to check current cluster activities. See the following command and the output tail after the master node of the primary site was killed. You can see the list of transition actions like **promoting** the former secondary master node, **hso-hana-vm-s2-0**, as the new primary master. If everything is fine, and all activities are finished, this list of **Transition Summary** has to be empty.
 
 <pre><code>
  crm_simulate -Ls
@@ -722,7 +724,7 @@ Transition Summary:
 
 ## Planned maintenance 
 
-There are different use cases when it comes to planned maintenance. For example, one question is whether it's just infrastructure maintenance like changes on the OS level and disk configuration or a HANA upgrade.
+There are different use cases when it comes to planned maintenance. One question is whether it's just infrastructure maintenance like changes on the OS level and disk configuration or a HANA upgrade.
 You can find additional information in documents from SUSE like [Towards Zero Downtime][sles-zero-downtime-paper] or [SAP HANA SR Performance Optimized Scenario][sles-12-for-sap]. These documents also include samples that show how to manually migrate a primary.
 
 Intense internal testing was done to verify the infrastructure maintenance use case. To avoid any issues related to migrating the primary, we decided to always migrate a primary before putting a cluster into maintenance mode. This way, it's not necessary to make the cluster forget about the former situation: which side was primary and which was secondary.
@@ -749,7 +751,7 @@ The procedure for maintenance on the current primary site is more complex:
 6. End the cluster maintenance mode.
 
 
-Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample process:
+Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample procedure:
 
 1. First, force a cluster failover by migrating the MSL resource to the current secondary master node. This command gives a warning that a **move constraint** was created:
 
@@ -805,7 +807,7 @@ Migrating a resource adds an entry to the cluster configuration. An example is f
     location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
     </code></pre>
 
-1. Unfortunately, such constraints might impact the overall cluster behavior. So it's mandatory to remove them again before you bring the whole system back up. With the **unmigrate** command, it's possible to clean up the location constraints that were created before. The naming might be a bit confusing. It doesn't mean that it tries to migrate the resource back to the original VM from which it was migrated. It just removes the location constraints and also returns corresponding information when you run the command:
+1. Unfortunately, such constraints might impact the overall cluster behavior. So it's mandatory to remove them again before you bring the whole system back up. With the **unmigrate** command, it's possible to clean up the location constraints that were created before. The naming might be a bit confusing. It doesn't try to migrate the resource back to the original VM from which it was migrated. It just removes the location constraints and also returns corresponding information when you run the command:
 
 
     <pre><code>
@@ -820,7 +822,7 @@ Migrating a resource adds an entry to the cluster configuration. An example is f
 
 ## hb_report to collect log files
 
-To analyze Pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all the log files that you need to analyze what happened. This sample call uses a start and end time where a specific incident occurred. Also see the **Important notes** section:
+To analyze Pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all the important log files that you need to analyze what happened. This sample call uses a start and end time where a specific incident occurred. Also see the **Important notes** section:
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
@@ -976,5 +978,5 @@ This final screenshot shows the **Details** section of a single transition. The 
 
 ## Next steps
 
-This troubleshooting guide describes high availability for SAP HANA in a scale-out configuration. In addition to the database, the SAP NetWeaver stack is another important component in an SAP landscape. Learn about high availability for SAP NetWeaver on Azure virtual machines that use SUSE Enterprise Linux Server in this [high availability guide][sap-nw-ha-guide-sles].
+This troubleshooting guide describes high availability for SAP HANA in a scale-out configuration. In addition to the database, another important component in a SAP landscape is the SAP NetWeaver stack. Learn about high availability for SAP NetWeaver on Azure virtual machines that use SUSE Enterprise Linux Server in this [guide][sap-nw-ha-guide-sles].
 
