@@ -197,9 +197,11 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     | Setting | Description  |
     |---------|--------------|
-    | Number of blockchain nodes | Choose the number of Ethereum PoA validator nodes to be deployed in your network. |
-    | Storage performance | Choose the preferred VM storage performance for your blockchain network. |
-    | Virtual machine size | Choose the preferred VM size for your blockchain network. |
+    | Monitoring | Choose whether you want to enable Azure Monitor to monitor your blockchain network |
+    | Azure Active Directory settings | Choose **Add Now** |
+    | Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
+    | Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
+    | VM selection | Choose the preferred VM size for your blockchain network. |
 
     For **Use existing**:
 
@@ -214,14 +216,11 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Setting | Description  |
     |---------|--------------|
     | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with http:// and ends with a port number. For example, `http://contoso-chain.onmicrosoft.com:8545` |
-    | Storage performance | Choose the preferred VM storage performance for your blockchain network. |
-    | Virtual machine size | Choose the preferred VM size for your blockchain network. |
+    | Azure Active Directory settings | Choose **Add Now**. |
+    | Domain Name | Use the Azure AD tenant collected in the [Get tenant domain name](#get-tenant-domain-name) prerequisite section. |
+    | Application ID | Use the Application ID from the Blockchain client app registration collected in the [Get application ID](#get-application-id) prerequisite section. |
+    | VM selection | Choose the preferred VM size for your blockchain network. |
 
-9. Complete the **Advanced Settings > Azure Monitor** settings.
-
-    | Setting | Description  |
-    |---------|--------------|
-    | Monitoring | Choose whether you want to enable Azure Monitor to monitor your blockchain network |
 
 10. Complete the **Advanced Settings > Azure Active Directory settings**.
 

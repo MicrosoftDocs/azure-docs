@@ -18,7 +18,7 @@ In addition to providing a REST API, Azure Blockchain Workbench also provides me
 
 ## Input APIs
 
-If want to initiate transactions from external systems to create users, create contracts, and update contracts, you can use messaging input APIs to perform transactions on a ledger. See [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample) for a sample that demonstrates input APIs.
+If you want to initiate transactions from external systems to create users, create contracts, and update contracts, you can use messaging input APIs to perform transactions on a ledger. See [http://aka.ms/blockchain-workbench-integration-sample](https://aka.ms/blockchain-workbench-integration-sample) for a sample that demonstrates input APIs.
 
 The following are the currently available input APIs.
 
