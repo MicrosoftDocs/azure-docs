@@ -87,7 +87,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
