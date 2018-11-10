@@ -25,6 +25,12 @@ This guide shows you how to use blobfuse, and mount a Blob storage container on 
 ## Install blobfuse on Linux
 Blobfuse binaries are available on [the Microsoft software repositories for Linux](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software) for Ubuntu and RHEL distributions. To install blobfuse on those distributions, configure one of the repositories from the list. You can also build the binaries from source code following the installation steps [here](https://github.com/Azure/azure-storage-fuse/wiki/1.-Installation#option-2---build-from-source) if there are no binaries available for your distribution.
 
+>[NOTE!]
+>Blobfuse supports installation on Ubuntu 14.04 and 16.04. Make sure that you have one of those versions deployed by running this command:
+```
+lsb_release -a
+```
+
 ### Configure the Microsoft package repository
 Configure the [Linux Package Repository for Microsoft Products](https://docs.microsoft.com/windows-server/administration/Linux-Package-Repository-for-Microsoft-Software).
 
@@ -112,7 +118,7 @@ mkdir ~/mycontainer
 To mount blobfuse, run the following command with your user. This command mounts the container specified in '/path/to/fuse_connection.cfg' onto the location '/mycontainer'.
 
 ```bash
-blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
+sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp  --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
 You should now have access to your block blobs through the regular file system APIs. The mounted directory can only be accessed by the user mounting it, which secures the access. To allow access to all users, you can mount via the option ```-o allow_other```. 
