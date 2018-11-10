@@ -23,10 +23,9 @@ To securely manage access to all the data within your Azure Cosmos DB account, y
 
 Azure Cosmos DB container is the fundamental unit of scalability. You can virtually have an unlimited provisioned throughput (RU/s) and storage on a container. Azure Cosmos DB transparently partitions your container using the logical partition key that you specify in order to elastically scale your provisioned throughput and storage. For more information, see [working with Azure Cosmos containers and items](databases-containers-items.md).
 
-Currently, you can create a maximum of 100 Azure Cosmos DB accounts under an Azure subscription. A single account can virtually manage unlimited amount of data and provisioned throughput. To manage your data and provisioned throughput, you can create one or more Azure Cosmos databases under your account and within that database, you can create one or more containers.
+Currently, you can create a maximum of 100 Azure Cosmos DB accounts under an Azure subscription. A single account can virtually manage unlimited amount of data and provisioned throughput. To manage your data and provisioned throughput, you can create one or more Azure Cosmos databases under your account and within that database, you can create one or more containers. The following image shows the hierarchy of elements in an Azure Cosmos account:
 
-![Hierarchy of a Azure Cosmos DB account](./media/account-overview/hierarchy.png)
-
+![Hierarchy of a Azure Cosmos account](./media/account-overview/hierarchy.png)
 
 ## Next steps
 
