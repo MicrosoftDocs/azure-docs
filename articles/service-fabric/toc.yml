@@ -585,7 +585,7 @@
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: Upgrade
         items:
-          name: Upgrade the Service Fabric version 
+        - name: Upgrade the Service Fabric version 
           href: service-fabric-cluster-upgrade-version-azure.md        
       - name: Set access control
         href: service-fabric-cluster-security-roles.md      
