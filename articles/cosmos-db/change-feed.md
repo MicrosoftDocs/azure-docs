@@ -34,7 +34,7 @@ This feature is currently supported by the following Azure Cosmos DB APIs and cl
 |Python|NA|Yes|No|No|Yes|No|
 |Node/JS|NA|Yes|No|No|Yes|No|
 
-### Change feed and different operations
+## Change feed and different operations
 
 Today, you see all operations in the change feed. The functionality where you can control change feed, for specific operations such as updates only and not inserts is not yet available. You can add a “soft marker” on the item for updates and filter based on that when processing items in the change feed. Currently change feed doesn’t log deletes. Similar to the previous example, you can add a soft marker on the items that are being deleted, for example, you can add an attribute in the item called "deleted" and set it to "true" and set a TTL on the item, so that it can be automatically deleted.
 
@@ -98,7 +98,7 @@ Change feed is available for each logical partition key within the container, an
 
 ![Distributed processing of Azure Cosmos DB change feed](./media/change-feed/changefeedvisual.png)
 
-### Features for change feed
+### Features of change feed
 
 * Change feed is enabled by default for all Azure Cosmos accounts.
 
