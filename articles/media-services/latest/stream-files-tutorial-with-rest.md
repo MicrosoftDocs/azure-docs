@@ -1,5 +1,5 @@
 ---
-title: Upload, encode, and stream using Azure Media Services | Microsoft Docs
+title: Upload, encode, and stream using Azure Media Services - REST | Microsoft Docs
 description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
 ---
 
 # Tutorial: Upload, encode, and stream videos with REST
 
-This tutorial shows you how to upload, encode, and stream video files with Azure Media Services.
+Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
 
-Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
+This tutorial shows you how to upload, encode, and stream video files with Azure Media Services using REST. 
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -312,7 +312,7 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
 
 2. StreamingEndpoint's hostname. In this case, the name is "amsaccount-usw22.streaming.media.azure.net".
 
-    To get the hostname you can use the following GET operation:
+    To get the hostname, you can use the following GET operation:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}

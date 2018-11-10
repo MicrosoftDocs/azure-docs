@@ -72,7 +72,7 @@
         href: event-hubs-kafka-spark-tutorial.md
       - name: Connect Apache Flink to an Apache Kafka-enabled event hub 
         href: event-hubs-kafka-flink-tutorial.md
-      - name: Integrate Apache Kafka Connect with a Kafka-enabled event hub 
+      - name: Integrate Apache Kafka Connect with a Kafka-enabled event hub (Preview) 
         href: event-hubs-kafka-connect-tutorial.md
       - name: Connect Akka Streams to an Apache Kafka-enabled event hub
         href: event-hubs-kafka-akka-streams-tutorial.md
