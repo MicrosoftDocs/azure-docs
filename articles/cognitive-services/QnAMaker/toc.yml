@@ -44,6 +44,18 @@
         href: Quickstarts/publish-kb-nodejs.md
       - name: Python
         href: Quickstarts/publish-kb-python.md
+    - name: Get answer from knowledge base
+      items:
+      - name: C#
+        href: Quickstarts/get-answer-from-kb-csharp.md
+      - name: Go
+        href: Quickstarts/get-answer-from-kb-go.md
+      - name: Java
+        href: Quickstarts/get-answer-from-kb-java.md
+      - name: Node.js
+        href: Quickstarts/get-answer-from-kb-nodejs.md
+      - name: Python
+        href: Quickstarts/get-answer-from-kb-python.md        
 - name: Tutorials
   items: 
   - name: Create and answer from KB
