@@ -21,6 +21,30 @@ ms.author: dekapur
 
 For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the configuration of your standalone Service Fabric cluster.
 
+## Customize cluster settings for standalone clusters
+Standalone clusters are configured through the *ClusterConfig.json* file. To learn more, see [Configuration settings for a standalone Windows cluster](service-fabric-cluster-manifest.md).
+
+You can add, update, or remove settings in the `fabricSettings` section under the [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) section in ClusterConfig.json. 
+
+For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under `fabricSettings`:
+
+```json
+      {
+        "name": "Diagnostics",
+        "parameters": [
+          {
+            "name": "MaxDiskQuotaInMB",
+            "value": "65536"
+          }
+        ]
+      }
+```
+
+After you've modified the settings in your ClusterConfig.json file, [test the cluster configuration](#test-the-cluster-configuration) and then [upgrade the cluster configuration](#upgrade-the-cluster-configuration) to apply the settings to your cluster. 
+
+
+The following is a list of Fabric settings that you can customize, organized by section.
+
 ## Test the cluster configuration
 Before you initiate the configuration upgrade, you can test your new cluster configuration JSON by running the following PowerShell script in the standalone package:
 
@@ -36,6 +60,7 @@ TestConfiguration.ps1 -ClusterConfigFilePath <Path to the new Configuration File
 
 Some configurations can't be upgraded, such as endpoints, cluster name, node IP, etc. The new cluster configuration JSON is tested against the old one and throws errors in the PowerShell window if there's an issue.
 
+## Upgrade the cluster configuration
 To upgrade the cluster configuration upgrade, run [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade). The configuration upgrade is processed upgrade domain by upgrade domain.
 
 ```powershell
