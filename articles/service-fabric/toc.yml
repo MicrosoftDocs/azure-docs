@@ -234,12 +234,16 @@
       href: service-fabric-cluster-security.md
     - name: Scaling
       href: service-fabric-cluster-scaling.md
+    - name: Upgrading
+      href: service-fabric-cluster-upgrade.md
     - name: Feature differences between Linux and Windows
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
       items:
       - name: Node types and VM Scale Sets
         href: service-fabric-cluster-nodetypes.md
+      - name: Upgrading clusters in Azure
+        href: service-fabric-cluster-upgrade-azure.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
     - name: Cluster resource manager
@@ -580,7 +584,9 @@
         - name: Virtual Machine Scale Set Node Type scale out
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
       - name: Upgrade
-        href: service-fabric-cluster-upgrade.md
+        items:
+          name: Upgrade the Service Fabric version 
+          href: service-fabric-cluster-upgrade-version-azure.md        
       - name: Set access control
         href: service-fabric-cluster-security-roles.md      
       - name: Open a port in the load balancer
