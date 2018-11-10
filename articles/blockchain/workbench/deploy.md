@@ -150,15 +150,19 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
 
 1. In a browser, navigate to the [Blockchain Workbench Web URL](#blockchain-workbench-web-url).
 2. You'll see instructions to setup Azure AD using Cloud Shell. Copy the command and launch Cloud Shell.
+
     ![Launch AAD script](media/deploy/launch-aad-script.png)
+
 3. Choose the Azure AD tenant where you deployed Blockchain Workbench.
 4. In Cloud Shell, paste and run the command.
 5. When prompted, enter the Azure AD tenant you want to use for Blockchain Workbench. This will be the tenant containing the users for Blockchain Workbench. For guidance, see the [Blockchain Workbench FAQ](https://aka.ms/workbenchFAQ).
+
     ![Enter Azure AD tenant](media/deploy/choose-tenant.png)
 
 6. You'll be prompted to authenticate to the Azure AD tenant using a browser. Open the web URL in a browser, enter the code, and authenticate.
 7. The script outputs several status messages. You get a **SUCCESS** status message if the tenant was successfully provisioned.
 8. Navigate to the Blockchain Workbench URL. You are asked to consent to grant read permissions to the directory. This allows the Blockchain Workbench web app access to the users in the tenant. You can choose to consent for the entire organization or allow each user to consent. Select **Accept** to consent.
+
      ![Consent to read users profiles](media/deploy/graph-permission-consent.png)
 
 9. After consent, the Blockchain Workbench web app can be used.
