@@ -392,7 +392,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | --- | --- | --- |
 > | Action | Microsoft.Authorization/checkAccess/action | Checks if the caller is authorized to perform a particular action |
 > | Action | Microsoft.Authorization/classicAdministrators/delete | Removes the administrator from the subscription. |
-> | Action | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Gets the administrator opreation statuses of the subscription. |
+> | Action | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Gets the administrator operation statuses of the subscription. |
 > | Action | Microsoft.Authorization/classicAdministrators/read | Reads the administrators for the subscription. |
 > | Action | Microsoft.Authorization/classicAdministrators/write | Add or modify administrator to a subscription. |
 > | Action | Microsoft.Authorization/denyAssignments/delete | Delete a deny assignment at the specified scope. |
