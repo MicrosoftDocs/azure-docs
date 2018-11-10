@@ -19,7 +19,7 @@ Use the following steps to enable Time to Live on a container with no expiration
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
-2. Create a new Azure Cosmos DB account or select an existing account.
+2. Create a new Azure Cosmos account or select an existing account.
 
 3. Open the **Data Explorer** pane.
 

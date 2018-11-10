@@ -357,6 +357,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/manage-account.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account.md",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
             "redirect_url": "/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": true
