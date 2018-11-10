@@ -67,6 +67,8 @@
         href: tenant-restrictions.md
     - name: Single sign-on
       href: what-is-single-sign-on.md
+    - hame: End-user experiences
+      href: end-user-experiences.md
   - name: How-to guides
     items:
     - name: Cloud app integration
