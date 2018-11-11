@@ -40,6 +40,8 @@ To configure Azure AD integration with G Suite, you need the following items:
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
+> This document was created using the new user Single-Sign-on experience. If you are still using the old one, the setup will look diferent. You can enable the new experience in the Single Sign-on settings of G-Suite application.
+Go to Azure AD, Enterprise applications, select G Suite, select Single Sign-on and then click on "Try out our new experience"
 
 To test the steps in this tutorial, you should follow these recommendations:
 
@@ -276,6 +278,17 @@ In this section, you test your Azure AD single sign-on configuration using the A
 
 When you click the G Suite tile in the Access Panel, you should get automatically signed-on to your G Suite application.
 For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
+
+## Error: Invalid Email
+
+For this setup, the email attribute is required for the users to be able to sign-in. This attribute cannot be set manually.
+
+The email attribute is autopuplated for any user with a valid Exchange license. If user is not email-enabled, this error will be received as the application needs to get this attribute to give access.
+
+You can go to portal.office.com with an Admin account, then click in the Admin center, billing, subscriptions, select your Office 365 Subscription and then click on assign to users, select the users you want to check their subscription and in the right pane, click on edit licenses.
+
+Once the O365 license is assigned, it may take some minutes to be applied. After that the user.mail attribute will be autopopulated and the issue should be resolved.
+
 
 ## Additional resources
 
