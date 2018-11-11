@@ -27,7 +27,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 > [!IMPORTANT]
 > - Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you order and deploy this solution. 
-> - During preview, Data Box Disk can be shipped to customers in US, West and North Europe, Candana, and Australia. For more information, go to [Region availability](data-box-disk-overview.md#region-availability).
+> - During preview, Data Box Disk can be shipped to customers in US, West and North Europe, Canada, and Australia. For more information, go to [Region availability](data-box-disk-overview.md#region-availability).
 
 ## Sign up
 
