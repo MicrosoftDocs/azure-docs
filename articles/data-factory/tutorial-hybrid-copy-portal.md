@@ -194,7 +194,7 @@ The name of the data factory must be *globally unique*. If you see the following
 
 1. Under **Option 1: Express setup**, select **Click here to launch the express setup for this computer**. 
 
-    ![Express setup link](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Express setup link](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. In the **Integration Runtime (Self-hosted) Express Setup** window, select **Close**. 
 
