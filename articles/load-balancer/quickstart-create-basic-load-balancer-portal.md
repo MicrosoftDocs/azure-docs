@@ -154,6 +154,7 @@ To allow the Basic load balancer to monitor the status of your app, you use a he
    - **myHealthProbe** for the name of the health probe
    - **HTTP** for the protocol type
    - **80** for the port number
+   - **Healthprobe.aspx** for the sample URI. You can replace it with any other URI you like. You can also keep the default Path **"\\"** to get the default URI.
    - **15** for **Interval**, the number of seconds between probe attempts
    - **2** for **Unhealthy threshold**, the number of consecutive probe failures that must occur before a VM is considered unhealthy
 
