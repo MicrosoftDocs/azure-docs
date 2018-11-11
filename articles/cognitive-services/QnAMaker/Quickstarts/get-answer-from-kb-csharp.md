@@ -50,7 +50,7 @@ The answer is also returned in a JSON object:
 * Published knowledge base's ID. You can create an empty knowledge base, then import this KB on the **Settings** page, then publish. You can download and use [this basic KB](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv).
 
 The code for this quickstart is available. 
-
+https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/get-answer-from-knowledge-base
 
 ## Create a knowledge base project
 
