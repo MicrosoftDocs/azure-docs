@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get answer from knowledge base - REST, C# - QnA Maker"
 titlesuffix: Azure Cognitive Services 
-description: This C# REST-based quickstart walks you through getting an answer from knowledge base, programmatically.
+description: This C# REST-based quickstart walks you through getting an answer from the knowledge base, programmatically.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,20 +9,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/6/2018
+ms.date: 11/12/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using C#. 
 ---
 
 ## Get answers to a question by using a knowledge base
 
-This quickstart walks you through programmatically getting an answer from a QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The question is sent in the JSON sent in the body of the API request. 
+This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The question is sent in the JSON sent in the body of the API request. 
+
+An example JSON-formatted question for the REST API:
 
 ```json
 {question:'Does QnA Maker support non-English languages?'}
 ```
 
-The answer is returned in a JSON object:
+The answer is also returned in a JSON object:
 
 ```json
 {
