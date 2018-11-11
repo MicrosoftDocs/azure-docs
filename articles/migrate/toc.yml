@@ -7,9 +7,9 @@
 - name: Tutorials
   items:
   - name: Assess VMware VMs with Azure Migrate Server Assessment Service (preview)
-    href: tutorial-sas-vmware.md
+    href: tutorial-server-assessment-vmware.md
   - name: Assess Hyper-V VMs with Azure Migrate Server Assessment Service (preview)
-    href: tutorial-sas-hyper-v.md
+    href: tutorial-server-assessment-hyper-v.md
   - name: Assess VMware VMs with Azure Migrate GA
     href: tutorial-assessment-vmware.md
 - name: Concepts

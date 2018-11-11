@@ -13,7 +13,7 @@ ms.custom: mvc
 
 The [Azure Migrate](migrate-overview.md) service assesses on-premises workloads for migration to Azure. 
 
-This article describes how to discover and assess on-premises VMware VMs using the GA version of the Azure Migrate service. A newer version of the article is available, which describes how to assess VMware VMs using the public preview of the Azure Migrate Server Assessment service. [Learn more](migrate-overview.md#azure-migrate-services-public-preview) about the public preview, and [how to assess VMware VMs](tutorial-sas-vmware.md) using the preview service
+This article describes how to discover and assess on-premises VMware VMs using the GA version of the Azure Migrate service. A newer version of the article is available, which describes how to assess VMware VMs using the public preview of the Azure Migrate Server Assessment service. [Learn more](migrate-overview.md#azure-migrate-services-public-preview) about the public preview, and [how to assess VMware VMs](tutorial-server-assessment-vmware.md) using the preview service
 
 In this tutorial, you:
 
