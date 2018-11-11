@@ -103,7 +103,7 @@ In this section, you create a blob container named **adftutorial** in your Blob 
 
 1. In the list of containers, select **adftutorial**.
 
-    ![Container selection](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Container selection](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Keep the **Container** window for **adftutorial** open. You use it verify the output at the end of the tutorial. Data Factory automatically creates the output folder in this container, so you don't need to create one.
 
