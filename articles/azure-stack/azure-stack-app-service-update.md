@@ -1,4 +1,3 @@
-
 ---
 title: 'Update Azure App Service on Azure Stack | Microsoft Docs'
 description: Detailed guidance for updating Azure App Service on Azure Stack
@@ -30,7 +29,6 @@ By following the instructions in this article, you can upgrade the [App Service 
 
 > [!IMPORTANT]  
 > Prior to running the upgrade, make sure that you have already completed the [deployment of the Azure App Service on Azure Stack Resource Provider](azure-stack-app-service-deploy.md)
-
 
 ## Run the App Service resource provider installer
 

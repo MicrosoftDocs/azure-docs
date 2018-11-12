@@ -31,7 +31,7 @@ These release notes describe the improvements and fixes in Azure App Service on 
 
 ## Build reference
 
-The App Service on Azure Stack Update 4 build number is **78.0.13698.31**
+The App Service on Azure Stack Update 4 build number is **78.0.13698.5**
 
 ### Prerequisites
 
@@ -50,22 +50,23 @@ Azure App Service on Azure Stack Update 4 includes the following improvements an
 - Updates to core service to improve reliability and error messaging enabling easier diagnosis of common issues.
 
 - **Updates to the following application frameworks and tools**:
-  - Added ASP.Net Core 2.1.2
-  - Added NodeJS 10.0.0
-  - Added Zulu OpenJDK 8.30.0.1
-  - Added Tomcat 8.5.31 and 9.0.8
+  - Added NodeJS 10.6.0
+  - Added NPM 6.1.0
+  - Added Zulu OpenJDK 8.31.0.2
+  - Added Tomcat 8.5.34 and 9.0.12
   - Added PHP Versions:
-    - 5.6.36
-    - 7.0.30
-    - 7.1.17
-    - 7.2.5
-  - Added Wincache 2.0.0.8
+    - 5.6.37
+    - 7.0.31
+    - 7.1.20
+    - 7.2.8
+  - Update to Python Versions:
+    - 2.7.15
+    - 3.6.6
   - Updated Git for Windows to v 2.17.1.2
-  - Updated Kudu to 74.10611.3437
+  - Updated Kudu to 78.11022.3613
   
 - **Updates to underlying operating system of all roles**:
-  - [Servicing stack update for Windows Server 2016 for x64-based Systems (KB4132216)](https://support.microsoft.com/help/4132216/servicing-stack-update-for-windows-10-1607-may-17-2018)
-  - [2018-07 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4338822)](https://support.microsoft.com/help/4338822/windows-10-update-kb4338822)
+  - [2018-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
 
 ### Post Update Steps (optional)
 

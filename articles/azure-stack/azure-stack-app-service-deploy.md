@@ -70,8 +70,8 @@ To deploy App Service resource provider, follow these steps:
 
    b. In **Azure Stack Subscriptions**, select the **Default Provider Subscription**.
 
-     >[!NOTE]
-     >Currently, App Service can only be deployed to the **Default Provider Subscription**.
+     > [!IMPORTANT]  
+     > App Service **must** be deployed to the **Default Provider Subscription**.
 
    c. In the **Azure Stack Locations**, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
 
