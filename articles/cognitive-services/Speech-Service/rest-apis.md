@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 11/12/2018
 ms.author: erhopf
 ---
 # Speech Service REST APIs
@@ -122,14 +122,43 @@ HTTP code|Meaning|Possible reason
 
 ### JSON response
 
-Results are returned in JSON format. The `simple` format includes only the following top-level fields.
+Results are returned in JSON format. Depending on your query parameters, a `simple` of `detailed` format is being returned.
+
+#### The `simple` format 
+
+This format includes the following top-level fields.
 
 |Field name|Content|
 |-|-|
-|`RecognitionStatus`|Status, such as `Success` for successful recognition. See next table.|
+|`RecognitionStatus`|Status, such as `Success` for successful recognition. See this [table](rest-apis.md#recognitionstatus).|
 |`DisplayText`|The recognized text after capitalization, punctuation, inverse text normalization (conversion of spoken text to shorter forms, such as 200 for "two hundred" or "Dr. Smith" for "doctor smith"), and profanity masking. Present only on success.|
 |`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
 |`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
+
+#### The `detailed` format 
+
+This format includes the following top-level fields.
+
+|Field name|Content|
+|-|-|
+|`RecognitionStatus`|Status, such as `Success` for successful recognition. See this [table](rest-apis.md#recognition-status).|
+|`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
+|`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
+|`NBest`|A list of alternative interpretations of the same speech, ranked from most likely to least likely. See the [NBest description](rests-apis.md#nbest).|
+
+#### NBest
+
+The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
+
+|Field name|Content|
+|-|-|
+|`Confidence`|The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence)
+|`Lexical`|The lexical form of the recognized text: the actual words recognized.
+|`ITN`|The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied.
+|`MaskedITN`| The ITN form with profanity masking applied, if requested.
+|`Display`| The display form of the recognized text, with punctuation and capitalization added.
+
+#### RecognitionStatus
 
 The `RecognitionStatus` field might contain the following values.
 
@@ -143,17 +172,6 @@ The `RecognitionStatus` field might contain the following values.
 
 > [!NOTE]
 > If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
-
-
-The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
-
-|Field name|Content|
-|-|-|
-|`Confidence`|The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence)
-|`Lexical`|The lexical form of the recognized text: the actual words recognized.
-|`ITN`|The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied.
-|`MaskedITN`| The ITN form with profanity masking applied, if requested.
-|`Display`| The display form of the recognized text, with punctuation and capitalization added. Same as `DisplayText` in the top-level result.
 
 ### Sample responses
 
