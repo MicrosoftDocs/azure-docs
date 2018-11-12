@@ -175,7 +175,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
     > - Database: DatabaseName should be ReportServer$MSDPMINSTANCE
     > - Web Portal URL: ‘Virtual Directory’ should be Reports_MSDPMINSTANCE
 
-    > [Learn more](https://docs.microsoft.com/en-us/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
+    > [Learn more](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) about SSRS configuration.
 
 4. Provide a location for the installation of Microsoft Azure Backup server files and click **Next**.
 
@@ -208,7 +208,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 When the installation step has completed, the product's desktop icons will have been created as well. Just double-click the icon to launch the product.
 
 ### Add backup storage
-The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-add-storage).
+The first backup copy is kept on storage attached to the Azure Backup Server machine. For more information about adding disks, see [Configure storage pools and disk storage](https://docs.microsoft.com/azure/backup/backup-mabs-add-storage).
 
 > [!NOTE]
 > You need to add backup storage even if you plan to send data to Azure. In the current architecture of Azure Backup Server, the Azure Backup vault holds the *second* copy of the data while the local storage holds the first (and mandatory) backup copy.
@@ -217,7 +217,7 @@ The first backup copy is kept on storage attached to the Azure Backup Server mac
 
 ### Install and update the Data Protection Manager protection agent
 
-MABS uses the System Center Data Protection Manager protection agent. [Here are the steps](https://docs.microsoft.com/en-us/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-1807) to install the Protection Agent on your Protection Servers.
+MABS uses the System Center Data Protection Manager protection agent. [Here are the steps](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-1807) to install the Protection Agent on your Protection Servers.
 
 The following sections describe how to update protection agents for client computers.
 
@@ -327,14 +327,14 @@ Use the following steps to upgrade MABS:
 
 > [!NOTE]
 
-> If you are upgrading from MABS V1 to V2, make sure your OS is Windows Server 2016 or Windows Server 2012 R2. To take advantage of new features like System Center 2016 Data Protection Manager Modern Backup Storage, you must install Backup Server V2 on Windows Server 2016. Before you upgrade to or install Backup Server V2, read about the [installation prerequisites](https://docs.microsoft.com/en-us/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) applicable for MABS.
+> If you are upgrading from MABS V1 to V2, make sure your OS is Windows Server 2016 or Windows Server 2012 R2. To take advantage of new features like System Center 2016 Data Protection Manager Modern Backup Storage, you must install Backup Server V2 on Windows Server 2016. Before you upgrade to or install Backup Server V2, read about the [installation prerequisites](https://docs.microsoft.com/system-center/dpm/install-dpm?view=sc-dpm-1807#setup-prerequisites) applicable for MABS.
 
 ## Troubleshooting
 If Microsoft Azure Backup server fails with errors during the setup phase (or backup or restore), refer to this [error codes document](https://support.microsoft.com/kb/3041338)  for more information.
 You can also refer to [Azure Backup related FAQs](backup-azure-backup-faq.md)
 
 ## Next steps
-You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlet](https://docs.microsoft.com/en-us/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)  for performing various operations.
+You can get detailed information about [preparing your environment for DPM](https://technet.microsoft.com/library/hh758176.aspx) on the Microsoft TechNet site. It also contains information about supported configurations on which Azure Backup Server can be deployed and used. You can use a series of [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)  for performing various operations.
 
 You can use these articles to gain a deeper understanding of workload protection using Microsoft Azure Backup server.
 

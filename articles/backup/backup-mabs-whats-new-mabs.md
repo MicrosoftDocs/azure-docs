@@ -20,7 +20,7 @@ The following features are included in MABS V3:
 With Modern Backup Storage (MBS) in MABS V2, we announced Workload aware storage, where you configure certain workloads to be backed up to specific storage, based on storage properties. However, after configuration, you may find a need to move backups of certain data sources to other storage for optimized resource utilization. MABS V3 gives you the capability to migrate your backups and configure them to be stored to a different volume in [3 steps](https://blogs.technet.microsoft.com/dpm/2017/10/24/storage-migration-with-dpm-2016-mbs/).
 
 ## Prevent unexpected data loss
-In enterprises, MABS is managed by a team of administrators. While there are guidelines on storage that should be used for backups, an incorrect volume given to MABS as backup storage may lead to loss of critical data. With MABS V3, you can prevent such scenarios by configuring those volumes as the ones that are not available for storage using [these PowerShell cmdlets](https://docs.microsoft.com/en-us/system-center/dpm/add-storage#volume-exclusion).
+In enterprises, MABS is managed by a team of administrators. While there are guidelines on storage that should be used for backups, an incorrect volume given to MABS as backup storage may lead to loss of critical data. With MABS V3, you can prevent such scenarios by configuring those volumes as the ones that are not available for storage using [these PowerShell cmdlets](https://docs.microsoft.com/system-center/dpm/add-storage#volume-exclusion).
 
 ## Custom Size Allocation
 Modern Backup Storage (MBS) consumes storage thinly, as and when needed. To do so, MABS calculates the size of the data being backed up when it is configured for protection. However, if many files and folders are being backed up together, as in the case of a file server, size calculation can take long time. With MABS V3, you can configure MABS to accept the volume size as default, instead of calculating the size of each file, hence saving time.
@@ -45,7 +45,7 @@ MABS V3 can be installed with SQL 2017 as the MABS database. You can upgrade the
 MABS V3 can be installed on Windows Server 2019. To use MABS V3 with WS2019, you can either upgrade your OS to WS2019 before installing/upgrading to MABS V3 or you can upgrade your OS post installing/upgrading V3 on WS2016.
 
 MABS V3 is a full release, and can be installed directly on Windows Server 2016, Windows Server 2019, or can be upgraded from MABS V2. Before you upgrade to or install Backup Server V3, read about the installation prerequisites.
-Find more information about the installation/upgrade steps for MABS [here](https://docs.microsoft.com/en-us/azure/backup/backup-azure-microsoft-azure-backup#software-package).
+Find more information about the installation/upgrade steps for MABS [here](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#software-package).
 
 
 > [!NOTE]
