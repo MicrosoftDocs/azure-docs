@@ -77,8 +77,8 @@ The **Precondition** element contains following elements:
 Following example uses these validation technical profiles: 
 
 1. The first validation technical profile checks user credentials and doesn't continue if an error occurs, such as invalid username or bad password. 
-2. The next validation technical profile, doesn't execute if the userType claim does not exist, or if the value of the userType is `Partner`. The validation technical profile tries to read the user profile from the internal customer database and continue if an error occurs, such as REST API service not avaible, or any internal error.
-3. The last validation technical profile, doesn't execute if the userType claim has not existed, or if the value of the userType is `Customer`. The validation technical profile tries to read the user profile from the internal partner database and continues if an error occurs, such as REST API service not avaible, or any internal error.
+2. The next validation technical profile, doesn't execute if the userType claim does not exist, or if the value of the userType is `Partner`. The validation technical profile tries to read the user profile from the internal customer database and continue if an error occurs, such as REST API service not available, or any internal error.
+3. The last validation technical profile, doesn't execute if the userType claim has not existed, or if the value of the userType is `Customer`. The validation technical profile tries to read the user profile from the internal partner database and continues if an error occurs, such as REST API service not available, or any internal error.
 
 ```XML
 <ValidationTechnicalProfiles>
