@@ -7,7 +7,7 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 11/01/2018
+ms.date: 11/11/2018
 ms.author: twounder
 ms.reviewer: twounder
 ---
@@ -25,7 +25,21 @@ Click on the links below to find out more about the new features and improvement
 - [June 2018](./release-notes-june-2018.md)
 - [May 2018](./release-notes-may-2018.md)
 
-# Next steps
+## Checking the code version that has been applied to your data warehouse
+
+To confirm which release has been as been applied to your data warehouse. Connect to your data warehouse via SSMS and run the following syntax to return the current version of SQL Data Warehouse.
+
+```sql
+SELECT @@VERSION AS 'SQL Data Warehouse';
+```
+
+Example output: 
+![SQL Data Warehouse version](./media/release-notes/sql_data_warehouse_version.png)
+
+Please use the date identified to confirm which release has been applied to your Azure SQL Data Warehouse. 
+
+
+## Next steps
 - [Learn more](https://docs.microsoft.com/azure/sql-data-warehouse/viewing-maintenance-schedule) about viewing a maintenance schedule. 
 - [Learn more](https://docs.microsoft.com/azure/sql-data-warehouse/changing-maintenance-schedule) about changing a maintenance schedule.
 - [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/alert-metric) about creating, viewing, and managing alerts by using Azure Monitor.
