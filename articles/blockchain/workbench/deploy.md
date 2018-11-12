@@ -102,7 +102,10 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     * The endpoint must be an Ethereum Proof-of-Authority (PoA) blockchain network.
     * The endpoint must be publicly accessible over the network.
-    * The PoA blockchain network should be configured to have gas price set to zero (Note: Blockchain Workbench accounts are not funded. If funds are required, the transactions fail).
+    * The PoA blockchain network should be configured to have gas price set to zero.
+
+    > [!NOTE]
+    > Blockchain Workbench accounts are not funded. If funds are required, the transactions fail.
 
     ![Advanced settings for existing blockchain network](media/deploy/advanced-blockchain-settings-existing.png)
 
@@ -143,7 +146,6 @@ Once the deployment of the Blockchain Workbench has completed, a new resource gr
 
 To associate a custom domain name with Blockchain Workbench, see [configuring a custom domain name for a web app in Azure App Service using Traffic Manager](../../app-service/web-sites-traffic-manager-custom-domain-name.md).
 
-
 ## Azure AD configuration script
 
 Azure AD must be configured to complete your Blockchain Workbench deployment. You'll use a PowerShell script to do the configuration.
@@ -155,17 +157,21 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
 
 3. Choose the Azure AD tenant where you deployed Blockchain Workbench.
 4. In Cloud Shell, paste and run the command.
-5. When prompted, enter the Azure AD tenant you want to use for Blockchain Workbench. This will be the tenant containing the users for Blockchain Workbench. For guidance, see the [Blockchain Workbench FAQ](https://aka.ms/workbenchFAQ).
+5. When prompted, enter the Azure AD tenant you want to use for Blockchain Workbench. This will be the tenant containing the users for Blockchain Workbench.
+
+    > [!IMPORTANT]
+    > The authenticated user requires permissions to add Azure AD application registrations and grant delegated application permissions in the tenant. You may need to ask an administrator of the tenant to run the Azure AD configuration script or create a new tenant.
 
     ![Enter Azure AD tenant](media/deploy/choose-tenant.png)
 
 6. You'll be prompted to authenticate to the Azure AD tenant using a browser. Open the web URL in a browser, enter the code, and authenticate.
 7. The script outputs several status messages. You get a **SUCCESS** status message if the tenant was successfully provisioned.
-8. Navigate to the Blockchain Workbench URL. You are asked to consent to grant read permissions to the directory. This allows the Blockchain Workbench web app access to the users in the tenant. You can choose to consent for the entire organization or allow each user to consent. Select **Accept** to consent.
+8. Navigate to the Blockchain Workbench URL. You are asked to consent to grant read permissions to the directory. This allows the Blockchain Workbench web app access to the users in the tenant. If you are the tenant administrator, you can choose to consent for the entire organization. This option accepts consent for all users in the tenant. Otherwise, each user is prompted for consent on first use of the Blockchain Workbench web application.
+9. Select **Accept** to consent.
 
      ![Consent to read users profiles](media/deploy/graph-permission-consent.png)
 
-9. After consent, the Blockchain Workbench web app can be used.
+10. After consent, the Blockchain Workbench web app can be used.
 
 ## Azure AD configuration
 
@@ -222,6 +228,7 @@ Next, you need to modify the manifest to use application roles within Azure AD t
 
     > [!IMPORTANT]
     > The value **Administrator** is needed to identify Blockchain Workbench administrators.
+
 4. In the manifest, also change the **Oauth2AllowImplictFlow** value to **true**.
 
     ``` json
