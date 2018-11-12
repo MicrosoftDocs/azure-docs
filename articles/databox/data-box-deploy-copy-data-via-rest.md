@@ -158,12 +158,12 @@ Follow these steps to create a blob container.
 2. In the left pane, expand the storage account within which you wish to create the blob container.
 3. Right-click **Blob Containers**, and from the context menu, select **Create Blob Container**.
 
-   ![Create blob containers context menu][0]
+   ![Create blob containers context menu](media/data-box-deploy-copy-data-via-rest/create-blob-container-1.png)
+
 4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) for information on rules and restrictions on naming blob containers.
-   
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container is successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
-   ![Blob Container created][2]
+   ![Blob container created](media/data-box-deploy-copy-data-via-rest/create-blob-container-2.png)
 
 Follow the steps in [Create a blob container](/azure/vs-azure-tools-storage-explorer-blobs#create-a-blob-container).
 
