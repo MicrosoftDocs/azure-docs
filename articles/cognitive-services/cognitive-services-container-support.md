@@ -66,7 +66,7 @@ Individual containers can have their own requirements, as well, including server
 
 ## Developer samples
 
-Developer samples are available in the [https://github.com/Azure-Samples/cognitive-services-containers-samples](https://github.com/Azure-Samples/cognitive-services-containers-samples) repository. 
+Developer samples are available at our [Github repository](https://github.com/Azure-Samples/cognitive-services-containers-samples). 
 
 ## Next steps
 
