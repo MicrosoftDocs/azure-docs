@@ -45,8 +45,7 @@ The **UserJourney** element contains the following elements:
 
 A user journey is represented as an orchestration sequence that must be followed through for a successful transaction. If any step fails, the transaction fails. These orchestration steps reference both the building blocks and the claims providers allowed in the policy file. Any orchestration step that is responsible to show or render a user experience also has a reference to the corresponding content definition identifier.
 
-Orchestration steps can be conditionaly ecxetuted, based on preconditions defined in the orchestration step element. For example you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
-
+Orchestration steps can be conditionally ecxetuted, based on preconditions defined in the orchestration step element. For examle you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
 
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 
