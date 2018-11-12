@@ -25,7 +25,7 @@ This guide demonstrates how to use Twilio to make a call from a web page hosted 
 You will need to do the following to use the code in this topic:
 
 1. Acquire a Twilio account and authentication token from the [Twilio Console][twilio_console]. To get started with Twilio, sign up at [https://www.twilio.com/try-twilio][try_twilio]. You can evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. For information about the API provided by Twilio, see [http://www.twilio.com/voice/api][twilio_api].
-2. Add the *Twilio .NET libary* to your web role. See **To add the Twilio libraries to your web role project**, later in this topic.
+2. Add the *Twilio .NET library* to your web role. See **To add the Twilio libraries to your web role project**, later in this topic.
 
 You should be familiar with creating a basic [Web Role on Azure][azure_webroles_get_started].
 
