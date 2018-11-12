@@ -1,6 +1,6 @@
 ---
 title: Upgrade an Azure Service Fabric cluster | Microsoft Docs
-description: Upgrade the Service Fabric code and/or configuration that runs a Service Fabric cluster, including setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and so on. What can you expect when the upgrades are performed?
+description: Learn about upgrading the version or configuration of an Azure Svice Fabric cluster.  This article describes setting cluster update mode, upgrading certificates, adding application ports, doing OS patches, and what you can expect when the upgrades are performed
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
@@ -13,23 +13,16 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: aljo
 
 ---
 # Upgrading an Azure Service Fabric cluster
-> [!div class="op_single_selector"]
-> * [Azure Cluster](service-fabric-cluster-upgrade.md)
-> * [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
-> 
-> 
 
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
 
 ## Controlling the fabric version that runs on your Cluster
 You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can select a supported fabric version you want your cluster to be on.
-
-
 
 ## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
 Microsoft maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
@@ -86,14 +79,14 @@ To open a new port on all VMs in a node type, do the following:
 
 1. Add a new probe to the appropriate load balancer.
    
-    If you deployed your cluster by using the portal, the load balancers are named "LB-name of the Resource group-NodeTypename", one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
-   
-    ![Screenshot that shows adding a probe to a load balancer in the portal.][AddingProbes]
+  If you deployed your cluster by using the portal, the load balancers are named "LB-name of the Resource group-NodeTypename", one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
+  
+  ![Screenshot that shows adding a probe to a load balancer in the portal.][AddingProbes]
 2. Add a new rule to the load balancer.
    
-    Add a new rule to the same load balancer by using the probe that you created in the previous step.
-   
-    ![Adding a new rule to a load balancer in the portal.][AddingLBRules]
+  Add a new rule to the same load balancer by using the probe that you created in the previous step.
+  
+  ![Adding a new rule to a load balancer in the portal.][AddingLBRules]
 
 ### Placement properties
 For each of the node types, you can add custom placement properties that you want to use in your applications. NodeType is a default property that you can use without adding it explicitly.

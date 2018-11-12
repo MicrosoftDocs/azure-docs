@@ -17,12 +17,7 @@ ms.date: 11/09/2018
 ms.author: aljo
 
 ---
-# Upgrade an Azure Service Fabric cluster
-> [!div class="op_single_selector"]
-> * [Azure Cluster](service-fabric-cluster-upgrade.md)
-> * [Standalone Cluster](service-fabric-cluster-upgrade-windows-server.md)
-> 
-> 
+# Upgrading a Service Fabric cluster
 
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
 
