@@ -150,7 +150,10 @@ Run a failover for the machines you want to migrate.
 2. In **Failover** select a **Recovery Point** to fail over to. Select the latest recovery point.
 3. Select **Shut down machine before beginning failover**. Site Recovery will attempt to shut down the server before triggering the failover. Failover continues even if shutdown fails. You can follow the failover progress on the **Jobs** page.
 4. Check that the Azure VM appears in Azure as expected.
-5. In **Replicated items**, right-click the VM > **Complete Migration**. This finishes the migration process, stops replication for the VM, and stops Site Recovery billing for the VM.
+5. In **Replicated items**, right-click the VM > **Complete Migration**. This does the following:
+
+    - Finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+    - This step cleans up the replication data. It doesn't delete the migrated VMs.
 
    ![Complete migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 
