@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -216,6 +216,8 @@ The following are post-installation known issues for this build version.
    - *Scale unit node is offline*
    
   Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
+  This issue is fixed in the latest [1808 hotfix release](https://support.microsoft.com/help/4471992/), so be sure to install this hotfix if you're experiencing the issue.
 
 <!-- 1264761 - IS ASDK --> 
 - You might see alerts for the **Health controller** component that have the following details:  
