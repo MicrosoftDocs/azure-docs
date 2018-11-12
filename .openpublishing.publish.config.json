@@ -261,6 +261,12 @@
       "branch_mapping": {}
     },
     {
+      "path_to_root": "cognitive-services-vision-csharp-sdk-quickstarts",
+      "url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
       "path_to_root": "cognitive-face-csharp-sample",
       "url": "https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample",
       "branch": "master",
