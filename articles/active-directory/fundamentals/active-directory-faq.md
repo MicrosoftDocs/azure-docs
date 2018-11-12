@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: lizross
 ---
 
@@ -178,7 +178,7 @@ For more information, see:
 
 * [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md)
 * [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Single sign-on methods](../manage-apps/what-is-single-sign-on.md#summary-of-single-sign-on-methods)
+* [Single sign-on for applications in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **Q: Can I add applications I’m running on-premises?**
