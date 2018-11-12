@@ -44,11 +44,11 @@ For the normalized path, the index encodes the forward path all the way from the
 
 You can query the containers using queries. The below figures illustrate point querying and range querying. The inverted index allows the query to identify the documents that match the query predicate quickly. By treating both the schema and instance values uniformly in terms of paths, the inverted index is also a tree. Thus, the index and the results can be serialized to a valid JSON document and returned as documents themselves as they are returned in the tree representation. This enables recursing over these results for additional querying.
 
-![Point query](./media/index-overview/index-point-query.png)
+![Point query example](./media/index-overview/index-point-query.png)
 
 For the second query, a range query, GermanTax is a user-defined function executed as part of query processing. The user-defined function is any registered, Javascript function that can provide rich programming logic integrated into the query.
 
-![Range query](./media/index-overview/index-range-query.png)
+![Range query example](./media/index-overview/index-range-query.png)
 
 ## Next steps
 

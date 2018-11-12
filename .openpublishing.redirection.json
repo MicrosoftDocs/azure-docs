@@ -9277,7 +9277,7 @@
         {
             "source_path": "articles/documentdb/documentdb-indexing-policies.md",
             "redirect_url": "/azure/cosmos-db/indexing-policy",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/documentdb/documentdb-indexing.md",
