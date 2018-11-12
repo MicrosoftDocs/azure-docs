@@ -47,7 +47,11 @@ The query string of the Face endpoint URL specifies which face attributes to ret
 ```
 
 ### Image source URL
-The URL `https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg` indicates the image to use as input. You can change this to point to any image you wish to analyze.
+The source URL indicates the image to use as input. You can change this to point to any image you wish to analyze.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
 
 ## Run the command
 
