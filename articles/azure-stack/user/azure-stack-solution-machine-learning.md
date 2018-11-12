@@ -1171,7 +1171,7 @@ From within the Windows Subsystem for Linux Session use the following commands t
 
 ### Create a service principal in Azure AD
 
-1.  Sign in to the global [*Azure portal*](http://www.poartal.azure.com/).
+1.  Sign in to the global [*Azure portal*](http://portal.azure.com/).
 
 2.  Sign in using the Azure AD tenant associated with the Azure Stack instance.
 

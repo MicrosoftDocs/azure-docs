@@ -47,7 +47,6 @@ A user journey is represented as an orchestration sequence that must be followed
 
 Orchestration steps can be conditionaly executed, based on preconditions defined in the orchestration step element. For examle you can check to perform an orchestration step only if a specific claims exists, or if a claim is equal or not to the specified value. 
 
-
 To specify the ordered list of orchestration steps, an **OrchestrationSteps** element is added as part of the policy. This element is required.
 
 The **OrchestrationSteps** element contains the following element:
