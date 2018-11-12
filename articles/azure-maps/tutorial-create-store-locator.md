@@ -469,7 +469,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     function setMapToUserLocation() { 
         //Request the user's location. 
         navigator.geolocation.getCurrentPosition(function (position) { 
-            //Convert the Geolocation API position to a longitude and latitude position value the map can understand and center the map over it. 
+            //Convert the Geolocation API position to a longitude and latitude position value that the map can understand and center the map over it. 
             map.setCamera({ 
                 center: [position.coords.longitude, position.coords.latitude], 
                 zoom: maxClusterZoomLevel + 1 
@@ -561,7 +561,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     //Load a custom image icon into the map resources.     
     map.imageSprite.add('myCustomIcon', iconImageUrl).then(function () {            
 
-    //Create a layer to render a coffe cup symbol above each bubble for an individual location. 
+    //Create a layer to render a coffee cup symbol above each bubble for an individual location. 
     iconLayer = new atlas.layer.SymbolLayer(datasource, null, { 
                 iconOptions: { 
                     //Pass in the ID of the custom icon that was loaded into the map resources. 
@@ -617,7 +617,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     ```Javascript
     function loadStoreData() { 
 
-    //Download the sotre location data. 
+    //Download the store location data. 
     fetch(storeLocationDataUrl)     
         .then(response => response.text()) 
         .then(function (text) { 
@@ -748,7 +748,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
             listPanel.innerHTML = html.join(''); 
 
-            //Scroll to the top of the list panel, in case the user has scrolled down. 
+            //Scroll to the top of the list panel in case the user has scrolled down. 
             listPanel.scrollTop = 0; 
         } 
     } 
@@ -826,7 +826,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
                 Calculate the pixel coordinate of the shape's coordinate.*/ 
             var p = map.positionsToPixels([center]); 
 
-            //Offset the y value. 
+            //Offset the y-axis value. 
             p[0][1] -= 80; 
 
             //Calculate the coordinate on the map for the offset pixel value. 
@@ -906,7 +906,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     }
     ```
 
-Now, you have a fully functional store locator. In a web brower, open the *index.html* file for the store locator. When the clusters appear on the map, you can search for a location by using the search box, by selecting the My Location button, by selecting a cluster, or by zooming in on the map to see individual locations.
+Now, you have a fully functional store locator. In a web browser, open the *index.html* file for the store locator. When the clusters appear on the map, you can search for a location by using the search box, by selecting the My Location button, by selecting a cluster, or by zooming in on the map to see individual locations.
 
 The first time a user selects the My Location button, the browser displays a security warning that asks for permission to access the user’s location. If the user agrees to share their location, the map zooms in on the user's location, and nearby coffee shops are shown. 
 
@@ -934,6 +934,4 @@ In this tutorial, you learn how to create a basic store locator by using Azure M
 * Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
 * Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-* Store your data in a database and search for nearby locations. To learn more: 
-    - Read the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
-    - Learn how to [query spatial data for the nearest neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
+* Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017) 
