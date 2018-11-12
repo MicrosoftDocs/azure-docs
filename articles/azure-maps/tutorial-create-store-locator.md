@@ -3,7 +3,7 @@ title: Create a store locator by using Azure Maps | Microsoft Docs
 description: Create a store locator by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -450,7 +450,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
             countrySet: countrySet 
         }).then(response => { 
 
-            //Parse the response to GeoJSON so the map can understand. 
+            //Parse the response to GeoJSON for the map to interpret. 
             var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
             var geojsonResults = geojsonResponse.getGeoJsonResults(); 
 
@@ -469,7 +469,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     function setMapToUserLocation() { 
         //Request the user's location. 
         navigator.geolocation.getCurrentPosition(function (position) { 
-            //Convert the Geolocation API position to a longitude and latitude position value that the map can understand and center the map over it. 
+            //Convert the Geolocation API position to a longitude and latitude position value that the map can interpret and center the map over it. 
             map.setCamera({ 
                 center: [position.coords.longitude, position.coords.latitude], 
                 zoom: maxClusterZoomLevel + 1 
