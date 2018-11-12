@@ -21,8 +21,6 @@ ms.author: dekapur
 
 For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the version of Service Fabric running on your standalone cluster.
 
-To set your cluster to download updates of Service Fabric when Microsoft releases a new version, set the `fabricClusterAutoupgradeEnabled` cluster configuration to *true*. To select a supported version of Service Fabric that you want your cluster to be on, set the `fabricClusterAutoupgradeEnabled` cluster configuration to *false*.
-
 > [!NOTE]
 > Make sure that your cluster always runs a supported Service Fabric version. When Microsoft announces the release of a new version of Service Fabric, the previous version is marked for end of support after a minimum of 60 days from the date of the announcement. New releases are announced [on the Service Fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/). The new release is available to choose at that point.
 >
@@ -31,6 +29,9 @@ To set your cluster to download updates of Service Fabric when Microsoft release
 You can upgrade your cluster to the new version only if you're using a production-style node configuration, where each Service Fabric node is allocated on a separate physical or virtual machine. If you have a development cluster, where more than one Service Fabric node is on a single physical or virtual machine, you must re-create the cluster with the new version.
 
 Two distinct workflows can upgrade your cluster to the latest version or a supported Service Fabric version. One workflow is for clusters that have connectivity to download the latest version automatically. The other workflow is for clusters that don't have connectivity to download the latest Service Fabric version.
+
+## Enable auto-upgrade of the Service Fabric version of your cluster
+To set your cluster to download updates of Service Fabric when Microsoft releases a new version, set the `fabricClusterAutoupgradeEnabled` cluster configuration to *true*. To manually select a supported version of Service Fabric that you want your cluster to be on, set the `fabricClusterAutoupgradeEnabled` cluster configuration to *false*.
 
 ## Upgrade clusters that have connectivity to download the latest code and configuration
 Use these steps to upgrade your cluster to a supported version if your cluster nodes have internet connectivity to the [Microsoft Download Center](https://download.microsoft.com).
@@ -99,13 +100,15 @@ Use these steps to upgrade your cluster to a supported version if your cluster n
 >
 
 ### Auto provisioning vs. manual provisioning
-To enable automatic downloading and registration for the latest code version, set up the Service Fabric Update Service. For instructions, see Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt inside the [standalone package](service-fabric-cluster-standalone-package-contents.md).
+To enable automatic downloading and registration for the latest code version, set up the Service Fabric Update Service. For instructions, see *Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt* in the [standalone package](service-fabric-cluster-standalone-package-contents.md).
 
 For the manual process, follow these instructions.
 
 Modify your cluster configuration to set the following property to *false* before you start a configuration upgrade:
 
-        "fabricClusterAutoupgradeEnabled": false,
+```json
+"fabricClusterAutoupgradeEnabled": false,
+```
 
 For usage details, see the [Start-ServiceFabricClusterConfigurationUpgrade](https://docs.microsoft.com/powershell/module/servicefabric/start-servicefabricclusterconfigurationupgrade) PowerShell command. Make sure to update 'clusterConfigurationVersion' in your JSON before you start the configuration upgrade.
 
