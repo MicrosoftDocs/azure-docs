@@ -68,9 +68,18 @@ Activate the environment.
 In the activated conda environment, install the SDK. The following command installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes a few minutes to finish, depending on the configuration of your machine.
 
 ```shell
+<<<<<<< HEAD
 pip install azureml-sdk[notebooks]
 ```
 
+=======
+# install the base SDK and Jupyter Notebook
+pip install azureml-sdk[notebooks]
+```
+
+
+
+>>>>>>> b656b7049740719f61cb37d342caae7cb0f4dcd9
 ## Create a workspace
 
 To launch the Jupyter Notebook, enter this command.
@@ -83,7 +92,10 @@ In the browser window, create a new notebook by using the default `Python 3` ker
 To display the SDK version, enter the following Python code in a notebook cell and execute it.
 
 [!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
+<<<<<<< HEAD
 
+=======
+>>>>>>> b656b7049740719f61cb37d342caae7cb0f4dcd9
 
 Create a new Azure resource group and a new workspace.
 
@@ -92,10 +104,10 @@ Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azu
 ```python
 from azureml.core import Workspace
 ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>',
+                      subscription_id='<azure-subscription-id>',	
                       resource_group='myresourcegroup',
                       create_resource_group=True,
-                      location='eastus2' # or other supported Azure region
+                      location='eastus2' # or other supported Azure region	
                      )
 ```
 
@@ -162,10 +174,34 @@ You need a few more packages in your environment to use it with Machine Learning
 1. In the command-line window, use `Ctrl`+`C` to stop the notebook server.
 1. Install additional packages.
 
-    ```sh
+    ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
+
+    # install run history widget
+    jupyter nbextension install --py --user azureml.train.widgets
+
+    # enable run history widget
+    jupyter nbextension enable --py --user azureml.train.widgets
     ```
+
+    You can also use different "extra" keywords to install additional components of the SDK.
+
+    ```shell
+    # install the base SDK and auto ml components
+    pip install azureml-sdk[automl]
+
+    # install the base SDK and model explainability component
+    pip install azureml-sdk[explain]
+
+    # install the base SDK and experimental components
+    pip install azureml-sdk[contrib]
+
+    # install the base SDK and automl components in Azure Databricks environment
+    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+    pip install azureml-sdk[databricks]
+    ```
+
 
 After you install these packages, follow the tutorials to train and deploy a model. 
 

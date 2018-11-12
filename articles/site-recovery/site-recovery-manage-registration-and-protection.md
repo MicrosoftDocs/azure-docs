@@ -172,7 +172,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
     > [!NOTE]
     > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
-3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
+3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
@@ -197,7 +197,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 > [!NOTE]
 > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
 
-3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
+3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection
