@@ -45,6 +45,14 @@ Valid matcher condition targets:
 - `SensorDevice`
 - `SensorSpace`
 
+When creating a matcher for sensor telemetry events, make sure to specify the parent device HardwareId (`Sensor.HardwareId`, below). It is then used to validate that the incoming telemetry events match the intended device a user-defined function is assigned to handle.
+
+```csharp
+Sensor.HardwareId = message.properties[DigitalTwins-SensorHardwareId]
+```
+
+Above, `DigitalTwins-SensorHardwareId` must be identical to a sensor's parent device id (`Sensor.HardwareId`) for an assigned user-defined function to execute.
+
 The following example matcher will evaluate to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function.
 
 ```plaintext
