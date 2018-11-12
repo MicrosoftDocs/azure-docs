@@ -198,7 +198,7 @@ The following JSON code is an example Resource Manager template. You can use it 
 ```
 
 
-## Enable manual failover for your Azure Cosmos account
+## <a id="manual-failover"></a>Enable manual failover for your Azure Cosmos account
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure portal
 
@@ -222,7 +222,7 @@ The following JSON code is an example Resource Manager template. You can use it 
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations 'eastus=1 westus=0'
 ```
 
-## Enable automatic failover for your Azure Cosmos account
+## <a id="automatic-failover"></a>Enable automatic failover for your Azure Cosmos account
 
 ### <a id="enable-automatic-failover-via-portal"></a>Azure portal
 
