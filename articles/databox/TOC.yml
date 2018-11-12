@@ -18,8 +18,12 @@
         href: data-box-deploy-ordered.md
       - name: 2 - Set up
         href: data-box-deploy-set-up.md
-      - name: 3 - Copy data
+      - name: 3A - Connect via SMB & copy
         href: data-box-deploy-copy-data.md 
+      - name: 3B - Connect via NFS & copy
+        href: data-box-deploy-copy-data.md
+      - name: 3C - Connect via REST & copy
+        href: data-box-deploy-copy-data-rest.md
       - name: 4 - Return, upload, verify
         href: data-box-deploy-picked-up.md  
     - name: Concepts
@@ -27,7 +31,11 @@
       - name: Read safety guidelines
         href: data-box-safety.md
       - name: Review requirements
-        href: data-box-system-requirements.md
+        items:
+        - name: For Data Box
+          href: data-box-system-requirements.md
+        - name: For Data Box Blob storage
+          href: data-box-system-requirements-rest.md
       - name: Understand limits
         href: data-box-limits.md
       - name: Review security 
