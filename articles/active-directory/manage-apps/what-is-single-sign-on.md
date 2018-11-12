@@ -99,7 +99,7 @@ Passwords for each application can either be managed by the Azure AD administrat
 When the Azure AD administrator manages the credentials:  
 
 - The user doesn't need to reset or remember the user name and password. The user can access the application by clicking on it in their access panel or via a provided link.
-- The administrator can perform management tasks on the credentials. For example, the administrator can update application access according to user group memberships and employee status.
+- The administrator can do management tasks on the credentials. For example, the administrator can update application access according to user group memberships and employee status.
 - The administrator can use administrative credentials to provide access to applications shared among many users. For example, the administrator can allow everyone who can access an application to have access to a social media or document sharing application.
 
 When the end user manages the credentials:
@@ -113,7 +113,7 @@ Linked sign-on enables Azure AD to provide single sign-on to an application that
 
 Use linked single sign-on to:
 
-- Provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure Active Directory, you can use linked single sign-on to quickly publish links to all the applications you intend to migrate.  Users can find all the links in the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md) or the [Office 365 application launcher](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Users won't know they are accessing a linked application or a migrated application.  
+- Provide a consistent user experience while you migrate applications over a period of time. If you're migrating applications to Azure Active Directory, you can use linked single sign-on to quickly publish links to all the applications you intend to migrate.  Users can find all the links in the [MyApps portal](../user-help/active-directory-saas-access-panel-introduction.md) or the [Office 365 application launcher](https://support.office.com/article/meet-the-office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a). Users won't know they're accessing a linked application or a migrated application.  
 
 Once a user has authenticated with a linked application, an account record needs to be created before the end user is provided single sign-on access. Provisioning this account record can either occur automatically, or it can occur manually by an administrator.
 
