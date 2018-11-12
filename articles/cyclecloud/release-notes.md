@@ -11,10 +11,14 @@ ms.author: adjohnso
 ms.date: 10/30/2018
 ---
 
-# Azure CycleCloud v7.5.5
+# Azure CycleCloud v7.6.0
 
 ## What's New
 
+* Windows full disk encryption is now supported
+* Nodes can be stopped (deallocated) and restarted from the UI
+* Accessibility fixes and improvements to the UI
+* The user interface now supports custom theming and branding
 * Added a more powerful machine-type selector that supports a prioritized list of sizes
 * Improved user experience regarding SSH keys
 * [Let's Encrypt](https://letsencrypt.org/) is now supported for getting SSL certificates
