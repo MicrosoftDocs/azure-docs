@@ -1,6 +1,6 @@
 ---
 author: dlepow
-ms.service: cognitive-registry
+ms.service: container-registry
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: danlep
