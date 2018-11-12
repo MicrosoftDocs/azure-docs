@@ -37,7 +37,7 @@ The Azure Diagnostics agent should be used when:
 
 * You want to archive logs and metrics to Azure storage
 * Integrate monitoring data with third-party tools. These tools use a variety of methods including querying the storage account, forwarded to [Event Hub](../event-hubs/event-hubs-about.md), or querying with the [Azure Monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
-* Upload data to Azure Monitor to create metric charts in the Azure portal or create near real-time [metric alerts](..monitoring-and-diagnostics/alert-metric-overview.md). 
+* Upload data to Azure Monitor to create metric charts in the Azure portal or create near real-time [metric alerts](../monitoring-and-diagnostics/alert-metric-overview.md). 
 * Autoscale virtual machine scale sets and Classic Cloud Services based on guest OS metrics.
 * Investigate VM boot issues with [Boot Diagnostics](../virtual-machines/troubleshooting/boot-diagnostics.md).
 * Understand how your applications are performing and proactively identifies issues affecting them with [Application Insights](../azure-monitor/overview.md).

@@ -79,7 +79,7 @@ Comprehensive monitoring and management of your Windows or Linux virtual machine
 ### Dependency agent
 [Service Map](../monitoring/monitoring-service-map.md) and [Azure Monitor for VMs](monitoring-vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Log Analytics and visualizes the discovered interconnected components.  
 
-To further understand the differences between the agents and which to use depending on your monitoring requirements, see [monitoring agents overview](monitoring-agents-overview.md).
+To further understand the differences between the agents and which to use depending on your monitoring requirements, see [monitoring agents overview](monitoring-overview-azure-agents.md).
 
 ## Applications
 In addition to telemetry that your application may write to the guest operating system, detailed application monitoring is done with [Application Insights](https://docs.microsoft.com/azure/application-insights/). Application Insights can collect data from applications running on a variety of platforms. The application can be running in Azure, another cloud, or on-premises.
