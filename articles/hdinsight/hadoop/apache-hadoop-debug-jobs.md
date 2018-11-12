@@ -127,7 +127,7 @@ The error messages itemized in this section are provided to help the users of Ha
 
 Some of these error messages could also be seen in the Azure portal when it is used to manage HDInsight clusters. But other error messages you might encounter there are less granular due to the constraints on the remedial actions possible in this context. Other error messages are provided in the contexts where the mitigation is obvious. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Description**: Please provide Azure SQL database details for at least one component in order to use custom settings for Hive and Oozie metastores.
 * **Mitigation**: The user needs to supply a valid SQL Azure metastore and retry the request.  
 
