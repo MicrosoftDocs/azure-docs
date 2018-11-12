@@ -54,39 +54,61 @@ The code for this quickstart is in the [https://github.com/Azure-Samples/cogniti
 
 ## Create a java file
 
-Open VSCode and create a new file named `GetAnswer.java`.
+Open VSCode and create a new file named `GetAnswer.java` and add the following class:
+
+```Java
+public class GetAnswer {
+
+    public static void main(String[] args) 
+    {
+
+    }
+}
+```
 
 ## Add the required dependencies
 
-This quickstart uses Apache classes for HTTP requests. At the top of the `GetAnswer.java` file, add necessary dependencies to the project:
+This quickstart uses Apache classes for HTTP requests. Above the GetAnswer class, at the top of the `GetAnswer.java` file, add necessary dependencies to the project:
 
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=5-13 "Add the required dependencies")]
 
 ## Add the required constants
 
-At the top of the Program class, add the following constants to access QnA Maker:
+At the top of the `GetAnswer.java` class, add the following constants to access QnA Maker:
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=10-32 "Add the required constants")]
+[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=26-42 "Add the required constants")]
 
-## Add a POST request to send question 
+## Add a POST request to send question
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the KB and receives the response:
 
-[!code-csharp[Add a POST request to send question to KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=34-47 "Add a POST request to send question to KB")]
+[!code-java[Add a POST request to send question to KB](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=37-64 "Add a POST request to send question to KB")]
 
 ## Add GetAnswers method 
 
-[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=49-56 "Add GET request to determine creation status")]
+[!code-java[Get Answers](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=49-56 "Get Answers")]
 
 ## Add the GetAnswers method to Main
 
 Change the Main method to call the GetAnswers method:
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=58-62 "Add CreateKB method")]
+[!code-java[Add CreateKB method](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=58-62 "Add CreateKB method")]
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the QnA Maker API, then it will print to the console window.
+Build and run the program from the command line. It will automatically send the request to the QnA Maker API, then it will print to the console window.
+
+1. Build the file:
+
+    ```Java
+    javac -cp "lib/*" GetAnswer.java
+    ```
+
+1. Run the file:
+
+    ```Java
+    java -cp ".;lib/*" GetAnswer
+    ```
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 

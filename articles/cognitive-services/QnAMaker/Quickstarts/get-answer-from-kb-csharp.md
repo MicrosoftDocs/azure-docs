@@ -76,17 +76,17 @@ The following code makes an HTTPS request to the QnA Maker API to send the quest
 
 ## Add GetAnswers method 
 
-[!code-csharp[Add GET request to determine creation status](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=49-56 "Add GET request to determine creation status")]
+[!code-csharp[Add GetAnswers method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=49-56 "Add GetAnswers method")]
 
 ## Add the GetAnswers method to Main
 
 Change the Main method to call the GetAnswers method:
 
-[!code-csharp[Add CreateKB method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=58-62 "Add CreateKB method")]
+[!code-csharp[Add GetAnswers method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=58-62 "Add GetAnswers method")]
 
 ## Build and run the program
 
-Build and run the program. It will automatically send the request to the QnA Maker API, then it will print to the console window.
+Build and run the program from Visual Studio. It will automatically send the request to the QnA Maker API, then it will print to the console window.
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
