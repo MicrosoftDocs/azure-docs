@@ -16,7 +16,7 @@ This topic describes how you can restart a Azure Database for PostgreSQL server.
 
 ## Prerequisites
 To complete this how-to guide, you need:
-- An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-using-azure-portal.md)
+- An [Azure Database for PostgreSQL server and database](quickstart-create-server-database-azure-portal.md)
 
 ## Perform server restart
 
@@ -28,7 +28,7 @@ The following steps restart the PostgreSQL server:
 
    ![Azure Database for PostgreSQL - Overview - Restart button](./media/howto-restart-server-portal/2-server.png)
 
-3. Click **Yes** to confirm restarting the server. 
+3. Click **Yes** to confirm restarting the server.
 
    ![Azure Database for PostgreSQL - Restart confirm ](./media/howto-restart-server-portal/3-restart-confirm.png)
 
@@ -42,4 +42,4 @@ The following steps restart the PostgreSQL server:
 
 ## Next steps
 
-[Quickstart: Create Azure Database for PostgreSQL server using Azure portal](./quickstart-create-server-database-using-azure-portal.md)
+[Quickstart: Create Azure Database for PostgreSQL server using Azure portal](./quickstart-create-server-database-azure-portal.md)
