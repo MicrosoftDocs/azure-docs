@@ -42,9 +42,7 @@ To enhance your Azure AD implementation, you can also add paid capabilities by u
 
 - **Azure Active Directory Premium P2.** In addition to the Free, Basic, and P1 features, P2 also offers [Azure Active Directory Identity Protection](../identity-protection/enable.md) to help provide risk-based conditional access to your apps and critical company data and [Privileged Identity Management](../privileged-identity-management/pim-getting-started.md) to help discover, restrict, and monitor administrators and their access to resources and to provide just-in-time access when needed.
 
-You can also get additional "pay as you go" feature licenses, including:
-
-- **Azure Active Directory Business-to-Customer (B2C).** Helps you provide identity and access management solutions for your customer-facing apps. For more information, see [Azure Active Directory B2C Documentation](../../active-directory-b2c/index.yml).
+- **"Pay as you go" feature licenses.** You can also get additional feature licenses, such as Azure Active Directory Business-to-Customer (B2C). B2C can help you provide identity and access management solutions for your customer-facing apps. For more information, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).
 
 For more information about associating an Azure subscription to Azure AD, see [How to: Associate or add an Azure subscription to Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) and for more information about assigning licenses to your users, see [How to: Assign or remove Azure Active Directory licenses](license-users-groups.md).
 
@@ -69,19 +67,24 @@ To better understand Azure AD and its documentation, you should review the follo
 ## What features work with Azure AD?
 After you choose your Azure AD license, you will get access to some or all of the following features for your organization:
 
-|Feature|Description|
+|Category|Description|
 |-------|-----------|
-|Conditional access|Manage access to your cloud apps. For more information, see [Azure AD Conditional Access Documentation](../conditional-access/index.yml).|
-|Access reviews|Manage group memberships, access to enterprise applications, and privileged role assignments. For more information, see [Azure AD access reviews](../governance/access-reviews-overview.md).|
-|Self-service password reset (SSPR) and Multi-Factor Authentication (MFA)|Manage your authentication. For more information, [Azure AD Authentication Documentation](../authentication/index.yml).|
-|Business-to-Business (B2B) and Business-to-Customer (B2C) collaboration|Manage your external users. For more information, see [Azure Active Directory B2B Documentation](../b2b/index.yml) and [Azure Active Directory B2C Documentation](../../active-directory-b2c/index.yml).|
-|Privileged Identity Management|Manage, control, and monitor access within your organization. This includes access to resources in Azure AD, Azure resources, and other Microsoft Online Services, like Office 365 or Intune. For more information, see [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml).|
-|Application Proxy and Software as a Service (SaaS) apps|Manage your cloud and on-premises apps. For more information, see [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) and [Application Management Documentation](../manage-apps/index.yml).|
+|Application management|Manage your cloud and on-premises apps using  Application Proxy, single sign-on, and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
+|Authentication|Manage Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout. For more information, see [Azure AD Authentication documentation](../authentication/index.yml).|
+|Business-to-Business (B2B)|Manage your guest users and external partners, while maintaining control over your own corporate data. For more information, see [Azure Active Directory B2B documentation](../b2b/index.yml).|
+|Business-to-Customer (B2C)|Customize and control how users sign up, sign in, and manage their profiles when using your apps. For more information, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).|
+|Conditional access|Manage access to your cloud apps. For more information, see [Azure AD Conditional Access documentation](../conditional-access/index.yml).|
 |Azure Active Directory for developers|Build apps that sign in all Microsoft identities, get tokens to call Microsoft Graph, other Microsoft APIs, or custom APIs. For more information, see [Microsoft identity platform (Azure Active Directory for developers)](../develop/index.yml).|
+|Device Management|Manage how your cloud or on-premises devices access your corporate data. For more information, see [Azure AD Device Management documentation](../devices/index.yml).|
+|Domain services|Join Azure virtual machines to a domain without using domain controllers. For more information, see [Azure AD Domain Services documentation](../../active-directory-domain-services/index.yml).|
+|Enterprise users|Manage license assignment, access to apps, and set up delegates using groups and administrator roles. For more information, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).|
+|Hybrid identity|Use Azure Active Directory Connect and Connect Health to provide a single user identity for authentication and authorization to all resources, regardless of location (cloud or on-premises). For more information, see [Hybrid identity documentation](../hybrid/index.yml).|
+|Identity governance|Manage your organization's identity lifecycle, access lifecycle, and secure administration across employees and partners. For more information, see [Azure AD identity governance documentation](../governance/identity-governance-overview.yml).
+|Identity protection|Detect potential vulnerabilities affecting your organization's identities, configure policies to respond to suspicious actions, and then take appropriate action to resolve them. For more information, see [Azure AD Identity Protection](../identity-protection/index.yml).|
 |Managed identities for Azure resources|Provides your Azure services with an automatically managed identity in Azure AD that can authenticate any Azure AD-supported authentication service, including Key Vault. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).|
-|Azure Active Directory Connect and Connect Health|Provides a single user identity for authentication and authorization to all resources, regardless of location (cloud or on-premises). For more information, see [Hybrid identity documentation](../hybrid/index.yml).|
-|Azure Active Directory Domain Services|Join Azure virtual machines to a domain without using domain controllers. For more information, see [Azure AD Domain Services documentation](../../active-directory-domain-services/index.yml).|
-|Monitoring and reporting|Gain insights into the security and usage patterns in your environment. For more information, see [Azure Active Directory reports and monitoring](../reports-monitoring/index.yml).|
+|Privileged identity management (PIM)|Manage, control, and monitor access within your organization. This includes access to resources in Azure AD, Azure resources, and other Microsoft Online Services, like Office 365 or Intune. For more information, see [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml).|
+|Reports and monitoring|Gain insights into the security and usage patterns in your environment. For more information, see [Azure Active Directory reports and monitoring](../reports-monitoring/index.yml).|
+
 
 ## Next steps
 - [Sign up for Azure Active Directory Premium](active-directory-get-started-premium.md)
