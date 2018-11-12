@@ -516,13 +516,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## Next steps
 
-In this tutorial, you learned how to:
-
-> [!div class="checklist"]
-> * Set up the network
-> * Create an application gateway
-> * Add listeners and routing rules
-> * Create virtual machine scale sets for backend pools
-
 > [!div class="nextstepaction"]
 > [Learn more about what you can do with application gateway](application-gateway-introduction.md)
