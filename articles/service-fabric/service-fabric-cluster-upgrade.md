@@ -17,12 +17,17 @@ ms.date: 11/12/2018
 ms.author: aljo
 
 ---
-# Upgrading an Azure Service Fabric cluster
+# Upgrading and updating an Azure Service Fabric cluster
 
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
 
 ## Controlling the fabric version that runs on your cluster
-You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can select a supported fabric version you want your cluster to be on.
+
+Make sure to keep your cluster running a supported fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced on the service fabric team blog. The new release is available to choose then.
+
+14 days prior to the expiry of the release your cluster is running, a health event is generated that puts your cluster into a warning health state. The cluster remains in a warning state until you upgrade to a supported fabric version.
+
+You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can select a supported fabric version you want your cluster to be on.  To learn more, read [upgrade the Service Fabric version of your cluster](service-fabric-cluster-upgrade-version-azure.md).
 
 ## Fabric upgrade behavior during automatic upgrades
 Microsoft maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
@@ -68,33 +73,15 @@ If the cluster health policies are met, the upgrade is considered successful and
 In addition to the ability to set the cluster upgrade mode, here are the configurations that you can change on a live cluster.
 
 ### Certificates
-You can add new or delete certificates for the cluster and client via the portal easily. Refer to [this document for detailed instructions](service-fabric-cluster-security-update-certs-azure.md)
-
-![Screenshot that shows certificate thumbprints in the Azure portal.][CertificateUpgrade]
+Service Fabric uses [X.509 server certificates](service-fabric-cluster-security.md) that you specify when you create a cluster to secure communications between cluster nodes and authenticate clients. You can add, update, or delete certificates for the cluster and client in the [Azure portal](https://portal.azure.com) or using PowerShell/Azure CLI.  To learn more, read [add or remove certificates](service-fabric-cluster-security-update-certs-azure.md)
 
 ### Application ports
-You can change application ports by changing the Load Balancer resource properties that are associated with the node type. You can use the portal, or you can use Resource Manager PowerShell directly.
+You can change application ports by changing the Load Balancer resource properties that are associated with the node type. You can use the Azure portal, or you can use PowerShell/Azure CLI. For more information, read [Open application ports for a cluster](create-load-balancer-rule.md).
 
-To open a new port on all VMs in a node type, do the following:
+## Node properties
+Sometimes you may want to ensure that certain workloads run only on certain types of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. For each of the node types in a cluster, you can add custom node properties to cluster nodes. Placement constraints are the statements attached to individual services that select for one or more node properties. Placement constraints define where services should run.
 
-1. Add a new probe to the appropriate load balancer.
-   
-  If you deployed your cluster by using the portal, the load balancers are named "LB-name of the Resource group-NodeTypename", one for each node type. Since the load balancer names are unique only within a resource group, it is best if you search for them under a specific resource group.
-  
-  ![Screenshot that shows adding a probe to a load balancer in the portal.][AddingProbes]
-2. Add a new rule to the load balancer.
-   
-  Add a new rule to the same load balancer by using the probe that you created in the previous step.
-  
-  ![Adding a new rule to a load balancer in the portal.][AddingLBRules]
-
-### Placement properties
-For each of the node types, you can add custom placement properties that you want to use in your applications. NodeType is a default property that you can use without adding it explicitly.
-
-> [!NOTE]
-> For details on the use of placement constraints, node properties, and how to define them, refer to the section "Placement Constraints and Node Properties" in the Service Fabric Cluster Resource Manager Document on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md).
-> 
-> 
+For details on the use of placement constraints, node properties, and how to define them, read [node properties and placement constraints](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
 ### Capacity metrics
 For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md).
@@ -108,10 +95,10 @@ You can specify the custom health policies or review the current settings under 
 ![Manage custom health policies][HealthPolices]
 
 ### Customize Fabric settings for your cluster
-Refer to [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md) on what and how you can customize them.
+Many different configuration settings can be customized on a cluster, such as the reliability level of the cluster and node properties. For more information, read [Service Fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md).
 
-### OS patches on the VMs that make up the cluster
-Refer to [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), which can be deployed on your cluster to install patches from Windows Update in an orchestrated manner, keeping the services available all the time. 
+## Patch the OS in the cluster nodes
+The patch orchestration application (POA) is a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. The [Patch Orchestration Application for Windows](service-fabric-patch-orchestration-application.md) or [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) can be deployed on your cluster to install patches in an orchestrated manner while keeping the services available all the time. 
 
 ### OS upgrades on the VMs that make up the cluster
 If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
