@@ -9276,8 +9276,8 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-indexing-policies.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/indexing-policies",
-            "redirect_document_id": false
+            "redirect_url": "/azure/cosmos-db/indexing-policy",
+            "redirect_document_id": true
         },
         {
             "source_path": "articles/documentdb/documentdb-indexing.md",
