@@ -1,6 +1,6 @@
 ---
 title: Create a store locator by using Azure Maps | Microsoft Docs
-description: Create a store locator by using Azure Maps
+description: Create a store locator by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 11/09/2018
@@ -13,12 +13,12 @@ ms.custom: mvc
 
 # Create a store locator by using Azure Maps
 
-This tutorial guides you through the process of creating a simple store locator by using Azure Maps. Store locators are common. Many of the concepts that are used in this type of application are applicable to many other types of applications. Store Locators are a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
+This tutorial guides you through the process of creating a simple store locator by using Azure Maps. Store locators are common. Many of the concepts that are used in this type of application are applicable to many other types of applications. Offering a store locator to customers is a must for most businesses that sell directly to consumers. In this tutorial, you learn how to:
     
 > [!div class="checklist"]
-* Create a new webpage by using the Map Control API.
-* Load custom data from a file and display it on the map.
-* Use the Azure Maps search service to find an address or enter a query.
+* Create a new webpage by using the Azure Map Control API.
+* Load custom data from a file and display it on a map.
+* Use the Azure Maps Search service to find an address or enter a query.
 * Get the user's location from the browser and show it on the map.
 * Combine multiple layers to create custom symbols on the map.  
 * Cluster data points.  
@@ -26,58 +26,60 @@ This tutorial guides you through the process of creating a simple store locator 
 
 <a id="Intro"></a>
 
-Jump ahead to the [live sample](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) or [source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
+Jump ahead to the [live example store locator](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) or [source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
 ## Prerequisites
 
-Before you begin, complete the steps in the first tutorial to [create your Azure Maps account](./tutorial-search-location.md#createaccount) and [get the subscription key for your account](./tutorial-search-location.md#getkey).
+To complete the steps in this tutorial, you first need to [create your Azure Maps account](./tutorial-search-location.md#createaccount) and [get the subscription key for your account](./tutorial-search-location.md#getkey).
 
 ## Design
 
-Before you jump into the code, it's a good idea to begin with a design. Your store locator can be as simple or complex as you want it to be. In this tutorial, we create a simple store locator. We include some tips along the way to help you extend some functionalities if you want to use them. We create a store locator for a fictional company called Contoso Coffee. The following figure shows a wireframe of the general layout of the store locator we build in this tutorial:
+Before you jump into the code, it's a good idea to begin with a design. Your store locator can be as simple or complex as you want it to be. In this tutorial, we create a simple store locator. We include some tips along the way to help you extend some functionalities if you choose to. We create a store locator for a fictional company called Contoso Coffee. The following figure shows a wireframe of the general layout of the store locator we build in this tutorial:
 
 <br/>
-<center>![A wireframe of a store locator for Contoso Coffee](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
+<center>![Wireframe of a store locator for Contoso Coffee coffee shop locations](./media/tutorial-create-store-locator/SimpleStoreLocatorWireframe.png)</center>
 
-To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a wireframe of what a small-screen layout will look like:  
+To maximize the usefulness of this store locator, we include a responsive layout that adjusts when a user's screen width is smaller than 700 pixels wide. A responsive layout makes it easy to use the store locator on a small screen, like on a mobile device. Here's a wireframe of a small-screen layout:  
 
 <br/>
-<center>![A wireframe of the Contoso Coffee store locator for a mobile device](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
+<center>![Wireframe of the Contoso Coffee store locator on a mobile device](./media/tutorial-create-store-locator/SimpleStoreLocatorMobileWireframe.png)</center>
 
-In the preceding wireframes, you can see a fairly straightforward application. The application has a search box, a list of nearby stores, a map that has some markers (symbols), and a pop-up display that has additional information when the user selects a marker. In more detail, here are the features we build into this store locator in this tutorial:
+The wireframes show a fairly straightforward application. The application has a search box, a list of nearby stores, a map that has some markers (symbols), and a pop-up window that displays additional information when the user selects a marker. In more detail, here are the features we build into this store locator in this tutorial:
 
 * All locations from the imported tab-delimited data file are loaded on the map.
-* The user can pan and zoom the map, perform a search, and select the GPS button.
+* The user can pan and zoom the map, perform a search, and select the My Location GPS button.
 * The page layout adjusts based on the width of the device screen.  
 * A header shows the store logo.  
-* Users can use a search box and button to search for a location, such as an address, postal code, or city. 
-* A key press event added to the search box triggers a search if the user presses the Enter key. This functionality often is overlooked, but it creates a better user experience.
-* When the map moves, the distance to each location from the center of the map is calculated. The results list is updated to show the closest locations at the top of the map.  
-* When you select a result in the results list, the map is centered over the selected location and appears in a pop-up display.  
-* Selecting a specific location on the map also triggers a pop-up display.
-* When the user zooms out, locations are grouped into clusters. Clusters are represented as a circle with a number inside the circle. Clusters form and break apart as the zoom level changes.
+* The user can use a search box and search button to search for a location, such as an address, postal code, or city. 
+* A `keypress` event added to the search box triggers a search if the user presses Enter. This functionality often is overlooked, but it creates a better user experience.
+* When the map moves, the distance to each location from the center of the map is calculated. The results list is updated to display the closest locations at the top of the map.  
+* When you select a result in the results list, the map is centered over the selected location and information about the location appears in a pop-up window.  
+* Selecting a specific location on the map also triggers a pop-up window.
+* When the user zooms out, locations are grouped in clusters. Clusters are represented by a circle with a number inside the circle. Clusters form and separate as the user changes the zoom level.
 * Selecting a cluster zooms in on the map two levels and centers over the location of the cluster.
 
 <a id="create a data-set"></a>
 
 ## Create the store location dataset
 
-Before we begin to develop an application, we need to create a dataset of the stores we want to display on the map. In this tutorial, we use a dataset for a fictitious coffee shop called Contoso Coffee. The dataset for this simple store locator is managed in an Excel workbook. The dataset contains 10,213 locations spread across 9 countries: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
+Before we develop a store locator application, we need to create a dataset of the stores we want to display on the map. In this tutorial, we use a dataset for a fictitious coffee shop called Contoso Coffee. The dataset for this simple store locator is managed in an Excel workbook. The dataset contains 10,213 Contoso Coffee coffee shop locations spread across nine countries: the United States, Canada, the United Kingdom, France, Germany, Italy, the Netherlands, Denmark, and Spain. Here's a screenshot of what the data looks like:
 
 <br/>
-<center>![A screenshot of the store locator data in an Excel workbook](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
+<center>![Screenshot of the store locator data in an Excel workbook](./media/tutorial-create-store-locator/StoreLocatorDataSpreadsheet.png)</center>
 
 You can [download the Excel workbook](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). 
 
 Looking at the screenshot of the data, we can make the following observations:
     
-* Location information is stored by using the **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (zip code), and **Country** columns.  
-* The **Latitude** and **Longitude** columns contain the coordinates for each coffee shop. If you don't have coordinates information, you can use the Search services in Azure Maps to determine the coordinates.
-* Some additional columns contain some metadata related to the coffee shops: a phone number, Boolean columns for Wi-Fi hotspot and wheelchair accessibility, and store opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
+* Location information is stored by using the **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (postal code), and **Country** columns.  
+* The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee coffee shop location. If you don't have coordinates information, you can use the Search services in Azure Maps to determine the location coordinates.
+* Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns for Wi-Fi hotspot and wheelchair accessibility, and store opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
 
-There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data and sends the results to the user’s browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires significantly more development work and has a higher cost. Another approach is to convert this dataset into a flat text file that the browser can easily parse. The file itself can be hosted with the rest of the application. This option keeps things simple, but it's a good option only for smaller datasets because the user downloads all the data. We use the flat text file for this dataset because the file size is smaller than 1 MB.  
+There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data and sends the results to the user’s browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires significantly more development work and has a higher cost. 
 
-To convert the workbook to a flat text file, save the workbook as a tab-delimited file. It will spec each column out with a tab character, which makes it easy to parse in our code. You can use comma-separated value (CSV) format, but that would require more parsing logic. Any field that has a comma around it would be wrapped with quotation marks. To export this data as a tab-delimited file in Excel, select the **Save As** butto. In the **Save as type** drop-down list, select **Text (Tab delimited)(*.txt)**. Name the file ContosoCoffee.txt. 
+Another approach is to convert this dataset into a flat text file that the browser can easily parse. The file itself can be hosted with the rest of the application. This option keeps things simple, but it's a good option only for smaller datasets because the user downloads all the data. We use the flat text file for this dataset because the data file size is smaller than 1 MB.  
+
+To convert the workbook to a flat text file, save the workbook as a tab-delimited file. Each column is delimited by a tab character, which makes the columns easy to parse in our code. You could use comma-separated value (CSV) format, but that option requires more parsing logic. Any field that has a comma around it would be wrapped with quotation marks. To export this data as a tab-delimited file in Excel, select **Save As**. In the **Save as type** drop-down list, select **Text (Tab delimited)(*.txt)**. Name the file *ContosoCoffee.txt*. 
 
 <br/>
 <center>![Screenshot of the Save as type dialog box](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)</center>
@@ -85,21 +87,21 @@ To convert the workbook to a flat text file, save the workbook as a tab-delimite
 If you open the text file in Notepad, it looks similar to the following figure:
 
 <br/>
-<center>![Screenshot of a Notepad file that shows tab-delimited dataset](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
+<center>![Screenshot of a Notepad file that shows a tab-delimited dataset](./media/tutorial-create-store-locator/StoreDataTabFile.png)</center>
 
 
 ## Set up the project
 
-To create the project, you can use [Visual Studio](https://visualstudio.microsoft.com) or any code editor of your choice. In your project folder, create three files: index.html, index.css, and index.js. These files define the layout, styles, and logic for the application. Create a folder named data and add ContosoCoffee.txt file to the folder. Create another folder named images. There are 10 images we use in this application for icons, buttons, and markers on the map. You can [download these images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Your project folder should now look like the following figure:
+To create the project, you can use [Visual Studio](https://visualstudio.microsoft.com) or the code editor of your choice. In your project folder, create three files: *index.html*, *index.css*, and *index.js*. These files define the layout, style, and logic for the application. Create a folder named *data* and add *ContosoCoffee.txt* to the folder. Create another folder named *images*. We use ten images in this application for icons, buttons, and markers on the map. You can [download these images](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). Your project folder should now look like the following figure:
 
 <br/>
 <center>![Screenshot of the Simple Store Locator project folder](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)</center>
 
 ## Create the user interface
 
-To create the user interface, add code to the index.html file:
+To create the user interface, add code to *index.html*:
 
-1. Add the following meta tags to the `head` of the index.html file. The tags define the character set (UTF-8), tell Internet Explorer and Edge to use the latest versions, and specify a viewport that is well suited for responsive layouts.
+1. Add the following `meta` tags to the `head` of *index.html*. The tags define the character set (UTF-8), tell Internet Explorer and Edge to use the latest browser versions, and specify a viewport that works well for responsive layouts.
 
     ```HTML
     <meta charset="utf-8" /> 
@@ -107,7 +109,7 @@ To create the user interface, add code to the index.html file:
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     ```
 
-1. Add references to the Azure Maps Web Control JavaScript and CSS files:
+1. Add references to the Azure Maps web control JavaScript and CSS files:
 
     ```HTML
     <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
@@ -120,7 +122,7 @@ To create the user interface, add code to the index.html file:
     <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=1"></script>
     ```
     
-1. Add references to the index.js and index.css files:
+1. Add references to *index.js* and *index.css*:
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css" /> 
@@ -136,7 +138,7 @@ To create the user interface, add code to the index.html file:
     </header>
     ```
 
-1. Add a `main` tag and create a search panel that has a text box and button. Also, add `div` references for the map, the list panel, and the **My Location** button.
+1. Add a `main` tag and create a search panel that has a text box and search button. Also, add `div` references for the map, the list panel, and the My Location GPS button.
 
     ```HTML
     <main> 
@@ -156,9 +158,9 @@ To create the user interface, add code to the index.html file:
     </main>
     ```
 
-When you are finished, your index.html should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
+When you're finished, *index.html* should look like [this example index.html file](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/index.html).
 
-The next step is to define the CSS styles. CSS styles define how the application components are laid out and the application's appearance. Open the index.css file and add the following pieces of code to it. Note the `@media` style, which defines alternate styling options to be used when the screen width is smaller than 700 pixels.  
+The next step is to define the CSS styles. CSS styles define how the application components are laid out and the application's appearance. Open *index.css* and add the following code to it. The `@media` style defines alternate style options to use when the screen width is smaller than 700 pixels.  
 
 ```css
     html, body { 
@@ -312,7 +314,7 @@ The next step is to define the CSS styles. CSS styles define how the application
             margin-right: 5px;     
         } 
 
-    /* Adjust the layout of the page when the screen width is less than 800 pixels. */ 
+    /* Adjust the layout of the page when the screen width is less than 700 pixels. */ 
     @media screen and (max-width: 700px) { 
         .searchPanel { 
             width: 100vw; 
@@ -364,13 +366,13 @@ The next step is to define the CSS styles. CSS styles define how the application
 
 ```
 
-If you run the application now, you see the header, search box, and **Search** button, but the map isn't visible because it hasn’t been loaded yet. If you try to do a search, nothing happens. We need to wire the JavaScript logic that's described in the next section to access all the functionality of the store locator.
+If you run the application now, you see the header, search box, and search button, but the map isn't visible because it hasn’t been loaded yet. If you try to do a search, nothing happens. We need to set up the JavaScript logic that's described in the next section to access all the functionality of the store locator.
 
 ## Wire the application by using JavaScript
 
-At this point, everything is set up in the user interface. Now, we need to add the JavaScript to load and parse the data, and then render the data on the map. To get started, open the index.js file, and add code to it, as described in the following steps.
+At this point, everything is set up in the user interface. Now, we need to add the JavaScript to load and parse the data, and then render the data on the map. To get started, open *index.js* and add code to it, as described in the following steps.
 
-1. Add some global options to make settings easier to update. Also, define variables for the map, a pop-up display, a data source, an icon layer, an HTML marker that displays the center of a search area, and an instance of the Azure Maps search service client.
+1. Add global options to make settings easier to update. Also, define variables for the map, a pop-up window, a data source, an icon layer, an HTML marker that displays the center of a search area, and an instance of the Azure Maps search service client.
 
     ```Javascript
     //The maximum zoom level to cluster data point data on the map. 
@@ -384,10 +386,14 @@ At this point, everything is set up in the user interface. Now, we need to add t
     var map, popup, datasource, iconLayer, centerMarker, serviceClient;
     ```
 
-2. Add code to the index.js file. The following block of code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits until the page is finished loading, wires up events to monitor the loading of the map, and powers the search and **My location** buttons. When the user selects the search button, or when the user presses the Enter button in the search text box, a fuzzy search against the user's query is initiated. Pass in an array of Country ISO2 values to the `countrySet` option to limit the search results to those countries. This helps increase the accuracy of the results that are returned. When the search is finished, take the first result and set the map camera over that area. When the user clicks the **My location** button, use the HTML5 Geolocation API that's built into the browser to retrieve the user's location and center the map over their location.  
+1. Add code to *index.js*. The following code initializes the map, adds an [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) that waits until the page is finished loading, wires up events to monitor the loading of the map, and powers the search button and My Location button. 
 
-    > [!Tip]
-    > When using popups, it's best to create a single Popup instance and reuse it by updating its content and position. For every popup created, a number of DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser can become slow.
+  When the user selects the search button, or when the user presses Enter after entering a location in the search box, a fuzzy search against the user's query is initiated. Pass in an array of country ISO 2 values to the `countrySet` option to limit the search results to those countries. Limiting the countries to search helps increase the accuracy of the results that are returned. 
+  
+  When the search is finished, take the first result and set the map camera over that area. When the user selects the My Location button, use the HTML5 Geolocation API that's built into the browser to retrieve the user's location and center the map over their location.  
+
+  > [!Tip]
+  > When you use pop-up windows, it's best to create a single `Popup` instance and reuse the instance by updating its content and position. For every `Popup`instance you add to your code, multiple DOM elements are added to the page. The more DOM elements there are on a page, the more things the browser has to keep track of. If there are too many items, the browser might become slow.
 
     ```Javascript
     function initialize() { 
@@ -401,34 +407,34 @@ At this point, everything is set up in the user interface. Now, we need to add t
             zoom: 2 
         }); 
 
-        //Create a popup but leave it closed so we can update it and display it later. 
+        //Create a pop-up window, but leave it closed so we can update it and display it later. 
         popup = new atlas.Popup(); 
 
         //Create an instance of the services client. 
         serviceClient = new atlas.service.Client(atlas.getSubscriptionKey()); 
 
-        //If the user presses the search button, geocode the value they passed in. 
+        //If the user selects the search button, geocode the value the user passed in. 
         document.getElementById('searchBtn').onclick = performSearch; 
 
-        //If the user presses Enter in the search text box, perform a search. 
+        //If the user presses Enter in the search box, perform a search. 
         document.getElementById('searchTbx').onkeyup = function (e) {
             if (e.keyCode == 13) { 
                 performSearch(); 
             } 
         }; 
 
-        //If the user presses the My Location button, use the Geolocation API to get the user's location and center/zoom the map to that location. 
+        //If the user selects the My Location button, use the Geolocation API to get the user's location. Center and zoom the map on that location. 
         document.getElementById('myLocationBtn').onclick = setMapToUserLocation; 
 
-        //Wait until the map resources are fully loaded. 
+        //Wait until map resources are fully loaded. 
         map.events.add('load', function () { 
 
-        //Add your post map load functionality here. 
+        //Add your post-map load functionality. 
 
         }); 
     } 
 
-    //An array of country region ISO2 values to limit searches to. 
+    //Create an array of country ISO 2 values to limit searches to. 
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];       
 
     function performSearch() { 
@@ -440,7 +446,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
         //Perform a fuzzy search on the user's query. 
         serviceClient.search.getSearchFuzzy(query, { 
 
-            //Pass in the array of the country ISO2 code to limit the search to. 
+            //Pass in the array of the country ISO 2 code to limit the search to. 
             countrySet: countrySet 
         }).then(response => { 
 
@@ -463,16 +469,16 @@ At this point, everything is set up in the user interface. Now, we need to add t
     function setMapToUserLocation() { 
         //Request the user's location. 
         navigator.geolocation.getCurrentPosition(function (position) { 
-            //Convert the Geolocation API position into a longitude and latitude position value the map can understand and center the map over it. 
+            //Convert the Geolocation API position to a longitude and latitude position value that the map can understand and center the map over it. 
             map.setCamera({ 
                 center: [position.coords.longitude, position.coords.latitude], 
                 zoom: maxClusterZoomLevel + 1 
             }); 
         }, function (error) { 
-            //If an error occurs when trying to access the user's position information, display an error message. 
+            //If an error occurs when the API tries to access the user's position information, display an error message. 
             switch (error.code) { 
                 case error.PERMISSION_DENIED: 
-                    alert('User denied the request for Geolocation.'); 
+                    alert('User denied the request for geolocation.'); 
                     break; 
                 case error.POSITION_UNAVAILABLE: 
                     alert('Position information is unavailable.'); 
@@ -491,21 +497,22 @@ At this point, everything is set up in the user interface. Now, we need to add t
     window.onload = initialize;
     ```
 
-3. Within the map's load event listener, add a zoom control and an HTML marker to display the center of a search area.
+1. In the map's `load` event listener, add a zoom control and an HTML marker to display the center of a search area.
 
     ```Javascript
-    //Add the zoom control to the map. 
+    //Add a zoom control to the map. 
     map.controls.add(new atlas.control.ZoomControl(), { 
             position: 'top-right'
     }); 
 
-    //Add an HTML marker to the map to indicate the center that's used for searching. 
+    //Add an HTML marker to the map to indicate the center to use for searching. 
     centerMarker = new atlas.HtmlMarker({ 
             htmlContent: '<div class="mapCenterIcon"></div>', 
             position: map.getCamera().center 
     });
     ```
-4. In the map's load event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into their individual points as you zoom in. This makes a more fluid user experience and provides increased performance.
+
+1. In the map's `load` event listener, add a data source. Then, make a call to load and parse the dataset. Enable clustering on the data source. Clustering on the data source groups overlapping points together in a cluster. The clusters separate into individual points as the user zooms in. This makes a more fluid user experience and improves performance.
 
     ```Javascript
     //Create a data source, add it to the map, and then enable clustering. 
@@ -516,14 +523,16 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
     map.sources.add(datasource); 
 
-    //Load all the store data now that the data source has been defined.  
+    //Load all the store data now that the data source is defined.  
     loadStoreData();
     ```
 
-5. After loading the dataset within the map's load event listener, define a set of layers to render the data. A bubble layer is used to render clustered data points. A symbol layer is used to render the number of points in each cluster above the bubble layer. A second symbol layer is used to render a custom icon for individual locations on the map. Mouse over and out events are added to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. A click event is added to the cluster bubble layer, which zooms the map in two levels and which is centered over a cluster when the user selects any cluster. A click event is  added to the icon layer, which displays a popup with details of a coffee shop when a user selects an individual location icon. Add an event to the map to monitor when it is finished moving. When this event fires, update the items in the list panel.  
+1. After you load the dataset in the map's `load` event listener, define a set of layers to render the data. A bubble layer is used to render clustered data points. A symbol layer is used to render the number of points in each cluster above the bubble layer. A second symbol layer renders a custom icon for individual locations on the map. 
+
+  Add `mouseover` and `mouseout` events to the bubble and icon layers to change the mouse cursor when the user hovers over a cluster or icon on the map. Add a `click` event to the cluster bubble layer. This `click` event zooms the map in two levels and centers the map over a cluster when the user selects any cluster. Add a `click` event to the icon layer. This `click` event displays a pop-up window that shows the details of a coffee shop when a user selects an individual location icon. Add an event to the map to monitor when the map is finished moving. When this event fires, update the items in the list panel.  
 
     ```Javascript
-    //Create a bubble layer for rendering clustered data points. 
+    //Create a bubble layer to render clustered data points. 
     var clusterBubbleLayer = new atlas.layer.BubbleLayer(datasource, null, { 
                 radius: 12, 
                 color: '#007faa', 
@@ -552,7 +561,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     //Load a custom image icon into the map resources.     
     map.imageSprite.add('myCustomIcon', iconImageUrl).then(function () {            
 
-    //Create a layer to render a coffe cup symbol above each bubble for an individual location. 
+    //Create a layer to render a coffee cup symbol above each bubble for an individual location. 
     iconLayer = new atlas.layer.SymbolLayer(datasource, null, { 
                 iconOptions: { 
                     //Pass in the ID of the custom icon that was loaded into the map resources. 
@@ -583,7 +592,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
                 map.getCanvasContainer().style.cursor = 'grab'; 
     }); 
 
-    //Add a click event to the cluster layer. When the user selects a cluster, zoom into it by 2 levels.  
+    //Add a click event to the cluster layer. When the user selects a cluster, zoom into it by two levels.  
     map.events.add('click', clusterBubbleLayer, function (e) { 
                 map.setCamera({ 
                     center: e.position, 
@@ -598,17 +607,17 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
     //Add an event to monitor when the map is finished moving. 
     map.events.add('moveend', function () { 
-                //Give the map a chance to move and render data before updating the list. 
+                //Give the map a chance to move and render data before the list is updated. 
                 setTimeout(updateListItems, 500); 
     });
     ```
 
-6. When the coffee shop dataset is loaded, first it must be downloaded. Then, the text file must be split into lines. The first line contains the header information. To make the code easier to follow, we parse the header into an object, which we can then use to look up the cell index of each property. After the first line, loop through the remaining lines and create a point feature. Add the point feature to the data source. Finally, update the list panel.
+1. When the coffee shop dataset is loaded, it must first be downloaded. Then, the text file must be split into lines. The first line contains the header information. To make the code easier to follow, we parse the header into an object, which we can then use to look up the cell index of each property. After the first line, loop through the remaining lines and create a point feature. Add the point feature to the data source. Finally, update the list panel.
 
     ```Javascript
     function loadStoreData() { 
 
-    //Download the sotre location data. 
+    //Download the store location data. 
     fetch(storeLocationDataUrl)     
         .then(response => response.text()) 
         .then(function (text) { 
@@ -622,7 +631,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
             //Grab the header row. 
             var row = lines[0].split('\t'); 
 
-            //Parse the header row and index each column, so our code for parsing each row is easier to follow. 
+            //Parse the header row and index each column to make the code for parsing each row easier to follow. 
             var header = {}; 
             var numColumns = row.length; 
             for (var i = 0; i < row.length; i++) { 
@@ -663,7 +672,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     }
     ```
 
-7. When the list panel is updated, the distance from the center of the map to all point features in the current map view is calculated. The features are then sorted by distance and HTML is generated to display each location in the list panel.
+1. When the list panel is updated, the distance from the center of the map to all point features in the current map view is calculated. The features are then sorted by distance. HTML is generated to display each location in the list panel.
 
     ```Javascript
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>'; 
@@ -672,15 +681,15 @@ At this point, everything is set up in the user interface. Now, we need to add t
         //Remove the center marker from the map. 
         map.markers.remove(centerMarker); 
 
-        //Get the current camera/view information for the map. 
+        //Get the current camera and view information for the map. 
         var camera = map.getCamera(); 
         var listPanel = document.getElementById('listPanel'); 
 
-        //Check to see whether the user is significantly zoomed out. If they are, tell them to zoom in closer and to perform a search or press the My Location button. 
+        //Check to see whether the user is zoomed out a substantial distance. If they are, tell the user to zoom in and to perform a search or select the My Location button. 
         if (camera.zoom < maxClusterZoomLevel) { 
-            //Close the popup because clusters might be displayed on the map.  
+            //Close the pop-up window; clusters might be displayed on the map.  
             popup.close(); 
-            listPanel.innerHTML = '<div class="statusMessage">Search for a location, zoom the map, or press the "My Location" button to see individual locations.</div>'; 
+            listPanel.innerHTML = '<div class="statusMessage">Search for a location, zoom the map, or select the My Location button to see individual locations.</div>'; 
         } else { 
             //Update the location of the centerMarker property. 
             centerMarker.setOptions({ 
@@ -696,7 +705,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
             data.forEach(function (shape) { 
                 if (shape instanceof atlas.Shape) { 
-                    //Calculate the distance from the center of the map to each shape and store the data in a distance property.  
+                    //Calculate the distance from the center of the map to each shape, and then store the data in a distance property.  
                     shape.distance = atlas.math.getDistanceTo(camera.center, shape.getCoordinates(), 'miles'); 
                 } 
             }); 
@@ -724,15 +733,15 @@ At this point, everything is set up in the user interface. Now, we need to add t
                     html.push('<div class="listItem" onclick="itemSelected(\'', shape.getId(), '\')"><div class="listItem-title">', 
                     properties['AddressLine'], 
                     '</div>', 
-                    //Get a formatted address line 2 value that consists of City, Municipality, AdminDivision, and PostCode. 
+                    //Get a formatted addressLine2 value that consists of City, Municipality, AdminDivision, and PostCode. 
                     getAddressLine2(properties), 
                     '<br />', 
 
-                    //Convert the closing time to a formatted time. 
+                    //Convert the closing time to a format that is easier to read. 
                     getOpenTillTime(properties), 
                     '<br />', 
 
-                    //Route the distance to 2 decimal places.  
+                    //Route the distance to two decimal places.  
                     (Math.round(shape.distance * 100) / 100), 
                     ' miles away</div>'); 
             }); 
@@ -744,7 +753,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
         } 
     } 
 
-    //This converts a time in 2400 format to an AM/PM time or noon/midnight string. 
+    //This converts a time that's in a 24-hour format to an AM/PM time or noon/midnight string. 
     function getOpenTillTime(properties) { 
         var time = properties['Closes']; 
         var t = time / 100; 
@@ -778,7 +787,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
         return 'Open until ' + sTime; 
     } 
 
-    //Creates an addressLine2 string that contains City, Municipality, AdminDivision, and PostCode. 
+    //Create an addressLine2 string that contains City, Municipality, AdminDivision, and PostCode. 
     function getAddressLine2(properties) { 
         var html = [properties['City']]; 
 
@@ -798,12 +807,12 @@ At this point, everything is set up in the user interface. Now, we need to add t
     }
     ```
 
-8. When an item in the list panel is selected, the shape to which the item is related is retrieved from the data source. A popup is generated based on the property information stored in the shape and the map centered over it. If the map is less than 700 pixels wide, the map view is offset to allow room for the popup to be displayed.
+1. When the user selects an item in the list panel, the shape to which the item is related is retrieved from the data source. A pop-up window is generated that's based on the property information stored in the shape. The map is centered over the shape. If the map is less than 700 pixels wide, the map view is offset so the pop-up window is visible.
 
     ```Javascript
-    //When a user selects a result in the side panel, look up the shape by its ID value and show the popup. 
+    //When a user selects a result in the side panel, look up the shape by its ID value and display the pop-up window. 
     function itemSelected(id) { 
-        //Get the shape from the data source using it's id.  
+        //Get the shape from the data source by using its ID.  
         var shape = datasource.getShapeById(id); 
         showPopup(shape); 
 
@@ -813,11 +822,11 @@ At this point, everything is set up in the user interface. Now, we need to add t
         //If the map is less than 700 pixels wide, the layout is set for small screens. 
         if (map.getCanvas().width < 700) { 
 
-            /*When the map is small, offset the center of the map relative to the shape so there's room for the popup to appear. 
-                Calculate the pixel coordinate of the shape's cooridnate.*/ 
+            /*When the map is small, offset the center of the map relative to the shape so the pop-up window is visible. 
+                Calculate the pixel coordinate of the shape's coordinate.*/ 
             var p = map.positionsToPixels([center]); 
 
-            //Offset the y value. 
+            //Offset the y-axis value. 
             p[0][1] -= 80; 
 
             //Calculate the coordinate on the map for the offset pixel value. 
@@ -832,7 +841,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
     function showPopup(shape) { 
         var properties = shape.getProperties(); 
 
-        /* Generating HTML for the popup that looks like this: 
+        /* Generating HTML for the pop-up window that looks like this: 
 
                 <div class="storePopup"> 
                     <div class="popupTitle"> 
@@ -857,10 +866,10 @@ At this point, everything is set up in the user interface. Now, we need to add t
             getAddressLine2(properties), 
             '</div></div><div class="popupContent">', 
 
-            //Convert the closing time to a formatted time. 
+            //Convert the closing time to a format that's easier to read. 
             getOpenTillTime(properties), 
 
-            //Route the distance to 2 decimal places.  
+            //Route the distance to two decimal places.  
             '<br/>', (Math.round(shape.distance * 100) / 100), 
             ' miles away', 
             '<br /><img src="images/PhoneIcon.png" title="Phone Icon"/><a href="tel:', 
@@ -884,7 +893,7 @@ At this point, everything is set up in the user interface. Now, we need to add t
 
         html.push('</div></div>'); 
 
-        //Update the content and position of the popup for the specified shape information. 
+        //Update the content and position of the pop-up window for the specified shape information. 
         popup.setOptions({ 
 
             //Create a table from the properties in the feature. 
@@ -892,38 +901,37 @@ At this point, everything is set up in the user interface. Now, we need to add t
             position: shape.getCoordinates() 
         }); 
 
-        //Open the popup. 
+        //Open the pop-up window. 
         popup.open(map); 
     }
     ```
 
-Now, you have a fully functional store locator. Open the index.html file in a web browser. When the clusters are rendered on the map, you can search for a location by using the search box, selecting the **My Location** button, selecting a cluster, or zooming in on the map to see individual locations. The first time a user selects the **My Location** button, the browser displays a security warning that asks for permission to access the user’s location. If the user agrees to share their location, the map zooms in on their location and nearby coffee shops are shown. 
+Now, you have a fully functional store locator. In a web browser, open the *index.html* file for the store locator. When the clusters appear on the map, you can search for a location by using the search box, by selecting the My Location button, by selecting a cluster, or by zooming in on the map to see individual locations.
+
+The first time a user selects the My Location button, the browser displays a security warning that asks for permission to access the user’s location. If the user agrees to share their location, the map zooms in on the user's location, and nearby coffee shops are shown. 
 
 <br/>
-<center>![The browser's location security warning](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
+<center>![Screenshot of the browser's request to access the user's location](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-When you zoom in close enough in an area that has coffee shop locations, the clusters break apart into their individual locations. Select one of the icons on the map or an item in the side panel to see a popup that shows information for that location.
+When you zoom in close enough in an area that has coffee shop locations, the clusters separate into individual locations. Select one of the icons on the map or select an item in the side panel to see a pop-up window that shows information for that location.
 
 <br/>
-<center>![Final-Locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
-
+<center>![Screenshot of the finished store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocator.png)</center>
 
 If you resize the browser window to less than 700 pixels wide or open the application on a mobile device, the layout changes to be better suited for smaller screens. 
 
 <br/>
-<center>![Final-Locator-small](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
+<center>![Screenshot of the small-screen version of the store locator](./media/tutorial-create-store-locator/FinishedSimpleStoreLocatorSmallScreen.png)</center>
 
 ## Next steps
 
-In this tutorial, you can see how easy it is to create a store locator by using Azure Maps. This might be all the functionality you need. The following list shows some additional and more advance features you might be interested in adding to your store locator for a more custom user experience. 
+In this tutorial, you learn how to create a basic store locator by using Azure Maps. The store locator you create in this tutorial might have all the functionality you need. You can add features to your store locator or use more advance features for a more custom user experience: 
 
 > [!div class="checklist"]
 * Enable [suggestions as you type](https://azuremapscodesamples.azurewebsites.net/?sample=Search%20Autosuggest%20and%20JQuery%20UI) in the search box.  
 * Add [support for multiple languages](https://azuremapscodesamples.azurewebsites.net/?sample=Map%20Localization). 
 * Allow the user to [filter locations along a route](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
 * Add the ability to [set filters](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
-* Add support to specify an initial search value by using a query string. This option allows users to bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
-* Deploy as an [Azure Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
-* Store your data in a database and search for nearby locations. 
-  - Read the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) 
-  - Learn how to [query spatial data for nearest neighbor](https://docs.microsoft.com/en-us/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017)
+* Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
+* Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
+* Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
