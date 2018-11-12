@@ -13,11 +13,11 @@ ms.author: davidmu
 ms.component: B2C
 ---
 
-# User flow versions in Active Directory B2C
+# User flow versions in Azure Active Directory B2C
 
-User flows help you to set up common [policies](active-directory-b2c-reference-policies.md) that fully describe customer identity experiences such as sign-up, sign-in, or profile editing. In Azure Active Directory B2C, you have the option to select from a collection of both recommended user flows and preview user flows. 
+User flows in Azure Active Directory (Azure AD) B2C help you to set up common [policies](active-directory-b2c-reference-policies.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. In Azure AD B2C, you can select from a collection of both recommended user flows and preview user flows. 
 
-New user flows will be added as new versions. As the user flows become stable, they will be recommended for use. You should always use a recommended user flow for any production application, but can freely choose from other versions to test new functionality as it becomes avaliable.
+New user flows are added as new versions. As the user flows become stable, they'll be recommended for use. You should always use a recommended user flow for any production application, but can freely choose from other versions to test new functionality as it becomes available.
 
 ## V1
 
@@ -37,4 +37,4 @@ New user flows will be added as new versions. As the user flows become stable, t
 | Password reset v2 | No | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>Token compatibility settings</li><li>[age gating](basic-age-gating.md)</li><li>[password complexity requirements](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | Sign in v2 | No | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[age gating](basic-age-gating.md)</li><li>Sign-in page customization</li></ul> |
 | Sign up v2 | No | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[age gating](basic-age-gating.md)</li><li>[password complexity requirements](active-directory-b2c-reference-password-complexity.md)</li></ul> |
-| Sign up and sign in v2 | No | Enables a user to create an account or sign in their account. Using this user flow, it is possible to enable: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[age gating](basic-age-gating.md)</li><li>[password complexity requirements](active-directory-b2c-reference-password-complexity.md)</li></ul> |
+| Sign up and sign in v2 | No | Enables a user to create an account or sign in their account. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[age gating](basic-age-gating.md)</li><li>[password complexity requirements](active-directory-b2c-reference-password-complexity.md)</li></ul> |
