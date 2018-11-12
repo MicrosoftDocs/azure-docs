@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights Telemetry Correlation | Microsoft Docs
 description: Application Insights telemetry correlation
 services: application-insights
@@ -62,7 +62,7 @@ Now when the call `GET /api/stock/value` made to an external service you want to
 
 ## Correlation headers
 
-We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v1.md). This proposal defines two headers:
+We are working on RFC proposal for the [correlation HTTP protocol](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). This proposal defines two headers:
 
 - `Request-Id` carry the globally unique id of the call
 - `Correlation-Context` - carry the name value pairs collection of the distributed trace properties
@@ -73,7 +73,7 @@ Application Insights defines the [extension](https://github.com/lmolkova/correla
 
 ### W3C Distributed Tracing
 
-We are transitioning to (W3C Distributed tracing format)[https://w3c.github.io/distributed-tracing/report-trace-context.html]. It defines:
+We are transitioning to [W3C Distributed tracing format](https://w3c.github.io/trace-context/). It defines:
 - `traceparent` - carries globally unique operation id and unique identifier of the call
 - `tracestate` - carries tracing system specific context.
 

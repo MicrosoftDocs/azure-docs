@@ -2,14 +2,14 @@
 title: Use Hadoop Hive with Curl in HDInsight - Azure 
 description: Learn how to remotely submit Pig jobs to HDInsight using Curl.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Run Hive queries with Hadoop in HDInsight using REST

@@ -5,7 +5,7 @@ services: event-grid
 keywords: 
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 10/30/2018
+ms.date: 11/08/2018
 ms.topic: quickstart
 ms.service: event-grid
 ---
@@ -16,6 +16,8 @@ Azure Event Grid is an eventing service for the cloud. Azure Queue storage is on
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+## Install preview feature
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
@@ -75,10 +77,10 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --endpoint-type storagequeue \
   --endpoint $queueid \
-  --expiration-date "2018-11-30"
+  --expiration-date "<yyyy-mm-dd>"
 ```
 
-The account that creates the event subscription must have write access to the queue storage. Notice an expiration date is set for the subscription. The event subscription is automatically expired after that date. Set an expiration for event subscriptions that are only needed for a limited time.
+The account that creates the event subscription must have write access to the queue storage. Notice that an [expiration date](concepts.md#event-subscription-expiration) is set for the subscription.
 
 If you use the REST API to create the subscription, you pass the ID of the storage account and the name of the queue as a separate parameter.
 

@@ -43,7 +43,6 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 
 **Error code**: UserErrorRpCollectionLimitReached <br>
 **Error message**: The Restore Point collection max limit has reached. <br>
-Description:  
 * This issue could happen if there is a lock on the recovery point resource group preventing automatic cleanup of recovery point.
 * This issue can also happen if multiple backups are triggered per day. Currently we recommend only one backup per day as the instant RPs are retained for 7 days and only 18 instant RPs can be associated with a VM at any given time. <br>
 
@@ -54,8 +53,15 @@ To resolve this issue, remove the lock on the resource group and retry the opera
 	> Backup service creates a separate resource group than the resource group of the VM to store restore point collection. Customers are advised not to lock the resource group created for use by the Backup service. The naming format of the resource group created by Backup service is: AzureBackupRG_`<Geo>`_`<number>` Eg: AzureBackupRG_northeurope_1
 
 
-**Step 1: [Remove lock from the restore point resource group  group](#remove_lock_from_the_recovery_point_resource_group)** <br>
+**Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
+
+## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
+
+**Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
+**Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
+
+For backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. This can be done using the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) or through the [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
 
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
 
@@ -90,6 +96,21 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 4: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 **Cause 5: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 6: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)**
+
+## UserErrorUnsupportedDiskSize - Currently Azure Backup does not support disk sizes greater than 1023GB
+
+**Error code**: UserErrorUnsupportedDiskSize <br>
+**Error message**: Currently Azure Backup does not support disk sizes greater than 1023GB <br>
+
+Your backup operation could fail when backing up VM with disk size greater than 1023GB since your vault is not upgraded to Azure VM Backup stack V2. Upgrading to Azure VM Backup stack V2 will provide support up to 4TB. Review these [benefits](backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).  
+
+## UserErrorStandardSSDNotSupported - Currently Azure Backup does not support Standard SSD disks
+
+**Error code**: UserErrorStandardSSDNotSupported <br>
+**Error message**: Currently Azure Backup does not support Standard SSD disks <br>
+
+Currently Azure Backup supports Standard SSD disks only for vaults that are upgraded to Azure VM Backup stack V2. Review these [benefits](backup-upgrade-to-vm-backup-stack-v2.md), [considerations](backup-upgrade-to-vm-backup-stack-v2.md#considerations-before-upgrade), and then proceed to upgrade by following these [instructions](backup-upgrade-to-vm-backup-stack-v2.md#upgrade).
+
 
 ## Causes and solutions
 
@@ -134,7 +155,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 1. Determine whether the Windows Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Guest Agent service and initiate the backup.    
 2. If the Windows Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Guest Agent service is installed.
 4. If the Windows Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
-5. Download and install the [latest version of the agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
+5. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 6. Verify that the Windows Guest Agent services appear in services.
 7. Run an on-demand backup:
 	* In the portal, select **Backup Now**.
@@ -203,7 +224,7 @@ Completing these steps causes the extension to be reinstalled during the next ba
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>Remove lock from the recovery point resource group
 1. Sign in to the [Azure portal](http://portal.azure.com/).
-2. Go to **All Resources option**, select the restore point collection resource group in the following format AzureBackupRG_<Geo>_<number>.
+2. Go to **All Resources option**, select the restore point collection resource group in the following format AzureBackupRG_`<Geo>`_`<number>`.
 3. In the **Settings** section, select **Locks** to display the locks.
 4. To remove the lock, select the ellipsis and click **Delete**.
 
@@ -212,17 +233,17 @@ Completing these steps causes the extension to be reinstalled during the next ba
 ### <a name="clean_up_restore_point_collection"></a> Clean up restore point collection
 After removing the lock, the restore points have to be cleaned up. To clean up the restore points, follow any of the methods:<br>
 * [Clean up restore point collection by running ad-hoc backup](#clean-up-restore-point-collection-by-running-ad-hoc-backup)<br>
-* [Clean up restore point collection from portal created by backup service](#clean-up-restore-point-collection-from-portal-created-by-backup-service)<br>
+* [Clean up restore point collection from Azure portal](#clean-up-restore-point-collection-from-azure-portal)<br>
 
 #### <a name="clean-up-restore-point-collection-by-running-ad-hoc-backup"></a>Clean up restore point collection by running ad-hoc backup
 After removing lock, trigger an ad-hoc/manual backup. This will ensure the restore points are automatically cleaned up. Expect this ad-hoc/manual operation to fail first time; however, it will ensure automatic cleanup instead of manual deletion of restore points. After cleanup your next scheduled backup should succeed.
 
 > [!NOTE]
-	> Automatic cleanup will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+	> Automatic cleanup will happen after few hours of triggering the ad-hoc/manual backup. If your scheduled backup still fails, then try manually deleting the restore point collection using the steps listed [here](#clean-up-restore-point-collection-from-azure-portal).
 
-#### <a name="clean-up-restore-point-collection-from-portal-created-by-backup-service"></a>Clean up restore point collection from portal created by backup service<br>
+#### <a name="clean-up-restore-point-collection-from-azure-portal"></a>Clean up restore point collection from Azure portal <br>
 
-To manually clear the restore points collection which are not cleared due to the lock on the resource group, the following steps:
+To manually clear the restore points collection which are not cleared due to the lock on the resource group, try the following steps:
 1. Sign in to the [Azure portal](http://portal.azure.com/).
 2. On the **Hub** menu, click **All resources**, select the Resource group with the following format AzureBackupRG_`<Geo>`_`<number>` where your VM is located.
 

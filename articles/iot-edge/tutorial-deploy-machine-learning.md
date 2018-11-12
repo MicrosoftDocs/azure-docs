@@ -2,7 +2,7 @@
 title: Deploy Azure Machine Learning with Azure IoT Edge | Microsoft Docs
 description: In this tutorial, you deploy Azure Machine Learning as a module to an edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
@@ -203,5 +203,5 @@ Otherwise, you can delete the local configurations and the Azure resources that 
 In this tutorial, you deployed an IoT Edge module powered by Azure Machine Learning. You can continue on to any of the other tutorials to learn about other ways that Azure IoT Edge can help you turn data into business insights at the edge.
 
 > [!div class="nextstepaction"]
-> [Filter sensor data using C# code](tutorial-csharp-module.md)
+> [Classify images with Custom Vision service](tutorial-deploy-custom-vision.md)
 

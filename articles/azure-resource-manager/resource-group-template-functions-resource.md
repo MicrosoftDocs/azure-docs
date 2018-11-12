@@ -114,11 +114,10 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
             "type": "string",
             "defaultValue": "southcentralus"
         },
-        "requestContent": {
+        "accountSasProperties": {
             "type": "object",
             "defaultValue": {
                 "signedServices": "b",
-                "signedResourceType": "c",
                 "signedPermission": "r",
                 "signedExpiry": "2018-08-20T11:00:00Z",
                 "signedResourceTypes": "s"
@@ -160,7 +159,7 @@ The following [example template](https://github.com/Azure/azure-docs-json-sample
         },
         "accountSAS": {
             "type": "object",
-            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('requestContent'))]"
+            "value": "[listAccountSas(parameters('storagename'), '2018-02-01', parameters('accountSasProperties'))]"
         }
     }
 }

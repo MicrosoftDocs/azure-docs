@@ -10,7 +10,7 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ---
 
 # Troubleshooting issues when using Java Async SDK with Azure Cosmos DB SQL API accounts
@@ -45,7 +45,7 @@ The number of open files ("nofile") needs to be large enough (at least as double
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
-If your app is deployed on Azure VM, by default [Azure SNAT ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used to establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Cosmos DB endpoint is limited by the [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure VM without a public IP address, by default [Azure SNAT ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) are used to establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Cosmos DB endpoint is limited by the [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
 The Azure SNAT ports are used only when your Azure VM has a private IP address and a process from the VM attempts to establish a connection to a public IP address. So, there are two workarounds to avoid Azure SNAT limitation:
     * Add your Azure Cosmos DB service endpoint to the subnet of your Azure VM VNET as explained in [Enabling VNET Service Endpoint](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). When service endpoint is enabled, the requests no longer are sent from a public IP to cosmos DB instead the VNET and subnet identity is sent. This change may result in firewall drops if only public IPs are allowed. If you are using firewall, when enabling service endpoint, add subnet to firewall using [VNET ACLs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
