@@ -54,6 +54,8 @@
         href: Quickstarts/get-answer-from-kb-java.md 
       - name: Node.js
         href: Quickstarts/get-answer-from-kb-nodejs.md 
+      - name: Python
+        href: Quickstarts/get-answer-from-kb-python.md
     
 - name: Tutorials
   items: 
