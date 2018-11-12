@@ -2,7 +2,7 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: About SQL DB
+  - name: What is SQL DB
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md  
@@ -476,6 +476,8 @@
       items:
       - name: SQL Data Sync
         href: sql-database-sync-data.md
+      - name: Data Sync Agent
+        href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
         href: sql-database-update-sync-schema.md
       - name: Monitor with OMS
