@@ -116,6 +116,8 @@
         href: active-directory-b2c-custom-setup-msa-idp.md
       - name: Twitter
         href: active-directory-b2c-custom-setup-twitter-idp.md
+    - name: Page contract
+      href: page-contract.md
     - name: SAML providers
       items:
       - name: ADFS
