@@ -52,17 +52,7 @@ Regional outages aren't uncommon, and Azure Cosmos DB makes sure your database i
 
 - Single-region accounts may lose availability following a regional outage. It's recommended to set up at least two regions (preferably, at least two write regions) with your Cosmos account to ensure high availability at all times.
 
-### Durability following a regional disaster
-
-Before a write operation is acknowledged to the client, the data is durably committed by a quorum of replicas within the region that accepts the write operations. The table below shows the potential data loss window for each consistency level following an unrecoverable regional disaster for Cosmos accounts spanning several regions.
-
-| **Consistency level** | **Potential data loss window following a regional disaster** |
-| - | - |
-| Strong | Zero |
-| Bounded Staleness | Confined to the “staleness window” you configure on the Cosmos account. |
-| Session | Up to 5 seconds |
-| Consistent Prefix | Up to 5 seconds |
-| Eventual | Up to 5 seconds |
+- Even in an extremely rare and unfortunate event when the Azure region is permanently irrecoverable, there is no potential data loss if your multi-region Cosmos account is configured with the default consistency level of strong. In the event of a permanently irrecoverable write region, for the multi-region Cosmos accounts configured with bounded-staleness consistency, the potential data loss window is restricted to the staleness window; for session, consistent-prefix and eventual consistency levels, the potential data loss window is restricted to a maximum of five seconds.
 
 ## Building highly available applications
 

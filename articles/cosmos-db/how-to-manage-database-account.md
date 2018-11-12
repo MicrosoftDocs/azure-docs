@@ -16,11 +16,11 @@ This article describes how to manage your Azure Cosmos DB account to set up mult
 
 ## Create a database account
 
-### <a id="create-database-account-via-portal"></a>Create using Azure portal
+### <a id="create-database-account-via-portal"></a>Azure portal
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
-### <a id="create-database-account-via-cli"></a>Create using Azure CLI
+### <a id="create-database-account-via-cli"></a>Azure CLI
 
 ```bash
 # Create an account
