@@ -30,7 +30,7 @@ With Azure virtual machines, you deploy the agent using the Log Analytics VM ext
 
 ## Overview
 
-![Log Analytics agent communication diagram](../media/log-analytics/log-analytics-agent-overview/log-analytics-agent-01.png)
+![Log Analytics agent communication diagram](../media/log-analytics-agent-overview/log-analytics-agent-01.png)
 
 Before analyzing and acting on collected data, you first need to install and connect agents for all of the machines that you want to send data to the Log Analytics service. You can install agents on your Azure VMs using the Azure Log Analytics VM extension for Windows and Linux, to con-premises machines using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation. 
 
