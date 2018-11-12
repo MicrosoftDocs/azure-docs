@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ---
 # Data Sync Agent for Azure SQL Data Sync
 
@@ -25,8 +25,14 @@ To download the Data Sync Agent, go to [SQL Azure Data Sync Agent](https://www.m
 
 To install the Data Sync Agent silently from the command prompt, enter a command similar to the following example. Check the file name of the downloaded .msi file, and provide your own values for the **TARGETDIR** and **SERVICEACCOUNT** arguments.
 
+- If you don't provide a value for **TARGETDIR**, the default value is `C:\Program Files (x86)\Microsoft SQL Data Sync 2.0`.
+
+- If you provide `LocalSystem` as the value of **SERVICEACCOUNT**, use SQL Server authentication when you configure the agent to connect to the on-premises SQL Server.
+
+- If you provide a domain user account or a local user account as the value of **SERVICEACCOUNT**, you also have to provide the password with the **SERVICEPASSWORD** argument. For example, `SERVICEACCOUNT="<domain>\<user>"  SERVICEPASSWORD="<password>"`.
+
 ```cmd
-msiexec /i SQLDataSyncAgent-2.0--ENU.msi TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn 
+msiexec /i "SQLDataSyncAgent-2.0-x86-ENU.msi" TARGETDIR="C:\Program Files (x86)\Microsoft SQL Data Sync 2.0" SERVICEACCOUNT="LocalSystem" /qn
 ```
 
 ## Sync data with SQL Server on-premises
@@ -269,6 +275,8 @@ SqlDataSyncAgentCommand.exe -action "registerdatabase" -serverName localhost -da
 ```
 
 ### Unregister a database
+
+When you use this command to unregister a database, it deprovisions the database completely. If the database participates in other sync groups, this operation breaks the other sync groups.
 
 #### Usage
 
