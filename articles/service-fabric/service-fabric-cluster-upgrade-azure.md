@@ -21,10 +21,10 @@ ms.author: aljo
 
 For any modern system, designing for upgradability is key to achieving long-term success of your product. An Azure Service Fabric cluster is a resource that you own, but is partly managed by Microsoft. This article describes what is managed automatically and what you can configure yourself.
 
-## Controlling the fabric version that runs on your Cluster
+## Controlling the fabric version that runs on your cluster
 You can set your cluster to receive automatic fabric upgrades as they are released by Microsoft or you can select a supported fabric version you want your cluster to be on.
 
-## Fabric upgrade behavior when the cluster Upgrade Mode is Automatic
+## Fabric upgrade behavior during automatic upgrades
 Microsoft maintains the fabric code and configuration that runs in an Azure cluster. We perform automatic monitored upgrades to the software on an as-needed basis. These upgrades could be code, configuration, or both. To make sure that your application suffers no impact or minimal impact due to these upgrades, we perform the upgrades in the following phases:
 
 ### Phase 1: An upgrade is performed by using all cluster health policies
@@ -54,7 +54,7 @@ We try to execute the same upgrade a few more times in case any upgrades failed 
 If the cluster health policies are met, the upgrade is considered successful and marked complete. This can happen during the initial upgrade or any of the upgrade reruns in this phase. There is no email confirmation of a successful run.
 
 ### Phase 3: An upgrade is performed by using aggressive health policies
-These health policies in this phase are geared towards completion of the upgrade rather than the health of the applications. Very few cluster upgrades end up in this phase. If your cluster gets to this phase, there is a good chance that your application becomes unhealthy and/or lose availability.
+These health policies in this phase are geared towards completion of the upgrade rather than the health of the applications. Few cluster upgrades end up in this phase. If your cluster gets to this phase, there is a good chance that your application becomes unhealthy and/or lose availability.
 
 Similar to the other two phases, Phase 3 upgrades proceed one upgrade domain at a time.
 
@@ -65,7 +65,7 @@ An email with this information is sent to the subscription owner, along with the
 If the cluster health policies are met, the upgrade is considered successful and marked complete. This can happen during the initial upgrade or any of the upgrade reruns in this phase. There is no email confirmation of a successful run.
 
 ## Cluster configurations that you control
-In addition to the ability to set the cluster upgrade mode, Here are the configurations that you can change on a live cluster.
+In addition to the ability to set the cluster upgrade mode, here are the configurations that you can change on a live cluster.
 
 ### Certificates
 You can add new or delete certificates for the cluster and client via the portal easily. Refer to [this document for detailed instructions](service-fabric-cluster-security-update-certs-azure.md)
@@ -99,8 +99,8 @@ For each of the node types, you can add custom placement properties that you wan
 ### Capacity metrics
 For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md).
 
-### Fabric upgrade settings - Health polices
-You can specify custom health polices for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the Phase-1 of the automatic fabric upgrades.
+### Fabric upgrade settings - Health policies
+You can specify custom health policies for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the Phase-1 of the automatic fabric upgrades.
 If you have set your cluster for Manual fabric upgrades, then these policies get applied each time you select a new version triggering the system to kick off the fabric upgrade in your cluster. If you do not override the policies, the defaults are used.
 
 You can specify the custom health policies or review the current settings under the "fabric upgrade" blade, by selecting the advanced upgrade settings. Review the following picture on how to. 
@@ -111,7 +111,7 @@ You can specify the custom health policies or review the current settings under 
 Refer to [service fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md) on what and how you can customize them.
 
 ### OS patches on the VMs that make up the cluster
-Refer to [Patch Orchestration Application](service-fabric-patch-orchestration-application.md) which can be deployed on your cluster to install patches from Windows Update in an orchestrated manner, keeping the services available all the time. 
+Refer to [Patch Orchestration Application](service-fabric-patch-orchestration-application.md), which can be deployed on your cluster to install patches from Windows Update in an orchestrated manner, keeping the services available all the time. 
 
 ### OS upgrades on the VMs that make up the cluster
 If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
