@@ -135,8 +135,7 @@ To authenticate with a service principal, you need to assign an RBAC role to you
 
 1. In the Azure portal, navigate to the Batch account used by your application.
 2. In the **Settings** blade for the Batch account, select **Access Control (IAM)**.
-3. Click the **Roles assignments** tab.
-3. Click the **Add role assignment** button. 
+3. Click the **Add** button. 
 4. From the **Role** drop-down, choose either the _Contributor_ or _Reader_ role for your application. For more information on these roles, see [Get started with Role-Based Access Control in the Azure portal](../role-based-access-control/overview.md).  
 5. In the **Select** field, enter the name of your application. Select your application from the list, and click **Save**.
 

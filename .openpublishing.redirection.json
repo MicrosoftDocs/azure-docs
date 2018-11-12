@@ -27053,11 +27053,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/dms/index.md",
-            "redirect_url": "/azure/dms/dms-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/guides/developer/index.md",
             "redirect_url": "/azure/guides/developer/azure-developer-guide",
             "redirect_document_id": false

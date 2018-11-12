@@ -247,6 +247,18 @@
       "url": "https://github.com/Azure-Samples/cognitive-services-qnamaker-python",
       "branch": "master",
       "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-dotnet-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples",
+      "branch": "master",
+      "branch_mapping": {}
+    },
+    {
+      "path_to_root": "cognitive-services-java-sdk-samples",
+      "url": "https://github.com/Azure-Samples/cognitive-services-java-sdk-samples",
+      "branch": "master",
+      "branch_mapping": {}
     }
   ],
   "branch_target_mapping": {

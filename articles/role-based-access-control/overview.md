@@ -48,14 +48,13 @@ The way you control access to resources using RBAC is to create role assignments
 
 ### Security principal
 
-A *security principal* is an object that represents a user, group, service principal, or managed identity that is requesting access to Azure resources.
+A *security principal* is an object that represents a user, group, or service principal that is requesting access to Azure resources.
 
 ![Security principal for a role assignment](./media/overview/rbac-security-principal.png)
 
 - User - An individual who has a profile in Azure Active Directory. You can also assign roles to users in other tenants. For information about users in other organizations, see [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Group - A set of users created in Azure Active Directory. When you assign a role to a group, all users within that group have that role. 
 - Service principal - A security identity used by applications or services to access specific Azure resources. You can think of it as a *user identity* (username and password or certificate) for an application.
-- Managed identity - An identity in Azure Active Directory that that is automatically managed by Azure. You typically use [managed identities](../active-directory/managed-identities-azure-resources/overview.md) when developing cloud applications to manage the credentials for authenticating to Azure services.
 
 ### Role definition
 

@@ -1,6 +1,6 @@
 ---
 title: 'Azure Data Explorer time series analysis'
-description: 'Learn about time series analysis in Azure Data Explorer'
+description: 'Learn about time series analysis in Azure Data Explorer '
 services: data-explorer
 author: orspod
 ms.author: v-orspod

@@ -31,7 +31,7 @@ On October 3, 2018, we announced (through email and [a blog post](https://azure.
 If you haven't opted in for the extension, we will start to disable ACS namespaces starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
 
 > [!NOTE]
-> You must be an administrator of the subscription to run the PowerShell commands and request an extension.
+> You must be an administrator of the subscription to run the PowerShell commands and request an extension. The permissions to log into the ACS namespace's management portal and PowerShell are the same. Service administrators and co-administrators can log in, but account administrators cannot log in.
 
 ## Find and enable your ACS namespaces
 

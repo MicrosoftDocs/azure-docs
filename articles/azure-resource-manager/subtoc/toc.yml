@@ -1,8 +1,18 @@
 - name: AKS
   items:
-  - name: Managed Clusters
-    href: /azure/templates/Microsoft.ContainerService/managedClusters
+  - name: All versions
+    href: /azure/templates/Microsoft.ContainerService/aks-allversions
     maintainContext: true
+  - name: 2018-03-31
+    items:
+    - name: Managed Clusters
+      href: /azure/templates/Microsoft.ContainerService/2018-03-31/managedClusters
+      maintainContext: true
+  - name: 2017-08-31
+    items:
+    - name: Managed Clusters
+      href: /azure/templates/Microsoft.ContainerService/2017-08-31/managedClusters
+      maintainContext: true
 - name: Analysis Services
   items:
   - name: Servers
@@ -355,9 +365,29 @@
       maintainContext: true
 - name: Container Service
   items:
-  - name: Container Services
-    href: /azure/templates/Microsoft.ContainerService/containerServices
+  - name: All versions
+    href: /azure/templates/Microsoft.ContainerService/containerservices-allversions
     maintainContext: true
+  - name: 2017-07-01
+    items:
+    - name: Container Services
+      href: /azure/templates/Microsoft.ContainerService/2017-07-01/containerServices
+      maintainContext: true
+  - name: 2017-01-31
+    items:
+    - name: Container Services
+      href: /azure/templates/Microsoft.ContainerService/2017-01-31/containerServices
+      maintainContext: true
+  - name: 2016-09-30
+    items:
+    - name: Container Services
+      href: /azure/templates/Microsoft.ContainerService/2016-09-30/containerServices
+      maintainContext: true
+  - name: 2016-03-30
+    items:
+    - name: Container Services
+      href: /azure/templates/Microsoft.ContainerService/2016-03-30/containerServices
+      maintainContext: true
 - name: Cosmos DB
   items:
   - name: Database Accounts
@@ -1192,9 +1222,6 @@
     - name: Advisors
       href: /azure/templates/Microsoft.Sql/servers/advisors
       maintainContext: true
-    - name: Auditing Policies
-      href: /azure/templates/Microsoft.Sql/servers/auditingPolicies
-      maintainContext: true
     - name: Backup Long Term Retention Vaults
       href: /azure/templates/Microsoft.Sql/servers/backupLongTermRetentionVaults
       maintainContext: true
@@ -1210,9 +1237,6 @@
       items:
       - name: Advisors
         href: /azure/templates/Microsoft.Sql/servers/databases/advisors
-        maintainContext: true
-      - name: Auditing Policies
-        href: /azure/templates/Microsoft.Sql/servers/databases/auditingPolicies
         maintainContext: true
       - name: Auditing Settings
         href: /azure/templates/Microsoft.Sql/servers/databases/auditingSettings
