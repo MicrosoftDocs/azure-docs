@@ -102,7 +102,7 @@ Contact your hardware supplier to verify that the correct BIOS markers were inst
 
 ### What about earlier versions of Windows Server?
 
-Automatic Virtual Machine Activation is not supported in earlier versions of Windows Server. You will have to activate the VMs manually.
+[Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) is not supported in earlier versions of Windows Server. You will have to activate the VMs manually.
 
 ## Next Steps
 
