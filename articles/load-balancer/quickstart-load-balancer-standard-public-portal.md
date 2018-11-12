@@ -4,8 +4,6 @@ description: This quickstart shows how to create a Standard load balancer by usi
 services: load-balancer
 documentationcenter: na
 author: KumudD 
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
 Customer intent: I want to create a Standard Load balancer so that I can load balance internet traffic to VMs.
 
@@ -141,6 +139,7 @@ To allow the load balancer to monitor the status of your app, you use a health p
     - *myHealthProbe* - for the name of the health probe.
     - **HTTP** - for the protocol type.
     - *80* - for the port number.
+    - **Healthprobe.aspx** for the URI path. You can either replace this value with any other URI or keep the default path value of **"\"** to get the default URI.
     - *15* - for number of **Interval** in seconds between probe attempts.
     - *2* - for number of **Unhealthy threshold** or consecutive probe failures that must occur before a VM is considered unhealthy.
 4. Click **OK**.

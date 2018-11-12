@@ -4,14 +4,11 @@ description: This quickstart shows how to create a public Basic load balancer by
 services: load-balancer
 documentationcenter: na
 author: KumudD 
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to create a Basic Load balancer so that I can load balance internet traffic to VMs.
 ms.assetid: aa9d26ca-3d8a-4a99-83b7-c410dd20b9d0
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2018
@@ -154,6 +151,7 @@ To allow the Basic load balancer to monitor the status of your app, you use a he
    - **myHealthProbe** for the name of the health probe
    - **HTTP** for the protocol type
    - **80** for the port number
+   - **Healthprobe.aspx** for the URI path. You can either replace this value with any other URI or keep the default path value of **"\"** to get the default URI.
    - **15** for **Interval**, the number of seconds between probe attempts
    - **2** for **Unhealthy threshold**, the number of consecutive probe failures that must occur before a VM is considered unhealthy
 
