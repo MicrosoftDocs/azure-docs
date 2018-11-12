@@ -13,7 +13,7 @@ ms.topic: conceptual
 ---
 
 # Prerequisites
-To create or modify a rule, you must be an Admin for your solution accelerator, or have the correct permissions. [Learn how to configure role-based access controls](./iot-accelerators-remote-monitoring-rbac).
+To create or modify a rule, you must be an Admin for your solution accelerator, or have the correct permissions. [Learn how to configure role-based access controls](../../articles/io-accelerators/iot-accelerators-remote-monitoring-rbac.md).
 
 # Add an email action
 Adding an email action to a rule helps make sure that you will never miss an alert again. You can either add an email action to an existing rule that you have defined earlier, or while creating a new rule. 
