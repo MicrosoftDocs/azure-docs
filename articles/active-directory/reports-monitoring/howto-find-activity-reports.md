@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
 

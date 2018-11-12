@@ -13,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/07/2018
+ms.date: 11/12/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 

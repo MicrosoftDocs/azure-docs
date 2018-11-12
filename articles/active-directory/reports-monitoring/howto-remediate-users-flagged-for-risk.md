@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
 # Remediate users flagged for risk in the Azure Active Directory portal
 
-With the security reports in the Azure Active Directory (Azure AD), you can gain insights into the probability of compromised user accounts in your environment. A user flagged for risk is an indicator for a user account that might have been compromised.
+With the security reports in the Azure Active Directory (Azure AD), you can gauge the probability of compromised user accounts in your environment. A user flagged for risk is an indicator for a user account that might have been compromised.
 
 Microsoft is committed to helping keep your environments secure. As part of this commitment, Microsoft continuously monitors for activities that are unusual or consistent with known attack patterns. 
 
@@ -28,17 +28,19 @@ If unusual activities that may indicate unauthorized access to some of your user
 
 ## Access the users flagged for risk report
 
-You can review users flagged for risk through the [users at risk report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in Azure Active Directory (AD). If you are not a subscriber to Azure AD, you can go through the one-time subscription process at no cost at [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). From this report, you can take the following actions for each user:
+You can review users flagged for risk through the [users at risk report](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/UsersAtRisk) in the Azure portal. If you don't have Azure AD, you can sign up for free at [https://aka.ms/AccessAAD](https://aka.ms/AccessAAD). 
+
+From the users flagged for risk report, you can take the following actions for each user:
 
 - Generate temporary password
 - Require the user to securely reset their password the next time they sign in
 - Dismiss the user risk without taking any remediation action.
 
-For more information, see [Users flagged for risk security report in the Azure Active Directory portal](concept-user-at-risk.md).
+For more information, see [Users flagged for risk security report](concept-user-at-risk.md).
 
 ### Azure AD subscription for Office 365 customers
 
-You can also use your Office 365 credentials to access the Azure Admin Center. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
+You can also use your Office 365 credentials to access the **Azure Admin Center**. After you have activated your access to Azure AD, you are redirected to the Azure AD portal. At the basic subscription level, the amount of detail provided in the reports are limited. Additional data and analytics are available for Azure Premium subscribers.
 
 To access the **Users flagged for risk** reports in the Office 365 admin center:
 
@@ -48,8 +50,6 @@ To access the **Users flagged for risk** reports in the Office 365 admin center:
 4.	If a banner is displayed at the top of the page that says **Check out the new portal**, select the link.
 4.	In the navigation menu on the left side, select **Azure Active Directory**. 
 5.	In the navigation pane, select **Users flagged for risk** from the **Security** section.
-
-Review the information displayed here. You should reset the password for any account that is listed. 
 
 ## Remediation actions
 
