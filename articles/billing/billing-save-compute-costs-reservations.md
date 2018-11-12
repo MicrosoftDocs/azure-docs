@@ -28,7 +28,7 @@ Service plans:
 - [SQL Database compute resources with Azure SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md)
 
 Software plans:
-- [RedHat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Red Hat software plans from Azure Reservations](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [SUSE software plans from Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
 
 ## Why buy a reservation?
@@ -45,7 +45,7 @@ Service plans:
 
 Software plans:
 
-- RedHat Enterprise Linux plans: The plan covers the cost of running the RedHat Enterprise Linux software on an Azure VM.
+- Red Hat Enterprise Linux plans: The plan covers the cost of running the Red Hat Enterprise Linux software on an Azure VM.
 - SUSE Linux software plans: The plan covers the cost of running the SUSE software on an Azure VM.
 
 
@@ -81,7 +81,7 @@ Service plans:
 
 Software plans:
 
-- Understand Azure reservation discount and usage for RedHat
+- Understand Azure reservation discount and usage for Red Hat
 - [Understand Azure reservation discount and usage for SUSE](billing-understand-suse-reservation-charges.md)
 
 ## When the reservation term expires
@@ -101,11 +101,11 @@ Service plans:
 Software plans:
 
 - SUSE Linux Enterprise software plan: The discount coverage depends on the vCPUs of the VMs where you run the SUSE software. For more information, see [Understand how the SUSE Linux Enterprise software plan discount is applied](billing-understand-suse-reservation-charges.md).
-- RedHat Enterprise Linux plan: The discount coverage depends on the vCPUs of the VMs where you run the RedHat software. For more information, see Understand how the RedHat  Enterprise Linux plan discount is applied.
+- Red Hat Enterprise Linux plan: The discount coverage depends on the vCPUs of the VMs where you run the Red Hat software. For more information, see Understand how the Red Hat Enterprise Linux plan discount is applied.
 
 ## Next steps
 
-Start saving on your virtual machines by buying a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md), or [Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md). Save on Linux software costs by buying a [RedHat Enterprise Linux software plan](../virtual-machines/linux/prepay-rhel-software-charges.md) or  [SUSE software plan](../virtual-machines/linux/prepay-suse-software-charges.md).
+Start saving on your virtual machines by buying a [Reserved VM Instance](../virtual-machines/windows/prepay-reserved-vm-instances.md), [SQL Database reserved capacity](../sql-database/sql-database-reserved-capacity.md), or [Azure Cosmos DB reserved capacity](../cosmos-db/cosmos-db-reserved-capacity.md). Save on Linux software costs by buying a [Red Hat Enterprise Linux software plan](../virtual-machines/linux/prepay-rhel-software-charges.md) or  [SUSE software plan](../virtual-machines/linux/prepay-suse-software-charges.md).
 
 To learn more about Azure Reservations, see the following articles:
 
