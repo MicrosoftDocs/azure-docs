@@ -85,7 +85,7 @@ The `--scope` for a resource needs to be a full resource ID, such as */subscript
 
 The following sections detail common delegations that you may need to make.
 
-## Azure Container Registry
+### Azure Container Registry
 
 If you use Azure Container Registry (ACR) as your container image store, you need to grant permissions for your AKS cluster to read and pull images. The service principal of the AKS cluster must be delegated the *Reader* role on the registry. For detailed steps, see [Grant AKS access to ACR][aks-to-acr].
 
