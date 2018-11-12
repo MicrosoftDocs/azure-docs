@@ -44,7 +44,7 @@ Task hubs are identified by a name that is declared in the *host.json* file, as 
 }
 ```
 
-Task hubs can be identified by app setting value with the following configuration in the *host.json* file:
+Task hubs can also be configured using app settings, as shown in the following *host.json* example file:
 
 ```json
 {
