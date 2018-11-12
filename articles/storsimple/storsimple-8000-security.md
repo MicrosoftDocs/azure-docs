@@ -201,7 +201,7 @@ StorSimple uses the following encryption algorithms to protect data stored in or
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
-## Managing personal inforamation
+## Managing personal information
 
 The StorSimple Device Manager for both physical and virtual series collects personal information in the follwing key instances:
 
