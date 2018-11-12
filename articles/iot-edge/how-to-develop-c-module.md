@@ -4,7 +4,7 @@ description: Use Visual Studio Code to develop, build, and debug a C module for 
 services: iot-edge
 keywords: 
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/13/2018

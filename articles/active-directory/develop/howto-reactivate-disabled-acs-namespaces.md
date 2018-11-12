@@ -31,7 +31,7 @@ On October 3, 2018, we announced (through email and [a blog post](https://azure.
 If you haven't opted in for the extension, we will start to disable ACS namespaces starting November 7, 2018. If you missed the communications and would still like to opt in for the extension to February 4, 2019, follow the instructions in the following sections.
 
 > [!NOTE]
-> You must be an administrator of the subscription to run the PowerShell commands and request an extension.
+> You must be a service administrator or co-administrator of the subscription to run the PowerShell commands and request an extension.
 
 ## Find and enable your ACS namespaces
 
@@ -58,6 +58,7 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
         ```
     
         where `[Command-Name]` is the name of the ACS command.
+1. Connect to ACS using the **Connect-AcsAccount** cmdlet.
 1. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
 1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
 1. Confirm that the namespaces are disabled by confirming that `State` is `Disabled`.

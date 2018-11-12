@@ -1,3 +1,10 @@
+---
+author: vhorne
+ms.service: application-gateway
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: victorh
+---
 | Resource | Default limit | Note |
 | --- | --- | --- |
 | Application Gateway |50 per subscription | Maximum 1000 |
