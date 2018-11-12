@@ -32,7 +32,7 @@ With Azure virtual machines, you deploy the agent using the Log Analytics VM ext
 
 ![Log Analytics agent communication diagram](../media/log-analytics-agent-overview/log-analytics-agent-01.png)
 
-Before analyzing and acting on collected data, you first need to install and connect agents for all of the machjines that you want to send data to the Log Analytics service. You can install agents on your Azure VMs using the Azure Log Analytics VM extension for Windows and Linux, to con-premises machines using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation. 
+Before analyzing and acting on collected data, you first need to install and connect agents for all of the machines that you want to send data to the Log Analytics service. You can install agents on your Azure VMs using the Azure Log Analytics VM extension for Windows and Linux, to con-premises machines using Setup, command line, or with Desired State Configuration (DSC) in Azure Automation. 
 
 The agent for Linux and Windows communicates outbound with the Log Analytics service over TCP port 443, and if the machine connects to a firewall or proxy server to communicate over the Internet, review requirements below to understand the network configuration required.  If your IT security policies do not allow computers on the network to connect to the Internet, you can set up a [Log Analytics gateway](log-analytics-oms-gateway.md) and then configure the agent to connect through the gateway to Log Analytics. The agent can then receive configuration information and send data collected depending on what data collection rules and monitoring solutions you have enabled. 
 
@@ -116,7 +116,7 @@ Connecting machines in your Azure subscription or hybrid environment directly wi
 
 |Source | Method | Description|
 |-------|-------------|-------------|
-|Azure VM| Log Analytics VM extension for [Windows](../virtual-machines/extensions/oms-windows .md)or [Linux](../virtual-machines/extensions/oms-linux.md)| The extension installs the Log Analytics agent on Azure virtual machines and enrolls them into an existing Azure Monitor workspace.|
+|Azure VM| Log Analytics VM extension for [Windows](../virtual-machines/extensions/oms-windows .md) or [Linux](../virtual-machines/extensions/oms-linux.md)| The extension installs the Log Analytics agent on Azure virtual machines and enrolls them into an existing Azure Monitor workspace.|
 | Hybrid Windows computer|- [Manual install](log-analytics-agent-windows.md)<br>- [Azure Automation DSC](log-analytics-agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Resource Manager template with Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Install the Microsoft Monitoring agent from the command line or using an automated method such as Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), or with an Azure Resource Manager template if you have deployed Microsoft Azure Stack in your datacenter.| 
 | Hybrid Linux computer| [Manual install](log-analytics-quick-collect-linux-computer.md)|Install the agent for Linux calling a wrapper-script hosted on GitHub. | 
 | System Center Operations Manager|[Integrate Operations Manager with Log Analytics](log-analytics-om-agents.md) | Configure integration between Operations Manager and Log Analytics to forward collected data from Linux and Windows computers reporting to a management group.|  
