@@ -29,7 +29,7 @@ This quickstart calls QnA Maker APIs:
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your dashboard. 
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/create-and-publish-knowledge-base).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp).
 
 ## Create a knowledge base project
 
