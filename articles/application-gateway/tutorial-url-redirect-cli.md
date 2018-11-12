@@ -1,6 +1,6 @@
 ---
-title: Create an application gateway with URL path-based redirection - Azure CLI
-description: Learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
+title: Tutorial - Create an application gateway with URL path-based redirection - Azure CLI
+description: In this tutorial, you learn how to create an application gateway with URL path-based redirected traffic using the Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
