@@ -28,7 +28,7 @@ When you create or update a virtual network in your subscription, Network Watche
 If you would like to opt out of Network Watcher automatic enablement, you can do so by running the following commands:
 
 > [!WARNING]
-> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out you cannot opt-in without [contacting support](https://azure.microsoft.com/en-us/support/options/)
+> Opting-out of Network Watcher automatic enablement is a permanent change. Once you opt-out you cannot opt-in without [contacting support](https://azure.microsoft.com/support/options/)
 
 ```azurepowershell-interactive
 Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
