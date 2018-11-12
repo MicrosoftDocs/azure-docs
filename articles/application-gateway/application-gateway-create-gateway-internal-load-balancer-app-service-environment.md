@@ -17,7 +17,7 @@ ms.date: 11/06/2018
 ms.author: genli
 ---
 
-# Back-end server certificate is not whitelisted for an application gateway using an ILB ASE
+# Back-end server certificate is not whitelisted for an application gateway using an Internal Load Balancer with an App Service Environment
 
 This article troubleshoots the following issue: A certificate isn't whitelisted when you create an application gateway by using an Internal Load Balancer (ILB) together with an App Service Environment (ASE) at the back end when using end-to-end SSL in Azure.
 
