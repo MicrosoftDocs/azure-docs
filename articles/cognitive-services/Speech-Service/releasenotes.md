@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/12/2018
 ms.author: wolfma
 ---
 
@@ -44,7 +44,7 @@ ms.author: wolfma
 
 **Samples**
 
-* Added C++ sample for pull and push stream usage in our [sample repository](https://aka.ms/csspeech/samples).
+* Added C++ and C# samplea for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
 
 ## Speech Service SDK 1.0.1
 
