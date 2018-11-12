@@ -32,7 +32,7 @@ You cannot make an RDP connection and other connections (such as HTTP) to a VM i
 
 ## Cause
 
-The RDP service is not avaiable in Safe Mode. Only essential system programs and services are loaded when the VM boots into Safe Mode.
+The RDP service is not available in Safe Mode. Only essential system programs and services are loaded when the VM boots into Safe Mode.
 
 ## Solution 
 
@@ -48,11 +48,11 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 
         bcdedit /enum
 
-    If the machine is booting in Safe Mode, you will see an extra value under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” value, the VM is not in Safe Mode. This article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra value under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” value, the VM is not in Safe Mode. This article does not apply to your scenario.
 
     ![Image about the Safe Mode value](./media/troubleshoot-bitlocker-boot-error/safe-mode-tag.png)
 
-3. Delete the **safemoade** value, so the VM will boot into normal mode:
+3. Delete the **safemoade** flag, so the VM will boot into normal mode:
 
 	    bcdedit /deletevalue {current} safeboot
         
@@ -68,37 +68,53 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 #### Attach the OS disk to a recovery VM
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
-2. Start a Remote Desktop connection to the recovery VM. Make sure that the attached disk is flagged as **Online** in the Disk Management console. Note the drive letter that's assigned to the attached OS disk. If the disk is encrypted, see [Troubleshooting BitLocker boot errors on an Azure VM](troubleshoot-bitlocker-boot-error.md)
-3.  Open an elevated command prompt instance (**Run as administrator**). Then run the following script. We assume that the drive letter that's assigned to the attached OS disk is **F**. Replace it with the appropriate value in your VM. 
+2.Start a Remote Desktop connection to the recovery VM. 
+3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 
-    ```cmd
-    reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
+#### Enable dump log and Serial Console
+
+To enable dump log and Serial Console, run the following script.
+
+1. Open an elevated command prompt session (**Run as administrator**).
+2. Run the following script:
+
+    In this script, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
+
+    ```powershell
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
 
     REM Enable Serial Console
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} displaybootmenu yes
-
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} timeout 10
-
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /set {bootmgr} bootems yes
-
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
-
-    bcdedit /store <VOLUME LETTER WHERE THE BCD FOLDER IS>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
-
-    REM Get the current ControlSet from where the OS is booting
-    for /f "tokens=3" %x in ('REG QUERY HKLM\BROKENSYSTEM\Select /v Current') do set ControlSet=%x
-
-    set ControlSet=%ControlSet:~2,1%
+    bcdedit /store F:\boot\bcd /set {bootmgr} displaybootmenu yes
+    bcdedit /store F:\boot\bcd /set {bootmgr} timeout 5
+    bcdedit /store F:\boot\bcd /set {bootmgr} bootems yes
+    bcdedit /store F:\boot\bcd /ems {<BOOT LOADER IDENTIFIER>} ON
+    bcdedit /store F:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
 
     REM Suggested configuration to enable OS Dump
-    set key=HKLM\BROKENSYSTEM\ControlSet00%ControlSet%\Control\CrashControl
-    REG ADD %key% /v CrashDumpEnabled /t REG_DWORD /d 2 /f
-    REG ADD %key% /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-    REG ADD %key% /v NMICrashDump /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet001\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
+
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v CrashDumpEnabled /t REG_DWORD /d 1 /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
+    REG ADD "HKLM\BROKENSYSTEM\ControlSet002\Control\CrashControl" /v NMICrashDump /t REG_DWORD /d 1 /f
 
     reg unload HKLM\BROKENSYSTEM
-    ```
 
-4. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
+#### Configure the Windows to boot into normal mode
 
+1. Open an elevated command prompt session (**Run as administrator**).
+2. Run the following commoand. Replace this drive letter with the appropriate value for your VM. 
 
+        bcdedit /store F:\boot\bcd /enum
+    Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
+
+    If the VM is configured to boot into Safe Mode, you will see an extra value under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” value, this article does not apply to your scenario.
+
+3. Remove the **safemode** flag, so the VM will boot into normal mode:
+
+    bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
+4. Check the boot configuration data to make sure that the safeboot flag is removed:
+
+        bcdedit /store F:\boot\bcd /enum
+5. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the issue is resolved.
