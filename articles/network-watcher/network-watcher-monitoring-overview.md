@@ -96,7 +96,7 @@ Learn more about NSG flow logs by completing the [Log network traffic to and fro
 You can enable diagnostic logging for Azure networking resources such as network security groups, public IP addresses, load balancers, virtual network gateways, and application gateways. The *Diagnostic logs* capability provides a single interface to enable and disable network resource diagnostic logs for any existing network resource that generates a diagnostic log. You can view diagnostic logs using tools such as Microsoft Power BI and Azure Log Analytics. To learn more about analyzing Azure network diagnostic logs, see [Azure network solutions in Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ## Network Watcher Auto-Enablement
-When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There is no impact to your resources or associated charge for automatically enabling Network Watcher. For more information see [Network Watcher create](network-watcher-create.md)
+When you create or update a virtual network in your subscription, Network Watcher will be enabled automatically in your Virtual Network's region. There is no impact to your resources or associated charge for automatically enabling Network Watcher. For more information see [Network Watcher create](network-watcher-create.md).
 
 ## Next steps
 
