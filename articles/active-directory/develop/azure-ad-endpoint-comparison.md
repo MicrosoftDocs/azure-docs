@@ -167,7 +167,7 @@ In this case, you're referring to a DNS subdomain of login.contoso.com. If you w
 
 You can add the latter two because they are subdomains of the first redirect URL, contoso.com. This limitation will be removed in an upcoming release.
 
-Also note, you can have only 20 reply URLs for a particular application.
+Also note, you can have only 20 reply URLs for a particular application - this applies across all app types that the registration supports (SPA, native client, web app, and service).  
 
 To learn how to register an app for use with v2.0, see [How to register an app with the v2.0 endpoint](quickstart-v2-register-an-app.md).
 
