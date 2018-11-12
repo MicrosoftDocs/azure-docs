@@ -80,7 +80,7 @@
         - name: Overview
           href: indexing-overview.md
         - name: Indexing policy
-          href: indexing-policies.md
+          href: indexing-policy.md
         - name: Index types
           href: index-types.md
         - name: Index paths
