@@ -16,12 +16,15 @@ You deploy an on-premises configuration server when you use [Azure Site Recovery
 - The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - The configuration server coordinates communications between on-premises VMware and Azure. It also manages data replication.
 - [Learn more](vmware-azure-architecture.md) about the configuration server components and processes.
-- You deploy the configuration server as a VMware VM.
-- Site Recovery provides an OVA template that you download from the Azure portal, and import into vCenter Server to set up the configuration server VM.
-- If you use the OVA to set up the configuration server VMware VM, the VM will comply with the requirements listed in this article.
 
->[!NOTE]
-If you're deploying the configuration server for disaster recovery of on-premises physical machines to Azure, review the requirements in [this article](physical-azure-set-up-source.md).
+## Configuration server deployment
+
+For disaster recovery of VMware VMs to Azure, you deploy the configuration server as a VMware VM.
+
+- Site Recovery provides an OVA template that you download from the Azure portal, and import into vCenter Server to set up the configuration server VM.
+- When you deploy the configuration server using the OVA template, the VM automatically complies with the requirements listed in this article.
+- We strongly recommend that you set up the configuration server using the OVA template. However, if you're setting up disaster recovery for VMware VMs and can't use the OVA template, you can deploy the configuration server using [these instructions provided](physical-azure-set-up-source.md).
+- If you're deploying the configuration server for disaster recovery of on-premises physical machines to Azure, follow the instructions in [this article](physical-azure-set-up-source.md). 
 
 
 ## Hardware requirements
@@ -74,22 +77,5 @@ The following table summarizes capacity requirements for the configuration serve
 
 
 
-## Upgrade the configuration server
-
-To upgrade the configuration server to the latest version, follow these [steps](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
-
-## Manage the configuration server
-
-To avoid interruptions in ongoing replication, ensure that IP address of the configuration server does not change after the configuration server has been registered to a vault. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
-
-#
-
-## Troubleshoot deployment issues
-
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
-
-
-
 ## Next steps
-
 Set up disaster recovery of [VMware VMs](vmware-azure-tutorial.md) to Azure.
