@@ -15,7 +15,7 @@ The following table describes default limits for Azure Storage. The *ingress* li
 | Resource | Default Limit |
 | --- | --- |
 | Number of storage accounts per region per subscription, including both standard and premium accounts | 250 |
-| Max storage account capacity<sup>1</sup> | 2 PB for US and Europe, 500 TB for all other regions including UK |
+| Max storage account capacity | 2 PB for US and Europe, 500 TB for all other regions including UK |
 | Max number of blob containers, blobs, file shares, tables, queues, entities, or messages per storage account | No limit |
 | Maximum request rate<sup>1</sup> per storage account | 20,000 requests per second |
 | Max ingress<sup>1</sup> per storage account (US Regions) | 10 Gbps if RA-GRS/GRS enabled, 20 Gbps for LRS/ZRS<sup>2</sup> |
