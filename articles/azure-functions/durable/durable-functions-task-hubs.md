@@ -54,7 +54,7 @@ Task hubs can also be configured using app settings, as shown in the following *
 }
 ```
 
-Then the task hub name will be the value of the `MyTaskHub` app setting variable. For the following sample for `local.settings.json` the task hub name will be `samplehubname`:
+The task hub name will be set to the value of the `MyTaskHub` app setting. The following `local.settings.json` demonstrates how to define the `MyTaskHub` setting as `samplehubname`:
 
 ```json
 {
