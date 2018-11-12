@@ -62,7 +62,7 @@ If the cluster health policies are not met, the upgrade is rolled back.
 Once you have fixed the issues that resulted in the rollback, you need to initiate the upgrade again, by following the same steps as before.
 
 ## Set custom health polices for upgrades
-You can specify custom health polices for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the [Phase-1 of the automatic fabric upgrades](service-fabric-cluster-upgrades-azure.md#fabric-upgrade-behavior-during-automatic-upgrades).
+You can specify custom health polices for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the [Phase-1 of the automatic fabric upgrades](service-fabric-cluster-upgrade.md#fabric-upgrade-behavior-during-automatic-upgrades).
 If you have set your cluster for Manual fabric upgrades, then these policies get applied each time you select a new version triggering the system to kick off the fabric upgrade in your cluster. If you do not override the policies, the defaults are used.
 
 You can specify the custom health policies or review the current settings under the "fabric upgrade" blade, by selecting the advanced upgrade settings. Review the following picture on how to. 
