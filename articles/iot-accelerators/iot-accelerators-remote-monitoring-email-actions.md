@@ -6,14 +6,14 @@ manager: hegate
 ms.author: asdonald
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 10/31/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 
 # As a developer, I want to add email as an action to a new or existing rule within my Remote Monitoring solution.
 ---
 
 # Prerequisites
-To create or modify a rule, you must be an Admin for your solution accelerator, or have the correct permissions. [Learn how to configure role-based access controls](https://docs.microsoft.com/en-us/azure/iot-accelerators/iot-accelerators-remote-monitoring-rbac).
+To create or modify a rule, you must be an Admin for your solution accelerator, or have the correct permissions. [Learn how to configure role-based access controls](iot-accelerators-remote-monitoring-rbac).
 
 # Add an email action
 Adding an email action to a rule helps make sure that you will never miss an alert again. You can either add an email action to an existing rule that you have defined earlier, or while creating a new rule. 
@@ -26,7 +26,7 @@ Follow these steps to add an email action:
 
       ![rules](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
 
-  3. Click the checkbox next to the [existing rule](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate#edit-an-existing-rule) that you would like to modify, and then click **Edit** at the top. An editable flyout will appear.
+  3. Click the checkbox next to the [existing rule](./iot-accelerators-remote-monitoring-automate#edit-an-existing-rule) that you would like to modify, and then click **Edit** at the top. An editable flyout will appear.
   4. In the Action section, toggle **Email enabled** to on. 
 
       ![email enabled](./media/iot-accelerators-remote-monitoring-email-actions/emailenabled.png)
