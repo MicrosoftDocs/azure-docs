@@ -58,9 +58,9 @@ On the command line:
 
 When using _azds.exe_, use the --verbose command-line option, and use the --output command-line option to specify the output format.
  
-    ```cmd
-    azds up --verbose --output json
-    ```
+```cmd
+azds up --verbose --output json
+```
 
 In Visual Studio:
 

@@ -1,5 +1,5 @@
 ---
-title: Analyze videos with Azure Media Services | Microsoft Docs
+title: Analyze videos with Azure Media Services| Microsoft Docs
 description: Follow the steps of this tutorial to analyze videos using Azure Media Services.
 services: media-services
 documentationcenter: ''
@@ -11,13 +11,13 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/15/2018
+ms.date: 11/08/2018
 ms.author: juliako
 ---
 
-# Tutorial: Analyze videos with Azure Media Services 
+# Tutorial: Analyze videos with Media Services v3 using APIs
 
-This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business such as a list of common complaints, sources of such complaints, etc.
+This tutorial shows you how to analyze videos with Azure Media Services. There are many scenarios in which you might want to gain deep insights into recorded videos or audio content. For example, to achieve higher customer satisfaction, organizations can run speech-to-text processing to convert customer support recordings into a searchable catalog, with indexes and dashboards. Then, they can obtain insights into their business such as a list of common complaints, sources of such complaints, and other useful information.
 
 This tutorial shows you how to:    
 

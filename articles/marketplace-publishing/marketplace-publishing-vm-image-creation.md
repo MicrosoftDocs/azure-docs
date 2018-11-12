@@ -434,7 +434,7 @@ Following are the steps for generating SAS URL by using Azure classic CLI
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.	Download the Azure classic CLI from [here](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](https://aka.ms/webpi-azure-cli)** and **[MAC OS](https://aka.ms/mac-azure-cli)**.
+1.	Download Microsoft Azure CLI from [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). You can also find different links for **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** and **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
 2.	Once it is downloaded, please install
 

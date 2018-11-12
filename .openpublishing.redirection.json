@@ -30510,6 +30510,12 @@
             "source_path": "articles/iot-central/howto-create-application.md",
             "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
             "redirect_document_id" : false
+        },
+
+	{
+            "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
+            "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
+            "redirect_document_id" : false
         }
     ]
 }
