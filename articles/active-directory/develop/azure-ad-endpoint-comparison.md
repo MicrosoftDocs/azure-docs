@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.author: celested
 ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, dadobali
 ms.custom: aaddev
@@ -49,9 +49,9 @@ Apps using the Azure AD v1.0 endpoint are required to specify their required OAu
 
 The permissions set directly on the application registration are **static**. While static permissions of the app defined in the Azure portal keeps the code nice and simple, it presents some possible issues for developers:
 
-* The app needs know all of the permissions it would ever need at app creation time. Adding permissions over time was a difficult process.
-* The app needs to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
 * The app needs to request all the permissions it would ever need upon the user's first sign-in. In some cases this led to a long list of permissions, which discouraged end users from approving the app's access on initial sign-in.
+
+* The app needs to know all of the resources it would ever access ahead of time. It was difficult to create apps that could access an arbitrary number of resources.
 
 With the v2.0 endpoint, you can ignore the static permissions defined in the app registration information in the Azure portal and request permissions incrementally instead, for example, asking for a bare minimum set of permissions upfront and accruing more over time as the customer uses additional app features. To do so, you can specify the scopes your app needs at any given point in time by including the new scopes in the `scope` parameter when requesting an access token - without the need to pre-define them in the application registration information. If the user has yet not consented to new scopes added to the request, they will be prompted to consent only to the new permissions. To learn more, see [permissions, consent, and scopes](v2-permissions-and-consent.md).
 
@@ -88,7 +88,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 ...
 ```
 
-Here, the **scope** parameter indicates which resource and permissions the app is requesting authorization. The desired resource is still present in the request - it is simply encompassed in each of the values of the scope parameter. Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices. It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent).
+Here, the **scope** parameter indicates which resource and permissions the app is requesting authorization. The desired resource is still present in the request - it is simply encompassed in each of the values of the scope parameter. Using the scope parameter in this manner allows the v2.0 endpoint to be more compliant with the OAuth 2.0 specification, and aligns more closely with common industry practices. It also enables apps to perform [incremental consent](#incremental-and-dynamic-consent) - only requesting permissions when the application requires them as opposed to up front.
 
 ## Well-known scopes
 
@@ -107,7 +107,7 @@ Historically, the most basic OpenID Connect sign-in flow with Azure AD would pro
 The information that the `openid` scope affords your app access to is now restricted. The `openid` scope will only allow your app to sign in the user and receive an app-specific identifier for the user. If you want to obtain personal data about the user in your app, your app needs to request additional permissions from the user. Two new scopes, `email` and `profile`, will allow you to request additional permissions.
 
 * The `email` scope allows your app access to the user’s primary email address through the `email` claim in the id_token, assuming the user has an addressable email address. 
-* The `profile` scope affords your app access to all other basic information about the user such as their name, preferred username, object ID, and so on.
+* The `profile` scope affords your app access to all other basic information about the user such as their name, preferred username, object ID, and so on in the id_token.
 
 These scopes allow you to code your app in a minimal-disclosure fashion so you can only ask the user for the set of information that your app needs to do its job. For more information on these scopes, see [the v2.0 scope reference](v2-permissions-and-consent.md).
 
@@ -130,17 +130,17 @@ The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that
 
 ### Restrictions on app registrations
 
-Currently, for each app that you want to integrate with the v2.0 endpoint, you must create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Alternatively, you can register an app using the **App registrations (Preview)** experience in the Azure portal. Existing Azure AD or Microsoft account apps are not compatible with the v2.0 endpoint. 
+Currently, for each app that you want to integrate with the v2.0 endpoint, you can create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Alternatively, you can register an app using the [**App registrations (Preview)** experience](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) in the Azure portal. Existing Microsoft account apps are not compatible with the preview portal, but all AAD apps are, regardless of where or when they were registered. 
 
-Ap registrations that you create in the [Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) have the following caveats:
+Ap registrations that support work and school accounts as well as personal accounts have the following caveats:
 
 * Only two app secrets are allowed per application ID.
-* An app registration registered by a user with a personal Microsoft account can be viewed and managed only by a single developer account. It can't be shared between multiple developers. If you'd like to share your app registration with multiple developers, you can create the application by signing into the registration portal with an Azure AD account.
+* An app registration registered by a user with a personal Microsoft account in the App Registration Portal can be viewed and managed only by a single developer account. It can't be shared between multiple developers. If you'd like to share your app registration with multiple developers, you can create the application by signing in with an Azure AD account.
 * There are several restrictions on the format of the redirect URL that is allowed. For more information about redirect URL, see the next section.
 
 ### Restrictions on redirect URLs
 
-Apps that are registered in the Application Registration Portal are restricted to a limited set of redirect URL values. The redirect URL for web apps and services must begin with the scheme `https`, and all redirect URL values must share a single DNS domain. For example, you cannot register a web app that has one of these redirect URLs:
+Apps that are registered for v2.0 are restricted to a limited set of redirect URL values. The redirect URL for web apps and services must begin with the scheme `https`, and all redirect URL values must share a single DNS domain. For example, you cannot register a web app that has one of these redirect URLs:
 
 * `https://login-east.contoso.com`  
 * `https://login-west.contoso.com`
@@ -172,7 +172,7 @@ You can add the latter two because they are subdomains of the first redirect URL
 
 Also note, you can have only 20 reply URLs for a particular application.
 
-To learn how to register an app in the Application Registration Portal, see [How to register an app with the v2.0 endpoint](quickstart-v2-register-an-app.md).
+To learn how to register an app for use with v2.0, see [How to register an app with the v2.0 endpoint](quickstart-v2-register-an-app.md).
 
 ### Restrictions on libraries and SDKs
 
