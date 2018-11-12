@@ -12,7 +12,7 @@ ms.author: alkohli
 ---
 # Azure Data Box Blob storage requirements
 
-This article lists the versions of the Azure APIs, SDKs, and tools supported with the Data Box Blob storage. Data Box Blob storage provides blob management functionality with Azure-consistent semantics. This article summarizes the known Azure Data Box Blob storage differences from the Azure Storage services. It also lists things to consider when you deploy Data Box and use the REST APIs to copy data.
+This article lists the versions of the Azure APIs, SDKs, and tools supported with the Data Box Blob storage. Data Box Blob storage provides blob management functionality with Azure-consistent semantics. This article also summarizes the known Azure Data Box Blob storage differences from the Azure Storage services.
 
 We recommend that you review the information carefully before you connect to the Data Box Blob storage, and then refer back to it as necessary.
 
@@ -57,7 +57,7 @@ Public preview release (Azure Data Box 1.7 onwards)
 
 For Data Box Blob storage, there are specific client libraries and specific endpoint suffix requirements.
 
-The supported REST API versions for Data Box Blob storage are 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, 2015-04-05 for the Azure Data Box 1.7 onwards.. The Data Box Blob storage endpoints do not have full parity with the latest version of the Azure storage REST API. For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
+The supported REST API versions for Data Box Blob storage are 2017-04-17, 2016-05-31, 2015-12-11, 2015-07-08, and 2015-04-05 for the Azure Data Box version 1.7 onwards. The Data Box Blob storage endpoints do not have full parity with the latest version of the Azure Blob Storage REST API. For the storage client libraries, you need to be aware of the version that is compatible with the REST API.
 
 ### Azure Data Box 1.7 onwards
 
@@ -97,7 +97,7 @@ An Azure Data Box Blob storage endpoint includes two parts: the name of a region
 
 ### .NET
 
-For Data Box Blob storage, the endpoint suffix is specified in the app.config file:
+For Data Box Blob storage, the endpoint suffix is specified in the `app.config` file:
 
 ```
 <add key="StorageConnectionString"

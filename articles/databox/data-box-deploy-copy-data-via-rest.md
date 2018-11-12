@@ -13,7 +13,7 @@ ms.author: alkohli
 ---
 # Tutorial: Copy data via Azure Data Box Blob storage REST APIs  
 
-This tutorial describes procedures to connect a Windows systems to Data Box using Azure Blob storage REST APIs. The connection to the Data Box Blob storage REST APIs can be over *http* or *https*. Once connected, the steps required to copy the data to Data Box and prepare the Data Box to ship, are also described.
+This tutorial describes procedures to connect a Windows system to Data Box using Azure Blob storage REST APIs. The connection to the Data Box Blob storage REST APIs can be over *http* or *https*. Once connected, the steps required to copy the data to Data Box and prepare the Data Box to ship, are also described.
 
 In this tutorial, you learn how to:
 
@@ -27,14 +27,14 @@ In this tutorial, you learn how to:
 
 Before you begin, make sure that:
 
-1. You have completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
-2. You have received your Data Box and the order status in the portal is **Delivered**.
-3. You have reviewed the [system requirements for Data Box Blob storage](data-box-system-requirements-rest.md) and are familiar with supported versions of APIs, SDKs, and tools.
+1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
+2. You've received your Data Box and the order status in the portal is **Delivered**.
+3. You've reviewed the [system requirements for Data Box Blob storage](data-box-system-requirements-rest.md) and are familiar with supported versions of APIs, SDKs, and tools.
 4. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
-    - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted.
-5. You have the latest version of AzCopy on Linux or Windows. You will use AzCopy to copy data to Azure from your host computer.
-6. You have access to a GPv1 storage account associated with your Data Box. You will copy data to this account.
+    - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds will be impacted.
+5. You have the latest version of AzCopy on Linux or Windows. You'll use AzCopy to copy data to Azure from your host computer.
+6. You have access to a GPv1 storage account associated with your Data Box. You'll copy data to this account.
 
 
 ## Connect to Data Box Blob storage
@@ -90,11 +90,11 @@ Use the Azure portal to download certificate.
 
 1. Sign into the Azure portal.
 2. Go to your Data Box order and navigate to **General > Device details**.
-3. Under **Device credentials**, go to **API access** to device. Click **Download**. This downloads a **<your order name>.cer** certificate file. **Save** this file. You need to install this certificate on the client or host computer that you will use to connect to the device.
+3. Under **Device credentials**, go to **API access** to device. Click **Download**. This action downloads a **<your order name>.cer** certificate file. **Save** this file. You will nstall this certificate on the client or host computer that you will use to connect to the device.
  
 ### Prepare the host for remote management
 
-To prepare the Windows client for a remote connection that uses an HTTPS session, perform the following procedures:
+Follow these steps to prepare the Windows client for a remote connection that uses an HTTPS session:
 
 - Import the .cer file into the root store of the client or remote host.
 - Add the device IP address and blob service endpoint to the hosts file on your Windows client.
@@ -138,9 +138,9 @@ Once you are connected to the Data Box shares, the next step is to copy data. Pr
 
 - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
 -  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
-- If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, then this could result in upload job failures and data corruption.
+- If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
 
-You will use AzCopy to copy data to Azure. The copy procedure has the following three steps:
+You'll use AzCopy to copy data to Azure. The copy procedure has the following steps:
 
 - Create a container
 - Upload contents of a folder to Data Box Blob storage
