@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 11/12/2018
 ms.author: cherylmc
 
 ---
@@ -28,7 +28,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 2. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal, or 'New-AzureRmVpnClientConfiguration' in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
 4. [Export](vpn-gateway-certificates-point-to-site.md#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway.
-5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using an OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
+5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
   ```
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
@@ -81,7 +81,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   ```
 3. Download the VPN profile for the gateway. This can be done from the Point-to-site configuration tab in the Azure portal.
 4.	[Export](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-certificates-point-to-site#clientexport) the P2S client certificate you created and uploaded to your P2S configuration on the gateway. 
-5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using an OpenSSL on your computer is one way.
+5. Extract the private key and the base64 thumbprint from the .pfx. There are multiple ways to do this. Using OpenSSL on your computer is one way.
 
 	```
 	openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
