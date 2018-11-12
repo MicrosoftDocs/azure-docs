@@ -135,9 +135,9 @@
       items:
       - name: Prepare networking for Azure VM disaster recovery
         href: azure-to-azure-about-networking.md
-      - name: Prepare network mapping for Azure VM disaster recovery
+      - name: Set up network mapping and retain IP addresses after failover
         href: azure-to-azure-network-mapping.md
-      - name: Set up IP addressing for failover
+      - name: Examples for retaining IP addresses after failover
         href: site-recovery-retain-ip-azure-vm-failover.md
       - name: Integrate ExpressRoute with Azure VM disaster recovery
         href: azure-vm-disaster-recovery-with-expressroute.md
