@@ -47,7 +47,7 @@ You deploy an on-premises configuration server when you set up disaster recovery
 Don't use these instructions if you're deploying the configuration server for disaster recovery of on-premises physical machines to Azure. For this scenario, follow [this article](physical-azure-set-up-source.md).
 
 
-### Before you deploy the configuration server
+## Before you deploy the configuration server
 
 If you install the configuration server as a VMware VM using the OVA template, the VM will be installed with all prerequisites. If you want to review the prerequisites, use the following articles.
 
@@ -55,12 +55,33 @@ If you install the configuration server as a VMware VM using the OVA template, t
 - If you're replicating multiple VMware VMs, you should review the [capacity planning considerations](site-recovery-plan-capacity-vmware.md), and run the [Azure Site Recovery Deployment Planner](site-recovery-deployment-planner.md) tool for VMWare replication.
 - The Windows license for the OVA template is an evaluation license that's valid for 180 days. After this time, you need to activate Windows with a valid license. 
 - The OVA template provides a simple way to set up the configuration server as a VMware VM. If for some reason you need to set up the VMware VM without the template, review the prerequistes, and follow the manual instructions in [this article](physical-azure-set-up-source.md).
+- Your Azure account needs permissions to create Azure AD apps.
+
 
 >[!IMPORTANT]
-The configuration server must be deployed as described in this article. Copying or cloning an existing configuration server isn't supported. 
+The configuration server must be deployed as described in this article. Copying or cloning an existing configuration server isn't supported.
+
+### Set up Azure account permissions
+
+Either a tenant/global admin can assign permissions to create Azure AD apps to the account, or assign the Application Developer role (that has the permissions) to the account.
 
 
-### Download the OVA template
+The tenant/global admin can grant permissions for the account as follows:
+
+1. In Azure AD, the tenant/global admin should navigate to **Azure Active Directory** > **Users** > **User Settings**.
+2. The admin should set **App registrations** to **Yes**.
+
+    ![Azure AD permissions](./media/tutorial-server-assessment-vmware/aad.png)
+
+> [!NOTE]
+> This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
+
+Alternatively the tenant/global admin has permissions to assign the role to the account. [Learn more](https://docs.microsoft.comazure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
+
+ 
+
+
+## Download the OVA template
 
 1. In the vault, go to **Prepare Infrastructure** > **Source**.
 2. In **Prepare source**, select **+Configuration server**.
@@ -71,7 +92,7 @@ The configuration server must be deployed as described in this article. Copying 
 >You can also download the latest version of the configuration server template from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 
-### Import the OVA template in VMware
+## Import the OVA template in VMware
 
 1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the Deploy OVF Template wizard.
