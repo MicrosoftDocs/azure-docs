@@ -2,7 +2,7 @@
 title: Register a new Azure IoT Edge device (VS Code) | Microsoft Docs 
 description: Use Visual Studio Code to create a new IoT Edge device in your Azure IoT hub
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/14/2018
 ms.topic: conceptual

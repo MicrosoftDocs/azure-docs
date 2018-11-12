@@ -26,7 +26,7 @@ ms.custom: H1Hack27Feb2017
 
 
 [Management solutions](monitoring-solutions.md) will typically include 
-[saved searches](../log-analytics/log-analytics-queries.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../log-analytics/log-analytics-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../resource-manager-template-walkthrough.md) so they can be included in [management solutions](monitoring-solutions-creating.md).
+[saved searches](../log-analytics/log-analytics-queries.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](monitoring-solutions-creating.md)  
