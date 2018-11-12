@@ -64,7 +64,7 @@ At the top of the Program.cs file, replace the single using statement with the f
 
 ## Add the required constants
 
-At the top of the Program class, add the following constants to access QnA Maker:
+At the top of the `GetAnswer.java` class, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=10-32 "Add the required constants")]
 
