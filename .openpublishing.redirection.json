@@ -358,7 +358,12 @@
         },
         {
             "source_path": "articles/cosmos-db/manage-account.md",
-            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cosmos-db/indexing-policies.md",
+            "redirect_url": "/azure/cosmos-db/indexing-policy",
             "redirect_document_id": true
         },
         {
