@@ -87,7 +87,7 @@ Consider a scenario where you wanted an alert if any computer exceeded processor
 
 The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
 
-![Sample query results](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Sample query results](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 In this example, separate alerts would be created for srv02 and srv03 since they breached the 90% threshold three times over the time period.  If the **Trigger alert based on:** were changed to **Consecutive** then an alert would be created only for srv03 since it breached the threshold for three consecutive samples.
 
@@ -116,4 +116,4 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 * Understand [webhooks in log alerts in Azure](monitor-alerts-unified-log-webhook.md).
 * Learn about [Azure Alerts](monitoring-overview-unified-alerts.md).
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
-* Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    
+* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md).    

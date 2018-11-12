@@ -11,9 +11,9 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab, bonova, jovanpop
 manager: craigg
-ms.date: 10/05/2018
+ms.date: 11/01/2018
 ---
-# Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises
+# Quickstart: Configure a point-to-site connection to an Azure SQL Database Managed Instance from on-premises
 
 This quickstart demonstrates how to connect to an Azure SQL Database Managed Instance using [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms) (SSMS)  from an on-premises client computer over a point-to-site connection. For information about point-to-site connections, see [About Point-to-Site VPN](../vpn-gateway/point-to-site-about.md)
 

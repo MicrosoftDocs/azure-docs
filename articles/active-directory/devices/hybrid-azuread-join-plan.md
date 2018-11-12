@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/29/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -45,6 +45,7 @@ To plan your hybrid Azure AD implementation, you should familiarize yourself wit
 |---|---|
 |![Check][1]|Review supported devices|
 |![Check][1]|Review things you should know|
+|![Check][1]|Review how to control the hybrid Azure AD join of your devices|
 |![Check][1]|Select your scenario|
 
 
@@ -108,6 +109,11 @@ If your organization requires access to the Internet via an authenticated outbou
 Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. If this is true for you, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md).
 
 
+## Review how to control the hybrid Azure AD join of your devices
+
+Hybrid Azure AD join is a process to automatically register your on-premises domain-joined devices with Azure AD. There are cases where you don't want all your devices to register automatically. This is for example true, during the initial rollout to verify that everything works as expected.
+
+For more information, see [How to control the hybrid Azure AD join of your devices](hybrid-azuread-join-control.md)
 
 ## Select your scenario
 

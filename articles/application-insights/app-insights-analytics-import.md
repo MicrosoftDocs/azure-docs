@@ -1,4 +1,4 @@
-﻿---
+---
 title: Import your data to Analytics in Azure Application Insights | Microsoft Docs
 description: Import static data to join with app telemetry, or import a separate data stream to query with Analytics.
 services: application-insights
@@ -99,31 +99,31 @@ Instead of editing the schema in UI, you can load the schema definition from a f
 Delimited format 
 ```
 [ 
-    {"location": "0", "name": "RequestName", "type": "string"}, 
-    {"location": "1", "name": "timestamp", "type": "datetime"}, 
-    {"location": "2", "name": "IPAddress", "type": "string"} 
+    {"location": "0", "name": "RequestName", "type": "string"}, 
+    {"location": "1", "name": "timestamp", "type": "datetime"}, 
+    {"location": "2", "name": "IPAddress", "type": "string"} 
 ] 
 ```
 
 JSON format 
 ```
 [ 
-    {"location": "$.name", "name": "name", "type": "string"}, 
-    {"location": "$.alias", "name": "alias", "type": "string"}, 
-    {"location": "$.room", "name": "room", "type": "long"} 
+    {"location": "$.name", "name": "name", "type": "string"}, 
+    {"location": "$.alias", "name": "alias", "type": "string"}, 
+    {"location": "$.room", "name": "room", "type": "long"} 
 ]
 ```
  
 Each column is identified by the location, name and type.
 
-* Location – For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
-* Name – the displayed name of the column.
-* Type – the data type of that column.
- 
+* Location - For delimited file format it is the position of the mapped value. For JSON format, it is the jpath of the mapped key.
+* Name - the displayed name of the column.
+* Type - the data type of that column.
+
 > [!NOTE]
 > In case sample data was used and the file format is delimited, the schema definition must map all columns and add new columns at the end.
 > 
-> JSON allows partial mapping of the data, therefore the schema definition with a JSON format doesn’t have to map every key which is found in the sample data. It can also map columns which are not part of the sample data. 
+> JSON allows partial mapping of the data, therefore the schema definition with a JSON format doesn't have to map every key which is found in the sample data. It can also map columns which are not part of the sample data. 
 
 ## Import data
 
@@ -133,7 +133,7 @@ To import data, you upload it to Azure storage, create an access key for it, and
 
 You can perform the following process manually, or set up an automated system to do it at regular intervals. You need to follow these steps for each block of data you want to import.
 
-1. Upload the data to [Azure blob storage](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Upload the data to [Azure blob storage](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * Blobs can be any size up to 1GB uncompressed. Large blobs of hundreds of MB are ideal from a performance perspective.
  * You can compress it with Gzip to improve upload time and latency for the data to be available for query. Use the `.gz` filename extension.
@@ -365,5 +365,5 @@ Use this code for each blob.
 
 ## Next steps
 
-* [Tour of the Log Analytics query language](app-insights-analytics-tour.md)
+* [Tour of the Log Analytics query language](../log-analytics/query-language/get-started-analytics-portal.md)
 * If you're using Logstash, use the [Logstash plugin to send data to Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

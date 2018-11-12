@@ -63,6 +63,8 @@ With Service Fabric Mesh you can:
 
 It only takes a few steps to deploy a sample project with Visual Studio. For more information, see [Create an ASP.NET Core website](service-fabric-mesh-quickstart-dotnet-core.md). 
 
+Find answers to [common questions](service-fabric-mesh-faq.md).
+
 
 <!-- Links -->
 

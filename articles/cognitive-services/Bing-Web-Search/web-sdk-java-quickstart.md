@@ -24,7 +24,7 @@ Want to see the code right now? The [Bing Web Search SDK for Java samples](https
 
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [JDK 7 or 8](https://aka.ms/azure-jdks)
 * [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
 * A subscription key
 

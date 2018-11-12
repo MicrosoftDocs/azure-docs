@@ -15,7 +15,7 @@ Azure Monitor has now become am unified full stack monitoring service which now 
 
 With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, will be deprecated by June 2019.
 
- ![Classic alert in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 We encourage you to get started and recreate your alerts in the new platform. For customers who have a large number of alerts, we are working to provide an automated way to move existing classic alerts to the new alerts system without disruption or added costs.
 

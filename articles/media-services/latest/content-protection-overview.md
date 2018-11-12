@@ -55,7 +55,7 @@ To successfully complete your "content protection" system/application design, yo
 
     For testing AES or CENC (Widevine and/or PlayReady) encrypted content, you can use [Azure Media Player](https://ampdemo.azureedge.net/azuremediaplayer.html). Make sure you click on "Advanced options" and check your encryption options.
 
-    If you want to test FairPlay encrypted content, use [this test player](http://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
+    If you want to test FairPlay encrypted content, use [this test player](https://aka.ms/amtest). The player supports Widevine, PlayReady, and FairPlay DRMs as well as AES-128 clear key encryption. You need to choose the right browser to test different DRMs: Chrome/Opera/Firefox for Widevine, MS Edge/IE11 for PlayReady, Safari on macOS for FairPlay.
 
 3. Secure Token Service (STS), which issues JSON Web Token (JWT) as access token for backend resource access. You can use the AMS license delivery services as the backend resource. An STS has to define the following:
 
@@ -164,8 +164,8 @@ How and where to get JWT token before using it to request license or key?
 1. For production, you need to have a Secure Token Services (STS) (web service) which issues JWT token upon a HTTPS request. For test, you could use the code shown in **GetTokenAsync** method defined in [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Player will need to make a request, after a user is authenticated, to the STS for such a token and assign it as the value of the token. You can use the [Azure Media Player API](https://amp.azure.net/libs/amp/latest/docs/).
 
-* For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](http://aka.ms/jwt). 
-* For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](http://aka.ms/amtest) (expand "player_settings" link to see the token input).
+* For an example of running STS, with either symmetric and asymmetric key, please see [http://aka.ms/jwt](https://aka.ms/jwt). 
+* For an example of a player based on Azure Media Player using such JWT token, see [http://aka.ms/amtest](https://aka.ms/amtest) (expand "player_settings" link to see the token input).
 
 ### Question
 

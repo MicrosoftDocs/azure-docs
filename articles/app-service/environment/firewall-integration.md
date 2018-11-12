@@ -24,7 +24,7 @@ There are a number of inbound dependencies that an ASE has. The inbound manageme
 
 The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups (NSGs) cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs. 
 
-The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. The Azure Networking team has put a new network appliance into Preview called Azure Firewall. The Azure Firewall is capable of restricting egress HTTP and HTTPS traffic based on the DNS name of the destination.  
+The solution to securing outbound addresses lies in use of a firewall device that can control outbound traffic based on domain names. Azure Firewall can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination.  
 
 ## Configuring Azure Firewall with your ASE 
 
@@ -32,11 +32,11 @@ The steps to lock down egress from your ASE with Azure Firewall are:
 
 1. Create an Azure Firewall in the VNet where your ASE is, or will be. [Azure Firewall documenation](https://docs.microsoft.com/azure/firewall/)
 2. From the Azure Firewall UI, select the App Service Environment FQDN Tag
-3. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems. 
-4. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet. 
-5. Add a route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall network appliance
-6. Create Service Endpoints for your ASE subnet to Azure SQL and Azure Storage
-7. Assign the route table you created to your ASE subnet  
+3. Create a route table with the management addresses from [App Service Environment management addresses]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) with a next hop of Internet. The route table entries are required to avoid asymmetric routing problems.
+4. Add routes for the IP address dependencies noted below in the IP address dependencies with a next hop of Internet.
+5. Add a route to your route table for 0.0.0.0/0 with the next hop being your Azure Firewall.
+6. Create Service Endpoints for your ASE subnet to Azure SQL and Azure Storage.
+7. Assign the route table you created to your ASE subnet.
 
 ## Application traffic 
 

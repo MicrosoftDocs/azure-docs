@@ -164,7 +164,7 @@ Click on the hyperlink of the notifications to go to **BackupJobs** list. All th
 
 The **Backup jobs** blade opens and displays the list of jobs.
 
-![List of VMs in a vault](./media/backup-azure-arm-restore-vms/restore-job-completed.png)
+![List of VMs in a vault](./media/backup-azure-arm-restore-vms/restore-job-in-progress1.png)
 
 ## Use templates to customize a restored VM
 After the [restore disks operation is finished](#Track-the-restore-operation), use the template that was generated as part of the restore operation to create a new VM with a configuration different from the backup configuration. You also can use it to customize names of resources that were created during the process of creating a new VM from a restore point.

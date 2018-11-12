@@ -24,7 +24,7 @@ If the Log Analytics workspace is in the same Azure subscription, or in a differ
 
 ## Overview
 
-The strategy used in this scenario is to have Azure Activity Log send events to an [Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md) where a [Logic App](../logic-apps/logic-apps-overview.md) sends them to your Log Analytics workspace. 
+The strategy used in this scenario is to have Azure Activity Log send events to an [Event Hub](../event-hubs/event-hubs-about.md) where a [Logic App](../logic-apps/logic-apps-overview.md) sends them to your Log Analytics workspace. 
 
 ![image of data flow from activity log to log analytics](media/log-analytics-activity-logs-subscriptions/data-flow-overview.png)
 

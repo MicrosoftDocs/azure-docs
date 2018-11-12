@@ -39,7 +39,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
 ## Create a workspace
 1. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.
 
-    ![Azure portal](media/log-analytics-quick-collect-azurevm/azure-portal-01.png)
+    ![Azure portal](media/log-analytics-quick-create-workspace/azure-portal-01.png)
   
 2. Click **Create**, and then select choices for the following items:
 
@@ -49,7 +49,7 @@ Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.c
   * Select an available **Location**.  For more information, see which [regions Log Analytics is available in](https://azure.microsoft.com/regions/services/).
   * If you are creating a workspace in a new subscription created after April 2, 2018, it will automatically use the *Per GB* pricing plan and the option to select a pricing tier will not be available.  If you are creating a workspace for an existing subscription created before April 2, or to subscription that was tied to an existing Enterprise Agreement (EA) enrollment, select your preferred pricing tier.  For more information about the particular tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png)  
+        ![Create Log Analytics resource blade](media/log-analytics-quick-create-workspace/create-loganalytics-workspace-02.png)  
 
 3. After providing the required information on the **Log Analytics Workspace** pane, click **OK**.  
 
