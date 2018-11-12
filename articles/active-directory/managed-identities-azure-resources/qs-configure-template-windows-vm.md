@@ -126,7 +126,7 @@ To enable system-assigned managed identity on a VM, your account needs the [Virt
 
 After you have enabled system-assigned managed identity on your VM, you may want to grant it a role such as **Reader** access to the resource group in which it was created.
 
-To assign a role to a user-assigned managed identity, your account needs the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assignment.
+To assign a role to your VM's system-assigned identity, your account needs the [User Access Administrator](/azure/role-based-access-control/built-in-roles#user-access-administrator) role assignment.
 
 1. Whether you sign in to Azure locally or via the Azure portal, use an account that is associated with the Azure subscription that contains the VM.
  
