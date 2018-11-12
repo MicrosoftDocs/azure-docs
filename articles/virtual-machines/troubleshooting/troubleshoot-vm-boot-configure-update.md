@@ -185,7 +185,7 @@ $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Mi
 
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
 
-#Uncomment to add Availabilty Set
+#Uncomment to add Availability Set
 #$avSet = Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName;
 #$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
 
