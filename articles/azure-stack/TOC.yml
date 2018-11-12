@@ -229,6 +229,8 @@
       href: azure-stack-add-vm-image.md
     - name: Offer a virtual machine scale set
       href: azure-stack-compute-add-scalesets.md
+    - name: Windows Server in Marketplace FAQ
+      href: azure-stack-windows-server-faq.md
     - name: Offer Linux virtual machines
       href: azure-stack-linux.md
     - name: Add a Red Hat virtual machine
