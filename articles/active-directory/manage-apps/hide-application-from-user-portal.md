@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/12/2018
 ms.author: barbkess
 ms.reviewer: kasimpso
 
@@ -25,7 +25,7 @@ Application administrator privileges are required to hide an application from th
 Global administrator privileges are required to hide all Office 365 applications.
 
 
-## Hide a third-party application from the user
+## Hide an application from the end user
 Use the following steps to hide an application from MyApps panel and Office 365 application launcher.
 
 1.	Sign in to the [Azure portal](https://portal.azure.com) as the global administrator for your directory.
