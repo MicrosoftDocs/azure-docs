@@ -988,7 +988,7 @@ The Docker engine must be running locally to complete the following steps to ope
 1.  Make sure the Azure resource provider **Microsoft.ContainerRegistry** is registered in the subscription. Register this resource provider before creating an environment in step 3. Check to see if it's already registered by using the following command:
 
     ```CLI
-        az provider list --query "\[\].{Provider:namespace, Status:registrationState}" --out table
+        az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
     ```
 
     View this output:
