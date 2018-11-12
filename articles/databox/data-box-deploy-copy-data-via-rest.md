@@ -159,7 +159,7 @@ Follow these steps to create a blob container.
 3. Right-click **Blob Containers**, and from the context menu, select **Create Blob Container**.
 
    ![Create blob containers context menu][0]
-4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) for information on rules and restrictions on naming blob containers.
+4. A text box appears below the **Blob Containers** folder. Enter the name for your blob container. See the [Create the container and set permissions](/articles/storage/blobs/storage-quickstart-blobs-dotnet.md#create-the-container-and-set-permissions) for information on rules and restrictions on naming blob containers.
    
 5. Press **Enter** when done to create the blob container, or **Esc** to cancel. Once the blob container is successfully created, it is displayed under the **Blob Containers** folder for the selected storage account.
 
