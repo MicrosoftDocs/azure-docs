@@ -135,7 +135,7 @@ In this section, you enable Azure AD single sign-on in the Azure Management port
 
 	b. In the **SAML Sign On Target URL** box, paste the SAML Single Sign-On Service URL copied from the Azure portal.
 
-	c. Now open the **Metadata XML** downloaded above from the Azure portal and copy the certficate in the tag named **X509Certificate**. Paste the copied value into the **Single Sign On x509 Certificate** box.
+	c. Now open the **Metadata XML** downloaded above from the Azure portal and copy the certificate in the tag named **X509Certificate**. Paste the copied value into the **Single Sign On x509 Certificate** box.
 
 1. Click on **Save Changes**.
 

@@ -133,7 +133,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 7. In the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer.
 
-	![image](./media/github-tutorial/tutorial_github_certficate.png)
+	![image](./media/github-tutorial/tutorial_github_certificate.png)
 
 8. On the **Set up GitHub** section, copy the appropriate URL as per your requirement.
 

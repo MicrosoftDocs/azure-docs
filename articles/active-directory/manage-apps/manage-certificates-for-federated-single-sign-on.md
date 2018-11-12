@@ -46,7 +46,7 @@ The screenshots use Salesforce for the sake of example, but these steps can appl
 
 4. To create a new certificate, click the **Create new certificate** link in the **SAML Signing Certificate** section.
 
-    ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+    ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/create_new_certificate.png)
 
 5. The **Create a new certificate** link opens the calendar control. You can set any date and time up to three years from the current date. The selected date and time is the new expiration date and time of your new certificate. Click **Save**.
 
@@ -70,7 +70,7 @@ The following renewal steps should result in no significant downtime for your us
 
 1. On the **Azure Active Directory** application **Single sign-on** page, generate the new certificate for your application. You can do this by clicking the **Create new certificate** link in the **SAML Signing Certificate** section.
 
-    ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/create_new_certficate.png)
+    ![Generate a new certificate](./media/manage-certificates-for-federated-single-sign-on/create_new_certificate.png)
 
 2. Select the desired expiration date and time for your new certificate and click **Save**. Selecting a date that overlaps with the existing certificate will ensure that any downtime due to cert expiry is limited. 
 

@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Base64)** and then save certificate file on your computer.
 
-	![The Certificate download link](./media/bluejeans-tutorial/tutorial_bluejeans_certficate.png) 
+	![The Certificate download link](./media/bluejeans-tutorial/tutorial_bluejeans_certificate.png) 
 
 7. On the **Set up BlueJeans** section, copy the appropriate URL as per your requirement.
 

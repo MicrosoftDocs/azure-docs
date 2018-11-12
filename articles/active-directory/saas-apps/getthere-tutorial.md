@@ -151,7 +151,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 7. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer.
 
-	![image](./media/getthere-tutorial/tutorial_getthere_certficate.png) 
+	![image](./media/getthere-tutorial/tutorial_getthere_certificate.png) 
 
 8. On the **Set up GetThere** section, copy the appropriate URL as per your requirement.
 

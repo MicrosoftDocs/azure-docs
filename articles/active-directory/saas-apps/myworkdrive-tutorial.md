@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click copy **icon** to copy **App Federation Metadata Url** and click **Download** to download the **Certificate (Base64)** save it on your computer.
 
-	![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_certficate.png) 
+	![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_certificate.png) 
 
 7. On the **Set up MyWorkDrive** section, copy the appropriate URL as per your requirement.
 

@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
  
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** and save it on your computer.
 
-	![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certficate.png) 
+	![image](./media/adaptivesuite-tutorial/tutorial_adaptivesuite_certificate.png) 
 
 6. On the **Set up Adaptive Insights** section, copy the appropriate URL as per your requirement.
 
