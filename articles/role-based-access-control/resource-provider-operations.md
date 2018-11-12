@@ -1097,7 +1097,7 @@ The resource provider operations are always evolving. To get the latest operatio
 > | Action | Microsoft.CognitiveServices/accounts/skus/read | Reads available SKUs for an existing resource. |
 > | Action | Microsoft.CognitiveServices/accounts/usages/read | Get the quota usage for an existing resource. |
 > | Action | Microsoft.CognitiveServices/accounts/write | Writes API Accounts. |
-> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads avaible SKUs for an subscription. |
+> | Action | Microsoft.CognitiveServices/locations/checkSkuAvailability/action | Reads available SKUs for an subscription. |
 > | Action | Microsoft.CognitiveServices/Operations/read | List all available operations |
 > | Action | Microsoft.CognitiveServices/register/action | Registers Subscription for Cognitive Services |
 > | Action | Microsoft.CognitiveServices/skus/read | Reads available SKUs for Cognitive Services. |
