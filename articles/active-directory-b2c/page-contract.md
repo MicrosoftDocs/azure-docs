@@ -19,7 +19,7 @@ This article describes the steps you need to take to set up a JavaScript page co
 
 ## Replace DataUri values
 
-In your custom policies, you may have [ContentDefinitions](contentdefinitions.md) that define the HTML templates used in the user journey. The **ContentDefinition** contains a **DataUri** element that specifies a relative URL of an HTML file. The HTML file provides the user experience to invoke for the journey step. 
+In your custom policies, you may have [ContentDefinitions](contentdefinitions.md) that define the HTML templates used in the user journey. The **ContentDefinition** contains a **DataUri** element that specifies a relative URL of an HTML file. The HTML file provides the user experience for the journey step. 
 
 ```XML
 <ContentDefinition Id="api.idpselections">
@@ -36,6 +36,7 @@ In your custom policies, you may have [ContentDefinitions](contentdefinitions.md
 To set up a page contract, you can use the following table to find **DataUri** values that might need to be changed in your [ContentDefinitions](contentdefinitions.md).
 
 | Old DataUri value | New DataUri value |
+| ----------------- | ----------------- |
 | urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0 | urn:com:microsoft:aad:b2c:elements:contract:providerselection:1.0.0 |
 | urn:com:microsoft:aad:b2c:elements:unifiedssd:1.0.0 | urn:com:microsoft:aad:b2c:elements:contract:unifiedssd:1.0.0 | 
 | urn:com:microsoft:aad:b2c:elements:claimsconsent:1.0.0 | urn:com:microsoft:aad:b2c:elements:contract:claimsconsent:1.0.0 |
@@ -50,7 +51,7 @@ To set up a page contract, you can use the following table to find **DataUri** v
 
 ## Enable JavaScript
 
-After you select a page contract version for each page, you enable it for the policy. To do this, add the following elements to the [RelyingParty](relyingparty.md) element:
+After you select a page contract version for each page, you enable it for the policy. To enable script execution, add the **ScriptExecution** element to the [RelyingParty](relyingparty.md) element:
 
 ```XML
 <RelyingParty>
