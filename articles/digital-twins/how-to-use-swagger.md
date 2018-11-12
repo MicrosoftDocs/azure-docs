@@ -16,8 +16,8 @@ Each provisioned Azure Digital Twins instance includes its own automatically gen
 
 [Swagger](https://swagger.io/), or [OpenAPI](https://www.openapis.org/), unites complex API information into an interactive and language-agnostic reference resource. Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
 
-> [!NOTE]
-> Full Swagger authentication is temporarily disabled during Public Preview.
+> [!IMPORTANT]
+> Support for Swagger authentication is temporarily disabled during Public Preview.
 
 ## Swagger summary
 
