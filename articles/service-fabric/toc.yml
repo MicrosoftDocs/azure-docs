@@ -233,9 +233,7 @@
     - name: Cluster security
       href: service-fabric-cluster-security.md
     - name: Scaling
-      href: service-fabric-cluster-scaling.md
-    - name: Upgrading
-      href: service-fabric-cluster-upgrade.md
+      href: service-fabric-cluster-scaling.md    
     - name: Feature differences between Linux and Windows
       href: service-fabric-linux-windows-differences.md
     - name: Clusters on Azure
@@ -243,9 +241,13 @@
       - name: Node types and VM Scale Sets
         href: service-fabric-cluster-nodetypes.md
       - name: Upgrading clusters in Azure
-        href: service-fabric-cluster-upgrade-azure.md
+        href: service-fabric-cluster-upgrade.md
       - name: Cluster networking patterns
         href: service-fabric-patterns-networking.md
+    - name: Standalone clusters
+      items:
+      - name: Upgrading standalone clusters
+        href: service-fabric-cluster-upgrade-standalone.md
     - name: Cluster resource manager
       items:
       - name: Cluster resource manager overview
