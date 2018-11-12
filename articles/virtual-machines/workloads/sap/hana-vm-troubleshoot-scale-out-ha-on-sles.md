@@ -753,70 +753,70 @@ The procedure for maintenance on the current primary site is more complex:
 
 Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample.
 
-1. First, force a cluster failover by migrating the MSL resource to the current secondary master node. This command gives a warning that a **move constraint** was created:
+First, force a cluster failover by migrating the MSL resource to the current secondary master node. This command gives a warning that a **move constraint** was created:
 
-    <pre><code>
-    crm resource migrate msl_SAPHanaCon_HSO_HDB00 force
+<pre><code>
+crm resource migrate msl_SAPHanaCon_HSO_HDB00 force
 
-    INFO: Move constraint created for msl_SAPHanaCon_HSO_HDB00
-    </code></pre>
-
-
-1. Check the failover process via the command **SAPHanaSR-showAttr**. To monitor the cluster status, open a dedicated shell window and start the command with **watch**:
-
-    <pre><code>
-    watch SAPHanaSR-showAttr
-    </code></pre>
-
-1. The output should reflect the manual failover. The former secondary master node got **promoted**, in this sample, **hso-hana-vm-s2-0**. The former primary site was stopped, **lss** value **1** for former primary master node **hso-hana-vm-s1-0**: 
-
-    <pre><code>
-    Global cib-time                 prim  sec srHook sync_state
-    ------------------------------------------------------------
-    global Wed Sep 12 07:40:02 2018 HSOS2 -   SFAIL  SFAIL
+INFO: Move constraint created for msl_SAPHanaCon_HSO_HDB00
+</code></pre>
 
 
-    Sites lpt        lss mns              srr
-    ------------------------------------------
-    HSOS1 10         1   hso-hana-vm-s1-0 P
-    HSOS2 1536738002 4   hso-hana-vm-s2-0 P
+Check the failover process via the command **SAPHanaSR-showAttr**. To monitor the cluster status, open a dedicated shell window and start the command with **watch**:
+
+<pre><code>
+watch SAPHanaSR-showAttr
+</code></pre>
+
+The output should reflect the manual failover. The former secondary master node got **promoted**, in this sample, **hso-hana-vm-s2-0**. The former primary site was stopped, **lss** value **1** for former primary master node **hso-hana-vm-s1-0**: 
+
+<pre><code>
+Global cib-time                 prim  sec srHook sync_state
+------------------------------------------------------------
+global Wed Sep 12 07:40:02 2018 HSOS2 -   SFAIL  SFAIL
 
 
-    Hosts            clone_state node_state roles                        score  site
-    ----------------------------------------------------------------------------------
-    hso-hana-dm                  online
-    hso-hana-vm-s1-0 UNDEFINED   online     master1::worker:             150    HSOS1
-    hso-hana-vm-s1-1 DEMOTED     online     slave::worker:               -10000 HSOS1
-    hso-hana-vm-s1-2 DEMOTED     online     slave::worker:               -10000 HSOS1
-    hso-hana-vm-s2-0 PROMOTED    online     master1:master:worker:master 150    HSOS2
-    hso-hana-vm-s2-1 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
-    hso-hana-vm-s2-2 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
-    </code></pre>
-
-1. After the cluster failover and SAP HANA takeover, put the cluster into maintenance mode as described in the **Pacemaker** section.
-
-1. The commands **SAPHanaSR-showAttr** and **crm status** don't indicate anything about the constraints created by the resource migration. One option to make these constraints visible is to show the complete cluster resource configuration with the following command:
-
-    <pre><code>
-    crm configure show
-    </code></pre>
-
-1. Within the cluster configuration, you find a new location constraint caused by the former manual resource migration. This example entry starts with **location cli-**:
-
-    <pre><code>
-    location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
-    </code></pre>
-
-1. Unfortunately, such constraints might impact the overall cluster behavior. So it's mandatory to remove them again before you bring the whole system back up. With the **unmigrate** command, it's possible to clean up the location constraints that were created before. The naming might be a bit confusing. It doesn't try to migrate the resource back to the original VM from which it was migrated. It just removes the location constraints and also returns corresponding information when you run the command:
+Sites lpt        lss mns              srr
+------------------------------------------
+HSOS1 10         1   hso-hana-vm-s1-0 P
+HSOS2 1536738002 4   hso-hana-vm-s2-0 P
 
 
-    <pre><code>
-    crm resource unmigrate msl_SAPHanaCon_HSO_HDB00
+Hosts            clone_state node_state roles                        score  site
+----------------------------------------------------------------------------------
+hso-hana-dm                  online
+hso-hana-vm-s1-0 UNDEFINED   online     master1::worker:             150    HSOS1
+hso-hana-vm-s1-1 DEMOTED     online     slave::worker:               -10000 HSOS1
+hso-hana-vm-s1-2 DEMOTED     online     slave::worker:               -10000 HSOS1
+hso-hana-vm-s2-0 PROMOTED    online     master1:master:worker:master 150    HSOS2
+hso-hana-vm-s2-1 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
+hso-hana-vm-s2-2 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
+</code></pre>
 
-    INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
-    </code></pre>
+After the cluster failover and SAP HANA takeover, put the cluster into maintenance mode as described in the **Pacemaker** section.
 
-1. At the end of the maintenance work, you stop the cluster maintenance mode as shown in the **Pacemaker** section.
+The commands **SAPHanaSR-showAttr** and **crm status** don't indicate anything about the constraints created by the resource migration. One option to make these constraints visible is to show the complete cluster resource configuration with the following command:
+
+<pre><code>
+crm configure show
+</code></pre>
+
+Within the cluster configuration, you find a new location constraint caused by the former manual resource migration. This example entry starts with **location cli-**:
+
+<pre><code>
+location cli-ban-msl_SAPHanaCon_HSO_HDB00-on-hso-hana-vm-s1-0 msl_SAPHanaCon_HSO_HDB00 role=Started -inf: hso-hana-vm-s1-0
+</code></pre>
+
+Unfortunately, such constraints might impact the overall cluster behavior. So it's mandatory to remove them again before you bring the whole system back up. With the **unmigrate** command, it's possible to clean up the location constraints that were created before. The naming might be a bit confusing. It doesn't try to migrate the resource back to the original VM from which it was migrated. It just removes the location constraints and also returns corresponding information when you run the command:
+
+
+<pre><code>
+crm resource unmigrate msl_SAPHanaCon_HSO_HDB00
+
+INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
+</code></pre>
+
+At the end of the maintenance work, you stop the cluster maintenance mode as shown in the **Pacemaker** section.
 
 
 
