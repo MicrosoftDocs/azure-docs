@@ -17,13 +17,13 @@ ms.date: 10/29/2018
 ms.author: cwatson
 
 ---
-# View your Enterprise's Azure pricing
+# View your organization's Azure Enterprise Agreement pricing 
 
-Azure customers with an Enterprise Agreement (EA customers) may view and download the Enterprise's pricing from the Azure portal. You may also use your Enterprise’s pricing to estimate costs by using the Azure pricing calculator.
+Azure customers with an Enterprise Agreement (EA) may view and download their EA pricing from the Azure portal. You may also use your organization’s EA pricing to estimate costs by using the Azure pricing calculator.
 
-Depending on the policies you have set for a billing account, only certain administrative roles can view your enterprise's pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
+Depending on the policies set for your organization by the Enterprise Admin, only certain administrative roles can view your organization's EA pricing information. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
 
-## View and download pricing
+## View and download EA pricing
 
  
 1. As the Enterprise Admin, sign in to the [Azure portal](https://portal.azure.com/). 
@@ -41,7 +41,7 @@ Depending on the policies you have set for a billing account, only certain admin
 
    ![Screenshot that shows the price sheet download csv button](./media/billing-ea-pricing/download-ea-price-sheet.png)
 
-## Estimate costs
+## Estimate costs with EA pricing
 
 1. Go to the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculator).
 1. On the top right, select **Sign in**.
