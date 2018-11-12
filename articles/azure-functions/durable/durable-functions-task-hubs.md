@@ -44,6 +44,27 @@ Task hubs are identified by a name that is declared in the *host.json* file, as 
 }
 ```
 
+Task hubs can be identified by app setting value with the following configuration in the *host.json* file:
+
+```json
+{
+  "durableTask": {
+    "HubName": "%MyTaskHub%"
+  }
+}
+```
+
+Then the task hub name will be the value of the `MyTaskHub` app setting variable. For the following sample for `local.settings.json` the task hub name will be `samplehubname`:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "SampleHubVS" :  "samplehubname" 
+  }
+}
+```
+
 Task hub names must start with a letter and consist of only letters and numbers. If not specified, the default name is **DurableFunctionsHub**.
 
 > [!NOTE]
