@@ -17,7 +17,7 @@ Azure Cosmos DB is a schema-agnostic database and allows you to iterate on your 
 
 By projecting items in a container as JSON documents and representing them as trees, Azure Cosmos DB normalizes both the structure and the instance values across items into the unifying concept of a **dynamically encoded path structure**. In this representation, each label in a JSON document, including both the property names and their values, becomes a node of the tree. The leaves contain actual values and the intermediate nodes the schema information.
 
-![Tree representation for two different items in an Azure Cosmos container](./media/index-overview/index-tree-two-items.png)
+![Tree representation for two different items in an Azure Cosmos container](./media/index-overview/indexing-as-tree.png)
 
 The figure above shows the trees created for an item 1 and 2 in a container. A pseudo root node is created to parent the rest of the actual nodes corresponding to the labels in the document underneath. The nested data structures drive the hierarchy in the tree. Intermediate artificial nodes labeled with numeric values (for example, 0, 1, ...) are employed for representing enumerations, array indices.
 
