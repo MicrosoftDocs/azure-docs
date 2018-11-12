@@ -47,7 +47,11 @@
     - name: Get answer from knowledge base
       items:
       - name: C#
-        href: Quickstarts/get-answer-from-kb-csharp.md    
+        href: Quickstarts/get-answer-from-kb-csharp.md   
+      - name: Go
+        href: Quickstarts/get-answer-from-kb-go.md 
+      - name: Java
+        href: Quickstarts/get-answer-from-kb-java.md    
 - name: Tutorials
   items: 
   - name: Create and answer from KB
