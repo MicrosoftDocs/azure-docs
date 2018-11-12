@@ -26,7 +26,7 @@ This tutorial guides you through the process of creating a simple store locator 
 
 <a id="Intro"></a>
 
-Jump ahead to the [live example store locator](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) or [source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
+Jump ahead to the [live store locator example](https://azuremapscodesamples.azurewebsites.net/?sample=Simple%20Store%20Locator) or [source code](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator). 
 
 ## Prerequisites
 
@@ -368,7 +368,7 @@ The next step is to define the CSS styles. CSS styles define how the application
 
 If you run the application now, you see the header, search box, and search button, but the map isn't visible because it hasn’t been loaded yet. If you try to do a search, nothing happens. We need to set up the JavaScript logic that's described in the next section to access all the functionality of the store locator.
 
-## Wire the application by using JavaScript
+## Wire the application with JavaScript
 
 At this point, everything is set up in the user interface. Now, we need to add the JavaScript to load and parse the data, and then render the data on the map. To get started, open *index.js* and add code to it, as described in the following steps.
 
