@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 The following code will call the Face API and get face attribute data from an image. First, copy the code into a text editor&mdash;you'll need to make some changes before you can run it.
 
-```NodeJS
+```nodejs
 'use strict';
 
 const request = require('request');
