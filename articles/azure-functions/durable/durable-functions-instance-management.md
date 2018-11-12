@@ -326,7 +326,7 @@ public static Task Run(
 }
 ```
 
-And the second one will remove the history for all instances for specified time period and provided runtime status. The sample below will run once per day at 12 AM. And it will purge the data for all orchestration instances completed 30 or more days ago:
+The second example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it will remove data for all instances completed 30 or more days ago. It is scheduled to run once per day at 12 AM:
 
 ```csharp
 [FunctionName("PurgeInstanceHistory")]
