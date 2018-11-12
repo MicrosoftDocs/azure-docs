@@ -14,6 +14,10 @@ ms.date: 11/16/2018
 # Restart Azure Database for MySQL server using Azure portal
 This topic describes how you can restart a Azure Database for MySQL server. You may need to restart your server for maintenance reasons, which causes a short outage as the server performs the operation.
 
+The server restart will be blocked if the service is busy. For example, the service may be processing a previously requested operation such as scaling vCores.
+
+The time required to complete a restart depends on the MySQL recovery process. To decrease the restart time, we recommend you minimize the amount of activity occurring on the server prior to the restart.
+
 ## Prerequisites
 To complete this how-to guide, you need:
 - An [Azure Database for MySQL server and database](quickstart-create-mysql-server-database-using-azure-portal.md)
