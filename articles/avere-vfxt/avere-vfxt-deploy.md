@@ -221,9 +221,9 @@ To do the rest of the deployment steps, you need to connect to the cluster contr
 ## Create the cluster node access role
 
 > [!NOTE] 
-> If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md).
+> * If you are not a subscription owner, and the role has not already been created, have a subscription owner follow these steps or use the procedure in [Create the Avere vFXT cluster runtime access role without a controller](avere-vfxt-pre-role.md).
 > 
-> Microsoft internal users should use the existing role named "Avere Cluster Runtime Operator" instead of attempting to create one. 
+> * Microsoft internal users should use the existing role named "Avere Cluster Runtime Operator" instead of attempting to create one. 
 
 [Role-based access control](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC)  gives the vFXT cluster nodes authorization to perform necessary tasks.  
 
