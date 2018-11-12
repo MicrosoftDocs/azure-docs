@@ -33,9 +33,10 @@ Upgrade steps at a glance:
 3. If you run multiple servers for high availability, change the client systems that authenticate to the MFA Server so that they stop sending traffic to the servers that are upgrading. If you use a load balancer, remove a subordinate MFA Server from the load balancer, do the upgrade, and then add the server back into the farm.
 4. Run the new installer on each MFA Server. Upgrade subordinate servers first because they can read the old data file being replicated by the master.
 
-   When upgrading a server it should be removed from any loadbalancing or traffic sharing with other MFA Servers.
-
-   You do not need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade. The installation path is picked up from the registry from the previous installation, so it installs in the same location (for example, C:\Program Files\Multi-Factor Authentication Server).
+   > [!NOTE]
+   > When upgrading a server it should be removed from any loadbalancing or traffic sharing with other MFA Servers.
+   >
+   > You do not need to uninstall your current MFA Server before running the installer. The installer performs an in-place upgrade. The installation path is picked up from the registry from the previous installation, so it installs in the same location (for example, C:\Program Files\Multi-Factor Authentication Server).
   
 5. If you're prompted to install a Microsoft Visual C++ 2015 Redistributable update package, accept the prompt. Both the x86 and x64 versions of the package are installed.
 6. If you use the Web Service SDK, you are prompted to install the new Web Service SDK. When you install the new Web Service SDK, make sure that the virtual directory name matches the previously installed virtual directory (for example, MultiFactorAuthWebServiceSdk).
@@ -47,7 +48,7 @@ Complete the upgrade of your MFA Servers before moving to this section.
 
 1. Make a backup of the web.config file that is in the virtual directory of the User Portal installation location (for example, C:\inetpub\wwwroot\MultiFactorAuth). If any changes were made to the default theme, make a backup of the App_Themes\Default folder as well. It is better to create a copy of the Default folder and create a new theme than to change the Default theme.
 2. If the User Portal runs on the same server as the other MFA Server components, the MFA Server installation prompts you to update the User Portal. Accept the prompt and install the User Portal update. Check that the virtual directory name matches the previously installed virtual directory (for example, MultiFactorAuth).
-3. If the User Portal is on its own server, copy the MultiFactorAuthenticationUserPortalSetup64.msi file from the install location of one of the MFA Servers and put it onto the User Portal web server. Run the installer. 
+3. If the User Portal is on its own server, copy the MultiFactorAuthenticationUserPortalSetup64.msi file from the install location of one of the MFA Servers and put it onto the User Portal web server. Run the installer.
 
    If an error occurs stating, "Microsoft Visual C++ 2015 Redistributable Update 1 or higher is required," download and install the latest update package from the [Microsoft Download Center](https://www.microsoft.com/download/). Install both the x86 and x64 versions.
 
@@ -82,15 +83,15 @@ These instructions only apply if you run Multi-Factor Authentication Server sepa
 
 ### Install new AD FS adapters
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Your users will not be required to perform two-step verification during steps 3-8 of this section. If you have AD FS configured in multiple clusters, you can remove, upgrade, and restore each cluster in the farm independently of the other clusters to avoid downtime.
 
 1. Remove some AD FS servers from the farm. Update these servers while the others are still running.
-2. Install the new AD FS adapter on each server removed from the AD FS farm. If the MFA Server is installed on each AD FS server, you can update through the MFA Server admin UX. Otherwise, update by running MultiFactorAuthenticationAdfsAdapterSetup64.msi. 
+2. Install the new AD FS adapter on each server removed from the AD FS farm. If the MFA Server is installed on each AD FS server, you can update through the MFA Server admin UX. Otherwise, update by running MultiFactorAuthenticationAdfsAdapterSetup64.msi.
 
    If an error occurs stating, "Microsoft Visual C++ 2015 Redistributable Update 1 or higher is required," download and install the latest update package from the [Microsoft Download Center](https://www.microsoft.com/download/). Install both the x86 and x64 versions.
 
-3. Go to **AD FS** > **Authentication Policies** > **Edit Global MultiFactor Authentication Policy**. Uncheck **WindowsAzureMultiFactorAuthentication** or **AzureMFAServerAuthentication** (depending on the current version installed). 
+3. Go to **AD FS** > **Authentication Policies** > **Edit Global MultiFactor Authentication Policy**. Uncheck **WindowsAzureMultiFactorAuthentication** or **AzureMFAServerAuthentication** (depending on the current version installed).
 
    Once this step is complete, two-step verification through MFA Server is not available in this AD FS cluster until you complete step 8.
 
