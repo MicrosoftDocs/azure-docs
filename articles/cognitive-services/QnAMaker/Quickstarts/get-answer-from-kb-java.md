@@ -18,31 +18,6 @@ ms.author: diberry
 
 This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The question, in JSON format, is sent in the body of the API request. 
 
-An example JSON-formatted question for the REST API:
-
-```json
-{question:'Does QnA Maker support non-English languages?'}
-```
-
-The answer is returned in a JSON object:
-
-```json
-{
-  "answers": [
-    {
-      "questions": [
-        "Does QnA Maker support non-English languages?"
-      ],
-      "answer": "See more details about [supported languages](https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
-      "score": 82.19,
-      "id": 11,
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-      "metadata": []
-    }
-  ]
-}
-```
-
 ## Prerequisites
 
 * [JDK SE](https://aka.ms/azure-jdks)  (Java Development Kit, Standard Edition)
@@ -109,6 +84,9 @@ Build and run the program from the command line. It will automatically send the 
     ```Java
     java -cp ".;lib/*" GetAnswer
     ```
+
+[!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
+
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 

@@ -18,30 +18,6 @@ ms.author: diberry
 
 This quickstart walks you through programmatically getting an answer from a published QnA Maker knowledge base. QnA Maker automatically extracts questions and answers from semi-structured content, like FAQs, from [data sources](../Concepts/data-sources-supported.md). The question, in JSON format, is sent in the body of the API request. 
 
-An example JSON-formatted question for the REST API:
-
-```json
-{question:'Does QnA Maker support non-English languages?'}
-```
-
-The answer is returned in a JSON object:
-
-```json
-{
-  "answers": [
-    {
-      "questions": [
-        "Does QnA Maker support non-English languages?"
-      ],
-      "answer": "See more details about [supported languages](https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/overview/languages-supported).\n\n\nIf you have content from multiple languages, be sure to create a separate service for each language.",
-      "score": 82.19,
-      "id": 11,
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-      "metadata": []
-    }
-  ]
-}
-```
 
 ## Prerequisites
 
@@ -60,33 +36,25 @@ The code for this quickstart is in the [https://github.com/Azure-Samples/cogniti
 
 At the top of the Program.cs file, replace the single using statement with the following lines to add necessary dependencies to the project:
 
-[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=1-4 "Add the required dependencies")]
+[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=1-3 "Add the required dependencies")]
 
 ## Add the required constants
 
-At the top of the `GetAnswer.java` class, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
+At the top of the `Program` class, inside the `Main`, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
 
-[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=10-32 "Add the required constants")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=14-30 "Add the required constants")]
 
-## Add a POST request to send question 
+## Add a POST request to send question and get answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the KB and receives the response:
 
-[!code-csharp[Add a POST request to send question to KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=34-47 "Add a POST request to send question to KB")]
-
-## Add GetAnswers method 
-
-[!code-csharp[Add GetAnswers method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=49-56 "Add GetAnswers method")]
-
-## Add the GetAnswers method to Main
-
-Change the Main method to call the GetAnswers method:
-
-[!code-csharp[Add GetAnswers method](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=58-62 "Add GetAnswers method")]
+[!code-csharp[Add a POST request to send question to KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer-from-knowledge-base/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to KB")]
 
 ## Build and run the program
 
 Build and run the program from Visual Studio. It will automatically send the request to the QnA Maker API, then it will print to the console window.
+
+[!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
