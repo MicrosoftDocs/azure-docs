@@ -34,9 +34,9 @@ Next, if any Virtual Machine Scale Sets refer to a specific version, you should 
 
 Microsoft offers two versions of Windows Server images through the Azure Stack Marketplace:
 
-1. **Pay as you use**: These images run the full price Windows meters. 
+- **Pay as you use**: These images run the full price Windows meters. 
    Who should use: EA customers who use the *Consumption billing model*; CSPs who do not want to use SPLA licensing.
-2. **Bring Your Own License (BYOL)**: These images run basic meters.
+- **Bring Your Own License (BYOL)**: These images run basic meters.
    Who should use: EA customers with a Windows Server license; CSPs who use SPLA licensing.
 
 Azure Hybrid Use Benefit (AHUB) is not supported on Azure Stack. Customers who license through the "Capacity" model must use the BYOL image. If you are testing with the Azure Stack Development Kit (ASDK), you can use either of these options.
@@ -65,8 +65,8 @@ You can add **licenseType: Windows_Server** in an Azure Resource Manager templat
 
 To activate a Windows Server virtual machine on Azure Stack, the following conditions must be true:
 
-1. The OEM has set the appropriate BIOS marker on every host system in Azure Stack.
-2. Windows Server 2012 R2 and Windows Server 2016 must use [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Key Management Service (KMS) and other activation services are not supported on Azure Stack.
+- The OEM has set the appropriate BIOS marker on every host system in Azure Stack.
+- Windows Server 2012 R2 and Windows Server 2016 must use [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)). Key Management Service (KMS) and other activation services are not supported on Azure Stack.
 
 ### How can I verify that my virtual machine is activated?
 
@@ -104,7 +104,7 @@ Contact your hardware supplier to verify that the correct BIOS markers were inst
 
 [Automatic Virtual Machine Activation](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn303421(v=ws.11)) is not supported in earlier versions of Windows Server. You will have to activate the VMs manually.
 
-## Next Steps
+## Next steps
 
 For more information, see the following articles:
 
