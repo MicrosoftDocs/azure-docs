@@ -48,9 +48,9 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 
         bcdedit /enum
 
-    If the VM is configured to boot into Safe Mode, you will see an extra value under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” value, the VM is not in Safe Mode. This article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, the VM is not in Safe Mode. This article does not apply to your scenario.
 
-    ![Image about the Safe Mode value](./media/troubleshoot-bitlocker-boot-error/safe-mode-tag.png)
+    ![Image about the Safe Mode flag](./media/troubleshoot-bitlocker-boot-error/safe-mode-tag.png)
 
 3. Delete the **safemoade** flag, so the VM will boot into normal mode:
 
@@ -104,12 +104,12 @@ To enable dump log and Serial Console, run the following script.
 #### Configure the Windows to boot into normal mode
 
 1. Open an elevated command prompt session (**Run as administrator**).
-2. Run the following commoand. Replace this drive letter with the appropriate value for your VM. 
+2. Check the boot configuration data. In the following commands, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM. 
 
         bcdedit /store F:\boot\bcd /enum
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
 
-    If the VM is configured to boot into Safe Mode, you will see an extra value under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” value, this article does not apply to your scenario.
+    If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” flag, this article does not apply to your scenario.
 
 3. Remove the **safemode** flag, so the VM will boot into normal mode:
 
