@@ -24,16 +24,16 @@ Follow these steps to add an email action:
   1. Navigate to your Remote Monitoring solution.
   2. From your dashboard, navigate to the **Rules** page.
 
-      ![rules](./media/iot-accelerators-emailactions/rules.png)
+      ![rules](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
 
   3. Click the checkbox next to the [existing rule](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate#edit-an-existing-rule) that you would like to modify, and then click **Edit** at the top. An editable flyout will appear.
   4. In the Action section, toggle **Email enabled** to on. 
 
-      ![email enabled](./media/iot-accelerators-emailactions/emailenabled.png)
+      ![email enabled](./media/iot-accelerators-remote-monitoring-email-actions/emailenabled.png)
 
   5. If this is the first-time email actions have been enabled within the solution accelerator, you will see a warning box at the top to [sign in to outlook](#outlook).
   6. Enter an email address into the recipient box and hit enter for each email address added. 
-      ![address](./media/iot-accelerators-emailactions/address.png)
+      ![address](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
   7. Enter a subject for the email.
   8. Enter any comments for the email recipients in **text format**. *HTML* formatting is supported by editing the email template. [Directions for editing the HTML format](#htmledit)
   9. Make sure that **Rule Status** is enabled
@@ -45,16 +45,16 @@ Follow these steps to add an email action:
   1. Navigate to your Remote Monitoring solution.
   2. From your dashboard, navigate to the **Rules** page. 
 
-      ![rules](./media/iot-accelerators-emailactions/rules.png)
+      ![rules](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
 
   3. Follow the [create a rule](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate#create-a-rule) and [create an advanced rule](https://docs.microsoft.com/azure/iot-accelerators/iot-accelerators-remote-monitoring-automate#create-an-advanced-rule) up to the **Severity level** only. Do *not* click apply yet. 
   4. In the Action section, toggle **Email enabled** to on. 
 
-      ![email enabled](./media/iot-accelerators-emailactions/emailenabled.png)
+      ![email enabled](./media/iot-accelerators-remote-monitoring-email-actions/emailenabled.png)
 
   5. If this is the first-time email actions have been enabled within the solution accelerator, you will see a warning box at the top to [sign in to outlook](#outlook).
   6. Enter an email address into the recipient box and hit enter for each email address added. 
-      ![address](./media/iot-accelerators-emailactions/address.png)
+      ![address](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
   7. Enter a subject for the email.
   8. Enter any comments for the email recipients in **text format**. *HTML* formatting is supported by editing the email template. [Directions for editing the HTML format](#htmledit)
   9. Make sure that **Rule Status** is enabled
@@ -66,13 +66,13 @@ Your rule with *Email Action* has now been enabled. Each time the action is trig
 
 If this is your first-time enabling email actions within your solution accelerator, you will see a warning not saying that you need to sign into Outlook. The purpose of this is to set up an email account, which will be responsible for sending out the email notification. It is recommended that you create a specific Outlook account just for solution accelerator notifications and use that to sign in with. You will continue to see this warning note until you have signed in with an Outlook account. Once you have signed in, you will see a successful message below the email actions toggle. 
 
-![successful login](./media/iot-accelerators-emailactions/success.png)
+![successful login](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
 
 ## Customizing the email HTML <a name="htmledit"></a>
 
 Out of the box, the Remote Monitoring solution accelerator provides a basic HTML template for emails sent when alerts are triggered. The email constructed is based off of the variables filled out when setting up email action. Here's an example of email sent when an alert is triggered and email actions are enabled: 
 
-![email example](./media/iot-accelerators-emailactions/emailtemplate.png)
+![email example](./media/iot-accelerators-remote-monitoring-email-actions/emailtemplate.png)
 
 However, if you would like to edit the HTML to include more information, custom images, etc. follow these steps:
   1. Make sure that you have cloned the Github repository for Remote Monitoring in either .NET or Java. 
