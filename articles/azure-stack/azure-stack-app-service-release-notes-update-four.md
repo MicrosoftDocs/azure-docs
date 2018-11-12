@@ -73,7 +73,7 @@ Azure App Service on Azure Stack Update 4 includes the following improvements an
 For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.3 update has completed:
 
 > [!IMPORTANT]
-> This procedure takes approximately 5-10 minutes.  This procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration
+> The migration procedure takes approximately 5-10 minutes.  The procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration
 >
 >
 
@@ -88,7 +88,7 @@ For customers wishing to migrate to contained database for existing Azure App Se
             GO
     ```
 
-1. Converting a Database to Partially Contained.  This step will incur downtime as all active sessions need to be killed
+1. Converting a Database to Partially Contained, the conversion will incur downtime as all active sessions need to be killed
 
     ```sql
         /******** [appservice_metering] Migration Start********/
@@ -174,7 +174,7 @@ Validate
 
 ### Known issues (post-installation)
 
-- Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network.  This is also called out in the Azure App Service on Azure Stack deployment documentation.
+- Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network,  as called out in the Azure App Service on Azure Stack deployment documentation.
 
 If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
  * Source: Any
