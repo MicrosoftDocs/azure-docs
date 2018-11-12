@@ -4,7 +4,7 @@ title: Deploy Custom Vision to an Azure IoT Edge device | Microsoft Docs
 description: Learn how to make a computer vision model run as a container using Custom Vision and IoT Edge.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 11/01/2018
 ms.topic: tutorial
