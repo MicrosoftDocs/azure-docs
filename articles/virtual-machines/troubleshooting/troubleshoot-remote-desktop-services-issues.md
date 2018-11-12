@@ -55,6 +55,7 @@ This problem occurs because Remote Desktop Services isn't running on the VM. The
 
 - The TermService service is set to **Disabled**. 
 - The TermService service is crashing or hanging. 
+- The TermService is not starting because of to a incorrect configuration.
 
 ## Solution
 
@@ -95,16 +96,17 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 
     |  Error |  Suggestion |
     |---|---|
-    |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-error). |
-    |1058 - ERROR_SERVICE_DISABLED  |See [TermService service is disabled](#termService-service-is-disabled).  |
+    |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |See [TermService service is disabled](#termService-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |See [TermService service crashes or hangs](#termService-service-crashes-or-hangs).  |
     |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.|
+    |1067 - ERROR_PROCESS_ABORTED  |See [TermService service crashes or hangs](#termService-service-crashes-or-hangs).  |
     |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.    |
-    |1070 - ERROR_SERVICE_START_HANG   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |See [TermService service fails because of logon failure](#termService-service-fails-because-of-logon-failure) |
+    |1070 - ERROR_SERVICE_START_HANG   | See [TermService service crashes or hangs](#termService-service-crashes-or-hangs). |
     |1077 - ERROR_SERVICE_NEVER_STARTED   | See [TermService service is disabled](#termService-service-is-disabled).  |
     |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. |
-    |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |
-
+    |1753   |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |   |5- ACCESS DENIED |See [TermService service is stopped because of an Access Denied error](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    
 #### TermService service is stopped because of an Access Denied problem
 
 1. Connect to [Serial Console](serial-console-windows.md#) and open a PowerShell instance.
@@ -136,7 +138,14 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
    procmon /Terminate 
    ```
 
-5. Collect the file **c:\temp\ProcMonTrace.PML**. Open it by using **procmon**. Then filter by **Result is ACCESS DENIED**, as shown in the following screenshot：
+5. Collect the file **c:\temp\ProcMonTrace.PML**:
+
+    1. [Attach a data disk to the VM](../windows/attach-managed-disk-portal.md
+).
+    2. Use Serial Console you can copy the file to the new drive. For example, `copy C:\temp\ProcMonTrace.PML F:\`. In this command, F is the driver letter of the attached data disk.
+    3. Detach the data drive and attach it on a working VM that has Process Monitor ubstakke installed.
+
+6. Open **ProcMonTrace.PML** by using Process Monitor the working VM. Then filter by **Result is ACCESS DENIED**, as shown in the following screenshot：
 
     ![Filter by result in Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
@@ -165,6 +174,27 @@ To troubleshoot this issue, use the Serial Console. Or else [repair the VM offli
 
 4. Try to connect to VM by using Remote Desktop.
 
+#### TermService service fails because of logon failure
+
+1. This problem occurs if the startup account of this service was changed. Changed this back to its default: 
+
+        sc config TermService obj= 'NT Authority\NetworkService'
+2. Start the service:
+
+        sc start TermService
+3. Try to connect to VM by using Remote Desktop.
+
+#### TermService service crashes or hangs
+1. If the service status is stuck in **Starting** or **Stopping**, then try to stop the service: 
+
+        sc stop TermService
+2. Isolate the service on its own ‘svchost’ container:
+
+        sc config TermService type= own
+3. Start the service:
+
+        sc start TermService
+4. If the service is still failing to start, [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Repair the VM offline
 

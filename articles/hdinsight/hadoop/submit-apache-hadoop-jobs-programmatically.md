@@ -3,8 +3,8 @@ title: Submit Hadoop jobs in HDInsight
 description: Learn how to submit Hadoop jobs in Azure HDInsight.
 ms.reviewer: jasonh
 services: hdinsight
-ms.author: jasonh
-author: jasonwhowell
+ms.author: hrasheed
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual

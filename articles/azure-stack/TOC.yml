@@ -33,8 +33,6 @@
     href: azure-stack-tutorial-mysql.md
   - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
-  - name: Deploy Ethereum
-    href: azure-stack-ethereum.md
 - name: Concepts
   items:
   - name: Capacity Planning

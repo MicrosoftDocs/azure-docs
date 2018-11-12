@@ -4,7 +4,7 @@ description: Use Visual Studio Code to develop and debug Java modules for Azure 
 services: iot-edge
 keywords: 
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/21/2018

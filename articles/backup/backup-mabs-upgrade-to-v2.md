@@ -98,7 +98,7 @@ To add a volume in the Administrator Console:
 
   If you want to add a disk, the disk must belong to a protection group that has legacy storage. You can use these disks only for these protection groups. If Backup Server doesn't have sources that have legacy protection, the disk isn't listed.
 
-  For more information about adding disks, see [Add disks to increase legacy storage](http://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
+  For more information about adding disks, see [Add disks to increase legacy storage](https://docs.microsoft.com/system-center/dpm/upgrade-to-dpm-2016#adding-disks-to-increase-legacy-storage). You can't give a disk a friendly name.
 
 
 ### Assign workloads to volumes
@@ -170,13 +170,13 @@ Updating protection groups to use Modern Backup Storage is optional. To update t
 
 1. In the System Center 2016 DPM Administrator Console, select the **Protection** feature. In the **Protection Group Member** list, right-click the member, and then select **Stop protection of member**.
 
-  ![Stop protection of member](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
+  ![Stop protection of member](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-stop-protection1.png)
 
 2. In the **Remove from Group** dialog box, review the used disk space and the available free space for the storage pool. The default is to leave the recovery points on the disk and allow them to expire per their associated retention policy. Select **OK**.
 
   If you want to immediately return the used disk space to the free storage pool, select the **Delete replica on disk** check box to delete the backup data (and recovery points) associated with that member.
 
-  ![Remove from Group dialog box](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
+  ![Remove from Group dialog box](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-retain-data.png)
 
 3. Create a protection group that uses Modern Backup Storage. Include the unprotected data sources.
 
@@ -189,7 +189,7 @@ To add disk storage:
 
 1. In the System Center 2016 DPM Administrator Console, select **Management** > **Disk Storage** > **Add**.
 
-  ![Add Disk Storage dialog](http://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
+  ![Add Disk Storage dialog](https://docs.microsoft.com/system-center/dpm/media/upgrade-to-dpm-2016/dpm-2016-add-disk-storage.png)
 
 2. In the **Add Disk Storage** dialog box, select **Add disks**.
 

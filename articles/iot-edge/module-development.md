@@ -2,7 +2,7 @@
 title: Develop modules for Azure IoT Edge | Microsoft Docs 
 description: Learn how to create custom modules for Azure IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual
@@ -21,9 +21,9 @@ The IoT Edge runtime provides the infrastructure to integrate the functionality 
 The IoT Edge hub provides two main functionalities: proxy to IoT Hub, and local communications.
 
 ### IoT Hub primitives
-IoT Hub sees a module instance analogously to a device, in the sense that it:
+IoT Hub sees a module instance analogously to a device, in the sense that:
 
-* it has a module twin, that is distinct and isolated from the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) and the other module twins of that device;
+* it has a module twin that is distinct and isolated from the [device twin](../iot-hub/iot-hub-devguide-device-twins.md) and the other module twins of that device;
 * it can send [device-to-cloud messages](../iot-hub/iot-hub-devguide-messaging.md);
 * it can receive [direct methods](../iot-hub/iot-hub-devguide-direct-methods.md) targeted specifically at its identity.
 
@@ -36,7 +36,7 @@ See [Develop and deploy an IoT Edge module to a simulated device](tutorial-cshar
 ### Device-to-cloud messages
 In order to enable complex processing of device-to-cloud messages, IoT Edge hub provides declarative routing of messages between modules, and between modules and IoT Hub. Declarative routing allows modules to intercept and process messages sent by other modules and propagate them into complex pipelines. The article [Module composition](module-composition.md) explains how to compose modules into complex pipelines using routes.
 
-An IoT Edge module, differently than a normal IoT Hub device application, can receive device-to-cloud messages that are being proxied by its local IoT Edge hub, in order to process them.
+An IoT Edge module, as opposed to a normal IoT Hub device application, can receive device-to-cloud messages that are being proxied by its local IoT Edge hub in order to process them.
 
 IoT Edge hub propagates the messages to your module based on declarative routes described in the [Module composition](module-composition.md) article. When developing an IoT Edge module, you can receive these messages by setting message handlers.
 
@@ -53,7 +53,9 @@ Finally, device-to-cloud messages handled by the Edge hub are stamped with the f
 | $outputName | The output used to send the message. Can be empty. |
 
 ### Connecting to IoT Edge hub from a module
-Connecting to the local IoT Edge hub from a module involves two steps: use the connection string provided by the IoT Edge runtime when your module starts, and make sure your application accepts the certificate presented by the IoT Edge hub on that device.
+Connecting to the local IoT Edge hub from a module involves two steps: 
+1. Use the connection string provided by the IoT Edge runtime when your module starts.
+2. Make sure your application accepts the certificate presented by the IoT Edge hub on that device.
 
 The connecting string to use is injected by the IoT Edge runtime in the environment variable `EdgeHubConnectionString`. This makes it available to any program that wants to use it.
 

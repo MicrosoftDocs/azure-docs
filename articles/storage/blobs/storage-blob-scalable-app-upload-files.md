@@ -192,6 +192,6 @@ In part two of the series, you learned about uploading large amounts of random d
 Advance to part three of the series to download large amounts of data from a storage account.
 
 > [!div class="nextstepaction"]
-> [Upload large amounts of large files in parallel to a storage account](storage-blob-scalable-app-download-files.md)
+> [Download large amounts of random data from Azure storage](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

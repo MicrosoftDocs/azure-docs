@@ -2,7 +2,7 @@
   href: index.yml
 - name: SQL Database Service
   items:
-  - name: About SQL DB
+  - name: What is SQL DB
     href: sql-database-technical-overview.md
   - name: Choose a version of Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md  
@@ -58,6 +58,8 @@
       href: sql-database-connect-query-python.md
     - name: Ruby
       href: sql-database-connect-query-ruby.md
+    - name: R
+      href: sql-database-connect-query-r.md
 - name: Tutorials
   items:
   - name: 1 - Design DB using SSMS
@@ -341,7 +343,7 @@
       - name: Advanced monitoring
         items:
         - name: Azure SQL Analytics monitoring
-          href: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql
+          href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
         - name: Diagnostic telemetry logging
           href: sql-database-metrics-diag-logging.md
       - name: Automated troubleshooting
@@ -474,6 +476,8 @@
       items:
       - name: SQL Data Sync
         href: sql-database-sync-data.md
+      - name: Data Sync Agent
+        href: sql-database-data-sync-agent.md
       - name: Replicate schema changes
         href: sql-database-update-sync-schema.md
       - name: Monitor with OMS

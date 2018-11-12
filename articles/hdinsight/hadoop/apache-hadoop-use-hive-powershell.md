@@ -2,14 +2,14 @@
 title: Use Hadoop Hive with PowerShell in HDInsight - Azure 
 description: Use PowerShell to run Hive queries in Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/23/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Run Hive queries using PowerShell
@@ -79,7 +79,7 @@ The following steps demonstrate how to use these cmdlets to run a job in your HD
    >
    > `Invoke-AzureRmHDInsightHiveJob -File "wasb://<ContainerName>@<StorageAccountName>/<Path>/query.hql"`
    >
-   > For more information about **Here-Strings**, see <a href="http://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
+   > For more information about **Here-Strings**, see <a href="https://technet.microsoft.com/library/ee692792.aspx" target="_blank">Using Windows PowerShell Here-Strings</a>.
 
 ## Troubleshooting
 

@@ -27,7 +27,7 @@ If none of these steps work for you, the following support channels are also ava
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visit the Log Analytics Feedback page to review submitted ideas and bugs [http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback) or file a new one.  
+* Visit the Log Analytics Feedback page to review submitted ideas and bugs [http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one.  
 
 ## Important log locations and Log Collector tool
 

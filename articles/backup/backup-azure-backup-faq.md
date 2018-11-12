@@ -70,7 +70,7 @@ You don't need separate licensing for VMware/Hyper-V protection.
 
 ### Which DPM versions are supported?
 
-Supported DPM versions are summarized in the [support matrix](backup-azure-dpm-introduction.md#prerequisites-and-limitations). We recommend that you install the latest DPM updates, and run the [latest version](http://aka.ms/azurebackup_agent) of the Azure Backup agent on the DPM server.
+Supported DPM versions are summarized in the [support matrix](backup-azure-dpm-introduction.md#prerequisites-and-limitations). We recommend that you install the latest DPM updates, and run the [latest version](https://aka.ms/azurebackup_agent) of the Azure Backup agent on the DPM server.
 
 ### Can I register the server to multiple vaults?
 

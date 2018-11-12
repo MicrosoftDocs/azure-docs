@@ -71,6 +71,6 @@ In this document, you learned how to connect Microsoft ATA to Security Center. T
 * [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md) — Learn how to monitor the health status of your partner solutions.
 - [Azure Security Center data security](security-center-data-security.md) - Learn how data is managed and safeguarded in Security Center.
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Get the latest Azure security news and information.
 
 

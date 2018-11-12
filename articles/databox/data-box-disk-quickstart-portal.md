@@ -26,11 +26,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 Before you begin:
 
-- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](http://aka.ms/azuredataboxfromdiskdocs).
+- Make sure that your subscription is enabled for Azure Data Box service. To enable your subscription for this service, [Sign up for the service](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Sign in to the Azure portal at [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## Order
 
