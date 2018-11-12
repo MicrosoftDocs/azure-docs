@@ -583,7 +583,7 @@
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Virtual Machine Scale Set Node Type scale out
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
-      - name: Upgrade
+      - name: Update
         items:
         - name: Upgrade the Service Fabric version 
           href: service-fabric-cluster-upgrade-version-azure.md    
@@ -591,18 +591,18 @@
           href: service-fabric-patch-orchestration-application.md
         - name: Patch cluster nodes (Linux)
           href: service-fabric-patch-orchestration-application-linux.md    
-      - name: Set access control
-        href: service-fabric-cluster-security-roles.md      
-      - name: Open a port in the load balancer
-        href: create-load-balancer-rule.md
-      - name: Change cluster certificate to common name
-        href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
-      - name: Manually rollover cluster certs
-        href: service-fabric-cluster-rollover-cert-cn.md
-      - name: Manage cluster certificates
-        href: service-fabric-cluster-security-update-certs-azure.md      
-      - name: Remote connect to cluster node VM
-        href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
+        - name: Set access control
+          href: service-fabric-cluster-security-roles.md      
+        - name: Open a port in the load balancer
+          href: create-load-balancer-rule.md
+        - name: Change cluster certificate to common name
+          href: service-fabric-cluster-change-cert-thumbprint-to-cn.md
+        - name: Manually rollover cluster certs
+          href: service-fabric-cluster-rollover-cert-cn.md
+        - name: Manage cluster certificates
+          href: service-fabric-cluster-security-update-certs-azure.md      
+        - name: Remote connect to cluster node VM
+          href: service-fabric-cluster-remote-connect-to-azure-cluster-node.md      
     - name: Standalone clusters
       items:
       - name: Create
@@ -619,7 +619,7 @@
         href: service-fabric-cluster-windows-server-add-remove-nodes.md
       - name: Set access control
         href: service-fabric-cluster-security-roles.md              
-      - name: Upgrade
+      - name: Update
         items:
         - name: Upgrade the Service Fabric version
           href: service-fabric-cluster-upgrade-windows-server.md
