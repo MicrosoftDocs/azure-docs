@@ -85,23 +85,30 @@ The `--scope` for a resource needs to be a full resource ID, such as */subscript
 
 The following sections detail common delegations that you may need to make.
 
+## Azure Container Registry
+
+If you use Azure Container Registry (ACR) as your container image store, you need to grant permissions for your AKS cluster to read and pull images. The service principal of the AKS cluster must be delegated the *Reader* role on the registry. For detailed steps, see [Grant AKS access to ACR][aks-to-acr].
+
 ### Networking
 
-You may use advanced networking or need to access existing virtual network resources in another resource group, such as a load balancer or public IP address. Assign one of the following set of role permissions:
+You may use advanced networking where the virtual network and subnet or public IP addresses are in another resource group. Assign one of the following set of role permissions:
 
-- Assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network, or
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
-    - *Microsoft.Network/virtualNetworks/subnets/join/action*
-    - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- Or, assign the [Network Contributor][rbac-network-contributor] built-in role on the subnet within the virtual network
 
 ### Storage
 
-You may need to access existing storage resources in another resource group, such as as disks or Azure Files. Assign one of the following set of role permissions:
+You may need to access existing Disk resources in another resource group. Assign one of the following set of role permissions:
 
-- Assign the [Storage Account Contributor][rbac-storage-contributor] built-in role on the resource group, or
 - Create a [custom role][rbac-custom-role] and define the following role permissions:
-    - *Microsoft.Compute/disks/read*
-    - *Microsoft.Compute/disks/write*
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- Or, assign the [Storage Account Contributor][rbac-storage-contributor] built-in role on the resource group
 
 ## Additional considerations
 
@@ -139,3 +146,4 @@ For more information about Azure Active Directory service principals, see [Appli
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr
