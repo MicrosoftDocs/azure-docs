@@ -19,7 +19,8 @@ You learn how to:
 > [!div class="checklist"]
 > - Create a Recovery Services vault and set the vault context.
 > - Validate server registration in the vault.
-> - Set up replication, including a replication policy. Add your vCenter server and discover VMs. > - Add a vCenter server and discover 
+> - Set up replication, including a replication policy. Add your vCenter server and discover VMs. 
+> - Add a vCenter server and discover 
 > - Create storage accounts to hold replication data, and replicate the VMs.
 > - Perform a failover. Configure failover settings, perform a e settings for replicating virtual machines.
 
