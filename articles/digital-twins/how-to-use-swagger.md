@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/9/2018
+ms.date: 11/12/2018
 ms.author: adgera
 ---
 
@@ -15,6 +15,9 @@ ms.author: adgera
 Each provisioned Azure Digital Twins instance includes its own automatically generated Swagger reference documentation.
 
 [Swagger](https://swagger.io/), or [OpenAPI](https://www.openapis.org/), unites complex API information into an interactive and language-agnostic reference resource. Swagger provides critical reference material about which JSON payloads, HTTP methods, and specific endpoints to use to perform operations against an API.
+
+> [!IMPORTANT]
+> Support for Swagger authentication is temporarily disabled during Public Preview.
 
 ## Swagger summary
 
@@ -86,7 +89,10 @@ The examples also include error codes to help debug or improve failing tests.
 
 ## Swagger OAuth 2.0 authorization
 
-To interactively test requests against API resources protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
+To learn more about interactively testing requests protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
+
+> [!NOTE]
+> Support for OAuth 2.0 authentication is temporarily disabled during Public Preview.
 
 ## Next steps
 
