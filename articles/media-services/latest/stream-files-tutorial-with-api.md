@@ -24,7 +24,6 @@ Azure Media Services enables you to encode your media files into formats that ca
 This tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
 > * Examine the code that uploads, encodes, and streams
@@ -42,6 +41,8 @@ This tutorial shows you how to:
     Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
 - [Create a Media Services account](create-account-cli-how-to.md).
+
+    Make sure to remember the values that you used for the resource group name and Media Services account name
 
 ## Download the sample
 

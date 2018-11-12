@@ -28,7 +28,6 @@ In Azure Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/
 The tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
 > * Examine the code that performs live streaming
@@ -41,12 +40,15 @@ The tutorial shows you how to:
 
 The following are required to complete the tutorial.
 
-- Install Visual Studio Code or Visual Studio
+- Install Visual Studio Code or Visual Studio.
 - Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
 
     Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
 - [Create a Media Services account](create-account-cli-how-to.md).
+
+    Make sure to remember the values that you used for the resource group name and Media Services account name
+
 - A camera or a device (like laptop) that is used to broadcast an event.
 - An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
 
