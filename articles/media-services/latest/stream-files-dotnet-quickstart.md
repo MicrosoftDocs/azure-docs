@@ -35,7 +35,7 @@ By the end of the quickstart you will be able to stream a video.
 
     Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
-- [Create a Media Services account](../create-account-cli-how-to.md).
+- [Create a Media Services account](create-account-cli-how-to.md).
 
 ## Download the sample
 

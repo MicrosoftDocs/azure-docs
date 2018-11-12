@@ -42,7 +42,7 @@ This tutorial shows you how to:
 
     Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
-- [Create a Media Services account](../create-account-cli-how-to.md).
+- [Create a Media Services account](create-account-cli-how-to.md).
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in some of the AMS REST tutorials. 
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 

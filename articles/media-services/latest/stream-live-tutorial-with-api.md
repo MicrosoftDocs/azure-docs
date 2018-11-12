@@ -46,7 +46,7 @@ The following are required to complete the tutorial.
 
     Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
-- [Create a Media Services account](../create-account-cli-how-to.md).
+- [Create a Media Services account](create-account-cli-how-to.md).
 - A camera or a device (like laptop) that is used to broadcast an event.
 - An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
 
