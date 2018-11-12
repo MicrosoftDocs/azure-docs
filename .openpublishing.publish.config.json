@@ -267,12 +267,6 @@
       "branch_mapping": {}
     },
     {
-      "path_to_root": "aml-sdk-samples",
-      "url": "https://github.com/Azure/MachineLearningNotebooks",
-      "branch": "sdk-codetest",
-      "branch_mapping": {}
-    },
-    {
       "path_to_root": "cognitive-services-vision-csharp-sdk-quickstarts",
       "url": "https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts",
       "branch": "master",
