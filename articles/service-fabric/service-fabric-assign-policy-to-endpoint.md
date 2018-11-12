@@ -42,7 +42,7 @@ For an HTTPS endpoint, also indicate the name of the certificate to return to th
 ```
 
 > [!WARNING] 
-> When using HTTPS, do not use the same port and certificate for different service instances (independant of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
+> When using HTTPS, do not use the same port and certificate for different service instances (independent of the application) deployed to the same node. Upgrading two different services using the same port in different application instances will result in an upgrade failure. For more information, see [Upgrading multiple applications with HTTPS endpoints
 ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 > 
 
