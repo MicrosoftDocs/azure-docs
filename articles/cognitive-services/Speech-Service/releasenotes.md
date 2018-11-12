@@ -44,7 +44,7 @@ ms.author: wolfma
 
 **Samples**
 
-* Added C++ and C# sample for pull and push stream usage in our [sample repository](https://aka.ms/csspeech/samples).
+* Added C++ and C# samplea for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
 
 ## Speech Service SDK 1.0.1
 

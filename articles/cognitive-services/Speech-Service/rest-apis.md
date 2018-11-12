@@ -122,7 +122,7 @@ HTTP code|Meaning|Possible reason
 
 ### JSON response
 
-Results are returned in JSON format. Depending on your query parameters, a `simple` of `detailed` format is being returned.
+Results are returned in JSON format. Depending on your query parameters, a `simple` or `detailed` format is being returned.
 
 #### The `simple` format 
 
@@ -144,7 +144,7 @@ This format includes the following top-level fields.
 |`RecognitionStatus`|Status, such as `Success` for successful recognition. See this [table](rest-apis.md#recognition-status).|
 |`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
 |`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
-|`NBest`|A list of alternative interpretations of the same speech, ranked from most likely to least likely. See the [NBest description](rests-apis.md#nbest).|
+|`NBest`|A list of alternative interpretations of the same speech, ranked from most likely to least likely. See the [NBest description](rest-apis.md#nbest).|
 
 #### NBest
 
