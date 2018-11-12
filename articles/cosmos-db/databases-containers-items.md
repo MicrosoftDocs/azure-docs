@@ -34,12 +34,11 @@ You can interact with an Azure Cosmos database using the following Azure Cosmos 
 
 | **Operation** | **Azure CLI**|**SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
-|Enumerate all databases| Yes*** | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
-|Read database| Yes*** | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
-|Create new database| Yes*** | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
-|Update database| Yes*** | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
+|Enumerate all databases| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
+|Read database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
+|Create new database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
+|Update database| Yes | Yes | Yes (database is mapped to a keyspace) | Yes | NA | NA |
 
-*** Will be available in January 2019.
 
 ## Azure Cosmos containers
 
