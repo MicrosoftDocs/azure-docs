@@ -131,7 +131,7 @@ Let's review the strangeness computation in detail (assume a set of historical w
    - Slope, if slope is negative  
    - 0, otherwise  
 
-Once the strangeness value for the incoming event is computed, a martingale value is computed based on the strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is retuned as the anomaly score. The martingale value increases slowly in response to strange values, which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
+Once the strangeness value for the incoming event is computed, a martingale value is computed based on the strangeness value (see the [Machine Learning blog](https://blogs.technet.microsoft.com/machinelearning/2014/11/05/anomaly-detection-using-machine-learning-to-detect-abnormalities-in-time-series-data/) for details on how the martingale value is computed). This martingale value is returned as the anomaly score. The martingale value increases slowly in response to strange values, which allows the detector to remain robust to sporadic changes and reduces false alerts. It also has a useful property: 
 
 Probability [there exists t such that M<sub>t</sub> > λ ] < 1/λ, where M<sub>t</sub> is the martingale value at instant t and λ is a real value. For example, if there is an alert when M<sub>t</sub>>100, then the probability of false positives is less than 1/100.  
 
