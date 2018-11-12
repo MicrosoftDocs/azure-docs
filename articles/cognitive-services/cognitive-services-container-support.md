@@ -64,6 +64,10 @@ For a primer on Docker and container basics, see the [Docker overview](https://d
 
 Individual containers can have their own requirements, as well, including server and memory allocation requirements.
 
+## Developer samples
+
+Developer samples are available in the [https://github.com/Azure-Samples/cognitive-services-containers-samples](https://github.com/Azure-Samples/cognitive-services-containers-samples) repository. 
+
 ## Next steps
 
 Install and explore the functionality provided by containers in Azure Cognitive Services:
