@@ -26,7 +26,7 @@ You can use Azure Resource Manager templates to deploy and provision all the res
 
 These templates can be deployed with the Microsoft Azure Stack portal, PowerShell, the command line, and Visual Studio.
 
-The following quickstart templates are available on [GitHub](http://aka.ms/azurestackgithub):
+The following quickstart templates are available on [GitHub](https://aka.ms/azurestackgithub):
 
 ## Deploy SharePoint Server (non-high-availability deployment)
 

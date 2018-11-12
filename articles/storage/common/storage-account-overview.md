@@ -103,7 +103,7 @@ Azure Storage provides different options for accessing block blob data based on 
 The available access tiers are:
 
 > [!NOTE]
-> The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in limited preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions. To learn how to register for the preview, see [Introducing Azure Premium Blob Storage](http://aka.ms/premiumblob).
+> The [Premium access tier](../blobs/storage-blob-storage-tiers.md#premium-access-tier) is available in limited preview as a locally redundant storage (LRS) account in the North Europe, US East 2, US Central and US West regions. To learn how to register for the preview, see [Introducing Azure Premium Blob Storage](https://aka.ms/premiumblob).
 
 * The **Hot** access tier, which is optimized for frequent access of objects in the storage account. Accessing data in the Hot tier is most cost-effective, while storage costs are somewhat higher. New storage accounts are created in the Hot tier by default.
 * The **Cool** access tier, which is optimized for storing large amounts of data that is infrequently accessed and stored for at least 30 days. Storing data in the Cool tier is more cost-effective, but accessing that data may be somewhat more expensive than accessing data in the Hot tier.

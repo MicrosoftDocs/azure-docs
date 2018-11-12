@@ -58,7 +58,16 @@ Your Azure AD B2C application probably refers to `login.microsoftonline.com` in 
 
 If you're using MSAL, set the **ValidateAuthority** to `false`. The following example shows how you might set the property:
 
+In [MSAL for .Net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
+
 ```CSharp
+ ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
+ client.ValidateAuthority = false;
+```
+
+And in [MSAL for Javascript](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+
+```Javascript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -68,5 +77,3 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
-
- For more information, see [ClientApplicationBase Class ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet).

@@ -24,7 +24,7 @@ To deliver the appropriate support for your Service Fabric clusters that you are
 ## Report production issues or request paid support for Azure
 
 For reporting issues on your Service Fabric cluster deployed on Azure, open a ticket for support [on Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-or [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+or [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
  
@@ -35,7 +35,7 @@ Learn more about:
 
 ## Report production issues or request paid support for standalone Service Fabric clusters
 
-For reporting issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid=16146).
+For reporting issues on your Service Fabric cluster deployed on-premises or on other clouds, open a ticket for professional support on [Microsoft support portal](https://support.microsoft.com/oas/default.aspx?prid=16146).
 
 Learn more about:
 

@@ -320,7 +320,7 @@ You can choose whether you want the collection to automatically index all docume
 
 With automatic indexing turned off, you can still selectively add only specific documents to the index. Conversely, you can leave automatic indexing on and selectively choose to exclude specific documents. Indexing on/off configurations are useful when you have only a subset of documents that needs to be queried.
 
-The following sample shows how to include a document explicitly by using the [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) and the [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
+The following sample shows how to include a document explicitly by using the [SQL API .NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) and the [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx) property.
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -410,7 +410,7 @@ When would you make indexing policy changes to your Azure Cosmos DB collections?
 ## Performance tuning
 The SQL APIs provide information about performance metrics, such as the index storage used and the throughput cost (request units) for every operation. You can use this information to compare various indexing policies, and for performance tuning.
 
-To check the storage quota and usage of a collection, run a **HEAD** or **GET** request against the collection resource. Then, inspect the **x-ms-request-quota** and the **x-ms-request-usage** headers. In the .NET SDK, the [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) and [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contain these corresponding values.
+To check the storage quota and usage of a collection, run a **HEAD** or **GET** request against the collection resource. Then, inspect the **x-ms-request-quota** and the **x-ms-request-usage** headers. In the .NET SDK, the [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) and [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) properties in [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) contain these corresponding values.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -418,7 +418,7 @@ To check the storage quota and usage of a collection, run a **HEAD** or **GET** 
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-To measure the overhead of indexing on each write operation (create, update, or delete), inspect the **x-ms-request-charge** header (or the equivalent [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) property in [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) in the .NET SDK) to measure the number of request units that are consumed by these operations.
+To measure the overhead of indexing on each write operation (create, update, or delete), inspect the **x-ms-request-charge** header (or the equivalent [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) property in [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) in the .NET SDK) to measure the number of request units that are consumed by these operations.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

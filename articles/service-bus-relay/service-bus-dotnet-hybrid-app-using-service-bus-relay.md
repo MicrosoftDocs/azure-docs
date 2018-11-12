@@ -52,7 +52,7 @@ The tutorial assumes that you have product information in an existing on-premise
 Before you can begin developing Azure applications, download the tools and set up your development environment:
 
 1. Install the Azure SDK for .NET from the SDK [downloads page](https://azure.microsoft.com/downloads/).
-2. In the **.NET** column, click the version of [Visual Studio](http://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2017.
+2. In the **.NET** column, click the version of [Visual Studio](https://www.visualstudio.com) you are using. The steps in this tutorial use Visual Studio 2017.
 3. When prompted to run or save the installer, click **Run**.
 4. In the **Web Platform Installer**, click **Install** and proceed with the installation.
 5. Once the installation is complete, you will have everything
@@ -78,7 +78,7 @@ This project is a Visual Studio console application, and uses the [Azure Service
 
    ![][11]
 4. Click **OK** to create the **ProductsServer** project.
-5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](http://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then re-start Visual Studio.
+5. If you have already installed the NuGet package manager for Visual Studio, skip to the next step. Otherwise, visit [NuGet][NuGet] and click [Install NuGet](https://visualstudiogallery.msdn.microsoft.com/27077b70-9dad-4c64-adcf-c7cf6bc9970c). Follow the prompts to install the NuGet package manager, then re-start Visual Studio.
 6. In Solution Explorer, right-click the **ProductsServer** project, then click **Manage NuGet Packages**.
 7. Click the **Browse** tab, then search for **WindowsAzure.ServiceBus**. Select the **WindowsAzure.ServiceBus** package.
 8. Click **Install**, and accept the terms of use.

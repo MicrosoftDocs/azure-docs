@@ -2,7 +2,7 @@
 title: Deploy Azure Machine Learning with Azure IoT Edge | Microsoft Docs
 description: In this tutorial, you deploy Azure Machine Learning as a module to an edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial

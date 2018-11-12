@@ -4,7 +4,7 @@ description: Azure Blueprints is a service in Azure, that you use to create, def
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/07/2018
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
@@ -26,6 +26,11 @@ other artifacts such as:
 - Policy Assignments
 - Azure Resource Manager templates
 - Resource Groups
+
+The Azure Blueprints service is backed by the globally distributed [Azure Cosmos DB](../../cosmos-db/introduction.md).
+Blueprint objects are replicated to multiple Azure regions. This replication provides low latency,
+high availability, and consistent access to your blueprint objects, regardless of which region
+Blueprints deploys your resources to.
 
 ## How it's different from Resource Manager templates
 
@@ -76,15 +81,15 @@ as artifacts:
 |---------|---------|---------|
 |Resource Groups     | Subscription | Create a new resource group for use by other artifacts within the blueprint.  These placeholder resource groups enable you to organize resources exactly the way you want them structured and provides a scope limiter for included policy and role assignment artifacts and Azure Resource Manager templates.         |
 |Azure Resource Manager template      | Resource Group | Templates are used to compose complex environments. Example environments: a SharePoint farm, Azure Automation State Configuration, or a Log Analytics workspace. |
-|Policy Assignment     | Subscription, Resource Group | Allows assignment of a policy or initiative to the management group or subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint (in the blueprint management group or below). If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment.       |
+|Policy Assignment     | Subscription, Resource Group | Allows assignment of a policy or initiative to the subscription the blueprint is assigned to. The policy or initiative must be within the scope of the blueprint (in the blueprint management group or below). If the policy or initiative has parameters, these parameters are assigned at creation of the blueprint or during blueprint assignment.       |
 |Role Assignment   | Subscription, Resource Group | Add an existing user or group to a built-in role to make sure the right people always have the right access to your resources. Role assignments can be defined for the entire subscription or nested to a specific resource group included in the blueprint. |
 
 ### Blueprints and management groups
 
 When creating a blueprint definition, you'll define where the blueprint is saved. Currently,
 blueprints can only be saved to a [management group](../management-groups/overview.md) that you
-have **Contributor** access to. The blueprint is available to assign to any child (management group
-or subscription) of that management group.
+have **Contributor** access to. The blueprint is available to assign to any child subscription of
+that management group.
 
 > [!IMPORTANT]
 > If you don't have access to any management groups or any management groups configured, loading the list of blueprint definitions shows that none are available and clicking on **Scope** opens a window with a warning about retrieving management groups. To resolve this, ensure a subscription you have appropriate access to is part of a [management group](../management-groups/overview.md).
