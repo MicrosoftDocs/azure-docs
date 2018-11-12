@@ -29,7 +29,7 @@ This topic list all versions of the Connectors that have been released.
 
 Related links:
 
-* [Download Latest Connectors](http://go.microsoft.com/fwlink/?LinkId=717495)
+* [Download Latest Connectors](https://go.microsoft.com/fwlink/?LinkId=717495)
 * [Generic LDAP Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap) reference documentation
 * [Generic SQL Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql) reference documentation
 * [Web Services Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-ma-ws) reference documentation

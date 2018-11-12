@@ -187,7 +187,7 @@ Automated alerting in the solution is based on writing a Log Analytics query tha
 
 ### Creating alerts for Azure SQL Database
 
-You can easily [create alerts](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-log-search.md) queries that you can use with a log alert:
+You can easily [create alerts](../monitoring-and-diagnostics/alert-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-queries.md) queries that you can use with a log alert:
 
 *High CPU on Azure SQL Database*
 
@@ -284,6 +284,6 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 ## Next steps
 
-- Use [Log Searches](log-analytics-log-search.md) in Log Analytics to view detailed Azure SQL data.
+- Use [Log Searches](log-analytics-queries.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](log-analytics-dashboards.md) showing Azure SQL data.
 - [Create alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) when specific Azure SQL events occur.

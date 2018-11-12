@@ -21,24 +21,55 @@ Ask questions, get answers from Microsoft engineers, and report issues in the [s
 
 **What is the cost of participating in the preview?**
 
-There are no charges for deploying applications or containers to Mesh preview. However you are encouraged to delete the resources you deploy and not leave them running, unless you are actively testing it.
+There are no charges for deploying applications or containers to the Mesh preview currently. However,  we encourage you to delete the resources you deploy and not leave them running unless you're actively testing them.
 
 **Is there a quota limit of the number of cores and RAM?**
 
-Yes, the quotas for each subscription are:
+Yes, the quotas for each subscription are set as follows:
 
-- Number of Applications - 5 
-- Number of Cores per application– 12 
+- Number of applications - 5 
+- Cores per application– 12 
 - Total RAM per application - 48 GB 
-- Number of Network and Ingress end points – 5  
-- Number of Azure Volumes that you can attach - 10 
+- Network and Ingress end points – 5  
+- Azure Volumes that you can attach - 10 
 - Number of Service replicas – 3 
-- The largest container you can deploy is limited to 4 cores, 16-GB RAM.
+- The largest container you can deploy is limited to 4 cores, 16GB RAM.
 - You can allocate partial cores to your containers in increments of 0.5 cores up to a maximum of 6 cores.
 
-**Can I leave my application running overnight?**
+**How long can I leave my application deployed for?**
 
-Yes, you can, however you are encouraged to delete the resources you deploy and not leave them running, unless you are actively testing it. This policy may change in the future and the resources may be deleted if they are being misused.
+We have currently limited the lifetime of an application to two days. This is in order to maximize the use of the free cores allocated to the preview. 
+As a result, you are only allowed to run a given deployment continuously for 48 hours, after which time it will be shut down by the system. If you see this happen, you can validate that the system shut it down by running an `az mesh app show` command in Azure CLI and checking if it returns `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+For example: 
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
+
+To continue deploying the same application to Mesh, you should delete the resource group associated with the application, or individually remove the application and all related Mesh resources (including the network). 
+
+To delete the resource group, use the `az group delete <nameOfResourceGroup>` command. 
 
 ## Supported container OS images
 The following container OS images can be used when deploying services.

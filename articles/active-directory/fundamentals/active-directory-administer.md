@@ -47,7 +47,7 @@ You can associate a new Azure subscription with the same directory that authenti
 If you don’t yet have a subscription to a Microsoft cloud service, you can use one of the following links to sign up. Signing up for your first service creates an Azure AD directory automatically.
 
 * [Microsoft Azure](https://account.azure.com/organization)
-* [Office 365](http://products.office.com/business/compare-office-365-for-business-plans/)
+* [Office 365](https://products.office.com/business/compare-office-365-for-business-plans/)
 * [Microsoft Intune](https://portal.office.com/Signup/Signup.aspx?OfferId=40BE278A-DFD1-470a-9EF7-9F2596EA7FF9&dl=INTUNE_A&ali=1#0%20)
 
 ### How to change the default directory for a subscription

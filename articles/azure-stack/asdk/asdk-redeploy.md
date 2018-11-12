@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: 
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -95,7 +95,7 @@ If you did not use the asdk-installer.ps1 script to install the ASDK, you must m
 
 
 ## Next steps
-[Post ASDK installation configuration tasks](asdk-post-deploy.md)
+[Post ASDK deployment tasks](asdk-post-deploy.md)
 
 
 

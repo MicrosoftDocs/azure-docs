@@ -53,7 +53,7 @@ The **Log Analytics usage** dashboard displays the following information:
 3. In your list of Log Analytics workspaces, select a workspace.
 4. Select **Usage and estimated costs** from the list in the left pane.
 5. On the **Usage and estimated costs** dashboard, you can modify the time range by selecting the **Time: Last 24 hours** and change the time interval.<br><br> ![time interval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-search.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-queries.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## Create an alert when data collection is higher than expected
@@ -168,7 +168,7 @@ Click on **See all...** to view the full list of computers sending data for the 
 Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers.
 
 ## Next steps
-* See [Log searches in Log Analytics](log-analytics-log-search.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
+* See [Log searches in Log Analytics](log-analytics-queries.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 * Use the steps described in [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) to be notified when a search criteria is met.
 * Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers.
 * To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md).

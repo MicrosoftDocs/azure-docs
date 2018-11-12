@@ -63,8 +63,8 @@ Azure Cosmos DB exposes resources through the REST APIs that can be called by an
 
 | Download | Documentation |
 | --- | --- |
-| [.NET SDK](http://go.microsoft.com/fwlink/?LinkID=402989) |[.NET reference docs](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
-| [Java SDK](http://go.microsoft.com/fwlink/?LinkID=402380) |[Java reference docs](/java/api/com.microsoft.azure.documentdb) |
+| [.NET SDK](https://go.microsoft.com/fwlink/?LinkID=402989) |[.NET reference docs](/dotnet/api/overview/azure/cosmosdb?view=azure-dotnet) |
+| [Java SDK](https://go.microsoft.com/fwlink/?LinkID=402380) |[Java reference docs](/java/api/com.microsoft.azure.documentdb) |
 | [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) |[JavaScript reference docs](https://docs.microsoft.com/javascript/api/@azure/cosmos/?view=azure-node-latest) |
 | [Python SDK](https://pypi.python.org/pypi/pydocumentdb) |[Python reference docs](https://github.com/Azure/azure-cosmos-python) |
 

@@ -121,6 +121,6 @@ In this article, you learned how to configure security policies in Security Cent
 * [Monitor partner solutions with Azure Security Center](security-center-partner-solutions.md): Learn how to monitor the health status of your partner solutions.
 * [Gain tenant-wide visibility for Azure Security Center](security-center-management-groups.md): Learn how to set up management groups for Azure Security Center. 
 * [Azure Security Center FAQ](security-center-faq.md): Get answers to frequently asked questions about using the service.
-* [Azure Security Blog](http://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
+* [Azure Security Blog](https://blogs.msdn.com/b/azuresecurity/): Find blog posts about Azure security and compliance.
 
 To learn more about Azure Policy, see [What is Azure Policy?](../azure-policy/azure-policy-introduction.md)

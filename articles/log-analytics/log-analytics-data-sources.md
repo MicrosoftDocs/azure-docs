@@ -65,5 +65,5 @@ All data collected by Log Analytics is stored in the workspace as records.  Reco
 
 ## Next steps
 * Learn about [solutions](../monitoring/monitoring-solutions.md) that add functionality to Log Analytics and also collect data into the workspace.
-* Learn about [log searches](log-analytics-log-search.md) to analyze the data collected from data sources and solutions.  
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
 * Configure [alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to proactively notify you of critical data collected from data sources and solutions.

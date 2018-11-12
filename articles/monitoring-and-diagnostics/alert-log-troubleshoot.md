@@ -75,10 +75,10 @@ Depending on how the alert rule is configured, there may be mis-firing in case t
 For log alerts the logic for alerting is provided by user via analytics query. The analytics query provided can employ various Big Data and Mathematical functions to create specific constructs. The alerting service will execute the customer provided query at intervals specified with data for time period specified; alerting service makes subtle changes to query provided - based on the alert type chosen and the same can be witnessed in the "Query to be executed" section in Configure signal logic screen, as illustrated below:
     ![Query to be executed](./media/monitor-alerts-unified/LogAlertPreview.png)
  
-What is shown in **query to be executed** section is what log alert service will run; user can run the stated query as well as timespan via [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) or [Analytics API](https://docs.microsoft.com/en-us/rest/api/loganalytics/) - if they want to understand before alert creation, what alert query output may be.
+What is shown in **query to be executed** section is what log alert service will run; user can run the stated query as well as timespan via [Analytics portal](../log-analytics/log-analytics-log-search-portals.md) or [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) - if they want to understand before alert creation, what alert query output may be.
  
 ## Next steps
 
 * Learn about [Log Alerts in Azure Alerts](monitor-alerts-unified-log.md)
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
-* Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md). 

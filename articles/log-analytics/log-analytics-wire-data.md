@@ -447,4 +447,4 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 
 ## Next steps
 
-- [Search logs](log-analytics-log-search.md) to view detailed wire data search records.
+- [Search logs](log-analytics-queries.md) to view detailed wire data search records.

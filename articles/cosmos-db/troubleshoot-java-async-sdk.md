@@ -10,7 +10,7 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ---
 
 # Troubleshooting issues when using Java Async SDK with Azure Cosmos DB SQL API accounts
