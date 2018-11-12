@@ -30,14 +30,11 @@ Follow these steps to add an email action:
 
   3. Click the checkbox next to the [existing rule](iot-accelerators-remote-monitoring-automate#edit-an-existing-rule) that you would like to modify, and then click **Edit** at the top. An editable flyout will appear.
   4. In the Action section, toggle **Email enabled** to on. 
-
-      ![email enabled](./media/iot-accelerators-remote-monitoring-email-actions/emailenabled.png)
-
-  5. If this is the first-time email actions have been enabled within the solution accelerator, you will see a warning box at the top to [sign in to outlook](#outlook).
+  5. If this is the first-time email actions have been enabled within the solution accelerator, you will need to [sign in to outlook](#outlook).
   6. Enter an email address into the recipient box and hit enter for each email address added. 
       ![address](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
   7. Enter a subject for the email.
-  8. Enter any comments for the email recipients in **text format**. *HTML* formatting is supported by editing the email template. [Directions for editing the HTML format](#htmledit)
+  8. Enter any additional notes for the email recipients in **text format**. *HTML* formatting is supported by editing the email template. [Directions for editing the HTML format](#htmledit)
   9. Make sure that **Rule Status** is enabled
   10. Click **Apply**
 
@@ -55,7 +52,7 @@ Follow these steps to add an email action:
   6. Enter an email address into the recipient box and hit enter for each email address added. 
       ![address](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
   7. Enter a subject for the email.
-  8. Enter any comments for the email recipients in **text format**. *HTML* formatting is supported by editing the email template. [Directions for editing the HTML format](#htmledit)
+  8. Enter any additional notes for the email recipients in **text format**. *HTML* formatting is supported by editing the email template. [Directions for editing the HTML format](#htmledit)
   9. Make sure that **Rule Status** is enabled
   10. Click **Apply**
 
