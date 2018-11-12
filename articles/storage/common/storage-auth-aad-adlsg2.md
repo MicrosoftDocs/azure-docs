@@ -4,6 +4,7 @@ description: Authenticate access to Azure blobs and queues using Azure Active Di
 services: storage
 author: tamram
 
+ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: article
 ms.date: 10/15/2018

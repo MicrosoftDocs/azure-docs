@@ -7,6 +7,7 @@ author: nitinme
 manager: jhubbard
 editor: cgronlun
 
+ms.component: data-lake-storage-gen2
 ms.assetid: d16f8c09-c954-40d3-afab-c86ffa8c353d
 ms.service: data-lake-store
 ms.devlang: na
@@ -286,4 +287,4 @@ No, but Default ACLs can be used to set ACLs for child files and folder newly cr
 
 ## See also
 
-* [Overview of Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Overview of Azure Data Lake Storage Gen2](../data-lake-storage/introduction.md)
