@@ -93,15 +93,22 @@ Create a new Azure resource group and a new workspace.
 
 Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
 
-[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
+```python
+from azureml.core import Workspace
+ws = Workspace.create(name='myworkspace',
+                      subscription_id='<azure-subscription-id>',	
+                      resource_group='myresourcegroup',
+                      create_resource_group=True,
+                      location='eastus2' # or other supported Azure region	
+                     )
+```
 
 Executing the preceding code might trigger a new browser window for you to sign into your Azure account. After you sign in, the authentication token is cached locally.
 
 To see the workspace details, such as associated storage, container registry, and key vault, enter the following code.
 
-```python
-ws.get_details()
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
+
 
 ## Write a configuration file
 
