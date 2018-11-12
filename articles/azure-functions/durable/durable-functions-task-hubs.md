@@ -60,7 +60,7 @@ The task hub name will be set to the value of the `MyTaskHub` app setting. The f
 {
   "IsEncrypted": false,
   "Values": {
-    "SampleHubVS" :  "samplehubname" 
+    "MyTaskHub" :  "samplehubname" 
   }
 }
 ```
