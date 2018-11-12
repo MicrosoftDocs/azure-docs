@@ -102,7 +102,7 @@ The examples also include error codes to help debug or improve failing tests.
 
 ## Swagger OAuth 2.0 authorization
 
-To learn more about interactively testing  requests against API resources protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
+To learn more about interactively testing requests protected by OAuth 2.0, see the [official documentation](https://swagger.io/docs/specification/authentication/oauth2/).
 
 > [!NOTE]
 > Support for OAuth 2.0 authentication is temporarily disabled during Public Preview.
