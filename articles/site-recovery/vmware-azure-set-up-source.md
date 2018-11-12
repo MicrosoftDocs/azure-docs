@@ -33,7 +33,7 @@ Before you start, make sure you've done the following
 4. In **Where do you want to replicate your machines**, select **To Azure**.
 5. In **Are your machines virtualized**, select **Yes, with VMware vSphere Hypervisor**. Then select **OK**.
 
-## Deploy the configuration server
+## About the configuration server
 
 You deploy an on-premises configuration server when you set up disaster recovery of VMware VMs to Azure.
 
@@ -47,7 +47,7 @@ You deploy an on-premises configuration server when you set up disaster recovery
 Don't use these instructions if you're deploying the configuration server for disaster recovery of on-premises physical machines to Azure. For this scenario, follow [this article](physical-azure-set-up-source.md).
 
 
-## Prerequisites
+### Before you deploy the configuration server
 
 If you install the configuration server as a VMware VM using the OVA template, the VM will be installed with all prerequisites. If you want to review the prerequisites, use the following articles.
 
@@ -60,7 +60,7 @@ If you install the configuration server as a VMware VM using the OVA template, t
 The configuration server must be deployed as described in this article. Copying or cloning an existing configuration server isn't supported. 
 
 
-## Download the template
+### Download the OVA template
 
 1. In the vault, go to **Prepare Infrastructure** > **Source**.
 2. In **Prepare source**, select **+Configuration server**.
@@ -71,7 +71,7 @@ The configuration server must be deployed as described in this article. Copying 
 >You can also download the latest version of the configuration server template from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 
-## Import the template in VMware
+### Import the OVA template in VMware
 
 1. Sign in to the VMware vCenter server or vSphere ESXi host with the VMWare vSphere Client.
 2. On the **File** menu, select **Deploy OVF Template** to start the Deploy OVF Template wizard.
@@ -86,7 +86,7 @@ The configuration server must be deployed as described in this article. Copying 
 8. In **Ready to complete**, to set up the VM with the default settings, select **Power on after deployment** > **Finish**.
 9. By default the VM is deployed with a single NIC. If you want to add an addition NIC, clear **Power on after deployment**, and click **Finish**. Then follow the next procedure.
 
-## Add an additional adapter
+## Add an adapter to the configuration server
 
 If you want to add an additional NIC to the configuration server, add it before you register the server in the vault. Adding additional adapters isn't supported after registration.
 
@@ -95,8 +95,7 @@ If you want to add an additional NIC to the configuration server, add it before 
 3. Select an adapter type and a network.
 4. To connect the virtual NIC when the VM is turned on, select **Connect at power-on**. Then select **Next** > **Finish** > **OK**.
 
-## Register the configuration server with Azure Site Recovery services
-
+## Register the configuration server 
 Turn on the VM and register the configuration server in the Site Recovery vault.
 
 1. From the VMWare vSphere Client console, turn on the VM.
@@ -133,11 +132,11 @@ As part of the deployment, you need to install MySQL on the configuration server
 14. In **Configure virtual machine credentials**, specify the credentials that Site Recovery will use to automatically install the Mobility Service when you enable replication for a VM.
     - For Windows machines, the account needs local administrator privileges on the machines you want to replicate.
     - For Linux, provide details for the root account.
-1. Select **Finalize configuration** to complete registration.
-2. After registration finishes, open the Azure portal and check that the configuration server and VMware server appear in **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
+15. Select **Finalize configuration** to complete registration.
+16. After registration finishes, open the Azure portal and check that the configuration server and VMware server appear in **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**.
 
 
-## Set up antivirus software with the configuration server'
+## Exclude antivirus on the configuration server
 
 If antivirus software is running on the configuration server VM, make sure that the following folders are excluded from antivirus operations. This ensures that replication and connectivity work as expected: 
 
