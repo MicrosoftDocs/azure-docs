@@ -130,9 +130,9 @@ The v2.0 endpoint will evolve to eliminate the restrictions listed here, so that
 
 ### Restrictions on app registrations
 
-Currently, for each app that you want to integrate with the v2.0 endpoint, you can create an app registration in the new [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Alternatively, you can register an app using the [**App registrations (Preview)** experience](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) in the Azure portal. Existing Microsoft account apps are not compatible with the preview portal, but all AAD apps are, regardless of where or when they were registered. 
+Currently, for each app that you want to integrate with the v2.0 endpoint, you can create an app registration in the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList). Alternatively, you can register an app using the [**App registrations (Preview)** experience](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) in the Azure portal. Existing Microsoft account apps are not compatible with the preview portal, but all AAD apps are, regardless of where or when they were registered. 
 
-Ap registrations that support work and school accounts as well as personal accounts have the following caveats:
+App registrations that support work and school accounts as well as personal accounts have the following caveats:
 
 * Only two app secrets are allowed per application ID.
 * An app registration registered by a user with a personal Microsoft account in the App Registration Portal can be viewed and managed only by a single developer account. It can't be shared between multiple developers. If you'd like to share your app registration with multiple developers, you can create the application by signing in with an Azure AD account.
@@ -140,12 +140,9 @@ Ap registrations that support work and school accounts as well as personal accou
 
 ### Restrictions on redirect URLs
 
-Apps that are registered for v2.0 are restricted to a limited set of redirect URL values. The redirect URL for web apps and services must begin with the scheme `https`, and all redirect URL values must share a single DNS domain. For example, you cannot register a web app that has one of these redirect URLs:
+Apps that are registered for v2.0 are restricted to a limited set of redirect URL values. The redirect URL for web apps and services must begin with the scheme `https`, and all redirect URL values must share a single DNS domain.  The registration system compares the whole DNS name of the existing redirect URL to the DNS name of the redirect URL that you are adding. `http://localhost` is also supported as a redirect URL.  
 
-* `https://login-east.contoso.com`  
-* `https://login-west.contoso.com`
-
-The registration system compares the whole DNS name of the existing redirect URL to the DNS name of the redirect URL that you are adding. The request to add the DNS name will fail if either of the following conditions is true:  
+The request to add the DNS name will fail if either of the following conditions is true:  
 
 * The whole DNS name of the new redirect URL does not match the DNS name of the existing redirect URL.
 * The whole DNS name of the new redirect URL is not a subdomain of the existing redirect URL.
