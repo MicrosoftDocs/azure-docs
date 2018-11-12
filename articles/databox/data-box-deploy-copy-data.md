@@ -303,7 +303,7 @@ In this tutorial, you learned about Azure Data Box topics such as:
 > * Copy data to Data Box
 > * Prepare to ship Data Box
 
-Advance to the next tutorial to learn how to set up and copy data on your Data Box.
+Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)

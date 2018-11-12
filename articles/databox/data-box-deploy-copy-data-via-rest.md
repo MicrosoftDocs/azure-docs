@@ -7,21 +7,21 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
 # Tutorial: Copy data via Azure Data Box Blob storage REST APIs  
 
-This tutorial describes procedures to connect a Windows systems to Data Box using Azure Blob storage REST APIs. The connection to the Azure Blob service REST APIs can be over HTTP or HTTPS. Once connected, the steps required to copy data to Data Box and prepare the Data Box to ship are also described.
+This tutorial describes procedures to connect a Windows systems to Data Box using Azure Blob storage REST APIs. The connection to the Data Box Blob storage REST APIs can be over *http* or *https*. Once connected, the steps required to copy the data to Data Box and prepare the Data Box to ship, are also described.
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Connect to Data Box over http
-> * Connect to Data Box over https
+> * Connect to Data Box Blob storage via http
+> * Connect to Data Box Blob storage via https
 > * Copy data to Data Box
-> * Prepare to ship Data Box.
+> * Prepare to ship
 
 ## Prerequisites
 
@@ -29,13 +29,15 @@ Before you begin, make sure that:
 
 1. You have completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You have received your Data Box and the order status in the portal is **Delivered**.
-3. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+3. You have reviewed the [system requirements for Data Box Blob storage](data-box-system-requirements-rest.md) and are familiar with supported versions of APIs, SDKs, and tools.
+4. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted.
-4. You have the latest version of AzCopy on Linux or Windows. You will use AzCopy to copy data to Azure from your host computer.
-5. You have access to a GPv1 storage account associated with your Data Box. You will copy data to this account.
+5. You have the latest version of AzCopy on Linux or Windows. You will use AzCopy to copy data to Azure from your host computer.
+6. You have access to a GPv1 storage account associated with your Data Box. You will copy data to this account.
 
-## Connect to Data Box
+
+## Connect to Data Box Blob storage
 
 Based on the storage account selected, Data Box creates upto:
 - Three shares for each associated storage account for GPv1 and GPv2.
@@ -43,7 +45,7 @@ Based on the storage account selected, Data Box creates upto:
 
 Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
 
-Consider the following example. 
+Consider the following example.
 
 - Storage account: *Mystoracct*
 - Share for block blob: *Mystoracct_BlockBlob/my-container/blob*
@@ -52,9 +54,9 @@ Consider the following example.
 
 Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to connect and copy can be different.
 
-## Connect to Azure Blob storage REST via http
+## Connect via http
 
-Connection to Azure Blob storage REST APIs over http require the following steps:
+Connection to Data Box Blob storage REST APIs over *http* require the following steps:
 
 - Add the device IP and blob service endpoint to the remote host
 - Configure third-party software and verify the connection
@@ -63,16 +65,15 @@ Each of these steps is described in the following sections.
 
 ### Add device IP address and blob service endpoint to the remote host
 
-INCLUDE
+[!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
 ### Configure partner software and verify connection
 
-INCLUDE
+[!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
-INCLUDE
+[!INCLUDE [data-box-verify-connection](../../includes/data-box-verify-connection.md)]
 
-
-## Connect to Azure Blob storage REST via https
+## Connect via https
 
 Connection to Azure Blob storage REST APIs over https requires the following steps:
 
@@ -106,7 +107,7 @@ You can use Windows PowerShell or the Windows Server UI to import and install th
 
 **Using PowerShell**
 
-1. Start a Windows PowerShell session as an administrator. 
+1. Start a Windows PowerShell session as an administrator.
 2. At the command prompt, type:
 
     ```
@@ -121,16 +122,16 @@ You can use Windows PowerShell or the Windows Server UI to import and install th
 3.	Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
 4.	Click **Finish**. A message that tells you that the import was successful appears.
 
-
 ### To add device IP address and blob service endpoint to the remote host
 
-INCLUDE
+[!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
 
 ### Configure partner software to establish connection
 
-INCLUDE
+[!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
 
-INCLUDE
+[!INCLUDE [data-box-verify-connection](../../includes/data-box-verify-connection.md)]
+
 ## Copy data to Data Box
 
 Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
@@ -151,7 +152,7 @@ Each of these steps is described in detail in the following sections. For more u
 
 The first step is to create a container, because blobs are always uploaded into a container. Containers organize groups of blobs like you organize files in folders on your computer.
 
-Follow these steps to create a blob container. 
+Follow these steps to create a blob container.
 
 1. Open Storage Explorer.
 2. In the left pane, expand the storage account within which you wish to create the blob container.
@@ -175,7 +176,10 @@ Windows
 
 Copy
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
-Replace <key> and key with your account key. In the Azure portal, you can retrieve your account key by selecting Access keys under Settings in your storage account. Select a key, and paste it into the AzCopy command. If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace myaccount in the destination URL with your storage account name.
+
+Replace <key> and key with your account key. In the Azure portal, you can retrieve your account key by selecting Access keys under Settings in your storage account. Select a key, and paste it into the AzCopy command. 
+
+If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace myaccount in the destination URL with your storage account name.
 
 To upload the contents of the specified directory to Blob storage recursively, specify the --recursive (Linux) or /S (Windows) option. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
 
@@ -214,29 +218,17 @@ Final step is to prepare the device to ship. In this step, all the device shares
 3. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
 4. Remove the cables. The next step is to ship the device to Microsoft.
 
- 
-<!--## Appendix - robocopy parameters
-
-This section describes the robocopy parameters used when copying the data to optimize the performance.
-
-|    Platform    |    Mostly small files < 512 KB                           |    Mostly medium  files 512 KB-1 MB                      |    Mostly large files > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 Robocopy sessions <br> 16 threads per sessions    |    3 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 24 threads per sessions    |  |
-|    Data Box Heavy     |    6 Robocopy sessions <br> 24 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |    6 Robocopy sessions <br> 16 threads per sessions    |   
-|    Data Box Disk         |    4 Robocopy sessions <br> 16 threads per sessions             |    2 Robocopy sessions <br> 16 threads per sessions    |    2 Robocopy sessions <br> 16 threads per sessions    |   
--->
-
 ## Next steps
 
 In this tutorial, you learned about Azure Data Box topics such as:
 
 > [!div class="checklist"]
-> * Connect to Data Box
+> * Connect to Data Box Blob storage via http
+> * Connect to Data Box Blob storage via https
 > * Copy data to Data Box
-> * Prepare to ship Data Box
+> * Prepare to ship
 
-Advance to the next tutorial to learn how to set up and copy data on your Data Box.
+Advance to the next tutorial to learn how to ship your Data Box back to Microsoft.
 
 > [!div class="nextstepaction"]
 > [Ship your Azure Data Box to Microsoft](./data-box-deploy-picked-up.md)
-
