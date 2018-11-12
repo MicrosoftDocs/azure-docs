@@ -76,23 +76,23 @@ This quickstart uses Apache classes for HTTP requests. Above the GetAnswer class
 
 At the top of the `GetAnswer.java` class, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
 
-[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=26-42 "Add the required constants")]
+[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=26-42 "Add the required constants")]
 
 ## Add a POST request to send question
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the KB and receives the response:
 
-[!code-java[Add a POST request to send question to KB](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=37-64 "Add a POST request to send question to KB")]
+[!code-java[Add a POST request to send question to KB](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=37-64 "Add a POST request to send question to KB")]
 
 ## Add GetAnswers method 
 
-[!code-java[Get Answers](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=49-56 "Get Answers")]
+[!code-java[Get Answers](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=49-56 "Get Answers")]
 
 ## Add the GetAnswers method to Main
 
 Change the Main method to call the GetAnswers method:
 
-[!code-java[Add CreateKB method](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.java?range=58-62 "Add CreateKB method")]
+[!code-java[Add CreateKB method](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=58-62 "Add CreateKB method")]
 
 ## Build and run the program
 
