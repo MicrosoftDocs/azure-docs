@@ -58,7 +58,9 @@ You can use ACS PowerShell to list all your ACS namespaces and reactivate ones t
         ```
     
         where `[Command-Name]` is the name of the ACS command.
-1. Connect to ACS using the **Connect-AcsAccount** cmdlet.
+1. Connect to ACS using the **Connect-AcsAccount** cmdlet. 
+
+    You may need to change your execution policy by running running **Set-ExecutionPolicy** before you can run the command.
 1. List your available Azure subscriptions using the **Get-AcsSubscription** cmdlet.
 1. List your ACS namespaces using the **Get-AcsNamespace** cmdlet.
 1. Confirm that the namespaces are disabled by confirming that `State` is `Disabled`.
