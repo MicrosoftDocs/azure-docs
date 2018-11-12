@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: avishwan
 
@@ -23,10 +23,6 @@ ms.reviewer: avishwan
 This article answers some frequently asked questions about Windows Server images in the [Azure Stack Marketplace](azure-stack-marketplace.md).
 
 ## Marketplace items
-
-### Why are the only Windows Server Datacenter images available in the Azure Stack Marketplace?
-
-This limitation is due to licensing and activation issues, and not cost.
 
 ### How do I update to a newer Windows image?
 
