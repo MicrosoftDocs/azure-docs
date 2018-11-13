@@ -42,7 +42,7 @@ To configure Azure AD integration with Peakon, you need the following items:
 
 To test the steps in this tutorial, you should follow these recommendations:
 
-- Do not use your production environment, unless it is necessary.
+- Do not use production environment, unless it is necessary.
 - If you don't have an Azure AD trial environment, you can [get a one-month trial](https://azure.microsoft.com/pricing/free-trial/).
 
 ## Scenario description
@@ -103,7 +103,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
     ![Configure Single Sign-On](common/tutorial_general_301.png)
 
-3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
+3. On the **Set-up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
@@ -162,9 +162,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Choose file** to upload the certificate that you have downloaded from the Azure portal, into the Certificate box.
 
-	d. Click the **icon** to copy the **Entity ID** and paste it in **Identifier** textbox in **Basic SAML Configuration** section on Azure portal.
+	d. Click the **icon** to copy the **Entity ID** and paste in **Identifier** textbox in **Basic SAML Configuration** section on Azure portal.
 
-	e. Click the **icon** to copy the **Reply URL (ACS)** and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
+	e. Click the **icon** to copy the **Reply URL (ACS)** and paste in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
 	f. Click **Save**
 
