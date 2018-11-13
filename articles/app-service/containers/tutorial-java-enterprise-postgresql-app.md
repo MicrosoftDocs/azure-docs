@@ -101,6 +101,8 @@ Browse to the Portal and search for your Postgres database. When the blade is up
 
 In the **Connection security** panel of the Azure Database blade, toggle the "Allow access to Azure services" button to the **ON** position.
 
+![Allowing access to Azure Services](media/tutorial-java-enterprise-postgresql-app/postgress_button.JPG)
+
 ## Update your Java app for Postgres
 
 We will now make some changes to the Java application to enable it to use our Postgres database.
@@ -167,6 +169,6 @@ If you don't need these resources for another tutorial (see Next steps), you can
 az group delete --name <your_resource_group> 
 ```
 
-## Next Steps
+## Next steps
 
 Now that you have a Java EE application deployed to App Service, please see the [Java Enterprise developer guide](https://aka.ms/wildfly-quickstart) for more information on setting up services, troubleshooting, and scaling your application.
