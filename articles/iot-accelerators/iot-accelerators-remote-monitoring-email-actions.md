@@ -30,7 +30,7 @@ Follow these steps to add an email action:
 
   3. Click the checkbox next to the [existing rule](iot-accelerators-remote-monitoring-automate#edit-an-existing-rule) that you would like to modify, and then click **Edit** at the top. An editable flyout will appear.
   4. In the Action section, toggle **Email enabled** to on. 
-  5. If this is the first-time email actions have been enabled within the solution accelerator, you will need to [sign in to outlook](#outlook).
+  5. If it is the first-time email actions have been enabled within the solution accelerator, you will need to [sign in to outlook](#outlook).
   6. Enter an email address into the recipient box and hit enter for each email address added. 
       ![address](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
   7. Enter a subject for the email.
@@ -48,7 +48,7 @@ Follow these steps to add an email action:
 
   3. Follow the [create a rule](iot-accelerators-remote-monitoring-automate#create-a-rule) and [create an advanced rule](iot-accelerators-remote-monitoring-automate#create-an-advanced-rule) up to the **Severity level** only. Do *not* click apply yet. 
   4. In the Action section, toggle **Email enabled** to on. 
-  5. If this is the first-time email actions have been enabled within the solution accelerator, you will need to [sign in to outlook](#outlook).
+  5. If it is the first-time email actions have been enabled within the solution accelerator, you will need to [sign in to outlook](#outlook).
   6. Enter an email address into the recipient box and hit enter for each email address added. 
       ![address](./media/iot-accelerators-remote-monitoring-email-actions/address.png)
   7. Enter a subject for the email.
@@ -60,14 +60,14 @@ Your rule with *Email Action* has now been enabled. Each time the action is trig
 
 ## Sign in to Outlook <a name="outlook"></a>
 
-If this is your first-time enabling email actions within your solution accelerator, you need to sign into Outlook. The purpose of this is to set up an email account, which will be responsible for sending out the email notification. 
+If it is your first-time enabling email actions within your solution accelerator, you need to sign into Outlook. This is to set up an email account, which will be responsible for sending out the email notification. 
 
 > [!NOTE] 
 > It is recommended that you create a specific Outlook account just for solution accelerator notifications and use that to sign in with. You will continue to see this warning note until you have signed in with an Outlook account. Once you have signed in, you will see a successful message below the email actions toggle. 
 
 If your application was deployed by someone with a **contributor** role on the subscription, you will see the following screenshot. Follow the instructions below to set up Outlook for your application. 
 
-![learn more](./media/iot-accelerators-emailactions/learnmore.png)
+![learn more](./media/iot-accelerators-email-actions/learnmore.png)
 
 ### Contributor role Outlook set up
 Since the application was deployed by someone with the **contributor** role in the subscription, the application does 
@@ -76,23 +76,25 @@ not have sufficient permissions to set up and verify email actions through the W
   1. Go to the [Azure portal](https://portal.azure.com)
   2. Navigate to the Resource Group for your solution accelerator
   3. Click on the office 365 connector (API Connection)
-    ![API Connection](./media/iot-accelerators-emailactions/apiconnector.png)
+    ![API Connection](./media/iot-accelerators-email-actions/apiconnector.png)
   4. Click on the banner to begin the authorization process
-    ![authorize](./media/iot-accelerators-emailactions/connector.png)
+    ![authorize](./media/iot-accelerators-email-actions/connector.png)
   5. Click the **authorize** button in which it will ask you to sign in. This account you sign in with will be the email address the application uses to send email from. We advise that you create an outlook account ahead of time to send email notifications for your solution accelerator from.
+    ![authorize button](./media/iot-accelerators-email-actions/authorize.png)
+    ![sign in](./media/iot-accelerators-email-actions/signin.png)
   7. Click **Save** at the bottom. Your authorization will be successful if the banner is gone.
   9. To change the email address from which the notifications are sent from, click **Edit API connection**.
-    ![change email](./media/iot-accelerators-emailactions/editemail.png)
+    ![change email](./media/iot-accelerators-email-actions/editemail.png)
 
 ### Owner role Outlook set up
-Since the application was deployed by someone with the **owner** role in the subscription, the application is able to verify email actions have been correctly set up through the WebUI. The following steps will help you sign in and set-up email actions.
+Since the application was deployed by someone with the **owner** role in the subscription, the application is able to verify email actions have been correctly set up through the WebUI. The following steps will help you sign in and set up email actions.
 
   1. Click to sign in to Outlook. You will be taken to the Azure portal.
-    ![sign in](./media/iot-accelerators-emailactions/owneroutlook.png)
+    ![sign in](./media/iot-accelerators-email-actions/owneroutlook.png)
   2. Click the **authorize** button in which it will ask you to sign in. This account you sign in with will be the email address the application uses to send email from. We advise that you create an outlook account ahead of time to send email notifications for your solution accelerator from. 
   3. Click **Save** at the bottom. Return back to your application and refresh the page. 
   4. You will see a banner if you have successfully configured the email notification. 
-    ![successful lo in](./media/iot-accelerators-emailactions/success.png)
+    ![successful lo in](./media/iot-accelerators-email-actions/success.png)
 
 ## Customizing the email HTML <a name="htmledit"></a>
 
@@ -121,7 +123,7 @@ However, if you would like to edit the HTML to include more information, custom 
 
 The Remote Monitoring solution accelerator out of the box uses Outlook to send out the email notifications. Outlook limits the number of emails sent to [30 emails per 1 minute](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Email clients receiving the emails may also throttle the number of emails received per minute. Check with your specific email client on limitations. It is recommended that when you set up email notification for a rule, that you have the rule calculate over an average of 1 minute or more, and not instant, as shown below. 
 
-![calculation](./media/iot-accelerators-emailactions/calculation.png)
+![calculation](./media/iot-accelerators-email-actions/calculation.png)
 
 ## Next steps
 
