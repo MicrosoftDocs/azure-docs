@@ -18,7 +18,9 @@ ms.author: juliako
 ---
 # Filters and dynamic manifests
 
-When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. These filters are server-side rules that allow your customers to choose to do things like: 
+When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+
+Filters are server-side rules that allow your customers to do things like: 
 
 - Play back only a section of a video (instead of playing the whole video). For example:
 
@@ -28,7 +30,7 @@ When delivering your content to customers (streaming live events or video-on-dem
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 - Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window") .
 
-This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
+The filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
 This article discusses concepts and common scenarios in which using filters would be beneficial to your customers. At the end, the article links to topics that demonstrate how to create filters programmatically.
 
