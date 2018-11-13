@@ -34,11 +34,13 @@ Access assignments become stale when users have access they don't need any more.
 
 1. Click **New access review** to create a new access review.
 
-    ![Create an access review](./media/create-access-review/create-an-access-review.png)
+    ![Create an access review - Review name and description](./media/create-access-review/name-description.png)
 
 1. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
 
 1. Set the **Start date**. By default, an access review occurs once, starts the same time it's created, and it ends in one month. You can change the start and end dates to have an access review start in the future and last however many days you want.
+
+    ![Create an access review - Start and end dates](./media/create-access-review/start-end-dates.png)
 
 1. To make the access review recurring, change the **Frequency** setting from **One time** to **Weekly**, **Monthly**, **Quarterly** or **Annually**, and use the **Duration** slider or text box to define how many days each review of the recurring series will be open for input from reviewers. For example, the maximum duration that you can set for a monthly review is 27 days, to avoid overlapping reviews.
 
@@ -46,9 +48,15 @@ Access assignments become stale when users have access they don't need any more.
 
 1. In the **Users** section, specify the users that access review applies to. Access reviews can be for the members of a group or for users who were assigned to an application. You can further scope the access review to review only the guest users who are members (or assigned to the application), rather than reviewing all the users who are members or who have access to the application.
 
+    ![Create an access review - Users](./media/create-access-review/users.png)
+
 1. In the **Reviewers** section, select either one or more people to review all the users in scope. Or you can select to have the members review their own access. If the resource is a group, you can ask the group owners to review. You also can require that the reviewers supply a reason when they approve access.
 
+    ![Create an access review - Reviewers](./media/create-access-review/reviewers.png)
+
 1. In the **Programs** section, select the program you want to use. You can simplify how to track and collect access reviews for different purposes by organizing them into programs. **Default Program** is always present, or you can create a different program. For example, you can choose to have one program for each compliance initiative or business goal.
+
+    ![Create an access review - Programs](./media/create-access-review/programs.png)
 
 ### Upon completion settings
 
@@ -103,5 +111,5 @@ Microsoft Graph APIs are available for administrators. What you do to manage acc
 
 ## Next steps
 
-- [Perform an access review with Azure AD Access Reviews](perform-access-review.md)
+- [Start an access review with Azure AD Access Reviews](perform-access-review.md)
 - [Complete an access review of members of a group or users' access to an application in Azure AD](complete-access-review.md)
