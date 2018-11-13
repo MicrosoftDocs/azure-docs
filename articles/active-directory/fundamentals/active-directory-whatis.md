@@ -13,18 +13,22 @@ ms.author: lizross
 ---
 
 # What is Azure Active Directory? 
-Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service. Azure AD combines core directory services, application access management, and identity protection in a single solution, offering a standards-based platform that helps developers deliver access control to their apps, based on centralized policy and rules.
+Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service. Azure AD helps your employees sign in and access resources in:
+
+- External resources, such as Microsoft Office 365, the Azure portal, and thousands of other SaaS applications.
+
+- Internal resources, such as apps on your corporate network and intranet, along with any cloud apps developed by your own organization.
 
 You can use the various [Microsoft Cloud for Enterprise Architects Series](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) posters to better understand the core identity services in Azure, Azure AD, and Office 365.
 
 ## Who uses Azure AD?
 Azure AD is intended for:
 
-- **IT admins.** Azure AD provides a more secure solution for your organization through stronger identity management and single sign-on (SSO) access to both cloud-based SaaS apps and on-premises apps. By using these apps, you'll also get increased security and compliance through cloud-based app security, enhanced collaboration, controlled access, and automation of the identity lifecycle. To get started, sign up for a [free 30-day Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/) and deploy your first cloud solution.
+- **IT admins.** As an IT admin, you can use Azure AD to control access to your apps and your app resources, based on your business requirements. For example, you can use Azure AD to require multi-factor authentication when accessing important organizational resources. Additionally, you can use Azure AD to automate user provisioning between your existing Windows Server AD and your cloud apps, including Office 365. Finally, Azure AD gives you powerful tools to automatically help protect user identities and credentials and to meet your access governance requirements. To get started, sign up for a [free 30-day Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/).
 
-- **App developers.** Azure AD helps you focus on building your apps by providing integration with an identity management solution that's used by millions of organizations around the world. To get started, sign up for a [free 30-day Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/) and start integrating your apps with Azure AD. For more information, you can also see the [Developers Guide](../develop/index.yml) for Azure Active Directory.
+- **App developers.** As an app developer, Azure AD gives you a standards-based approach for adding single sign-on (SSO) to your app, allowing it to work with a user's pre-existing credentials. Azure AD also provides APIs that can help you build personalized app experiences leveraging existing organizational data. To get started, sign up for a [free 30-day Azure Active Directory Premium trial](https://azure.microsoft.com/trial/get-started-active-directory/). For more information, you can also see [Azure Active Directory for developers](../develop/index.yml).
 
-- **Microsoft 365, Office 365, Azure, or Dynamics CRM Online subscribers.** You're already using Azure AD. Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant. You can immediately start to manage access to your integrated cloud apps.
+- **Microsoft 365, Office 365, Azure, or Dynamics CRM Online subscribers.** As a subscriber, you're already using Azure AD. Each Microsoft 365, Office 365, Azure, and Dynamics CRM Online tenant is automatically an Azure AD tenant. You can immediately start to manage access to your integrated cloud apps.
 
 ## What are the Azure AD licenses?
 Microsoft Online business services, such as Office 365 or Microsoft Azure, require Azure AD for sign-in and to help with identity protection. Therefore, if you subscribe to any Microsoft Online business service, you automatically get Azure AD with access to all the free features.
