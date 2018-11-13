@@ -17,23 +17,17 @@ ms.author: nitinme
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-This article lists the open source big data applications that work with Azure Data Lake Storage Gen2. For the applications in the table below, only the versions available with the listed distribution are supported. For information on what versions of these applications are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
+This article lists the open source big data applications that work with Azure Data Lake Storage Gen2. For the applications in the table below, only the versions listed are supported.
 
-| Open Source Software | Distribution |
+| Software |  Supported version(s) |
 | --- | --- |
-| [Apache Sqoop](http://sqoop.apache.org/) |HDInsight 3.6 and 4.0 |
-| [MapReduce](http://hadoop.apache.org/docs/r1.0.4/mapred_tutorial.html) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Storm](https://storm.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Hive](http://hive.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [HCatalog](https://cwiki.apache.org/confluence/display/Hive/HCatalog) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Mahout](http://mahout.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Pig/Pig Latin](http://pig.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Oozie](http://oozie.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Zookeeper](http://zookeeper.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Tez](http://tez.apache.org/) |HDInsight 3.2, 3.4, 3.5, and 3.6 |
-| [Apache Spark](http://spark.apache.org/) |HDInsight 3.4, 3.5, and 3.6 |
+| [HD Insights](https://azure.microsoft.com/services/hdinsight/) | 4.0, 3.6 |
+| [Hadoop](https://hadoop.apache.org/) | 3.0 |
+| [Cloudera](https://www.cloudera.com/) | 6.1 |
+| [HortenWorks](https://hortonworks.com/) | TBD |
+| [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 |
 
+For information on about which Hadoop components are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
 
 ## See also
 * [Overview of Azure Data Lake Storage Gen2](data-lake-store-overview.md)
-
