@@ -19,12 +19,12 @@ ms.author: dekapur
 ---
 # Upgrade the configuration of a standalone cluster 
 
-For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the configuration of your standalone Service Fabric cluster.
+For any modern system, the ability to upgrade is key to the long-term success of your product. An Azure Service Fabric cluster is a resource that you own. This article describes how to upgrade the configuration settings of your standalone Service Fabric cluster.
 
-## Customize cluster settings for standalone clusters
-Standalone clusters are configured through the *ClusterConfig.json* file. To learn more, see [Configuration settings for a standalone Windows cluster](service-fabric-cluster-manifest.md).
+## Customize cluster settings in the ClusterConfig.json file
+Standalone clusters are configured through the *ClusterConfig.json* file. To learn more about the different settings, see [Configuration settings for a standalone Windows cluster](service-fabric-cluster-manifest.md).
 
-You can add, update, or remove settings in the `fabricSettings` section under the [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) section in ClusterConfig.json. 
+You can add, update, or remove settings in the `fabricSettings` section under the [Cluster properties](./service-fabric-cluster-manifest.md#cluster-properties) section in *ClusterConfig.json*. 
 
 For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section under `fabricSettings`:
 
@@ -41,9 +41,6 @@ For example, the following JSON adds a new setting *MaxDiskQuotaInMB* to the *Di
 ```
 
 After you've modified the settings in your ClusterConfig.json file, [test the cluster configuration](#test-the-cluster-configuration) and then [upgrade the cluster configuration](#upgrade-the-cluster-configuration) to apply the settings to your cluster. 
-
-
-The following is a list of Fabric settings that you can customize, organized by section.
 
 ## Test the cluster configuration
 Before you initiate the configuration upgrade, you can test your new cluster configuration JSON by running the following PowerShell script in the standalone package:
