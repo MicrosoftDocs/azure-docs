@@ -95,7 +95,6 @@ To enable VNet Integration on your app:
   
 Your app will be restarted after this last step.  
 
-
 ## How the system works
 The VNet Integration feature is built on top of point-to-site VPN technology. Apps in Azure App Service are hosted in a multi-tenant system, which precludes provisioning an app directly in a VNet. The point-to-site technology limits network access to just the virtual machine hosting the app. Access to the network is further restricted on the app hosts so that your apps can only access the network you configure it with. 
 
@@ -120,7 +119,7 @@ The information you now have available to you in the app level VNet Integration 
 * DNS Servers - shows the DNS Servers configured with your VNet.
 * IP addresses routed to the VNet - shows the address blocks routed used to drive traffic into your VNet 
 
-The only operation you can take in the app view of your VNet Integration is to disconnect your app from the VNet it is currently connected to. To disconnect your app from a VNet, disconnect at the top. This action does not change your VNet. The VNet and its configuration including the gateways remains unchanged. If you then want to delete your VNet, you need to first delete the resources in it including the gateways. 
+The only operation you can take in the app view of your VNet Integration is to disconnect your app from the VNet it is currently connected to. To disconnect your app from a VNet, select **Disconnect**. Your app will be restarted when you disconnect from a VNet. Disconnecting does not change your VNet. The VNet and its configuration including the gateways remains unchanged. If you then want to delete your VNet, you need to first delete the resources in it including the gateways. 
 
 To reach the ASP VNet Integration UI, open your ASP UI and select **Networking**.  Under VNet Integration, select **Click here to configure** to open the Network Feature Status UI.
 
@@ -274,6 +273,7 @@ The new version is in Preview and has the following characteristics.
 * Production workloads are not supported on the new feature while it is in Preview
 * Your app must be in an Azure App Service deployment that is capable of scaling up to Premium v2.
 * The new VNet Integration feature does not work for apps in an App Service Environment.
+* You cannot delete a VNet with an integrated app.  
 * One address is used for each App Service plan instance. Since subnet size cannot be changed after assignment, use a subnet that can more than cover your maximum scale size. A /27 with 32 addresses is the recommended size as that would accommodate an App Service plan that is scaled to 20 instances.  You can consume Service Endpoint secured resources using the new VNet Integration capability. To do so, enable service endpoints on the subnet used for VNet Integration.
 
 To use the new feature:
@@ -284,9 +284,13 @@ To use the new feature:
 
 1. Select **Add VNet (preview)**.  
 
-1. Select the Resource Manager VNet that you want to integrate with and then either create a new subnet or pick an empty pre-existing subnet. The integration takes less than a minute to complete.  When it is completed you will see details on the VNet you are integrated with and a banner at the top that tells you the feature is in preview.
+1. Select the Resource Manager VNet that you want to integrate with and then either create a new subnet or pick an empty pre-existing subnet. The integration takes less than a minute to complete. During the integration, your app is restarted.  When integration is completed you will see details on the VNet you are integrated with and a banner at the top that tells you the feature is in preview.
 
  ![Select the VNet and subnet][7]
+
+To disconnect your app from the VNet, simply select **Disconnect**. This will restart your web app. 
+
+The new VNet Integration feature enables you to use service endpoints.  To use service endpoints with your app, use the new VNet Integration to connect to a selected VNet and then configure service endpoints on the subnet you used for the integration. 
 
 During the preview, some features will gradually become available such as Network Security Groups, peering and route tables. Also not initially available is the ability for your web app to pick up the VNet DNS setting.  To use your VNet DNS server, create an Application setting for your app where the name is WEBSITE_DNS_SERVER and the value is the IP address of the server.  If you have a secondary DNS server, then create another Application setting where the name is WEBSITE_DNS_ALT_SERVER and the value is the IP address of the server.
 
