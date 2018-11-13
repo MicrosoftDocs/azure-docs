@@ -1,28 +1,23 @@
 ---
-title: Create an Application Gateway - Azure Portal | Microsoft Docs
+title: Create an Application Gateway - Azure Portal
 description: Learn how to create an Application Gateway by using the Azure portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 01/25/2018
+ms.date: 11/14/2018
 ms.author: victorh
-
 ---
+
 # Create an application gateway using the Azure portal
 
 You can use the Azure portal to create or manage application gateways. This quickstart shows you how to create network resources, backend servers, and an application gateway.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Log in to Azure
+## Sign in to Azure
 
-Log in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
+Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com)
 
 ## Create an application gateway
 
@@ -64,7 +59,7 @@ the deployment finishes successfully before moving on to the next section.
 
 ## Create backend servers
 
-In this example, you create two virtual machines to be used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
+In this example, you create two virtual machines that are used as backend servers for the application gateway. You also install IIS on the virtual machines to verify that the application gateway was successfully created.
 
 ### Create a virtual machine
 
@@ -85,7 +80,7 @@ In this example, you create two virtual machines to be used as backend servers f
 
 ### Install IIS
 
-1. Open the interactive shell and make sure that it is set to **PowerShell**.
+1. Open the interactive shell and make sure that it's set to **PowerShell**.
 
     ![Install custom extension](./media/application-gateway-create-gateway-portal/application-gateway-extension.png)
 
