@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/08/2018
+ms.date: 11/13/2018
 ms.author: spelluru
 
 #customer intent: As a developer, I want to consume my on-premises services from my applications running in the cloud. In some cases, I want my applications running in a customer network to access services running in my network. How do I go about it? 
 
 ---
 # What is Azure Relay?
-The Azure Relay service enables you to securely expose services that run in your corporate network to the public cloud. You can do so without opening a firewall connection, or making intrusive changes to your corporate network infrastructure. 
+The Azure Relay service enables you to securely expose services that run in your corporate network to the public cloud. You can do so without opening a port on your firewall, or making intrusive changes to your corporate network infrastructure. 
 
 The relay service supports the following scenarios between on-premises services and applications running in the cloud or in another on-premises environment. 
 
