@@ -21,7 +21,7 @@ Azure App Service on Linux lets Java developers to build, deploy, and scale Java
 
 This guide provides key concepts and instructions for Java Enterprise developers using in App Service for Linux. If you've never deployed Java applications with Azure App Service for Linux, you should complete the [Java quickstart](quickstart-java.md) first. General questions about using App Service for Linux that aren't specific to Java Enterprise are answered in the [Java developer's guide for App Service on Linux](app-service-linux-java.md) and the [App Service Linux FAQ](app-service-linux-faq.md).
 
-# Scale with App Service 
+## Scale with App Service 
 
 The WildFly application server running in App Service on Linux runs in standalone mode, not in a domain configuration. 
 
@@ -53,10 +53,10 @@ Use [application settings](/azure/app-service/web-sites-configure#application-se
 
 To install modules and their dependencies into the Wildfly classpath via the JBoss CLI, you will need to create the following files in their own directory.  Some modules and dependencies might need additional configuration such as JNDI naming or other API-specific configuration, so this list is a minimum set of what you'll need to configure a dependency in most cases.
 
-1. Create a [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
-2. Download any necessary JAR file dependencies for your module.
-3. Configure the JBoss CLI script to configure the new module. This file will contain your commands to be executed by the JBoss CLI to configure the server to use the dependency. For documentation on the commands to add modules, datasources, and messaging providers, please see read refer to [this document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-4. Update the Bash startup script for the app in the Azure Portal to call the CLI and execute the script in the previous step. This file will be executed when your App Service instance is restarted or when new instances are provisioned during a scale out.  This startup script is where you can perform any other configurations for your application as the JBoss commands are passed to the JBoss CLI. At minimum, this file can be a single command to pass your JBoss CLI command script to the JBoss CLI: 
+1. An a [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
+2. Any necessary JAR file dependencies for your module.
+3. A script with your JBoss CLI commands to configure the new module. This file will contain your commands to be executed by the JBoss CLI to configure the server to use the dependency. For documentation on the commands to add modules, datasources, and messaging providers, please see read refer to [this document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+4.  A Bash startup script to call the JBoss CLI and execute the script in the previous step. This file will be executed when your App Service instance is restarted or when new instances are provisioned during a scale out.  This startup script is where you can perform any other configurations for your application as the JBoss commands are passed to the JBoss CLI. At minimum, this file can be a single command to pass your JBoss CLI command script to the JBoss CLI: 
    
 ```bash
 `/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli` 
@@ -70,13 +70,11 @@ Once you have the files and content for your module, follow the steps below to a
 
 ## Data sources
 
-To configure Wildfly for a data source connection, follow the same process outlined in above in  the Installing Modules and Dependencies section to add the JDBC driver as a module. You can follow the same steps for any Azure Database service. 
+To configure Wildfly for a data source connection, follow the same process outlined above in the Installing Modules and Dependencies section. You can follow the same steps for any Azure Database service.
 
-1. Download the JDBC driver for the database backing the data source. 
-2.  Create an XML file that points to the JDBC driver as a Wildfly module. This XML will also need to point to the dependencies for the JDBC driver if they are not included.
-3. Upload the JDBC driver and XML to the App Service instance, adding it to a customized Wildfly configuration hosted in `/home` in persistent application storage.
-4.  Configure a startup script which configures the JDBC driver for the Wildfly server using the JBoss CLI, referencing the XML file created in the previous step.
-5. If connecting to an Azure database service, go to the application in the  Azure Portal. Under the **Connection security** section, enable **Allow access to Azure services**. 
+1. Download the JDBC driver for your database flavor. For convenience, here are the drivers for [Postgres](https://jdbc.postgresql.org/download.html) and [MySQL](https://dev.mysql.com/downloads/connector/j/). Unpack the download to get the .jar file.
+2. Follow the steps outline in "Modules and Dependencies" to create and upload your XML module descriptor, JBoss CLI script, startup script, and JDBC .jar dependency.
+
 
 More information on configuring Wildfly with [PostgreSQL](https://developer.jboss.org/blogs/amartin-blog/2012/02/08/how-to-set-up-a-postgresql-jdbc-driver-on-jboss-7) , [MySQL](https://dev.mysql.com/doc/connector-j/5.1/connector-j-usagenotes-jboss.html), and [SQL Database](https://docs.jboss.org/jbossas/docs/Installation_And_Getting_Started_Guide/5/html/Using_other_Databases.html#d0e3898) is available. You can use these customized instructions along with the generalized approach above to add data source definitions to your server.
 
