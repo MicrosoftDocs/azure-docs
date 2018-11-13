@@ -64,26 +64,26 @@ The policy for **Virtual machines per lab** lets you specify the maximum number 
 
 1. Select **Save**.
 
-## Set auto-shutdown
-The auto-shutdown policy helps minimize lab waste by letting you specify the time that this lab's VMs shut down.
+## Set auto shutdown
+The auto shutdown policy helps minimize lab waste by letting you specify the time that this lab's VMs shut down.
 
-1. On the lab's **Configuration and policies** pane, select **Auto-shutdown**.
+1. On the lab's **Configuration and policies** pane, select **Auto shutdown**.
    
-    ![Auto-shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
+    ![Auto shutdown](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
 1. Select **On** to enable this policy, and **Off** to disable it.
 
 1. If you enable this policy, specify the time (and time zone) to shut down all VMs in the current lab.
 
-1. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified auto-shutdown time. If you choose **Yes**, enter a webhook URL endpoint or an email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to delay the shutdown.
+1. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified auto shutdown time. If you choose **Yes**, enter a webhook URL endpoint or an email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to delay the shutdown.
 
    For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Select **Save**.
 
-By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's management pane and change its **Auto-shutdown** setting.
+By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's management pane and change its **Auto shutdown** setting.
 
-## Set auto-shutdown policy
+## Set auto shutdown policy
 As a lab owner, you can now configure a shutdown schedule for all the VMs in your lab. By doing so, you can save costs from running machines that aren't being used (idle). You can enforce a shutdown policy on all your lab VMs centrally but also save your lab users the effort from setting up a schedule for their individual machines. This feature enables you to set the policy on your lab schedule starting from offering no control to full control, to your lab users. As a lab owner, you can configure this policy by taking the following steps:
 
 1. On the home page for your lab, select **Configuration and policies**.
@@ -93,12 +93,12 @@ As a lab owner, you can now configure a shutdown schedule for all the VMs in you
     ![Auto shutdown policy options](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
 
 ### User sets a schedule and can opt out
-If you set your lab to this policy, the lab users can override or opt out of the lab schedule. This option grants lab users full control over auto shutdown schedule of their VMs. Lab users see no change in their VM auto shutdown schedule blade.
+If you set your lab to this policy, the lab users can override or opt out of the lab schedule. This option grants lab users full control over auto shutdown schedule of their VMs. Lab users see no change in their VM auto shutdown schedule page.
 
 ![Auto shutdown policy option - 1](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-1.png)
 
 ### User sets a schedule and cannot opt out
-If you set your lab to this policy, lab users can override the lab schedule. However, they can't opt out of auto-shutdown policy. This option makes sure that every machine in your lab is under an auto shutdown schedule. Lab users can update auto shutdown schedule of their VMs, and set up shut down notifications.
+If you set your lab to this policy, lab users can override the lab schedule. However, they can't opt out of auto shutdown policy. This option makes sure that every machine in your lab is under an auto shutdown schedule. Lab users can update auto shutdown schedule of their VMs, and set up shut down notifications.
 
 ![Auto shutdown policy option - 2](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-2.png)
 
@@ -107,10 +107,10 @@ If you set your lab to this policy, lab users can't override or opt out of the l
 
 ![Auto shutdown policy option - 3](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-option-3.png)
 
-## Set auto-start
-The auto-start policy lets you specify when the VMs in the current lab should be started.  
+## Set autostart
+The autostart policy lets you specify when the VMs in the current lab should be started.  
 
-1. On the lab's **Configuration and policies** pane, select **Auto-start**.
+1. On the lab's **Configuration and policies** pane, select **Autostart**.
    
     ![Auto-start](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -120,7 +120,7 @@ The auto-start policy lets you specify when the VMs in the current lab should be
 
 4. Select **Save**.
 
-Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's management pane and change its **Auto-start** setting.
+Once enabled, this policy is not automatically applied to any VMs in the current lab. To apply this setting to a specific VM, open the VM's management pane and change its **Autostart** setting.
 
 ## Set expiration date
 You can set an expiration date when you [create the VM](devtest-lab-add-vm.md). In **Advanced settings**, choose the calendar icon to specify a date on which the VM is automatically deleted. By default, the VM never expires.
