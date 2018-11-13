@@ -25,7 +25,7 @@ This article lists the open source big data applications that work with Azure Da
 | [HortenWorks](https://hortonworks.com/) | TBD |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 |
 
-For information on about which Hadoop components are available with HDInsight, see [HDInsight component versioning](../hdinsight/hdinsight-component-versioning.md).
+For information on about which Hadoop components are available with HDInsight, see [HDInsight component versioning](../../hdinsight/hdinsight-component-versioning.md).
 
 ## See also
-* [Overview of Azure Data Lake Storage Gen2](data-lake-store-overview.md)
+* [Overview of Azure Data Lake Storage Gen2](overview.md)
