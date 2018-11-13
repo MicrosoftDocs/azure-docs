@@ -103,7 +103,7 @@ Linear ads can be displayed in a specified order. To do this, add additional <Ad
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad1trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -123,7 +123,7 @@ Linear ads can be displayed in a specified order. To do this, add additional <Ad
           <Description>Unknown</Description>
           <Survey></Survey>
           <Error></Error>
-          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResouce]]></Impression>
+          <Impression id="Atlas"><![CDATA[http://myserver.com/Impression/Ad2trackingResource]]></Impression>
           <Creatives>
             <Creative id="video" sequence="0" AdID="">
               <Linear>
@@ -156,7 +156,7 @@ Nonlinear ads are specified in a <Creative> element as well. The following examp
     </Creative>
 ```
 
-The <**NonLinearAds**> element can contain one or more <**NonLinear**> elements, each of which can describe a nonlinear ad. The <**NonLinear**> element specifies the resource for the nonlinear ad. The resource can be a <**StaticResouce**>, an <**IFrameResource**>, or an <**HTMLResouce**>. <**StaticResource**> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:
+The <**NonLinearAds**> element can contain one or more <**NonLinear**> elements, each of which can describe a nonlinear ad. The <**NonLinear**> element specifies the resource for the nonlinear ad. The resource can be a <**StaticResource**>, an <**IFrameResource**>, or an <**HTMLResource**>. <**StaticResource**> describes a non-HTML resource and defines a creativeType attribute that specifies how the resource is displayed:
 
 Image/gif, image/jpeg, image/png – the resource is displayed in an HTML <**img**> tag.
 
