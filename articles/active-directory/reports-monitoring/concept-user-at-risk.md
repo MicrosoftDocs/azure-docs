@@ -18,7 +18,7 @@ ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
-# Users flagged for risk security report in the Azure Active Directory portal
+# Users flagged for risk report in the Azure portal
 
 Azure Active Directory (Azure AD) detects suspicious actions related to your user accounts. For each detected action, a record called a [risk event](concept-risk-events.md) is created.
 
@@ -35,7 +35,7 @@ To learn how to configure the policies that trigger these risk events, see [How 
 ![Risky Sign-ins](./media/concept-user-at-risk/10.png)
 
 
-## What Azure AD license do you need to access a security report?  
+## What Azure AD license do you need to access the users at risk report?  
 
 All editions of Azure Active Directory provide you with users flagged for risk reports. However, the level of report granularity varies between the editions: 
 
