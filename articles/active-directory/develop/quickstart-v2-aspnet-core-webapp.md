@@ -136,7 +136,6 @@ The method `AddAuthentication` configures the service to add cookie-based authen
 
 The line containing `.AddAzureAd` adds the Azure AD authentication to your application. It's then configured to sign-in using the Azure AD v2.0 endpoint.
 
-```
 > |Where  |  |
 > |---------|---------|
 > | ClientId  | Application (client) ID from the application registered in the Azure portal. |
