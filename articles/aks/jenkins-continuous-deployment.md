@@ -34,6 +34,8 @@ You need the following items in order to complete the steps in this article.
 - [Docker installed][docker-install] on your development system.
 - A GitHub account, [GitHub personal access token][git-access-token], and Git client installed on your development system.
 
+- If you provide your own Jenkins instance rather than this sample scripted way to deploy Jenkins, your Jenkins instance needs [Docker installed and configured][docker-install] and [kubectl][kubectl-install].
+
 ## Prepare the application
 
 In this article, you use a sample Azure vote application that contains a web interface hosted in one or more pods, and a second pod hosting Redis for temporary data storage. Before you integrate Jenkins and AKS for automated deployments, first manually prepare and deploy the Azure vote application to your AKS cluster. This manual deployment is version one of the application, and lets you see the application in action.
@@ -313,6 +315,7 @@ In this article, you learned how to use Jenkins as part of a CI/CD solution. AKS
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [docker-install]: https://docs.docker.com/install/
+[kubectl-install]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list

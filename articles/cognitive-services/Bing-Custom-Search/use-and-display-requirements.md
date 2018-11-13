@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: v-brapel
+ms.author: maheshb
 ---
-
+# Bing Search API use and display requirements
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

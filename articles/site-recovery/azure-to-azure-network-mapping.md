@@ -1,119 +1,91 @@
 ---
 title: Map virtual networks between two Azure regions in Azure Site Recovery | Microsoft Docs
 description: Azure Site Recovery coordinates the replication, failover, and recovery of virtual machines and physical servers. Learn about failover to Azure or to a secondary datacenter.
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
-editor: ''
-
-ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
-# Map virtual networks in different Azure regions
+# Set up network mapping and IP addressing for VNets
 
-
-This article describes how to map two instances of Azure Virtual Network located in different Azure regions with each other. Network mapping ensures that when a replicated virtual machine is created in the target Azure region, the virtual machine is also created on the virtual network that's mapped to the virtual network of the source virtual machine.  
+This article describes how to map two instances of Azure virtual networks (VNets) located in different Azure regions, and how to set up IP addressing between networks. Network mapping ensures that a replicated VM is created in the target Azure region is created in the VNet that's mapped to the VNet of the source VM.
 
 ## Prerequisites
-Before you map networks, ensure that you have created an [Azure virtual network](../virtual-network/virtual-networks-overview.md) in both the source region and the target Azure region.
 
-## Map virtual networks
+Before you map networks, you should have [Azure VNets](../virtual-network/virtual-networks-overview.md) in the source and target Azure regions. 
 
-To map an Azure virtual network that's located in one Azure region (source network) to a virtual network that's located in another region (target network), for Azure virtual machines, go to **Site Recovery Infrastructure** > **Network Mapping**. Create a network mapping.
+## Set up network mapping
 
-![Network mappings window - Create a network mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
+Map networks as follows:
 
+1. In **Site Recovery Infrastructure**, click **+Network Mapping**.
 
-In the following example, the virtual machine is running in the East Asia region. The virtual machine is being replicated to the Southeast Asia region.
+    ![ Create a network mapping](./media/site-recovery-network-mapping-azure-to-azure/network-mapping1.png)
 
-To create a network mapping from the East Asia region to the Southeast Asia region, select the location of the source network and the location of the target network. Then, select **OK**.
+3. In **Add network mapping**, select the source and target locations. In our example, the source VM is running in the East Asia region, and replicates to the Southeast Asia region.
 
-![Add network mapping window - Select source and target locations for the source network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+    ![Select source and target ](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
+3. Now create a network mapping in the opposite directory. In our example, the source will now be Southeast Asia, and the target will be East Asia.
 
-
-Repeat the preceding process to create a network mapping from the Southeast Asia region to the East Asia region.
-
-![Add network mapping pane - Select source and target locations for the target network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
+    ![Add network mapping pane - Select source and target locations for the target network](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
 
-## Map a network when you enable replication
+## Map networks when you enable replication
 
-When you replicate a virtual machine from one Azure region to another region for the first time, if no network mapping exists, you can set the target network when you set up replication. Based on this setting, Azure Site Recovery creates network mappings from the source region to the target region, and from the target region to the source region.   
+If you haven't prepared network mapping before you configure disaster recovery for Azure VMs, you can specify a target network when you [set up and enable replication](azure-to-azure-how-to-enable-replication.md). When you do this the following happens:
 
-![Configure settings pane - Choose the target location](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
+- Based on the target you select, Site Recovery automatically creates network mappings from the source to target region, and from the target to source region.
+- By default, Site Recovery creates a network in the target region that's identical to the source network. Site Recovery adds **-asr** as a suffix to the name of the source network. You can customize the target network.
+- If network mapping has already occurred, you can't change the target virtual network when you enable replication. To change the target virtual network, you need to modify the existing network mapping.
+- If you modify a network mapping from region A to region B, ensure that you also modify the network mapping from region B to region A.
+]
 
-By default, Site Recovery creates a network in the target region that is identical to the source network. Site Recovery creates a network by adding **-asr** as a suffix to the name of the source network. To choose a network that has already been created, select **Customize**.
+## Specify a subnet
 
-![Customize target settings pane - Set target resource group name and target virtual network name](./media/site-recovery-network-mapping-azure-to-azure/network-mapping5.png)
+The subnet of the target VM is selected based on the name of the subnet of the source VM.
 
-If network mapping has already occurred, you can't change the target virtual network when you enable replication. In this case, to change the target virtual network, modify the existing network mapping.  
+- If a subnet with the same name as the source VM subnet is available in the target network, that subnet is set for the target VM.
+- If a subnet with the same name doesn't exist in the target network, the first subnet in the alphabetical order is set as the target subnet.
+- You can modify the in the **Compute and Network** settings for the VM.
 
-![Customize target settings pane - Set the target resource group name](./media/site-recovery-network-mapping-azure-to-azure/network-mapping6.png)
-
-![Modify network mapping pane - Modify an existing target virtual network name](./media/site-recovery-network-mapping-azure-to-azure/modify-network-mapping.png)
-
-> [!IMPORTANT]
-> If you modify a network mapping from region A to region B, ensure that you also modify the network mapping from region B to region A.
->
->
-
-
-## Subnet selection
-The subnet of the target virtual machine is selected based on the name of the subnet of the source virtual machine. If a subnet that has the same name as the source virtual machine is available in the target network, that subnet is set for the target virtual machine. If a subnet with the same name doesn't exist in the target network, the alphabetically first subnet is set as the target subnet.
-
-To modify the subnet, go to the **Compute and Network** settings for the virtual machine.
-
-![Compute and Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
+    ![Compute and Network compute properties window](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 
 
-## IP address
+## Set up IP addressing for target VMs
 
-The IP address for each network interface of the target virtual machine is set as described in the following sections.
+The IP address for each NIC on a target virtual machine is configured as follows:
 
-### DHCP
-If the network interface of the source virtual machine uses DHCP, the network interface of the target virtual machine is also set to use DHCP.
-
-### Static IP address
-If the network interface of the source virtual machine uses  a static IP address, the network interface of the target virtual machine is also set to use a static IP address. The following sections describe how a static IP address is set.
-
-### IP assignment behavior during Failover
-#### 1. Same address space
-
-If the source subnet and the target subnet have the same address space, the IP address of the network interface of the source virtual machine is set as the target IP address. If the same IP address is not available, the next available IP address is set as the target IP address.
-
-#### 2. Different address spaces
-
-If the source subnet and the target subnet have different address spaces, the next available IP address in the target subnet is set as the target IP address.
+- **DHCP**: If the NIC of the source VM uses DHCP, the NIC of the target VM is also set to use DHCP.
+- **Static IP address**: If the NIC of the source VM uses static IP addressing, the target VM NIC will also use a static IP address.
 
 
-### IP assignment behavior during Test Failover
-#### 1. If the target network chosen is the production vNet
-- The recovery IP (Target IP) will be a static IP but it **will not be the same IP address** as reserved for Failover.
-- The assigned IP address will be the next available IP from the end of the subnet address range.
-- For e.g., if Source VM static IP is configured to be: 10.0.0.19 and Test Failover was attempted with the configured production network: ***dr-PROD-nw***, with subnet range as 10.0.0.0/24. </br>
-The failed-over VM would be assigned with - The next available IP from the end of the subnet address range that is: 10.0.0.254 </br>
+## IP address assignment during failover
 
-**Note:** The terminology **production vNet** is referred to the 'Target network' mapped during the disaster recovery configuration.
-####2. If the target network chosen is not the production vNet but has the same subnet range as production network 
-
-- The recovery IP (Target IP) will be a static IP with the **same IP address** (i.e., configured static IP address) as reserved for Failover. Provided the same IP address is available.
-- If the configured static IP is already assigned to some other VM/device, then the recovery IP will be the next available IP from the end of the subnet address range.
-- For e.g., if Source VM static IP is configured to be: 10.0.0.19 and Test Failover was attempted with a test network: ***dr-NON-PROD-nw***, with same subnet range as production network - 10.0.0.0/24. </br>
-  The failed-over VM would be assigned with following static IP </br>
-    - configured static IP: 10.0.0.19 if IP is available.
-    - Next available IP: 10.0.0.254 if the IP address 10.0.0.19 is already in use.
+**Source and target subnets** | **Details**
+--- | ---
+Same address space | IP address of the source VM NIC is set as the target VM NIC IP address.<br/><br/> If the address isn't available, the next available IP address is set as the target.
+Different address space<br/><br/> The next available IP address in the target subnet is set as the target VM NIC address.
 
 
-To modify the target IP on each network interface, go to the **Compute and Network** settings for the virtual machine.</br>
-As a best practice it is always suggested to choose a test network to perform Test Failover.
+
+## IP address assignment during test failover
+
+**Target network** | **Details**
+--- | ---
+Target network is the failover VNet | - Target IP address is static, but not the same IP address as that reserved for failover.<br/><br/>  - The assigned address is the next available address from the end of the subnet range.<br/><br/> For example: If the source IP address is 10.0.0.19 and failover network uses range 10.0.0.0/24, then the next IP address assigned to the target VM is 10.0.0.254.
+Target network isn't the failover VNet | - Target IP address will be static with the same IP address reserved for failover.<br/><br/>  - If the same IP address is already assigned, then the IP address is the next one available at the eeach of the subnet range.<br/><br/> For example: If the source static IP address is 10.0.0.19 and failover is on an network that isn't the failover network, with the range 10.0.0.0/24, then the target static IP address will be 10.0.0.0.19 if available, and otherwise it will be 10.0.0.254.
+
+- The failover VNet is the target network that you select when you set up disaster recovery.
+- We recommend that you always use a non-production network for test failover.
+- You can modify the target IP address in the **Compute and Network** settings of the VM.
+
+
 ## Next steps
 
-* Review [networking guidance for replicating Azure virtual machines](site-recovery-azure-to-azure-networking-guidance.md).
+- Review [networking guidance](site-recovery-azure-to-azure-networking-guidance.md) for Azure VM disaster recovery.
+- [Learn more](site-recovery-retain-ip-azure-vm-failover.md) about retaining IP addresses after failover.
+
+If the target network chosen is the failover vnet” and 2nd point to say “If the target network chosen is different from the failover vnet but has the same subnet range as failover vnet”

@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -138,6 +138,9 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Configure the local intranet settings for device registration
 
+- Control Windows down-level devices 
+
+
 ### Update device settings 
 
 To register Windows down-level devices, you need to make sure that the device settings to allow users to register devices in Azure AD are set. In the Azure portal, you can find this setting  under:
@@ -162,6 +165,12 @@ To successfully complete hybrid Azure AD join of your Windows down-level devices
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
 
+
+### Control Windows down-level devices 
+
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
+
 ## Verify the registration
 
 To verify the device registration state in your Azure tenant, you can use the **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet in the **[Azure Active Directory PowerShell module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
@@ -170,7 +179,7 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device id** that matches the ID on the Windows client must exist.
 - The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
-- The value for **Enabled** must be **True** for devices that are used in conditional access. 
+- The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in conditional access. 
 
 
 **To check the service details:**

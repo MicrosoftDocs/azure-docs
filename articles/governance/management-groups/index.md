@@ -99,7 +99,7 @@ resources within the directory by having one hierarchy within the directory.
 
 ## Trouble seeing all subscriptions
 
-A few directories that starting using management groups early in the preview before (June 25 2018) could see an issue where all the subscriptions are not enforced into the hierarchy.  This reason is because the processes to enforce subscriptions into the hierarchy was implemented after a role or policy assignment was done on the root management group in the directory.
+A few directories that started using management groups early in the preview before (June 25 2018) could see an issue where all the subscriptions are not enforced into the hierarchy.  This reason is because the processes to enforce subscriptions into the hierarchy was implemented after a role or policy assignment was done on the root management group in the directory.
 
 ### How to resolve the issue
 

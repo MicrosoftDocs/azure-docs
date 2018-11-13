@@ -5,7 +5,7 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/27/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -15,11 +15,13 @@ ms.reviewer: minewiskan
 
 You can import a data model in a Power BI Desktop file (pbix) into Azure Analysis Services. Model metadata, cached data, and datasource connections are imported. Reports and visualizations are not imported. Imported data models from Power BI Desktop are at the 1400 compatibility level.
 
+> [!IMPORTANT]
+> This feature is deprecated. It may be removed or significantly changed in a future update. It's recommended you discontinue using this feature in new and existing projects to maintain compatibility with future updates. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
+
 **Restrictions**   
 
-- Importing from a pbix file uses the web designer feature in the portal, which is **preview**. Functionality is limited. For more advanced model development and testing, it's best to use Visual Studio (SSDT) and SQL Server Management Studio (SSMS).
-- If your data model is created in Power BI Desktop July 2018 Update (2.60.5169.3201) or later, ensure no preview features are enabled. Preview features are not yet supported in Azure Analysis Services.  
-If you receive the following error when importing, the pbix file has preview features enabled that are not yet supported in Azure Analysis Services.
+
+- If your data model is created in Power BI Desktop July 2018 Update (2.60.5169.3201) or later, ensure no preview features are enabled. Preview features are not yet supported in Azure Analysis Services. If you receive the following error when importing, the pbix file has preview features enabled that are not yet supported in Azure Analysis Services.
 
     ![Compatibility level warning](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - You must have server administrator permissions to import from a pbix file.

@@ -21,6 +21,9 @@ ms.custom: aaddev
 ---
 
 # Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 You can use the [OAuth 2.0 client credentials grant](http://tools.ietf.org/html/rfc6749#section-4.4) specified in RFC 6749, sometimes called *two-legged OAuth*, to access web-hosted resources by using the identity of an application. This type of grant commonly is used for server-to-server interactions that must run in the background, without immediate interaction with a user. These types of applications often are referred to as *daemons* or *service accounts*.
 
 > [!NOTE]
@@ -53,7 +56,7 @@ Instead of using ACLs, you can use APIs to expose a set of application permissio
 * Send mail as any user
 * Read directory data
 
-For more information about application permissions, go to [Microsoft Graph](https://graph.microsoft.io).
+For more information about application permissions, go to [Microsoft Graph](https://developer.microsoft.com/graph).
 
 To use application permissions in your app, do the steps we discuss in the next sections.
 

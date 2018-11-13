@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Creating a KB - QnA Maker"
+title: "Create, train, publish knowledge base - QnA Maker"
 titleSuffix: Azure Cognitive Services 
 description: You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker KB in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 author: diberry
@@ -7,11 +7,11 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 
-# Quickstart: Create, train, and publish your knowledge base
+# Create, train, and publish your QnA Maker knowledge base
 
 You can create a QnA Maker knowledge base (KB) from your own content, such as FAQs or product manuals. The QnA Maker KB in this example is created from a simple FAQ webpage to answer questions on BitLocker key recovery.
 
@@ -37,7 +37,7 @@ You can create a QnA Maker knowledge base (KB) from your own content, such as FA
 5. In step 3, name your KB **My Sample QnA KB**.
 
 6. To add content to your KB, select three types of data sources. In step 4, under **Populate your KB**, add the 
-[BitLocker Recovery FAQ](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL in the **URL** box.
+[BitLocker Recovery FAQ](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) URL in the **URL** box.
 
    ![Select a QnA service KB](../media/qnamaker-quickstart-kb/add-datasources.png)
 

@@ -31,7 +31,7 @@ Before you attach a data disk to a VM, review these tips:
 ### Attach a new disk
 Follow these steps to create and attach a new managed data disk to a VM in Azure DevTest Labs.
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **All Services**, and then select **DevTest Labs** from the list.
 1. From the list of labs, select the desired lab. 
 1. From the list of **My virtual machines**, select a running VM.

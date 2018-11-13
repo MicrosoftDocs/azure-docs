@@ -43,12 +43,18 @@ The following image illustrates periodic full backups of all Cosmos DB entities 
 ## Backup retention period
 As described above, Azure Cosmos DB takes snapshots of your data every four hours at the partition level. At any given time, only the last two snapshots are retained. However, if the container/database is deleted, Azure Cosmos DB retains the existing snapshots for all of the deleted partitions within the given container/database for 30 days.
 
-For SQL API, If you want to maintain your own snapshots, you can use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
+For SQL API, If you want to maintain your own snapshots, you can do so by using the following options:
+
+* Use the export to JSON option in the Azure Cosmos DB [Data Migration tool](import-data.md#export-to-json-file) to schedule additional backups.
+
+* Use [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data periodically.
+
+* Use Azure Cosmos DB [change feed](change-feed.md) to read data periodically for full backup and separately for incremental change and move to your blob destination. 
+
+* For managing warm backups, it is possible to read data periodically from change feed and delay its writing to another collection. This will ensure you do not have to restore the data and you can immediately look at the data for issue. 
 
 > [!NOTE]
-> If you "Provision throughput for a set of containers at Database level" – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidently deleted your container. Data can't be restored if you don't contact the support team within 8 hours. 
-
-
+> If you "Provision throughput for a set of containers at Database level" – Please remember the restore happens at full Database account level. You also need to ensure to reach out within 8 hours to the support team if you accidentally delete your container. Data can't be restored if you don't contact the support team within 8 hours.
 
 ## Restoring a database from an online backup
 
@@ -57,7 +63,7 @@ If you accidentally delete your database or container, you can [file a support t
 If you need to restore your database because of data corruption issue (includes cases where documents within a container are deleted), see [Handling data corruption](#handling-data-corruption) as you need to take additional steps to prevent the corrupted data from overwriting the existing backups. For a specific snapshot of your backup to be restored, Cosmos DB requires that the data was available for the duration of the backup cycle for that snapshot.
 
 > [!NOTE]
-> Collections or databases can be restored only after a customer requests for restoring. It is the  customer's responsbility to delete the container or database immediately after restoring the data. If you don't delete the restored databases or collections, they will incur cost at the rate of restored collection or database. So, it is very important to delete them immediately. 
+> Collections or databases can be restored only on explicit customer requests. It is the customer's responsibility to delete the container or database immediately after reconciling the data. If you don't delete the restored databases or collections, they will incur cost for request units, storage and egress.
 
 ## Handling data corruption
 
@@ -69,7 +75,7 @@ The following image illustrates the support request creation for container(colle
 
 ![Restore a container for mistaken update or delete of data in Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. User who is subscription admin or co-admin can see this restored account.
+When restore is done for this kind of scenarios - data is restored to another account(with suffix of "-restored") and container. This restore is not done in place to provide a chance to customer to do validation of data and move the data as required. The restored container is in same region with same RUs and indexing policies. User who is subscription admin or coadmin can see this restored account.
 
 
 > [!NOTE]

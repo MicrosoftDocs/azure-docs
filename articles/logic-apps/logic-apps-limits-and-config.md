@@ -9,7 +9,7 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.author: estfan
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/11/2018
 ---
 
 # Limits and configuration information for Azure Logic Apps
@@ -122,9 +122,22 @@ or run load testing that might go above these limits,
 [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) 
 for help with your requirements.
 
+<a name="sftp"></a>
+
+## FTP, SFTP, and SFTP-SSH limits
+
+### File size
+
+| Name | Limit | Notes |
+|------|-------|-------|
+| FTP | 50 MB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP | 50 MB | To work around this limit, use the [SFTP-SSH connector](../connectors/connectors-sftp-ssh.md) or see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+| SFTP-SSH | 1 GB | To work around this limit, see [Handle large messages with chunking](../logic-apps/logic-apps-handle-large-messages.md). However, some connectors and APIs might not support chunking or even the default limit. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## HTTP Request limits
+## HTTP limits
 
 Here are the limits for a single HTTP 
 request or synchronous connector call:
@@ -328,9 +341,9 @@ based on where your logic apps exist:
 | UK West | 51.141.48.98, 51.141.51.145, 51.141.53.164, 51.141.119.150 |
 | | |
 
-### Connectors
+### Managed connectors
 
-To support the calls that [connectors](../connectors/apis-list.md) make, 
+To support the calls that [Microsoft-managed connectors](../connectors/apis-list.md) make, 
 set up your firewall configurations so they include these outbound IP addresses, 
 based on the regions where your logic apps exist.
 
@@ -349,7 +362,7 @@ based on the regions where your logic apps exist.
 > 
 > * If you already use API Management, you can use 
 > this service for this scenario. For more info, see 
-> [Simple enterprise integration architecture](http://aka.ms/aisarch).
+> [Simple enterprise integration architecture](https://aka.ms/aisarch).
 
 | Logic Apps region | Outbound IP | 
 |-------------------|-------------|  

@@ -292,6 +292,9 @@ From here, you can perform further analysis of the job records by clicking the d
 
 To change email notifications after the solution is deployed, modify action group that was created during deployment.  
 
+> [!NOTE]
+> Subscriptions in the Azure Government Cloud do not support the email functionality of this solution.
+
 In the Azure portal, navigate to Monitor -> Action groups. Select the action group titled **StartStop_VM_Notication**.
 
 ![Automation Update Management solution page](media/automation-solution-vm-management/azure-monitor.png)

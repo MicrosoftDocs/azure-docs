@@ -93,7 +93,7 @@ Once the technical set up is in place, you should incorporate these leads into y
 
 **What are leads and why are they important to me as a publisher on Marketplace?** 
 
-Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) or [AppSource](http://appsource.microsoft.com/), you will be able to receive leads of customers who are interested in your product if you have setup the lead destination on your offer.  
+Leads are customers who are deploying your products from the Marketplace. Whether your product is listed on [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us) or [AppSource](https://appsource.microsoft.com/), you will be able to receive leads of customers who are interested in your product if you have setup the lead destination on your offer.  
 
 
 **Where can I get help in setting up my lead destination?** 
@@ -210,7 +210,7 @@ It's possible that the end user's email domain is from .edu. For privacy reasons
 
  **I have configured Azure Table/Azure BLOB as my lead destination, how can I view the leads?** 
 
-You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
+You can access the blob or table from Azure Portal, or you can download and install [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) for free to view your Azure storage account’s tables/blobs. 
 
 
 **I have configured Azure Table as my lead destination, can I get notified whenever a new lead is sent by Marketplace?** 

@@ -3,13 +3,13 @@ title: Connect Excel to Hadoop with the Hive ODBC Driver - Azure HDInsight
 description: Learn how to set up and use the Microsoft Hive ODBC driver for Excel to query data in HDInsight clusters from Microsoft Excel.
 keywords: hadoop excel,hive excel,hive odbc
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/16/2018
-ms.author: jasonh
+ms.author: hrasheed
 ---
 # Connect Excel to Hadoop in Azure HDInsight with the Microsoft Hive ODBC driver
 

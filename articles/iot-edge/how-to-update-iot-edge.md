@@ -3,7 +3,7 @@ title: Update devices to the latest version of Azure IoT Edge | Microsoft Docs
 description: How to update IoT Edge devices to run the latest versions of the security daemon and the IoT Edge runtime
 keywords: 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2018
 ms.topic: conceptual
@@ -19,10 +19,11 @@ Two components of an IoT Edge device need to be updated if you want to move to a
 
 To find the latest version of Azure IoT Edge, see [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-
 ## Update the security daemon
 
 The IoT Edge security daemon is a native component that needs to be updated using the package manager on the IoT Edge device. 
+
+Check the version of the security daemon running on your device by using the command `iotedge version`. 
 
 ### Linux devices
 
@@ -54,6 +55,10 @@ Install-SecurityDaemon -Manual -ContainerOS <Windows or Linux>
 ## Update the runtime containers
 
 The way that you update the Edge agent and Edge hub containers depends on whether you use rolling tags (like 1.0) or specific tags (like 1.0.2) in your deployment. 
+
+Check the version of the IoT Edge agent and Edge hub modules currently on your device using the commands `iotedge logs edgeAgent` or `iotedge logs edgeHub`. 
+
+  ![View container version](./media/how-to-update-iot-edge/container-version.png)
 
 ### Understand IoT Edge tags
 
@@ -112,5 +117,4 @@ In a JSON deployment manifest, update the module images in the **systemModules**
 
 View the latest [Azure IoT Edge releases](https://github.com/Azure/azure-iotedge/releases).
 
-Stay up to date with recent updates and announcement in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/
-) 
+Stay up to date with recent updates and announcement in the [Internet of Things blog](https://azure.microsoft.com/blog/topics/internet-of-things/) 

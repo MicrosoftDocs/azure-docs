@@ -21,6 +21,8 @@
       href: ../application-insights/app-insights-java-quick-start.md?toc=/azure/azure-monitor/toc.json
     - name: Mobile application
       href: ../application-insights/app-insights-mobile-center-quickstart.md?toc=/azure/azure-monitor/toc.json
+    - name: Web application
+      href: ../application-insights/app-insights-website-monitoring.md?toc=/azure/azure-monitor/toc.json
   - name: Virtual machines
     items:
     - name: Collect - Azure VMs
@@ -31,9 +33,9 @@
       href: ../log-analytics/log-analytics-quick-collect-windows-computer.md?toc=/azure/azure-monitor/toc.json
 - name: Tutorials
   items:
-  - name: Analyze data in Log Analaytics
+  - name: Analyze data in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-viewdata.md?toc=/azure/azure-monitor/toc.json
-  - name: Visualize data in Log Analaytics
+  - name: Visualize data in Log Analytics
     href: ../log-analytics/log-analytics-tutorial-dashboards.md?toc=/azure/azure-monitor/toc.json
   - name: Archive platform metric and log data 
     href: ../monitoring-and-diagnostics/monitor-tutorial-archive-monitoring-data.md?toc=/azure/azure-monitor/toc.json
@@ -114,7 +116,6 @@
         - name: Common questions
           href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
   - name: Respond to incidents
-    href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=/azure/azure-monitor/toc.json
     items:
     - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
@@ -186,16 +187,16 @@
       items:
       - name: Agent comparison
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
-      - name: Log store agents  
+      - name: Log Analytics agents  
         items:
+        - name: Monitor hybrid environments
+          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
         - name: Windows agents
           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Windows
           href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Linux
           href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
-        - name: Monitor hybrid environments
-          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
         - name: Operations Manager
           href: ../log-analytics/log-analytics-om-agents.md?toc=/azure/azure-monitor/toc.json
         - name: OMS Gateway
@@ -228,13 +229,14 @@
           href: ../monitoring-and-diagnostics/metrics-store-custom-guestos-classic-cloud-service.md?toc=/azure/azure-monitor/toc.json 
       - name: Troubleshoot
         items:
-        - name: Troubleshoot Logs VM Extension
+        - name: Log Analytics VM Extension
           href: ../log-analytics/log-analytics-azure-vmext-troubleshoot.md?toc=/azure/azure-monitor/toc.json
-        - name: Troubleshoot Logs Linux agent
+        - name: Log Analytics Linux agent
           href: ../log-analytics/log-analytics-agent-linux-support.md?toc=/azure/azure-monitor/toc.json
     - name: Agent data sources
-      href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       items:
+      - name: Overview
+        href: ../log-analytics/log-analytics-data-sources.md?toc=/azure/azure-monitor/toc.json
       - name: Windows events
         href: ../log-analytics/log-analytics-data-sources-windows-events.md?toc=/azure/azure-monitor/toc.json
       - name: Custom JSON data
@@ -266,9 +268,23 @@
         - name: Add continuous monitoring
           href: ../application-insights/app-insights-vsts-continuous-monitoring.md?toc=/azure/azure-monitor/toc.json
         - name: Profiler
-          href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
-        - name: Enable the Profiler
-          href: ../application-insights/enable-profiler-compute.md?toc=/azure/azure-monitor/toc.json
+          items:
+          - name: Overview
+            href: ../application-insights/app-insights-profiler-overview.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable Profiler for an App Service
+            href: ../application-insights/app-insights-profiler.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable the Profiler for a Cloud Service
+            href: ../application-insights/app-insights-profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable Profiler for a Service Fabric Application
+            href: ../application-insights/app-insights-profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json
+          - name: Enable Profiler for an Azure VM
+            href: ../application-insights/app-insights-profiler-vm.md?toc=/azure/azure-monitor/toc.json
+          - name: Profiler Settings
+            href: ../application-insights/app-insights-profiler-settings.md?toc=/azure/azure-monitor/toc.json
+          - name: Track Requests for Profiling
+            href: ../application-insights/app-insights-profiler-trackrequests.md?toc=/azure/azure-monitor/toc.json
+          - name: Profiler Troubleshooting
+            href: ../application-insights/app-insights-profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json
         - name: Diagnostics
           href: ../application-insights/app-insights-azure-diagnostics.md?toc=/azure/azure-monitor/toc.json
         - name: Previews
@@ -324,6 +340,8 @@
           href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
         - name: Filter telemetry
           href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
+        - name: Micrometer Metrics
+          href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json  
       - name: Node.js apps
         items:
         - name: Node.js
@@ -403,9 +421,9 @@
         href: ../application-insights/app-insights-custom-data-correlation.md?toc=/azure/azure-monitor/toc.json
     - name: Collect custom data 
       items:
-      - name: Log store Data collector API 
+      - name: Log Analytics Data collector API 
         href: ../log-analytics/log-analytics-data-collector-api.md?toc=/azure/azure-monitor/toc.json
-      - name: Log store Data Collector API Pipeline example
+      - name: Log Analytics Data Collector API Pipeline example
         href: ../log-analytics/log-analytics-create-pipeline-datacollector-api.md?toc=/azure/azure-monitor/toc.json
       - name: Application data
         href: ../application-insights/app-insights-analytics-import.md?toc=/azure/azure-monitor/toc.json
@@ -506,7 +524,7 @@
           href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Analyze 
           href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
-        - name: Stop monitoring
+        - name: Disable monitoring
           href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Troubleshooting
           href: ../monitoring/monitoring-container-insights-troubleshoot.md
@@ -538,6 +556,8 @@
           href: ../log-analytics/log-analytics-network-performance-monitor-expressroute.md?toc=/azure/azure-monitor/toc.json
         - name: Pricing
           href: ../log-analytics/log-analytics-network-performance-monitor-pricing-faq.md?toc=/azure/azure-monitor/toc.json
+        - name: FAQ
+          href: ../log-analytics/log-analytics-network-performance-monitor-faq.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor virtual machines
       items:
       - name: Azure Monitor for VMs
@@ -558,6 +578,8 @@
           href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
         - name: Query data with Log Analytics
           href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
+        - name: Disable monitoring
+          href: ../monitoring/monitoring-vminsights-optout.md?toc=/azure/azure-monitor/toc.json
       - name: Agent Health
         href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
       - name: Capacity and performance
@@ -635,6 +657,10 @@
       href: ../monitoring-and-diagnostics/monitoring-service-notifications.md?toc=/azure/azure-monitor/toc.json
     - name: Query log data
       items:
+      - name: Query language Documentation
+        href: ../log-analytics/query-language/query-language.md
+      - name: Language differences
+        href: ../log-analytics/query-language/data-explorer-difference.md?toc=/azure/azure-monitor/toc.json
       - name: Get started
         items:
         - name: Get started with Analytics portal
@@ -669,23 +695,25 @@
           href: ../log-analytics/query-language/sql-cheatsheet.md?toc=/azure/azure-monitor/toc.json
         - name: Splunk
           href: ../log-analytics/query-language/splunk-cheatsheet.md?toc=/azure/azure-monitor/toc.json
-      - name: Language reference
+      - name: Query language
         items:
-        - name: Language reference
-          href: ../log-analytics/query-language/kusto.md
+        - name: Examples
+          href: ../log-analytics/query-language/examples.md?toc=/azure/azure-monitor/toc.json
+        - name: Cross-resource searches
+          href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
         - name: app expression
           href: ../log-analytics/query-language/app-expression.md?toc=/azure/azure-monitor/toc.json
         - name: workspace expression
           href: ../log-analytics/query-language/workspace-expression.md?toc=/azure/azure-monitor/toc.json
-      - name: Application data
-        href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
-      - name: Standard properties
-        href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
-      - name: Cross-resource searches
-        href: ../log-analytics/log-analytics-cross-workspace-search.md?toc=/azure/azure-monitor/toc.json
+      - name: Log data
+        items:
+        - name: Application data
+          href: ../application-insights/app-insights-analytics.md?toc=/azure/azure-monitor/toc.json
+        - name: Standard properties
+          href: ../log-analytics/log-analytics-standard-properties.md?toc=/azure/azure-monitor/toc.json
       - name: Take action from search results
         href: ../log-analytics/log-analytics-log-search-takeaction.md?toc=/azure/azure-monitor/toc.json
-      - name: Use computer groups
+      - name: Computer groups
         href: ../log-analytics/log-analytics-computer-groups.md?toc=/azure/azure-monitor/toc.json
       - name: Flow connector
         href: ../log-analytics/log-analytics-flow-tutorial.md?toc=/azure/azure-monitor/toc.json
@@ -695,16 +723,6 @@
     items:
     - name: Alerts
       items:
-      - name: Create alert rules
-        items:
-        - name: Configure new metric or log alerts in Azure portal
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-usage.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts in Azure portal
-          href: ../monitoring-and-diagnostics/insights-alerts-portal.md?toc=/azure/azure-monitor/toc.json   
-        - name: Configure classic alerts with CLI
-          href: ../monitoring-and-diagnostics/insights-alerts-command-line-interface.md?toc=/azure/azure-monitor/toc.json
-        - name: Configure classic alerts with Azure PowerShell
-          href: ../monitoring-and-diagnostics/insights-alerts-powershell.md?toc=/azure/azure-monitor/toc.json
       - name: Use metric alerts
         items:
         - name: Create, view and manage metric alerts in Azure Monitor
@@ -727,14 +745,12 @@
           href: ../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json
         - name: Webhook actions for log alerts
           href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-webhook.md?toc=/azure/azure-monitor/toc.json
-        - name: Create a log alert with a Resource Manager template
-          href: ../monitoring-and-diagnostics/monitor-alerts-unified-log-template.md?toc=/azure/azure-monitor/toc.json
+        - name: Troubleshooting log alerts
+          href: ../monitoring-and-diagnostics/alert-log-troubleshoot.md?toc=/azure/azure-monitor/toc.json
       - name: Use activity log alerts
         items:
         - name: Configure alerts on an activity log event
           href: ../monitoring-and-diagnostics/alert-activity-log.md?toc=/azure/azure-monitor/toc.json
-        - name: Create activity log alerts with Resource Manager
-          href: ../monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md?toc=/azure/azure-monitor/toc.json
         - name: Migrate to activity log alerts
           href: ../monitoring-and-diagnostics/monitoring-migrate-management-alerts.md?toc=/azure/azure-monitor/toc.json
         - name: Configure alerts on service notifications
@@ -824,7 +840,7 @@
       - name: Azure PowerShell samples
         href: ../monitoring-and-diagnostics/insights-powershell-samples.md?toc=/azure/azure-monitor/toc.json
       - name: PowerShell cmdlets
-        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure%monitoring-and-diagnostics/toc.json
+        href: ../log-analytics/log-analytics-powershell-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
       - name: Applications
         items:
         - name: Create Application Insights resources 
@@ -838,13 +854,13 @@
     - name: Azure CLI samples
       href: ../monitoring-and-diagnostics/insights-cli-samples.md?toc=/azure/azure-monitor/toc.json
     - name: Resource Manager templates
-      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure%monitoring-and-diagnostics/toc.json
+      href: ../log-analytics/log-analytics-template-workspace-configuration.md?toc=/azure/monitoring-and-diagnostics/toc.json
     - name: API
       items:  
       - name: Walkthrough using REST API
         href: ../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md?toc=/azure/azure-monitor/toc.json
       - name: Alert API
-        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure%monitoring-and-diagnostics/toc.json
+        href: ../log-analytics/log-analytics-api-alerts.md?toc=/azure/monitoring-and-diagnostics/toc.json
     - name: Applications
       items:
       - name: Automate with Microsoft Flow
@@ -889,6 +905,8 @@
       href: ../application-insights/auto-collect-dependencies.md?toc=/azure/azure-monitor/toc.json
     - name: Telemetry correlation
       href: ../application-insights/application-insights-correlation.md?toc=/azure/azure-monitor/toc.json
+    - name: NuGet packages
+      href: ../application-insights/app-insights-nuget.md?toc=/azure/azure-monitor/toc.json
   - name: Application Insights data model
     items:
     - name: Overview

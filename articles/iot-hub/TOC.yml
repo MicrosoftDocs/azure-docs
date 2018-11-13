@@ -330,7 +330,7 @@
   - name: Node.js (Service)
     href: https://docs.microsoft.com/javascript/api/azure-iothub/
   - name: C device SDK
-    href: https://azure.github.io/azure-iot-sdk-c/index.html
+    href: https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/
   - name: Azure IoT Edge
     href: http://azure.github.io/iot-edge/
   - name: REST (Device)
@@ -393,8 +393,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub
   - name: Pricing

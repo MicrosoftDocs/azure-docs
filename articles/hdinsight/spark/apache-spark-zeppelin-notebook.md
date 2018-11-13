@@ -2,8 +2,8 @@
 title: Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight 
 description: Step-by-step instructions on how to use Zeppelin notebooks with Apache Spark clusters on Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
@@ -13,10 +13,6 @@ ms.date: 02/21/2018
 # Use Zeppelin notebooks with Apache Spark cluster on Azure HDInsight
 
 HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spark jobs. In this article, you learn how to use the Zeppelin notebook on an HDInsight cluster.
-
-> [!NOTE]
-> Zeppelin notebooks are available only for Spark 1.6.3 on HDInsight 3.5 and Spark 2.1.0 on HDInsight 3.6.
->
 
 **Prerequisites:**
 
@@ -44,7 +40,7 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
    
     In the empty paragraph that is created by default in the new notebook, paste the following snippet.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -71,6 +67,11 @@ HDInsight Spark clusters include Zeppelin notebooks that you can use to run Spar
     ![Create a temporary table from raw data](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Create a temporary table from raw data")
    
     You can also provide a title to each paragraph. From the right-hand corner, click the **Settings** icon, and then click **Show title**.
+
+> [!NOTE]
+> %spark2 interpreter is not supported in Zeppelin notebooks across all HDInsight versions, and %sh interpreter will not be supported from HDInsight 4.0 onwards.
+>
+
 1. You can now run Spark SQL statements on the **hvac** table. Paste the following query in a new paragraph. The query retrieves the building ID and the difference between the target and actual temperatures for each building on a given date. Press **SHIFT + ENTER**.
    
         %sql

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 
 ms.custom: H1Hack27Feb2017
 
@@ -26,13 +26,13 @@ ms.custom: H1Hack27Feb2017
 
 
 [Management solutions](monitoring-solutions.md) will typically include 
-[saved searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../log-analytics/log-analytics-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../resource-manager-template-walkthrough.md) so they can be included in [management solutions](monitoring-solutions-creating.md).
+[saved searches](../log-analytics/log-analytics-queries.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](monitoring-solutions-creating.md)  
 
 ## Prerequisites
-This article assumes that you're already familiar with how to [create a management solution](monitoring-solutions-creating.md) and the structure of a [Resource Manager template](../resource-group-authoring-templates.md) and solution file.
+This article assumes that you're already familiar with how to [create a management solution](monitoring-solutions-creating.md) and the structure of a [Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) and solution file.
 
 
 ## Log Analytics Workspace
@@ -53,9 +53,9 @@ The following table lists the API version for the resource used in this example.
 
 
 ## Saved Searches
-Include [saved searches](../log-analytics/log-analytics-log-searches.md) in a solution to allow users to query data collected by your solution.  Saved searches appear under **Favorites** in the OMS portal and **Saved Searches** in the Azure portal.  A saved search is also required for each alert.   
+Include [saved searches](../log-analytics/log-analytics-queries.md) in a solution to allow users to query data collected by your solution.  Saved searches appear under **Saved Searches** in the Azure portal.  A saved search is also required for each alert.   
 
-[Log Analytics saved search](../log-analytics/log-analytics-log-searches.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Log Analytics saved search](../log-analytics/log-analytics-queries.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 	{
 		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -89,7 +89,7 @@ Each property of a saved search is described in the following table.
 [Azure Log alerts](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) are created by Azure Alert rules that run specified log queries at regular intervals.  If the results of the query match specified criteria, an alert record is created and one or more actions are run using [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to extend into Azure. For more information, see [Extend Alerts into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Alert rules in a management solution are made up of the following three different resources.
 
@@ -145,7 +145,7 @@ A schedule can have multiple actions. An action may define one or more processes
 Actions can be defined using [action group] resource or action resource.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 There are two types of action resource specified by the **Type** property.  A schedule requires one **Alert** action, which defines the details of the alert rule and what actions are taken when an alert is created. Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -241,7 +241,7 @@ For user's who have extended their alerts into Azure - a schedule should now hav
 Every schedule has one **Alert** action.  This defines the details of the alert and optionally notification and remediation actions.  A notification sends an email to one or more addresses.  A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace will automatically begin to extend into Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### EmailNotification
  This section is optional  Include it if you want the alert to send mail to one or more recipients.
@@ -296,7 +296,7 @@ The properties for Webhook action resources are described in the following table
 
 ## Sample
 
-Following is a sample of a solution that includes that includes the following resources:
+Following is a sample of a solution that includes the following resources:
 
 - Saved search
 - Schedule
@@ -379,8 +379,7 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 	        "dependsOn": [
 	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches', parameters('workspacename'), variables('MySearch').Name)]",
 	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name)]",
-	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]",
-	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Webhook.Name)]"
+	          "[resourceId('Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions', parameters('workspacename'), variables('MySearch').Name, variables('MyAlert').Schedule.Name, variables('MyAlert').Name)]"
 	        ],
 	        "properties": {
 	          "workspaceResourceId": "[resourceId('Microsoft.OperationalInsights/workspaces', parameters('workspacename'))]",

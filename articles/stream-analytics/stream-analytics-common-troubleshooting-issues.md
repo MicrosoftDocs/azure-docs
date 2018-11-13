@@ -4,7 +4,7 @@ description: This article describes several common issues in Azure Stream Analyt
 services: stream-analytics
 author: jasonwhowell
 manager: kfile
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual

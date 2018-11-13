@@ -24,6 +24,9 @@ ms.author: roiyz
 
 Log Analytics provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The Log Analytics Agent virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Log Analytics virtual machine extension for Linux.
 
+>[!NOTE]
+>As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, the OMS Agent for Windows or Linux will be referred to as the Log Analytics agent for Windows and Log Analytics agent for Linux.
+
 ## Prerequisites
 
 ### Operating system
@@ -45,7 +48,7 @@ The Log Analytics Agent extension can be run against these Linux distributions.
 >
 
 ### Agent and VM Extension version
-The following table provides a mapping of the version of the Log Analytics VM extension and Log Analytics Agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
+The following table provides a mapping of the version of the Log Analytics VM extension and Log Analytics agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
 |--------------------------------|--------------------------|
@@ -76,9 +79,9 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 
 ```json
 {
-  "type": "extensions",
+  "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -97,11 +100,15 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 }
 ```
 
+>[!NOTE]
+>The schema above assumes that it will be placed at the root level of the template. If you put it inside the virtual machine resource in the template, the `type` and `name` properties should be changed, as described [further down](#template-deployment).
+>
+
 ### Property values
 
 | Name | Value / Example |
 | ---- | ---- |
-| apiVersion | 2015-06-15 |
+| apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
 | typeHandlerVersion | 1.7 |
@@ -121,7 +128,7 @@ The following example assumes the VM extension is nested inside the virtual mach
 {
   "type": "extensions",
   "name": "OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -146,7 +153,7 @@ When placing the extension JSON at the root of the template, the resource name i
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
   "name": "<parentVmResource>/OMSExtension",
-  "apiVersion": "2015-06-15",
+  "apiVersion": "2018-06-01",
   "location": "<location>",
   "dependsOn": [
     "[concat('Microsoft.Compute/virtualMachines/', <vm-name>)]"
@@ -202,13 +209,13 @@ Extension execution output is logged to the following file:
 | 9 | Enable called prematurely | [Update the Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) to the latest available version. |
 | 10 | VM is already connected to a Log Analytics workspace | To connect the VM to the workspace specified in the extension schema, set stopOnMultipleConnections to false in public settings or remove this property. This VM gets billed once for each workspace it is connected to. |
 | 11 | Invalid config provided to the extension | Follow the preceding examples to set all property values necessary for deployment. |
-| 17 | OMS package installation failure | 
+| 17 | Log Analytics package installation failure | 
 | 19 | OMI package installation failure | 
 | 20 | SCX package installation failure |
 | 51 | This extension is not supported on the VM's operation system | |
-| 55 | Cannot connect to the OMS service or required packages missing or dpkg package manager is locked| Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify curl and tar utilities are installed. |
+| 55 | Cannot connect to the Log Analytics service or required packages missing or dpkg package manager is locked| Check that the system either has Internet access, or that a valid HTTP proxy has been provided. Additionally, check the correctness of the workspace ID, and verify curl and tar utilities are installed. |
 
-Additional troubleshooting information can be found on the [OMS-Agent-for-Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
+Additional troubleshooting information can be found on the [Log Analytics-Agent-for-Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 
 ### Support
 

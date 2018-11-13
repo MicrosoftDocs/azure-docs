@@ -35,7 +35,7 @@ If your System Center Operations Manager management group is connected to a Log 
 For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## Configuration
-Add the Agent Health solution to your Log Analytics workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md). There is no further configuration required.
+Add the Agent Health solution to your Log Analytics workspace using the process described in [Add solutions](monitoring-solutions.md). There is no further configuration required.
 
 
 ## Data collection
@@ -61,7 +61,7 @@ Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The 
 | Distribution by Agent Category | A partition of the different categories of agents that are sending up heartbeat events: direct agents, OpsMgr agents, or the OpsMgr Management Server.|
 | Distribution by Management Group | A partition of the different SCOM Management groups in your environment.|
 | Geo-location of Agents | A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.|
-| Count of Gateways Installed | The number of servers that have the Log Analytics Gateway installed, and a list of these servers.|
+| Count of Gateways Installed | The number of servers that have the Log Analytics gateway installed, and a list of these servers.|
 
 ![Agent Health Solution dashboard example](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 
@@ -81,7 +81,7 @@ A record with a type of **Heartbeat** is created.  These records have the proper
 | OSMinorVersion | Operating system minor version.|
 | Version | Log Analytics Agent or Operations Manager Agent version.|
 | SCAgentChannel | Value is *Direct* and/or *SCManagementServer*.|
-| IsGatewayInstalled | If Log Analytics Gateway is installed, value is *true*, otherwise value is *false*.|
+| IsGatewayInstalled | If Log Analytics gateway is installed, value is *true*, otherwise value is *false*.|
 | ComputerIP | IP address of the computer.|
 | RemoteIPCountry | Geographic location where computer is deployed.|
 | ManagementGroupName | Name of Operations Manager management group.|
@@ -114,4 +114,4 @@ The following table provides sample log searches for records collected by this s
 
 ## Next steps
 
-* Learn about [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) for details on generating alerts from Log Analytics.
+* Learn about [Alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) for details on generating alerts from Log Analytics. 

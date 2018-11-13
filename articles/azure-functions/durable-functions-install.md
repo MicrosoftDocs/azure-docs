@@ -2,13 +2,13 @@
 title: Install the Durable Functions extension and samples - Azure
 description: Learn how to install the Durable Functions extension for Azure Functions, for portal development or Visual Studio development.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -41,7 +41,7 @@ Follow the same directions as for starting with the sample, but do the following
 
 1. Create a Function App project.
 2. Search for the following NuGet package reference using *Manage NuGet Packages* and add it to the project: 
-Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
+Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2
    
 ## Visual Studio Code
 
@@ -71,12 +71,12 @@ Visual Studio Code provides a local development experience covering all major pl
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. Install Azure Functions Twilio Extension by running the following in a command prompt / terminal window:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. Run Azure Storage Emulator or update the *local.settings.json* file with real Azure Storage connection string.
 6. Open the project in Visual Studio Code. 
@@ -92,14 +92,14 @@ Visual Studio Code provides a local development experience covering all major pl
 2. Navigate on your machine to the [JavaScript samples folder](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
 3. Install Azure Functions Durable Extension by running the following in a command prompt / terminal window
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > This requires the [.NET Core SDK](https://www.microsoft.com/net/download) to be installed on the machine
 4. Restore the npm packages by running the following in a command prompt / terminal window:
     
-    ```
+    ```bash
     npm install
     ``` 
 5. Update the *local.settings.json* file with a connection string from an Azure storage account for `AzureWebJobsStorage`.  This storage account will be used for the durable function state.
@@ -115,13 +115,13 @@ Visual Studio Code provides a local development experience covering all major pl
 1. In command prompt / terminal navigate to the folder that will host your function app.
 3. Create a Function App project by running the following command:
 
-    ```
+    ```bash
     func init
     ``` 
 4. Run Azure Storage Emulator (Windows only) or update the *local.settings.json* file with real Azure Storage connection string for `AzureWebJobsStorage`.
 5. Next, create a new function by running the following command and follow the wizard steps:
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

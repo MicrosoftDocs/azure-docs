@@ -1,22 +1,23 @@
 ---
-title: Speech service REST APIs
-description: Reference for REST APIs for the Speech service.
+title: Speech Service REST APIs
+description: Reference for REST APIs for the Speech Service.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
-ms.date: 05/09/2018
-ms.author: v-jerkin
+ms.component: speech-service
+ms.topic: conceptual
+ms.date: 11/12/2018
+ms.author: erhopf
 ---
-# Speech service REST APIs
+# Speech Service REST APIs
 
 The REST APIs of the Azure Cognitive Services Speech service are similar to the APIs provided by the [Bing Speech API](https://docs.microsoft.com/azure/cognitive-services/Speech). The endpoints differ from the endpoints used by the Bing Speech service. Regional endpoints are available, and you must use a subscription key that corresponds to the endpoint you're using.
 
 ## Speech to Text
 
-The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region. Reference the **Recognition modes** section below to replace `conversation` with either `interactive` or `dictation` for your desired sceanrio in a given API call.
+The endpoints for the Speech to Text REST API are shown in the following table. Use the one that matches your subscription region.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
@@ -24,52 +25,6 @@ The endpoints for the Speech to Text REST API are shown in the following table. 
 > If you customized the acoustic model or language model, or pronunciation, use your custom endpoint instead.
 
 This API supports only short utterances. Requests may contain up to 10 seconds of audio and last a maximum of 14 seconds overall. The REST API returns only final results, not partial or interim results. The Speech service also has a [batch transcription](batch-transcription.md) API that can transcribe longer audio.
-
-### Recognition modes
-
-When using the REST API or WebSocket protocol directly, it needs to specify the mode of recognition: `interactive`, `conversation`, or `dictation`. The recognition mode adjusts speech recognition based on how the users are likely to speak. Choose the appropriate recognition mode for your application.
-
-> [!NOTE]
-> Recognition modes might have different behaviors in the REST protocol than they do in the WebSocket protocol. For example, the REST API does not support continuous recognition, even in conversation or dictation mode.
-> [!NOTE]
-> These modes are applicable when you directly use the REST or WebSocket protocol. The [Speech SDK](speech-sdk.md) uses different parameters to specify recognition configration. For more information, see the client library of your choice.
-
-The Microsoft Speech Service returns only one recognition phrase result for all recognition modes. There is a limit of 15 seconds for any single utterance, when using the REST API or WebSocket protocol directly.
-
-#### Interactive mode
-
-In `interactive` mode, a user makes short requests and expects the application to perform an action in response.
-
-The following characteristics are typical of interactive mode applications:
-
-- Users know they are speaking to a machine and not to another human.
-- Application users know ahead of time what they want to say, based on what they want the application to do.
-- Utterances typically last about 2-3 seconds.
-
-#### Conversation mode
-
-In `conversation` mode, users are engaged in a human-to-human conversation.
-
-The following characteristics are typical of conversation mode applications:
-
-- Users know that they are talking to another person.
-- Speech recognition enhances the human conversations by allowing one or both participants to see the spoken text.
-- Users do not always plan what they want to say.
-- Users frequently use slang and other informal speech.
-
-#### Dictation mode
-
-In `dictation` mode, users recite longer utterances to the application for further processing.
-
-The following characteristics are typical of dictation mode applications:
-
-- Users know that they are talking to a machine.
-- Users are shown the speech recognition text results.
-- Users often plan what they want to say and use more formal language.
-- Users employ full sentences that last 5-8 seconds.
-
-> [!NOTE]
-> In dictation and conversation modes, the Microsoft Speech Service does not return partial results. Instead, the service returns stable phrase results after silence boundaries in the audio stream. Microsoft might enhance the speech protocol to improve the user experience in these continuous recognition modes.
 
 
 ### Query parameters
@@ -97,13 +52,15 @@ The following fields are sent in the HTTP request header.
 
 ### Audio format
 
-The audio is sent in the body of the HTTP `PUT` request. It should be in 16-bit WAV format with PCM single channel (mono) at 16 KHz of the following formats/encoding.
+Audio is sent in the body of the HTTP `POST` request. It must be in one of the formats in this table:
 
-* WAV format with PCM codec
-* Ogg format with OPUS codec
+| Format | Codec | Bitrate | Sample Rate |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 16 kHz, mono |
+| OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec. 
+>The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec.
 
 ### Chunked transfer
 
@@ -144,7 +101,7 @@ The following is a typical request.
 ```HTTP
 POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
 Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Content-Type: audio/wav; codec="audio/pcm"; samplerate=16000
 Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
 Host: westus.stt.speech.microsoft.com
 Transfer-Encoding: chunked
@@ -165,14 +122,43 @@ HTTP code|Meaning|Possible reason
 
 ### JSON response
 
-Results are returned in JSON format. The `simple` format includes only the following top-level fields.
+Results are returned in JSON format. Depending on your query parameters, a `simple` or `detailed` format is being returned.
+
+#### The `simple` format 
+
+This format includes the following top-level fields.
 
 |Field name|Content|
 |-|-|
-|`RecognitionStatus`|Status, such as `Success` for successful recognition. See next table.|
+|`RecognitionStatus`|Status, such as `Success` for successful recognition. See this [table](rest-apis.md#recognitionstatus).|
 |`DisplayText`|The recognized text after capitalization, punctuation, inverse text normalization (conversion of spoken text to shorter forms, such as 200 for "two hundred" or "Dr. Smith" for "doctor smith"), and profanity masking. Present only on success.|
 |`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
 |`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
+
+#### The `detailed` format 
+
+This format includes the following top-level fields.
+
+|Field name|Content|
+|-|-|
+|`RecognitionStatus`|Status, such as `Success` for successful recognition. See this [table](rest-apis.md#recognition-status).|
+|`Offset`|The time (in 100-nanosecond units) at which the recognized speech begins in the audio stream.|
+|`Duration`|The duration (in 100-nanosecond units) of the recognized speech in the audio stream.|
+|`NBest`|A list of alternative interpretations of the same speech, ranked from most likely to least likely. See the [NBest description](rest-apis.md#nbest).|
+
+#### NBest
+
+The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
+
+|Field name|Content|
+|-|-|
+|`Confidence`|The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence)
+|`Lexical`|The lexical form of the recognized text: the actual words recognized.
+|`ITN`|The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied.
+|`MaskedITN`| The ITN form with profanity masking applied, if requested.
+|`Display`| The display form of the recognized text, with punctuation and capitalization added.
+
+#### RecognitionStatus
 
 The `RecognitionStatus` field might contain the following values.
 
@@ -185,18 +171,7 @@ The `RecognitionStatus` field might contain the following values.
 | `Error` | The recognition service encountered an internal error and could not continue. Try again if possible. |
 
 > [!NOTE]
-> If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result. 
-
-
-The `detailed` format includes the same fields as the `simple` format, along with an `NBest` field. The `NBest` field is a list of alternative interpretations of the same speech, ranked from most likely to least likely. The first entry is the same as the main recognition result. Each entry contains the following fields:
-
-|Field name|Content|
-|-|-|
-|`Confidence`|The confidence score of the entry from 0.0 (no confidence) to 1.0 (full confidence)
-|`Lexical`|The lexical form of the recognized text: the actual words recognized.
-|`ITN`|The inverse-text-normalized ("canonical") form of the recognized text, with phone numbers, numbers, abbreviations ("doctor smith" to "dr smith"), and other transformations applied.
-|`MaskedITN`| The ITN form with profanity masking applied, if requested.
-|`Display`| The display form of the recognized text, with punctuation and capitalization added. Same as `DisplayText` in the top-level result.
+> If the audio consists only of profanity, and the `profanity` query parameter is set to `remove`, the service does not return a speech result.
 
 ### Sample responses
 
@@ -247,7 +222,7 @@ The Speech service supports 24-KHz audio output in addition to the 16-Khz output
 
 Locale | Language   | Gender | Service name mapping
 -------|------------|--------|------------
-en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)" 
+en-US  | US English | Female | "Microsoft Server Speech Text to Speech Voice (en-US, Jessa24kRUS)"
 en-US  | US English | Male   | "Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)"
 
 A full list of available voices is available in [Supported languages](language-support.md#text-to-speech).
@@ -275,7 +250,7 @@ The available audio output formats (`X-Microsoft-OutputFormat`) incorporate both
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats. 
+> If your selected voice and output format have different bit rates, the audio is resampled as necessary. However, 24khz voices do not support `audio-16khz-16kbps-mono-siren` and `riff-16khz-16kbps-mono-siren` output formats.
 
 ### Request body
 
@@ -294,7 +269,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -368,10 +343,10 @@ cURL is a command-line tool available in Linux (and in the Windows Subsystem for
 > The command is shown on multiple lines for readability, but enter it on a single line at a shell prompt.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -451,7 +426,7 @@ As before, make sure the `FetchTokenUri` value matches your subscription region.
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -526,4 +501,3 @@ public class Authentication
 - [Get your Speech trial subscription](https://azure.microsoft.com/try/cognitive-services/)
 - [Customize acoustic models](how-to-customize-acoustic-models.md)
 - [Customize language models](how-to-customize-language-model.md)
-

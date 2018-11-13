@@ -6,7 +6,7 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -21,6 +21,9 @@ This tutorial shows you how to set up disaster recovery to a secondary Azure reg
 > * Verify target resource settings
 > * Set up outbound access for VMs
 > * Enable replication for a VM
+
+> [!NOTE]
+> This tutorial is intended to guide the user through the steps to enable replication with minimum customization; in case you want to learn more about the various aspects associated with disaster recovery, including networking considerations, automation or troubleshooting, refer to the documents under 'How To' for Azure VMs.
 
 
 ## Prerequisites
@@ -80,9 +83,9 @@ to the following URLs used by Site Recovery.
 
 If you want to control outbound connectivity using IP addresses instead of URLs, whitelist the appropriate datacenter ranges; Office 365 addresses; and service endpoint addresses, for IP-based firewalls, proxy, or NSG rules.
 
-  - [Microsoft Azure Datacenter IP Ranges](http://www.microsoft.com/en-us/download/details.aspx?id=41653)
-  - [Windows Azure Datacenter IP Ranges in Germany](http://www.microsoft.com/en-us/download/details.aspx?id=54770)
-  - [Windows Azure Datacenter IP Ranges in China](http://www.microsoft.com/en-us/download/details.aspx?id=42064)
+  - [Microsoft Azure Datacenter IP Ranges](https://www.microsoft.com/en-us/download/details.aspx?id=41653)
+  - [Windows Azure Datacenter IP Ranges in Germany](https://www.microsoft.com/en-us/download/details.aspx?id=54770)
+  - [Windows Azure Datacenter IP Ranges in China](https://www.microsoft.com/en-us/download/details.aspx?id=42064)
   - [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
   - [Site Recovery service endpoint IP addresses](https://aka.ms/site-recovery-public-ips)
 
@@ -228,7 +231,7 @@ Click 'Customize' next to encryption settings to override the defaults and selec
 
 ## Next steps
 
-In this tutorial, you configured disaster recovery for an Azure VM. Next step is to test your configuration.
+In this tutorial, you configured disaster recovery for an Azure VM. Next step is to test your configuration by initiating a DR drill.
 
 > [!div class="nextstepaction"]
 > [Run a disaster recovery drill](azure-to-azure-tutorial-dr-drill.md)

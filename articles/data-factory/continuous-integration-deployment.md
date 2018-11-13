@@ -723,7 +723,7 @@ Here is a sample deployment template that you can import in Azure Pipelines.
 
 ## Sample script to stop and restart triggers and clean up
 
-Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
+Here is a sample script to stop triggers before deployment and to restart triggers afterwards. The script also includes code to delete resources that have been removed. To install the latest version of Azure PowerShell, see [Install Azure PowerShell on Windows with PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param
@@ -735,7 +735,6 @@ param
     [parameter(Mandatory = $false)] [Bool] $predeployment=$true
 
 )
-
 
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
 $resources = $templateJson.resources
@@ -752,13 +751,12 @@ $triggerstostop = $triggerNames | where { ($triggersADF | Select-Object name).na
 if ($predeployment -eq $true) {
     #Stop all triggers
     Write-Host "Stopping deployed triggers"
-    $triggerstostop | ForEach-Object { Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
+    $triggerstostop | ForEach-Object { 
+        Write-host "Disabling trigger " $_
+        Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    }
 }
 else {
-
-    #start Active triggers
-    Write-Host "Starting active triggers"
-    $activeTriggerNames | ForEach-Object { Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force }
 
     #Deleted resources
     #pipelines
@@ -788,15 +786,41 @@ else {
 
     #delte resources
     Write-Host "Deleting triggers"
-    $deletedtriggers | ForEach-Object { Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedtriggers | ForEach-Object { 
+        Write-Host "Deleting trigger "  $_.Name
+        $trig = Get-AzureRmDataFactoryV2Trigger -name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
+        if ($trig.RuntimeState -eq "Started") {
+            Stop-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.Name -Force 
+        }
+        Remove-AzureRmDataFactoryV2Trigger -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting pipelines"
-    $deletedpipelines | ForEach-Object { Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedpipelines | ForEach-Object { 
+        Write-Host "Deleting pipeline " $_.Name
+        Remove-AzureRmDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting datasets"
-    $deleteddataset | ForEach-Object { Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deleteddataset | ForEach-Object { 
+        Write-Host "Deleting dataset " $_.Name
+        Remove-AzureRmDataFactoryV2Dataset -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting linked services"
-    $deletedlinkedservices | ForEach-Object { Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedlinkedservices | ForEach-Object { 
+        Write-Host "Deleting Linked Service " $_.Name
+        Remove-AzureRmDataFactoryV2LinkedService -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
     Write-Host "Deleting integration runtimes"
-    $deletedintegrationruntimes | ForEach-Object { Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force }
+    $deletedintegrationruntimes | ForEach-Object { 
+        Write-Host "Deleting integration runtime " $_.Name
+        Remove-AzureRmDataFactoryV2IntegrationRuntime -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
+
+    #Start Active triggers - After cleanup efforts (moved code on 10/18/2018)
+    Write-Host "Starting active triggers"
+    $activeTriggerNames | ForEach-Object { 
+        Write-host "Enabling trigger " $_
+        Start-AzureRmDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_ -Force 
+    }
 }
 ```
 

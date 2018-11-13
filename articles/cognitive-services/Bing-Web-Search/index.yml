@@ -8,7 +8,8 @@ metadata:
   services: cognitive-services
   author: nitinme
   manager: cgronlun
-  ms.service: bing-web-search
+  ms.service: cognitive-services
+  ms.component: bing-web-search
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -50,7 +51,7 @@ sections:
         href: quickstarts/csharp
         text: "C&#35;"
       - image:
-          src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
+          src: https://docs.microsoft.com/media/logos/logo_gopher.svg
         href: quickstarts/go
         text: "Go"
       - image:

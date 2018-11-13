@@ -381,4 +381,4 @@ In this Azure Machine Learning service tutorial, you used Python to:
 > * Deploy the model to ACI
 > * Test the deployed model
  
-You can also try out the [Automatic algorithm selection]() tutorial to see how Azure Machine Learning service can auto-select and tune the best algorithm for your model and build that model for you.
+You can also try out the [Automatic algorithm selection](tutorial-auto-train-models.md) tutorial to see how Azure Machine Learning service can auto-select and tune the best algorithm for your model and build that model for you.

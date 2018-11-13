@@ -4,7 +4,7 @@ description: Learn about how to license the Microsoft Smooth Streaming Client Po
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,8 +12,8 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2018
-ms.author: willzhan;juliako
+ms.date: 10/15/2018
+ms.author: willzhan
 
 ---
 # Design of a multi-DRM content protection system with access control 
@@ -211,7 +211,7 @@ For more information, see [JWT token authentication in Azure Media Services and 
 
 For information on Azure AD:
 
-* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/azure-ad-developers-guide.md).
+* You can find developer information in the [Azure Active Directory developer's guide](../../active-directory/develop/v1-overview.md).
 * You can find administrator information in [Administer your Azure AD tenant directory](../../active-directory/fundamentals/active-directory-administer.md).
 
 ### Some issues in implementation

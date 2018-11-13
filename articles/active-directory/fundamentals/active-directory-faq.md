@@ -10,7 +10,7 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
 ---
 
@@ -82,7 +82,7 @@ For more information, see [Integrating your on-premises identities with Azure Ac
 - - -
 **Q: Does Azure AD provide a self-service portal for users in my organization?**
 
-**A:** Yes, Azure AD provides you with the [Azure AD Access Panel](http://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal.
+**A:** Yes, Azure AD provides you with the [Azure AD Access Panel](https://myapps.microsoft.com) for user self-service and application access. If you are an Office 365 customer, you can find many of the same capabilities in the Office 365 portal.
 
 For more information, see [Introduction to the Access Panel](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -117,7 +117,7 @@ For more answers to password-related questions, see [Password management frequen
 
 **A:** For this type of situation, there are a couple of options.  Use self-service password reset (SSPR) if it's available.  Whether SSPR works depends on how it's configured.  For more information, see [How does the password reset portal work](../authentication/howto-sspr-deployment.md).
 
-For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/en-us/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+For Office 365 users, your admin can reset the password by using the steps outlined in [Reset user passwords](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
 For Azure AD accounts, admins can reset passwords by using one of the following:
 
@@ -167,7 +167,7 @@ For more information, see:
 * Direct sign-in to federated apps
 * Deep links to federated, password-based, or existing apps
 
-For more information, see [Deploying Azure AD integrated applications to users](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+For more information, see [End user experiences for applications](../manage-apps/end-user-experiences.md).
 
 - - -
 **Q: What are the different ways Azure AD enables authentication and single sign-on to applications?**
@@ -178,7 +178,7 @@ For more information, see:
 
 * [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md)
 * [Active Directory authentication protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [How does single sign-on with Azure Active Directory work?](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Single sign-on for applications in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **Q: Can I add applications I’m running on-premises?**

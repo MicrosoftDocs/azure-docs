@@ -91,7 +91,7 @@ This update includes the following improvements for Azure Stack.
 - **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
 
 <!-- TBD | IS, ASDK -->  
-- **Azure Stack Capacity Planner usability improvements**. The Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputting S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
+- **Azure Stack Capacity Planner usability improvements**. The Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputting S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
 
 
 ### Fixed issues
@@ -230,6 +230,14 @@ The following are post-installation known issues for this build version.
 
 
 ### Health and monitoring
+
+<!-- TBD - IS -->
+- You might see the following alerts repeatedly appear and then disappear on your Azure Stack system:
+   - *Infrastructure role instance unavailable*
+   - *Scale unit node is offline*
+   
+  Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
+
 <!-- 1264761 - IS ASDK -->  
 - You might see alerts for the **Health controller** component that have the following details:  
 

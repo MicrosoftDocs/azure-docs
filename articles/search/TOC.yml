@@ -256,8 +256,8 @@
   items:
   - name: Azure Community Support
     href: https://azure.microsoft.com/support/community/?product=search
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?tag=azure-search
+  - name: Azure Updates
+    href: https://azure.microsoft.com/updates/?product=search
   - name: Demo sites
     items:
     - name: Financial files demo
@@ -274,7 +274,5 @@
     href: search-faq-frequently-asked-questions.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/search/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=search
   - name: Videos
     href: https://azure.microsoft.com/resources/videos/index/?services=search

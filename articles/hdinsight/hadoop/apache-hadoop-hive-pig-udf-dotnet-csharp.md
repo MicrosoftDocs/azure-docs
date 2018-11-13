@@ -2,14 +2,14 @@
 title: Use C# with Hive and Pig on Hadoop in HDInsight - Azure 
 description: Learn how to use C# user-defined functions (UDF) with Hive and Pig streaming in Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Use C# user-defined functions with Hive and Pig streaming on Hadoop in HDInsight

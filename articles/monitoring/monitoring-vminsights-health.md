@@ -1,5 +1,5 @@
 ---
-title: Monitor virtual machine health with Azure Monitor for VMs| Microsoft Docs
+title: Monitor virtual machine health with Azure Monitor for VMs (Preview)| Microsoft Docs
 description: This article describes how you understand the health of the virtual machine and underlying operating system with Azure Monitor for VMs.  
 services: azure-monitor
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/25/2018
 ms.author: magoedte
 ---
 
-# Understand the health of your Azure virtual machines with Azure Monitor for VMs
+# Understand the health of your Azure virtual machines with Azure Monitor for VMs (Preview)
 Azure includes multiple services that individually perform a specific role or task in the monitoring space, but providing an in-depth health perspective of the operating system hosted on Azure virtual machines wasn't available.  While you could monitor for different conditions using Log Analytics or Azure Monitor, they were not designed to model and represent health of core components or overall health of the virtual machine.  With Azure Monitor for VMs health feature, it proactively monitors the availability and performance of the Windows or Linux guest OS with a model that represent key components and their relationships, criteria that specifies how to measure the health of those components, and alert you when an unhealthy condition is detected.  
 
 Viewing the overall health state of the Azure VM and underlying operating system can be observed from two perspectives with Azure Monitor for VMs health, directly from the virtual machine or across all VMs in a resource group from Azure Monitor.
@@ -27,7 +27,7 @@ This article will help you understand how to quickly assess, investigate, and re
 For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md).
 
 ## Monitoring configuration details
-This section outlines the default health criteria defined to monitor Azure Windows and Linux virtual machines.
+This section outlines the default health criteria defined to monitor Azure Windows and Linux virtual machines. All health criteria are pre-configured to alert when the unhealthy condition is met. 
 
 ### Windows VMs
 
@@ -106,7 +106,7 @@ To view health collection for all of your virtual machines in a resource group, 
 
 ![VM Insights monitoring view from Azure Monitor](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-From the **Subscription** and **Resource Group** drop-down lists, select the appropriate one that includes the target VMs onboarded to view their health state. 
+From the **Subscription** and **Resource Group** drop-down lists, select the appropriate resource group that includes the VMs related to the group, in order to view their reported health state.  Your selection only applies to the Health feature and does not carry over to Performance or Map.
 
 On the **Health** tab, you are able to learn the following:
 
@@ -115,7 +115,7 @@ On the **Health** tab, you are able to learn the following:
 * How many VMs are unhealthy because of an issue detected with a processor, disk, memory, or network adapter, categorized by health state?  
 * How many VMs are unhealthy because of an issue detected with a core operating system service, categorized by health state?
 
-Here you can quickly identify the top critical issues detected by the health criteria  proactively monitoring the VM, and review VM Health alert details and associated knowledge article intended to assist in the diagnosis and remediation of the issue.  Select any of the severities to open the [All Alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) page filtered by that severity.
+Here you can quickly identify the top critical issues detected by the health criteria  proactively monitoring the VM, and review VM Health alert details and associated knowledge article intended to assist in the diagnosis and remediation of the issue.  Select any of the severities to open the [All Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) page filtered by that severity.
 
 The **VM distribution by operating system** list shows VMs listed by Windows edition or Linux distribution, along with their version. In each operating system category, the VMs are broken down further based on the health of the VM. 
 
@@ -243,11 +243,15 @@ In the above example, when one selects **/mnt (Logical Disk)**, the Health Crite
 To see updated health state, you can refresh the Health diagnostics page by clicking the **Refresh** link.  If there is an update to the health criterion's health state based on the pre-defined polling interval, this task allows you to avoid waiting and reflects the latest health state.  The **Health Criteria State** is a filter allowing you to scope the results based on the selected health state - Healthy, Warning, Critical, Unknown, and all.  The **Last Updated** time in the top right corner represents the last time when the Health diagnostics page was refreshed.  
 
 ## Alerting and alert management 
-Azure Monitor for VMs Health feature integrates with [Azure Alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level.  
+Azure Monitor for VMs Health feature integrates with [Azure Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) and raises an alert when the predefined health criteria change from healthy to an unhealthy state when the condition is detected. Alerts are categorized by severity - Sev 0 through 4, with Sev 0 representing the highest severity level.  
 
 Total number of VM Health alerts categorized by severity is available on the **Health** dashboard under the section **Alerts**. When you select either the total number of alerts or the number corresponding to a severity level, the **Alerts** page opens and lists all alerts matching your selection.  For example, if you selected the row corresponding to **Sev level 1**, then you see the following view:
 
 ![Example of all Severity Level 1 alerts](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
+
+On the **Alerts** page, it is not only scoped to show alerts matching your selection, but are also filtered by **Resource type** to only show health alerts raised by the virtual machine resource.  This is reflected in the list of alerts, under the column **Target Resource**, where it shows the Azure VM the alert was raised for when the particular health criteria's unhealthy condition was met.  
+
+Alerts from other resource types or services are not intended to be included in this view, such as log alerts based on Log Analytics queries or metric alerts that you would normally view from the default Azure Monitor [All Alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) page. 
 
 You can filter this view by selecting values in the dropdown menus at the top of the page.
 
@@ -255,15 +259,19 @@ You can filter this view by selecting values in the dropdown menus at the top of
 |-------|------------| 
 |Subscription |Select an Azure subscription. Only alerts in the selected subscription are included in the view. | 
 |Resource Group |Select a single resource group. Only alerts with targets in the selected resource group are included in the view. | 
-|Resource type |Select one or more resource types. Only alerts with targets of the selected type are included in the view. This column is only available after a resource group has been specified. | 
+|Resource type |Select one or more resource types. By default, only alerts of target **Virtual machines** is selected and included in this view. This column is only available after a resource group has been specified. | 
 |Resource |Select a resource. Only alerts with that resource as a target are included in the view. This column is only available after a resource type has been specified. | 
 |Severity |elect an alert severity, or select *All* to include alerts of all severities. | 
 |Monitor Condition |Select a monitor condition to filter alerts if they have been *Fired* by the system or *Resolved* by the system if the condition is no longer active. Or select *All* to include alerts of all conditions. | 
 |Alert state |Select an alert state, *New*, *Acknowledge*, *Closed*, or select *All* to include alerts of all states. | 
-|Monitor service |Select a service, or select *All* to include all services. Only alerts from Infrastructure Insights are supported for this feature. | 
+|Monitor service |Select a service, or select *All* to include all services. Only alerts from *VM Insights* are supported for this feature.| 
 |Time range| Only alerts fired within the selected time window are included in the view. Supported values are the past hour, the past 24 hours, the past 7 days, and the past 30 days. | 
 
-The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about working with alert rules and managing alerts, see [Create, view, and manage alerts using Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+The **Alert detail** page is displayed when you select an alert, providing details of the alert and allowing you to change its state. To learn more about managing alerts, see [Create, view, and manage alerts using Azure Monitor](../monitoring-and-diagnostics/alert-metric.md).  
+
+>[!NOTE]
+>At this time, it is not supported to create new alerts based on health criteria or modify existing health alert rules in Azure Monitor from the portal.  
+>
 
 ![Alert details pane for a selected alert](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 

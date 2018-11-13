@@ -19,7 +19,7 @@ Besides working with various metric data points, the Monitor API also makes it p
 ## Authenticating Azure Monitor requests
 The first step is to authenticate the request.
 
-All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). It is also possible to [create a service principal via the Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+All the tasks executed against the Azure Monitor API use the Azure Resource Manager authentication model. Therefore, all requests must be authenticated with Azure Active Directory (Azure AD). One approach to authenticate the client application is to create an Azure AD service principal and retrieve the authentication (JWT) token. The following sample script demonstrates creating an Azure AD service principal via PowerShell. For a more detailed walk-through, refer to the documentation on [using Azure PowerShell to create a service principal to access resources](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps). It is also possible to [create a service principal via the Azure portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ```PowerShell
 $subscriptionId = "{azure-subscription-id}"
@@ -48,7 +48,7 @@ New-AzureRmRoleAssignment -RoleDefinitionName Reader `
 
 ```
 
-To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
+To query the Azure Monitor API, the client application should use the previously created service principal to authenticate. The following example PowerShell script shows one approach, using the [Active Directory Authentication Library](../active-directory/develop/active-directory-authentication-libraries.md) (ADAL) to obtain the JWT authentication token. The JWT token is passed as part of an HTTP Authorization parameter in requests to the Azure Monitor REST API.
 
 ```PowerShell
 $azureAdApplication = Get-AzureRmADApplication -IdentifierUri "https://localhost/azure-monitor"
@@ -688,7 +688,7 @@ Invoke-RestMethod -Uri $request `
 ```
 
 ## Next steps
-* Review the [Overview of Monitoring](monitoring-overview.md).
+* Review the [Overview of Monitoring](../azure-monitor/overview.md).
 * View the [Supported metrics with Azure Monitor](monitoring-supported-metrics.md).
 * Review the [Microsoft Azure Monitor REST API Reference](https://msdn.microsoft.com/library/azure/dn931943.aspx).
 * Review the [Azure Management Library](https://msdn.microsoft.com/library/azure/mt417623.aspx).

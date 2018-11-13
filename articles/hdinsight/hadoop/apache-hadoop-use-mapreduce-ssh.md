@@ -2,14 +2,14 @@
 title: MapReduce and SSH connection with Hadoop in HDInsight - Azure 
 description: Learn how to use SSH to run MapReduce jobs using Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Use MapReduce with Hadoop on HDInsight with SSH

@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/03/2018s
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -15,7 +15,7 @@ ms.custom:
 
 Before you can properly control and optimize your Azure costs, you need to understand where costs originated within your organization. It's also useful to know how much money your services cost, and in support of what environments and systems. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. Spending patterns can be used to enforce cost control mechanisms, like budgets.
 
-In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provider adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
+In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provide adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
 
 In this quickstart, you learn how to:
 
@@ -26,24 +26,14 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
+Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data. For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
 
-|**Scope**|**Defined in**|**Required access to analyze costs on scope**|**Prerequisite EA setting**|**Rolls up billing info to**|
-|---                |---                  |---                   |---            |---           |
-|Billing account*|[https://ea.azure.com ](https://ea.azure.com )|Enterprise Admin|None|All subscriptions from the enterprise agreement|
-|Department|[https://ea.azure.com ](https://ea.azure.com )|Department Admin|DA view charges enabled|All subscriptions belonging to an enrollment account that is linked to the department|
-|Enrollment account**|[https://ea.azure.com ](https://ea.azure.com )|Account Owner|AO view charges enabled|All subscriptions from the enrollment account|
-|Management group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All subscriptions below the management group|
-|Subscription|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources/resource groups in the subscription|
-|Resource group|[https://portal.azure.com ](https://portal.azure.com )|Cost Management Reader (or Reader)|AO view charges enabled|All resources in the resource group|
-
-> [!NOTE]
->
-> (*) The billing acount is often referred to as the Enterprise Agreement or Enrollment
-> 
-> (**) The enrollment account is often referred to as the account owner
-
-For more information on configuring **DA view charges** and **AO view charges** look at [enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs)
+- Billing account
+- Department
+- Enrollment account
+- Management group
+- Subscription
+- Resource group
 
 ## Sign in to Azure
 

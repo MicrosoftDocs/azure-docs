@@ -11,10 +11,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: celested
-ms.reviewer: hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes
 ---
 
-# How to: Customize claims emitted in tokens for a specific app in a tenant (Public Preview)
+# How to: Customize claims emitted in tokens for a specific app in a tenant (Preview)
 
 > [!NOTE]
 > This feature replaces and supersedes the [claims customization](active-directory-saml-claims-customization.md) offered through the portal today. On the same application, if you customize claims using the portal in addition to the Graph/PowerShell method detailed in this document, tokens issued for that application will ignore the configuration in the portal. Configurations made through the methods detailed in this document will not be reflected in the portal.
@@ -449,7 +449,7 @@ In this example, you create a policy that removes the basic claim set from token
 	1. To create the policy, run this command: 
 	
 	 ``` powershell
-	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims” -Type "ClaimsMappingPolicy"
+	New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"false"}}') -DisplayName "OmitBasicClaims" -Type "ClaimsMappingPolicy"
 	```
 	2. To see your new policy, and to get the policy ObjectId, run the following command:
 	

@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/27/2018
+ms.date: 10/30/2018
 ms.author: cephalin;msangapu
 ms.custom: mvc, devcenter
 ---
@@ -68,7 +68,7 @@ You see the **Hello World** message from the sample app displayed in the page.
 In your terminal window, press **Ctrl+C** to exit the web server.
 
 > [!NOTE]
-> In Azure App Service, the app is run in IIS using [iisnode](https://github.com/tjanczuk/iisnode). To enable the app to run with iisnode, the root app directory contains a web.config file. The file is readable by IIS, and the iisnode-related settings are documented in [the iisnode GitHub repository](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/web.config).
+> In Azure App Service, the app is run in IIS using [iisnode](https://github.com/Azure/iisnode). To enable the app to run with iisnode, the root app directory contains a web.config file. The file is readable by IIS, and the iisnode-related settings are documented in [the iisnode GitHub repository](https://github.com/Azure/iisnode/blob/master/src/samples/configuration/web.config).
 
 [!INCLUDE [Create ZIP file](../../includes/app-service-web-create-zip.md)]
 
@@ -107,7 +107,7 @@ When the web app has been created, the Azure CLI shows output similar to the fol
 
 ### Set Node.js runtime
 
-Set the Node runtime to 8.11.1. <!-- To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes). -->
+Set the Node runtime to 8.11.1. To see all supported runtimes, run [`az webapp list-runtimes`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes).
 
 ```azurecli-interactive
 # Bash and Powershell
@@ -156,7 +156,7 @@ zip -r myUpdatedAppFiles.zip .
 
 # PowerShell
 Compress-Archive -Path * -DestinationPath myUpdatedAppFiles.zip
-``` 
+```
 
 Deploy this new ZIP file to App Service, using the same steps in [Deploy ZIP file](#deploy-zip-file).
 

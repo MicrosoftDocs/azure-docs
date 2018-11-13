@@ -2,14 +2,14 @@
 title: Use C# with MapReduce on Hadoop in HDInsight - Azure 
 description: Learn how to use C# to create MapReduce solutions with Hadoop in Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Use C# with MapReduce streaming on Hadoop in HDInsight

@@ -453,6 +453,9 @@ Service Fabric provides complete flexibility in how you communicate with reliabl
 
 This tutorial uses [ASP.NET Core Web API](service-fabric-reliable-services-communication-aspnetcore.md) and the [Service Fabric reverse proxy](service-fabric-reverseproxy.md) so the VotingWeb front-end web service can communicate with the back-end VotingData service. The reverse proxy is configured by default to use port 19081 and should work for this tutorial. The port is set in the ARM template used to set up the cluster. To find which port is used, look in the cluster template in the **Microsoft.ServiceFabric/clusters** resource or look at the HttpApplicationGatewayEndpoint element in the cluster Manifest.
 
+> [!NOTE]
+> The reverse proxy is only supported on a cluster running Windows 8 and later or Windows Server 2012 and later.
+
 <u>Microsoft.ServiceFabric/clusters reverseProxyEndpointPort resource</u>
 
 ```json

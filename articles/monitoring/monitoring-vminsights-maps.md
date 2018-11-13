@@ -1,5 +1,5 @@
 ---
-title: How to view app dependencies with Azure Monitor for VMs | Microsoft Docs
+title: How to view app dependencies with Azure Monitor for VMs (Preview) | Microsoft Docs
 description: Map is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
 services: azure-monitor
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
 ---
 
-# Using Azure Monitor for VMs Map to understand application components
-Viewing the discovered application components on Windows and Linux virtual machines running in your Azure environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
+# Using Azure Monitor for VMs (Preview) Map to understand application components
+Viewing the discovered application components on Windows and Linux virtual machines running in Azure your environment can be observed in two ways with Azure Monitor for VMs, from a virtual machine directly or across groups of VMs from Azure Monitor. 
 
 This article will help you understand the experience between the two perspectives and how to use the Map feature. For information about configuring Azure Monitor for VMs, see [Enable Azure Monitor for VMs](monitoring-vminsights-onboard.md).
 
@@ -48,7 +48,7 @@ To enable the Map feature to display relevant alerts, create an alert rule that 
 - Include a clause to group by computer (for example, **by Computer interval 1 minute**).
 - Choose to alert based on metric measurement.
 
-For more information about Azure Alerts and creating alert rules, see [Unified Alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+For more information about Azure Alerts and creating alert rules, see [Unified Alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
 
 The **Legend** option in the upper right-hand corner describes the symbols and roles on a map.  To zoom in for a closer look at your map and move the it around, the Zoom controls at the bottom right-hand side of the page sets the zoom level and fit the page to the size of the current page.  
 
@@ -103,7 +103,9 @@ From Azure Monitor, the Map feature provides a global view of your virtual machi
 
 ![Azure Monitor multi-VM map overview](./media/monitoring-vminsights-maps/map-multivm-azure-monitor-01.png)
 
-From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution and has virtual machines reporting to it.  You then select from the **Group** selector, a subscription or resource group to view a set of VMs and their dependencies matching the group, over a specified period of time.  By default, the map shows the last 30 minutes.  Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
+From the **Workspace** selector at the top of the page, if you have more than one Log Analytics workspace, choose the workspace that is enabled with the solution and has virtual machines reporting to it. The **Group** selector will return subscriptions, resource groups, [computer groups](../log-analytics/log-analytics-computer-groups.md), and VM scale sets of computers related to the selected workspace. Your selection only applies to the Map feature and does not carry over to Performance or Map.
+
+By default, the map shows the last 30 minutes. Using the **TimeRange** selector, you can query for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred).   
 
 ## Next steps
 To learn how to use the health feature, see [View Azure VM Health](monitoring-vminsights-health.md), or to identify bottlenecks and overall utilization with your VMs performance, see [View Azure Monitor for VMs Performance](monitoring-vminsights-performance.md). 

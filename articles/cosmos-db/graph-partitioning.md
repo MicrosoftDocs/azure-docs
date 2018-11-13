@@ -15,7 +15,7 @@ ms.author: lbosq
 ---
 # Using a partitioned graph in Azure Cosmos DB
 
-One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md#how-does-partitioning-work), which make use of containers, that can scale independently in terms of storage and throughput. Azure Cosmos DB supports the following types of containers across all APIs:
+One of the key features of the Gremlin API in Azure Cosmos DB is the ability to handle large-scale graphs through horizontal scalability. This process is achieved through the [partitioning capabilities in Azure Cosmos DB](partition-data.md), which make use of containers, that can scale independently in terms of storage and throughput. Azure Cosmos DB supports the following types of containers across all APIs:
 
 - **Fixed container**: These containers can store a graph database up to 10 GB in size with a maximum of 10,000 request units per second allocated to it. To create a fixed container it isn't necessary to specify a partition key property in the data.
 
@@ -37,7 +37,7 @@ The following are details that need to be understood when creating a partitioned
 
 - **Graph queries need to specify a partition key**. To take full advantage of the horizontal partitioning in Azure Cosmos DB, the partition key should be specified when a single vertex is selected, whenever it's possible. The following are queries for selecting one or multiple vertices in a partitioned graph:
 
-    - Currenlty you can’t use `/id` as partition key for a container in Gremlin API.
+    - `/id` and `/label` are not supported as partition keys for a container in Gremlin API..
 
 
     - Selecting a vertex by ID, then **using the `.has()` step to specify the partition key property**: 

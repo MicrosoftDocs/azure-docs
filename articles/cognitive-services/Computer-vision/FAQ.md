@@ -41,7 +41,7 @@ Supported languages include:
 | Danish (da-DK)  | Dutch (nl-NL)     | English           | Finnish (fi-FI)            |French (fr-FR)
 | German (de-DE)  | Greek (el-GR)     | Hungarian (hu-HU) | Italian (it-IT)            | Japanese (ja-JP)
 | Korean (ko-KR)  | Norwegian (nb-NO) | Polish (pl-PL)    | Portuguese (pt-BR) (pt-PT) | Russian (ru-RU)
-| Spanish (es-ES)	| Swedish (sv-SV)	  | Turkish (tr-TU)   |                            |
+| Spanish (es-ES)	| Swedish (sv-SV)	  | Turkish (tr-TR)   |                            |
 
 -----
 

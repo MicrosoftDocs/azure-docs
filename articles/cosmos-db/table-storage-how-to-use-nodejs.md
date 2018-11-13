@@ -119,7 +119,7 @@ To add an entity, first create an object that defines your entity properties. Al
 * **PartitionKey** - Determines the partition in which the entity is stored.
 * **RowKey** - Uniquely identifies the entity within the partition.
 
-Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types are inferred if not specified.
 

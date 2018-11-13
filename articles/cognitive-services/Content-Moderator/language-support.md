@@ -62,7 +62,7 @@ ms.author: sajagtap
 | Old (Persian) | Hebrew
 | Pashto | Hindi
 | Polish | Hungarian
-| Portugese | Icelandic
+| Portuguese | Icelandic
 | Punjabi | Igbo
 | Rejang | Indonesian
 | Russian | Inuktitut

@@ -38,7 +38,7 @@ If you choose to install and use the PowerShell locally, this tutorial requires 
 ## Create and configure a source VM
 
 >[!NOTE]
-> This tutorial walks through the process of creating and using a generalized VM image. It is not supported to create a scale set from a specialized VM image.
+> This tutorial walks through the process of creating and using a generalized VM image. Creating a scale set from a specialized VHD is not supported.
 
 First, create a resource group with [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup), then create a VM with [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). This VM is then used as the source for a custom VM image. The following example creates a VM named *myCustomVM* in the resource group named *myResourceGroup*. When prompted, enter a username and password to be used as logon credentials for the VM:
 
@@ -72,7 +72,7 @@ To customize your VM, let's install a basic web server. When the VM instance in 
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
 ```
 
-The final step to prepare your VM for use as a custom image is to generalize the VM. Sysprep removes all your personal account information and configurations, and resets the VM to a clean state for future deployments. For more information, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+The final step to prepare your VM for use as a custom image is to generalize the VM. Sysprep removes all your personal account information and configurations, and resets the VM to a clean state for future deployments. For more information, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx).
 
 To generalize the VM, run Sysprep and set the VM for an out-of-the-box experience. When finished, instruct Sysprep to shut down the VM:
 

@@ -48,7 +48,7 @@ Next, you create a function in the new function app.
 
 1. In the search field, type `queue` and then choose the **Queue trigger** template.
 
-1. If prompted, select **Install** to install the Azure Storage extension any any dependencies in the function app. After installation succeeds, select **Continue**.
+1. If prompted, select **Install** to install the Azure Storage extension any dependencies in the function app. After installation succeeds, select **Continue**.
 
     ![Install binding extensions](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
 

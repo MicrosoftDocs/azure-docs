@@ -4,7 +4,7 @@ description: Learn about static and dynamic parameters and how using them create
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -12,7 +12,7 @@ manager: carmonm
 # Creating dynamic blueprints through parameters
 
 A fully defined blueprint with various artifacts (such as resource groups, Resource Manager
-templates, policies, or role assignments) offers the rapid creation and consistent provisioning of
+templates, policies, or role assignments) offers the rapid creation and consistent creation of
 objects within Azure. To enable flexible use of these reusable design patterns and containers,
 Azure Blueprints supports parameters. The parameter creates flexibility, both during definition and
 assignment, to change properties on the artifacts deployed by the blueprint.
@@ -20,9 +20,8 @@ assignment, to change properties on the artifacts deployed by the blueprint.
 A simple example is the resource group artifact. When a resource group is created, it has two
 required values that must be provided: name and location. When adding a resource group to your
 blueprint, if parameters didn’t exist, you would define that name and location for every use of the
-blueprint. This would cause every use of the blueprint to create artifacts in the same resource
-group. While not an issue with the resource group itself, resources inside that resource group
-would become duplicated and cause a conflict.
+blueprint. This repetition would cause every use of the blueprint to create artifacts in the same
+resource group. Resources inside that resource group would become duplicated and cause a conflict.
 
 > [!NOTE]
 > It isn't an issue for two different blueprints to include a resource group with the same name.
@@ -30,53 +29,57 @@ would become duplicated and cause a conflict.
 > related artifacts in that resource group. This could cause a conflict as two resources with the
 > same name and resource type cannot exist within a subscription.
 
-This is where parameters fit in. The value for those properties, in the case of the resource group
-the name and location property, Blueprints allows you to not define them during the definition of
-the blueprint, but to instead define their values during assignment to a subscription. This makes
-it possible to reuse a blueprint that creates a resource group and other resources within a single
-subscription without having conflict.
+The solution to this problem is parameters. Blueprints allows you to define the value for each
+property of the artifact during assignment to a subscription. The parameter makes it possible to
+reuse a blueprint that creates a resource group and other resources within a single subscription
+without having conflict.
 
 ## Blueprint parameters
 
-Through the REST API, parameters can be created on the blueprint itself in addition to each of the
-supported artifacts. When a parameter is created on the blueprint, it can be used by the artifacts
-in that blueprint. An example might be the prefix for naming of the resource group. The artifact
-can then use the blueprint parameter to create a "mostly dynamic" parameter, as the parameter could
-still be defined during assignment, but will have a consistency that may adhere to naming rules of
-the organization. For steps, see [setting static parameters - blueprint level parameter](#blueprint-level-parameter).
+Through the REST API, parameters can be created on the blueprint itself. These parameters are
+different than the parameters on each of the supported artifacts. When a parameter is created on
+the blueprint, it can be used by the artifacts in that blueprint. An example might be the prefix
+for naming of the resource group. The artifact can use the blueprint parameter to create a "mostly
+dynamic" parameter. As the parameter can also be defined during assignment, this pattern allows
+for a consistency that may adhere to naming rules. For steps, see [setting static parameters -
+blueprint level parameter](#blueprint-level-parameter).
 
 ### Using secureString and secureObject parameters
 
 While a Resource Manager template _artifact_ supports parameters of the **secureString** and
 **secureObject** types, Azure Blueprints requires each to be connected with an Azure Key Vault.
-This prevents the unsafe practice of storing secrets along with the Blueprint and encourages
-employment of secure patterns. Azure Blueprints facilitates this by detecting the inclusion of
-either secure parameter in a Resource Manager template _artifact_ and prompting during Blueprint
-assignment for the following Key Vault properties per detected secure parameter:
+This security measure prevents the unsafe practice of storing secrets along with the Blueprint and
+encourages employment of secure patterns. Azure Blueprints supports this security measure,
+detecting the inclusion of either secure parameter in a Resource Manager template _artifact_. The
+service then prompts during assignment for the following Key Vault properties per detected secure
+parameter:
 
 - Key Vault resource ID
 - Key Vault secret name
 - Key Vault secret version
 
-The referenced Key Vault must exist in the same subscription as the Blueprint is being assigned to
-and must also have **Enable access to Azure Resource Manager for template deployment** configured on
-the Key Vault's **Access policies** page. For directions on how to enable this feature, see [Key Vault - Enable template deployment](../../../managed-applications/key-vault-access.md#enable-template-deployment).
-For more information about Azure Key Vault, see [Key Vault Overview](../../../key-vault/key-vault-overview.md).
+The referenced Key Vault must exist in the same subscription as the Blueprint is being assigned to.
+It must also have **Enable access to Azure Resource Manager for template deployment** configured on
+the Key Vault's **Access policies** page. For directions on how to enable this feature, see [Key
+Vault - Enable template
+deployment](../../../managed-applications/key-vault-access.md#enable-template-deployment). For more
+information about Azure Key Vault, see [Key Vault
+Overview](../../../key-vault/key-vault-overview.md).
 
 ## Parameter types
 
 ### Static parameters
 
-A parameter value defined in the definition of a blueprint is called a **static parameter**. This is
+A parameter value defined in the definition of a blueprint is called a **static parameter**,
 because every use of the blueprint will deploy the artifact using that static value. In the
-resource group example, while this wouldn't make sense for the name of the resource group, it might
+resource group example, while it doesn't make sense for the name of the resource group, it might
 make sense for the location. Then, every assignment of the blueprint would create the resource
-group, whatever it's called during assignment, in the same location. This allows you to be
-selective in what you define as required vs what can be changed during assignment.
+group, whatever it's called during assignment, in the same location. This flexibility allows you to
+be selective in what you define as required vs what can be changed during assignment.
 
 #### Setting static parameters in the portal
 
-1. Launch the Azure Blueprints service in the Azure portal by clicking on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
 
 1. Select **Blueprint Definitions** from the page on the left.
 
@@ -88,7 +91,7 @@ selective in what you define as required vs what can be changed during assignmen
 
    ![Blueprint parameters](../media/parameters/parameter-column.png)
 
-1. The **Edit Artifact** page displays value options appropriate to the artifact clicked on. Each parameter on the artifact has a title, a value box, and a checkbox. Set the box to unchecked to make it a **static parameter**. In the example below, only _Location_ is a **static parameter** as it is unchecked and _Resource Group Name_ is checked.
+1. The **Edit Artifact** page displays value options appropriate to the artifact clicked on. Each parameter on the artifact has a title, a value box, and a checkbox. Set the box to unchecked to make it a **static parameter**. In the example below, only _Location_ is a **static parameter** as it's unchecked and _Resource Group Name_ is checked.
 
    ![Blueprint static parameters](../media/parameters/static-parameter.png)
 
@@ -101,8 +104,8 @@ In each REST API URI, there are variables that are used that you need to replace
 
 ##### Blueprint level parameter
 
-When creating a blueprint through REST API, it is possible to create [blueprint
-parameters](#blueprint-parameters). To do this, use the following REST API URI and body format:
+When creating a blueprint through REST API, it's possible to create [blueprint
+parameters](#blueprint-parameters). To do so, use the following REST API URI and body format:
 
 - REST API URI
 
@@ -157,16 +160,16 @@ blueprint level parameter.
   }
   ```
 
-In this example, the **principalIds** property made use of the **owners** blueprint level parameter
-by providing a value of `[parameters('owners')]`. Setting a parameter on an artifact using a
-blueprint level parameter is still an example of a **static parameter** as it cannot be set during
-blueprint assignment and will be this value on each assignment.
+In this example, the **principalIds** property uses the **owners** blueprint level parameter by
+using a value of `[parameters('owners')]`. Setting a parameter on an artifact using a blueprint
+level parameter is still an example of a **static parameter**. The blueprint level parameter can't
+be set during blueprint assignment and will be the same value on each assignment.
 
 ##### Artifact level parameter
 
 Creating **static parameters** on an artifact is similar, but takes a straight value instead of
 using the `parameters()` function. The following example creates two static parameters, **tagName**
-and **tagValue**. The value on each is directly provided and does not use a function call.
+and **tagValue**. The value on each is directly provided and doesn't use a function call.
 
 - REST API URI
 
@@ -196,18 +199,18 @@ and **tagValue**. The value on each is directly provided and does not use a func
 
 ### Dynamic parameters
 
-The opposite of a static parameter is a **dynamic parameter**. This is a parameter that is not
-defined on the blueprint, but instead is defined during each assignment of the blueprint. In the
-resource group example, this makes sense for the resource group name, providing a different name
-for every assignment of the blueprint.
+The opposite of a static parameter is a **dynamic parameter**. This parameter isn't defined on the
+blueprint, but instead is defined during each assignment of the blueprint. In the resource group
+example, use of a **dynamic parameter** makes sense for the resource group name. It provides a
+different name for every assignment of the blueprint.
 
 #### Setting dynamic parameters in the portal
 
-1. Launch the Azure Blueprints service in the Azure portal by clicking on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
+1. Click on **All services** and searching for and selecting **Policy** in the left pane. On the **Policy** page, click on **Blueprints**.
 
 1. Select **Blueprint Definitions** from the page on the left.
 
-1. Right-click on the blueprint that you want to assign and select **Assign Blueprint** OR click on the blueprint you want to assign, then click the **Assign Blueprint** button.
+1. Right-click on the blueprint that you want to assign. Select **Assign Blueprint** OR click on the blueprint you want to assign, then click the **Assign Blueprint** button.
 
 1. On the **Assign Blueprint** page, find the **Artifact parameters** section. Each artifact with at least one **dynamic parameter** displays the artifact and the configuration options. Provide required values to the parameters before assigning the blueprint. In the example below, _Name_ is a **dynamic parameter** that must be defined to complete blueprint assignment.
 
@@ -215,12 +218,12 @@ for every assignment of the blueprint.
 
 #### Setting dynamic parameters from REST API
 
-Setting **dynamic parameters** during the assignment is done by providing the desired value
-directly. Instead of using a function, such as `parameters()`, the value provided is an appropriate
-string. Artifacts for a resource group are defined with a "template name", and **name** and
-**location** properties. All other parameters for each included artifact is defined under
-**parameters** with a **\<name\>** and **value** key pair. If the blueprint is configured for a
-dynamic parameter that is not provided during assignment, the assignment will fail.
+Setting **dynamic parameters** during the assignment is done by entering the value directly.
+Instead of using a function, such as `parameters()`, the value provided is an appropriate string.
+Artifacts for a resource group are defined with a "template name", **name**, and **location**
+properties. All other parameters for included artifact are defined under **parameters** with a
+**\<name\>** and **value** key pair. If the blueprint is configured for a dynamic parameter that
+isn't provided during assignment, the assignment will fail.
 
 - REST API URI
 

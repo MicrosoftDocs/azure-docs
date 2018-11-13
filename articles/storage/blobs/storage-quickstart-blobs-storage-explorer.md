@@ -7,7 +7,7 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 08/27/2018
+ms.date: 10/09/2018
 ms.author: tamram
 ---
 
@@ -75,7 +75,7 @@ To download blobs using **Azure Storage Explorer**, with a blob selected, select
 
 ## Manage snapshots
 
-Azure Storage Explorer provides the capability to take and manage [snapshots](storage-blob-snapshots.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Make Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
+Azure Storage Explorer provides the capability to take and manage [snapshots](storage-blob-snapshots.md) of your blobs. To take a snapshot of a blob, right-click the blob and select **Create Snapshot**. To view snapshots for a blob, right-click the blob and select **Manage Snapshots**. A list of the snapshots for the blob are shown in the current tab.
 
 ![Microsoft Azure Storage Explorer - list blobs in a container](media/storage-quickstart-blobs-storage-explorer/snapshots.png)
 

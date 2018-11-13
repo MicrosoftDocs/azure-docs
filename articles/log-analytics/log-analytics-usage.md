@@ -44,16 +44,16 @@ The **Log Analytics usage** dashboard displays the following information:
     - Time taken to collect and index data  
 - List of queries
 
-![Usage and cost dashboard](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![Usage and cost dashboard](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### To work with usage data
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. In the Azure portal, click **All services**. In the list of resources, type **Log Analytics**. As you begin typing, the list filters based on your input. Select **Log Analytics**.<br><br> ![Azure portal](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. In your list of Log Analytics workspaces, select a workspace.
 4. Select **Usage and estimated costs** from the list in the left pane.
 5. On the **Usage and estimated costs** dashboard, you can modify the time range by selecting the **Time: Last 24 hours** and change the time interval.<br><br> ![time interval](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-log-searches.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. View the usage category blades that show areas you’re interested in. Choose a blade and then click an item in it to view more details in [Log Search](log-analytics-queries.md).<br><br> ![example data usage kpi](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. On the Log Search dashboard, review the results that are returned from the search.<br><br> ![example usage log search](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## Create an alert when data collection is higher than expected
@@ -73,7 +73,7 @@ The following query uses a simple formula to predict when more than 100 GB of da
 
 To alert on a different data volume, change the 100 in the queries to the number of GB you want to alert on.
 
-Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when data collection is higher than expected.
+Use the steps described in [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) to be notified when data collection is higher than expected.
 
 When creating the alert for the first query -- when there is more than 100 GB of data in 24 hours, set the:  
 
@@ -158,19 +158,19 @@ Use the following steps to reduce the volume of logs collected:
 | Event logs                 | Change [event log configuration](log-analytics-data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](log-analytics-data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
 | AzureDiagnostics           | Change resource log collection to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
-| Solution data from computers that don't need the solution | Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers. |
+| Solution data from computers that don't need the solution | Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers. |
 
 ### Check if there are more nodes than expected
-If you are on the *per node (OMS)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
+If you are on the *per node (Log Analytics)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Click on **See all...** to view the full list of computers sending data for the selected offer.
 
-Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
+Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers.
 
 ## Next steps
-* See [Log searches in Log Analytics](log-analytics-log-searches.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
-* Use the steps described in [create a new log alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) to be notified when a search criteria is met.
-* Use [solution targeting](../operations-management-suite/operations-management-suite-solution-targeting.md) to collect data from only required groups of computers.
+* See [Log searches in Log Analytics](log-analytics-queries.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
+* Use the steps described in [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) to be notified when a search criteria is met.
+* Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers.
 * To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md).
 * Change [performance counter configuration](log-analytics-data-sources-performance-counters.md).
 * To modify your event collection settings, review [event log configuration](log-analytics-data-sources-windows-events.md).

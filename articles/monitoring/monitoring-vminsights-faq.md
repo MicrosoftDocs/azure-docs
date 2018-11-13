@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor for VMs Frequently Asked Questions | Microsoft Docs
-description: Azure Monitor for VMs is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions.
+title: Azure Monitor for VMs (Preview) Frequently Asked Questions | Microsoft Docs
+description: Azure Monitor for VMs (Preview) is a solution in Azure that combines health and performance monitoring of the Azure VM operating system, as well as automatically discovering application components and dependencies with other resources and maps the communication between them. This article answers common questions.
 services:  azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/19/2018
+ms.date: 11/08/2018
 ms.author: magoedte
 
 ---
 
-# Azure Monitor for VMs Frequently Asked Questions
-This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs in Microsoft Azure. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
+# Azure Monitor for VMs (Preview) Frequently Asked Questions
+This Microsoft FAQ is a list of commonly asked questions about Azure Monitor for VMs. If you have any additional questions about the solution, go to the [discussion forum](https://feedback.azure.com/forums/34192--general-feedback) and post your questions. When a question is frequently asked, we add it to this article so that it can be found quickly and easily.
 
 ## Can I onboard to an existing workspace?
 If your virtual machines are already connected to a Log Analytics workspace, you may continue to use that workspace when onboarding to Azure Monitor for VMs, provided it is in one of the supported regions listed [here](monitoring-vminsights-onboard.md#prerequisites).
@@ -73,7 +73,7 @@ The Azure Monitor for VMs Map feature is based on Service Map, but has the follo
 This can occur for a few reasons.  In cases where there is a gap in data collection we depict the lines as dotted.  If you have modified the data sampling frequency for the performance counters enabled (the default setting is to collect data every 60 seconds), you can see dotted lines in the chart if you choose a narrow time range for the chart and your sampling frequency is less than the bucket size used in the chart (for example, the sampling frequency is every 10 minutes and each bucket on the chart is 5 minutes).  Choosing a wider time range to view should cause the chart lines to appear as solid lines rather than dots in this case.
 
 ## Are groups supported with Azure Monitor for VMs?
-The Performance feature supports groups based on the highlighted resources within a specific workspace, as well as grouping based on a particular Azure virtual machine scale set and Cloud service.
+Yes, once you install the Dependency agent we collect information from the VMs to display groups based upon subscription, resource group, virtual machine scale sets, and cloud services.  If you have been using Service Map and have created machine groups, these are displayed as well.  Computer groups will also appear in the groups filter if you have created them for the workspace you are viewing. 
 
 ## How do I see the details for what is driving the 95th percentile line in the aggregate performance charts?
 By default, the list is sorted to show you the VMs that have the highest value for the 95th percentile for the selected metric, except for the Available memory chart, which shows the machines with the lowest value of the 5th percentile.  Clicking on the chart will open the **Top N List**  view with the appropriate metric selected.
@@ -90,6 +90,11 @@ While we have made improvements to Map to handle large and complex configuration
 ## Why does the network chart on the Performance tab look different than the network chart on the Azure VM Overview page?
 
 The overview page for an Azure VM displays charts based on the host's measurement of activity in the guest VM.  For the network chart on the Azure VM Overview, it only displays network traffic that will be billed.  This does not include inter-vnet traffic.  The data and charts shown for Azure Monitor for VMs is based on data from the guest VM and the network chart displays all TCP/IP traffic that is inbound and outbound to that VM, including inter-vnet.
+
+## Are their limitations if I am on the Log Analytics Free pricing plan?
+If you have configured Azure Monitor with a Log Analytics workspace using the *Free* pricing tier, Azure Monitor for VMs Map feature will only support five connected machines connected to the workspace. If you have five VMs connected to a free workspace, you disconnect one of the VMs and then later connect a new VM, the new VM is not monitored and reflected on the Map page.  
+
+Under this condition, you will be prompted with the **Try Now** option when you open the VM and select **Insights (preview)** from the left-hand pane, even after it has been installed already on the VM.  However, you are not prompted with options as would normally occur if this VM were not onboarded to Azure Monitor for VMs. 
 
 ## Next steps
 Review [Onboard Azure Monitor for VMs](monitoring-vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.

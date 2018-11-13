@@ -1,5 +1,5 @@
 ---
-title: How to chart performance with Azure Monitor for VMs | Microsoft Docs
+title: How to chart performance with Azure Monitor for VMs (Preview) | Microsoft Docs
 description: Performance is a feature of the Azure Monitor for VMs that automatically discovers application components on Windows and Linux systems and maps the communication between services. This article provides details on how to use it in a variety of scenarios.
 services: azure-monitor
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/25/2018
 ms.author: magoedte
 ---
 
-# How to chart performance with Azure Monitor for VMs
+# How to chart performance with Azure Monitor for VMs (Preview)
 Azure Monitor for VMs includes a set of performance charts that target several key performance indicators (KPIs) to help you determine how well a virtual machine is performing. The charts show resource utilization over a period of time so you can identify bottlenecks, anomalies, or switch to a perspective listing each machine to view resource utilization based on the metric selected. While there are numerous elements to consider when dealing with performance, Azure Monitor for VMs is focused on the operating system as manifested through the processor, memory, network adapters, and disks. Performance complements the health monitoring feature and helps expose issues that indicate a possible system component failure, support tuning and optimization to achieve efficiency, or support capacity planning.  
 
 ## Multi-VM perspective from Azure Monitor
-From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access from Azure Monitor, perform the following. 
+From Azure Monitor, the Performance feature provides a multi-virtual machine view of all monitored VMs deployed across resource groups in your subscriptions or in your environment.  To access from Azure Monitor, perform the following steps. 
 
 1. In the Azure portal, select **Monitor**. 
 2. Choose **Virtual Machines (preview)** in the **Solutions** section.
@@ -29,15 +29,17 @@ From Azure Monitor, the Performance feature provides a multi-virtual machine vie
 
 ![VM insights Performance Top N List view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the one that is integrated with the solution from the **Workspace** selector at the top of the page.  You then select from the **Group** selector, a subscription, resource group, or specific machine, over a specified period of time.  By default, the charts show the last 24 hours.  Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
+On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../log-analytics/log-analytics-computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
+
+By default, the charts show the last 24 hours. Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
 
 The five capacity utilization charts shown on the page are:
 
-* CPU Utilization % - shows the top 5 machines with the highest average processor utilization 
-* Available Memory - shows the top 5 machines with the lowest average amount of available memory 
-* Logical Disk Space Used % - shows the top 5 machines with the highest average disk space used % across all disk volumes 
-* Bytes Sent Rate - shows the top 5 machines with highest average of bytes sent 
-* Bytes Receive Rate - shows the top 5 machines with highest average of bytes sent 
+* CPU Utilization % - shows the top five machines with the highest average processor utilization 
+* Available Memory - shows the top five machines with the lowest average amount of available memory 
+* Logical Disk Space Used % - shows the top five machines with the highest average disk space used % across all disk volumes 
+* Bytes Sent Rate - shows the top five machines with highest average of bytes sent 
+* Bytes Receive Rate - shows the top five machines with highest average of bytes sent 
 
 Clicking on the upper right-hand corner of any one of the five charts will open **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
 
@@ -96,6 +98,13 @@ The following capacity utilization charts are provided:
 * Bytes Receive Rate - defaults showing average bytes received
 
 ![VM insights Performance directly from VM view](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+
+## Alerting and alert management 
+Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are [health alerts](monitoring-vminsights-health.md#alerting-and-alert-management) corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, disk I/O, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace enabled for Azure Monitor for VMs. 
+
+However, we may only collect and store a subset of the performance metrics you require in the Log Analytics workspace. If your monitoring strategy requires analysis or alerting that includes other performance metrics in order to effectively evaluate capacity or health of the virtual machine, or you need the flexibility to specify your own alerting criteria or logic, you can configure [collection of those performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) in Log Analytics and define [log alerts](../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json). While Log Analytics allows you to perform complex analysis with other data types, and provide longer retention to support trend analysis, metrics on the other hand, are lightweight and capable of supporting near real-time scenarios. They are collected by the [Azure Diagnostic agent](../virtual-machines/windows/monitor.md) and stored in the Azure Monitor metrics store, allowing you to create alerts with lower latency and at a lower cost.
+
+Review the overview of [collection of metrics and logs with Azure Monitor](monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json) to further understand the fundamental differences and other considerations before configuring collection of these additional metrics and alert rules.  
 
 ## Next steps
 To learn how to use the health feature, see [View Azure Monitor for VMs Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md). 

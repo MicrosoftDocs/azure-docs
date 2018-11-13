@@ -21,7 +21,7 @@ To step through this how-to guide, you need:
 ## Configure logging
 Configure access to the slow query log. 
 
-1. Sign in to the [Azure portal](http://portal.azure.com/).
+1. Sign in to the [Azure portal](https://portal.azure.com/).
 
 2. Select your Azure Database for MariaDB server.
 

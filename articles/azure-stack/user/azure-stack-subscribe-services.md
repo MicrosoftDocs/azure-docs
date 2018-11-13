@@ -3,7 +3,7 @@ title: In this tutorial, you learn how to subscribe to an Azure Stack offer | Mi
 description: This tutorial shows you how to create a new subscription to Azure Stack services and test the offer by creating a test virtual machine.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: 
 ---
 

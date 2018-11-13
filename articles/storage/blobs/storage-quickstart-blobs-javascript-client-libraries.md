@@ -3,14 +3,14 @@ title: Azure Quickstart - Create a blob in object storage using JavaScript and H
 description: Learn to use an instance of BlobService to upload, list, and delete blobs using JavaScript in an HTML page.
 services: storage
 keywords: storage, javascript, html
-author: craigshoemaker
-
+author: tamram
 
 ms.custom: mvc
 ms.service: storage
-ms.author: cshoe
-ms.date: 04/06/2018
+ms.author: tamram
+ms.date: 10/18/2018
 ms.topic: quickstart
+ms.component: blobs
 ---
 
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
@@ -132,7 +132,7 @@ Create an HTML page at the root of the *azure-blobs-javascript* folder and name 
         
         <button id="delete-button">Delete</button>
     </body>
-    <script src="scripts/azure-storage.blob.min.js"></script>
+    <script src="scripts/azure-storage.blob.min.js" charset="utf-8"></script>
     <script>
         // Blob-related code goes here
     </script>

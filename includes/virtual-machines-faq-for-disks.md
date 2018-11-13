@@ -166,7 +166,7 @@ The following example shows the *properties.storageProfile.osDisk* section for a
 For a complete template example of how to create a Standard SSD disk with a template, see [Create a VM from a Windows Image with Standard SSD Data Disks](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Can I convert my existing disks to Standard SSD?**
-Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
+Yes, you can. Refer to [Convert Azure managed disks storage from standard to premium, and vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) for the general guidelines for converting Managed Disks. And, use the following value to update the disk type to Standard SSD.
     -AccountType StandardSSD_LRS
 
 **What is the benefit of using Standard SSD disks instead of HDD?**
@@ -287,7 +287,7 @@ There is no downside to the use of TRIM on Azure disks on either premium or stan
 
 **What is the largest Managed disk size supported for operating system and data disks?**
 
-The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them see our [blog post](http://aka.ms/azure-large-disk-32TB-preview-blog).
+The partition type that Azure supports for an operating system disk is the master boot record (MBR). The MBR format supports a disk size up to 2 TiB. The largest size that Azure supports for an operating system disk is 2 TiB. Azure supports up to 32 TiB for managed data disks. Managed Disk sizes larger than 4 TiB are in preview. For more information on them see our [blog post](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **What is the largest Unmanaged Disk size supported for operating system and data disks?**
 

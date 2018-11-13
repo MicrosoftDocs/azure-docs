@@ -1,16 +1,17 @@
 ---
 title: Authenticate with Azure Active Directory to access blob and queue data from your applications (Preview) | Microsoft Docs
-description: Use Azure Active Directory to authenticate from within an application and then authorize requests to Azure Storage resources (Preview).
+description: Use Azure Active Directory to authenticate from within an application and then authorize requests to blobs and queues (Preview).
 services: storage
 author: tamram
+
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
 ---
 
-# Authenticate with Azure Active Directory from an Azure Storage application (Preview)
+# Authenticate with Azure Active Directory from an application for access to blobs and queues (Preview)
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from Azure AD. Azure AD handles the authentication of the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Storage.
 
@@ -21,6 +22,10 @@ Before you can authenticate a security principal from your Azure Storage applica
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Azure Active Directory web applications using the OAuth 2.0 code grant flow](../../active-directory/develop/v1-protocols-oauth-code.md).
 
 [!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
+
+## Assign an RBAC role to an Azure AD security principal
+
+To authenticate a security principal from your Azure Storage application, first configure role-based access control (RBAC) settings for that security principal. Azure Storage defines RBAC roles that encompass permissions for containers and queues. When the RBAC role is assigned to a security principal, that security principal is granted access to that resource. For more information, see [Manage access rights to Azure Blob and Queue data with RBAC (Preview)](storage-auth-aad-rbac.md).
 
 ## Register your application with an Azure AD tenant
 

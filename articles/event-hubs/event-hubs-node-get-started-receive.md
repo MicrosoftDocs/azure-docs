@@ -54,7 +54,7 @@ The SDK you have cloned contains multiple samples that show you how to receive e
 
 1. Open the project on Visual Studio Code. 
 2. Create a file named **.env** under the **processor** folder. Copy and paste sample environmental variables from the **sample.env** in the root folder.
-3. Configure your event hub connection string, event hub name, and storage endpoint. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Configure your event hub connection string, event hub name, and storage endpoint. You can copy connection string for your event hub from **Connection string-primary** key under **RootManageSharedAccessKey** on the Event Hub page in the Azure portal. For detailed steps, see [Get connection string](event-hubs-create.md#create-an-event-hubs-namespace).
 4. On your Azure CLI, navigate to the **processor** folder path. Install node packages and build the project by running the following commands:
 
     ```nodejs
@@ -138,12 +138,7 @@ You can find more samples [here](https://github.com/Azure/azure-event-hubs-node/
 
 ## Next steps
 
-Visit the following pages to learn more about Event Hubs:
-
-* [Send events using Node.js](event-hubs-go-get-started-send.md)
-* [Event Hubs samples](https://github.com/Azure/azure-event-hubs-node/tree/master/processor/examples/)
-* [Capture events to Azure Storage or Data Lake Store](event-hubs-capture-overview.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you created a Node.js application that received messages from an event hub. To learn how to send events to an event hub using Node.js, see [Send events from event hub - Node.js](event-hubs-node-get-started-send.md).
 
 <!-- Links -->
 [free account]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

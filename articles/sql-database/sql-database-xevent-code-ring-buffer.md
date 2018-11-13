@@ -17,7 +17,7 @@ ms.date: 04/01/2018
 
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
 
-You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](http://msdn.microsoft.com/library/ff878182.aspx).
+You want a complete code sample for the easiest quick way to capture and report information for an extended event during a test. The easiest target for extended event data is the [Ring Buffer target](https://msdn.microsoft.com/library/ff878182.aspx).
 
 This topic presents a Transact-SQL code sample that:
 
@@ -44,8 +44,8 @@ This topic presents a Transact-SQL code sample that:
 * SQL Server Management Studio (ssms.exe), ideally its latest monthly update version. 
   You can download the latest ssms.exe from:
   
-  * Topic titled [Download SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [A direct link to the download.](http://go.microsoft.com/fwlink/?linkid=616025)
+  * Topic titled [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [A direct link to the download.](https://go.microsoft.com/fwlink/?linkid=616025)
 
 ## Code sample
 
@@ -347,6 +347,6 @@ Other code sample topics for extended events are available at the following link
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

@@ -69,9 +69,9 @@ Azure service broker offers consistent interface to manage application’s acces
 
 ## 6. Metrics and Logging
 The Azure Log Analytics Nozzle is a Cloud Foundry component, that forwards metrics from the [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) to [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics across multiple deployments.
-Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to both Open Source and Pivotal Cloud Foundry environment, and then access the data from the Azure Log Analytics OMS console. 
+Click [here](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) to learn how to deploy the Azure Log Analytics Nozzle to both Open Source and Pivotal Cloud Foundry environment, and then access the data from the Azure Log Analytics console. 
 > [!NOTE]
-> From PCF 2.0, BOSH health metrics for VMs are forwarded to the Loggregator Firehose by default, and are integrated into Azure Log Analytics OMS console.
+> From PCF 2.0, BOSH health metrics for VMs are forwarded to the Loggregator Firehose by default, and are integrated into Azure Log Analytics console.
 
 ## 7. Cost Saving
 ### Cost Saving for Dev/Test Environments

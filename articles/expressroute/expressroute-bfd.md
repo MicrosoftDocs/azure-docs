@@ -83,7 +83,7 @@ For more information or help, check out the following links:
 <!--Link References-->
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ResetPeering]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-reset-peering
+[ResetPeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-reset-peering
 
 
 

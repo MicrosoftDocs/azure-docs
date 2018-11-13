@@ -1,5 +1,5 @@
 ---
-title: Onboard Azure Monitor for VMs | Microsoft Docs
+title: Onboard Azure Monitor for VMs (Preview) | Microsoft Docs
 description: This article describes how you onboard and configure Azure Monitor for VMs so you can start understanding how your distributed application is performing and what health issues have been identified.
 services: azure-monitor
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 11/09/2018
 ms.author: magoedte
 ---
 
-# How to onboard the Azure Monitor for VMs 
-This article describes how to set up Azure Monitor for VMs to monitor the operating system health of your Azure virtual machines and discover and map application dependencies that may be hosted on them.  
+# How to onboard the Azure Monitor for VMs (Preview)
+This article describes how to set up Azure Monitor for VMs to monitor the operating system health of your Azure virtual machines and virtual machine scale sets, and virtual machines in your environment, including discovery and mapping of application dependencies that may be hosted on them.  
 
 Enabling Azure Monitor for VMs is accomplished by using one of the following methods, and details on using each method are provided later in the article.  
 
@@ -27,7 +27,7 @@ Enabling Azure Monitor for VMs is accomplished by using one of the following met
 * Multiple Azure VMs or virtual machine scale sets across a specified subscription or resource group using PowerShell.
 
 ## Prerequisites
-Before you start, make sure that you have the following as described in the subsections below.
+Before you start, make sure that you understand the following as described in the subsections below.
 
 ### Log Analytics 
 
@@ -41,18 +41,18 @@ A Log Analytics workspace in the following regions is currently supported:
 <sup>1</sup> 
 This region does not currently support the Health feature of Azure Monitor for VMs   
 
+>[!NOTE]
+>Azure virtual machines can be on-boarded from any region and are not limited to the supported regions for the Log Analytics workspace.
+>
+
 If you do not have a workspace, you can create it through [Azure CLI](../log-analytics/log-analytics-quick-create-workspace-cli.md), through [PowerShell](../log-analytics/log-analytics-quick-create-workspace-posh.md), in the [Azure portal](../log-analytics/log-analytics-quick-create-workspace.md), or with [Azure Resource Manager](../log-analytics/log-analytics-template-workspace-configuration.md).  If you are enabling monitoring for a single Azure VM from the Azure portal, you have the option to create a workspace during this process.  
-
-To enable the solution, you need to be a member of the Log Analytics contributor role. For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
-
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 Enabling the solution for the at scale scenario first requires configuring the following in your Log Analytics workspace:
 
-* Install the **ServiceMap** and **InfrastructureInsights** solutions
-* Configure the Log Analytics workspace to collect performance counters
+* Install the **ServiceMap** and **InfrastructureInsights** solutions. This can only be accomplished by using an Azure Resource Manager template provided in this article.   
+* Configure the Log Analytics workspace to collect performance counters.
 
-To configure your workspace for this scenario, see [Setup Log Analytics workspace](#setup-log-analytics-workspace).
+To configure your workspace for the at scale scenario, see [Setup Log Analytics workspace for the at scale deployment](#setup-log-analytics-workspace).
 
 ### Supported operating systems
 
@@ -142,20 +142,16 @@ The Performance feature of Azure Monitor for VMs is only available from Azure Mo
 |12 SP2 | 4.4.* |
 |12 SP3 | 4.4.* |
 
-### Hybrid environment connected sources
-Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. The following table describes the connected sources that the Map feature supports in a hybrid environment.
+### Microsoft Dependency agent
+Azure Monitor for VMs Map gets its data from the Microsoft Dependency agent. The Dependency agent relies on the Log Analytics agent for its connection to Log Analytics and therefore, a system must have the Log Analytics agent installed and configured with the Dependency agent. When you enable Azure Monitor for VMs for a single Azure VM or when using the methods for the at scale deployment, the Azure VM Dependency agent extension is used to install the agent as part of that onboarding experience. With a hybrid environment, the Dependency agent can be downloaded and installed manually or using an automated deployment method to those virtual machines hosted outside of Azure.  
+
+The following table describes the connected sources that the Map feature supports in a hybrid environment.
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
 | Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | No | |  
-
-On Windows, the Microsoft Monitoring Agent (MMA) is used by both System Center Operations Manager and Log Analytics to gather and send monitoring data. System Center Operations Manager and Log Analytics provide different out-of-the box versions of the agent. These versions can each report to System Center Operations Manager, to Log Analytics, or to both.  
-
-On Linux, the Log Analytics agent for Linux gathers and sends monitoring data to Log Analytics.   
-
-If your Windows or Linux computers cannot directly connect to the service, you need to configure the Log Analytics agent to connect to Log Analytics using the OMS Gateway. For more information on how to deploy and configure the OMS Gateway, see [Connect computers without Internet access using the OMS Gateway](../log-analytics/log-analytics-oms-gateway.md).  
 
 The Dependency agent can be downloaded from the following location.
 
@@ -164,63 +160,23 @@ The Dependency agent can be downloaded from the following location.
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.1 | 55030ABF553693D8B5112569FB2F97D7C54B66E9990014FC8CC43EFB70DE56C6 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.1 | 43C75EF0D34471A0CBCE5E396FFEEF4329C9B5517266108FA5D6131A353D29FE |
 
-## Diagnostic and usage data
-Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
+## Role-based access control
+The following access needs to be granted to your users in order to enable and access features in Azure Monitor for VMs.  
+  
+- To enable the solution, you need to be added as a member of the Log Analytics contributor role.  
 
-For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
+- To view the performance, health, and map data, you need to added as a member of the Monitoring Reader role for the Azure VM and the Log Analytics workspace configured with Azure Monitor for VMs.   
 
-[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
-
-## Performance Counters enabled
-Azure Monitor for VMs configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
-
-### Windows performance counters
-
-|Object name |Counter name |  
-|------------|-------------|  
-|LogicalDisk |% Free Space |  
-|LogicalDisk |Avg. Disk sec/Read |  
-|LogicalDisk |Avg. Disk sec/Transfer |  
-|LogicalDisk |Avg. Disk sec/Write |  
-|LogicalDisk |Disk Bytes/sec |  
-|LogicalDisk |Disk Read Bytes/sec |  
-|LogicalDisk |Disk Reads/sec |  
-|LogicalDisk |Disk Transfers/sec |  
-|LogicalDisk |Disk Write Bytes/sec |  
-|LogicalDisk |Disk Writes/sec |  
-|LogicalDisk |Free Megabytes |  
-|Memory |Available MBytes |  
-|Network Adapter |Bytes Received/sec |  
-|Network Adapter |Bytes Sent/sec |  
-|Processor |% Processor Time |  
-
-### Linux performance counters
-
-|Object name |Counter name |  
-|------------|-------------|  
-|Logical Disk |% Used Space |  
-|Logical Disk |Disk Read Bytes/sec |  
-|Logical Disk |Disk Reads/sec |  
-|Logical Disk |Disk Transfers/sec |  
-|Logical Disk |Disk Write Bytes/sec |  
-|Logical Disk |Disk Writes/sec |  
-|Logical Disk |Free Megabytes |  
-|Logical Disk |Logical Disk Bytes/sec |  
-|Memory |Available MBytes Memory |  
-|Network |Total Bytes Received |  
-|Network |Total Bytes Transmitted |  
-|Processor |% Processor Time |  
-
-## Sign in to Azure portal
-Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+For more information about how to control access to a Log Analytics workspace, see [Manage workspaces](../log-analytics/log-analytics-manage-access.md).
 
 ## Enable from the Azure portal
 To enable monitoring of your Azure VM in the Azure portal, do the following:
 
-1. In the Azure portal, select **Virtual Machines**. 
-2. From the list, select a VM. 
-3. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
-4. On the **Insights (preview)** page, select **Try now**.
+1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com). 
+2. In the Azure portal, select **Virtual Machines**. 
+3. From the list, select a VM. 
+4. On the VM page, in the **Monitoring** section, select **Insights (preview)**.
+5. On the **Insights (preview)** page, select **Try now**.
 
     ![Enable Azure Monitor for VMs for a VM](./media/monitoring-vminsights-onboard/enable-vminsights-vm-portal-01.png)
 
@@ -235,7 +191,12 @@ After you've enabled monitoring, it might take about 10 minutes before you can v
 
 
 ## On-boarding at scale
-In this section instructions on how to perform the at scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  The first step required is to configure your Log Analytics workspace.  
+In this section instructions on how to perform the at scale deployment of Azure Monitor for VMs using either Azure Policy or with Azure PowerShell.  
+
+Summarized are the steps you need to perform to pre-configure your Log Analytics workspace before you can proceed with onboarding your virtual machines.
+
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
+3. Install and enable the **ServiceMap** and **InfrastructureInsights** solution in your workspace.  
 
 ### Setup Log Analytics workspace
 If you do not have a Log Analytics workspace, review the available methods suggested under the [Prerequisites](#log-analytics) section to create one.  
@@ -568,14 +529,16 @@ Failed: (0)
 ## Enable for Hybrid environment
 This section explains how to onboard virtual machines or physical computers hosted in your datacenter or other cloud environment for monitoring by Azure Monitor for VMs.  
 
-The Azure Monitor for VMs Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Map is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
+The Azure Monitor for VMs Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
 
-Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).
+Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).  
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 Summarized steps:
 
 1. Install Log Analytics Agent for Windows or Linux
-2. Install Azure Monitor for VMs Map Dependency agent
+2. Download and install Azure Monitor for VMs Map Dependency agent for [Windows](https://aka.ms/dependencyagentwindows) or [Linux](https://aka.ms/dependencyagentlinux).
 3. Enable collection of performance counters
 4. Onboard Azure Monitor for VMs
 
@@ -718,6 +681,52 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
     ```
 After you've enabled monitoring, it might take about 10 minutes before you can view health state and metrics for the hybrid computer. 
 
+## Performance counters enabled
+Azure Monitor for VMs configures a Log Analytics Workspace to collect performance counters used by the solution.  The following table lists the objects and counters configured by the solution that are collected every 60 seconds.
+
+### Windows performance counters
+
+|Object name |Counter name |  
+|------------|-------------|  
+|LogicalDisk |% Free Space |  
+|LogicalDisk |Avg. Disk sec/Read |  
+|LogicalDisk |Avg. Disk sec/Transfer |  
+|LogicalDisk |Avg. Disk sec/Write |  
+|LogicalDisk |Disk Bytes/sec |  
+|LogicalDisk |Disk Read Bytes/sec |  
+|LogicalDisk |Disk Reads/sec |  
+|LogicalDisk |Disk Transfers/sec |  
+|LogicalDisk |Disk Write Bytes/sec |  
+|LogicalDisk |Disk Writes/sec |  
+|LogicalDisk |Free Megabytes |  
+|Memory |Available MBytes |  
+|Network Adapter |Bytes Received/sec |  
+|Network Adapter |Bytes Sent/sec |  
+|Processor |% Processor Time |  
+
+### Linux performance counters
+
+|Object name |Counter name |  
+|------------|-------------|  
+|Logical Disk |% Used Space |  
+|Logical Disk |Disk Read Bytes/sec |  
+|Logical Disk |Disk Reads/sec |  
+|Logical Disk |Disk Transfers/sec |  
+|Logical Disk |Disk Write Bytes/sec |  
+|Logical Disk |Disk Writes/sec |  
+|Logical Disk |Free Megabytes |  
+|Logical Disk |Logical Disk Bytes/sec |  
+|Memory |Available MBytes Memory |  
+|Network |Total Bytes Received |  
+|Network |Total Bytes Transmitted |  
+|Processor |% Processor Time |  
+
+## Diagnostic and usage data
+Microsoft automatically collects usage and performance data through your use of the Azure Monitor service. Microsoft uses this data to provide and improve the quality, security, and integrity of the service. To provide accurate and efficient troubleshooting capabilities, data from the Map feature includes information about the configuration of your software, such as operating system and version, IP address, DNS name, and workstation name. Microsoft does not collect names, addresses, or other contact information.
+
+For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 ## Next steps
 
 With monitoring enabled for your virtual machine, this information is available for analysis with Azure Monitor for VMs.  To learn how to use the Health feature, see [View Azure Monitor for VMs Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md).  

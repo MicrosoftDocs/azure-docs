@@ -43,7 +43,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | WebMatrix support |X | |X | | |
 | Access to services like Service Bus, Storage, SQL Database |X |X |X |X | |
 | Host web or web services tier of a multi-tier architecture |X |X |X |X | |
-| Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. |
+| Host middle tier of a multi-tier architecture |X |X |X |X |App Service web apps can easily host a REST API middle tier, and the [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) feature can host background processing jobs. You can run WebJobs in a dedicated website to achieve independent scalability for the tier. |
 | Integrated MySQL-as-a-service support |X |X | | | |
 | Support for ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |Service Fabric supports the creation of a web front-end using [ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md) or you can deploy any type of application (Node.js, Java, etc) as a [guest executable](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Scale out to multiple instances without redeploy |X |X |X |X |Virtual Machines can scale out to multiple instances, but the services running on them must be written to handle this scale-out. You have to configure a load balancer to route requests across the machines, and make sure you have more than one VM instance in the [availability set](../virtual-machines/windows/manage-availability.md). |

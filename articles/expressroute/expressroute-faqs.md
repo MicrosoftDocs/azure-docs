@@ -6,7 +6,7 @@ author: cherylmc
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 
 ---
@@ -67,20 +67,18 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>
   The following services are NOT supported:
     * CDN
-    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
 ### Microsoft peering
 
-* [Office 365](http://aka.ms/ExpressRouteOffice365)
+* [Office 365](https://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Azure DevOps Services Load Testing
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (Azure Global Services community)
 * Most of the Azure services are supported. Please check directly with the service that you want to use to verify support.<br>The following services are **not supported**:
     * CDN
-    * Azure DevOps Services Load Testing
     * Multi-factor Authentication
     * Traffic Manager
 
@@ -197,11 +195,7 @@ Yes. Virtual machines deployed in virtual networks connected to the same Express
 
 ### Can I use site-to-site connectivity for virtual networks in conjunction with ExpressRoute?
 
-Yes. ExpressRoute can coexist with site-to-site VPNs.
-
-### Can I move a virtual network from site-to-site / point-to-site configuration to use ExpressRoute?
-
-Yes. You will have to create an ExpressRoute gateway within your virtual network. There is a small downtime associated with the process.
+Yes. ExpressRoute can coexist with site-to-site VPNs. See [Configure ExpressRoute and site-to-site coexisting connections](expressroute-howto-coexist-resource-manager.md).
 
 ### Why is there a public IP address associated with the ExpressRoute gateway on a virtual network?
 
@@ -242,7 +236,7 @@ You can update the bandwidth of the ExpressRoute circuit using the REST API or P
 ExpressRoute premium is a collection of the following features:
 
 * Increased routing table limit from 4000 routes to 10,000 routes for private peering.
-* Increased number of VNets that can be connected to the ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
+* Increased number of VNets and ExpressRoute Global Reach connections that can be enabled on an ExpressRoute circuit (default is 10). For more information, see the [ExpressRoute Limits](#limits) table.
 * Connectivity to Office 365 and Dynamics 365.
 * Global connectivity over the Microsoft core network. You can now link a VNet in one geopolitical region with an ExpressRoute circuit in another region.<br>
     **Examples:**
@@ -251,9 +245,9 @@ ExpressRoute premium is a collection of the following features:
     *  On the Microsoft peering, prefixes from other geopolitical regions are advertised such that you can connect to, for example, SQL Azure in Europe West from a circuit in Silicon Valley.
 
 
-### <a name="limits"></a>How many VNets can I link to an ExpressRoute circuit if I enabled ExpressRoute premium?
+### <a name="limits"></a>How many VNets and ExpressRoute Global Reach connections can I enable on an ExpressRoute circuit if I enabled ExpressRoute premium?
 
-The following tables show the ExpressRoute limits and the number of VNets per ExpressRoute circuit:
+The following tables show the ExpressRoute limits and the number of VNets and ExpressRoute Global Reach connections per ExpressRoute circuit:
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 
@@ -285,7 +279,7 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 
 1. Review the [ExpressRoute prerequisites page](expressroute-prerequisites.md) to make sure you meet the requirements.
 2. To ensure that your connectivity needs are met, review the list of service providers and locations in the [ExpressRoute partners and locations](expressroute-locations.md) article.
-3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](http://aka.ms/tune/).
+3. Plan your capacity requirements by reviewing [Network planning and performance tuning for Office 365](https://aka.ms/tune/).
 4. Follow the steps listed in the workflows to set up connectivity [ExpressRoute workflows for circuit provisioning and circuit states](expressroute-workflows.md).
 
 > [!IMPORTANT]
@@ -295,11 +289,11 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 
 ### Can my existing ExpressRoute circuits support connectivity to Office 365 services and Dynamics 365?
 
-Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Make sure that you have sufficient capacity to connect to Office 365 services and that you have enabled premium add-on. [Network planning and performance tuning for Office 365](http://aka.ms/tune/) helps you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
+Yes. Your existing ExpressRoute circuit can be configured to support connectivity to Office 365 services. Make sure that you have sufficient capacity to connect to Office 365 services and that you have enabled premium add-on. [Network planning and performance tuning for Office 365](https://aka.ms/tune/) helps you plan your connectivity needs. Also, see [Create and modify an ExpressRoute circuit](expressroute-howto-circuit-classic.md).
 
 ### What Office 365 services can be accessed over an ExpressRoute connection?
 
-Refer to [Office 365 URLs and IP address ranges](http://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
+Refer to [Office 365 URLs and IP address ranges](https://aka.ms/o365endpoints) page for an up-to-date list of services supported over ExpressRoute.
 
 ### How much does ExpressRoute for Office 365 services cost?
 
