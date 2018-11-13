@@ -253,20 +253,23 @@ While there is some use case overlap, none of these features can replace any of 
 * If you are a large organization that wants to put a large number of web properties in the public cloud and manage them in your own network, then you want to go with the App Service Environment. 
 * If you have multiple apps that need to access resources in your VNet, then VNet Integration is the way to go. 
 
-If your VNet is already connected to your on-premises network, then using VNet Integration or an App Service Environment is an easy way to consume on-premises resources. If your VNet is not connected to your on-premises network, then it's a lot more overhead to set up a site to site VPN with your VNet compared with installing the HCM. 
+When your VNet is already connected to your on-premises network, then using VNet Integration or an App Service Environment is an easy way to consume on-premises resources. If your VNet is not connected to your on-premises network, then it's a lot more overhead to set up a site to site VPN with your VNet compared with installing the HCM. 
 
 Beyond the functional differences, there are also pricing differences. The App Service Environment feature is a Premium service offering but offers the most network configuration possibilities in addition to other great features. VNet Integration can be used with Standard or Premium ASPs and is perfect for securely consuming resources in your VNet from the multi-tenant App Service. Hybrid Connections currently depends on a BizTalk account, which has pricing levels that start free and then get progressively more expensive based on the amount you need. When it comes to working across many networks though, there is no other feature like Hybrid Connections, which can enable you to access resources in well over 100 separate networks. 
 
 ## New VNet Integration ##
 
-There is a new version of the VNet Integration capability that does not depend on Point-to-Site VPN technology. Unlike the pre-existing feature, the new Preview feature will work with ExpressRoute and Service Endpoints. The new version is in Preview and has the following characteristics.
+There is a new version of the VNet Integration capability that does not depend on Point-to-Site VPN technology. Unlike the pre-existing feature, the new Preview feature will work with ExpressRoute and Service Endpoints. 
+
+The new capability is only available from newer Azure App Service scale units. If you can scale to PremiumV2 then you are in a newer App Service scale unit. The VNet Integration UI in the portal will tell you if your app can use the new VNet Integration feature. 
+
+The new version is in Preview and has the following characteristics.
 
 * No gateway is required to use the new VNet Integration feature
 * You can access resources across ExpressRoute connections without any additional configuration beyond integrating with the ExpressRoute connected VNet.
 * The app and the VNet must be in the same region
 * The new feature requires an unused subnet in your Resource Manager VNet.
 * Your App Service plan must be a Standard, Premium or PremiumV2 plan
-* The new capability is only available from newer Azure App Service scale units. The VNet Integration UI in the portal will tell you if your app can use the new VNet Integration feature.
 * Production workloads are not supported on the new feature while it is in Preview
 * Your app must be in an Azure App Service deployment that is capable of scaling up to Premium v2.
 * The new VNet Integration feature does not work for apps in an App Service Environment.
@@ -284,8 +287,7 @@ To use the new feature:
 
  ![Select the VNet and subnet][7]
 
-During the preview, some features will gradually become available such as Network Security Groups, peering and route tables. Also not initially available is the ability for your web app to pick up the VNet DNS setting.  If you want your app to use your VNet DNS server, then create an Application setting for your app where the name is WEBSITE_DNS_SERVER and the value is the IP address of the server.  If you have a secondary DNS server, then create another Application setting where the name is WEBSITE_DNS_ALT_SERVER and the value is the IP address of the server.
-
+During the preview, some features will gradually become available such as Network Security Groups, peering and route tables. Also not initially available is the ability for your web app to pick up the VNet DNS setting.  To use your VNet DNS server, create an Application setting for your app where the name is WEBSITE_DNS_SERVER and the value is the IP address of the server.  If you have a secondary DNS server, then create another Application setting where the name is WEBSITE_DNS_ALT_SERVER and the value is the IP address of the server.
 
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
