@@ -1,6 +1,6 @@
 ---
-title: Overview of access control in Data Lake Storage Gen1 | Microsoft Docs
-description: Understand how access control works in Azure Data Lake Storage Gen1
+title: Overview of access control in Azure Data Lake Storage Gen2 | Microsoft Docs
+description: Understand how access control works in Azure Data Lake Storage Gen2
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -16,9 +16,9 @@ ms.date: 03/26/2018
 ms.author: nitinme
 
 ---
-# Access control in Azure Data Lake Storage Gen1
+# Access control in Azure Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen1 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Storage Gen1. 
+Azure Data Lake Storage Gen2 implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Storage Gen2. 
 
 ## Access control lists on files and folders
 
@@ -46,7 +46,7 @@ The permissions on a filesystem object are **Read**, **Write**, and **Execute**,
 |------------|-------------|----------|
 | **Read (R)** | Can read the contents of a file | Requires **Read** and **Execute** to list the contents of the folder|
 | **Write (W)** | Can write or append to a file | Requires **Write** and **Execute** to create child items in a folder |
-| **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen1 | Required to traverse the child items of a folder |
+| **Execute (X)** | Does not mean anything in the context of Data Lake Storage Gen2 | Required to traverse the child items of a folder |
 
 ### Short forms for permissions
 
@@ -62,11 +62,11 @@ The permissions on a filesystem object are **Read**, **Write**, and **Execute**,
 
 ### Permissions do not inherit
 
-In the POSIX-style model that's used by Data Lake Storage Gen1, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items.
+In the POSIX-style model that's used by Data Lake Storage Gen2, permissions for an item are stored on the item itself. In other words, permissions for an item cannot be inherited from the parent items.
 
 ## Common scenarios related to permissions
 
-Following are some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Storage Gen1 account.
+Following are some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Storage Gen2 account.
 
 |    Operation             |    /    | Seattle/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
@@ -95,17 +95,17 @@ Every file and folder has distinct permissions for these identities:
 * Named groups
 * All other users
 
-The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen1, can either mean an Azure AD user or an Azure AD security group.
+The identities of users and groups are Azure Active Directory (Azure AD) identities. So unless otherwise noted, a "user," in the context of Data Lake Storage Gen2, can either mean an Azure AD user or an Azure AD security group.
 
 ### The super-user
 
-A super-user has the most rights of all the users in the Data Lake Storage Gen1 account. A super-user:
+A super-user has the most rights of all the users in the Data Lake Storage Gen2 account. A super-user:
 
 * Has RWX Permissions to **all** files and folders.
 * Can change the permissions on any file or folder.
 * Can change the owning user or owning group of any file or folder.
 
-All users that are part of the **Owners** role for a Data Lake Storage Gen1 account are automatically a super-user.
+All users that are part of the **Owners** role for a Data Lake Storage Gen2 account are automatically a super-user.
 
 ### The owning user
 
@@ -127,7 +127,7 @@ In the POSIX ACLs, every user is associated with a "primary group." For example,
 
 **Assiging the owning group for a new file or folder**
 
-* **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen1 account is created. In this case, the owning group is set to the user who created the account.
+* **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen2 account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
 
 **Changing the owning group**
@@ -141,7 +141,7 @@ The owning group can be changed by:
 
 ## Access check algorithm
 
-The following pseudocode represents the access check algorithm for Data Lake Storage Gen1 accounts.
+The following pseudocode represents the access check algorithm for Data Lake Storage Gen2 accounts.
 
 ```
 def access_check( user, desired_perms, path ) : 
@@ -189,11 +189,11 @@ def access_check( user, desired_perms, path ) :
 As illustrated in the Access Check Algorithm, the mask limits access for **named users**, the **owning group**, and **named groups**.  
 
 > [!NOTE]
-> For a new Data Lake Storage Gen1 account, the mask for the Access ACL of the root folder ("/") defaults to RWX.
+> For a new Data Lake Storage Gen2 account, the mask for the Access ACL of the root folder ("/") defaults to RWX.
 
 ### The sticky bit
 
-The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen1, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a folder,  a child item can only be deleted or renamed by the child item's owning user.
+The sticky bit is a more advanced feature of a POSIX filesystem. In the context of Data Lake Storage Gen2, it is unlikely that the sticky bit will be needed. In summary, if the sticky bit is enabled on a folder,  a child item can only be deleted or renamed by the child item's owning user.
 
 The sticky bit is not shown in the Azure portal.
 
@@ -208,7 +208,7 @@ When a new file or folder is created under an existing folder, the Default ACL o
 
 When creating a file or folder, umask is used to modify how the default ACLs are set on the child item. umask is a 9 bit a 9-bit value on parent folders that contains an RWX value for **owning user**, **owning group**, and **other**.
 
-The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. This value translates to
+The umask for Azure Data Lake Storage Gen2 a constant value that is set to 007. This value translates to
 
 | umask component     | Numeric form | Short form | Meaning |
 |---------------------|--------------|------------|---------|
@@ -216,7 +216,7 @@ The umask for Azure Data Lake Storage Gen1 a constant value that is set to 007. 
 | umask.owning_group  |    0         |   `---`      | For owning group, copy the parent's Default ACL to the child's Access ACL | 
 | umask.other         |    7         |   `RWX`      | For other, remove all permissions on the child's Access ACL |
 
-The umask value used by Azure Data Lake Storage Gen1 effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
+The umask value used by Azure Data Lake Storage Gen2 effectively means that the value for other is never transmitted by default on new children - regardless of what the Default ACL indicates. 
 
 The following pseudocode shows how the umask is applied when creating the ACLs for a child item.
 
@@ -240,7 +240,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### Do I have to enable support for ACLs?
 
-No. Access control via ACLs is always on for a Data Lake Storage Gen1 account.
+No. Access control via ACLs is always on for a Data Lake Storage Gen2 account.
 
 ### Which permissions are required to recursively delete a folder and its contents?
 
@@ -270,7 +270,7 @@ Entries in the ACLs are stored as GUIDs that correspond to users in Azure AD. Th
 
 A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD.
 
-### Does Data Lake Storage Gen1 support inheritance of ACLs?
+### Does Data Lake Storage Gen2 support inheritance of ACLs?
 
 No, but Default ACLs can be used to set ACLs for child files and folder newly created under the parent folder.  
 
