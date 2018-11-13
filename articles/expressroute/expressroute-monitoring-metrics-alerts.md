@@ -57,6 +57,10 @@ You can view metrics for private, public, and Microsoft peering in bits/second.
 In the **Alert Criteria**, you can select **Activity Log** for the Signal Type and select the Signal.
 
   ![another](./media/expressroute-monitoring-metrics-alerts/alertshowto6activitylog.jpg)
+  
+## Limitations
+
+There is a bug which can't get correct value in classic metric for the ExpressRoute circuit. If you want to see metric, please use new metric. 
 
 ## Next steps
 * Configure your ExpressRoute connection.
