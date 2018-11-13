@@ -19,13 +19,13 @@ ms.component: B2C
 >This feature is in public preview. Do not use feature for production applications. 
 >
 
-Age gating in Azure Active Directory (Azure AD) B2C enables you to identify minors that want to use your application. You can choose to block the minor from signing into the application. Users can also go back to the application and identify their age group and their parental consent status. Azure AD B2C can block minors without parental consent. Azure AD B2C has the ability to allow the application to decide what to do with minors.
+Age gating in Azure Active Directory (Azure AD) B2C enables you to identify minors that want to use your application. You can choose to block the minor from signing into the application. Users can also go back to the application and identify their age group and their parental consent status. Azure AD B2C can block minors without parental consent. Azure AD B2C can also be set up to allow the application to decide what to do with minors.
 
-After you enable age gating in your [user flow](active-directory-b2c-reference-policies.md), users are asked when they were born and country they live in. If a user signs in that hasn't previously entered the information, they'll need to enter it the next time they sign in. 
+After you enable age gating in your [user flow](active-directory-b2c-reference-policies.md), users are asked when they were born and what country they live in. If a user signs in that hasn't previously entered the information, they'll need to enter it the next time they sign in. The rules are applied every time a user signs in.
 
-The information that the user entersdate of birth and the country of residence that the user enters, Azure AD B2C uses the information that the user enters to identify whether they are a minor and updates the **ageGroup** field in their account. The value can be `null`, `Undefined`, `Minor`, `Adult`, and `NotAdult`.  The **ageGroup** and **consentProvidedForMinor** fields are then used to calculate the value of **legalAgeGroupClassification**.
+Azure AD B2C uses the information that the user enters to identify whether they're a minor and updates the **ageGroup** field in their account. The value can be `null`, `Undefined`, `Minor`, `Adult`, and `NotAdult`.  The **ageGroup** and **consentProvidedForMinor** fields are then used to calculate the value of **legalAgeGroupClassification**.
 
-Age gating involves two age values: the age that someone is no longer considered a minor, and the age at which a minor must parental consent. The following table lists the age rules that are used for defining a minor and a minor requiring consent.
+Age gating involves two age values: the age that someone is no longer considered a minor, and the age at which a minor must have parental consent. The following table lists the age rules that are used for defining a minor and a minor requiring consent.
 
 | Country | Country name | Minor consent age | Minor age |
 | ------- | ------------ | ----------------- | --------- |
@@ -99,7 +99,7 @@ After your tenant is set up to use age gating, you can then use this feature in 
 1. Create a user flow that has age gating enabled.
 2. After you create the user flow, select **Properties** in the menu.
 3. In the **Age gating** section, select **Enabled**.
-4. You can then choose how you want to manage users that identify as minors. For **Sign-up or sign in**, you can select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you have the choice of `Send a JSON bcak to the application` or `Show an error message`. 
+4. You can then choose how you want to manage users that identify as minors. For **Sign-up or sign-in**, you can select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you have the choice of `Send a JSON bcak to the application` or `Show an error message`. 
 
 
 
