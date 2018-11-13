@@ -7,7 +7,7 @@ manager: mtillman
 
 ms.service: active-directory
 ms.topic: overview
-ms.date: 10/24/2018
+ms.date: 11/13/2018
 ms.author: lizross
 #customer intent: As a new administrator, I want to understand what Azure Active Directory is, which license is right for me, and what features are available.
 ---
