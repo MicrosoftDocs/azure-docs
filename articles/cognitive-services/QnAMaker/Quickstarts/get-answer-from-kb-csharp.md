@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: diberry
 #Customer intent: As an API or REST developer new to the QnA Maker service, I want to programmatically get an answer a knowledge base using C#. 
 ---
@@ -23,7 +23,7 @@ This quickstart walks you through programmatically getting an answer from a publ
 
 * Latest [**Visual Studio Community edition**](https://www.visualstudio.com/downloads/).
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your Azure dashboard for your QnA Maker resource. 
-* Published knowledge base's ID. You can create an empty knowledge base, then import a KB on the **Settings** page, then publish. You can download and use [this basic KB](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv).
+* Published settings. You can create an empty knowledge base, then import a KB on the **Settings** page, then publish. You can download and use [this basic KB](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv). ![Publish settings](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 The code for this quickstart is in the [https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/get-answer) repository. 
 
