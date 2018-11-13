@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.workload: data-services
 ms.date: 04/09/2018
-ms.author: jasonh
+ms.author: mamccrea
 ms.reviewer: jasonh
 
 #Customer intent: "As an IT admin/developer I want to run Azure Functions with Stream Analytics jobs."
@@ -194,6 +194,13 @@ Follow the [Real-time fraud detection](stream-analytics-real-time-fraud-detectio
    This command should print the value for the specified key:
 
    ![Screenshot of Azure Redis Cache output](./media/stream-analytics-with-azure-functions/image5.png)
+   
+## Error handling and retries
+In the event of a failure while sending events to Azure Functions, Stream Analytics retries to successfully complete the operation. However, there are some failures for which retries are not attempted and they are as follows:
+
+ 1. HttpRequestExceptions
+ 2. Request Entity Too Large (Http error code 413)
+ 3. ApplicationExceptions
 
 ## Known issues
 

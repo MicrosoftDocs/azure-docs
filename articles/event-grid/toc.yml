@@ -93,6 +93,10 @@
     href: security-authentication.md
   - name: Delivery and retry
     href: delivery-and-retry.md
+  - name: Event filtering
+    href: event-filtering.md
+  - name: Event Domains
+    href: event-domains.md
   - name: Event sources
     href: event-sources.md
   - name: Event handlers
@@ -105,6 +109,8 @@
     href: receive-events.md
   - name: Dead letter and retry
     href: manage-event-delivery.md
+  - name: Filter events
+    href: how-to-filter-events.md
   - name: Monitor event delivery
     href: monitor-event-delivery.md
   - name: Query event subscriptions
@@ -115,6 +121,8 @@
     href: input-mappings.md
   - name: Use CloudEvents schema
     href: cloudevents-schema.md
+  - name: Manage topics with Event Domains
+    href: how-to-event-domains.md
 - name: Reference
   items:
   - name: Azure CLI

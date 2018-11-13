@@ -347,6 +347,12 @@ module.exports = function (context, input) {
 
 More details on starting instances can be found in [Instance management](durable-functions-instance-management.md).
 
+<a name="host-json"></a>  
+
+## host.json settings
+
+[!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
+
 ## Next steps
 
 > [!div class="nextstepaction"]

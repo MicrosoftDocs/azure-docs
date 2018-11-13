@@ -2,8 +2,8 @@
 title: Use Hadoop Pig in HDInsight 
 description: Learn how to use Pig with Hadoop on HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive

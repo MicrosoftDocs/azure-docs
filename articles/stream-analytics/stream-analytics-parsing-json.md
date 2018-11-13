@@ -4,7 +4,7 @@ description: This article describes how to operate on complex data types like ar
 services: stream-analytics
 ms.service: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.topic: conceptual
 ms.date: 08/03/2018

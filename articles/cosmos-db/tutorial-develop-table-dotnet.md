@@ -40,7 +40,7 @@ This tutorial is for developers who are familiar with the Azure Table storage SD
 
 If you currently use Azure Table storage, you gain the following benefits with Azure Cosmos DB Table API:
 
-- Turn-key [global distribution](distribute-data-globally.md) with multi-homing and [automatic and manual failovers](regional-failover.md)
+- Turn-key [global distribution](distribute-data-globally.md) with multi-homing and [automatic and manual failovers](high-availability.md)
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
 - Support for [independent scaling of storage and throughput](partition-data.md), across any number of regions
 - Support for [dedicated throughput per table](request-units.md) that can be scaled from hundreds to millions of requests per second

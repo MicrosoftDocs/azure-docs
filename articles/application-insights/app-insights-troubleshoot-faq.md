@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Application Insights FAQ | Microsoft Docs
 description: Frequently asked questions about Application Insights.
 services: application-insights
@@ -23,7 +23,7 @@ ms.author: mbullwin
 
 * [.NET app](app-insights-asp-net-troubleshoot-no-data.md)
 * [Monitoring an already-running app](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Azure diagnostics](app-insights-azure-diagnostics.md)
+* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Java web app](app-insights-java-troubleshoot.md)
 
 *I get no data from my server*
@@ -107,7 +107,7 @@ From server web apps:
 
 From [client web pages](app-insights-javascript.md):
 
-* [Page view counts](app-insights-web-track-usage.md)
+* [Page view counts](app-insights-usage-overview.md)
 * [AJAX calls](app-insights-asp-net-dependencies.md) Requests made from a running script.
 * Page view load data
 * User and session counts
@@ -115,7 +115,7 @@ From [client web pages](app-insights-javascript.md):
 
 From other sources, if you configure them:
 
-* [Azure diagnostics](app-insights-azure-diagnostics.md)
+* [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Docker containers](app-insights-docker.md)
 * [Import tables to Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)

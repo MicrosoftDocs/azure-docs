@@ -5,7 +5,7 @@ description: Use the IoT extension for Visual Studio Code to develop multiple mo
 services: iot-edge
 keywords: 
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 06/27/2018
