@@ -32,7 +32,7 @@ Each request to either the speech-to-text or text-to-speech REST API requires an
 
 When using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key. For example:
 
-```http
+```
 'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
