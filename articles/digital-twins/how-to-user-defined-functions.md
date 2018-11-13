@@ -6,13 +6,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/26/2018
+ms.date: 11/13/2018
 ms.author: alinast
 ---
 
 # How to use user-defined functions in Azure Digital Twins
 
-[User-defined functions](./concepts-user-defined-functions.md) (UDF) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
+[User-defined functions](./concepts-user-defined-functions.md) (UDF) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata. Then the user can send events to predefined endpoints. This guide walks through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
 Before continuing, verify that the telemetry property **DigitalTwins-SensorHardwareId** is identical to your Sensor's **HardwareId** property (which specifies the Device it is attached to). That condition is required for any Sensor's telemetry message to be processed in the UDF execution engine.
 
