@@ -1,16 +1,15 @@
 ---
-title: Jenkins continuous deployment with Azure Kubernetes Service (AKS)
-description: Learn how to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app in Azure Kubernetes Service (AKS)
+title: Tutorial - Deploy from GitHub to Azure Kubernetes Service (AKS) with Jenkins
+description: Automate continuous integration (CI) and continuous deployment (CD) for Azure Kubernetes Service (AKS)
 services: container-service
-author: iainfoulds
-
 ms.service: container-service
+author: iainfoulds
+ms.author: iainfou
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: iainfou
 ---
 
-# Create a continuous deployment pipeline with Jenkins and Azure Kubernetes Service (AKS)
+# Tutorial: Deploy from GitHub to Azure Kubernetes Service (AKS) with continuous integration and deployment in Jenkins
 
 To quickly deploy updates to applications in Azure Kubernetes Service (AKS), you often use a continuous integration and continuous delivery (CI/CD) platform. In a CI/CD platform, a code commit can trigger a new container build that is then used to deploy an updated application instance. In this article, you use Jenkins as the CI/CD platform to build and push container images to Azure Container Registry (ACR) and then run those applications in AKS. You learn how to:
 

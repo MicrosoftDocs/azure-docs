@@ -1,18 +1,17 @@
 ---
-title: Tutorial - Deploy Java web apps from GitHub to Azure with Jenkins
-description: Set up Jenkins for using continuous integration (CI) in GitHub and continuous deployment (CD) in Azure App Service for Java web apps
-keywords: jenkins, azure, devops, app service, continuous integration, ci, continuous deployment, cd
+title: Tutorial - Deploy from GitHub to Azure App Service with Jenkins
+description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure App Service for Java web apps
 services: jenkins
 ms.service: jenkins
 author: tomarcher
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/10/2018
+ms.date: 11/19/2018
 ---
 
-# Tutorial: Deploy Java web apps from GitHub to Azure App Service with continuous integration and deployment in Jenkins
+# Tutorial: Deploy from GitHub to Azure App Service with continuous integration and deployment in Jenkins
 
-This tutorial deploys a Java web app from GitHub to 
+This tutorial deploys a sample Java web app from GitHub to 
 [Azure App Service on Linux](/azure/app-service/containers/app-service-linux-intro) 
 by setting up continuous integration (CI) and continuous deployment (CD) in Jenkins. 
 That way, when you update your app by pushing commits to GitHub, 
