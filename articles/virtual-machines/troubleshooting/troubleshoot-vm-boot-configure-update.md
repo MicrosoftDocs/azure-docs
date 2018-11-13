@@ -185,7 +185,7 @@ $dataDiskResourceId = "/subscriptions/$subid/resourceGroups/$rgname/providers/Mi
 
 $vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize;
 
-#Uncomment to add Availabilty Set
+#Uncomment to add Availability Set
 #$avSet = Get-AzureRmAvailabilitySet –Name $avName –ResourceGroupName $rgName;
 #$vm = New-AzureRmVMConfig -VMName $vmName -VMSize $vmSize -AvailabilitySetId $avSet.Id;
 
@@ -203,7 +203,7 @@ $vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskN
 #Linux VM
 #$vm = Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDiskResouceId -name $osDiskName -CreateOption Attach -Linux;
 
-#Uncomment to add additnal Data Disk
+#Uncomment to add additional Data Disk
 #Add-AzureRmVMDataDisk -VM $vm -ManagedDiskId $dataDiskResourceId -Name $dataDiskName -Caching None -DiskSizeInGB 1024 -Lun 0 -CreateOption Attach;
 
 New-AzureRmVM -ResourceGroupName $rgName -Location $loc -VM $vm;
