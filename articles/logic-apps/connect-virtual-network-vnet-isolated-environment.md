@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 11/23/2018
 ---
 
 # Connect to Azure virtual networks from Azure Logic Apps through an integration service environment (ISE)
@@ -23,7 +23,7 @@ For integration scenarios where your logic apps and integration accounts need ac
 which is a private and isolated environment that uses dedicated storage and other resources 
 kept separate from the public or *global* Logic Apps service. This separation also 
 reduces any impact that other Azure tenants might have on your apps' performance. 
-You can link this ISE to your Azure virtual network, which then deploys the Logic Apps 
+You link this ISE to your Azure virtual network, which then deploys the Logic Apps 
 service into your virtual network. When you create a logic app or integration account, 
 select this ISE as their location. Your logic app or integration account can then directly 
 access resources, such as virtual machines (VMs), servers, systems, and services, in your virtual network. 
@@ -42,20 +42,16 @@ private Logic Apps instance can access your virtual network.
 * Create an integration account for your logic apps in your ISE.
 
 For more information about integration service environments, see 
-[Access to Azure Virtual Network resources from isolated Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
+[Access to Azure Virtual Network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 ## Prerequisites
 
 * An Azure subscription. If you don't have an Azure subscription, 
 <a href="https://azure.microsoft.com/free/" target="_blank">sign up for a free Azure account</a>. 
 
-* If you don't have an Azure virtual network, learn how to 
+* An [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
+If you don't have a virtual network, learn how to 
 [create an Azure virtual network](../virtual-network/quick-create-portal.md). 
-
-  > [!IMPORTANT]
-  > While you don't need an Azure virtual network for creating your environment, 
-  > you can *only* select a virtual network as your environment's peer when you 
-  > create that environment. 
 
 * To give your logic apps direct access to your Azure virtual network, 
 [set up Role-Based Access Control (RBAC) permissions](#vnet-access) 
@@ -68,16 +64,30 @@ so the Logic Apps service has the permissions for accessing your virtual network
 
 ## Set virtual network permissions
 
-When you create your integration service environment, 
-you can select an Azure virtual network as a *peer* 
-for your environment. However, you can only perform this step, 
-or *peering*, when you create your environment. 
+When you create an integration service environment (ISE), 
+you select an Azure virtual network into where you *inject* 
+your environment. You can *only* perform this injection 
+when you create your ISE. Azure deploys a private instance 
+of the Logic Apps service into your virtual network. 
+This action results in an isolated environment where you 
+can create and run your logic apps on dedicated resources. 
+
 This relationship lets the Logic Apps service connect 
 directly to resources in that virtual network and 
 gives your environment access to those resources. 
 
-Before you can select your virtual network, 
-you must set up Role-Based Access Control (RBAC) 
+When you create a logic app, you can select this environment 
+as your app's location, which also gives your logic app 
+direct access to the resources in your virtual network. 
+
+This step gives your ISE access to resources in your virtual network, 
+which then lets logic apps in that ISE connect directly 
+to resources in your virtual network. For on-premises 
+systems in a virtual network that's linked to an ISE, logic apps 
+can directly access those systems by using any of these items: 
+
+Before you can select an virtual network for injecting 
+your environment, you must set up Role-Based Access Control (RBAC) 
 permissions in your virtual network. To complete this task, 
 you must assign specific roles to the Azure Logic Apps service.
 
@@ -105,72 +115,6 @@ table for the Azure Logic Apps service. Make sure you choose
    For example:
 
    ![Add permissions](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
-
-   For more information about the role permissions required for peering, see the 
-   [Permissions section in Create, change, or delete a virtual network peering](../virtual-network/virtual-network-manage-peering.md#permissions). 
-
-If your virtual network is connected through Azure ExpressRoute, 
-Azure Point-to-Site VPN, or Azure Site-to-Site VPN, continue with 
-the next section so you can add the required gateway subnet. 
-Otherwise, continue with [Create your environment](#create-environment).
-
-<a name="add-gateway-subnet"></a>
-
-## Add gateway subnet for virtual networks with ExpressRoute or VPNs
-
-After you finish the previous steps, to give your integration service environment (ISE) 
-access to an Azure virtual network that's connected either through 
-[Azure ExpressRoute](../expressroute/expressroute-introduction.md), 
-[Azure Point-to-Site VPN](../vpn-gateway/point-to-site-about.md), or 
-[Azure Site-to-Site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), 
-you must also add a [*gateway subnet*](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) to your virtual network:
-
-1. In the [Azure portal](https://portal.azure.com), 
-find and select your virtual network. On your virtual network's menu, 
-select **Subnets**, and then choose **Gateway subnet** > **OK**.
-
-   ![Add gateway subnet](./media/connect-virtual-network-vnet-isolated-environment/add-gateway-subnet.png)
-
-1. Now, create a [*route table*](../virtual-network/manage-route-table.md), 
-which you'll associate with the gateway subnet you created earlier.
-
-   1. On the main Azure menu, select **Create a resource** > 
-   **Networking** > **Route table**.
-
-      ![Create route table](./media/connect-virtual-network-vnet-isolated-environment/create-route-table.png)
-
-   1. Provide information about the route table, 
-   such as the name, your Azure subscription to use, 
-   Azure resource group, and location. Make sure the 
-   **BGP route propagation** property is set to **Enabled**, 
-   and then choose **Create**.
-
-      ![Provide route table details](./media/connect-virtual-network-vnet-isolated-environment/enter-route-table-information.png)
-
-   1. On the route table menu, select **Subnets**, 
-   and then choose **Associate**. 
-
-      ![Connect route table to subnet](./media/connect-virtual-network-vnet-isolated-environment/associate-route-table.png)
-
-   1. Select **Virtual network**, and then select your virtual network.
-   
-   1. Select **Subnet**, and then select your previously created gateway subnet.
-
-   1. When you're done, choose **OK**.
-
-1. If you have a point-to-site VPN, complete these steps too:
-
-   1. In Azure, find and select your virtual network gateway resource.
-
-   1. On the gateway's menu, select **Point-to-site configuration**. 
-   and then choose **Download VPN client** so you have the most 
-   current VPN client configuration.
-
-      ![Download latest VPN client](./media/connect-virtual-network-vnet-isolated-environment/download-vpn-client.png)
-
-You're now done with setting up a gateway subnet for virtual networks 
-that use ExpressRoute, point-to-site VPNs, or site-to-site VPNs. 
-To continue creating your integration service environment, follow the next steps.
 
 <a name="create-environment"></a>
 

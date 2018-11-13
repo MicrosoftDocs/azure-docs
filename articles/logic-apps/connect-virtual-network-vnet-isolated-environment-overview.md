@@ -33,28 +33,27 @@ This separation also helps reduce the impact that other
 Azure tenants might have on your apps' performance, or the 
 ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors). 
 
-This overview describes how creating an ISE helps logic apps and integration 
-accounts directly access resources inside your Azure virtual network, 
-and compares the differences between an ISE and the global Logic Apps service.
+This overview describes how an ISE gives your logic apps and 
+integration accounts direct access to your Azure virtual network and 
+compares differences between an ISE and the global Logic Apps service.
 
 <a name="difference"></a>
 
 ## Isolated versus global
 
 When you create an integrated service environment (ISE) in Azure, 
-you can select an Azure virtual network as a *peer* for your environment. 
-Azure deploys a private instance of the Logic Apps service into 
-your virtual network, resulting in an isolated environment where you can 
-create and run your logic apps on dedicated resources. When you 
-create a logic app, you can select this environment as your 
-app's location, which also gives your logic app direct access 
-to the resources in your virtual network.  
+you select an Azure virtual network where you *inject* your environment. 
+Azure deploys a private instance of the Logic Apps service into your 
+virtual network, resulting in an isolated environment where you can 
+create and run your logic apps on dedicated resources. When you create 
+a logic app, you can select this environment as your app's location, 
+which also gives your logic app direct access to the resources in your virtual network.  
 
 Logic apps in an ISE provide the same user experiences and similar 
-capabilities as the global Logic Apps service. Not only can you use the 
-same built-ins and connectors provided by the global Logic Apps service, 
-but you can choose from connectors that provide ISE versions. For example, 
-here's some standard connectors that offer versions that run in an ISE:
+capabilities as the global Logic Apps service. You can use the same 
+built-in actions and connectors in the global Logic Apps service, 
+but you can also use ISE-specific connectors. For example, here's 
+some standard connectors that offer versions that run in an ISE:
  
 * Azure Blob Storage, File Storage, and Table Storage
 * Azure Queues, Azure Service Bus, Azure Event Hubs, and IBM MQ
@@ -65,9 +64,9 @@ here's some standard connectors that offer versions that run in an ISE:
 The difference between ISE and non-ISE connectors is 
 in the locations where the triggers and actions run:
 
-* If you use built-in triggers and actions such as HTTP in 
-your ISE, these triggers and actions always run in the same 
-ISE as your logic app. 
+* If you use built-in triggers and actions, such as HTTP, 
+in your ISE, the triggers and actions always run inside 
+the same ISE as your logic app. 
 
 * For connectors that offer two versions: one version runs in an ISE, 
 while the other version runs in the global Logic Apps service.  
@@ -91,9 +90,9 @@ available for use in the global Logic Apps service.
 ## Permissions for virtual network access
 
 When you create an integration service environment (ISE), 
-you can select an Azure virtual network into where you 
-*inject* your environment. However, you can perform this 
-injection *only* when you create your ISE. This step gives 
+you select an Azure virtual network into where you 
+*inject* your environment. You can *only* perform this 
+injection when you create your ISE. This step gives 
 your ISE access to resources in your virtual network, 
 which then lets logic apps in that ISE connect directly 
 to resources in your virtual network. For on-premises 
@@ -107,22 +106,22 @@ can directly access those systems by using any of these items:
 * Custom connector
 
 For on-premises systems that aren't in a virtual network or 
-don't have ISE connectors, you can still connect after you 
-[set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
+don't have ISE connectors, you can connect to those systems 
+after you [set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
 Before you can select an Azure virtual network for injecting 
 your environment, you must set up Role-Based Access Control (RBAC) 
 permissions in your virtual network for the Azure Logic Apps service. 
-This task requires that you assign the **Network Contributor** and 
+This task requires that you assign the **Network Contribtor** and 
 **Classic Contributor** roles to the Azure Logic Apps service.
 
 <a name="create-integration-account-environment"></a>
 
 ## Integration accounts with ISE
 
-You can use integration accounts with logic apps that run in 
-an integration service environment (ISE), but those integration 
-accounts must also use the *same ISE* as the linked logic apps. 
+You can use integration accounts with logic apps inside an 
+integration service environment (ISE). However, those integration 
+accounts must use the *same ISE* as the linked logic apps. 
 Logic apps in an ISE can reference only those integration accounts 
 that are in the same ISE. When you create an integration account, 
 you can select your ISE as the location for your integration account.
