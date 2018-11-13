@@ -22,7 +22,7 @@ Microsoft Azure provides multiple ways to collect different types of data from V
 ## Comparing Azure Diagnostic, Log Analytics, and Dependency agent
 Today in Azure, there are three types of agents available to monitor an Azure VM - the Azure Diagnostics extension, the Dependency agent, and Log Analytics Agent for Linux and Windows.  Fundamentally, the Azure Dependency extension and Log Analytics agents are designed to collect metrics and logs, and forward to a repository. However, that's where their similarities end.  
 
-The [Azure Diagnostics extension](../monitoring-and-diagnostics/azure-diagnostics.md) (commonly referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD extension), which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure compute resource like a VM, and persist it to Azure storage. Once in storage, you chose to view with one of several available tools, such as [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) and [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
+The [Azure Diagnostics extension](../monitoring-and-diagnostics/azure-diagnostics.md) (commonly referred to as the Windows Azure Diagnostic (WAD) or Linux Azure Diagnostic (LAD) extension), which has been provided for Azure Cloud Services since it became generally available in 2010, is an agent that delivers simple collection of diagnostic data from an Azure compute resource like a VM, and persist it to Azure storage. Once in storage, you chose to view with one of several available tools, such as [Server Explorer in Visual Studio](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage) and [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).
 
 You can choose to collect:
 
@@ -36,7 +36,7 @@ You can choose to collect:
 The Azure Diagnostics agent should be used when:
 
 * You want to archive logs and metrics to Azure storage
-* Integrate monitoring data with third-party tools. These tools use a variety of methods including querying the storage account, forwarded to [Event Hub](../event-hubs/event-hubs-about.md), or querying with the [Azure Monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
+* Integrate monitoring data with third-party tools. These tools use a variety of methods including querying the storage account, forwarded to [Event Hubs](../event-hubs/event-hubs-about.md), or querying with the [Azure Monitoring REST API](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md)
 * Upload data to Azure Monitor to create metric charts in the Azure portal or create near real-time [metric alerts](../monitoring-and-diagnostics/alert-metric-overview.md). 
 * Autoscale virtual machine scale sets and Classic Cloud Services based on guest OS metrics.
 * Investigate VM boot issues with [Boot Diagnostics](../virtual-machines/troubleshooting/boot-diagnostics.md).
@@ -69,5 +69,6 @@ You may need some combination of these agents to monitor your VM. The agents can
 
 ## Next steps
 
-See [Overview of the Log Analytics agent](../log-analytics/log-analytics-agent-overview.md) to review requirements and supported methods to deploy the agent to machines hosted in Auzre, in your datacenter, or other cloud environment.
+- Review the 
+- See [Overview of the Log Analytics agent](../log-analytics/log-analytics-agent-overview.md) to review requirements and supported methods to deploy the agent to machines hosted in Auzre, in your datacenter, or other cloud environment.
 
