@@ -2,7 +2,7 @@
 title: Deploy modules for Azure IoT Edge | Microsoft Docs 
 description: Learn about how modules get deployed to edge devices
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/27/2018
 ms.topic: conceptual
