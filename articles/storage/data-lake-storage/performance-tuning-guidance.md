@@ -45,7 +45,7 @@ Once you have addressed the source hardware and network connectivity bottlenecks
 | Tool               | Settings		| More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m (mapper)	| [Link](copy-data-wasb-distcp.md#performance-considerations-while-using-distcp)                             |
-| Azure Data Factory| parallelCopies	| [Link](../data-factory/copy-activity-performance.md)                          |
+| Azure Data Factory| parallelCopies	| [Link](../../data-factory/copy-activity-performance.md)                          |
 | Sqoop           | fs.azure.block.size, -m (mapper)	|	[Link](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/)        |
 
 ## Structure your data set

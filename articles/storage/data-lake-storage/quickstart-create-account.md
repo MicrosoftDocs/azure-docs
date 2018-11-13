@@ -120,9 +120,9 @@ Login-AzureRmAccount
 
 ### Upgrade your powershell module
 
-In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the preview version.
+In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the PowerShell module Az.Storage version **0.7** or later.
 
-To do that, open an elevated PowerShell and enter the following command: `Install-Module AzureRM.Storage –Repository PSGallery -RequiredVersion 5.0.4-preview –AllowPrerelease –AllowClobber –Force `
+To do that, open an elevated PowerShell and enter the following command: `Install-Module Az.Storage –Repository PSGallery -RequiredVersion .07 –AllowPrerelease –AllowClobber –Force `
 
 Then restart your shell.
 
