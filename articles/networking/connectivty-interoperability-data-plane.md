@@ -1,5 +1,5 @@
 ---
-title: Interoperability in Azure back-end connectivity features - Data plane analysis | Microsoft Docs
+title: 'Interoperability in Azure back-end connectivity features: Data plane analysis | Microsoft Docs'
 description: This article provides the data plane analysis of the test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 documentationcenter: na
 services: networking
@@ -14,7 +14,7 @@ ms.author: rambala
 
 ---
 
-# Interoperability in Azure back-end connectivity features - Data plane analysis
+# Interoperability in Azure back-end connectivity features: Data plane analysis
 
 This article describes the data plane analysis of the [test setup][Setup]. You can also review the [test setup configuration][Configuration] and the [control plane analysis][Control-Analysis] of the test setup.
 
@@ -78,7 +78,7 @@ Traceroute output from a hub VNet to a VM in on-premises Location 1 is shown her
 
 	Trace complete.
 
-In this traceroute, the first hop is the ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise Edge Router (MSEE). The second and third hops are the customer edge (CE) router and the on-premises Location 1 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM in the on-premises Location 1.
+In this traceroute, the first hop is the Azure ExpressRoute gateway tunnel endpoint to a Microsoft Enterprise Edge Router (MSEE). The second and third hops are the customer edge (CE) router and the on-premises Location 1 LAN IPs. These IP addresses aren't advertised in the hub VNet. The fourth hop is the VM in the on-premises Location 1.
 
 
 ### Path to on-premises Location 2

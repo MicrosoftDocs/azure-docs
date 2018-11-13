@@ -1,5 +1,5 @@
 ---
-title: Interoperability in Azure back-end connectivity features - Test setup | Microsoft Docs
+title: 'Interoperability in Azure back-end connectivity features: Test setup | Microsoft Docs'
 description: This article describes a test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 documentationcenter: na
 services: networking
@@ -14,11 +14,11 @@ ms.author: rambala
 
 ---
 
-# Interoperability in Azure back-end connectivity features - Test setup
+# Interoperability in Azure back-end connectivity features: Test setup
 
 This article describes a test setup you can use to analyze how Azure networking services interoperate at the control plane level and data plane level. Let's look briefly at the Azure networking components:
 
--   **ExpressRoute**: Use private peering in Azure ExpressRoute to directly connect private IP spaces in your on-premises network to your Azure Virtual Network deployments. ExpressRoute can help you achieve higher bandwidth and a private connection. Many ExpressRoute eco partners offer ExpressRoute connectivity with SLAs. To learn more about ExpressRoute and to learn how to configure ExpressRoute, see [Introduction to ExpressRoute][ExpressRoute].
+-   **Azure ExpressRoute**: Use private peering in Azure ExpressRoute to directly connect private IP spaces in your on-premises network to your Azure Virtual Network deployments. ExpressRoute can help you achieve higher bandwidth and a private connection. Many ExpressRoute eco partners offer ExpressRoute connectivity with SLAs. To learn more about ExpressRoute and to learn how to configure ExpressRoute, see [Introduction to ExpressRoute][ExpressRoute].
 -   **Site-to-site VPN**: You can use Azure VPN Gateway as a site-to-site VPN to securely connect an on-premises network to Azure over the internet or by using ExpressRoute. To learn how to configure a site-to-site VPN to connect to Azure, see [Configure VPN Gateway][VPN].
 -   **VNet peering**: Use virtual network (VNet) peering to establish connectivity between VNets in Azure Virtual Network. To learn more about VNet peering, see the [tutorial on VNet peering][VNet].
 

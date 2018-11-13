@@ -1,5 +1,5 @@
 ---
-title: Interoperability in Azure back-end connectivity features - Configuration details | Microsoft Docs
+title: 'Interoperability in Azure back-end connectivity features: Configuration details | Microsoft Docs'
 description: This article describes configuration details for the test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 documentationcenter: na
 services: networking
@@ -14,7 +14,7 @@ ms.author: rambala
 
 ---
 
-# Interoperability in Azure back-end connectivity features - Test configuration details
+# Interoperability in Azure back-end connectivity features: Test configuration details
 
 This article describes the configuration details of the [test setup][Setup]. The test setup helps you analyze how Azure networking services interoperate at the control plane level and data plane level.
 

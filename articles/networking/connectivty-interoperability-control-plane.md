@@ -1,5 +1,5 @@
 ---
-title: Interoperability in Azure back-end connectivity features - Control plane analysis | Microsoft Docs
+title: 'Interoperability in Azure back-end connectivity features: Control plane analysis | Microsoft Docs'
 description: This article provides the control plane analysis of the test setup you can use to analyze interoperability between ExpressRoute, a site-to-site VPN, and virtual network peering in Azure.
 documentationcenter: na
 services: networking
@@ -14,7 +14,7 @@ ms.author: rambala
 
 ---
 
-# Interoperability in Azure back-end connectivity features - Control plane analysis
+# Interoperability in Azure back-end connectivity features: Control plane analysis
 
 This article describes the control plane analysis of the [test setup][Setup]. You can also review the [test setup configuration][Configuration] and the [data plane analysis][Data-Analysis] of the test setup.
 
