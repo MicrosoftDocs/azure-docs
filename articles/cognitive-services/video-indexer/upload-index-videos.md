@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: sample
-ms.date: 09/15/2018
+ms.date: 11/12/2018
 ms.author: juliako
 ---
 
@@ -18,7 +18,8 @@ ms.author: juliako
 This article shows how to upload a video with Azure Video Indexer. The Video Indexer API provides two uploading options: 
 
 * upload your video from a URL (preferred),
-* send the video file as a byte array in the request body.
+* send the video file as a byte array in the request body,
+* Use existing Azure Media Services asset by providing the [asset id](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (supported in paid accounts only).
 
 The article shows how to use the [Upload video](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API to upload and index your videos based on a URL. The code sample in the article includes the commented out code that shows how to upload the byte array.  
 
@@ -46,6 +47,35 @@ This section describes some of the optional parameters and when you would want t
 
 This parameter enables you to specify an ID that will be associated with the video. The ID can be applied to external "Video Content Management" (VCM) system integration. The videos that are located in the Video Indexer portal can be searched using the specified external ID.
 
+### callbackUrl
+
+A URL that is used to notify the customer (using a POST request) about the following events:
+
+- Indexing state change: 
+    - Properties:    
+    
+        |Name|Description|
+        |---|---|
+        |id|The video id|
+        |state|The video state|  
+    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+- Person identified in video:
+    - Properties
+    
+        |Name|Description|
+        |---|---|
+        |id| The video id|
+        |faceId|The face ID that appears in the video index|
+        |knownPersonId|The person ID that is unique within a face model|
+        |personName|The name of the person|
+        
+     - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+
+#### Notes
+
+- Video Indexer returns any existing parameters provided in the original URL.
+- The provided URL must be encoded.
+
 ### indexingPreset
 
 Use this parameter if raw or external recordings contain background noise. This parameter is used to configure the indexing process. You can specify the following values:
@@ -56,11 +86,11 @@ Use this parameter if raw or external recordings contain background noise. This 
 
 Price depends on the selected indexing option.  
 
-### callbackUrl
+### priority
 
-A POST URL to notify when indexing is completed. Video Indexer adds two query string parameters to it: id and state. For example, if the callback url is 'https://test.com/notifyme?projectName=MyProject', the notification will be sent with additional parameters to 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+Videos are indexed by Video Indexer according to their priority. Use the **priority** parameter to specify the index priority. The following values are valid: **Low**, **Normal** (default), and **High**.
 
-You can also add more parameters to the URL before POSTing the call to Video Indexer and these parameters will be included in the callback. Later, in your code you can parse the query string and get back all of the specified parameters in the query string (data that you had originally appended to the URL plus the Video Indexer supplied info.) The URL needs to be encoded.
+**Priority** parameter is only supported for paid accounts.
 
 ### streamingPreset
 
