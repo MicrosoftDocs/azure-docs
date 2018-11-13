@@ -47,10 +47,8 @@
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
     items:    
-    - name: Choose an environment 
-      displayName: local, remote
-      href: how-to-choose-a-dev-environment.md 
     - name: Configure an environment
+      displayName: local, remote
       href: how-to-configure-environment.md
     - name: VS Code Tools for AI
       displayName: Visual Studio Code, vscode
@@ -128,6 +126,9 @@
       href: how-to-enable-app-insights.md 
   - name: Manage resource quotas
     href: how-to-manage-quotas.md
+  - name: Use the Machine Learning CLI
+    displayName: cli, command line, command-line
+    href: reference-azure-machine-learning-cli.md
 - name: Reference
   items:    
   - name: Machine learning SDK
@@ -135,9 +136,7 @@
   - name: Data prep SDK
     href: http://aka.ms/data-prep-sdk
   - name: Monitoring SDK
-    href: https://aka.ms/aml-monitoring-sdk
-  - name: Machine learning CLI
-    href: reference-azure-machine-learning-cli.md   
+    href: https://aka.ms/aml-monitoring-sdk 
 - name: Resources
   items:  
   - name: Azure roadmap
