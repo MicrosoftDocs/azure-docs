@@ -39,9 +39,7 @@ Refer to the [Before You Get Started documentation](azure-stack-app-service-befo
 
 Before you begin the upgrade of Azure App Service on Azure Stack to 1.4:
 
-- ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
-
-![App Service role status](media/azure-stack-app-service-release-notes-update-three/image01.png)
+- Ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
 
 - Back up the App Service and Master Databases:
   - AppService_Hosting;
@@ -56,7 +54,7 @@ Before you begin the upgrade of Azure App Service on Azure Stack to 1.4:
 
 Azure App Service on Azure Stack Update 4 includes the following improvements and fixes:
 
-- Resolution for ![CVE 2018-8600](https://aka.ms/CVE20188600) Cross Site Scripting Vulnerability.
+- Resolution for [CVE 2018-8600](https://aka.ms/CVE20188600) Cross Site Scripting Vulnerability.
 
 - Added support for App Service 2018-02-01 API version
 
@@ -93,7 +91,7 @@ Azure App Service on Azure Stack Update 4 includes the following improvements an
 
 - Ensure endpoint is specified in custom storage connection string when specified in new Function application
 
-### Post Update Steps (optional)
+### Post update steps (optional)
 
 For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.4 update has completed:
 
