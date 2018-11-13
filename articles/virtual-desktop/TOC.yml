@@ -21,8 +21,6 @@
     href: manage-user-storage.md
 - name: How-to
   items:
-  - name: Set up tenants in Azure Active Directory
-    href: set-up-wvd-tenants-in-ad.md
   - name: Connect to a Remote Desktop environment
     href: set-up-wvd-tenants-in-rd.md
 - name: Concepts

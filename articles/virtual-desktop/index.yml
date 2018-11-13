@@ -42,7 +42,6 @@ sections:
   - type: list
     style: unordered
     items: 
-    - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-ad">Set up tenants in Azure Active Directory</a>
     - html: <a href="/azure/virtual-desktop/set-up-wvd-tenants-in-rd">Connect to a Remote Desktop environment</a>
 - title: Concepts
   items: 
