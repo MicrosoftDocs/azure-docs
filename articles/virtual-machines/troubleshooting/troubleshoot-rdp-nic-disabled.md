@@ -28,9 +28,6 @@ This article shows how to resolve a problem in which you cannot remote desktop t
 
 You cannot make an RDP connection and other connections (such as HTTP) to a VM in Azure because the network interface in the VM is disabled. 
 
-![Image about network inferce in Safe Mode](./media/troubleshoot-bitlocker-boot-error/network-safe-mode.png)
-
-
 ## Solution 
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
