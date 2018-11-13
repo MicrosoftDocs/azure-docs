@@ -10,11 +10,11 @@ ms.author: jamesbak
 ---
 # Use Azure Data Lake Storage Gen2 Preview with Azure HDInsight clusters
 
-To analyze data in HDInsight cluster, you can store the data either in any combination of Azure Storage, Azure Data Lake Storage Gen1, or Azure Data Lake Storage Gen2 Preview. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
+To analyze data in an HDInsight cluster, you can store the data either in any combination of Azure Blob Storage, Azure Blob Storage with Azure Data Lake Storage Gen2 Preview enabled, or Azure Data Lake Storage Gen1. All storage options enable you to safely delete HDInsight clusters that are used for computation without losing user data.
 
-Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage or Azure Data Lake Storage as the default file system. Alternatively with HDInsight 3.5, you can select either Azure Storage or Azure Data Lake Storage as the default file system with a few exceptions.
+Hadoop supports a notion of the default file system. The default file system implies a default scheme and authority. It can also be used to resolve relative paths. During the HDInsight cluster creation process, you can specify a blob container in Azure Storage or the hierarchical namespace offered by Data Lake Storage Gen2 as the default file system. Alternatively with HDInsight 3.5, you can select either a container or the hierarchical namespace as the default file system with a few exceptions.
 
-In this article, you learn how Azure Data Lake Storage Gen2 works with HDInsight clusters. For more information about creating an HDInsight cluster, see [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md).
+In this article, you learn how Data Lake Storage Gen2 works with HDInsight clusters. For more information about creating an HDInsight cluster, see [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md).
 
 Azure storage is a robust, general-purpose storage solution that integrates seamlessly with HDInsight. HDInsight can use Azure Data Lake Storage as the default file system for the cluster. Through a Hadoop distributed file system (HDFS) interface, the full set of components in HDInsight can operate directly on files in Azure Data Lake Storage.
 
@@ -74,13 +74,13 @@ Certain MapReduce jobs and packages may create intermediate results that you don
 > [!NOTE]
 > Most HDFS commands (for example, `ls`, `copyFromLocal` and `mkdir`) still work as expected. Only the commands that are specific to the DFS, such as `fschk` and `dfsadmin`, show different behavior in Azure storage.
 
-## Create an Data Lake Storage file system
+## Create a Data Lake Storage file system
 
 To use the file system, you first create an [Azure Storage account][azure-storage-create]. As part of this process, you specify an Azure region where the storage account is created. The cluster and the storage account must be hosted in the same region. The Hive metastore SQL Server database and Oozie metastore SQL Server database must also be located in the same region.
 
-Wherever it lives, each blob you create belongs to a file system in your Azure Data Lake Storage account. 
+Wherever it lives, each blob you create belongs to a file system in your storage account.
 
-The default Data Lake Storage file system stores cluster-specific information such as job history and logs. Don't share a default Data Lake Storage file system with multiple HDInsight clusters. This might corrupt job history. It is recommended to use a different file system for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters][hdinsight-creation]. However, you can reuse a default storage file system after the original HDInsight cluster has been deleted. For HBase clusters, you can retain the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by a deleted HBase cluster that has been deleted.
+The default Data Lake Storage Gen2 file system stores cluster-specific information such as job history and logs. Don't share a default Data Lake Storage Gen2 file system with multiple HDInsight clusters. This might corrupt job history. It is recommended to use a different file system for each cluster and put shared data on a linked storage account specified in deployment of all relevant clusters rather than the default storage account. For more information on configuring linked storage accounts, see [Create HDInsight clusters][hdinsight-creation]. However, you can reuse a default storage file system after the original HDInsight cluster has been deleted. For HBase clusters, you can retain the HBase table schema and data by creating a new HBase cluster using the default blob container that is used by a deleted HBase cluster that has been deleted.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../../includes/hdinsight-secure-transfer.md)]
 
@@ -126,7 +126,7 @@ If you [installed and configured Azure PowerShell][powershell-install], you can 
     New-AzureStorageContainer -Name $containerName -Context $destContext
 
 > [!NOTE]
-> Creating a container is synonymous with creating a file system in Azure Data Lake Storage.
+> Creating a container is synonymous with creating a file system in Data Lake Storage Gen2.
 
 ### Use Azure CLI
 
@@ -158,7 +158,7 @@ To create a container, use the following command:
     azure storage container create <CONTAINER_NAME> --account-name <STORAGE_ACCOUNT_NAME> --account-key <STORAGE_ACCOUNT_KEY>
 
 > [!NOTE]
-> Creating a container is synonymous with creating a file system in Azure Data Lake Storage.
+> Creating a container is synonymous with creating a file system in Data Lake Storage Gen2.
 
 ## Address files in Azure storage
 
@@ -168,7 +168,7 @@ The URI scheme for accessing files in Azure storage from HDInsight is:
 
 The URI scheme provides unencrypted access (with the *abfs:* prefix) and SSL encrypted access (with *abfss*). We recommend using *abfss* wherever possible, even when accessing data that lives inside the same region in Azure.
 
-* &lt;FILE_SYSTEM_NAME&gt; identifies the path of the file system Azure Data Lake Storage.
+* &lt;FILE_SYSTEM_NAME&gt; identifies the path of the file system Data Lake Storage Gen2.
 * &lt;ACCOUNT_NAME&gt; identifies the Azure Storage account name. A fully qualified domain name (FQDN) is required.
 
     If values for &lt;FILE_SYSTEM_NAME&gt; nor &lt;ACCOUNT_NAME&gt; have been specified, the default file system is used. For the files on the default file system, you can use a relative path or an absolute path. For example, the *hadoop-mapreduce-examples.jar* file that comes with HDInsight clusters can be referred to by using one of the following paths:
@@ -199,9 +199,9 @@ In this article, you learned how to use HDFS-compatible Azure storage with HDIns
 For more information, see:
 
 * [The ABFS Hadoop Filesystem driver for Azure Data Lake Storage Gen2](abfs-driver.md)
-* [Introduction to Azure Data Lake Storage](introduction.md)
-* [Set up HDInsight clusters using Azure Data Lake Storage with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md)
-* [Ingest data into Azure Data Lake Storage using distcp](use-distcp.md)
+* [Introduction to Azure Data Lake Storage Gen2](introduction.md)
+* [Set up HDInsight clusters using Azure Data Lake Storage Gen2 with Hadoop, Spark, Kafka, and more](quickstart-create-connect-hdi-cluster.md)
+* [Ingest data into Azure Data Lake Storage Gen2 using distcp](use-distcp.md)
 
 [powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-creation]: ../../hdinsight/hdinsight-hadoop-provision-linux-clusters.md

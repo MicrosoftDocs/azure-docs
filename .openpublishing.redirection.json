@@ -27053,11 +27053,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/dms/index.md",
-            "redirect_url": "/azure/dms/dms-overview",
-            "redirect_document_id": false
-        },
-        {
             "source_path": "articles/guides/developer/index.md",
             "redirect_url": "/azure/guides/developer/azure-developer-guide",
             "redirect_document_id": false
@@ -30515,6 +30510,17 @@
             "source_path": "articles/iot-central/howto-create-application.md",
             "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
             "redirect_document_id" : false
+        },
+        {
+            "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
+            "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+            "redirect_document_id" : false
+        },
+	    {  
+            "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
+            "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
+            "redirect_document_id" : false
         }
+
     ]
 }

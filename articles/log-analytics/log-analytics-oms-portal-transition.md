@@ -51,7 +51,7 @@ Refer to [Common questions for transition from OMS portal to Azure portal for Lo
 Azure portal access management is richer and more powerful than the access management in the OMS Portal. See [Manage workspaces](log-analytics-manage-access.md#manage-accounts-and-users) for details of access management in Log Analytics.
 
 > [!NOTE]
-> Previous versions of this article stated that the permissions would automatically be converted from the OMS portal to the Azure portal. This automatic conversation is no longer planned, and you must perform the conversion yourself.
+> Previous versions of this article stated that the permissions would automatically be converted from the OMS portal to the Azure portal. This automatic conversion is no longer planned, and you must perform the conversion yourself.
 
 You may already have appropriate access in the Azure portal in which case you don't need to make any changes. There are a couple of cases where you may not have appropriate access in which case your administrator must assign you permissions.
 

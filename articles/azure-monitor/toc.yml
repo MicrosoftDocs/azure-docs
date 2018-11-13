@@ -341,7 +341,7 @@
           href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
         - name: Filter telemetry
           href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
-        - name: Micrometer
+        - name: Micrometer Metrics
           href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json  
       - name: Node.js apps
         items:

@@ -82,3 +82,4 @@ What is shown in **query to be executed** section is what log alert service will
 * Learn about [Log Alerts in Azure Alerts](monitor-alerts-unified-log.md)
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md)
 * Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md). 
+

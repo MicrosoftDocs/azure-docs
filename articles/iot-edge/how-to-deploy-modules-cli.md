@@ -2,7 +2,7 @@
 title: Deploy Azure IoT Edge modules (CLI) | Microsoft Docs 
 description: Use the IoT extension for Azure CLI to deploy modules to an IoT Edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/27/2018
 ms.topic: conceptual
