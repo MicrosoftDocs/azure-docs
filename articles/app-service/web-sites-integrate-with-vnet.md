@@ -122,11 +122,11 @@ The information you now have available to you in the app level VNet Integration 
 
 The only operation you can take in the app view of your VNet Integration is to disconnect your app from the VNet it is currently connected to. To disconnect your app from a VNet, disconnect at the top. This action does not change your VNet. The VNet and its configuration including the gateways remains unchanged. If you then want to delete your VNet, you need to first delete the resources in it including the gateways. 
 
-To reach the ASP VNet Integration UI, open your ASP UI and select **Networking**.  Under VNet Integration, select **Click here to configure**. to open the Network Feature Status UI.
+To reach the ASP VNet Integration UI, open your ASP UI and select **Networking**.  Under VNet Integration, select **Click here to configure** to open the Network Feature Status UI.
 
 ![ASP VNet Integration information][5]
 
-You can have up to 5 VNets connected to by any number of apps in your App Service plan. Each app can have only one integration configured. To see details on each VNet, click on the VNet you are interested in. There are two actions you can perform here.
+The ASP VNet Integration UI will show you all of the VNets that are used by the apps in your ASP. You can have up to 5 VNets connected to by any number of apps in your App Service plan. Each app can have only one integration configured. To see details on each VNet, click on the VNet you are interested in. There are two actions you can perform here.
 
 * **Sync network**. This will sync your certificates and network information. If you add or change the DNS of your VNet, you need to perform a **Sync network** operation. This operation will restart any apps using this VNet.
 * **Add routes** Adding routes will drive outbound traffic into your VNet.
@@ -149,8 +149,8 @@ If your VNet is connected to your on-premises network with a Site to Site VPN, t
 ## Peering
 You can use VNet Integration to access resources in VNets that are peered to the VNet you are connected to. To configure peering to work with your app:
 
-1. Add a peering connection on the VNet your app connects to. **Allow virtual network access** must be enabled.  **Allow forwarded traffic** and **Allow gateway transit** must be checked.
-1. Add a peering connection on the VNet that is being peered to the VNet you are connected to. **Allow virtual network access** must be enabled. **Allow forwarded traffic** and **Allow remote gateways** must be checked.
+1. Add a peering connection on the VNet your app connects to. When adding the peering connection, enable **Allow virtual network access** and check **Allow forwarded traffic** and **Allow gateway transit**.
+1. Add a peering connection on the VNet that is being peered to the VNet you are connected to. When adding the peering connection on the destination VNet, enable **Allow virtual network access** and check **Allow forwarded traffic** and **Allow remote gateways**.
 1. Go to the App Service plan > Networking > VNet Integration UI in the portal.  Select the VNet your app connects to. Under the routing section, add the address range of the VNet that is peered with the VNet your app is connected to.  
 
 
