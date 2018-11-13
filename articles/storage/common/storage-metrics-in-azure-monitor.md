@@ -404,6 +404,10 @@ Legacy metrics are available in parallel with Azure Monitor managed metrics. The
 
 No, Azure Compute supports the metrics on disks. See [article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) for more details.
 
+**How to map and migrate classic metrics with new metrics?**
+
+You can find detailed mapping between classic metrics and new metrics in [Azure Storage metrics migration](./storage-metrics-migration.md).
+
 ## Next steps
 
 * [Azure Monitor](../../monitoring-and-diagnostics/monitoring-overview.md)
