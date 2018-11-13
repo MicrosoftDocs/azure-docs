@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
+            "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/frontdoor/front-door-powershell-reference.md",
             "redirect_url": "/powershell/module/azurerm.frontdoor",
             "redirect_document_id": false
@@ -11067,6 +11072,11 @@
         {
             "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-log-template.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/alert-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-unified-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-alerts",
             "redirect_document_id": false
         },
         {
@@ -30511,11 +30521,16 @@
             "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
             "redirect_document_id" : false
         },
-
-	{
+        {
+            "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
+            "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+            "redirect_document_id" : false
+        },
+	    {  
             "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
             "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
             "redirect_document_id" : false
         }
+
     ]
 }
