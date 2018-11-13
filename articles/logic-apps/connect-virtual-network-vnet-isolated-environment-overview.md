@@ -18,10 +18,11 @@ ms.date: 11/23/2018
 > To request access, [create your request to join here](https://aka.ms/iseprivatepreview).
 
 Sometimes, your logic apps and integration accounts need access to secured 
-resources such as virtual machines (VMs) and other systems or services inside an 
+resources, such as virtual machines (VMs) and other systems or services, in an 
 [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
-To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) 
-that you use as the location for your logic apps and integration accounts. 
+To set up this access, follow these steps for 
+[how to create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md), 
+which you use as the location for your logic apps and integration accounts. 
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -90,19 +91,21 @@ available for use in the global Logic Apps service.
 ## Permissions for virtual network access
 
 When you create an integration service environment (ISE), 
-you select an Azure virtual network into where you 
-*inject* your environment. You can *only* perform this 
-injection when you create your ISE. This step gives 
-your ISE access to resources in your virtual network, 
-which then lets logic apps in that ISE connect directly 
-to resources in your virtual network. For on-premises 
-systems in a virtual network that's linked to an ISE, logic apps 
-can directly access those systems by using any of these items: 
+you select an Azure virtual network into where you *inject* 
+your environment. Injection deploys a private instance of 
+the Logic Apps service into your virtual network. This action 
+results in an isolated environment where you can create and 
+run your logic apps on dedicated resources. The Logic Apps 
+service can then connect directly to resources in your virtual 
+network and give your ISE access to those resources. When you 
+create a logic app and select your ISE as your app's location, 
+your logic app can also directly access your virtual network. 
+
+For on-premises systems in a virtual network that's linked to an ISE, 
+logic apps can directly access those systems by using any of these items: 
 
 * ISE connector for that system, for example, SQL Server
-
 * HTTP action 
-
 * Custom connector
 
 For on-premises systems that aren't in a virtual network or 
@@ -114,6 +117,8 @@ your environment, you must set up Role-Based Access Control (RBAC)
 permissions in your virtual network for the Azure Logic Apps service. 
 This task requires that you assign the **Network Contribtor** and 
 **Classic Contributor** roles to the Azure Logic Apps service.
+To set up these permissions, see 
+[Connect to Azure virtual networks from logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)
 
 <a name="create-integration-account-environment"></a>
 

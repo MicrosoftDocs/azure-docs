@@ -66,30 +66,10 @@ so the Logic Apps service has the permissions for accessing your virtual network
 
 When you create an integration service environment (ISE), 
 you select an Azure virtual network into where you *inject* 
-your environment. You can *only* perform this injection 
-when you create your ISE. Azure deploys a private instance 
-of the Logic Apps service into your virtual network. 
-This action results in an isolated environment where you 
-can create and run your logic apps on dedicated resources. 
-
-This relationship lets the Logic Apps service connect 
-directly to resources in that virtual network and 
-gives your environment access to those resources. 
-
-When you create a logic app, you can select this environment 
-as your app's location, which also gives your logic app 
-direct access to the resources in your virtual network. 
-
-This step gives your ISE access to resources in your virtual network, 
-which then lets logic apps in that ISE connect directly 
-to resources in your virtual network. For on-premises 
-systems in a virtual network that's linked to an ISE, logic apps 
-can directly access those systems by using any of these items: 
-
-Before you can select an virtual network for injecting 
-your environment, you must set up Role-Based Access Control (RBAC) 
-permissions in your virtual network. To complete this task, 
-you must assign specific roles to the Azure Logic Apps service.
+your environment. Before you can select an virtual network 
+for injecting your environment, you must set up Role-Based 
+Access Control (RBAC) permissions in your virtual network. 
+To set up permissions, assign these specific roles to the Azure Logic Apps service:
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your virtual network. 
@@ -115,6 +95,9 @@ table for the Azure Logic Apps service. Make sure you choose
    For example:
 
    ![Add permissions](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
+
+For more information, see 
+[Permissions for virtual network access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
 
 <a name="create-environment"></a>
 
@@ -146,7 +129,7 @@ and then choose **Create**.
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your environment | 
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to store information about your environment |
-   | **Peer VNET** | No | <*Azure-VNET-name*> | The Azure virtual network to associate with your environment as a *peer* so logic apps in that environment can access your virtual network. Before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). <p>**Important**: Although a virtual network isn't required, you can select a virtual network *only* when you create your environment. | 
+   | **Peer VNET** | No | <*Azure-VNET-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. Before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). <p>**Important**: You can *only* perform this injection when you create your ISE. | 
    | **Peering Name** | Yes with a selected virtual network | <*peering-name*> | The name to give the peer relationship | 
    | **VNET IP Range** | Yes with a selected virtual network | <*IP-address-range*> | The IP address range to use for creating resources in your environment. This range must use the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), for example, 10.0.0.1/16, and requires a Class B address space. The range must not exist within the address space for the virtual network selected in the **Peer VNET** property, nor within any other private IP addresses where the peer network is connected, either through peering or gateways. <p><p>**Important**: You *can't change* this address range after you create your environment. |
    |||||
