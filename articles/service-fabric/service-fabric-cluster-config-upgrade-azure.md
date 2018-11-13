@@ -26,7 +26,7 @@ This article describes how to customize the various fabric settings for your Ser
 > 
 
 ## Customize cluster settings using Resource Manager templates
-The steps below show how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section using Azure Resource Explorer.
+Azure clusters can be configured through the JSON Resource Manager template. To learn more about the different settings, see [Configuration settings for clusters](service-fabric-cluster-fabric-settings.md). As an example, the steps below show how to add a new setting *MaxDiskQuotaInMB* to the *Diagnostics* section using Azure Resource Explorer.
 
 1. Go to https://resources.azure.com
 2. Navigate to your subscription by expanding **subscriptions** -> **\<Your Subscription>** -> **resourceGroups** -> **\<Your Resource Group>** -> **providers** -> **Microsoft.ServiceFabric** -> **clusters** -> **\<Your Cluster Name>**
@@ -54,5 +54,5 @@ You can also customize cluster settings in one of the following ways with Azure 
 - Use the Azure CLI [az sf cluster setting](https://docs.microsoft.com/cli/azure/sf/cluster/setting) commands to modify the setting directly.
 
 ## Next steps
-* Learn how to customize some [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
+* Learn about the [Service Fabric cluster settings](service-fabric-cluster-fabric-settings.md).
 * Learn how to [scale your cluster in and out](service-fabric-cluster-scale-up-down.md).
