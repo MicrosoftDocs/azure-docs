@@ -988,7 +988,7 @@ The Docker engine must be running locally to complete the following steps to ope
 1.  Make sure the Azure resource provider **Microsoft.ContainerRegistry** is registered in the subscription. Register this resource provider before creating an environment in step 3. Check to see if it's already registered by using the following command:
 
     ```CLI
-        az provider list --query "\[\].{Provider:namespace, Status:registrationState}" --out table
+        az provider list --query "[].{Provider:namespace, Status:registrationState}" --out table
     ```
 
     View this output:
@@ -1267,10 +1267,8 @@ From within the WSL Environment, run the following commands to install kubectl i
 
 ```Bash  
     apt-get update && apt-get install -y apt-transport-https
-    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -
-    cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
-    deb http://apt.kubernetes.io/ kubernetes-xenial main
-    EOF
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add
+    sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
     apt-get update
     apt-get install -y kubectl
 ```
