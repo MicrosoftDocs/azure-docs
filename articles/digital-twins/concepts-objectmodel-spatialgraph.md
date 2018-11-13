@@ -45,7 +45,7 @@ Other categories of objects are:
 - **Security key stores** provide the security keys for all devices in the hierarchy under a given space object to allow the device to securely communicate with Digital Twins.
 - **User-defined functions** (UDFs) allow customizable sensor telemetry processing within the spatial graph. For example, a UDF can: 
     - Set a sensor value. 
-    - Perform custom logic based on sensor readings, and set the output to a space, 
+    - Perform custom logic based on sensor readings, and set the output to a space. 
     - Attach metadata to a space. 
     - Send notifications when predefined conditions are met. Currently, UDFs can be written in JavaScript.
 - **Matchers** are objects that determine which UDFs are executed for a given telemetry message.
