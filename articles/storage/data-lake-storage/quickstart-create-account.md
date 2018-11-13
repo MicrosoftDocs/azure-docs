@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 |           | Prerequisite |
 |-----------|--------------|
 |Portal     | None         |
-|PowerShell | This quickstart requires the Azure PowerShell module version **5.0.4-preview** or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). |
+|PowerShell | This quickstart requires the Azure PowerShell module version **5.0.7** or later. Run `Get-Module -ListAvailable AzureRM` to find your current version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps). |
 |CLI        | You can log in to Azure and run Azure CLI commands in one of two ways: <ul><li>You can run CLI commands from within the Azure portal, in Azure Cloud Shell </li><li>You can install the CLI and run CLI commands locally</li></ul>|
 
 When working on the command line you have the option of running the Azure Cloud shell or installing the CLI locally.
