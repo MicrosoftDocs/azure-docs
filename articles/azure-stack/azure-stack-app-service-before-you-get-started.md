@@ -150,7 +150,10 @@ The certificate for identity must contain a subject that matches the following f
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-## Virtual network (Optional)
+## Virtual network
+
+> [!NOTE]
+> The pre-creation of a custom virtual network is optional as the Azure App Service on Azure Stack can create the required virtual network but will then need to communicate with SQL and File Server via Public IP Addresses.
 
 Azure App Service on Azure Stack lets you deploy the resource provider to an existing virtual network or lets you create a virtual network as part of the deployment. Using an existing virtual network enables the use of internal IPs to connect to the file server and SQL server required by Azure App Service on Azure Stack. The virtual network must be configured with the following address range and subnets before installing Azure App Service on Azure Stack:
 
