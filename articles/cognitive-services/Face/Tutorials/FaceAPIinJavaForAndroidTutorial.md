@@ -109,7 +109,7 @@ Insert the following two methods into the **MainActivity** class. Note that when
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=70-150)]
 
-## Frame faces in the image
+## Draw face rectangles
 
 Insert the following helper method into the **MainActivity** class. This method draws a rectangle around each detected face, using the rectangle coordinates of each **Face** instance.
 
@@ -125,7 +125,7 @@ Run the application and browse for an image with a face. Wait a few seconds to a
 
 ## Next steps
 
-In this tutorial, you learned the basic process for using the Face service Java SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
+In this tutorial, you learned the basic process for using the Face API Java SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
 
 > [!div class="nextstepaction"]
 > [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
