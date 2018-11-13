@@ -5,7 +5,7 @@
  author: alinamstanciu
  ms.service: digital-twins
  ms.topic: include
- ms.date: 11/7/2018
+ ms.date: 11/13/2018
  ms.author: alinast
  ms.custom: include file
 ---
@@ -14,17 +14,11 @@
 
     ![Azure Active Directory directory ID](./media/digital-twins-permissions/aad-app-reg-tenant.png)
 
-<<<<<<< HEAD
-1. Open the **App registrations** pane, and then click **New application registration** button.
-
-    ![Azure Active Directory app registration new](./media/digital-twins-permissions/aad-app-reg-start.png)
-=======
 1. Open the **App registrations** pane, and then select the **New application registration** button.
-    
-    ![App registrations pane](./media/digital-twins-permissions/aad-app-reg-start.png)
->>>>>>> 29d1eb89451115d41b06c319b1daaa1e20930b8c
 
-1. Give a friendly name for this app registration in the **Name** box. Choose **Application type** as **Native**, and **Redirect URI** as **https://microsoft.com**. Select **Create**.
+    ![App registrations pane](./media/digital-twins-permissions/aad-app-reg-start.png)
+
+1. Give a friendly name for this app registration in the **Name** box. Choose **Application type** as **Native**, and **Redirect URI** as `https://microsoft.com`. Select **Create**.
 
     ![Create pane](./media/digital-twins-permissions/aad-app-reg-create.png)
 
@@ -33,7 +27,7 @@
     ![Azure Active Directory application ID](./media/digital-twins-permissions/aad-app-reg-app-id.png)
 
 1. Open your app registration pane. Select **Settings** > **Required permissions**, and then:
-   
+
    a. Select **Add** on the upper left to open the **Add API access** pane.
 
    b. Select **Select an API** and search for **Azure Digital Twins**. If your search doesn't locate the API, search for **Azure Smart Spaces** instead.
