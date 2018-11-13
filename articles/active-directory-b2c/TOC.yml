@@ -70,6 +70,8 @@
   items:
   - name: Access audit logs 
     href: active-directory-b2c-reference-audit-logs.md
+  - name: Age gating
+    href: basic-age-gating.md
   - name: Configure tokens
     href: active-directory-b2c-token-session-sso.md
   - name: Customize language
@@ -265,8 +267,6 @@
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Resource owner password credentials
     href: configure-ropc.md
-  - name: Set up age gating
-    href: basic-age-gating.md
   - name: Set up direct sign-in
     href: direct-signin.md
   - name: Set up self-serve-password reset
