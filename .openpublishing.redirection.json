@@ -362,6 +362,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/manage-account.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/indexing-policies.md",
+            "redirect_url": "/azure/cosmos-db/indexing-policy",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
             "redirect_url": "/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": true
@@ -9271,7 +9281,7 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-indexing-policies.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/indexing-policies",
+            "redirect_url": "/azure/cosmos-db/indexing-policy",
             "redirect_document_id": false
         },
         {
