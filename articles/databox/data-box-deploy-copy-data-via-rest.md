@@ -40,6 +40,7 @@ Before you begin, make sure that:
 ## Connect to Data Box Blob storage
 
 Based on the storage account selected, Data Box creates upto:
+
 - Three shares for each associated storage account for GPv1 and GPv2.
 - One share for premium or blob storage account.
 
@@ -52,7 +53,7 @@ Consider the following example.
 - Share for page blob: *Mystoracct_PageBlob/my-container/blob*
 - Share for file: *Mystoracct_AzFile/my-share*
 
-Depending on whether you are connecting to Data Box over http or https, the steps can be different.
+Depending on whether you are connecting to Data Box over *http* or *https*, the steps can be different.
 
 ## Connect via http
 
