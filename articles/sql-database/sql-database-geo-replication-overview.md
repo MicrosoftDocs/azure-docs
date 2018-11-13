@@ -78,8 +78,39 @@ The active geo-replication feature provides the following essential capabilities
 
   Two or more secondary databases increase redundancy and level of protection for the primary database and application. If multiple secondary databases exist, the application remains protected even if one of the secondary databases fails. If there is only one secondary database, and it fails, the application is exposed to higher risk until a new secondary database is created.
 
+    > [!NOTE]
+  > Note: At this moment the number of replicas are limited to 4, if include more than that it will fail with message "Replication limit reached. The database 'XXXXXX' cannot have more than 4 replication relationships."
+  
+
   > [!NOTE]
   > If you are using active geo-replication to build a globally distributed application and need to provide read-only access to data in more than four regions, you can create secondary of a secondary (a process known as chaining). This way you can achieve virtually unlimited scale of database replication. In addition, chaining reduces the overhead of replication from the primary database. The trade-off is the increased replication lag on the leaf-most secondary databases.
+  > This need to be done with Powershell like the sample below
+
+```
+$databasename = "TEST"
+$primaryresourcegroupname = "RESGROUP"
+$primaryservername = "SECONDARYSERVER"
+
+$secondaryresourcegroupname = "RESGROUP"
+$secondaryservername = "SECONDARYOFSECONDARYSERVER"
+
+$database = Get-AzureRmSqlDatabase `
+    -DatabaseName $databasename `
+    -ResourceGroupName $primaryresourcegroupname `
+    -ServerName $primaryservername
+
+$database | New-AzureRmSqlDatabaseSecondary `
+    -PartnerResourceGroupName $secondaryresourcegroupname `
+    -PartnerServerName $secondaryservername `
+    -AllowConnections "All"
+
+Get-AzureRmSqlDatabaseReplicationLink `
+    -DatabaseName $databasename `
+    -PartnerResourceGroupName $secondaryresourcegroupname `
+    -PartnerServerName $secondaryservername `
+    -ServerName $primaryservername `
+    -ResourceGroupName $primaryresourcegroupname
+ ```
 
 - **Support of elastic pool databases**
 
