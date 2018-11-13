@@ -188,6 +188,8 @@
       href: /dotnet/api/microsoft.azure.servicebus
   - name: Java
     href: /java/api/overview/azure/servicebus
+  - name: Node.js
+    href: /javascript/api/overview/azure/service-bus
   - name: Azure PowerShell
     href: /powershell/module/azurerm.servicebus
   - name: REST

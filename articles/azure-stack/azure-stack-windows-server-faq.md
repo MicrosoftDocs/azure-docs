@@ -57,7 +57,7 @@ See [Convert an existing VM using Azure Hybrid Benefit for Windows Server](../vi
 
 These images do apply the **licenseType** parameter, so they are pay as you use. You can set this parameter (see the previous FAQ answer). This only applies to the Windows Server software, not to layered products such as SQL, which require you to bring your own license. Pay as you use licensing does not apply to layered software products.
 
-### I have an EA and I create my own images; how do I make sure they are billed correctly?
+### I have an EA and will be using my EA Windows Server license; how do I make sure images are billed correctly?
 
 You can add **licenseType: Windows_Server** in an Azure Resource Manager template. This setting must be added to each virtual machine resource block.
 

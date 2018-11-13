@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Data Warehouse Release Notes RSe 2018 | Microsoft Docs
+title: Azure SQL Data Warehouse Release Notes September 2018 | Microsoft Docs
 description: Release notes for Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
