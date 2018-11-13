@@ -4,7 +4,7 @@ This article shows you how to use Python library in Azure Databricks to access d
 
 ## Prerequisites
 
-- [Create an Azure Data Explorer cluster and database(/azure/data-explorer/create-cluster-database-portal)
+- [Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal)
 - [Create an Azure Databricks workspace](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
 
     Under **Azure Databricks Service**, in the **Pricing Tier** dropdown, select **Premium**. This allows you to use Azure Databricks secrets to store your credentials and reference them in notebooks and jobs.
