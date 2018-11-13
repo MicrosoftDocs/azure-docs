@@ -19,14 +19,9 @@ ms.component:
 
 # Collect log data with the Azure Log Analytics agent
 
-The Azure Log Analytics (OMS) agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to a Log Analytics workspace to collect data from different sources as well as any unique logs or metrics as defined in a monitoring solution. Previously, several Azure services were bundled as the *Operations Management Suite*, and as a result the Log Analytics agent is shared across services including Azure Security Center, Update Management, Change Tracking, and Azure Automation. The Log Analytics agent should be used when:
- 
-* Monitoring physical computers or virtual machines in your datacenter or in a cloud-hosted service like Amazon Web Services (AWS)
-* Using one of the Azure Monitor monitoring solutions such as Azure Monitor for VMs, Azure Monitor for containers, etc.
-* Using one of the other Azure management services such as Azure Security Center, Automation, Update Management, etc.  
-* Forwarding collected log and/or metric data to Log Analytics
+The Azure Log Analytics (OMS) agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to a Log Analytics workspace to collect data from different sources as well as any unique logs or metrics as defined in a monitoring solution. 
 
-With Azure virtual machines, you deploy the agent using the Log Analytics VM extension. Computers hosted in your environment can be directly connected to Log Analytics, or if you are already monitoring these computers with System Center Operations Manager 2012 R2 or later, you can integrate your Operations Manage management group with Log Analytics and continue maintaining your IT service operations processes.  
+With Azure virtual machines, you deploy the agent using the Log Analytics VM extension. Computers hosted in your environment can be directly connected to Log Analytics, or if you are already monitoring these computers with System Center Operations Manager 2012 R2 or later, you can integrate your Operations Manage management group with Log Analytics to continue maintaining your IT service operations processes.  
 
 ## Overview
 
@@ -125,6 +120,6 @@ Connecting machines in your Azure subscription or hybrid environment directly wi
 
 * Review [data sources](log-analytics-data-sources.md) to understand the data sources available to collect data from your Windows or Linux system. 
 
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log queries](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
 
 * Learn about [monitoring solutions](../monitoring/monitoring-solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
