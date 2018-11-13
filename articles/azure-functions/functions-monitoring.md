@@ -418,8 +418,9 @@ This code is an alternative to calling `trackMetric` using [the Node.js SDK for 
 
 You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights.
 
-Here's an example of C# code that uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+Here are examples of C# code that uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
+#### Functions Version 1
 ```cs
 using System;
 using System.Net;
@@ -498,7 +499,73 @@ namespace functionapp0915
     }    
 }
 ```
+#### Functions Version 2
+Functions version 2 uses newer features in Application Insights to automatically correlate telemetry with the current operation. There is no need to manually set the operation `Id`, `ParentId`, or `Name`.
+```cs
+using System;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.ApplicationInsights;
+using Microsoft.ApplicationInsights.DataContracts;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Extensions.Http;
+using Microsoft.Extensions.Logging;
 
+namespace functionapp0915
+{
+    public static class HttpTrigger2
+    {
+        // In Functions v2, TelemetryConfiguration.Active is initialized with the InstrumentationKey
+        // from APPINSIGHTS_INSTRUMENTATIONKEY. Creating a default TelemetryClient like this will 
+        // automatically use that key for all telemetry. It will also enable telemetry correlation
+        // with the current operation.
+        // If you require a custom TelemetryConfiguration, create it initially with 
+        // TelemetryConfiguration.CreateDefault() to include this automatic correlation.
+        private static TelemetryClient telemetryClient = new TelemetryClient();
+
+        [FunctionName("HttpTrigger2")]
+        public static Task<IActionResult> Run(
+            [HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = null)]
+            HttpRequest req, ExecutionContext context, ILogger log)
+        {
+            log.LogInformation("C# HTTP trigger function processed a request.");
+            DateTime start = DateTime.UtcNow;
+
+            // parse query parameter
+            string name = req.Query
+                .FirstOrDefault(q => string.Compare(q.Key, "name", true) == 0)
+                .Value;
+
+            // Track an Event
+            var evt = new EventTelemetry("Function called");
+            evt.Context.User.Id = name;
+            telemetryClient.TrackEvent(evt);
+
+            // Track a Metric
+            var metric = new MetricTelemetry("Test Metric", DateTime.Now.Millisecond);
+            metric.Context.User.Id = name;
+            telemetryClient.TrackMetric(metric);
+
+            // Track a Dependency
+            var dependency = new DependencyTelemetry
+            {
+                Name = "GET api/planets/1/",
+                Target = "swapi.co",
+                Data = "https://swapi.co/api/planets/1/",
+                Timestamp = start,
+                Duration = DateTime.UtcNow - start,
+                Success = true
+            };
+            dependency.Context.User.Id = name;
+            telemetryClient.TrackDependency(dependency);
+
+            return Task.FromResult<IActionResult>(new OkResult());
+        }
+    }
+}
+```
 Don't call `TrackRequest` or `StartOperation<RequestTelemetry>`, because you'll see duplicate requests for a function invocation.  The Functions runtime automatically tracks requests.
 
 Don't set `telemetryClient.Context.Operation.Id`. This is a global setting and will cause incorrect correllation when many functions are running simultaneously. Instead, create a new telemetry instance (`DependencyTelemetry`, `EventTelemetry`) and modify its `Context` property. Then pass in the telemetry instance to the corresponding `Track` method on `TelemetryClient` (`TrackDependency()`, `TrackEvent()`). This ensures that the telemetry has the correct correllation details for the current function invocation.
