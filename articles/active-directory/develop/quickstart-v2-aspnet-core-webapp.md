@@ -37,7 +37,7 @@ In this quickstart, you'll learn how an ASP.NET Core web app can sign in persona
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - App registrations (Preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetCoreWebAppQuickstartPage/sourceType/docs).
+> 1. Go to the [Azure portal - App registrations (Preview)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
