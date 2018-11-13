@@ -16,11 +16,13 @@ ms.custom: H1Hack27Feb2017
 ---
 # Consistency levels in Azure Cosmos DB
 
-Distributed databases that rely on replication for high availability, low latency, or both make a tradeoff between read consistency vs. availability, latency, and throughput. Most commercially available distributed databases ask developers to choose between two extreme consistency models: strong consistency and eventual consistency. [Linearizability](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), or the strong consistency model, is the gold standard of data programmability. But it adds a steep price of higher latency in steady state and reduced availability during failures. Eventual consistency offers higher availability and better performance, but it's hard to program applications.
+Distributed databases that rely on replication for high availability, low latency, or both must make tradeoffs. The tradeoffs are between read consistency vs. availability, latency, and throughput. 
 
-Azure Cosmos DB approaches data consistency as a spectrum of choices instead of the two extremes. Strong consistency and eventual consistency are at the two ends, but there are many consistency choices along the spectrum. Developers can choose from these consistency options to make precise choices and granular tradeoffs in high availability or performance. 
+Most commercially available distributed databases ask developers to choose between two extreme consistency models: strong consistency and eventual consistency. [Linearizability](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), or the strong consistency model, is the gold standard of data programmability. But it adds a steep price of higher latency in steady state and reduced availability during failures. Eventual consistency offers higher availability and better performance, but it's hard to program applications.
 
-With Azure Cosmos DB, developers can choose among five well-defined models on the consistency spectrum. From strongest to weakest, the models are strong, bounded staleness, session, consistent prefix, and eventual. The models are well-defined and intuitive and can be used for specific real-world scenarios. Each of the five consistency models provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and is backed by a comprehensive SLA.
+Azure Cosmos DB approaches data consistency as a spectrum of choices instead of the two extremes. Strong consistency and eventual consistency are at the two ends, but there are other choices along the spectrum. Developers can choose from these options to make precise choices and granular tradeoffs in high availability or performance. 
+
+With Azure Cosmos DB, developers can choose from five well-defined models on the consistency spectrum. From strongest to weakest, the models are strong, bounded staleness, session, consistent prefix, and eventual. The models are well-defined and intuitive and can be used for specific real-world scenarios. Each model provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and is backed by a comprehensive SLA.
 
 ![Consistency as a spectrum](./media/consistency-levels/five-consistency-levels.png)
 
@@ -40,7 +42,7 @@ You can configure the default consistency level on your Azure Cosmos DB account 
 
 ## Guarantees associated with consistency levels
 
-The comprehensive SLAs provided by Azure Cosmos DB guarantee that 100% of read requests meet the consistency guarantee for any consistency level you choose. A read request meets the consistency SLA if all the consistency guarantees associated with the consistency level are satisfied. The precise definitions of the five consistency levels in Azure Cosmos DB by using the [TLA+ specification language](http://lamport.azurewebsites.net/tla/tla.html) are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo. 
+The comprehensive SLAs provided by Azure Cosmos DB guarantee that 100 percent of read requests meet the consistency guarantee for any consistency level you choose. A read request meets the consistency SLA if all the consistency guarantees associated with the consistency level are satisfied. The precise definitions of the five consistency levels in Azure Cosmos DB by using the [TLA+ specification language](http://lamport.azurewebsites.net/tla/tla.html) are provided in the [azure-cosmos-tla](https://github.com/Azure/azure-cosmos-tla) GitHub repo. 
 
 The semantics of the five consistency levels are described here:
 
@@ -51,7 +53,7 @@ The semantics of the five consistency levels are described here:
   * The number of versions (K) of the item
   * The time interval (t) by which the reads might lag behind the writes 
 
-  Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the "staleness window." Strong consistency has the same semantics as the ones offered by bounded staleness. The “staleness window” is equal to zero. Bounded staleness is also referred to as time-delayed linearizability. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees with the strong consistency.
+  Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the staleness window. Strong consistency has the same semantics as the ones offered by bounded staleness. The staleness window is equal to zero. Bounded staleness is also referred to as time-delayed linearizability. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those guarantees with the strong consistency.
 
 - **Session**: The reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, and write-follows-reads guarantees. Session consistency is scoped to a client session.
 
@@ -68,7 +70,7 @@ Let's take a baseball game scenario as an example. Imagine a sequence of writes 
 | **Visitors** | 0 | 0 | 1 | 0 | 1 | 0 | 0 |  |  | 2 |
 | **Home** | 1 | 0 | 1 | 1 | 0 | 2 |  |  |  | 5 |
 
-An Azure Cosmos DB container holds the visitors and home team run totals. While the game is in progress, different read guarantees might result in clients reading different scores. The following table lists the complete set of scores that might be returned by reading the visitors and home scores with each of the five consistency guarantees. The visitors score is listed first. Different possible return values are separated by commas.
+An Azure Cosmos DB container holds the visitors' and home team run totals. While the game is in progress, different read guarantees might result in clients reading different scores. The following table lists the complete set of scores that might be returned by reading the visitors' and home scores with each of the five consistency guarantees. The visitors' score is listed first. Different possible return values are separated by commas.
 
 | **Consistency level** | **Scores** |
 | - | - |
@@ -83,9 +85,9 @@ An Azure Cosmos DB container holds the visitors and home team run totals. While 
 To learn more about consistency concepts, read the following articles:
 
 - [High-level TLA+ specifications for the five consistency levels offered by Azure Cosmos DB](https://github.com/Azure/azure-cosmos-tla)
-- [Replicated Data Consistency Explained through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
-- [Replicated Data Consistency Explained through Baseball (whitepaper) by Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
-- [Session Guarantees for Weakly Consistent Replicated Data](https://dl.acm.org/citation.cfm?id=383631)
+- [Replicated Data Consistency Explained Through Baseball (video) by Doug Terry](https://www.youtube.com/watch?v=gluIh8zd26I)
+- [Replicated Data Consistency Explained Through Baseball (whitepaper) by Doug Terry](https://www.microsoft.com/en-us/research/publication/replicated-data-consistency-explained-through-baseball/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F157411%2Fconsistencyandbaseballreport.pdf)
+- [Session guarantees for weakly consistent replicated data](https://dl.acm.org/citation.cfm?id=383631)
 - [Consistency Tradeoffs in Modern Distributed Database Systems Design: CAP is Only Part of the Story](https://www.computer.org/web/csdl/index/-/csdl/mags/co/2012/02/mco2012020037-abs.html)
 - [Probabilistic Bounded Staleness (PBS) for Practical Partial Quorums](http://vldb.org/pvldb/vol5/p776_peterbailis_vldb2012.pdf)
 - [Eventually Consistent - Revisited](https://www.allthingsdistributed.com/2008/12/eventually_consistent.html)
