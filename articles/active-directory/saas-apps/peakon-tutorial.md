@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier and Reply URL which is explained latert in the tutorial.
 
-6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Raw)** and then save certificate file on your computer.
+6. In the **SAML Signing Certificate** section, click **Download** to download **Certificate (Raw)** and then save certificate file on your computer.
 
 	![The Certificate download link](./media/peakon-tutorial/tutorial_peakon_certificate.png) 
 
@@ -138,7 +138,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Peakon Configuration](common/configuresection.png)
 
-8. In a different web browser window, login to Peakon as an Administrator.
+8. In a different web browser window, sign in to Peakon as an Administrator.
 
 9. In the menu bar on the left side of the page, click **Configuration**, then navigate to **Integrations**.
 
@@ -156,9 +156,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![The saml](./media/peakon-tutorial/tutorial_peakon_saml.png)
 
-	a. In the **SSO Login URL** textbox, paste the value of **Login URL** which you have copied from the Azure portal.
+	a. In the **SSO Login URL** textbox, paste the value of **Login URL**, which you have copied from the Azure portal.
 
-	b. In the **SSO Logout URL** textbox, paste the value of **Logout URL** which you have copied from the Azure portal.
+	b. In the **SSO Logout URL** textbox, paste the value of **Logout URL**, which you have copied from the Azure portal.
 
 	c. Click **Choose file** to upload the certificate that you have downloaded from the Azure portal, into the Certificate box.
 
@@ -195,12 +195,12 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating a Peakon test user
 
-To enable Azure AD users to log in to Peakon, they must be provisioned into Peakon.  
+To enable Azure AD users to sign in to Peakon, they must be provisioned into Peakon.  
 In the case of Peakon, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
 
-1. Log in to your Peakon company site as an administrator.
+1. Sign in to your Peakon company site as an administrator.
 
 2. In the menu bar on the left side of the page, click **Configuration**, then navigate to **Employees**.
 
@@ -242,7 +242,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. In the **Add Assignment** dialog select the **Assign** button.
+6. In the **Add Assignment** dialog, select the **Assign** button.
 
 ### Testing single sign-on
 
