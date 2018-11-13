@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ---
 
@@ -69,6 +69,5 @@ You may need some combination of these agents to monitor your VM. The agents can
 
 ## Next steps
 
-- Review the 
 - See [Overview of the Log Analytics agent](../log-analytics/log-analytics-agent-overview.md) to review requirements and supported methods to deploy the agent to machines hosted in Auzre, in your datacenter, or other cloud environment.
 
