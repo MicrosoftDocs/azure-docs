@@ -24,7 +24,7 @@ ms.reviewer:
 This tutorial shows you how to create a subscription containing an offer and then test it. For the test, you sign in to the Azure Stack user portal as a cloud administrator, subscribe to the offer, and then create a virtual machine.
 
 > [!TIP]
-> For more a more advanced evaluation experience, you can [create a subscription for a particular user](../azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator) and then sign in as that user in the user portal. 
+> For more a more advanced evaluation experience, you can [create a subscription for a particular user](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator) and then sign in as that user in the user portal. 
 
 This tutorial shows you how to subscribe to an Azure Stack offer.
 
