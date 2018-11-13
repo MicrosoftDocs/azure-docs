@@ -115,6 +115,9 @@
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
       href: how-to-secure-web-service.md  
+    - name: Consume a deployed model
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
   - name: Monitor models
     items:  
     - name: Collect data in production  
