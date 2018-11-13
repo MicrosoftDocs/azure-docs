@@ -90,7 +90,7 @@ Use the Azure portal to download certificate.
 
 1. Sign into the Azure portal.
 2. Go to your Data Box order and navigate to **General > Device details**.
-3. Under **Device credentials**, go to **API access** to device. Click **Download**. This action downloads a **<your order name>.cer** certificate file. **Save** this file. You will nstall this certificate on the client or host computer that you will use to connect to the device.
+3. Under **Device credentials**, go to **API access** to device. Click **Download**. This action downloads a **<your order name>.cer** certificate file. **Save** this file. You will install this certificate on the client or host computer that you will use to connect to the device.
  
 ### Prepare the host for remote management
 
