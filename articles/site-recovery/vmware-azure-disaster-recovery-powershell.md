@@ -19,7 +19,8 @@ You learn how to:
 > [!div class="checklist"]
 > - Create a Recovery Services vault and set the vault context.
 > - Validate server registration in the vault.
-> - Set up replication, including a replication policy. Add your vCenter server and discover VMs. > - Add a vCenter server and discover 
+> - Set up replication, including a replication policy. Add your vCenter server and discover VMs. 
+> - Add a vCenter server and discover 
 > - Create storage accounts to hold replication data, and replicate the VMs.
 > - Perform a failover. Configure failover settings, perform a e settings for replicating virtual machines.
 
@@ -89,7 +90,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Use the downloaded vault registration key and follow the steps in the articles given below to complete installation and registration of the Configuration Server.
-   - [Choose your protection goals](vmware-azure-set-up-source.md#choose-your-protection-goals)
+   - [Choose your protection goals](vmware-azure-set-up-source.md#choose-protection-goals)
    - [Set up the source environment](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### Set the vault context
@@ -105,7 +106,7 @@ In the example below, the vault details from the $vault variable is used to spec
    Set-ASRVaultContext -Vault $vault
    ```
    ```
-   ResourceName      ResourceGroupName ResourceNamespace          ResouceType
+   ResourceName      ResourceGroupName ResourceNamespace          ResourceType
    ------------      ----------------- -----------------          -----------
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
