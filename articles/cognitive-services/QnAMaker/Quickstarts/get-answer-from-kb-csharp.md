@@ -25,6 +25,8 @@ This quickstart walks you through programmatically getting an answer from a publ
 * You must have a [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md). To retrieve your key, select **Keys** under **Resource Management** in your Azure dashboard for your QnA Maker resource. 
 * **Publish** page settings. If you do not have a published KB, create an empty knowledge base, then import a KB on the **Settings** page, then publish. You can download and use [this basic KB](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/knowledge-bases/basic-kb.tsv). 
 
+    The publish page settings include POST route value, Host value, and EndpointKey value. 
+
     ![Publish settings](../media/qnamaker-quickstart-get-answer/publish-settings.png)
 
 The code for this quickstart is in the [https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/get-answer) repository. 
@@ -40,6 +42,8 @@ At the top of the Program.cs file, replace the single using statement with the f
 
 [!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=1-3 "Add the required dependencies")]
 
+The question includes a property to return the top three answers. 
+
 ## Add the required constants
 
 At the top of the `Program` class, inside the `Main`, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
@@ -51,6 +55,8 @@ At the top of the `Program` class, inside the `Main`, add the required constants
 The following code makes an HTTPS request to the QnA Maker API to send the question to the KB and receives the response:
 
 [!code-csharp[Add a POST request to send question to KB](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=32-57 "Add a POST request to send question to KB")]
+
+The `Authorization` header's value includes the string `EndpointKey `. 
 
 ## Build and run the program
 
