@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/09/2018
+ms.date: 11/13/2018
 ms.author: erhopf
 ---
 
@@ -25,14 +25,18 @@ Before using the REST APIs, understand:
 
 Each request to either the speech-to-text or text-to-speech REST API requires an authorization header. This table illustrates which headers are supported for each service:
 
-| Supported auth headers | Speech-to-text | Text-to-speech |
+| Supported authorization headers | Speech-to-text | Text-to-speech |
 |------------------------|----------------|----------------|
 | Ocp-Apim-Subscription-Key | Yes | No |
 | Authorization: Bearer | Yes | Yes |
 
-When using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key.
+When using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key. For example:
 
-When using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes.
+```http
+'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+```
+
+When using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes. In the next few sections you'll learn how to get a token, use a token, and refresh a token.
 
 ### How to get an access token
 
@@ -236,7 +240,7 @@ public class Authentication
 }
 ```
 
-## Speech-to-text
+## Speech-to-text API
 
 The speech-to-text REST API only supports short utterances. Requests may contain up to 10 seconds of audio with a total duration of 14 seconds. The REST API only returns the final results, not partial or interim results.
 
@@ -283,6 +287,32 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 >[!NOTE]
 >The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec.
 
+### Sample request
+
+This is a typical HTTP request. The sample below includes the hostname and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended, however, not required.
+
+```HTTP
+POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+Accept: application/json;text/xml
+Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.stt.speech.microsoft.com
+Transfer-Encoding: chunked
+Expect: 100-continue
+```
+
+### HTTP status codes
+
+The HTTP status code for each response indicates success or common errors.
+
+| HTTP status code | Description | Possible reason |
+|------------------|-------------|-----------------|
+| 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.) |
+| 200 | OK | The request was successful; the response body is a JSON object. |
+| 400 | Bad request | Language code not provided or is not a supported language; invalid audio file. |
+| 401 | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
+| 403 | Forbidden | Missing subscription key or authorization token. |
+
 ### Chunked transfer
 
 Chunked transfer (`Transfer-Encoding: chunked`) can help reduce recognition latency because it allows the Speech Service to begin processing the audio file while it's being transmitted. The REST API does not provide partial or interim results. This option is intended solely to improve responsiveness.
@@ -315,33 +345,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 }
 ```
 
-### Sample request
-
-This is a typical HTTP request. The sample below includes the hostname and required headers. It's important to note that the service also expects audio data, which is not included in this sample. As mentioned earlier, chunking is recommended, however, not required.
-
-```HTTP
-POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
-Accept: application/json;text/xml
-Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
-Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
-Host: westus.stt.speech.microsoft.com
-Transfer-Encoding: chunked
-Expect: 100-continue
-```
-
-### HTTP status codes
-
-The HTTP status code for each response indicates success or common errors.
-
-| HTTP status code | Description | Possible reason |
-|------------------|-------------|-----------------|
-| 100 | Continue | The initial request has been accepted. Proceed with sending the rest of the data. (Used with chunked transfer.) |
-| 200 | OK | The request was successful; the response body is a JSON object. |
-| 400 | Bad request | Language code not provided or is not a supported language; invalid audio file. |
-| 401 | Unauthorized | Subscription key or authorization token is invalid in the specified region, or invalid endpoint. |
-| 403 | Forbidden | Missing subscription key or authorization token. |
-
-### JSON response
+### Response parameters
 
 Results are provided as JSON. The `simple` format includes these top-level fields.
 
@@ -416,7 +420,7 @@ This is a typical response for `detailed` recognition.
 }
 ```
 
-## Text-to-speech
+## Text-to-speech API
 
 These regions are supported for text-to-speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
