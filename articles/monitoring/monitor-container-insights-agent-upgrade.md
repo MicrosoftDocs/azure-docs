@@ -1,5 +1,5 @@
 ---
-title: How to upgrade Azure Monitor for containers (Preview) Agent | Microsoft Docs
+title: How to upgrade Azure Monitor for containers (Preview) agent | Microsoft Docs
 description: This article describes how you upgrade the Log Analytics agent used by Azure Monitor for containers.
 services: azure-monitor
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/06/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ---
 
