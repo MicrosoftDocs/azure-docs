@@ -103,7 +103,7 @@ You might also want to download or move data from Azure Data Lake Storage Gen2 f
 
 In such cases, you can use any of the following options:
 
-* [Azure Data Factory](../data-factory/copy-activity-overview.md)
+* [Azure Data Factory](../../data-factory/copy-activity-overview.md)
 * [Apache DistCp](copy-data-wasb-distcp.md)
 
 ## Visualize data in Data Lake Storage Gen2
