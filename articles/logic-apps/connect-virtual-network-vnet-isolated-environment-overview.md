@@ -8,7 +8,7 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/23/2018
 ---
 
 # Access to Azure Virtual Network resources from Azure Logic Apps by using integration service environments (ISEs)
@@ -57,11 +57,9 @@ but you can choose from connectors that provide ISE versions. For example,
 here's some standard connectors that offer versions that run in an ISE:
  
 * Azure Blob Storage, File Storage, and Table Storage
-* Azure Queues
-* Azure Service Bus
-* FTP
-* SSH FTP (SFTP)
-* SQL Server
+* Azure Queues, Azure Service Bus, Azure Event Hubs, and IBM MQ
+* FTP and SFTP-SSH
+* SQL Server, SQL Data Warehouse, Azure Cosmos DB
 * AS2, X12, and EDIFACT
 
 The difference between ISE and non-ISE connectors is 
@@ -93,12 +91,12 @@ available for use in the global Logic Apps service.
 ## Permissions for virtual network access
 
 When you create an integration service environment (ISE), 
-you can select an Azure virtual network as a *peer* for 
-your environment. However, you can *only* create this 
-relationship, or *peering*, when you create your ISE. 
-This relationship gives your ISE access to resources in your 
-virtual network, which then lets logic apps in that ISE connect 
-directly to resources in your virtual network. For on-premises 
+you can select an Azure virtual network into where you 
+*inject* your environment. However, you can perform this 
+injection *only* when you create your ISE. This step gives 
+your ISE access to resources in your virtual network, 
+which then lets logic apps in that ISE connect directly 
+to resources in your virtual network. For on-premises 
 systems in a virtual network that's linked to an ISE, logic apps 
 can directly access those systems by using any of these items: 
 
@@ -112,13 +110,11 @@ For on-premises systems that aren't in a virtual network or
 don't have ISE connectors, you can still connect after you 
 [set up and use the on-premises data gateway](../logic-apps/logic-apps-gateway-install.md).
 
-Before you can select an Azure virtual network as a peer for 
+Before you can select an Azure virtual network for injecting 
 your environment, you must set up Role-Based Access Control (RBAC) 
 permissions in your virtual network for the Azure Logic Apps service. 
 This task requires that you assign the **Network Contributor** and 
-**Classic Contributor** roles to the Azure Logic Apps service. For more 
-information about the role permissions required for peering, see the 
-[Permissions section in Create, change, or delete a virtual network peering](../virtual-network/virtual-network-manage-peering.md#permissions).
+**Classic Contributor** roles to the Azure Logic Apps service.
 
 <a name="create-integration-account-environment"></a>
 
