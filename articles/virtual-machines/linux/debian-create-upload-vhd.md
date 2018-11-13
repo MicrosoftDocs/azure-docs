@@ -1,6 +1,6 @@
 ---
 title: Prepare an Debian Linux VHD in Azure | Microsoft Docs
-description: Learn how to create Debian 7 & 8 VHD files for deployment in Azure.
+description: Learn how to create Debian VHD images for deployment in Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: szarkos
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/12/2018
+ms.date: 11/13/2018
 ms.author: szark
 
 ---
@@ -50,44 +50,54 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 3. Comment out the line for **deb cdrom** in `/etc/apt/source.list` if you set up the VM against an ISO file.
 4. Edit the `/etc/default/grub` file and modify the **GRUB_CMDLINE_LINUX** parameter as follows to include additional kernel parameters for Azure.
    
-        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200 earlyprintk=ttyS0,115200 rootdelay=30"
+        GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
+
 5. Rebuild the grub and run:
    
         # sudo update-grub
-6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 7 or 8:
-   
-    **Debian 7.x "Wheezy"**
-   
-        deb http://debian-archive.trafficmanager.net/debian wheezy-backports main
-        deb-src http://debian-archive.trafficmanager.net/debian wheezy-backports main
-        deb http://debian-archive.trafficmanager.net/debian-azure wheezy main
-        deb-src http://debian-archive.trafficmanager.net/debian-azure wheezy main
 
+6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 8 or 9:
+   
     **Debian 8.x "Jessie"**
-
+        deb http://debian-archive.trafficmanager.net/debian jessie main
+        deb-src http://debian-archive.trafficmanager.net/debian jessie main
+        deb http://debian-archive.trafficmanager.net/debian-security jessie/updates main
+        deb-src http://debian-archive.trafficmanager.net/debian-security jessie/updates
+        deb http://debian-archive.trafficmanager.net/debian jessie-updates main
+        deb-src http://debian-archive.trafficmanager.net/debian jessie-updates main
         deb http://debian-archive.trafficmanager.net/debian jessie-backports main
         deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
-        deb http://debian-archive.trafficmanager.net/debian-azure jessie main
-        deb-src http://debian-archive.trafficmanager.net/debian-azure jessie main
 
+    **Debian 9.x "Stretch"**
+        deb http://debian-archive.trafficmanager.net/debian stretch main
+        deb-src http://debian-archive.trafficmanager.net/debian stretch main
+        deb http://debian-archive.trafficmanager.net/debian-security stretch/updates main
+        deb-src http://debian-archive.trafficmanager.net/debian-security stretch/updates main
+        deb http://debian-archive.trafficmanager.net/debian stretch-updates main
+        deb-src http://debian-archive.trafficmanager.net/debian stretch-updates main
+        deb http://debian-archive.trafficmanager.net/debian stretch-backports main
+        deb-src http://debian-archive.trafficmanager.net/debian stretch-backports main
 
-1. Install the Azure Linux Agent:
+7. Install the Azure Linux Agent:
    
         # sudo apt-get update
         # sudo apt-get install waagent
-2. For Debian 7, it is required to run the 3.16-based kernel from the wheezy-backports repository. First create a file called /etc/apt/preferences.d/linux.pref with the following contents:
+
+8. For Debian 9+, it is recommended to use the new Debian Cloud kernel for use with VMs in Azure. To install this new kernel, first create a file called /etc/apt/preferences.d/linux.pref with the following contents:
    
-        Package: linux-image-amd64 initramfs-tools
-        Pin: release n=wheezy-backports
+        Package: linux-* initramfs-tools
+        Pin: release n=stretch-backports
         Pin-Priority: 500
    
-    Then run "sudo apt-get install linux-image-amd64" to install the new kernel.
-3. Deprovision the virtual machine and prepare it for provisioning on Azure and run:
+    Then run "sudo apt-get install linux-image-cloud-amd64" to install the new Debian Cloud kernel.
+
+9. Deprovision the virtual machine and prepare it for provisioning on Azure and run:
    
         # sudo waagent –force -deprovision
         # export HISTSIZE=0
         # logout
-4. Click **Action** -> Shut Down in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
+
+10. Click **Action** -> Shut Down in Hyper-V Manager. Your Linux VHD is now ready to be uploaded to Azure.
 
 ## Next steps
 You're now ready to use your Debian virtual hard disk to create new virtual machines in Azure. If this is the first time that you're uploading the .vhd file to Azure, see [Create a Linux VM from a custom disk](upload-vhd.md#option-1-upload-a-vhd).
