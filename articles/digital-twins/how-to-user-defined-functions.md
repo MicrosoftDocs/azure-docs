@@ -50,13 +50,13 @@ POST yourManagementApiUrl/matchers
       "comparison": "Equals"
     }
   ],
-  "SpaceId": "yourSpaceIdentifier"
+  "SpaceId": "YOUR_SPACE_IDENTIFIER"
 }
 ```
 
-| Custom attribute value | Replace with |
+| Your value | Replace with |
 | --- | --- |
-| yourSpaceIdentifier | Which server region your instance is hosted on |
+| YOUR_SPACE_IDENTIFIER | Which server region your instance is hosted on |
 
 ## Create a user-defined function (UDF)
 
@@ -81,10 +81,10 @@ Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
 {
-  "SpaceId": "yourSpaceIdentifier",
+  "SpaceId": "YOUR_SPACE_IDENTIFIER",
   "Name": "User Defined Function",
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
-  "Matchers": ["yourMatcherIdentifier"]
+  "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
 --userDefinedBoundary
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
@@ -97,10 +97,10 @@ function process(telemetry, executionContext) {
 --userDefinedBoundary--
 ```
 
-| Custom attribute name | Replace with |
+| Your value | Replace with |
 | --- | --- |
-| yourSpaceIdentifier | The space identifier  |
-| yourMatcherIdentifier | The ID of the matcher you want to use |
+| YOUR_SPACE_IDENTIFIER | The space identifier  |
+| YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |
 
 ### Example functions
 
@@ -200,18 +200,19 @@ We need to create a role assignment for the user-defined function to run under. 
     ```plaintext
     POST yourManagementApiUrl/roleassignments
     {
-      "RoleId": "yourDesiredRoleIdentifier",
-      "ObjectId": "yourUserDefinedFunctionId",
-      "ObjectIdType": "UserDefinedFunctionId",
-      "Path": "yourAccessControlPath"
+      "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
+      "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",
+      "ObjectIdType": "YOUR_USER_DEFINED_FUNCTION_TYPE_ID",
+      "Path": "YOUR_ACCESS_CONTROL_PATH"
     }
     ```
 
-    | Custom attribute | Replace with |
+    | Your value | Replace with |
     | --- | --- |
-    | yourDesiredRoleIdentifier | The identifier for the desired role |
-    | yourUserDefinedFunctionId | The ID for the UDF you want to use |
-    | yourAccessControlPath | The access control path |
+    | YOUR_DESIRED_ROLE_IDENTIFIER | The identifier for the desired role |
+    | YOUR_USER_DEFINED_FUNCTION_ID | The ID for the UDF you want to use |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the UDF type |
+    | YOUR_ACCESS_CONTROL_PATH | The access control path |
 
 ## Send telemetry to be processed
 
