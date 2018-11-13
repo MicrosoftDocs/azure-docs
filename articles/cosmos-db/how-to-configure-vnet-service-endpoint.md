@@ -13,7 +13,7 @@ ms.author: govindk
 
 # How to access Azure Cosmos DB resources from virtual networks
 
-Azure CosmosDB accounts can be configured to allow access only from specific subnet of Azure Virtual Network. There are two steps required to limit access to Azure Cosmos account with connections from a subnet in a Virtual Network (VNET).
+Azure CosmosDB accounts can be configured to allow access only from specific subnet of Azure Virtual Network. There are two steps required to limit access to Azure Cosmos account with connections from a subnet in a virtual network (VNET).
  
 1. Enable the subnet to send the subnet and VNET identity to Azure Cosmos DB. You can achieve this by enabling service endpoint for Azure Cosmos DB on the specific subnet.
 
@@ -44,7 +44,7 @@ The following sections describe how to configure VNET service endpoint for a Azu
    ![virtual network and subnet configured successfully](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
 > [!NOTE]
-> To enable Virtual network service endpoints, you would need the following subscription permissions:
+> To enable virtual network service endpoints, you would need the following subscription permissions:
   * Subscription with VNET: Network contributor
   * Subscription with Azure Cosmos account: DocumentDB Account Contributor
 
@@ -56,7 +56,7 @@ The following sections describe how to configure VNET service endpoint for a Azu
 
 3. Select **Firewalls and Azure virtual networks** from settings menu and choose allow access from **Selected networks**.  
 
-4. To grant access to a new Azure virtual network, under Virtual networks, select **Add new virtual network**.  
+4. To grant access to a new Azure virtual network, under virtual networks, select **Add new virtual network**.  
 
 5. Provide the details required to create a new virtual network, and then select Create. The subnet will be created with a service endpoint for "Microsoft.AzureCosmosDB" enabled.
 
@@ -219,7 +219,7 @@ Once service endpoint for Azure Cosmos account is turned on for a subnet, the re
      -Name $acctName
    ```
 
-1. Initialize the variables to use them later. Set up all the variables from the existing account definition. Add the VNET ACL to all Azure Cosmos accounts being accessed from the subnet with IgnoreMissingServiceEndpoint flag.  
+1. Initialize the variables to use them later. Set up all the variables from the existing account definition. Add the VNET ACL to all Azure Cosmos accounts being accessed from the subnet with `ignoreMissingVNetServiceEndpoint` flag.  
 
    If you have multiple locations, you need to add them as a part of the array. In this step, you also configure virtual network service endpoint by setting the "accountVNETFilterEnabled" variable to "True". This value is later assigned to the "isVirtualNetworkFilterEnabled" parameter.
 

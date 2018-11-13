@@ -17,16 +17,16 @@ To secure data stored in your account, Azure Cosmos DB supports a secret based a
 
 By default, your Azure Cosmos account is accessible from internet, as long as the request is accompanied by a valid authorization token. To configure IP policy-based access control, the user must provide the set of IP addresses or IP address ranges in CIDR (Classless Inter-Domain Routing) form to be included as the allowed list of client IPs to access a given Azure Cosmos account. Once this configuration is applied, any requests originating from machines outside this allowed list receive 404 (Not found) response. When using IP firewall, it is recommended to allow Azure portal to access your account. Access is required to allow use of data explorer as well as to retrieve metrics for your account that show up on the Azure portal.
 
-You can combine IP-based firewall with subnet and VNET access control. By combining them, you can limit access to any source that has a public IP and/or from a specific subnet within VNET. To learn more about using subnet and VNET-based access control see [VNET and subnet access control for your Azure Cosmos account](vnet-service-endpoint.md).
+You can combine IP-based firewall with subnet and VNET access control. By combining them, you can limit access to any source that has a public IP and/or from a specific subnet within VNET. To learn more about using subnet and VNET-based access control see [Access Azure Cosmos DB resources from virtual networks](vnet-service-endpoint.md).
 
-To summarize, authentication code is always required to access a Azure Cosmos account. If IP firewall and VNET Access Control List (ACLs) are not set up, the Azure Cosmos account can be accessed with the authentication code. After the IP firewall or VNET ACLs or both are set up on the Azure Cosmos account, only requests originating from the sources you have specified (and with the authentication code) get valid responses. 
+To summarize, authorization token is always required to access an Azure Cosmos account. If IP firewall and VNET Access Control List (ACLs) are not set up, the Azure Cosmos account can be accessed with the authorization token. After the IP firewall or VNET ACLs or both are set up on the Azure Cosmos account, only requests originating from the sources you have specified (and with the authorization token) get valid responses. 
 
 ## Next steps
 
 Next you can configure IP firewall or VNET service endpoint for your account by using the following docs:
 
 * [How to configure IP firewall for your Azure Cosmos account](how-to-configure-firewall.md)
-* [VNET and subnet access control for your Azure Cosmos account](vnet-service-endpoint.md)
+* [Access Azure Cosmos DB resources from virtual networks](vnet-service-endpoint.md)
 * [How to configure ](how-to-configure-vnet-service-endpoint.md)
 
 

@@ -14,8 +14,6 @@ ms.author: govindk
 
 You can configure the Azure Cosmos account to allow access only from a specific subnet of virtual network (VNET). By enabling [Service endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) to access Azure Cosmos DB on the subnet within a VNET, the traffic from that subnet is sent to Azure Cosmos DB with the identity of the subnet and Virtual Network. Once the Azure Cosmos DB service endpoint is enabled, you can limit access to the subnet by adding it to your Azure Cosmos account.
 
-![Virtual network service endpoint architecture](./media/vnet-service-endpoint/vnet-service-endpoint-architecture.png)
-
 By default, an Azure Cosmos account is accessible from any source if the request is accompanied by a valid authorization token. When you add one or more subnets within VNETs, only requests originating from those subnets will get a valid response. Requests originating from any other source will receive a 404 (Not found) response. 
 
 ## Frequently asked questions
