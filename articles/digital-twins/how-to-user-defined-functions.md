@@ -75,7 +75,7 @@ POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form
 
 | Parameter value | Replace with |
 | --- | --- |
-| *userDefinedBoundary* | A multi-part content boundary name |
+| *userDefinedBoundary* | A multipart content boundary name |
 
 ### Body
 

@@ -75,7 +75,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Custom attribute name | Replace with |
+| Custom name | Replace with |
 | --- | --- |
 | yourTopicName | The name of your customized topic |
 
@@ -106,7 +106,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Custom attribute name | Replace with |
+| Custom name | Replace with |
 | --- | --- |
 | yourTopicName | The name of your customized topic |
 
@@ -141,7 +141,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Custom attribute name | Replace with |
+| Custom name | Replace with |
 | --- | --- |
 | yourTopicName | The name of your customized topic |
 
@@ -176,7 +176,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Custom attribute name | Replace with |
+| Custom name | Replace with |
 | --- | --- |
 | yourTopicName | The name of your customized topic |
 
@@ -229,16 +229,16 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "yourPrimaryKey",
-    "secondaryConnectionString": "yourSecondaryKey",
+    "connectionString": "YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "YOUR_SECONDARY_KEY",
     "path": "yourTopicName.westus-1.eventgrid.azure.net"
   }
   ```
 
-    | Custom attribute name | Replace with |
+    | Your value | Replace with |
     | --- | --- |
-    | yourPrimaryKey | The primary connection string used to authenticate|
-    | yourSecondaryKey | The secondary connection string used to authenticate |
+    | YOUR_PRIMARY_KEY | The primary connection string used to authenticate|
+    | YOUR_SECONDARY_KEY | The secondary connection string used to authenticate |
     | yourTopicName | The name of your customized topic |
 
 - Route to Event Hubs event types **SensorChange**, **SpaceChange**, and **TopologyOperation**:
