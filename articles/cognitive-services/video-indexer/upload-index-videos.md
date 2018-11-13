@@ -75,7 +75,7 @@ Note:
 ### Notes
 
 - Video Indexer returns any existing parameters provided in the original URL.
-- The provided URL must to be encoded.
+- The provided URL must be encoded.
 
 ### indexingPreset
 
