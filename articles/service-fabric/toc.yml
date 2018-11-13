@@ -101,8 +101,6 @@
     href: service-fabric-content-roadmap.md
   - name: Application scenarios
     href: service-fabric-application-scenarios.md
-  - name: Patterns and scenarios
-    href: service-fabric-patterns-and-scenarios.md
   - name: Architecture
     href: service-fabric-architecture.md
   - name: Terminology
@@ -453,38 +451,40 @@
       href: service-fabric-backuprestoreservice-quickstart-standalonecluster.md
     - name: Migrate old Java Application to support Maven
       href: service-fabric-migrate-old-javaapp-to-use-maven.md
-  - name: Work in a Windows/VS dev environment
+  - name: Work in an IDE
     items:
-    - name: Manage applications in Visual Studio
-      href: service-fabric-manage-application-in-visual-studio.md
-    - name: Configure secure connections in Visual Studio
-      href: service-fabric-visualstudio-configure-secure-connections.md
-    - name: Debug a .NET service in VS
-      href: service-fabric-debugging-your-application.md
-    - name: Debug Windows containers with Service Fabric and VS
-      href: service-fabric-how-to-debug-windows-containers.md
-    - name: Common errors and exceptions
-      href: service-fabric-errors-and-exceptions.md
-    - name: Monitor and diagnose locally
-      href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
-    - name: Set up a Linux cluster on Windows
-      href: service-fabric-local-linux-cluster-windows.md
-  - name: Work in a Linux/Eclipse dev environment
-    items:
-    - name: Get started with Eclipse plugin for Java development
-      href: service-fabric-get-started-eclipse.md
-    - name: Debug a Java service in Eclipse
-      href: service-fabric-debugging-your-application-java.md
-    - name: Monitor and diagnose locally
-      href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
-  - name: Work in a VS Code environment
-    items:
-    - name: Get started with VS Code
-      href: service-fabric-get-started-vs-code.md
-    - name: Develop C# Service Fabric applications with VS Code
-      href: service-fabric-develop-csharp-applications-with-vs-code.md
-    - name: Develop Java Service Fabric applications with VS Code
-      href: service-fabric-develop-java-applications-with-vs-code.md
+    - name: Work in a Windows/VS dev environment
+      items:
+      - name: Manage applications in Visual Studio
+        href: service-fabric-manage-application-in-visual-studio.md
+      - name: Configure secure connections in Visual Studio
+        href: service-fabric-visualstudio-configure-secure-connections.md
+      - name: Debug a .NET service in VS
+        href: service-fabric-debugging-your-application.md
+      - name: Debug Windows containers with Service Fabric and VS
+        href: service-fabric-how-to-debug-windows-containers.md
+      - name: Common errors and exceptions
+        href: service-fabric-errors-and-exceptions.md
+      - name: Monitor and diagnose locally
+        href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md
+      - name: Set up a Linux cluster on Windows
+        href: service-fabric-local-linux-cluster-windows.md
+    - name: Work in a Linux/Eclipse dev environment
+      items:
+      - name: Get started with Eclipse plugin for Java development
+        href: service-fabric-get-started-eclipse.md
+      - name: Debug a Java service in Eclipse
+        href: service-fabric-debugging-your-application-java.md
+      - name: Monitor and diagnose locally
+        href: service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md
+    - name: Work in a VS Code environment
+      items:
+      - name: Get started with VS Code
+        href: service-fabric-get-started-vs-code.md
+      - name: Develop C# Service Fabric applications with VS Code
+        href: service-fabric-develop-csharp-applications-with-vs-code.md
+      - name: Develop Java Service Fabric applications with VS Code
+        href: service-fabric-develop-java-applications-with-vs-code.md
   - name: Migrate from Cloud Services
     items:
     - name: Compare Cloud Services with Service Fabric

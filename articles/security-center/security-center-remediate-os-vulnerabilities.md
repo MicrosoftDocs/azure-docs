@@ -103,7 +103,7 @@ To learn more about Security Center, see the following resources:
 * To learn how to manage and respond to security alerts, see [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md).
 * To learn how to monitor the health status of your partner solutions, see [Monitoring partner solutions with Azure Security Center](security-center-partner-solutions.md).
 * For answers to frequently asked questions about using the service, see [Azure Security Center FAQ](security-center-faq.md).
-* For blog posts about Azure security and compliance, see [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/).
+* For blog posts about Azure security and compliance, see [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/).
 
 <!--Image references-->
 [1]: ./media/security-center-remediate-os-vulnerabilities/compute-blade.png

@@ -30,7 +30,7 @@ Topic |  Details
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](how-to-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](reference-connect-accounts-permissions.md#upgrade).
 
-Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## 1.2.65.0 
 

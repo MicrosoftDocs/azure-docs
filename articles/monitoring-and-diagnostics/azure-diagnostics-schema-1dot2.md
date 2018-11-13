@@ -27,7 +27,7 @@ This schema defines the possible values you can use to initialize diagnostic con
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
- For more information about using Azure Diagnostics, see [Enabling Diagnostics in Azure Cloud Services](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
+ For more information about using Azure Diagnostics, see [Enabling Diagnostics in Azure Cloud Services](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
 
 ## Example of the diagnostics configuration file  
  The following example shows a typical diagnostics configuration file:  
@@ -149,11 +149,11 @@ Defines configuration settings for the telemetry data to be collected. The follo
 
 |Element Name|Description|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configures collection of events generated from [EventSource Class](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Required attribute:<br /><br /> **provider** - The class name of the EventSource event.<br /><br /> Optional attributes are:<br /><br /> -                     **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> -                     **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. Value is an [XML Duration Data Type](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Configures collection of events generated from [EventSource Class](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Required attribute:<br /><br /> **provider** - The class name of the EventSource event.<br /><br /> Optional attributes are:<br /><br /> -                     **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> -                     **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. Value is an [XML Duration Data Type](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwManifestProviderConfiguration**|Required attribute:<br /><br /> **provider** - The GUID of the event provider<br /><br /> Optional attributes are:<br /><br /> - **scheduledTransferLogLevelFilter** - The minimum severity level to transfer to your storage account.<br /><br /> -                     **scheduledTransferPeriod** - The interval between scheduled transfers to storage rounded up to the nearest minute. Value is an [XML Duration Data Type](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## EtwEventSourceProviderConfiguration Element  
- Configures collection of events generated from [EventSource Class](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). The following table describes child elements:  
+ Configures collection of events generated from [EventSource Class](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). The following table describes child elements:  
 
 |Element Name|Description|  
 |------------------|-----------------|  

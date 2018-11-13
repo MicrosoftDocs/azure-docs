@@ -2,7 +2,7 @@
 title: Quickstart Azure IoT Edge + Linux | Microsoft Docs 
 description: In this quickstart, learn how to deploy prebuilt code remotely to an IoT Edge device.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/14/2018
 ms.topic: quickstart
