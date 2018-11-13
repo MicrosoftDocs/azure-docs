@@ -165,9 +165,6 @@ This C# code is a drop-in replacement for the class presented earlier. The `Auth
 As before, make sure the `FetchTokenUri` value matches your subscription region. Pass your subscription key when you instantiate the class.
 
 ```cs
-/*
-    This class demonstrates how to maintain a valid access token.
-*/
 public class Authentication
 {
     public static readonly string FetchTokenUri =
