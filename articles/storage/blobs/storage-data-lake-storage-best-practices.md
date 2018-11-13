@@ -25,7 +25,7 @@ Assume you have a folder with 100,000 child objects. If you take the lower bound
 
 ### Use security groups versus individual users
 
-When working with big data in Data Lake Storage Gen2, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files.
+When working with big data in Data Lake Storage Gen2, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](../common/storage-auth-aad.md) instead of assigning individual users to folders and files.
 
 Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of 32 Access and Default ACLs (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](storage-data-lake-storage-access-control.md#the-owning-user), [the owning group](storage-data-lake-storage-access-control.md#the-owning-group), [the mask](storage-data-lake-storage-access-control.md#the-mask), and other).
 
@@ -85,7 +85,7 @@ Below are the top three recommended options for orchestrating replication betwee
 |**Scale limits**     | Bounded by worker nodes        | Limited by Max Cloud Data Movement units        | Bound by Analytics units        |
 |**Supports copying deltas**     |   Yes      | No         | No         |
 |**Built-in orchestration**     |  No (use Oozie Airflow or cron jobs)       | Yes        | No (Use Azure Automation or Windows Task Scheduler)         |
-|**Supported file systems**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerous, see [Connectors](../data-factory/connector-azure-blob-storage.md).         | ADL to ADL, WASB to ADL (same region only)        |
+|**Supported file systems**     | ADL, HDFS, WASB, S3, GS, CFS        |Numerous, see [Connectors](../../data-factory/load-azure-data-lake-storage-gen2.md).         | ADL to ADL, WASB to ADL (same region only)        |
 |**OS support**     |Any OS running Hadoop         | N/A          | Windows 10         |
 
 ### Use Distcp for data movement between two locations
