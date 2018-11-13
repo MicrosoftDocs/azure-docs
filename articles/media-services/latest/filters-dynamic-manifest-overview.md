@@ -38,7 +38,7 @@ This article discusses concepts and common scenarios in which using filters woul
 
 ### Dynamic manifests
 
-Media Services offers **Dynamic Manifests** based on pre-defined [filters](#filters). Once you define filters, your clients could use them to stream a specific rendition or sub-clips of your video. They would specify filter(s) in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols: HLS, MPEG-DASH, and Smooth Streaming. 
+Media Services offers **Dynamic Manifests** based on pre-defined [filters](#filters). Once you define filters, your clients could use them to stream a specific rendition or sub-clips of your video. They would specify filter(s) in the streaming URL. Filters could be applied to adaptive bitrate streaming protocols: Apple HTTP Live Streaming (HLS), MPEG-DASH, and Smooth Streaming. 
 
 The following table shows some examples of URLs with filters:
 
@@ -46,6 +46,8 @@ The following table shows some examples of URLs with filters:
 |---|---|
 |MPEG DASH|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)|
 |Smooth Streaming|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)|
+|HLS V4|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)|
+|HLS V3|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)|
 
 > [!NOTE]
 > Note that Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
