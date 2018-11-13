@@ -116,7 +116,7 @@ From ashell, run the following command:
 az feature show --namespace Microsoft.RecoveryServices --name InstantBackupandRecovery
 ```
 
-If it says "Registered," then your subscription is upgraded to VM backup stack Resource Manager deployment model.
+If it says "Registered," then your subscription is upgraded to V2 backup stack.
 
 ## Frequently asked questions
 
