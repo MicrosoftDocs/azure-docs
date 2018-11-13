@@ -35,7 +35,7 @@ This is the complete source code discussed in the [single-page app tutorial](aut
     h2 {font-size: 16px;}
     h1, h2 {clear: left;}
 
-    img#logo {float: right;
+    img#logo {float: right;}
 </style>
 
 <script type="text/javascript">

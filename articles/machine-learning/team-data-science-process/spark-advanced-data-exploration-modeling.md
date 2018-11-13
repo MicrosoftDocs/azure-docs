@@ -1249,7 +1249,7 @@ The code in this section shows how to do cross validation using Elastic net for 
     # cvModel uses the best model found (lrModel).
     predictionAndLabels = cv_model.transform(testDataFrame)
 
-    # CONVERT TO DF AND SAVE REGISER DF AS TABLE
+    # CONVERT TO DF AND SAVE REGISTER DF AS TABLE
     predictionAndLabels.registerTempTable("tmp_results");
 
     # PRINT ELAPSED TIME
