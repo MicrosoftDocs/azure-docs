@@ -167,19 +167,19 @@ The cloud administrator user name must be typed in the UPN format: serviceadmin@
 
 *After* configuring backup, you can run **AzsBackupShareAccessibility** to validate the share is accessible from the ERCS:
 
-    ```powershell
-    Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
-
-    Test-AzureStack -Include AzsBackupShareAccessibility
-    ``
+  ```powershell
+  Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  
+  Test-AzureStack -Include AzsBackupShareAccessibility
+  ```
 
 To test new credentials with the configured backup share, run: 
 
-    ```powershell
-    Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
-
-    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
-    ```
+  ```powershell
+  Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+    
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
+  ```
 
 ## Next steps
 
