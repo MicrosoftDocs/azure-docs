@@ -157,7 +157,7 @@ An Edge device requires the Edge runtime to be installed. In this tutorial, you 
 
 1. You can now exit the SSH session and close the cloud shell.
 
-You have now installed and configured the IoT Edge runtime on a Linux device. Later in this tutorial, you use the Remote Monitoring solution to deploy IoT Edge modules to this device.
+You've now installed and configured the IoT Edge runtime on a Linux device. Later in this tutorial, you use the Remote Monitoring solution to deploy IoT Edge modules to this device.
 
 ## Create an Edge manifest
 
@@ -166,7 +166,7 @@ To simulate the oil jack pump device, you need to add the following modules to y
 * Temperature simulation module.
 * Azure Stream Analytics anomaly detection.
 
-The following steps show you how to create a Edge deployment manifest that includes these modules. Later in this tutorial you import this manifest as a package in the Remote Monitoring solution accelerator.
+The following steps show you how to create an Edge deployment manifest that includes these modules. Later in this tutorial you import this manifest as a package in the Remote Monitoring solution accelerator.
 
 ### Create the Azure Stream Analytics job
 
@@ -185,7 +185,7 @@ You define the Stream Analytics job in the portal before packaging it as an Edge
     | Hosting environment | Edge |
     | Streaming units | 1 |
 
-1. Open the **EdgeDeviceJob** Stream Analytics job in the portal, click **Inputs** and add an **Edge Hub** stream input called **telemetry**.
+1. Open the **EdgeDeviceJob** Stream Analytics job in the portal, click Inputs, and add an **Edge Hub** stream input called **telemetry**.
 
 1. In the **EdgeDeviceJob** Stream Analytics job in the portal, click **Outputs** and add an **Edge Hub** output called **output**.
 
@@ -213,11 +213,11 @@ The following screenshot shows the saved Stream Analytics job:
 
 [![Stream Analytics job](./media/iot-accelerators-remote-monitoring-edge/streamjob-inline.png)](./media/iot-accelerators-remote-monitoring-edge/streamjob-expanded.png#lightbox)
 
-You have now defined a Stream Analytics job to run on your edge device. The job calculates average temperature over a 5 second window. The job also sends an alert if the average temperature in a 3 second window goes above 400.
+You've now defined a Stream Analytics job to run on your edge device. The job calculates average temperature over a 5-second window. The job also sends an alert if the average temperature in a 3-second window goes above 400.
 
 ### Create the IoT Edge deployment
 
-In this section, you create an IoT Edge deployment manifest that defines the modules to run on your Edge device. In the next section, you import this manifest as a package in the Remote Monitoring solution.
+Next, you create an IoT Edge deployment manifest that defines the modules to run on your Edge device. In the next section, you import this manifest as a package in the Remote Monitoring solution.
 
 1. In the Azure portal, navigate to the IoT hub in your Remote Monitoring solution. You can find the IoT hub in the resource group that has the same name as your Remote Monitoring solution.
 
@@ -263,7 +263,7 @@ In this section, you create an IoT Edge deployment manifest that defines the mod
 
 1. Click the **oil-pump-device** deployment and then click **Download IoT Edge manifest**. Save the file as **oil-pump-device.json** to a suitable location on your local machine. You need this file in the next section of this tutorial.
 
-You have now created a IoT Edge manifest to import into the Remote Monitoring solution as a package. Typically, a developer creates the IoT Edge modules and manifest file.
+You've now created a IoT Edge manifest to import into the Remote Monitoring solution as a package. Typically, a developer creates the IoT Edge modules and manifest file.
 
 ## Import a package
 
@@ -279,11 +279,11 @@ In this section, you import the Edge manifest as a package in the Remote Monitor
 
     The list of packages now includes the **oil-pump-device.json** package.
 
-In the next section you create a deployment that applies the package to your Edge device.
+In the next section, you create a deployment that applies the package to your Edge device.
 
 ## Deploy a package
 
-Now you are ready to deploy the package to your device.
+Now you're ready to deploy the package to your device.
 
 1. In the Remote Monitoring web UI, navigate to the **Deployments** page and click **+ New deployment**:
 
@@ -306,6 +306,13 @@ Now you are ready to deploy the package to your device.
 You need to wait several minutes for the package to deploy to your device and for telemetry to start flowing from the device.
 
 [![Deployment active](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-inline.png)](./media/iot-accelerators-remote-monitoring-edge/deploymentactive-expanded.png#lightbox)
+
+The **Deployments** page shows the following metrics:
+
+* **Targeted** shows the number of devices in the device group.
+* **Applied** shows the number of devices that have had the deployment content applied.
+* **Succeeded** shows  the number of Edge devices in the deployment reporting success from the IoT Edge client runtime.
+* **Failed** shows  the number of Edge devices in the deployment reporting failure from the IoT Edge client runtime.
 
 ## Monitor the device
 
@@ -342,7 +349,7 @@ If you want to notify operators when the threshold was reached, you can create a
 
 ## Next steps
 
-This tutorial showed you how add and configure an IoT Edge device in the Remote Monitoring solution accelerator. To learn more about working with IoT Edge packages in the Remote Monitoring solution, see the following how-to guide:
+This tutorial showed you how to add and configure an IoT Edge device in the Remote Monitoring solution accelerator. To learn more about working with IoT Edge packages in the Remote Monitoring solution, see the following how-to guide:
 
 > [!div class="nextstepaction"]
 > [Import an IoT Edge package into your Remote Monitoring solution accelerator](iot-accelerators-remote-monitoring-import-edge-package.md)
