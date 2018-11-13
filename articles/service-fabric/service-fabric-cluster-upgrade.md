@@ -69,24 +69,21 @@ An email with this information is sent to the subscription owner, along with the
 
 If the cluster health policies are met, the upgrade is considered successful and marked complete. This can happen during the initial upgrade or any of the upgrade reruns in this phase. There is no email confirmation of a successful run.
 
-## Cluster configurations that you control
-In addition to the ability to set the cluster upgrade mode, here are the configurations that you can change on a live cluster.
-
-### Certificates
+## Manage certificates
 Service Fabric uses [X.509 server certificates](service-fabric-cluster-security.md) that you specify when you create a cluster to secure communications between cluster nodes and authenticate clients. You can add, update, or delete certificates for the cluster and client in the [Azure portal](https://portal.azure.com) or using PowerShell/Azure CLI.  To learn more, read [add or remove certificates](service-fabric-cluster-security-update-certs-azure.md)
 
-### Application ports
+## Open application ports
 You can change application ports by changing the Load Balancer resource properties that are associated with the node type. You can use the Azure portal, or you can use PowerShell/Azure CLI. For more information, read [Open application ports for a cluster](create-load-balancer-rule.md).
 
-## Node properties
+## Define node properties
 Sometimes you may want to ensure that certain workloads run only on certain types of nodes in the cluster. For example, some workload may require GPUs or SSDs while others may not. For each of the node types in a cluster, you can add custom node properties to cluster nodes. Placement constraints are the statements attached to individual services that select for one or more node properties. Placement constraints define where services should run.
 
 For details on the use of placement constraints, node properties, and how to define them, read [node properties and placement constraints](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints).
 
-### Capacity metrics
+## Add capacity metrics
 For each of the node types, you can add custom capacity metrics that you want to use in your applications to report load. For details on the use of capacity metrics to report load, refer to the Service Fabric Cluster Resource Manager Documents on [Describing Your Cluster](service-fabric-cluster-resource-manager-cluster-description.md) and [Metrics and Load](service-fabric-cluster-resource-manager-metrics.md).
 
-### Fabric upgrade settings - Health policies
+## Set health policies for automatic upgrades
 You can specify custom health policies for fabric upgrade. If you have set your cluster to Automatic fabric upgrades, then these policies get applied to the Phase-1 of the automatic fabric upgrades.
 If you have set your cluster for Manual fabric upgrades, then these policies get applied each time you select a new version triggering the system to kick off the fabric upgrade in your cluster. If you do not override the policies, the defaults are used.
 
@@ -94,13 +91,13 @@ You can specify the custom health policies or review the current settings under 
 
 ![Manage custom health policies][HealthPolices]
 
-### Customize Fabric settings for your cluster
+## Customize Fabric settings for your cluster
 Many different configuration settings can be customized on a cluster, such as the reliability level of the cluster and node properties. For more information, read [Service Fabric cluster fabric settings](service-fabric-cluster-fabric-settings.md).
 
 ## Patch the OS in the cluster nodes
 The patch orchestration application (POA) is a Service Fabric application that automates operating system patching on a Service Fabric cluster without downtime. The [Patch Orchestration Application for Windows](service-fabric-patch-orchestration-application.md) or [Patch Orchestration Application for Linux](service-fabric-patch-orchestration-application-linux.md) can be deployed on your cluster to install patches in an orchestrated manner while keeping the services available all the time. 
 
-### OS upgrades on the VMs that make up the cluster
+## OS upgrades on the VMs that make up the cluster
 If you must upgrade the OS image on the virtual machines of the cluster, you must do it one VM at a time. You are responsible for this upgrade--there is currently no automation for this.
 
 ## Next steps
