@@ -15,8 +15,7 @@ ms.reviewer: arvindh
 ---
 
 # Single sign-on to applications in Azure Active Directory
-Learn how to choose the most appropriate single sign-on method when configuring applications in Azure Active Directory (Azure AD). With single sign-on, end-users sign on once with a single user account, and don't need to remember passwords. Administrators can centralize account management, and don't need to manage passwords for each application.
-
+Learn how to choose the most appropriate single sign-on method when configuring applications in Azure Active Directory (Azure AD). 
 
 - **With single sign-on**, users sign in once with one account to access domain-joined devices, company resources, software as a service (SaaS) applications, and web applications. After signing in, the user can launch applications from the Office 365 portal or the Azure AD MyApps access panel. Administrators can centralize user account management, and automatically add or remove user access to applications based on group membership. 
 
@@ -28,11 +27,10 @@ This article describes the single sign-on methods, and helps you choose the best
 
 There are several ways to configure an application for single sign-on. Choosing a single sign method for an application depends on how the application is configured for authentication. All of the single sign-on methods, except disabled, automatically sign users in to applications without requiring a second sign-on.  
 
-- Cloud applications can use SAML, password-based, or linked single sign-on. SAML is the most secure single sign-on method.
-- On-premises applications can use password-based, Integrated Windows Authentication, or Header-based single sign-on. The on-premises choices work when applications are configured for Application Proxy. 
-- Both cloud and on-premises applications can use linked or disabled single sign-on.
+- Cloud applications can use SAML, password-based, linked, or disabled methods for single sign-on. SAML is the most secure single sign-on method.
+- On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked, or disabled methods for single sign-on. The on-premises choices work when applications are configured for Application Proxy. 
 
-The following flowchart helps you decide which single sign-on method is best for your situation. 
+This flowchart helps you decide which single sign-on method is best for your situation. 
 
 ![Choose single sign-on method](./media/what-is-single-sign-on/choose-single-sign-on-method.png)
 
