@@ -93,7 +93,7 @@ The following items don't sync, but the rest of the system continues to operate 
     > Azure File Sync does not support moving the subscription to a different Azure AD tenant.
 
 ### Cloud tiering
-- The date-based cloud tiering policy setting is used to specify files that should be cached if accessed in a specified number of days. To learn more, see [Cloud Tiering Overview](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-cloud-tiering#afs-force-tiering).
+- The date-based cloud tiering policy setting is used to specify files that should be cached if accessed in a specified number of days. To learn more, see [Cloud Tiering Overview](https://docs.microsoft.com/azure/storage/files/storage-sync-cloud-tiering#afs-force-tiering).
 - If a tiered file is copied to another location by using Robocopy, the resulting file isn't tiered. The offline attribute might be set because Robocopy incorrectly includes that attribute in copy operations.
 - When copying files using robocopy, use the /MIR option to preserve file timestamps. This will ensure older files are tiered sooner than recently accessed files.
 - When you're viewing file properties from an SMB client, the offline attribute might appear to be set incorrectly due to SMB caching of file metadata.
