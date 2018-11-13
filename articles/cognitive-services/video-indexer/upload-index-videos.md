@@ -49,9 +49,33 @@ This parameter enables you to specify an ID that will be associated with the vid
 
 ### callbackUrl
 
-A POST URL to notify when indexing is completed. Video Indexer adds two query string parameters to it: id and state. For example, if the callback url is 'https://test.com/notifyme?projectName=MyProject', the notification will be sent with additional parameters to 'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
+A URL that is used to notify the customer (using a POST request) about the following events:
 
-You can also add more parameters to the URL before POSTing the call to Video Indexer and these parameters will be included in the callback. Later, in your code you can parse the query string and get back all of the specified parameters in the query string (data that you had originally appended to the URL plus the Video Indexer supplied info.) The URL needs to be encoded.
+- Indexing state change: 
+    - Properties:    
+    
+        |Name|Description|
+        |---|---|
+        |id|The video id|
+        |state|The video state|  
+    - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+- Person identified in video:
+    - Properties
+    
+        |Name|Description|
+        |---|---|
+        |id| The video id|
+        |faceId|The face ID that appears in the video index|
+        |knownPersonId|The person ID that is unique within a face model|
+        |personName|The name of the person|
+        
+     - Example: https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+Note:
+
+### Notes
+
+- Video Indexer returns any existing parameters provided in the original URL.
+- The provided URL must to be encoded.
 
 ### indexingPreset
 
