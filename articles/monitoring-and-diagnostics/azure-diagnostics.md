@@ -54,7 +54,7 @@ See [Azure Diagnostics Version History and Schema](azure-diagnostics-schema.md).
 Choose which service you are trying to collect diagnostics on and use the following articles to get started. Use the general Azure diagnostics links for reference for specific tasks.
 
 ## Cloud Services using Azure Diagnostics
-* If using Visual Studio, see [Use Visual Studio to trace a Cloud Services application](../vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see
+* If using Visual Studio, see [Use Visual Studio to trace a Cloud Services application](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) to get started. Otherwise, see
 * [How to monitor Cloud services using Azure Diagnostics](../cloud-services/cloud-services-how-to-monitor.md)
 * [Set up Azure Diagnostics in a Cloud Services Application](../cloud-services/cloud-services-dotnet-diagnostics.md)
 
@@ -65,8 +65,8 @@ For more advanced topics, see
 * [Use PowerShell to set up diagnostics on Cloud Services](../virtual-machines/extensions/diagnostics-windows.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Virtual Machines
-* If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](../vs-azure-tools-debug-cloud-services-virtual-machines.md) to get started. Otherwise, see
-* [Set up Azure Diagnostics on an Azure Virtual Machine](../virtual-machines/virtual-machines-dotnet-diagnostics.md)
+* If using Visual Studio, see [Use Visual Studio to trace Azure Virtual Machines](/visualstudio/azure/vs-azure-tools-debug-cloud-services-virtual-machines) to get started. Otherwise, see
+* [Set up Azure Diagnostics on an Azure Virtual Machine](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
 
 For more advanced topics, see
 

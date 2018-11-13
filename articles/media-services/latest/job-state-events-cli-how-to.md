@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/09/2018
 ms.author: juliako
 ---
 
@@ -57,8 +57,6 @@ In the following command, provide the Azure subscription ID that you want to use
 ```azurecli-interactive
 az account set --subscription mySubscriptionId
 ```
- 
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 ## Subscribe to Media Services events
 
