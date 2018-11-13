@@ -4,11 +4,11 @@ This article shows you how to use Python library in Azure Databricks to access d
 
 ## Prerequisites
 
-- [Create an Azure Data Explorer cluster and database](/azure/data-explorer/create-cluster-database-portal)
+- [Create an Azure Data Explorer cluster and database(/azure/data-explorer/create-cluster-database-portal)
 - [Create an Azure Databricks workspace](/azure/azure-databricks/quickstart-create-databricks-workspace-portal#create-an-azure-databricks-workspace)
 
     Under **Azure Databricks Service**, in the **Pricing Tier** dropdown, select **Premium**. This allows you to use Azure Databricks secrets to store your credentials and reference them in notebooks and jobs.
-    
+
 - [Create a cluster](https://docs.azuredatabricks.net/user-guide/clusters/create.html) in Azure Databricks with the following specifications:
 
 ![Create cluster](media/connect-from-databricks/databricks-create-cluster.png)
@@ -18,15 +18,15 @@ This article shows you how to use Python library in Azure Databricks to access d
 To install [Python library](/azure/kusto/api/python/kusto-python-client-library) on your Azure Databricks cluster:
 
 1. Go to your Azure Databricks workspace and [Create a Library](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
-2. [Upload a Python PyPI package or Python Egg](https://docs.azuredatabricks.net/user-guide/libraries.html#upload-a-python-pypi-package-or-python-egg) 
+2. [Upload a Python PyPI package or Python Egg](https://docs.azuredatabricks.net/user-guide/libraries.html#upload-a-python-pypi-package-or-python-egg)
     - Upload, install, and attach the library to your cluster.
     - Enter the PyPi name: *azure-kusto-data*
 
-## Connect to Azure Data Explorer using device login
+## Connect to ADX using device login
 
 [Import](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) a Notebook using this sample notebook to connect to ADX using your credentials.
 
-## Connect to Azure Data Explorer using AAD App
+## Connect to ADX using AAD App
 
 1. Create AAD App by [Provisioning an AAD application](/azure/kusto/management/access-control/how-to-provision-aad-app).
 1. Grant access to your AAD App on your Azure Data Explorer database as follows:
