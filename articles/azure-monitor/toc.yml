@@ -190,7 +190,7 @@
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
       - name: Log Analytics agents  
         items:
-        - name: Log Analytics agent overview
+        - name: Overview
           href: ../log-analytics/log-analytics-agent-overview.md?toc=/azure/azure-monitor/toc.json
         - name: Windows agents
           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
