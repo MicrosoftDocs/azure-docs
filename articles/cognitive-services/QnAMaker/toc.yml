@@ -4,8 +4,6 @@
   items:
   - name: What is QnA Maker?
     href: Overview/overview.md
-  - name: Release notes
-    href: release-notes.md
 - name: Quickstarts
   items:
   - name: Using REST APIs
