@@ -96,10 +96,6 @@ To enable access reviews, follow these steps.
 
     ![Access Reviews enabled](./media/access-reviews-overview/access-reviews-enabled.png)
 
-## Create reviews via APIs
-
-Microsoft Graph APIs are available for administrators. What you do to manage access reviews of groups, apps, and Azure AD roles in the Azure portal can also be done via APIs. For more information, see the [Azure AD Access Reviews API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root). For a code sample, see [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
-
 ## Next steps
 
 - [Create an access review for members of a group or access to an application](create-access-review.md)
