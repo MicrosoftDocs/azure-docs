@@ -52,11 +52,11 @@ There was a technical issue with SAP HANA scale-out in combination with multiple
 
 If you need support from SUSE, follow this [guide][suse-pacemaker-support-log-files]. Collect all the information about the SAP HANA high-availability (HA) cluster as described in the article. SUSE support needs this information for further analysis.
 
-During internal testing, the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. So we recommend that you test a cluster failover by other methods. Use methods like forcing a kernel panic, or shut down the networks or migrate the MSL resource. See details in the following sections. The assumption is that a standard shutdown happens with intention. The best example of an intentional shutdown is for maintenance. See details in the **Planned maintenance** section.
+During internal testing, the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. So we recommend that you test a cluster failover by other methods. Use methods like forcing a kernel panic, or shut down the networks or migrate the MSL resource. See details in the following sections. The assumption is that a standard shutdown happens with intention. The best example of an intentional shutdown is for maintenance. See details in [Planned maintenance](#planned-maintenance).
 
-Also, during internal testing, the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. We recommend that you switch it back again manually before you end the cluster maintenance mode. Another option is to trigger a failover before you put the cluster into maintenance mode. For more information, see the **Planned maintenance** section. The documentation from SUSE describes how you can reset the cluster in this way by using the **crm** command. But the approach mentioned previously was robust during internal testing and never showed any unexpected side effects.
+Also, during internal testing, the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. We recommend that you switch it back again manually before you end the cluster maintenance mode. Another option is to trigger a failover before you put the cluster into maintenance mode. For more information, see [Planned maintenance](#planned-maintenance). The documentation from SUSE describes how you can reset the cluster in this way by using the **crm** command. But the approach mentioned previously was robust during internal testing and never showed any unexpected side effects.
 
-When you use the **crm migrate** command, make sure to clean up the cluster configuration. It adds location constraints that you might not be aware of. These constraints impact the cluster behavior. See more details in the **Planned maintenance** section.
+When you use the **crm migrate** command, make sure to clean up the cluster configuration. It adds location constraints that you might not be aware of. These constraints impact the cluster behavior. See more details in [Planned maintenance](#planned-maintenance).
 
 
 
@@ -91,7 +91,7 @@ Following SAP HANA network recommendations, three subnets were created within on
 - 10.0.1.0/24 for SAP HANA System Replication (HSR)
 - 10.0.0.0/24 for everything else
 
-For information about SAP HANA configuration related to using multiple networks, see the **SAP HANA global.ini** section.
+For information about SAP HANA configuration related to using multiple networks, see [SAP HANA global.ini](#sap-hana-global-ini).
 
 Every VM in the cluster has three vNICs that correspond to the number of subnets. [How to create a Linux virtual machine in Azure with multiple network interface cards][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
 
@@ -172,7 +172,7 @@ The **corosync** config file has to be correct on every node in the cluster incl
 
 The content of **corosync.conf** from the test system is an example.
 
-The first section is **totem**, as described in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide] (section cluster-installation step 11). You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
+The first section is **totem**, as described in [Cluster installation][sles-pacemaker-ha-guide#cluster-installation], step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -279,7 +279,7 @@ systemctl restart corosync
 
 ## SBD device
 
-How to set up an SBD device on an Azure VM is described in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide] (section sbd-fencing).
+How to set up an SBD device on an Azure VM is described in [SBD fencing][sles-pacemaker-ha-guide#sbd-fencing].
 
 First, check on the SBD server VM if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
 
@@ -422,7 +422,7 @@ On the target VM side, **hso-hana-vm-s2-2** in this example, you can find the fo
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Check that the entries in **/etc/sysconfig/sbd** correspond to the description in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide] (section sbd-fencing). Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
+Check that the entries in **/etc/sysconfig/sbd** correspond to the description in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide#sbd-fencing]. Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
 
 The following entries are important in **/etc/sysconfig/sbd**. Adapt the **id** value if necessary:
 
@@ -532,7 +532,7 @@ Full list of resources:
      rsc_nc_HSO_HDB00   (ocf::heartbeat:anything):      Started hso-hana-vm-s1-0
 </code></pre>
 
-An important feature of Pacemaker is maintenance mode. In this mode, you can make modifications without provoking an immediate cluster action. An example is a VM reboot. A typical use case would be planned OS or Azure infrastructure maintenance. See the **Planned maintenance** section. Use the following command to put Pacemaker into maintenance mode:
+An important feature of Pacemaker is maintenance mode. In this mode, you can make modifications without provoking an immediate cluster action. An example is a VM reboot. A typical use case would be planned OS or Azure infrastructure maintenance. See [Planned maintenance](#planned-maintenance). Use the following command to put Pacemaker into maintenance mode:
 
 <pre><code>
 crm configure property maintenance-mode=true
@@ -656,7 +656,7 @@ Waiting for 7 replies from the CRMd....... OK
 
 ## Failover or takeover
 
-As discussed in the **Important notes** section, you shouldn't use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead, we recommend that you trigger a kernel panic, force a resource migration, or possibly shut down all networks on the OS level of a VM. Another method is the **crm \<node\> standby** command. See the [SUSE document][sles-12-ha-paper]. 
+As discussed in [Important notes](#important-notes), you shouldn't use a standard graceful shutdown to test the cluster failover or SAP HANA HSR takeover. Instead, we recommend that you trigger a kernel panic, force a resource migration, or possibly shut down all networks on the OS level of a VM. Another method is the **crm \<node\> standby** command. See the [SUSE document][sles-12-ha-paper]. 
 
 The following three sample commands can force a cluster failover:
 
@@ -672,7 +672,7 @@ wicked ifdown eth2
 wicked ifdown eth&ltn&gt
 </code></pre>
 
-As described in the **Planned maintenance** section, a good way to monitor the cluster activities is to run **SAPHanaSR-showAttr** with the **watch** command:
+As described in [Planned maintenance](#planned-maintenance), a good way to monitor the cluster activities is to run **SAPHanaSR-showAttr** with the **watch** command:
 
 <pre><code>
 watch SAPHanaSR-showAttr
@@ -793,7 +793,7 @@ hso-hana-vm-s2-1 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS
 hso-hana-vm-s2-2 DEMOTED     online     slave:slave:worker:slave     -10000 HSOS2
 </code></pre>
 
-After the cluster failover and SAP HANA takeover, put the cluster into maintenance mode as described in the **Pacemaker** section.
+After the cluster failover and SAP HANA takeover, put the cluster into maintenance mode as described in [Pacemaker](#pacemaker).
 
 The commands **SAPHanaSR-showAttr** and **crm status** don't indicate anything about the constraints created by the resource migration. One option to make these constraints visible is to show the complete cluster resource configuration with the following command:
 
@@ -816,13 +816,13 @@ crm resource unmigrate msl_SAPHanaCon_HSO_HDB00
 INFO: Removed migration constraints for msl_SAPHanaCon_HSO_HDB00
 </code></pre>
 
-At the end of the maintenance work, you stop the cluster maintenance mode as shown in the **Pacemaker** section.
+At the end of the maintenance work, you stop the cluster maintenance mode as shown in [Pacemaker](#pacemaker).
 
 
 
 ## hb_report to collect log files
 
-To analyze Pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all the important log files that you need to analyze what happened. This sample call uses a start and end time where a specific incident occurred. Also see the **Important notes** section:
+To analyze Pacemaker cluster issues, it's helpful and also requested by SUSE support to run the **hb_report** utility. It collects all the important log files that you need to analyze what happened. This sample call uses a start and end time where a specific incident occurred. Also see [Important notes](#important-notes):
 
 <pre><code>
 hb_report -f "2018/09/13 07:36" -t "2018/09/13 08:00" /tmp/hb_report_log
@@ -957,13 +957,13 @@ This screenshot shows the cluster dashboard:
 ![Hawk cluster dashboard](media/hana-vm-scale-out-HA-troubleshooting/hawk-1.png)
 
 
-This example shows the location constraints caused by a cluster resource migration as explained in the **Planned maintenance** section:
+This example shows the location constraints caused by a cluster resource migration as explained in [Planned maintenance](#planned-maintenance):
 
 
 ![Hawk list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See the **hb_report to collect log files** section: 
+You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See [hb_report to collect log files](hb-report-to-collect-log-files): 
 
 ![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
