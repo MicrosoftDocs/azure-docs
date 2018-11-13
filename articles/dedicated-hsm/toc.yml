@@ -6,8 +6,6 @@
     href: overview.md
 - name: Tutorials
   items:
-  - name: Provisioning Dedicated HSM in a multi-region scenario
-    href: provisioning-dedicated-hsm-multi-region.md
   - name: Deploying HSMs into an existing virtual network using CLI
     href: tutorial-deploy-hsm-cli.md
   - name: Deploying HSMs into an existing virtual network using PowerShell
