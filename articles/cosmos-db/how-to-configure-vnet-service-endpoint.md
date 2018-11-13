@@ -181,8 +181,8 @@ Use the following steps to configure service endpoint to a Azure Cosmos DB accou
 
    ```azurecli-interactive
 
-   name= "<Azure Cosmos account name>"
-   resourceGroupName = "<Resource group name>"
+   name="<Azure Cosmos account name>"
+   resourceGroupName="<Resource group name>"
 
    az cosmosdb update \
  	  --name $name \

@@ -107,8 +107,8 @@ The following command shows how to create a Azure Cosmos account with IP access 
 
 ```azurecli-interactive
 
-name= "<Azure Cosmos account name>"
-resourceGroupName = "<Resource group name>"
+name="<Azure Cosmos account name>"
+resourceGroupName="<Resource group name>"
 
 az cosmosdb create \
   --name $name \
