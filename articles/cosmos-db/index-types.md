@@ -60,7 +60,7 @@ Azure Cosmos DB returns an error when a query uses ORDER BY but doesn't have a R
 
 To learn more about indexing in Azure Cosmos DB, see the following articles:
 
-- [Overview of indexing](indexing-overview.md)
+- [Overview of indexing](index-overview.md)
 - [Indexing policy](indexing-policies.md)
 - [Index paths](index-paths.md)
 

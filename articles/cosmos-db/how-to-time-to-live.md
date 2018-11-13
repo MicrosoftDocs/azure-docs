@@ -9,13 +9,13 @@ ms.date: 11/14/2018
 ms.author: mjbrown
 ---
 
-# How to configure Time to Live in Azure Cosmos DB
+# How to configure time to live in Azure Cosmos DB
 
 In Azure Cosmos DB, you can choose to configure Time to Live (TTL) at the container level, or you can override it at an item level after setting for the container. You can configure TTL for a container by using Azure portal or the language-specific SDKs. Item level TTL overrides can be configured by using the SDKs.
 
-## Enable Time to Live on a container using Azure portal
+## Enable time to live on a container using Azure portal
 
-Use the following steps to enable Time to Live on a container with no expiration. Enable this to allow TTL to be overridden at the item level. You can also set the TTL by entering a non-zero value for seconds.
+Use the following steps to enable time to live on a container with no expiration. Enable this to allow TTL to be overridden at the item level. You can also set the TTL by entering a non-zero value for seconds.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
@@ -28,11 +28,11 @@ Use the following steps to enable Time to Live on a container with no expiration
    * Open the **Scale & Settings** window.
    * Under **Setting** find, **Time to Live**.
    * Select **On (no default)** or select **On** and set a TTL value
-   * Click **Save** at the top.
+   * Click **Save** to save the changes.
 
    ![Configure Time to live in Azure portal](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
-## Enable Time to Live on a container using SDK
+## Enable time to live on a container using SDK
 
 ### <a id="dotnet-enable-noexpiry"></a>.NET SDK
 
@@ -49,7 +49,7 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-## Set Time to Live on a container using SDK
+## Set time to live on a container using SDK
 
 ### <a id="dotnet-enable-withexpiry"></a>.NET SDK
 
@@ -68,9 +68,9 @@ DocumentCollection ttlEnabledCollection = await client.CreateDocumentCollectionA
     new RequestOptions { OfferThroughput = 20000 });
 ```
 
-## Set Time to Live on an item
+## Set time to live on an item
 
-In addition to setting a default time to live on a container, you can set a time to live for an item. Setting Time to Live at the item level will override the default TTL of the item in that container.
+In addition to setting a default time to live on a container, you can set a time to live for an item. Setting time to live at the item level will override the default TTL of the item in that container.
 
 * To set the TTL on an item, you need to provide a non-zero positive number, which indicates the period, in seconds, to expire the item after the last modified timestamp of the item `_ts`.
 
@@ -103,7 +103,7 @@ SalesOrder salesOrder = new SalesOrder
 };
 ```
 
-## Reset Time to Live on an item
+## Reset time to live
 
 You can reset the time to live on an item by performing a write or update operation on the item. The write or update operation will set the `_ts` to the current time, and the TTL for the item to expire  will begin again. If you wish to change the TTL of an item, you can update the field just as you update any other field.
 
@@ -121,11 +121,11 @@ readDocument.TimeToLive = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-## Turn off Time to Live for an item
+## Turn off time to live
 
-If Time to Live has been set on an item and you no longer want that item to expire, then you can get the item, remove the TTL field, and replace the item on the server. When the TTL field is removed from the item, the default TTL value assigned to the container is applied to the item. Set the TTL value to -1 to prevent an item from expiring and to not inherit the TTL value from the container.
+If time to live has been set on an item and you no longer want that item to expire, then you can get the item, remove the TTL field, and replace the item on the server. When the TTL field is removed from the item, the default TTL value assigned to the container is applied to the item. Set the TTL value to -1 to prevent an item from expiring and to not inherit the TTL value from the container.
 
-### <a id="dotnet-turn-off-ttl-item"></a>.NET
+### <a id="dotnet-turn-off-ttl-item"></a>.NET SDK
 
 ```csharp
 // This examples leverages the Sales Order class above.
@@ -154,8 +154,8 @@ collection.DefaultTimeToLive = null;
 await client.ReplaceDocumentCollectionAsync(collection);
 ```
 
-## Next Steps
+## Next steps
 
-Learn more about time to live in the following articles:
+Learn more about time to live in the following article:
 
 * [Time to live](time-to-live.md)

@@ -1105,7 +1105,7 @@ Accept wildcard characters: False
 ```
 
 #### -ADwatermark
-If already running as Domain Administrator there's no need to provide AD credentials
+If already running as Domain Administrator there's no need to provide AD credentials.
 Manual input of watermark, instead of XML file e.g.
 $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)"
 

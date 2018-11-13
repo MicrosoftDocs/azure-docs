@@ -54,7 +54,7 @@ There are four main components of implementing the change feed processor library
 
 To further understand how these four elements of change feed processor work together, let's look at an example in the following diagram. The monitored collection stores documents and uses 'City' as the partition key. We see that the blue partition contains documents with the 'City' field from "A-E" and so on. There are two hosts, each with two consumers reading from the four partitions in parallel. The arrows show the consumers reading from a specific spot in the change feed. In the first partition, the darker blue represents unread changes while the light blue represents the already-read changes on the change feed. The hosts use the lease collection to store a "continuation" value to keep track of the current reading position for each consumer.
 
-![Change feed processor example](./media/change-feed/change-feed-processor.png)
+![Change feed processor example](./media/change-feed-processor/changefeedprocessor.png)
 
 ### Change feed and provisioned throughput
 
@@ -62,12 +62,14 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 
 ## Additional resources
 
-* [Azure Cosmos DB change feed processor library](sql-api-sdk-dotnet-changefeed)
+* [Azure Cosmos DB change feed processor library](sql-api-sdk-dotnet-changefeed.md)
 * [NugGet package](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
 * [Additional samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 ## Next steps
 
+You can now proceed to learn more about change feed in the following articles:
+
 * [Overview of change feed](change-feed.md)
-* [Ways to read change feed](change-feed-reading.md)
+* [Ways to read change feed](read-change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)
