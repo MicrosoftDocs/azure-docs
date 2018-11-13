@@ -15,7 +15,7 @@ ms.author: lizross
 # What is Azure Active Directory? 
 Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service. Azure AD combines core directory services, application access management, and identity protection in a single solution, offering a standards-based platform that helps developers deliver access control to their apps, based on centralized policy and rules.
 
-You can use the [cloud identity and access management visual reference](https://azure.microsoft.com/resources/infographics/cloud-identity-and-access/) to better understand the core identity services in Azure and Azure AD.
+You can use the various [Microsoft Cloud for Enterprise Architects Series](https://docs.microsoft.com/office365/enterprise/microsoft-cloud-it-architecture-resources#identity) posters to better understand the core identity services in Azure, Azure AD, and Office 365.
 
 ## Who uses Azure AD?
 Azure AD is intended for:
@@ -69,7 +69,7 @@ After you choose your Azure AD license, you will get access to some or all of th
 
 |Category|Description|
 |-------|-----------|
-|Application management|Manage your cloud and on-premises apps using Application Proxy, single sign-on, and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
+|Application management|Manage your cloud and on-premises apps using Application Proxy, single sign-on, the My Apps portal (also known as the Access panel), and Software as a Service (SaaS) apps. For more information, see [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) and [Application Management documentation](../manage-apps/index.yml).|
 |Authentication|Manage Azure Active Directory self-service password reset, Multi-Factor Authentication, custom banned password list, and smart lockout. For more information, see [Azure AD Authentication documentation](../authentication/index.yml).|
 |Business-to-Business (B2B)|Manage your guest users and external partners, while maintaining control over your own corporate data. For more information, see [Azure Active Directory B2B documentation](../b2b/index.yml).|
 |Business-to-Customer (B2C)|Customize and control how users sign up, sign in, and manage their profiles when using your apps. For more information, see [Azure Active Directory B2C documentation](../../active-directory-b2c/index.yml).|
@@ -79,7 +79,7 @@ After you choose your Azure AD license, you will get access to some or all of th
 |Domain services|Join Azure virtual machines to a domain without using domain controllers. For more information, see [Azure AD Domain Services documentation](../../active-directory-domain-services/index.yml).|
 |Enterprise users|Manage license assignment, access to apps, and set up delegates using groups and administrator roles. For more information, see [Azure Active Directory user management documentation](../users-groups-roles/index.yml).|
 |Hybrid identity|Use Azure Active Directory Connect and Connect Health to provide a single user identity for authentication and authorization to all resources, regardless of location (cloud or on-premises). For more information, see [Hybrid identity documentation](../hybrid/index.yml).|
-|Identity governance|Manage your organization's identity lifecycle, access lifecycle, and secure administration across employees and partners. For more information, see [Azure AD identity governance documentation](../governance/identity-governance-overview.md).
+|Identity governance|Manage your organization's identity through employee, business partner, vendor, service, and app access controls. You can also perform access reviews. For more information, see [Azure AD identity governance documentation](../governance/identity-governance-overview.md) and [Azure AD access reviews](../governance/access-reviews-overview.md).|
 |Identity protection|Detect potential vulnerabilities affecting your organization's identities, configure policies to respond to suspicious actions, and then take appropriate action to resolve them. For more information, see [Azure AD Identity Protection](../identity-protection/index.yml).|
 |Managed identities for Azure resources|Provides your Azure services with an automatically managed identity in Azure AD that can authenticate any Azure AD-supported authentication service, including Key Vault. For more information, see [What is managed identities for Azure resources?](../managed-identities-azure-resources/overview.md).|
 |Privileged identity management (PIM)|Manage, control, and monitor access within your organization. This includes access to resources in Azure AD, Azure resources, and other Microsoft Online Services, like Office 365 or Intune. For more information, see [Azure AD Privileged Identity Management](../privileged-identity-management/index.yml).|
@@ -92,3 +92,5 @@ After you choose your Azure AD license, you will get access to some or all of th
 - [Associate an Azure subscription to your Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 - [Access Azure Active Directory and create a new tenant](active-directory-access-create-new-tenant.md)
+
+- [Azure Active Directory Premium P2 feature deployment checklist](active-directory-deployment-checklist-p2.md)
