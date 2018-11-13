@@ -13,7 +13,7 @@ ms.date: 11/13/2018
 ms.author: routlaw
 ---
 
-# Tutorial: Build a Java EE and Postgress web app in Azure
+# Tutorial: Build a Java EE and Postgres web app in Azure
 
 This tutorial will show you how to create a Java Enterprise Edition (EE) web app on Azure App Service and connect it to a Postgres database. When you are finished, you will have a [WildFly](http://www.wildfly.org/about/) application storing data in [Azure Database for Postgres](https://azure.microsoft.com/services/postgresql/) running on Azure [App Service for Linux](app-service-linux-intro.md).
 
@@ -33,11 +33,11 @@ In this tutorial, you will learn how to:
 
 ## Clone and edit the sample app
 
-In this step you will clone the sample application and configure the Maven Project Object Model (POM or pom.xml) for deployment.
+In this step, you will clone the sample application and configure the Maven Project Object Model (POM or pom.xml) for deployment.
 
 ### Clone the sample
 
-In the terminal wndow, navigate to a working directory and clone [the sample repository](https://github.com/Azure-Samples/wildfly-petstore-quickstart).
+In the terminal window, navigate to a working directory and clone [the sample repository](https://github.com/Azure-Samples/wildfly-petstore-quickstart).
 
 ```bash
 git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
@@ -45,7 +45,7 @@ git clone https://github.com/Azure-Samples/wildfly-petstore-quickstart.git
 
 ### Update the Maven POM
 
-Update the Maven POM with the desired name and resource group of your App Service. These values will be injected into the Azure plugin, which is further down in _pom.xml_ file. (Note that you do not need to create the App Service plan or instance beforehand. The Maven plugin will create the resource group and App Service if it does not already exist.)
+Update the Maven POM with the desired name and resource group of your App Service. These values will be injected into the Azure plugin, which is further down in _pom.xml_ file. You do not need to create the App Service plan or instance beforehand. The Maven plugin will create the resource group and App Service if it does not already exist.
 
 Replace the placeholders with your desired resource names:
 ```xml
@@ -83,7 +83,7 @@ When the deployment finishes, continue to the next step.
 
 Open a browser and navigate to `https://<your_app_name>.azurewebsites.net/`. Congratulations, you have deployed a Java EE application to Azure App Service!
 
-At this point, the application is using an in-memory H2 database. Click "admin" in the navigation bar and create a new category. If you restart your App Service instance, the record will be lost. In the following steps, we will fix this by provisioning a Postgres database on Azure and configure WildFly to use it.
+At this point, the application is using an in-memory H2 database. Click "admin" in the navigation bar and create a new category. The record in your in-memory database will be lost if you restart your App Service instance. In the following steps, you will fix this by provisioning a Postgres database on Azure and configure WildFly to use it.
 
 ![Admin button location](media/tutorial-java-enterprise-postgresql-app/admin_button.JPG)
 
@@ -95,7 +95,7 @@ To provision a Postgres database server, open a terminal and run the following c
 az postgres server create -n <desired-name> -g <same-resource-group> --sku-name GP_Gen4_2 -u <desired-username> -p <desired-password> -l <location>
 ```
 
-Browse to the Portal and search for your Postgress database. When the blade is up, copy the "Server name" and "Server admin login name" values, you will need them later.
+Browse to the Portal and search for your Postgres database. When the blade is up, copy the "Server name" and "Server admin login name" values, you will need them later.
 
 ### Allow access to Azure Services
 
@@ -107,7 +107,7 @@ We will now make some changes to the Java application to enable it to use our Po
 
 ### Add Postgres credentials to the POM
 
-In _pom.xml_ replace the placholder values with your Potgres server name, admin login name, and password. These values will be injected as environment variables in your App Service instance when we re-deploy the application.
+In _pom.xml_ replace the placeholder values with your Postgres server name, admin login name, and password. These values will be injected as environment variables in your App Service instance when you redeploy the application.
 
 ```xml
 <azure.plugin.postgres-server-name>SERVER_NAME</azure.plugin.postgres-server-name>
@@ -127,18 +127,18 @@ Next, we need to edit our Java Transaction API (JPA) configuration so that our J
 
 ## Configure the WildFly application server
 
-Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencties. To configure the server we will need the four files in the  `wildfly_config/` directory:
+Before deploying our reconfigured application, we must update the WildFly application server with the Postgres module and its dependencies. To configure the server, we will need the four files in the  `wildfly_config/` directory:
 
-- **postgresql-42.2.5.jar**: This .jar is the JDBC driver for Postgres. For more information, please see the [official website](https://jdbc.postgresql.org/index.html).
+- **postgresql-42.2.5.jar**: This JAR file is the JDBC driver for Postgres. For more information,  see the [official website](https://jdbc.postgresql.org/index.html).
 - **postgres-module.xml**: This XML file declares a name for the Postgres module (org.postgres). It also specifies the resources and dependencies necessary for the module to be used.
-- **jboss_cli_commands.cl**: This file contains configuration commands that will be executed to by the JBoss CLI. The commands add the Postgres module to the WildFly application server, provide the credentials, declare a JNDI name, set the timeout threshold, etc. If you are unfamiliar with the JBoss CLI, please see the [official documentation](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+- **jboss_cli_commands.cl**: This file contains configuration commands that will be executed to by the JBoss CLI. The commands add the Postgres module to the WildFly application server, provide the credentials, declare a JNDI name, set the timeout threshold, etc. If you are unfamiliar with the JBoss CLI, see the [official documentation](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
 - **startup_script.sh**: Finally, this shell script will be executed whenever your App Service instance is started. The script only performs one function: piping the commands in `jboss_cli_commands.cli` to the JBoss CLI.
 
 We highly suggest reading the contents of these files, especially _jboss_cli_commands.cli_.
 
 ### FTP the configuration files
 
-We will need to FTP the contents of `wildfly_config/` to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button in the App Service blade in the Azure Portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile, please see [this document](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
+We will need to FTP the contents of `wildfly_config/` to our App Service instance. To get your FTP credentials, click the **Get Publish Profile** button on the App Service blade in the Azure portal. Your FTP username and password will be in the downloaded XML document. For more information on the Publish Profile,  see [this document](https://docs.microsoft.com/azure/app-service/app-service-deployment-credentials).
 
 Using an FTP tool of your choice, transfer the four files in `wildfly_config/` to `/home/site/deployments/tools/`. (Note that you should not transfer the directory, just the files themselves.)
 
@@ -149,7 +149,7 @@ In the App Service blade navigate to the "Application settings" panel. Under "Ru
 
 Finally, restart your App Service. The button is in the "Overview" panel.
 
-## Redploy the application
+## Redeploy the application
 
 In a terminal window, rebuild and redeploy your application.
 
