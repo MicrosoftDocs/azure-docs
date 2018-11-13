@@ -1,5 +1,5 @@
 ---
-title: Introducing the new diagnostics role service
+title: Introducing the new diagnostics role service - Windows Virtual Desktop
 description: Describes the new Windows Virtual Desktop diagnostics role service and how to use it.
 services: virtual-desktop
 author: Heidilohr

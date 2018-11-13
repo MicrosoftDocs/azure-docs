@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop environment
+title: Windows Virtual Desktop environment - Windows Virtual Desktop
 description: The basic elements of a Windows Virtual Desktop environment.
 services: virtual-desktop
 author: Heidilohr

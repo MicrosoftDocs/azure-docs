@@ -1,5 +1,5 @@
 ---
-title: Delegated access in Windows Virtual Desktop
+title: Delegated access in Windows Virtual Desktop - Windows Virtual Desktop
 description: How to delegate administrative capabilities on a Winows Virtual Desktop deployment, including examples.
 services: virtual-desktop
 author: Heidilohr

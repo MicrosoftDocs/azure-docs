@@ -1,5 +1,5 @@
 ---
-title: Manage user storage in Windows Virtual Desktop
+title: Manage user storage in Windows Virtual Desktop - Windows Virtual Desktop
 description: How to manage file shares for virtual machines in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr

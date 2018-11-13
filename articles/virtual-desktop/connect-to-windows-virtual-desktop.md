@@ -1,5 +1,5 @@
 ---
-title: Connect to Windows Virtual Desktop
+title: Connect to Windows Virtual Desktop - Windows Virtual Desktop
 description: Describes how users can access Windows Virtual Desktop through a downloaded client or the Remote Desktop web client.
 services: virtual-desktop
 author: Heidilohr
