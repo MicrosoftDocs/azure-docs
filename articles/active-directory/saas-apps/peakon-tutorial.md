@@ -162,9 +162,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	c. Click **Choose file** to upload the certificate that you have downloaded from the Azure portal, into the Certificate box.
 
-	d. Click copy **icon** to copy the **Entity ID** and paste it in **Identifier** textbox in **Basic SAML Configuration** section on Azure portal.
+	d. Click the **icon** to copy the **Entity ID** and paste it in **Identifier** textbox in **Basic SAML Configuration** section on Azure portal.
 
-	e. Click copy **icon** to copy the **Reply URL (ACS)** and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
+	e. Click the **icon** to copy the **Reply URL (ACS)** and paste it in **Reply URL** textbox in **Basic SAML Configuration** section on Azure portal.
 
 	f. Click **Save**
 
@@ -195,7 +195,7 @@ The objective of this section is to create a test user in the Azure portal calle
 
 ### Creating a Peakon test user
 
-To enable Azure AD users to sign in to Peakon, they must be provisioned into Peakon.  
+For enabling Azure AD users to sign in to Peakon, they must be provisioned into Peakon.  
 In the case of Peakon, provisioning is a manual task.
 
 **To provision a user account, perform the following steps:**
