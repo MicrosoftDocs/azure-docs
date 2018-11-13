@@ -13,9 +13,10 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.custom: mvc
+ms.reviewer: misainat
 
 ---
 # Quickstart: evaluate the Azure Stack Development Kit

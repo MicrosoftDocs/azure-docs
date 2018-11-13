@@ -169,3 +169,7 @@ Concepts in this article are demonstrated in the [project-brainwave/project-brai
 Get this notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+
+## Next steps
+
+Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).

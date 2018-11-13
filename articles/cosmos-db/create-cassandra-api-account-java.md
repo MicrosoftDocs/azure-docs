@@ -11,7 +11,7 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ---
 
-# Create an Azure Cosmos DB Cassandra API account, database, and a table by using a Java application
+# Tutorial: Create an Azure Cosmos DB Cassandra API account, database, and a table by using a Java application
 
 This tutorial describes how to use a Java application to create a Cassandra API account in Azure Cosmos DB, add a database (also referred as a keyspace), and add a table. The Java application uses the [Java driver](https://github.com/datastax/java-driver) to create a user database that contains details such as user ID, user name, user city.  
 
@@ -28,7 +28,7 @@ This tutorial covers the following tasks:
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin. Alternatively, you can [Try Azure Cosmos DB for free](https://azure.microsoft.com/try/cosmosdb/) without an Azure subscription, free of charge and commitments. 
 
-* Get the latest version of [Java Development Kit (JDK)](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) 
+* Get the latest version of [Java Development Kit (JDK)](https://aka.ms/azure-jdks) 
 
 * [Download](http://maven.apache.org/download.cgi) and [install](http://maven.apache.org/install.html) the [Maven](http://maven.apache.org/) binary archive 
   - On Ubuntu, you can run `apt-get install maven` to install Maven. 
@@ -55,7 +55,7 @@ This tutorial covers the following tasks:
 
 ## Get the connection details of your account  
 
-Get the connection string information from Azure portal, and copy it into the Java configuration file. This enables your app to communicate with your hosted database. 
+Get the connection string information from Azure portal, and copy it into the Java configuration file. The connection string enables your app to communicate with your hosted database. 
 
 1. From the [Azure portal](http://portal.azure.com/), navigate to your Cosmos DB account. 
 

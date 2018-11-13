@@ -3,7 +3,7 @@ title: IoT real-time data streams using Azure Stream Analytics
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics

@@ -4,13 +4,13 @@ description: 'To start learning about using the Hadoop ecosystem, you can set up
 keywords: hadoop emulator,hadoop sandbox
 ms.reviewer: jasonh
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 12/11/2017
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Get started with a Hadoop sandbox, an emulator on a virtual machine

@@ -56,11 +56,11 @@ For more information, see the following articles:
 
 End to end enterprise security can be achieved using the following controls:
 
-- **Private and protected data pipeline** (perimeter level security):
+- **Private and protected data pipeline (perimeter level security)**
     - Perimeter level Security can be achieved through Azure Virtual Networks, Network Security Groups, and Gateway service
 
 - **Authentication and authorization for data access**
-    - Create Domain-joined HDI cluster using Azure Active Directory Domain Services. (Enterprise Security Package)
+    - Create Domain-joined HDInsight cluster using Azure Active Directory Domain Services. (Enterprise Security Package)
     - Use Ambari to provide Role-based access to cluster resources for AD users
     - Use Apache Ranger to set access control policies for Hive at the table / column / row level.
     - SSH access to the cluster can be restricted only to the administrator.
@@ -91,14 +91,14 @@ For more information, see the article:
 
 Regularly upgrade to the latest HDInsight version to take advantage of the latest features. The following steps can be used to upgrade the cluster to the latest version:
 
-- Create a new TEST HDI cluster using the latest available HDI version.
-- Test on the new cluster to make sure that the jobs and workloads work as expected.
-- Modify jobs or applications or workloads as required.
-- Back up any transient data stored locally on the cluster nodes.
-- Delete the existing cluster.
-- Create a cluster of the latest HDInsight version in the same VNET subnet, using the same default data and meta store as the previous cluster.
-- Import any transient data that was backed up.
-- Start jobs/continue processing using the new cluster.
+1. Create a new TEST HDInsight cluster using the latest available HDInsight version.
+1. Test on the new cluster to make sure that the jobs and workloads work as expected.
+1. Modify jobs or applications or workloads as required.
+1. Back up any transient data stored locally on the cluster nodes.
+1. Delete the existing cluster.
+1. Create a cluster of the latest HDInsight version in the same VNET subnet, using the same default data and meta store as the previous cluster.
+1. Import any transient data that was backed up.
+1. Start jobs/continue processing using the new cluster.
 
 For more information, see the article: [Upgrade HDInsight cluster to a new version](../hdinsight-upgrade-cluster.md)
 
@@ -110,133 +110,9 @@ For more information, see the article: [OS patching for HDInsight](../hdinsight-
 
 ## Post-Migration
 
-1. **Remediate applications** - Iteratively make the necessary changes to the jobs, processes, and scripts
-2. **Perform Tests** - Iteratively run functional and performance tests
+1. **Remediate applications** - Iteratively make the necessary changes to the jobs, processes, and scripts.
+2. **Perform Tests** - Iteratively run functional and performance tests.
 3. **Optimize** - Address any performance issues based on the above test results and then retest to confirm the performance improvements.
-
-## Appendix: gathering details to prepare for a migration
-
-This section provides template questionnaires to help gather important information about:
-
-- The on-premises deployment.
-- Project details.
-- Azure requirements.
-
-### On-Premises deployment questionnaire
-
-| **Question** | **Example** | **Answer** |
-|---|---|---|
-|**Topic**: **Environment**|||
-|Cluster Distribution type|Hortonworks, Cloudera, MapR| |
-|Cluster Distribution version|HDP 2.6.5, CDH 5.7|
-|Big Data eco-system components|HDFS, Yarn, Hive, LLAP, Impala, Kudu, HBase, Spark, MapReduce, Kafka, Zookeeper, Solr, Sqoop, Oozie, Ranger, Atlas, Falcon, Zeppelin, R|
-|Cluster types|Hadoop, Spark, Confluent Kafka, Storm, Solr|
-|Number of clusters|4|
-|Number of Master Nodes|2|
-|Number of Worker Nodes|100|
-|Number of Edge Nodes| 5|
-|Total Disk space|100 TB|
-|Master Node configuration|m/y, cpu, disk, etc.|
-|Data Nodes configuration|m/y, cpu, disk, etc.|
-|Edge Nodes configuration|m/y, cpu, disk, etc.|
-|HDFS Encryption?|Yes|
-|High Availability|HDFS HA, Metastore HA|
-|Disaster Recovery / Back up|Backup cluster?|  
-|Systems that are dependent on Cluster|SQL Server, Teradata, Power BI, MongoDB|
-|Third-party integrations|Tableau, GridGain, Qubole, Informatica, Splunk|
-|**Topic**: **Security**|||
-|Perimeter security|Firewalls|
-|Cluster authentication & authorization|Active Directory, Ambari, Cloudera Manager, No authentication|
-|HDFS Access Control|  Manual, ssh users|
-|Hive authentication & authorization|Sentry, LDAP, AD with Kerberos, Ranger|
-|Auditing|Ambari, Cloudera Navigator, Ranger|
-|Monitoring|Graphite, collectd, statsd, Telegraf, InfluxDB|
-|Alerting|Kapacitor, Prometheus, Datadog|
-|Data Retention duration| 3 years, 5 years|
-|Cluster Administrators|Single Administrator, Multiple Administrators|
-
-### Project details questionnaire
-
-|**Question**|**Example**|**Answer**|
-|---|---|---|
-|**Topic**: **Workloads and Frequency**|||
-|MapReduce jobs|10 jobs -- twice daily||
-|Hive jobs|100 jobs -- every hour||
-|Spark batch jobs|50 jobs -- every 15 minutes||
-|Spark Streaming jobs|5 jobs -- every 3 minutes||
-|Structured Streaming jobs|5 jobs -- every minute||
-|ML Model training jobs|2 jobs -- once in a week||
-|Programming Languages|Python, Scala, Java||
-|Scripting|Shell, Python||
-|**Topic**: **Data**|||
-|Data sources|Flat files, Json, Kafka, RDBMS||
-|Data orchestration|Oozie workflows, Airflow||
-|In memory lookups|Apache Ignite, Redis||
-|Data destinations|HDFS, RDBMS, Kafka, MPP ||
-|**Topic**: **Meta data**|||
-|Hive DB type|Mysql, Postgres||
-|No. of Hive metastores|2||
-|No. of Hive tables|100||
-|No. of Ranger policies|20||
-|No. of Oozie workflows|100||
-|**Topic**: **Scale**|||
-|Data volume including Replication|100 TB||
-|Daily ingestion volume|50 GB||
-|Data growth rate|10% per year||
-|Cluster Nodes growth rate|5% per year
-|**Topic**: **Cluster utilization**|||
-|Average CPU % used|60%||
-|Average Memory % used|75%||
-|Disk space used|75%||
-|Average Network % used|25%
-|**Topic**: **Staff**|||
-|No. of Administrators|2||
-|No. of Developers|10||
-|No. of end users|100||
-|Skills|Hadoop, Spark||
-|No. of available resources for Migration efforts|2||
-|**Topic**: **Limitations**|||
-|Current limitations|Latency is high||
-|Current challenges|Concurrency issue||
-
-### Azure requirements questionnaire
-
-|**Topic**: **Infrastructure** |||
-|---|---|---|
-|**Question**|**Example**|**Answer**|
-| Preferred Region|US East||
-|VNet preferred?|Yes||
-|HA / DR Needed?|Yes||
-|Integration with other cloud services?|ADF, CosmosDB||
-|**Topic**:   **Data Movement**  |||
-|Initial load preference|DistCp, Data box, ADF, WANDisco||
-|Data transfer delta|DistCp, AzCopy||
-|Ongoing incremental data transfer|DistCp, Sqoop||
-|**Topic**:   **Monitoring & Alerting** |||
-|Use Azure Monitoring & Alerting Vs Integrate third-party monitoring|Use Azure Monitoring & Alerting||
-|**Topic**:   **Security preferences** |||
-|Private and protected data pipeline?|Yes||
-|Domain Joined cluster (ESPP)?|     Yes||
-|On-Premises AD Sync to Cloud?|     Yes||
-|No. of AD users to sync?|          100||
-|Ok to sync passwords to cloud?|    Yes||
-|Cloud only Users?|                 Yes||
-|MFA needed?|                       No|| 
-|Data authorization requirements?|  Yes||
-|Role-Based Access Control?|        Yes||
-|Auditing needed?|                  Yes||
-|Data encryption at rest?|          Yes||
-|Data encryption in transit?|       Yes||
-|**Topic**:   **Re-Architecture preferences** |||
-|Single cluster vs Specific cluster types|Specific cluster types||
-|Colocated Storage Vs Remote Storage?|Remote Storage||
-|Smaller cluster size as data is stored remotely?|Smaller cluster size||
-|Use multiple smaller clusters rather than a single large cluster?|Use multiple smaller clusters||
-|Use a remote metastore?|Yes||
-|Share metastores between different clusters?|Yes||
-|Deconstruct workloads?|Replace Hive jobs with Spark jobs||
-|Use ADF for data orchestration?|No||
-|HDI vs HDP on IaaS?|HDI||
 
 ## Next steps
 

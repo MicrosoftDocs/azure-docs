@@ -363,7 +363,7 @@ This error occurs when the Azure file share storage limit has been reached, whic
 
     ![A screenshot of the Azure file share properties.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into it's own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
+If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into its own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
 
 <a id="-2134351824"></a>**The Azure file share cannot be found.**  
 | | |
