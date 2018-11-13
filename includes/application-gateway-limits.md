@@ -11,9 +11,9 @@ ms.author: victorh
 | Frontend IP Configurations |2 |1 public and 1 private |
 | Frontend Ports |100 | |
 | Backend Address Pools |100 | |
-| Backend Servers per pool |100 | |
-| HTTP Listeners |100 | |
-| HTTP load balancing rules |200 |# of HTTP Listeners * n |
+| Backend Servers per pool |1200 | |
+| HTTP Listeners |40 | |
+| HTTP load balancing rules |400 |# of HTTP Listeners * n |
 | Backend HTTP settings |100 | |
 | Instances per gateway |75 | |
 | SSL certificates |100 |1 per HTTP Listeners |
