@@ -284,7 +284,7 @@ To use the new feature:
 
 1. Select **Add VNet (preview)**.  
 
-1. Select the Resource Manager VNet that you want to integrate with and then either create a new subnet or pick an empty pre-existing subnet.
+1. Select the Resource Manager VNet that you want to integrate with and then either create a new subnet or pick an empty pre-existing subnet. The integration takes less than a minute to complete.  When it is completed you will see details on the VNet you are integrated with and a banner at the top that tells you the feature is in preview.
 
  ![Select the VNet and subnet][7]
 
