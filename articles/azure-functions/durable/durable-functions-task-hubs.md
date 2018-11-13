@@ -36,10 +36,53 @@ All of these resources are created automatically in the default Azure Storage ac
 
 Task hubs are identified by a name that is declared in the *host.json* file, as shown in the following example:
 
+### host.json (Functions v1)
 ```json
 {
   "durableTask": {
     "HubName": "MyTaskHub"
+  }
+}
+```
+### host.json (Functions v2)
+```json
+{
+  "version": "2.0",
+  "extensions": {
+    "durableTask": {
+      "HubName": "MyTaskHub"
+    }
+  }
+}
+```
+Task hubs can also be configured using app settings, as shown in the following *host.json* example file:
+
+### host.json (Functions v1)
+```json
+{
+  "durableTask": {
+    "HubName": "%MyTaskHub%"
+  }
+}
+```
+### host.json (Functions v2)
+```json
+{
+  "version": "2.0",
+  "extensions": {
+    "durableTask": {
+      "HubName": "%MyTaskHub%"
+    }
+  }
+}
+```
+The task hub name will be set to the value of the `MyTaskHub` app setting. The following `local.settings.json` demonstrates how to define the `MyTaskHub` setting as `samplehubname`:
+
+```json
+{
+  "IsEncrypted": false,
+  "Values": {
+    "MyTaskHub" :  "samplehubname" 
   }
 }
 ```
