@@ -34,7 +34,7 @@ If your IoT Central app recognizes the device by device ID in the forwarded mess
 The instructions are listed in detail in the README file in the Github repo. 
 
 ## Pricing
-This is all hosted in your Azure subscription. You can learn more about this and potential ways to reduce this in the README file.
+This is all hosted in your Azure subscription. The majority of the estimated cost of the provisioned resources comes from the [price of a standard App Service Plan]( https://azure.microsoft.com/en-us/pricing/details/app-service/windows/). You can learn more about this and potential ways to reduce this in the README file.
 
 ## Next steps
 
