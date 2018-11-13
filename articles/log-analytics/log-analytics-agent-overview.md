@@ -21,7 +21,7 @@ ms.component:
 
 The Azure Log Analytics (OMS) agent, previously referred to as the Microsoft Monitoring Agent (MMA) or OMS Linux agent, was developed for comprehensive management across on-premises machines, computers monitored by [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/), and virtual machines in any cloud. The Windows and Linux agents attach to a Log Analytics workspace to collect data from different sources as well as any unique logs or metrics as defined in a monitoring solution. 
 
-With Azure virtual machines, you deploy the agent using the Log Analytics VM extension. Computers hosted in your environment can be directly connected to Log Analytics, or if you are already monitoring these computers with System Center Operations Manager 2012 R2 or later, you can integrate your Operations Manage management group with Log Analytics to continue maintaining your IT service operations processes.  
+This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.   
 
 ## Overview
 
