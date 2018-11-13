@@ -146,6 +146,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	d. Click **Save**
 
+	>[!NOTE]
+	>For additional information review the [MyWorkDrive Azure AD support article](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
+
 ### Creating an Azure AD test user
 
 The objective of this section is to create a test user in the Azure portal called Britta Simon.
