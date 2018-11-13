@@ -15,9 +15,12 @@ ms.component: B2C
 
 # User flow versions in Azure Active Directory B2C
 
+>[!IMPORTANT]
+> Any user flow listed in the article is considered to be in public preview unless identified as **Recommended**. You should only use recommended user flows for your production applications.
+
 User flows in Azure Active Directory (Azure AD) B2C help you to set up common [policies](active-directory-b2c-reference-policies.md) that fully describe customer identity experiences. These experiences include sign-up, sign-in, password reset, or profile editing. In Azure AD B2C, you can select from a collection of both recommended user flows and preview user flows. 
 
-New user flows are added as new versions. As the user flows become stable, they'll be recommended for use. You should always use a recommended user flow for any production application, but can freely choose from other versions to test new functionality as it becomes available.
+New user flows are added as new versions. As user flows become stable, they'll be recommended for use. User flows are marked as **Recommended** if they have been thoroughly tested. User flows will be considered in preview until marked as recommended. You should always use a recommended user flow for any production application, but can freely choose from other versions to test new functionality as it becomes available.
 
 ## V1
 
@@ -26,7 +29,7 @@ New user flows are added as new versions. As the user flows become stable, they'
 | Password reset | Yes | Enables a user to choose a new password after verifying their email. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>Token compatibility settings</li><li>[password complexity requirements](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | Profile editing | Yes | Enables a user to configure their user attributes. Using this user flow, you can configure: <ul><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
 | Resource owner | No | Enables a user with a local account to sign in directly in native applications (no browser required). Using this user flow, you can configure: <ul><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li></ul> |
-| Sign in | No | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul> |
+| Sign in | No | Enables a user to sign in to their account. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li><li>Session behavior</li></ul><br>This user flow does not provide user interface customization. |
 | Sign up | No | Enables a user to create an account. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[password complexity requirements](active-directory-b2c-reference-password-complexity.md)</li></ul> |
 | Sign up and sign in | Yes | Enables a user to create an account or sign in to their account. Using this user flow, you can configure: <ul><li>[multi-factor authentication](active-directory-b2c-reference-mfa.md)</li><li>[Token lifetime](active-directory-b2c-reference-tokens.md)</li><li>Token compatibility settings</li><li>Session behavior</li><li>[password complexity requirements](active-directory-b2c-reference-password-complexity.md)</li></ul>|
 
