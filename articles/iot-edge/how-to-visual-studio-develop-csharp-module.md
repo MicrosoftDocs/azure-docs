@@ -4,7 +4,7 @@ description: Use Visual Studio 2017 to develop and debug C# module for Azure IoT
 services: iot-edge
 keywords: 
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/24/2018

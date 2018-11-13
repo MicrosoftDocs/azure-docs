@@ -109,7 +109,11 @@
     - name: Deploy using the CLI
       href: iot-accelerators-remote-monitoring-deploy-cli.md
     - name: Deploy locally
-      href: iot-accelerators-remote-monitoring-deploy-local.md
+      items:
+      - name: Visual Studio
+        href: iot-accelerators-remote-monitoring-deploy-local.md
+      - name: Docker
+        href: iot-accelerators-remote-monitoring-deploy-local-docker.md
     - name: Visualize telemetry with PowerBI
       href: iot-accelerators-integrate-data-powerbi.md
     - name: Integrate Azure Time Series Insights with Remote Monitoring
@@ -142,6 +146,10 @@
       href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualize telemetry with Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
+    - name: Serialize telemetry using Protbuf
+      href: iot-accelerators-device-simulation-protobuf.md
+    - name: Deploy a custom docker image
+      href: iot-accelerators-device-simulation-deploy-image.md
 
 - name: Reference
   items:

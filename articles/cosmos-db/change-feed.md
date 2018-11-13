@@ -173,7 +173,7 @@ The change feed processor library simplifies reading changes across partitions a
 
 The left client was started first and it started monitoring all the partitions, then the second client was started, and then the first let go of some of the leases to second client. As you can see this is the nice way to distribute the work between different machines and clients.
 
-Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
+Note that if you have two serverless Azure functions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to process the partitions.
 
 <a id="understand-cf"></a>
 ### Understanding the change feed processor library
