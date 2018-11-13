@@ -81,7 +81,7 @@ manual_collection = client.CreateContainer(database['_self'], collection)
 
 ## Create a custom conflict resolution policy with a stored procedure
 
-These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts do not show up in the conflict feed unless there's an error in your stored procedure.
+These samples show how to set up a container with a custom conflict resolution policy with a stored procedure to resolve the conflict. These conflicts don't show up in the conflict feed unless there's an error in your stored procedure.
 
 ### <a id="create-custom-conflict-resolution-policy-stored-proc-dotnet"></a>.NET SDK
 
@@ -154,7 +154,7 @@ After your container is created, you must create the `resolver` stored procedure
 
 ## Create a last-writer-wins conflict resolution policy
 
-These samples show how to set up a container with a last-writer-wins conflict resolution policy. If the path isn't set or it's invalid, it defaults to the `_ts` property. This property is the timestamp field. These conflicts do not show up in the conflict feed.
+These samples show how to set up a container with a last-writer-wins conflict resolution policy. If the path isn't set or it's invalid, it defaults to the `_ts` property. This property is the timestamp field. These conflicts don't show up in the conflict feed.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK
 
@@ -206,7 +206,7 @@ const { container: lwwContainer } = await database.containers.createIfNotExists(
 );
 ```
 
-If you omit the `conflictResolutionPath` property, it defaults to the `_ts` property.
+If you leave out the `conflictResolutionPath` property, it defaults to the `_ts` property.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-python"></a>Python SDK
 
