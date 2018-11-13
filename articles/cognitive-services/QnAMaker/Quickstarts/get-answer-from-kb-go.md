@@ -41,21 +41,21 @@ func main() {
 
 ## Add the required dependencies
 
-Above the `main` function, at the top of the `GetAnswer.Go` file, add necessary dependencies to the project:
+Above the `main` function, at the top of the `get-answer.go` file, add necessary dependencies to the project:
 
-[!code-Go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/GetAnswer.go?range=3-9 "Add the required dependencies")]
+[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=3-9 "Add the required dependencies")]
 
 ## Add the required constants
 
 At the top of the `main` function, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
 
-[!code-Go[Add the required constants](~/samples-qnamaker-Go/documentation-samples/quickstarts/get-answer/GetAnswer.go?range=17-33 "Add the required constants")]
+[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=17-33 "Add the required constants")]
 
 ## Add a POST request to send question and get answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the KB and receives the response:
 
-[!code-Go[Add a POST request to send question to KB](~/samples-qnamaker-Go/documentation-samples/quickstarts/get-answer/GetAnswer.go?range=35-48 "Add a POST request to send question to KB")]
+[!code-go[Add a POST request to send question to KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to send question to KB")]
 
 ## Build and run the program
 
