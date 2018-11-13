@@ -19,7 +19,7 @@ ms.author: spelluru
 ---
 # Manage all policies for a lab in Azure DevTest Labs
 
-Azure DevTest Labs lets you control cost and minimize waste in your labs by managing policies (settings) for each lab. This article explains in step-by-step detail how to set each policy.  
+Azure DevTest Labs lets you control cost and minimizes waste in your labs by managing policies (settings) for each lab. This article explains in step-by-step detail how to set each policy.  
 
 ## Set allowed virtual machine sizes
 The policy for setting the allowed VM sizes helps to minimize lab waste by enabling you to specify which VM sizes are allowed in the lab. If this policy is activated, only VM sizes from this list can be used to create VMs.
@@ -86,15 +86,11 @@ By default, once enabled, this policy applies to all VMs in the current lab. To 
 ## Set auto-shutdown policy
 As a lab owner, you can now configure a shutdown schedule for all the VMs in your lab. By doing so, you can save costs from running machines that aren't being used (idle). You can enforce a shutdown policy on all your lab VMs centrally but also save your lab users the effort from setting up a schedule for their individual machines. This feature enables you to set the policy on your lab schedule starting from offering no control to full control, to your lab users. As a lab owner, you can configure this policy by taking the following steps:
 
-1. On the DevTest Lab page for your lab, select **Configuration and policies**.
+1. On the home page for your lab, select **Configuration and policies**.
 2. Select **Auto shutdown policy** in the **Schedules** section of the left menu.
-3. Select one of the options. The following sections give you more details about these options:
+3. Select one of the options. The following sections give you more details about these options: The set policy applies only to new VMs created in the lab and not to the already existing VMs. 
 
     ![Auto shutdown policy options](./media/devtest-lab-set-lab-policy/auto-shutdown-policy-options.png)
-
-
-    > [!NOTE]
-    > The set policy applies only to new VMs created in the lab and not to the already existing VMs. 
 
 ### User sets a schedule and can opt out
 If you set your lab to this policy, the lab users can override or opt out of the lab schedule. This option grants lab users full control over auto shutdown schedule of their VMs. Lab users see no change in their VM auto shutdown schedule blade.
