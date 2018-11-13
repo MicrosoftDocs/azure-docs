@@ -166,7 +166,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
    When you use your own instance of SQL, make sure you add builtin\Administrators to sysadmin role to master DB.
 
-    **SSRS Configuration with SQL**
+    **SSRS Configuration with SQL 2017**
 
     When you are using own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
@@ -306,6 +306,8 @@ Use the following procedures to upgrade MABS.
 > [!NOTE]
 
 > MABS V2 is not a prerequisite for installing MABS V3. However, you can upgrade to MABS V3 only from MABS V2.
+
+>  when configuring SQL 2017 manually, refer to *SSRS configuration with SQL 2017* section under Install instructions 
 
 Use the following steps to upgrade MABS:
 
