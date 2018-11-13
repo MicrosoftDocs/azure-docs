@@ -16,7 +16,7 @@ ms.author: alinast
 
 Before continuing, verify that the telemetry property **DigitalTwins-SensorHardwareId** is identical to your Sensor's **HardwareId** property (which specifies the Device it is attached to). That condition is required for any Sensor's telemetry message to be processed in the UDF execution engine.
 
-> {!IMPORTANT]
+> [!IMPORTANT]
 > The telemetry property **DigitalTwins-SensorHardwareId** must match a Sensor's **HardwareId** in order for the system to process it.
 
 In the following examples, `https://yourManagementApiUrl` refers to the URI of the Azure Digital Twins APIs:
