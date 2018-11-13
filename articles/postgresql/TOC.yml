@@ -111,7 +111,7 @@
         href: howto-optimize-autovacuum.md
       - name: Query stats collection
         href: howto-optimize-query-stats-collection.md
-      - name: Using toast table strategy
+      - name: Toast table strategy
         href: howto-optimize-query-time-with-toast-table-storage-strategy.md
   - name: Manage firewall
     items:

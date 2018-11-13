@@ -17,12 +17,16 @@ For customers that have workload operations that involve transient data or that 
 
 Unlogged tables is a PostgreSQL feature that can be used effectively to optimize bulk inserts. PostgreSQL uses Write-Ahead Logging (WAL), which provides atomicity and durability two of the ACID properties by default. Inserting into an unlogged table would mean PostgreSQL would do inserts without writing into the transaction log, which itself is an I/O operation, making these tables considerably faster than ordinary tables.
 
-However, they are not crash-safe. An unlogged table is automatically truncated after a crash or subject to an unclean shutdown. The contents of an unlogged table are also not replicated to standby servers. Any indexes created on an unlogged table are automatically unlogged as well.  After the insert operation completes, you may convert the table to logged so the insert is durable.
+Below are the options for creating an unlogged table:
+- Create a new unlogged table using the syntax: `CREATE UNLOGGED TABLE <tableName>`
+- Convert an existing logged table to an unlogged table using the syntax: `ALTER <tableName> SET UNLOGGED`.  This can be reversed by using the syntax: `ALTER <tableName> SET LOGGED`
 
-On some customer workloads, we have experienced approximately a 15-20 percent performance improvement when using unlogged tables.
-- You may create an Unlogged Table using the syntax: `CREATE UNLOGGED TABLE <tableName>`
-- You may convert a Logged Table to an unlogged table using the syntax: `ALTER <tableName> SET UNLOGGED`
-- You may convert an Unlogged Table to a logged table using the syntax: `ALTER <tableName> SET LOGGED`
+## Unlogged table tradeoff
+Unlogged tables are not crash-safe. An unlogged table is automatically truncated after a crash or subject to an unclean shutdown. The contents of an unlogged table are also not replicated to standby servers. Any indexes created on an unlogged table are automatically unlogged as well.  After the insert operation completes, you may convert the table to logged so the insert is durable.
 
-## References
-PostgreSQL documentation - [Create Table SQL Commands](https://www.postgresql.org/docs/current/static/sql-createtable.html)
+However, on some customer workloads, we have experienced approximately a 15-20 percent performance improvement when using unlogged tables.
+
+## Next steps
+Review your workload for uses of transient data and large bulk inserts.  
+
+Review the following PostgreSQL documentation - [Create Table SQL Commands](https://www.postgresql.org/docs/current/static/sql-createtable.html)
