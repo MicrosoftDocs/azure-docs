@@ -150,7 +150,7 @@ The certificate for identity must contain a subject that matches the following f
 | --- | --- |
 | sso.appservice.\<region\>.\<DomainName\>.\<extension\> | sso.appservice.redmond.azurestack.external |
 
-## Virtual network
+## Virtual network (Optional)
 
 Azure App Service on Azure Stack lets you deploy the resource provider to an existing virtual network or lets you create a virtual network as part of the deployment. Using an existing virtual network enables the use of internal IPs to connect to the file server and SQL server required by Azure App Service on Azure Stack. The virtual network must be configured with the following address range and subnets before installing Azure App Service on Azure Stack:
 
@@ -176,7 +176,7 @@ For Azure Stack Development Kit deployments only, you can use the [example Azure
 
 A [reference architecture quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is now available which will deploy File Server, SQL Server, supporting Active Directory infrastructure in a Virtual Network configured to support a highly available deployment of Azure App Service on Azure Stack.  
 
-#### Steps to deploy a Custom File Server
+### Steps to deploy a Custom File Server
 
 >[!IMPORTANT]
 > If you choose to deploy App Service in an existing Virtual Network the File Server should be deployed into a separate Subnet from App Service.
