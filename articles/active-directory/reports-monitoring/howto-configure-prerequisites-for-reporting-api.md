@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -30,7 +30,7 @@ To prepare your access to the reporting API, you need to:
 1. [Assign roles](#assign-roles)
 2. [Register an application](#register-an-application)
 3. [Grant permissions](#grant-permissions)
-4. [Gather configuration settings](gather-configuration-settings)
+4. [Gather configuration settings](#gather-configuration-settings)
 
 ## Assign roles
 

@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
@@ -231,5 +231,5 @@ The **Sign-ins** option gives you a complete overview of all sign-in events to y
 
 * [Sign-in activity report error codes](reference-sign-ins-error-codes.md)
 * [Azure AD data retention policies](reference-reports-data-retention.md)
-* [Azure AD report latencies](reference.reports-latencies.md)
+* [Azure AD report latencies](reference-reports-latencies.md)
 

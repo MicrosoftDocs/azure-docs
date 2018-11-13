@@ -14,17 +14,16 @@ ms.topic: reference
 ms.tgt_pltfrm: 
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 ---
 # Azure Active Directory report retention policies
 
-This article provides you with answers to the most common questions in conjunction with the data retention for the different activity reports in Azure Active Directory. 
+In this article, you learn about the data retention policies for the different activity reports in Azure Active Directory. 
 
-### How can you get the collection of activity data started?
-
+### When does Azure AD start collecting data?
 
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
@@ -32,20 +31,21 @@ This article provides you with answers to the most common questions in conjuncti
 | Azure AD Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
 
 ---
-### When is your activity data available in the Azure portal?
+
+### When is the activity data available in the Azure portal?
 
 - **Immediately** - If you have already been working with reports in the Azure portal.
 - **Within 2 hours** - If you haven’t turned on reporting in the Azure portal.
 
 ---
 
-### How can you get the collection of security signals started?  
+### When does Azure AD start collecting security signal data?  
 
-For security signals, the collection process starts when you opt-in to use the Identity Protection Center. 
+For security signals, the collection process starts when you opt-in to use the **Identity Protection Center**. 
 
 ---
 
-### For how long is the collected data stored?
+### How long does Azure AD store the data?
 
 **Activity reports**	
 

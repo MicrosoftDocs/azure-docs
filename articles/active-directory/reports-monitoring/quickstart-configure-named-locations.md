@@ -13,7 +13,7 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 #Customer intent: As an IT administrator, I want to label trusted IP address ranges in my organization so that I can whitelist them and configure location-based conditional access.

@@ -12,7 +12,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk 
 
@@ -116,4 +116,4 @@ You can access reports about detected risk events in the **Security** section of
 
 * [Audit logs overview](concept-audit-logs.md)
 * [Sign-ins overview](concept-sign-ins.md)
-* [Risky events overview](concept-risky-events.md)
+* [Risky events overview](concept-risk-events.md)
