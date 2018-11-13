@@ -34,6 +34,11 @@ The following code:
 4. Creates training data.
 
 ```python
+from pyspark.ml import Pipeline
+from pyspark.ml.classification import LogisticRegression
+from pyspark.ml.feature import HashingTF, Tokenizer
+from pyspark.sql import Row
+
 # The data structure (column meanings) of the data array:
 # 0 Date
 # 1 Time

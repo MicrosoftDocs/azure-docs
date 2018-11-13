@@ -58,9 +58,9 @@ Review the information displayed here. You should reset the password for any acc
 
 Take the following actions to help rectify the impacted accounts and secure your environment:
 
-1.	[Validate](http://aka.ms/MFAValid) correct information for multi-factor-authentication and self-service password reset. 
-2.	[Enable](http://aka.ms/MFAuth) multi-factor authentication for all users. 
-3.	Using this [remediation script](http://aka.ms/remediate), for every impacted account, you can automatically perform the following steps: 
+1.	[Validate](https://aka.ms/MFAValid) correct information for multi-factor-authentication and self-service password reset. 
+2.	[Enable](https://aka.ms/MFAuth) multi-factor authentication for all users. 
+3.	Using this [remediation script](https://aka.ms/remediate), for every impacted account, you can automatically perform the following steps: 
 
     a. Reset password to secures the account and kill active sessions.
 
@@ -84,10 +84,10 @@ Take the following actions to help rectify the impacted accounts and secure your
 
 Additionally, you should:
 
-- Read and implement this [guidance](http://aka.ms/fixaccount) on addressing unusual activities. 
-- [Enable the audit pipeline](http://aka.ms/improvesecurity) to help you to analyze the activity on your tenancy. Once complete, your audit store  starts populating with all activity logs. At this point, you are also able to leverage the [Security and Compliance Center’s Search and Investigation](http://aka.ms/sccsearch). 
-- Use this [script](http://aka.ms/mailboxaudit1) to enable mailbox auditing for all your accounts. 
-- Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](http://aka.ms/delegateforwardrules) to perform this task. 
+- Read and implement this [guidance](https://aka.ms/fixaccount) on addressing unusual activities. 
+- [Enable the audit pipeline](https://aka.ms/improvesecurity) to help you to analyze the activity on your tenancy. Once complete, your audit store  starts populating with all activity logs. At this point, you are also able to leverage the [Security and Compliance Center’s Search and Investigation](https://aka.ms/sccsearch). 
+- Use this [script](https://aka.ms/mailboxaudit1) to enable mailbox auditing for all your accounts. 
+- Review the delegate permissions and mail forwarding rules for all your mailboxes. You can use this [PowerShell script](https://aka.ms/delegateforwardrules) to perform this task. 
 
 
 

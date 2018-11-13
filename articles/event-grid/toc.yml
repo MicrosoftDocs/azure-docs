@@ -95,6 +95,8 @@
     href: delivery-and-retry.md
   - name: Event filtering
     href: event-filtering.md
+  - name: Event Domains
+    href: event-domains.md
   - name: Event sources
     href: event-sources.md
   - name: Event handlers
@@ -119,6 +121,8 @@
     href: input-mappings.md
   - name: Use CloudEvents schema
     href: cloudevents-schema.md
+  - name: Manage topics with Event Domains
+    href: how-to-event-domains.md
 - name: Reference
   items:
   - name: Azure CLI

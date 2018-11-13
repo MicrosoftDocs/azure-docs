@@ -40,7 +40,7 @@ The following smart group states are supported.
 
 The Smart group detail page is displayed when you select a smart group. It provides details about the smart group, including the reasoning that was used to create the group, and enables you to change its state.
  
-![Smart group detail](media/monitoring-overview-unified-alerts/smart-group-detail.png)
+![Smart group detail](media/monitoring-overview-alerts-smartgroups/smart-group-detail.png)
 
 
 The smart group detail page includes the following sections.

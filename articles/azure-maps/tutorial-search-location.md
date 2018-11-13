@@ -73,7 +73,7 @@ The Map Control API is a convenient client library that allows you to easily int
    <head>
       <title>Map Search</title>
       <meta charset="utf-8" />
-      <meta name="viewport" content="width=device-width, user-scalable=no" />
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
       <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
       <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" />

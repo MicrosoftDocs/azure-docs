@@ -78,5 +78,6 @@ The following table describes the different application models and the tooling t
 
 ## Next steps
 
-To learn more about Service Fabric Mesh, read the overview:
-- [Service Fabric Mesh overview](service-fabric-mesh-overview.md)
+To learn more about Service Fabric Mesh, read the [Service Fabric Mesh overview](service-fabric-mesh-overview.md).
+
+Find answers to [common questions](service-fabric-mesh-faq.md).

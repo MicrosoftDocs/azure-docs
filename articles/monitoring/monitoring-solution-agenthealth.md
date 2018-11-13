@@ -35,7 +35,7 @@ If your System Center Operations Manager management group is connected to a Log 
 For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## Configuration
-Add the Agent Health solution to your Log Analytics workspace using the process described in [Add solutions](../log-analytics/log-analytics-add-solutions.md). There is no further configuration required.
+Add the Agent Health solution to your Log Analytics workspace using the process described in [Add solutions](monitoring-solutions.md). There is no further configuration required.
 
 
 ## Data collection
@@ -114,4 +114,4 @@ The following table provides sample log searches for records collected by this s
 
 ## Next steps
 
-* Learn about [Alerts in Log Analytics](../log-analytics/log-analytics-alerts.md) for details on generating alerts from Log Analytics.
+* Learn about [Alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) for details on generating alerts from Log Analytics.

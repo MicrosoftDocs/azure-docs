@@ -21,7 +21,7 @@ In this quickstart, you learn how to use the new Java Storage SDK to upload, dow
 Install and configure these applications:
 
 * [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer
-* [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* [JDK](https://aka.ms/azure-jdks)
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

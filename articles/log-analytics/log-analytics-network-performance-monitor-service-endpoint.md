@@ -30,13 +30,13 @@ You can perform the following functions with Service Connectivity Monitor:
 - Identify hot spots on the network that might be causing poor application performance by viewing the latency contributed by each hop on a topology map.
 
 
-![Service Connectivity Monitor](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Service Connectivity Monitor](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## Configuration 
 To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md) and select **Configure**.
 
-![Configure Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configure Network Performance Monitor](media/log-analytics-network-performance-monitor-service-endpoint/npm-configure-button.png)
 
 
 ### Configure Log Analytics agents for monitoring
@@ -74,7 +74,7 @@ Start creating your tests to monitor network connectivity to the service endpoin
 10. Choose monitoring conditions. You can set custom thresholds for health-event generation by entering threshold values. Whenever the value of the condition goes above its selected threshold for the selected network or subnetwork pair, a health event is generated. 
 11. Select **Save** to save the configuration. 
 
-    ![Service Connectivity Monitor test configurations](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Service Connectivity Monitor test configurations](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 
 
 
@@ -82,11 +82,11 @@ Start creating your tests to monitor network connectivity to the service endpoin
 
 Go to the Network Performance Monitor dashboard view. To get a summary of the health of the different tests you created, look at the **Service Connectivity Monitor** page. 
 
-![Service Connectivity Monitor page](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Service Connectivity Monitor page](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-blade.png)
 
 Select the tile to view the details of the tests on the **Tests** page. In the table on the left, you can view the point-in-time health and value of the service response time, network latency, and packet loss for all the tests. Use the Network State Recorder control to view the network snapshot at another time in the past. Select the test in the table that you want to investigate. In the charts in the pane on the right, you can view the historical trend of the loss, latency, and response time values. Select the **Test Details** link to view the performance from each node.
 
-![Service Connectivity Monitor tests](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Service Connectivity Monitor tests](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-tests.png)
 
 In the **Test Nodes** view, you can observe the network connectivity from each node. Select the node that has performance degradation. This is the node where the application is observed to be running slow.
 
@@ -94,15 +94,15 @@ Determine whether poor application performance is because of the network or an i
 
 * **Application issue:** A spike in the response time but consistency in the network latency suggests that the network is working fine and the problem might be due to an issue on the application end. 
 
-    ![Service Connectivity Monitor application issue](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Service Connectivity Monitor application issue](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
 * **Network issue:** A spike in response time accompanied with a corresponding spike in network latency suggests that the increase in response time might be due to an increase in network latency. 
 
-    ![Service Connectivity Monitor network issue](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Service Connectivity Monitor network issue](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
 After you determine that the problem is because of the network, select the **Topology** view link to identify the troublesome hop on the topology map. An example is shown in the following image. Out of the 105-ms total latency between the node and the application endpoint, 96 ms is because of the hop marked in red. After you identify the troublesome hop, you can take corrective action. 
 
-![Service Connectivity Monitor tests](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Service Connectivity Monitor tests](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## Diagnostics 
 
@@ -126,4 +126,4 @@ If you observe an abnormality, follow these steps:
 
 
 ## Next steps
-[Search logs](log-analytics-log-searches.md) to view detailed network performance data records.
+[Search logs](log-analytics-queries.md) to view detailed network performance data records.

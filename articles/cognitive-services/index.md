@@ -320,6 +320,7 @@ ms.topic: hub-page
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Bing Entity Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Bing Image Search</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Bing Visual Search</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Bing Local Business Search&nbsp;<sup style="font-size:70%">PREVIEW</sup></span></a></p>
                     </div>
                 </div>
             </div>

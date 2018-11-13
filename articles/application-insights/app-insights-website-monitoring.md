@@ -69,7 +69,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. Select **Overview** > **Essentials** > Copy your application's **Instrumentation Key**.
 
-   ![New App Insights resource form](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![New App Insights resource form](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. Add the following script to your ``hello_world.html`` before the closing ``</head>`` tag:
 
@@ -93,7 +93,7 @@ Application Insights can gather telemetry data from any internet-connected appli
 
 1. You can now reopen the Application Insights **Overview** page in the Azure portal, where you retrieved your instrumentation key, to view details about your currently running application. The four default charts on the overview page are scoped to server-side application data. Since we are instrumenting the client/browser-side interactions with the JavaScript SDK this particular view doesn't apply unless we also have a server-side SDK installed.
 
-2. Click on ![Application Map icon](./media/app-insights-nodejs-quick-start/006.png) **Analytics**.  This opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
+2. Click on ![Application Map icon](media/app-insights-website-monitoring/006.png) **Analytics**.  This opens **Analytics**, which provides a rich query language for analyzing all data collected by Application Insights. To view data related to the client-side browser requests run the  following query:
 
     ```kusto
     // average pageView duration by name

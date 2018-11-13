@@ -197,7 +197,7 @@ This table lists the complete set of status codes that the service might return:
 To query data submitted by the Log Analytics HTTP Data Collector API, search for records with **Type** that is equal to the **LogType** value that you specified, appended with **_CL**. For example, if you used **MyCustomLog**, then you'd return all records with **Type=MyCustomLog_CL**.
 
 >[!NOTE]
-> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-log-search-upgrade.md), then the above query would change to the following.
+> If your workspace has been upgraded to the [new Log Analytics query language](log-analytics-queries.md), then the above query would change to the following.
 
 > `MyCustomLog_CL`
 
@@ -466,6 +466,6 @@ post_data(customer_id, shared_key, body, log_type)
 ```
 
 ## Next steps
-- Use the [Log Search API](log-analytics-log-search-api.md) to retrieve data from the Log Analytics repository.
+- Use the [Log Search API](log-analytics-queries.md) to retrieve data from the Log Analytics repository.
 
 - Learn more about how [create a data pipeline with the Data Collector API](log-analytics-create-pipeline-datacollector-api.md) using Logic Apps workflow to Log Analytics.

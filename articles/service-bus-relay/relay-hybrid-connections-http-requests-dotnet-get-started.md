@@ -35,7 +35,7 @@ Hybrid Connections requires both a client component and a server component. In t
 
 To complete this tutorial, you need the following prerequisites:
 
-* [Visual Studio 2015 or later](http://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
+* [Visual Studio 2015 or later](https://www.visualstudio.com). The examples in this tutorial use Visual Studio 2017.
 * An Azure subscription.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
