@@ -15,8 +15,6 @@ ms.author: nitinme
 ---
 # Using Azure Data Lake Storage Gen2 for big data requirements
 
-[!INCLUDE [data-lake-storage-Gen2-rename-note.md](../../includes/data-lake-storage-Gen2-rename-note.md)]
-
 There are four key stages in big data processing:
 
 * Ingesting large amounts of data into a data store, at real-time or in batches

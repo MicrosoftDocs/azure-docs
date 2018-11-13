@@ -15,8 +15,6 @@ ms.author: nitinme
 ---
 # Open Source Big Data applications that work with Azure Data Lake Storage Gen2
 
-[!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
-
 This article lists the open source big data applications that work with Azure Data Lake Storage Gen2. For the applications in the table below, only the versions listed are supported.
 
 | Software |  Supported version(s) |
