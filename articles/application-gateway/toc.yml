@@ -29,6 +29,8 @@
     href: tutorial-url-redirect-cli.md
   - name: Autoscaling and zone redundant
     href: tutorial-autoscale-ps.md
+  - name: Troubleshoot an Application Gateway in Aure – ILB ASE
+    href: create-gateway-internal-load-balancer-app-service-environment.md
 - name: Samples
   items:
   - name: Azure PowerShell
