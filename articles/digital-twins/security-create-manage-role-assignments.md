@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
 ---
 
@@ -54,7 +54,7 @@ The supported `ObjectIdTypes`:
 ## Create a role assignment
 
 ```plaintext
-HTTP POST yourManagementApiUrl/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Name** | **Required** | **Type** | **Description** |
@@ -105,22 +105,22 @@ All users who are part of a domain receive read access for spaces, sensors, and 
 Use GET to get a role assignment.
 
 ```plaintext
-HTTP GET yourManagementApiUrl/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Name** | **In** | **Required** |	**Type** |	**Description** |
 | --- | --- | --- | --- | --- |
-| path | Path | True | String |	The full path to the space |
+| YOUR_PATH | Path | True | String |	The full path to the space |
 
 Use DELETE to delete a role assignment.
 
 ```plaintext
-HTTP DELETE yourManagementApiUrl/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Name** | **In** | **Required** | **Type** | **Description** |
 | --- | --- | --- | --- | --- |
-| id | Path | True | String |	Role Assignment ID |
+| YOUR_ROLE_ID | Path | True | String |	Role Assignment ID |
 
 ## Next steps
 

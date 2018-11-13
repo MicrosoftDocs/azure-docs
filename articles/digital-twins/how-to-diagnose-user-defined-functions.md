@@ -64,12 +64,12 @@ Without a role assignment created within Management API, the user-defined functi
 Check if a role assignment exists for your user-defined function through your Management API:
 
 ```plaintext
-GET yourManagementApiUrl/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
 | Parameters | Replace with |
 | --- | --- |
-| *yourUserDefinedFunctionId* | The ID of the user-defined function to retrieve role assignments for|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | The ID of the user-defined function to retrieve role assignments for|
 
 If no role assignment is retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md).
 
@@ -78,13 +78,13 @@ If no role assignment is retrieved, follow this article on [How to create a role
 With the following call against your Azure Digital Twins instances' Management API, you will be able to determine if a given matcher applies for the given sensor.
 
 ```plaintext
-GET yourManagementApiUrl/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
 | Parameters | Replace with |
 | --- | --- |
-| *yourMatcherIdentifier* | The ID of the matcher you wish to evaluate |
-| *yourSensorIdentifier* | The ID of the sensor you wish to evaluate |
+| *YOUR_MATCHER_IDENTIFIER* | The ID of the matcher you wish to evaluate |
+| *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor you wish to evaluate |
 
 Response:
 
@@ -102,12 +102,12 @@ Response:
 With the following call against your Azure Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry:
 
 ```plaintext
-GET yourManagementApiUrl/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
 | Parameters | Replace with |
 | --- | --- |
-| *yourSensorIdentifier* | The ID of the sensor that will be sending telemetry |
+| *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor that will be sending telemetry |
 
 Response:
 
