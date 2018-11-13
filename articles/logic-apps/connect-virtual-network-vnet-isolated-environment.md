@@ -125,16 +125,16 @@ and then choose **Create**.
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Yes | <*environment-name*> | The name to give your environment | 
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your environment | 
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you want to create your environment |
-   | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to store information about your environment |
-   | **Peer VNET** | No | <*Azure-VNET-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. Before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). <p>**Important**: You can *only* perform this injection when you create your ISE. | 
-   | **Peering Name** | Yes with a selected virtual network | <*peering-name*> | The name to give the peer relationship | 
-   | **VNET IP Range** | Yes with a selected virtual network | <*IP-address-range*> | The IP address range to use for creating resources in your environment. This range must use the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), for example, 10.0.0.1/16, and requires a Class B address space. The range must not exist within the address space for the virtual network selected in the **Peer VNET** property, nor within any other private IP addresses where the peer network is connected, either through peering or gateways. <p><p>**Important**: You *can't change* this address range after you create your environment. |
+   | **Integration Service Environment Name** | Yes | <*environment-name*> | The name to give your environment | 
+   | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to store information about your environment | 
+   | **Processing units** | Yes | Select a unit: <p>- **Base**: <br>- | 
+   | **Virtual network** | Yes | <*Azure-VNET-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
+   | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four empty subnets, which don't have delegation to any service and are used for creating resources in your environment. This range must use the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing), for example, 10.0.0.1/16, and requires a Class B address space. The range must not exist within the address space for the virtual network selected in the **Virtual network** property, nor within any other private IP addresses where the peer network is connected, either through peering or gateways. <p><p>**Important**: You *can't change* this address range after you create your environment. |
    |||||
    
-1. When you're done, choose **Create**. 
+1. When you're done, choose **Review + create**. 
 
    Azure starts deploying your environment, but this 
    process might take *up to two hours* before finishing. 
@@ -165,7 +165,7 @@ for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* You can use the same built-ins, such as the HTTP trigger or action, 
+* You can use the same built-in triggers or actions, such as HTTP, 
 which run in the same ISE as the parent logic app. Connectors with 
 the **ISE** label also run in the same ISE as the parent logic app. 
 Connectors without the **ISE** label run in the global Logic Apps service.
@@ -179,9 +179,7 @@ logic apps can directly access those systems by using any
 of these items: 
 
   * ISE connector for that system, for example, SQL Server
-
   * HTTP action 
-
   * Custom connector
 
   For on-premises systems that aren't in a virtual network or don't have ISE connectors, 
