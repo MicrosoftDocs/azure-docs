@@ -23,7 +23,7 @@ Age gating in Azure Active Directory (Azure AD) B2C enables you to identify mino
 
 After you enable age gating in your [user flow](active-directory-b2c-reference-policies.md), users are asked when they were born and what country they live in. If a user signs in that hasn't previously entered the information, they'll need to enter it the next time they sign in. The rules are applied every time a user signs in.
 
-Azure AD B2C uses the information that the user enters to identify whether they're a minor and updates the **ageGroup** field in their account. The value can be `null`, `Undefined`, `Minor`, `Adult`, and `NotAdult`.  The **ageGroup** and **consentProvidedForMinor** fields are then used to calculate the value of **legalAgeGroupClassification**.
+Azure AD B2C uses the information that the user enters to identify whether they're a minor. The **ageGroup** field is then updated in their account. The value can be `null`, `Undefined`, `Minor`, `Adult`, and `NotAdult`.  The **ageGroup** and **consentProvidedForMinor** fields are then used to calculate the value of **legalAgeGroupClassification**.
 
 Age gating involves two age values: the age that someone is no longer considered a minor, and the age at which a minor must have parental consent. The following table lists the age rules that are used for defining a minor and a minor requiring consent.
 
@@ -86,8 +86,8 @@ For user flows that allow either sign-up, sign-in or both, you can choose to blo
 
 To use age gating in a user flow, you need to configure your tenant to have additional properties.
 
-1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the Directory and subscription filter in the top menu and choosing the directory that contains your tenant. 
-2. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu. Select the directory that contains your tenant. 
+2. Select **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 3. Select **Properties** for your tenant in the menu on the left.
 2. Under the **Age gating** section, click on **Configure**.
 3. Wait for the operation to complete and your tenant will be set up for age gating.
@@ -99,7 +99,7 @@ After your tenant is set up to use age gating, you can then use this feature in 
 1. Create a user flow that has age gating enabled.
 2. After you create the user flow, select **Properties** in the menu.
 3. In the **Age gating** section, select **Enabled**.
-4. You can then choose how you want to manage users that identify as minors. For **Sign-up or sign-in**, you can select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you have the choice of `Send a JSON bcak to the application` or `Show an error message`. 
+4. You then decide how you want to manage users that identify as minors. For **Sign-up or sign-in**, you select `Allow minors to access your application` or `Block minors from accessing your application`. If blocking minors is selected, you select `Send a JSON bcak to the application` or `Show an error message`. 
 
 
 
