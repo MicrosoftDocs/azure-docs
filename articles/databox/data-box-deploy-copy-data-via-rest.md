@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -52,7 +52,7 @@ Consider the following example.
 - Share for page blob: *Mystoracct_PageBlob/my-container/blob*
 - Share for file: *Mystoracct_AzFile/my-share*
 
-Depending on whether your Data Box is connected to a Windows Server host computer or to a Linux host, the steps to connect and copy can be different.
+Depending on whether you are connecting to Data Box over http or https, the steps can be different.
 
 ## Connect via http
 
@@ -124,13 +124,11 @@ You can use Windows PowerShell or the Windows Server UI to import and install th
 
 ### To add device IP address and blob service endpoint to the remote host
 
-[!INCLUDE [data-box-add-device-ip](../../includes/data-box-add-device-ip.md)]
+The steps to follow are identical to what you used while connecting over *http*. 
 
 ### Configure partner software to establish connection
 
-[!INCLUDE [data-box-configure-partner-software](../../includes/data-box-configure-partner-software.md)]
-
-[!INCLUDE [data-box-verify-connection](../../includes/data-box-verify-connection.md)]
+The steps to follow are identical to what you used while connecting over *http*. The only difference is that you should leave the *Use http option* unchecked.
 
 ## Copy data to Data Box
 
@@ -171,52 +169,48 @@ Follow the steps in [Create a blob container](/azure/vs-azure-tools-storage-expl
 
 Use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. To upload all blobs in a folder, enter the following AzCopy command:
 
-Linux
-Windows
+# [Linux](#tab/linux)
 
-Copy
-AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
+    azcopy \
+        --source /mnt/myfolder \
+        --destination https://myaccount.blob.core.windows.net/mycontainer \
+        --dest-key <key> \
+        --recursive
 
-Replace <key> and key with your account key. In the Azure portal, you can retrieve your account key by selecting Access keys under Settings in your storage account. Select a key, and paste it into the AzCopy command. 
+# [Windows](#tab/windows)
 
-If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace myaccount in the destination URL with your storage account name.
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
+---
 
-To upload the contents of the specified directory to Blob storage recursively, specify the --recursive (Linux) or /S (Windows) option. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
+Replace `<key>` and `key` with your account key. To get your account key, in the Azure portal, go to your storage account. Go to **Settings > Access keys**, select a key, and paste it into the AzCopy command.
+
+If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace `myaccount` in the destination URL with your storage account name.
+
+To upload the contents of the specified directory to Blob storage recursively, specify the `--recursive` (Linux) or `/S` (Windows) option. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
 
 ### Upload modified files to Data Box Blob storage
 
-Use AzCopy to upload files based on their last-modified time. To try this, modify or create new files in your source directory for test purposes. To upload only updated or new files, add the --exclude-older (Linux) or /XO (Windows) parameter to the AzCopy command.
+Use AzCopy to upload files based on their last-modified time. To try this, modify or create new files in your source directory for test purposes. To upload only updated or new files, add the `--exclude-older` (Linux) or `/XO` (Windows) parameter to the AzCopy command.
 
-If you only want to copy source resources that do not exist in the destination, specify both --exclude-older and --exclude-newer (Linux) or /XO and /XN (Windows) parameters in the AzCopy command. AzCopy uploads only the updated data, based on its time stamp.
+If you only want to copy source resources that do not exist in the destination, specify both `--exclude-older` and `--exclude-newer` (Linux) or `/XO` and `/XN` (Windows) parameters in the AzCopy command. AzCopy uploads only the updated data, based on its time stamp.
 
-Linux
-Windows
+# [Linux](#tab/linux)
 
-Copy
-AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
+    azcopy \
+    --source /mnt/myfolder \
+    --destination https://myaccount.blob.core.windows.net/mycontainer \
+    --dest-key <key> \
+    --recursive \
+    --exclude-older
+
+# [Windows](#tab/windows)
+
+    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
+---
 
 ## Prepare to ship
 
-Final step is to prepare the device to ship. In this step, all the device shares are taken offline. The shares cannot be accessed once you start preparing the device to ship.
-1. Go to **Prepare to ship** and click **Start preparation**. 
-   
-    ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship1.png)
-
-2. By default, checksums are computed inline during the prepare to ship. The checksum computation may take some time depending upon the size of your data. Click **Start preparation**.
-    1. The device shares go offline and the device is locked when we prepare to ship.
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship2.png) 
-   
-    2. The device status updates to *Ready to ship* once the device preparation is complete. 
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship3.png)
-
-    3. Download the list of files (manifest) that were copied in this process. You can later use this list to verify the files uploaded to Azure.
-        
-        ![Prepare to ship 1](media/data-box-deploy-copy-data/prepare-to-ship4.png)
-
-3. Shut down the device. Go to **Shut down or restart** page and click **Shut down**. When prompted for confirmation, click **OK** to continue.
-4. Remove the cables. The next step is to ship the device to Microsoft.
+[!INCLUDE [data-box-prepare-to-ship](../../includes/data-box-prepare-to-ship.md)]
 
 ## Next steps
 
