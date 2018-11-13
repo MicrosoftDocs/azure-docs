@@ -40,7 +40,7 @@ Azure AD enables you to collaborate internally within your organization and with
 - **Review access to groups**: If you have enabled Office groups in your organization to leverage the power of self-service, anyone in the organization can create groups and invite guests into groups. It's convenient that guests can easily gain access to groups, but you also want to make sure that there's oversight for this process. Access reviews can be created on Office and security groups and assign the group owners to confirm who should have continued access, and if the guests are still needed.
 - **Review users assigned to applications**: Users assigned to Azure AD-connected applications can also be reviewed, and reviewers will receive recommendations based on the users' sign-in information to make an informative decision.
 
-## What is the difference between Azure AD Access Reviews and Azure AD Privileged Identity Management (PIM)?
+## What is the difference between Azure AD Access Reviews and Azure AD PIM?
 
 Both Azure AD Access Reviews and Azure AD Privileged Identity Management (PIM) allow you to perform access reviews. Azure AD Access Reviews help you to review access to groups and enterprise applications. Access reviews in Azure AD PIM help you to review access to Azure AD directory roles, such as Global Administrator, and Azure resource roles.
 
