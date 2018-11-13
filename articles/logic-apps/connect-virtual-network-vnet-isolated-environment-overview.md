@@ -20,9 +20,8 @@ ms.date: 11/23/2018
 Sometimes, your logic apps and integration accounts need access to secured 
 resources, such as virtual machines (VMs) and other systems or services, in an 
 [Azure virtual network](../virtual-network/virtual-networks-overview.md). 
-To set up this access, follow these steps for 
-[how to create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md), 
-which you use as the location for your logic apps and integration accounts. 
+To set up this access, you can [create an *integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment.md) for running 
+for your logic apps and integration accounts. 
 
 ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment-overview/select-logic-app-integration-service-environment.png)
 
@@ -65,9 +64,8 @@ some standard connectors that offer versions that run in an ISE:
 The difference between ISE and non-ISE connectors is 
 in the locations where the triggers and actions run:
 
-* If you use built-in triggers and actions, such as HTTP, 
-in your ISE, the triggers and actions always run inside 
-the same ISE as your logic app. 
+* In your ISE, built-in triggers and actions always 
+run inside the same ISE as your logic app. 
 
 * For connectors that offer two versions: one version runs in an ISE, 
 while the other version runs in the global Logic Apps service.  
@@ -115,7 +113,7 @@ after you [set up and use the on-premises data gateway](../logic-apps/logic-apps
 Before you can select an Azure virtual network for injecting 
 your environment, you must set up Role-Based Access Control (RBAC) 
 permissions in your virtual network for the Azure Logic Apps service. 
-This task requires that you assign the **Network Contribtor** and 
+This task requires that you assign the **Network Contributor** and 
 **Classic Contributor** roles to the Azure Logic Apps service.
 To set up these permissions, see 
 [Connect to Azure virtual networks from logic apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#vnet-access)

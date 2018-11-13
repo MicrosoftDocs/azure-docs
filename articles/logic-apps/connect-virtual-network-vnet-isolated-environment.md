@@ -66,10 +66,11 @@ so the Logic Apps service has the permissions for accessing your virtual network
 
 When you create an integration service environment (ISE), 
 you select an Azure virtual network into where you *inject* 
-your environment. Before you can select an virtual network 
-for injecting your environment, you must set up Role-Based 
-Access Control (RBAC) permissions in your virtual network. 
-To set up permissions, assign these specific roles to the Azure Logic Apps service:
+your environment. However, before you can select a virtual 
+network for injecting your environment, you must set up 
+Role-Based Access Control (RBAC) permissions in your 
+virtual network. To set up permissions, assign these 
+specific roles to the Azure Logic Apps service:
 
 1. In the [Azure portal](https://portal.azure.com), 
 find and select your virtual network. 
@@ -131,7 +132,7 @@ and then choose **Create**.
    | **Location** | Yes | <*Azure-datacenter-region*> | The Azure datacenter region where to store information about your environment | 
    | **Processing units** | Yes | Select a unit: <p>- **Base**: <br>- | 
    | **Virtual network** | Yes | <*Azure-VNET-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
-   | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets, which don't have delegation to any service and are used for creating resources in your environment. Each subnet must meet these criteria: <p>- Includes a `/27`, such as `10.0.1.0/27`. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Must not exist within the address space for the virtual network selected in the **Virtual network** property, nor within any other private IP addresses where the virtual network is connected. <br>- Must be empty. <p><p>**Important**: You *can't change* these address ranges after you create your environment. |
+   | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets, which don't have delegation to any service and are used for creating resources in your environment. Each subnet must meet these criteria: <p>- Includes a `/27`, such as `10.0.1.0/27`. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Must not exist within the address space for the virtual network selected in the **Virtual network** property, nor within any other private IP addresses where the virtual network is connected. <br>- Must be empty. <p><p>**Important**: You *can't change* these IP ranges after you create your environment. |
    |||||
    
 1. When you're done, choose **Review + create**. 
@@ -158,14 +159,14 @@ To create logic apps that use your integration service environment (ISE),
 follow the usual steps in [how to create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) 
 but with these differences and considerations: 
 
-* When you create your logic app, the **Location** property 
-lists your ISEs under **Integration service environments** 
-along with available regions. Select your ISE, rather than a region, 
-for example:
+* When you create your logic app, your ISEs appear 
+along with available regions in the **Location** list 
+under the **Integration service environments** section.
+Select your ISE, rather than a region, for example:
 
   ![Select integration service environment](./media/connect-virtual-network-vnet-isolated-environment/create-logic-app-with-integration-service-environment.png)
 
-* You can use the same built-in triggers or actions, such as HTTP, 
+* You can use the same built-in triggers and actions, such as HTTP, 
 which run in the same ISE as the parent logic app. Connectors with 
 the **ISE** label also run in the same ISE as the parent logic app. 
 Connectors without the **ISE** label run in the global Logic Apps service.
