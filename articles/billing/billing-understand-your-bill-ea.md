@@ -19,9 +19,9 @@ ms.author: cwatson
 ---
 # Understand your bill for Azure customers with an Enterprise Agreement
 
-Azure customers with an Enterprise Agreement will receive an invoice when they exceed the organization's credit or use services that aren't covered by the credit. 
+Azure customers with an Enterprise Agreement receive an invoice when they exceed the organization's credit or use services that aren't covered by the credit. 
 
-Your organization's credit includes monetary commitment, the amount paid upfront for Azure service consumption under an Enterprise Agreement. You can add more monetary commitment to your Enterprise Agreement by contacting your Microsoft account manager or reseller.  
+Your organization's credit includes your monetary commitment. The monetary commitment is the amount your organization paid upfront for usage of Azure services. You can add monetary commitment funds to your Enterprise Agreement by contacting your Microsoft account manager or reseller.  
 
 ## When credit exceeded or doesn't apply
 
@@ -40,7 +40,7 @@ You get one or more invoices when the following occurs:
     - Visual Studio Enterprise (Annual)
     - Visual Studio Professional (Monthly)
     - Visual Studio Professional (Annual)
-- **Marketplace charges**: Azure Marketplace purchases and usage are not covered by your organization's credit and will be billed separately. The Enterprise Administrator has the ability to enable and disable Marketplace purchases for their organization in the Enterprise Portal. 
+- **Marketplace charges**: Azure Marketplace purchases and usage are not covered by your organization's credit and are billed separately. The Enterprise Administrator has the ability to enable and disable Marketplace purchases for their organization in the Enterprise Portal. 
 
 When you have charges due for both service overage and charges billed separately during the billing period, you get one invoice that includes both types of charges. Marketplaces charges are always invoiced separately.
 
@@ -50,7 +50,7 @@ To review and verify the charges on your invoice, you must be an Enterprise Admi
 
 ### Review service overage invoice
 
-Compare your total usage amount from the Enterprise portal in **Reports** > **Usage Summary** with your service overage invoice. Usage above your organization's credit will appear on this invoice including any usage of services that are not covered by the credit. The amounts on the **Usage Summary** don't include tax. 
+Compare your total usage amount from the Enterprise portal in **Reports** > **Usage Summary** with your service overage invoice. The service overage invoice includes usage that exceeds your organization's credit, and/or services that aren't covered by the credit. The amounts on the **Usage Summary** don't include tax. 
 
 1. Sign in to the [Enterprise portal](https://ea.azure.com).
 1. Select **Reports**.
@@ -73,7 +73,7 @@ Compare your total usage amount from the Enterprise portal in **Reports** > **Us
 
 ### Review marketplace invoice
 
-Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the Enterprise portal with your marketplace invoice. The marketplace invoice is exclusively for Azure Marketplace purchases and usage. The amounts on the **Usage Summary** don't include tax. 
+Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the Enterprise portal with your marketplace invoice. The marketplace invoice is only for Azure Marketplace purchases and usage. The amounts on the **Usage Summary** don't include tax. 
 
 1. Sign in to the [Enterprise portal](https://ea.azure.com).
 1. Select **Reports**.
