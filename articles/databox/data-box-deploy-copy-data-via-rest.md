@@ -102,7 +102,7 @@ Follow these steps to prepare the Windows client for a remote connection that us
 
 Each of the preceding procedures, is described below.
 
-Import the certificate on the remote host
+#### Import the certificate on the remote host
 
 You can use Windows PowerShell or the Windows Server UI to import and install the certificate on your host system.
 
@@ -115,17 +115,26 @@ You can use Windows PowerShell or the Windows Server UI to import and install th
     Import-Certificate -FilePath C:\temp\localuihttps.cer -CertStoreLocation Cert:\LocalMachine\Root
     ```
 
+    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ps-1.png)
+
 **Using Windows Server UI**
 
 1.	Right-click the .cer file and select **Install certificate**. This starts the Certificate Import Wizard.
- 
 2.	For **Store location**, select **Local Machine**, and then click **Next**.
+
+    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-1.png)
+
 3.	Select **Place all certificates in the following store**, and then click **Browse**. Navigate to the root store of your remote host, and then click **Next**.
+
+    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-2.png)
+
 4.	Click **Finish**. A message that tells you that the import was successful appears.
+
+    ![Import certificate using PowerShell](media/data-box-deploy-copy-data-via-rest/import-cert-ws-3.png)
 
 ### To add device IP address and blob service endpoint to the remote host
 
-The steps to follow are identical to what you used while connecting over *http*. 
+The steps to follow are identical to what you used while connecting over *http*.
 
 ### Configure partner software to establish connection
 
@@ -136,7 +145,7 @@ The steps to follow are identical to what you used while connecting over *http*.
 Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
 
 - Ensure that you copy the data to shares that correspond to the appropriate data format. For instance, copy the block blob data to the share for block blobs. If the data format does not match the appropriate share type, then at a later step, the data upload to Azure will fail.
--  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md). 
+-  While copying data, ensure that the data size conforms to the size limits described in the [Azure storage and Data Box limits](data-box-limits.md).
 - If data, which is being uploaded by Data Box, is concurrently uploaded by other applications outside of Data Box, this may result in upload job failures and data corruption.
 
 You'll use AzCopy to copy data to Azure. The copy procedure has the following steps:
