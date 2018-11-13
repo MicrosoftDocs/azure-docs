@@ -347,7 +347,7 @@ You can also create a rule that selects device objects for membership in a group
  deviceCategory | a valid device category name | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | any string value | (device.deviceManufacturer -eq "Samsung")
  deviceModel | any string value | (device.deviceModel -eq "iPad Air")
- deviceOwnership | Personal, Corporate, Unknown | (device.deviceOwnership -eq "Company")
+ deviceOwnership | Personal, Corporate, Unknown | (device.deviceOwnership -eq "Corporate")
  domainName | any string value | (device.domainName -eq "contoso.com")
  enrollmentProfileName | Apple Device Enrollment Profile or Windows Autopilot profile name | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
