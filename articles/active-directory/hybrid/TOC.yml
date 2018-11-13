@@ -26,7 +26,7 @@
        href: concept-azure-ad-connect-sync-declarative-provisioning.md
      - name: Understanding Declarative Provisioning Expressions
        href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
-     - name: Understanding the defualt configuration
+     - name: Understanding the default configuration
        href: concept-azure-ad-connect-sync-default-configuration.md
      - name: Understanding users and contacts
        href: concept-azure-ad-connect-sync-user-and-contacts.md
