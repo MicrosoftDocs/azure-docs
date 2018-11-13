@@ -11070,6 +11070,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-unified-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-alerts",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/monitoring-and-diagnostics/monitoring-create-activity-log-alerts-with-resource-manager-template.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/alert-activity-log",
             "redirect_document_id": false
