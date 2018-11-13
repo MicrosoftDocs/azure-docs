@@ -19,16 +19,16 @@ ms.author: cwatson
 ---
 # Understand your bill for Azure customers with an Enterprise Agreement
 
-Azure customers with an Enterprise Agreement (EA customers) may receive an invoice when they exceed the organization's credit or use product or services that aren't covered by the credit.
+Azure customers with an Enterprise Agreement receive an invoice when they exceed the organization's credit or use services that aren't covered by the credit. 
 
-A credit is also known as a monetary commitment. EA customers make an upfront monetary commitment or credit when they add Azure. But you can add more credit to your Enterprise Agreement by contacting your Microsoft account manager or reseller.  
+Your organization's credit includes your monetary commitment. The monetary commitment is the amount your organization paid upfront for usage of Azure services. You can add monetary commitment funds to your Enterprise Agreement by contacting your Microsoft account manager or reseller.  
 
 ## When credit exceeded or doesn't apply
 
-You get one or more invoices for the following situations:
+You get one or more invoices when the following occurs:
 
-- **Service overage**: Your organization's usage costs exceeds your credit balance.
-- **Charges billed separately**: The products or services your organization used aren't covered by the credit. You're invoiced for the following products or services regardless of your credit balance:
+- **Service overage**: Your organization's usage charges exceed your credit balance.
+- **Charges billed separately**: The services your organization used aren't covered by the credit. You're invoiced for the following services regardless of your credit balance:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop 
@@ -40,44 +40,44 @@ You get one or more invoices for the following situations:
     - Visual Studio Enterprise (Annual)
     - Visual Studio Professional (Monthly)
     - Visual Studio Professional (Annual)
-- **Marketplace charges**: These are resources that have been created by third-party software vendors. Usage of these resources aren't covered by your organization's credit.
+- **Marketplace charges**: Azure Marketplace purchases and usage are not covered by your organization's credit and are billed separately. The Enterprise Administrator has the ability to enable and disable Marketplace purchases for their organization in the Enterprise Portal. 
 
-When you have charges due for both service overages and services not covered by the credit during the billing period, you get one invoice that includes both types of charges. Marketplaces charges are always invoiced separately.
+When you have charges due for both service overage and charges billed separately during the billing period, you get one invoice that includes both types of charges. Marketplaces charges are always invoiced separately.
 
 ## Review charges
 
-To review and verify the charges on your invoice, you must be an Enterprise Administrator, or Account Owner or Department Admin with the view charges policy enabled. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md). If you don't know who the Enterprise Admin is for your organization, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+To review and verify the charges on your invoice, you must be an Enterprise Administrator, or Account Owner or Department Admin with the view charges policy enabled. For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md). If you don't know who the Enterprise Administrator is for your organization, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### Review service overage invoice
 
-Compare your total usage amount from the Enterprise portal in **Reports** > **Usage Summary** with your service overage invoice. The amounts on the **Usage Summary** don't include tax.
+Compare your total usage amount from the Enterprise portal in **Reports** > **Usage Summary** with your service overage invoice. The service overage invoice includes usage that exceeds your organization's credit, and/or services that aren't covered by the credit. The amounts on the **Usage Summary** don't include tax. 
 
 1. Sign in to the [Enterprise portal](https://ea.azure.com).
 1. Select **Reports**.
-1. On the top right-hand corner of the tab, switch the view from **M** to **C** to match the period on the invoice.
+1. On the top right-hand corner of the tab, switch the view from **M** to **C** and match the period on the invoice.
  
    ![Screenshot that shows M + C option  on Usage summary.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 
-1. The **Total Usage** amount should match the **Total Extended Amount** on your service overage invoice. The following table lists the terms and descriptions shown on the invoice and on the **Usage Summary** in the Azure portal:
+1. The **Total Usage** amount should match the **Total Extended Amount** on your service overage invoice. The following table lists the terms and descriptions shown on the invoice and on the **Usage Summary** in the Enterprise portal:
 
-   |Invoice term|Usage summary term|Description|
+   |Invoice term|Usage Summary term|Description|
    |---|---|---|
    |Total Extended Amount|Total Usage|The total pre-tax usage charge for the specific period before the credit is applied.|
-   |Commitment Usage|Commitment Usage|The credit to be applied during that specific period.|
-   |Total Sale|Service Overage|The total usage charge that exceeds your credit amount. This amount doesn't include tax.|
+   |Commitment Usage|Commitment Usage|The credit applied during that specific period.|
+   |Total Sale|Total Overage|The total usage charge that exceeds your credit amount. This amount doesn't include tax.|
    |Tax Amount|Not applicable|Tax that applies to the total sale amount for the specific period.|
    |Total Amount|Not applicable|The amount due for the invoice after the credit is applied and tax is added.|
-1. To get more information about your charges, go to **Download Usage** > **Advanced Report Download**. This report doesn't include taxes or charges for reservations or marketplace products.
+1. To get more information about your charges, go to **Download Usage** > **Advanced Report Download**. This report doesn't include taxes or charges for reservations or marketplace charges.
 
       ![Screenshot that shows Advanced report Download on the Download usage tab.](./media/billing-understand-your-bill-ea/ea-portal-download-usage-advanced.png)
 
 ### Review marketplace invoice
 
-Compare your Azure marketplace total on **Reports** > **Usage Summary** in the Enterprise portal with your marketplace invoice. The amounts on the **Usage Summary** don't include tax. The **Usage Summary** may show usage-based or one-time charges depending on the product or service.
+Compare your Azure Marketplace total on **Reports** > **Usage Summary** in the Enterprise portal with your marketplace invoice. The marketplace invoice is only for Azure Marketplace purchases and usage. The amounts on the **Usage Summary** don't include tax. 
 
 1. Sign in to the [Enterprise portal](https://ea.azure.com).
 1. Select **Reports**.
-1. On the top right-hand corner of the tab, switch the view from **M** to **C** to match the period on the invoice.
+1. On the top right-hand corner of the tab, switch the view from **M** to **C** and match the period on the invoice.
 
      ![Screenshot that shows M + C option  on Usage summary.](./media/billing-understand-your-bill-ea/ea-portal-usage-sumary-cm-option.png)
 
