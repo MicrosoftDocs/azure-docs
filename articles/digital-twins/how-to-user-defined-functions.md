@@ -67,11 +67,15 @@ After the matchers are created, upload the function snippet with the following *
 > - The body is multipart:
 >   - The first part is about metadata needed for the UDF.
 >   - The second part is the JavaScript compute logic.
-> - In the `userDefinedBoundary` section, replace the `SpaceId` and `Machers` GUIDs.
+> - In the **userDefinedBoundary** section, replace the **SpaceId** and **Machers** values.
 
 ```plaintext
 POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
 ```
+
+| Parameter value | Replace with |
+| --- | --- |
+| *userDefinedBoundary* | A multi-part content boundary name |
 
 ### Body
 
