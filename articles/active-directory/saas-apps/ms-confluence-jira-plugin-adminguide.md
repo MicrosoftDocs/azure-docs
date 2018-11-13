@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/13/2018
 ms.author: jeedes
 
 ---
@@ -75,7 +75,7 @@ To install the plug-in, follow these steps:
 
 2. Go to the Jira/Confluence administration console and select **Add-ons**.
 
-3. From the Atlassian Marketplace, search for **Microsoft SAML SSO Plugin**.
+3. From the Microsoft Download Center, download the [Microsoft SAML SSO Plugin for Jira](https://www.microsoft.com/download/details.aspx?id=56506).
 
    The appropriate version of the plug-in appears in the search results.
 
