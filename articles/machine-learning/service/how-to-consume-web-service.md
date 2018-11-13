@@ -12,7 +12,7 @@ ms.date: 10/30/2018
 #Customer intent: As a developer, I need to understand how to create a client application that consumes the web service of a deployed ML model.
 ---
 
-# How to consume an Azure ML model deployed as a web service
+# Consume an Azure Machine Learning model deployed as a web service
 
 Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service using C#, Go, Java, and Python.
 
