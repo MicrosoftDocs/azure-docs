@@ -4,6 +4,7 @@ description: Learn how to secure Azure Cosmos DB data by using IP access control
 author: kanshiG
 
 ms.service: cosmos-db
+ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 
@@ -27,7 +28,7 @@ Next you can configure IP firewall or VNET service endpoint for your account by 
 
 * [How to configure IP firewall for your Azure Cosmos account](how-to-configure-firewall.md)
 * [Access Azure Cosmos DB resources from virtual networks](vnet-service-endpoint.md)
-* [How to configure ](how-to-configure-vnet-service-endpoint.md)
+* [How to configure virtual network service endpoint for your Azure Cosmos account](how-to-configure-vnet-service-endpoint.md)
 
 
 

@@ -4,6 +4,7 @@ description: Learn how to configure IP access control policies for firewall supp
 author: kanshiG
 
 ms.service: cosmos-db
+ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 
