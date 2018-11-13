@@ -547,12 +547,12 @@ print("Image source:",image_path_or_url)
 serialized_result_in_json = deploy_obj.score_image(image_path_or_url)
 print("serialized_result_in_json:", serialized_result_in_json)
 
-# Score image url with added paramters. Add softmax to score.
-print("Score image url with added paramters. Add softmax to score")
-from cvtk.utils.constants import ClassificationRESTApiParamters
+# Score image url with added parameters. Add softmax to score.
+print("Score image url with added parameters. Add softmax to score")
+from cvtk.utils.constants import ClassificationRESTApiParameters
 image_path_or_url = "https://cvtkdata.blob.core.windows.net/publicimages/microsoft_logo.jpg"
 print("Image source:",image_path_or_url)
-serialized_result_in_json = deploy_obj.score_image(image_path_or_url, image_resize_dims=[224,224], parameters={ClassificationRESTApiParamters.ADD_SOFTMAX:True})
+serialized_result_in_json = deploy_obj.score_image(image_path_or_url, image_resize_dims=[224,224], parameters={ClassificationRESTApiParameters.ADD_SOFTMAX:True})
 print("serialized_result_in_json:", serialized_result_in_json)
 ```
 
@@ -605,7 +605,7 @@ def score_image_list_with_http(images, service_endpoint_url, service_key=None, p
         images(list): list of (input image file path, base64 image string, url or buffer)
         service_endpoint_url(str): endpoint url
         service_key(str): service key, None for local deployment.
-        parameters(dict): service additional paramters in dictionary
+        parameters(dict): service additional parameters in dictionary
 
 
     Returns:

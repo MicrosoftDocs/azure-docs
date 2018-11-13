@@ -14,15 +14,15 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/04/2018
+ms.date: 11/07/2018
 ms.author: juliako
 ---
 
 # Migration guidance for moving from Media Services v2 to v3
 
-This article describes changes that were introduced in Azure Media Services (AMS) v3, shows differences between two versions, and provides the migration guidance.
+This article describes changes that were introduced in Azure Media Services v3, shows differences between two versions, and provides the migration guidance.
 
-If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview.md), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Azure Media Services. However, as called out in the  [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
+If you have a video service developed today on top of the [legacy Media Services v2 APIs](../previous/media-services-overview.md), you should review the following guidelines and considerations prior to migrating to the v3 APIs. There are many benefits and new features in the v3 API that improve the developer experience and capabilities of Media Services. However, as called out in the  [Known Issues](#known-issues) section of this article, there are also some limitations due to changes between the API versions. This page will be maintained as the Media Services team makes continued improvements to the v3 APIs and addresses the gaps between the versions. 
 
 ## Benefits of Media Services v3
 
@@ -41,7 +41,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * Introduces the concept of [Transforms](transforms-jobs-concept.md) for file-based Job processing. A Transform can be used to build reusable configurations, to create Azure Resource Manager Templates, and isolate processing settings between multiple customers or tenants.
 * An Asset can have [multiple StreamingLocators](streaming-locators-concept.md) each with different Dynamic Packaging and Dynamic Encryption settings.
 * [Content protection](content-key-policy-concept.md) supports multi-key features.
-* You can stream live events that are up to 24 hours long.
+* You can stream live events that are up to 24 hours long when using Media Services for transcoding a single bitrate contribution feed into an output stream that has multiple bitrates.
 * New Low Latency live streaming support on LiveEvents.
 * LiveEvent Preview supports Dynamic Packaging and Dynamic Encryption. This enables content protection on Preview as well as DASH and HLS packaging.
 * LiveOutput is simpler to use than the Program entity in the v2 APIs. 
@@ -55,13 +55,16 @@ If you have a video service developed today on top of the [legacy Media Services
 * The v3 SDKs are now decoupled from the Storage SDK, which gives you more control over the version of Storage SDK you want to use and avoids versioning issues. 
 * In the v3 APIs, all of the encoding bit rates are in bits per second. This is different than the v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128 (kbps), but in v3 it would be 128000 (bits/second). 
 * Entities AssetFiles, AccessPolicies, and IngestManifests do not exist in v3.
+* The IAsset.ParentAssets property does not exist in v3.
 * ContentKeys is no longer an entity, it is now a property of the StreamingLocator.
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed
     * JobOutput replaces Task, and is now part of a Job.
-    * LiveEvent replaces Channel.
-    * LiveOutput replaces Program.
     * StreamingLocator replaces Locator.
+    * LiveEvent replaces Channel.
+        
+        LiveEvents billing is based on Live Channel meters. For more information, see [Live streaming overview](live-streaming-overview.md#billing) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveOutput replaces Program.
 * LiveOutputs do not need to be started explicitly, they start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 
 ## Feature gaps with respect to v2 APIs
