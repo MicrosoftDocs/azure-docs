@@ -41,7 +41,7 @@ The cost of Blockchain Workbench is an aggregate of the cost of the underlying A
 
 ## Prerequisites
 
-Azure Blockchain Workbench requires Azure AD configuration and application registrations. You can choose to do the Azure AD [configurations manually](#azure-ad-configuration) before deployment or run a script post deployment.
+Azure Blockchain Workbench requires Azure AD configuration and application registrations. You can choose to do the Azure AD [configurations manually](#azure-ad-configuration) before deployment or run a script post deployment. If you are redeploying Blockchain Workbench, see [Azure AD configuration](#azure-ad-configuration) to verify your Azure AD configuration.
 
 > [!IMPORTANT]
 > Workbench does not have to be deployed in the same tenant as the one you are using to register an Azure AD application. Workbench must be deployed in a tenant where you have sufficient permissions to deploy resources. For more information on Azure AD tenants, see [How to get an Active Directory tenant](../../active-directory/develop/quickstart-create-new-tenant.md) and [Integrating applications with Azure Active Directory](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md).
@@ -93,7 +93,7 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
     | Setting | Description  |
     |---------|--------------|
     | Monitoring | Choose whether you want to enable Azure Monitor to monitor your blockchain network |
-    | Azure Active Directory settings | Choose **Add Later**.</br> Note: If you chose to pre-configure Azure AD, choose to add now. |
+    | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
     | VM selection | Choose the preferred VM size for your blockchain network. |
 
     For **Use existing**:
@@ -111,8 +111,8 @@ Once the prerequisite steps have been completed, you are ready to deploy the Blo
 
     | Setting | Description  |
     |---------|--------------|
-    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with http:// and ends with a port number. For example, `http://contoso-chain.onmicrosoft.com:8545` |
-    | Azure Active Directory settings | Choose **Add Later**.</br> Note: If you chose to pre-configure Azure AD, choose to add now.
+    | Ethereum RPC Endpoint | Provide the RPC endpoint of an existing PoA blockchain network. The endpoint starts with https:// and ends with a port number. For example, `https://netwoork.westus.cloudapp.com:8540` |
+    | Azure Active Directory settings | Choose **Add Later**.</br>Note: If you chose to [pre-configure Azure AD](#azure-ad-configuration) or are redeploying, choose to *Add Now*. |
     | VM selection | Choose the preferred VM size for your blockchain network. |
 
 9. Select **OK** to finish Advanced Settings.
@@ -160,11 +160,14 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
 5. When prompted, enter the Azure AD tenant you want to use for Blockchain Workbench. This will be the tenant containing the users for Blockchain Workbench.
 
     > [!IMPORTANT]
-    > The authenticated user requires permissions to add Azure AD application registrations and grant delegated application permissions in the tenant. You may need to ask an administrator of the tenant to run the Azure AD configuration script or create a new tenant.
+    > The authenticated user requires permissions to create Azure AD application registrations and grant delegated application permissions in the tenant. You may need to ask an administrator of the tenant to run the Azure AD configuration script or create a new tenant.
 
     ![Enter Azure AD tenant](media/deploy/choose-tenant.png)
 
 6. You'll be prompted to authenticate to the Azure AD tenant using a browser. Open the web URL in a browser, enter the code, and authenticate.
+
+    ![Authenticate with code](media/deploy/authenticate.png)
+
 7. The script outputs several status messages. You get a **SUCCESS** status message if the tenant was successfully provisioned.
 8. Navigate to the Blockchain Workbench URL. You are asked to consent to grant read permissions to the directory. This allows the Blockchain Workbench web app access to the users in the tenant. If you are the tenant administrator, you can choose to consent for the entire organization. This option accepts consent for all users in the tenant. Otherwise, each user is prompted for consent on first use of the Blockchain Workbench web application.
 9. Select **Accept** to consent.
@@ -175,7 +178,7 @@ Azure AD must be configured to complete your Blockchain Workbench deployment. Yo
 
 ## Azure AD configuration
 
-If you choose to manually configure Azure AD prior to deployment, complete all steps in this section.
+If you choose to manually configure or verify Azure AD settings prior to deployment, complete all steps in this section. If you prefer to automatically configure Azure AD settings, use [Azure AD configuration script](#azure-ad-configuration-script) after you deploy Blockchain Workbench.
 
 ### Blockchain Workbench API app registration
 
