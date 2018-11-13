@@ -33,7 +33,7 @@ Each request to either the speech-to-text or text-to-speech REST API requires an
 When using the `Ocp-Apim-Subscription-Key` header, you're only required to provide your subscription key. For example:
 
 ```http
-'Ocp-Apim-Subscription-Key' = 'YOUR_SUBSCRIPTION_KEY'
+'Ocp-Apim-Subscription-Key': 'YOUR_SUBSCRIPTION_KEY'
 ```
 
 When using the `Authorization: Bearer` header, you're required to make a request to the `issueToken` endpoint. In this request, you exchange your subscription key for an access token that's valid for 10 minutes. In the next few sections you'll learn how to get a token, use a token, and refresh a token.
