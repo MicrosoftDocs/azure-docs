@@ -8,7 +8,7 @@ manager: cgronlun
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/14/2018
 ms.author: diberry
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -18,6 +18,8 @@ ms.author: diberry
 Container support in Azure Cognitive Services allows developers to use the same rich APIs that are available in Azure, but with the flexibility that comes with [Docker containers](https://www.docker.com/what-container). Container support is currently available in preview for a subset of Azure Cognitive Services, including parts of [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [Text Analytics](text-analytics/overview.md).
 
 Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
+
+[!VIDEO https://aka.ms/cogserv-container-intro-video]
 
 The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [Text Analytics](text-analytics/overview.md) services are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
 
@@ -61,6 +63,10 @@ Docker must be configured to allow the containers to connect with and send billi
 For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
 
 Individual containers can have their own requirements, as well, including server and memory allocation requirements.
+
+## Developer samples
+
+Developer samples are available at our [Github repository](https://github.com/Azure-Samples/cognitive-services-containers-samples). 
 
 ## Next steps
 
