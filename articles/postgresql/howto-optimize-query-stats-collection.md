@@ -21,16 +21,16 @@ On some customer workloads we have seen up to a 50 percent performance improveme
 
 To set `pg_stat_statements.track = NONE`:
 
-- In the Azure portal, navigate to the [PostgreSQL resource management page and select the server parameters blade](howto-configure-server-parameters-using-portal).
+- In the Azure portal, navigate to the [PostgreSQL resource management page and select the server parameters blade](howto-configure-server-parameters-using-portal.md).
 
 ![PostgreSQL server parameter blade](.\media\howto-optimize-query-stats-collection\pg_stats_statements_portal.png)
 
-- Using [Azure CLI](howto-configure-server-parameters-using-cli), az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
+- Using [Azure CLI](howto-configure-server-parameters-using-cli.md), az postgres server configuration set `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
 ## Using Query Store 
 The [Query Store](concepts-query-store.md) feature in Azure Database for PostgreSQL provides a more performant method to track query statistics and is recommended as an alternative to using *pg_stats_statements*. 
 
 ## Next steps
-Consider setting `pg_stat_statements.track = NONE` in the [Azure Portal](howto-configure-server-parameters-using-portal) or using [Azure CLI](howto-configure-server-parameters-using-cli).
+Consider setting `pg_stat_statements.track = NONE` in the [Azure Portal](howto-configure-server-parameters-using-portal.md) or using [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 See the [Query Store usage scenarios](concepts-query-store-scenarios.md) and [Query Store best practices](concepts-query-store-best-practices.md) for more information. 
