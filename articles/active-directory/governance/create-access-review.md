@@ -22,7 +22,7 @@ Access assignments become stale when users have access they don't need any more.
 
 ## Prerequisites
 
-- If this is first time using access reviews, make sure have [enabled access reviews](access-reviews-overview.md).
+- If this is your first time using access reviews, make sure you have [enabled access reviews](access-reviews-overview.md).
 
 ## Create an access review
 
