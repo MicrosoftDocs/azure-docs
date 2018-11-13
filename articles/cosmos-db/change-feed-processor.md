@@ -71,5 +71,5 @@ You are charged for RUs consumed, since data movement in and out of Cosmos conta
 You can now proceed to learn more about change feed in the following articles:
 
 * [Overview of change feed](change-feed.md)
-* [Ways to read change feed](change-feed-reading.md)
+* [Ways to read change feed](read-change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)

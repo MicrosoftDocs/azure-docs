@@ -13,9 +13,9 @@ ms.reviewer: sngun
 
 # Working with Azure Cosmos databases, containers and items
 
-After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities: databases, containers, and items. The following image shows the hierarchy of different entities in Azure Cosmos DB:
+After you create an [Azure Cosmos DB account](account-overview.md) under your Azure subscription, you can manage data in your account by creating databases, containers, and items. This article describes each of these entities: databases, containers, and items. The following image shows the hierarchy of different entities in an Azure Cosmos account:
 
-![Azure Cosmos DB entities](./media/databases-containers-items/cosmos-entities.png)
+![Azure Cosmos account entities](./media/databases-containers-items/cosmos-entities.png)
 
 ## Azure Cosmos databases
 
@@ -30,7 +30,7 @@ You can create one or more Azure Cosmos databases under your account. A database
 
 ### Operations on an Azure Cosmos database
 
-You can interact with an Azure Cosmos database using the following Azure Cosmos DB APIs:
+You can interact with an Azure Cosmos database using the following Azure Cosmos APIs:
 
 | **Operation** | **Azure CLI**|**SQL API** | **Cassandra API** | **MongoDB API** | **Gremlin API** | **Table API** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -129,7 +129,7 @@ Azure Cosmos item supports the following operations that can be performed using 
 
 ## Next steps
 
-You can now proceed to learn how to provision throughput on  Azure Cosmos account or see other concepts associated with Azure Cosmos DB:
+You can now proceed to learn how to provision throughput on Azure Cosmos account or see other concepts:
 
 * [How to configure provisioned throughput on a Azure Cosmos database](how-to-provision-database-throughput.md)
 * [How to configure provisioned throughput on a Azure Cosmos container](how-to-provision-container-throughput.md)

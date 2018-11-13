@@ -47,11 +47,11 @@ client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("myDatabaseNam
     new RequestOptions { IndexingDirective = IndexingDirective.Include });
 ```
 
-## Next Steps
+## Next steps
 
 Read more about the indexing in the following articles:
 
 * [Indexing Overview](indexing-overview.md)
-* [Indexing policy](indexing-policy.md)
+* [Indexing policy](index-policy.md)
 * [Index types](index-types.md)
 * [Index paths](index-paths.md)

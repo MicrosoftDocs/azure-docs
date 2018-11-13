@@ -119,6 +119,6 @@ Change feed is available for each logical partition key within the container, an
 
 You can now proceed to learn more about change feed in the following articles:
 
-* [Options to read change feed](change-feed-reading.md)
+* [Options to read change feed](read-change-feed.md)
 * [Using change feed with Azure Functions](change-feed-functions.md)
 * [Using change feed processor library](change-feed-processor.md)

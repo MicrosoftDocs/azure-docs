@@ -54,7 +54,7 @@ For a range query, GermanTax is a user-defined function executed as part of quer
 
 Read more about indexing in the following articles:
 
-- [Indexing policy](indexing-policy.md)
+- [Indexing policy](index-policy.md)
 - [Index types](index-types.md)
 - [Index paths](index-paths.md)
 - [How to manage indexing policy](how-to-manage-indexing-policy.md)

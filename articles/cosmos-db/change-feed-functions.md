@@ -60,7 +60,7 @@ The Azure Cosmos DB Trigger leverages the Change Feed Processor library internal
 You can now proceed to learn more about change feed in the following articles:
 
 * [Overview of change feed](change-feed.md)
-* [Ways to read change feed](change-feed-reading.md)
+* [Ways to read change feed](read-change-feed.md)
 * [Using change feed processor library](change-feed-processor.md)
 * [How to work with change feed processor library](change-feed-processor.md)
 * [Serverless database computing using Azure Cosmos DB and Azure Functions](serverless-computing-database.md)

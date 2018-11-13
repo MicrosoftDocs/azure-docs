@@ -35,7 +35,7 @@ The database engine in Azure Cosmos DB supports full ACID (Atomicity, Consistenc
 | Paginated Query | Read | Multi-item transaction |
 | Execute UDF as part of the paginated query | Read | Multi-item transaction |
 
-## Multi-item transactions in JavaScript
+## Multi-item transactions
 
 Azure Cosmos DB allows you to write stored procedures, pre/post triggers, user-defined-functions (UDFs) and merge procedures in JavaScript. Azure Cosmos DB natively supports JavaScript execution inside its database engine. You can register stored procedures, pre/post triggers, user-defined-functions (UDFs) and merge procedures on a container and later execute them transactionally within the Azure Cosmos database engine. Writing application logic in JavaScript allows natural expression of control flow, variable scoping, assignment, and integration of exception handling primitives within the database transactions directly in the JavaScript language.
 

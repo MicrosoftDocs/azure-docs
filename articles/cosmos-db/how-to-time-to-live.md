@@ -103,7 +103,7 @@ SalesOrder salesOrder = new SalesOrder
 };
 ```
 
-## Reset time to live on an item
+## Reset time to live
 
 You can reset the time to live on an item by performing a write or update operation on the item. The write or update operation will set the `_ts` to the current time, and the TTL for the item to expire  will begin again. If you wish to change the TTL of an item, you can update the field just as you update any other field.
 
@@ -121,7 +121,7 @@ readDocument.TimeToLive = 60 * 30 * 30; // update time to live
 response = await client.ReplaceDocumentAsync(readDocument);
 ```
 
-## Turn off time to live for an item
+## Turn off time to live
 
 If time to live has been set on an item and you no longer want that item to expire, then you can get the item, remove the TTL field, and replace the item on the server. When the TTL field is removed from the item, the default TTL value assigned to the container is applied to the item. Set the TTL value to -1 to prevent an item from expiring and to not inherit the TTL value from the container.
 
@@ -154,7 +154,7 @@ collection.DefaultTimeToLive = null;
 await client.ReplaceDocumentCollectionAsync(collection);
 ```
 
-## Next Steps
+## Next steps
 
 Learn more about time to live in the following article:
 
