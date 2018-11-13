@@ -182,7 +182,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
    
     b. Set the **SAML Asserting Party Name**(for example, SAML issuer + company name).
    
-    c. In the **Issuer URL** textbox, paste the **SAML Entity ID** value which you have copied from the Azure portal.
+    c. In the **Issuer URL** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
    
     d. Select **Assertion** as **Require Mandatory Signature**.
    
