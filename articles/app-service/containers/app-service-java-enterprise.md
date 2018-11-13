@@ -19,13 +19,13 @@ ms.author: routlaw
 
 Azure App Service on Linux lets Java developers to build, deploy, and scale Java Enterprise (JEE) applications on a fully managed Linux-based service.  The underlying Java Enterprise runtime environment is the open-source [Wildfly](http://wildfly.org/) application server.
 
-This guide provides key concepts and instructions for Java Enterprise developers using in App Service for Linux. If you've never deployed Java applications with Azure App Service for Linux, you should complete the [Java quickstart](quickstart-java.md) first. General questions about using App Service for Linux that aren't specific to Java Enterprise are answered in the [Java developer's guide for App Service on Linux](app-service-linux-java.md) and the [App Service Linux FAQ](app-service-linux-faq.md).
+This guide provides key concepts and instructions for Java Enterprise developers using in App Service for Linux. If you've never deployed Java applications with Azure App Service for Linux, you should complete the [Java quickstart](quickstart-java.md) first. Questions about App Service for Linux that aren't specific to Java Enterprise are answered in the [Java developer's guide](app-service-linux-java.md) and the [App Service Linux FAQ](app-service-linux-faq.md).
 
 ## Scale with App Service 
 
 The WildFly application server running in App Service on Linux runs in standalone mode, not in a domain configuration. 
 
- To scale your application vertically or horizontally to meet demand, [set up scale rules](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) and [increase your instance count](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) in Azure App Service for Linux.
+ Scale your application vertically or horizontally with [scale rules](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-autoscale-get-started?toc=%2Fazure%2Fapp-service%2Fcontainers%2Ftoc.json) and by [increasing your instance count](https://docs.microsoft.com/azure/app-service/web-sites-scale?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json).
 
 ## Customize application server configuration
 
@@ -35,7 +35,7 @@ Developers can write a startup Bash script to execute additional configuration n
 - Configuring messaging providers
 - Adding other modules and dependnecies to the Wildfly server configuration.
 
- The script is executed when the application server is started and the Wildfly runtime is available, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from `/opt/jboss/wildfly/bin/jboss-cli.sh` to configure the application server with any configuration or changes needed after the server starts. 
+ The script runs when Wildfly is up and running, but before the application starts. The script should use the [JBOSS CLI](https://docs.jboss.org/author/display/WFLY/Command+Line+Interface) called from `/opt/jboss/wildfly/bin/jboss-cli.sh` to configure the application server with any configuration or changes needed after the server starts. 
 
 Do not use the interactive mode of the CLI to configure Wildfly. Instead, you can provide a script of commands to the JBoss CLI using the `--file` command, for example:
 
@@ -45,7 +45,7 @@ Do not use the interactive mode of the CLI to configure Wildfly. Instead, you ca
 
 Upload the startup script to `/home/site/deployments/tools` in your App Service instance. See [this document](/azure/app-service/app-service-deployment-credentials#userscope) for instructions on getting your FTP credentials. 
 
-In the Application Settings blade of the Azure Portal for your application, set the **Startup Script** field to the location of your startup shell script. This should be `/home/site/deployments/tools/your-startup-script.sh`.
+Set the **Startup Script** field in the Azure portal to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh`.
 
 Use [application settings](/azure/app-service/web-sites-configure#application-settings) to set environment variables for use in the script. These settings are made available to the startup script environment and keep connection strings and other secrets out of version control.
 
@@ -53,10 +53,10 @@ Use [application settings](/azure/app-service/web-sites-configure#application-se
 
 To install modules and their dependencies into the Wildfly classpath via the JBoss CLI, you will need to create the following files in their own directory.  Some modules and dependencies might need additional configuration such as JNDI naming or other API-specific configuration, so this list is a minimum set of what you'll need to configure a dependency in most cases.
 
-1. An a [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
+1. An [XML module descriptor](https://jboss-modules.github.io/jboss-modules/manual/#descriptors). This XML file defines the name, attributes, and dependencies of your module. This [example module.xml file](https://access.redhat.com/documentation/en-us/jboss_enterprise_application_platform/6/html/administration_and_configuration_guide/example_postgresql_xa_datasource) defines a Postgres module, its JAR file JDBC dependency, and other module dependencies required.
 2. Any necessary JAR file dependencies for your module.
-3. A script with your JBoss CLI commands to configure the new module. This file will contain your commands to be executed by the JBoss CLI to configure the server to use the dependency. For documentation on the commands to add modules, datasources, and messaging providers, please see read refer to [this document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
-4.  A Bash startup script to call the JBoss CLI and execute the script in the previous step. This file will be executed when your App Service instance is restarted or when new instances are provisioned during a scale out.  This startup script is where you can perform any other configurations for your application as the JBoss commands are passed to the JBoss CLI. At minimum, this file can be a single command to pass your JBoss CLI command script to the JBoss CLI: 
+3. A script with your JBoss CLI commands to configure the new module. This file will contain your commands to be executed by the JBoss CLI to configure the server to use the dependency. For documentation on the commands to add modules, datasources, and messaging providers, refer to [this document](https://access.redhat.com/documentation/red_hat_jboss_enterprise_application_platform/7.0/html-single/management_cli_guide/#how_to_cli).
+4.  A Bash startup script to call the JBoss CLI and execute the script in the previous step. This file will be executed when your App Service instance is restarted or when new instances are provisioned during a scale-out.  This startup script is where you can perform any other configurations for your application as the JBoss commands are passed to the JBoss CLI. At minimum, this file can be a single command to pass your JBoss CLI command script to the JBoss CLI: 
    
 ```bash
 `/opt/jboss/wildfly/bin/jboss-cli.sh -c --file=/path/to/your/jboss_commands.cli` 
@@ -65,7 +65,7 @@ To install modules and their dependencies into the Wildfly classpath via the JBo
 Once you have the files and content for your module, follow the steps below to add the module to the Wildfly application server. 
 
 1. FTP your files to `/home/site/deployments/tools` in your App Service instance. See this document for instructions on getting your FTP credentials. 
-2. In the Application Settings blade of the Azure Portal, set the “Startup Script” field to the location of your startup shell script. This should be `/home/site/deployments/tools/your-startup-script.sh` 
+2. In the Application Settings blade of the Azure portal, set the “Startup Script” field to the location of your startup shell script, for example `/home/site/deployments/tools/your-startup-script.sh` .
 3. Restart your App Service instance by pressing the **Restart** button in the **Overview** section of the Portal or using the Azure CLI.
 
 ## Data sources
@@ -84,11 +84,11 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
 
 1. Use the [Apache QPId JMS messaging library](https://qpid.apache.org/proton/index.html). Include this dependency in your pom.xml (or other build file) for the application.
 
-2.  Create [Service Bus resources](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp). You should create a Service Bus namespace and queue within that namespace and a Shared Access Policy with send and receive capabilities.
+2.  Create [Service Bus resources](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp). Create an Azure Service Bus namespace and queue within that namespace and a Shared Access Policy with send and receive capabilities.
 
 3. Pass the shared access policy key to your code either by URL-encoding the primary key of your policy or [Use the Service Bus SDK](/azure/service-bus-messaging/service-bus-java-how-to-use-jms-api-amqp#setup-jndi-context-and-configure-the-connectionfactory).
 
-4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. Please see [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
+4. Follow the steps outlined in the Installing Modules and Dependencies section with your module XML descriptor, .jar dependencies, JBoss CLI commands, and startup script for the JMS provider. In addition to the four files, you will also need to create an XML file that defines the JNDI name for the JMS queue and topic. See [this repository](https://github.com/JasonFreeberg/widlfly-server-configs/tree/master/appconfig) for reference configuration files.
 
 
 ## Configure session management caching
@@ -96,13 +96,13 @@ To enable message driven Beans using Service Bus as the messaging mechanism:
 By default App Service on Linux will use session affinity cookies to ensure that client requests with existing sessions are routed the same instance of your application. This default behavior requires no configuration but has some limitations:
 
 - If an application instance is restarted or scaled down, the user session state in the application server will be lost.
-- If applications have long session timeout settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
+- If applications have long session time out settings or a fixed number of users, it can take some time for autoscaled new instances to receive load since only new sessions will be routed to the newly started instances.
 
-You can configure Wildfly to use an external session store such as [Redis Cache](/azure/redis-cache/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie based routing and allow the configured Wildfly session store to operate without interference.
+You can configure Wildfly to use an external session store such as [Redis Cache](/azure/redis-cache/). You will need to [disable the existing ARR Instance Affinity](https://azure.microsoft.com/en-us/blog/disabling-arrs-instance-affinity-in-windows-azure-web-sites/) configuration to turn off the session cookie-based routing and allow the configured Wildfly session store to operate without interference.
 
 ## Enable web sockets
 
-By default, web sockets are enabled on App Service. To get started with WebSockets in your application, please refer to [this quickstart](https://github.com/wildfly/quickstart/tree/master/websocket-hello).
+By default, web sockets are enabled on App Service. To get started with WebSockets in your application,  refer to [this quickstart](https://github.com/wildfly/quickstart/tree/master/websocket-hello).
 
 ## Logs and troubleshooting
 
