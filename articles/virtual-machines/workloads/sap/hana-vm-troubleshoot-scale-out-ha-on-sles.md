@@ -172,7 +172,7 @@ The **corosync** config file has to be correct on every node in the cluster incl
 
 The content of **corosync.conf** from the test system is an example.
 
-The first section is **totem**, as described in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide], Cluster installation section, step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
+The first section is **totem**, as described in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide] (section cluster-installation step 11). You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -678,7 +678,7 @@ As described in the **Planned maintenance** section, a good way to monitor the c
 watch SAPHanaSR-showAttr
 </code></pre>
 
-It also helps to look at the SAP HANA landscape status coming from a SAP Python script. The cluster setup is looking for this status value. It becomes clear when you think about a worker node failure. If a worker node goes down, SAP HANA doesn't immediately return an error for the health of the whole scale-out system. 
+It also helps to look at the SAP HANA landscape status coming from an SAP Python script. The cluster setup is looking for this status value. It becomes clear when you think about a worker node failure. If a worker node goes down, SAP HANA doesn't immediately return an error for the health of the whole scale-out system. 
 
 There are some retries to avoid unnecessary failovers. The cluster reacts only if the status changes from **Ok**, return value **4**, to **error**, return value **1**. So it's correct if the output from **SAPHanaSR-showAttr** shows a VM with the state **offline**. But there's no activity yet to switch primary and secondary. No cluster activity gets triggered as long as SAP HANA doesn't return an error.
 
@@ -768,7 +768,7 @@ Check the failover process via the command **SAPHanaSR-showAttr**. To monitor th
 watch SAPHanaSR-showAttr
 </code></pre>
 
-The output should reflect the manual failover. The former secondary master node got **promoted**, in this sample, **hso-hana-vm-s2-0**. The former primary site was stopped, **lss** value **1** for former primary master node **hso-hana-vm-s1-0**: 
+The output should show the manual failover. The former secondary master node got **promoted**, in this sample, **hso-hana-vm-s2-0**. The former primary site was stopped, **lss** value **1** for former primary master node **hso-hana-vm-s1-0**: 
 
 <pre><code>
 Global cib-time                 prim  sec srHook sync_state
@@ -967,7 +967,7 @@ You can also upload the **hb_report** output in Hawk under **History**, shown as
 
 ![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
-Then, with the **History Explorer**, you can go through all the cluster transitions included in the **hb_report** output:
+With the **History Explorer**, you can then go through all the cluster transitions included in the **hb_report** output:
 
 ![Hawk transitions in the hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-4.png)
 
@@ -978,5 +978,5 @@ This final screenshot shows the **Details** section of a single transition. The 
 
 ## Next steps
 
-This troubleshooting guide describes high availability for SAP HANA in a scale-out configuration. In addition to the database, another important component in a SAP landscape is the SAP NetWeaver stack. Learn about high availability for SAP NetWeaver on Azure virtual machines that use SUSE Enterprise Linux Server in this [guide][sap-nw-ha-guide-sles].
+This troubleshooting guide describes high availability for SAP HANA in a scale-out configuration. In addition to the database, another important component in an SAP landscape is the SAP NetWeaver stack. Learn about [high availability for SAP NetWeaver on Azure virtual machines that use SUSE Enterprise Linux Server][sap-nw-ha-guide-sles].
 
