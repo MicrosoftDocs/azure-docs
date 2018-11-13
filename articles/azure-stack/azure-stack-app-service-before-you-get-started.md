@@ -62,7 +62,7 @@ Open an elevated PowerShell session on a computer that can reach the privileged 
 
 Run the *Get-AzureStackRootCert.ps1* script from the folder where you extracted the helper scripts. The script creates a root certificate in the same folder as the script that App Service needs for creating certificates.
 
-When you run the following PowerShell command you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin.
+When you run the following PowerShell command, you'll have to provide the privileged endpoint and the credentials for the AzureStack\CloudAdmin.
 
 ```PowerShell
     Get-AzureStackRootCert.ps1
@@ -174,7 +174,7 @@ For Azure Stack Development Kit deployments only, you can use the [example Azure
 
 ### Quickstart template for Highly Available File Server and SQL Server
 
-A [reference architecture quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is now available which will deploy File Server, SQL Server, supporting Active Directory infrastructure in a Virtual Network configured to support a highly available deployment of Azure App Service on Azure Stack.  
+A [reference architecture quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is now available, which will deploy File Server, SQL Server, supporting Active Directory infrastructure in a Virtual Network configured to support a highly available deployment of Azure App Service on Azure Stack.  
 
 ### Steps to deploy a Custom File Server
 

@@ -60,7 +60,7 @@ To upgrade your deployment of App Service on Azure Stack, follow these steps:
 
 5. Review and accept the third-party license terms and then click **Next**.
 
-6. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window to reflect that. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
+6. Make sure that the Azure Stack Azure Resource Manager endpoint and Active Directory Tenant information is correct. If you used the default settings during Azure Stack Development Kit deployment, you can accept the default values here. However, if you customized the options when you deployed Azure Stack, you must edit the values in this window. For example, if you use the domain suffix *mycloud.com*, your Azure Stack Azure Resource Manager endpoint must change to *management.region.mycloud.com*. After you confirm your information, click **Next**.
 
     ![Azure Stack Cloud Information][2]
 
@@ -71,7 +71,7 @@ To upgrade your deployment of App Service on Azure Stack, follow these steps:
         * If you're using Active Directory Federation Services (AD FS), provide your admin account. For example, *cloudadmin@azurestack.local*. Enter your password, and click **Sign In**.
    2. In the **Azure Stack Subscriptions** box, select the **Default Provider Subscription**.
    3. In the **Azure Stack Locations** box, select the location that corresponds to the region you're deploying to. For example, select **local** if your deploying to the Azure Stack Development Kit.
-   4. If an existing App Service deployment is discovered, then the resource group and storage account will be populated and greyed out.
+   4. If an existing App Service deployment is detected, then the resource group and storage account will be populated and greyed out.
    5. Click **Next** to review the upgrade summary.
 
     ![App Service Installation Detected][3]

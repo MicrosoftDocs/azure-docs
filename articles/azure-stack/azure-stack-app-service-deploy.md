@@ -194,7 +194,7 @@ To deploy App Service resource provider, follow these steps:
 
 1. In the Azure Stack admin portal, go to **Administration - App Service**.
 
-2. In the overview under status, check to see that the **Status** shows **All roles are ready**.
+2. In the overview, under status, check to see that the **Status** displays **All roles are ready**.
 
     ![App Service Management](media/azure-stack-app-service-deploy/image12.png)
 
