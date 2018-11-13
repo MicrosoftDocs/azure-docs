@@ -39,28 +39,28 @@ The policy for setting the allowed VM sizes helps to minimize lab waste by enabl
 1. Select **Save**.
 
 ## Set virtual machines per user
-The policy for **Virtual machines per user** lets you specify the maximum number of VMs that can be created by an individual user. If a user attempts to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
+The policy for **Virtual machines per user** lets you specify the number of VMs that can be created by an individual user. If a user tries to create or claim a VM when the user limit has been met, an error message indicates that the VM cannot be created/claimed. 
 
 1. On the lab's **Configuration and policies** pane, select **Virtual machines per user**.
    
     ![Virtual machines per user](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
-1. Select **Yes** to limit the number of VMs per user. If you do not want to limit the number of VMs per user, select **No**. If you select **Yes**, enter a numeric value indicating the maximum number of VMs that can be created or claimed by a user. 
+1. Select **Yes** to limit the number of VMs per user. If you do not want to limit the number of VMs per user, select **No**. If you select **Yes**, enter a numeric value indicating the number of VMs that can be created or claimed by a user. 
 
-1. Select **Yes** to limit the number of VMs that can use SSD (solid-state disk). If you do not want to limit the number of VMs that can use SSD, select **No**. If you select **Yes**, enter a value indicating the maximum number of VMs that can be created using SSD. 
+1. Select **Yes** to limit the number of VMs that can use SSD (solid-state disk). If you do not want to limit the number of VMs that can use SSD, select **No**. If you select **Yes**, enter a value indicating the number of VMs that can be created using SSD. 
 
 1. Select **Save**.
 
 ## Set virtual machines per lab
-The policy for **Virtual machines per lab** lets you specify the maximum number of VMs that can be created for the current lab. If a user attempts to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
+The policy for **Virtual machines per lab** lets you specify the number of VMs that can be created for the current lab. If a user tries to create a VM when the lab limit has been met, an error message indicates that the VM cannot be created. 
 
 1. On the lab's **Configuration and policies** pane, select **Virtual machines per lab**.
    
     ![Virtual machines per lab](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
-1. Select **Yes** to limit the number of VMs per lab. If you do not want to limit the number of VMs per lab, select **No**. If you select **Yes**, enter a numeric value indicating the maximum number of VMs that can be created or claimed by a user. 
+1. Select **Yes** to limit the number of VMs per lab. If you do not want to limit the number of VMs per lab, select **No**. If you select **Yes**, enter a numeric value indicating the number of VMs that can be created or claimed by a user. 
 
-1. Select **Yes** to limit the number of VMs that can use SSD (solid-state disk). If you do not want to limit the number of VMs that can use SSD, select **No**. If you select **Yes**, enter a value indicating the maximum number of VMs that can be created using SSD. 
+1. Select **Yes** to limit the number of VMs that can use SSD (solid-state disk). If you do not want to limit the number of VMs that can use SSD, select **No**. If you select **Yes**, enter a value indicating the number of VMs that can be created using SSD. 
 
 1. Select **Save**.
 
@@ -75,7 +75,7 @@ The auto shutdown policy helps minimize lab waste by letting you specify the tim
 
 1. If you enable this policy, specify the time (and time zone) to shut down all VMs in the current lab.
 
-1. Specify **Yes** or **No** for the option to send a notification 15 minutes prior to the specified auto shutdown time. If you choose **Yes**, enter a webhook URL endpoint or an email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to delay the shutdown.
+1. Specify **Yes** or **No** for the option to send a notification 15 minutes before the specified auto shutdown time. If you choose **Yes**, enter a webhook URL endpoint or an email address specifying where you want the notification to be posted or sent. The user receives notification and is given the option to postpone the shutdown.
 
    For more information about webhooks, see [Create a webhook or API Azure Function](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
@@ -84,7 +84,7 @@ The auto shutdown policy helps minimize lab waste by letting you specify the tim
 By default, once enabled, this policy applies to all VMs in the current lab. To remove this setting from a specific VM, open the VM's management pane and change its **Auto shutdown** setting.
 
 ## Set auto shutdown policy
-As a lab owner, you can now configure a shutdown schedule for all the VMs in your lab. By doing so, you can save costs from running machines that aren't being used (idle). You can enforce a shutdown policy on all your lab VMs centrally but also save your lab users the effort from setting up a schedule for their individual machines. This feature enables you to set the policy on your lab schedule starting from offering no control to full control, to your lab users. As a lab owner, you can configure this policy by taking the following steps:
+As a lab owner, you can configure a shutdown schedule for all the VMs in your lab. By doing so, you can save costs from running machines that aren't being used (idle). You can enforce a shutdown policy on all your lab VMs centrally but also save your lab users the effort from setting up a schedule for their individual machines. This feature enables you to set the policy on your lab schedule starting from offering no control to full control, to your lab users. As a lab owner, you can configure this policy by taking the following steps:
 
 1. On the home page for your lab, select **Configuration and policies**.
 2. Select **Auto shutdown policy** in the **Schedules** section of the left menu.
