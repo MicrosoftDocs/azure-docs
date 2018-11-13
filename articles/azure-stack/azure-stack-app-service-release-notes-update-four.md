@@ -43,12 +43,12 @@ Before you begin the upgrade of Azure App Service on Azure Stack to 1.4:
 
 ![App Service role status](media/azure-stack-app-service-release-notes-update-three/image01.png)
 
-- Backup the App Service and Master Databases:
+- Back up the App Service and Master Databases:
   - AppService_Hosting;
   - AppService_Metering;
   - Master
 
-- Backup the Tenant App content file share
+- Back up the Tenant App content file share
 
 - Syndicate the Custom Script Extension version 1.9 from the Marketplace
 
@@ -201,7 +201,7 @@ Validate
 
 - Workers are unable to reach file server when App Service is deployed in an existing virtual network and the file server is only available on the private network,  as called out in the Azure App Service on Azure Stack deployment documentation.
 
-If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. To do this, go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
+If you chose to deploy into an existing virtual network and an internal IP address to connect to your file server, you must add an outbound security rule, enabling SMB traffic between the worker subnet and the file server. Go to the WorkersNsg in the Admin Portal and add an outbound security rule with the following properties:
  * Source: Any
  * Source port range: *
  * Destination: IP Addresses
