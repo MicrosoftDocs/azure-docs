@@ -208,11 +208,11 @@ In the case of Peakon, provisioning is a manual task.
 
 3. On the top right side of the page, click **Add employee**.
 
-	  ![The addemployee](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
+	  ![The add employee](./media/peakon-tutorial/tutorial_peakon_addemployee.png)
 
 3. On the **New employee** dialog page, perform the following steps:
 
-	 ![The newemployee](./media/peakon-tutorial/tutorial_peakon_create.png)
+	 ![The new employee](./media/peakon-tutorial/tutorial_peakon_create.png)
 
 	a. In the **Name** textbox, type first name as **Britta** and last name as **simon**.
 
