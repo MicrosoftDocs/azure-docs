@@ -1,5 +1,5 @@
 ---
-title: Optimize query time with toast table Azure Database for PostgreSQL server toast table storage strategy
+title: Optimize query time in Azure Database for PostgreSQL server using toast table storage strategy
 description: This article describes how to optimize query time with toast table storage strategy in an Azure Database for PostgreSQL server.
 author: dianaputnam
 ms.author: dianas
@@ -25,5 +25,6 @@ If your queries access toast-able data types,consider using **Main** instead of 
 If you have a workload using a schema with wide tables and high character counts, consider using PostgreSQL TOAST tables. An example customer table had greater than 350  columns with several columns spanning 255 characters. Their benchmark query time reduced from 4203 seconds to 467 seconds, an 89 percent improvement, after converting the TOAST strategy of **Main**.
 
 ## Next steps
-Review your workload for the above characteristics and the following PostgreSQL documentation to learn more about TOAST table storage strategies:
- - PostgreSQL documentation: [Chapter 68, Database physical storage](https://www.postgresql.org/docs/current/storage-toast.html) 
+Review your workload for the above characteristics. 
+
+Review the following PostgreSQL documentation: [Chapter 68, Database physical storage](https://www.postgresql.org/docs/current/storage-toast.html) 
