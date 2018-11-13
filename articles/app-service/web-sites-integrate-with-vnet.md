@@ -23,7 +23,7 @@ The Azure App Service has two forms.
 1. The multi-tenant systems that support the full range of pricing plans except Isolated
 2. The App Service Environment (ASE), which deploys into your VNet. 
 
-This document goes through the VNet Integration feature, which is meant for use in the multi-tenant App Service.  If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature. 
+This document goes through the VNet Integration feature, which is meant for use in the multi-tenant App Service.  If your app is in [App Service Environment][ASEintro], then it's already in a VNet and doesn't require use of the VNet Integration feature to reach resources in the same VNet.
 
 VNet Integration gives your web app access to resources in your virtual network but doesn't grant private access to your web app from the virtual network. Private site access refers to making your app only accessible from a private network such as from within an Azure virtual network. Private site access is only available with an ASE configured with an Internal Load Balancer (ILB). For details on using an ILB ASE, start with the article here: [Creating and using an ILB ASE][ILBASE]. 
 
@@ -53,7 +53,6 @@ There are some things that VNet Integration doesn't support including:
 ### Getting started
 Here are some things to keep in mind before connecting your web app to a virtual network:
 
-* VNet Integration only works with apps in a **Standard**, **Premium**, or **Isolated** pricing plan. Apps that are scaled to plans that do not support VNet Integration will lose their VNet Integration connections. 
 * A target virtual network must have point-to-site VPN enabled with a route-based gateway before it can be connected to app. 
 * The VNet must be in the same subscription as your App Service Plan(ASP).
 * The apps that integrate with a VNet use the DNS that is specified for that VNet.
