@@ -37,7 +37,7 @@ Before going through this article, you must have the following items:
 
 ## Create Hive ODBC data source
 
-See [Create Hive ODBC data source](apache-hadoop-connect-excel-hive-odbc-driver.md#create-hive-odbc-data-source).
+See [Create Hive ODBC data source](apache-hadoop-connect-excel-hive-odbc-driver.md#create-apache-hive-odbc-data-source).
 
 ## Load data from HDInsight
 
