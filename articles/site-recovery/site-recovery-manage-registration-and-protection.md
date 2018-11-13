@@ -1,12 +1,11 @@
 ---
 title: Remove servers and disable protection | Microsoft Docs
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
-services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/29/2018
 ms.author: raynew
 
 ---
@@ -31,7 +30,7 @@ If you replicate VMware VMs or Windows/Linux physical servers to Azure, you can 
 3. Note the ID of the VMM server.
 4. Disassociate replication policies from clouds on the VMM server you want to remove.  In **Site Recovery Infrastructure** > **For System Center VMM** >  **Replication Policies**, double-click the associated policy. Right-click the cloud > **Disassociate**.
 5. Delete the VMM server or active node. In **Site Recovery Infrastructure** > **For System Center VMM** > **VMM Servers**, right-click the server > **Delete**.
-6. If your VMM server was in a Disconnected state, then download and run the [cleanup script](http://aka.ms/asr-cleanup-script-vmm) on the VMM server. Open PowerShell with the **Run as Administrator** option, to change the execution policy for the default (LocalMachine) scope. In the script, specify the ID of the VMM server you want to remove. The script removes registration and cloud pairing information from the server.
+6. If your VMM server was in a Disconnected state, then download and run the [cleanup script](https://aka.ms/asr-cleanup-script-vmm) on the VMM server. Open PowerShell with the **Run as Administrator** option, to change the execution policy for the default (LocalMachine) scope. In the script, specify the ID of the VMM server you want to remove. The script removes registration and cloud pairing information from the server.
 5. Run the cleanup script on any secondary VMM server.
 6. Run the  cleanup script on any other passive VMM cluster nodes that have the Provider installed.
 7. Uninstall the Provider manually on the VMM server. If you have a cluster, remove from all nodes.
@@ -173,7 +172,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
     > [!NOTE]
     > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
-3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
+3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
@@ -198,7 +197,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 > [!NOTE]
 > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
 
-3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
+3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection

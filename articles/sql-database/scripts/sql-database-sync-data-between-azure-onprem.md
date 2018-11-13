@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 04/01/2018l
+ms.date: 04/01/2018
 ---
 # Use PowerShell to sync between a SQL Database and a SQL Server on-premises database
 

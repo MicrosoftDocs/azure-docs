@@ -4,7 +4,7 @@ title: Azure IoT Edge C# tutorial | Microsoft Docs
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to an edge device.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 
 ms.author: kgremban
 ms.date: 09/21/2018
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Develop a C# IoT Edge module and deploy to your simulated device
 
-You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-tutorial1-win] or [Linux][lnk-tutorial1-lin] quickstarts. In this tutorial, you learn how to:    
+You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows](quickstart.md) or [Linux](quickstart-linux.md) quickstarts. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge module that's based on the .NET Core 2.0 SDK.
@@ -139,7 +139,7 @@ The environment file stores the credentials for your container registry and shar
 
     ```csharp
     // Register a callback for messages that are received by the module.
-    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+    // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Read the TemperatureThreshold value from the module twin's desired properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
@@ -334,12 +334,3 @@ In this tutorial, you created an IoT Edge module with code to filter raw data th
 
 > [!div class="nextstepaction"]
 > [Store data at the edge with SQL Server databases](tutorial-store-data-sql-server.md)
-
-<!-- Links -->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md
-
-<!-- Images -->
-[1]: ./media/tutorial-csharp-module/programcs.png
-[2]: ./media/tutorial-csharp-module/build-module.png
-[3]: ./media/tutorial-csharp-module/docker-os.png

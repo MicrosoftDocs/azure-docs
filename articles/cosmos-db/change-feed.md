@@ -173,7 +173,7 @@ The change feed processor library simplifies reading changes across partitions a
 
 The left client was started first and it started monitoring all the partitions, then the second client was started, and then the first let go of some of the leases to second client. As you can see this is the nice way to distribute the work between different machines and clients.
 
-Note that if you have two serverless Azure funtions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to processs the partitions.
+Note that if you have two serverless Azure functions monitoring the same collection and using the same lease then the two functions may get different documents depending upon how the processor library decides to process the partitions.
 
 <a id="understand-cf"></a>
 ### Understanding the change feed processor library
@@ -433,7 +433,7 @@ Therefore, if you are creating multiple Azure Functions to read the same change 
 
 ### My document is updated every second, and I am not getting all the changes in Azure Functions listening to change feed.
 
-Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time "feedPollTime", see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
+Azure Functions polls change feed for every 5 seconds, so any changes made between 5 seconds are lost. Azure Cosmos DB stores just one version for every 5 seconds so you will get the 5th change on the document. However, if you want to go below 5 second, and want to poll change Feed every second, You can configure the polling time "feedPollDelay", see [Azure Cosmos DB bindings](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration). It is defined in milliseconds with a default of 5000. Below 1 second is possible but not advisable, as you will start burning more CPU.
 
 ### I inserted a document in the Mongo API collection, but when I get the document in change feed, it shows a different id value. What is wrong here?
 

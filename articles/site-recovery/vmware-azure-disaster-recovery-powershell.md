@@ -1,7 +1,6 @@
 ﻿---
-title: Replicate and fail over VMware VMs to Azure using PowerShell in Azure Site Recovery | Microsoft Docs
-description: Learn how to set up replication and failover to Azure for VMware VMs using PowerShell in Azure Site Recovery.
-services: site-recovery
+title: Set up disaster recovery of VMware VMs to Azure using PowerShell in Azure Site Recovery | Microsoft Docs
+description: Learn how to set up replication and failover to Azure for disaster recovery of VMware VMs using PowerShell in Azure Site Recovery.
 author: sujayt
 manager: rochakm
 ms.service: site-recovery
@@ -11,7 +10,7 @@ ms.author: sutalasi
 
 
 ---
-# Replicate and fail over VMware VMs to Azure with PowerShell
+# Set up disaster recovery of VMware VMs to Azure with PowerShell
 
 In this article, you see how to replicate and failover VMware virtual machines to Azure using Azure PowerShell. 
 
@@ -20,7 +19,8 @@ You learn how to:
 > [!div class="checklist"]
 > - Create a Recovery Services vault and set the vault context.
 > - Validate server registration in the vault.
-> - Set up replication, including a replication policy. Add your vCenter server and discover VMs. > - Add a vCenter server and discover 
+> - Set up replication, including a replication policy. Add your vCenter server and discover VMs. 
+> - Add a vCenter server and discover 
 > - Create storage accounts to hold replication data, and replicate the VMs.
 > - Perform a failover. Configure failover settings, perform a e settings for replicating virtual machines.
 
@@ -90,7 +90,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Use the downloaded vault registration key and follow the steps in the articles given below to complete installation and registration of the Configuration Server.
-   - [Choose your protection goals](vmware-azure-set-up-source.md#choose-your-protection-goals)
+   - [Choose your protection goals](vmware-azure-set-up-source.md#choose-protection-goals)
    - [Set up the source environment](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### Set the vault context

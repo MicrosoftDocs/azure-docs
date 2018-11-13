@@ -1,14 +1,14 @@
 ---
 title: "Quickstart: Transliterate text, Python - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another. In this sample, Japanese is transliterated to use the Latin alphabet.
+description: In this quickstart, you'll learn how to transliterate (convert) text from one script to another using Python and the Translator Text REST API. In this sample, Japanese is transliterated to use the Latin alphabet.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 10/24/2018
+ms.date: 10/29/2018
 ms.author: erhopf
 ---
 
@@ -61,7 +61,7 @@ else:
 
 Currently, one endpoint is available for Translator Text, and it's set as the `base_url`. `path` sets the `transliterate` route and identifies that we want to hit version 3 of the API.
 
-The `params` are used to set the input language, and the input and output scripts. In this sample we're transliterating from Japanese to the Latin alphabet.
+The `params` are used to set the input language, and the input and output scripts. In this sample, we're transliterating from Japanese to the Latin alphabet.
 
 >[!NOTE]
 > For more information about endpoints, routes, and request parameters, see [Translator Text API 3.0: Transliterate](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-transliterate).

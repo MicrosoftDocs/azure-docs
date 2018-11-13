@@ -85,8 +85,8 @@ If you prefer to modify the app object JSON directly, you can use the manifest e
 
 ```json
     "informationalUrls": { 
-        "termsOfService": “<your_terms_of_service_url>”, 
-        "privacy": “<your_privacy_statement_url>” 
+        "termsOfService": "<your_terms_of_service_url>", 
+        "privacy": "<your_privacy_statement_url>" 
     }
 ```
 

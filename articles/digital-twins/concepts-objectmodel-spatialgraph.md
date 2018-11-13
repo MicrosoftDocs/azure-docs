@@ -6,7 +6,7 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
 ---
 
@@ -20,7 +20,7 @@ With _Digital Twins Object Models_ and _Ontology_ in place, one can populate a _
 
 ![Digital Twins Spatial Graph Building][1]
 
-<a id="model" />
+<a id="model"></a>
 
 The spatial graph brings together spaces, devices, sensors, and users. Each is linked together in a way that models the real world: venue 43 has four floors, each with multiple different areas. Users are associated with their workstations and are given access to portions of the graph.  For example, an administrator would have rights to make changes to the spatial graph while a visitor might only have rights to view certain building data.
 
@@ -47,19 +47,19 @@ Other categories of objects are:
 - **Matchers** are objects that determine which UDFs will be executed for a given telemetry message.
 - **Endpoints** are the locations where telemetry messages and Digital Twins events can be routed, for example `Event Hub`, `Service Bus`, `Event Grid`.
 
-<a id="graph" />
+<a id="graph"></a>
 
 ## Spatial intelligence graph
 
 **Spatial graph** is the hierarchical graph of spaces, devices, and people defined in the **Digital Twins object model**. The spatial graph supports _inheritance_, _filtering_, _traversing_, _scalability_, and _extensibility_. Users can manage and interact with their spatial graph with a collection of REST APIs (see below).
 
-The user who deploys a Digital Twins service in their subscription becomes the global administrator of the root node, automatically granting full access to entire structure. This user can then provision spaces in the graph using the `Space` API. Devices could be provisioned using the `Device` API, sensors could be provisioned using `Sensor` API, etc. We also offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) to provision the graph in bulk.
+The user who deploys a Digital Twins service in their subscription becomes the global administrator of the root node, automatically granting full access to entire structure. This user can then provision spaces in the graph using the Space API. Devices could be provisioned using the Device API, sensors could be provisioned using Sensor API, etc. We also offer [open source tools](https://github.com/Azure-Samples/digital-twins-samples-csharp) to provision the graph in bulk.
 
 Graph _inheritance_ applies to the permissions and properties that descend from a parent node to all nodes beneath it. For example, when a role is assigned to a user on a given node, the user will have that role's permissions to the given node and every node below it. Additionally, each property key and extended type defined for a given node will be inherited by all the nodes beneath that node.
 
-Graph _filtering_ enables users to narrow down request results by IDs, name, types, subtypes, parent space, associated spaces, sensor data types, property keys and values, traverse, minLevel, maxLevel, and other OData filter parameters.
+Graph _filtering_ enables users to narrow down request results by IDs, name, types, subtypes, parent space, associated spaces, sensor data types, property keys and values, *traverse*, *minLevel*, *maxLevel*, and other OData filter parameters.
 
-Graph _traversing_ allows users to navigate the spatial graph through its depth and breadth. For depth, the graph could be traversed top-down or bottom-up using navigation parameters `traverse`, `minLevel`, `maxLevel`. For breadth, the graph could be navigated to get sibling nodes directly attached to a parent space or one of its descendants. When querying an object, you could get all related objects that have relationships to that object using the `includes` parameter of the GET APIs.
+Graph _traversing_ allows users to navigate the spatial graph through its depth and breadth. For depth, the graph could be traversed top-down or bottom-up using navigation parameters *traverse*, *minLevel*, *maxLevel*. For breadth, the graph could be navigated to get sibling nodes directly attached to a parent space or one of its descendants. When querying an object, you could get all related objects that have relationships to that object using the *includes* parameter of the GET APIs.
 
 Azure Digital Twins guarantees graph _scalability_, so it can handle your real-world workloads. Digital Twins can be used to represent large portfolios of real estate, infrastructure, devices, sensors, telemetry, and more.
 
@@ -75,8 +75,8 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 | Custom Attribute Name | Replace With |
 | --- | --- |
-| `yourInstanceName` | The name of your Azure Digital Twins instance |
-| `yourLocation` | Which server region your instance is hosted on |
+| *yourInstanceName* | The name of your Azure Digital Twins instance |
+| *yourLocation* | Which server region your instance is hosted on |
 
  The full URL format can be seen being used in image below:
 

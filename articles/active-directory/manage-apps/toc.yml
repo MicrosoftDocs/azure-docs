@@ -21,6 +21,8 @@
       items:
       - name: What happens when you add an app
         href: plan-an-application-integration.md
+      - name: Guidance for developers
+        href: developer-guidance-for-integrating-applications.md
     - name: Plan an on-premises app integration
       items:
       - name: Application Proxy

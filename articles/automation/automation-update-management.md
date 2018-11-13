@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/11/2018
+ms.date: 11/05/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -29,7 +29,7 @@ The following diagram shows a conceptual view of the behavior and data flow with
 
 ![Update Management process flow](media/automation-update-management/update-mgmt-updateworkflow.png)
 
-Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant. To manage machines in a different tenant, you must onboard them as [Non-Azure machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+Update Management can be used to natively onboard machines in multiple subscriptions in the same tenant.
 
 Once a CVE is release, it takes 2-3 hours for the patch to show up for Linux machines for assessment.  For Windows machines, it takes 12-15 hours for the patch to show up for assessment after it has been released.
 
@@ -67,7 +67,7 @@ The following table shows a list of supported operating systems:
 |CentOS 6 (x86/x64) and 7 (x64)      | Linux agents must have access to an update repository. Classification-based patching requires 'yum' to return security data which CentOS doesn't have out of the box.         |
 |Red Hat Enterprise 6 (x86/x64) and 7 (x64)     | Linux agents must have access to an update repository.        |
 |SUSE Linux Enterprise Server 11 (x86/x64) and 12 (x64)     | Linux agents must have access to an update repository.        |
-|Ubuntu 14.04 LTS and 16.04 LTS (x86/x64)      |Linux agents must have access to an update repository.         |
+|Ubuntu 14.04 LTS, 16.04 LTS, and 18.04 (x86/x64)      |Linux agents must have access to an update repository.         |
 
 ### Unsupported client types
 
@@ -168,7 +168,7 @@ The following table describes the connected sources that are supported by this s
 
 ### Collection frequency
 
-A scan is performed twice per day for each managed Windows computer. Every 15 minutes, the Windows API is called to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated. 
+A scan is performed twice per day for each managed Windows computer. Every 15 minutes, the Windows API is called to query for the last update time to determine whether the status has changed. If the status has changed, a compliance scan is initiated.
 
 A scan is performed every 3 hours for each managed Linux computer.
 

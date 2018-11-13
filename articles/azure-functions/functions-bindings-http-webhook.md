@@ -3,7 +3,7 @@ title: Azure Functions HTTP triggers and bindings
 description: Understand how to use HTTP triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords: azure functions, functions, event processing, webhooks, dynamic compute, serverless architecture, HTTP, API, REST
 
@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
-ms.author: glenga
+ms.author: cshoe
 ---
 
 # Azure Functions HTTP triggers and bindings
@@ -40,7 +40,7 @@ The HTTP bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.Http](
 
 The HTTP trigger lets you invoke a function with an HTTP request. You can use an HTTP trigger to build serverless APIs and respond to webhooks. 
 
-By default, an HTTP trigger returns HTTP 200 OK with an empty body in Functions 1.x, or HTTP 204 No Content with an empty body in Functions 2.x. To modify the response, configure an [HTTP output binding](#http-output-binding).
+By default, an HTTP trigger returns HTTP 200 OK with an empty body in Functions 1.x, or HTTP 204 No Content with an empty body in Functions 2.x. To modify the response, configure an [HTTP output binding](#output).
 
 ## Trigger - example
 

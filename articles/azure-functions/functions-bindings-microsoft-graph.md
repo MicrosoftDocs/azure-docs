@@ -2,19 +2,19 @@
 title: Microsoft Graph bindings for Azure Functions
 description: Understand how to use Microsoft Graph triggers and bindings in Azure Functions.
 services: functions
-author: mattchenderson
+author: craigshoemaker
 manager: jeconnoc
 
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
-ms.author: mahender
+ms.author: cshoe
 ---
 
 # Microsoft Graph bindings for Azure Functions
 
-This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions. With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://graph.microsoft.io).
+This article explains how to configure and work with Microsoft Graph triggers and bindings in Azure Functions. With these, you can use Azure Functions to work with data, insights, and events from the [Microsoft Graph](https://developer.microsoft.com/graph).
 
 The Microsoft Graph extension provides the following bindings:
 - An [auth token input binding](#token-input) allows you to interact with any Microsoft Graph API.
@@ -830,7 +830,7 @@ This section contains the following subsections:
 * [Example](#outlook-output---example)
 * [Attributes](#outlook-output---attributes)
 * [Configuration](#outlook-output---configuration)
-* [Usage](#outlook-outnput---usage)
+* [Usage](#outlook-output---usage)
 
 ### Outlook output - example
 

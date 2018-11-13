@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: daseidma;bwren
+ms.author: bwren
 
 ---
 # Configure Service Map in Azure
@@ -142,7 +142,7 @@ In this article, we'll refer to all agents, whether Linux or Windows connected t
 
 The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Service Map is always transmitted by the Log Analytics agent to the Log Analytics service, either directly or through the Log Analytics gateway.
 
-![Service Map agents](media/monitoring-service-map/agents.png)
+![Service Map agents](media/monitoring-service-map-configure/agents.png)
 
 If you are a System Center Operations Manager customer with a management group connected to Log Analytics:
 
@@ -168,7 +168,7 @@ For more information on data collection and usage, see the [Microsoft Online Ser
 
 ## Installation
 
-## Azure VM Extension
+### Azure VM Extension
 There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux), and you can easily deploy the Dependency agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency agent to your Windows and Linux VMs using either a PowerShell script or directly in the VM using an Azure Resource Manager template.  If you deploy the agent with the Azure VM Extension, your agents are automatically updated to the latest version.
 
 To deploy the Azure VM Extension with PowerShell, you can use the following example:

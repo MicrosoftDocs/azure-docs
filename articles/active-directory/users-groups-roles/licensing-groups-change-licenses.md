@@ -15,7 +15,7 @@
   ms.topic: article
   ms.tgt_pltfrm: na
   ms.workload: identity
-  ms.date: 02/07/2018
+  ms.date: 10/29/2018
   ms.author: piotrci
 
 ---
@@ -820,6 +820,8 @@ ExecuteVerificationLoop ${function:VerifySourceLicenseRemovedAndTargetLicenseAss
 
 Learn about other scenarios for license management through groups in the following articles:
 
-* [Identify and resolve license problems for a group in Azure Active Directory](licensing-groups-resolve-problems.md)
-* [PowerShell examples for group-based licensing in Azure Active Directory](licensing-ps-examples.md)
-* [Azure Active Directory group-based licensing additional scenarios](licensing-group-advanced.md)
+* [Assigning licenses to a group in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md)
+* [Identifying and resolving license problems for a group in Azure Active Directory](../users-groups-roles/licensing-groups-resolve-problems.md)
+* [How to migrate individual licensed users to group-based licensing in Azure Active Directory](../users-groups-roles/licensing-groups-migrate-users.md)
+* [Azure Active Directory group-based licensing additional scenarios](../users-groups-roles/licensing-group-advanced.md)
+* [PowerShell examples for group-based licensing in Azure Active Directory](../users-groups-roles/licensing-ps-examples.md)

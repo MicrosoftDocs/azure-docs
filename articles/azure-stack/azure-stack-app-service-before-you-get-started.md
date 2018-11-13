@@ -167,7 +167,7 @@ Azure App Service requires the use of a file server. For production deployments,
 For Azure Stack Development Kit deployments only, you can use the [example Azure Resource Manager deployment template](https://aka.ms/appsvconmasdkfstemplate) to deploy a configured single-node file server. The single-node file server will be in a workgroup.
 
 >[!IMPORTANT]
-> If you choose to deploy App Service in an existing Virtual Network the File Server should be deployed into a separate Subnet from App Service.
+> If you choose to deploy App Service in an existing Virtual Network, the File Server should be deployed into a separate Subnet from App Service.
 
 ### Provision groups and accounts in Active Directory
 

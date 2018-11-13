@@ -38,7 +38,7 @@ In a pattern's template utterance, roles are used within the utterance:
 The entity and role are surrounded in parentheses, `{}`. The entity and the role are separated by a colon. 
 
 
-[!include[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
+[!INCLUDE[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## Roles with prebuilt entities
 
@@ -50,4 +50,4 @@ The prebuilt entity, datetimeV2, does a great job of understanding a wide range 
 
 ## Next steps
 
-* Learn how to add [roles](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)
+* Learn how to add [roles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

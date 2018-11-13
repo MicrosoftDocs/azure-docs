@@ -11,9 +11,9 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 04/01/2018
+ms.date: 11/01/2018
 ---
-# Use .NET Core (C#) to query an Azure SQL database
+# Quickstart: Use .NET Core (C#) to query an Azure SQL database
 
 This quickstart demonstrates how to use [.NET Core](https://www.microsoft.com/net/) on Windows/Linux/macOS to create a C# program to connect to an Azure SQL database and use Transact-SQL statements to query data.
 

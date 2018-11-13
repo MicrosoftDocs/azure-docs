@@ -17,7 +17,7 @@ ms.date: 10/04/2018
 ms.author: magoedte
 ---
 
-# How to stop monitoring your Azure Kubernetes Service (AKS) with Azure Monitor for containers
+# How to stop monitoring your Azure Kubernetes Service (AKS) with Azure Monitor for containers (Preview)
 
 If, after you enable monitoring of your AKS cluster, you decide you no longer want to monitor it, you can *opt out*.  This article shows how to accomplish this using the Azure CLI or with the provided Azure Resource Manager templates.  
 
@@ -107,7 +107,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 4. Edit the values for **aksResourceId** and **aksResourceLocation** by using the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.
 
-    ![Container properties page](./media/monitoring-container-health/container-properties-page.png)
+    ![Container properties page](media/monitoring-container-insights-optout/container-properties-page.png)
 
     While you are on the **Properties** page, also copy the **Workspace Resource ID**. This value is required if you decide you want to delete the Log Analytics workspace later. Deleting the Log Analytics workspace is not performed as part of this process. 
 

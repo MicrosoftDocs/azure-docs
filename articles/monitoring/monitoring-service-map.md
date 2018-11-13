@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
 
 ---
@@ -69,11 +69,6 @@ Machines can be expanded in the map to show the running process groups and proce
 
 By default, Service Map maps show the last 30 minutes of dependency information. By using the time controls at the upper left, you can query maps for historical time ranges of up to one hour to show how dependencies looked in the past (for example, during an incident or before a change occurred). Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
-
-
-
-
-
 ## Status badges and border coloring
 At the bottom of each server in the map can be a list of status badges conveying status information about the server. The badges indicate that there is some relevant information for the server from one of the solution integrations. Clicking a badge takes you directly to the details of the status in the right pane. The currently available status badges include Alerts, Service Desk, Changes, Security, and Updates.
 
@@ -101,7 +96,7 @@ There, you can choose **Create new** and give the group a name.
 ![Name Group](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Machine groups are currently limited to 10 servers, but we plan to increase this limit soon.
+>Machine groups are limited to 10 servers.
 
 ### Viewing a Group
 Once you’ve created some groups, you can view them by choosing the Groups tab.
@@ -280,7 +275,7 @@ The **Machine Updates** pane displays data from the Update Management solution f
 ![Machine Change Tracking pane](media/monitoring-service-map/machine-updates.png)
 
 ## Log Analytics records
-Service Map computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Service Map computer and process inventory data is available for [search](../log-analytics/log-analytics-queries.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
@@ -507,7 +502,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 
 ## Next steps
-Learn more about [log searches](../log-analytics/log-analytics-log-searches.md) in Log Analytics to retrieve data that's collected by Service Map.
+Learn more about [log searches](../log-analytics/log-analytics-queries.md) in Log Analytics to retrieve data that's collected by Service Map.
 
 
 ## Troubleshooting

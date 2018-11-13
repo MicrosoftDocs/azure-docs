@@ -6,7 +6,7 @@ author: dsk-2015
 
 ms.service: digital-twins
 ms.topic: tutorial 
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
 ---
 
@@ -157,7 +157,7 @@ In the sample *provisionSample.yaml* file, look for a section beginning with the
             }
         ```
         
-        The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringigy(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
+        The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringify(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
     
     1. Save the file. 
     

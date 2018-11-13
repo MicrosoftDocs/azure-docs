@@ -2,13 +2,13 @@
 title: 'Quickstart: Upload, download, and list blobs using Node.js - Azure Storage'
 description: Create a storage account and a container in object (Blob) storage. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
-author: craigshoemaker
+author: tamram
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
 ms.date: 09/20/2018
-ms.author: cshoe
+ms.author: tamram
 ---
 
 # Quickstart: Upload, download, and list blobs using Node.js
