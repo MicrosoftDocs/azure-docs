@@ -254,6 +254,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-In less than two minutes, ADX detected two abnormal time series (out of 23115) in which the read count suddenly dropped.
+In less than two minutes, ADX analyzed over 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
 
 These advanced capabilities combined with ADX fast performance supply a unique and powerful solution for time series analysis.
