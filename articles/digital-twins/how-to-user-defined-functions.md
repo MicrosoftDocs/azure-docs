@@ -14,10 +14,10 @@ ms.author: alinast
 
 [User-defined functions](./concepts-user-defined-functions.md) (UDF) enable the user to run custom logic against incoming telemetry messages and spatial graph metadata, allowing the user to send events to pre-defined endpoints. In this guide, we'll walk through an example of acting on temperature events to detect and alert on any reading that exceeds a certain temperature.
 
-Before continuing, verify that the telemetry property **DigitalTwins-SensorHardwareId** is identical to a device's Sensor **HardwareId** property. This condition for that sensor's telemetry messaged to be processed in the UDF execution engine.
+Before continuing, verify that the telemetry property **DigitalTwins-SensorHardwareId** is identical to your Sensor's **HardwareId** property (which specifies the Device it is attached to). That condition is required for any Sensor's telemetry message to be processed in the UDF execution engine.
 
 > {!IMPORTANT]
-> THe telemetry property **DigitalTwins-SensorHardwareId** must match a Sensor's **HardwareId**  in order for the system to process it.
+> The telemetry property **DigitalTwins-SensorHardwareId** must match a Sensor's **HardwareId** in order for the system to process it.
 
 In the following examples, `https://yourManagementApiUrl` refers to the URI of the Azure Digital Twins APIs:
 
