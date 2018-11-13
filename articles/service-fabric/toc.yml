@@ -618,9 +618,7 @@
         - name: Contents of the standalone package
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Scale
-        href: service-fabric-cluster-windows-server-add-remove-nodes.md
-      - name: Set access control
-        href: service-fabric-cluster-security-roles.md              
+        href: service-fabric-cluster-windows-server-add-remove-nodes.md                   
       - name: Update
         items:
         - name: Upgrade the Service Fabric version
@@ -629,6 +627,8 @@
           href: service-fabric-cluster-config-upgrade-windows-server.md
         - name: Configuration settings
           href: service-fabric-cluster-manifest.md
+        - name: Set access control
+          href: service-fabric-cluster-security-roles.md         
         - name: Patch cluster nodes (Windows)
           href: service-fabric-patch-orchestration-application.md
     - name: Visualize a cluster
