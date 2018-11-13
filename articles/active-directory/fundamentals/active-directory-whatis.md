@@ -68,7 +68,7 @@ To better understand Azure AD and its documentation, you should review the follo
 |Azure AD Global administrator|This administrator role is automatically assigned to whomever created the Azure AD tenant. Global administrators can perform all of the administrative functions for Azure AD and any services that federate to Azure AD, such as Exchange Online, SharePoint Online, and Skype for Business Online. You can have multiple Global administrators, but only Global administrators can assign administrator roles (including assigning other Global administrators) to users.<br><br>**Note**<br>This administrator role is called Global administrator in the Azure portal, but it's called **Company administrator** in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.<br><br>For more information about the various administrator roles, see [Administrator role permissions in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Microsoft account (also called, MSA)|Personal accounts that provide access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft.|
 
-## What features work with Azure AD?
+## What features work in Azure AD?
 After you choose your Azure AD license, you will get access to some or all of the following features for your organization:
 
 |Category|Description|
