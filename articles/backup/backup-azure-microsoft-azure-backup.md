@@ -166,7 +166,7 @@ Once the extraction process complete, check the box to launch the freshly extrac
 
    When you use your own instance of SQL, make sure you add builtin\Administrators to sysadmin role to master DB.
 
-    **SSRS Configuration with SQL**
+    **SSRS Configuration with SQL 2017**
 
     When you are using own instance of SQL 2017, you need to manually configure SSRS. After SSRS configuration, ensure that *IsInitialized* property of SSRS is set to *True*. When this is set to True, MABS assumes that SSRS is already configured and will skip the SSRS configuration.
 
@@ -322,6 +322,8 @@ Use the following steps to upgrade MABS:
   > [!IMPORTANT]
 
   >  As part of SQL 2017 upgrade, we backup the SQL encryption keys and uninstall the reporting services. After SQL server upgrade,  reporting service(14.0.6827.4788) is installed & encryption keys are restored.
+
+ > When configuring SQL 2017 manually, refer to *SSRS configuration with SQL 2017* section under Install instructions.
 
 3. Update the protection agents on the protected servers.
 4. Backups should continue without the need to restart your production servers.
