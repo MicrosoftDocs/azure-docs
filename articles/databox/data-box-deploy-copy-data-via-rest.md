@@ -183,13 +183,13 @@ Use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. 
 
     azcopy \
         --source /mnt/myfolder \
-        --destination https://myaccount.blob.core.windows.net/mycontainer \
+        --destination https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ \
         --dest-key <key> \
         --recursive
 
 # [Windows](#tab/windows)
 
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
+    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ /DestKey:<key> /S
 ---
 
 Replace `<key>` and `key` with your account key. To get your account key, in the Azure portal, go to your storage account. Go to **Settings > Access keys**, select a key, and paste it into the AzCopy command.
@@ -208,14 +208,14 @@ If you only want to copy source resources that do not exist in the destination, 
 
     azcopy \
     --source /mnt/myfolder \
-    --destination https://myaccount.blob.core.windows.net/mycontainer \
+    --destination https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ \
     --dest-key <key> \
     --recursive \
     --exclude-older
 
 # [Windows](#tab/windows)
 
-    AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ /DestKey:<key> /S /XO
 ---
 
 ## Prepare to ship

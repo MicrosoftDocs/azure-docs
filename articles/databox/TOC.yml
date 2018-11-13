@@ -23,7 +23,7 @@
       - name: 3B - Connect via NFS & copy
         href: data-box-deploy-copy-data.md
       - name: 3C - Connect via REST & copy
-        href: data-box-deploy-copy-data-rest.md
+        href: data-box-deploy-copy-data-via-rest.md
       - name: 4 - Return, upload, verify
         href: data-box-deploy-picked-up.md  
     - name: Concepts
