@@ -40,7 +40,7 @@ The network connectivity between your source data and Data Lake Storage Gen2 can
 
 ### Configure Data Ingestion tools for maximum parallelization
 
-Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](data-lake-store-data-scenarios.md).
+Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](data-scenarios.md).
 
 | Tool               | Settings		| More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
@@ -135,4 +135,4 @@ In addition to the general guidelines above, each application has different para
 | [Storm on HDInsight](performance-tuning-storm.md)| <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
 ## See also
-* [Overview of Azure Data Lake Storage Gen2](data-lake-store-overview.md)
+* [Overview of Azure Data Lake Storage Gen2](overview.md)
