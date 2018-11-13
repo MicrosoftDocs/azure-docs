@@ -37,13 +37,28 @@ The App Service on Azure Stack Update 4 build number is **78.0.13698.5**
 
 Refer to the [Before You Get Started documentation](azure-stack-app-service-before-you-get-started.md) before beginning deployment.
 
-Before you begin the upgrade of Azure App Service on Azure Stack to 1.4, ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
+Before you begin the upgrade of Azure App Service on Azure Stack to 1.4:
+
+- ensure all roles are Ready in the Azure App Service Administration in the Azure Stack Admin Portal
 
 ![App Service role status](media/azure-stack-app-service-release-notes-update-three/image01.png)
+
+- Backup the App Service and Master Databases:
+  - AppService_Hosting;
+  - AppService_Metering;
+  - Master
+
+- Backup the Tenant App content file share
+
+- Syndicate the Custom Script Extension version 1.9 from the Marketplace
 
 ### New features and fixes
 
 Azure App Service on Azure Stack Update 4 includes the following improvements and fixes:
+
+- Resolution for ![CVE 2018-8600](https://aka.ms/CVE20188600) Cross Site Scripting Vulnerability.
+
+- Added support for App Service 2018-02-01 API version
 
 - Updates to **App Service Tenant, Admin, Functions portals and Kudu tools**. Consistent with Azure Stack Portal SDK version.
 
@@ -68,12 +83,22 @@ Azure App Service on Azure Stack Update 4 includes the following improvements an
 - **Updates to underlying operating system of all roles**:
   - [2018-10 Cumulative Update for Windows Server 2016 for x64-based Systems (KB4462928)](https://support.microsoft.com/help/4462928/windows-10-update-kb4462928)
 
+- Resolved template validation issue when deploying Wordpress; DNN; and Orchard CMS gallery items
+
+- Resolved configuration issue when Azure Stack rotates the Azure Resource Manager client certificate
+
+- Restored functionality in the Cross Origin Resource Sharing settings in the App Service tenant portal
+
+- Display error message in App Service Admin portal experience when the resource provider control plane cannot connect to the configured SQL Server instance
+
+- Ensure endpoint is specified in custom storage connection string when specified in new Function application
+
 ### Post Update Steps (optional)
 
-For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.3 update has completed:
+For customers wishing to migrate to contained database for existing Azure App Service on Azure Stack deployments, execute these steps after the Azure App Service on Azure Stack 1.4 update has completed:
 
 > [!IMPORTANT]
-> The migration procedure takes approximately 5-10 minutes.  The procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration
+> The migration procedure takes approximately 5-10 minutes.  The procedure involves killing the existing database login sessions.  Plan for downtime to migrate and validate Azure App Service on Azure Stack post migration.  If you completed these steps after updating to Azure App Service on Azure Stack 1.3 then these steps are not required.
 >
 >
 

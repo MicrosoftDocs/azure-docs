@@ -42,6 +42,10 @@ Before you deploy Azure App Service on Azure Stack, you must complete the prereq
    - Modules folder
      - GraphAPI.psm1
 
+## Syndicate the Custom Script Extension from the Marketplace
+
+Azure App Service on Azure Stack requires Custom Script Extension v1.9.0.  The extension must be [syndicated from the Marketplace](https://docs.microsoft.com/azure/azure-stack/azure-stack-download-azure-marketplace-item) before starting the deployment or upgrade of Azure App Service on Azure Stack
+
 ## High availability
 
 The Azure Stack 1802 update added support for fault domains. New deployments of Azure App Service on Azure Stack will be distributed across fault domains and provide fault tolerance.
@@ -164,12 +168,20 @@ Subnets
 
 Azure App Service requires the use of a file server. For production deployments, the file server must be configured to be highly available and capable of handling failures.
 
+### Quickstart template for File Server for deployments of Azure App Service on ASDK.
+
 For Azure Stack Development Kit deployments only, you can use the [example Azure Resource Manager deployment template](https://aka.ms/appsvconmasdkfstemplate) to deploy a configured single-node file server. The single-node file server will be in a workgroup.
+
+### Quickstart template for Highly Available File Server and SQL Server
+
+A [reference architecture quickstart template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/appservice-fileserver-sqlserver-ha) is now available which will deploy File Server, SQL Server, supporting Active Directory infrastructure in a Virtual Network configured to support a highly available deployment of Azure App Service on Azure Stack.  
+
+#### Steps to deploy a Custom File Server
 
 >[!IMPORTANT]
 > If you choose to deploy App Service in an existing Virtual Network the File Server should be deployed into a separate Subnet from App Service.
 
-### Provision groups and accounts in Active Directory
+#### Provision groups and accounts in Active Directory
 
 1. Create the following Active Directory global security groups:
 
@@ -192,7 +204,7 @@ For Azure Stack Development Kit deployments only, you can use the [example Azure
    - Add **FileShareOwner** to the **FileShareOwners** group.
    - Add **FileShareUser** to the **FileShareUsers** group.
 
-### Provision groups and accounts in a workgroup
+#### Provision groups and accounts in a workgroup
 
 >[!NOTE]
 > When you're configuring a file server, run all the following commands from an **Administrator Command Prompt**. <br>***Don't use PowerShell.***
@@ -222,7 +234,7 @@ When you use the Azure Resource Manager template, the users are already created.
    net localgroup FileShareOwners FileShareOwner /add
    ```
 
-### Provision the content share
+#### Provision the content share
 
 The content share contains tenant website content. The procedure to provision the content share on a single file server is the same for both Active Directory and Workgroup environments. But it's different for a failover cluster in Active Directory.
 
