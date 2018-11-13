@@ -20,10 +20,10 @@ ms.reviewer: asmalser
 
 ---
 # Managing user account provisioning for enterprise apps in the Azure portal
-This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it, particularly ones that have been added from the "featured" category of the [Azure Active Directory application gallery](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).
+This article describes how to use the [Azure portal](https://portal.azure.com) to manage automatic user account provisioning and de-provisioning for applications that support it. To learn more about automatic user account provisioning and how it works, see [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](user-provisioning.md).
 
 ## Finding your apps in the portal
-All applications that are configured for single sign-on in a directory, by a directory administrator using the [Azure Active Directory application gallery](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), can be viewed and managed in the [Azure portal](https://portal.azure.com). The applications can be found in the **All Services** &gt; **Enterprise Applications** section of the portal. Enterprise apps are apps that are deployed and used within your organization.
+All applications that are configured for single sign-on in a directory can be viewed and managed in the [Azure portal](https://portal.azure.com). The applications can be found in the **All Services** &gt; **Enterprise Applications** section of the portal. Enterprise apps are apps that are deployed and used within your organization.
 
 ![Enterprise Applications pane](./media/configure-automatic-user-provisioning-portal/enterprise-apps-pane.png)
 
