@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
 
 ---
@@ -41,7 +41,7 @@ Acquire a valid certificate per the following guidelines, before you enable secu
 
 1. **Trusted issuer** - The certificate must be issued by an authority trusted by computers connecting to the managed domain using secure LDAP. This authority may be a public certification authority (CA) or an Enterprise CA trusted by these computers.
 2. **Lifetime** - The certificate must be valid for at least the next 3-6 months. Secure LDAP access to your managed domain is disrupted when the certificate expires.
-3. **Subject name** - The subject name on the certificate must be a wildcard for your managed domain. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be '*.contoso100.com'. Set the DNS name (subject alternate name) to this wildcard name.
+3. **Subject name** - The subject name on the certificate must be your managed domain. For instance, if your domain is named 'contoso100.com', the certificate's subject name must be 'contoso100.com'. Set the DNS name (subject alternate name) to a wildcard name for your managed domain.
 4. **Key usage** - The certificate must be configured for the following uses - Digital signatures and key encipherment.
 5. **Certificate purpose** - The certificate must be valid for SSL server authentication.
 
@@ -79,7 +79,7 @@ On your Windows computer, open a new PowerShell window as **Administrator** and 
 $lifetime=Get-Date
 New-SelfSignedCertificate -Subject contoso100.com `
   -NotAfter $lifetime.AddDays(365) -KeyUsage DigitalSignature, KeyEncipherment `
-  -Type SSLServerAuthentication -DnsName *.contoso100.com
+  -Type SSLServerAuthentication -DnsName *.contoso100.com, contoso100.com
 ```
 
 In the preceding sample, replace 'contoso100.com' with the DNS domain name of your managed domain. For example, if you created a managed domain called 'contoso100.onmicrosoft.com', replace 'contoso100.com' in the Subject attribute with 'contoso100.onmicrosoft.com' and '*.contoso100.com' in the DnsName attribute with '*.contoso100.onmicrosoft.com').

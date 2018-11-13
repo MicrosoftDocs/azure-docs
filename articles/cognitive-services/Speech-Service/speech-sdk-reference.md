@@ -15,7 +15,7 @@ ms.author: wolfma
 
 # Speech SDK API reference
 
-The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**. A general overview about the capabilites and supported platforms can be found on the documentation [entry page](http://aka.ms/csspeech).
+The Speech Software Development Kit (SDK) gives your applications access to the functions of the Speech service, making it easier to develop speech-enabled software. Currently, the SDKs provide access to **Speech to Text**, **Speech Translation**, and **Intent Recognition**. A general overview about the capabilites and supported platforms can be found on the documentation [entry page](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

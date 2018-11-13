@@ -185,7 +185,8 @@ The root `api-management` folder contains a `configuration.json` file that conta
     "DelegationEnabled": "False",
     "DelegationUrl": "",
     "DelegatedSubscriptionEnabled": "False",
-    "DelegationValidationKey": ""
+    "DelegationValidationKey": "",
+    "RequireUserSigninEnabled": "false"
   },
   "$ref-policy": "api-management/policies/global.xml"
 }
@@ -195,10 +196,11 @@ The first four settings (`RegistrationEnabled`, `UserRegistrationTerms`, `UserRe
 
 | Identity setting | Maps to |
 | --- | --- |
-| RegistrationEnabled |**Redirect anonymous users to sign-in page** checkbox |
+| RegistrationEnabled |Presence of **Username and password** identity provider |
 | UserRegistrationTerms |**Terms of use on user signup** textbox |
 | UserRegistrationTermsEnabled |**Show terms of use on signup page** checkbox |
 | UserRegistrationTermsConsentRequired |**Require consent** checkbox |
+| RequireUserSigninEnabled |**Redirect anonymous users to sign-in page** checkbox |
 
 The next four settings (`DelegationEnabled`, `DelegationUrl`, `DelegatedSubscriptionEnabled`, and `DelegationValidationKey`) map to the following settings on the **Delegation** tab in the **Security** section.
 

@@ -33,8 +33,6 @@
     href: azure-stack-tutorial-mysql.md
   - name: Offer Web Apps
     href: azure-stack-tutorial-app-service.md
-  - name: Deploy Ethereum
-    href: azure-stack-ethereum.md
 - name: Concepts
   items:
   - name: Capacity Planning
@@ -231,6 +229,8 @@
       href: azure-stack-add-vm-image.md
     - name: Offer a virtual machine scale set
       href: azure-stack-compute-add-scalesets.md
+    - name: Windows Server in Marketplace FAQ
+      href: azure-stack-windows-server-faq.md
     - name: Offer Linux virtual machines
       href: azure-stack-linux.md
     - name: Add a Red Hat virtual machine
@@ -298,6 +298,8 @@
         href: azure-stack-app-service-release-notes-update-two.md
       - name: App Service on Azure Stack update 3 release notes
         href: azure-stack-app-service-release-notes-update-three.md
+      - name: App Service on Azure Stack update 4 release notes
+        href: azure-stack-app-service-release-notes-update-four.md
   - name: Create plans, offers, and quotas
     items:
     - name: Plan, offer, quota, and subscription overview

@@ -70,5 +70,5 @@ Solution targeting cannot be used with the following solutions even though they 
 - Agent Health Assessment
 
 ## Next steps
-- Learn more about management solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics management solutions to your workspace](../log-analytics/log-analytics-add-solutions.md).
+- Learn more about management solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics management solutions to your workspace](monitoring-solutions.md).
 - Learn more about creating computer groups at [Computer groups in Log Analytics log searches](../log-analytics/log-analytics-computer-groups.md).

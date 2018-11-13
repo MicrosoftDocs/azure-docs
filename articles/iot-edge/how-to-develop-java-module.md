@@ -4,7 +4,7 @@ description: Use Visual Studio Code to develop and debug Java modules for Azure 
 services: iot-edge
 keywords: 
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/21/2018
@@ -30,7 +30,7 @@ Since this article uses Visual Studio Code as the main development tool, install
 * [Docker extension](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 To create a module, you need Java and Maven to build and run module code, Docker to build the module image, and a container registry to hold the module image:
-* [Java SE Development Kit 10](http://www.oracle.com/technetwork/java/javase/downloads/index.html), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
+* [Java SE Development Kit 10](https://aka.ms/azure-jdks), and [set the `JAVA_HOME` environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) to point to your JDK installation.
 * [Maven](https://maven.apache.org/)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) or [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)

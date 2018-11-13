@@ -1,3 +1,10 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+---
 | Category | Data store | Supported as a source | Supported as a sink |
 |:--- |:--- |:--- |:--- |
 | **Azure** |[Azure Blob storage](../articles/data-factory/v1/data-factory-azure-blob-connector.md) |✓ |✓ |

@@ -95,8 +95,10 @@
     items:
     - name: Data Box product
       href: https://azure.microsoft.com/services/storage/databox/data/
-    - name: Pricing
+    - name: Data Box pricing
       href: https://azure.microsoft.com/pricing/details/storage/databox/
+    - name: Data Box Disk pricing
+      href: https://azure.microsoft.com/pricing/details/storage/databox/disk/
 
 
 

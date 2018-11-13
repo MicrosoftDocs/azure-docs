@@ -1,5 +1,5 @@
 ---
-title: Migrate from the Azure Access Control service | Microsoft Docs
+title: Migrate from the Azure Access Control Service | Microsoft Docs
 description: Learn about the options for moving apps and services from the Azure Access Control Service (ACS).
 services: active-directory
 documentationcenter: dev-center-name
@@ -19,7 +19,7 @@ ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ---
 
-# How to: Migrate from the Azure Access Control service
+# How to: Migrate from the Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), a service of Azure Active Directory (Azure AD), will be retired on November 7, 2018. Applications and services that currently use Access Control must be fully migrated to a different authentication mechanism by then. This article describes recommendations for current customers, as you plan to deprecate your use of Access Control. If you don't currently use Access Control, you don't need to take any action.
 

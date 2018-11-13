@@ -147,7 +147,7 @@ Below you can find a list of all the authorized Cloud Solution Providers, which 
 |[MSCloud Express, LLC]()|
 |[Nanavati Consulting, Inc.](https://www.nanavaticonsulting.com)|
 |[NCI](https://www.nciinc.com/)|
-|[NeoTech Solutions Inc.](https://www.neotechsolutions.com)|
+|[NeoTech Solutions Inc.](https://www.neotechsolutions.com)| 
 |[Netwize](https://www.netwize.com)|
 |[NewWave Telecom & Technologies, Inc](http://www.newwave.io)|
 |[Norseman, Inc](https://www.norseman.com)|

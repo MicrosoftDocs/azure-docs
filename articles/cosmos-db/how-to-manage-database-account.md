@@ -10,9 +10,9 @@ ms.date: 10/17/2018
 ms.author: chrande
 ---
 
-# Manage database account
+# Manage database accounts in Azure Cosmos DB
 
-This article describes how to manage your Cosmos DB account to setup multi-homing, add/remove a region, configure multiple write regions, and failover priorities. 
+This article describes how to manage your Cosmos DB account to set up multi-homing, add/remove a region, configure multiple write regions, and setup failover priorities. 
 
 ## Create a database account
 
@@ -29,7 +29,7 @@ az cosmosdb create --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Configure clients for multi-homing
 
-### <a id="configure-clients-multi-homing-dotnet"></a>.NET
+### <a id="configure-clients-multi-homing-dotnet"></a>.NET SDK
 
 ```csharp
 // Create a new Connection Policy
@@ -50,7 +50,7 @@ policy.PreferredLocations.Add("North Europe");
 DocumentClient client = new DocumentClient(new Uri(this.accountEndpoint), this.accountKey, policy);
 ```
 
-### <a id="configure-clients-multi-homing-java-async"></a>Java Async
+### <a id="configure-clients-multi-homing-java-async"></a>Java Async SDK
 
 ```java
 ConnectionPolicy policy = new ConnectionPolicy();
@@ -62,7 +62,7 @@ AsyncDocumentClient client =
                 .withConnectionPolicy(policy).build();
 ```
 
-### <a id="configure-clients-multi-homing-java-sync"></a>Java Sync
+### <a id="configure-clients-multi-homing-java-sync"></a>Java Sync SDK
 
 ```java
 ConnectionPolicy connectionPolicy = new ConnectionPolicy();
@@ -72,7 +72,7 @@ connectionPolicy.setPreferredLocations(preferredLocations);
 DocumentClient client = new DocumentClient(accountEndpoint, accountKey, connectionPolicy);
 ```
 
-### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript
+### <a id="configure-clients-multi-homing-javascript"></a>Node.js/JavaScript/TypeScript SDK
 
 ```javascript
 // Set up the connection policy with your preferred regions
@@ -87,7 +87,7 @@ const client = new CosmosClient({
 });
 ```
 
-### <a id="configure-clients-multi-homing-python"></a>Python
+### <a id="configure-clients-multi-homing-python"></a>Python SDK
 
 ```python
 connection_policy = documents.ConnectionPolicy()
@@ -129,7 +129,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
 ## Configure multiple write-regions
 
-### <a id="configure-multiple-write-regions-portal"></a>Azure Portal
+### <a id="configure-multiple-write-regions-portal"></a>Azure portal
 
 When you create a database account, make sure the **Multi-region Writes** setting is enabled.
 
@@ -208,7 +208,7 @@ The following JSON code is an example Resource Manager template. You can use it 
 
    ![Replicate data globally menu](./media/how-to-manage-database-account/replicate-data-globally.png)
 
-3. On the **"Manual Failover"** menu, select your new write region, and select the box to mark that you understand this will change your write region.
+3. On the **"Manual Failover"** menu, select your new write region, and select the box to mark that you understand this option will change your write region.
 
 4. Click "Ok" to trigger the failover.
 
@@ -271,7 +271,7 @@ az cosmosdb update --name <Cosmos DB Account name> --resource-group <Resource Gr
 
    ![Automatic failover portal menu](./media/how-to-manage-database-account/automatic-failover.png)
 
-You cannot modify the write region on this menu. You must do a manual failover to change the write region manually.
+You cannot modify the write region on this menu. To change the write region manually, you must do a manual failover.
 
 ### <a id="set-failover-priorities-via-cli"></a>Azure CLI
 

@@ -99,7 +99,7 @@ The [Azure Active Directory Application Gallery](https://azure.microsoft.com/mar
 Here are some tips for finding apps by what capabilities they support:
 
 * Azure AD supports automatic provisioning and de-provisioning for all “Featured” apps in the [Azure Active Directory Application Gallery](https://azure.microsoft.com/marketplace/active-directory/all/).
-* A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](http://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
+* A list of federated applications that specifically support federated single sign-on using a protocol such as SAML, WS-Federation, or OpenID Connect can be found [here](https://social.technet.microsoft.com/wiki/contents/articles/20235.azure-active-directory-application-gallery-federated-saas-apps.aspx).
 
 Once you’ve found your application, you can get started by following the step-by-step instructions in the app gallery and in the Azure portal to enable single sign-on.
 

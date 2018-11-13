@@ -138,7 +138,7 @@ Fix:
     
     ![](./media/app-insights-asp-net-troubleshoot-no-data/ikey-check.png)
 * In the [Microsoft Azure home dashboard](https://portal.azure.com), look at the Service Health map. If there are some alert indications, wait until they have returned to OK and then close and re-open your Application Insights application blade.
-* Check also [our status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Check also [our status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Did you write any code for the [server-side SDK](app-insights-api-custom-events-metrics.md) that might change the instrumentation key in `TelemetryClient` instances or in `TelemetryContext`? Or did you write a [filter or sampling configuration](app-insights-api-filtering-sampling.md) that might be filtering out too much?
 * If you edited ApplicationInsights.config, carefully check the configuration of [TelemetryInitializers and TelemetryProcessors](app-insights-api-filtering-sampling.md). An incorrectly-named type or parameter can cause the SDK to send no data.
 
@@ -155,7 +155,7 @@ The data comes from scripts in the web pages.
 See [dependency telemetry](app-insights-asp-net-dependencies.md) and [exception telemetry](app-insights-asp-net-exceptions.md).
 
 ## No performance data
-Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-azure.md). you'll find it under Settings, Servers.
+Performance data (CPU, IO rate, and so on) is available for [Java web services](app-insights-java-collectd.md), [Windows desktop apps](app-insights-windows-desktop.md), [IIS web apps and services if you install status monitor](app-insights-monitor-performance-live-website-now.md), and [Azure Cloud Services](app-insights-overview.md). you'll find it under Settings, Servers.
 
 ## No (server) data since I published the app to my server
 * Check that you actually copied all the Microsoft. ApplicationInsights DLLs to the server, together with Microsoft.Diagnostics.Instrumentation.Extensions.Intercept.dll
@@ -164,7 +164,7 @@ Performance data (CPU, IO rate, and so on) is available for [Java web services](
 * Windows Server 2008: Make sure you have installed the following updates: [KB2468871](https://support.microsoft.com/kb/2468871), [KB2533523](https://support.microsoft.com/kb/2533523), [KB2600217](https://support.microsoft.com/kb/2600217).
 
 ## I used to see data, but it has stopped
-* Check the [status blog](http://blogs.msdn.com/b/applicationinsights-status/).
+* Check the [status blog](https://blogs.msdn.com/b/applicationinsights-status/).
 * Have you hit your monthly quota of data points? Open the Settings/Quota and Pricing to find out. If so, you can upgrade your plan, or pay for additional capacity. See the [pricing scheme](https://azure.microsoft.com/pricing/details/application-insights/).
 
 ## I don't see all the data I'm expecting

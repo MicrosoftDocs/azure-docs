@@ -27,10 +27,7 @@ The Activity Log differs from [Diagnostic Logs](monitoring-overview-of-diagnosti
 You can retrieve events from your Activity Log using the Azure portal, CLI, PowerShell cmdlets, and Azure Monitor REST API.
 
 > [!NOTE]
->  [The newer alerts](monitoring-overview-unified-alerts.md) offers an enhanced experience when creating and managing activity log alert rules.  [Learn more](monitoring-activity-log-alerts-new-experience.md).
-
-View the following video introducing the Activity Log.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+> [The newer alerts](monitoring-overview-alerts.md) offer an enhanced experience when creating and managing activity log alert rules.  [Learn more](alert-activity-log.md).
 
 
 ## Categories in the Activity Log
@@ -64,7 +61,7 @@ Here are some of the things you can do with the Activity Log:
 Within the Azure portal, you can view your Activity Log in several places:
 * The **Activity Log** that you can access by searching for the Activity Log under **All services** in the left-hand navigation pane.
 * **Monitor** appears by default in the left-hand navigation pane. The Activity Log is one section of Azure Monitor.
-* Any resource's **resource**, for example, the configuration blade for a Virtual Machine. The Activity Log is be one of the sections on most of these resource blades, and clicking on it automatically filters the events to those related to that specific resource.
+* Most **resources**, for example, the configuration blade for a Virtual Machine. The Activity Log is a section on most resource blades, and clicking on it automatically filters the events to those related to that specific resource.
 
 In the Azure portal, you can filter your Activity Log by these fields:
 * Timespan - The start and end time for events.
@@ -78,11 +75,9 @@ In the Azure portal, you can filter your Activity Log by these fields:
 * Event initiated by - The 'caller,' or user who performed the operation.
 * Open search - This is an open text search box that searches for that string across all fields in all events.
 
-Once you have defined a set of filters, you can save it as a query that is persisted across sessions if you ever need to perform the same query with those filters applied again in the future. You can also pin a query to your Azure dashboard to always keep an eye on specific events.
+Once you have defined a set of filters, you can pin a query to your Azure dashboard to always keep an eye on specific events.
 
-Clicking "Apply" runs your query and show all matching events. Clicking on any event in the list shows the summary of that event as well as the full raw JSON of that event.
-
-For even more power, you can click the **Log Search** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../log-analytics/log-analytics-activity.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
+For even more power, you can click the **Logs** icon, which displays your Activity Log data in the [Log Analytics Activity Log Analytics solution](../log-analytics/log-analytics-activity.md). The Activity Log blade offers a basic filter/browse experience on logs, but Log Analytics enables you to pivot, query, and visualize your data in more powerful ways.
 
 ## Export the Activity Log with a Log Profile
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:
@@ -108,14 +103,14 @@ You can use a storage account or event hub namespace that is not in the same sub
 These settings can be configured via the “Export” option in the Activity Log blade in the portal. They can also be configured programmatically [using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931927.aspx), PowerShell cmdlets, or CLI. A subscription can only have one log profile.
 
 ### Configure log profiles using the Azure portal
-You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export” option in the Azure portal.
+You can stream the Activity Log to an Event Hub or store them in a Storage Account by using the “Export to Event Hub” option in the Azure portal.
 
 1. Navigate to **Activity Log** using the menu on the left side of the portal.
 
-    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Click the **Export** button at the top of the blade.
+    ![Navigate to Activity Log in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Click the **Export to Event Hub** button at the top of the blade.
 
-    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Export button in portal](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. In the blade that appears, you can select:  
   * regions for which you would like to export events
   * the Storage Account to which you would like to save events
