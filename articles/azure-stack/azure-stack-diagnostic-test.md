@@ -78,7 +78,7 @@ As stated previously, the validation tool is run via the PEP. Each test returns 
 2. Run the following commands to establish a privileged endpoint (PEP) session:
 
    ```powershell
-   Enter-PSSession -ComputerName [ERCS-VM-name] -ConfigurationName PrivilegedEndpoint
+   Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint
    ```
    > [!TIP]
    > To access the PEP on an ASDK host computer, enter AzS-ERCS01 as the ERCS-VM-name value.
@@ -106,13 +106,13 @@ As stated previously, the validation tool is run via the PEP. Each test returns 
 - The parameter **List** can be used to display all available test categories.
 - The parameters **Include** and **Ignore** can be used to include or exclude certain test categories. The list of tests above includes the argument shorthand you can use with these parameters to refer to specific test categories. 
 
-```powershell
-Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
-```
+    ```powershell
+    Test-AzureStack -Include AzsSFRoleSummary, AzsInfraCapacity
+    ```
 
-```powershell
-Test-AzureStack -Ignore AzsInfraPerformance
-```
+    ```powershell
+    Test-AzureStack -Ignore AzsInfraPerformance
+    ```
 
 - You need to supply the **ServiceAdminCredential** parameter to run cloud scenario tests (see example in use cases section below).
 - A tenant VM is deployed as part of one the cloud scenario tests. You can use **DoNotDeployTenantVm** to disable this.
@@ -125,15 +125,13 @@ Test-AzureStack -Ignore AzsInfraPerformance
 
 ### Run validation without cloud scenarios
 
-Simply run the validation tool without the **ServiceAdminCredential** parameter to skip running cloud scenario tests: 
+Run the validation tool without the **ServiceAdminCredential** parameter to skip running cloud scenario tests: 
 
 ```powershell
 New-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred
 
 Test-AzureStack
 ```
-
- 
 
 ### Run validation with cloud scenarios
 
@@ -159,29 +157,29 @@ The cloud administrator user name must be typed in the UPN format: serviceadmin@
 
 ### Run validation tool to test infrastructure backup settings
 
-Before configuring infrastructure backup, you can test the backup share path and credential using the **AzsBackupShareAccessibility** test. 
+*Before* configuring infrastructure backup, you can test the backup share path and credential using the **AzsBackupShareAccessibility** test. 
 
-```powershell
-New-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+  ```powershell
+  New-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
 
-Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
-```
+  Test-AzureStack -Include AzsBackupShareAccessibility -BackupSharePath "\\<fileserver>\<fileshare>" -BackupShareCredential <PSCredentials-for-backup-share>
+  ```
 
- After configuring backup, you can run **AzsBackupShareAccessibility** to validate the share is accessible from the ERCS:
+*After* configuring backup, you can run **AzsBackupShareAccessibility** to validate the share is accessible from the ERCS:
 
-```powershell
-Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+    ```powershell
+    Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
 
-Test-AzureStack -Include AzsBackupShareAccessibility
-```
+    Test-AzureStack -Include AzsBackupShareAccessibility
+    ``
 
- To test new credentials with the configured backup share, run: 
+To test new credentials with the configured backup share, run: 
 
-```powershell
-Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
+    ```powershell
+    Enter-PSSession -ComputerName "<ERCS-VM-name>" -ConfigurationName PrivilegedEndpoint -Credential $localcred 
 
-Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
-```
+    Test-AzureStack -Include AzsBackupShareAccessibility -BackupShareCredential "<PSCredential for backup share>"
+    ```
 
 ## Next steps
 
