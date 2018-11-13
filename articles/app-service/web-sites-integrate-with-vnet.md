@@ -88,10 +88,11 @@ To enable VNet Integration on your app:
  ![VNet Integration UI][1]
 
 1. Select **Add VNet**. 
- ![Configure VNet Integration][2]
+ ![Add VNet Integration][2]
 
 1. Select your VNet. 
- 
+  ![Select your VNet][8]
+  
 Your app will be restarted after this last step.  
 
 
@@ -291,12 +292,13 @@ During the preview, some features will gradually become available such as Networ
 
 <!--Image references-->
 [1]: ./media/web-sites-integrate-with-vnet/vnetint-app.png
-[2]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
+[2]: ./media/web-sites-integrate-with-vnet/vnetint-addvnet.png
 [3]: ./media/web-sites-integrate-with-vnet/vnetint-howitworks.png
 [4]: ./media/web-sites-integrate-with-vnet/vnetint-details.png
 [5]: ./media/web-sites-integrate-with-vnet/vnetint-aspdetails.png
 [6]: ./media/web-sites-integrate-with-vnet/vnetint-newvnet.png
 [7]: ./media/web-sites-integrate-with-vnet/vnetint-newvnetdetails.png
+[8]: ./media/web-sites-integrate-with-vnet/vnetint-selectvnet.png
 
 <!--Links-->
 [VNETOverview]: http://azure.microsoft.com/documentation/articles/virtual-networks-overview/ 
