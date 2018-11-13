@@ -158,6 +158,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/powershell/module/azurerm.servicebus/">Azure PowerShell</a></p><p><a href="/cli/azure/servicebus">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p><p><a href="/java/api/overview/azure/servicebus">Java</a></p>
+      html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p><p><a href="/java/api/overview/azure/servicebus">Java</a></p><p><a href="/javascript/api/overview/azure/service-bus">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/servicebus/">REST API Reference</a></p>
