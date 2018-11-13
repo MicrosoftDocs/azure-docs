@@ -180,6 +180,10 @@ Use the following steps to configure service endpoint to a Azure Cosmos DB accou
 1. Update existing Azure Cosmos account with subnet ACLs
 
    ```azurecli-interactive
+
+   name= "<Azure Cosmos account name>"
+   resourceGroupName = "<Resource group name>"
+
    az cosmosdb update \
  	  --name $name \
     --resource-group $resourceGroupName \
