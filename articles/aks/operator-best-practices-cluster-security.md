@@ -6,21 +6,24 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: iainfou
 ---
 
 # Best practices for cluster security and upgrades in Azure Kubernetes Service (AKS)
 
-As you develop and run applications in Azure Kubernetes Service (AKS), there are a few key areas to consider. How you manage your cluster and application deployments can negatively impact the end-user experience of services that you provide. To help you succeed, there are some best practices you can follow as you design and run AKS clusters.
+As you manage clusters in Azure Kubernetes Service (AKS), the security of your workloads and data is a key consideration. Especially when you run multi-tenant clusters using logical isolation, you need to secure access to resources and workloads. To minimize the risk of attack, you also need to make sure you apply the latest Kubernetes and node OS security updates.
 
 This best practices article focuses on how to secure your AKS cluster. You learn how to:
 
 > [!div class="checklist"]
-> *
-> *
+> * Use Azure Active Directory and role-based access controls to secure API server access
+> * Upgrade an AKS cluster to the latest Kubernetes version
+> * Keep nodes update to date and automatically apply security patches
 
-## Secure endpoints for API server and cluster nodes
+You can also read the [best practices for container security][best-practices-container-security] and the [best practices for pod security][best-practices-pod-security].
+
+## Secure access to the API server and cluster nodes
 
 **Best practice guidance** - Use Azure Active Directory integration and Kubernetes role-based access control (RBAC) to control access to the API server.
 
@@ -34,9 +37,9 @@ Kubernetes role-based access controls (RBAC) should also be used to secure acces
 
 For more information about Azure AD integration and RBAC, see [Best practices for authentication and authorization in AKS][aks-best-practices-identity].
 
-## Keep the cluster and hosts up to date
+## Regularly update to the latest version of Kubernetes
 
-**Best practice guidance** - Regularly update the Kubernetes version for your clusters. Nodes automatically download and install OS updates and security fixes, but don't automatically reboot if required. Use `kured` to watch for pending reboots, then safely cordon and drain the node to allow the node to reboot and apply the updates.
+**Best practice guidance** - To stay current on new features and bug fixes, regularly upgrade to the Kubernetes version in your AKS cluster.
 
 Kubernetes release new features at a quicker pace than more traditional infrastructure platforms that you may use. Kubernetes updates include new features, and bug or security fixes in the existing code. New features typically move through an *alpha* and then *beta* status before they are generally available and recommended for production use. This release approach should allow you to update Kubernetes without encountering breaking changes or adjusting your deployments and templates.
 
@@ -54,7 +57,9 @@ az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes
 
 For more information about upgrades in AKS, see [Supported Kubernetes versions in AKS][aks-supported-versions] and [Upgrade an AKS cluster][aks-upgrade].
 
-### Process node reboots using kured
+## Process node updates and reboots using kured
+
+**Best practice guidance** - AKS nodes automatically download and install OS updates and security fixes, but don't automatically reboot if required. Use `kured` to watch for pending reboots, then safely cordon and drain the node to allow the node to reboot and apply the updates.
 
 Each evening, AKS nodes apply updates and security patches through their distro update channel. This behavior is configured automatically as the nodes are deployed in an AKS cluster. To minimize disruption, nodes are not automatically rebooted if a security patch or kernel update requires it.
 
@@ -62,21 +67,17 @@ The open-source [kured (KUbernetes REboot Daemon)][kured] project by Weaveworks 
 
 ![The AKS node reboot process using kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
-`kured` can integrate with Prometheus to prevent reboots if there are other maintenance events or cluster issues in progress.
+`kured` can integrate with Prometheus to prevent reboots if there are other maintenance events or cluster issues in progress. This integration minimizes additional complications by rebooting nodes while you are actively troubleshooting other issues.
 
 For more information about how to handle node reboots, see [Apply security and kernel updates to nodes in AKS][aks-kured].
 
-## Limit credential exposure
-
-Use pod identities
-Key Vault with FlexVol
-
 ## Next steps
 
-This best practices article focused on how to manage identity and authentication. To implement some of these best practices, see the following articles:
+This best practices article focused on how to secure your AKS cluster. To implement some of these best practices, see the following articles:
 
-*
-*
+* [Integrate Azure Active Directory with AKS][aks-aad]
+* [Upgrade an AKS cluster to the latest version of Kubernetes][aks-upgrade]
+* [Process security updates and node reboots with kured][aks-kured]
 
 <!-- EXTERNAL LINKS -->
 [kured]: https://github.com/weaveworks/kured
@@ -88,3 +89,6 @@ This best practices article focused on how to manage identity and authentication
 [aks-upgrade]: upgrade-cluster.md
 [aks-best-practices-identity]: concepts-identity.md
 [aks-kured]: node-updates-kured.md
+[aks-aad]: aad-integration.md
+[best-practices-container-security]: operator-best-practices-container-security.md
+[best-practices-pod-security]: developer-best-practices-pod-security.md

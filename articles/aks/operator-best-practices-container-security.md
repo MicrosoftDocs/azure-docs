@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/13/2018
 ms.author: iainfou
 ---
 
@@ -20,13 +20,19 @@ This best practices article focuses on how to secure your containers in AKS. You
 > *
 > *
 
+You can also read the [best practices for cluster security][best-practices-cluster-security] and the [best practices for pod security][best-practices-pod-security].
+
 ## Secure the images and run time
+
+**Best practice guidance** - 
 
 Trusted registry
 Apply security images - ACR can automatically on base image updates
 Scan for issues with Aqua or Twistlock
 
 ## Secure container access
+
+**Best practice guidance** - 
 
 Avoid access to HOST IPC and HOST PID namespace
 Avoid root / privileged access
@@ -45,5 +51,5 @@ This best practices article focused on how to manage identity and authentication
 <!-- EXTERNAL LINKS -->
 
 <!-- INTERNAL LINKS -->
-> [!NOTE]
-> Information the user should notice even if skimming
+[best-practices-cluster-security]: operator-best-practices-cluster-security.md
+[best-practices-pod-security]: developer-best-practices-pod-security.md
