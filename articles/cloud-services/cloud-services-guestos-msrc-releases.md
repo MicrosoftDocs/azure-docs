@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/08/2018
+ms.date: 11/12/2018
 ms.author: raiye
 
 ---
@@ -24,11 +24,10 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | Product Category | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
 | --- | --- | --- | --- | --- |
 | Rel 18-10 | [4462917] | Windows 10 Security | 5.24 | October 9, 2018 |
-| Rel 18-10 | [4464330] | Windows 10 Security | 6.0 | October 9, 2018 |
 | Rel 18-10 | [4462915] | Windows Security | 2.79 | October 9, 2018 |
 | Rel 18-10 | [4462931] | Windows Security | 3.66 | October 9, 2018 |
 | Rel 18-10 | [4462941] | Windows Security | 4.59 | October 9, 2018 |
-| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24, 6.0 | October 9, 2018 |
+| Rel 18-10 | [4462930] | Flash | 3.66, 4.59, 5.24 | October 9, 2018 |
 | Rel 18-10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | October 9, 2018 |
 | N/A | [4339284] | Time zone update | 2.79, 3.66, 4.59 | July 24, 2018 |
 | N/A | [4457144] | September Non-Security rollup | 2.79 | September 11, 2018 |
@@ -42,7 +41,6 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A | [4457036] | September Non-Security .NET 4.5.2 rollup | 4.59 | September 11, 2018 |
 
 [4462917]: http://support.microsoft.com/kb/4462917
-[4464330]: http://support.microsoft.com/kb/4464330
 [4462915]: http://support.microsoft.com/kb/4462915
 [4462931]: http://support.microsoft.com/kb/4462931
 [4462941]: http://support.microsoft.com/kb/4462941
