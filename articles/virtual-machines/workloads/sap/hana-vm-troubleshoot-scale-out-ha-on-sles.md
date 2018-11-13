@@ -91,7 +91,7 @@ Following SAP HANA network recommendations, three subnets were created within on
 - 10.0.1.0/24 for SAP HANA System Replication (HSR)
 - 10.0.0.0/24 for everything else
 
-For information about SAP HANA configuration related to using multiple networks, see [SAP HANA global.ini](#sap-hana-global-ini).
+For information about SAP HANA configuration related to using multiple networks, see [SAP HANA global.ini](#sap-hana-globalini).
 
 Every VM in the cluster has three vNICs that correspond to the number of subnets. [How to create a Linux virtual machine in Azure with multiple network interface cards][azure-linux-multiple-nics] describes a potential routing issue on Azure when deploying a Linux VM. This specific routing article applies only for use of multiple vNICs. The problem is solved by SUSE per default in SLES 12 SP3. For more information, see [Multi-NIC with cloud-netconfig in EC2 and Azure][suse-cloud-netconfig].
 
@@ -172,7 +172,7 @@ The **corosync** config file has to be correct on every node in the cluster incl
 
 The content of **corosync.conf** from the test system is an example.
 
-The first section is **totem**, as described in [Cluster installation][sles-pacemaker-ha-guide#cluster-installation], step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
+The first section is **totem**, as described in [Cluster installation][sles-pacemaker-ha-guide](#cluster-installation), step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -279,7 +279,7 @@ systemctl restart corosync
 
 ## SBD device
 
-How to set up an SBD device on an Azure VM is described in [SBD fencing][sles-pacemaker-ha-guide#sbd-fencing].
+How to set up an SBD device on an Azure VM is described in [SBD fencing][sles-pacemaker-ha-guide](#sbd-fencing).
 
 First, check on the SBD server VM if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
 
@@ -422,7 +422,7 @@ On the target VM side, **hso-hana-vm-s2-2** in this example, you can find the fo
 /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68:   notice: servant: Received command test from hso-hana-vm-s2-1 on disk /dev/disk/by-id/scsi-36001405e614138d4ec64da09e91aea68
 </code></pre>
 
-Check that the entries in **/etc/sysconfig/sbd** correspond to the description in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide#sbd-fencing]. Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
+Check that the entries in **/etc/sysconfig/sbd** correspond to the description in [Setting up Pacemaker on SUSE Linux Enterprise Server in Azure][sles-pacemaker-ha-guide](#sbd-fencing). Verify that the startup setting in **/etc/iscsi/iscsid.conf** is set to automatic.
 
 The following entries are important in **/etc/sysconfig/sbd**. Adapt the **id** value if necessary:
 
@@ -963,7 +963,7 @@ This example shows the location constraints caused by a cluster resource migrati
 ![Hawk list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See [hb_report to collect log files](hb-report-to-collect-log-files): 
+You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See [hb_report to collect log files](#hb-report-to-collect-log-files): 
 
 ![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
