@@ -68,7 +68,7 @@ The following are the most common use cases where you update an indexing policy:
 
 Read more about the indexing in the following articles:
 
-* [Indexing Overview](indexing-overview.md)
+* [Indexing Overview](index-overview.md)
 * [Index types](index-types.md)
 * [Index paths](index-paths.md)
 * [How to manage indexing policy](how-to-manage-indexing-policy.md)

@@ -35,6 +35,6 @@ When you set custom index paths, you're required to specify the default indexing
 
 Learn more about indexing in Azure Cosmos DB in the following articles:
 
-- [Overview of indexing](indexing-overview.md)
+- [Overview of indexing](index-overview.md)
 - [Indexing policies in Azure Cosmos DB](indexing-policies.md)
 - [Index types in Azure Cosmos DB](index-types.md)

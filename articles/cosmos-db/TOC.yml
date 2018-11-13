@@ -78,7 +78,7 @@
       - name: Indexing
         items:
         - name: Overview
-          href: indexing-overview.md
+          href: index-overview.md
         - name: Indexing policy
           href: index-policy.md
         - name: Index types

@@ -51,7 +51,7 @@ client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("myDatabaseNam
 
 Read more about the indexing in the following articles:
 
-* [Indexing Overview](indexing-overview.md)
+* [Indexing Overview](index-overview.md)
 * [Indexing policy](index-policy.md)
 * [Index types](index-types.md)
 * [Index paths](index-paths.md)
