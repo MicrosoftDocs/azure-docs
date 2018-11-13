@@ -15,11 +15,13 @@ ms.component: B2C
 
 # Create a page contract in Azure Active Directory B2C using custom policies
 
-This article describes the steps you need to take to set up a JavaScript page contract in Azure Active Directory B2C using custom policies. 
+[!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
+
+This article describes the steps you need to take to set up a page contract in Azure Active Directory B2C using custom policies. 
 
 ## Replace DataUri values
 
-In your custom policies, you may have [ContentDefinitions](contentdefinitions.md) that define the HTML templates used in the user journey. The **ContentDefinition** contains a **DataUri** element that specifies a relative URL of an HTML file. The HTML file provides the user experience for the journey step. 
+In your custom policies, you may have [ContentDefinitions](contentdefinitions.md) that define the HTML templates used in the user journey. The **ContentDefinition** contains a **DataUri** refers to the page elements provided by Azure AD B2C. The **LoadUri** is the relative path to the HTML and CSS content that you provide.
 
 ```XML
 <ContentDefinition Id="api.idpselections">
@@ -33,7 +35,7 @@ In your custom policies, you may have [ContentDefinitions](contentdefinitions.md
 </ContentDefinition>
 ```
 
-To set up a page contract, you can use the following table to find **DataUri** values that might need to be changed in your [ContentDefinitions](contentdefinitions.md).
+To set up a page contract, you can use the following table to find **DataUri** values that might need to be changed in your [ContentDefinitions](contentdefinitions.md). Be aware that by switching from the old **DataUri** values to the new values, you are selecting an immutable package. The benefit of the immutable package is that when you take a dependency on elements provided by Azure AD B2C, you’ll know that it'll never change and cause unexpected behaviour on your page.
 
 | Old DataUri value | New DataUri value |
 | ----------------- | ----------------- |
@@ -51,7 +53,7 @@ To set up a page contract, you can use the following table to find **DataUri** v
 
 ## Enable JavaScript
 
-After you select a page contract version for each page, you enable it for the policy. To enable script execution, add the **ScriptExecution** element to the [RelyingParty](relyingparty.md) element:
+After you select a page contract version for each page, you enable it for the policy. Javascript isn't enabled until you've defined a package version for each page. To enable script execution, add the **ScriptExecution** element to the [RelyingParty](relyingparty.md) element:
 
 ```XML
 <RelyingParty>
