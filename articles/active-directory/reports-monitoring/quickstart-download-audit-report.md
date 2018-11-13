@@ -14,12 +14,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 
 # Customer intent: As an IT administrator, I want to learn how to download an audit report from the Azure portal so that I can understand what actions are being performed by users in my environment.
 ---
+
 # Quickstart: Download an audit report using the Azure portal
 
 In this quickstart, you learn how to download the audit logs for your tenant for the past 24 hours.
@@ -29,7 +30,7 @@ In this quickstart, you learn how to download the audit logs for your tenant for
 You need:
 
 * An Azure Active Directory tenant. 
-* A user, who is in the Security Administrator, Security Reader, or Global Administrator role for the tenant. In addition, any user in the tenant can access their own audit logs.
+* A user, who is in the **Security Administrator**, **Security Reader**, or **Global Administrator** role for the tenant. In addition, any user in the tenant can access their own audit logs.
 
 ## Quickstart: Download an audit report
 
