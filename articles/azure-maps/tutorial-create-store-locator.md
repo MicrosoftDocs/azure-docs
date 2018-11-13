@@ -1,5 +1,5 @@
 ---
-title: Create a store locator by using Azure Maps | Microsoft Docs
+title: Create a store locator using Azure Maps | Microsoft Docs
 description: Create a store locator by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
