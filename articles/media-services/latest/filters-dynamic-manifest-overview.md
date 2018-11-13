@@ -30,7 +30,7 @@ When delivering your content to customers (streaming live events or video-on-dem
 
 This filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
-This article discusses concepts and common scenarios in which using filters would be beneficial to your customers. The article also links to topics that demonstrate how to create filters programmatically.
+This article discusses concepts and common scenarios in which using filters would be beneficial to your customers. At the end, the article links to topics that demonstrate how to create filters programmatically.
 
 ## Concepts
 
@@ -145,10 +145,6 @@ You can combine multiple filtering rules in a single filter. As an example you c
 
 ![multiple-rules][multiple-rules]
 
-## Create filters programmatically
-The following article discusses Media Services entities that are related to filters. The article also shows how to programmatically create filters.  
-
-[Create filters with REST APIs](media-services-rest-dynamic-manifest.md).
 
 ## Combining multiple filters (filter composition)
 You can also combine multiple filters in a single URL. 
@@ -168,10 +164,18 @@ You can combine up to three filters.
 For more information, see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 ## Know issues and limitations
+
 * Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
 * You can use same filter name for Account and Asset filters. Asset filters have higher precedence and will override Account filters.
 * If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
 
+## Next steps
+
+The following articles show how to create filters programmatically.  
+
+- [Create filters with REST APIs]()
+- [Create filters with .NET]()
+- [Create filters with CLI]()
 
 [renditions1]: ./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/filters-dynamic-manifest-overview/media-services-rendition-filter2.png
