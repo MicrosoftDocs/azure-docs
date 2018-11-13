@@ -30,9 +30,9 @@ You can apply network rules to existing storage accounts, or when you create new
 
 Once network rules are applied, they're enforced for all requests. SAS tokens that grant access to a specific IP address serve to limit the access of the token holder, but don't grant new access beyond configured network rules.
 
-Virtual machine disk traffic (including mount and unmount operations, and disk IO) is **not** affected by network rules. REST access to page blobs is protected by network rules.
+Virtual machine disk traffic (including mount and unmount operations, and disk IO) is not affected by network rules. REST access to page blobs is protected by network rules.
 
-Classic storage accounts **do not** support firewalls and virtual networks.
+Classic storage accounts do not support firewalls and virtual networks.
 
 You can use unmanaged disks in storage accounts with network rules applied to backup and restore VMs by creating an exception. This process is documented in the [Exceptions](#exceptions) section of this article. Firewall exceptions aren't applicable with managed disks as they're already managed by Azure.
 
@@ -122,7 +122,7 @@ When planning for disaster recovery during a regional outage, you should create 
 
 To apply a virtual network rule to a storage account, the user must have the appropriate permissions for the subnets being added. The permission needed is *Join Service to a Subnet* and is included in the *Storage Account Contributor* built-in role. It can also be added to custom role definitions.
 
-Storage account and the virtual networks granted access **may** be in different subscriptions, but those subscriptions must be part of the same Azure AD tenant.
+Storage account and the virtual networks granted access may be in different subscriptions, but those subscriptions must be part of the same Azure AD tenant.
 
 ### Managing virtual network rules
 
