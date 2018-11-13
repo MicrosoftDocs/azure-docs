@@ -33,8 +33,8 @@ This article describes various options for persisting task output.
 
 Depending on your scenario, there are a few different approaches you can take to persist task output:
 
-- Use the Batch service API.  
-- Use the Batch File Conventions library for .NET.  
+- [Use the Batch service API](batch-task-output-files.md).  
+- [Use the Batch File Conventions library for .NET](batch-task-output-file-conventions.md).  
 - Implement the Batch File Conventions standard in your application.
 - Implement a custom file movement solution.
 
@@ -54,7 +54,7 @@ It's up to you whether you decide to use the File Conventions standard for namin
 
 Developers building Batch solutions with C# and .NET can use the [File Conventions library for .NET][nuget_package] to persist task data to an Azure Storage account, according to the [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). The File Conventions library handles moving output files to Azure Storage and naming destination containers and blobs in a well-known way.
 
-For more information on persisting task output with the File Conventions library for .NET, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET to persist](batch-task-output-file-conventions.md).
+For more information on persisting task output with the File Conventions library for .NET, see [Persist job and task data to Azure Storage with the Batch File Conventions library for .NET](batch-task-output-file-conventions.md).
 
 ### Implement the Batch File Conventions standard
 
