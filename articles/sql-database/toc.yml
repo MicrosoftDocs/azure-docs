@@ -494,8 +494,6 @@
     href: sql-database-file-space-management.md
   - name: Use Resource Health for connectivity issues
     href: sql-database-resource-health.md
-  - name: Plan for Azure maintenance events
-    href: sql-database-planned-maintenance.md
   - name: Develop apps
     items:
     - name: Connectivity
