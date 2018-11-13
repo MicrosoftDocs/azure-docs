@@ -307,8 +307,6 @@ Use the following procedures to upgrade MABS.
 
 > MABS V2 is not a prerequisite for installing MABS V3. However, you can upgrade to MABS V3 only from MABS V2.
 
->  when configuring SQL 2017 manually, refer to *SSRS configuration with SQL 2017* section under Install instructions 
-
 Use the following steps to upgrade MABS:
 
 1. To upgrade from MABS V2 to MABS V3, upgrade your OS to Windows Server 2016 or Windows Server 2019 if needed.
@@ -324,6 +322,8 @@ Use the following steps to upgrade MABS:
   > [!IMPORTANT]
 
   >  As part of SQL 2017 upgrade, we backup the SQL encryption keys and uninstall the reporting services. After SQL server upgrade,  reporting service(14.0.6827.4788) is installed & encryption keys are restored.
+
+ > When configuring SQL 2017 manually, refer to *SSRS configuration with SQL 2017* section under Install instructions.
 
 3. Update the protection agents on the protected servers.
 4. Backups should continue without the need to restart your production servers.
