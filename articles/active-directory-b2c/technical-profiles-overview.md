@@ -34,8 +34,7 @@ A technical profile enables these types of scenarios:
 - [SAML2](saml-technical-profile.md) - Federation with any SAML protocol identity provider.
 - [Self-Asserted](self-asserted-technical-profile.md) - Interact with the user. For example, collect the user's credential to sign in, render the sign-up page, or password reset.
 - **WsFed** - Federation with any WsFed protocol identity provider. 
-- **Session management** - Handle different types of sessions. 
-- **User journey context provider**
+- [Session management](active-directory-b2c-reference-sso-custom.md) - Handle different types of sessions. 
 - **Application insights**
 
 ## Technical profile flow
