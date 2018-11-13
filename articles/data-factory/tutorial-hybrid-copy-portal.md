@@ -234,7 +234,7 @@ The name of the data factory must be *globally unique*. If you see the following
 
 1. Go to the tab with **SQLServerToBlobPipeline**, or select **SQLServerToBlobPipeline** in the tree view. 
 
-    ![Pipeline tab](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Pipeline tab](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Go to the **Sink** tab at the bottom of the **Properties** window, and select **+ New**. 
 
