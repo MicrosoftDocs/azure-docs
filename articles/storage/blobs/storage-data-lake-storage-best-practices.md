@@ -27,7 +27,7 @@ Assume you have a folder with 100,000 child objects. If you take the lower bound
 
 When working with big data in Data Lake Storage Gen2, most likely a service principal is used to allow services such as Azure  HDInsight to work with the data. However, there might be cases where individual users need access to the data as well. In such cases, you must use Azure Active Directory [security groups](data-lake-store-secure-data.md#create-security-groups-in-azure-active-directory) instead of assigning individual users to folders and files.
 
-Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of [32 Access and Default ACLs](../azure-subscription-service-limits.md#data-lake-store-limits) (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](data-lake-store-access-control.md#the-owning-user), [the owning group](data-lake-store-access-control.md#the-owning-group), [the mask](data-lake-store-access-control.md#the-mask), and other).
+Once a security group is assigned permissions, adding or removing users from the group doesn’t require any updates to Data Lake Storage Gen2. This also helps ensure you don't exceed the limit of 32 Access and Default ACLs (this includes the four POSIX-style ACLs that are always associated with every file and folder: [the owning user](storage-data-lake-storage-access-control.md#the-owning-user), [the owning group](storage-data-lake-storage-access-control.md#the-owning-group), [the mask](storage-data-lake-storage-access-control.md#the-mask), and other).
 
 ### Security for groups
 
@@ -39,9 +39,7 @@ Azure Active Directory service principals are typically used by services like Az
 
 ### Enable the Data Lake Storage Gen2 firewall with Azure service access
 
-Data Lake Storage Gen2 supports the option of turning on a firewall and limiting access only to Azure services, which is recommended for a smaller attack vector from outside intrusions. Firewall can be enabled on the Data Lake Storage Gen2 account in the Azure portal via the **Firewall** > **Enable Firewall (ON)** > **Allow access to Azure services** options.  
-
-![Firewall settings in Data Lake Storage Gen2](./media/data-lake-store-best-practices/data-lake-store-firewall-setting.png "Firewall settings in Data Lake Storage Gen2")
+Data Lake Storage Gen2 supports the option of turning on a firewall and limiting access only to Azure services, which is recommended for a smaller attack vector from outside intrusions. Firewall can be enabled on the Data Lake Storage Gen2 account in the Azure portal via the **Firewall** > **Enable Firewall (ON)** > **Allow access to Azure services** options.
 
 Once firewall is enabled, only Azure services such as HDInsight, Data Factory, SQL Data Warehouse, etc. have access to Data Lake Storage Gen2. Due to the internal network address translation used by Azure, the Data Lake Storage Gen2 firewall does not support restricting specific services by IP and is only intended for restrictions of endpoints outside of Azure, such as on-premises.
 
@@ -94,11 +92,11 @@ Below are the top three recommended options for orchestrating replication betwee
 
 Short for distributed copy, Distcp is a Linux command-line tool that comes with Hadoop and provides distributed data movement between two locations. The two locations can be Data Lake Storage Gen2, HDFS, WASB, or S3. This tool uses MapReduce jobs on a Hadoop cluster (for example, HDInsight) to scale out on all the nodes. Distcp is considered the fastest way to move big data without special network compression appliances. Distcp also provides an option to only update deltas between two locations, handles automatic retries, as well as dynamic scaling of compute. This approach is incredibly efficient when it comes to replicating things like Hive/Spark tables that can have many large files in a single directory and you only want to copy over the modified data. For these reasons, Distcp is the most recommended tool for copying data between big data stores.
 
-Copy jobs can be triggered by Apache Oozie workflows using frequency or data triggers, as well as Linux cron jobs. For intensive replication jobs, it is recommended to spin up a separate HDInsight Hadoop cluster that can be tuned and scaled specifically for the copy jobs. This ensures that copy jobs do not interfere with critical jobs. If running replication on a wide enough frequency, the cluster can even be taken down between each job. If failing over to secondary region, make sure that another cluster is also spun up in the secondary region to replicate new data back to the primary Data Lake Storage Gen2 account once it comes back up. For examples of using Distcp, see [Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2](data-lake-store-copy-data-wasb-distcp.md).
+Copy jobs can be triggered by Apache Oozie workflows using frequency or data triggers, as well as Linux cron jobs. For intensive replication jobs, it is recommended to spin up a separate HDInsight Hadoop cluster that can be tuned and scaled specifically for the copy jobs. This ensures that copy jobs do not interfere with critical jobs. If running replication on a wide enough frequency, the cluster can even be taken down between each job. If failing over to secondary region, make sure that another cluster is also spun up in the secondary region to replicate new data back to the primary Data Lake Storage Gen2 account once it comes back up. For examples of using Distcp, see [Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2](../data-lake-storage/use-distcp.md).
 
-### Use Azure Data Factory to schedule copy jobs 
+### Use Azure Data Factory to schedule copy jobs
 
-Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Storage Gen2 accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [Copy Activity tuning guide](../data-factory/copy-activity-performance.md) for more information on copying with Data Factory.
+Azure Data Factory can also be used to schedule copy jobs using a **Copy Activity**, and can even be set up on a frequency via the **Copy Wizard**. Keep in mind that Azure Data Factory has a limit of cloud data movement units (DMUs), and eventually caps the throughput/compute for large data workloads. Additionally, Azure Data Factory currently does not offer delta updates between Data Lake Storage Gen2 accounts, so folders like Hive tables would require a complete copy to replicate. Refer to the [data factory article](../../data-factory/load-azure-data-lake-storage-gen2.md) for more information on copying with Data Factory.
 
 ## Monitoring considerations
 
@@ -142,14 +140,3 @@ For example, a marketing firm receives daily data extracts of customer updates f
     NA/Extracts/ACMEPaperCo/Out/2017/08/14/processed_updates_08142017.csv
 
 In the common case of batch data being processed directly into databases such as Hive or traditional SQL databases, there isn’t a need for an **/in** or **/out** folder since the output already goes into a separate folder for the Hive table or external database. For example, daily extracts from customers would land into their respective folders, and orchestration by something like Azure Data Factory, Apache Oozie, or Apache Airflow would trigger a daily Hive or Spark job to process and write the data into a Hive table.
-
-## Next steps
-
-* [Overview of Azure Data Lake Storage Gen2](data-lake-store-overview.md) 
-* [Access Control in Azure Data Lake Storage Gen2](data-lake-store-access-control.md) 
-* [Security in Azure Data Lake Storage Gen2](data-lake-store-security-overview.md)
-* [Tuning Azure Data Lake Storage Gen2 for performance](data-lake-store-performance-tuning-guidance.md)
-* [Performance tuning guidance for using HDInsight Spark with Azure Data Lake Storage Gen2](data-lake-store-performance-tuning-spark.md)
-* [Performance tuning guidance for using HDInsight Hive with Azure Data Lake Storage Gen2](data-lake-store-performance-tuning-hive.md)
-* [Data Orchestration using Azure Data Factory for Azure Data Lake Storage Gen2](https://mix.office.com/watch/1oa7le7t2u4ka)
-* [Create HDInsight clusters with Data Lake Storage Gen2](data-lake-store-hdinsight-hadoop-use-portal.md) 
