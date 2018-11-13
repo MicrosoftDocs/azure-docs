@@ -28,7 +28,7 @@ The following sections describe how to configure VNET service endpoint for a Azu
 
 ### Configure service endpoint for an existing Azure virtual network and subnet
 
-1. From **All resources** blade, find the virtual network you want to secure.
+1. From **All resources** blade, find the Azure Cosmos account you want to secure.
 
 1. Select **Firewalls and virtual networks** from settings menu and choose allow access from **Selected networks**.
 
@@ -39,7 +39,7 @@ The following sections describe how to configure VNET service endpoint for a Azu
    ![Select virtual network and subnet](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
 
-1. After the Azure Cosmos account is enabled, it will only allow traffic from this chosen subnet. The virtual network and subnet you added should appear as shown in the following screenshot:
+1. After the Azure Cosmos account is enabled to access from a virtual network, it will only allow traffic from this chosen subnet. The virtual network and subnet you added should appear as shown in the following screenshot:
 
    ![virtual network and subnet configured successfully](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
