@@ -25,7 +25,7 @@
     items:
     - name: Create an access review
       href: create-access-review.md
-    - name: Perform an access review
+    - name: Start an access review
       href: perform-access-review.md
     - name: Review your own access
       href: review-your-access.md
