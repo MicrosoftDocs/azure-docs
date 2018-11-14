@@ -8,16 +8,19 @@
 - name: REST API Quickstarts
   expanded: true
   items:
-    - name: Create first instance
+    - name: Create a custom search instance
       href: quick-start.md
-    - name: C#
-      href: call-endpoint-csharp.md
-    - name: Java
-      href: call-endpoint-java.md
-    - name: Node.js
-      href: call-endpoint-nodejs.md
-    - name: Python
-      href: call-endpoint-python.md
+    - name: Get search results from your instance
+    expanded: false
+    items:
+      - name: Using C#
+        href: call-endpoint-csharp.md
+      - name: Using Java
+        href: call-endpoint-java.md
+      - name: Using Node.js
+        href: call-endpoint-nodejs.md
+      - name: Using Python
+        href: call-endpoint-python.md
 - name: SDK Quickstarts
   items:
     - name: C# SDK quickstart
