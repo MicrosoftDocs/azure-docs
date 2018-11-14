@@ -46,12 +46,12 @@ In nearly all OAuth and OpenID Connect flows, four parties are involved in the e
 
 * The **resource server** is where the resource or data resides. It trusts the authorization server to securely authenticate and authorize the OAuth client. It also uses bearer access tokens to ensure that access to a resource can be granted.
 
-## Policies
-Arguably, Azure AD B2C policies are the most important features of the service. Azure AD B2C extends the standard OAuth 2.0 and OpenID Connect protocols by introducing policies. These allow Azure AD B2C to perform much more than simple authentication and authorization. 
+## User flows
+Arguably, Azure AD B2C user flows are the most important features of the service. Azure AD B2C extends the standard OAuth 2.0 and OpenID Connect protocols by introducing user flows. These allow Azure AD B2C to perform much more than simple authentication and authorization. 
 
-Policies fully describe consumer identity experiences, including sign-up, sign-in, and profile editing. Policies can be defined in an administrative UI. They can be executed by using a special query parameter in HTTP authentication requests. 
+User flows fully describe consumer identity experiences, including sign-up, sign-in, and profile editing. User flows can be defined in an administrative UI. They can be executed by using a special query parameter in HTTP authentication requests. 
 
-Policies are not standard features of OAuth 2.0 and OpenID Connect, so you should take the time to understand them. For more information, see the [Azure AD B2C policy reference guide](active-directory-b2c-reference-policies.md).
+User flows are not standard features of OAuth 2.0 and OpenID Connect, so you should take the time to understand them. For more information, see the [Azure AD B2C user flow reference guide](active-directory-b2c-reference-policies.md).
 
 ## Tokens
 The Azure AD B2C implementation of OAuth 2.0 and OpenID Connect makes extensive use of bearer tokens, including bearer tokens that are represented as JSON web tokens (JWTs). A bearer token is a lightweight security token that grants the "bearer" access to a protected resource.

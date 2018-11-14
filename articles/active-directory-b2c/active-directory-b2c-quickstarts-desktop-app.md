@@ -56,7 +56,7 @@ Azure Active Directory (Azure AD) B2C provides cloud identity management to keep
 
 ## Edit your profile
 
-Azure AD B2C provides functionality to allow users to update their profiles. The sample web app uses an Azure AD B2C edit profile policy for the workflow. 
+Azure AD B2C provides functionality to allow users to update their profiles. The sample web app uses an Azure AD B2C edit profile user flow for the workflow. 
 
 1. In the application menu bar, click **Edit profile** to edit the profile you created.
 
