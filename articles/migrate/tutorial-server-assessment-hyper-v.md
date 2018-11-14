@@ -9,9 +9,9 @@ ms.author: raynew
 ms.custom: mvc
 ---
 
-# Discover and assess on-premises Hyper-V VMs for migration to Azure with the Server Assessment Service
+# Discover and assess on-premises Hyper-V VMs for migration to Azure 
 
-As you move on-premises resources to the cloud, use [Azure Migrate](migrate-overview.md) to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises Hyper-V VMs
+As you move on-premises resources to the cloud, use [Azure Migrate](migrate-overview.md) to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises Hyper-V VMs with Azure Migrate Server Assessment.
 
 > [!NOTE]
 > Azure Migrate Server Assessment is currently in public preview. Discover and assessment of Hyper-V VMs isn't supported in the General Availability (GA) version of Azure Migrate. 
@@ -48,7 +48,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 
 
-### Verify VMs in the portal
+## Verify VMs in the portal
 
 Verify that the VMs appear as expected in the Azure portal:
 

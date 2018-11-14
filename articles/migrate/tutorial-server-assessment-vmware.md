@@ -10,9 +10,9 @@ ms.author: raynew
 ms.custom: mvc
 ---
 
-# Assess on-premises VMware VMs for migration to Azure with the Server Assessment
+# Discover and assess on-premises VMware VMs for migration to Azure
 
-As you move on-premises resources to the cloud, use [Azure Migrate](migrate-overview.md) to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises VMware VMs before migration.
+As you move on-premises resources to the cloud, use [Azure Migrate](migrate-overview.md) to discover, assess, and migrate machines and workloads to Microsoft Azure. This article describes how to assess on-premises VMware VMs with Azure Migrate Server Assessment, before migrating them to Azure.
 
 
 > [!NOTE]
@@ -23,7 +23,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Group VMs discovered by Azure Migrate, and assess the VM group.
-> * Review the assessment, including suitability of VMs for migration to Azure, estimated Azure VM sizes, and cost estimations for running the VMs in Azure.
+> * Review the assessment, including suitability of VMs, estimated Azure VM sizes, and cost estimations for running the VMs in Azure.
 
 
 
@@ -39,7 +39,7 @@ There are two types of assessments you can run.
 
 ## Before you start
 
-- Before you begin this tutorial you should deployed the Azure Migrate appliance. If you haven't, [complete this tutorial](tutorial-deploy-appliance-vmware.md) to set up the appliance, before you begin the assessment.
+- Before you begin this tutorial you should deploy the Azure Migrate appliance. If you haven't, [complete this tutorial](tutorial-deploy-appliance-vmware.md) to set up the appliance, before you begin the assessment.
 - To learn more about this preview:
     - Review the [preview features and limitations](migrate-overview.md#azure-migrate-services-public-preview).
     - Learn about [VMware](migrate-overview.md#vmware-architecture) assessment and migration architecture.

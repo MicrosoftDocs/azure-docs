@@ -154,7 +154,7 @@ management.azure.com | Communicate with Azure Resource Manager to set up Azure M
 dc.services.visualstudio.com | Upload app logs for internal monitoring.
 *.vault.azure.net | Communication between agent and service (persistent secrets).
 
-## Set up the appliance
+### Configure the appliance
 
 Set up the appliance for the first time, and register it with Azure Migrate.
 
@@ -193,7 +193,7 @@ Now connect to the vCenter Server and start discovery.
 
 It takes around 15 minutes for metadata of discovered VMs to appear in the portal. 
 
-### Verify VMs in the portal
+## Verify VMs in the portal
 
 After discovery you can verify that the VMs appear in the Azure portal, as follows:
 

@@ -1,6 +1,6 @@
 ---
-title: Prepare VMware VMs running Linux machine for migration to Azure with Azure Migrate | Microsoft Docs
-description: Describes how to prepare a Linux VM for migration to Azure with Azure Migrate
+title: Prepare VMware VMs running Linux for migration to Azure with Azure Migrate Server Migration | Microsoft Docs
+description: Describes how to prepare a Linux VM for migration to Azure with Azure Migrate Server Migration
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
@@ -10,11 +10,14 @@ ms.author: raynew
 
 
 
-# Prepare VMware VMs running Linux for migration to Azure 
+# Prepare Linux VMware VMs for migration to Azure 
 
 This article describes how prepare VMware VMs running Linux when you want to migrate them to Azure using [Azure Migrate](migrate-overview.md). 
 
-Prepare Linx machines as follows:
+> [!NOTE]
+> Azure Migrate Server Migration is currently in public preview. You can use the existing GA version of Azure Migrate to discover and assess VMs for migration, but the actual migration isn't supported in the existing GA version.
+
+Prepare Linux machines as follows:
 
 1. Install Hyper-V Linux Integration Services. Newer versions of Linux distributions might have this installed by default).
 2. Rebuild the Linux init image so that it contains necessary Hyper-V drivers, and so that the VM will boot in Azure (required for some distributions).
