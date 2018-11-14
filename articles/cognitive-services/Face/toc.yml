@@ -57,10 +57,14 @@
     href: Face-API-How-to-Topics/how-to-use-large-scale.md
   - name: Analyze videos in real time
     href: Face-API-How-to-Topics/HowtoAnalyzeVideo_Face.md
-  - name: Work with Visual Studio
+  - name: Use containers
     items:
-    - name: Use the Face API Connected Service
-      href: vs-face-connected-service.md
+    - name: Install and run containers
+      href: face-how-to-install-containers.md
+    - name: Configure containers
+      href: face-resource-container-config.md
+  - name: Use the Face API Connected Service
+    href: vs-face-connected-service.md
 - name: Reference
   items:
   - name: Face API
