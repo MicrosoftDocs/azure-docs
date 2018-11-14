@@ -19,6 +19,8 @@ To use Bing Custom Search, you need to create a custom search instance that defi
 
 To create the instance, use the [Bing Custom Search portal](https://customsearch.ai). 
 
+![A picture of the Bing Custom Search portal](media/blockedCustomSrch.png)
+
 ## Prerequisites
 
 You must have a [Cognitive Services API account](../cognitive-services-apis-create-account) with access to the Bing Custom Search API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
