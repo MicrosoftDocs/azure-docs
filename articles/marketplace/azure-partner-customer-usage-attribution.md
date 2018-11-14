@@ -61,7 +61,7 @@ The resource needs to be added in the **mainTemplate.json** or **azuredeploy.jso
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to this resource to the resources section in the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
