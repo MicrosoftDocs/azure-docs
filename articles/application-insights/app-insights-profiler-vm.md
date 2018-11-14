@@ -31,11 +31,30 @@ This page will guide you through the steps needed to get Application Insights pr
 1. Install Windows Azure Diagnostics extension on your VM. For full Resource Manager template examples, see:  
     * [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
     * [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
+    
+    The key part is the ApplicationInsightsProfilerSink in the WadCfg. You must add another sink to this section to tell WAD to enable the profiler to send data to your iKey. 
+                
+
+    ```json
+            "SinksConfig": {
+              "Sink": [
+                {
+                  "name": "ApplicationInsightsSink",
+                  "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
+                },
+                {
+                  "name": "MyApplicationInsightsProfilerSink",
+                  "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
+                }
+              ]
+            },
+    ```
+
 1. Deploy the modified environment deployment definition.  
 
-   To apply the modifications, usually involves a full template deployment or a cloud service based publish through PowerShell cmdlets or Visual Studio.  
+   To apply the modifications, it usually involves a full template deployment or a cloud service based publish through PowerShell cmdlets or Visual Studio.  
 
-   The following powershell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension:  
+   The following powershell commands are an alternate approach for existing virtual machines that touches only the Azure Diagnostics extension. You just need to add the ProfilerSink as noted above to the config that is returned by the Get-AzureRmVMDiagnosticsExtension command. Then pass the updated config to the Set-AzureRmVMDiagnosticsExcension command.
 
     ```powershell
     $ConfigFilePath = [IO.Path]::GetTempFileName()
