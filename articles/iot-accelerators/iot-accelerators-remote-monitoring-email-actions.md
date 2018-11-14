@@ -58,7 +58,7 @@ Follow these steps to add an email action when you create a new rule:
 
     ![Rules page](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
 
-1. Follow the steps in the [create a rule section](iot-accelerators-remote-monitoring-automate#create-a-rule). The follow the steps in the [create an advanced rule](iot-accelerators-remote-monitoring-automate#create-an-advanced-rule) section up to the point where you set a **Severity level**. Don't click **Apply** yet.
+1. Follow the steps in the [create a rule section](iot-accelerators-remote-monitoring-automate.md#create-a-rule). The follow the steps in the [create an advanced rule](iot-accelerators-remote-monitoring-automate.md#create-an-advanced-rule) section up to the point where you set a **Severity level**. Don't click **Apply** yet.
 
 1. In the **Action** section, toggle **Email enabled** to **On**.
 
