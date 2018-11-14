@@ -19,7 +19,7 @@ Container support in Azure Cognitive Services allows developers to use the same 
 
 Containerization is an approach to software distribution in which an application or service, including its dependencies & configuration, is packaged together as a container image. With little or no modification, a container image can be deployed on a container host. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
 
-> [!VIDEO https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services]
+Watch this [quick video](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services) for a demonstration.
 
 
 The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [Text Analytics](text-analytics/overview.md) services are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
