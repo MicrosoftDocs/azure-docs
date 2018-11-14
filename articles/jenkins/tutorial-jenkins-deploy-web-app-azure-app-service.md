@@ -380,10 +380,10 @@ and commit the change to the repo's `master` branch.
 
    ![View your deployed app on Azure](media/jenkins-java-quickstart/greetings-edited.png)
 
-## Report Jenkins plug-in bugs
+## Troubleshoot Jenkins plug-ins
 
 If you find any bugs with the Jenkins plug-ins, 
-open an issue for that specific component in the 
+file an issue for the specific component in the 
 [Jenkins JIRA](https://issues.jenkins-ci.org/).
 
 ## Next steps
