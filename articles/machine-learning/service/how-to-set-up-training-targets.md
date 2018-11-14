@@ -29,14 +29,14 @@ Azure Machine Learning service supports the following compute targets:
 |Compute target| GPU acceleration | Automated hyperparameter tuning | Automated model selection | Can be used in pipelines|
 |----|:----:|:----:|:----:|:----:|
 |[Local computer](#local)| Maybe | &nbsp; | ✓ | &nbsp; |
+|[Azure Machine Learning Compute](#batch)| ✓ | ✓ | ✓ | ✓ |
 |[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
 |[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure Data Lake Analytics](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
 
 > [!IMPORTANT]
-> <a id="pipeline-only"></a>* Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. For more information on pipelines, see the [Pipelines in Azure Machine Learning](concept-ml-pipelines.md) document.
+> <a id="pipeline-only"></a>__*__ Azure Databricks and Azure Data Lake Analytics can __only__ be used in a pipeline. For more information on pipelines, see the [Pipelines in Azure Machine Learning](concept-ml-pipelines.md) document.
 
 __[Azure Container Instances (ACI)](#aci)__ can also be used to train models. It is a serverless cloud offering that is inexpensive and easy to create and work with. ACI does not support GPU acceleration, automated hyper parameter tuning, or automated model selection. Also, it cannot be used in a pipeline.
 
@@ -46,12 +46,10 @@ The key differentiators between the compute targets are:
 * __Automated model selection__: Azure Machine Learning service can intelligently recommend algorithm and hyperparameter selection when building a model. Automated model selection helps you converge to a high-quality model faster than manually trying different combinations. For more information, see the [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) document.
 * __Pipelines__: Azure Machine Learning service enables you to combine different tasks such as training and deployment into a pipeline. Pipelines can be ran in parallel or in sequence, and provide a reliable automation mechanism. For more information, see the [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md) document.
 
-You can use the Azure Machine Learning SDK, Azure CLI, or Azure portal to create compute targets. You can also use existing compute targets by adding (attaching) them to your workspace.
-
 > [!IMPORTANT]
-> You cannot attach an existing Azure Containers Instance to your workspace. Instead, you must create a new instance.
+> Azure Machine Learning Compute and Azure Container Instances must be created from within a workspace. You cannot attach existing instances to a workspace.
 >
-> You cannot create Azure HDInsight, Azure Databricks, or Azure Data Lake Store within a workspace. Instead, you must create the resource and then attach it to your workspace.
+> Other compute targets must be created outside Azure Machine Learning and then attached to your workspace.
 
 ## Workflow
 
@@ -117,94 +115,13 @@ run_config_system_managed.environment.python.conda_dependencies = CondaDependenc
 
 For a Jupyter Notebook that demonstrates training in a system-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
 
-## <a id="dsvm"></a>Data Science Virtual Machine
+## <a id="batch"></a><a id="amlcompute"></a>Azure Machine Learning Compute
 
-Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Data Science Virtual Machines (DSVM).
+Azure Machine Learning Compute is part of the Azure Machine Learning service. You can use Azure Machine Learning Compute to distribute the training across a cluster of compute resources in the cloud. It can also be configured to enable a GPU resource.
 
-> [!WARNING]
-> Azure Machine Learning only supports virtual machines running Ubuntu. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
+The following example looks for an existing ML Compute cluster by name. If one is not found, it is created:
 
-The following steps use the SDK to configure a Data Science Virtual Machine (DSVM) as a training target:
-
-1. Create or attach a Virtual Machine
-    
-    * To create a new DSVM, first check to see if you have a DSVM with the same name, if not create a new VM:
-    
-        ```python
-        from azureml.core.compute import DsvmCompute
-        from azureml.core.compute_target import ComputeTargetException
-
-        compute_target_name = 'mydsvm'
-
-        try:
-            dsvm_compute = DsvmCompute(workspace = ws, name = compute_target_name)
-            print('found existing:', dsvm_compute.name)
-        except ComputeTargetException:
-            print('creating new.')
-            dsvm_config = DsvmCompute.provisioning_configuration(vm_size = "Standard_D2_v2")
-            dsvm_compute = DsvmCompute.create(ws, name = compute_target_name, provisioning_configuration = dsvm_config)
-            dsvm_compute.wait_for_completion(show_output = True)
-        ```
-    * To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name, login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
-
-        ```python
-        from azureml.core.compute import RemoteCompute
-
-        dsvm_compute = RemoteCompute.attach(ws,
-                                        name="attach-dsvm",
-                                        username='<username>',
-                                        address="<fqdn>",
-                                        ssh_port=22,
-                                        password="<password>")
-
-        dsvm_compute.wait_for_completion(show_output=True)
-    
-   It takes around 5 minutes to create the DSVM instance.
-
-1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
-
-    ```python
-    from azureml.core.runconfig import RunConfiguration
-    from azureml.core.conda_dependencies import CondaDependencies
-
-    # Load the "cpu-dsvm.runconfig" file (created by the above attach operation) in memory
-    run_config = RunConfiguration(framework = "python")
-
-    # Set compute target to the Linux DSVM
-    run_config.target = compute_target_name
-
-    # Use Docker in the remote VM
-    run_config.environment.docker.enabled = True
-
-    # Use CPU base image
-    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
-    run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-    print('Base Docker image is:', run_config.environment.docker.base_image)
-
-    # Ask system to provision a new one based on the conda_dependencies.yml file
-    run_config.environment.python.user_managed_dependencies = False
-
-    # Prepare the Docker and conda environment automatically when used the first time.
-    run_config.prepare_environment = True
-
-    # specify CondaDependencies obj
-    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
-
-    ```
-
-1. To delete the compute resources when you are finished, use the following code:
-
-    ```python
-    dsvm_compute.delete()
-    ```
-
-For a Jupyter Notebook that demonstrates training on a Data Science Virtual Machine, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
-
-## <a id="batch"></a>Azure Batch AI
-
-If it takes a long time to train your model, you can use Azure Batch AI to distribute the training across a cluster of compute resources in the cloud. Batch AI can also be configured to enable a GPU resource.
-
-The following example looks for an existing Batch AI cluster by name. If one is not found, it is created:
+TBD: Update code for managed compute
 
 ```python
 from azureml.core.compute import BatchAiCompute
@@ -242,30 +159,66 @@ else:
     print(compute_target.status.serialize())
 ```
 
-To attach an existing Batch AI cluster as a compute target, you must provide the Azure resource ID. To get the resource ID from the Azure portal, use the following steps:
-1. Search for `Batch AI` service under **All Services**
-1. Click on the workspace name in which your cluster belongs
-1. Select the cluster
-1. Click on **Properties**
-1. Copy the **ID**
 
-The following example uses the SDK to attach a cluster to your workspace. In the example, replace `<name>` with any name for the compute. The name does not have to match the name of the cluster. Replace `<resource-id>` with the Azure resource ID detailed above:
+It takes around 5 minutes to create an ML Compute cluster.
 
-```python
-from azureml.core.compute import BatchAiCompute
-BatchAiCompute.attach(workspace=ws,
-                      name=<name>,
-                      resource_id=<resource-id>)
-```
+For a Jupyter Notebook that demonstrates training in an ML Compute cluster, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
 
-You can also check the Batch AI cluster and job status using the following Azure CLI commands:
+## <a id="dsvm"></a>Data Science Virtual Machine
 
-- Check cluster status. You can see how many nodes are running by using `az batchai cluster list`.
-- Check job status. You can see how many jobs are running by using `az batchai job list`.
+Your local machine may not have the compute or GPU resources required to train the model. In this situation, You can scale up or scale out the training process by adding additional compute targets such as a Data Science Virtual Machines (DSVM).
 
-It takes around 5 minutes to create the Batch AI cluster.
+> [!WARNING]
+> Azure Machine Learning only supports virtual machines running Ubuntu. When creating a virtual machine or selecting an existing one, you must select one that uses Ubuntu.
 
-For a Jupyter Notebook that demonstrates training in a Batch AI cluster, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/training/03.train-hyperparameter-tune-deploy-with-tensorflow/03.train-hyperparameter-tune-deploy-with-tensorflow.ipynb).
+The following steps use the SDK to configure a Data Science Virtual Machine (DSVM) as a training target:
+
+1. To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name, login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
+
+        ```python
+        from azureml.core.compute import RemoteCompute
+
+        dsvm_compute = RemoteCompute.attach(ws,
+                                        name="attach-dsvm",
+                                        username='<username>',
+                                        address="<fqdn>",
+                                        ssh_port=22,
+                                        password="<password>")
+
+        dsvm_compute.wait_for_completion(show_output=True)
+
+1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
+
+    ```python
+    from azureml.core.runconfig import RunConfiguration
+    from azureml.core.conda_dependencies import CondaDependencies
+
+    # Load the "cpu-dsvm.runconfig" file (created by the above attach operation) in memory
+    run_config = RunConfiguration(framework = "python")
+
+    # Set compute target to the Linux DSVM
+    run_config.target = compute_target_name
+
+    # Use Docker in the remote VM
+    run_config.environment.docker.enabled = True
+
+    # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
+    run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
+    print('Base Docker image is:', run_config.environment.docker.base_image)
+
+    # Ask system to provision a new one based on the conda_dependencies.yml file
+    run_config.environment.python.user_managed_dependencies = False
+
+    # Prepare the Docker and conda environment automatically when used the first time.
+    run_config.prepare_environment = True
+
+    # specify CondaDependencies obj
+    run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'])
+
+    ```
+
+For a Jupyter Notebook that demonstrates training on a Data Science Virtual Machine, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/04.train-on-remote-vm/04.train-on-remote-vm.ipynb).
 
 ## <a name='aci'></a>Azure Container Instance (ACI)
 
