@@ -74,7 +74,7 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 #### Attach the OS disk to a recovery VM
 
 1. [Attach the OS disk to a recovery VM](../windows/troubleshoot-recovery-disks-portal.md).
-2.Start a Remote Desktop connection to the recovery VM. 
+2. Start a Remote Desktop connection to the recovery VM. 
 3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 
 #### Enable dump log and Serial Console (Optional)
