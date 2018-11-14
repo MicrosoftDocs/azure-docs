@@ -26,7 +26,7 @@ In the [Speech Service SDK](speech-sdk.md), regions are specified as a string
 
 ### Speech recognition and translation
 
-This table lists available regions for **speech recognition** and **translation** using the Speech SDK.
+The Speech SDK is available in these regions for **speech recognition** and **translation**:
 
   Region | Speech SDK Parameter | Speech Customization Portal
  ------|-------|--------
