@@ -265,7 +265,7 @@ To open Production Server Addition Wizard, complete the following procedure:
 
 2. On the **Select Production Server type** page, select **VMware Servers**, and then click **Next**.
 
-3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server. If all the ESXi servers are managed by the same vCenter, you can use the vCenter name.
+3. In **Server Name/IP Address**, specify the fully qualified domain name (FQDN) or IP address of the VMware server (the host ESXi server). If all the ESXi servers are managed by the same vCenter, you can use the vCenter name.
 
     ![Specify VMware server FQDN or IP address](./media/backup-azure-backup-server-vmware/add-vmware-server-provide-server-name.png)
 
