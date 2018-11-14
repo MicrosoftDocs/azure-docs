@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: concepts
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -50,9 +50,8 @@ Customers can provision HSMs in specific regions using PowerShell or command-lin
 
 Dedicated HSMs will roll out to limited Azure regions starting November 2018. See the roll-out schedule below:
 
-![Dedicated HSM region support](media/faq/regions.png)
-
 | Target Date | Azure Regions |
+|-------|------|
 | November 2018 | US (4), Asia (2), EU (2) East US, West US, South Central US, East US 2, Southeast Asia (Singapore), East Asia (Hong Kong), West Europe (Amsterdam), North Europe (Dublin) |
 | Early 2019 | All above + UK (2), Canada (2) UK South, UK West, Canada Central, Canada East |
 | Mid 2019 | All above + Australia (2) Australia East, Australia Southeast |
