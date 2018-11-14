@@ -4,8 +4,8 @@ description: In this article, we show an architecture for running an IBM Db2 pur
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
-manager: EdPrice-MSFT
-editor: EdPrice-MSFT
+manager: edprice
+editor: edprice
 tags: 
 
 ms.assetid: 
