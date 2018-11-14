@@ -14,14 +14,14 @@ ms.author: iainfou
 
 As you manage clusters in Azure Kubernetes Service (AKS), the security of your workloads and data is a key consideration. Especially when you run multi-tenant clusters using logical isolation, you need to secure access to resources and workloads. To minimize the risk of attack, you also need to make sure you apply the latest Kubernetes and node OS security updates.
 
-This best practices article focuses on how to secure your AKS cluster. You learn how to:
+This article focuses on how to secure your AKS cluster. You learn how to:
 
 > [!div class="checklist"]
 > * Use Azure Active Directory and role-based access controls to secure API server access
 > * Upgrade an AKS cluster to the latest Kubernetes version
 > * Keep nodes update to date and automatically apply security patches
 
-You can also read the [best practices for container security][best-practices-container-security] and the [best practices for pod security][best-practices-pod-security].
+You can also read the best practices for [container security][best-practices-container-security] and for [pod security][best-practices-pod-security].
 
 ## Secure access to the API server and cluster nodes
 
@@ -29,7 +29,7 @@ You can also read the [best practices for container security][best-practices-con
 
 The Kubernetes API server provides a single connection point for requests to perform actions within a cluster. To secure and audit access to the API server, you should limit access and provide the least privileged access permissions required. This approach isn't unique to Kubernetes, but is especially important when the AKS cluster is logically isolated for multi-tenant use.
 
-Azure Active Directory (AD) provides an enterprise-ready identity management solution that can integrate with AKS clusters. As Kubernetes doesn't provide an identity management solution, it's hard to provide a granular way to restrict access to the API server. With Azure AD-integrated clusters in AKS, you can use your existing user and group accounts to authenticate users to the API server.
+Azure Active Directory (AD) provides an enterprise-ready identity management solution that can integrate with AKS clusters. As Kubernetes doesn't provide an identity management solution, it can otherwise be hard to provide a granular way to restrict access to the API server. With Azure AD-integrated clusters in AKS, you can use your existing user and group accounts to authenticate users to the API server.
 
 ![Azure Active Directory integration for AKS clusters](media/operator-best-practices-cluster-security/aad-integration.png)
 
@@ -41,15 +41,15 @@ For more information about Azure AD integration and RBAC, see [Best practices fo
 
 **Best practice guidance** - To stay current on new features and bug fixes, regularly upgrade to the Kubernetes version in your AKS cluster.
 
-Kubernetes release new features at a quicker pace than more traditional infrastructure platforms that you may use. Kubernetes updates include new features, and bug or security fixes in the existing code. New features typically move through an *alpha* and then *beta* status before they are generally available and recommended for production use. This release approach should allow you to update Kubernetes without encountering breaking changes or adjusting your deployments and templates.
+Kubernetes release new features at a quicker pace than more traditional infrastructure platforms. Kubernetes updates include new features, and bug or security fixes. New features typically move through an *alpha* and then *beta* status before they are generally available and recommended for production use. This release cycle should allow you to update Kubernetes without regularly encountering breaking changes or adjusting your deployments and templates.
 
-In AKS, a defined support policy for Kubernetes version encourages you to regularly update your cluster. You can check for what version upgrades are available for your cluster using the [az aks get-upgrades][az-aks-get-upgrades] command, as shown in the following example:
+In AKS, a defined support policy for Kubernetes version encourages you to regularly update your cluster. You can check for which versions are available for your cluster using the [az aks get-upgrades][az-aks-get-upgrades] command, as shown in the following example:
 
 ```azurecli-interactive
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-You can then upgrade your AKS cluster using the [az aks upgrade][az-aks-upgrade] command. The upgrade safely cordons and drains a node one at a time, schedules pods on remaining nodes, and then deploys a new node running the latest OS and Kubernetes versions.
+You can then upgrade your AKS cluster using the [az aks upgrade][az-aks-upgrade] command. The upgrade process safely cordons and drains one node at a time, schedules pods on remaining nodes, and then deploys a new node running the latest OS and Kubernetes versions.
 
 ```azurecli-interactive
 az aks upgrade --resource-group myResourceGroup --name myAKSCluster --kubernetes-version 1.11.3
@@ -63,7 +63,7 @@ For more information about upgrades in AKS, see [Supported Kubernetes versions i
 
 Each evening, AKS nodes apply updates and security patches through their distro update channel. This behavior is configured automatically as the nodes are deployed in an AKS cluster. To minimize disruption, nodes are not automatically rebooted if a security patch or kernel update requires it.
 
-The open-source [kured (KUbernetes REboot Daemon)][kured] project by Weaveworks watches for pending node reboots. When a node applies updates that require a reboot, the node is safely cordoned and drain to schedule the pods on other nodes in the cluster. Once the node is rebooted, Kubernetes resumes scheduling pods. To minimize disruption, only one node at a time is permitted to be rebooted by `kured`.
+The open-source [kured (KUbernetes REboot Daemon)][kured] project by Weaveworks watches for pending node reboots. When a node applies updates that require a reboot, the node is safely cordoned and drain to schedule the pods on other nodes in the cluster. Once the node is rebooted, Kubernetes resumes scheduling pods on it. To minimize disruption, only one node at a time is permitted to be rebooted by `kured`.
 
 ![The AKS node reboot process using kured](media/operator-best-practices-cluster-security/node-reboot-process.png)
 
@@ -73,7 +73,7 @@ For more information about how to handle node reboots, see [Apply security and k
 
 ## Next steps
 
-This best practices article focused on how to secure your AKS cluster. To implement some of these best practices, see the following articles:
+This article focused on how to secure your AKS cluster. To implement some of these areas, see the following articles:
 
 * [Integrate Azure Active Directory with AKS][aks-aad]
 * [Upgrade an AKS cluster to the latest version of Kubernetes][aks-upgrade]

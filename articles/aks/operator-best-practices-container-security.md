@@ -12,9 +12,9 @@ ms.author: iainfou
 
 # Best practices for container security in Azure Kubernetes Service (AKS)
 
-As you develop and run applications in Azure Kubernetes Service (AKS), the security of the containers you use is a key consideration. Containers that include out-of-date base images or application runtimes introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers, and limit access that containers have to the underlying AKS nodes.
+As you develop and run applications in Azure Kubernetes Service (AKS), the security of your containers is a key consideration. Containers that include out-of-date base images or application runtimes introduce a security risk and possible attack vector. To minimize these risks, you should integrate tools that scan for and remediate issues in your containers, and limit access that containers have to the underlying AKS nodes.
 
-This best practices article focuses on how to secure your containers in AKS. You learn how to:
+This article focuses on how to secure your containers in AKS. You learn how to:
 
 > [!div class="checklist"]
 > * Scan for and remediate image vulnerabilities
@@ -22,7 +22,7 @@ This best practices article focuses on how to secure your containers in AKS. You
 > * Automatically trigger and redeploy container images when a base image is updated
 > * Limit access to node resources from within a container using AppArmour or Seccomp
 
-You can also read the [best practices for cluster security][best-practices-cluster-security] and the [best practices for pod security][best-practices-pod-security].
+You can also read the best practices for [cluster security][best-practices-cluster-security] and for [pod security][best-practices-pod-security].
 
 ## Secure the images and run time
 
@@ -32,11 +32,19 @@ One concern with the adoption of container-based workloads is verifying the secu
 
 ![Scan and remediate container images, validate, and deploy](media/operator-best-practices-container-security/scan-container-images.png)
 
-For additional security, you can also digitally sign your container images and then only permit deployments of signed images. This process provides an additional layer of security in that you can further restrict what images can be deployed, not just ones that pass a vulnerability check. Trusted registries that provide digitally signed container images add complexity to your environment, but may be required for certain policy or regulatory compliance. Azure Container Registry supports the use of trusted registries and signed images.
+### Use a trusted registry
+
+For additional security, you can also digitally sign your container images. You then only permit deployments of signed images. This process provides an additional layer of security in that limit to only images digitally signed and trusted by you, not just images that pass a vulnerability check.
+
+Trusted registries that provide digitally signed container images add complexity to your environment, but may be required for certain policy or regulatory compliance. Azure Container Registry supports the use of trusted registries and signed images.
 
 For more information about digitally signed images, see [Content trust in Azure Container Registry][acr-content-trust].
 
-Azure Container Registry Tasks can also automatically update container images when the base image is updated. This feature allows you to build a small number of base images, and regularly keep them updated with bug and security fixes. Each time those base images are updated, any downstream container images can also then be updated to use the new base image. This process should be integrated into validation and deployment pipelines such as [Azure Pipelines][azure-pipelines] to make sure your applications continue to run on the updated based images. Once your application container images are validated, the AKS deployments can then be updated to run the latest, secure images.
+### Automatically build new images on base image update
+
+Each time a base image is updated, any downstream container images should also be updated. This build process should be integrated into validation and deployment pipelines such as [Azure Pipelines][azure-pipelines] to make sure that your applications continue to run on the updated based images. Once your application container images are validated, the AKS deployments can then be updated to run the latest, secure images.
+
+Azure Container Registry Tasks can also automatically update container images when the base image is updated. This feature allows you to build a small number of base images, and regularly keep them updated with bug and security fixes.
 
 For more information about base image updates, see [Automate image builds on base image update with Azure Container Registry Tasks][acr-base-image-update].
 
@@ -44,22 +52,22 @@ For more information about base image updates, see [Automate image builds on bas
 
 **Best practice guidance** - Limit access to actions that containers can perform. Provide the least number of permissions, and avoid the use of root / privileged escalation.
 
-In the same way that you should users or groups the least number of privileges required, containers should also be limited to only the actions and processed they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. You should also avoid granting containers visibility to the namespaces that outline processes running on the underlying AKS nodes:
+In the same way that you should grant users or groups the least number of privileges required, containers should also be limited to only the actions and processes that they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. You should also avoid granting containers visibility to the namespaces that outline processes running on the underlying AKS nodes:
 
 * **Host IPC** (interprocess communication) namespace
-  * When you share the host IPC namespace, container processes can communicate with processes that run on the underlying node. This visibility could expose other services that attackers can target if known vulnerabilities exist in them.
+  * When you share the host IPC namespace, container processes can communicate with processes that run on the underlying node. This visibility could expose other services that attackers can target known vulnerabilities.
 * **Host PID** (process ID) namespace
   * When you share the host PID namespace, containers can see processes that run on the underlying node. This visibility could expose environment variables or configurations that give an attacker an awareness of your internal system.
 
-For more granular control of container actions, you can use some built-in Linux security features - AppArmor and seccomp.
+For more granular control of container actions, you can also use built-in Linux security features such as AppArmor and seccomp.
 
-### Use App Armor
+### App Armor
 
-To limit the actions that containers can perform, you can use the [AppAmour][k8s-appamor] Linux kernel security module. AppArmor is available as part of the underlying node OS, and is enabled by default. You create AppArmor profiles that restrict actions such as read, write, or execute, or system functions such as mounting filesystems. Default AppArmor profiles restrict access to various `/proc` and `/sys` locations, and provide a means to logically isolate containers from the underlying node. AppArmor works for any application that runs on Linux, not just Kubernetes pods.
+To limit the actions that containers can perform, you can use the [AppAmour][k8s-apparmor] Linux kernel security module. AppArmor is available as part of the underlying AKS node OS, and is enabled by default. You create AppArmor profiles that restrict actions such as read, write, or execute, or system functions such as mounting filesystems. Default AppArmor profiles restrict access to various `/proc` and `/sys` locations, and provide a means to logically isolate containers from the underlying node. AppArmor works for any application that runs on Linux, not just Kubernetes pods.
 
 ![AppArmor profiles in use in an AKS cluster to limit container actions](media/operator-best-practices-container-security/apparmor.png)
 
-To see AppArmor in action, create a profile that prevents writing to files. [SSH][aks-ssh] to an AKS node, then create a file named *deny-write.profile* and paste the following contents:
+To see AppArmor in action, the following example creates a profile that prevents writing to files. [SSH][aks-ssh] to an AKS node, then create a file named *deny-write.profile* and paste the following content:
 
 ```
 #include <tunables/global>
@@ -72,7 +80,7 @@ profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
 }
 ```
 
-AppArmor profiles are added using the `apparmor_parser` command. Add the profile to AppArmor and specify the name of the profile file created in the previous step:
+AppArmor profiles are added using the `apparmor_parser` command. Add the profile to AppArmor and specify the name of the profile created in the previous step:
 
 ```console
 sudo apparmor_parser deny-write.profile
@@ -80,7 +88,7 @@ sudo apparmor_parser deny-write.profile
 
 There is no output returned if the profile is correctly parsed and applied to AppArmor. You are returned to the command prompt.
 
-From your local machine, now create a pod manifest named *aks-apparmor.yaml* and paste the following contents. This manifest defines an annotation for `container.apparmor.security.beta.kubernetes` add then references the *deny-write* profile created in the previous steps:
+From your local machine, now create a pod manifest named *aks-apparmor.yaml* and paste the following content. This manifest defines an annotation for `container.apparmor.security.beta.kubernetes` add references the *deny-write* profile created in the previous steps:
 
 ```yaml
 apiVersion: v1
@@ -99,7 +107,7 @@ spec:
 Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
 
 ```console
-kubectl create -f aks-apparmor.yaml
+kubectl apply -f aks-apparmor.yaml
 ```
 
 With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. The command cannot be executed, as shown in the following example output:
@@ -113,11 +121,11 @@ command terminated with exit code 1
 
 For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].
 
-### Use Seccomp
+### Secure computing
 
-While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)][seccomp] works at the process level. Seccomp is also a Linux kernel security module, and is natively supported by the Docker runtime used by AKS nodes to limit the actions containers can perform based on the process calls they make. You create filters that define what actions are allowed or denied, and then use annotations within a pod YAML manifest to associate with the seccomp filter.
+While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)][seccomp] works at the process level. Seccomp is also a Linux kernel security module, and is natively supported by the Docker runtime used by AKS nodes. With seccomp, the process calls that containers can perform are limited. You create filters that define what actions are allowed or denied, and then use annotations within a pod YAML manifest to associate with the seccomp filter.
 
-To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod*:
+To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod* and paste the following content:
 
 ```
 {
@@ -131,7 +139,7 @@ To see seccomp in action, create a filter that prevents changing permissions on 
 }
 ```
 
-From your local machine, now create a pod manifest named *aks-seccomp.yaml* and paste the following contents. This manifest defines an annotation for `seccomp.security.alpha.kubernetes.io` add then references the *prevent-chmod* filter created in the previous step:
+From your local machine, now create a pod manifest named *aks-seccomp.yaml* and paste the following content. This manifest defines an annotation for `seccomp.security.alpha.kubernetes.io` and references the *prevent-chmod* filter created in the previous step:
 
 ```yaml
 apiVersion: v1
@@ -155,10 +163,10 @@ spec:
 Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
 
 ```console
-kubectl create -f ./aks-seccomp.yaml
+kubectl apply -f ./aks-seccomp.yaml
 ```
 
-View the status of the pods using the [kubectl get pods][kubectl-get] command. The pod reports an error as the `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
+View the status of the pods using the [kubectl get pods][kubectl-get] command. The pod reports an error. The `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
 
 ```
 $ kubectl get pods
@@ -171,7 +179,7 @@ For more information about available filters, see [Seccomp security profiles for
 
 ## Next steps
 
-This best practices article focused on how to manage identity and authentication. To implement some of these best practices, see the following articles:
+This article focused on how to secure your containers. To implement some of these areas, see the following articles:
 
 * [Automate image builds on base image update with Azure Container Registry Tasks][acr-base-image-update]
 * [Content trust in Azure Container Registry][acr-content-trust]

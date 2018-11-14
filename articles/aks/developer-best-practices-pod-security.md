@@ -20,7 +20,7 @@ This best practices article focuses on how secure pods in AKS. You learn how to:
 > *
 > *
 
-You can also read the [best practices for cluster security][best-practices-cluster-security] and the [best practices for container security][best-practices-container-security].
+You can also read the best practices for [cluster security][best-practices-cluster-security] and for [container security][best-practices-container-security].
 
 ## Pod security context
 
@@ -39,7 +39,7 @@ Key Vault with FlexVol
 
 ## Next steps
 
-This best practices article focused on how to manage identity and authentication. To implement some of these best practices, see the following articles:
+This article focused on how to manage identity and authentication. To implement some of these areas, see the following articles:
 
 * [Use managed identities for Azure resources with AKS][aad-pod-identity]
 * [Integrate Azure Key Vault with AKS][aks-keyvault-flexvol]
