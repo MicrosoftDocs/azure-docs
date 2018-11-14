@@ -71,13 +71,13 @@ The event formats for each of the event types are described in the following sec
   "eventTime": "2018-04-17T17:41:54.9400177Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Custom attribute name | Replace with |
+| Value | Replace with |
 | --- | --- |
-| yourTopicName | The name of your customized topic |
+| YOUR_TOPIC_NAME | The name of your customized topic |
 
 ### UdfCustom
 
@@ -102,13 +102,13 @@ The event formats for each of the event types are described in the following sec
   "eventTime": "2018-10-02T06:50:15.198Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Custom attribute name | Replace with |
+| Value | Replace with |
 | --- | --- |
-| yourTopicName | The name of your customized topic |
+| YOUR_TOPIC_NAME | The name of your customized topic |
 
 ### SensorChange
 
@@ -137,13 +137,13 @@ The event formats for each of the event types are described in the following sec
   "eventTime": "2018-04-17T17:46:18.5452993Z",
   "dataVersion": "1",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Custom attribute name | Replace with |
+| Value | Replace with |
 | --- | --- |
-| yourTopicName | The name of your customized topic |
+| YOUR_TOPIC_NAME | The name of your customized topic |
 
 ### SpaceChange
 
@@ -172,13 +172,13 @@ The event formats for each of the event types are described in the following sec
   "eventTime": "2018-10-02T06:50:20.128Z",
   "dataVersion": "1.0",
   "metadataVersion": "1",
-  "topic": "/subscriptions/yourTopicName"
+  "topic": "/subscriptions/YOUR_TOPIC_NAME"
 }
 ```
 
-| Custom attribute name | Replace with |
+| Value | Replace with |
 | --- | --- |
-| yourTopicName | The name of your customized topic |
+| YOUR_TOPIC_NAME | The name of your customized topic |
 
 ### DeviceMessage
 
@@ -206,18 +206,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourTopicName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME"
   }
   ```
 
-    | Custom attribute name | Replace with |
+    | Value | Replace with |
     | --- | --- |
-    | yourNamespace | The namespace of your endpoint |
-    | yourPrimaryKey | The primary connection string used to authenticate |
-    | yourSecondaryKey | The secondary connection string used to authenticate |
-    | yourTopicName | The name of your customized topic |
+    | YOUR_NAMESPACE | The namespace of your endpoint |
+    | YOUR_PRIMARY_KEY | The primary connection string used to authenticate |
+    | YOUR_SECONDARY_KEY | The secondary connection string used to authenticate |
+    | YOUR_TOPIC_NAME | The name of your customized topic |
 
 - Route to Event Grid event types **SensorChange**, **SpaceChange**, and **TopologyOperation**:
 
@@ -229,17 +229,17 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "yourPrimaryKey",
-    "secondaryConnectionString": "yourSecondaryKey",
-    "path": "yourTopicName.westus-1.eventgrid.azure.net"
+    "connectionString": "YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "YOUR_SECONDARY_KEY",
+    "path": "YOUR_TOPIC_NAME.westus-1.eventgrid.azure.net"
   }
   ```
 
-    | Custom attribute name | Replace with |
+    | Value | Replace with |
     | --- | --- |
-    | yourPrimaryKey | The primary connection string used to authenticate|
-    | yourSecondaryKey | The secondary connection string used to authenticate |
-    | yourTopicName | The name of your customized topic |
+    | YOUR_PRIMARY_KEY | The primary connection string used to authenticate|
+    | YOUR_SECONDARY_KEY | The secondary connection string used to authenticate |
+    | YOUR_TOPIC_NAME | The name of your customized topic |
 
 - Route to Event Hubs event types **SensorChange**, **SpaceChange**, and **TopologyOperation**:
 
@@ -251,18 +251,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
       "SpaceChange",
       "TopologyOperation"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Custom attribute name | Replace with |
+    | Value | Replace with |
     | --- | --- |
-    | yourNamespace | The namespace of your endpoint |
-    | yourPrimaryKey | The primary connection string used to authenticate |
-    | yourSecondaryKey | The secondary connection string used to authenticate |
-    | yourEventHubName | The name of your event hub |
+    | YOUR_NAMESPACE | The namespace of your endpoint |
+    | YOUR_PRIMARY_KEY | The primary connection string used to authenticate |
+    | YOUR_SECONDARY_KEY | The secondary connection string used to authenticate |
+    | YOUR_EVENT_HUB_NAME | The name of your event hub |
 
 - Route to Event Hubs event type **DeviceMessage**. The inclusion of `EntityPath` in the **connectionString** is mandatory:
 
@@ -272,18 +272,18 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
     "eventTypes": [
       "DeviceMessage"
     ],
-    "connectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourPrimaryKey;EntityPath=yourEventHubName",
-    "secondaryConnectionString": "Endpoint=sb://yourNamespace.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=yourSecondaryKey;EntityPath=yourEventHubName",
-    "path": "yourEventHubName"
+    "connectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_PRIMARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "secondaryConnectionString": "Endpoint=sb://YOUR_NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=YOUR_SECONDARY_KEY;EntityPath=YOUR_EVENT_HUB_NAME",
+    "path": "YOUR_EVENT_HUB_NAME"
   }
   ```
 
-    | Custom attribute name | Replace with |
+    | Value | Replace with |
     | --- | --- |
-    | yourNamespace | The namespace of your endpoint |
-    | yourPrimaryKey | The primary connection string used to authenticate |
-    | yourSecondaryKey | The secondary connection string used to authenticate |
-    | yourEventHubName | The name of your event hub |
+    | YOUR_NAMESPACE | The namespace of your endpoint |
+    | YOUR_PRIMARY_KEY | The primary connection string used to authenticate |
+    | YOUR_SECONDARY_KEY | The secondary connection string used to authenticate |
+    | YOUR_EVENT_HUB_NAME | The name of your event hub |
 
 > [!NOTE]  
 > Upon the creation of a new endpoint, it might take up to 5 to 10 minutes to start receiving events at the endpoint.
