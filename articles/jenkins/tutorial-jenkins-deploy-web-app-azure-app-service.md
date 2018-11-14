@@ -26,10 +26,11 @@ In this tutorial, you'll complete these tasks:
 > [!div class="checklist"]
 > * Install Jenkins plug-ins so you can work with GitHub, 
 > deploy to Azure App Service, and other related tasks.
-> * Create an Azure service principal for authentication 
-> without using your own credentials. 
 > * Fork the GitHub sample repo so you have a copy for the sample app.
 > * Connect Jenkins to GitHub.
+> * Create an Azure service principal for authentication 
+> without using your own credentials.
+> * Set up your Azure service principal in Jenkins.
 > * Create a Jenkins pipeline that builds and deploys the sample app 
 > app each time you push an update to the sample app in GitHub.
 > * Create a build and deployment script for your Jenkins pipeline.
@@ -84,7 +85,7 @@ or [Azure Cloud Shell](/azure/cloud-shell/overview)
 select **Manage Jenkins** so that you return to 
 the Jenkins management page for future steps.
 
-## Fork sample repo
+## Fork sample GitHub repo
 
 1. [Sign in to GitHub repo for the Spring Boot sample app](https://github.com/spring-guides/gs-spring-boot). 
 
