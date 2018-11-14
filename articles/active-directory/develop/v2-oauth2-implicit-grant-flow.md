@@ -141,7 +141,7 @@ Once you have completely validated the id_token, you can begin a session with th
 
 ## Get access tokens
 
-Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://graph.microsoft.io). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
+Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://developer.microsoft.com/graph). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
 
 In the normal OpenID Connect/OAuth flow, you would do this by making a request to the v2.0 `/token` endpoint. However, the v2.0 endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question. Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 

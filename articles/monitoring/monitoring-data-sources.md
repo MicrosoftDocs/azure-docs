@@ -11,7 +11,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/15/2018
+ms.date: 11/13/2018
 ms.author: bwren
 
 ---
@@ -65,20 +65,21 @@ You can't directly view diagnostic logs in the Azure portal, but you can [send t
 ### Monitoring Solutions
  [Monitoring solutions](monitoring-solutions.md) collect data to provide additional insight into the operation of a particular service or application. They collect data into Log Analytics where it may be analyzed using the [query language](../log-analytics/log-analytics-queries.md) or [views](../log-analytics/log-analytics-view-designer.md) that are typically included in the solution.
 
-## Guest Operating System
+## Guest operating system
 Compute resources in Azure, in other clouds, and on-premises have a guest operating system to monitor. With the installation of one or more agents, you can gather telemetry from the guest into the same monitoring tools as the Azure services themselves.
 
 ![Azure compute resource collection](media/monitoring-data-sources/compute-resource-collection.png)
 
-### Diagnostic Extension
-With the [Azure Diagnostics Extension](../monitoring-and-diagnostics/azure-diagnostics.md), you can collect logs and performance data from the client operating system of Azure compute resources. Both metrics and logs collected from clients are stored in an Azure storage account that you can [configure Log Analytics to import from](../log-analytics/log-analytics-azure-storage-iis-table.md#use-the-azure-portal-to-collect-logs-from-azure-storage).  The Metrics explorer understands how to read from  the storage account and will include client metrics with other collected metrics.
+### Azure Diagnostic extension
+With the Azure Diagnostics extension, it provides a basic level of monitoring by collecting logs and performance data from the client operating system of Azure compute resources.   
 
+### Log Analytics agent
+Comprehensive monitoring and management of your Windows or Linux virtual machines or physical computer is delivered with the Log Analytics agent. The virtual machine can be running in Azure, another cloud, or on-premises and the agent connects to Log Analytics either directly or through System Center Operations Manager and allows you to collect data from [data sources](../log-analytics/log-analytics-data-sources.md) that you configure or from [monitoring solutions](monitoring-solutions.md) that provide additional insights into applications running on the virtual machine.
 
-### Log Analytics Agent
-You can install the Log Analytics agent on any [Windows](../log-analytics/log-analytics-agent-windows.md) or [Linux]() virtual machine or physical computer. The virtual machine can be running in Azure, another cloud, or on-premises.  The agent connects to Log Analytics either directly or through a [connected System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md) and allows you to collect data from [data sources](../log-analytics/log-analytics-data-sources.md) that you configure or from [management solutions](monitoring-solutions.md) that provide additional insights into applications running on the virtual machine.
+### Dependency agent
+[Service Map](../monitoring/monitoring-service-map.md) and [Azure Monitor for VMs](monitoring-vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines. This integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Log Analytics and visualizes the discovered interconnected components.  
 
-### Service Map
-[Service Map](../monitoring/monitoring-service-map.md) requires a Dependency Agent on Windows and Linux virtual machines. This works with the Log Analytics agent to collects data about processes running on the virtual machine and dependencies on external processes. It stores this data in Log Analytics and includes a console that visually displays the data it collects in addition to other data stored in Log Analytics.
+To further understand the differences between the agents and which to use depending on your monitoring requirements, see [monitoring agents overview](monitoring-overview-azure-agents.md).
 
 ## Applications
 In addition to telemetry that your application may write to the guest operating system, detailed application monitoring is done with [Application Insights](https://docs.microsoft.com/azure/application-insights/). Application Insights can collect data from applications running on a variety of platforms. The application can be running in Azure, another cloud, or on-premises.

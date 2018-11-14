@@ -116,7 +116,6 @@
         - name: Common questions
           href: ../log-analytics/log-analytics-oms-portal-faq.md?toc=/azure/azure-monitor/toc.json
   - name: Respond to incidents
-    href: ../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md?toc=/azure/azure-monitor/toc.json
     items:
     - name: Alerts 
       href: ../monitoring-and-diagnostics/monitoring-overview-alerts.md?toc=/azure/azure-monitor/toc.json
@@ -186,12 +185,12 @@
     items:
     - name: Install and configure agents
       items:
-      - name: Agent comparison
+      - name: Monitoring agents overview
         href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
       - name: Log Analytics agents  
         items:
-        - name: Monitor hybrid environments
-          href: ../log-analytics/log-analytics-concept-hybrid.md?toc=/azure/azure-monitor/toc.json
+        - name: Overview
+          href: ../log-analytics/log-analytics-agent-overview.md?toc=/azure/azure-monitor/toc.json
         - name: Windows agents
           href: ../log-analytics/log-analytics-agent-windows.md?toc=/azure/azure-monitor/toc.json
         - name: VM Extension for Windows
@@ -341,7 +340,7 @@
           href: ../application-insights/app-insights-java-agent.md?toc=/azure/azure-monitor/toc.json
         - name: Filter telemetry
           href: ../application-insights/app-insights-java-filter-telemetry.md?toc=/azure/azure-monitor/toc.json
-        - name: Micrometer
+        - name: Micrometer Metrics
           href: ../application-insights/micrometer-java.md?toc=/azure/azure-monitor/toc.json  
       - name: Node.js apps
         items:
@@ -527,6 +526,8 @@
           href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Disable monitoring
           href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+        - name: Upgrade agent
+          href: ../monitoring/monitoring-container-insights-agent-upgrade.md?toc=%2fazure%2fmonitoring%2ftoc.json
         - name: Troubleshooting
           href: ../monitoring/monitoring-container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
