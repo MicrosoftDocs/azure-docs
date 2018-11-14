@@ -89,6 +89,8 @@ Premium Storage:  Supported
 
 Premium Storage Caching:  Supported
 
+Infiniband: Not supported
+
 
 NDv2-series virtual machine is a new addition to the GPU family designed for the needs of the HPC, AI, and machine learning workloads. It’s powered by 8 NVIDIA Tesla V100 NVLINK interconnected GPUs and 40 Intel Skylake cores and 672 GiB of system memory. NDv2 instance provides excellent FP32 and FP64 performance for HPC and AI workloads utilizing Cuda, TensorFlow, Pytorch, Caffe, and other frameworks.
 
@@ -96,9 +98,9 @@ NDv2-series virtual machine is a new addition to the GPU family designed for the
 <br>
 
 
-| Size              | vCPU’s | GPU              | Memory  | NICs (Max) | Max. disk size           | Max. data disks (1023 GB each) | Max network bandwidth | Infiniband |
+| Size              | vCPU’s | GPU              | Memory  | NICs (Max) | Max. disk size           | Max. data disks (1023 GB each) | Max network bandwidth | 
 |-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
-| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32    | 24,000 Mbps             | No      |
+| Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporary 1344 / 2948XIO | 32    | 24,000 Mbps             | 
 
 ## ND-series
 
