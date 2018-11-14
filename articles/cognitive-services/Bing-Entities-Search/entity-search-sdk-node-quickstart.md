@@ -21,8 +21,8 @@ The [source code for C# Bing Entity Search SDK samples](https://github.com/Azure
 ## Application dependencies
 
 To set up a console application using the Bing Entity Search SDK:
-Run `npm install ms-rest-azure` in your development environment.
-Run `npm install azure-cognitiveservices-entitysearch` in your development environment.
+* Run `npm install ms-rest-azure` in your development environment.
+* Run `npm install azure-cognitiveservices-entitysearch` in your development environment.
 
 ## Entity Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:

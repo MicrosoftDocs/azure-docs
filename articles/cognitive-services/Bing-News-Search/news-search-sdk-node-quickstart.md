@@ -22,8 +22,8 @@ The [source code for Node Bing News Search SDK samples](https://github.com/Azure
 ## Application dependencies
 
 To set up a console application using the Bing News Search SDK:
-Run `npm install ms-rest-azure` in your development environment.
-Run `npm install azure-cognitiveservices-newssearch` in your development environment.
+* Run `npm install ms-rest-azure` in your development environment.
+* Run `npm install azure-cognitiveservices-newssearch` in your development environment.
 
 ## News Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:
