@@ -92,7 +92,7 @@ If you prefer to use Azure PowerShell to create the cluster and the SQL Database
         
         |Name|Value|
         |----|-----|
-        | Default storage account name | &lt;CluterName>store |
+        | Default storage account name | &lt;ClusterName>store |
         | Azure SQL database server name | &lt;ClusterName>dbserver |
         | Azure SQL database name | &lt;ClusterName>db |
      
