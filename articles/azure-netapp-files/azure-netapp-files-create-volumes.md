@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/28/2018
+ms.date: 11/13/2018
 ms.author: b-juche
 ---
 # Create a volume for Azure NetApp Files
@@ -39,7 +39,7 @@ You must also have a subnet that is delegated to Azure NetApp Files.
 
     * **File path**  
         Specify the file path that will be used to create the export path for the new volume. The export path is used to mount and access the volume.   
-        A mount target is the endpoint of the NFS service IP address. It is automatically generated.    
+     
         The file path name can contain letters, numbers, and hyphens ("-") only. It must be between 16 and 40 characters in length.  
 
     * **Quota**  
@@ -52,12 +52,14 @@ You must also have a subnet that is delegated to Azure NetApp Files.
 
     * **Subnet**  
         Specify the subnet that you want to use for the volume.  
-        The subnet you specify must be delegated to the Azure NetApp Files service. 
-        You can create a new subnet by selecting **Create new** under the Subnet field.  
+        The subnet you specify must be delegated to Azure NetApp Files. 
+        
+        If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files.    
  
-<!-- 
     ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
---> 
+    
+    ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+
 
 4.	Click **OK**. 
  
