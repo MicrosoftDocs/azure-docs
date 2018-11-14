@@ -43,14 +43,25 @@ Configure your Azure AD app to use the OAuth 2.0 implicit grant flow.
 Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
 1. Go to [www.getpostman.com]([https://www.getpostman.com/) to download the app.
+1. Ensure that your authorization URL is correct. It should take the format:
+
+    ```plaintext
+    https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
+    ```
+
+    | Name  | Replace with | Example |
+    |---------|---------|---------|
+    | YOUR_AZURE_TENANT | The name of your tenant or organization | `microsoft` |
+    | YOUR_RESOURCE_ID | The resource ID | `10b07f429-9f4b-4714-9392-cc5e8e80c8b0` |
+
 1. Select the **Authorization** tab, select **OAuth 2.0**, and then select **Get New Access Token**.
 
-    |**Field**  |**Value** |
+    | Field  | Value |
     |---------|---------|
     | Grant Type | `Implicit` |
     | Callback URL | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
-    | Auth URL | https://login.microsoftonline.com/yourAzureTenant.onmicrosoft.com/oauth2/authorize?resource=0b07f429-9f4b-4714-9392-cc5e8e80c8b0 |
-    | Client ID | Use the Application ID for the Azure AD app that was created or repurposed from Step 2 |
+    | Auth URL | Use the authorization URL from step 2 |
+    | Client ID | Use the Application ID for the Azure AD app that was created or repurposed from the previous section |
     | Scope | leave blank |
     | State | leave blank |
     | Client Authentication | `Send as Basic Auth header` |
