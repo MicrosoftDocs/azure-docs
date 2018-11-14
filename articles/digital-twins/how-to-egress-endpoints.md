@@ -212,7 +212,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Your value | Replace with |
+    | Value | Replace with |
     | --- | --- |
     | YOUR_NAMESPACE | The namespace of your endpoint |
     | YOUR_PRIMARY_KEY | The primary connection string used to authenticate |
@@ -235,7 +235,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Your value | Replace with |
+    | Value | Replace with |
     | --- | --- |
     | YOUR_PRIMARY_KEY | The primary connection string used to authenticate|
     | YOUR_SECONDARY_KEY | The secondary connection string used to authenticate |
@@ -257,7 +257,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Your value | Replace with |
+    | Value | Replace with |
     | --- | --- |
     | YOUR_NAMESPACE | The namespace of your endpoint |
     | YOUR_PRIMARY_KEY | The primary connection string used to authenticate |
@@ -278,7 +278,7 @@ POST https://endpoints-demo.azuresmartspaces.net/management/api/v1.0/endpoints
   }
   ```
 
-    | Your value | Replace with |
+    | Value | Replace with |
     | --- | --- |
     | YOUR_NAMESPACE | The namespace of your endpoint |
     | YOUR_PRIMARY_KEY | The primary connection string used to authenticate |
