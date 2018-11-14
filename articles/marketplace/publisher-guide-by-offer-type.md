@@ -29,6 +29,10 @@ A single offer type can be configured differently in the Cloud Partner Portal to
 
 Be sure to review the storefront and offer type eligibility requirements and the technical publishing requirements before creating your offer.
 
+## List of offer types
+
+Azure Marketplace offer types are listed in the table below.
+
 | **Offer type**    | **Description**  |
 | :------------------- | :-------------------|
 | [**Virtual machines**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |

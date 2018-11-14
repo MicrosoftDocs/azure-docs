@@ -30,7 +30,7 @@ Azure Marketplace publishing options offer unique ways to connect cloud software
 
 The following publishing options are available to Azure Marketplace publishers.
 
-### List & Trial publishing options
+### List & trial publishing options
 
 In Azure Marketplace, publishers can leverage the list and trial publishing options for promotional and user acquisition purposes. With the list or trial publishing options, Microsoft doesn't participate directly in the publisher’s software license transactions, and there is no associated transaction fee. Publishers are responsible for supporting all aspects of the software license transaction, including but not limited to: order, fulfillment, metering, billing, invoicing, payment, and collection. With the list and trial publishing options, publishers keep 100% of publisher software licensing fees collected from the customer. 
 
@@ -46,15 +46,15 @@ The Transact publishing option in Azure Marketplace is currently supported in th
 
 ![[Transacting Enterprise Deals in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
-### Virtual Machines and Azure Applications
+### Virtual Machines and Azure applications
 
 For Virtual Machines and Azure Applications, the Azure infrastructure usage fees are billed to the customer’s Azure subscription.  Infrastructure usage fees are priced and presented separately from the software provider’s licensing fees on the customer’s invoice.
 
-### SaaS Apps
+### SaaS apps
 
 For SaaS Apps, the publisher must account for Azure infrastructure usage fees, and software licensing fees as a single cost item.  It is represented as a flat monthly fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly.  Actual infrastructure usage fees are not seen by the customer.  Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing.  Software licensing fees aren't metered or consumption based.
 
-### Private Offers 
+### Private offers
 
 In addition to using offer types and billing models to monetize an offer, publishers can transact a private version of solution offer, complete with negotiated, deal-specific pricing, and custom configurations using a customized image. [Private offers](./private-offers.md) are supported by all 3 transact publishing options.
 
@@ -129,7 +129,7 @@ This pricing option can be the higher or lower than the publicly displayed prici
 |Microsoft keeps the Azure usage cost    |   $0.14 per hour     |
 |Microsoft keeps 0% of your license cost   |  $0.00 per hour       |
 
-**SaaS App subscription (Sell through Azure)** 
+**SaaS App subscription (Sell through Azure)**
 
 This option must be configured to sell through Microsoft and can be priced using one or more flat-rate monthly Plans defined at the offer level.
 
@@ -149,7 +149,7 @@ This option must be configured to sell through Microsoft and can be priced using
 
 ### Customer invoicing, payment, billing, and collections
 
-**Invoicing and Payment**
+**Invoicing and payment**
 
 Publisher can use the customer’s preferred invoicing method to deliver subscription or PAYGO software license fees.
 
