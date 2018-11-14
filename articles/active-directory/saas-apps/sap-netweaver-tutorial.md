@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2018
+ms.date: 11/29/2018
 ms.author: jeedes
 
 ---
@@ -36,6 +36,7 @@ To configure Azure AD integration with SAP NetWeaver, you need the following ite
 
 - An Azure AD subscription
 - SAP NetWeaver single sign-on enabled subscription
+- SAP NetWeaver Version 7.20 required atleast
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -166,7 +167,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-11. On the **Basic SAML Configuration** section, if you have **Service Provider metadata file**, perform the following steps:
+11. On the **Basic SAML Configuration** section, to upload the **Service Provider metadata file** which you had earlier, perform the following steps:
 
 	a. Click **Upload metadata file**.
 
@@ -181,9 +182,6 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	![SAP NetWeaver Domain and URLs single sign-on information](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_url.png)
 
 	d. In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<your company instance of SAP NetWeaver>`
-
-	> [!NOTE]
-	> You get the **Service Provider metadata file** on the SAP NetWeaver SAML 2.0 Configuration of ABAP System page which is explained above in the tutorial.
 
 12. SAP NetWeaver application expects the SAML assertions in a specific format. Configure the following claims for this application. You can manage the values of these attributes from the **User Attributes** section on application integration page. On the **Set up Single Sign-On with SAML** page, click **Edit** button to open **User Attributes** dialog.
 
@@ -243,7 +241,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_identityprovider.png)
 
-22. On **Single Sign-On Endpoints**,use **HTTP Redirect** rather than HTTP PSOT and click **Next** to continue.
+22. On **Single Sign-On Endpoints**, use **HTTP POST** and click **Next** to continue.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_httpredirect.png)
 
@@ -273,7 +271,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 29. Note that **user ID Source** and **user id mapping mode** values determine the link between SAP user and Azure AD claim.  
 
-30. Scenario: SAP User to Azure AD user mapping.
+	####Scenario: SAP User to Azure AD user mapping.
 
 	a. NameID details screen shot from SAP.
 
@@ -283,7 +281,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad1.png)
 
-31. Scenario: Select SAP user id based on configured email address in SU01. In this case email id should be configured in su01 for each user who requires SSO.
+	####Scenario: Select SAP user id based on configured email address in SU01. In this case email id should be configured in su01 for each user who requires SSO.
 
 	a.  NameID details screen shot from SAP.
 
@@ -293,11 +291,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/claimsaad2.png)
 
-32. Click **Save** and then click **Enable** to enable identity provider.
+30. Click **Save** and then click **Enable** to enable identity provider.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration1.png)
 
-33. Click **OK** once prompted.
+31. Click **OK** once prompted.
 
 	![Configure Single Sign-On](./media/sapnetweaver-tutorial/configuration2.png)
 
