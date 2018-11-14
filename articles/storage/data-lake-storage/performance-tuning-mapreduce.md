@@ -16,6 +16,8 @@ ms.author: stewu
 ---
 # Performance tuning guidance for MapReduce on HDInsight and Azure Data Lake Storage Gen2
 
+Understand the factors that you should consider when you tune the performance of Map Reduce jobs. This article covers a range of performance tuning guidelines.
+
 ## Prerequisites
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
