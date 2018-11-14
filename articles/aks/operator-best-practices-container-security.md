@@ -32,7 +32,7 @@ One concern with the adoption of container-based workloads is verifying the secu
 
 ![Scan and remediate container images, validate, and deploy](media/operator-best-practices-container-security/scan-container-images.png)
 
-For additional security, you can also digitally sign your container images and then only permit deployments of signed images. This process provides an additional layer of security in that you can further restrict what images can be deployed, not just those that pass a vulnerability check. Trusted registries that provide digitally signed container images add complexity to your environment, but may be required for certain policy or regulatory compliance. Azure Container Registry supports the use of trusted registries and signed images.
+For additional security, you can also digitally sign your container images and then only permit deployments of signed images. This process provides an additional layer of security in that you can further restrict what images can be deployed, not just ones that pass a vulnerability check. Trusted registries that provide digitally signed container images add complexity to your environment, but may be required for certain policy or regulatory compliance. Azure Container Registry supports the use of trusted registries and signed images.
 
 For more information about digitally signed images, see [Content trust in Azure Container Registry][acr-content-trust].
 
@@ -42,14 +42,132 @@ For more information about base image updates, see [Automate image builds on bas
 
 ## Secure container access
 
-**Best practice guidance** - 
+**Best practice guidance** - Limit access to actions that containers can perform. Provide the least number of permissions, and avoid the use of root / privileged escalation.
 
-Avoid access to HOST IPC and HOST PID namespace
-Avoid root / privileged access
+In the same way that you should users or groups the least number of privileges required, containers should also be limited to only the actions and processed they need. To minimize the risk of attack, don't configure applications and containers that require escalated privileges or root access. You should also avoid granting containers visibility to the namespaces that outline processes running on the underlying AKS nodes:
+
+* **Host IPC** (interprocess communication) namespace
+  * When you share the host IPC namespace, container processes can communicate with processes that run on the underlying node. This visibility could expose other services that attackers can target if known vulnerabilities exist in them.
+* **Host PID** (process ID) namespace
+  * When you share the host PID namespace, containers can see processes that run on the underlying node. This visibility could expose environment variables or configurations that give an attacker an awareness of your internal system.
+
+For more granular control of container actions, you can use some built-in Linux security features - AppArmor and seccomp.
 
 ### Use App Armor
 
+To limit the actions that containers can perform, you can use the [AppAmour][k8s-appamor] Linux kernel security module. AppArmor is available as part of the underlying node OS, and is enabled by default. You create AppArmor profiles that restrict actions such as read, write, or execute, or system functions such as mounting filesystems. Default AppArmor profiles restrict access to various `/proc` and `/sys` locations, and provide a means to logically isolate containers from the underlying node. AppArmor works for any application that runs on Linux, not just Kubernetes pods.
+
+![AppArmor profiles in use in an AKS cluster to limit container actions](media/operator-best-practices-container-security/apparmor.png)
+
+To see AppArmor in action, create a profile that prevents writing to files. [SSH][aks-ssh] to an AKS node, then create a file named *deny-write.profile* and paste the following contents:
+
+```
+#include <tunables/global>
+profile k8s-apparmor-example-deny-write flags=(attach_disconnected) {
+  #include <abstractions/base>
+  
+  file,
+  # Deny all file writes.
+  deny /** w,
+}
+```
+
+AppArmor profiles are added using the `apparmor_parser` command. Add the profile to AppArmor and specify the name of the profile file created in the previous step:
+
+```console
+sudo apparmor_parser deny-write.profile
+```
+
+There is no output returned if the profile is correctly parsed and applied to AppArmor. You are returned to the command prompt.
+
+From your local machine, now create a pod manifest named *aks-apparmor.yaml* and paste the following contents. This manifest defines an annotation for `container.apparmor.security.beta.kubernetes` add then references the *deny-write* profile created in the previous steps:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hello-apparmor
+  annotations:
+    container.apparmor.security.beta.kubernetes.io/hello: localhost/k8s-apparmor-example-deny-write
+spec:
+  containers:
+  - name: hello
+    image: busybox
+    command: [ "sh", "-c", "echo 'Hello AppArmor!' && sleep 1h" ]
+```
+
+Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
+
+```console
+kubectl create -f aks-apparmor.yaml
+```
+
+With the pod deployed, use the [kubectl exec][kubectl-exec] command to write to a file. The command cannot be executed, as shown in the following example output:
+
+```
+$ kubectl exec hello-apparmor touch /tmp/test
+
+touch: /tmp/test: Permission denied
+command terminated with exit code 1
+```
+
+For more information about AppArmor, see [AppArmor profiles in Kubernetes][k8s-apparmor].
+
 ### Use Seccomp
+
+While AppArmor works for any Linux application, [seccomp (*sec*ure *comp*uting)][seccomp] works at the process level. Seccomp is also a Linux kernel security module, and is natively supported by the Docker runtime used by AKS nodes to limit the actions containers can perform based on the process calls they make. You create filters that define what actions are allowed or denied, and then use annotations within a pod YAML manifest to associate with the seccomp filter.
+
+To see seccomp in action, create a filter that prevents changing permissions on a file. [SSH][aks-ssh] to an AKS node, then create a seccomp filter named */var/lib/kubelet/seccomp/prevent-chmod*:
+
+```
+{
+  "defaultAction": "SCMP_ACT_ALLOW",
+  "syscalls": [
+    {
+      "name": "chmod",
+      "action": "SCMP_ACT_ERRNO"
+    }
+  ]
+}
+```
+
+From your local machine, now create a pod manifest named *aks-seccomp.yaml* and paste the following contents. This manifest defines an annotation for `seccomp.security.alpha.kubernetes.io` add then references the *prevent-chmod* filter created in the previous step:
+
+```yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: chmod-prevented
+  annotations:
+    seccomp.security.alpha.kubernetes.io/pod: localhost/prevent-chmod
+spec:
+  containers:
+  - name: chmod
+    image: busybox
+    command:
+      - "chmod"
+    args:
+     - "777"
+     - /etc/hostname
+  restartPolicy: Never
+```
+
+Deploy the sample pod using the [kubectl apply][kubectl-apply] command:
+
+```console
+kubectl create -f ./aks-seccomp.yaml
+```
+
+View the status of the pods using the [kubectl get pods][kubectl-get] command. The pod reports an error as the `chmod` command is prevented from running by the seccomp filter, as shown in the following example output:
+
+```
+$ kubectl get pods
+
+NAME                      READY     STATUS    RESTARTS   AGE
+chmod-prevented           0/1       Error     0          7s
+```
+
+For more information about available filters, see [Seccomp security profiles for Docker][seccomp].
 
 ## Next steps
 
@@ -62,9 +180,15 @@ This best practices article focused on how to manage identity and authentication
 [azure-pipelines]: /azure/devops/pipelines/?view=vsts
 [twistlock]: https://www.twistlock.com/
 [aqua]: https://www.aquasec.com/
+[k8s-apparmor]: https://kubernetes.io/docs/tutorials/clusters/apparmor/
+[seccomp]: https://docs.docker.com/engine/security/seccomp/
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[kubectl-exec]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec
+[kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- INTERNAL LINKS -->
 [best-practices-cluster-security]: operator-best-practices-cluster-security.md
 [best-practices-pod-security]: developer-best-practices-pod-security.md
 [acr-content-trust]: ../container-registry/container-registry-content-trust.md
 [acr-base-image-update]: ../container-registry/container-registry-tutorial-base-image-update.md
+[aks-ssh]: ssh.md
