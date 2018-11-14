@@ -32,7 +32,7 @@ Filters are server-side rules that allow your customers to do things like:
 
 The filtering of your assets is achieved through **Dynamic Manifest**s that are created upon your customer's request to stream a video based on specified filter(s).
 
-This article discusses concepts and common scenarios in which using filters would be beneficial to your customers. At the end, the article links to topics that demonstrate how to create filters programmatically.
+This article discusses concepts and common scenarios in which using filters would be beneficial to your customers. At the end, the article links to topics that demonstrate how to create [Account filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset filters](https://docs.microsoft.com/rest/api/media/assetfilters) programmatically.
 
 ## Concepts
 
@@ -58,8 +58,8 @@ The following table shows some examples of URLs with filters:
 
 There are two types of asset filters: 
 
-* Account (global) filters - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
-* Asset (local) filters - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
+* [Account filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
+* [Asset filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
 
 Account and asset filter types have exactly the same properties. The main difference between the two is for which scenarios what type of a filer is more suitable. Account filters are suitable for device profiles (rendition filtering) where asset filters could be used to trim a specific asset.
 
