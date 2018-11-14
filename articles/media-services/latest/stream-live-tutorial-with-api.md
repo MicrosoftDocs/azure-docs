@@ -1,5 +1,5 @@
 ---
-title: Stream live with Azure Media Services v3 using .NET Core | Microsoft Docs
+title: Stream live with Azure Media Services v3 | Microsoft Docs
 description: This tutorial walks you through the steps of streaming live with Media Services v3 using .NET Core.
 services: media-services
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
 
 ---
 
-# Stream live with Azure Media Services v3 using .NET Core
+# Tutorial: Stream live with Media Services v3 using APIs
 
-In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
+In Azure Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for processing live streaming content. A LiveEvent provides an input endpoint (ingest URL) that you then provide to a live encoder. The LiveEvent receives live input streams from the live encoder and makes it available for streaming through one or more [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). LiveEvents also provide a preview endpoint (preview URL) that you use to preview and validate your stream before further processing and delivery. This tutorial shows how to use .NET Core to create a **pass-through** type of a live event. 
 
 > [!NOTE]
 > Make sure to review [Live streaming with Media Services v3](live-streaming-overview.md) before proceeding. 
@@ -28,7 +28,6 @@ In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveev
 The tutorial shows you how to:    
 
 > [!div class="checklist"]
-> * Create a Media Services account
 > * Access the Media Services API
 > * Configure the sample app
 > * Examine the code that performs live streaming
@@ -41,9 +40,17 @@ The tutorial shows you how to:
 
 The following are required to complete the tutorial.
 
-* Install Visual Studio Code or Visual Studio
-* A camera or a device (like laptop) that is used to broadcast an event.
-* An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
+- Install Visual Studio Code or Visual Studio.
+- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+
+- [Create a Media Services account](create-account-cli-how-to.md).
+
+    Make sure to remember the values that you used for the resource group name and Media Services account name
+
+- A camera or a device (like laptop) that is used to broadcast an event.
+- An on-premises live encoder that converts signals from the camera to streams that are sent to the Media Services live streaming service. The stream has to be in **RTMP** or **Smooth Streaming** format.
 
 ## Download the sample
 
@@ -58,10 +65,6 @@ The live streaming sample is located in the [Live](https://github.com/Azure-Samp
 > [!IMPORTANT]
 > This sample uses unique suffix for each resource. If you cancel the debugging or terminate the app without running it through, you will end up with multiple LiveEvents in your account. <br/>
 > Make sure to stop the running LiveEvents. Otherwise, you will be **billed**!
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -173,9 +176,9 @@ Live event automatically converts events to on-demand content when stopped. Even
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier.
 
-In the **CloudShell**, execute the following command:
+Execute the following CLI command:
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup
