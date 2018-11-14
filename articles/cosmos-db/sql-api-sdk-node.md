@@ -49,7 +49,7 @@ ms.custom: H1Hack27Feb2017
 * Various typo fixes
 
 ### <a name="2.0.4"/>2.0.4</a>
-* Fixes type defenition issue introduced in 2.0.3
+* Fixes type definition issue introduced in 2.0.3
 
 ### <a name="2.0.3"/>2.0.3</a>
 * Remove `big-integer` dependency
