@@ -62,7 +62,7 @@ Once successfully logged in, you should see that the Azure Monitor data source p
 3. Create a service principal - Grafana uses an Azure Active Directory service principal to connect to Azure Monitor APIs and collect data. You must create, or use an existing service principal, to manage access to your Azure resources.
     * See [these instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md) to create a service principal. Copy and save your tenant ID (Directory ID), client ID (Application ID) and client secret (Application key value).
     * See [Assign application to role](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) to assign the Reader role to the Azure Active Directory application on the subscription, resource group or resource you want to monitor. 
-    Note that the Log Analytics API requires the [Log Analytics Reader role](https://docs.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#log-analytics-reader), which includes the Reader role's permissions and adds to it.
+    The Log Analytics API requires the [Log Analytics Reader role](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#log-analytics-reader), which includes the Reader role's permissions and adds to it.
 
 4. Provide the connection details to the APIs you'd like to use. You can connect to all or to some of them. 
     * If you connect to both Azure Monitor (to collect metrics) and Azure Log Analytics (for log data), you can reuse the same credentials by selecting **Same details as Azure Monitor API**.
@@ -102,13 +102,12 @@ Once successfully logged in, you should see that the Azure Monitor data source p
     ![Grafana graph config for Azure Log Analytics](.\media\monitor-how-to-grafana\grafana-graph-config-for-azure-log-analytics-dark.png)
 
 5. Following is a simple dashboard with two charts. The one on left shows the CPU percentage of two VMs. The chart on the right shows the transactions in an Azure Storage account broken down by the Transaction API type.
-
-![Grafana Two Charts Example](media/monitor-send-to-grafana/grafana6.png)
+    ![Grafana Two Charts Example](media/monitor-send-to-grafana/grafana6.png)
 
 
 ## Optional: Monitor your custom metrics in the same Grafana server
 
-You can also install Telegraf and InfluxDB to collect and plot both custom and agent-based metrics in the same Grafana instance. There are many data source plugins that you can use to bring these metrics together in a dashboard.
+You can also install Telegraf and InfluxDB to collect and plot both custom and agent-based metrics same Grafana instance. There are many data source plugins that you can use to bring these metrics together in a dashboard.
 
 You can also reuse this set up to include metrics from your Prometheus server. Use the Prometheus data source plugin in Grafana's plugin gallery.
 
@@ -134,6 +133,7 @@ Consider the following query as an example:
     | summarize total_KBytes=sum(Quantity)*1024 by bin(TimeGenerated, $__interval) 
     | sort by TimeGenerated
     ```
+
 You can configure a variable that will list all available **Solution** values, and then update your query to use it.
 To create a new variable, click the dashboard's Settings button in the top right area, select **Variables**, and then **New**.
 On the variable page, define the data source and query to run in order to get the list of values.
