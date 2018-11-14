@@ -7,10 +7,14 @@
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: Using the .NET SDK
+  - name: Using the client SDK
     items:
     - name: Detect faces in an image
-      href: QuickStarts/csharp-detect-sdk.md
+      items:
+      - name: C#
+        href: QuickStarts/csharp-detect-sdk.md
+      - name: Python
+        href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Using the REST API  
     items:
     - name: Detect faces in an image  
@@ -39,8 +43,6 @@
     items:
     - name: C#
       href: Tutorials/FaceAPIinCSharpTutorial.md
-    - name: Python
-      href: Tutorials/FaceAPIinPythonTutorial.md
     - name: Android
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How-to guides
