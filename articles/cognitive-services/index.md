@@ -72,6 +72,25 @@ ms.topic: hub-page
                 </div>
             </a>
         </li>
+        <li>
+            <a href="/azure/cognitive-services/cognitive-services-container-support/">
+                <div class="cardSize">
+                    <div class="cardPadding">
+                        <div class="card">
+                            <div class="cardImageOuter">
+                                <div class="cardImage">
+                                    <img src="media/index/i_guidelines.svg" alt="" />
+                                </div>
+                            </div>
+                            <div class="cardText">
+                                <h3>Using Cognitive Services in Containers</h3>
+                                <p>Learn how to use Azure Cognitive Services in Containers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
 </ul>
 <h2>5-Minute Quickstarts</h2>
 <ul class="cardsF panelContent singlePanelContent cols cols3" style="display:flex!important;">
