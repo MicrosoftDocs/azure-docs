@@ -101,8 +101,6 @@
         href: unique-keys.md
       - name: Transactions and optimistic concurrency
         href: database-transactions-optimistic-concurrency.md
-    - name: Resource model
-      href: sql-api-resources.md
     - name: Global distribution
       items:
       - name: Overview
