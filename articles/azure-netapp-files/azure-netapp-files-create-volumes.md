@@ -23,7 +23,7 @@ A volume's capacity consumption counts against its pool's provisioned capacity. 
 ## Before you begin 
 You must have already set up a capacity pool.   
 [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)   
-You must also have a subnet that is delegated to Azure NetApp Files.  
+A subnet must be delegated to Azure NetApp Files.  
 [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md)
 
 
@@ -56,9 +56,9 @@ You must also have a subnet that is delegated to Azure NetApp Files.
         
         If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files.    
  
-    ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
+        ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
-    ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
+        ![Create subnet](../media/azure-netapp-files/azure-netapp-files-create-subnet.png)
 
 
 4.	Click **OK**. 
