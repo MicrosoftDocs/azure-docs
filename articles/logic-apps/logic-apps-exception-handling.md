@@ -354,18 +354,18 @@ action result that was previously filtered.
    Multiple failed actions cause one action per failure.
 
 4. Send an HTTP POST on the **For each** item response body, 
-which is the "@item()['outputs']['body']" expression. 
+which is the `@item()['outputs']['body']` expression. 
 
    The "@result()" item shape is the same as the 
    "@actions()" shape and can be parsed the same way.
 
-5. Include two custom headers with the failed action name ("@item()['name']") 
-and the failed run client tracking ID ("@item()['clientTrackingId']").
+5. Include two custom headers with the failed action name (`@item()['name']`) 
+and the failed run client tracking ID (`@item()['clientTrackingId']`).
 
-For reference, here's an example of a single "@result()" item, 
+For reference, here's an example of a single `@result()` item, 
 showing the **name**, **body**, and **clientTrackingId** 
 properties that are parsed in the previous example. 
-Outside a **For each** action, "@result()" returns an array of these objects.
+Outside a **For each** action, `@result()` returns an array of these objects.
 
 ```json
 {
