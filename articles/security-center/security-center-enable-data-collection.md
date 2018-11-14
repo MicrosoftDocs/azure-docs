@@ -78,7 +78,7 @@ To select a workspace created by Security Center:
 2. Click **Save**.<br>
 	Security Center creates a new resource group and default workspace in that geolocation, and connects the agent to that workspace. The naming convention for the workspace and resource group is:<br>
 **Workspace: DefaultWorkspace-[subscription-ID]-[geo]<br>
-Resource Group: DefaultResouceGroup-[geo]**
+Resource Group: DefaultResourceGroup-[geo]**
 
    If a subscription contains VMs from multiple geolocations, then Security Center creates multiple workspaces. Multiple workspaces are created to maintain data privacy rules.
 -	Security Center will automatically enable a Security Center solution on the workspace per the pricing tier set for the subscription. 
