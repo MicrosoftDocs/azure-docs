@@ -17,20 +17,15 @@ ms.author: juliako
 
 ---
 # Creating filters with Media Services .NET SDK
-> [!div class="op_single_selector"]
-> * [.NET](filters-dynamic-manifest-dotnet-how-to.md)
-> * [REST](filters-dynamic-manifest-rest-how-to.md)
-> * [CLI](filters-dynamic-manifest-cli-how-to.md)
-> 
 
 When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
-For detailed information related to filters and Dynamic Manifest, see [Filters and dynamic manifests overview](filters-dynamic-manifest-overview.md).
+For detailed information related to filters and Dynamic Manifest, see [Filters and dynamic manifests overview]().
 
 This topic shows how to use Media Services .NET SDK to create [Account Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) and [Asset Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 ## Prerequisites 
 
-- Review [Filters and dynamic manifests overview](filters-dynamic-manifest-overview.md).
+- Review [Filters and dynamic manifests overview]().
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Get information needed to [access APIs](access-api-cli-how-to.md)
 - Review [Upload, encode, and stream using Azure Media Services](stream-files-tutorial-with-api.md) to see how to [start using .NET SDK](stream-files-tutorial-with-api.md#start_using_dotnet)

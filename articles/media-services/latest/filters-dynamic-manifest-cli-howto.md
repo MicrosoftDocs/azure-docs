@@ -17,14 +17,9 @@ ms.author: juliako
 
 ---
 # Creating filters with CLI 
-> [!div class="op_single_selector"]
-> * [.NET](filters-dynamic-manifest-dotnet-how-to.md)
-> * [REST](filters-dynamic-manifest-rest-how-to.md)
-> * [CLI](filters-dynamic-manifest-cli-how-to.md)
-> 
 
 When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
-For detailed information related to filters and Dynamic Manifest, see [Filters and dynamic manifests overview](filters-dynamic-manifest-overview.md).
+For detailed information related to filters and Dynamic Manifest, see [Filters and dynamic manifests overview]().
 
 This topic shows how to use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
@@ -34,7 +29,7 @@ This topic shows how to use CLI for Media Services v3 to create [Account Filters
 
     Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
 
-- Review [Filters and dynamic manifests overview](filters-dynamic-manifest-overview.md).
+- Review [Filters and dynamic manifests overview]().
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - Get information needed to [access APIs](access-api-cli-how-to.md)
 
