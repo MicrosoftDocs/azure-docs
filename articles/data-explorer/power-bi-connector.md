@@ -48,9 +48,9 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
 
     **Setting** | **Value** | **Field description**
     |---|---|---|
-    | Cluster | *help* | The full cluster name is *help.kusto.windows.net*, but only the part before *kusto* is required.|
+    | Cluster | *help* | The full cluster name is *help.kusto.windows.net*, but only the part before *kusto* is required here.|
     | Database | *Samples* | The sample database that is hosted on the cluster. |
-    | Table name | *StormEvents* | One of the sample tables in the database. |
+    | Table name | *StormEvents* | One of the tables in the sample database. |
     | Advanced options | Leave blank | Options for your queries, such as result set size. |
     | Data connectivity mode | *DirectQuery* | Determines whether Power BI imports the data or connects directly to the data source. |
     | | | |
