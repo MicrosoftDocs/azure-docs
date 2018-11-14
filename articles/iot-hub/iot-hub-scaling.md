@@ -43,21 +43,21 @@ Only one type of [edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but limited messaging allowances. You cannot upgrade from the free tier to either basic or standard. 
 
 
-### Partitions
+## Partitions
 
-Azure IoT Hubs contain many core components of [Azure Event Hubs](/event-hubs/event-hubs-features), including [Partitions](/event-hubs/event-hubs-features#partitions). Event streams for IoT Hubs are generally populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occurr when concurrently reading and writing to event streams. The number of partitions also influences the number of simultaneous readers of these messages. 
+Azure IoT Hubs contain many core components of [Azure Event Hubs](/event-hubs/event-hubs-features), including [Partitions](/event-hubs/event-hubs-features#partitions). Event streams for IoT Hubs are generally populated with incoming telemetry data that is reported by various IoT devices. The partitioning of the event stream is used to reduce contentions that occur when concurrently reading and writing to event streams. 
 
-The partition limit is chosen when IoT Hub is created, and can not be changed. The maximum partition limit for basic tier IoT Hubs is 8, and for standard tier the maximum is 32. Most IoT hubs only need 4 partitions. For more information on determining the partitions, see the Event Hubs FAQ [How many partitions do I need?](/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
+The partition limit is chosen when IoT Hub is created, and cannot be changed. The maximum partition limit for basic tier IoT Hubs is 8, and for standard tier the maximum is 32. Most IoT hubs only need 4 partitions. For more information on determining the partitions, see the Event Hubs FAQ [How many partitions do I need?](/event-hubs/event-hubs-faq#how-many-partitions-do-i-need)
 
 
-### Migration
+## Tier upgrade
 
 Once you create your IoT hub, you can upgrade from the basic tier to the standard tier without interrupting your existing operations. For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).
 
 The partition configuration remains unchanged when you migrate from basic tier to standard tier.
 
 
-### IoT Hub REST APIs
+## IoT Hub REST APIs
 
 The difference in supported capabilities between the basic and standard tiers of IoT Hub means that some API calls do not work with basic tier hubs. The following table shows which APIs are available: 
 
