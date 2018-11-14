@@ -386,10 +386,6 @@ To use NuGet packages in a C# function, upload a *extensions.csproj* file to the
 </Project>
 ```
 
-When you upload a *extensions.csproj* file, the runtime gets the packages and automatically adds references to the package assemblies. You don't need to add `#r "AssemblyName"` directives. To use the types defined in the NuGet packages; just add the required `using` statements to your *run.csx* file. 
-
-In the Functions runtime, NuGet restore works by comparing `extensions.csproj` and `project.lock.json`. If the date and time stamps of the files **do not** match, a NuGet restore runs and NuGet downloads updated packages. However, if the date and time stamps of the files **do** match, NuGet does not perform a restore. Therefore, `project.lock.json` should not be deployed, as it causes NuGet to skip package restore. To avoid deploying the lock file, add the `project.lock.json` to the `.gitignore` file.
-
 To use a custom NuGet feed, specify the feed in a *Nuget.Config* file in the Function App root. For more information, see [Configuring NuGet behavior](/nuget/consume-packages/configuring-nuget-behavior).
 
 ### Using a extensions.csproj file
