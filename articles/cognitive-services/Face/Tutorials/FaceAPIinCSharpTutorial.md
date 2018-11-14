@@ -113,14 +113,14 @@ Add the following code to the **FacePhoto_MouseMove** method. This event handler
 
 ## Run the app
 
-Run the application and browse for an image containing a face. Wait for a few seconds to allow the Face service to respond. You should see a red rectangle on each of the faces in the image. If you move the mouse over a face rectangle, the description of that face should appear in the status bar.
+Run the application and browse for an image containing a face. Wait a few seconds to allow the Face service to respond. You should see a red rectangle on each of the faces in the image. If you move the mouse over a face rectangle, the description of that face should appear in the status bar.
 
 ![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
 
 
 ## Next steps
 
-In this tutorial, you learned the basic process for using the Face service .NET SDK and created an application to detect and frame faces in an image. Next, see How to Detect Faces in an Image to learn more about the details of face detection.
+In this tutorial, you learned the basic process for using the Face service .NET SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
 
 > [!div class="nextstepaction"]
 > [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
