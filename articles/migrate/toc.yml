@@ -10,8 +10,10 @@
     items:
     - name: Deploy the Azure Migrate appliance for Server Assessment and Migration (preview)
       href: tutorial-deploy-appliance-vmware.md
-    - name: Assess VMware VMs with Azure Migrate Server Assessment Service (preview)
+    - name: Assess VMware VMs with Azure Migrate Server Assessment (preview)
       href: tutorial-server-assessment-vmware.md
+    - name: Migrate VMware VMs with Azure Migrate Server Assesssment (preview)
+      href: tutorial-server-migration-vmware.md
     - name: Assess VMware VMs with Azure Migrate GA
       href: tutorial-assessment-vmware.md
   - name: Hyper-V assessment
