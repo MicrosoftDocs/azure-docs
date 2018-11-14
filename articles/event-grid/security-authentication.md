@@ -7,7 +7,7 @@ manager: timlt
 
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: babanisa
 ---
 # Event Grid security and authentication 
@@ -190,15 +190,83 @@ The last three operations return potentially secret information, which gets filt
 
 ### Built-in roles
 
-Event Grid provides two built-in roles for managing event subscriptions. These roles are `EventSubscription Contributor (Preview)` and `EventSubscription Reader (Preview)`. They are important when implementing event domains. For more information about the granted actions, see [Event Domain - access management](event-domains.md#access-management).
+Event Grid provides two built-in roles for managing event subscriptions. They are important when implementing [event domains](event-domains.md) because they give users the permissions they need to subscribe to topics in your event domain. These roles are focused on event subscriptions and don't grant access for actions such as creating topics.
 
 You can [assign these roles to a user or group](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+**EventGrid EventSubscription Contributor (Preview)**: manage Event Grid subscription operations
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**EventGrid EventSubscription Reader (Preview)**: read Event Grid subscriptions
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
 
 ### Custom roles
 
 If you need to specify permissions that are different than the built-in roles, you can create custom roles.
 
-The following are sample Event Grid role definitions that allow users to take different actions.
+The following are sample Event Grid role definitions that allow users to take different actions. These custom roles are different from the built-in roles because they grant broader access than just event subscriptions.
 
 **EventGridReadOnlyRole.json**: Only allow read-only operations.
 

@@ -18,7 +18,7 @@ This tutorial shows how to use the "alternative inputs" field for user input in 
 
 ## Video
 
-[![Tutorial 8 Preview](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Tutorial 8 Preview](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running

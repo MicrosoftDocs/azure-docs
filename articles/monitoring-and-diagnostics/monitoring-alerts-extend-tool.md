@@ -1,5 +1,5 @@
 ---
-title: Extend alerts from Log Analytcs to Azure
+title: Extend alerts from Log Analytics to Azure
 description: This article describes the tools and API by which you can extend alerts from Log Analytics to Azure Alerts.
 author: msvijayn
 services: azure-monitor
@@ -466,7 +466,7 @@ Here are the remediation steps for each error:
 - **Error: Policy is present at subscription/resource group level**: 
     ![Screenshot of the Operations Management Suite portal Alert Settings page, with Policy error message highlighted](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    When [Azure Policy](../azure-policy/azure-policy-introduction.md) is applied, it restricts any new resource in a subscription or resource group that contains the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
+    When [Azure Policy](../governance/policy/overview.md) is applied, it restricts any new resource in a subscription or resource group that contains the Log Analytics (Operations Management Suite) workspace. The system is unable to extend alerts into Azure and create necessary action groups.
     
     To resolve, edit the policy that's causing the *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)* error, which prevents creation of new resources on your subscription or resource group that contains the workspace. You can do this by using the Azure portal, PowerShell, Azure CLI, or the API. You can audit actions to find the appropriate policy that's causing failure. To learn more, see [viewing activity logs to audit actions](../azure-resource-manager/resource-group-audit.md). 
     
@@ -475,5 +475,5 @@ Here are the remediation steps for each error:
 
 ## Next steps
 
-* Learn more about the new [Azure Alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the new [Azure Alerts experience](monitoring-overview-alerts.md).
 * Learn about [log alerts in Azure Alerts](monitor-alerts-unified-log.md).

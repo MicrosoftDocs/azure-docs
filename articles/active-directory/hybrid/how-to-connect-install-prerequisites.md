@@ -36,7 +36,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 
 ### On-premises Active Directory
 * The AD schema version and forest functional level must be Windows Server 2003 or later. The domain controllers can run any version as long as the schema and forest level requirements are met.
-* If you plan to use the feature **password writeback**, then the Domain Controllers must be on Windows Server 2008 (with latest SP) or later. If your DCs are on 2008 (pre-R2), then you must also apply [hotfix KB2386717](http://support.microsoft.com/kb/2386717).
+* If you plan to use the feature **password writeback**, then the Domain Controllers must be on Windows Server 2008 (with latest SP) or later. If your DCs are on 2008 (pre-R2), then you must also apply [hotfix KB2386717](https://support.microsoft.com/kb/2386717).
 * The domain controller used by Azure AD must be writable. It is **not supported** to use a RODC (read-only domain controller) and Azure AD Connect does not follow any write redirects.
 * It is **not supported** to use on-premises forests/domains using "dotted" (name contains a period ".") NetBios names.
 * It is recommended to [enable the Active Directory recycle bin](how-to-connect-sync-recycle-bin.md).
@@ -118,11 +118,11 @@ Azure AD Connect depends on Microsoft PowerShell and .NET Framework 4.5.1. You n
   * Microsoft PowerShell is installed by default. No action is required.
   * .NET Framework 4.5.1 and later releases are offered through Windows Update. Make sure you have installed the latest updates to Windows Server in the Control Panel.
 * Windows Server 2008R2 and Windows Server 2012
-  * The latest version of Microsoft PowerShell is available in **Windows Management Framework 4.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * The latest version of Microsoft PowerShell is available in **Windows Management Framework 4.0**, available on [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](https://www.microsoft.com/downloads).
 * Windows Server 2008
-  * The latest supported version of PowerShell is available in **Windows Management Framework 3.0**, available on [Microsoft Download Center](http://www.microsoft.com/downloads).
-  * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](http://www.microsoft.com/downloads).
+  * The latest supported version of PowerShell is available in **Windows Management Framework 3.0**, available on [Microsoft Download Center](https://www.microsoft.com/downloads).
+  * .NET Framework 4.5.1 and later releases are available on [Microsoft Download Center](https://www.microsoft.com/downloads).
 
 ### Enable TLS 1.2 for Azure AD Connect
 Prior to version 1.1.614.0, Azure AD Connect by default uses TLS 1.0 for encrypting the communication between the sync engine server and Azure AD. You can change this by configuring .Net applications to use TLS 1.2 by default on the server. More information about TLS 1.2 can be found in [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358).

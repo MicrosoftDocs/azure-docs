@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.component: alerts
 ---
 # Log alerts in Azure Monitor
-This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
+This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](monitoring-overview-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
 
 Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). To learn more about its usage, see [creating log alerts in Azure](alert-log.md)
 
@@ -114,6 +114,6 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 ## Next steps
 * Learn about [creating in log alerts in Azure](alert-log.md).
 * Understand [webhooks in log alerts in Azure](monitor-alerts-unified-log-webhook.md).
-* Learn about [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Learn about [Azure Alerts](monitoring-overview-alerts.md).
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
-* Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    
+* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md).    

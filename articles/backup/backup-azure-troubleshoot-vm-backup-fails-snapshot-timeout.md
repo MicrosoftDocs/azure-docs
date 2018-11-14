@@ -56,6 +56,13 @@ To resolve this issue, remove the lock on the resource group and retry the opera
 **Step 1: [Remove lock from the restore point resource group](#remove_lock_from_the_recovery_point_resource_group)** <br>
 **Step 2: [Clean up restore point collection](#clean_up_restore_point_collection)**<br>
 
+## UserErrorKeyvaultPermissionsNotConfigured - Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs.
+
+**Error code**: UserErrorKeyvaultPermissionsNotConfigured <br>
+**Error message**: Backup doesn't have sufficient permissions to the key vault for backup of encrypted VMs. <br>
+
+For backup operation to succeed on encrypted VMs, it must have permissions to access the key vault. This can be done using the [Azure portal](https://docs.microsoft.com/azure/backup/backup-azure-vms-encryption#provide-permissions-to-backup) or through the [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#enable-protection)
+
 ## <a name="ExtensionSnapshotFailedNoNetwork-snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>ExtensionSnapshotFailedNoNetwork - Snapshot operation failed due to no network connectivity on the virtual machine
 
 **Error code**: ExtensionSnapshotFailedNoNetwork<br>
@@ -148,7 +155,7 @@ The VM agent might have been corrupted, or the service might have been stopped. 
 1. Determine whether the Windows Guest Agent service is running in the VM services (services.msc). Try to restart the Windows Guest Agent service and initiate the backup.    
 2. If the Windows Guest Agent service isn't visible in services, in Control Panel, go to **Programs and Features** to determine whether the Windows Guest Agent service is installed.
 4. If the Windows Guest Agent appears in **Programs and Features**, uninstall the Windows Guest Agent.
-5. Download and install the [latest version of the agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
+5. Download and install the [latest version of the agent MSI](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You must have Administrator rights to complete the installation.
 6. Verify that the Windows Guest Agent services appear in services.
 7. Run an on-demand backup:
 	* In the portal, select **Backup Now**.

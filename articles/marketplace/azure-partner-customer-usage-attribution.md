@@ -62,7 +62,7 @@ The resource needs to be added in the **mainTemplate.json** or **azuredeploy.jso
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -122,14 +122,14 @@ A GUID is a unique reference number that has 32 hexadecimal digits. To create GU
 > [!Note]
 > It is highly recommend that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
 
-Create a unique GUID for every offer and distribution channel. If you deploy two solutions by using a template and each one is available in the Azure Marketplace and on GitHub, you need to create four GUIDS:
+We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split. 
 
-*	Offer A in Azure Marketplace 
-*	Offer A on GitHub
-*	Offer B in Azure Marketplace 
-*	Offer B on GitHub
+If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
 
-Reporting is done by the partner value (Microsoft Partner ID) and the GUID. 
+*	Product A in Azure Marketplace 
+*	Product A on GitHub
+
+Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. 
 
 You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
 
@@ -141,7 +141,7 @@ All registrations for template GUIDs are done via the Azure Marketplace Cloud Pa
 
 After you add the GUID to your template or in the user agent, and register the GUID in the CPP, all deployments are tracked. 
 
-1. Apply to [Azure Marketplace](http://aka.ms/listonazuremarketplace) and get access to the CPP.
+1. Apply to [Azure Marketplace](https://aka.ms/listonazuremarketplace) and get access to the CPP.
 
    * Partners are required to [have a profile in CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). You're encouraged to list the offer in Azure Marketplace or AppSource.
    * Partners can register multiple GUIDs.

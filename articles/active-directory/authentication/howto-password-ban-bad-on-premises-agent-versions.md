@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -20,6 +20,23 @@ ms.reviewer: jsimmons
 | --- |
 | Azure AD password protection is a public preview feature of Azure Active Directory. For more information about previews, see  [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## 1.2.25.0
+
+Release date: 11/01/2018
+
+Fixes:
+
+* DC agent and proxy service should no longer fail due to certificate trust failures.
+* DC agent and proxy service have additional fixes for FIPS-compliant machines.
+* Proxy service will now work properly in a TLS 1.2-only networking environment.
+* Minor performance and robustness fixes
+* Improved logging
+
+Changes:
+
+* The minimum required OS level for the Proxy service is now Windows Server 2012 R2. The minimum required OS level for the DC agent service remains at Windows Server 2012.
+* The password validation algorithm uses an expanded character normalization table. This may result in passwords being rejected that were accepted in prior versions.
 
 ## 1.2.10.0
 
@@ -42,8 +59,8 @@ Fixes:
 > In-place upgrades of the DC agent software will require a reboot.
 
 * DC agent and proxy service now support running on a server configured to only use FIPS-compliant algorithms.
-* Improved logging
 * Minor performance and robustness fixes
+* Improved logging
 
 ## 1.1.10.3
 

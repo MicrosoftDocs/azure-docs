@@ -3,7 +3,7 @@ title: Azure AD Connect Health Agent installation | Microsoft Docs
 description: This is the Azure AD Connect Health page that describes the agent installation for AD FS and Sync.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e
@@ -32,7 +32,7 @@ The following table is a list of requirements for using Azure AD Connect Health.
 | SSL Inspection for outbound traffic is filtered or disabled | The agent registration step or data upload operations may fail if there is SSL inspection or termination for outbound traffic at the network layer. Read more about [how to setup SSL inspection](https://technet.microsoft.com/library/ee796230.aspx) |
 | Firewall ports on the server running the agent |The agent requires the following firewall ports to be open in order for the agent to communicate with the Azure AD Health service endpoints.</br></br><li>TCP port 443</li><li>TCP port 5671</li> </br>Read more about [enable firewall ports](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
 | Allow the following websites if IE Enhanced Security is enabled |If IE Enhanced Security is enabled, then the following websites must be allowed on the server that is going to have the agent installed.</br></br><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>The federation server for your organization trusted by Azure Active Directory. For example: https:\//sts.contoso.com</li> Read more about [how to configure IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing) |
-| Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent.  Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.  [Update](http://www.microsoft.com/download/details.aspx?id=40855) the Windows Management Framework.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
+| Ensure PowerShell v4.0 or newer is installed | <li>Windows Server 2008 R2 ships with PowerShell v2.0, which is insufficient for the agent.  Update PowerShell as explained below under [Agent installation on Windows Server 2008 R2 Servers](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 ships with PowerShell v3.0, which is insufficient for the agent.  [Update](https://www.microsoft.com/download/details.aspx?id=40855) the Windows Management Framework.</li><li>Windows Server 2012 R2 and later ship with a sufficiently recent version of PowerShell.</li>|
 |Disable FIPS|FIPS is not supported by Azure AD Connect Health agents.|
 
 ### Outbound connectivity to the Azure service endpoints
@@ -48,12 +48,12 @@ The following table is a list of requirements for using Azure AD Connect Health.
 ## Download and install the Azure AD Connect Health Agent
 * Make sure that you [satisfy the requirements](how-to-connect-health-agent-install.md#requirements) for Azure AD Connect Health.
 * Get started using Azure AD Connect Health for AD FS
-    * [Download Azure AD Connect Health Agent for AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Download Azure AD Connect Health Agent for AD FS.](https://go.microsoft.com/fwlink/?LinkID=518973)
     * [See the installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
 * Get started using Azure AD Connect Health for sync
-    * [Download and install the latest version of Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
+    * [Download and install the latest version of Azure AD Connect](https://go.microsoft.com/fwlink/?linkid=615771). The Health Agent for sync will be installed as part of the Azure AD Connect installation (version 1.0.9125.0 or higher).
 * Get started using Azure AD Connect Health for AD DS
-    * [Download Azure AD Connect Health Agent for AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Download Azure AD Connect Health Agent for AD DS](https://go.microsoft.com/fwlink/?LinkID=820540).
     * [See the installation instructions](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## Installing the Azure AD Connect Health Agent for AD FS
@@ -100,7 +100,7 @@ Steps for Windows Server 2008 R2 servers:
    * Install PowerShell ISE (From Windows Features)
    * Install the [Windows Management Framework 4.0.](https://www.microsoft.com/download/details.aspx?id=40855)
    * Install Internet Explorer version 10 or above on the server. (Required by the Health Service to authenticate, using your Azure Admin credentials.)
-4. For more information on installing Windows PowerShell 4.0 on Windows Server 2008 R2, see the wiki article [here](http://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
+4. For more information on installing Windows PowerShell 4.0 on Windows Server 2008 R2, see the wiki article [here](https://social.technet.microsoft.com/wiki/contents/articles/20623.step-by-step-upgrading-the-powershell-version-4-on-2008-r2.aspx).
 
 ### Enable Auditing for AD FS
 > [!NOTE]
@@ -170,7 +170,7 @@ Note that "basic" audit level is enabled by default. Read more about the [AD FS 
 > Sync server should be different from your AD FS server. Do not install Sync agent to your AD FS server.
 >
 
-The Azure AD Connect Health agent for sync is installed automatically in the latest build of Azure AD Connect. To use Azure AD Connect for sync, you need to download the latest version of Azure AD Connect and install it. You can download the latest version [here](http://www.microsoft.com/download/details.aspx?id=47594).
+The Azure AD Connect Health agent for sync is installed automatically in the latest build of Azure AD Connect. To use Azure AD Connect for sync, you need to download the latest version of Azure AD Connect and install it. You can download the latest version [here](https://www.microsoft.com/download/details.aspx?id=47594).
 
 To verify the agent has been installed, look for the following services on the server. If you completed the configuration, they should already be running. Otherwise, they are stopped until the configuration is complete.
 

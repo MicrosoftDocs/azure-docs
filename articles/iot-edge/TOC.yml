@@ -135,10 +135,10 @@
       href: how-to-deploy-monitor-cli.md
   - name: Use Edge devices as gateways
     items:
-    - name: Transparent gateway (Linux)
-      href: how-to-create-transparent-gateway-linux.md
-    - name: Transparent gateway (Windows)
-      href: how-to-create-transparent-gateway-windows.md
+    - name: Configure a transparent gateway
+      href: how-to-create-transparent-gateway.md
+    - name: Connect a downstream device
+      href: how-to-connect-downstream-device.md
     - name: Modbus protocol gateway
       href: deploy-modbus-gateway.md
   - name: Configure proxy support
@@ -203,8 +203,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing

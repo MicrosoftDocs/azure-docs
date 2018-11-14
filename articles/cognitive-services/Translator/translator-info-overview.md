@@ -26,7 +26,7 @@ Speech translation, powered by the Translator Text API, is also available throug
 
 ## Language support
 
-Microsoft Translator provides multi-language support for translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically with the [REST API](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-languages).  
+Microsoft Translator provides multi-language support for translation, transliteration, language detection, and dictionaries. See [language support](language-support.md) for a complete list, or access the list programmatically with the [REST API](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-languages).  
 
 ## Language customization
 

@@ -61,7 +61,7 @@ To add the client library to your own Maven project, add the following dependenc
 
 ## Elastic Database Tools for .NET 
 ### Prerequisites
-* Visual Studio 2012 or later with C#. Download a free version at [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
+* Visual Studio 2012 or later with C#. Download a free version at [Visual Studio Downloads](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 or later. To get the latest version, see [Installing NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
 
 ### Download and run the sample app
@@ -89,13 +89,13 @@ Congratulations! You have successfully built and run your first sharded applicat
 > 
 
 ## Key pieces of the code sample
-* **Managing shards and shard maps**: The code illustrates how to work with shards, ranges, and mappings in the *ShardManagementUtils.cs* file. For more information, see [Scale out databases with the shard map manager](http://go.microsoft.com/?linkid=9862595).  
+* **Managing shards and shard maps**: The code illustrates how to work with shards, ranges, and mappings in the *ShardManagementUtils.cs* file. For more information, see [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595).  
 
-* **Data-dependent routing**: Routing of transactions to the right shard is shown in the *DataDependentRoutingSample.cs* file. For more information, see [Data-dependent routing](http://go.microsoft.com/?linkid=9862596). 
+* **Data-dependent routing**: Routing of transactions to the right shard is shown in the *DataDependentRoutingSample.cs* file. For more information, see [Data-dependent routing](https://go.microsoft.com/?linkid=9862596). 
 
-* **Querying over multiple shards**: Querying across shards is illustrated in the *MultiShardQuerySample.cs* file. For more information, see [Multi-shard querying](http://go.microsoft.com/?linkid=9862597).
+* **Querying over multiple shards**: Querying across shards is illustrated in the *MultiShardQuerySample.cs* file. For more information, see [Multi-shard querying](https://go.microsoft.com/?linkid=9862597).
 
-* **Adding empty shards**: The iterative adding of new empty shards is performed by the code in the *CreateShardSample.cs* file. For more information, see [Scale out databases with the shard map manager](http://go.microsoft.com/?linkid=9862595).
+* **Adding empty shards**: The iterative adding of new empty shards is performed by the code in the *CreateShardSample.cs* file. For more information, see [Scale out databases with the shard map manager](https://go.microsoft.com/?linkid=9862595).
 
 ## Other elastic scale operations
 * **Splitting an existing shard**: The capability to split shards is provided by the split-merge tool. For more information, see [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md).
@@ -113,12 +113,12 @@ For pricing information, see [SQL Database pricing details](https://azure.micros
 For more information about Elastic Database Tools, see the following articles:
 
 * Code samples: 
-  * Elastic Database Tools ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
-  * [Elastic Database Tools for Azure SQL - Entity Framework Integration](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
+  * Elastic Database Tools ([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * [Elastic Database Tools for Azure SQL - Entity Framework Integration](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [Shard Elasticity on Script Center](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * Blog: [Elastic Scale announcement](https://azure.microsoft.com/blog/2014/10/02/introducing-elastic-scale-preview-for-azure-sql-database/)
 * Channel 9: [Elastic Scale overview video](http://channel9.msdn.com/Shows/Data-Exposed/Azure-SQL-Database-Elastic-Scale)
-* Discussion forum: [Azure SQL Database forum](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
+* Discussion forum: [Azure SQL Database forum](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted)
 * To measure performance: [Performance counters for shard map manager](sql-database-elastic-database-client-library.md)
 
 <!--Anchors-->

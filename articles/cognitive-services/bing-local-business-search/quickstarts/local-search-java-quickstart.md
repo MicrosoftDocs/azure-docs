@@ -88,8 +88,8 @@ public class LocalSearchCls {
 	    // Replace the subscriptionKey string value with your valid subscription key.
 	    static String subscriptionKey = "YOUR-ACCESS-KEY";
 
-	    static String host = "https://www.bingapis.com/api";
-	    static String path = "/v7/localbusinesses/search";
+	    static String host = "https://api.cognitive.microsoft.com/bing";
+	    static String path = "/v7.0/localbusinesses/search";
 
 	    static String searchTerm = "Hotel in Bellevue";
 

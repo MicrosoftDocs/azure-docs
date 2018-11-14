@@ -1,21 +1,21 @@
 ---
-title: Manage Hadoop clusters using Azure Classic CLI - Azure HDInsight
-description: Learn how to use the Azure classic CLI to manage Hadoop clusters in Azure HDInsight.
+title: Manage Apache Hadoop clusters using Azure Classic CLI - Azure HDInsight
+description: Learn how to use the Azure classic CLI to manage Apache Hadoop clusters in Azure HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: tylerfox
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: tyfox
 
 ---
-# Manage Hadoop clusters in HDInsight using the Azure Classic CLI
+# Manage Apache Hadoop clusters in HDInsight using the Azure Classic CLI
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to use the [Azure Classic CLI](../cli-install-nodejs.md) to manage Hadoop clusters in Azure HDInsight. The classic CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
+Learn how to use the [Azure Classic CLI](../cli-install-nodejs.md) to manage Apache Hadoop clusters in Azure HDInsight. The classic CLI is implemented in Node.js. It can be used on any platform that supports Node.js, including Windows, Mac, and Linux.
 
 [!INCLUDE [classic-cli-warning](../../includes/requires-classic-cli.md)]
 
@@ -82,13 +82,6 @@ azure hdinsight cluster resize [options] <clusterName> <Target Instance Count>
 ```cli
 azure hdinsight cluster enable-http-access [options] <Cluster Name> <userName> <password>
 azure hdinsight cluster disable-http-access [options] <Cluster Name>
-```
-
-## Enable/disable RDP access for a cluster
-
-```cli
-azure hdinsight cluster enable-rdp-access [options] <Cluster Name> <rdpUserName> <rdpPassword> <rdpExpiryDate>
-azure hdinsight cluster disable-rdp-access [options] <Cluster Name>
 ```
 
 ## Next steps

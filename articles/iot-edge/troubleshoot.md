@@ -2,7 +2,7 @@
 title: Troubleshoot Azure IoT Edge | Microsoft Docs 
 description: Resolve common issues and learn troubleshooting skills for Azure IoT Edge 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/26/2018
 ms.topic: conceptual
@@ -335,4 +335,6 @@ While IoT Edge provides enhanced configuration for securing Azure IoT Edge runti
 
 ## Next steps
 Do you think that you found a bug in the IoT Edge platform? [Submit an issue](https://github.com/Azure/iotedge/issues) so that we can continue to improve. 
+
+If you have more questions, create a [Support request](https://portal.azure.com/#create/Microsoft.Support) for help. 
 

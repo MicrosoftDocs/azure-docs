@@ -174,7 +174,7 @@ This section provides template questionnaires to help gather important informati
 |Use Azure Monitoring & Alerting Vs Integrate third-party monitoring|Use Azure Monitoring & Alerting||
 |**Topic**:   **Security preferences** |||
 |Private and protected data pipeline?|Yes||
-|Domain Joined cluster (ESPP)?|     Yes||
+|Domain Joined cluster (ESP)?|     Yes||
 |On-Premises AD Sync to Cloud?|     Yes||
 |No. of AD users to sync?|          100||
 |Ok to sync passwords to cloud?|    Yes||
