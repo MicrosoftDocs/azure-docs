@@ -28,11 +28,12 @@ This article shows how to resolve a problem in which you cannot remote desktop t
 
 You cannot make an RDP connection and other connections (such as HTTP) to a VM in Azure because the VM is configured to boot into Safe Mode. When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you might see the VM boots normally, but the network interface is not available:
 
-![Image about network inferce in Safe Mode](./media/troubleshoot-bitlocker-boot-error/network-safe-mode.png)
+![Image about network inferce in Safe Mode](./media/troubleshoot-rdp-safe-mode/network-safe-mode.png)
 
 ## Cause
 
-The RDP service is not available in Safe Mode. Only essential system programs and services are loaded when the VM boots into Safe Mode.
+The RDP service is not available in Safe Mode. Only essential system programs and services are loaded when the VM boots into Safe Mode. This applies for the two different versions of Safe Mode which are "Safe Boot minimal" and "Safe Boot with connectivity".
+
 
 ## Solution 
 
@@ -50,7 +51,13 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 
     If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the **safeboot** flag, the VM is not in Safe Mode. This article does not apply to your scenario.
 
-    ![Image about the Safe Mode flag](./media/troubleshoot-bitlocker-boot-error/safe-mode-tag.png)
+    The safeboot flag could appear with the following values:
+    - Minimal
+    - Network
+
+    In any of these two modes, RDP will be not started. So the fix remains the same.
+
+    ![Image about the Safe Mode flag](./media/troubleshoot-rdp-safe-mode/safe-mode-tag.png)
 
 3. Delete the **safemoade** flag, so the VM will boot into normal mode:
 
@@ -71,7 +78,9 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
 2.Start a Remote Desktop connection to the recovery VM. 
 3. Make sure that the disk is flagged as **Online** in the Disk Management console. Note the drive letter that is assigned to the attached OS disk.
 
-#### Enable dump log and Serial Console
+#### Enable dump log and Serial Console (Optional)
+
+The dump log and Serial Console will help us to do further troubleshooting if the problem cannot be resolved by the solution in this article.
 
 To enable dump log and Serial Console, run the following script.
 
@@ -81,7 +90,7 @@ To enable dump log and Serial Console, run the following script.
     In this script, we assume that the drive letter that is assigned to the attached OS disk is F. Replace this drive letter with the appropriate value for your VM.
 
     ```powershell
-    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM
 
     REM Enable Serial Console
     bcdedit /store F:\boot\bcd /set {bootmgr} displaybootmenu yes
@@ -110,6 +119,8 @@ To enable dump log and Serial Console, run the following script.
     Take note of the Identifier name of the partition that has the **\windows** folder. By default, the  Identifier name is "Default".  
 
     If the VM is configured to boot into Safe Mode, you will see an extra flag under the **Windows Boot Loader** section called **safeboot**. If you do not see the “safeboot” flag, this article does not apply to your scenario.
+
+    ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
 3. Remove the **safemode** flag, so the VM will boot into normal mode:
 
