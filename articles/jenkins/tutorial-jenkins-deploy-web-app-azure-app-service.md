@@ -200,19 +200,20 @@ and elsewhere to these credential properties:
    | Property | Value | Description | 
    |----------|-------|-------------| 
    | **Kind** | Azure Service Principal | The type of credential you're using |  
-   | **Subscription ID** | <*yourAzureSubscription-ID*> | The GUID value for your Azure subscription | 
-   | **Client ID** | <*yourServicePrincipal-ID*> | The `appId` GUID value for your Azure service principal | 
-   | **Client Secret** | <*yourSecurePassword*> | The `password` value or "secret" for your Azure service principal | 
-   | **OAuth 2.0 Token Endpoint** | https://login.windows.net/<*yourAzureActiveDirectoryTenant-ID*> | The URL endpoint to use for authentication, including the GUID that identifies your Azure Active Directory tenant | 
-   | **ID** | <*yourServicePrincipal-ID*> | The `appId` GUID value for your Azure service principal | 
+   | **Subscription ID** | <*yourAzureSubscription-ID*> | The GUID for your Azure subscription <p>**Tip**: If you don't know your Azure subscription ID, run this Azure CLI command from either the command line or in Cloud Shell, and then use the `id` GUID value: <p>`az account list` | 
+   | **Client ID** | <*yourServicePrincipal-ID*> | The `appId` GUID you previously created for your Azure service principal | 
+   | **Client Secret** | <*yourSecurePassword*> | The `password` value or "secret" you previously used for your Azure service principal | 
+   | **OAuth 2.0 Token Endpoint** | `https://login.windows.net/`<*yourAzureActiveDirectoryTenant-ID*> | The URL endpoint to use for authentication and includes the GUID for your Azure Active Directory tenant | 
+   | **ID** | <*yourServicePrincipal-ID*> | The `appId` GUID you previously created for your Azure service principal | 
    |||| 
 
-   If you don't know your Azure subscription ID, run this Azure 
-   CLI command from either the command line or in Cloud Shell: 
-   
-   ```azurecli-interactive
-   az account list
-   ```
+   For example:
+
+   ![Add Azure service principal credentials](media/jenkins-java-quickstart/add-service-principal-credentials.png)
+
+1. To confirm your service principal works, 
+choose **Verify Service Principal**. 
+When you're done, choose **OK**.
 
 ## Create build and deploy pipeline
 
@@ -223,7 +224,7 @@ In Jenkins, create the pipeline job for building and deploying your app.
    ![Select "New Item"](media/jenkins-java-quickstart/jenkins-select-new-item.png)
 
 1. Provide a name for your pipeline job, for example, 
-"My-Java-Web-App-pipeline", and select **Pipeline**. 
+"My-Java-Web-App", and select **Pipeline**. 
 At the bottom, choose **OK**.  
 
    ![Select "Pipeline"](media/jenkins-java-quickstart/jenkins-select-pipeline.png)
