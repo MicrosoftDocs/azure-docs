@@ -41,7 +41,7 @@ In the code above, the first block of code constructs a Map object. You can see 
 
 The second block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for the point of interest. The Fuzzy search API can handle any combination of fuzzy inputs. 
 
-The fourth block of code parses the search response and stores the results in a array to calculate the bounds. It then returns the search results.
+The fourth block of code parses the search response and stores the results in an array to calculate the bounds. It then returns the search results.
 
 The third block of code creates a data source object using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class and add search results to it. A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as symbols on the map.  A symbol layer is then created and the data source is added to the symbol layer, which is then added to the map.
 
