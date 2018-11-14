@@ -172,7 +172,7 @@ The **corosync** config file has to be correct on every node in the cluster incl
 
 The content of **corosync.conf** from the test system is an example.
 
-The first section is **totem**, as described in [Cluster installation][sles-pacemaker-ha-guide](#cluster-installation), step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
+The first section is **totem**, as described in [Cluster installation](../high-availability-guide-suse-pacemaker.md#cluster-installation), step 11. You can ignore the value for **mcastaddr**. Just keep the existing entry. The entries for **token** and **consensus** must be set according to [Microsoft Azure SAP HANA documentation][sles-pacemaker-ha-guide].
 
 <pre><code>
 totem {
@@ -279,7 +279,7 @@ systemctl restart corosync
 
 ## SBD device
 
-How to set up an SBD device on an Azure VM is described in [SBD fencing][sles-pacemaker-ha-guide](#sbd-fencing).
+How to set up an SBD device on an Azure VM is described in [SBD fencing](../high-availability-guide-suse-pacemaker.md#sbd-fencing).
 
 First, check on the SBD server VM if there are ACL entries for every node in the cluster. Run the following command on the SBD server VM:
 
@@ -963,7 +963,7 @@ This example shows the location constraints caused by a cluster resource migrati
 ![Hawk list constraints](media/hana-vm-scale-out-HA-troubleshooting/hawk-2.png)
 
 
-You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See [hb_report to collect log files](#hb-report-to-collect-log-files): 
+You can also upload the **hb_report** output in Hawk under **History**, shown as follows. See [hb_report to collect log files](#hbreport-to-collect-log-files): 
 
 ![Hawk upload hb_report output](media/hana-vm-scale-out-HA-troubleshooting/hawk-3.png)
 
