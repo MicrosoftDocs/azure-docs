@@ -194,7 +194,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
