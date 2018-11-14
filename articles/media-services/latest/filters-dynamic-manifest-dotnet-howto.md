@@ -37,7 +37,7 @@ This topic shows how to use Media Services .NET SDK to create [Account Filters](
 
 ## Considerations
 
-- The values for [PresentationTimeRange.PresentationWindow](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.presentationtimerange.presentationwindowduration?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_PresentationTimeRange_PresentationWindowDuration) and [PresentationTimeRange.LiveBackoffDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.presentationtimerange.livebackoffduration?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_PresentationTimeRange_LiveBackoffDuration) should not be set for a video on demand filter. They are only used for live filter scenarios.  
+- The values for [PresentationTimeRange.PresentationWindow](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.presentationtimerange.presentationwindowduration?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_PresentationTimeRange_PresentationWindowDuration) and [PresentationTimeRange.LiveBackoffDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.presentationtimerange.livebackoffduration?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_PresentationTimeRange_LiveBackoffDuration) should not be set for a video on-demand filter. They are only used for live filter scenarios.  
 
     ```
     new PresentationTimeRange(scaledStartTime, scaledEndTime, null, null, (long)timeScale, false);

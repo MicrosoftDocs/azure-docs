@@ -37,7 +37,7 @@ This article shows how to use REST APIs to create [Account Filters](https://docs
 
 ## Considerations
 
-- The values for **presentationWindow** and **liveBackoffDuration** should not be set for a video on demand filter. They are only used for live filter scenarios. 
+- The values for **presentationWindow** and **liveBackoffDuration** should not be set for a video on-demand filter. They are only used for live filter scenarios. 
 - If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Always clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
 
 ## Create account filters
