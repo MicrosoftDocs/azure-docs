@@ -237,7 +237,7 @@ Here is the script.  You can run the script from Windows PowerShell ISE. You onl
     }
     #endregion
 
-    #region - Create Azure resouce group
+    #region - Create Azure resource group
     Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -121,7 +121,7 @@ After you've installed Docker, use the following settings for your container hos
 
 **For all Linux container hosts except CoreOS:**
 
-- For more information and steps on how to install the Log Analytics agent for Linux, see [Connect your Linux Computers to Log Analytics](log-analytics-concept-hybrid.md).
+- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](log-analytics-agent-overview.md).
 
 **For all Linux container hosts including CoreOS:**
 
