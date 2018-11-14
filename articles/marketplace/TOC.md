@@ -12,7 +12,7 @@
 
 ### [Determine the publishing option for your solution](./determine-your-listing-type.md)  
 
-### [Publishing guide by offer type](./publisher-guide-by-offer-type)
+### [Publishing guide by offer type](./publisher-guide-by-offer-type.md)
 #### [Virtual Machines](./marketplace-virtual-machines.md)
 #### [Azure Applications: solution templates](./marketplace-solution-templates.md)
 #### [Azure Applications: managed applications](./marketplace-managed-apps.md)
