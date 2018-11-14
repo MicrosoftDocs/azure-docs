@@ -16,15 +16,15 @@
     - name: REST API
       items:
         - name: Get search results from your instance
-          - items:
-            - name: Using C#
-              href: call-endpoint-csharp.md
-            - name: Using Java
-              href: call-endpoint-java.md
-            - name: Using Node.js
-              href: call-endpoint-nodejs.md
-            - name: Using Python
-              href: call-endpoint-python.md
+          items:
+          - name: Using C#
+            href: call-endpoint-csharp.md
+          - name: Using Java
+            href: call-endpoint-java.md
+          - name: Using Node.js
+            href: call-endpoint-nodejs.md
+          - name: Using Python
+            href: call-endpoint-python.md
     - name: SDK
       items:
         - name: Get search results from your instance
