@@ -642,7 +642,6 @@ In this tutorial, you learned how to define an Oozie workflow and how to run an 
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/
