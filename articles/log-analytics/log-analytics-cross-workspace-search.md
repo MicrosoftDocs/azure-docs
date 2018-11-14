@@ -102,7 +102,7 @@ When using cross-resource queries to correlate data from multiple Log Analytics 
 
 The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. The following steps are performed in Azure Log Analytics portal. Navigate to your workspace in Azure portal and click Logs on the left navigation pane.
 
-1. Author a function – this query reference the scope of Application Insights resources. You can edit the applications in the function at any time 
+1. Author a function – this query reference the scope of Application Insights resources. You can edit the applications in the function at any time.<br>Note: the ‘withsource= SourceApp’ command adds a column that designates the application name that sent the log. This will help you to identify to which application the failures are attributed.  
     ```
     // crossResource function that scopes my Application Insights resources
     union withsource= SourceApp
@@ -112,8 +112,8 @@ The following example demonstrates how you can monitor multiple Application Insi
     app(''Contoso-app4').requests,
     app(''Contoso-app5').requests
     ```
-2. Save the query as function by clicking the **save** icon. The ‘Function alias’ is the entity to be used for calling the function from within a query.<br>Name: Production applications<br>Save as: Function<br>Function alias: applicationsScoping<br>Category: Failures analytics
-3. Using the applicationsScoping function in cross-resource query – the Function alias (applicationsScoping) returns the union of requests table from all the defined applications in Production applications function.  The query then filters for failed requests and visualize the trends by application 
+2. Save the query as function by clicking the **save** icon. The ‘Function alias’ is the entity to be used for calling the function from within a query.<br>Note: managing the list of applications in the function is available at any time by navigating to Query explorer in Logs portal.<br>Name: Production applications<br>Save as: Function<br>Function alias: applicationsScoping<br>Category: Failures analytics
+1. Using the applicationsScoping function in cross-resource query – the Function alias (applicationsScoping) returns the union of requests table from all the defined applications in Production applications function.  The query then filters for failed requests and visualize the trends by application 
     ```
     applicationsScoping 
     | where timestamp > ago(12h)
@@ -123,7 +123,7 @@ The following example demonstrates how you can monitor multiple Application Insi
     | sort by count_ desc 
     | render timechart
     ```
-
+    The ‘parse’ operator is optional in this case – it extracts the application name from ‘SourceApp’ property.
 
 
 
