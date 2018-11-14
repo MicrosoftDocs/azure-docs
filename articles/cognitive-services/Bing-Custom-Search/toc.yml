@@ -22,10 +22,10 @@
               href: call-endpoint-nodejs.md
             - name: Using Python
               href: call-endpoint-python.md
-        - name: SDK
-          items:
-            - name: Get search results from your instance
-              href: sdk-csharp-quick-start.md
+    - name: SDK
+      items:
+        - name: Get search results from your instance
+          href: sdk-csharp-quick-start.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
