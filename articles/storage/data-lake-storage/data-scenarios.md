@@ -1,5 +1,5 @@
 ---
-title: Data scenarios involving Data Lake Storage Gen2 | Microsoft Docs
+title: Data scenarios involving Azure Data Lake Storage Gen2 | Microsoft Docs
 description: Understand the different scenarios and tools using which data can ingested, processed, downloaded, and visualized in Data Lake Storage Gen2 (previously known as Azure Data Lake Store)
 services: storage
 documentationcenter: ''
@@ -34,7 +34,7 @@ This represents smaller data sets that are used for prototyping a big data appli
 
 | Data Source | Ingest it using |
 | --- | --- |
-| Local computer |<ul> <li>[Storage Explorer]https://azure.microsoft.com/features/storage-explorer/)</ul> |
+| Local computer |<ul> <li>[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)</ul> |
 | Azure Storage Blob |<ul> <li>[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)</li> <li>[AzCopy tool](../common/storage-use-azcopy-v10.md)</li><li>[DistCp running on HDInsight cluster](use-distcp.md)</li> </ul> |
 
 ### Streamed data

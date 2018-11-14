@@ -1,5 +1,5 @@
 ---
-title: Big data applications compatible with Data Lake Storage Gen2 | Microsoft Docs
+title: Big data applications compatible with Azure Data Lake Storage Gen2 | Microsoft Docs
 description: List of open source applications that work with Azure Data Lake Storage Gen2 (previously known as Azure Data Lake Store)
 services: storage
 documentationcenter: ''
@@ -26,6 +26,3 @@ This article lists the open source big data applications that work with Azure Da
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 |
 
 For information on about which Hadoop components are available with HDInsight, see [HDInsight component versioning](../../hdinsight/hdinsight-component-versioning.md).
-
-## See also
-* [Introduction to Azure Data Lake Storage Gen2](introduction.md)
