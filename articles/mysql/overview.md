@@ -2,14 +2,13 @@
 title: Overview of Azure Database for MySQL relational database service
 description: Overview of the Azure Database for MySQL relational database service.
 services: mysql
+ms.service: mysql
 author: ajlam
 ms.author: andrela
-manager: kfile
 editor: jasonwhowell
-ms.service: mysql
-ms.topic: article
-ms.date: 06/02/2018
 ms.custom: mvc
+ms.topic: article
+ms.date: 11/14/2018
 ---
 
 # What is Azure Database for MySQL?
