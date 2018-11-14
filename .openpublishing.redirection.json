@@ -7860,6 +7860,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-resources.md",
+            "redirect_url": "/azure/cosmos-db/databases-containers-items",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
             "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
             "redirect_document_id": false

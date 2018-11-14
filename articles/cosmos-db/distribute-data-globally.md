@@ -12,13 +12,26 @@ ms.date: 10/26/2018
 ms.author: mjbrown
 
 ---
-# Global data distribution with Azure Cosmos DB
+# Build globally distributed applications with Azure Cosmos DB
 
-Many of today’s applications run at planet scale. These applications are always on and accessible to users all around the globe. It's a challenge to manage the global distribution of data that's used by these applications and provide high performance and high availability. Azure Cosmos DB is a globally distributed database service that's designed to provide high performance and high availability. Azure Cosmos DB is best suited for these real-time applications.
+Many of today’s applications are required to operate in multiple data centers. These globally distributed applications are always on and accessible to users everywhere. Managing the global distribution of data that's used by these applications is a challenge. The database services must provide low latency, elastic scalability of throughput, and high availability around the world. 
 
-Azure Cosmos DB is a foundational Azure service. It's available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) by default. Microsoft operates Azure data centers in more than 54 regions around the world. The number of regions continues to expand to meet the growing needs of customers. When you create an Azure Cosmos DB account, you decide on the regions where it should be deployed. Microsoft operates the Azure Cosmos DB service 24/7 so that you can focus on your applications.
+Azure Cosmos DB is a globally distributed database service that's designed to provide: 
+ 
+- Low latency. 
+- Elastic scalability of throughput. 
+- Well-defined semantics for data consistency. 
+- High availability. 
 
-You can configure your databases to be globally distributed and available in any of the Azure regions. To lower the latency, place the data closer to your user’s location. Choosing the required regions depends on the global reach of your application and where your users are located. Azure Cosmos DB transparently replicates the data within your account to all the configured regions. It provides a single system image of your Azure Cosmos DB database and containers by which your application can read and write locally. 
+Consider building applications by using Azure Cosmos DB if your application: 
+ 
+- Needs guaranteed fast response time anywhere in the world. 
+- Must always be online. 
+- Needs unlimited and elastic scalability of throughput and storage.
+
+Azure Cosmos DB is a foundational Azure service. It's available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) by default. Microsoft operates Azure data centers in more than 54 regions around the world. The number of regions continues to expand to meet the growing needs of customers. When you create an Azure Cosmos DB account, you decide on the regions where it's deployed. Microsoft operates Azure Cosmos DB nonstop so that you can focus on your applications.
+
+You can configure your databases to be globally distributed and available in any of the Azure regions. To lower the latency, place the data closer to where your users are. Choosing the regions you require depends on the global reach of your application and where your users are located. Azure Cosmos DB transparently replicates the data within your account to all the regions associated with your account. It provides a single system image of your globally distributed Azure Cosmos DB database and containers that your application can read and write to locally. 
 
 With Azure Cosmos DB, you can add or remove the regions associated with your account at any time. Your application doesn't need to pause or be redeployed to add or remove a region. It continues to be highly available all the time because of the multi-homing capabilities that the service provides.
 
@@ -30,15 +43,15 @@ With Azure Cosmos DB, you can add or remove the regions associated with your acc
 - 99.999% read and write availability all around the world.
 - Guaranteed reads and writes served in less than 10 milliseconds at the 99th percentile.
 
-By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region. It then can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions from your account, your application doesn't need to be redeployed. Your application continues to be highly available.
+By using the Azure Cosmos DB multi-homing APIs, your application is aware of the nearest region. It then can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions from your Azure Cosmos DB account, your application doesn't need to be redeployed. Your application continues to be highly available.
 
 **Build highly responsive apps.** Your application can be easily designed to perform near real-time reads and writes. It can use single-digit millisecond latencies against all the regions you chose for your database. Azure Cosmos DB internally handles the data replication between regions. As a result, the consistency level selected for the Azure Cosmos DB account is guaranteed.
 
-Many applications benefit from the performance enhancements that come with the ability to perform multi-region (local) writes. Some applications that require strong consistency prefer to funnel all writes to a single region. To support these applications, Azure Cosmos DB supports single region and multi-region configurations.
+Many applications benefit from the performance enhancements that come with the ability to perform multi-region (local) writes. Some applications that require strong consistency prefer to funnel all writes to a single region. For these applications, Azure Cosmos DB supports single region and multi-region configurations.
 
 **Build highly available apps.** Running a database in several regions increases the availability of the database. If one region is unavailable, other regions automatically handle application requests. Azure Cosmos DB offers 99.999% read and write availability for multi-region databases.
 
-**Maintain business continuity during regional outages**: Azure Cosmos DB supports [automatic failover](how-to-manage-database-account.md#automatic-failover) during a regional outage. During a regional outage, Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Azure Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
+**Maintain business continuity during regional outages.** Azure Cosmos DB supports [automatic failover](how-to-manage-database-account.md#automatic-failover) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Azure Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
 
 **Scale read and write throughput globally.** With multi-master capability, you can elastically scale read and write throughput all around the world. Multi-master capability guarantees that the throughput that your application configures on an Azure Cosmos DB database or a container is delivered across all regions and protected by [financially backed SLAs](https://aka.ms/acdbsla).
 
@@ -50,5 +63,5 @@ Read more about global distribution in the following articles:
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 * [Configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Add or remove regions from your Azure Cosmos account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
