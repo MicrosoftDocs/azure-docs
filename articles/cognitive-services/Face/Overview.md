@@ -61,6 +61,10 @@ After a database has been created and trained, you can perform identification ag
 
 For more information about person identification, see the [Identify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
+## Use containers
+
+[Use the Face container](face-how-to-install-containers.md) to detect, recognize, and identify faces, by installing a standardized Docker container closer to your data.
+
 ## Sample apps
 
 The following sample applications showcase a few of the ways the Face API can be used.
