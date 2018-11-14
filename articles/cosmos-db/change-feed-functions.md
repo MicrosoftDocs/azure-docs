@@ -37,7 +37,7 @@ Azure Functions polls the change feed for changes continuously, with a maximum d
 
 If your document receives multiple changes in the same interval that took the Trigger to poll for new changes, you might receive the latest version of the document and not the intermediate one.
 
-If you want to to poll change feed for less than 5 seconds, for example, for every second, you can configure the polling time "feedPollDelay", see [the complete configuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). It is defined in milliseconds with a default of 5000. Polling for less than 1 second is possible but it's not advised because you will start using more CPU memory.
+If you want to poll change feed for less than 5 seconds, for example, for every second, you can configure the polling time "feedPollDelay", see [the complete configuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). It is defined in milliseconds with a default of 5000. Polling for less than 1 second is possible but it's not advised because you will start using more CPU memory.
 
 ### Can multiple Azure Functions read one container’s change feed?
 
