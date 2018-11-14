@@ -156,7 +156,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 Now login to the Virtual Machine by using a terminal
 
 ```
-ssh azureuser@myvm.westus.com
+ssh azureuser@<PublicIpAddress>
 ```
 
 ## Install Dot Net core on Linux
