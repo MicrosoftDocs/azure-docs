@@ -30,7 +30,7 @@ In this tutorial, you follow the necessary steps for getting an Azure web applic
 > * Grant the required permissions for the web application to read data from the key vault.
 > * Run the Web Application on Azure
 
-Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
+Before, we go any further read the [basic concepts](key-vault-whatis.md#basic-concepts).
 
 ## Prerequisites
 
