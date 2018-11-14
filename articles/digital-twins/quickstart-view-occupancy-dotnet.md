@@ -118,11 +118,12 @@ The sensor sample simulates random data values for two sensors. They're motion a
 
      ![Get available spaces with fresh air][3]
 
-To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in digital-twins-samples-csharp. Use the following command. 
+To understand what happened in this quickstart and what APIs were called, open [Visual Studio Code](https://code.visualstudio.com/Download) with the code workspace project found in digital-twins-samples-csharp. Use the following command:
 
-```
+```plaintext
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
+
 The tutorials go deep into the code. They teach you how to modify configuration data and what APIs are called. For more information on Management APIs, go to your Digital Twins Swagger page:
 
 ```plaintext
