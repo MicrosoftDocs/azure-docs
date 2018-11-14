@@ -67,7 +67,7 @@ If it is your first-time enabling email actions within your solution accelerator
 
 If your application was deployed by someone with a **contributor** role on the subscription, you will see the following screenshot. Follow the instructions below to set up Outlook for your application. 
 
-![learn more](./media/iot-accelerators-email-actions/learnmore.png)
+![learn more](./media/iot-accelerators-remote-monitoring-email-actions/learnmore.png)
 
 ### Contributor role Outlook set up
 Since the application was deployed by someone with the **contributor** role in the subscription, the application does 
@@ -76,25 +76,25 @@ not have sufficient permissions to set up and verify email actions through the W
   1. Go to the [Azure portal](https://portal.azure.com)
   2. Navigate to the Resource Group for your solution accelerator
   3. Click on the office 365 connector (API Connection)
-    ![API Connection](./media/iot-accelerators-email-actions/apiconnector.png)
+    ![API Connection](./media/iot-accelerators-remote-monitoring-email-actions/apiconnector.png)
   4. Click on the banner to begin the authorization process
-    ![authorize](./media/iot-accelerators-email-actions/connector.png)
+    ![authorize](./media/iot-accelerators-remote-monitoring-email-actions/connector.png)
   5. Click the **authorize** button in which it will ask you to sign in. This account you sign in with will be the email address the application uses to send email from. We advise that you create an outlook account ahead of time to send email notifications for your solution accelerator from.
-    ![authorize button](./media/iot-accelerators-email-actions/authorize.png)
-    ![sign in](./media/iot-accelerators-email-actions/signin.png)
+    ![authorize button](./media/iot-accelerators-remote-monitoring-email-actions/authorize.png)
+    ![sign in](./media/iot-accelerators-remote-monitoring-email-actions/signin.png)
   7. Click **Save** at the bottom. Your authorization will be successful if the banner is gone.
   9. To change the email address from which the notifications are sent from, click **Edit API connection**.
-    ![change email](./media/iot-accelerators-email-actions/editemail.png)
+    ![change email](./media/iot-accelerators-remote-monitoring-email-actions/editemail.png)
 
 ### Owner role Outlook set up
 Since the application was deployed by someone with the **owner** role in the subscription, the application is able to verify email actions have been correctly set up through the WebUI. The following steps will help you sign in and set up email actions.
 
   1. Click to sign in to Outlook. You will be taken to the Azure portal.
-    ![sign in](./media/iot-accelerators-email-actions/owneroutlook.png)
+    ![sign in](./media/iot-accelerators-remote-monitoring-email-actions/owneroutlook.png)
   2. Click the **authorize** button in which it will ask you to sign in. This account you sign in with will be the email address the application uses to send email from. We advise that you create an outlook account ahead of time to send email notifications for your solution accelerator from. 
   3. Click **Save** at the bottom. Return back to your application and refresh the page. 
   4. You will see a banner if you have successfully configured the email notification. 
-    ![successful lo in](./media/iot-accelerators-email-actions/success.png)
+    ![successful lo in](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
 
 ## Customizing the email HTML <a name="htmledit"></a>
 
@@ -123,7 +123,7 @@ However, if you would like to edit the HTML to include more information, custom 
 
 The Remote Monitoring solution accelerator out of the box uses Outlook to send out the email notifications. Outlook limits the number of emails sent to [30 emails per 1 minute](https://docs.microsoft.com/office365/servicedescriptions/exchange-online-service-description/exchange-online-limits#receiving-and-sending-limits). Email clients receiving the emails may also throttle the number of emails received per minute. Check with your specific email client on limitations. It is recommended that when you set up email notification for a rule, that you have the rule calculate over an average of 1 minute or more, and not instant, as shown below. 
 
-![calculation](./media/iot-accelerators-email-actions/calculation.png)
+![calculation](./media/iot-accelerators-remote-monitoring-email-actions/calculation.png)
 
 ## Next steps
 
