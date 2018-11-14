@@ -17,7 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With SAML technical profile you can federate with a SAML based identity provider, such as AD-FS and Salesforce, allowing your users to sign-in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With SAML technical profile you can federate with a SAML based identity provider, such as [ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) and [Salesforce](active-directory-b2c-setup-sf-app-custom.md), allowing your users to sign-in with their existing social or enterprise identities.
 
 ## Metadata exchange
 
