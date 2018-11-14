@@ -65,7 +65,6 @@ To resolve this issue, use Serial control to configure the VM to boot into norma
         
 4. Check the boot configuration data to make sure that the safeboot flag is removed:
 
-
         bcdedit /enum
 
 5. Restart the VM, and then check whether the issue is resolved.
