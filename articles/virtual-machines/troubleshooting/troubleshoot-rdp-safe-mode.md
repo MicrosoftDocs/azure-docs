@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: genli
 ---
 
