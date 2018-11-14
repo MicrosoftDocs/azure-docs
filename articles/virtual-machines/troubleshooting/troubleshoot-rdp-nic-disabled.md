@@ -26,18 +26,18 @@ This article shows how to resolve a problem in which you cannot remote desktop t
 
 ## Symptoms 
 
-You cannot make an RDP connection and other connections (such as HTTP) to a VM in Azure because the network interface in the VM is disabled. 
+You cannot make an RDP connection or any other type of connection to any other ports to a VM in Azure because the network interface in the VM is disabled.
 
 ## Solution 
 
 Before you follow these steps, take a snapshot of the OS disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To enable the interface for the VM, use Serial control or [reset network interface](reset-network-interface.md) for the VM.
+To enable the interface for the VM, use Serial control or [reset network interface](##reset-network-interface) for the VM.
 
 ### Use Serial control
 
 1. Connect to [Serial Console and open CMD instance](./serial-console-windows.md#open-cmd-or-powershell-in-serial-console
-). If the Serial Console is not enabled on your VM, see [reset network interface](reset-network-interface.md).
+). If the Serial Console is not enabled on your VM, see [reset network interface](#reset-network-interface).
 2. Check the state of the network interface:
 
         netsh interface show interface
@@ -60,3 +60,7 @@ To enable the interface for the VM, use Serial control or [reset network interfa
     You don't have to restart the VM at this point. The VM will be back reachable.
         
 5.  Connect to the VM and see if the problem is resolved.
+
+## Reset network interface
+
+To reset network interface, see [reset network interface](reset-network-interface.md). 
