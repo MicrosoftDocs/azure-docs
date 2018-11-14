@@ -98,6 +98,9 @@ If you choose a cluster that hasn't been enabled to work with Azure Dev Spaces, 
 
 Choose **OK**.
 
+> [!IMPORTANT]
+> The Azure Dev Spaces configuration process will remove the `azds` namespace in the cluster, if it exists.
+
  A background task will be started to accomplish this. It will take a number of minutes to complete. To see if it's still being created, hover your pointer over the **Background tasks** icon in the bottom left corner of the status bar, as shown in the following image.
 
 ![](media/get-started-netcore-visualstudio/BackgroundTasks.PNG)

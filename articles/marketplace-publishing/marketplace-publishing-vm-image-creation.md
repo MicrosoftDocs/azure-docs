@@ -187,7 +187,7 @@ To learn more about VM images, review the following blog posts:
 
 ### Set up the necessary tools, PowerShell and Azure classic CLI
 * [How to setup PowerShell](/powershell/azure/overview)
-* [How to setup Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [How to setup Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### 4.1 Create a user VM image
 #### Capture VM
