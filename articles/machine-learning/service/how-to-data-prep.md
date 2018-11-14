@@ -42,7 +42,7 @@ dataflow = dprep.smart_read_file(path="<your-file-path>")
 
 ### Automated feature engineering
 
-Use the SDK to split and derive columns by both example and inference to automate feature engineering.. Assume you have a field in your dataflow object called `datetime` with a value of `2018-09-15 14:30:00`.
+Use the SDK to split and derive columns by both example and inference to automate feature engineering. Assume you have a field in your dataflow object called `datetime` with a value of `2018-09-15 14:30:00`.
 
 To automatically split the `datetime` field, call the following function.
 
