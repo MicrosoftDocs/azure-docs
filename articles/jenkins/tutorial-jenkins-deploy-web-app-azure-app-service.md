@@ -240,7 +240,7 @@ can deploy to Azure without using your own credentials.
    For example, use the service principal ID you created earlier.
 
       ```text
-      AZURE_CRED_ID=yourAzureServicePrincipal-ID
+      AZURE_CRED_ID=yourClient-ID
       RES_GROUP=yourWebAppAzureResourceGroupName
       WEB_APP=yourWebAppName
       ```
