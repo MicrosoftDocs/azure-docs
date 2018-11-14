@@ -45,8 +45,10 @@
     items:
     - name: Assets
       href: assets-concept.md
+    - name: Asset and Account filters 
+      href: filters-dynamic-manifest-overview.md          
     - name: Content key policies
-      href: content-key-policy-concept.md
+      href: content-key-policy-concept.md 
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators
@@ -57,8 +59,6 @@
       href: transforms-jobs-concept.md
   - name: Examining storage accounts
     href: storage-account-concept.md
-  - name: Filters and dynamic manifests
-    href: filters-dynamic-manifest-overview.md
   - name: Handling Event Grid events
     href: reacting-to-media-services-events.md      
   - name: Protecting content
