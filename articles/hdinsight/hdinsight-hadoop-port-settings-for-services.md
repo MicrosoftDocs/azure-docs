@@ -8,7 +8,7 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/20/2018
+ms.date: 11/06/2018
 ms.author: hrasheed
    
 ---

@@ -45,7 +45,7 @@ If you have difficulty with simple entity detection because it is a name such as
 > * Create phrase list of Cities
 > * Get intents and entities from endpoint
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## Use existing app
 Continue with the app created in the last tutorial, named **HumanResources**. 
@@ -60,7 +60,7 @@ If you do not have the HumanResources app from the previous tutorial, use the fo
 
 ## Create new entities
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Select **Entities** from the left navigation. 
 
@@ -250,7 +250,7 @@ Cities, like people's names are tricky in that they can be any mix of words and 
 
 ## Get intent and entities from endpoint
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Go to the end of the URL in the address and enter `Move wayne berry from miami to mount vernon`. The last querystring parameter is `q`, the utterance **query**. 
 

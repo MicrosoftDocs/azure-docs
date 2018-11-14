@@ -19,10 +19,8 @@ ms.date: 03/31/2017
 
 ---
 # Discover Jupyter Notebooks in the Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## Jupyter Notebooks
-**[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)**
+**[Jupyter Notebooks](https://gallery.cortanaintelligence.com/notebooks)** in [Azure AI Gallery](http://gallery.cortanaintelligence.com)
 include code, data visualizations, and documentation in a single, interactive canvas.
 Notebooks in the Gallery provide tutorials and detailed explanations of advanced machine learning techniques and solutions.
 

@@ -21,7 +21,9 @@ The [source code for Node Bing Video Search SDK samples](https://github.com/Azur
 
 ## Application dependencies
 
-To set up a console application using the Bing Video Search SDK, run `npm install azure-cognitiveservices-videosearch` in your development environment.
+To set up a console application using the Bing Video Search SDK:
+* Run `npm install ms-rest-azure` in your development environment.
+* Run `npm install azure-cognitiveservices-videosearch` in your development environment.
 
 ## Video Search client
 Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under *Search*. Create an instance of the `CognitiveServicesCredentials`:

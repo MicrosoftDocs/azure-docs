@@ -34,7 +34,7 @@ Event Hubs receieving data from Azure Diagnostics is supported in Cloud Services
 * Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
 * [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
-  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
 * Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
