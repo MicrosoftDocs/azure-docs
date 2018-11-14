@@ -62,7 +62,7 @@
   - name: Monitoring
     items:
     - name: Azure AD logs in Azure Monitor
-      href: concept-activity-logs-in-azure-monitor.md
+      href: concept-activity-logs-azure-monitor.md
 
 - name: How-to guides
   expanded: true

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/26/2017
+ms.date: 11/13/2018
 ms.author: barbkess
 
 ms.reviewer: asmalser
@@ -74,7 +74,5 @@ This section provides addition details about the operation of the provisioning s
 
 Links are provided to the **Provisioning activity report** that provides a log of all users and groups created, updated, and removed between Azure AD and the target application, and to the **Provisioning error report** that provides more detailed error messages for user and group objects that failed to be read, created, updated, or removed. 
 
-## Feedback
 
-Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  The engineering team is excited about building cool new stuff every day, and they use your guidance to shape and define what to build next.
 
