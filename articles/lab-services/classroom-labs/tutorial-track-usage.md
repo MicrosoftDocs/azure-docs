@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/23/2018
+ms.date: 11/14/2018
 ms.author: spelluru
 
 ---
@@ -45,14 +45,12 @@ In this tutorial, you do the following actions:
     ![VM usage](../media/tutorial-track-usage/vm-usage.png)
 
 ## Manage student VMs 
-As you hover the mouse over a row in the list of virtual machine, you see controls to do the following tasks: 
+As you hover the mouse over a row in the list of virtual machine, you see controls to do the following tasks (as shown in the image in the previous section): 
 
 - Connect to a VM
 - Start a VM
 - Stop a VM
 - Delete a VM
-
-![VM controls](../media/tutorial-track-usage/vm-controls.png) 
 
 
 

@@ -132,22 +132,26 @@ When you publish a template, Azure Lab Services creates VMs in the lab by using 
     > Once a template is published, it can't be unpublished. 
 4. Switch to the **Virtual machines** page, and confirm that you see virtual machines that are in **Unassigned** state. These VMs are not assigned to students yet. 
 
-    ![Virtual machines](../media/tutorial-setup-classroom-lab/virtual-machines.png)
-5. Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs. 
+    Wait until the VMs are created. They should be in **Stopped** state. You can start a student VM, connect to the VM, stop the VM, and delete the VM on this page. You can start them in this page or let your students start the VMs.
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
 
 ## Send registration link to students
 
-1. Switch to the **Dashboard** view. 
-2. Select **User registration** tile.
+1. Switch to the **Users** view by selecting **Users** on the left menu. 
+2. Select **Get registration link** tile.
 
     ![Student registration link](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
+1. In the **User registration** dialog box, select the **Copy** button. 
 
     ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. On the **User registration** dialog box, select **Close**. 
+4. Share the registration link with a student so that the student can register for the class. If you have the **Restrict option** setting enabled and have a list of users in the list, do the following actions:
+    1. Select the **email address** of the user in the list. 
+    2. You see a window from your default email program with the **TO** address filled in. 
+    3. Paste the **registration URL** you copied earlier. 
+    4. Send the **email**.
 
 ## View all classroom labs
 1. Navigate to [Azure Lab Services portal](https://labs.azure.com).
