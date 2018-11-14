@@ -27,14 +27,15 @@ This article explains how this works.
 
 ## How it works 
 
+
 Azure AD joined devices are not joined to an on-premises AD. Hence, these devices have no knowledge about your on-premises environment. However, you can provide additional information to these devices with Azure AD Connect. If your environment has both, an Azure AD and an on-premises AD, it is very likely that you already have Azure AD Connect deployed to synchronize your on-premises identity information to the cloud. As part of the synchronization process, Azure AD Connect synchronizes on-premises domain information to Azure AD. By configuring [domain-based filering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering), you ensure that the data about the required domains is synchronized.
 
-When a user signs in to an Azure AD joined device, if available, Azure AD also sends the name of the on-premises domain the user is a member of, and enables Kerberos authentication. When the user performs an access attempt to a resource in the user's on-premises domain, the device uses the domain information to locate a domain controller (DC). If a DC was detected, the device uses the on-premises domain information and the password used by the user to sign-in to the device to authenticate the user with the on-premises DC.
+When a user signs in to an Azure AD joined device in a hybrid environment, Azure AD also sends the name of the on-premises domain the user is a member of. When the device receives the domain information, the local security authority (LSA) service enables Kerberos authentication. When the user performs an access attempt to a resource in the user's on-premises domain, the device uses the domain information to locate a domain controller (DC). If a DC is detected, the device uses the on-premises domain information and user credentials to authenticate the user with the on-premises DC. 
 
-All apps configured for **Windows Integrated authentication** seamlessly get SSO when a user tries to access them. 
+All apps configured for **Windows Integrated authentication** seamlessly get SSO when a user tries to access them.  
 
 Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
-
+  
  
 ## What you should know
 
