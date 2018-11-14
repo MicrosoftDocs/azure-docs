@@ -31,7 +31,7 @@ Consider building applications by using Azure Cosmos DB if your application:
 
 Azure Cosmos DB is a foundational Azure service. It's available in all [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) by default. Microsoft operates Azure data centers in more than 54 regions around the world. The number of regions continues to expand to meet the growing needs of customers. When you create an Azure Cosmos DB account, you decide on the regions where it's deployed. Microsoft operates Azure Cosmos DB nonstop so that you can focus on your applications.
 
-You can configure your databases to be globally distributed and available in any of the Azure regions. To lower the latency, place the data close to your users. Choosing the regions you require depends on the global reach of your application and where your users are located. Azure Cosmos DB transparently replicates the data within your account to all the regions associated with your account. It provides a single system image of your globally distributed Azure Cosmos DB database and containers. Your application can read and write to the image locally. 
+You can configure your databases to be globally distributed and available in any of the Azure regions. To lower the latency, place the data close to your users. Choosing the regions you require depends on your application's global reach and where your users are located. Azure Cosmos DB transparently replicates the data within your account to all the regions associated with your account. It provides a single system image of your globally distributed Azure Cosmos DB database and containers. Your application can read and write to the image locally. 
 
 With Azure Cosmos DB, you can add or remove the regions associated with your account at any time. Your application doesn't need to pause or redeploy to add or remove a region. It continues to be highly available all the time because of multihoming.
 
@@ -43,7 +43,7 @@ With Azure Cosmos DB, you can add or remove the regions associated with your acc
 - 99.999% read and write availability all around the world.
 - Guaranteed reads and writes served in less than 10 milliseconds at the 99th percentile.
 
-By using the Azure Cosmos DB multihoming APIs, your application is aware of the nearest region. It then can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions from your Azure Cosmos DB account, your application doesn't need to redeploy. It continues to be highly available.
+By using the Azure Cosmos DB multihoming APIs, your application is aware of the nearest region. It then can send requests to that region. The nearest region is identified without any configuration changes. As you add and remove regions from your Azure Cosmos DB account, your application doesn't need to redeploy. The application continues to be highly available.
 
 **Build highly responsive apps.** Your application can be easily designed to perform near real-time reads and writes. It can use single-digit millisecond latencies against all the regions you chose for your database. Azure Cosmos DB internally handles the data replication between regions. As a result, the consistency level selected for the Azure Cosmos DB account is guaranteed.
 
@@ -53,7 +53,7 @@ Many applications benefit from the performance enhancements that come with the a
 
 **Maintain business continuity during regional outages.** Azure Cosmos DB supports [automatic failover](how-to-manage-database-account.md#automatic-failover) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help make sure that your entire application is highly available, Azure Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can carry out regular business continuity drills.
 
-**Scale read and write throughput globally.** With the multi-master feature, you can elastically scale read and write throughput all around the world. The multi-master feature guarantees that the throughput that your application configures on an Azure Cosmos DB database or a container is delivered across all regions. The throughput also is protected by [financially backed SLAs](https://aka.ms/acdbsla).
+**Scale read and write throughput globally.** With the multi-master feature, you can elastically scale read and write throughput all around the world. The multi-master feature guarantees the throughput that your application configures on an Azure Cosmos DB database or a container is delivered across all regions. The throughput also is protected by [financially backed SLAs](https://aka.ms/acdbsla).
 
 **Choose from several well-defined consistency models.** The Azure Cosmos DB replication protocol offers five well-defined, practical, and intuitive consistency models. Each model has a tradeoff between consistency and performance. Use these consistency models to build globally distributed applications with ease.
 
