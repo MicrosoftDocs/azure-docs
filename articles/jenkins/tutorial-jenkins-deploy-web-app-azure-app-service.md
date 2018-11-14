@@ -194,12 +194,13 @@ select **Global credentials (unrestricted)**.
 
 1. From the left menu, select **Add Credentials**.
 
+1. From the **Kind** list, select **Azure Service Principal**.
+
 1. Assign these values from your service principal 
 and elsewhere to these credential properties: 
 
    | Property | Value | Description | 
    |----------|-------|-------------| 
-   | **Kind** | Azure Service Principal | The type of credential you're using |  
    | **Subscription ID** | <*yourAzureSubscription-ID*> | The GUID value for your Azure subscription <p>**Tip**: If you don't know your Azure subscription ID, run this Azure CLI command from either the command line or in Cloud Shell, and then use the `id` GUID value: <p>`az account list` | 
    | **Client ID** | <*yourAzureServicePrincipal-ID*> | The `appId` GUID value for previously generated for your Azure service principal | 
    | **Client Secret** | <*yourSecurePassword*> | The `password` value or "secret" you provided for your Azure service principal | 
