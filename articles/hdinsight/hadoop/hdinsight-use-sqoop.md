@@ -1,5 +1,5 @@
 ---
-title: Run Apache Sqoop jobs with Azure HDInsight (Hadoop) 
+title: Run Apache Sqoop jobs with Azure HDInsight (Apache Hadoop) 
 description: Learn how to use Azure PowerShell from a workstation to run Sqoop import and export between an Hadoop cluster and an Azure SQL database.
 ms.reviewer: jasonh
 services: hdinsight
@@ -13,13 +13,13 @@ ms.date: 05/16/2018
 # Use Sqoop with Hadoop in HDInsight
 [!INCLUDE [sqoop-selector](../../../includes/hdinsight-selector-use-sqoop.md)]
 
-Learn how to use Sqoop in HDInsight to import and export between HDInsight cluster and Azure SQL database or SQL Server database.
+Learn how to use Apache Sqoop in HDInsight to import and export between HDInsight cluster and Azure SQL database or SQL Server database.
 
-Although Hadoop is a natural choice for processing unstructured and semistructured data, 
+Although Apache Hadoop is a natural choice for processing unstructured and semistructured data, 
 such as logs and files, there may also be a need to process structured data that is 
 stored in relational databases.
 
-[Sqoop][sqoop-user-guide-1.4.4] is a tool designed to transfer data between Hadoop 
+[Apache Sqoop][sqoop-user-guide-1.4.4] is a tool designed to transfer data between Hadoop 
 clusters and relational databases. You can use it to import data from a relational 
 database management system (RDBMS) such as SQL Server, MySQL, or Oracle into the Hadoop 
 distributed file system (HDFS), transform the data in Hadoop with MapReduce or Hive, and 
@@ -307,7 +307,7 @@ try{Get-AzureRmContext}
 catch{Connect-AzureRmAccount}
 #endregion
 
-#region - Create Azure resouce group
+#region - Create Azure resource group
 Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
 try{
     Get-AzureRmResourceGroup -Name $resourceGroupName
