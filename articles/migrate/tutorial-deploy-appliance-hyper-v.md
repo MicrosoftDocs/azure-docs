@@ -64,7 +64,7 @@ The tenant/global admin can grant permissions as follows
 1. In Azure AD, the tenant/global admin should navigate to **Azure Active Directory** > **Users** > **User Settings**.
 2. The admin should set **App registrations** to **Yes**.
 
-    ![Azure AD permissions](./media/tutorial-server-assessment-vmware/aad.png)
+    ![Azure AD permissions](./media/tutorial-deploy-appliance-hyper-v/aad.png)
 
 > [!NOTE]
 > This is a default setting that isn't sensitive. [Learn more](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
