@@ -25,7 +25,7 @@ By default, smart lockout locks the account from sign-in attempts for one minute
 
 Smart lockout is always on for all Azure AD customers with these default settings that offer the right mix of security and usability. Customization of the smart lockout settings, with values specific to your organization, requires Azure AD Basic or higher licenses for your users.
 
-Using smart lockout does not guarantee that a genuine user will be never be locked out. When we lockout a user account, we try our best to not lockout the genuine user. The lockout service attempts to ensure that bad actors can’t gain access to a genuine users account.  
+Using smart lockout does not guarantee that a genuine user will never be locked out. When smart lockout locks a user account, we try our best to not lockout the genuine user. The lockout service attempts to ensure that bad actors can’t gain access to a genuine users account.  
 
 * Each Azure Active Directory data center tracks lockout independently. A user will have (threshold_limit * datacenter_count) number of attempts, if the user hits each data center.
 * Smart Lockout uses familiar location vs unfamiliar location to differentiate between a bad actor and the genuine user. Unfamiliar and familiar locations will both have separate lockout counters.
