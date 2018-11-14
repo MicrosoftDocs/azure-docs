@@ -1,7 +1,7 @@
 ---
 title: Email action within Remote Monitoring - Azure | Microsoft Docs
 description: This how-to guide shows you how to add an email action to a new or existing rule.
-author: ashleydonaldson
+author: asdonald
 manager: hegate
 ms.author: asdonald
 ms.service: iot-accelerators
@@ -12,13 +12,15 @@ ms.topic: conceptual
 # As a developer, I want to add email as an action to a new or existing rule within my Remote Monitoring solution.
 ---
 
-# Prerequisites
-To create or modify a rule, you must be an Admin for your solution accelerator, or have the correct permissions. [Learn how to configure role-based access controls](../../articles/io-accelerators/iot-accelerators-remote-monitoring-rbac.md).
 
 # Add an email action
-Adding an email action to a rule helps make sure that you will never miss an alert again. You can either add an email action to an existing rule that you have defined earlier, or while creating a new rule. 
+Adding an email action to a rule helps make sure that you will never miss an alert. You can either add an email action to an existing rule that you have defined earlier, or while creating a new rule. 
 
-## Existing rule
+[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+
+To create or modify a rule, you must be an Admin for your solution accelerator, or have the correct permissions. [Learn how to configure role-based access controls](iot-accelerators-remote-monitoring-rbac.md).
+
+## Edit Existing rule
 
 Follow these steps to add an email action:
   1. Navigate to your Remote Monitoring solution.
@@ -26,7 +28,7 @@ Follow these steps to add an email action:
 
       ![rules](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
 
-  3. Click the checkbox next to the [existing rule](./iot-accelerators-remote-monitoring-automate#edit-an-existing-rule) that you would like to modify, and then click **Edit** at the top. An editable flyout will appear.
+  3. Click the checkbox next to the [existing rule](iot-accelerators-remote-monitoring-automate#edit-an-existing-rule) that you would like to modify, and then click **Edit** at the top. An editable flyout will appear.
   4. In the Action section, toggle **Email enabled** to on. 
 
       ![email enabled](./media/iot-accelerators-remote-monitoring-email-actions/emailenabled.png)
@@ -39,7 +41,7 @@ Follow these steps to add an email action:
   9. Make sure that **Rule Status** is enabled
   10. Click **Apply**
 
-## Creating a new rule
+## Create a new rule
 
 Follow these steps to add an email action:
   1. Navigate to your Remote Monitoring solution.
@@ -47,7 +49,7 @@ Follow these steps to add an email action:
 
       ![rules](./media/iot-accelerators-remote-monitoring-email-actions/rules.png)
 
-  3. Follow the [create a rule](./iot-accelerators-remote-monitoring-automate#create-a-rule) and [create an advanced rule](./iot-accelerators-remote-monitoring-automate#create-an-advanced-rule) up to the **Severity level** only. Do *not* click apply yet. 
+  3. Follow the [create a rule](iot-accelerators-remote-monitoring-automate#create-a-rule) and [create an advanced rule](iot-accelerators-remote-monitoring-automate#create-an-advanced-rule) up to the **Severity level** only. Do *not* click apply yet. 
   4. In the Action section, toggle **Email enabled** to on. 
 
       ![email enabled](./media/iot-accelerators-remote-monitoring-email-actions/emailenabled.png)
@@ -64,7 +66,7 @@ Your rule with *Email Action* has now been enabled. Each time the action is trig
 
 ## Sign in to Outlook <a name="outlook"></a>
 
-If this is your first-time enabling email actions within your solution accelerator, you will see a warning not saying that you need to sign into Outlook. The purpose of this is to set up an email account, which will be responsible for sending out the email notification. It is recommended that you create a specific Outlook account just for solution accelerator notifications and use that to sign in with. You will continue to see this warning note until you have signed in with an Outlook account. Once you have signed in, you will see a successful message below the email actions toggle. 
+If this is your first-time enabling email actions within your solution accelerator, you will see a warning saying that you need to sign into Outlook. The purpose of this warning is to set up an email account, which will be responsible for sending out the email notification. It is recommended that you create a specific Outlook account just for solution accelerator notifications and use that account to sign in with. You will continue to see the warning note until you have signed in with an Outlook account. Once you have signed in, you will see a success message below the email actions toggle. 
 
 ![successful login](./media/iot-accelerators-remote-monitoring-email-actions/success.png)
 
@@ -93,6 +95,6 @@ However, if you would like to edit the HTML to include more information, custom 
 
 ## Next steps
 
-This guide showed you how to add an email action to a new or existing rule within a Remote Monitoring solution and how to edit the out of the box HTML.
+This guide showed you how to add an email action to a new or existing rule within a Remote Monitoring solution and how to edit the HTML.
 
 The suggested next step is to learn [how to use alerts and fix device issues](iot-accelerators-remote-monitoring-maintain.md).
