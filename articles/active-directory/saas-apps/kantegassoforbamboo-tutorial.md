@@ -260,7 +260,7 @@ To enable Azure AD users to log in to Bamboo, they must be provisioned into Bamb
 
     ![Add Employee](./media/kantegassoforbamboo-tutorial/user1.png) 
 
-1. Click **Users**. Under the **Add user** section, Perform follwing steps:
+1. Click **Users**. Under the **Add user** section, Perform following steps:
 
 	![Add Employee](./media/kantegassoforbamboo-tutorial/user2.png) 
 
