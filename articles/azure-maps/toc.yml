@@ -58,7 +58,7 @@
       href: choose-map-style.md
     - name: Add map controls
       href: map-add-controls.md
-    - name: Add a pin
+    - name: Add symbols and markers
       href: map-add-pin.md
     - name: Add a popup
       href: map-add-popup.md

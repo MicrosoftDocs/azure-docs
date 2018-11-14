@@ -1,12 +1,12 @@
 ---
-title: Fail over and fail back Azure VMs replicated to a secondary Azure region with Azure Site Recovery
-description: Learn how to fail over and fail back Azure VMs replication to a secondary Azure region with Azure Site Recovery
+title: Fail over and fail back Azure IaaS VMs replicated to a secondary Azure region for disaster recovery with the Azure Site Recovery service.
+description: Learn how to fail over and fail back Azure VMs replicated to a secondary Azure region for disaster recovery, with the Azure Site Recovery service.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: mvc
 ---
@@ -30,7 +30,7 @@ This tutorial describes how to fail over a single Azure VM to a secondary Azure 
 
 - Make sure that you've completed a [disaster recovery drill](azure-to-azure-tutorial-dr-drill.md) to check everything is working as
 expected.
-- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](azure-to-azure-support-matrix.md#support-for-replicated-machine-os-versions).
+- Verify the VM properties before you run the test failover. The VM must comply with [Azure requirements](azure-to-azure-support-matrix.md#replicated-machine-operating-systems).
 
 ## Run a failover to the secondary region
 

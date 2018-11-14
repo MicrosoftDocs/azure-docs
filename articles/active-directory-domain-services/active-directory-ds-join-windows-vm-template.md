@@ -3,7 +3,7 @@ title: 'Join a Windows Server VM to Azure Active Directory Domain Services | Mic
 description: Join a Windows Server virtual machine to a managed domain using Azure Resource Manager templates.
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
+ms.author: ergreenl
 ---
 
 # Join a Windows Server virtual machine to a managed domain using a Resource Manager template

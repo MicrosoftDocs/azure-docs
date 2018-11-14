@@ -22,7 +22,7 @@ In this quickstart, you will use the online Content Moderator Review Tool to tes
 - A web browser
 
 ## Set up the review tool
-The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](http://contentmoderator.cognitive.microsoft.com/) site and sign up.
+The Content Moderator Review Tool is a web-based tool that allows human reviewers to aid the cognitive service in making decisions. In this guide, you will go through the short process of setting up the review tool so that you can see how the Content Moderator service works. Go to the [Content Moderator Review Tool](https://contentmoderator.cognitive.microsoft.com/) site and sign up.
 
 ![Content Moderator Home Page](images/homepage.PNG)
 
@@ -44,7 +44,7 @@ Submit your content for moderation. Internally, the review tool will call the mo
 
 ## Review moderation tags
 
-Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category.
+Review the applied moderation tags. You can see which tags were applied to your content and what the score was in each category. See the [Image](image-moderation-api.md), [Text](text-moderation-api.md), and [Video](video-moderation-api.md) moderation topics to learn more about what the different content tags indicate.
 
 ![Review results](images/reviewresults_text.png)
 
@@ -66,4 +66,4 @@ Or, continue with the next steps to get started using the Moderation APIs in you
 Learn how to use the Moderation APIs themselves in your app.
 - Implement image moderation. Use the [API console](try-image-api.md) or the [C# quickstart](image-moderation-quickstart-dotnet.md) to scan images and detect potential adult and racy content by using tags, confidence scores, and other extracted information.
 - Implement text moderation. Use the [API console](try-text-api.md) or use the [C# quickstart](text-moderation-quickstart-dotnet.md) to scan text content for potential profanity, machine-assisted unwanted text classification (preview), and personally identifiable information (PII). 
-- Implement video moderation. Use the [C# quickstart](video-moderation-api.md) to scan videos and detect potential adult and racy content. 
+- Implement video moderation. Follow the [Video moderation how-to guide for C#](video-moderation-api.md) to scan videos and detect potential adult and racy content. 

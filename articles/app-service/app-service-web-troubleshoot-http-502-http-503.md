@@ -20,7 +20,7 @@ ms.author: cephalin
 
 ---
 # Troubleshoot HTTP errors of "502 bad gateway" and "503 service unavailable" in your Azure web apps
-"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). This article helps you troubleshoot these errors.
+"502 bad gateway" and "503 service unavailable" are common errors in your web app hosted in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). This article helps you troubleshoot these errors.
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 

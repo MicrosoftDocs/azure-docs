@@ -101,4 +101,4 @@ To see detailed examples and code for each preparation step, see the following h
 ![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
 
 ## Next steps
-Review an [example notebook](https://github.com/Microsoft/MSDataPrepDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
+Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.

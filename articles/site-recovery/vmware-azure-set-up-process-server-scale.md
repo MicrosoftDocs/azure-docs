@@ -1,16 +1,15 @@
 ---
-title: 'Set up a process server in Azure for VMware VM and physical server failback with Azure Site Recovery | Microsoft Docs'
-description: This article describes how to set up a process server in Azure, to failback Azure VMs to VMware.
-services: site-recovery
+title: Set up a process server in Azure to fail back during disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs'
+description: This article describes how to set up a process server in Azure, to fail back from Azure to on-premises during disaster recovery of VMware VMs and physical servers.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ---
 
-# Set up additional process servers for scalability
+# Scale for failback with additional process servers
 
 By default, when you're replicating VMware VMs or physical servers to Azure using [Site Recovery](site-recovery-overview.md), a process server is installed on the configuration server machine, and is used to coordinate data transfer between Site Recovery and your on-premises infrastructure. To increase capacity and scale out your replication deployment, you can add additional standalone process servers. This article describes how to do this.
 

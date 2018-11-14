@@ -112,7 +112,7 @@ When testing this functionality using Remote Desktop, the "Reset password" link 
 
 If the Windows lock screen is disabled using a registry key or group policy, **Reset password** will not be available.
 
-If Ctrl+Alt+Del is required by policy, or Lock screen notifications are turned off, **Reset password** will not work. Windows 10 19H1 will resolve this requirement.
+If Ctrl+Alt+Del is required by policy, or Lock screen notifications are turned off, **Reset password** will not work.
 
 The Azure AD audit log will include information about the IP address and ClientType where the password reset occurred.
 

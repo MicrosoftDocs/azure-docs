@@ -124,7 +124,7 @@ cmdlet | Usage
 
 1. Connect to Azure AD using the credentials that were used to respond to the self-service offering:
   ````
-    import-module MSOnline
+    Install-Module -Name MSOnline
     $msolcred = get-credential
     
     connect-msolservice -credential $msolcred

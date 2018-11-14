@@ -1,4 +1,3 @@
-
 ---
 title: Group Policy and MDM settings | Microsoft Docs
 description: Provides information about group policy and mobile device management (MDM) settings that should be used on corporate-owned devices. These policies are applied to the user’s entire device.
@@ -34,8 +33,10 @@ The MDM policy settings apply to both Windows 10 and Windows 10 Mobile.  Windows
 | Allow Microsoft Account Connection |Allows users to authenticate using a Microsoft account on the device |
 | Allow Sync My Settings |Allows users to roam Windows settings and app data; Disabling this policy will disable sync as well as backups on mobile devices |
 
-## Group Policy settings
-The Group Policy settings apply to Windows 10 devices that are joined to an Active Directory domain. The table also includes legacy settings that would appear to manage sync settings, but that do not work for Enterprise State Roaming for Windows 10, which are noted with ‘Do not use’ in the description.
+## Group policy settings
+The group policy settings apply to Windows 10 devices that are joined to an Active Directory domain. The table also includes legacy settings that would appear to manage sync settings, but that do not work for Enterprise State Roaming for Windows 10, which are noted with ‘Do not use’ in the description.
+
+These settings are located at: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
 | Name | Description |
 | --- | --- |

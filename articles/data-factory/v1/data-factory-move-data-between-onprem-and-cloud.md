@@ -44,7 +44,7 @@ In this walkthrough you do the following steps:
 ## Prerequisites for the tutorial
 Before you begin this walkthrough, you must have the following prerequisites:
 
-* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
+* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
 * **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
 
@@ -62,7 +62,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    > [!IMPORTANT]
    > The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.
    >
-   > The name of the data factory may be registered as a **DNS** name in the future and hence become publically visible.
+   > The name of the data factory may be registered as a **DNS** name in the future and hence become publicly visible.
    >
    >
 4. Select the **Azure subscription** where you want the data factory to be created.

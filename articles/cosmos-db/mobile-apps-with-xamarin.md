@@ -81,7 +81,7 @@ Follow these steps to modify the to-do list app to a multiuser to-do list app:
 
   4. Modify the app to authenticate to Resource Token Broker with Facebook, and request the resource tokens for the signed-in Facebook users. You can then access their data in the UserItems collection.  
 
-You can find a complete code sample of this pattern at [Resource Token Broker on GitHub](http://aka.ms/documentdb-xamarin-todouser). This diagram illustrates the solution:
+You can find a complete code sample of this pattern at [Resource Token Broker on GitHub](https://aka.ms/documentdb-xamarin-todouser). This diagram illustrates the solution:
 
 ![Azure Cosmos DB users and permissions broker](media/mobile-apps-with-xamarin/documentdb-resource-token-broker.png)
 

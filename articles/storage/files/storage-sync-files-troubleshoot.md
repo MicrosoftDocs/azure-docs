@@ -363,7 +363,7 @@ This error occurs when the Azure file share storage limit has been reached, whic
 
     ![A screenshot of the Azure file share properties.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
-If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into it's own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
+If the share is full and a quota is not set, one possible way of fixing this issue is to make each subfolder of the current server endpoint into its own server endpoint in their own separate sync groups. This way each subfolder will sync to individual Azure file shares.
 
 <a id="-2134351824"></a>**The Azure file share cannot be found.**  
 | | |
@@ -514,7 +514,7 @@ This error occurs because there are changes on the Azure file share directly and
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
-| **Error string** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Error string** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Remediation required** | Yes |
 | | |
 | **HRESULT** | 0x80c80253 |
