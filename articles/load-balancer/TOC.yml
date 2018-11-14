@@ -20,7 +20,7 @@
     href: quickstart-create-standard-load-balancer-powershell.md
 - name: Tutorials
   items:
-  - name: Create and manage Load Balancer
+  - name: Load balance internet traffic to VMs
     href: tutorial-load-balancer-standard-manage-portal.md
   - name: Load balance internal traffic to VMs
     href: tutorial-load-balancer-basic-internal-portal.md
