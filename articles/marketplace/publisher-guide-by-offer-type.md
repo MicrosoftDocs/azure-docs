@@ -31,7 +31,7 @@ Be sure to review the storefront and offer type eligibility requirements and the
 
 | **Offer type**    | **Description**  |
 | :------------------- | :-------------------|
-| [**Virtual machine**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |
+| [**Virtual machines**](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines) | Use the virtual machine offer type when you deploy a virtual appliance to the subscription associated with your customer. |
 | [**Solution templates**](https://docs.microsoft.com/azure/marketplace/marketplace-solution-templates) | Use the solution template offer type when your solution requires additional deployment and configuration automation beyond a simple VM. |
 | [**Managed applications**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Use the Azure app: managed app offer type when the following conditions are required: <br> <ul> <li> You deploy either a subscription-based solution for your customer using either a VM or an entire IaaS-based solution. </li> <li>You or your customer require that the solution is managed by a partner. </li> <ul> |
 | [**SaaS applications**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Use the SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
