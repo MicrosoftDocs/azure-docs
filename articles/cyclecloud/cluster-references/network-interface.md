@@ -7,7 +7,7 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 010/19/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Network Interface

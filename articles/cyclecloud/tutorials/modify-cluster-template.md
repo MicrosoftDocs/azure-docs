@@ -7,7 +7,7 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/01/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Azure CycleCloud Tutorial: Modify a Cluster Template to Add Persistent Storage

@@ -1,5 +1,5 @@
 ---
-title: Azure CycleCloud QuickStart | Microsoft Docs
+title: Azure CycleCloud Quickstart | Microsoft Docs
 description: In this quickstart, you will clean up your resources acquired in the previous quickstarts
 services: azure cyclecloud
 author: KimliW
@@ -7,13 +7,13 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
-# Azure CycleCloud QuickStart 4: Clean Up Resources
+# Azure CycleCloud Quickstart 4: Clean Up Resources
 
 > [!NOTE]
-> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled. To free up resources, follow the steps below.
+> If you want to continue with this Azure CycleCloud installation for the [CycleCloud Tutorials](/tutorials/modify-cluster-template.md), you do not need to follow quickstart 4. Be aware that you are charged for usage while the nodes are running, even if no jobs are scheduled. Follow the steps below to free up resources.
 
 ## Terminate the Cluster
 
@@ -23,16 +23,10 @@ When all submitted jobs are complete, you no longer need the cluster. To clean u
 
 ## Delete the Resource Group
 
-To remove the resources you created for the quickstart, you can simply delete the resource group. Everything within that group will be cleaned up as part of the process:
-
-```CLI
-az group delete --name "{RESOURCE GROUP}"
-```
-
-Using the example created in the first quickstart:
+To remove the resources you created for the quickstart, you can simply delete the resource group. Everything within that group will be cleaned up as part of the process. Using the example created in the first quickstart:
 
 ```azurecli-interactive
-az group delete --name "AzureCycleCloud"
+az group delete --name "MyQuickstart"
 ```
 
 ## Delete the Service Principal

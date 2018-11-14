@@ -7,7 +7,7 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Start a Cluster
@@ -26,6 +26,7 @@ summarized as one of the following Status groups:
 - *Acquiring* (yellow): The instance is being requested from the cloud provider.
 - *Preparing* (blue): The instance is being configured.
 - *Ready* (green): The instance is up and running.
+- *Deallocated* (dark gray): The instance has been stopped and the VM has been deallocated.
 - *Failed* (red): An orchestration phase has failed during starting or terminating the node.
 
 Azure will not start billing you for an instance while it is being acquired.

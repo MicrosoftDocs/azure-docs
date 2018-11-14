@@ -7,7 +7,7 @@ ms.prod: cyclecloud
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: a-kiwels
+ms.author: adjohnso
 ---
 
 # Volumes
@@ -50,6 +50,7 @@ Azure.Lun | Integer | Override the auto-assigned LUN ID.
 Mount | String | Name of mount construct, described in `configuration` object
 Azure.Caching | String | None, readonly, readwrite. Default is none.
 Persistent | Boolean | If false, disk will be deleted with vm is deleted. Default is false.
+Disabled | Boolean | If true, this volume will be ignored. Default is false.
 
 ### Boot Volume
 
