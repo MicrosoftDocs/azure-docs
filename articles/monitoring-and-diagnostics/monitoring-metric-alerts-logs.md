@@ -96,7 +96,7 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
 			"type": "string",
 			"defaultValue": "true",
 			"metadata": {
-				"description": "Specifies whether the log convertion rule is enabled"
+				"description": "Specifies whether the log conversion rule is enabled"
 			}
 		},
 		"convertRuleMetric": {
