@@ -25,7 +25,9 @@ A virtual network is needed for communication between the resources that you cre
 
 1. Click **Create a resource** found on the upper left-hand corner of the Azure portal.
 2. Click **Networking** and then click **Application Gateway** in the Featured list.
+
 ### Basics
+
 1. Enter these values for the application gateway:
 
     - *myAppGateway* - for the name of the application gateway.
@@ -33,7 +35,7 @@ A virtual network is needed for communication between the resources that you cre
 
     ![Create new application gateway](./media/application-gateway-create-gateway-portal/application-gateway-create.png)
 
-4. Accept the default values for the other settings and then click **OK**.
+2. Accept the default values for the other settings and then click **OK**.
 
 ### Settings
 
