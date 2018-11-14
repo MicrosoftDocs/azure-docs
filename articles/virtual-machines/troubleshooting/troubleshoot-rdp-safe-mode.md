@@ -121,7 +121,7 @@ To enable dump log and Serial Console, run the following script.
 
     ![The image about boot Identifier](./media/troubleshoot-rdp-safe-mode/boot-id.png)
 
-3. Remove the **safemode** flag, so the VM will boot into normal mode:
+3. Remove the **safeboot** flag, so the VM will boot into normal mode:
 
     bcdedit /store F:\boot\bcd /deletevalue {Default} safeboot
 4. Check the boot configuration data to make sure that the safeboot flag is removed:
