@@ -61,8 +61,13 @@ The following table provides a matrix of pay-as-you-go SQL Server images.
 
 To see the available Linux SQL Server virtual machine images, see [Overview of SQL Server on Azure Virtual Machines (Linux)](../../linux/sql/sql-server-linux-virtual-machines-overview.md).
 
+> [!NOTE]
+> It is now possible to change the licensing model of a pay-per-second SQL Server VM to use your own license. For more information, see [How to - Use AHB with SQL VM](virtual-machines-windows-sql-ahb.md). 
+
 ### <a id="BYOL"></a> Bring your own license
 You can also bring your own license (BYOL). In this scenario, you only pay for the VM without any additional charges for SQL Server licensing.  Bringing your own license can save you money over time for continuous production workloads. For requirements to use this option, see [Pricing guidance for SQL Server Azure VMs](virtual-machines-windows-sql-server-pricing-guidance.md#byol).
+
+To bring your own license, you can either use the Azure Hybrid Benefit for an existing SQL VM, or you can deploy an image with the prefixed **{BYOL}**. For more information about using the Azure Hybrid Benefit, see [How to: Use AHB with SQL VM](virtual-machines-windows-sql-ahb.md)
 
 | Version | Operating system | Edition |
 | --- | --- | --- |

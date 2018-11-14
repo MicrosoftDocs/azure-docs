@@ -117,7 +117,7 @@ To create a SQL Server 2017 Azure VM with one of these bring-your-own-license im
 > Let us know within 10 days how many SQL Server licenses you are using in Azure. The links to the previous images have instructions on how to do this.
 
 > [!NOTE]
-> It is not possible to change the licensing model of a pay-per-second SQL Server VM to use your own license. In this case, you must create a new BYOL VM and migrate your databases to the new VM.
+> It is now possible to change the licensing model of a pay-per-second SQL Server VM to use your own license. For more information, see [How to - Use AHB with SQL VM](virtual-machines-windows-sql-ahb.md). 
 
 ## Reduce costs
 
