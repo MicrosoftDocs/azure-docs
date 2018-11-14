@@ -5,6 +5,9 @@
   items:
     - name: What is Bing Custom Search?
       href: overview.md
+      maintainContext: true
+    - name: Bing Search API overview
+      href: ../Bing-Web-Search/bing-api-comparison.md
 - name: Quickstarts
   expanded: true
   items:
