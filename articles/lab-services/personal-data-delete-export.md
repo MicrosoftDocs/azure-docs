@@ -72,8 +72,7 @@ As a lab user, you can request an export on the personal data that the DevTest L
     ![Download CSV file](./media/personal-data-delete-export/download-csv-file.png)
 
 ## Next steps
-See the following articles to learn how to use VMs in a lab. 
+See the following articles: 
 
-- [Add a VM to a lab](devtest-lab-add-vm.md)
-- [Restart a lab VM](devtest-lab-restart-vm.md)
-- [Resize a lab VM](devtest-lab-resize-vm.md)
+- [Set policies for a lab](devtest-lab-get-started-with-lab-policies.md)
+- [Frequently asked questions](devtest-lab-faq.md)

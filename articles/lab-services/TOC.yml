@@ -75,7 +75,7 @@
       href: devtest-lab-store-secrets-in-key-vault.md
     - name: Test your app in Azure
       href: test-app-azure.md
-    - name: Export or delete personal data from DevTest Labs
+    - name: Export or delete personal data
       href: personal-data-delete-export.md
     - name: Set up DevTest Labs infrastructure in your enterprise
       href: devtest-lab-guidance-prescriptive-adoption.md
