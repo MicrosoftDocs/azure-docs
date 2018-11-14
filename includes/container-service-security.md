@@ -50,7 +50,7 @@ Each orchestrator available in Azure Container Service has its own security cons
 
 For additional orchestrator-specific security information, see the following resources:
 
-* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](http://blog.kubernetes.io/2016/08/security-best-practices-kubernetes-deployment.html)
+* **Kubernetes**: [Security Best Practices for Kubernetes Deployment](https://kubernetes.io/blog/2016/08/security-best-practices-kubernetes-deployment/)
 
 * **DC/OS**: [Securing Your Cluster](https://dcos.io/docs/1.8/administration/securing-your-cluster/)
 

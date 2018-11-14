@@ -224,5 +224,4 @@
     href: iot-accelerators-faq-cf.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-  - name: IoT solution accelerators learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
+
