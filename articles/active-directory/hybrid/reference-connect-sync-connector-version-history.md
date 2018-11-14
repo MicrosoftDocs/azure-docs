@@ -105,7 +105,7 @@ Related links:
   * Web Service Connector Configuration Tool does not support usage of space symbols in JSON attribute names 
     * A Substitution pattern can be added manually to the WSConfigTool.exe.config file, e.g. ```<appSettings> <add key="JSONSpaceNamePattern" value="__" /> </appSettings>```
 > [!NOTE]
-> JSONSpaceNamePattern key is required as for export you will recieve the following error: Message: Empty name is not legal. 
+> JSONSpaceNamePattern key is required as for export you will receive the following error: Message: Empty name is not legal. 
 
 * Lotus Notes:
   * When the option **Allow custom certifiers for Organization/Organizational Units** is disabled then the connector fails during export (Update) After the export flow all attributes are exported to Domino but at the time of export a KeyNotFoundException is returned to Sync. 
