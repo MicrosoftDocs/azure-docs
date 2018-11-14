@@ -362,6 +362,16 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/manage-account.md",
+            "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/indexing-policies.md",
+            "redirect_url": "/azure/cosmos-db/indexing-policy",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
             "redirect_url": "/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": true
@@ -9271,7 +9281,7 @@
         },
         {
             "source_path": "articles/documentdb/documentdb-indexing-policies.md",
-            "redirect_url": "https://docs.microsoft.com/azure/cosmos-db/indexing-policies",
+            "redirect_url": "/azure/cosmos-db/indexing-policy",
             "redirect_document_id": false
         },
         {
@@ -10002,6 +10012,11 @@
         {
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-concept-hybrid.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-agent-overview",
             "redirect_document_id": false
         },
         {
@@ -11072,6 +11087,11 @@
         {
             "source_path": "articles/monitoring-and-diagnostics/monitor-alerts-unified-log-template.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/alert-log",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/monitoring-and-diagnostics/monitoring-overview-unified-alerts.md",
+            "redirect_url": "/azure/monitoring-and-diagnostics/monitoring-overview-alerts",
             "redirect_document_id": false
         },
         {
@@ -27244,7 +27264,7 @@
         },
         {
             "source_path": "articles/active-directory/application-proxy-sso-overview.md",
-            "redirect_url": "/azure/active-directory/manage-apps/application-proxy-single-sign-on",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
             "redirect_document_id": false
         },
         {
@@ -28410,8 +28430,8 @@
         },
         {
             "source_path": "articles/active-directory/application-config-sso-how-to-choose-sign-on-method.md",
-            "redirect_url": "/azure/active-directory/manage-apps/single-sign-on-modes",
-            "redirect_document_id": true
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/active-directory/application-config-sso-how-to-configure-federated-sso-gallery.md",
@@ -28637,6 +28657,16 @@
             "source_path": "articles/active-directory/active-directory-applications-guiding-developers-for-lob-applications.md",
             "redirect_url": "/azure/active-directory/manage-apps/developer-guidance-for-integrating-applications",
             "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-proxy-single-sign-on.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/single-sign-on-modes.md",
+            "redirect_url": "/azure/active-directory/manage-apps/what-is-single-sign-on",
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/virtual-machines/linux/classic/cli-use-docker.md",
@@ -30516,11 +30546,16 @@
             "redirect_url": "/azure/iot-central/quick-deploy-iot-central",
             "redirect_document_id" : false
         },
-
-	{
+        {
+            "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
+            "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
+            "redirect_document_id" : false
+        },
+	    {  
             "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
             "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
             "redirect_document_id" : false
         }
+
     ]
 }
