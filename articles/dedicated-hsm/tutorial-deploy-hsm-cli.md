@@ -18,7 +18,15 @@ ms.author: barclayn
 
 # Tutorial – Deploying HSMs into an existing virtual network using CLI
 
-The Azure Dedicated HSM Service provides a physical device for sole customer use, with complete administrative control and full management responsibility. Due to providing physical hardware, rather than virtualized resources, typical of the cloud delivery model, Microsoft must control how those devices are allocated to ensure capacity is managed effectively. As a result, within an Azure subscription, the Dedicated HSM service will not normally be visible for resource provisioning. Any Azure customer requiring access to the Dedicated HSM service, must first contact their Microsoft account executive to request registration for the Dedicated HSM service. Only once this process completes successfully will provisioning be possible. This tutorial aims to show a typical provisioning process where a customer has a virtual network already, has a virtual machine, and needs to add HSM resources into that existing environment. A typical, high availability, multi-region deployment architecture may look as follows:
+Azure Dedicated HSM provides a physical device for sole customer use, with complete administrative control and full management responsibility. The use of physical devices creates the need for Microsoft to control device allocation to ensure capacity is managed effectively. As a result, within an Azure subscription, the Dedicated HSM service will not normally be visible for resource provisioning. Any Azure customer requiring access to the Dedicated HSM service, must first contact their Microsoft account executive to request registration for the Dedicated HSM service. Only once this process completes successfully will provisioning be possible. 
+
+This tutorial shows a typical provisioning process where:
+
+- A customer has a virtual network already
+- They have a virtual machine
+- They need to add HSM resources into that existing environment. 
+
+A typical, high availability, multi-region deployment architecture may look as follows:
 
 ![multi region deployment](media/tutorial-deploy-hsm-cli/high-availability-architecture.png)
 
@@ -26,20 +34,20 @@ This tutorial focuses on a pair of HSMs and required ExpressRoute Gateway (see S
 
 ## Pre-requisites
 
-Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command line or using PowerShell. This tutorial will use the command-line interface in the Azure Cloud Shell. If you are new to the Azure Command Line Interface, follow getting started instructions here: [Azure CLI 2.0 Get Started](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest.
+Azure Dedicated HSM is not currently available in the Azure portal. All interaction with the service will be via command-line or using PowerShell. This tutorial will use the command-line (CLI) interface in the Azure Cloud Shell. If you are new to the Azure CLI, follow getting started instructions here: [Azure CLI 2.0 Get Started](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest.
 
 Assumptions:
 
-- You have completed the Azure Dedicated HSM registration process
+- You completed the Azure Dedicated HSM registration process
 - You have been approved for use of the service. If not, contact your Microsoft account representative for details.
-- You have created a Resource Group for these resources and the new ones deployed here will join that group. 
-- You have already created the necessary virtual network, subnet and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
+- You created a Resource Group for these resources and the new ones deployed here will join that group. 
+- You already created the necessary virtual network, subnet, and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
 
 All instructions below assume that you have already navigated to the Azure portal and you have opened the Cloud Shell (select “>_” towards the top right of the portal).
 
 ## Provisioning a Dedicated HSM
 
-Provisioning the HSMs and integrating into an existing virtual network via ExpressRoute Gateway will be validated using the ssh command line tool to ensure reachability and basic availability of the HSM device for any further configuration activities. The following commands will use an ARM template to create the HSM resources and associated networking resources.
+Provisioning HSMs and integrating them into an existing virtual network via ExpressRoute Gateway will be validated using ssh. This validation helps ensure reachability and basic availability of the HSM device for any further configuration activities. The following commands will use an Azure Resource Manager template to create the HSM resources and associated networking resources.
 
 ### Validating Feature Registration
 
@@ -59,15 +67,15 @@ az feature show \
    --name AllowBaremetalServers
 ```
 
-Both commands should return a status of “Registered” (as shown below) before you proceed any further.  If you need to register for this service, please speak with your Microsoft account representative.
+Both commands should return a status of “Registered” (as shown below). If the commands don't return "Registered" you need to register for this service, contact your Microsoft account representative.
 
 ![subscription status](media/tutorial-deploy-hsm-cli/subscription-status.png)
 
 ### Creating HSM resources
 
-An HSM device is provisioned into a customers’ virtual network. This implies the requirement for a subnet. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Gemalto client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files can be found in the Azure template gallery by searching for “HSM”.
+An HSM is provisioned into a customers’ virtual network so a virtual network and subnet are required. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Gemalto client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files can be found in the Azure template gallery by searching for “HSM”.
 
-Once you have the files, you must edit the parameter file to insert your preferred names for resources. This means editing lines with “value”: “”.
+Once you have the files, you must edit the parameter file to insert your preferred names for resources. Edit lines with “value”: “”.
 
 - `namingInfix` Prefix for names of HSM resources
 - `ExistingVirtualNetworkName` Name of the virtual network used for the HSMs
@@ -105,23 +113,22 @@ An example of these changes is as follows:
 }
 ```
 
-The associated ARM template file will create 6 resources with this information:
+The associated Azure Resource Manager template file will create 6 resources with this information:
 
 1. A subnet for the HSMs in the specified VNET
-2. A subnet for the virtual network gateway 
-3. A virtual network gateway which connects the VNET to the HSM devices
+2. A subnet for the virtual network gateway
+3. A virtual network gateway that connects the VNET to the HSM devices
 4. A public IP address for the gateway
 5. An HSM in stamp 1
 6. An HSM in stamp 2
 
-Once parameter values are set, the files need to be uploaded to Azure portal cloud shell file share for use. In the Azure portal click the “>_” cloud shell symbol top right and this will make the bottom portion of the screen a command environment. The options for this are BASH and PowerShell and you should select BASH if not already set.
+Once parameter values are set, the files need to be uploaded to Azure portal cloud shell file share for use. In the Azure portal, click the “>_” cloud shell symbol top right and this will make the bottom portion of the screen a command environment. The options for this are BASH and PowerShell and you should select BASH if not already set.
 
 The command shell has an upload/download option on the toolbar and you should select this to upload the template and parameter files to your file share:
 
 ![subscription status](media/tutorial-deploy-hsm-cli/file-share.png)
 
-Once the files are uploaded you are ready to create resources.
-Prior to creating new HSM resources there are some pre-requisite resources you should ensure are in place. You must have a virtual network with subnet ranges for compute, HSMs and gateway. The following commands serve as an example of what would create such a virtual network.
+Once the files are uploaded, you are ready to create resources. Prior to creating new HSM resources there are some pre-requisite resources you should ensure are in place. You must have a virtual network with subnet ranges for compute, HSMs, and gateway. The following commands serve as an example of what would create such a virtual network.
 
 ```azurecli
 az network vnet create \
@@ -149,9 +156,9 @@ az network vnet subnet create \
 ```
 
 [!NOTE]
-The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to “Microsoft.HardwareSecurityModules/dedicatedHSMs”.  The HSM provisioning will not work without this.
+The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to “Microsoft.HardwareSecurityModules/dedicatedHSMs”.  The HSM provisioning will not work without this option being set.
 
-Once all pre-requisites are in place, run the following command to use the ARM template ensuring you have updated values with your unique names (at least the resource group name):
+Once all pre-requisites are in place, run the following command to use the Azure Resource Manager template ensuring you have updated values with your unique names (at least the resource group name):
 
 ```azurecli
 az group deployment create \
@@ -166,7 +173,7 @@ This deployment should take approximately 25 to 30 minutes to complete with the 
 
 ![provisioning status](media/tutorial-deploy-hsm-cli/progress-status.png)
 
-When completed successfully, shown by “provisioningState”: “Succeeded”, you can logon to your existing virtual machine and use SSH to ensure availability of the HSM device.
+When the deployment completes successfully “provisioningState”: “Succeeded” will be displayed. You can connect to your existing virtual machine and use SSH to ensure availability of the HSM device.
 
 ## Verifying the Deployment
 
@@ -191,14 +198,12 @@ The ssh tool is used to connect to the virtual machine. The command will be simi
 
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
-The IP Address of the VM could also be used in place of the DNS name in the above command.
-If the command is successful it will prompt for a password and you should enter that.
-Once logged on to the virtual machine, you can login to the HSM using the private IP address found in the portal for the network interface resource associated with the HSM.
+The IP Address of the VM could also be used in place of the DNS name in the above command. If the command is successful, it will prompt for a password and you should enter that. Once logged on to the virtual machine, you can sign in to the HSM using the private IP address found in the portal for the network interface resource associated with the HSM.
 
 ![components list](media/tutorial-deploy-hsm-cli/resources.png)
 
 ![NOTE]
-Notice the “Show hidden types” checkbox which when selected will display HSM resources.
+Notice the “Show hidden types” checkbox, which when selected will display HSM resources.
 
 In the screenshot above, clicking the “HSM1_HSMnic” or “HSM2_HSMnic” would show the appropriate Private IP Address. Otherwise, the `az resource show` command used above is a way to identify the right IP Address. 
 
@@ -206,7 +211,7 @@ When you have the correct IP address, run the following command substituting tha
 
 `ssh tenantadmin@10.0.2.4`
 
-If successful you will be prompted for a password. The default password is PASSWORD and the HSM will first ask you to change your password so please set a strong password and use whatever mechanism your organization prefers to store the password and prevent loss.
+If successful you will be prompted for a password. The default password is PASSWORD and the HSM will first ask you to change your password so set a strong password and use whatever mechanism your organization prefers to store the password and prevent loss.
 
 ![IMPORTANT]
 if you lose this password, the HSM will have to be reset and that means losing your keys.
@@ -215,16 +220,15 @@ When you are connected to the HSM using ssh, run the following command to ensure
 
 `hsm show`
 
-The output should look like to following:
-
+The output should look as shown on the image below:
 
 ![components list](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
-At this point, you have allocated all resources for a highly available, 2 HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Gemalto Luna Network HSM 7 Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Gemalto for download once you are registered in the Gemalto Customer Support Portal and have a Customer ID. Download Client Software version 7.2 to get all required components.
+At this point, you have allocated all resources for a highly available, two HSM deployment and validated access and operational state. Any further configuration or testing involves more work with the HSM device itself. For this, you should follow the instructions in the Gemalto Luna Network HSM 7 Administration Guide chapter 7 to initialize the HSM and create partitions. All documentation and software are available directly from Gemalto for download once you are registered in the Gemalto Customer Support Portal and have a Customer ID. Download Client Software version 7.2 to get all required components.
 
 ## Delete or clean up resources
 
-If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. To address this the device should be factory reset using the Gemalto client. Please refer to the Gemalto administrators guide for the SafeNet Network Luna 7 device and consider the following commands. Note: if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
+If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. To remove sensitive customer data the device should be factory reset using the Gemalto client. Refer to the Gemalto administrators guide for the SafeNet Network Luna 7 device and consider the following commands. Note: if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
 1. `hsm factoryReset -f`
 2. `sysconf config factoryReset -f -service all`
@@ -248,8 +252,8 @@ az group deployment delete \
 
 ## Next steps
 
-Once Dedicated HSM resources are provisioned as per this tutorial, you should have a virtual network with necessary HSMs and further network components to enable communication with the HSM. That communication should also be proven. You are now in a position to compliment this with further resources as per you preferred deployment architecture. For more information on helping plan your deployment architecture, refer to the Concepts documents.
-A design with 2 HSM’s in a primary region addressing availability at the rack level, and 2 HSM’s in a secondary region addressing regional availability is recommended. The template file used in this tutorial can easily be used as a basis for this deployment with respect to the HSM component but obviously needs parameters setting as per your needs.
+After completing the steps in the tutorial, Dedicated HSM resources are provisioned and you have a virtual network with necessary HSMs and further network components to enable communication with the HSM.  You are now in a position to compliment this deployment with more resources as required by your preferred deployment architecture. For more information on helping plan your deployment, see the Concepts documents.
+A design with two HSMs in a primary region addressing availability at the rack level, and two HSMs in a secondary region addressing regional availability is recommended. The template file used in this tutorial can easily be used as a basis for a two HSM deployment but needs to have its parameters modified to meet your requirements.
 
 - [Concepts]()
 - [Integration guides]()
