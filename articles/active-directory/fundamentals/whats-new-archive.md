@@ -16,7 +16,7 @@ ms.reviewer: dhanyahk
 
 # Archive for What's new? in Azure Active Directory
 
-The primary [What's new release notes](whats-new.md) article contains the past 6 months of information. After 6 months, the items are removed from the primary article and put into this archive.
+The primary [What's new release notes](whats-new.md) article contains the latest 6 months of information, while this article includes all the older information.
 
 The What's new release notes provide you with information about:
 
