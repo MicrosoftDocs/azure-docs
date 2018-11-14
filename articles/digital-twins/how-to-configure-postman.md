@@ -38,12 +38,14 @@ Configure your Azure AD app to use the OAuth 2.0 implicit grant flow.
 
       ![Azure AD Reply URL][2]
 
+1. Copy and keep the **Application ID** of your Azure AD app. It is used below.
+
 ## Configure the Postman client
 
 Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make an authenticated HTTP request to Azure Digital Twins using the acquired token:
 
 1. Go to [www.getpostman.com]([https://www.getpostman.com/) to download the app.
-1. Ensure that your authorization URL is correct. It should take the format:
+1. Ensure that your **Authorization URL** is correct. It should take the format:
 
     ```plaintext
     https://login.microsoftonline.com/YOUR_AZURE_TENANT.onmicrosoft.com/oauth2/authorize?resource=YOUR_RESOURCE_ID
@@ -60,8 +62,8 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
     |---------|---------|
     | Grant Type | `Implicit` |
     | Callback URL | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
-    | Auth URL | Use the authorization URL from step 2 |
-    | Client ID | Use the Application ID for the Azure AD app that was created or repurposed from the previous section |
+    | Auth URL | Use the **Authorization URL** from step 2 above |
+    | Client ID | Use the **Application ID** for the Azure AD app that was created or repurposed from the previous section |
     | Scope | leave blank |
     | State | leave blank |
     | Client Authentication | `Send as Basic Auth header` |
