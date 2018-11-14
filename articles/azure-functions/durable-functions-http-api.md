@@ -238,7 +238,7 @@ You can set the `top` parameter to split the results of the query into pages.
 For Functions 1.0, the request format is as follows:
 
 ```http
-GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&top={top}
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 ```
 
 The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
