@@ -6,13 +6,13 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/9/2018
+ms.date: 11/13/2018
 ms.author: adgera
 ---
 
 # How to add blobs to objects in Azure Digital Twins
 
-Blobs are unstructured representations of common file types (like pictures and logs). Blobs keep track of what kind of data they represent using a MIME type (for example: "image/jpeg") and metadata (name, description, type, etc.).
+Blobs are unstructured representations of common file types (like pictures, maps, and logs). Blobs keep track of what kind of data they represent using a MIME type (for example: "image/jpeg") and metadata (name, description, type, etc.).
 
 Azure Digital Twins supports attaching **Blobs** to **Devices**, **Spaces**, and **Users**. **Blobs** can represent a profile picture for a **User**, a **Device** photo, a video, or a log.
 
@@ -23,19 +23,19 @@ Azure Digital Twins supports attaching **Blobs** to **Devices**, **Spaces**, and
 
 ## Uploading blobs: an overview
 
-Multi-part requests are used to upload Blobs to specific endpoints and their respective functionalities.
+Multipart requests are used to upload Blobs to specific endpoints and their respective functionalities.
 
 > [!IMPORTANT]
-> Multi-part requests require three essential pieces of information. For Azure Digital Twins:
+> Multipart requests require three essential pieces of information. For Azure Digital Twins:
 > * A **Content-Type** header:
 >   * `application/json; charset=utf-8`
->   * `multipart/form-data; boundary="thisismywellchosenboundary"`.
+>   * `multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
 > * A **Content-Disposition**: `form-data; name="metadata"`.
 > * The file content to upload.
 >
 > The exact **Content-Type** and **Content-Disposition** may vary depending on use scenario.
 
-Each multi-part request is broken into several chunks. Multi-part requests made to the Azure Digital Twins Management APIs are broken into **two** (**2**) such parts:
+Each multipart request is broken into several chunks. Multipart requests made to the Azure Digital Twins Management APIs are broken into **two** (**2**) such parts:
 
 1. The first part is required and contains Blob metadata such as an associated MIME type per the **Content-Type** and **Content-Disposition** above.
 
@@ -45,7 +45,7 @@ Neither of the two parts are required for **PATCH** requests. Both are required 
 
 ### Blob metadata
 
-In addition to **Content-Type** and **Content-Disposition**, multi-part requests must also specify the correct JSON body. Which JSON body to submit depends on the kind of HTTP request operation being performed.
+In addition to **Content-Type** and **Content-Disposition**, multipart requests must also specify the correct JSON body. Which JSON body to submit depends on the kind of HTTP request operation being performed.
 
 The four main JSON schemas used are:
 
@@ -53,43 +53,21 @@ The four main JSON schemas used are:
 
 These model schemas are described in full detail in the supplied Swagger documentation.
 
-> [!TIP]
-> A Swagger sneak preview is provided to demonstrate the API feature set.
-> It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-You can access your own generated Management API Swagger documentation at:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Custom name | Replace with |
-| --- | --- |
-| yourInstanceName | The name of your Azure Digital Twins instance |
-| yourLocation | Which server region your instance is hosted on |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 Learn about using the supplied reference documentation by reading [How to use Swagger](./how-to-use-swagger.md).
 
 ### Examples
 
-In the examples below, `yourManagementApiUrl` refers to the URI of the Digital Twins APIs:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/api/v1.0/
-```
-
-| Custom name | Replace with |
-| --- | --- |
-| yourInstanceName | The name of your Azure Digital Twins instance |
-| yourLocation | Which server region your instance is hosted on |
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 To make a POST request that uploads a text file as a Blob and associates it with a Space:
 
 ```plaintext
 POST yourManagementApiUrl/spaces/blobs HTTP/1.1
-Content-Type: multipart/form-data; boundary="thisismywellchosenboundary"
+Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 
---thisismywellchosenboundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
@@ -101,30 +79,30 @@ Content-Disposition: form-data; name="metadata"
   "Description": "A well chosen description",
   "Sharing": "None"
 }
---thisismywellchosenboundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="myblob.txt"
 Content-Type: text/plain
 
 This is my blob content. In this case, some text, but I could also be uploading a picture, an JSON file, a firmware zip, etc.
 
---thisismywellchosenboundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| Header name | Replace with |
+| Parameter value | Replace with |
 | --- | --- |
-| thisismywellchosenboundary | The desired multi-part boundary |
+| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
 
 A .NET implementation of the same Blob upload is provided below using the class [MultipartFormDataContent](https://docs.microsoft.com/dotnet/api/system.net.http.multipartformdatacontent):
 
 ```csharp
 //Supply your metaData in a suitable format
-var multipartContent = new MultipartFormDataContent("thisismywellchosenboundary");
+var multipartContent = new MultipartFormDataContent("USER_DEFINED_BOUNDARY");
 
 var metadataContent = new StringContent(JsonConvert.SerializeObject(metaData), Encoding.UTF8, "application/json");
 metadataContent.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json; charset=utf-8");
 multipartContent.Add(metadataContent, "metadata");
 
-var fileContents = new StringContent("myblob.txt");
+var fileContents = new StringContent("MY_BLOB.txt");
 fileContents.Headers.ContentType = MediaTypeHeaderValue.Parse("text/plain");
 multipartContent.Add(fileContents, "contents");
 
@@ -144,19 +122,19 @@ Blobs can be attached to Devices. The image below (depicting the Swagger referen
 For example, to update or create a Blob and attach the Blob to a Device, a PATCH request is made to:
 
 ```plaintext
-yourManagementApiUrl/devices/blobs/{id}
+YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 ```
 
-| Path parameter | Replace with |
+| Parameter | Replace with |
 | --- | --- |
-| *id* | The desired Blob ID |
+| *YOUR_BLOB_ID* | The desired Blob ID |
 
 Successful requests will return a DeviceBlob JSON object in the response. DeviceBlobs conform to the following JSON schema:
 
-| Attribute name | Type | Description | Examples |
+| Attribute | Type | Description | Examples |
 | --- | --- | --- | --- |
-| DeviceBlobType | String | A Blob category that can be attached to a Device | `Model` and `Specification` |
-| DeviceBlobSubtype* | String | A Blob subcategory that is more granular than DeviceBlobType | `PhysicalModel`, `LogicalModel`, `KitSpecification`, and `FunctionalSpecification` |
+| **DeviceBlobType** | String | A Blob category that can be attached to a Device | `Model` and `Specification` |
+| **DeviceBlobSubtype*** | String | A Blob subcategory that is more granular than DeviceBlobType | `PhysicalModel`, `LogicalModel`, `KitSpecification`, and `FunctionalSpecification` |
 
 > [!TIP]
 > Use the table above to handle successfully returned request data.
@@ -170,21 +148,21 @@ Blobs can also be attached to Spaces. The image below lists all Space API endpoi
 For example, to return a Blob attached to a Space, make a GET request to:
 
 ```plaintext
-yourManagementApiUrl/spaces/blobs/{id}
+YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 ```
 
-| Path parameter | Replace with |
+| Parameter | Replace with |
 | --- | --- |
-| *id* | The desired Blob ID |
+| *YOUR_BLOB_ID* | The desired Blob ID |
 
 Making PATCH request to the same endpoint will allow you to update a metadata description and create a new version of the Blob. The HTTP request is made using the PATCH method along with any necessary meta and multipart form-data.
 
 Successful operations will return a SpaceBlob that conforms to the following schema and can be used to consume returned data:
 
-| Attribute name | Type | Description | Examples |
+| Attribute | Type | Description | Examples |
 | --- | --- | --- | --- |
-| SpaceBlobType | String | A Blob category that can be attached to a Space | `Map` and `Image` |
-| SpaceBlobSubtype | String | A Blob subcategory that is more granular than SpaceBlobType | `GenericMap`, `ElectricalMap`, `SatelliteMap`, and `WayfindingMap` |
+| **SpaceBlobType** | String | A Blob category that can be attached to a Space | `Map` and `Image` |
+| **SpaceBlobSubtype** | String | A Blob subcategory that is more granular than SpaceBlobType | `GenericMap`, `ElectricalMap`, `SatelliteMap`, and `WayfindingMap` |
 
 ### Users
 
@@ -195,19 +173,19 @@ Blobs can be attached to User models (to say associate a profile picture). The i
 For example, to fetch a Blob attached to a User, make a GET request with any required form-data to:
 
 ```plaintext
-yourManagementApiUrl/users/blobs/{id}
+YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 ```
 
-| Path parameter | Replace with |
+| Parameter | Replace with |
 | --- | --- |
-| *id* | The desired Blob ID |
+| *YOUR_BLOB_ID* | The desired Blob ID |
 
 Returned JSON (UserBlobs) will conform to the following JSON models:
 
-| Attribute name | Type | Description | Examples |
+| Attribute | Type | Description | Examples |
 | --- | --- | --- | --- |
-| UserBlobType | String | A Blob category that can be attached to a User | `Image` and `Video` |
-| UserBlobSubtype |  String | A Blob subcategory that is more granular than UserBlobType | `ProfessionalImage`, `VacationImage`, and `CommercialVideo` |
+| **UserBlobType** | String | A Blob category that can be attached to a User | `Image` and `Video` |
+| **UserBlobSubtype** |  String | A Blob subcategory that is more granular than UserBlobType | `ProfessionalImage`, `VacationImage`, and `CommercialVideo` |
 
 ## Common errors
 
