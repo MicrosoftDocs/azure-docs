@@ -54,7 +54,7 @@ POST YOUR_MANAGEMENT_API_URL/matchers
 }
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Which server region your instance is hosted on |
 
@@ -101,7 +101,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | The space identifier  |
 | YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |

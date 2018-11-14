@@ -16,7 +16,7 @@ In the examples below, `YOUR_MANAGEMENT_API_URL` refers to the URI of the Digita
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/
 ```
 
-| Custom name | Replace with |
+| Name | Replace with |
 | --- | --- |
 | YOUR_INSTANCE_NAME | The name of your Azure Digital Twins instance |
 | YOUR_LOCATION | Which server region your instance is hosted on |

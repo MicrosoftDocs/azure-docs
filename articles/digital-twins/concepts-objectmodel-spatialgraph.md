@@ -77,7 +77,7 @@ After you deploy Digital Twins from the [Azure portal](https://portal.azure.com)
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Custom name | Replace with |
+| Name | Replace with |
 | --- | --- |
 | YOUR_INSTANCE_NAME | The name of your Digital Twins instance |
 | YOUR_LOCATION | Which server region your instance is hosted on |

@@ -75,7 +75,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_TOPIC_NAME | The name of your customized topic |
 
@@ -106,7 +106,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_TOPIC_NAME | The name of your customized topic |
 
@@ -141,7 +141,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_TOPIC_NAME | The name of your customized topic |
 
@@ -176,7 +176,7 @@ The event formats for each of the event types are described in the following sec
 }
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_TOPIC_NAME | The name of your customized topic |
 

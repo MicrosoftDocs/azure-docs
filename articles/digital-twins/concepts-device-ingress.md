@@ -40,7 +40,7 @@ Do a GET call on the Device API with an `includes=ConnectionString` parameter to
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 ```
 
-| Parameters | Replace with |
+| Parameter | Replace with |
 | --- | --- |
 | *YOUR_DEVICE_GUID* | The device ID |
 
@@ -48,7 +48,7 @@ YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
 YOUR_MANAGEMENT_API_URL/devices?hardwareIds=YOUR_DEVICE_HARDWARE_ID&includes=ConnectionString
 ```
 
-| Your parameter values | Replace with |
+| Parameter value | Replace with |
 | --- | --- |
 | *YOUR_DEVICE_HARDWARE_ID* | The device hardware ID |
 

@@ -20,7 +20,7 @@ You can access your own generated Management API Swagger documentation at:
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Custom name | Replace with |
+| Name | Replace with |
 | --- | --- |
 | YOUR_INSTANCE_NAME | The name of your Azure Digital Twins instance |
 | YOUR_LOCATION | Which server region your instance is hosted on |

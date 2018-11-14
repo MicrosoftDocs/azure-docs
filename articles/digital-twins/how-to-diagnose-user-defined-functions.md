@@ -57,6 +57,8 @@ For more information about powerful query operations, see [getting started with 
 
 Both diagnosing and identifying common issues are important when troubleshooting your solution. Several Common issues encountered when developing user-defined functions are summarized below.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### Ensure a role assignment was created
 
 Without a role assignment created within Management API, the user-defined function will not have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
@@ -67,7 +69,7 @@ Check if a role assignment exists for your user-defined function through your Ma
 GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Parameters | Replace with |
+| Parameter | Replace with |
 | --- | --- |
 | *YOUR_USER_DEFINED_FUNCTION_ID* | The ID of the user-defined function to retrieve role assignments for|
 
@@ -81,7 +83,7 @@ With the following call against your Azure Digital Twins instances' Management A
 GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Parameters | Replace with |
+| Parameter | Replace with |
 | --- | --- |
 | *YOUR_MATCHER_IDENTIFIER* | The ID of the matcher you wish to evaluate |
 | *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor you wish to evaluate |
@@ -105,7 +107,7 @@ With the following call against your Azure Digital Twins instances' Management A
 GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Parameters | Replace with |
+| Parameter | Replace with |
 | --- | --- |
 | *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor that will be sending telemetry |
 
