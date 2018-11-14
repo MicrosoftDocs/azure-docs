@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2018
+ms.date: 11/09/2018
 ms.author: jeedes
 
 ---
@@ -36,7 +36,7 @@ To configure Azure AD integration with SAP NetWeaver, you need the following ite
 
 - An Azure AD subscription
 - SAP NetWeaver single sign-on enabled subscription
-- SAP NetWeaver Version 7.20 required atleast
+- SAP NetWeaver V7.20 required atleast
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -167,9 +167,9 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](common/editconfigure.png)
 
-11. On the **Basic SAML Configuration** section, to upload the **Service Provider metadata file** which you had earlier, perform the following steps:
+11. On the **Basic SAML Configuration** section, perform the following steps:
 
-	a. Click **Upload metadata file**.
+	a. Click **Upload metadata file** to upload the **Service Provider metadata file** which you have obtained earlier.
 
 	![Upload metadata file](common/editmetadataupload.png)
 
