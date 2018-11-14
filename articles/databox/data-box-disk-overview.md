@@ -21,7 +21,7 @@ You can quickly configure, connect, and unlock the disks via the Data Box servic
 
 > [!IMPORTANT]
 > - Data Box Disk is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
-> - You need to sign up for this service. To sign up, go to the [Preview portal](http://aka.ms/azuredataboxfromdiskdocs).
+> - You need to sign up for this service. To sign up, go to the [Preview portal](https://aka.ms/azuredataboxfromdiskdocs).
 > - During preview, Data Box Disk can be shipped to customers in US and European Union. For more information, go to [Region availability](#region-availability).
 
 ## Use cases

@@ -214,7 +214,7 @@ After the initial backup is completed, the **Job completed** status appears in t
   ![IR complete](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
 
 ## Questions?
-If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
+If you have questions, or if there is any feature that you would like to see included, [send us feedback](https://aka.ms/azurebackup_feedback).
 
 ## Next steps
 * Get more details about [backing up Windows machines](backup-configure-vault.md).

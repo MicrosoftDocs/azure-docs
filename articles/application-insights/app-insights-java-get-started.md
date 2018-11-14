@@ -338,7 +338,7 @@ Now publish your app to the server, let people use it, and watch the telemetry s
 
 * On Windows servers, install:
 
-  * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
+  * [Microsoft Visual C++ Redistributable](https://www.microsoft.com/download/details.aspx?id=40784)
 
     (This component enables performance counters.)
 

@@ -59,11 +59,11 @@ The following steps describe how to download and configure the sample Python app
 * Sends telemetry and property values to Azure IoT Central.
 * Responds to setting changes made in Azure IoT Central.
 
-To configure the device, [follow the step-by-step instructions on GitHub.](http://aka.ms/iotcentral-docs-Raspi-releases)
+To configure the device, [follow the step-by-step instructions on GitHub.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
 
 > [!NOTE]
-> For more information about the Raspberry Pi Python sample, see the [README](http://aka.ms/iotcentral-docs-Raspi-releases) file on GitHub.
+> For more information about the Raspberry Pi Python sample, see the [README](https://aka.ms/iotcentral-docs-Raspi-releases) file on GitHub.
 
 
 1. Once the device is configured, your device should start sending data to Azure IoT Central momentarily.

@@ -27,7 +27,6 @@ The Azure portal for the Azure Machine Learning service has the following update
   * *Workspace.compute_targets, datastores, experiments, images, models* and *webservices* are properties instead of methods. For example, replace *Workspace.compute_targets()* with *Workspace.compute_targets*.
   * *Run.get_context* deprecates *Run.get_submitted_run*. The latter method will be removed in subsequent releases.
   * *PipelineData* class now expects a datastore object as a parameter rather than datastore_name. Similarly, *Pipeline* accepts default_datastore rather than default_datastore_name.
-  * **Upcoming in next release** We are continuing to streamline the training compute experience for our users. We are unifying the various compute options in *DSVMCompute* and *BatchAICompute* into a single class. called *AmlCompute*. In next release, both old computes and *AmlCompute* will co-exist. In subsequent release, only training compute you can create will be *AmlCompute* and the other two classes will be deprecated.
 
 + **New features**
   * The Azure Machine Learning Pipelines [sample notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) now uses MPI steps.
@@ -58,9 +57,6 @@ The Azure portal for the Azure Machine Learning service has the following update
 
 + **New features**
   * Multiple tenant support when creating new workspace.
-
-+ **Breaking changes**
-  * **Upcoming in next release** *Workspace.compute_targets, datastores, experiments, images, models* and *webservices* will become properties instead of methods. For example, replace *Workspace.compute_targets()* with *Workspace.compute_targets*.
 
 + **Bugs fixed**
   * The pynacl library version no longer needs to be pinned when deploying web servcie.
@@ -253,7 +249,7 @@ Welcome to the third update of Azure Machine Learning. This update includes impr
 **Notable New Features**
 - [Support for SQL Server and Azure SQL DB as a data source](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Deep Learning on Spark with GPU support using MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [All AML containers are compatible with Azure IoT Edge devices when deployed (no extra steps required)](http://aka.ms/aml-iot-edge-blog)
+- [All AML containers are compatible with Azure IoT Edge devices when deployed (no extra steps required)](https://aka.ms/aml-iot-edge-blog)
 - Registered model list and detail views available Azure portal
 - Accessing compute targets using SSH key-based authentication in addition to username/password-based access. 
 - New Pattern Frequency Inspector in the data prep experience. 
@@ -319,7 +315,7 @@ For more information on creating compute targets, see [Configuring Azure Machine
 - Added `az ml datasource create` command allows to creating a data source file from the command-line
 
 #### Model Management and Operationalization
-- [All AML containers are compatible with Azure IoT Edge devices when operationalized (no extra steps required)](http://aka.ms/aml-iot-edge-blog) 
+- [All AML containers are compatible with Azure IoT Edge devices when operationalized (no extra steps required)](https://aka.ms/aml-iot-edge-blog) 
 - Improvements of error messages in the o16n CLI
 - Bug fixes in model management portal UX  
 - Consistent letter casing for model management attributes in the detail page

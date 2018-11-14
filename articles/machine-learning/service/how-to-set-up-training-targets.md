@@ -587,7 +587,7 @@ Get these notebooks:
 
 ## Next steps
 
-* [Azure Machine Learning SDK reference](http://aka.ms/aml-sdk)
+* [Azure Machine Learning SDK reference](https://aka.ms/aml-sdk)
 * [Tutorial: Train a model](tutorial-train-models-with-aml.md)
 * [Where to deploy models](how-to-deploy-and-where.md)
 * [Build machine learning pipelines with Azure Machine Learning service](concept-ml-pipelines.md)
