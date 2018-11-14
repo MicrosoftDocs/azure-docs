@@ -38,7 +38,7 @@ Many applications benefit from the performance enhancements that come with the a
 
 **Build highly available apps.** Running a database in multiple regions increases the availability of the database. If one region is unavailable, other regions automatically handle application requests. Azure Cosmos DB offers 99.999% read and write availability for multi-region databases.
 
-**Maintain business continuity during regional outages.** Azure Cosmos DB supports [automatic failover](how-to-manage-database-account.md#enable-automatic-failover-for-your-cosmos-account) during a regional outage. During a regional outage, Azure Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help ensure your entire application is highly available, Azure Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can perform regular business-continuity drills.
+**Maintain business continuity during regional outages**: Azure Cosmos DB supports [automatic failover](how-to-manage-database-account.md#automatic-failover) during a regional outage. During a regional outage, Cosmos DB continues to maintain its latency, availability, consistency, and throughput SLAs. To help ensure your entire application is highly available, Azure Cosmos DB offers a manual failover API to simulate a regional outage. By using this API, you can perform regular business continuity drills.
 
 **Scale read and write throughput globally.** With multi-master capability, you can elastically scale read and write throughput all around the world. Multi-master capability guarantees that the throughput that your application configures on an Azure Cosmos DB database or a container is delivered across all regions and protected by [financially backed SLAs](https://aka.ms/acdbsla).
 
@@ -50,5 +50,5 @@ Read more about global distribution in the following articles:
 
 * [Global distribution - under the hood](global-dist-under-the-hood.md)
 * [Configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Add and remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [Create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)

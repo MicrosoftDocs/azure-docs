@@ -27,12 +27,12 @@ For Azure Cosmos DB accounts configured with multiple write regions, update conf
 
 Azure Cosmos DB offers a flexible policy-driven mechanism to resolve update conflicts. You can select from two conflict resolution policies on an Azure Cosmos DB container:
 
-- **Last-Write-Wins (LWW)**: This resolution policy, by default, uses a system-defined timestamp property. It's based on the time-synchronization clock protocol. If you use the SQL API, with Azure Cosmos DB you can specify any other custom numerical property to be used for conflict resolution. A custom numerical property is also referred to as the “conflict resolution path.” 
+- **Last writer wins (LWW)**: This resolution policy, by default, uses a system-defined timestamp property. It's based on the time-synchronization clock protocol. If you use the SQL API, with Azure Cosmos DB you can specify any other custom numerical property to be used for conflict resolution. A custom numerical property is also referred to as the conflict resolution path. 
 
   If two or more items conflict on insert or replace operations, the item with the highest value for the conflict resolution path becomes the “winner.” If multiple items have the same numeric value for the conflict resolution path, the system determines the winner. All regions are guaranteed to converge to a single winner and end up with the identical version of the committed item. If delete conflicts are involved, the deleted version always wins over either insert or replace conflicts. This outcome is regardless of the value of the conflict resolution path.
 
   > [!NOTE]
-  > Last-Write-Wins is the default conflict resolution policy. It's available for SQL, Azure Cosmos DB Table, MongoDB, Cassandra, and Gremlin API accounts.
+  > Last writer wins is the default conflict resolution policy. It's available for SQL, Azure Cosmos DB Table, MongoDB, Cassandra, and Gremlin API accounts.
 
   To learn more, see [examples that use LWW conflict resolution policies](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
 

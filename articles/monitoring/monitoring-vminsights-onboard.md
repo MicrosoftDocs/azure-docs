@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/09/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ---
 
@@ -149,8 +149,8 @@ The following table describes the connected sources that the Map feature support
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-agent-overview.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-agent-overview.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | No | |  
 
 The Dependency agent can be downloaded from the following location.
@@ -531,7 +531,7 @@ This section explains how to onboard virtual machines or physical computers host
 
 The Azure Monitor for VMs Map Dependency agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The map data is always transmitted by the Log Analytics agent to the Azure Monitor service, either directly or through the [OMS Gateway](../log-analytics/log-analytics-oms-gateway.md) if your IT security policies do not allow computers on the network to connect to the Internet.
 
-Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-concept-hybrid.md).  
+Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../log-analytics/log-analytics-agent-overview.md).  
 
 [!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
