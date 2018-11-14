@@ -4,8 +4,8 @@ description: Learn how to deploy an [example architecture](IBM-db2-pureScale-on-
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
-manager: EdPrice-MSFT
-editor: EdPrice-MSFT
+manager: edprice
+editor: edprice
 tags: 
 
 ms.assetid: 
