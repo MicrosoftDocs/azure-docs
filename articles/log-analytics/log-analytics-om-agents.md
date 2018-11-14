@@ -97,7 +97,7 @@ After completing the following steps to integrate with Log Analytics, you can re
 1. In the Operations Manager console, select the **Administration** workspace.
 1. Expand the Operations Management Suite node and click **Connection**.
 1. Click the **Register to Operations Management Suite** link.
-1. On the **Operations Magement Suite Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your OMS subscription, and click **Sign in**.
+1. On the **Operations Management Suite Onboarding Wizard: Authentication** page, enter the email address or phone number and password of the administrator account that is associated with your OMS subscription, and click **Sign in**.
 
    >[!NOTE]
    >OMS is now referred to as Log Analytics.
