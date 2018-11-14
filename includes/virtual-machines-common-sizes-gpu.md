@@ -2,17 +2,17 @@
  title: include file
  description: include file
  services: virtual-machines-windows, virtual-machines-linux
- author: dlepow
+ author: cynthn
  ms.service: multiple
  ms.topic: include
- ms.date: 10/23/2018
- ms.author: danlep;azcspmt;jonbeck
+ ms.date: 11/14/2018
+ ms.author: cynthn;azcspmt;jonbeck
  ms.custom: include file
 ---
 
 GPU optimized VM sizes are specialized virtual machines available with single or multiple NVIDIA GPUs. These sizes are designed for compute-intensive, graphics-intensive, and visualization workloads. This article provides information about the number and type of GPUs, vCPUs, data disks, and NICs. Storage throughput and network bandwidth are also included for each size in this grouping. 
 
-* **NC, NCv2, NCv3, and ND** sizes are optimized for compute-intensive and network-intensive applications and algorithms. Some examples are CUDA- and OpenCL-based applications and simulations, AI, and Deep Learning. The NCv3-series is focused on high-performance computing workloads featuring NVIDIA’s Tesla V100 GPU.  The ND-series is focused on training and inference scenarios for deep learning. It uses the NVIDIA Tesla P40 GPU.
+* **NC, NCv2, NCv3, ND and NDv2** sizes are optimized for compute-intensive and network-intensive applications and algorithms. Some examples are CUDA- and OpenCL-based applications and simulations, AI, and Deep Learning. The NCv3-series is focused on high-performance computing workloads featuring NVIDIA’s Tesla V100 GPU.  The ND-series is focused on training and inference scenarios for deep learning. It uses the NVIDIA Tesla P40 GPU.
 * **NV and NVv2** sizes are optimized and designed for remote visualization, streaming, gaming, encoding, and VDI scenarios using frameworks such as OpenGL and DirectX.  These VMs are backed by the NVIDIA Tesla M60 GPU.
 
 
@@ -81,6 +81,23 @@ NCv3-series VMs are powered by [NVIDIA Tesla V100](http://www.nvidia.com/content
 1 GPU = one V100 card.
 
 *RDMA capable
+
+## NDv2-series (Preview)
+
+
+Premium Storage:  Supported
+
+Premium Storage Caching:  Supported
+
+
+NDv2-series virtual machine is a new addition to the GPU family specifically designed for the needs of the HPC, AI and machine learning workloads. It’s powered by 8 NVIDIA Tesla V100 NVLINK interconnected GPUs and 40 Intel Skylake cores and 672 GiB of system memory. NDv2 instance provides excellent FP32 and FP64 performance for HPC and AI workloads utilizing Cuda, TensorFlow, Pytorch, Caffe, and other frameworks.
+
+[Sign-up and get access to these machines during preview](https://aka.ms/ndv2signup).
+
+
+| Size              | Fabric Name | RDFE Name         | vCPU’s | GPU              | Memory  | NICs (Max) | Max. disk size           | Resource disk IOPS | Max. data disks (1023 GB each) | Network bandwidth allocated for storage | Max network bandwidth | Infiniband |
+|-------------------|-------------|-------------------|--------|------------------|---------|------------|--------------------------|--------------------|--------------------------------|-----------------------------------------|-----------------------|------------|
+| Standard_ND40s_v2 | GPMv2ND40s  | Standard_ND40s_v2 | 40     | 8 V100 (NVlilnk) | 672 GiB | 8          | Temporary 1344 / 2948XIO | TBD                | 32                             | TBD                                     | 24000Mbps             | False      |
 
 ## ND-series
 
