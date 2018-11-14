@@ -126,13 +126,12 @@ Here is an image of a full Grafana dashboard that has metrics from Azure Monitor
 ### Variables
 Some query values can be selected through UI dropdowns, and updated in the query. 
 Consider the following query as an example:
-    ```
-    // Chart the volume of data (in Kb)
-    Usage 
-    | where $__timeFilter(TimeGenerated) 
-    | summarize total_KBytes=sum(Quantity)*1024 by bin(TimeGenerated, $__interval) 
-    | sort by TimeGenerated
-    ```
+```
+Usage 
+| where $__timeFilter(TimeGenerated) 
+| summarize total_KBytes=sum(Quantity)*1024 by bin(TimeGenerated, $__interval) 
+| sort by TimeGenerated
+```
 
 You can configure a variable that will list all available **Solution** values, and then update your query to use it.
 To create a new variable, click the dashboard's Settings button in the top right area, select **Variables**, and then **New**.
@@ -140,13 +139,12 @@ On the variable page, define the data source and query to run in order to get th
 ![Grafana configure variable](.\media\monitor-how-to-grafana\grafana-configure-variable-dark.png)
 
 Once created, adjust the query to use the selected value(s) and your charts will respond accordingly:
-    ```
-    // Chart the volume of data (in Kb)
-    Usage 
-    | where $__timeFilter(TimeGenerated) and Solution in ($Solutions)
-    | summarize total_KBytes=sum(Quantity)*1024 by bin(TimeGenerated, $__interval) 
-    | sort by TimeGenerated
-    ```
+```
+Usage 
+| where $__timeFilter(TimeGenerated) and Solution in ($Solutions)
+| summarize total_KBytes=sum(Quantity)*1024 by bin(TimeGenerated, $__interval) 
+| sort by TimeGenerated
+```
     
 ![Grafana use variables](.\media\monitor-how-to-grafana\grafana-use-variables-dark.png)
 
