@@ -17,7 +17,7 @@ ms.component: B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With SAML technical profile you can federate with a SAML based identity provider, such as AD-FS and Salesforce, allowing you users to sign-in with their existing social or enterprise identities.
+Azure Active Directory (Azure AD) B2C provides support for the SAML 2.0 identity provider. This article describes the specifics of a technical profile for interacting with a claims provider that supports this standardized protocol. With SAML technical profile you can federate with a SAML based identity provider, such as AD-FS and Salesforce, allowing your users to sign-in with their existing social or enterprise identities.
 
 ## Metadata exchange
 
@@ -30,14 +30,14 @@ Each SAML identity provider has different steps to expose and set the service pr
 The following example shows a URL address to the SAML metadata of an Azure AD B2C technical profile:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Replace the following values:
 
-- **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com
+- **your-tenant-name** with your tenant name, such as fabrikam.b2clogin.com.
 - **your-policy** with your policy name. Use the policy where you configure the SAML provider technical profile, or a policy that inherits from that policy.
-- **your-technical-profile** with your SAML identity provider technical profile name
+- **your-technical-profile** with your SAML identity provider technical profile name.
 
 ## Digital signing certificates exchange
 
