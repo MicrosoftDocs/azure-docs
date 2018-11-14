@@ -6,12 +6,22 @@
     href: migrate-overview.md
 - name: Tutorials
   items:
-  - name: Assess VMware VMs with Azure Migrate Server Assessment Service (preview)
-    href: tutorial-server-assessment-vmware.md
-  - name: Assess Hyper-V VMs with Azure Migrate Server Assessment Service (preview)
-    href: tutorial-server-assessment-hyper-v.md
-  - name: Assess VMware VMs with Azure Migrate GA
-    href: tutorial-assessment-vmware.md
+  - name: VMware VM assessment and migration
+    items:
+    - name: Deploy the Azure Migrate appliance for Server Assessment and Migration (preview)
+      href: tutorial-deploy-appliance-vmware.md
+    - name: Assess VMware VMs with Azure Migrate Server Assessment (preview)
+      href: tutorial-server-assessment-vmware.md
+    - name: Migrate VMware VMs with Azure Migrate Server Assesssment (preview)
+      href: tutorial-server-migration-vmware.md
+    - name: Assess VMware VMs with Azure Migrate GA
+      href: tutorial-assessment-vmware.md
+  - name: Hyper-V assessment
+    items:
+    - name: Deploy the Azure Migrate appliance for Server Assessment and Migration (preview)
+      href: tutorial-deploy-appliance-hyper-v.md
+    - name: Assess Hyper-V VMs with Azure Migrate Server Assessment Service (preview)
+      href: tutorial-server-assessment-hyper-v.md
 - name: Concepts
   items:
   - name: About the collector
@@ -66,6 +76,10 @@
     href: how-to-modify-assessment.md
   - name: Migrate machines after assessment
     href: how-to-get-migration-tool.md
+  - name: Prepare VMware Linux VMs for migration
+    href: how-to-prepare-linux-for-migration.md
+- name: Troubleshooting
+  items:
   - name: Troubleshoot Azure Migrate
     href: troubleshooting-general.md
 - name: Resources

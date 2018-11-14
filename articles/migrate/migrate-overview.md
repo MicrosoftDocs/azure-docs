@@ -16,10 +16,10 @@ Azure Migrate services discover, assess, and migrate on-premises machines and wo
 
 There are currently two versions of Azure Migrate available:
 
-- **Azure Migrate services in public preview**:
-    - **Azure Migrate Server Assessment service** discovers and assesses on-premises VMware VMs and Hyper-V - VMs to check whether they're suitable for migration to Azure.
-    - **Azure Migrate Server Migration service** migrates on-premises VMware VMs to Azure.
-- **Azure Migrate service in General Availability (GA)** discovers and assessment on-premises VMware VMs for migration to Azure.
+- **Azure Migrate in public preview**:
+    - **Azure Migrate Server Assessment** discovers and assesses on-premises VMware VMs and Hyper-V - VMs to check whether they're suitable for migration to Azure.
+    - **Azure Migrate Server Migration** migrates on-premises VMware VMs to Azure.
+- **Azure Migrate in General Availability (GA)** discovers and assessment on-premises VMware VMs for migration to Azure.
 
 
 ## Which version of the service should I use?
@@ -32,13 +32,20 @@ There are currently two versions of Azure Migrate available:
 
 ## Azure Migrate services public preview
 
-The public preview provides a number of new features:
+The public preview provides a number of new features.
 
-- **Hyper-V VM assessment**: Use the Azure Migrate Server Assessment service to discover and assess Hyper-V VMs.
+### Assessment
+
+- **Hyper-V VM assessment**: Use Azure Migrate Server Assessment to discover and assess Hyper-V VMs.
 - **VMware VM assessment**: Get an enhanced experience for discovering and assessment VMware VMs, including:
     - **Continuous discovery**: Discovery of on-premises VMs with the Azure Migrate appliance is now continuous. You no longer need to trigger discovery when something changes on-premises. The appliance is aware of on-premises vCenter Server changes.
     - **Improved performance-based assessment**: You no longer need to modify the vCenter Server statistics level to run performance-based assessment. The Azure Migrate appliance now measures performance data of the VMs.
     - **Improved user experience**: The deployment flow in the Azure portal is improved and streamlined.
+
+### Migration
+- **Migrate VMware VMs to Azure**: Use Azure Migrate Server Migration to migrate VMware VMs. With this new functionality, you can use Azure Migrate for the entire discovery, assessment, and migration process for VMware. Assessment information helps you to automatically configure compute and storage for migrated machines.
+- **Agentless migration**: You can migrate VMware VMs without installing anything on the VM.
+- **Unified Azure Migrate appliance**: A single appliance running on a VMware VM handles discovery, assessment, and migration. You don't need any additional Azure Migrate components.
 
 
 ### Limitations
@@ -116,15 +123,13 @@ The GA version of Azure Migrate provides the following:
 
 ## Limitations
 
-- You can only assess on-premises VMware virtual machines (VMs) for migration to Azure VMs.
-- The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
-- You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project. Additionally, you can assess up to 1500 VMs in a single assessment. If you want to discover a larger environment, you split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md).
-- Azure Migrate supports up to 20 projects per subscription.
-- Azure Migrate only supports managed disks for migration assessment.
--  You can only create an Azure Migrate project in the United States geography. However, you can plan a migration to any target Azure location.
-    - Only metadata discovered from the on-premises environment is stored in the migration project region.
-    - Metadata is stored in one of the regions in the geography: West Central US/East US.
-    - If you use dependency visualization with a Log Analytics workspace, it's created in the same region as the project.
+**Action** | **Details**
+--- | --- 
+**Azure Migrate deployment** | Azure Migrate supports up to 20 projects per subscription.<br/><br/> You can only create an Azure Migrate project in the United States geography. Note that:<br/><br/> - You can plan a migration to any target Azure location.<br/><br/> - Only metadata discovered from the on-premises environment is stored in the migration project region.<br/><br/>  - Metadata is stored in one of the regions in the geography: West Central US/East US.<br/><br/> If you use dependency visualization with a Log Analytics workspace, it's created in the same region as the project.<br/><br/> There are limited built-in monitoring and troubleshooting capabilities.
+**Discovery and assessment** | You can assess on-premises Hyper-V VMs and VMware VMs.<br/><br/> You can discover up to 1500 VMs in a single discovery and up to 1500 VMs in a single project.<br/><br/> You can assess up to 1500 VMs in a single assessment. If you want to discover a larger environment, split the discovery and create multiple projects. [Learn more](how-to-scale-assessment.md).<br/><br/> Azure Migrate only supports managed disks for assessment.<br/><br/> The VMware VMs must be managed by vCenter Server (version 5.5, 6.0, or 6.5).
+**Replication and migration** | You can only migrate on-premises VMware VMs with Azure Migrate.<br/><br/> You can simultaneously migrate up to five VMs. Performance might be impacted over this limit.<br/><br/> A single VM is limited to 16 disks.<br/><br/> The combined maximum of five VMs can have a a total of 20 or less disks. If you have more, migrate VMs in batches.<br/><br/> During migration, each VM disk can have an average data change rate (write bytes/sec) of up to 5 MBps. Higher rates are supported, but performance will vary depending on available upload throughput, overlapping writes etc.<br/><br/> VMs can only be migrated to managed disks (standard HHD, premium SSD) in Azure.<br/><br/>
+VM settings | Supported Windows operating systems for VMware VMs: Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2, Windows Server 2008 (64-bit, 32-bit), Windows Server 2003 R2 (64-bit, 32-bit), Windows Server 2003<br/><br/> Supported Linux operating systems for VMware VMs: Red Hat Enterprise Linux 7.0+/6.5+, CentOS 7.0+/6.5+, SUSE Linux Enterprise Server 12 SP1+, Ubuntu 14.04/16.04/18.04LTS, Debian 7/8 <br/><br/> VMs will UEFI boot can't be migrated.<br/><br/> Encrypted disks and volumes (Bitlocker, cryptfs) can't be migrated.<br/><br/> RDM devices/passthrough disks can't be replicated.<br/><br/> NFS volumes on VMs can't be replicated.
+
 
 ## How does it work?
 
