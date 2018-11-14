@@ -18,27 +18,13 @@ ms.custom: H1Hack27Feb2017
 
 Distributed databases that rely on replication for high availability, low latency, or both must make tradeoffs. The tradeoffs are between read consistency vs. availability, latency, and throughput. 
 
-<<<<<<< HEAD
-Most commercially available distributed databases ask developers to choose between two extreme consistency models: strong consistency and eventual consistency. [Linearizability](http://cs.brown.edu/~mph/HerlihyW90/p463-herlihy.pdf), or the strong consistency model, is the gold standard of data programmability. But it adds a steep price of higher latency in steady state and reduced availability during failures. Eventual consistency offers higher availability and better performance, but it's hard to program applications.
+Azure Cosmos DB approaches data consistency as a spectrum of choices instead of two extremes. Strong consistency and eventual consistency are at the ends, but there are many consistency choices along the spectrum. Developers can use these options to make precise choices and granular tradeoffs with respect to high availability or performance. 
 
-Azure Cosmos DB approaches data consistency as a spectrum of choices instead of the two extremes. Strong consistency and eventual consistency are at the two ends, but there are other choices along the spectrum. Developers can choose from these options to make precise choices and granular tradeoffs in high availability or performance. 
-
-With Azure Cosmos DB, developers can choose from five well-defined models on the consistency spectrum. From strongest to weakest, the models are strong, bounded staleness, session, consistent prefix, and eventual. The models are well-defined and intuitive and can be used for specific real-world scenarios. Each model provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and is backed by a comprehensive SLA.
-
-![Consistency as a spectrum](./media/consistency-levels/five-consistency-levels.png)
-
-The consistency levels are region-agnostic. The consistency level of your Azure Cosmos DB account is guaranteed for all read operations regardless of the following properties:
-
-- The region from which the reads and writes are served.
-- The number of regions associated with your account.
-- Whether your account is configured with a single region or multiple write regions.
-=======
-Cosmos DB approaches data consistency as a spectrum of choices instead of the two extremes. While strong consistency and eventual consistency are the two ends of the spectrum, there are many consistency choices along the spectrum. These consistency options enable developers to make precise choices and granular tradeoffs with respect to high availability or performance. Cosmos DB enabled developers to choose among the five well-defined consistency models from the consistency spectrum (strongest to weakest) – **strong**, **bounded staleness**, **session**, **consistent prefix**, and **eventual**. Each of these consistency models is well-defined, intuitive and can be used for specific real-world scenarios. Each of the five consistency models provide [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and are backed by comprehensive SLAs. The following image shows different consistency levels as a spectrum:
+With Azure Cosmos DB, developers can choose from five well-defined consistency models on the consistency spectrum. From strongest to weakest, the models are strong, bounded staleness, session, consistent prefix, and eventual. The models are well-defined and intuitive and can be used for specific real-world scenarios. Each model provides [availability and performance tradeoffs](consistency-levels-tradeoffs.md) and is backed by comprehensive SLAs. The following image shows different consistency levels as a spectrum.
 
 ![Consistency as a spectrum](./media/consistency-levels/five-consistency-levels.png)
 
 The consistency levels are region-agnostic. The consistency level of your Cosmos DB account, is guaranteed for all read operations regardless of the region from which the reads and writes are served, the number of regions associated with your Cosmos account or whether your account is configured with a single or multiple write regions.
->>>>>>> 81130a703a2bce725f76b0752aa580e4ed536f8b
 
 ## Scope of the read consistency
 
