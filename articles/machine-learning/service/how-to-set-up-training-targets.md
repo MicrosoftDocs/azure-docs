@@ -176,17 +176,17 @@ The following steps use the SDK to configure a Data Science Virtual Machine (DSV
 
 1. To attach an existing virtual machine as a compute target, you must provide the fully qualified domain name, login name, and password for the virtual machine.  In the example, replace ```<fqdn>``` with public fully qualified domain name of the VM, or the public IP address. Replace ```<username>``` and ```<password>``` with the SSH user and password for the VM:
 
-        ```python
-        from azureml.core.compute import RemoteCompute
+    ```python
+    from azureml.core.compute import RemoteCompute
 
-        dsvm_compute = RemoteCompute.attach(ws,
-                                        name="attach-dsvm",
-                                        username='<username>',
-                                        address="<fqdn>",
-                                        ssh_port=22,
-                                        password="<password>")
+    dsvm_compute = RemoteCompute.attach(ws,
+                                    name="attach-dsvm",
+                                    username='<username>',
+                                    address="<fqdn>",
+                                    ssh_port=22,
+                                    password="<password>")
 
-        dsvm_compute.wait_for_completion(show_output=True)
+    dsvm_compute.wait_for_completion(show_output=True)
 
 1. Create a configuration for the DSVM compute target. Docker and conda are used to create and configure the training environment on DSVM:
 
