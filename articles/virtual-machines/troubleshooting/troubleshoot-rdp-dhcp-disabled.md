@@ -39,7 +39,7 @@ You cannot make an RDP connection a VM in Azure because the DHCP Client service 
 **Computer**: myvm.cosotos.com</br>
 **Description**: The DHCP Client service hung on starting.</br>
 
-For Resource manager VMs, you can use Serial Access Console feature to query for the event logs 7022 using the following command:
+For Resource Manager VMs, you can use Serial Access Console feature to query for the event logs 7022 using the following command:
 
     wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more
 
@@ -73,7 +73,7 @@ To resolve this issue, use Serial control to enable DHCP or [reset network inter
 
         sc query DHCP
 
-    If the service is started. You don't have to restart the VM at this point. The VM will be back reachable.
+    Try to connect to the VM and see if the problem is resolved.
 5. If the service fails to start, follow the solution based on the error you received:
 
     | Error  |  Solution |
