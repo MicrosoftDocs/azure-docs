@@ -272,7 +272,7 @@ public class UpdateKB {
      * Sends the request to update the knowledge base.
      * @param kb The ID for the existing knowledge base
      * @param req The data source for the updated knowledge base
-     * @return Reponse Returns the response from a PATCH request
+     * @return Response Returns the response from a PATCH request
      */
     public static Response UpdateKB (String kb, Request req) throws Exception {
         URL url = new URL(host + service + method + kb);
