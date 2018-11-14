@@ -30,13 +30,9 @@ The Windows Azure Authentication Library offers many ways to acquire Active Dire
 
 ## Call Digital Twins from a middle-tier web API
 
-When developers architect Digital Twins solutions, they typically create a middle-tier application or API. The app or API then calls the Digital Twins API downstream. To support this standard web solution architecture, make sure that Users first:
+When developers architect Digital Twins solutions, they typically create a middle-tier application or API. The app or API then calls the Digital Twins API downstream. To support this standard web solution architecture, make sure that users first:
 
 1. Authenticate with the middle-tier application
-
-   > [!IMPORTANT]
-   > Read about how to [configure and test](./how-to-configure-postman.md) your app using the Postman client.
-
 1. An OAuth 2.0 On-Behalf-Of token is acquired during authentication
 1. The acquired token is then used to authenticate with or call APIs that are further downstream using the On-Behalf-Of flow
 
@@ -44,6 +40,6 @@ When developers architect Digital Twins solutions, they typically create a middl
 
 ## Next steps
 
-To configure and test OAuth 2.0 with Azure Digital Twins, read [Configure Postman](./how-to-configure-postman.md).
+To configure and test Azure Digital Twins using the OAuth 2.0 implicit grant flow, read [Configure Postman](./how-to-configure-postman.md).
 
 To learn about Azure Digital Twins security, read [Create and manage role assignments](./security-create-manage-role-assignments.md).
