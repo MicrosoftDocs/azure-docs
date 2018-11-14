@@ -29,7 +29,7 @@ This article provides an overview of the SQL Database resource limits for single
 | Max number of servers per subscription in any region | 200 |  
 | DTU / eDTU quota per server | 54,000 |  
 | vCore quota per server/instance | 540 |
-| Max pools per server | Limited by number of DTUs or vCores. For example, if the each pool is 1000 DTUs, then a single server can support 54 pools.|
+| Max pools per server | Limited by number of DTUs or vCores. For example, if each pool is 1000 DTUs, then a single server can support 54 pools.|
 ||||
 
 > [!NOTE]

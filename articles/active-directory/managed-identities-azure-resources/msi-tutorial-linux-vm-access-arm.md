@@ -35,13 +35,11 @@ In this tutorial, you learn how to:
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- [Sign in to Azure portal](https://portal.azure.com)
 
-[Sign in to Azure portal](https://portal.azure.com)
+- [Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
 
-[Create a Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal)
-
-If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- If you choose to install and use the CLI locally, this quickstart requires that you are running the Azure CLI version 2.0.4 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## Create a user-assigned managed identity
 

@@ -16,7 +16,7 @@ Enterprise Security Package (ESP) clusters provide multi-user access on Azure HD
 In this article, you learn how to configure a HDInsight cluster with ESP by using Azure Active Directory Domain Services (Azure AD-DS).
 
 >[!NOTE]
->ESP is GA in HDI 3.6 for Spark, Interactive, and Hadoop. ESP for HBase and Kafka cluster types is in preview.
+>ESP is GA in HDI 3.6 for Spark, Interactive, and Apache Hadoop. ESP for HBase and Kafka cluster types is in preview.
 
 ## Enable Azure AD-DS
 
