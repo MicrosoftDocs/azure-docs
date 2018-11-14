@@ -4,7 +4,7 @@ description: Learn how to store state in an Azure Service Fabric Mesh applicatio
 services: service-fabric-mesh
 documentationcenter: .net
 author: ashishnegi
-manager: jeconnoc
+manager: raunakpandya
 editor: ''
 ms.assetid:
 ms.service: service-fabric-mesh
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/09/2018
-ms.author: ryanwi
+ms.author: asnegi
 ms.custom: mvc, devcenter
 ---
 
@@ -22,7 +22,7 @@ ms.custom: mvc, devcenter
 The common method of persisting state with container apps is to use remote storage like Azure File Storage or database like Azure Cosmos DB. This incurs significant read and write network latency to the remote store.
 
 This article shows how to store state in highly available Service Fabric BlockStore by mounting a volume inside the container of a Service Fabric Mesh application.
-Service Fabric BlockStore provides volumes for local reads with writes replicated within the Service Fabric Cluster for high availability. This removes network calls for reads and reduce network latency for writes. If the container restarts or moves to another node, new container instance will see the same volume as older one. Thus it is both efficient and highly available.
+Service Fabric BlockStore provides volumes for local reads with writes replicated within the Service Fabric Cluster for high availability. This removes network calls for reads and reduces network latency for writes. If the container restarts or moves to another node, new container instance will see the same volume as older one. Thus it is both efficient and highly available.
 
 In this example, the Counter application has an ASP.NET Core service with a web page that shows counter value in a browser.
 
