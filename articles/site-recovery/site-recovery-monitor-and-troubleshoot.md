@@ -1,7 +1,6 @@
 ---
 title: Monitor Azure Site Recovery | Microsoft Docs
 description: Monitor and troubleshoot Azure Site Recovery replication issues and operations using the portal 
-services: site-recovery
 author: bsiva
 manager: abhemra
 ms.service: site-recovery

@@ -77,11 +77,11 @@ The [AD DS Connector account](#active-directory-account) is created for reading 
 
 ![Express installation](./media/reference-connect-accounts-permissions/express.png)
 
-The following is a summary of the express installlation wizard pages, the credentials collected, and what they are used for.
+The following is a summary of the express installation wizard pages, the credentials collected, and what they are used for.
 
 | Wizard Page | Credentials Collected | Permissions Required | Used For |
 | --- | --- | --- | --- |
-| N/A |User running the installation wizard |Administrator of the local server |<li>Creates the [ADSync servcie account](#azure-ad-connect-sync-service-account) account that is used as to run the synchronization service. |
+| N/A |User running the installation wizard |Administrator of the local server |<li>Creates the [ADSync service account](#azure-ad-connect-sync-service-account) account that is used as to run the synchronization service. |
 | Connect to Azure AD |Azure AD directory credentials |Global administrator role in Azure AD |<li>Enabling sync in the Azure AD directory.</li>  <li>Creation of the [Azure AD Connector account](#azure-ad-service-account) that is used for on-going sync operations in Azure AD.</li> |
 | Connect to AD DS |On-premises Active Directory credentials |Member of the Enterprise Admins (EA) group in Active Directory |<li>Creates the [AD DS Connector account](#active-directory-account) in Active Directory and grants permissions to it. This created account is used to read and write directory information during synchronization.</li> |
 
@@ -92,7 +92,7 @@ With the custom settings installation, the wizard offers you more choices and op
 
 ### Custom installation wizard summary
 
-The following is a summary of the custom installlation wizard pages, the credentials collected, and what they are used for.
+The following is a summary of the custom installation wizard pages, the credentials collected, and what they are used for.
 
 ![Express installation](./media/reference-connect-accounts-permissions/customize.png)
 
@@ -236,7 +236,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 
 |Topic |Link|  
 | --- | --- |
-|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Download Azure AD Connect | [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Install using Express settings | [Express installation of Azure AD Connect](how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|

@@ -23,7 +23,7 @@ Log Analytics collects data from your Connected Sources and stores it in your Lo
 
 ![Log Analytics data collection](./media/log-analytics-data-sources/overview.png)
 
-Data Sources are different than [management solutions](log-analytics-add-solutions.md), which also collect data from Connected Sources and create records in Log Analytics.  In addition to 
+Data Sources are different than [management solutions](../monitoring/monitoring-solutions.md), which also collect data from Connected Sources and create records in Log Analytics.  In addition to 
 collecting data, solutions typically include log searches and views to help you analyze the operation of a particular application or service.
 
 
@@ -65,5 +65,5 @@ All data collected by Log Analytics is stored in the workspace as records.  Reco
 
 ## Next steps
 * Learn about [solutions](../monitoring/monitoring-solutions.md) that add functionality to Log Analytics and also collect data into the workspace.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
-* Configure [alerts](log-analytics-alerts.md) to proactively notify you of critical data collected from data sources and solutions.
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
+* Configure [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to proactively notify you of critical data collected from data sources and solutions.

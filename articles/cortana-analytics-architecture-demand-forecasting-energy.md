@@ -17,7 +17,7 @@ ms.author: garye
 # Cortana Intelligence Solution Template architecture for demand forecasting of energy
 The diagram below provides an architectural overview of the [Cortana Intelligence Solution Template for demand forecasting of energy](cortana-analytics-playbook-demand-forecasting-energy.md).
 
-You can download a full-size version of the diagram here: [Architecture diagram: Solution Template for demand forecasting of energy](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
+You can download a full-size version of the diagram here: [Architecture diagram: Solution Template for demand forecasting of energy](https://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
 
 ![Microsoft Cortana Intelligence Solution Template architecture diagram for demand forecasting of energy][image]
 

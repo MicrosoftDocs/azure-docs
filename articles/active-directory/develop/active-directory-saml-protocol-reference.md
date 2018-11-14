@@ -28,7 +28,7 @@ SAML Protocol requires the identity provider (Azure AD) and the service provider
 
 When an application is registered with Azure AD, the app developer registers federation-related information with Azure AD. This information includes the **Redirect URI** and **Metadata URI** of the application.
 
-Azure AD uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. If the application doesn't support a metadata URI, the developer must contact Microsoft support to provide the logout URI and signing key.
+Azure AD uses the cloud service's **Metadata URI** to retrieve the signing key and the logout URI. Customer can open the app in **Azure AD -> App Registration** and then in **Settings -> Properties**, they can update the Logout URL. This way Azure AD can send the response to the correct URL. 
 
 Azure Active Directory exposes tenant-specific and common (tenant-independent) single sign-on and single sign-out endpoints. These URLs represent addressable locations -- they are not just identifiers -- so you can go to the endpoint to read the metadata.
 

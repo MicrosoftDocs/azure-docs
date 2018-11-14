@@ -27,10 +27,6 @@ This article describes the support for importing online data from various source
 > 
 > 
 
-<!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
-
 ## Introduction
 By using the [Import Data][import-data] module, you can access data from one of several online data sources while your experiment is running in [Azure Machine Learning Studio](https://studio.azureml.net/Home):
 

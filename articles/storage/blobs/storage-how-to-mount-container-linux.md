@@ -85,7 +85,7 @@ Blobfuse requires your credentials to be stored in a text file in the following 
 
 ```
 accountName myaccount
-accountKey 9fD-/KjshdfLDERmcIjabcdefhAUSIHD/asdhfoiasiaAISOIabcdef/askdfewiAASJDNFL+askdlfj==
+accountKey storageaccesskey
 containerName mycontainer
 ```
 

@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/02/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
 
 # Connect Operations Manager to Log Analytics
-To maintain your existing investment in System Center Operations Manager and use extended capabilities with Log Analytics, you can integrate Operations Manager with your Log Analytics workspace. This allows you leverage the opportunities of Log Analytics while continuing to use Operations Manager to:
+To maintain your existing investment in [System Center Operations Manager](https://docs.microsoft.com/system-center/scom/key-concepts?view=sc-om-1807) and use extended capabilities with Log Analytics, you can integrate Operations Manager with your Log Analytics workspace. This allows you leverage the opportunities of Log Analytics while continuing to use Operations Manager to:
 
 * Monitor the health of your IT services with Operations Manager
 * Maintain integration with your ITSM solutions supporting incident and problem management
@@ -40,7 +40,7 @@ Before starting, review the following requirements.
 
 * Log Analytics only supports System Center Operations Manager 1807, Operations Manager 1801, Operations Manager 2016, Operations Manager 2012 SP1 UR6 or later, and Operations Manager 2012 R2 UR2 or later. Proxy support was added in Operations Manager 2012 SP1 UR7 and Operations Manager 2012 R2 UR3.
 * All Operations Manager agents must meet minimum support requirements. Ensure that agents are at the minimum update, otherwise Windows agent communication may fail and generate errors in the Operations Manager event log.
-* A Log Analytics workspace. For further information, review [Connect computers from your environment to Log Analytics](log-analytics-concept-hybrid.md).
+* A Log Analytics workspace. For further information, review [Log Analytics workspace overview](log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json)).
 * You authenticate to Azure with an account that is a member of the [Log Analytics Contributor role](log-analytics-manage-access.md#manage-accounts-and-users).  
 
 >[!NOTE]
@@ -327,6 +327,6 @@ In the future if you plan on reconnecting your management group to a Log Analyti
 * From the most recent update rollup applied to your management group. For Operations Manager 2012, the source folder is` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` and for 2012 R2, it is located in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## Next steps
-To add functionality and gather data, see [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+To add functionality and gather data, see [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
 
 

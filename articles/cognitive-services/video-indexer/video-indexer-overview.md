@@ -61,7 +61,7 @@ Below are a few scenarios where Video Indexer can be useful
 
 - User engagement – Video insights can be used to improve user engagement by positioning the relevant video moments to users. As an example, consider an educational video that explains spheres for the first 30 minutes and pyramids in the next 30 minutes. A student reading about pyramids would benefit more if the video is positioned starting from the 30-minute marker.
 
-For more information, see this [blog](http://aka.ms/videoindexerblog).
+For more information, see this [blog](https://aka.ms/videoindexerblog).
 
 ## Next steps
 

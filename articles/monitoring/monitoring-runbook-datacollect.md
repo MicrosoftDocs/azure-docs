@@ -1,4 +1,4 @@
-﻿---
+---
 title: Collecting Log Analytics data with a runbook in Azure Automation | Microsoft Docs
 description: Step by step tutorial that walks through creating a runbook in Azure Automation to collect data into the repository for analysis by Log Analytics.  
 services: log-analytics
@@ -26,8 +26,8 @@ This tutorial walks through the process for creating and scheduling a runbook in
 ## Prerequisites
 This scenario requires the following resources configured in your Azure subscription.  Both can be a free account.
 
-- [Log Analytics workspace](../log-analytics/log-analytics-get-started.md).
-- [Azure automation account](../automation/automation-offering-get-started.md).
+- [Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md).
+- [Azure automation account](..//automation/automation-quickstart-create-account.md).
 
 ## Overview of scenario
 For this tutorial, you'll write a runbook that collects information about Automation jobs.  Runbooks in Azure Automation are implemented with PowerShell, so you'll start by writing and testing a script in the Azure Automation editor.  Once you verify that you're collecting the required information, you'll write that data to Log Analytics and verify the custom data type.  Finally, you'll create a schedule to start the runbook at regular intervals.
@@ -141,7 +141,7 @@ Azure Automation includes an environment to [test your runbook](../automation/au
 	![Post output](media/monitoring-runbook-datacollect/post-output.png)
 
 ## 5. Verify records in Log Analytics
-Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../log-analytics/log-analytics-log-searches.md).
+Once the runbook has completed in test, and you verified that the output was successfully received, you can verify that the records were created using a [log search in Log Analytics](../log-analytics/log-analytics-queries.md).
 
 ![Log output](media/monitoring-runbook-datacollect/log-output.png)
 
@@ -194,7 +194,7 @@ Once the schedule is created, you need to set the parameter values that will be 
 8. Click **OK**. 
 
 ## 9. Verify runbook starts on schedule
-Everytime a runbook is started, [a job is created](../automation/automation-runbook-execution.md) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
+Every time a runbook is started, [a job is created](../automation/automation-runbook-execution.md) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
 
 ![Jobs](media/monitoring-runbook-datacollect/jobs.png)
 

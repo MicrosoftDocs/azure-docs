@@ -3,12 +3,12 @@ title: 'Configure Azure ExpressRoute Global Reach | Microsoft Docs'
 description: This article helps you link ExpressRoute circuits together to make a private network between your on-premises networks and enable Global Reach.
 documentationcenter: na
 services: expressroute
-author: cherylmc
+author: mialdrid
 
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.author: cherylmc
+ms.author: mialdrid
 
 ---
 

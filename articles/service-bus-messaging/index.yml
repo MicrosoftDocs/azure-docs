@@ -15,7 +15,7 @@ metadata:
   ms.date: 05/16/2018
   ms.author: spelluru
 abstract:
-  description: Azure Service Bus is a multi-tenant cloud messaging service that sends information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.<p>Learn how to use Azure Service Bus messaging services to send and receive messages to and from queues, and publish and subscribe for messages using topics and subscriptions.</p>
+  description: Azure Service Bus is a multi-tenant cloud messaging service you can use to send information between applications and services. The asynchronous operations give you flexible, brokered messaging, along with structured first-in, first-out (FIFO) messaging, and publish/subscribe capabilities.<p>Learn how to use Azure Service Bus messaging services to send and receive messages to and from queues, and publish and subscribe for messages using topics and subscriptions.</p>
   aside:
     image:
       alt: 
@@ -158,6 +158,6 @@ sections:
     - title: Command-Line
       html: <p><a href="/powershell/module/azurerm.servicebus/">Azure PowerShell</a></p><p><a href="/cli/azure/servicebus">Azure CLI</a></p>
     - title: Languages
-      html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p><p><a href="/java/api/overview/azure/servicebus">Java</a></p>
+      html: <p><a href="/dotnet/api/microsoft.servicebus.messaging">.NET Framework</a></p><p><a href="/dotnet/api/microsoft.azure.servicebus">.NET Standard</a></p><p><a href="/java/api/overview/azure/servicebus">Java</a></p><p><a href="/javascript/api/overview/azure/service-bus">Node.js</a></p>
     - title: REST
       html: <p><a href="/rest/api/servicebus/">REST API Reference</a></p>

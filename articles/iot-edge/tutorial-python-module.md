@@ -4,7 +4,7 @@ title: Azure IoT Edge Python tutorial | Microsoft Docs
 description: This tutorial shows you how to create an IoT Edge module with Python code and deploy it to an edge device.
 services: iot-edge
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/21/2018
@@ -16,7 +16,7 @@ ms.custom: mvc
 
 # Tutorial: Develop and deploy a Python IoT Edge module to your simulated device
 
-You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the Deploy Azure IoT Edge on a simulated device in [Windows][lnk-quickstart-win] or [Linux][lnk-quickstart-lin] quickstarts. In this tutorial, you learn how to:    
+You can use Azure IoT Edge modules to deploy code that implements your business logic directly to your IoT Edge devices. This tutorial walks you through creating and deploying an IoT Edge module that filters sensor data. You'll use the simulated IoT Edge device that you created in the quickstarts. In this tutorial, you learn how to:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code to create an IoT Edge Python module.
@@ -297,13 +297,3 @@ In this tutorial, you created an IoT Edge module with code to filter raw data th
 > [!div class="nextstepaction"]
 > [Deploy Azure functions as a module](tutorial-deploy-function.md)
 > [Deploy Azure Stream Analytics as a module](tutorial-deploy-stream-analytics.md)
-
-
-<!-- Links -->
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-
-<!-- Images -->
-[1]: ./media/tutorial-csharp-module/programcs.png
-[2]: ./media/tutorial-csharp-module/build-module.png
-[3]: ./media/tutorial-csharp-module/docker-os.png

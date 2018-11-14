@@ -88,7 +88,7 @@ Conditional access policies work seamlessly with [federated authentication](../.
 
 *Federated authentication with Azure AD* means that a trusted authentication service handles user authentication to Azure AD. A trusted authentication service is, for example, Active Directory Federation Services (AD FS), or any other federation service. In this configuration, primary user authentication is performed at the service and then Azure AD is used to sign into individual applications. Azure AD conditional access is applied before access is granted to the application the user is accessing. 
 
-When the configured conditional access policy requires multi-factor authentication, Azure AD defaults to using Azure MFA. If you use the federation service for MFA, you can configure Azure AD to redirect to the federation service when MFA is needed by setting `-SupportsMFA` to `$true` in [PowerShell](https://docs.microsoft.com/en-us/powershell/module/msonline/set-msoldomainfederationsettings). This setting works for federated authentication services that support the MFA challenge request issued by Azure AD using `wauth= http://schemas.microsoft.com/claims/multipleauthn`.
+When the configured conditional access policy requires multi-factor authentication, Azure AD defaults to using Azure MFA. If you use the federation service for MFA, you can configure Azure AD to redirect to the federation service when MFA is needed by setting `-SupportsMFA` to `$true` in [PowerShell](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings). This setting works for federated authentication services that support the MFA challenge request issued by Azure AD using `wauth= http://schemas.microsoft.com/claims/multipleauthn`.
 
 After the user has signed in to the federated authentication service, Azure AD handles other policy requirements such as device compliance or an approved application.
 
@@ -108,4 +108,4 @@ Using conditional access requires an Azure AD Premium license. To find the right
 
 - If you are ready to configure conditional access policies for your environment, see the [best practices for conditional access in Azure Active Directory](best-practices.md). 
 
-- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](http://aka.ms/conditionalaccessdeploymentplan)
+- If you would like a step-by-step deployment plan with recommended policies, see the [conditional access deployment plan](https://aka.ms/conditionalaccessdeploymentplan)

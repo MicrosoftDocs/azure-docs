@@ -19,6 +19,8 @@
   items:
   - name: Azure PowerShell
     href: sample-powershell.md
+  - name: Log Analytics
+    href: log-analytics-samples.md
 - name: Concepts
   items:
     - name: FQDN tags

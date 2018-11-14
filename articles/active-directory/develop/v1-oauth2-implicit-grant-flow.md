@@ -22,6 +22,8 @@ ms.custom: aaddev
 
 # Understanding the OAuth2 implicit grant flow in Azure Active Directory (AD)
 
+[!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
+
 The OAuth2 implicit grant is notorious for being the grant with the longest list of security concerns in the OAuth2 specification. And yet, that is the approach implemented by ADAL JS and the one we recommend when writing SPA applications. What gives? It’s all a matter of tradeoffs: and as it turns out, the implicit grant is the best approach you can pursue for applications that consume a Web API via JavaScript from a browser.
 
 ## What is the OAuth2 implicit grant?

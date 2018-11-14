@@ -25,10 +25,6 @@ This article describes how to down-sample data stored in Azure HDInsight Hive ta
 * Random sampling by groups
 * Stratified sampling
 
-The following **menu** links to topics that describe how to sample data from various storage environments.
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
-
 **Why sample your data?**
 If the dataset you plan to analyze is large, it's usually a good idea to down-sample the data to reduce it to a smaller but representative and more manageable size. Down-sampling facilitates data understanding, exploration, and feature engineering. Its role in the Team Data Science Process is to enable fast prototyping of the data processing functions and machine learning models.
 

@@ -3,7 +3,7 @@ title:  Azure Application Insights usage cohorts | Microsoft Docs
 description: Analyze different sets or users, sessions, events, or operations that have something in common
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,8 +11,9 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/10/2018
-ms.reviewer: daviste
-ms.author: mbullwin
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
 ---
 
 # Application Insights cohorts
@@ -43,9 +44,9 @@ Your team defines an engaged user as anyone who uses your app five or more times
     There are three parameters for this cohort:
     * **Activities**, where you choose which events and page views count as “usage.”
     * **Period**, the definition of a month.
-    * **UsedAtleastCustom**, the number of times users need to use something within a period to count as engaged.
+    * **UsedAtLeastCustom**, the number of times users need to use something within a period to count as engaged.
 
-4. Change **UsedAtleastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
+4. Change **UsedAtLeastCustom** to **5+ days**, and leave **Period** on the default of 28 days.
 
     ![Engaged users](.\media\app-insights-usage-cohorts\003.png)
 

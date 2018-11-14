@@ -268,7 +268,7 @@ The OpenSSL toolkit stays under a double license, i.e. both the conditions of th
     * OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
     * SUCH DAMAGE.
     * 
-    * The licence and distribution terms for any publically available version or
+    * The licence and distribution terms for any publicly available version or
     * derivative of this code cannot be changed.  i.e. this code cannot simply be
     * copied and put under another distribution licence
     * [including the GNU Public Licence.]

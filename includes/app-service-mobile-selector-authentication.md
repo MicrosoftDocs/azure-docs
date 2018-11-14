@@ -1,3 +1,10 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+---
 > [!div class="op_single_selector"]
 > * [Azure Active Directory](../articles/app-service/app-service-mobile-how-to-configure-active-directory-authentication.md)
 > * [Facebook](../articles/app-service/app-service-mobile-how-to-configure-facebook-authentication.md)

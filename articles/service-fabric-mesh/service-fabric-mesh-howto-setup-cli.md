@@ -33,7 +33,10 @@ To update an existing Azure Service Fabric Mesh CLI module, run the following co
 ```azurecli-interactive
 az extension update --name mesh
 ```
+## Next steps
 
 You can also set up your [Windows development environment](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
+
+Find answers to [common questions and issues](service-fabric-mesh-faq.md).
 
 [azure-cli-install]: /cli/azure/install-azure-cli

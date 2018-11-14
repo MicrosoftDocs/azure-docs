@@ -1,3 +1,10 @@
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+---
 ### Prerequisites
 * An [FTP](https://wikipedia.org/wiki/File_Transfer_Protocol) account  
 

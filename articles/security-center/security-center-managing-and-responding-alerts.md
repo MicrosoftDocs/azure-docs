@@ -3,7 +3,7 @@ title: Manage security alerts in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/3/2018
-ms.author: yurid
+ms.author: rkarlin
 
 ---
 # Managing and responding to security alerts in Azure Security Center
@@ -92,4 +92,4 @@ In this document, you learned how to configure security policies in Security Cen
 * [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.

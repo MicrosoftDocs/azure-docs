@@ -63,7 +63,7 @@ service.
 
 ### HDInsight Custom Aggregation
 The Azure HDInsight service is used to run
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts (orchestrated by Azure Data Factory) to provide aggregations on
 the raw events that were archived using the Azure Stream Analytics
 service.
@@ -153,7 +153,7 @@ Factory](https://azure.microsoft.com/documentation/services/data-factory/). Foll
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
 Five of the pipelines of this factory contain
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts that are used to partition and aggregate the data. When noted, the scripts are located in the [Azure
 Storage](https://azure.microsoft.com/services/storage/) account
 created during setup. Their location is:
@@ -161,7 +161,7 @@ demandforecasting\\\\script\\\\hive\\\\ (or https://[Your solution name].blob.co
 
 Similar to the [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 scripts have implicit knowledge about the incoming data format, these
 queries would need to be altered based on your data format and [feature
 engineering](machine-learning/team-data-science-process/create-features.md)
@@ -174,11 +174,11 @@ This
 activity using a
 [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx)
 that runs a
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 script to aggregate streamed in demand data every 10 seconds in substation level to hourly region level and put in [Azure Storage](https://azure.microsoft.com/services/storage/) through the Azure Stream Analytics job.
 
 The
-[Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
+[Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx)
 script for this partitioning task is ***AggregateDemandRegion1Hr.hql***
 
 #### *LoadHistoryDemandDataPipeline*
@@ -187,7 +187,7 @@ This [pipeline](data-factory/concepts-pipelines-activities.md) contains two acti
 * [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md) activity using a [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) that runs a  Hive script to aggregate the hourly history demand data in substation level to hourly region level and put in Azure Storage during the Azure Stream Analytics job
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) activity that moves the aggregated data from Azure Storage blob to the Azure SQL Database that was provisioned as part of the solution template installation.
 
-The [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script for this task is ***AggregateDemandHistoryRegion.hql***.
+The [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) script for this task is ***AggregateDemandHistoryRegion.hql***.
 
 #### *MLScoringRegionXPipeline*
 These [pipelines](data-factory/concepts-pipelines-activities.md) contain several activities and whose end result is the scored predictions from the Azure Machine Learning experiment associated with this solution template. They are almost identical except each of them only handles the different region, which is being done by different RegionID passed in the ADF pipeline and the hive script for each region.  
@@ -342,7 +342,7 @@ Solution Template in your subscription:
 * [Microsoft Azure Cost Estimator
   Tool (online)](https://azure.microsoft.com/pricing/calculator/)
 * [Microsoft Azure Cost Estimator
-  Tool (desktop)](http://www.microsoft.com/download/details.aspx?id=43376)
+  Tool (desktop)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## **Acknowledgements**
 This article is authored by data scientist Yijing Chen and software engineer Qiu Min at Microsoft.

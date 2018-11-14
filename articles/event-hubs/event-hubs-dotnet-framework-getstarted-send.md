@@ -25,7 +25,7 @@ This tutorial shows how to send events to an event hub using a console applicati
 ## Prerequisites
 To complete this tutorial, you need the following prerequisites:
 
-* [Microsoft Visual Studio 2017 or higher](http://visualstudio.com).
+* [Microsoft Visual Studio 2017 or higher](https://visualstudio.com).
 
 ## Create an Event Hubs namespace and an event hub
 The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
@@ -49,16 +49,16 @@ In Visual Studio, create a new Visual C# Desktop App project using the **Console
 
 1. Add the following `using` statements at the top of the **Program.cs** file:
    
-      ```csharp
-      using System.Threading;
-      using Microsoft.ServiceBus.Messaging;
-      ```
+    ```csharp
+    using System.Threading;
+    using Microsoft.ServiceBus.Messaging;
+    ```
 2. Add the following fields to the **Program** class, substituting the placeholder values with the name of the event hub you created in the previous section, and the namespace-level connection string you saved previously.
    
-        ```csharp
-        static string eventHubName = "Your Event Hub name";
-        static string connectionString = "namespace connection string";
-        ```
+    ```csharp
+    static string eventHubName = "Your Event Hub name";
+    static string connectionString = "namespace connection string";
+    ```
 3. Add the following method to the **Program** class:
    
       ```csharp

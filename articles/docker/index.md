@@ -16,7 +16,7 @@ ms.author: carolz
    <h1>Docker on Azure</h1>   
     <div class="introHolder" style="justify-content: space-between;">
 	<div class="intro" style="min-width: 200px">
-	 <img src="media/Docker.png" align="right" alt="Docker Logo">
+	 <img src="media/docker.png" align="right" alt="Docker Logo">
          Docker is a popular container management and imaging platform that allows you to quickly work with containers on Linux and Windows.  Learn how to leverage Docker on Azure with our quickstarts and tutorials.
 	</div>
     </div>

@@ -31,7 +31,7 @@ For example, each subscription has a default quota of 20 cores. So, if you are c
 ## View your usage and quotas
 These steps show you how to view the current quotas in your subscription for specific Azure resources, and to see what percentage of each quota you have used.
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Select **More Services**, and then select **Billing** from the list.
 1. In the Billing blade, select a subscription.
 4. Select **Usage + quotas**.
@@ -45,7 +45,7 @@ These steps show you how to view the current quotas in your subscription for spe
 ## Requesting more resources in your subscription
 If you reach a quota cap, the default limit of a resource in a subscription can be increased up to a maximum limit, as described in [Azure Subscription and Service Limits](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-These steps show you how to request a quota increase through the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+These steps show you how to request a quota increase through the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Select **More Services**, select **Billing**, and then select **Usage + quotas**.
 1. In the Usage + quotas blade, select the **Request Increase** button.

@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 manager: femila
-ms.date: 08/02/2018
+ms.date: 10/22/2018
 ms.topic: article
 ms.service: azure-stack
 ms.author: mabrigg

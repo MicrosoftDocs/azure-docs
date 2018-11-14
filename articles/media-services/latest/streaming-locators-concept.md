@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
 ---
 
@@ -23,20 +23,20 @@ To provide your clients with a URL that they can use to play back encoded video 
 
 The following table shows the StreamingLocator's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|id	|string|Fully qualified resource ID for the resource.|
-|name	|string|The name of the resource.|
-|properties.alternativeMediaId	|string|Alternative Media ID of this Streaming Locator.|
-|properties.assetName	|string|Asset name|
-|properties.contentKeys	|StreamingLocatorContentKey[]|The ContentKeys used by this Streaming Locator.|
-|properties.created	|string|The creation time of the Streaming Locator.|
-|properties.defaultContentKeyPolicyName	|string|Name of the default ContentKeyPolicy used by this Streaming Locator.|
-|properties.endTime	|string|The end time of the Streaming Locator.|
-|properties.startTime	|string|The start time of the Streaming Locator.|
-|properties.streamingLocatorId	|string|The StreamingLocatorId of the Streaming Locator.|
-|properties.streamingPolicyName	|string|Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'|
-|type	|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|id	|Fully qualified resource ID for the resource.|
+|name	|The name of the resource.|
+|properties.alternativeMediaId|Alternative Media ID of this Streaming Locator.|
+|properties.assetName	|Asset name|
+|properties.contentKeys	|The ContentKeys used by this Streaming Locator.|
+|properties.created	|The creation time of the Streaming Locator.|
+|properties.defaultContentKeyPolicyName|Name of the default ContentKeyPolicy used by this Streaming Locator.|
+|properties.endTime	|The end time of the Streaming Locator.|
+|properties.startTime|The start time of the Streaming Locator.|
+|properties.streamingLocatorId|The StreamingLocatorId of the Streaming Locator.|
+|properties.streamingPolicyName	|Name of the Streaming Policy used by this Streaming Locator. Either specify the name of Streaming Policy you created or use one of the predefined Streaming Policies. The predefined Streaming Policies available are: 'Predefined_DownloadOnly', 'Predefined_ClearStreamingOnly', 'Predefined_DownloadAndClearStreaming', 'Predefined_ClearKey', 'Predefined_MultiDrmCencStreaming' and 'Predefined_MultiDrmStreaming'|
+|type|The type of the resource.|
 
 For the full definition, see [Streaming Locators](https://docs.microsoft.com/rest/api/media/streaminglocators).
 
@@ -100,7 +100,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/streaminglocators_list)
+For REST examples, see [Streaming Locators - List](https://docs.microsoft.com/rest/api/media/streaminglocators/list)
 
 ## Next steps
 
