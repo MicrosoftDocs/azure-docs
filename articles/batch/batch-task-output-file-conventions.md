@@ -47,7 +47,7 @@ The [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net
 
 The File Conventions library for .NET automatically names your storage containers and task output files according to the File Conventions standard. The File Conventions library also provides methods to query output files in Azure Storage according to job ID, task ID, or purpose.
 
-If you are developing with a language other than .NET, you can implement the File Conventions standard yourself in your application. For more information, see [About the Batch File Conventions standard](batch-task-output.md#about-the-batch-file-conventions-standard).
+If you are developing with a language other than .NET, you can implement the File Conventions standard yourself in your application. For more information, see [Implement the Batch File Conventions standard](batch-task-output.md#implement-the-batch-file-conventions-standard).
 
 ## Link an Azure Storage account to your Batch account
 
