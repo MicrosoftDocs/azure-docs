@@ -55,7 +55,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * The v3 SDKs are now decoupled from the Storage SDK, which gives you more control over the version of Storage SDK you want to use and avoids versioning issues. 
 * In the v3 APIs, all of the encoding bit rates are in bits per second. This is different than the v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128 (kbps), but in v3 it would be 128000 (bits/second). 
 * Entities AssetFiles, AccessPolicies, and IngestManifests do not exist in v3.
-* IAsset.ParentAssets property does not exist in v3.
+* The IAsset.ParentAssets property does not exist in v3.
 * ContentKeys is no longer an entity, it is now a property of the StreamingLocator.
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed
