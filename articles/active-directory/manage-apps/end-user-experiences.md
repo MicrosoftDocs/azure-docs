@@ -44,7 +44,7 @@ Most federated applications that support SAML 2.0, WS-Federation, or OpenID conn
 
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
-## Direct sign-on links for federated, password-based, or existing apps
+## Direct sign-on links
 Azure AD also supports direct single sign-on links to individual applications that support password-based single sign-on, linked single sign-on, and any form of federated single sign-on.
 
 These links are specifically crafted URLs that send a user through the Azure AD sign-in process for a specific application without requiring the user launch them from the Azure AD access panel or Office 365. These Single Sign-On URLs can be found under the Dashboard tab of any pre-integrated application in the Active Directory section of the Azure portal, as shown in the screenshot below.

@@ -106,7 +106,7 @@ In the example below, the vault details from the $vault variable is used to spec
    Set-ASRVaultContext -Vault $vault
    ```
    ```
-   ResourceName      ResourceGroupName ResourceNamespace          ResouceType
+   ResourceName      ResourceGroupName ResourceNamespace          ResourceType
    ------------      ----------------- -----------------          -----------
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
