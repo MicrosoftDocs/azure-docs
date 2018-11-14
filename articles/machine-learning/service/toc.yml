@@ -134,13 +134,9 @@
   - name: Machine learning SDK
     href: http://aka.ms/aml-sdk
   - name: Data prep SDK
-<<<<<<< HEAD
-    href: http://aka.ms/data-prep-sdk   
-=======
     href: http://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     href: https://aka.ms/aml-monitoring-sdk 
->>>>>>> adf4616c8163133a826d10c89f04c56db58cca97
 - name: Resources
   items:  
   - name: Azure roadmap
