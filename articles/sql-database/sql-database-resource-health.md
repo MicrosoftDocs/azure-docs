@@ -11,7 +11,7 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 
 ---
 # Use Resource Health to troubleshoot connectivity for Azure SQL Database
@@ -22,7 +22,7 @@ ms.date: 11/13/2018
 
 ![Overview](./media/sql-database-resource-health/sql-resource-health-overview.jpg)
 
-## Health Checks
+## Health checks
 
 Resource Health determines the health of your SQL resource by examining the success and failure of logins to the resource. Currently, Resource Health for your SQL DB resource only examines login failures due to system error and not user error. The Resource Health status is updated every 1-2 minutes.
 
@@ -52,15 +52,15 @@ The health status of **Unknown** indicates that Resource Health hasn't received 
 If the resource is running as expected, the status of the resource will change to Available after a few minutes.
 If you're experiencing problems with the resource, the Unknown health status might suggest that an event in the platform is affecting the resource.
 
-## Historical Information
+## Historical information
 
 You can access up to 14 days of health history in the Health history section of Resource Health. The section will also contain the downtime reason (when available) for the downtimes reported by Resource Health. Currently, Azure shows the downtime for your SQL database resource at a two-minute granularity. The actual downtime is likely less than a minute – average is 8s.
 
-### Downtime Reasons
+### Downtime reasons
 
 When your SQL Database experiences downtime, analysis is performed to determine a reason. When available, the downtime reason is reported in the Health History section of Resource Health. Downtime reasons are typically published 30 minutes after an event.
 
-#### Planned Maintenance
+#### Planned maintenance
 
 The Azure infrastructure periodically performs planned maintenance – upgrade of hardware or software components in the datacenter. While the database undergoes maintenance, SQL may terminate some existing connections and refuse new ones. The login failures experienced during planned maintenance are typically transient and retry logic helps reduce the impact. If you continue to experience login errors, please contact support.
 
@@ -68,7 +68,7 @@ The Azure infrastructure periodically performs planned maintenance – upgrade o
 
 Reconfigurations are considered transient conditions, and are expected from time to time. These events can be triggered by load balancing or software/hardware failures. Any client production application that connects to a cloud database service should implement a robust connection retry logic with backoff logic, as it would help mitigate these situations and should generally make the errors transparent to the end user.
 
-## Next Steps
+## Next steps
 
 - Learn more about [retry logic for transient errors](./sql-database-connectivity-issues.md#retry-logic-for-transient-errors)
 - [Troubleshoot, diagnose, and prevent SQL connection errors](./sql-database-connectivity-issues.md)

@@ -6,7 +6,7 @@ keywords:
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 09/10/2018
+ms.date: 11/13/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
@@ -110,9 +110,8 @@ When you create a JavaScript function app, it's important to target the correct 
 In the following Azure CLI command, `<app_name> is the name of your function app.
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <app_name> \
---resource-group myResourceGroup \
---settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
+az functionapp config appsettings set --resource-group myResourceGroup \
+ --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
 
 Verify the new setting in the output.

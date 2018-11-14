@@ -130,10 +130,10 @@ While possible, the Azure VM running the configuration server would need to comm
 We recommend taking regular scheduled backups of the configuration server. For successful failback, the virtual machine being failed back must exist in the configuration server database, and the configuration server must be running and in a connected state. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
 
 ### When I'm setting up the configuration server, can I download and install MySQL manually?
-Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the the terms, MySQL will be listed as **Already installed** in **Download and install**.
+Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the terms, MySQL will be listed as **Already installed** in **Download and install**.
 
 ### Can I avoid downloading MySQL but let Site Recovery install it?
-Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
+Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
  
 ### CanL I use the configuration server VM for anything else?
 No, you should only use the VM for the configuration server. 
