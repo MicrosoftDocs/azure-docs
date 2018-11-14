@@ -11,7 +11,7 @@
 ---
 | Resource | Target | Hard limit |
 |----------|--------------|------------|
-| Storage Sync Services per subscription | 15 Storage Sync Services | No |
+| Storage Sync Services per subscription | 15 Storage Sync Services per region | No |
 | Sync groups per Storage Sync Service | 100 sync groups | Yes |
 | Registered servers per Storage Sync Service | 99 servers | Yes |
 | Cloud endpoints per Sync Group | 1 cloud endpoint | Yes |
@@ -24,4 +24,4 @@
 | Maximum object (directories and files) security descriptor size | 4 KiB | Yes |
 | File size | 100 GiB | No |
 | Minimum file size for a file to be tiered | 64 KiB | Yes |
-| Concurrent sync sessions | 2 active sync sessions per processor or maximum of 8 active sync sessions per server | Yes |
+| Concurrent sync sessions | V4 agent: Limit varies based on available system resources. <BR> V3 agent: 2 active sync sessions per processor or maximum of 8 active sync sessions per server | Yes

@@ -145,9 +145,9 @@
           href: database-encryption-at-rest.md
         - name: Secure access to data
           href: secure-access-to-data.md
-        - name: Firewall support
+        - name: IP Firewall
           href: firewall-support.md
-        - name: Setup VNet endpoint
+        - name: Access from virtual networks
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
@@ -442,6 +442,12 @@
       items:
       - name: Configure indexing
         href: how-to-manage-indexing-policy.md
+    - name: Security
+      items:
+      - name: Configure IP firewall
+        href: how-to-configure-firewall.md
+      - name: Configure access from virtual networks
+        href: how-to-configure-vnet-service-endpoint.md
     - name : Manage
       items:
       - name: Manage using PowerShell
