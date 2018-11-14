@@ -58,7 +58,7 @@ In this section, you will create a build pipeline that is configured to run auto
 
     ![New pipeline](./media/how-to-ci-cd/add-new-build.png)
 
-1. If prompted, select the **Azure DevOps Git** source type. Then select the project, repository, and branch where your code is located. Choose **Continue**.
+1. If prompted, select **Git** the source type. Then select the project, repository, and branch where your code is located. Choose **Continue**.
 
     ![Select git](./media/how-to-ci-cd/select-vsts-git.png)
 
