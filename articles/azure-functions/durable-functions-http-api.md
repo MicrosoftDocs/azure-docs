@@ -246,7 +246,7 @@ The Functions 2.0 format has all the same parameters but a slightly different UR
 ```http
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
 
-If the next page exists, continuation token is returned in the response header.  This key is `x-ms-continuation-token`.
+If the next page exists, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
 
 If you set continuation token value in the next request header, you can get the next page.  This key in request header is `x-ms-continuation-token`.
 
