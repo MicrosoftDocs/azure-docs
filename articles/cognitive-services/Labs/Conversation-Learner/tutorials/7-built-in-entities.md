@@ -32,7 +32,7 @@ Pre-built entities recognize common types of entities, such as numbers, dates, m
 
 ### Create the model
 
-1. In the Web UI, click New Model
+1. In the Web UI, click New Model.
 2. In Name, enter BuiltInEntities. Then click Create.
 
 ### Create an entity
@@ -48,7 +48,7 @@ Pre-built entities recognize common types of entities, such as numbers, dates, m
 
 1. Click Actions, then New Action.
 1. In Response, type 'The date is $builtin-datetimev2'.
-1. In Required Entries, enter '$builtin-datetimev2'.
+1. In Required Entities, enter '$builtin-datetimev2'.
 1. Click Create.
 
 ![](../media/tutorial7_actions_a.PNG)
@@ -74,7 +74,7 @@ Now you have two actions.
 5. Click Score Actions
 	- Notice the date now appears in Entity Memory section. 
 	- If you mouse over the date, you will see the additional data provided by LUIS, which is usable and can further be manipulated in code. 
-6. Select 'The date is $luis-datetimev2'.
+6. Select 'The date is $builtin-datetimev2'.
 7. Click Done Teaching
 
 ## Next steps
