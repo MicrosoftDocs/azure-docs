@@ -67,6 +67,8 @@ Azure Disk Encryption requires Internet connectivity for access to Active Direct
 
 ### Property values
 
+Note: All values are case sensitive.
+
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
