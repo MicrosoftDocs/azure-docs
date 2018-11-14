@@ -12,18 +12,20 @@
       href: quick-start.md
     - name: Get search results from your instance
       items:
-        - name: Using C#
-          href: call-endpoint-csharp.md
-        - name: Using Java
-          href: call-endpoint-java.md
-        - name: Using Node.js
-          href: call-endpoint-nodejs.md
-        - name: Using Python
-          href: call-endpoint-python.md
-- name: SDK Quickstarts
-  items:
-    - name: C# SDK quickstart
-      href: sdk-csharp-quick-start.md
+        - name: REST API
+          - items:
+            - name: Using C#
+              href: call-endpoint-csharp.md
+            - name: Using Java
+              href: call-endpoint-java.md
+            - name: Using Node.js
+              href: call-endpoint-nodejs.md
+            - name: Using Python
+              href: call-endpoint-python.md
+        - name: SDK Quickstarts
+          items:
+            - name: C# SDK quickstart
+              href: sdk-csharp-quick-start.md
 - name: Tutorials
   items:
     - name: Build a Custom Search web page
