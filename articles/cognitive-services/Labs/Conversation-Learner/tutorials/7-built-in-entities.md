@@ -42,7 +42,7 @@ Pre-built entities recognize common types of entities, such as numbers, dates, m
 	- Programmable and Negatable options are disabled, because they do not apply to pre-built entities.
 3. Click Create.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### Create two actions
 
@@ -51,7 +51,7 @@ Pre-built entities recognize common types of entities, such as numbers, dates, m
 1. In Required Entities, enter '$builtin-datetimev2'.
 1. Click Create.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 Then create the second action:
 
@@ -60,7 +60,7 @@ Then create the second action:
 1. In Disqualifying Entities, enter '$builtin-datetimev2'.
 1. Click Create.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 Now you have two actions.
 
