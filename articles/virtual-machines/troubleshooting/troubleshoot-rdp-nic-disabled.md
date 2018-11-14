@@ -63,4 +63,4 @@ To enable the interface for the VM, use Serial control or [reset network interfa
 
 ## Reset network interface
 
-To reset network interface, see [reset network interface](reset-network-interface.md). 
+To reset network interface, change the IP address to another IP address that is available in the Subnet. For more information, see [reset network interface](reset-network-interface.md). 
