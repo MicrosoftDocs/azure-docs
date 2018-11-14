@@ -16,9 +16,9 @@ ms.date: 11/13/2018
 ms.author: genli
 ---
 
-#  Cannot RDP to Azure Virtual Machines because the DHCP client service is disabled
+#  Cannot RDP to Azure Virtual Machines because the DHCP Client service is disabled
 
-This article describes a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) after the DHCP client service is disabled in the VM.
+This article describes a problem in which you cannot remote desktop to Azure Windows Virtual Machines (VMs) after the DHCP Client service is disabled in the VM.
 
 > [!NOTE] 
 > Azure has two different deployment models for creating and working with resources: 
@@ -26,7 +26,7 @@ This article describes a problem in which you cannot remote desktop to Azure Win
 
 ## Symptoms 
 
-You cannot make an RDP connection a VM in Azure because the DHCP client service is disabled in the VM. When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you see the VM boots normally and waits for credentials in the login screen. You remotely view the event logs in the VM by using Event Viewer. You see that the DHCP Client Service isn't starting or fails to start. The following a sample log:
+You cannot make an RDP connection a VM in Azure because the DHCP Client service is disabled in the VM. When you check the screenshot in the [Boot diagnostics](../troubleshooting/boot-diagnostics.md) in the Azure portal, you see the VM boots normally and waits for credentials in the login screen. You remotely view the event logs in the VM by using Event Viewer. You see that the DHCP Client Service isn't starting or fails to start. The following a sample log:
 
 **Log Name**: System </br>
 **Source**: Service Control Manager </br>
@@ -78,20 +78,20 @@ To resolve this issue, use Serial control to enable DHCP or [reset network inter
 
     | Error  |  Solution |
     |---|---|
-    | 5- ACCESS DENIED  | See DHCP service is stopped because of an Access Denied error.  |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | See DHCP service crashes or hangs.  |
-    | 1058 - ERROR_SERVICE_DISABLED  | See DHCP service is disabled.  |
-    | 1059 - ERROR_CIRCULAR_DEPENDENCY  |Contact support to get your issue resolved quickly.   |
-    | 1067 - ERROR_PROCESS_ABORTED |See DHCP service crashes or hangs.   |
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL   | Contact support to get your issue resolved quickly.  |
-    |1069 - ERROR_SERVICE_LOGON_FAILED   |  See DHCP service fails because of logon failure |
-    | 1070 - ERROR_SERVICE_START_HANG  | See DHCP service crashes or hangs.  |
-    | 1077 - ERROR_SERVICE_NEVER_STARTED  | See DHCP service is disabled.  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | Contact support to get your issue resolved quickly.  | 
-    |1053 | Contact support to get your issue resolved quickly.  |
+    | 5- ACCESS DENIED  | See [DHCP Client service is stopped because of an Access Denied error](#dhcp-client-service-is-stopped-because-of-an-access-denied-error).  |
+    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT   | See [DHCP Client service crashes or hangs](#dhcp-client-service-crashes-or-hangs).  |
+    | 1058 - ERROR_SERVICE_DISABLED  | See [DHCP Client service is disabled](#dhcp-client-service-is-disabled).  |
+    | 1059 - ERROR_CIRCULAR_DEPENDENCY  |[Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.   |
+    | 1067 - ERROR_PROCESS_ABORTED |See [DHCP Client service crashes or hangs](#dhcp-client-service-crashes-or-hangs).   |
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.  |
+    |1069 - ERROR_SERVICE_LOGON_FAILED   |  See [DHCP Client service fails because of logon failure](#dhcp-client-service-fails-because-of-logon-failure) |
+    | 1070 - ERROR_SERVICE_START_HANG  | See [DHCP Client service crashes or hangs](#dhcp-client-service-crashes-or-hangs).  |
+    | 1077 - ERROR_SERVICE_NEVER_STARTED  | See [DHCP Client service is disabled](#dhcp-client-service-is-disabled).  |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.  | 
+    |1053 | [Contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.  |
     
 
-#### DHCP Client service is stopped because of an Access Denied problem
+#### DHCP Client service is stopped because of an Access Denied error
 
 1. Connect to [Serial Console](serial-console-windows.md#) and open a PowerShell instance.
 2. Download the Process Monitor tool by running the following script:
