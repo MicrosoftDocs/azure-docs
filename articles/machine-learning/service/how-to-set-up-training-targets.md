@@ -115,7 +115,8 @@ run_config_system_managed.environment.python.conda_dependencies = CondaDependenc
 
 For a Jupyter Notebook that demonstrates training in a system-managed environment, see [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/02.train-on-local/02.train-on-local.ipynb).
 
-## <a id="batch"></a><a id="amlcompute"></a>Azure Machine Learning Compute
+<a id="batch"></a>
+## <a id="amlcompute"></a>Azure Machine Learning Compute
 
 Azure Machine Learning Compute is part of the Azure Machine Learning service. You can use Azure Machine Learning Compute to distribute the training across a cluster of compute resources in the cloud. It can also be configured to enable a GPU resource.
 
