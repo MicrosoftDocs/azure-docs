@@ -35,7 +35,7 @@ In your custom policies, you may have [ContentDefinitions](contentdefinitions.md
 </ContentDefinition>
 ```
 
-To set up a page contract, you can use the following table to find **DataUri** values that might need to be changed in your [ContentDefinitions](contentdefinitions.md). Be aware that by switching from the old **DataUri** values to the new values, you are selecting an immutable package. The benefit of the immutable package is that when you take a dependency on elements provided by Azure AD B2C, you’ll know that it'll never change and cause unexpected behaviour on your page.
+To set up a page contract, you use the following table to find **DataUri** values that might need to be changed in your [ContentDefinitions](contentdefinitions.md). By switching from the old **DataUri** values to the new values, you're selecting an immutable package. The benefit of using this package is that you’ll know it won't change and cause unexpected behavior on your page.
 
 | Old DataUri value | New DataUri value |
 | ----------------- | ----------------- |
@@ -63,6 +63,7 @@ After you select a page contract version for each page, you enable it for the po
   </UserJourneyBehaviors>
   ...
 </RelyingParty>
+```
 
 You can add your own JavaScript client side code to your page contract. Use the following guidelines when you customize the Azure AD B2C UI using JavaScript:
 
