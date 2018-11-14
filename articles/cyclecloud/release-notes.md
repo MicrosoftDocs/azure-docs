@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: adjohnso
 ms.date: 10/30/2018
----
 
 # Azure CycleCloud v7.6.0
 
