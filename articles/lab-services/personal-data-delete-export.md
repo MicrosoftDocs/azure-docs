@@ -39,7 +39,7 @@ DevTest Labs uses the user object ID to show month-over-month cost trends and co
 **Estimated cost trend for the current calendar month:**
 ![Estimated cost trend for the current calendar month](./media/personal-data-delete-export/estimated-cost-trend-per-month.png)
 
-**Estimated hmonth-to-date cost by resource:**
+**Estimated month-to-date cost by resource:**
 ![Estimated month-to-date cost by resource](./media/personal-data-delete-export/estimated-month-to-date-cost-by-resource.png)
 
 
