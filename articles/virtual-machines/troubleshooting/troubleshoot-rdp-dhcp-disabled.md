@@ -50,7 +50,7 @@ For Classic VMs, you will need to work in OFFLINE mode and collect the logs manu
 The DHCP Client Service is not running on the VM. 
 
 > [!NOTE]
-> this article applies only for the DHCP Client service and not DHCP Server. 
+> This article applies only for the DHCP Client service and not DHCP Server. 
 
 ## Solution 
 
