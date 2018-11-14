@@ -6,7 +6,7 @@ ms.service: jenkins
 author: tomarcher
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 11/13/2018
+ms.date: 11/15/2018
 ---
 
 # Tutorial: Deploy from GitHub to Azure App Service with Jenkins continuous integration and deployment
