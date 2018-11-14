@@ -5,14 +5,14 @@
   items:
     - name: What is Bing Custom Search?
       href: overview.md
-- name: REST API Quickstarts
+- name: Quickstarts
   expanded: true
   items:
     - name: Create a custom search instance
       href: quick-start.md
-    - name: Get search results from your instance
+    - name: REST API
       items:
-        - name: REST API
+        - name: Get search results from your instance
           - items:
             - name: Using C#
               href: call-endpoint-csharp.md
@@ -22,9 +22,9 @@
               href: call-endpoint-nodejs.md
             - name: Using Python
               href: call-endpoint-python.md
-        - name: SDK Quickstarts
+        - name: SDK
           items:
-            - name: C# SDK quickstart
+            - name: Get search results from your instance
               href: sdk-csharp-quick-start.md
 - name: Tutorials
   items:
