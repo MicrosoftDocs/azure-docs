@@ -30,14 +30,14 @@ Each SAML identity provider has different steps to expose and set the service pr
 The following example shows a URL address to the SAML metadata of an Azure AD B2C technical profile:
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Replace the following values:
 
-- **your-tenant** with your tenant name, such as your-tenant.onmicrosoft.com
+- **your-tenant-name** with your tenant name, such as fabrikam.b2clogin.com.
 - **your-policy** with your policy name. Use the policy where you configure the SAML provider technical profile, or a policy that inherits from that policy.
-- **your-technical-profile** with your SAML identity provider technical profile name
+- **your-technical-profile** with your SAML identity provider technical profile name.
 
 ## Digital signing certificates exchange
 
