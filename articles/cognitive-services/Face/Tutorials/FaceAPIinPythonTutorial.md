@@ -1,34 +1,26 @@
 ---
-title: "Tutorial: Detect and frame faces in an image with the Python SDK"
+title: "Quickstart: Detect and frame faces in an image with the Python SDK"
 titleSuffix: Azure Cognitive Services
-description: In this tutorial, you will create a simple Python script that uses the Face API to detect and frame faces in a remote image. 
+description: In this quickstart, you will create a simple Python script that uses the Face API to detect and frame faces in a remote image. 
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
+ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: sbowles
-#Customer intent: As a developer of image management software, I want to learn how to detect faces and display face data on the UI, so that I can follow a similar process for my specific features and needs.
+#Customer intent: As a Python developer, I want to implement a simple Face detection scenario with the Python SDK, so that I can build more complex scenarios later on.
 ---
 
-# Tutorial: Create a Python script to detect and frame faces in an image
+# Quickstart: Create a Python script to detect and frame faces in an image
 
-In this tutorial, you will create a simple Python script that uses the Azure Face API, through the Python SDK, to detect human faces in a remote image. The application displays a selected image and draws a frame around each detected face.
+In this quickstart, you will create a simple Python script that uses the Azure Face API, through the Python SDK, to detect human faces in a remote image. The application displays a selected image and draws a frame around each detected face.
 
-This tutorial shows you how to:
-
-> [!div class="checklist"]
-> - Create a Python script
-> - Install the Face API client library
-> - Use the client library to detect faces in an image
-> - Draw a frame around each detected face
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
 
 ## Prerequisites
-
-To use the tutorial, you will need to do the following:
 
 - A Face API subscription key. You can get a free trial subscription key from [Try Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Or, follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to the Face API service and get your key.
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
@@ -40,7 +32,7 @@ To use the tutorial, you will need to do the following:
 
 ## Detect Faces in an image
 
-Create a new Python script, _FaceTutorial.py_. Add the following code. This is the core functionality of face detection. You will need to replace `<Subscription Key>` with the value of your key. You may also need to change the value of `BASE_URL` to use the correct region identifier for your key. Free trial subscription keys are generated in the **westus** region. Optionally, set `img_url` to the URL of any image you'd like to use.
+Create a new Python script, _FaceQuickstart.py_. Add the following code. This is the core functionality of face detection. You will need to replace `<Subscription Key>` with the value of your key. You may also need to change the value of `BASE_URL` to use the correct region identifier for your key. Free trial subscription keys are generated in the **westus** region. Optionally, set `img_url` to the URL of any image you'd like to use.
 
 The script will detect faces by calling the **cognitive_face.face.detect** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API and returns a list of faces.
 
@@ -61,7 +53,7 @@ print(faces)
 
 ### Try the app
 
-Run the app with the command `python FaceTutorial.py`. You should get a text response in the console window, like the following:
+Run the app with the command `python FaceQuickstart.py`. You should get a text response in the console window, like the following:
 
 ```shell
 [{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
@@ -74,7 +66,7 @@ This is a list of detected faces. Each item in the list is a **dict** instance w
 
 ## Draw face rectangles
 
-Using the coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. You will need to install Pillow (`pip install pillow`) to use the Pillow Image Module. At the top of *FaceTutorial.py*, add the following code:
+Using the coordinates that you received from the previous command, you can draw rectangles on the image to visually represent each face. You will need to install Pillow (`pip install pillow`) to use the Pillow Image Module. At the top of *FaceQuickstart.py*, add the following code:
 
 ```python
 import requests
@@ -107,9 +99,15 @@ for face in faces:
 img.show()
 ```
 
+## Run the app
+
+You may be prompted to select a default image viewer first. Then, you should see an image like the following. You should also see the rectangle data printed in the console window.
+
+![A young woman with a red rectangle drawn around the face](../images/face-rectangle-result.png)
+
 ## Next steps
 
-In this tutorial, you learned the basic process for using the Face API Python SDK and created a script to detect and frame faces in an image. Next, learn more about the details of face detection.
+In this quickstart, you learned the basic process for using the Face API Python SDK and created a script to detect and frame faces in an image. Next, explore the use of the Python SDK in a more complex example. Go to the Cognitive Face Python sample on GitHub, clone it to your project folder, and follow the instructions in the _README.md_ file.
 
 > [!div class="nextstepaction"]
-> [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)
+> [Cognitive Face Python sample](https://github.com/Microsoft/Cognitive-Face-Python)
