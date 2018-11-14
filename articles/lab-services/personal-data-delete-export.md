@@ -16,7 +16,7 @@ ms.author: spelluru
 
 ---
 
-# Export or deleteh personal data from Azure DevTest Labs
+# Export or delete personal data from Azure DevTest Labs
 This article provides steps for deleting and exporting personal data from the Azure DevTest Labs service. 
 
 ## What personal data does DevTest Labs collect?
