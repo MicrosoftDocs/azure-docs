@@ -12,7 +12,7 @@ ms.date: 10/26/2018
 ms.author: mjbrown
 
 ---
-# Global data distribution with Azure Cosmos DB
+# Build globally distributed applications with Azure Cosmos DB
 
 Many of today’s applications require to be operated in multiple datacenters. These applications are referred as globally distributed applications. These applications are always "on" and they are accessible to users all around the globe. Managing the global distribution of data that is used by these applications while providing low latency, elastic scalability of throughput, and high availability around the world, is a hard problem. Azure Cosmos DB is a globally distributed database service that is designed to provide low latency, elastic scalability of throughput, well-defined semantics for data consistency, and high availability. In short, if your application needs guaranteed fast response time anywhere in the world, if it requires to be always online and needs unlimited and elastic scalability of throughput and storage, you should consider building applications using Azure Cosmos DB.
 
