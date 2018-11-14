@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/8/2018
+ms.date: 11/13/2018
 ms.author: lyrana
 ---
 
