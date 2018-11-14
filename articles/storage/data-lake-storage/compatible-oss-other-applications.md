@@ -28,4 +28,4 @@ This article lists the open source big data applications that work with Azure Da
 For information on about which Hadoop components are available with HDInsight, see [HDInsight component versioning](../../hdinsight/hdinsight-component-versioning.md).
 
 ## See also
-* [Overview of Azure Data Lake Storage Gen2](overview.md)
+* [Introduction to Azure Data Lake Storage Gen2](introduction.md)
