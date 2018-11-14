@@ -71,7 +71,7 @@ It is possible to encryption your Azure IaaS VMs with CycleCloud using the [encr
 [[node my-virutal-machine]]
   Encryption.KeyVaultUrl = https://my-keyvault.vault.azure.net/
   Encryption.KeyVaultResourceId = /subscriptions/my-subscription-id/resourceGroups/my-resourcegroup/providers/Microsoft.KeyVault/vaults/my-keyvault
-  Encryption.KeyEncryptionKeyURL = https://my-keyvault.vault.azure.net/keys/my-key-encryption-key/cedcdd41234c457882bf5b2914e253d5
+  Encryption.KeyEncryptionKeyURL = https://my-keyvault.vault.azure.net/keys/my-key-encryption-key/xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
 The `KeyEncryptioinKeyURL` is only required if you are going to use a key to encrypt the auto-generated disk encryption keys.
