@@ -1,4 +1,4 @@
-# Connecting to Azure Data Explorer from Azure Databricks using Python
+# Connect to Azure Data Explorer from Azure Databricks using Python
 
 This article shows you how to use Python library in Azure Databricks to access data from Azure Data Explorer (ADX). There are several ways to authenticate with ADX including device login using your AAD account and ADD App.
 
