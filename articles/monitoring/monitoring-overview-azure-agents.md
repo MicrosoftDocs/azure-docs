@@ -17,7 +17,11 @@ ms.author: magoedte
 ---
 
 # Overview of the Azure monitoring agents 
-Microsoft Azure provides multiple ways to collect different types of data from virtual machines running Microsoft Windows and Linux hosted in Azure, your datacenter, or other cloud providers. The three types of agents available to monitor a VM are - the Azure Diagnostics extension, the Dependency agent, and Log Analytics Agent for Linux and Windows. 
+Microsoft Azure provides multiple ways to collect different types of data from virtual machines running Microsoft Windows and Linux hosted in Azure, your datacenter, or other cloud providers. The three types of agents available to monitor a VM are:
+
+* Azure Diagnostics extensions
+* Log Analytics Agent for Linux and Windows
+* Dependency agent
 
 This article describes the differences between them and their capabilities in order for you to determine which one will support your IT service management or general monitoring requirements.  
 

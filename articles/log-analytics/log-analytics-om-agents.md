@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -48,7 +48,7 @@ Before starting, review the following requirements.
 >A new management pack has been released for each version of Operations Manager:  
 >* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
->* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/en-us/download/details.aspx?id=57171)  
+>* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171)  
 
 ### Network
 The information below list the proxy and firewall configuration information required for the Operations Manager agent, management servers, and Operations console to communicate with Log Analytics. Traffic from each component is outbound from your network to the Log Analytics service.   
