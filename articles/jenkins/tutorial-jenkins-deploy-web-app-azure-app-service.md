@@ -26,15 +26,16 @@ In this tutorial, you'll complete these tasks:
 > [!div class="checklist"]
 > * Install Jenkins plug-ins so you can work with GitHub, 
 > deploy to Azure App Service, and other related tasks.
-> * Connect Jenkins to GitHub.
 > * Create an Azure service principal for authentication 
 > without using your own credentials. 
-> * Fork the GitHub sample repo and create a Jenkins pipeline that 
-> builds your app when you push a commit to the app in GitHub.
+> * Fork the GitHub sample repo so you have a copy for the sample app.
+> * Connect Jenkins to GitHub.
+> * Create a Jenkins pipeline that builds and deploys the sample app 
+> app each time you push an update to the sample app in GitHub.
 > * Create a build and deployment script for your Jenkins pipeline.
 > * Point your Jenkins pipeline at the build and deployment script.
 > * Deploy your sample app to Azure by running a manual build.
-> * Push app updates in GitHub, which then trigger a Jenkins build and redeploy to Azure.
+> * Push an app update in GitHub, which triggers Jenkins to build and redeploy to Azure.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,7 +50,8 @@ and Maven tools installed on an Azure Linux VM
   complete these steps now in the Azure portal: 
   [Create Jenkins server on an Azure Linux VM](/azure/jenkins/install-jenkins-solution-template)
 
-* A [GitHub](https://github.com) account
+* A [GitHub](https://github.com) account so you can get a 
+working copy ([fork](#fork)) for the sample Java web app. 
 
 * [Azure CLI](/cli/azure/install-azure-cli), 
 which you can run from either your local command line 
@@ -80,7 +82,17 @@ or [Azure Cloud Shell](/azure/cloud-shell/overview)
 
 1. After you're done, on the Jenkins menu, 
 select **Manage Jenkins** so that you return to 
-the Jenkins management page for the next steps.
+the Jenkins management page for future steps.
+
+## Fork sample repo
+
+1. [Sign in to GitHub repo for the Spring Boot sample app](https://github.com/spring-guides/gs-spring-boot). 
+
+1. In the upper-right corner in GitHub, choose **Fork**.
+
+   ![Fork sample repo from GitHub](media/jenkins-java-quickstart/fork-github-repo.png)
+
+1. Follow the prompts to select your GitHub account and finish forking.
 
 ## Connect Jenkins to GitHub
 
@@ -98,7 +110,8 @@ in Jenkins.
 > For more information, see the 
 > [Jenkins GitHub plug-in](https://wiki.jenkins.io/display/JENKINS/Github+Plugin) documentation.
 
-1. From the **Manage Jenkins** page, select **Configure System**. 
+1. From the **Manage Jenkins** page, 
+select **Configure System**. 
 
    ![Configure system](media/jenkins-java-quickstart/manage-jenkins-configure-system.png)
 
@@ -130,23 +143,10 @@ by choosing **Test connection**.
 
    ![Check connection to GitHub server with new PAT](media/jenkins-java-quickstart/check-github-connection.png)
 
-## Fork sample repo
-
-To create your working copy of the GitHub repo with the 
-sample Java web app, fork the repo to your GitHub account. 
-
-1. Go to the [GitHub repo for the Spring Boot sample app](https://github.com/spring-guides/gs-spring-boot). 
-
-1. In the upper-right corner in GitHub, choose **Fork**.
-
-   ![Fork sample repo from GitHub](media/jenkins-java-quickstart/fork-github-repo.png)
-
-1. Follow the prompts to select your GitHub account and finish forking.
-
 ## Create service principal
 
-Later in this tutorial, you create a Jenkins pipeline job that 
-builds your app from GitHub and deploys your app to Azure. 
+Later in this tutorial, you create a Jenkins pipeline job that builds 
+your app from GitHub and deploys your app to Azure App Service. 
 To have Jenkins work access Azure without entering your credentials, 
 create a [service principal in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals). 
 A service principal is a separate identity that Jenkins 
@@ -214,9 +214,9 @@ and elsewhere to these credential properties:
    az account list
    ```
 
-## Create pipeline for build and deployment
+## Create build and deploy pipeline
 
-Create the pipeline job in Jenkins for building and deploying your app.
+In Jenkins, create the pipeline job for building and deploying your app.
 
 1. Return to your Jenkins home page, and select **New Item**. 
 
@@ -250,7 +250,7 @@ can deploy to Azure without using your own credentials.
 
 1. When you're done, choose **Save**.
 
-## Create build and deployment scripts
+## Create build and deploy scripts
 
 1. In your GitHub fork's `src/main/resources/` folder, 
 create a config file named `web.config` that contains this XML 
