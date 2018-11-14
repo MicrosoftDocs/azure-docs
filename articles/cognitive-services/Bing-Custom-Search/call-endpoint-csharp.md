@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Call endpoint by using C# - Bing Custom Search"
+title: "Quickstart: Call your Bing Custom Search endpoint using C# | Microsoft Docs"
 titlesuffix: Azure Cognitive Services
-description: This quickstart shows how to request search results from your custom search instance by using C# to call the Bing Custom Search endpoint. 
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in C#. 
 services: cognitive-services
 author: brapel
 manager: cgronlun
@@ -15,18 +15,106 @@ ms.author: maheshb
 
 # Quickstart: Call Bing Custom Search endpoint (C#)
 
-This quickstart shows how to request search results from your custom search instance using C# to call the Bing Custom Search endpoint. 
+Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in C#, the Bing Custom Search API is a RESTful web service compatible with most programming languages.
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
 
-- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
-- [.Net Core](https://www.microsoft.com/net/download/core) installed.
-- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
+
+- Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+
+- If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+
+You must have a [Cognitive Services API account](../cognitive-services-apis-create-account) with access to the Bing Custom Search API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
 
 
-## Run the code
+## Create and initialize the application
+
+1. Create a new C# console application in Visual Studio. Then add the following packages to your project.
+
+    ```csharp
+    using System;
+    using System.Net.Http;
+    using System.Web;
+    using Newtonsoft.Json;
+    ```
+
+2. Create the following classes to store the search results returned by the Bing Custom Search API.
+
+    ```csharp
+    public class BingCustomSearchResponse {        
+        public string _type{ get; set; }            
+        public WebPages webPages { get; set; }
+    }
+
+    public class WebPages {
+        public string webSearchUrl { get; set; }
+        public int totalEstimatedMatches { get; set; }
+        public WebPage[] value { get; set; }        
+    }
+
+    public class WebPage {
+        public string name { get; set; }
+        public string url { get; set; }
+        public string displayUrl { get; set; }
+        public string snippet { get; set; }
+        public DateTime dateLastCrawled { get; set; }
+        public string cachedPageUrl { get; set; }
+    }
+
+3. In the main method of your project, create variables for your Bing Custom Search API subscription key, your search instance's Custom Configuration ID, and a search term.
+
+    ```csharp
+    var subscriptionKey = "YOUR-SUBSCRIPTION-KEY";
+    var customConfigId = "YOUR-CUSTOM-CONFIG-ID";
+    var searchTerm = args.Length > 0 ? args[0]:"microsoft" 
+    ```
+
+4. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+
+    ```csharp
+    var url = "https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?" +
+                "q=" + searchTerm + "&" +
+                "customconfig=" + customConfigId;
+    ```
+
+
+## Send the search query and parse the results
+
+1. Create a request client, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
+
+    ```csharp
+    var client = new HttpClient();
+    client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+    ```
+
+2. Perform the search request and get the response as a JSON object.
+
+    ```csharp
+    var httpResponseMessage = client.GetAsync(url).Result;
+    var responseContent = httpResponseMessage.Content.ReadAsStringAsync().Result;
+    BingCustomSearchResponse response = JsonConvert.DeserializeObject<BingCustomSearchResponse>(responseContent);
+    ```
+## Process and view the results
+
+1. Iterate over the response object to display information about each search result, including its name, url, and the date the webpage was last crawled.
+
+    ```csharp
+    for(int i = 0; i < response.webPages.value.Length; i++) {                
+        var webPage = response.webPages.value[i];
+        
+        Console.WriteLine("name: " + webPage.name);
+        Console.WriteLine("url: " + webPage.url);                
+        Console.WriteLine("displayUrl: " + webPage.displayUrl);
+        Console.WriteLine("snippet: " + webPage.snippet);
+        Console.WriteLine("dateLastCrawled: " + webPage.dateLastCrawled);
+        Console.WriteLine();
+    }            
+    ```
+
+## Full application code
 
 To run this example, follow these steps:
 
