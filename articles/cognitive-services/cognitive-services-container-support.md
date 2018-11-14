@@ -21,7 +21,6 @@ Containerization is an approach to software distribution in which an application
 
 Watch this [quick video](https://azure.microsoft.com/resources/videos/containers-support-of-cognitive-services) for a demonstration.
 
-
 The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [Text Analytics](text-analytics/overview.md) services are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
 
 ## Features and benefits
