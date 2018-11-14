@@ -96,39 +96,16 @@ az keyvault secret set --vault-name "<YourKeyVaultName>" --name "AppSecret" --va
 ```
 
 ## Create a Virtual Machine
+Follow the below links to create a Windows Virtual Machine
 
-Create a VM with the [az vm create](/cli/azure/vm#az_vm_create) command.
+[Azure CLI](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli) 
 
-The following example creates a VM named *myVM* and adds a user account named *azureuser*. The `--generate-ssh-keys` parameter us used to automatically generate an SSH key, and put it in the default key location (*~/.ssh*). To use a specific set of keys instead, use the `--ssh-key-value` option.
+[Powershell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
 
-```azurecli-interactive
-az vm create \
-  --resource-group myResourceGroup \
-  --name myVM \
-  --image UbuntuLTS \
-  --admin-username azureuser \
-  --generate-ssh-keys
-```
-
-It takes a few minutes to create the VM and supporting resources. The following example output shows the VM create operation was successful.
-
-```
-{
-  "fqdns": "",
-  "id": "/subscriptions/<guid>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachines/myVM",
-  "location": "westus",
-  "macAddress": "00-00-00-00-00-00",
-  "powerState": "VM running",
-  "privateIpAddress": "XX.XX.XX.XX",
-  "publicIpAddress": "XX.XX.XXX.XXX",
-  "resourceGroup": "myResourceGroup"
-}
-```
-
-Note your own `publicIpAddress` in the output from your VM. This address is used to access the VM in the next steps.
+[Portal](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ## Assign identity to Virtual Machine
-In this step we're creating a system assigned identity to the virtual machine by running the following command
+In this step we're creating a system assigned identity to the virtual machine by running the following command in Azure CLI
 
 ```
 az vm identity assign --name <NameOfYourVirtualMachine> --resource-group <YourResourceGroupName>
@@ -153,49 +130,15 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## Login to the Virtual Machine
 
-Now login to the Virtual Machine by using a terminal
+You can follow this [tutorial](https://docs.microsoft.com/azure/virtual-machines/windows/connect-logon)
 
-```
-ssh azureuser@<PublicIpAddress>
-```
+## Install .NET Core
 
-## Install Dot Net core on Linux
-### Register the Microsoft Product key as trusted. Run the following two commands
-
-```
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-```
-
-### Set up desired version host package feed based on Operating System
-```
-# Ubuntu 17.10
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-artful-prod artful main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
- 
-# Ubuntu 17.04
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-zesty-prod zesty main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
- 
-# Ubuntu 16.04 / Linux Mint 18
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-xenial-prod xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
- 
-# Ubuntu 14.04 / Linux Mint 17
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-trusty-prod trusty main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-get update
-```
-
-### Install .NET Core
-
-And check .NET Version
-
-```
-sudo apt-get install dotnet-sdk-2.1.4
-dotnet --version
-```
+You can install .NET Core by following steps in this [article](https://www.microsoft.com/net/download)
 
 ## Create and run Sample Dot Net App
+
+Open a command prompt
 
 By running the below commands you should see "Hello World" printed to the console
 
@@ -265,7 +208,9 @@ Then change the class file to contain the below code. It's a 2 step process.
     }
 ```
 
+
 The above code shows you how to do operations with Azure Key Vault in an Azure Linux Virtual Machine. 
+
 
 
 ## Next steps
