@@ -18,9 +18,9 @@ This article provides information about how to configure role-based access contr
 
 ## Default settings
 
-When you first deploy the Remote Monitoring solution, there are two roles: **Admin** and **Read Only**. 
+When you first deploy the Remote Monitoring solution, there are two roles: **Admin** and **Read Only**.
 
-Any user in the **Admin** role has full access to the solution, including the following permissions below. A user in the **Read Only** role will only have access to view the solution. 
+Any user in the **Admin** role has full access to the solution, including the following permissions below. A user in the **Read Only** role will only have access to view the solution.
 
 | Permission            | Admin | Read Only |
 |----------------       |-------|-----------|
@@ -41,12 +41,12 @@ Any user in the **Admin** role has full access to the solution, including the fo
 
 By default, the user who deployed the solution is automatically assigned the **Admin** role and is an Azure Active Directory application owner. As an application owner, you can assign roles to other users through the Azure portal. If you want another user to assign roles in the solution, they must also be set as an application owner in the Azure portal.
 
->  [!NOTE]
->  The user who deployed the solution is the **only person** who can view it immediately after its been created. To grant others access to view the application as either a Read Only, Admin, or a Custom role, see the following directions below on add or remove users. 
+> [!NOTE]
+> The user who deployed the solution is the **only person** who can view it immediately after its been created. To grant others access to view the application as either a Read Only, Admin, or a Custom role, see the following directions below on add or remove users.
 
 ## Add or remove users
 
-As an Azure Active Directory application owner, you can use the Azure portal to add or remove a user to a role from the Remote Monitoring solution. The following steps use the [Azure Active Directory enterprise application](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) that was created for you when you deployed the Remote Monitoring solution.
+As an Azure Active Directory application owner, you can use the Azure portal to add or remove a user to a role from the Remote Monitoring solution. The following steps use the [Azure Active Directory enterprise application](../active-directory/manage-apps/add-application-portal.md#find-your-azure-ad-tenant-application) that was created when you deployed the Remote Monitoring solution.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
