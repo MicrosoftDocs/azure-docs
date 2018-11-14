@@ -64,7 +64,7 @@ Learn about using the supplied reference documentation by reading [How to use Sw
 To make a POST request that uploads a text file as a Blob and associates it with a Space:
 
 ```plaintext
-POST yourManagementApiUrl/spaces/blobs HTTP/1.1
+POST YOUR_MANAGEMENT_API_URL/spaces/blobs HTTP/1.1
 Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 
 --USER_DEFINED_BOUNDARY
