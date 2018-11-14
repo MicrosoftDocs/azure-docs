@@ -81,7 +81,7 @@ This page will guide you through the steps needed to get Application Insights pr
 1. Deploy your application.
 
 ## Can profiler run on on-premises servers?
-We have no plans to support Applciation Insights Profiler for on-premises servers. 
+We have no plans to support Application Insights Profiler for on-premises servers.
 
 ## Next steps
 
