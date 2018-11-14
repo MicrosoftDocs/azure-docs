@@ -107,9 +107,11 @@ Now create the jump and workload virtual machines, and place them in the appropr
 6. Accept the other defaults and click **Next: Disks**.
 7. Accept the disk defaults and click **Next: Networking**.
 8. Make sure that **Test-FW-VN** is selected for the virtual network and the subnet is **Jump-SN**.
-9. Accept the other defaults and click **Next: Management**.
-10. Click **Off** to disable boot diagnostics. Accept the other defaults and click **Review + create**.
-11. Review the settings on the summary page, and then click **Create**.
+9. For **Public IP**, click **Create new**.
+10. Type **Srv-Jump-PIP** for the public IP address name and click **OK**.
+11. Accept the other defaults and click **Next: Management**.
+12. Click **Off** to disable boot diagnostics. Accept the other defaults and click **Review + create**.
+13. Review the settings on the summary page, and then click **Create**.
 
 Repeat this process to create another virtual machine named **Srv-Work**.
 
@@ -118,8 +120,8 @@ Use the information in the following table to configure the the Srv-Work virtual
 |Setting  |Value  |
 |---------|---------|
 |Subnet|Workload-SN|
-|Public IP address|None|
-|Select public inbound ports|No public inbound ports|
+|Public IP|None|
+|Public inbound ports|None|
 
 ## Deploy the firewall
 
