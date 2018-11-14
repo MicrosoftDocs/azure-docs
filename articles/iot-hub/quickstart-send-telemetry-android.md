@@ -26,13 +26,14 @@ The quickstart uses a pre-written Android application to send the telemetry. The
 If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 ## Prerequisites
-The sample application you run in this quickstart is written in Android and you need Android SDK 27
 
-To run the application, we are using Android studio IDE.
+* Android studio from https://developer.android.com/studio/. For more information regarding Android Studio installation, see [android-installation](https://developer.android.com/studio/install). 
 
-You can download Android studio from https://developer.android.com/studio/ and install it. For more information regarding Android studio installation, see the [android-installation]
+* Android SDK 27 is used by the sample in this article. 
 
-Download the sample Android project from https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples/android-sample.
+* The [sample application](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) you run in this quickstart is written for Android. Download or clone the [azure-iot-sample-java](https://github.com/Azure-Samples/azure-iot-samples-java) repository on GitHub.
+
+
 
 ## Create an IoT hub
 
@@ -44,9 +45,9 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
 
-   **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
-   **MyAndroidDevice: MyAndroidDevice is the name given for the registered device. Use MyAndroidDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
+   **MyAndroidDevice**: MyAndroidDevice is the name given for the registered device. Use MyAndroidDevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -54,7 +55,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
     ```
 
 2. Run the following commands in Azure Cloud Shell to get the _device connection string_ for the device you just registered:
-    **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
+    **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyAndroidDevice --output table
@@ -68,17 +69,22 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
 ## Send simulated telemetry
 
- Open the github sample Android project in Android Studio. Navigate to app/src/main/java/com/iothub/azure/microsoft/com/MainActivity.java file.
+1. Open the github sample Android project in Android Studio. 
 
-Replace the value of the `connString` variable with the device connection string you made a note of previously. Then save your changes to MainActivity.java file.
+2. In Android Studio, open gradle.properties for the sample project and replace the **Device_Connection_String** placeholder with your device connection string you noted earlier.
 
-You can run the application using emulator or by connecting Android device. For more Information, see the [running-app]
+    ```
+    DeviceConnectionString=HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}
+    ```
 
-Once the app loads, You can see the following screen:
+3. In Android Studio, click **File** > **Sync Project with Gradle Files**. Verify the build completes.
 
-![Application](media/quickstart-send-telemetry-android/edited-image.png)
+4. Once the build is completed, click **Run** > **Run 'app'** and run the app on a physical device or emulator. For more Information on running an app on a physical device or emulator, see [Run your app](https://developer.android.com/training/basics/firstapp/running-app).
 
-Upon clicking `Send Message` button in the Android application, the simulated device connects to a device-specific endpoint on your IoT hub and sends simulated temperature and humidity telemetry.
+5. Once the app loads, click the **Start** button to start sending telemetry to your IoT Hub:
+
+    ![Application](media/quickstart-send-telemetry-android/sample-screenshot.png)
+
 
 ## Read the telemetry from your hub
 
@@ -86,14 +92,14 @@ In this section, you will use the Azure Cloud Shell with the [IoT extension](htt
 
 1. Using the Azure Cloud Shell, run the following command to connect and read messages from your IoT hub:
 
-   **YourIoTHubName: Replace this placeholder below with the name you choose for your IoT hub.
+   **YourIoTHubName**: Replace this placeholder below with the name you choose for your IoT hub.
 
     ```azurecli-interactive
     az iot hub monitor-events --hub-name YourIoTHubName --output table
     ```
-The following screenshot shows the output as the IoT hub receives telemetry sent by the simulated device:
+    The following screenshot shows the output as the IoT hub receives telemetry sent by the simulated device:
 
-  ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
+      ![Read the device messages using the Azure CLI](media/quickstart-send-telemetry-android/read-data.png)
 
 
 ## Clean up resources
@@ -109,6 +115,3 @@ To learn how to control your simulated device from a back-end application, conti
 > [!div class="nextstepaction"]
 > [Quickstart: Control a device connected to an IoT hub](quickstart-control-device-java.md)
 
-<!--Links-->
-[running-app]: https://developer.android.com/training/basics/firstapp/running-app
-[android-installation]: https://developer.android.com/studio/install 
