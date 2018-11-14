@@ -68,6 +68,8 @@ Azure Disk Encryption for Linux requires Internet connectivity for access to Act
 
 ### Property values
 
+Note: All property values are case sensitive.
+
 | Name | Value / Example | Data Type |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
