@@ -1,3 +1,10 @@
+---
+author: wesmc7777
+ms.service: redis-cache
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: wesmc
+---
 | Resource | Limit |
 | --- | --- |
 | Cache size |530 GB |
