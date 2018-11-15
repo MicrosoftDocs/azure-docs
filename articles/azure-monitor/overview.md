@@ -64,7 +64,7 @@ Azure Monitor can collect log data from any REST client using the [Data Collecto
 
 
 ## Insights
-Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Azure Monitor includes several features and tools that provide valuable insights into your applications and other resources that they depend on. [Monitoring solutions](../monitoring/monitoring-solutions.md) and features such as [Application Insights](../application-insights/app-insights-overview.md) and Container Insights provide deep insights into different aspects of your application and specific Azure services. 
+Monitoring data is only useful if it can increase your visibility into the operation of your computing environment. Azure Monitor includes several features and tools that provide valuable insights into your applications and other resources that they depend on. [Monitoring solutions](../azure-monitor/insights/solutions.md) and features such as [Application Insights](../application-insights/app-insights-overview.md) and Container Insights provide deep insights into different aspects of your application and specific Azure services. 
 
 ### Application Insights
 [Application Insights](../application-insights/app-insights-overview.md) monitors the availability, performance, and usage of your web applications whether they're hosted in the cloud or on-premises. It leverages the powerful data analysis platform in Log Analytics to provide you with deep insights into your application's operations and diagnose errors without waiting for a user to report them. Application Insights includes connection points to a variety of development tools and integrates with Visual Studio to support your DevOps processes.
@@ -83,7 +83,7 @@ Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by 
 ![VM Insights](media/overview/vm-insights.png)
 
 ### Monitoring solutions
-[Monitoring solutions](../monitoring/monitoring-solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../monitoring/monitoring-solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
+[Monitoring solutions](../azure-monitor/insights/solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../azure-monitor/insights/solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
 
 ![Monitoring solutions](../monitoring/media/monitoring-solutions/overview.png)
 

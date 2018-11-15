@@ -47,7 +47,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Limited contextual drill-down.
 
 ## Azure Monitor Views
-[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md)  allow you to create custom visualizations with log data stored in Log Analytics. They are used by [monitoring solutions](../monitoring/monitoring-solutions.md) to present the data they collect.
+[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md)  allow you to create custom visualizations with log data stored in Log Analytics. They are used by [monitoring solutions](../azure-monitor/insights/solutions.md) to present the data they collect.
 
 ![View](media/visualizations/view.png)
 
