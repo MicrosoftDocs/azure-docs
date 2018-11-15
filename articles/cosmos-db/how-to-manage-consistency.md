@@ -17,7 +17,7 @@ This article explains the different ways to:
 - Set default consistency. 
 - Override that consistency on the client. 
 - Manually manage session tokens. 
-- Understand the probabilistically bounded staleness (PBS) metric.
+- Understand the Probabilistically Bounded Staleness (PBS) metric.
 
 ## Configure the default consistency level
 
@@ -209,7 +209,7 @@ options = {
 item = client.ReadItem(doc_link, options)
 ```
 
-## Monitor the probabilistically bounded staleness metric
+## Monitor Probabilistically Bounded Staleness (PBS) metric
 
 To view the PBS metric, go to your Azure Cosmos DB account in the Azure portal. Open the **Metrics** pane, and select the **Consistency** tab. Look at the graph named **Probability of strongly consistent reads based on your workload (see PBS)**.
 

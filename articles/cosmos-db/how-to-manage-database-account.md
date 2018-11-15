@@ -101,7 +101,7 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ```
 
-## Add or remove regions from your database account
+## Add/remove regions from your database account
 
 ### <a id="add-remove-regions-via-portal"></a>Azure portal
 
