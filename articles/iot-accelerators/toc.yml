@@ -33,6 +33,8 @@
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: Use alerts and fix device issues
       href: iot-accelerators-remote-monitoring-maintain.md
+    - name: Update firmware through automatic device management
+      href: iot-accelerators-remote-monitoring-firmware-update.md
   - name: Device Simulation
     items:
     - name: Create and run a simulation
