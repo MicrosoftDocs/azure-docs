@@ -51,7 +51,7 @@ Create a function in the Azure portal by clicking **Save** and then providing th
 Use a function by including its alias in another query. It can be used like any other table.
 
 ## Example
-The following sample query returns all missing security updates reported in the last day:
+The following sample query returns all missing security updates reported in the last day. Save this query as a function with the alias _security_updates_last_day_. 
 
 ```Kusto
 Update
@@ -60,9 +60,7 @@ Update
 | where UpdateState == "Needed"
 ```
 
-Save this query as a function with the alias _security_updates_last_day_. 
-
-Create another to search for SQL-related needed security updates:
+Create another to search for SQL-related needed security updates.
 
 ```Kusto
 security_updates_last_day | where Title contains "SQL"
