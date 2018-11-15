@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -30,7 +30,7 @@ The agent may be installed by using one of the following methods. Most installat
 * PowerShell script.
 * Resource Manager template for virtual machines running Windows on-premises in Azure Stack.  
 
-To understand the supported configuration, review [supported Windows operating systems](log-analytics-concept-hybrid.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-concept-hybrid.md#network-firewall-requirements).
+To understand the supported configuration, review [supported Windows operating systems](log-analytics-agent-overview.md#supported-windows-operating-systems) and [network firewall configuration](log-analytics-agent-overview.md#network-firewall-requirements).
 
 ## Obtain workspace ID and key
 Before installing the Microsoft Monitoring Agent for Windows, you need the workspace ID and key for your Log Analytics workspace.  This information is required during setup from each installation method to properly configure the agent and ensure it can successfully communicate with Log Analytics in Azure commercial and US Government cloud.  
