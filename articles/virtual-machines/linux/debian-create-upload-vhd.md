@@ -53,12 +53,13 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
         GRUB_CMDLINE_LINUX="console=tty0 console=ttyS0,115200n8 earlyprintk=ttyS0,115200"
 
 5. Rebuild the grub and run:
-   
+
         # sudo update-grub
 
 6. Add Debian's Azure repositories to /etc/apt/sources.list for either Debian 8 or 9:
-   
+
     **Debian 8.x "Jessie"**
+
         deb http://debian-archive.trafficmanager.net/debian jessie main
         deb-src http://debian-archive.trafficmanager.net/debian jessie main
         deb http://debian-archive.trafficmanager.net/debian-security jessie/updates main
