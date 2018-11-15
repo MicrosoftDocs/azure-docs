@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
 
 ---
@@ -52,9 +52,10 @@ After you register to the labs, you can view all the classroom labs by taking th
 To stop your VM, select **Stop** on the tile. When the VM is stopped, the **Start** button on the tile is enabled. 
 
 ## Next steps
-Get started with setting up a lab using Azure Lab Services:
+See the following articles:
 
-- [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a lab](../tutorial-create-custom-lab.md)
-
+- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
+- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
+- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
  

@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/15/2018
 ms.author: spelluru
 
 ---
@@ -141,7 +141,9 @@ After you publish a template, you can still connect to the template VM, update i
     ![Republish successful](../media/how-to-create-manage-template/republish-success.png)
 
 ## Next steps
-Get started with setting up a lab using Azure Lab Services:
+See the following articles:
 
-- [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a lab](../tutorial-create-custom-lab.md)
+- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
+- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)

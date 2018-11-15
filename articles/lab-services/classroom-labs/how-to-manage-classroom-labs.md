@@ -17,11 +17,7 @@ ms.author: spelluru
 
 ---
 # Manage classroom labs in Azure Lab Services 
-This article describes how to do the following tasks as a lab creator/owner:
-
-- [Create a classroom lab](#create-a-classroom-lab)
-- [View all classroom labs](#view-all-classroom-labs)
-- [Delete a classroom lab](#delete-a-classroom-lab)
+This article describes how to create and delete a classroom lab. It also shows you how to view all the classroom labs in a lab account. 
 
 ## Prerequisites
 To set up a classroom lab in a lab account, you must be a member of the **Lab Creator** role in the lab account. The account you used to create a lab account is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
@@ -32,7 +28,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 2. Select **Sign in**. Select or enter a **user ID** that is a member of the **Lab Creator** role in the lab account, and enter password. Azure Lab Services supports organizational accounts and Microsoft accounts. 
 3. In the **New Lab** window, do the following actions: 
     1. Specify a **name** for your lab. 
-    2. Specify the maximum **number of users** allowed into the lab. 
+    2. Specify **number of users** allowed into the lab. 
     6. Select **Save**.
 
         ![Create a classroom lab](../media/tutorial-setup-classroom-lab/new-lab-window.png)
@@ -110,7 +106,9 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
  
 
 ## Next steps
-Get started with setting up a lab using Azure Lab Services:
+See the following articles:
 
-- [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a lab](../tutorial-create-custom-lab.md)
+- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
+- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
+

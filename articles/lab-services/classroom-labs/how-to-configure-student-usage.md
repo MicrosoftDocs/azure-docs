@@ -88,7 +88,9 @@ You can do the following tasks on a student VM:
 
 
 ## Next steps
-Get started with setting up a lab using Azure Lab Services:
+See the following articles:
 
-- [Set up a classroom lab](how-to-manage-classroom-labs.md)
-- [Set up a lab](../tutorial-create-custom-lab.md)
+- [As an admin, create and manage lab accounts](how-to-manage-lab-accounts.md)
+- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
+- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)
