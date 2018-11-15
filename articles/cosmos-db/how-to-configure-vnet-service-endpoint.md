@@ -22,7 +22,7 @@ Azure CosmosDB accounts can be configured to allow access only from specific sub
 > [!NOTE]
 > Once service endpoint for your Azure Cosmos account is enabled on a subnet, the source of the traffic reaching Azure Cosmos DB switches from public IP to VNET and subnet. The traffic switching applies for any Azure Cosmos account being accessed from this subnet. If your Azure Cosmos account(s) have IP based firewall to allow this subnet, requests from service enabled subnet would no longer match the IP firewall rules and they are rejected. To learn more, see the steps outlined in [migrating from IP firewall rule to VNET Access Control List](#migrate-from-firewall-to-vnet) section of this article. 
 
-The following sections describe how to configure VNET service endpoint for a Azure Cosmos account.
+The following sections describe how to configure VNET service endpoint for an Azure Cosmos account.
 
 ## <a id="configure-using-portal"></a>Configure service endpoint by using Azure portal
 
@@ -78,7 +78,7 @@ To ensure you have access to Azure Cosmos DB metrics from the portal, you need t
 
 ## <a id="configure-using-powershell"></a>Configure service endpoint by using Azure PowerShell 
 
-Use the following steps to configure service endpoint to a Azure Cosmos account by using Azure PowerShell:  
+Use the following steps to configure service endpoint to an Azure Cosmos account by using Azure PowerShell:  
 
 1. Install the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) and [Login](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  
 
