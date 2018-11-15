@@ -23,7 +23,7 @@ Network Security Group flow logs provide information that can be used understand
 
 These flow logs can be difficult to manually parse and gain insights from. However, there are several open source tools that can help visualize this data. This article will provide a solution to visualize these logs using the Elastic Stack, which will allow you to quickly index and visualize your flow logs on a Kibana dashboard.
 
-[!Warning] This scenario leverages NSG Flow Logs version 1 and will not support version 2 without modification.
+[!Warning]  The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
 
 ## Scenario
 
