@@ -12,7 +12,7 @@ ms.component: alerts
 # Create Metric Alerts for Logs in Azure Monitor  
 
 ## Overview
-Azure Monitor supports [metric alert type](monitoring-near-real-time-metric-alerts.md) which has benefits over the [classic alerts](insights-alerts-portal.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`. 
+Azure Monitor supports [metric alert type](monitoring-near-real-time-metric-alerts.md) which has benefits over the [classic alerts](alert-metric-classic.md). Metrics are available for [large list of Azure services](monitoring-supported-metrics.md). This article explains usage of a subset (that is) for resource - `Microsoft.OperationalInsights/workspaces`. 
 
 You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premise. The supported Log Analytics solutions are listed below:
 - [Performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md) for Windows & Linux machines
@@ -213,9 +213,9 @@ To achieve the same, one can use the sample Azure Resource Manager Template belo
         }
 	},
 	"variables": {
-		"convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
+		"convertRuleTag": "hidden-link:/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName",
 		"convertRuleSourceWorkspace": {
-			"SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resouceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
+			"SourceId": "/subscriptions/1234-56789-1234-567a/resourceGroups/resourceGroupName/providers/Microsoft.OperationalInsights/workspaces/workspaceName"
 		}
 	},
 	"resources": [

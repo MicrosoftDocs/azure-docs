@@ -2,7 +2,7 @@
 title: Quickstart Azure IoT Edge + Windows | Microsoft Docs 
 description: Try out Azure IoT Edge by running analytics on a simulated edge device
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/02/2018
 ms.topic: quickstart

@@ -5,11 +5,11 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/11/2018
 ms.author: raynew
 ---
 
-# Manage the configuration server for VMware VMs
+# Manage the configuration server for VMware VM disaster recovery
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
 
@@ -120,7 +120,7 @@ You can reregister the configuration server in the same vault if you need to. If
 2. Open an admin PowerShell command window, and run the following command:
 
     ```
-    reg delete HKLM\Software\Microsoft\Azure Site Recovery\Registration
+    reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
     net stop dra
     ```
 3. Launch the configuration server appliance browser portal using the shortcut on your desktop.

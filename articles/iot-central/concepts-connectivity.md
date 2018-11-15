@@ -146,7 +146,7 @@ To connect devices to IoT Central using X509 certificates, there are three key s
     
     Below are some utility commandline tools you can use to generate CA certs and device certs.
 
-    * If you are using MxChip here is a [commandline tool](http://aka.ms/iotcentral-docs-dicetool) to generate CA certs add it to your IoT Central app and verify the certificates. 
+    * If you are using MxChip here is a [commandline tool](https://aka.ms/iotcentral-docs-dicetool) to generate CA certs add it to your IoT Central app and verify the certificates. 
 
     *   Use this [commandline tool](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md ) to
         * Create the certificate chain (follow Step 2 in the GitHub docs). 
@@ -161,7 +161,7 @@ To connect devices to IoT Central using X509 certificates, there are three key s
     Program the device with provisioning service information enabling it to get its connection details and IoT Central app assignment when switched on.    
 
     **Further referene** 
-    *   Sample implementation for [RaspberryPi.](http://aka.ms/iotcentral-docs-Raspi-releases)  
+    *   Sample implementation for [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)  
 
     *   [Sample device client in C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 

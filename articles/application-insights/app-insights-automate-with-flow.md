@@ -29,7 +29,7 @@ You can add additional actions as well. Microsoft Flow makes hundreds of actions
 In this tutorial, you will learn how to create a flow that uses the Analytics auto-cluster algorithm to group attributes in the data for a web application. The flow automatically sends the results by email, just one example of how you can use Microsoft Flow and Application Insights Analytics together. 
 
 ### Step 1: Create a flow
-1. Sign in to [Microsoft Flow](http://flow.microsoft.com), and then select **My Flows**.
+1. Sign in to [Microsoft Flow](https://flow.microsoft.com), and then select **My Flows**.
 1. Click **Create a flow from blank**.
 
 ### Step 2: Create a trigger for your flow

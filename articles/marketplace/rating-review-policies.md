@@ -23,16 +23,16 @@ ms.author: qianw211
 The rating and review policies for Azure AppSource and Marketplace are listed here.
 
 * In AppSource and Azure Marketplace reviews, Microsoft will not tolerate the following behaviors or content:
-    * Bot/cyber-attacks.
-    * Privacy compliance violations.
-    * Spam content.
-    * Scam content.
-    * Offensive content: obscene, profane, or offensive language or gestures.
-    * Illegal content.
-    * Abusive, hateful, or threatening content.
-    * Defamatory content.
-    * Repeated submissions of the same or similar content.
-    * Advertising, including promotion of other apps and services.
+    * Bot/cyber-attacks
+    * Privacy compliance violations
+    * Spam content
+    * Scam content
+    * Offensive content: obscene, profane, or offensive language or gestures
+    * Illegal content
+    * Abusive, hateful, or threatening content
+    * Defamatory content
+    * Repeated submissions of the same or similar content
+    * Advertising, including promotion of other apps and services
 
 * Microsoft reserves the right to remove review-related content submitted by a user for any reason.
 * Microsoft reserves the right to block a user from submitting review-related content for any reason.

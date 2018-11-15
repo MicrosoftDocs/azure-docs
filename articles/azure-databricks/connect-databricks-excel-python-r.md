@@ -97,7 +97,7 @@ Once you have the data in your Excel workbook, you can perform analytical operat
 In this section, you use an R language IDE to reference data available in Azure Databricks. Before you begin, you must have the following installed on the computer.
 
 * An IDE for R language. This article uses RStudio for Desktop. You can install it from [R Studio download](https://www.rstudio.com/products/rstudio/download/).
-* If you use RStudio for Desktop as your IDE, also install Microsoft R Client from [http://aka.ms/rclient/](http://aka.ms/rclient/). 
+* If you use RStudio for Desktop as your IDE, also install Microsoft R Client from [http://aka.ms/rclient/](https://aka.ms/rclient/). 
 
 Open RStudio and do the following steps:
 

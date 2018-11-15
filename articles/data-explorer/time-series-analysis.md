@@ -1,6 +1,6 @@
 ---
 title: 'Azure Data Explorer time series analysis'
-description: 'Learn about time series analysis in Azure Data Explorer'
+description: 'Learn about time series analysis in Azure Data Explorer '
 services: data-explorer
 author: orspod
 ms.author: v-orspod
@@ -53,10 +53,10 @@ demo_make_series1
 | render timechart 
 ```
 
-- Use the [`make-series`](https://docs.microsoft.com/azure/kusto/query/make-seriesoperator) operator to create a set of three time series, where:
+- Use the [`make-series`](/azure/kusto/query/make-seriesoperator) operator to create a set of three time series, where:
     - `num=count()`: time series of traffic
     - `range(min_t, max_t, 1h)`: time series is created in 1-hour bins in the time range (oldest and newest timestamps of table records)
-    - `default=0`: specify fill method for missing bins to create regular time series. Alternatively use [`series_fill_const()`](https://docs.microsoft.com/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](https://docs.microsoft.com/azure/kusto/query/series-fill-backwardfunction) and [`series_fill_linear()`](https://docs.microsoft.com/azure/kusto/query/series-fill-linearfunction) for changes
+    - `default=0`: specify fill method for missing bins to create regular time series. Alternatively use [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) and [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) for changes
     - `byOsVer`:  partition by OS
 - The actual time series data structure is a numeric array of the aggregated value per each time bin. We use `render timechart` for visualization.
 
@@ -67,14 +67,14 @@ In the table above, we have three partitions. We can create a separate time seri
 ## Time series analysis functions
 
 In this section, we'll perform typical series processing functions.
-Once a set of time series is created, ADX supports a growing list of functions to process and analyze them which can be found in the [time series documentation](https://docs.microsoft.com/azure/kusto/query/machine-learning-and-tsa). We will describe a few representative functions for processing and analyzing time series.
+Once a set of time series is created, ADX supports a growing list of functions to process and analyze them which can be found in the [time series documentation](/azure/kusto/query/machine-learning-and-tsa). We will describe a few representative functions for processing and analyzing time series.
 
 ### Filtering
 
 Filtering is a common practice in signal processing and useful for time series processing tasks (for example, smooth a noisy signal, change detection).
 - There are two generic filtering functions:
-    - [`series_fir()`](https://docs.microsoft.com/azure/kusto/query/series-firfunction): Applying FIR filter. Used for simple calculation of moving average and differentiation of the time series for change detection.
-    - [`series_iir()`](https://docs.microsoft.com/azure/kusto/query/series-iirfunction): Applying IIR filter. Used for exponential smoothing and cumulative sum.
+    - [`series_fir()`](/azure/kusto/query/series-firfunction): Applying FIR filter. Used for simple calculation of moving average and differentiation of the time series for change detection.
+    - [`series_iir()`](/azure/kusto/query/series-iirfunction): Applying IIR filter. Used for exponential smoothing and cumulative sum.
 - `Extend` the time series set by adding a new moving average series of size 5 bins (named *ma_num*) to the query:
 
 ```kusto
@@ -91,8 +91,8 @@ demo_make_series1
 ### Regression analysis
 
 ADX supports segmented linear regression analysis to estimate the trend of the time series.
-- Use [series_fit_line()](https://docs.microsoft.com/azure/kusto/query/series-fit-linefunction) to fit the best line to a time series for general trend detection.
-- Use [series_fit_2lines()](https://docs.microsoft.com/azure/kusto/query/series-fit-2linesfunction) to detect trend changes, relative to the baseline, that are useful in monitoring scenarios.
+- Use [series_fit_line()](/azure/kusto/query/series-fit-linefunction) to fit the best line to a time series for general trend detection.
+- Use [series_fit_2lines()](/azure/kusto/query/series-fit-2linesfunction) to detect trend changes, relative to the baseline, that are useful in monitoring scenarios.
 
 Example of `series_fit_line()` and  `series_fit_2lines()` functions in a time series query:
 
@@ -124,8 +124,9 @@ demo_series3
 
 ![Time series seasonality](media/time-series-analysis/time-series-seasonality.png)
 
-- Use [series_periods_detect()](https://docs.microsoft.com/azure/kusto/query/series-periods-detectfunction) to automatically detect the periods in the time series. 
-- Use [series_periods_validate()](https://docs.microsoft.com/azure/kusto/query/series-periods-validatefunction) if we know that a metric should have specific distinct period(s) and we want to verify that they exist.
+- Use [series_periods_detect()](/azure/kusto/query/series-periods-detectfunction) to automatically detect the periods in the time series. 
+- Use [series_periods_validate()](/azure/kusto/query/series-periods-validatefunction) if we know that a metric should have specific distinct period(s) and we want to verify that they exist.
+
 > [!NOTE]
 > It's an anomaly if specific distinct periods don't exist
 
@@ -146,7 +147,7 @@ The function detects daily and weekly seasonality. The daily scores less than th
 
 ### Element-wise functions
 
-Arithmetic and logical operations can be done on a time series. Using [series_subtract()](https://docs.microsoft.com/azure/kusto/query/series-subtractfunction) we can calculate a residual time series, that is, the difference between original raw metric and a smoothed one, and look for anomalies in the residual signal:
+Arithmetic and logical operations can be done on a time series. Using [series_subtract()](/azure/kusto/query/series-subtractfunction) we can calculate a residual time series, that is, the difference between original raw metric and a smoothed one, and look for anomalies in the residual signal:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));
@@ -161,9 +162,9 @@ demo_make_series1
 
 ![Time series operations](media/time-series-analysis/time-series-operations.png)
 
-Blue: original time series
-Red: smoothed time series
-Green: residual time series
+- Blue: original time series
+- Red: smoothed time series
+- Green: residual time series
 
 ## Time series workflow at scale
 
@@ -253,6 +254,6 @@ demo_many_series1
 |   | Loc 15 | -3207352159611332166 | 1151 | -102743.910227889 |
 |   | Loc 13 | -3207352159611332166 | 1249 | -86303.2334644601 |
 
-In less than two minutes, ADX detected two abnormal time series (out of 23115) in which the read count suddenly dropped.
+In less than two minutes, ADX analyzed over 20,000 time series and detected two abnormal time series in which the read count suddenly dropped.
 
 These advanced capabilities combined with ADX fast performance supply a unique and powerful solution for time series analysis.

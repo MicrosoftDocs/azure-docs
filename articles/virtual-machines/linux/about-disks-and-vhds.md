@@ -44,10 +44,13 @@ You can add data disks to a virtual machine at any time, by **attaching** the di
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
+For preview sizes, see our [FAQ](faq-for-disks.md#new-disk-sizes-managed-and-unmanaged) to learn what regions they are available in.
+
 ## Troubleshooting
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## Next steps
+
 * [Attach a disk](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to add additional storage for your VM.
 * [Create a snapshot](snapshot-copy-managed-disk.md).
 * [Convert to managed disks](convert-unmanaged-to-managed-disks.md).

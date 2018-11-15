@@ -42,7 +42,7 @@ In this tutorial, you do the following actions:
 ## Prerequisites
 
 - **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. 
-- [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+- [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## Creating a project that supports Google Cloud Messaging
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
@@ -52,7 +52,7 @@ In this tutorial, you do the following actions:
 
 ### Configure GCM setting for the notification hub
 
-1. Select **Google (GCM)** in **NOTIFICATON SETTINGS**. 
+1. Select **Google (GCM)** in **NOTIFICATION SETTINGS**. 
 2. Enter **API Key** you got from the Google Cloud Console. 
 3. Select **Save** on the toolbar. 
 
@@ -520,7 +520,7 @@ Normally, you would send notifications using a backend server. For some cases, y
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](http://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
+6. Create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
    
     In `MainActivity.java`, add the following method to the `MainActivity` class to parse your connection string.
    
@@ -659,7 +659,7 @@ Normally, you would send notifications using a backend server. For some cases, y
                         bodyStream.write(json.getBytes());
                         bodyStream.close();
 
-                        // Get reponse
+                        // Get response
                         urlConnection.connect();
                         int responseCode = urlConnection.getResponseCode();
                         if ((responseCode != 200) && (responseCode != 201)) {

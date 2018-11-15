@@ -52,7 +52,7 @@ To specify the subscription, run the following command. In the following example
 
 Before you can use Windows PowerShell with Azure Resource Manager, you need the following:
 
-* Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, Version 3.0 or 4.0. To find the version of Windows PowerShell, type:`$PSVersionTable` and verify the value of `PSVersion` is 3.0 or 4.0. To install a compatible version, see [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) or [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 To get detailed help for any cmdlet you see in this tutorial, use the Get-Help cmdlet.
 
@@ -777,9 +777,9 @@ The following command reboots both nodes of the specified cache.
 To learn more about using Windows PowerShell with Azure, see the following resources:
 
 * [Azure Redis Cache cmdlet documentation on MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
-* [Azure Resource Manager Cmdlets](http://go.microsoft.com/fwlink/?LinkID=394765): Learn to use the cmdlets in the Azure Resource Manager module.
+* [Azure Resource Manager Cmdlets](https://go.microsoft.com/fwlink/?LinkID=394765): Learn to use the cmdlets in the Azure Resource Manager module.
 * [Using Resource groups to manage your Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md): Learn how to create and manage resource groups in the Azure portal.
 * [Azure blog](https://azure.microsoft.com/blog/): Learn about new features in Azure.
-* [Windows PowerShell blog](http://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
+* [Windows PowerShell blog](https://blogs.msdn.com/powershell): Learn about new features in Windows PowerShell.
 * ["Hey, Scripting Guy!" Blog](http://blogs.technet.com/b/heyscriptingguy/): Get real-world tips and tricks from the Windows PowerShell community.
 
