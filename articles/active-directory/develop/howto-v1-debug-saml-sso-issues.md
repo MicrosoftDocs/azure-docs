@@ -28,7 +28,7 @@ We recommend installing the [My Apps Secure Sign-in Extension](../user-help/acti
 To download and install the My Apps Secure Sign-in Extension, use one of the following links.
 
 - [Chrome](https://go.microsoft.com/fwlink/?linkid=866367)
-- [Edge](https://go.microsoft.com/fwlink/?linkid=845176)
+- [Microsoft Edge](https://go.microsoft.com/fwlink/?linkid=845176)
 - [Firefox](https://go.microsoft.com/fwlink/?linkid=866366)
 
 
