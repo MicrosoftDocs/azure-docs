@@ -31,7 +31,6 @@ This topic shows how to use CLI for Media Services v3 to create [Account Filters
 
 - Review [Filters and dynamic manifests overview]().
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
-- Get information needed to [access APIs](access-api-cli-how-to.md)
 
 ## Considerations
 
