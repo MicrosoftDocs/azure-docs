@@ -20,11 +20,8 @@ Use this quickstart to begin requesting search results from your Bing Custom Sea
 ## Prerequisites
 
 - A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
-
 - Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
-
 - Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
-
 - If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
 
 You must have a [Cognitive Services API account](../cognitive-services-apis-create-account) with access to the Bing Custom Search API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
@@ -63,6 +60,7 @@ You must have a [Cognitive Services API account](../cognitive-services-apis-crea
         public DateTime dateLastCrawled { get; set; }
         public string cachedPageUrl { get; set; }
     }
+    ```
 
 3. In the main method of your project, create variables for your Bing Custom Search API subscription key, your search instance's Custom Configuration ID, and a search term.
 
@@ -122,6 +120,7 @@ To run this example, follow these steps:
 2. From a command prompt or terminal, navigate to the folder you just created.  
   
 3. Run the following commands:
+
     ```
     dotnet new console -o BingCustomSearch
     cd BingCustomSearch
