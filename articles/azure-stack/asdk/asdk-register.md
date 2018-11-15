@@ -84,41 +84,47 @@ On the ASDK host computer, start PowerShell as an administrator and navigate to 
    Import-Module .\RegisterWithAzure.psm1
    
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint AzS-ERCS01 -BillingModel Development -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential `
+   -UsageReportingEnabled:$False `
+   -PrivilegedEndpoint AzS-ERCS01 `
+   -BillingModel Development `
+   -TokenOutputFilePath $FilePathForRegistrationToken
    ```
-   > [!Tip]  
-   > By default, the registration token is saved in the file specified for *$FilePathForRegistrationToken* parameter. You can change the filepath or filename at your discretion.
+By default, the registration token is saved in the file specified for *$FilePathForRegistrationToken* parameter. You can change the filepath or filename at your discretion.
 
 Save this registration token for use on the internet-connected computer. You can copy the file or the text from $FilePathForRegistrationToken.
 
 ### Connect to Azure and register
-Start PowerShell as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Use the following PowerShell commands to import the **RegisterWithAzure.psm1** module and then use the **Register-AzsEnvironment** cmdlet to register with Azure by providing the registration token you just created and a unique registration name:  
+On the internet connected computer, start PowerShell as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Use the following PowerShell commands to import the **RegisterWithAzure.psm1** module and then use the **Register-AzsEnvironment** cmdlet to register with Azure by providing the registration token you just created and a unique registration name:  
 
   ```PowerShell  
   $registrationToken = "<your registration token>"
   $RegistrationName = "<unique registration name>"
-  Register-AzsEnvironment -RegistrationToken $registrationToken  -RegistrationName $RegistrationName
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
   ```
 
 Alternatively, you can use the **Get-Content** cmdlet to point to a file that contains your registration token:
 
   ```PowerShell  
-  $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $registrationToken -RegistrationName $RegistrationName
+  $registrationToken = Get-Content -Path '<path>\<registration token file>'
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
   ```
 
 Save the registration token and registration resource name for future reference.
 
 ### Retrieve an activation key from the Azure registration resource
 
-Next, retrieve an activation key from the registration resource created when you registered with Azure.
+Still using the internet-connected computer, retrieve an activation key from the registration resource created when you registered with Azure.
 
 To get the activation key, run the following PowerShell commands, use the same "<unique-registration-name>" value you provided when registering with Azure in the previous step:  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
-  $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
+  $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
+  -KeyOutputFilePath $KeyOutputFilePath
   ```
 
 The activation key is saved in the file specified for *$KeyOutputFilePath*. You can change the filepath or filename at your discretion.
@@ -129,14 +135,18 @@ Return to the Azure Stack environment with the file or text from the activation 
 
   ```Powershell
   $ActivationKey = "<activation key>"
-  New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
+  New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential `
+  -PrivilegedEndpoint $YourPrivilegedEndpoint `
+  -ActivationKey $ActivationKey
   ```
 
 Alternatively, you can use the **Get-Content** cmdlet to point to a file that contains your registration token:
 
   ```Powershell
   $ActivationKey = Get-Content -Path '<Path>\<Activation Key File>'
-  New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -ActivationKey $ActivationKey
+  New-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential `
+  -PrivilegedEndpoint $YourPrivilegedEndpoint `
+  -ActivationKey $ActivationKey
   ```
 
 ## Verify the registration was successful
