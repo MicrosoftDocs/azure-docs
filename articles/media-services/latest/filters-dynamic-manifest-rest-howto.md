@@ -37,7 +37,9 @@ This article shows how to use REST APIs to create [Account Filters](https://docs
 
 ## Configure filter  
 
-The following is the **Request body** exmple that defines the presentationTimeRange, firstQuality, and trackSelections.  
+You configure track selections with **FilterTrackSelection** and **FilterTrackPropertyCondition** types. The track selections support both an **AND** semantic and an **OR** semantic. To get an **AND** semantic, you add multiple **FilterTrackPropertyCondition** statements to the same list. To match the **FilterTrackPropertyCondition** all of the conditions must be met. To get an **OR** semantic, you add multiple sets of **FilterTrackPropertyConditions**. Any tracks that match all of the conditions of any one set of conditions will be added to the final manifest.
+
+The following is the **Request body** example that defines the presentationTimeRange, firstQuality, and trackSelections.  
 
 ```
 {

@@ -119,7 +119,7 @@ client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "
 The following code shows how to use .NET to create asset filters.  
 
 ```csharp
-AssetFilter assetFilterParams = new AssetFilter(null, name, FilterType, range, firstQuality, includedTracks);
+AssetFilter assetFilterParams = new AssetFilter(presentationTimeRange: range, firstQuality: firstQuality, tracks: includedTracks);
 client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, asset.Name, "assetFilterName1", assetFilterParams);
 ```
 

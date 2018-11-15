@@ -40,7 +40,9 @@ This topic shows how to use CLI for Media Services v3 to create [Account Filters
 
 ## Configure filter track selections
 
-The filter commands shown in this article use a json file that defines filter track selections. Here is the definition of tracks.json:
+You configure track selections with **FilterTrackSelection** and **FilterTrackPropertyCondition** types. The track selections support both an **AND** semantic and an **OR** semantic. To get an **AND** semantic, you add multiple **FilterTrackPropertyCondition** statements to the same list. To match the **FilterTrackPropertyCondition** all of the conditions must be met. To get an **OR** semantic, you add multiple sets of **FilterTrackPropertyConditions**. Any tracks that match all of the conditions of any one set of conditions will be added to the final manifest.
+
+The filter commands shown in this article use a json file (tracks.json) that defines the following filter track selections. 
 
 ```json
 [
