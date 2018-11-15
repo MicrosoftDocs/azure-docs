@@ -1,6 +1,6 @@
 ---
-title: Create a CI/CD pipeline for Node.js with the Azure DevOps Project | Quickstart
-description: The DevOps Project makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
+title: 'Quickstart: Create a CI/CD pipeline for  Node.js with Azure DevOps Projects | Quickstart
+description: DevOps Projects makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -20,31 +20,33 @@ monikerRange: 'vsts'
 ---
 
 
-# Create a CI/CD pipeline for Node.js with the Azure DevOps Project
+#  Create a CI/CD pipeline for  Node.js with Azure DevOps Projects 
 
-The Azure DevOps Project presents a simplified experience which creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure DevOps Services.  
+Azure DevOps Projects presents a simplified experience that creates Azure resources and sets up a continuous integration (CI) and continuous delivery (CD) pipeline for your Node.js app in Azure Pipelines.  
 
 If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## Sign in to the Azure portal
 
-The Azure DevOps Project creates a CI/CD pipeline in Azure.  You can create a free **new Azure DevOps Services** organization or use an **existing organization**.  The DevOps Project also creates **Azure resources** in the **Azure subscription** of your choice.
+DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
-1. Sign into the [Microsoft Azure portal](https://portal.azure.com).
+1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
-1. Choose the **Create a resource** icon in the left navigation bar, then search for **DevOps Project**.  Choose **Create**.
+1. In the left pane, select **Create a resource**, and then search for **DevOps Projects**. 
 
    	![Starting Continuous Delivery configuration](_img/azure-devops-project-nodejs/fullbrowser.png)
 
 ## Select a sample application and Azure service
 
-1. Select the **Node.js** sample application.  The Node.js samples include a choice of several application frameworks.
+1. Select the Node.js sample application.  
+	The Node.js samples include a choice of several application frameworks.
 
-1. The default sample framework is **Express.js**. Leave the default setting, and choose **Next**.  
+1. The default sample framework is Express.js. Leave the default setting, and choose **Next**.  
+	**Web App on Windows** is the default deployment target.  The application framework, which you chose previously, dictates the type of Azure service deployment target available here.  
 
-1. **Web App on Windows** is the default deployment target.  The application framework, which you chose on the previous steps, dictates the type of Azure service deployment target available here.  Leave the default service, and then choose **Next**.
+2. Leave the default service, and then select **Next**.
  
-## Configure Azure DevOps Services and an Azure subscription 
+## Configure Azure DevOps and an Azure subscription 
 
 1. Create a **new** Azure DevOps Services organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  Select your **Azure subscription**, **location**, and choose a **name** for your application.  When you're done, choose **Done**.
 
