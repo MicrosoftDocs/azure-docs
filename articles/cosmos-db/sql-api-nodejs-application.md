@@ -1,5 +1,5 @@
 ---
-title: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data | Microsoft Docs
+title: 'Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data' | Microsoft Docs
 description: This Node.js tutorial explores how to use Microsoft Azure Cosmos DB to store and access data from a Node.js Express web application hosted on Azure Websites.
 services: cosmos-db
 author: SnehaGunda
@@ -11,6 +11,8 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: sngun
 
+#Customer intent: As a < type of user >, I want < what? > so that < why? >.
+
 ---
 # Tutorial: Build a Node.js web app using JavaScript SDK to manage Azure Cosmos DB SQL API data
 
@@ -21,6 +23,8 @@ ms.author: sngun
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 > 
+
+[revise the introductory paragraph by aligning it with the customer intent statement in the metadata above; this may require tightening or deleting parts of the two paragraphs below; guidance is to have the intro come in at 5-6 sentences total]
 
 This Node.js tutorial shows you how to store and access data from Azure Cosmos DB SQL API account by using a Node.js Express application that is hosted on Azure Websites. In this tutorial, you will build a web-based application (Todo app), that allows you to create, retrieve, and complete tasks. The tasks are stored as JSON documents in Azure Cosmos DB. 
 
@@ -49,15 +53,15 @@ that you have the following resources:
 * [Express generator](http://www.expressjs.com/starter/generator.html) (you can install Express via `npm install express-generator -g`)
 * Install [Git][Git] on your local workstation.
 
-## <a name="_Toc395637761"></a>Step 1: Create an Azure Cosmos DB account
+## <a name="_Toc395637761"></a>Create an Azure Cosmos DB account
 Let's start by creating an Azure Cosmos DB account. If you already have an account or if you are using the Azure Cosmos DB Emulator for this tutorial, you can skip to [Step 2: Create a new Node.js application](#_Toc395783178).
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [cosmos-db-keys](../../includes/cosmos-db-keys.md)]
 
-## <a name="_Toc395783178"></a>Step 2: Create a new Node.js application
-Now let's learn to create a basic Hello World Node.js project using the [Express](http://expressjs.com/) framework.
+## <a name="_Toc395783178"></a>Create a new Node.js application
+Now let's learn to create a basic Hello World Node.js project using the Express framework.
 
 1. Open your favorite terminal, such as the Node.js command prompt.
 
@@ -88,7 +92,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 
  Stop the application by using CTRL+C in the terminal window and select **y** to terminate the batch job.
 
-## <a name="_Toc395783179"></a>Step 3: Install the required modules
+## <a name="_Toc395783179"></a>Install the required modules
 
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. When you deploy this application to Azure, this file is used to determine which modules should be installed on Azure to support your application. Install two more packages for this tutorial.
 
@@ -104,7 +108,7 @@ The **package.json** file is one of the files created in the root of the project
    npm install @azure/cosmos
    ```
 
-## <a name="_Toc395783180"></a>Step 4: Connect the Node.js application to Azure Cosmos DB
+## <a name="_Toc395783180"></a>Connect the Node.js application to Azure Cosmos DB
 Now that you have completed the initial setup and configuration, next you will write code that is required by the todo application to communicate with Azure Cosmos DB.
 
 ### Create the model
@@ -357,11 +361,11 @@ Now that you have completed the initial setup and configuration, next you will w
 
 3. Finally, save and close the **app.js** file.
 
-## <a name="_Toc395783181"></a>Step 5: Build a user interface
+## <a name="_Toc395783181"></a>Build a user interface
 
-Now let’s build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine. For more information on Jade, see [Jade language](http://jade-lang.com/).
+Now let’s build the user interface so that a user can interact with the application. The Express application we created in the previous sections uses **Jade** as the view engine.
 
-1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit used to design a website.  
+1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use Twitter Bootstrap, which is a toolkit used to design a website.  
 
 2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following code:
 
@@ -433,7 +437,9 @@ The first form contains a table for your data and a button that allows you to up
     
 The second form contains two input fields and a button that allows you to create a new item by posting to **/addtask** method of the controller. That's all we need for the application to work.
 
-## <a name="_Toc395783181"></a>Step 6: Run your application locally
+## <a name="_Toc395783181"></a>Run your application locally
+
+[The "heavy lifting" of building your app is now done! But you still need to make sure your users get the benefit of your hard work.]
 
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh the [http://localhost:3000](http://localhost:3000) browser page. The page should now look as shown in the following screenshot:
    
@@ -454,9 +460,11 @@ The second form contains two input fields and a button that allows you to create
 
 5. To stop the application, press CTRL+C in the terminal window and then select **Y** to terminate the batch job.
 
-## <a name="_Toc395783182"></a>Step 7: Deploy your application to Azure Websites
+## <a name="_Toc395783182"></a>Deploy your application to Azure Websites
 
-1. If you haven't already done, enable a git repository for your Azure Website. You can find instructions on how to enable a git repository in the [Local Git Deployment to Azure App Service](../app-service/app-service-deploy-local-git.md) topic.
+[Now you're ready for an audience. Here's how to get your web app published.]
+
+1. If you haven't already done so, enable a git repository for your Azure Website.
 
 2. Add your Azure Website as a git remote.
    
@@ -473,6 +481,9 @@ The second form contains two input fields and a button that allows you to create
 4. In a few seconds, your web application is published and launched in a browser.
 
 If you want to download or refer to the complete reference application for this tutorial, you can download it from [GitHub][GitHub].
+
+## Clean up resources
+When no longer needed, delete the resource group, virtual machine, and all related resources. To do so, select the resource group for the VM, and select **Delete**.
 
 ## <a name="_Toc395637775"></a>Next steps
 
