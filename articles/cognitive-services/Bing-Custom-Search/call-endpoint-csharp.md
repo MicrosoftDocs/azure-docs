@@ -13,7 +13,7 @@ ms.date: 05/07/2018
 ms.author: maheshb
 ---
 
-# Quickstart: Call Bing Custom Search endpoint (C#)
+# Quickstart: Call your Bing Custom Search endpoint using C# 
 
 Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in C#, the Bing Custom Search API is a RESTful web service compatible with most programming languages.
 
@@ -80,8 +80,7 @@ You must have a [Cognitive Services API account](../cognitive-services-apis-crea
                 "customconfig=" + customConfigId;
     ```
 
-
-## Send the search query and parse the results
+## Send the search request and parse the results
 
 1. Create a request client, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
