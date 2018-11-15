@@ -34,7 +34,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
   openssl.exe pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
   ```
 6. Open *profileinfo.txt* in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between)"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below replace everything between "cert" and "/cert".
+7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between "cert" and "/cert".
 
   ```
   # P2S client certificate
@@ -115,7 +115,7 @@ Verify that you have completed the steps to configure OpenVPN for your VPN gatew
 11. To connect using the command line, type the following command:
   
   ```
-  Sudo openvpn –config <name and path of your VPN profile file>
+  sudo openvpn –-config <name and path of your VPN profile file>
   ```
 12. To connect using the GUI, go to system settings.
 13. Click **+** to add a new VPN connection.

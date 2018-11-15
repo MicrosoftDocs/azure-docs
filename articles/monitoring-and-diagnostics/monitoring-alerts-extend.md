@@ -54,5 +54,5 @@ You can continue to create alerts from the [Log Analytics API](../log-analytics/
 ## Next steps
 
 * Learn about the tools to [initiate extending alerts from Log Analytics into Azure](monitoring-alerts-extend-tool.md).
-* Learn more about the [Azure Alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the [Azure Alerts experience](monitoring-overview-alerts.md).
 * Learn how to create [log alerts in Azure Alerts](monitor-alerts-unified-log.md).
