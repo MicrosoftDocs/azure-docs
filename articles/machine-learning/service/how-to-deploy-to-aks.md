@@ -20,7 +20,7 @@ Deploying to AKS provides auto-scaling, logging, model data collection, and fast
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](http://aka.ms/AMLfree) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 - An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 

@@ -30,7 +30,7 @@ You'll learn how to:
 > * Review training results
 > * Register the best model
 
-If you don’t have an Azure subscription, create a [free account](http://aka.ms/AMLfree) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 ## Get the notebook
 

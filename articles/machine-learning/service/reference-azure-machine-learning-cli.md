@@ -39,7 +39,7 @@ The CLI is not a replacement for the Azure Machine Learning SDK. It is a complem
 * The [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
 
 > [!NOTE]
-> To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a [free account](http://aka.ms/AMLfree) before you begin.
+> To use the CLI, you must have an Azure subscription. If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 ## Install the extension
 

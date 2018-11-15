@@ -22,7 +22,7 @@ Before deploying a model to an edge device, use the steps in this document to pr
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have one, create a [free account](http://aka.ms/AMLfree) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 * An Azure Machine Learning service workspace. To create one, use the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 

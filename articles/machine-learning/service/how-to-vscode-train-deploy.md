@@ -23,7 +23,7 @@ And you can deploy these models for your testing and production needs.
 
 + Have the [Azure Machine Learning SDK for Python installed](how-to-vscode-tools.md)  with VS Code.
 
-+ If you don’t have an Azure subscription, create a [free account](http://aka.ms/AMLfree) before you begin.
++ If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 ## Create and manage compute targets
 
