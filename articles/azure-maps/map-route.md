@@ -3,7 +3,7 @@ title: Show directions with Azure Maps | Microsoft Docs
 description: How to display directions between two locations on a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/13/2018
+ms.date: 11/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -45,13 +45,19 @@ The last block of code queries the Azure Maps routing service through the [getRo
 
 The first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
 
-The second block of code creates and adds pins on the map to represent the start and end point of the route. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
+The second block of code creates and adds a [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) object to the map.
 
-The third block of code uses [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) function of the Map class to set the bounding box of the map based on the start and end point of the route.
+The third code block creates the start and destination points for the route and adds them to the data source. You can see [add a pin on the map](map-add-pin.md) for instructions about using [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
 
-The fourth block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+ A [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) renders line objects wrapped in the  [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as lines on the map. The fourth block of code creates and add a line layer to the map. See properties of a line layer at [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.linestringlayeroptions?view=azure-iot-typescript-latest).
 
-The last block of code parses the incoming response. For a successful response, it collects the latitude and longitude information for each waypoint. It creates an array of lines by connecting each waypoint to its subsequent waypoint. It adds all those lines onto the map to render the route. You can see [add a line on the map](./map-add-shape.md#addALine) for instructions.
+A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as symbols on the map. The fifth block of code creates and add a symbol layer to the map.
+
+The next code block creates SouthWest and NorthEast points from the start and destination points and sets the bounds of the map using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
+
+The last block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+
+It then parses the incoming response. And for a successful response, it collects the latitude and longitude information for each route point and  creates an array of lines by connecting those points. It then adds all those lines onto the dataSource to render the route on the map. You can see [add a line on the map](./map-add-shape.md#addALine) for instructions.
 
 ## Next steps
 
