@@ -690,6 +690,8 @@
           href: ../log-analytics/query-language/advanced-query-writing.md?toc=/azure/azure-monitor/toc.json
         - name: Charts and diagrams
           href: ../log-analytics/query-language/charts.md?toc=/azure/azure-monitor/toc.json
+        - name: Functions
+          href: ../log-analytics/query-language/functions.md?toc=/azure/azure-monitor/toc.json
       - name: Cheatsheets
         items:
         - name: SQL
