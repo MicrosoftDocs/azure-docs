@@ -195,7 +195,8 @@ In this section instructions on how to perform the at scale deployment of Azure 
 
 Summarized are the steps you need to perform to pre-configure your Log Analytics workspace before you can proceed with onboarding your virtual machines.
 
-1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
+1. Create a new workspace if one does not already exist that can be used to support Azure Monitor for VMs. Review [Manage workspaces](../../log-analytics/log-analytics-manage-access.md?toc=/azure/azure-monitor/toc.json) before creating a new workspace to understand the cost, management, and compliance considerations before proceeding.       
+2. Enable performance counters in the workspace for collection on Linux and Windows VMs.
 3. Install and enable the **ServiceMap** and **InfrastructureInsights** solution in your workspace.  
 
 ### Setup Log Analytics workspace
@@ -533,7 +534,7 @@ The Azure Monitor for VMs Map Dependency agent does not transmit any data itself
 
 Review the requirements and deployment methods for the [Log Analytics Linux and Windows agent](../../log-analytics/log-analytics-agent-overview.md).  
 
-[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 Summarized steps:
 
@@ -726,7 +727,7 @@ Microsoft automatically collects usage and performance data through your use of 
 
 For more information about data collection and usage, see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
-[!INCLUDE [GDPR-related guidance](../../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [GDPR-related guidance](../../../includes/gdpr-dsr-and-stp-note.md)]
 ## Next steps
 
 With monitoring enabled for your virtual machine, this information is available for analysis with Azure Monitor for VMs.  To learn how to use the Health feature, see [View Azure Monitor for VMs Health](vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md).  

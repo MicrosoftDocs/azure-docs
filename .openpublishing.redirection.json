@@ -30667,6 +30667,11 @@
             "redirect_document_id":  "false"
         },
         {
+            "source_path":  "articles/monitoring/monitoring-container-agent-upgrade.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-agent-upgrade",
+            "redirect_document_id":  "false"
+        },
+        {
             "source_path":  "articles/monitoring/monitoring-vminsights-faq.md",
             "redirect_url":  "/azure/azure-monitor/insights/vminsights-faq",
             "redirect_document_id":  "false"
@@ -30704,6 +30709,11 @@
         {
             "source_path":  "articles/monitoring/monitoring-vminsights-performance.md",
             "redirect_url":  "/azure/azure-monitor/insights/vminsights-performance",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-optout.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-optout",
             "redirect_document_id":  "false"
         }
     ]
