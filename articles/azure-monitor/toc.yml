@@ -102,7 +102,7 @@
     - name: Virtual Machines
       href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
     - name: Monitoring solutions
-      href: ../monitoring/monitoring-solutions-inventory.md?toc=/azure/azure-monitor/toc.json
+      href: solutions-inventory.md
   - name: Analyze data
     items: 
     - name: Log Analytics
@@ -583,7 +583,7 @@
         - name: Disable monitoring
           href: ../monitoring/monitoring-vminsights-optout.md?toc=/azure/azure-monitor/toc.json
       - name: Agent Health
-        href: ../monitoring/monitoring-solution-agenthealth.md?toc=/azure/azure-monitor/toc.json
+        href: solution-agenthealth.md
       - name: Capacity and performance
         href: ../log-analytics/log-analytics-capacity.md?toc=/azure/azure-monitor/toc.json
       - name: VMware Analytics
@@ -613,7 +613,7 @@
       - name: DNS
         href: ../log-analytics/log-analytics-dns.md?toc=/azure/azure-monitor/toc.json
       - name: Office 365
-        href: ../monitoring/monitoring-solution-office-365.md?toc=/azure/azure-monitor/toc.json
+        href: solution-office-365.mdn
       - name: Assess Operations Manager
         href: ../log-analytics/log-analytics-scom-assessment.md?toc=/azure/azure-monitor/toc.json
       - name: Surface Hub
@@ -621,9 +621,9 @@
     - name: Use monitoring solutions
       items:
       - name: Overview
-        href: ../monitoring/monitoring-solutions.md?toc=/azure/azure-monitor/toc.json
+        href: solutions.md
       - name: Target solutions
-        href: ../monitoring/monitoring-solution-targeting.md?toc=/azure/azure-monitor/toc.json
+        href: solution-targeting.md
   - name: Visualize data
     items:
     - name: Views
@@ -886,17 +886,17 @@
     - name: Monitoring solutions
       items:
       - name: Design and build
-        href: ../monitoring/monitoring-solutions-creating.md?toc=/azure/azure-monitor/toc.json
+        href: solutions-creating.md
       - name: Solution file
-        href: ../monitoring/monitoring-solutions-solution-file.md?toc=/azure/azure-monitor/toc.json
+        href: solutions-solution-file.md
       - name: Automation resources
-        href: ../monitoring/monitoring-solutions-resources-automation.md?toc=/azure/azure-monitor/toc.json
+        href: solutions-resources-automation.md
       - name: Log searches and alerts
-        href: ../monitoring/monitoring-solutions-resources-searches-alerts.md?toc=/azure/azure-monitor/toc.json
+        href: solutions-resources-searches-alerts.md
       - name: Views
-        href: ../monitoring/monitoring-solutions-resources-views.md?toc=/azure/azure-monitor/toc.json
+        href: solutions-resources-views.md
       - name: Best practices
-        href: ../monitoring/monitoring-solutions-best-practices.md?toc=/azure/azure-monitor/toc.json
+        href: solutions-best-practices.md
       - name: Collect monitoring data from a runbook
         href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
 - name: Reference

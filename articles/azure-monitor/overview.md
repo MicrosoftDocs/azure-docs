@@ -85,7 +85,7 @@ Azure Monitor VM insights monitors your Azure virtual machines (VM) at scale by 
 ### Monitoring solutions
 [Monitoring solutions](../azure-monitor/insights/solutions.md) in Azure Monitor are packaged sets of logic that provide insights for a particular application or service. They collect data into Log Analytics along with other monitoring data, using [queries](../log-analytics/log-analytics-queries.md) for analysis and [views](../log-analytics/log-analytics-view-designer.md) for visualization. Monitoring solutions are [available from Microsoft](../azure-monitor/insights/solutions-inventory.md) and partners to provide monitoring for various Azure services and other applications.
 
-![Monitoring solutions](../monitoring/media/monitoring-solutions/overview.png)
+![Monitoring solutions](media/monitoring-solutions/overview.png)
 
 ## Responding to critical situations
 In addition to allowing you to interactively analyze monitoring data, an effective monitoring solution must be able to proactively respond to critical conditions identified in the data that it collects. This could be sending a text or mail to an administrator responsible for investigating an issue. Or you could launch an automated process that attempts to correct an error condition.
