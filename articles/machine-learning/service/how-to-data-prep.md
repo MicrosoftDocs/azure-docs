@@ -24,9 +24,9 @@ The Azure Machine Learning Data Prep SDK is a Python library that includes many 
 
 The SDK offers:
 
-1. Practicality and convenience when working with small data sets
-1. Scalability for modern big-data applications
-1. The ability to use and scale the same code for both use-cases
+- Practicality and convenience when working with small data sets
+- Scalability for modern big-data applications
+- The ability to use and scale the same code for both use-cases
 
 The following examples highlight some of the unique functionality of the SDK.
 
@@ -115,4 +115,4 @@ To see detailed examples and code for each preparation step, use the following h
 ## Next steps
 Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
 
-FAzure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
+Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
