@@ -630,6 +630,7 @@
       - name: SQL VM
         tocHref: /azure/virtual-machines/windows/sql
         topicHref: /azure/virtual-machines/windows/sql
+        items: 
           - name: SQL VM
             tocHref: /azure/virtual-machines/windows/sql
             topicHref: /azure/virtual-machines/windows/sql

@@ -21,7 +21,7 @@ ms.reviewer: jroth
 
 ## Overview
 
-There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either Powershell or Azure CLI,you can modify the licensing model for your SQL VM to switch between the two. 
+There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either Powershell or Azure CLI, you can modify the licensing model for your SQL VM to switch between the two. 
 
 Paying the SQL Server license per usage means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 The BYOL model is also known as the Azure Hybrid Benefit, and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) and [Azure hybrid benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
