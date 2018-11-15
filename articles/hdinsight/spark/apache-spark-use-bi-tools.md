@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Analyze Apache Spark data using Power BI in Azure HDInsight '
-description: Use Microsoft Power BI to visualize Spark data stored HDInsight clusters  
+description: Use Microsoft Power BI to visualize Apache Spark data stored HDInsight clusters  
 services: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
@@ -14,7 +14,7 @@ ms.date: 05/07/2018
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to virtualize Spark data in BI tools.
 ---
 
-# Tutorial: Analyze Spark data using Power BI in HDInsight 
+# Tutorial: Analyze Apache Spark data using Power BI in HDInsight 
 
 Learn how to use Microsoft Power BI to visualize data in Apache Spark cluster in Azure HDInsight.
 
