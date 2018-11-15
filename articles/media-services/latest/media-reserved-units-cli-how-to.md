@@ -38,7 +38,7 @@ Azure Media Services enables you to scale media processing in your account by ma
 The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 type S3
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
 
 ## Considerations

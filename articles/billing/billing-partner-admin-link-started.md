@@ -131,4 +131,4 @@ The link between the partner ID and the account is done for each customer tenant
 
 **Can other partner or customer edit or remove the link to the partner ID?**
 
-The link is associated at the account level. Only you can edit or remove the link to the partner ID. The customer and other partner can't change the link to the partner ID. 
+The link is associated at the user account level. Only you can edit or remove the link to the partner ID. The customer and other partner can't change the link to the partner ID. 

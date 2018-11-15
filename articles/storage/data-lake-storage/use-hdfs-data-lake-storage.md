@@ -44,7 +44,7 @@ hdfs dfs -mkdir /samplefolder
 
 The connection string can be found at the "SSH + Cluster login" section of the HDInsight cluster blade in Azure portal. SSH credentials were specified at the time of the cluster creation.
 
-For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+For more information on HDFS CLI, see the [official documentation](https://hadoop.apache.org/docs/r2.4.1/hadoop-project-dist/hadoop-common/FileSystemShell.html) and the [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html). To learn more about the ACLs in Databricks, see the [Secrets CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#secrets-cli). 
 
 ## HDFS CLI with Azure Databricks
 
@@ -71,6 +71,14 @@ To create a directory:
 To delete a file or a directory:
 
     %sh rm [-skipTrash] URI [URI ...]
+ 
+To display the Access Control Lists (ACLs) of files and directories:
+
+    hdfs dfs -getfacl [-R] <path>
+
+To set ACLs of files and directories:
+
+    hdfs dfs -setfacl [-R] [-b|-k -m|-x <acl_spec> <path>]|[--set <acl_spec> <path>]
 
 After starting the Spark cluster in Azure Databricks, you'll create a new notebook. The sample notebook script will look as follows:
 
@@ -78,6 +86,8 @@ After starting the Spark cluster in Azure Databricks, you'll create a new notebo
     %sh ls /
     #Create a sample directory.
     %sh mkdir /samplefolder
+    #Get the ACL of the newly created directory.
+    hdfs dfs -getfacl /samplefolder
 
 For more information on Databricks CLI, see the [official documentation](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html). For more information on notebooks, see the [notebooks](https://docs.azuredatabricks.net/user-guide/notebooks/index.html) section of the documentation.
 
