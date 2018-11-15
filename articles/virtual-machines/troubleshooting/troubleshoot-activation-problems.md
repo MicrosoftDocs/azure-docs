@@ -80,8 +80,7 @@ This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automat
 3. Make sure that the VM is configured to use the correct Azure KMS server. To do this, run the following command:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     The command should return: Key Management Service machine name set to kms.core.windows.net:1688 successfully.
 
