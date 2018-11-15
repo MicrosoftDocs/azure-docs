@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/17/2018
+ms.date: 11/15/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -98,32 +98,35 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ```
 
 ## Using cross-resource query for multiple resources
-When using cross-resource queries to correlate data from multiple Log Analytics and Application Insights resources, the query can become complex and difficult to maintain. You should leverage functions separate the query logic from the scoping of the query resources, which simplifies the query structure.
+When using cross-resource queries to correlate data from multiple Log Analytics and Application Insights resources, the query can become complex and difficult to maintain. You should leverage [functions in Log Analytics](query-language/functions.md) to separate the query logic from the scoping of the query resources, which simplifies the query structure. The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. 
 
-The following example demonstrates how you can monitor multiple Application Insights resources and visualize the count of failed requests by application name. The following steps are performed in Azure Log Analytics portal. Navigate to your workspace in Azure portal and click Logs on the left navigation pane.
+Create a query like the following that references the scope of Application Insights resources. The `withsource= SourceApp` command adds a column that designates the application name that sent the log.
 
-1. Author a function – this query reference the scope of Application Insights resources. You can edit the applications in the function at any time.<br>Note: the ‘withsource= SourceApp’ command adds a column that designates the application name that sent the log. This will help you to identify to which application the failures are attributed.  
-    ```
-    // crossResource function that scopes my Application Insights resources
-    union withsource= SourceApp
-    app('Contoso-app1').requests, 
-    app(''Contoso-app2').requests,
-    app(''Contoso-app3').requests,
-    app(''Contoso-app4').requests,
-    app(''Contoso-app5').requests
-    ```
-2. Save the query as function by clicking the **save** icon. The ‘Function alias’ is the entity to be used for calling the function from within a query.<br>Note: managing the list of applications in the function is available at any time by navigating to Query explorer in Logs portal.<br>Name: Production applications<br>Save as: Function<br>Function alias: applicationsScoping<br>Category: Failures analytics
-1. Using the applicationsScoping function in cross-resource query – the Function alias (applicationsScoping) returns the union of requests table from all the defined applications in Production applications function.  The query then filters for failed requests and visualize the trends by application 
-    ```
-    applicationsScoping 
-    | where timestamp > ago(12h)
-    | where success == 'False'
-    | parse SourceApp with * '(' applicationName ')' * 
-    | summarize count() by applicationName, bin(timestamp, 1h) 
-    | sort by count_ desc 
-    | render timechart
-    ```
-    The ‘parse’ operator is optional in this case – it extracts the application name from ‘SourceApp’ property.
+```Kusto
+// crossResource function that scopes my Application Insights resources
+union withsource= SourceApp
+app('Contoso-app1').requests, 
+app(''Contoso-app2').requests,
+app(''Contoso-app3').requests,
+app(''Contoso-app4').requests,
+app(''Contoso-app5').requests
+```
+
+[Save the query as function](query-language/functions.md#create-a-function) with the alias _applicationsScoping_.
+
+You can now [use this function](query-language/functions.md#use-a-function) in a cross-resource query like the following. The Function alias _applicationsScoping_ returns the union of requests table from all the defined applications. The query then filters for failed requests and visualizes the trends by application 
+
+```Kusto
+applicationsScoping 
+| where timestamp > ago(12h)
+| where success == 'False'
+| parse SourceApp with * '(' applicationName ')' * 
+| summarize count() by applicationName, bin(timestamp, 1h) 
+| sort by count_ desc 
+| render timechart
+```
+
+The _parse_ operator is optional in this example. It extracts the application name from _SourceApp_ property.
 
 
 

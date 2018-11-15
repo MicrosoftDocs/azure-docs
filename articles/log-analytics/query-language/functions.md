@@ -25,14 +25,8 @@ ms.component: na
 
 [!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
-> [!NOTE]
-> Saving a function is possible in Log Analytics queries, but currently not for Application Insights queries.
-
 
 To use a Log Analytics query with another query you can save it as a function. This allows you to simplify complex queries by breaking them into parts and allows you to reuse common code with multiple queries.
-
-> [!NOTE]
-> A function in Log Analytics cannot contain another function.
 
 ## Create a function
 
@@ -44,6 +38,14 @@ Create a function in the Azure portal by clicking **Save** and then providing th
 | Save as        | Function |
 | Function Alias | Short name to use the function in other queries. May not contain spaces and must be unique. |
 | Category       | A category to organize saved queries and functions in **Query explorer**. |
+
+> [!NOTE]
+> A function in Log Analytics cannot contain another function.
+
+> [!NOTE]
+> Saving a function is possible in Log Analytics queries, but currently not for Application Insights queries.
+
+
 
 ## Use a function
 Use a function by including its alias in another query. It can be used like any other table.
