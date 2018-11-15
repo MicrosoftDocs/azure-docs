@@ -127,7 +127,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	| ---------------| --------------- |    
 	| Name | user.displayname |
 
-	a. Click on **Name claim** to open the **Manage user claims** dialog.
+	a. Click on the `name` claim (highlighted claim) to open the **Manage user claims** dialog.
 
 	![image](./media/drift-tutorial/tutorial_drift_attribute1.png)
 
@@ -135,11 +135,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Select Source as **Attribute**.
 
-	c, Make the **Namespace** blank.
+	c. Make the **Namespace** blank.
 
-	c. From the **Source attribute** list, select **user.displayname**.
+	d. From the **Source attribute** list, select **user.displayname**.
 
-	d. Click **Save**.
+	e. Click **Save**.
 
 7. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save metadata file on your computer.
 
