@@ -83,9 +83,7 @@ Your rule with an email action is now enabled. Each time the action is triggered
 The first time you enable an email action in your solution accelerator, you must sign into Outlook. This action sets up the email account that sends out the email notifications.
 
 > [!NOTE]
-> You should create a specific Outlook account just for solution accelerator notifications and use that account when you enable your first email action. The warning message continues to display until you sign in with an Outlook account. When you've signed in, you see the following success message:
-
-![learn more](./media/iot-accelerators-remote-monitoring-email-actions/learnmore.png)
+> You should create a specific Outlook account just for solution accelerator notifications and use that account when you enable your first email action.
 
 ### Contributor role Outlook setup
 
