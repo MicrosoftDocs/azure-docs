@@ -30,7 +30,7 @@ Learn how to:
 
 You'll learn how to select a model and deploy it in [part two of this tutorial](tutorial-deploy-models-with-aml.md) later. 
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](http://aka.ms/AMLfree) before you begin.
 
 ## Get the notebook
 

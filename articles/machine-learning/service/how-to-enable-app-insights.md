@@ -24,7 +24,7 @@ In this article, you learn how to set up Azure Application Insights for your Azu
 
 
 ## Prerequisites
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](http://aka.ms/AMLfree) before you begin.
 * An Azure Machine Learning workspace, a local directory that contains your scripts, and the Azure Machine Learning SDK for Python installed. To learn how to get these prerequisites, see [How to configure a development environment](how-to-configure-environment.md).
 * A trained machine learning model to be deployed to Azure Kubernetes Service (AKS). If you don't have one, see the [Train image classification model](tutorial-train-models-with-aml.md) tutorial.
 * An [AKS cluster](how-to-deploy-to-aks.md).
