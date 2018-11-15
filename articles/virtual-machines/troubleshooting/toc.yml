@@ -14,6 +14,8 @@
     href: troubleshoot-rdp-connection.md
   - name: Detailed RDP troubleshooting
     href: detailed-troubleshoot-rdp.md
+  - name: Troubleshoot RDP error because the DHCP is disabled
+    href: troubleshoot-rdp-dhcp-disabled.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
   - name: Troubleshoot no license server errors
