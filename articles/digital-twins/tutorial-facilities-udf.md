@@ -69,103 +69,103 @@ Also note the section named **roleassignments**. It assigns the Space Administra
 
     a. At the top of the file, add the following lines for temperature below the comment `// Add your sensor type here`:
 
-        ```JavaScript
-            var temperatureType = "Temperature";
-            var temperatureThreshold = 78;
-        ```
-   
+    ```JavaScript
+        var temperatureType = "Temperature";
+        var temperatureThreshold = 78;
+    ```
+
     b. Add the following lines after the statement that defines `var motionSensor`, below the comment `// Add your sensor variable here`:
 
-        ```JavaScript
-            var temperatureSensor = otherSensors.find(function(element) {
-                return element.DataType === temperatureType;
-            });
-        ```
-    
+     ```JavaScript
+        var temperatureSensor = otherSensors.find(function(element) {
+            return element.DataType === temperatureType;
+        });
+    ```
+
     c. Add the following line after the statement that defines `var carbonDioxideValue`, below the comment `// Add your sensor latest value here`:
 
-        ```JavaScript
-            var temperatureValue = getFloatValue(temperatureSensor.Value().Value);
-        ```
-    
-    d. Remove the following lines of code from below the comment `// Modify this line to monitor your sensor value`: 
+    ```JavaScript
+        var temperatureValue = getFloatValue(temperatureSensor.Value().Value);
+    ```
 
-       ```JavaScript
-           if(carbonDioxideValue === null || motionValue === null) {
-               sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide or motion are null, returning");
-               return;
-           }
-       ```
-       
+    d. Remove the following lines of code from below the comment `// Modify this line to monitor your sensor value`:
+
+     ```JavaScript
+        if(carbonDioxideValue === null || motionValue === null) {
+            sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide or motion are null, returning");
+            return;
+        }
+    ```
+
     Replace them with the following lines:
 
-       ```JavaScript
-           if(carbonDioxideValue === null || motionValue === null || temperatureValue === null){
-               sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide, motion, or temperature are null, returning");
-               return;
-           }
-       ```
-    
+    ```JavaScript
+        if(carbonDioxideValue === null || motionValue === null || temperatureValue === null){
+            sendNotification(telemetry.SensorId, "Sensor", "Error: Carbon dioxide, motion, or temperature are null, returning");
+            return;
+        }
+    ```
+
     e. Remove the following lines of code from below the comment `// Modify these lines as per your sensor`:
 
-       ```JavaScript
-           var availableFresh = "Room is available and air is fresh";
-           var noAvailableOrFresh = "Room is not available or air quality is poor";
-       ```
+    ```JavaScript
+        var availableFresh = "Room is available and air is fresh";
+        var noAvailableOrFresh = "Room is not available or air quality is poor";
+    ```
 
     Replace them with the following lines:
 
-       ```JavaScript
-           var alert = "Room with fresh air and comfortable temperature is available.";
-           var noAlert = "Either room is occupied, or working conditions are not right.";
-       ```
-    
+    ```JavaScript
+        var alert = "Room with fresh air and comfortable temperature is available.";
+        var noAlert = "Either room is occupied, or working conditions are not right.";
+    ```
+
     f. Remove the following *if-else* code block after the comment `// Modify this code block for your sensor`:
 
-        ```JavaScript
-            // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
-            if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
-                log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
+    ```JavaScript
+        // If carbonDioxide less than threshold and no presence in the room => log, notify and set parent space computed value
+        if(carbonDioxideValue < carbonDioxideThreshold && !presence) {
+            log(`${availableFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
+            setSpaceValue(parentSpace.Id, spaceAvailFresh, availableFresh);
 
-                // Set up custom notification for air quality
-                parentSpace.Notify(JSON.stringify(availableFresh));
-            }
-            else {
-                log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
+            // Set up custom notification for air quality
+            parentSpace.Notify(JSON.stringify(availableFresh));
+        }
+        else {
+            log(`${noAvailableOrFresh}. Carbon Dioxide: ${carbonDioxideValue}. Presence: ${presence}.`);
+            setSpaceValue(parentSpace.Id, spaceAvailFresh, noAvailableOrFresh);
 
-                // Set up custom notification for air quality
-                parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
-            }
-        ```
-      
+            // Set up custom notification for air quality
+            parentSpace.Notify(JSON.stringify(noAvailableOrFresh));
+        }
+    ```
+
     And replace it with the following *if-else* block:
 
-        ```JavaScript
-            // If sensor values are within range and room is available
-            if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
-                log(`${alert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
+    ```JavaScript
+        // If sensor values are within range and room is available
+        if(carbonDioxideValue < carbonDioxideThreshold && temperatureValue < temperatureThreshold && !presence) {
+            log(`${alert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
 
-                // log, notify and set parent space computed value
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, alert);
+            // log, notify and set parent space computed value
+            setSpaceValue(parentSpace.Id, spaceAvailFresh, alert);
 
-                // Set up notification for this alert
-                parentSpace.Notify(JSON.stringify(alert));
-            }
-            else {
-                log(`${noAlert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
-    
-                // log, notify and set parent space computed value
-                setSpaceValue(parentSpace.Id, spaceAvailFresh, noAlert);
-            }
-        ```
-        
+            // Set up notification for this alert
+            parentSpace.Notify(JSON.stringify(alert));
+        }
+        else {
+            log(`${noAlert}. Carbon Dioxide: ${carbonDioxideValue}. Temperature: ${temperatureValue}. Presence: ${presence}.`);
+
+            // log, notify and set parent space computed value
+            setSpaceValue(parentSpace.Id, spaceAvailFresh, noAlert);
+        }
+    ```
+
     The modified UDF will look for a condition where a room becomes available and has the carbon dioxide and temperature within tolerable limits. It will generate a notification with the statement `parentSpace.Notify(JSON.stringify(alert));` when this condition is met. It will set the value of the monitored space regardless of whether the condition is met, with the corresponding message.
-    
-    g. Save the file. 
-    
-1. Open a command window, and go to the folder **occupancy-quickstart\src**. Run the following command to provision your spatial intelligence graph and user-defined function: 
+
+    g. Save the file.
+
+1. Open a command window, and go to the folder **occupancy-quickstart\src**. Run the following command to provision your spatial intelligence graph and user-defined function:
 
     ```cmd/sh
     dotnet run ProvisionSample
@@ -174,8 +174,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
    > [!IMPORTANT]
    > To prevent unauthorized access to your Digital Twins Management API, the **occupancy-quickstart** application requires you to sign in with your Azure account credentials. It saves your credentials for a brief period, so you might not need to sign in every time you run it. The first time this program runs, and when your saved credentials expire after that, the application directs you to a sign-in page and gives a session-specific code to enter on that page. Follow the prompts to sign in with your Azure account.
 
-
-1. After your account is authenticated, the application starts creating a sample spatial graph as configured in provisionSample.yaml. Wait until the provisioning finishes. It will take a few minutes. After that, observe the messages in the command window and notice how your spatial graph is created. Notice how the application creates an IoT hub at the root node or the `Venue`. 
+1. After your account is authenticated, the application starts creating a sample spatial graph as configured in provisionSample.yaml. Wait until the provisioning finishes. It will take a few minutes. After that, observe the messages in the command window and notice how your spatial graph is created. Notice how the application creates an IoT hub at the root node or the `Venue`.
 
 1. From the output in the command window, copy the value of `ConnectionString`, under the `Devices` section, to your clipboard. You'll need this value to simulate the device connection in the next section.
 
@@ -187,6 +186,7 @@ Also note the section named **roleassignments**. It assigns the Space Administra
 <a id="simulate" />
 
 ## Simulate sensor data
+
 In this section, you'll use the project named *device-connectivity* in the sample. You'll simulate sensor data for detecting motion, temperature, and carbon dioxide. This project generates random values for the sensors, and sends them to the IoT hub by using the device connection string.
 
 1. In a separate command window, go to the Azure Digital Twins sample and then to the **device-connectivity** folder.
@@ -201,8 +201,8 @@ In this section, you'll use the project named *device-connectivity* in the sampl
 
    a. **DeviceConnectionString**: Assign the value of `ConnectionString` in the output window from the previous section. Copy this string completely, within the quotes, so the simulator can connect properly with the IoT hub.
 
-   b. **HardwareId** within the **Sensors** array: Because you're simulating events from sensors provisioned to your Azure Digital Twins instance, the hardware ID and the names of the sensors in this file should match the `sensors` node of the provisionSample.yaml file. 
-   
+   b. **HardwareId** within the **Sensors** array: Because you're simulating events from sensors provisioned to your Azure Digital Twins instance, the hardware ID and the names of the sensors in this file should match the `sensors` node of the provisionSample.yaml file.
+
       Add a new entry for the temperature sensor. The **Sensors** node in appSettings.json should look like the following:
 
       ```JSON
@@ -224,13 +224,13 @@ In this section, you'll use the project named *device-connectivity* in the sampl
     dotnet run
     ```
 
-   > [!NOTE] 
+   > [!NOTE]
    > Because the simulation sample does not directly communicate with your Digital Twins instance, it does not require you to authenticate.
 
 ## Get results of the user-defined function
 The user-defined function runs every time your instance receives device and sensor data. This section queries your Azure Digital Twins instance to get the results of the user-defined function. You'll see in near real time, when a room is available, that the air is fresh and temperature is right. 
 
-1. Open the command window that you used to provision the sample, or a new command window, and go to the **occupancy-quickstart\src** folder of the sample again. 
+1. Open the command window that you used to provision the sample, or a new command window, and go to the **occupancy-quickstart\src** folder of the sample again.
 
 1. Run the following command and sign in when prompted:
 
@@ -242,23 +242,21 @@ The output window shows how the user-defined function runs and intercepts events
 
    ![Output for the UDF](./media/tutorial-facilities-udf/udf-running.png)
 
-If the monitored condition is met, the user-defined function sets the value of the space with the relevant message, as we saw [earlier](#udf). The `GetAvailableAndFreshSpaces` function prints out the message on the console. 
+If the monitored condition is met, the user-defined function sets the value of the space with the relevant message, as we saw [earlier](#udf). The `GetAvailableAndFreshSpaces` function prints out the message on the console.
 
 ## Clean up resources
 
 If you want to stop exploring Azure Digital Twins at this point, feel free to delete resources created in this tutorial:
 
 1. From the left menu in the [Azure portal](http://portal.azure.com), select **All resources**, select your Digital Twins resource group, and select **Delete**.
-2. If necessary, delete the sample applications on your work machine. 
-
+2. If necessary, delete the sample applications on your work machine.
 
 ## Next steps
 
-Now that you have provisioned your spaces and created a framework to trigger custom notifications, you can go to either of the following tutorials: 
+Now that you have provisioned your spaces and created a framework to trigger custom notifications, you can go to either of the following tutorials:
 
 > [!div class="nextstepaction"]
 > [Tutorial: Receive notifications from your Azure Digital Twins spaces using Logic Apps](tutorial-facilities-events.md)
-
 
 > [!div class="nextstepaction"]
 > [Tutorial: Visualize and analyze events from your Azure Digital Twins spaces using Time Series Insights](tutorial-facilities-analyze.md)

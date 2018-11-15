@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/14/2018
 ms.author: pbutlerm
 ---
 
@@ -43,7 +43,7 @@ The SKU metadata contains storefront display information for the container listi
 
 ### Container metadata
 
-The container metadata has reference information of your image repository details inside Azure Container Registry (ACR). Azure Marketplace copies this image into the public marketplace registry, and is made available for customers after certification. All requests from the Azure user to consume a container image are served from the Marketplace container registry.
+The container metadata has reference information of your image repository details inside Azure Container Registry (ACR). Azure Marketplace copies this image into a Marketplace-specific, public registry and then makes the image available for customers after certification. All requests from the Azure user to consume an Azure Marketplace container image are served from the Marketplace's public registry, not ACR.
 
 ![Container metadata](./media/containers-image-repository.png)
     
