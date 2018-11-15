@@ -26,9 +26,9 @@ This guide assumes you have Azure AD Premium P2 licenses, Enterprise Mobility + 
 
 [Azure AD licensing](https://azure.microsoft.com/pricing/details/active-directory/)
 
-[Microsoft 365 Enterprise](https://www.microsoft.com/licensing/product-licensing/microsoft-365-enterprise.aspx)
+[Microsoft 365 Enterprise](https://www.microsoft.com/en-us/licensing/product-licensing/microsoft-365-enterprise)
 
-[Enterprise Mobility + Security](https://www.microsoft.com/licensing/product-licensing/enterprise-mobility-security.aspx)
+[Enterprise Mobility + Security](https://www.microsoft.com/en-us/licensing/product-licensing/enterprise-mobility-security)
 
 ## Plan and deploy: Day 1-30
 
