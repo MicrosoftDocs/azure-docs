@@ -104,4 +104,4 @@ On Azure, Db2 pureScale needs to use TCP/IP as the network connection for storag
 
 ## Next steps
 
--   [Deploy this architecture on Azure](deploy-IBM-pureScale-on-Azure)
+-   [Deploy this architecture on Azure](deploy-IBM-pureScale-on-Azure.md)
