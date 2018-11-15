@@ -65,7 +65,7 @@ on your publisher profile page.
 >[!NOTE]
 >Dev Center Account registration is mandatory for publishing paid market place SKU’s.
 
-If you do not have a [Developer Center Account](https://docs.microsoft.com/azure/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md), 
+If you do not have a [Developer Center Account](~/articles/marketplace-publishing/marketplace-publishing-accounts-creation-registration.md),
 you can create one and add the registered email address as one of the
 owners on the Cloud Partner Portal for your offer. An owner can only add
 the registered email address to your publishing profile from the

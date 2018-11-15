@@ -58,7 +58,7 @@ In Azure Cosmos DB, the total consumed storage is the combination of both the Da
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 
  Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 ``` 
-If you would like to conserve index space, you can adjust the [indexing policy](./indexing-policies.md).
+If you would like to conserve index space, you can adjust the [indexing policy](index-policy.md).
 
 ## Debugging why queries are running slow
 

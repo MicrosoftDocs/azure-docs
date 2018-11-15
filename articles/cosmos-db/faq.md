@@ -356,10 +356,10 @@ Yes, the Table API leverages the platform of Azure Cosmos DB for backups. Backup
 
  
 ### Does the Table API index all attributes of an entity by default?
-Yes, all attributes of an entity are indexed by default. For more information, see [Azure Cosmos DB: Indexing policies](indexing-policies.md). 
+Yes, all attributes of an entity are indexed by default. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md). 
 
 ### Does this mean I do not have to create multiple indexes to satisfy the queries? 
-Yes, Azure Cosmos DB Table API provides automatic indexing of all attributes without any schema definition. This automation frees developers to focus on the application rather than on index creation and management. For more information, see [Azure Cosmos DB: Indexing policies](indexing-policies.md).
+Yes, Azure Cosmos DB Table API provides automatic indexing of all attributes without any schema definition. This automation frees developers to focus on the application rather than on index creation and management. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md).
 
 ### Can I change the indexing policy?
 Yes, you can change the indexing policy by providing the index definition. For more information, see [Azure Cosmos DB capabilities](../cosmos-db/tutorial-develop-table-dotnet.md#azure-cosmos-db-capabilities). You need to properly encode and escape the settings. 
@@ -679,10 +679,10 @@ The Azure Cosmos DB Cassandra API borrows from the globally distributed platform
 You can add as many regions as you want for the account and control where it can fail over to by providing a failover priority. To use the database, you need to provide an application there too. When you do so, your customers will not experience downtime. 
 
 ### Does the Apache Cassandra API index all attributes of an entity by default?
-Yes, all attributes of an entity are indexed by default by Azure Cosmos DB. For more information, see [Azure Cosmos DB: Indexing policies](indexing-policies.md). You get benefits of guaranteed performance with consistent indexing and durable quorum committed writes always. 
+Yes, all attributes of an entity are indexed by default by Azure Cosmos DB. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md). You get benefits of guaranteed performance with consistent indexing and durable quorum committed writes always. 
 
 ### Does this mean I do not have to create multiple indexes to satisfy the queries? 
-Yes, Azure Cosmos DB provides automatic indexing of all attributes without any schema definition. This automation frees developers to focus on the application rather than on index creation and management. For more information, see [Azure Cosmos DB: Indexing policies](indexing-policies.md).
+Yes, Azure Cosmos DB provides automatic indexing of all attributes without any schema definition. This automation frees developers to focus on the application rather than on index creation and management. For more information, see [Azure Cosmos DB: Indexing policies](index-policy.md).
 
 ### Can I use the new Cassandra API SDK locally with the emulator?
 We plan to support this capability in future. 

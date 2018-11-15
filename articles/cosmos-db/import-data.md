@@ -509,9 +509,7 @@ The policy templates the tool provides are:
 ![Screenshot of Azure Cosmos DB Indexing Policy advanced options](./media/import-data/indexingpolicy2.png)
 
 > [!NOTE]
-> If you do not specify an indexing policy, then the default policy is applied. For more information about indexing policies, see [Azure Cosmos DB indexing policies](indexing-policies.md).
-> 
-> 
+> If you do not specify an indexing policy, then the default policy is applied. For more information about indexing policies, see [Azure Cosmos DB indexing policies](index-policy.md).
 
 ## Export to JSON file
 The Azure Cosmos DB JSON exporter allows you to export any of the available source options to a JSON file that contains an array of JSON documents. The tool handles the export for you, or you can choose to view the resulting migration command and run the command yourself. The resulting JSON file may be stored locally or in Azure Blob storage.

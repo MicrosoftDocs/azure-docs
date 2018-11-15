@@ -87,7 +87,7 @@ See [task examples][task-examples] for complete multi-step task YAML files and D
 
 Tasks support both manual execution, called a "quick run," and automated execution on Git commit or base image update.
 
-To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][az-acr-run].
+To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][/cli/azure/acr#az-acr-run].
 
 Here's an example Azure CLI command that runs a task using a sample task YAML file. Its steps build and then push an image. Update `\<acrName\>` with the name of your own Azure container registry before running the command.
 
