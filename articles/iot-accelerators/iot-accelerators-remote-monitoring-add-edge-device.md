@@ -23,7 +23,7 @@ To add an [IoT Edge](../iot-edge/about-iot-edge.md) device to your solution acce
 
 To add an IoT Edge device to the Remote Monitoring solution accelerator, navigate to the **Devices** page in the web UI and click **+ New device**.
 
-In the **New device** panel, choose **IoT Edge device**. You can leave the default values for the other settings. The click **Apply**:
+In the **New device** panel, choose **IoT Edge device**. You can leave the default values for the other settings. Then click **Apply**:
 
 ![Add IoT Edge device](media/iot-accelerators-remote-monitoring-add-edge-device/addedgedevice.png)
 
