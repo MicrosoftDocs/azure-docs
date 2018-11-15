@@ -46,10 +46,10 @@ import azureml.dataprep as dprep
 
 ### Automatic file type detection
 
-Use the `auto_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
+Use the `smart_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
 
 ```python
-dataflow = dprep.auto_read_file(path="<your-file-path>")
+dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
 ### Automated feature engineering
