@@ -214,7 +214,7 @@ Now that you have the code to initialize the Azure Cosmos DB client, let's take 
    const containerId = config.container.id;
    ```
 
-   A [database](sql-api-resources.md#databases) can be created by using either the [createIfNotExists](/javascript/api/%40azure/cosmos/databases) or [create](/javascript/api/%40azure/cosmos/databases) function of the **Databases** class. A database is the logical container of items partitioned across containers. 
+   A database can be created by using either the [createIfNotExists](/javascript/api/%40azure/cosmos/databases) or [create](/javascript/api/%40azure/cosmos/databases) function of the **Databases** class. A database is the logical container of items partitioned across containers. 
 
 2. Copy and paste the **createDatabase** and **readDatabase** methods into the app.js file under the ```databaseId``` and ```containerId``` definition. The **createDatabase** function will create a new database with id ```FamilyDatabase```, specified from the ```config``` object if it does not already exist. The **readDatabase** function will read the database's definition to ensure that the database exists.
 

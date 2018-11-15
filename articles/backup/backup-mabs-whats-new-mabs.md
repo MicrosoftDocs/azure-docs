@@ -6,13 +6,13 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adigan; kasinh
 ---
 
 # What's new in Microsoft Azure Backup Server
 
-Microsoft Azure Backup Server version 3 (MABS V3) is the latest upgrade, and includes critical bug fixes, Windows Server 2019 support, SQL 2017 support and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article 4457852.
+Microsoft Azure Backup Server version 3 (MABS V3) is the latest upgrade, and includes critical bug fixes, Windows Server 2019 support, SQL 2017 support and other features and enhancements. To view the list of bugs fixed and the installation instructions for MABS V3, see KB article [4457852](https://support.microsoft.com/en-us/help/4457852/microsoft-azure-backup-server-v3).
 
 The following features are included in MABS V3:
 

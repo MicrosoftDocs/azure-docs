@@ -55,12 +55,13 @@ To add a globally unique identifier (GUID), you make a single modification to th
 1. [Verify GUID success in the template deployment](#verify-the-guid-deployment).
 
 ### Sample Resource Manager template code
-Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
+
+To enable tracking resources for your template, you need to add the following additional resource under the resources section. Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
 The resource needs to be added in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
     "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
@@ -122,14 +123,14 @@ A GUID is a unique reference number that has 32 hexadecimal digits. To create GU
 > [!Note]
 > It is highly recommend that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
 
-Create a unique GUID for every offer and distribution channel. If you deploy two solutions by using a template and each one is available in the Azure Marketplace and on GitHub, you need to create four GUIDS:
+We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split. 
 
-*	Offer A in Azure Marketplace 
-*	Offer A on GitHub
-*	Offer B in Azure Marketplace 
-*	Offer B on GitHub
+If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
 
-Reporting is done by the partner value (Microsoft Partner ID) and the GUID. 
+*	Product A in Azure Marketplace 
+*	Product A on GitHub
+
+Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. 
 
 You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
 
