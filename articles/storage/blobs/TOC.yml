@@ -22,7 +22,7 @@
       href: storage-quickstart-blobs-cli.md
   - name: Develop with blobs
     items:    
-    - name: NET 
+    - name: .NET 
       href: storage-quickstart-blobs-dotnet.md
     - name: Java (Storage SDK V10) 
       href: storage-quickstart-blobs-java-v10.md 
