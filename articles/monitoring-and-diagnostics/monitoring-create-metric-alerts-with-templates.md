@@ -1366,5 +1366,5 @@ az group deployment create \
 ```
 
 ## Next steps
-* Read more about [alerts in Azure](monitoring-overview-unified-alerts.md)
+* Read more about [alerts in Azure](monitoring-overview-alerts.md)
 * Learn how to [create an action group with Resource Manager templates](monitoring-create-action-group-with-resource-manager-template.md)

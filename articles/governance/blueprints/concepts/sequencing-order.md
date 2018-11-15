@@ -4,7 +4,7 @@ description: Learn about the life-cycle that a blueprint goes through and detail
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 10/25/2018
+ms.date: 11/12/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
@@ -49,6 +49,10 @@ defined.
 The ordering is accomplished by defining a `dependsOn` property in the JSON. Only the blueprint (for
 resource groups) and artifact objects support this property. `dependsOn` is a string array of
 artifact names that the particular artifact needs to be created before it's created.
+
+> [!NOTE]
+> **Resource group** artifacts support the `dependsOn` property, but can't be the target of a
+> `dependsOn` by any artifact type.
 
 ### Example - blueprint with ordered resource group
 

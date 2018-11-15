@@ -46,17 +46,6 @@ You can define unique keys only when creating a Cosmos container. A unique key i
 
 * Unique key names are case-sensitive. For example, consider a container with the unique key constraint set to /address/zipcode. If your data has a field named ZipCode, Cosmos DB inserts "null" as the unique key because "zipcode" is not same as "ZipCode". Due to this case sensitivity, all other records with ZipCode can't be inserted because the duplicate "null" will violate the unique key constraint.
 
-## Supported APIs and SDKs
-
-The unique keys feature is currently supported by the following Cosmos DB APIs and client SDKs: 
-
-|Client drivers|SQL API|Cassandra API|MongoDB API|Gremlin API|Table API|
-|---|---|---|---|---|---|
-|.NET|Yes|No|Yes|No|No|
-|Java|Yes|No|Yes|No|No|
-|Python|Yes|No|Yes|No|No|
-|Node/JS|Yes|No|Yes|No|No|
-
 ## Next steps
 
 * Learn more about [logical partitions](partition-data.md)

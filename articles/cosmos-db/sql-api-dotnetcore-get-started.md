@@ -186,7 +186,7 @@ private void WriteToConsoleAndPromptToContinue(string format, params object[] ar
 }
 ```
 
-Your Azure Cosmos DB [database](sql-api-resources.md#databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
+Your Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) can be created by using the [CreateDatabaseAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdatabaseasync.aspx) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the client creation. This creates a database named *FamilyDB*.
 
@@ -208,7 +208,7 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 > [!WARNING]
 > **CreateDocumentCollectionAsync** creates a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).
 
-A [collection](sql-api-resources.md#collections) can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
+A collection can be created by using the [CreateDocumentCollectionAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentcollectionasync.aspx) method of the **DocumentClient** class. A collection is a container of JSON documents and associated JavaScript application logic.
 
 Copy and paste the following code to your **GetStartedDemo** method underneath the database creation. This code creates a document collection named *FamilyCollection_oa*.
 
@@ -227,7 +227,7 @@ Congratulations! You have successfully created an Azure Cosmos DB document colle
 
 ## <a id="CreateDoc"></a>Step 6: Create JSON documents
 
-A [document](sql-api-resources.md#documents) can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md).
+A document can be created by using the [CreateDocumentAsync](https://msdn.microsoft.com/library/microsoft.azure.documents.client.documentclient.createdocumentasync.aspx) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use Azure Cosmos DB's [Data Migration tool](import-data.md).
 
 First, you will create a **Family** class that represents objects stored within Azure Cosmos DB. You will also create **Parent**, **Child**, **Pet**, **Address** subclasses that are used within **Family**. The documents must have an **Id** property serialized as **id** in JSON. Create these classes by adding the following internal subclasses after the **GetStartedDemo** method.
 
