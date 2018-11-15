@@ -24,7 +24,7 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Create your Azure Databricks cluster as v4.x (high concurrency preferred) with **Python 3**. 
 1. Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library) the `azureml-sdk[databricks]` PyPi package to your cluster. 
 
-Be aware of these [common Databricks issues](resource-known-issues#databricks).
+Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
 
 ## Get the notebooks
 
