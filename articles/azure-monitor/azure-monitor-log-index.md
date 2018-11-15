@@ -19,7 +19,8 @@ ms.author: magoedte
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Monitor logs Documentation</h1>
-        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.</p>
+        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs</p>
+        <p>that allow you to maximize the performance and availability of your cloud resources and applications.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
          <li>
@@ -76,7 +77,6 @@ ms.author: magoedte
      </a>
     </li>
     <li>
-       <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -92,7 +92,6 @@ ms.author: magoedte
                 </div>
             </div>
         </div>
-    </a>
     </li>
     <li>
         <div class="cardSize">
@@ -120,7 +119,6 @@ ms.author: magoedte
         </div>
     </li>
     <li>
-          <a href="">
            <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -136,7 +134,6 @@ ms.author: magoedte
                 </div>
             </div>
         </div>
-      </a>
     </li>
     <li>
         <div class="cardSize">
@@ -157,7 +154,6 @@ ms.author: magoedte
         </div>
     </li>
     <li>
-       <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -174,6 +170,5 @@ ms.author: magoedte
                 </div>
             </div>
         </div>
-      </a>
     </li>
 </ul>
