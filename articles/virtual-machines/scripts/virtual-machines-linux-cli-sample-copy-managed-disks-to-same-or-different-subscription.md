@@ -21,7 +21,7 @@ ms.custom: mvc
 
 # Copy managed disks to same or different subscription with CLI
 
-This script copies a managed disk to same or different subscription but in the same region. 
+This script copies a managed disk to same or different subscription but in the same region. You need to be a Global AAD Tenant Admin of both subscription in order to run this script.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

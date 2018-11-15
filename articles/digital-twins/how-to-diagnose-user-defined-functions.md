@@ -6,7 +6,7 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/22/2018
+ms.date: 11/13/2018
 ms.author: stefanmsft
 ---
 
@@ -37,12 +37,12 @@ After sending telemetry, open up Azure Log Analytics to query for logs using the
 
 ```Kusto
 AzureDiagnostics
-| where CorrelationId = 'yourCorrelationIdentifier'
+| where CorrelationId = 'YOUR_CORRELATION_IDENTIFIER'
 ```
 
-| Custom Attribute Name | Replace With |
+| Query value | Replace with |
 | --- | --- |
-| *yourCorrelationIdentifier* | The Correlation ID that was specified on the event data |
+| YOUR_CORRELATION_IDENTIFIER | The Correlation ID that was specified on the event data |
 
 If you log your user-defined function, those logs will appear in your Azure Log Analytics instance with the category `UserDefinedFunction`. To retrieve them, enter the following query condition in Azure Log Analytics:
 
@@ -57,6 +57,8 @@ For more information about powerful query operations, see [getting started with 
 
 Both diagnosing and identifying common issues are important when troubleshooting your solution. Several Common issues encountered when developing user-defined functions are summarized below.
 
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
+
 ### Ensure a role assignment was created
 
 Without a role assignment created within Management API, the user-defined function will not have access to perform any actions such as sending notifications, retrieving metadata, and setting computed values within the topology.
@@ -64,13 +66,12 @@ Without a role assignment created within Management API, the user-defined functi
 Check if a role assignment exists for your user-defined function through your Management API:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/roleassignments?path=/&traverse=Down&objectId=yourUserDefinedFunctionId
+GET YOUR_MANAGEMENT_API_URL/roleassignments?path=/&traverse=Down&objectId=YOUR_USER_DEFINED_FUNCTION_ID
 ```
 
-| Custom Attribute Name | Replace With |
+| Parameter | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
-| *yourUserDefinedFunctionId* | The ID of the user-defined function to retrieve role assignments for|
+| *YOUR_USER_DEFINED_FUNCTION_ID* | The ID of the user-defined function to retrieve role assignments for|
 
 If no role assignment is retrieved, follow this article on [How to create a role assignment for your user-defined function](./how-to-user-defined-functions.md).
 
@@ -79,14 +80,13 @@ If no role assignment is retrieved, follow this article on [How to create a role
 With the following call against your Azure Digital Twins instances' Management API, you will be able to determine if a given matcher applies for the given sensor.
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/matchers/yourMatcherIdentifier/evaluate/yourSensorIdentifier?enableLogging=true
+GET YOUR_MANAGEMENT_API_URL/matchers/YOUR_MATCHER_IDENTIFIER/evaluate/YOUR_SENSOR_IDENTIFIER?enableLogging=true
 ```
 
-| Custom Attribute Name | Replace With |
+| Parameter | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
-| *yourMatcherIdentifier* | The ID of the matcher you wish to evaluate |
-| *yourSensorIdentifier* | The ID of the sensor you wish to evaluate |
+| *YOUR_MATCHER_IDENTIFIER* | The ID of the matcher you wish to evaluate |
+| *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor you wish to evaluate |
 
 Response:
 
@@ -104,13 +104,12 @@ Response:
 With the following call against your Azure Digital Twins instances' Management API, you will be able to determine the identifiers of your user-defined functions that will be triggered by the given sensor's incoming telemetry:
 
 ```plaintext
-GET https://yourManagementApiUrl/api/v1.0/sensors/yourSensorIdentifier/matchers?includes=UserDefinedFunctions
+GET YOUR_MANAGEMENT_API_URL/sensors/YOUR_SENSOR_IDENTIFIER/matchers?includes=UserDefinedFunctions
 ```
 
-| Custom Attribute Name | Replace With |
+| Parameter | Replace with |
 | --- | --- |
-| *yourManagementApiUrl* | The full URL path for your Management API  |
-| *yourSensorIdentifier* | The ID of the sensor that will be sending telemetry |
+| *YOUR_SENSOR_IDENTIFIER* | The ID of the sensor that will be sending telemetry |
 
 Response:
 

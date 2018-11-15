@@ -5,7 +5,7 @@
  author: dlepow
  ms.service: virtual-machines-windows
  ms.topic: include
- ms.date: 09/24/2018
+ ms.date: 11/08/2018
  ms.author: danlep
  ms.custom: include file
 ---
@@ -25,10 +25,9 @@ NVIDIA Tesla (CUDA) drivers for NC, NCv2, NCv3, and ND-series VMs (optional for 
 | Windows Server 2016 | [398.75](http://us.download.nvidia.com/Windows/Quadro_Certified/398.75/398.75-tesla-desktop-winserver2016-international.exe) (.exe) |
 | Windows Server 2012 R2 | [398.75](http://us.download.nvidia.com/Windows/Quadro_Certified/398.75/398.75-tesla-desktop-winserver2008-2012r2-64bit-international.exe) (.exe) |
 
-
 ### NVIDIA GRID drivers
 
-Microsoft redistributes NVIDIA GRID driver installers for NV and NVv2-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure.
+Microsoft redistributes NVIDIA GRID driver installers for NV and NVv2-series VMs used as virtual workstations or for virtual applications. Install only these GRID drivers on Azure NV VMs, only on the operating systems listed in the following table. These drivers include licensing for GRID Virtual GPU Software in Azure. You do not need to set up an NVIDIA vGPU software license server.
 
 | OS | Driver |
 | -------- |------------- |

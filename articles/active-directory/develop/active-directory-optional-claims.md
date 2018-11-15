@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/05/2018
+ms.date: 11/08/2018
 ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
@@ -38,7 +38,7 @@ One of the goals of the [v2.0 Azure AD endpoint](active-directory-appmodel-v2-ov
 | Account Type | V1.0 Endpoint | V2.0 Endpoint  |
 |--------------|---------------|----------------|
 | Personal Microsoft account  | N/A - RPS Tickets are used instead | Support coming |
-| Azure AD account          | Supported                          | Supported with caveats      |
+| Azure AD account          | Supported                          | Supported with caveats |
 
 > [!IMPORTANT]
 > Apps that support both personal accounts and Azure AD (registered through the [app registration portal](https://apps.dev.microsoft.com)) cannot use optional claims. However, apps registered for just Azure AD using the v2.0 endpoint can get the optional claims they requested in the manifest. In the Azure portal, you can use the application manifest editor in the existing **App registrations** experience to edit your optional claims. However, this functionality is not yet available using the application manifest editor in the new **App registrations (Preview)** experience.
@@ -56,8 +56,6 @@ The set of optional claims available by default for applications to use are list
 |-----------------------------|----------------|------------|-----------|--------|
 | `auth_time`                | Time when the user last authenticated. See OpenID Connect spec.| JWT        |           |  |
 | `tenant_region_scope`      | Region of the resource tenant | JWT        |           | |
-| `signin_state`             | Sign in state claim   | JWT        |           | 6 return values, as flags:<br> "dvc_mngd": Device is managed<br> "dvc_cmp": Device is compliant<br> "dvc_dmjd": Device is domain joined<br> "dvc_mngd_app": Device is managed via MDM<br> "inknownntwk": Device is inside a known network.<br> "kmsi": Keep Me Signed In was used. <br> |
-| `controls`                 | Multivalue claim containing the session controls enforced by Conditional Access policies. | JWT        |           | 3 values:<br> "app_res": The app needs to enforce more granular restrictions. <br> "ca_enf": Conditional Access enforcement was deferred and is still required. <br> "no_cookie": This token is insufficient to exchange for a cookie in the browser. <br>  |
 | `home_oid`                 | For guest users, the object ID of the user in the user’s home tenant.| JWT        |           | |
 | `sid`                      | Session ID, used for per-session user signout. | JWT        |           |         |
 | `platf`                    | Device platform    | JWT        |           | Restricted to managed devices that can verify device type.|
@@ -72,6 +70,7 @@ The set of optional claims available by default for applications to use are list
 | `xms_pl`                   | User preferred language  | JWT ||The user’s preferred language, if set. Sourced from their home tenant, in guest access scenarios. Formatted LL-CC (“en-us”). |
 | `xms_tpl`                  | Tenant preferred language| JWT | | The resource tenant’s preferred language, if set. Formatted LL (“en”). |
 | `ztdid`                    | Zero-touch Deployment ID | JWT | | The device identity used for [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) |
+|`email`                     | The addressable email for this user, if the user has one.  | JWT, SAML | | This value is included by default if the user is a guest in the tenant.  For managed users (those inside the tenant), it must be requested through this optional claim or, on v2.0 only, with the OpenID scope.  For managed users, the email address must be set in the [Office admin portal](https://portal.office.com/adminportal/home#/users).|  
 | `acct`   		     | Users account status in tenant. | JWT, SAML | | If the user is a member of the tenant, the value is `0`. If they are a guest, the value is `1`. |
 | `upn`                      | UserPrincipalName claim. | JWT, SAML  |           | Although this claim is automatically included, you can specify it as an optional claim to attach additional properties to modify its behavior in the guest user case. <br> Additional properties: <br> `include_externally_authenticated_upn` <br> `include_externally_authenticated_upn_without_hash` |
 

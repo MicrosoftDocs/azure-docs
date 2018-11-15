@@ -15,7 +15,7 @@ ms.topic: troubleshooting
 
 # Troubleshoot issues when you use the Java Async SDK with Azure Cosmos DB SQL API accounts
 This article covers common issues, workarounds, diagnostic steps, and tools when you use the [Java Async SDK](sql-api-sdk-async-java.md) with Azure Cosmos DB SQL API accounts.
-The Java Async SDK provides client-side logical representation to access the Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
+The Java Async SDK provides client-side logical representation to access the Azure Cosmos DB SQL API. This article describes tools and approaches to help you if you run into any issues.
 
 Start with this list:
 
@@ -29,7 +29,7 @@ Start with this list:
 ### Network issues, Netty read timeout failure, low throughput, high latency
 
 #### General suggestions
-* Make sure the app is running on the same region as your Cosmos DB account. 
+* Make sure the app is running on the same region as your Azure Cosmos DB account. 
 * Check the CPU usage on the host where the app is running. If CPU usage is 90 percent or more, run your app on a host with a higher configuration. Or you can distribute the load on more machines.
 
 #### Connection throttling
@@ -46,13 +46,13 @@ The number of open files, which are identified as "no file," needs to be at leas
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
-If your app is deployed on Azure Virtual Machines without a public IP address, by default [Azure SNAT ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Cosmos DB endpoint is limited by the [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
+If your app is deployed on Azure Virtual Machines without a public IP address, by default [Azure SNAT ports](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports) establish connections to any endpoint outside of your VM. The number of connections allowed from the VM to the Azure Cosmos DB endpoint is limited by the [Azure SNAT configuration](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#preallocatedports).
 
  Azure SNAT ports are used only when your VM has a private IP address and a process from the VM tries to connect to a public IP address. There are two workarounds to avoid Azure SNAT limitation:
 
-* Add your Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
+* Add your Azure Cosmos DB service endpoint to the subnet of your Azure Virtual Machines virtual network. For more information, see [Azure Virtual Network service endpoints](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). 
 
-    When the service endpoint is enabled, the requests are no longer sent from a public IP to Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
+    When the service endpoint is enabled, the requests are no longer sent from a public IP to Azure Cosmos DB. Instead, the virtual network and subnet identity are sent. This change might result in firewall drops if only public IPs are allowed. If you use a firewall, when you enable the service endpoint, add a subnet to the firewall by using [Virtual Network ACLs](https://docs.microsoft.com/azure/virtual-network/virtual-networks-acl).
 * Assign a public IP to your Azure VM.
 
 #### HTTP proxy
@@ -62,7 +62,7 @@ Otherwise, you face connection issues.
 
 #### Invalid coding pattern: Blocking Netty IO thread
 
-The SDK uses the [Netty](https://netty.io/) IO library to communicate with Cosmos DB. The SDK has an Async API and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
+The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure Cosmos DB. The SDK has an Async API and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
 
 The Netty IO threads are meant to be used only for non-blocking Netty IO work. The SDK returns the API invocation result on one of the Netty IO threads to the app's code. If the app performs a long-lasting operation after it receives results on the Netty thread, the SDK might not have enough IO threads to perform its internal IO work. Such app coding might result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation takes time.
 
@@ -147,12 +147,12 @@ This failure is a server-side failure. It indicates that you consumed your provi
 
 ### Failure connecting to Azure Cosmos DB emulator
 
-The Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB emulator certificates](local-emulator-export-ssl-certificates.md).
+The Azure Cosmos DB emulator HTTPS certificate is self-signed. For the SDK to work with the emulator, import the emulator certificate to a Java TrustStore. For more information, see [Export Azure Cosmos DB emulator certificates](local-emulator-export-ssl-certificates.md).
 
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
 
-The Async Java SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks, such as log4j and logback.
+The Java Async SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
 
 For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath.
 
@@ -196,11 +196,11 @@ On Linux, you can run the following command.
 ```bash
 netstat -nap
 ```
-Filter the result to only connections to the Cosmos DB endpoint.
+Filter the result to only connections to the Azure Cosmos DB endpoint.
 
-The number of connections to the Cosmos DB endpoint in the `Established` state can't be greater than your configured connection pool size.
+The number of connections to the Azure Cosmos DB endpoint in the `Established` state can't be greater than your configured connection pool size.
 
-Many connections to the Cosmos DB endpoint might be in the `CLOSE_WAIT` state. There might be more than 1,000. A number that high indicates that connections are established and torn down quickly. This process potentially causes problems. For more information, see the [Common issues and workarounds] section.
+Many connections to the Azure Cosmos DB endpoint might be in the `CLOSE_WAIT` state. There might be more than 1,000. A number that high indicates that connections are established and torn down quickly. This process potentially causes problems. For more information, see the [Common issues and workarounds] section.
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
