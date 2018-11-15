@@ -34,7 +34,12 @@ You can also read the best practices for [cluster security][best-practices-clust
 
 **Best practice guidance** - Don't define credentials in your application code. Use managed identities for Azure resources to let your pod request access to other resources. A digital vault, such as Azure Key Vault, should also be used to store and retrieve digital keys and credentials.
 
-To limit the risk of credentials being exposed in your application code, avoid the use of fixed or shared credentials. Don't include credentials or keys directly in your code. If these were credentials were exposed, the application needs to be updated and redeployed instead of only a credential update or key rotation. Azure provides two ways to automatically authenticate pods or request credentials and keys from a digital vault.
+To limit the risk of credentials being exposed in your application code, avoid the use of fixed or shared credentials. Credentials or keys shouldn't be included directly in your code. If these credentials are exposed, the application needs to be updated and redeployed. A better approach is to give pods their own identity and way to authenticate themselves, or automatically retrieve credentials from a digital vault.
+
+AKS includes two ways to automatically authenticate pods or request credentials and keys from a digital vault:
+
+* Managed identities for Azure resources, and
+* Azure Key Vault FlexVol driver
 
 ### Use pod managed identities
 
@@ -48,11 +53,13 @@ For more information about pod identities, see [Configure an AKS cluster to use 
 
 ### Use Azure Key Vault with FlexVol
 
-Managed pod identities work great to authenticate against supporting Azure services. For your own services or applications without managed identities for Azure resources, credentials or keys are still exchanged for authentication. A central digital vault can be used to store these credentials. When applications need a credential, they reach out to the digital vault, retrieve the latest credentials, and then connect to the required service. The simplified workflow for retrieving a credential from a digital vault using pod managed identities is shown in the following diagram:
+Managed pod identities work great to authenticate against supporting Azure services. For your own services or applications without managed identities for Azure resources, you still authenticate using credentials or keys. A central, digital vault can be used to store these credentials.
+
+When applications need a credential, they reach out to the digital vault, retrieve the latest credentials, and then connect to the required service. Azure Key Vault can be used as this central digital vault. The simplified workflow for retrieving a credential from Azure Key Vault using pod managed identities is shown in the following diagram:
 
 ![Simplified workflow for retrieving a credential from Key Vault using a pod managed identity](media/developer-best-practices-pod-security/basic-key-vault-flexvol.png)
 
-Azure Key Vault can be used as this central digital vault. You can store and regularly rotate credentials, storage account keys, certificates, etc. You can integrate Azure Key Vault with an AKS cluster using a FlexVolume. Work with your cluster operator to deploy the Key Vault FlexVol driver onto the AKS nodes. You then use a pod managed identity to request access to Key Vault and retrieve the credentials you need through the FlexVolume driver.
+ With Key Vault, you can store and regularly rotate credentials, storage account keys, certificates, etc. You can integrate Azure Key Vault with an AKS cluster using a FlexVolume. The FlexVolume driver lets the AKS cluster natively retrieve credentials from Key Vault and securely provide them only to the requesting pod. Work with your cluster operator to deploy the Key Vault FlexVol driver onto the AKS nodes. You can then use a pod managed identity to request access to Key Vault and retrieve the credentials you need through the FlexVolume driver.
 
 ## Next steps
 
