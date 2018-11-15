@@ -20,14 +20,14 @@ ms.author: mathoma
 
 Azure allows you to deploy a virtual machine with an image of SQL Server built in. This article lists the new features and improvements that you can expect in the latest version of SQL Server deployed on an Azure virtual machine. 
 
-## Azure Hybrid Benefit
-The Azure Hybrid Benefit allows you to bring your own SQL Server license when using a VM with a SQL Server image. 
 
-### November 2018
-- You can now update the licensing to use your own SQL Server license for an existing SQL VM using Azure CLI. For more information, see [Use AHB with SQL VM](virtual-machines-windows-sql-ahb.md)
--  
+## November 2018
+- **New SQL resource provider**: There is a new resource provider for SQL VMs that allow for better management of your VM. For more information on registering your VM, see [Register legacy SQL VM with new resource provider](virtual-machines-windows-sql-ahb.md#Register-legacy-SQL-VM-with-new-SQL-VM-resource-provider).
+- **Switch licensing model**:You can now switch between the pay-per-usage and bring-your-own license model for your SQL VM using Azure CLI or Powershell. For more information, see [Switch licensing models for SQL VM](virtual-machines-windows-sql-ahb.md)
+-  **SQL IaaS Extension**: There is a new IaaS extension that improves the usability of SQL VMs such as autopatching, the ability to set cloud backup policy, and Advanced Analytics using the UI in Azure. For more information see, [Register SQL IaaS extension](virtual-machines-windows-sql-ahb.md#Register-SQL-IaaS-extension)
 
-## Resources
+
+## Additional resources
 
 **Windows VMs**:
 
