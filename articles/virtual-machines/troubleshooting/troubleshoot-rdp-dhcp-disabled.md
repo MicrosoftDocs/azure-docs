@@ -198,7 +198,7 @@ To resolve this problem, use Serial control to enable DHCP or [reset network int
 
 4. [Detach the OS disk and recreate the VM](../windows/troubleshoot-recovery-disks-portal.md). Then check whether the problem is resolved.
 
-## Need help? Contact support
+## Next steps
 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your problem resolved.
 
