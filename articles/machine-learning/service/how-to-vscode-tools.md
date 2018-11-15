@@ -34,7 +34,7 @@ To work with Azure Machine Learning, we need to turn VS Code into a Python IDE. 
 
 1. Launch VS Code.
 
-1. In a browser, visit: http://aka.ms/vscodetoolsforai. 
+1. In a browser, visit: https://aka.ms/vscodetoolsforai. 
 
 1. In that web page, click **Install**. 
 
