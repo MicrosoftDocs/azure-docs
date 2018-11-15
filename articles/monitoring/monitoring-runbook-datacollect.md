@@ -194,7 +194,7 @@ Once the schedule is created, you need to set the parameter values that will be 
 8. Click **OK**. 
 
 ## 9. Verify runbook starts on schedule
-Everytime a runbook is started, [a job is created](../automation/automation-runbook-execution.md) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
+Every time a runbook is started, [a job is created](../automation/automation-runbook-execution.md) and any output logged.  In fact, these are the same jobs that the runbook is collecting.  You can verify that the runbook starts as expected by checking the jobs for the runbook after the start time for the schedule has passed.
 
 ![Jobs](media/monitoring-runbook-datacollect/jobs.png)
 
@@ -209,7 +209,7 @@ Everytime a runbook is started, [a job is created](../automation/automation-runb
 
 ## Next steps
 - Use [View Designer](../log-analytics/log-analytics-view-designer.md) to create a view displaying the data that you've collected to the Log Analytics repository.
-- Package your runbook in a [management solution](monitoring-solutions-creating.md) to distribute to customers.
+- Package your runbook in a [management solution](../azure-monitor/insights/solutions-creating.md) to distribute to customers.
 - Learn more about [Log Analytics](https://docs.microsoft.com/azure/log-analytics/).
 - Learn more about [Azure Automation](https://docs.microsoft.com/azure/automation/).
 - Learn more about the [HTTP Data Collector API](../log-analytics/log-analytics-data-collector-api.md).

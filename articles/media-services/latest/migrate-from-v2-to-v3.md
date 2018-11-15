@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/05/2018
+ms.date: 11/07/2018
 ms.author: juliako
 ---
 
@@ -41,7 +41,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * Introduces the concept of [Transforms](transforms-jobs-concept.md) for file-based Job processing. A Transform can be used to build reusable configurations, to create Azure Resource Manager Templates, and isolate processing settings between multiple customers or tenants.
 * An Asset can have [multiple StreamingLocators](streaming-locators-concept.md) each with different Dynamic Packaging and Dynamic Encryption settings.
 * [Content protection](content-key-policy-concept.md) supports multi-key features.
-* You can stream live events that are up to 24 hours long.
+* You can stream live events that are up to 24 hours long when using Media Services for transcoding a single bitrate contribution feed into an output stream that has multiple bitrates.
 * New Low Latency live streaming support on LiveEvents.
 * LiveEvent Preview supports Dynamic Packaging and Dynamic Encryption. This enables content protection on Preview as well as DASH and HLS packaging.
 * LiveOutput is simpler to use than the Program entity in the v2 APIs. 
@@ -55,6 +55,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * The v3 SDKs are now decoupled from the Storage SDK, which gives you more control over the version of Storage SDK you want to use and avoids versioning issues. 
 * In the v3 APIs, all of the encoding bit rates are in bits per second. This is different than the v2 Media Encoder Standard presets. For example, the bitrate in v2 would be specified as 128 (kbps), but in v3 it would be 128000 (bits/second). 
 * Entities AssetFiles, AccessPolicies, and IngestManifests do not exist in v3.
+* The IAsset.ParentAssets property does not exist in v3.
 * ContentKeys is no longer an entity, it is now a property of the StreamingLocator.
 * Event Grid support replaces NotificationEndpoints.
 * The following entities were renamed

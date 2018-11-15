@@ -14,6 +14,8 @@
     href: troubleshoot-rdp-connection.md
   - name: Detailed RDP troubleshooting
     href: detailed-troubleshoot-rdp.md
+  - name: Troubleshoot RDP error because the DHCP is disabled
+    href: troubleshoot-rdp-dhcp-disabled.md
   - name: Troubleshoot specific errors
     href: troubleshoot-specific-rdp-errors.md
   - name: Troubleshoot no license server errors
@@ -30,6 +32,12 @@
     href: troubleshoot-authentication-error-rdp-vm.md
   - name: Troubleshoot Azure VM RDP connection issues by Event ID
     href: event-id-troubleshoot-vm-rdp-connecton.md
+  - name: Troubleshoot RDP error in VM because of static IP
+    href: troubleshoot-rdp-static-ip.md
+  - name: Troubleshoot RDP error in VM because the NIC is disabled
+    href: troubleshoot-rdp-nic-disabled.md
+  - name: Troubleshoot RDP errors becauses of Safe Mode
+    href: troubleshoot-rdp-safe-mode.md
 - name: SSH
   items:
   - name: SSH troubleshooting
