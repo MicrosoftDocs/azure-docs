@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Call your Bing Custom Search endpoint using Java | Microsoft Docs"
 titlesuffix: Azure Cognitive Services
-description: This quickstart shows how to request search results from your custom search instance by using Java to call the Bing Custom Search endpoint. 
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in Java. 
 services: cognitive-services
 author: brapel
 manager: cgronlun
@@ -82,7 +82,7 @@ You must have a [Cognitive Services API account](../cognitive-services-apis-crea
     }
 ```
 
-## Making and sending a search request 
+## Send and receive a search request 
 
 1. Create a function named `SearchWeb()` that sends a request and returns a `SearchResults` object. Create the request url by combining your Custom Configuration ID, query, and  endpoint information. Add your Subcription key to the `Ocp-Apim-Subscription-Key` header.
 
@@ -230,6 +230,10 @@ To run this example, follow these steps:
 4. Run the program.
     
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Build a Custom Search web page](./custom-search-web-page.md)
+
 - [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

@@ -78,7 +78,7 @@ You must have a [Cognitive Services API account](../cognitive-services-apis-crea
                 "customconfig=" + customConfigId;
     ```
 
-## Send the search request and parse the results
+## Send and receive a search request 
 
 1. Create a request client, and add your subscription key to the `Ocp-Apim-Subscription-Key` header.
 
@@ -215,6 +215,10 @@ To run this example, follow these steps:
     </pre>
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Build a Custom Search web page](./custom-search-web-page.md)
+
 - [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)

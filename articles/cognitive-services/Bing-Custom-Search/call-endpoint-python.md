@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Call endpoint by using Python - Bing Custom Search"
+title: "Quickstart: Call your Bing Custom Search endpoint using Python | Microsoft Docs"
 titlesuffix: Azure Cognitive Services
-description: This quickstart shows how to request search results from your custom search instance by using Python to call the Bing Custom Search endpoint.
+description: Use this quickstart to begin requesting search results from your Bing Custom Search instance using Python
 services: cognitive-services
 author: brapel
 manager: cgronlun
@@ -13,20 +13,47 @@ ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
-# Quickstart: Call Bing Custom Search endpoint (Python)
+# Quickstart: Call your Bing Custom Search endpoint using Python
 
-This quickstart shows how to request search results from your custom search instance using Python to call the Bing Custom Search endpoint. 
+Use this quickstart to begin requesting search results from your Bing Custom Search instance. While this application is written in Python, the Bing Custom Search API is a RESTful web service compatible with most programming languages.
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
+- [Python](https://www.python.org/) 2.x or 3.x
 
-- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).
-- [Python](https://www.python.org/) installed.
-- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).    
+You must have a [Cognitive Services API account](../cognitive-services-apis-create-account) with access to the Bing Custom Search API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
 
 
-## Run the code
+## Create and initialize the application
+
+1. Create a new Python file in your favorite IDE or editor, and add the following import statements. Create variables for your subscription key, Custom Configuration ID, and a search term. 
+
+    ```python
+    import json
+    import requests
+    
+    subscriptionKey = "YOUR-SUBSCRIPTION-KEY"
+    customConfigId = "YOUR-CUSTOM-CONFIG-ID"
+    searchTerm = "microsoft"
+    ```
+
+## Send and receive a search request 
+
+1. Construct the request URL by appending your search term to the `q=` query parameter, and your search instance's Custom Configuration ID to `customconfig=`. separate the parameters with a `&` character. 
+
+    ```python
+    url = 'https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/search?' + 'q=' + searchTerm + '&' + 'customconfig=' + customConfigId
+    ```
+
+2. Send the request to your Bing Custom Search instance, and print out the returned search results.  
+
+    ```python
+    r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
+    print(r.text)
+    ```
+
+## Full application code
 
 To run this example, follow these steps:
 
@@ -55,14 +82,18 @@ To run this example, follow these steps:
     r = requests.get(url, headers={'Ocp-Apim-Subscription-Key': subscriptionKey})
     print(r.text)
     ```  
-  
-7. Run the code using the following command.  
+ 
+5. Run the code using the following command.  
   
     ```
     python BingCustomSearch.py
     ```
 
 ## Next steps
+
+> [!div class="nextstepaction"]
+> [Build a Custom Search web page](./custom-search-web-page.md)
+
 - [Configure your hosted UI experience](./hosted-ui.md)
 - [Use decoration markers to highlight text](./hit-highlighting.md)
 - [Page webpages](./page-webpages.md)
