@@ -22,7 +22,7 @@ Management solutions leverage services in Azure to provide additional insight in
 
 Management solutions typically collect information into Log Analytics and provide log searches and views to analyze collected data. They may also leverage other services such as Azure Automation to perform actions related to the application or service.
 
-You can add management solutions to your Azure subscription for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create management solutions](../../monitoring/solutions-creating.md) to be used in their own environment or made available to customers through the community.
+You can add management solutions to your Azure subscription for any applications and services that you use. They are typically available at no cost but collect data that could invoke usage charges. In addition to solutions provided by Microsoft, partners and customers can [create management solutions](solutions-creating.md) to be used in their own environment or made available to customers through the community.
 
 ## Using management solutions
 The **Overview** page for each Log Analytics workspace displays a tile for each solution installed in the workspace. Click on the tile for the solution to open its view which includes more detailed analysis its collected data.

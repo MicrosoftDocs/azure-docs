@@ -30580,7 +30580,61 @@
             "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
             "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
             "redirect_document_id" : false
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-agenthealth.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solution-agenthealth.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-office-365.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solution-office-365.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-best-practices.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions-best-practices.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-creating.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions-creating.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-inventory.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions-inventory.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-automation.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions-resources-automation.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-searches-alerts.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions-resources-searches-alerts.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-views.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions-resources-views.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-solution-file.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solutions-solution-file.md",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-targeting.md",
+            "redirect_url":  "/azure/monitoring/monitoring-solution-targeting.md",
+            "redirect_document_id":  "false"
         }
-
     ]
 }

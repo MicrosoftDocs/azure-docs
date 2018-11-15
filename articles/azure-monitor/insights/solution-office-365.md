@@ -372,7 +372,7 @@ At line:12 char:18
 ```
 
 ## Uninstall
-You can remove the Office 365 management solution using the process in [Remove a management solution](../../monitoring/solutions.md#remove-a-management-solution). This will not stop data being collected from Office 365 into Log Analytics though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
+You can remove the Office 365 management solution using the process in [Remove a management solution](solutions.md#remove-a-management-solution). This will not stop data being collected from Office 365 into Log Analytics though. Follow the procedure below to unsubscribe from Office 365 and stop collecting data.
 
 1. Save the following script as *office365_unsubscribe.ps1*.
 
