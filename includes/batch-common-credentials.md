@@ -6,4 +6,4 @@ For this example, you need to provide credentials for your Batch and Storage acc
 
 2. To see the Batch credentials, click **Keys**. Copy the values of **Batch account**, **URL**, and **Primary access key** to a text editor.
 
-3. To see the Storage account name and keys, click **Storage account**. Copy the values of **Storage account name** and **Key1** to a text editor.
+3. To see the Storage account name and keys, click **Storage account** > **Access keys**. Copy the values of **Storage account name** and **Key1** to a text editor.
