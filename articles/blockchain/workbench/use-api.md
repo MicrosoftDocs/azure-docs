@@ -106,7 +106,7 @@ Content-type: application/json
 
 Once a user selects the applicable workflow, this case **Asset Transfer**, the blockchain client will retrieve all smart contract instances for the specified workflow. You can use this information to show all smart contract instances for the workflow and allow users to deep dive into any of the shown smart contract instances. In this example, consider a user would like to interact with one of the smart contract instances to take action.
 
-Use the [Contracts GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractsget):
+Use the [Contracts GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractsget):
 
 ``` http
 GET api/v1/contracts?workflowId={workflowId}
@@ -208,7 +208,7 @@ Once a user has decided to deep dive into one of the contracts, the blockchain c
 * Modify: Allows the user to modify the description and price of an asset.
 * Terminate: Allows the user to terminate the contract of the asset.
 
-Use the [Contract Action GET API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionget):
+Use the [Contract Action GET API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 
 ``` http
 GET /api/v1/contracts/{contractId}/actions
@@ -275,7 +275,7 @@ A user can then decide to take action for the specified smart contract instance.
 * Description: "My updated car"
 * Price: 54321
 
-Use the [Contract Action POST API](https://docs.microsoft.com/rest/api/azure-blockchain-workbench/contracts/contractactionpost):
+Use the [Contract Action POST API](/rest/api/azure-blockchain-workbench/contractsv2/contractactionpost):
 
 ``` http
 POST /api/v1/contracts/{contractId}/actions

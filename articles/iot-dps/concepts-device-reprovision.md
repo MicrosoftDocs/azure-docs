@@ -12,7 +12,6 @@ manager: timlt
 
 # IoT Hub Device reprovisioning concepts
 
-
 During the lifecycle of an IoT solution, it is common to move devices between IoT hubs. The reasons for this move may include the following scenarios:
 
 * **Geolocation / GeoLatency**: As a device moves between locations, network latency is improved by having the device migrated to a closer IoT hub.
@@ -37,13 +36,11 @@ When a device is initially provisioned with a Device Provisioning Service instan
 
 2. The provisioning service instance gives a copy of any initial device state data to the assigned IoT hub. The device connects to the assigned IoT hub and begins operations.
 
-
 Over time, the device state data on the IoT hub may be updated by [device operations](../iot-hub/iot-hub-devguide-device-twins.md#device-operations) and [back-end operations](../iot-hub/iot-hub-devguide-device-twins.md#back-end-operations). The initial device state information stored in the Device Provisioning Service instance remains untouched. This untouched device state data is the initial configuration.
 
 ![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-provisioning-2.png)
 
 Depending on the scenario, as a device moves between IoT hubs, it may also be necessary to migrate device state updated on the previous IoT hub over to the new IoT hub. This is supported by reprovisioning policies in the Device Provisioning Service. 
-
 
 ## Reprovisioning policies
 
@@ -53,17 +50,15 @@ Depending on the scenario, a device will usually send a provisioning request to 
 
     ![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-migrate.png)
 
-
 * **Re-provision and reset to initial config**: This policy takes action when devices associated with the enrollment entry submit a new provisioning request (1). Depending on the enrollment entry configuration, the device may be reassigned to another IoT hub. If the device is changing IoT hubs, the device registration with the initial IoT hub will be removed. The initial configuration data that the provisioning service instance received when the device was provisioned is provided to the new IoT hub (2). During migration, the device's status will be reported as **Assigning**.
 
     This policy is often used for a factory reset without changing IoT hubs. 
 
     ![Provisioning with the Device Provisioning Service](./media/concepts-device-reprovisioning/dps-reprovisioning-reset.png)
 
-
 * **Never re-provision**: The device is never reassigned to a different hub. This policy is provided for managing backwards compatibility.
 
-#### Managing backwards compatibility
+### Managing backwards compatibility
 
 Prior to September 2018, device assignments to IoT hubs had a sticky behavior. When a device went back through the provisioning process, it would only be assigned back to the same IoT hub. 
 
@@ -81,24 +76,13 @@ The following flow chart helps to summarize when the behavior is present:
 
 The following table shows the API versions prior to the availability of native reprovisioning support in the Device Provisioning Service:
 
-
 | REST API | C SDK | Python SDK |  Node SDK | Java SDK | .NET SDK |
 | -------- | ----- | ---------- | --------- | -------- | -------- |
-| [2018-04-01 and earlier](https://docs.microsoft.com/rest/api/iot-dps/deviceenrollment/createorupdate#uri-parameters) | [1.2.8 and earlier](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 and earlier](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 or earlier](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 or earlier](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 or earlier](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
+| [2018-04-01 and earlier](/rest/api/iot-dps/createorupdateindividualenrollment/createorupdateindividualenrollment#uri-parameters) | [1.2.8 and earlier](https://github.com/Azure/azure-iot-sdk-c/blob/master/version.txt) | [1.4.2 and earlier](https://github.com/Azure/azure-iot-sdk-python/blob/0a549f21f7f4fc24bc036c1d2d5614e9544a9667/device/iothub_client_python/src/iothub_client_python.cpp#L53) | [1.7.3 or earlier](https://github.com/Azure/azure-iot-sdk-node/blob/074c1ac135aebb520d401b942acfad2d58fdc07f/common/core/package.json#L3) | [1.13.0 or earlier](https://github.com/Azure/azure-iot-sdk-java/blob/794c128000358b8ed1c4cecfbf21734dd6824de9/device/iot-device-client/pom.xml#L7) | [1.1.0 or earlier](https://github.com/Azure/azure-iot-sdk-csharp/blob/9f7269f4f61cff3536708cf3dc412a7316ed6236/provisioning/device/src/Microsoft.Azure.Devices.Provisioning.Client.csproj#L20)
 
 > [!NOTE]
 > These values and links are likely to change. This is only a placeholder attempt to determine where the versions can be determined by a customer and what the expected versions will be.
 
-
-
-
 ## Next steps
 
 - [How to re-provision devices](how-to-reprovision.md)
-
-
-
-
-
-
-

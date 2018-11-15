@@ -14,6 +14,7 @@ ms.author: maquaran
 
 ---
 # Going social with Azure Cosmos DB
+
 Living in a massively interconnected society means that, at some point in life, you become part of a **social network**. You use social networks to keep in touch with friends, colleagues, family, or sometimes to share your passion with people with common interests.
 
 As engineers or developers, you might have wondered how do these networks store and interconnect your data, or might have even been tasked to create or architect a new social network for a specific niche market yourselves. That’s when the significant question arises: How is all this data stored?
@@ -35,8 +36,8 @@ Why isn't SQL the best choice in this scenario? Let’s look at the structure of
 You could use an enormous SQL instance with enough power to solve thousands of queries with many joins to serve your content, but truly, why would you, when a simpler solution exists?
 
 ## The NoSQL road
-This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
+This article will guide you into modeling your social platform's data with Azure's NoSQL database [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) in a cost-effective way while leveraging other Azure Cosmos DB features like the  [Gremlin API](../cosmos-db/graph-introduction.md). Using a [NoSQL](https://en.wikipedia.org/wiki/NoSQL) approach, storing data, in JSON format and applying [denormalization](https://en.wikipedia.org/wiki/Denormalization), the previously complicated post can be transformed into a single [Document](https://en.wikipedia.org/wiki/Document-oriented_database):
 
     {
         "id":"ew12-res2-234e-544f",
@@ -57,7 +58,7 @@ This article will guide you into modeling your social platform's data with Azure
 
 And it can be obtained with a single query, and with no joins. This query is much simple and straightforward, and, budget-wise, it requires fewer resources to achieve a better result.
 
-Azure Cosmos DB makes sure that all the properties are indexed with its automatic indexing, which can even be [customized](indexing-policies.md). The schema-free approach lets us store documents with different and dynamic structures, maybe tomorrow you want posts to have a list of categories or hashtags associated with them, Cosmos DB will handle the new Documents with the added attributes with no extra work required by us.
+Azure Cosmos DB makes sure that all the properties are indexed with its automatic indexing, which can even be [customized](index-policy.md). The schema-free approach lets us store documents with different and dynamic structures, maybe tomorrow you want posts to have a list of categories or hashtags associated with them, Cosmos DB will handle the new Documents with the added attributes with no extra work required by us.
 
 Comments on a post can be treated as other posts with a parent property (this simplifies your object mapping). 
 
@@ -131,6 +132,7 @@ And the actual graph of followers can be stored using Azure Cosmos DB [Gremlin A
 The User Statistics document can still be used to create cards in the UI or quick profile previews.
 
 ## The "Ladder" pattern and data duplication
+
 As you might have noticed in the JSON document that references a post, there are multiple occurrences of a user. And you’d have guessed right, this means that the information that represents a user, given this denormalization, might be present in more than one place.
 
 In order to allow for faster queries, you incur data duplication. The problem with this side-effect is that if by some action, a user’s data changes, you need to find all the activities he ever did and update them all. Doesn’t sound practical, right?
@@ -189,6 +191,7 @@ And a Post would look like:
 And when an edit arises where one of the attributes of the chunk is affected, it’s easy to find the affected documents by using queries that point to the indexed attributes (SELECT * FROM posts p WHERE p.createdBy.id == "edited_user_id") and then updating the chunks.
 
 ## The search box
+
 Users will generate, luckily, much content. And you should be able to provide the ability to search and find content that might not be directly in their content streams, maybe because you don’t follow the creators, or maybe you are just trying to find that old post you did six months ago.
 
 Thankfully, and because you are using Azure Cosmos DB, you can easily implement a search engine using [Azure Search](https://azure.microsoft.com/services/search/) in a couple of minutes and without typing a single line of code (other than obviously, the search process and UI).
@@ -200,6 +203,7 @@ Azure Search implements what they call [Indexers](https://msdn.microsoft.com/lib
 For more information about Azure Search, you can visit the [Hitchhiker’s Guide to Search](https://blogs.msdn.microsoft.com/mvpawardprogram/2016/02/02/a-hitchhikers-guide-to-search/).
 
 ## The underlying knowledge
+
 After storing all this content that grows and grows every day, you might find thinking: What can I do with all this stream of information from my users?
 
 The answer is straightforward: Put it to work and learn from it.
@@ -215,6 +219,7 @@ To achieve any of these Machine Learning scenarios, you can use [Azure Data Lake
 Another available option is to use [Azure Cognitive Services](https://www.microsoft.com/cognitive-services) to analyze your users content; not only can you understand them better (through analyzing what they write with [Text Analytics API](https://www.microsoft.com/cognitive-services/en-us/text-analytics-api)) , but you could also detect unwanted or mature content and act accordingly with [Computer Vision API](https://www.microsoft.com/cognitive-services/en-us/computer-vision-api). Cognitive Services includes many out-of-the-box solutions that don't require any kind of Machine Learning knowledge to use.
 
 ## A planet-scale social experience
+
 There is a last, but not least, important article I must address: **scalability**. When designing an architecture it's crucial that each component can scale on its own, either because you need to process more data or because you want to have a bigger geographical coverage (or both!). Thankfully, achieving such a complex task is a **turnkey experience** with Cosmos DB.
 
 Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-things-to-know-about-documentdb-partitioned-collections/) out-of-the-box by automatically creating partitions based on a given **partition key** (defined as one of the attributes in your documents). Defining the correct partition key must be done at design time, to learn more, see [choose the right partition key](partitioning-overview.md#choose-partitionkey) article. In case of a social experience, your partitioning strategy must be aligned with the way you query (reads within the same partition are desirable) and write (avoid "hot spots" by spreading writes on multiple partitions). Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, by user; it all really depends on how you will query the data and show it in your social experience. 
@@ -236,6 +241,7 @@ When you replicate your data globally, you need to make sure that your clients c
 ![Adding global coverage to your social platform](./media/social-media-apps/social-media-apps-global-replicate.png)
 
 ## Conclusion
+
 This article tries to shed some light into the alternatives of creating social networks completely on Azure with low-cost services and providing great results by encouraging the use of a multi-layered storage solution and data distribution called "Ladder".
 
 ![Diagram of interaction between Azure services for social networking](./media/social-media-apps/social-media-apps-azure-solution.png)
@@ -243,4 +249,5 @@ This article tries to shed some light into the alternatives of creating social n
 The truth is that there is no silver bullet for this kind of scenarios, it’s the synergy created by the combination of great services that allow us to build great experiences: the speed and freedom of Azure Cosmos DB to provide a great social application, the intelligence behind a first-class search solution like Azure Search, the flexibility of Azure App Services to host not even language-agnostic applications but powerful background processes and the expandable Azure Storage and Azure SQL Database for storing massive amounts of data and the analytic power of Azure Machine Learning to create knowledge and intelligence that can provide feedback to your processes and help us deliver the right content to the right users.
 
 ## Next steps
+
 To learn more about use cases for Cosmos DB, see [Common Cosmos DB use cases](use-cases.md).

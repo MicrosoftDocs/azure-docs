@@ -41,7 +41,7 @@ during off-peak hours and uses cloud computing for
 compressing images uploaded during the day.
 
 This article describes example jobs you can create by using Scheduler and 
-and the [Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule), 
+and the [Azure Scheduler REST API](/rest/api/scheduler), 
 and includes the JavaScript Object Notation (JSON) definition for each schedule. 
 
 ## Supported scenarios
@@ -67,7 +67,7 @@ This article later describes these scenarios in more detail.
 ## Create schedule with REST API
 
 To create a basic schedule with the 
-[Azure Scheduler REST API](https://docs.microsoft.com/rest/api/schedule), 
+[Azure Scheduler REST API](/rest/api/scheduler), 
 follow these steps:
 
 1. Register your Azure subscription with a resource provider 
