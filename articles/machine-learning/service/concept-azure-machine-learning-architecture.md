@@ -152,9 +152,9 @@ An experiment is a grouping of many runs from a given script. It always belongs 
 
 For an example of using an experiment, see the [Quickstart: Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
-## Pipelines
+## Pipeline
 
-Pipelines are used to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inferencing phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets.
+Machine learning pipelines are used to create and manage workflows that stitch together machine learning phases. For example, a pipeline might include data preparation, model training, model deployment, and inferencing phases. Each phase can encompass multiple steps, each of which can run unattended in various compute targets.
 
 For more information on machine learning pipelines with this service, see the article [Pipelines and Azure Machine Learning](concept-ml-pipelines.md).
 

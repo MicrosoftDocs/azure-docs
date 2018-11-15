@@ -46,8 +46,8 @@
   - name: Manage workspaces
     href: how-to-manage-workspace.md 
   - name: Set up development environment 	
-    items:
-    - name: Configure an environment
+    items:    
+    - name: Configure your dev environment
       displayName: local, remote
       href: how-to-configure-environment.md
     - name: VS Code Tools for AI
@@ -115,6 +115,9 @@
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
       href: how-to-secure-web-service.md  
+    - name: Consume a deployed model
+      displayName: create client, client, consume
+      href: how-to-consume-web-service.md
   - name: Monitor models
     items:  
     - name: Collect data in production  
@@ -131,7 +134,9 @@
   - name: Machine learning SDK
     href: http://aka.ms/aml-sdk
   - name: Data prep SDK
-    href: http://aka.ms/data-prep-sdk   
+    href: http://aka.ms/data-prep-sdk
+  - name: Monitoring SDK
+    href: https://aka.ms/aml-monitoring-sdk 
 - name: Resources
   items:  
   - name: Azure roadmap
