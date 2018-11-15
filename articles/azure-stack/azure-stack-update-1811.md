@@ -40,7 +40,8 @@ This update includes the following improvements for Azure Stack:
 
 - With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
-- <!--  2712869   | IS  ASDK -->  **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
+<!--  2712869   | IS  ASDK -->  
+- **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
    With this release, the syslog client is generally available, and it can be used in production environments.
 
@@ -50,7 +51,17 @@ This update includes the following improvements for Azure Stack:
 
 ### Fixed issues
 
+<!-- 2930718 - IS ASDK --> 
+- Fixed: in the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
 
+<!-- 3060156 - IS ASDK --> 
+- Fixed an issue in both the administrator and user portals: clicking on the portal settings and selecting **Delete all settings and private dashboards** did not work as expected. An error notification was displayed. 
+
+<!-- 2930799 - IS ASDK --> 
+- Fixed an issue in both the administrator and user portals: under **All services**, the asset **DDoS protection plans** was incorrectly listed. It is not available in Azure Stack.
+ 
+<!--2760466 – IS  ASDK --> 
+- Fixed: when you installed a new Azure Stack environment, the alert that indicates *Activation Required* might not display.   
 
 ### Changes
 
@@ -149,14 +160,6 @@ The following are post-installation known issues for this build version.
 
 - The Azure Stack technical documentation focuses on the latest release. Due to portal changes between releases, what you see when using the Azure Stack portals might vary from what you see in the documentation.
 
-<!-- 2930718 - IS ASDK --> 
-- In the administrator portal, when accessing the details of any user subscription, after closing the blade and clicking on **Recent**, the user subscription name does not appear.
-
-<!-- 3060156 - IS ASDK --> 
-- In both the administrator and user portals, clicking on the portal settings and selecting **Delete all settings and private dashboards** does not work as expected. An error notification is displayed. 
-
-<!-- 2930799 - IS ASDK --> 
-- In both the administrator and user portals, under **All services**, the asset **DDoS protection plans** is incorrectly listed. It is not available in Azure Stack. If you try to create it, an error is displayed stating that the portal could not create the marketplace item. 
 
 <!-- 2930820 - IS ASDK --> 
 - In both the administrator and user portals, if you search for "Docker," the item is incorrectly returned. It is not available in Azure Stack. If you try to create it, a blade with an error indication is displayed. 
@@ -169,9 +172,6 @@ The following are post-installation known issues for this build version.
 
 <!-- 2931230 – IS  ASDK --> 
 - Plans that are added to a user subscription as an add-on plan cannot be deleted, even when you remove the plan from the user subscription. The plan will remain until the subscriptions that reference the add-on plan are also deleted. 
-
-<!--2760466 – IS  ASDK --> 
-- When you install a new Azure Stack environment that runs this version, the alert that indicates *Activation Required* might not display. [Activation](azure-stack-registration.md) is required before you can use marketplace syndication.  
 
 <!-- TBD - IS ASDK --> 
 - The two administrative subscription types that were introduced with version 1804 should not be used. The subscription types are **Metering subscription**, and **Consumption subscription**. These subscription types are visible in new Azure Stack environments beginning with version 1804 but are not yet ready for use. You should continue to use the **Default Provider** subscription type.
