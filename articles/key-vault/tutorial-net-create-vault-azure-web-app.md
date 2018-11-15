@@ -52,7 +52,7 @@ Before proceeding, read [Key Vault basic concepts](key-vault-whatis.md#basic-con
 
 Azure Key Vault stores credentials securely so they aren’t in your code. However, you need to authenticate to Azure Key Vault to retrieve your keys. To authenticate to Key Vault, you need a credential. It's a classic bootstrap dilemma. Managed Service Identity (MSI) solves this issue by providing a _bootstrap identity_ that simplifies the process.
 
-When you enable MSI for an Azure service (for example: Virtual Machines, App Service, or Functions) Azure creates a [Service Principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the credentials for the Service Principal into that instance.
+When you enable MSI for an Azure service (for example: Virtual Machines, App Service, or Functions), Azure creates a [Service Principal](key-vault-whatis.md#basic-concepts). MSI does this for the instance of the service in Azure Active Directory (Azure AD) and injects the credentials for the Service Principal into that instance.
 
 ![MSI diagram](media/MSI.png)
 
@@ -84,7 +84,7 @@ You use this resource group throughout this tutorial.
 
 To create a key vault in your resource group, provide the following information:
 
-* Key vault name: a string of 3 - 24 characters that can contain only numbers, letters, and hyphens (for example: 0-9, a-z, A-Z, and - )
+* Key vault name: a string of 3 to 24 characters that can contain only numbers, letters, and hyphens (for example: 0-9, a-z, A-Z, and - )
 * Resource group name
 * Location: **West US**
 
@@ -122,7 +122,7 @@ Follow this [tutorial](../app-service/app-service-web-get-started-dotnet.md) to 
 
 ## Open and edit the solution
 
-1. Navigate to **Pages** > **About.cshtml.cs** file.
+1. Browse to the **Pages** > **About.cshtml.cs** file.
 2. Install these NuGet packages:
    - [AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication)
    - [KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault)
@@ -212,7 +212,7 @@ Azure Key Vault provides a way to securely store credentials and other secrets, 
    ```
 
    >[!NOTE]
-   >You have to replace \<YourAppName\> with the name of the published app on Azure. For example, if your published app name was **MyAwesomeapp.azurewebsites.net** replace \<YourAppName\> with **MyAwesomeapp**.
+   >You have to replace \<YourAppName\> with the name of the published app on Azure. For example, if your published app name was **MyAwesomeapp.azurewebsites.net**, replace \<YourAppName\> with **MyAwesomeapp**.
 
 1. Make a note of the `PrincipalId` when you publish the application to Azure. The output of the command in step 1 should be in the following format:
 
