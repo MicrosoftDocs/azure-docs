@@ -48,7 +48,7 @@ These regions and endpoints are supported:
 
 Use these samples to create your access token request.
 
-# [HTTP](#tab/http)
+#### HTTP sample
 
 This example is a simple HTTP request to get a token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. If your subscription isn't in the West US region, replace the `Host` header with your region's host name.
 
@@ -62,7 +62,7 @@ Content-Length: 0
 
 The body of the response contains the access token in Java Web Token (JWT) format.
 
-# [Powershell](#tab/powershell)
+#### PowerShell sample
 
 This example is a simple PowerShell script to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
@@ -81,11 +81,11 @@ $OAuthToken
 
 ```
 
-# [cURL](#tab/curl)
+#### cURL sample
 
 cURL is a command-line tool available in Linux (and in the Windows Subsystem for Linux). This cURL command illustrates how to get an access token. Replace `YOUR_SUBSCRIPTION_KEY` with your Speech Service subscription key. Make sure to use the correct endpoint for the region that matches your subscription. This example is currently set to West US.
 
-```cURL
+```cli
 curl -v -X POST
  "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" \
  -H "Content-type: application/x-www-form-urlencoded" \
@@ -93,7 +93,7 @@ curl -v -X POST
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
-# [C#](#tab/csharp)
+#### C# sample
 
 This C# class illustrates how to get an access token. Pass your Speech Service subscription key when you instantiate the class. If your subscription isn't in the West US region, change the value of `FetchTokenUri` to match the region for your subscription.
 
@@ -133,7 +133,6 @@ public class Authentication
     }
 }
 ```
----
 
 ### How to use an access token
 
