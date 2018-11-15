@@ -118,7 +118,7 @@ Save the registration token and registration resource name for future reference.
 
 Still using the internet-connected computer, retrieve an activation key from the registration resource created when you registered with Azure.
 
-To get the activation key, run the following PowerShell commands, use the same "<unique-registration-name>" value you provided when registering with Azure in the previous step:  
+To get the activation key, run the following PowerShell commands, use the same unique registration name value you provided when registering with Azure in the previous step:  
 
   ```Powershell
   $RegistrationResourceName = "<unique-registration-name>"
