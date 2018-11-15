@@ -11,7 +11,7 @@ ms.date: 06/25/2017
 ms.author: sajagtap
 ---
 
-# About Review Tool settings #
+# Review tool settings #
 
 Using the Settings tab on the Review Tool Dashboard, it is easy to define and change many components.
 
