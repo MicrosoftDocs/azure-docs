@@ -27,12 +27,12 @@
       href: iot-accelerators-remote-monitoring-monitor.md
     - name: Detect device issues
       href: iot-accelerators-remote-monitoring-automate.md
-    - name: Configure and manage devices
+    - name: Configure devices
       href: iot-accelerators-remote-monitoring-manage.md
     - name: Conduct a root cause analysis on an alert
       href: iot-accelerators-remote-monitoring-root-cause-analysis.md
     - name: Use alerts and fix device issues
-      href: iot-accelerators-remote-monitoring-maintain.md
+      href: iot-accelerators-remote-monitoring-configure.md
   - name: Device Simulation
     items:
     - name: Create and run a simulation
