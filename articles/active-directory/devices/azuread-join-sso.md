@@ -57,6 +57,7 @@ With SSO on an Azure AD joined device, you can:
 
 - Access an AD member web server configured for Windows-integrated security 
 
+
 You can use:
 
 - The Active Directory Users and Computers (ADUC) snap-in to administer all AD objects. However, you have to manually specify the domain that you want to connect to manually.
