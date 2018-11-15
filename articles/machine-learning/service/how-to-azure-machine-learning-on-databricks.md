@@ -1,8 +1,8 @@
 ---
 title: Use the Azure Machine Learning SDK on Databricks
-description: Learn how to train and deploy models with the Azure Machine Learning SDK on Apache Spark. This article shows end to end custom machine learning on Databricks. 
+description: Learn how to train and deploy models with the Azure Machine Learning SDK on Apache Spark. This article shows an end to end custom machine learning example on Databricks. 
 services: machine-learning
-author: pasha
+author: parasharshah
 ms.author: pasha
 manager:  cgronlun
 ms.service: machine-learning
