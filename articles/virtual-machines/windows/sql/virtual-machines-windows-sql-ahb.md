@@ -58,6 +58,9 @@ $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtua
 $SqlVm.Properties.sqlServerLicenseType="NeedValue"
 $SqlVm | Set-AzureRmResource -Force 
 ``` 
+
+  >[NOTE]
+  > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL VM with the new provider, you may encounter this error: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` If you see this error, please [register with the SQL resource provider](#register-legacy-SQL-vm-with-new-SQL-VM-resource-provider). 
  
 
 ## Use Azure CLI
@@ -74,6 +77,9 @@ This code snippet switches your BYOL model to pay-per-usage:
 az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=NeedValue
 # example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=NeedValue
 ```
+
+  >[NOTE]
+  > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL VM with the new provider, you may encounter this error: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` If you see this error, please [register with the SQL resource provider](#register-legacy-SQL-vm-with-new-SQL-VM-resource-provider). 
 
 ## View current licensing 
 
