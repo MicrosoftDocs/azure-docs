@@ -39,7 +39,7 @@ Matchers are graph objects that determine what user-defined functions run for a 
 The following example matcher evaluates to true on any sensor telemetry event with `"Temperature"` as its data type value. You can create multiple matchers on a user-defined function:
 
 ```plaintext
-POST yourManagementApiUrl/matchers
+POST YOUR_MANAGEMENT_API_URL/matchers
 {
   "Name": "Temperature Matcher",
   "Conditions": [
@@ -54,7 +54,7 @@ POST yourManagementApiUrl/matchers
 }
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | Which server region your instance is hosted on |
 
@@ -67,20 +67,20 @@ After the matchers are created, upload the function snippet with the following *
 > - The body is multipart:
 >   - The first part is about metadata needed for the UDF.
 >   - The second part is the JavaScript compute logic.
-> - In the **userDefinedBoundary** section, replace the **SpaceId** and **Machers** values.
+> - In the **USER_DEFINED_BOUNDARY** section, replace the **SpaceId** and **Machers** values.
 
 ```plaintext
-POST yourManagementApiUrl/userdefinedfunctions with Content-Type: multipart/form-data; boundary="userDefinedBoundary"
+POST YOUR_MANAGEMENT_API_URL/userdefinedfunctions with Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"
 ```
 
 | Parameter value | Replace with |
 | --- | --- |
-| *userDefinedBoundary* | A multi-part content boundary name |
+| *USER_DEFINED_BOUNDARY* | A multipart content boundary name |
 
 ### Body
 
 ```plaintext
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Type: application/json; charset=utf-8
 Content-Disposition: form-data; name="metadata"
 
@@ -90,7 +90,7 @@ Content-Disposition: form-data; name="metadata"
   "Description": "The contents of this udf will be executed when matched against incoming telemetry.",
   "Matchers": ["YOUR_MATCHER_IDENTIFIER"]
 }
---userDefinedBoundary
+--USER_DEFINED_BOUNDARY
 Content-Disposition: form-data; name="contents"; filename="userDefinedFunction.js"
 Content-Type: text/javascript
 
@@ -98,10 +98,10 @@ function process(telemetry, executionContext) {
   // Code goes here.
 }
 
---userDefinedBoundary--
+--USER_DEFINED_BOUNDARY--
 ```
 
-| Your value | Replace with |
+| Value | Replace with |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | The space identifier  |
 | YOUR_MATCHER_IDENTIFIER | The ID of the matcher you want to use |
@@ -184,7 +184,7 @@ We need to create a role assignment for the user-defined function to run under. 
 1. Query for roles and get the ID of the role you want to assign to the UDF. Pass it to **RoleId**:
 
     ```plaintext
-    GET yourManagementApiUrl/system/roles
+    GET YOUR_MANAGEMENT_API_URL/system/roles
     ```
 
 1. **ObjectId** will be the UDF ID that was created earlier.
@@ -192,17 +192,17 @@ We need to create a role assignment for the user-defined function to run under. 
 1. Copy the returned `spacePaths` value. You'll use that in the following code:
 
     ```plaintext
-    GET yourManagementApiUrl/spaces?name=yourSpaceName&includes=fullpath
+    GET YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
     | Parameter value | Replace with |
     | --- | --- |
-    | *yourSpaceName* | The name of the space you wish to use |
+    | *YOUR_SPACE_NAME* | The name of the space you wish to use |
 
 1. Paste the returned `spacePaths` value into **Path** to create a UDF role assignment:
 
     ```plaintext
-    POST yourManagementApiUrl/roleassignments
+    POST YOUR_MANAGEMENT_API_URL/roleassignments
     {
       "RoleId": "YOUR_DESIRED_ROLE_IDENTIFIER",
       "ObjectId": "YOUR_USER_DEFINED_FUNCTION_ID",

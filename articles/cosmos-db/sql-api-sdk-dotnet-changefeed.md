@@ -89,7 +89,7 @@ ms.author: maquaran
   * IChangeFeedObserver.ProcessChangesAsync now takes CancellationToken.
   * IRemainingWorkEstimator - the remaining work estimator can be used separately from the processor.
   * New extensibility points:
-    * IParitionLoadBalancingStrategy - for custom load-balancing of partitions between instances of the processor.
+    * IPartitionLoadBalancingStrategy - for custom load-balancing of partitions between instances of the processor.
     * ILease, ILeaseManager - for custom lease management.
     * IPartitionProcessor - for custom processing changes on a partition.
 * Logging - uses [LibLog](https://github.com/damianh/LibLog) library.
