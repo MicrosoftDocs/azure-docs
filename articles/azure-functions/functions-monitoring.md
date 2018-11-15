@@ -78,13 +78,13 @@ After you have set up Application Insights integration as shown in the previous 
 
    ![Select Monitor tab](media/functions-monitoring/monitor-tab.png)
 
-2. Select **Refresh** periodically until the list of function invocations appears.
+1. Select **Refresh** periodically until the list of function invocations appears.
 
    It may take up to 5 minutes for the list to appear, due to the way the telemetry client batches data for transmission to the server. (This delay doesn't apply to the [Live Metrics Stream](../application-insights/app-insights-live-stream.md). That service connects to the Functions host when you load the page, so logs are streamed directly to the page.)
 
    ![Invocations list](media/functions-monitoring/monitor-tab-ai-invocations.png)
 
-2. To see the logs for a particular function invocation, select the **Date** column link for that invocation.
+1. To see the logs for a particular function invocation, select the **Date** column link for that invocation.
 
    ![Invocation details link](media/functions-monitoring/invocation-details-link-ai.png)
 
@@ -107,7 +107,6 @@ For more information, see [Query telemetry data](#query-telemetry-data) later in
 To open Application Insights from a function app in the Azure portal, select the **Application Insights** link in the **Configured features** section of the function app's **Overview** page.
 
 ![Application Insights link on Overview page](media/functions-monitoring/ai-link.png)
-
 
 For information about how to use Application Insights, see the [Application Insights documentation](https://docs.microsoft.com/azure/application-insights/). This section shows some examples of how to view data in Application Insights. If you are already familiar with Application Insights, you can go directly to [the sections about configuring and customizing the telemetry data](#configure-categories-and-log-levels).
 
@@ -198,9 +197,28 @@ Log level `None` is explained in the next section.
 
 ### Configure logging in host.json
 
-The *host.json* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. Here's an example:
+The *host.json* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. There are two examples, one that targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and one for the version 1.x runtime.
 
-#### Functions Version 1 
+### Version 2.x
+
+The v2.x runtime uses the [.NET Core logging filter hierarchy](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
+### Version 1.x
+
 ```json
 {
   "logger": {
@@ -216,22 +234,6 @@ The *host.json* file configures how much logging a function app sends to Applica
 }
 ```
 
-#### Functions Version 2 
-Functions v2 now uses the [.NET Core logging filter hierarchy](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
-```json
-{
-  "logging": {
-    "fileLoggingMode": "always",
-    "logLevel": {
-      "default": "Information",
-      "Host.Results": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Trace"
-    }
-  }
-}
-```
-
 This example sets up the following rules:
 
 1. For logs with category "Host.Results" or "Function", send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
@@ -242,7 +244,24 @@ The category value in *host.json* controls logging for all categories that begin
 
 If *host.json* includes multiple categories that start with the same string, the longer ones are matched first. For example, suppose you want everything from the runtime except "Host.Aggregator" to log at `Error` level, but you want "Host.Aggregator" to log at the `Information` level:
 
-#### Functions Version 1 
+### Version 2.x 
+
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
+    }
+  }
+}
+```
+
+### Version 1.x 
+
 ```json
 {
   "logger": {
@@ -253,21 +272,6 @@ If *host.json* includes multiple categories that start with the same string, the
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
-    }
-  }
-}
-```
-
-#### Functions Version 2 
-```json
-{
-  "logging": {
-    "fileLoggingMode": "always",
-    "logLevel": {
-      "default": "Information",
-      "Host": "Error",
-      "Function": "Error",
-      "Host.Aggregator": "Information"
     }
   }
 }
@@ -410,13 +414,11 @@ This code is an alternative to calling `trackMetric` using [the Node.js SDK for 
 
 ## Custom telemetry in C# functions
 
-You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights.
-
-There following C# example uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script. There are two examples, one that targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and one for the version 1.x runtime.  
+You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. There following C# example uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
 ### Version 2.x
 
-Functions version 2 uses newer features in Application Insights to automatically correlate telemetry with the current operation. There is no need to manually set the operation `Id`, `ParentId`, or `Name`.
+The version 2.x runtime uses newer features in Application Insights to automatically correlate telemetry with the current operation. There is no need to manually set the operation `Id`, `ParentId`, or `Name`.
 
 ```cs
 using System;
