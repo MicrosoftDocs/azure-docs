@@ -22,7 +22,9 @@ This best practices article focuses on considerations that help you plan for Bus
 * [Managing Application State](#managing-application-state)
 * [Storage](#storage)
 
-## Region Planning
+## Plan for Multi-region Deployment
+
+**Best practice guidance** - When deploying multiple AKS clusters for BC/DR, use regions where both AKS is available that are also Azure Paired Regions.
 
 A single AKS cluster is only available for one region, so to protect yourself from region failure, you should distribute your application across multiple AKS clusters in different regions.  When planning which regions to deploy your AKS cluster, you should consider:
 
@@ -32,7 +34,9 @@ A single AKS cluster is only available for one region, so to protect yourself fr
 
 AKS Region Availibility and Azure Paired Regions should be considered jointly so that you deploy your AKS clusters into paired regions that are designed to manage region disaster recovery together.
 
-## Ingress Traffic
+## Use Azure Traffic Manager to Route Traffic to Desired Region
+
+**Best practice guidance** - Ensure that all application traffic is directed through Azure Traffic Manager before going to your AKS cluster.
 
 To support routing incoming traffic to the desired region, use [Azure Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/).  Azure Traffic Manager is a DNS-based traffic load balancer that can distribute network traffic across regions.
 
@@ -41,7 +45,9 @@ Instead of directly publishing your Kubernetes Service IP, end users should be d
 TODO: Insert basic DR diagram of two clusters, fronted by Azure Traffic Manager
 TODO:  Show example
 
-## Container Registry
+## Enable Geo-Replication in Azure Container Registry
+
+**Best pratice guidance** - Store all of your container images in Azure Container Registry with geo-replication enabled for each AKS region.
 
 Since Azure Container Registry supports multi-master geo-replication, it is recommend to use ACR geo-replication to store a registry in each region your AKS cluster resides.
 
@@ -51,13 +57,19 @@ Benefits of using ACR Geo-replication are:
 * Pulling images from within the same region is more reliable
 * Pulling images from within the same region is cheaper (no network egress charge between datacenters)
 
-## Managing Application State
+TODO: Show or reference ACR Geo replication example
+
+## Remove State From Inside Containers
+
+**Best practice guidance** - Where possible, do not store application state inside the container.  Instead, use Azure PaaS services which support multi-region replication
 
 Containers and Microservices are most resilient when the processes that run inside them do not retain state.  Your application will almost always contain some state, and it is recommended to use an Platform as a Service solution (e.g. Azure Database for MySQL/Postgres, Azure SQL, etc.).  
 
 TODO: Elaborate on application state/12 factor apps.
 
-## Storage
+## Create a Storage Migration Plan
+
+**Best practice guidance** - If using Azure Storage, then prepare and test how you plan to migrate your storage from the primary to the backup region
 
 Sometimes your application needs to store files local to the running processes and needs these files to be persisted beyond the lifecycle of the Pod.  Kubernetes enables this through Persistent Volumes which are mounted to host VM and then to the containers running on that VM.  Persistent Volumes will follow Pods, even if the Pod is moved to a different node inside the same cluster.
 
@@ -67,10 +79,4 @@ If using Managed Disks, the recommended approaches to migrate storage across reg
 * [Azure Site Recovery](https://azure.microsoft.com/en-us/blog/asr-managed-disks-between-azure-regions/)
 
 TODO:  Elaborate on Azure Files and Blob Storage BC/DR
-
-## CI/CD
-
-It is recommended to use Azure DevOps for your CI/CD deployment.  If your BC/DR strategy is to be hot/hot, then you will want your CI/CD process to deploy to each cluster individually.
-
-TODO:  Is this section relevant?  If so, elaborate. Should I talk about deployment strategies?  (e.g. Canary deployment?  Blue/Green?)
-TODO:  Elaborate on Azure Files and Blob Storage BC/DR
+TODO:  Show example
