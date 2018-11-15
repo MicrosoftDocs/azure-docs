@@ -6,7 +6,7 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/13/2018
 ms.author: adgera
 ---
 
@@ -31,20 +31,7 @@ Swagger provides an interactive summary of your API, which includes:
 
 Swagger is a convenient tool to assist with development and testing calls made to the Management API.
 
-> [!TIP]
-> A Swagger sneak preview is provided to demonstrate the API feature set.
-> It's hosted at [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
-
-You can access your own generated Management API Swagger documentation at:
-
-```plaintext
-https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
-```
-
-| Custom name | Replace with |
-| --- | --- |
-| yourInstanceName | The name of your Azure Digital Twins instance |
-| yourLocation | Which server region your instance is hosted on |
+[!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 ## Reference material
 

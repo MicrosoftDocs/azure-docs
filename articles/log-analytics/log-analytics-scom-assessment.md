@@ -208,7 +208,7 @@ Every recommendation includes guidance about why it is important. Use this guida
 
 ## Use health check focus area recommendations
 
-Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](../monitoring/monitoring-solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
+Before you can use a health check solution in Log Analytics, you must have the solution installed. To read more about installing solutions, see [Install a management solution](../azure-monitor/insights/solutions.md). After it is installed, you can view the summary of recommendations by using the System Center Operations Manager Health Check tile on the **Overview** page for your workspace in the Azure portal.
 
 View the summarized compliance assessments for your infrastructure and then drill-into recommendations.
 
