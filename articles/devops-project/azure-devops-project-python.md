@@ -64,7 +64,7 @@ Web App For Containers is the default deployment target. The application framewo
 
 ## Commit code changes and execute CI/CD
 
- DevOps Projects creates a Git repository in your Azure DevOps organization or GitHub account. To view the repository and make code changes to your application, do the following: 
+ DevOps Projects creates a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following: 
 
 1. On the left side of the DevOps Projects dashboard, select the link for your master branch.  
 		This link opens a view to the newly created Git repository.
@@ -113,7 +113,7 @@ A browser tab displays the build pipeline for your new project.
  DevOps Projects creates a release pipeline to manage deployments to Azure.
 
 1. Select the ellipsis next to your release pipeline, and then select **Edit**.  
-The release pipeline contains a pipeline, which defines the release process.  
+The release pipeline defines the release process.  
 		
 12. Under **Artifacts**, select **Drop**.   
 The build pipeline you examined in the previous steps produces the output that's used for the artifact. 
