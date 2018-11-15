@@ -21,7 +21,7 @@ ms.reviewer: sandeo
 ---
 # How SSO to on-premises resources works on Azure AD joined devices
 
-It is probably not a surprise that an Azure Active Directory (Azure AD) joined device provides you with a single sign-on (SSO) experience to the cloud apps in your tenant. If your environment also has an on-premises Active Directory (AD), you can also provide these devices with an SSO experience to it.
+It is probably not a surprise that an Azure Active Directory (Azure AD) joined device gives you a single sign-on (SSO) experience to your tenant's cloud apps. If your environment has an on-premises Active Directory (AD), you can extend the SSO experience on these devices to it.
 
 This article explains how this works.
 
