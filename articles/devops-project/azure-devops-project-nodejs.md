@@ -48,13 +48,18 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  n
  
 ## Configure Azure DevOps and an Azure subscription 
 
-1. Create a **new** Azure DevOps Services organization or choose an **existing** organization.  Choose a **name** for your Azure DevOps project.  Select your **Azure subscription**, **location**, and choose a **name** for your application.  When you're done, choose **Done**.
+1. Create a new Azure DevOps organization or choose an existing organization. 
 
-1. In a few minutes, the **Azure DevOps Project dashboard** loads in the Azure portal.  A sample application is set up in a repository in your Azure DevOps Services organization, a build executes, and your application deploys to Azure.  This dashboard provides visibility into your **code repository**, **Azure CI/CD pipeline**, and your **application in Azure**.  On the right side of the dashboard, select **Browse** to view your running application.
+	a. Choose a name for your project. 
+
+	b. Select your Azure subscription and location, choose a name for your application, and then select **Done**.  
+	After a few minutes, the DevOps Projects dashboard is displayed  in the Azure portal. A sample application is set up in a repository in your Azure DevOps organization, a build is executed, and your application is deployed to Azure. This dashboard provides visibility into your code repository, the  CI/CD pipeline, and your application in Azure.
+	 
+3. Select **Browse** to view your running application.
 
    	![Dashboard view](_img/azure-devops-project-nodejs/dashboardnopreview.png) 
 	
-The Azure DevOps Project automatically configures a CI build and release trigger.  You're now ready to collaborate with a team on a Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
+DevOps Projects automatically configured a CI build and release trigger.  You're now ready to collaborate with a team on a  Node.js app with a CI/CD process that automatically deploys your latest work to your web site.
 
 ## Commit code changes and execute CI/CD
 
