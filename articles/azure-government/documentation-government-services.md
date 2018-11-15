@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 08/04/2018
+ms.date: 10/28/2018
 ms.author: gsacavdm
 
 ---
@@ -91,7 +91,7 @@ The **services available in Azure Government** are listed by category, as well a
 ## AI + Cognitive Services 
 | Generally Available | Preview |
 | --- | --- |
-| | [Cognitive Services**](documentation-government-services-aiandcognitiveservices.md) |
+| [Cognitive Services](documentation-government-services-aiandcognitiveservices.md) | |
 
 ## Internet of Things
 | Generally Available | Preview |

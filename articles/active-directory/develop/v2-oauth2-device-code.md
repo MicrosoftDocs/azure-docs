@@ -22,6 +22,8 @@ ms.custom: aaddev
 
 # Azure Active Directory v2.0 and the OAuth 2.0 device code flow
 
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 Azure AD supports the [device code grant](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), which allows users to sign in to input-constrained devices such as a smart TV, IoT device, or printer.  To enable this flow, the device has the user visit a webpage in their browser on another device to sign in.  Once the user signs in, the device is able to get access tokens and refresh tokens as needed.  
 
 > [!Important] 
@@ -62,7 +64,7 @@ scope=user.read%20openid%20profile
 
 ### Device authorization response
 
-A succesful response will be a JSON object containing the required information to allow the user to sign in.  
+A successful response will be a JSON object containing the required information to allow the user to sign in.  
 
 | Parameter | Format | Description |
 | ---              | --- | --- |
@@ -107,7 +109,7 @@ Because the device code flow is a polling protocol, your client must expect to r
 | `expired_token`|  At least `expires_in` seconds have passed, and authentication is no longer possible with this `device_code`. | Stop polling, and revert to an unauthenticated state. |
 
 
-### Succesful authentication response
+### Successful authentication response
 
 A successful token response will look like:
 
@@ -125,7 +127,7 @@ A successful token response will look like:
 | Parameter | Format | Description |
 | --------- | ------ | ----------- |
 |`token_type` | String| Always "Bearer. |
-|`scope` | Space seperated strings | If an access token was returned, this lists the scopes the access token is valid for. |
+|`scope` | Space separated strings | If an access token was returned, this lists the scopes the access token is valid for. |
 |`expires_in`| int | Number of seconds before the included access token is valid for. |
 |`access_token`| Opaque string | Issued for the [scopes](v2-permissions-and-consent.md) that were requested.  |
 |`id_token`   | JWT | Issued if the original `scope` parameter included the `openid` scope.  |

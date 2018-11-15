@@ -41,6 +41,8 @@
     href: asdk-start-stop.md
   - name: Validate an Azure Stack backup
     href: asdk-validate-backup.md
+  - name: Connect to the ASDK
+    href: asdk-connect.md
   - name: Troubleshooting
     href: asdk-troubleshooting.md
 - name: Reference

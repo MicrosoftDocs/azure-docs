@@ -7,7 +7,7 @@ ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/16/2018
 
 #Customer intent: As a Python developer, I want to query data so I can include it in my apps.
 ---
@@ -28,7 +28,7 @@ This quickstart is also available as an [Azure Notebook](https://notebooks.azure
 
 Install *azure-kusto-data*.
 
-```python
+```
 pip install azure-kusto-data==0.0.13
 ```
 

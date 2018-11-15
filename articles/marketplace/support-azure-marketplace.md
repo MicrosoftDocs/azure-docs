@@ -19,7 +19,9 @@ ms.author: yijenj
 ---  
 
 # Support for the Marketplace  
-The support options for the Marketplace.  
+Here is a list of support options for the Marketplace.  
+
+Additionally, you can get many of your questions answered in the [Marketplace channel of C+AI Community Forum](https://www.microsoftpartnercommunity.com/t5/Marketplace/bd-p/2222).  
 
 ## Onboarding
 

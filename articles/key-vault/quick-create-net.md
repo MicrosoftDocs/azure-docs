@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a node web app | Microsoft Docs'
-description: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a node web app'
+description: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -22,7 +22,7 @@ In this quickstart, you follow the necessary steps for getting an Azure web appl
 > * Store a secret in the key vault.
 > * Retrieve a secret from the key vault.
 > * Create an Azure web application.
-> * Enable a [managed identity](../active-directory/managed-identities-azure-resources/overview.md) for the web app.
+> * Enable a [managed service identity](../active-directory/managed-identities-azure-resources/overview.md) for the web app.
 > * Grant the required permissions for the web application to read data from the key vault.
 
 Before we go any further, please read the [basic concepts](key-vault-whatis.md#basic-concepts).
@@ -30,7 +30,7 @@ Before we go any further, please read the [basic concepts](key-vault-whatis.md#b
 >[!NOTE]
 >Key Vault is a central repository to store secrets programmatically. But to do so, applications and users need to first authenticate to Key Vault--that is, present a secret. To follow security best practices, this first secret needs to be rotated periodically. 
 >
->With [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
+>With [managed service identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md), applications that run in Azure are given an identity that Azure manages automatically. This helps solve the *secret introduction problem* so that users and applications can follow best practices and not have to worry about rotating the first secret.
 
 ## Prerequisites
 
@@ -172,7 +172,6 @@ Now when you run the application, you should see your secret value retrieved. In
 
 ## Next steps
 
-* [Azure Key Vault home page](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Learn more about Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 * [Azure SDK For .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Azure REST API reference](https://docs.microsoft.com/rest/api/keyvault/)

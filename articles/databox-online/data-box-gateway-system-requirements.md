@@ -51,7 +51,7 @@ Here is a list of the supported operating systems for clients or hosts connected
 
 ## Supported storage accounts
 
-Here is a list of the supported storage types for the Data Box Gateway.
+Here is a list of the supported storage accounts for the Data Box Gateway.
 
 | **Storage account** | **Notes** |
 | --- | --- |

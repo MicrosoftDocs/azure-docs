@@ -8,7 +8,7 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 # Language Understanding FAQ
@@ -151,11 +151,9 @@ If you are using your log for prediction analysis, do not capture test utterance
 * You can delete utterances from the list of user utterances that LUIS suggests in the **Review endpoint utterances** page. Deleting utterances from this list prevents them from being suggested, but doesn't delete them from logs.
 * If you delete an account, all apps are deleted, along with their example utterances and logs. The data is retained on the servers for 60 days before it is deleted permanently.
 
-### Does Microsoft access my LUIS app data for its own purposes, for example, to enhance LUIS or Microsoft in general?
+### How does Microsoft manage data I send to LUIS?
 
-No. The LUIS app’s data model is not used by LUIS to enhance LUIS as a platform or used by Microsoft in any way. Each app’s data is separate and owned only by the user and collaborators.
-
-Learn more about [user privacy](luis-user-privacy.md), [additional security compliance](luis-concept-security.md#security-compliance), and [data storage](luis-concept-data-storage.md).
+The [Trust Center](https://www.microsoft.com/trustcenter) explains our commitments and your options for data management and access in Azure Services.
 
 ## Language and translation support
 

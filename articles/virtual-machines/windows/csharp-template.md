@@ -3,7 +3,7 @@ title: Deploy a VM using C# and a Resource Manager template | Microsoft Docs
 description: Learn to how to use C# and a Resource Manager template to deploy an Azure VM.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: cynthn
+ms.author: zarhoads
 
 ---
 # Deploy an Azure Virtual Machine using C# and a Resource Manager template
@@ -181,7 +181,7 @@ To specify values for the resource parameters that are defined in the template, 
 
 ### Create the authorization file
 
-Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../resource-group-authenticate-service-principal.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
+Before you can deploy a template, make sure that you have access to an [Active Directory service principal](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). From the service principal, you acquire a token for authenticating requests to Azure Resource Manager. You should also record the application ID, the authentication key, and the tenant ID that you need in the authorization file.
 
 1. In Solution Explorer, right-click *myDotnetProject* > **Add** > **New Item**, and then select **Text File** in *Visual C# Items*. Name the file *azureauth.properties*, and then click **Add**.
 2. Add these authorization properties:

@@ -1,19 +1,19 @@
 ---
-title: "Quickstart: Node.js for QnA Maker API (V4)"
+title: "REST API (V4) - Node.js - QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
+description: Get Node.js REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: qna-maker
-ms.topic: quickstart
-ms.date: 09/12/2018
+ms.topic: article
+ms.date: 10/19/2018
 ms.author: diberry
 
 ---
-# Quickstart for Microsoft QnA Maker API with Node.js 
+# QnA Maker REST API with Node.js 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Node.js to do the following.

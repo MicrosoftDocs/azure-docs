@@ -2,13 +2,13 @@
 title: Fan-out/fan-in scenarios in Durable Functions - Azure
 description: Learn how to implement a fan-out-fan-in scenario in the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -104,7 +104,7 @@ The C# implementation is also pretty straightforward. It happens to use some adv
 
 ### JavaScript (Functions v2 only)
 
-The JavaScript implementation does not have access to the `Binder` feature of Azure Functions, so the [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) takes its place. Note that the SDK requires an `AZURE_STORAGE_CONNECTION_STRING` app setting.
+The JavaScript implementation does not have access to the `Binder` feature of Azure Functions, so the [Azure Storage SDK for Node](https://github.com/Azure/azure-storage-node) takes its place.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 
@@ -126,7 +126,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> The `HttpStart` function that you are invoking only works with JSON-formatted content. For this reason, the `Content-Type: application/json` header is required and the directory path is encoded as a JSON string.
+> The `HttpStart` function that you are invoking only works with JSON-formatted content. For this reason, the `Content-Type: application/json` header is required and the directory path is encoded as a JSON string. Moreover, HTTP snippet assumes there is an entry in the `host.json` file which removes the default `api/` prefix from all HTTP trigger functions URLs. You can find the markup for this configuration in the `host.json` file in the samples.
 
 This HTTP request triggers the `E2_BackupSiteContent` orchestrator and passes the string `D:\home\LogFiles` as a parameter. The response provides a link to get the status of the backup operation:
 

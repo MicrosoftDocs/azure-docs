@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2018
+ms.date: 10/25/2018
 ms.author: markvi
 ms.reviewer: calebb
 
@@ -165,8 +165,14 @@ Session controls enable limited experience within a cloud app. The session contr
 
 ### Use app enforced restrictions
 
-You can use this control to require Azure AD to pass the device information to the cloud app. This helps the cloud app know if the user is coming from a compliant device or domain joined device. This control is currently only supported with SharePoint as the cloud app. SharePoint uses the device information to provide users a limited or full experience depending on the device state.
-To learn more about how to require limited access with SharePoint, see [control access from unmanaged devices](https://aka.ms/spolimitedaccessdocs).
+You can use this control to require Azure AD to pass device information to the selected cloud apps. The device information enables the cloud apps to know whether a connection is initiated from a compliant or domain-joined device. This control only supports SharePoint Online and Exchange Online as selected cloud apps. When selected, the cloud app uses the device information to provide users, depending on the device state, with a limited or full experience.
+
+To learn more, see:
+
+- [Enabling limited access with SharePoint Online](https://aka.ms/spolimitedaccessdocs) 
+
+- [Enabling limited access with Exchange Online](https://aka.ms/owalimitedaccess)
+
 
 
 

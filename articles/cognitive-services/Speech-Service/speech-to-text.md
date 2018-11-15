@@ -1,13 +1,14 @@
 ---
 title: About Speech to Text
+titleSuffix: Azure Cognitive Services
 description: An overview of the capabilities of Speech to Text API.
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
 ---

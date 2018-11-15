@@ -1,13 +1,14 @@
 ---
 title: Language support - Speech Service API
-description: A list of natural languages supported by Speech Service.
 titleSuffix: Azure Cognitive Services
+description: A list of natural languages supported by Speech Service.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
 ---
@@ -155,7 +156,7 @@ Voice customization is available for US English (en-US), mainland Chinese (zh-CN
 
 ## Speech Translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text.
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the following Speech language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into more than [60 languages](https://www.microsoft.com/translator/business/languages/). A subset of these languages are available for [speech synthesis](language-support.md#text-languages). 
 
 ### Speech languages
 

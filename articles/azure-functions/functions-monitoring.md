@@ -206,6 +206,7 @@ Log level `None` is explained in the next section.
 
 The *host.json* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. Here's an example:
 
+#### Functions Version 1 
 ```json
 {
   "logger": {
@@ -221,6 +222,22 @@ The *host.json* file configures how much logging a function app sends to Applica
 }
 ```
 
+#### Functions Version 2 
+Functions v2 now uses the [.NET Core logging filter hierarchy](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 This example sets up the following rules:
 
 1. For logs with category "Host.Results" or "Function", send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
@@ -231,6 +248,7 @@ The category value in *host.json* controls logging for all categories that begin
 
 If *host.json* includes multiple categories that start with the same string, the longer ones are matched first. For example, suppose you want everything from the runtime except "Host.Aggregator" to log at `Error` level, but you want "Host.Aggregator" to log at the `Information` level:
 
+#### Functions Version 1 
 ```json
 {
   "logger": {
@@ -241,6 +259,21 @@ If *host.json* includes multiple categories that start with the same string, the
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### Functions Version 2 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }

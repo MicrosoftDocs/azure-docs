@@ -6,7 +6,7 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 01/17/2018
+ms.date: 10/26/2018
 ms.author: dobett
 ---
 
@@ -25,7 +25,7 @@ Both components are open-source and are available as source on GitHub and as Doc
 | [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) | [OPC Publisher](https://hub.docker.com/r/microsoft/iot-edge-opc-publisher/)   |
 | [OPC Proxy](https://github.com/Azure/iot-edge-opc-proxy)         | [OPC Proxy](https://hub.docker.com/r/microsoft/iot-edge-opc-proxy/) |
 
-You do not need a public-facing IP address or open inbound ports in the gateway firewall for either component. The OPC Proxy and OPC Publisher components only use outbound port 443.
+You don't need a public-facing IP address or open inbound ports in the gateway firewall for either component. The OPC Proxy and OPC Publisher components only use outbound port 443.
 
 The steps in this article show you how to deploy an edge gateway using Docker on either Windows or Linux. The gateway enables connectivity to the Connected Factory solution accelerator. You can also use the components without Connected Factory.
 
@@ -36,20 +36,20 @@ The steps in this article show you how to deploy an edge gateway using Docker on
 
 If you don't yet have a gateway device, Microsoft recommends you buy a commercial gateway from one of their partners. For a list of gateway devices compatible with the Connected Factory solution, visit the [Azure IoT device catalog](https://catalog.azureiotsuite.com/?q=opc). Follow the instructions that come with the device to set up the gateway.
 
-Alternatively, use the following instructions to manually configure an existing gateway device.
+If you need to manually configure an existing gateway device, use the following instructions.
 
 ## Install and configure Docker
 
 Install [Docker for Windows](https://www.docker.com/docker-windows) on your Windows-based gateway device or use a package manager to install docker on your Linux-based gateway device.
 
-During Docker for Windows setup, select a drive on your host machine to share with Docker. The following screenshot shows sharing the **D** drive on your Windows system to allow access to the host drive from inside a docker container:
+During Docker for Windows setup, select a drive on your host machine to share with Docker. The following screenshot shows sharing the **D** drive on your Windows system. Sharing a drive allows access to the host drive from inside a docker container:
 
 ![Install Docker for Windows](./media/iot-accelerators-connected-factory-gateway-deployment/image1.png)
 
 > [!NOTE]
 > You can also perform this step after installing docker from the **Settings** dialog. Right-click on the **Docker** icon in the Windows system tray and choose **Settings**. If major Windows updates have been deployed to the system, such as the Windows Fall Creators update, unshare the drives and share them again to refresh the access rights.
 
-If you are using Linux, no additional configuration is required to enable access to the file system.
+If you're using Linux, no additional configuration is required to enable access to the file system.
 
 On Windows, create a folder on the drive you shared with Docker, on Linux create a folder under the root filesystem. This walkthrough refers to this folder as `<SharedFolder>`.
 
@@ -59,7 +59,7 @@ When you refer to the `<SharedFolder>` in a Docker command, be sure to use the c
 
 - If your are using the folder `/shared` on Linux as your `<SharedFolder>`, the Docker command syntax is `/shared`.
 
-For more information see the [Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/) docker engine reference.
+For more information, see the [Use volumes](https://docs.docker.com/engine/admin/volumes/volumes/) docker engine reference.
 
 ## Configure the OPC components
 
@@ -93,12 +93,16 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - The [OPC Publisher GitHub](https://github.com/Azure/iot-edge-opc-publisher) and the [docker run reference](https://docs.docker.com/engine/reference/run/) provide more information about:
 
-  - The docker command line options specified before the container name (`microsoft/iot-edge-opc-publisher:2.1.4`).
-  - The meaning of the OPC Publisher command line parameters specified after the container name (`microsoft/iot-edge-opc-publisher:2.1.4`).
+  - The docker command-line options specified before the container name (`microsoft/iot-edge-opc-publisher:2.1.4`).
+  - The meaning of the OPC Publisher command-line parameters specified after the container name (`microsoft/iot-edge-opc-publisher:2.1.4`).
 
-- The `<IoTHubOwnerConnectionString>` is the **iothubowner** shared access policy connection string from the Azure portal. You copied this connection string in a previous step. You only need this connection string for the first run of OPC Publisher. On subsequent runs you should omit it because it poses a security risk.
+- The `<IoTHubOwnerConnectionString>` is the **iothubowner** shared access policy connection string from the Azure portal. You copied this connection string in a previous step. You only need this connection string for the first run of OPC Publisher. On subsequent runs, you should omit it because it poses a security risk.
 
-- The `<SharedFolder>` you use and its syntax is described in the section [Install and configure Docker](#install-and-configure-docker). OPC Publisher uses the `<SharedFolder>` to read and write to the OPC Publisher configuration file, write to the log file, and make both these files available outside of the container.
+- The `<SharedFolder>` you use and its syntax is described in the section [Install and configure Docker](#install-and-configure-docker). OPC Publisher uses the `<SharedFolder>` to:
+
+    - Read and write to the OPC Publisher configuration file.
+    - Write to the log file.
+    - Make both these files available outside the container.
 
 - OPC Publisher reads its configuration from the **publishednodes.json** file, which is read from and written to the `<SharedFolder>/docker` folder. This configuration file defines which OPC UA node data on a given OPC UA server the OPC Publisher should subscribe to. The full syntax of the **publishednodes.json** file is described on the [OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher) page on GitHub. When you add a gateway, put an empty **publishednodes.json** into the folder:
 
@@ -109,11 +113,11 @@ docker run --rm -it -v <SharedFolder>:/docker -v x509certstores:/root/.dotnet/co
 
 - Whenever the OPC UA server notifies OPC Publisher of a data change, the new value is sent to IoT Hub. Depending on the batching settings, the OPC Publisher may first accumulate the data before it sends the data to IoT Hub in a batch.
 
-- Docker does not support NetBIOS name resolution, only DNS name resolution. If you don't have a DNS server on the network, you can use the workaround shown in the previous command line example. The previous command line example uses the `--add-host` parameter to add an entry into the containers hosts file. This entry enables hostname lookup for the given `<OpcServerHostname>`, resolving to the given IP address `<IpAddressOfOpcServerHostname>`.
+- Docker doesn't support NetBIOS name resolution, only DNS name resolution. If you don't have a DNS server on the network, you can use the workaround shown in the previous command-line example. The previous command-line example uses the `--add-host` parameter to add an entry into the containers hosts file. This entry enables hostname lookup for the given `<OpcServerHostname>`, resolving to the given IP address `<IpAddressOfOpcServerHostname>`.
 
-- OPC UA uses X.509 certificates for authentication and encryption. You need to place the OPC Publisher certificate on the OPC UA server you are connecting to, to ensure it trusts OPC Publisher. The OPC Publisher certificate store is located in the `<SharedFolder>/CertificateStores` folder. You can find the OPC Publisher certificate in the `trusted/certs` folder in the `CertificateStores` folder.
+- OPC UA uses X.509 certificates for authentication and encryption. Place the OPC Publisher certificate on the OPC UA server you are connecting to, to ensure it trusts OPC Publisher. The OPC Publisher certificate store is located in the `<SharedFolder>/CertificateStores` folder. You can find the OPC Publisher certificate in the `trusted/certs` folder in the `CertificateStores` folder.
 
-  The steps to configure the OPC UA server depend on the device you are using. these steps are typically documented in the OPC UA server's user manual.
+  The steps to configure the OPC UA server depend on the device you're using. these steps are typically documented in the OPC UA server's user manual.
 
 To install the OPC Proxy, run the following command at a command prompt:
 
@@ -129,7 +133,7 @@ Use the following command to run the OPC Proxy:
 docker run -it --rm -v <SharedFolder>:/mapped --network iot_edge --name proxy --add-host <OpcServerHostname>:<IpAddressOfOpcServerHostname> microsoft/iot-edge-opc-proxy:1.0.4 -D /mapped/cs.db
 ```
 
-OPC Proxy saves the connection string during the installation. On subsequent runs you should omit the connection string because it poses a security risk.
+OPC Proxy saves the connection string during the installation. On subsequent runs, you should omit the connection string because it poses a security risk.
 
 ## Enable your gateway
 
@@ -137,9 +141,9 @@ Complete the following steps to enable your gateway in the Connected Factory sol
 
 1. When both components are running, browse to the **Connect your own OPC UA Server** page in the Connected Factory solution portal. This page is only available to Administrators in the solution. Enter the publisher endpoint URL (opc.tcp://publisher:62222) and click **Connect**.
 
-1. Establish a trust relationship between the Connected Factory portal and OPC Publisher. When you see a certificate warning, click **Proceed**. Next, you see an error that the OPC Publisher doesn’t trust the UA Web client. To resolve this error, copy the **UA Web Client** certificate from the `<SharedFolder>/CertificateStores/rejected/certs` folder to the `<SharedFolder>/CertificateStores/trusted/certs` folder on the gateway. You do not need to restart the gateway.
+1. Establish a trust relationship between the Connected Factory portal and OPC Publisher. When you see a certificate warning, click **Proceed**. Next, you see an error that the OPC Publisher doesn’t trust the UA Web client. To resolve this error, copy the **UA Web Client** certificate from the `<SharedFolder>/CertificateStores/rejected/certs` folder to the `<SharedFolder>/CertificateStores/trusted/certs` folder on the gateway. You don't need to restart the gateway.
 
-You can now connect to the gateway from the cloud, and you are ready to add OPC UA servers to the solution.
+You can now connect to the gateway from the cloud, and you're ready to add OPC UA servers to the solution.
 
 ## Add your own OPC UA servers
 
@@ -147,10 +151,10 @@ To add your own OPC UA servers to the Connected Factory solution accelerator:
 
 1. Browse to the **Connect your own OPC UA server** page in the Connected Factory solution portal.
 
-    1. Start the OPC UA server you want to connect to. Ensure that your OPC UA server can be reached from OPC Publisher and OPC Proxy running in the container (see the previous comments about name resolution).
+    1. Start the OPC UA server you want to connect to. Check that your OPC UA server can be reached from OPC Publisher and OPC Proxy running in the container. See the previous comments about name resolution.
     1. Enter the endpoint URL of your OPC UA server (`opc.tcp://<host>:<port>`) and click **Connect**.
-    1. As part of the connection setup, a trust relationship between the Connected Factory portal (OPC UA client) and the OPC UA server you are trying to connect is established. In the Connected Factory dashboard you get a **Certificate of the server you want to connect cannot be verified** warning. When you see a certificate warning, click **Proceed**.
-    1. More difficult to setup is the certificate configuration of the OPC UA server you are trying to connect to. For PC based OPC UA servers, you may just get a warning dialog in the dashboard that you can acknowledge. For embedded OPC UA server systems, consult the documentation of your OPC UA server to look up how this task is done. To complete this task, you may need the certificate of the Connected Factory portal's OPC UA client. An Administrator can download this certificate on the **Connect your own OPC UA server** page:
+    1. The connection setup process establishes a trust relationship between the Connected Factory portal (OPC UA client) and the OPC UA server you are trying to connect. In the Connected Factory dashboard, you get a **Certificate of the server you want to connect cannot be verified** warning. When you see a certificate warning, click **Proceed**.
+    1. More difficult to setup is the certificate configuration of the OPC UA server you're trying to connect to. For PC-based OPC UA servers, you may just get a warning dialog in the dashboard that you can acknowledge. For embedded OPC UA server systems, consult the documentation of your OPC UA server to look up how this task is done. To complete this task, you may need the certificate of the Connected Factory portal's OPC UA client. An Administrator can download this certificate on the **Connect your own OPC UA server** page:
 
         ![Solution portal](./media/iot-accelerators-connected-factory-gateway-deployment/image4.png)
 

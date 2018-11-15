@@ -4,7 +4,6 @@ description: This article explains how to configure Traffic Manager to route tra
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 
 ms.service: traffic-manager
 ms.devlang: na

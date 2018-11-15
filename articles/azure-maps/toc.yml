@@ -18,6 +18,8 @@
     href: tutorial-route-location.md
   - name: 3 - Multiple routes by mode of travel
     href: tutorial-prioritized-routes.md
+  - name: 4 - Create a store locator
+    href: tutorial-create-store-locator.md
 - name: Concepts
   items:
   - name: Zoom levels and tile grid
@@ -58,7 +60,7 @@
       href: choose-map-style.md
     - name: Add map controls
       href: map-add-controls.md
-    - name: Add a pin
+    - name: Add symbols and markers
       href: map-add-pin.md
     - name: Add a popup
       href: map-add-popup.md

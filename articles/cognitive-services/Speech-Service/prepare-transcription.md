@@ -1,13 +1,14 @@
 ---
 title: Transcription guidelines for the Speech Service training
+titleSuffix: Azure Cognitive Services
 description: Learn how to prepare text to customize acoustic and language models and voice fonts for the Speech Service.
-titleSuffix: "Microsoft Cognitive Services"
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
 ---

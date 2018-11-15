@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 10/19/2018
 ---
 # Azure SQL Database purchasing models
 
@@ -27,21 +27,21 @@ The following table and chart compare and contrast these two purchasing models.
 
 |**Purchasing model**|**Description**|**Best for**|
 |---|---|---|
-|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Best for customers who want simple, pre-configured resource options.| 
+|DTU-based model|This model is based on a bundled measure of compute, storage, and IO resources. Compute sizes are expressed in terms of Database Transaction Units (DTUs) for single databases and elastic Database Transaction Units (eDTUs) for elastic pools. For more on DTUs and eDTUs, see [What are DTUs and eDTUs](sql-database-service-tiers.md#dtu-based-purchasing-model)?|Best for customers who want simple, pre-configured resource options.|
 |vCore-based model|This model allows you to independently choose compute and storage resources. It also allows you to use Azure Hybrid Benefit for SQL Server to gain cost savings.|Best for customers who value flexibility, control, and transparency.|
 ||||  
 
 ![pricing model](./media/sql-database-service-tiers/pricing-model.png)
 
-## vCore-based purchasing model 
+## vCore-based purchasing model
 
 A virtual core represents the logical CPU offered with an option to choose between generations of hardware and physical characteristics of hardware (for example, number of cores, memory, storage size). The vCore-based purchasing model gives your flexibility, control, transparency of individual resource consumption and a straightforward way to translate on-premises workload requirements to the cloud. This model allows you to choose compute, memory, and storage based upon their workload needs. In the vCore-based purchasing model, you can choose between [General Purpose](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) and [Business critical](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) service tiers for both [single databases](sql-database-single-database-scale.md), [managed instances](sql-database-managed-instance.md), and [elastic pools](sql-database-elastic-pool.md). For single databases, you can also choose the [Hyperscale (preview)](sql-database-service-tier-hyperscale.md) service tier.
 
 The vCore-based purchasing model enables you to independently choose compute and storage resources, match on-premises performance, and optimize price. In the vCore-based purchasing model, customers pay for:
 
 - Compute (service tier + number of vCores and amount of memory + generation of hardware)
-- Type and amount of data and log storage 
-- Backup storage (RA-GRS) 
+- Type and amount of data and log storage
+- Backup storage (RA-GRS)
 
 > [!IMPORTANT]
 > Compute, IOs, data and log storage are charged per database or elastic pool. Backups storage is charged per each database. For details of Managed Instance charges, refer to [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
@@ -69,9 +69,7 @@ To gain deeper insight into the resource (DTU) consumption of your workload, use
 
 ### Elastic Database Transaction Units (eDTUs)
 
-Rather than provide a dedicated set of resources (DTUs) that may not always be needed for a SQL Database that is always available, you can place databases into an [elastic pool](sql-database-elastic-pool.md) on a SQL Database server that shares a pool of resources among those databases. The shared resources in an elastic pool are measured by elastic Database Transaction Units or eDTUs. Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases having widely varying and unpredictable usage patterns. An elastic pool guarantees resources cannot be consumed by one database in the pool, while ensuring each database in the pool always has a minimum amount of necessary resources available. 
-
-![Intro to SQL Database: eDTUs by tier and level](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
+Rather than provide a dedicated set of resources (DTUs) that may not always be needed for a SQL Database that is always available, you can place databases into an [elastic pool](sql-database-elastic-pool.md) on a SQL Database server that shares a pool of resources among those databases. The shared resources in an elastic pool are measured by elastic Database Transaction Units or eDTUs. Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases having widely varying and unpredictable usage patterns. An elastic pool guarantees resources cannot be consumed by one database in the pool, while ensuring each database in the pool always has a minimum amount of necessary resources available.
 
 A pool is given a set number of eDTUs for a set price. Within the elastic pool, individual databases are given the flexibility to auto-scale within the configured boundaries. A database under heavier load will consume more eDTUs to meet demand. Databases under lighter loads will consume less eDTUs. Databases with no load will consume no eDTUs. By provisioning resources for the entire pool, rather than per database, management tasks are simplified, providing a predictable budget for the pool.
 
@@ -79,7 +77,7 @@ Additional eDTUs can be added to an existing pool with no database downtime and 
 
 ### Determine the number of DTUs needed by a workload
 
-If you are looking to migrate an existing on-premises or SQL Server virtual machine workload to Azure SQL Database, you can use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing Azure SQL Database workload, you can use [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your database resource consumption (DTUs) to gain deeper insight for optimizing your workload. You can also use the [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV to view resource consumption for the last hour. Alternatively, the catalog view [sys.resource_stats](http://msdn.microsoft.com/library/dn269979.aspx) displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
+If you are looking to migrate an existing on-premises or SQL Server virtual machine workload to Azure SQL Database, you can use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. For an existing Azure SQL Database workload, you can use [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your database resource consumption (DTUs) to gain deeper insight for optimizing your workload. You can also use the [sys.dm_db_ resource_stats](https://msdn.microsoft.com/library/dn800981.aspx) DMV to view resource consumption for the last hour. Alternatively, the catalog view [sys.resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) displays resource consumption for the last 14 days, but at a lower fidelity of five-minute averages.
 
 ### Workloads that benefit from an elastic pool of resources
 

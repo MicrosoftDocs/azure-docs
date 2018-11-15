@@ -5,7 +5,7 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
 #Customer intent: As an administrator, I want monitor Azure Firewall logs and metrics so that I can track firewall activity.
 ---
@@ -91,6 +91,8 @@ You can view and analyze activity log data by using any of the following methods
 ## View and analyze the network and application rule logs
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) collects the counter and event log files. It includes visualizations and powerful search capabilities to analyze your logs.
+
+For Azure Firewall Log Analytics sample queries, see [Azure Firewall Log Analytics samples](log-analytics-samples.md).
 
 You can also connect to your storage account and retrieve the JSON log entries for access and performance logs. After you download the JSON files, you can convert them to CSV and view them in Excel, Power BI, or any other data-visualization tool.
 

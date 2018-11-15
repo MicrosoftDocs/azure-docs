@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: daseidma;bwren
+ms.date: 11/13/2018
+ms.author: bwren
 
 ---
 # Configure Service Map in Azure
@@ -129,8 +129,8 @@ Service Map gets its data from the Microsoft Dependency agent. The Dependency ag
 
 | Connected source | Supported | Description |
 |:--|:--|:--|
-| Windows agents | Yes | Service Map analyzes and collects data from Windows computers. <br><br>In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-concept-hybrid.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
-| Linux agents | Yes | Service Map analyzes and collects data from Linux computers. <br><br>In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-concept-hybrid.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Windows agents | Yes | Service Map analyzes and collects data from Windows computers. <br><br>In addition to the [Log Analytics agent for Windows](../log-analytics/log-analytics-agent-overview.md), Windows agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
+| Linux agents | Yes | Service Map analyzes and collects data from Linux computers. <br><br>In addition to the [Log Analytics agent for Linux](../log-analytics/log-analytics-agent-overview.md), Linux agents require the Microsoft Dependency agent. See the [supported operating systems](#supported-operating-systems) for a complete list of operating system versions. |
 | System Center Operations Manager management group | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected [System Center Operations Manager management group](../log-analytics/log-analytics-om-agents.md). <br><br>A direct connection from the System Center Operations Manager agent computer to Log Analytics is required. |
 | Azure storage account | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure Storage. |
 
@@ -142,7 +142,7 @@ In this article, we'll refer to all agents, whether Linux or Windows connected t
 
 The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports. The data in Service Map is always transmitted by the Log Analytics agent to the Log Analytics service, either directly or through the Log Analytics gateway.
 
-![Service Map agents](media/monitoring-service-map/agents.png)
+![Service Map agents](media/monitoring-service-map-configure/agents.png)
 
 If you are a System Center Operations Manager customer with a management group connected to Log Analytics:
 
@@ -168,7 +168,7 @@ For more information on data collection and usage, see the [Microsoft Online Ser
 
 ## Installation
 
-## Azure VM Extension
+### Azure VM Extension
 There is an extension available for both Windows (DependencyAgentWindows) and Linux (DependencyAgentLinux), and you can easily deploy the Dependency agent to your Azure VMs using an [Azure VM Extension](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  With the Azure VM Extension, you can deploy the Dependency agent to your Windows and Linux VMs using either a PowerShell script or directly in the VM using an Azure Resource Manager template.  If you deploy the agent with the Azure VM Extension, your agents are automatically updated to the latest version.
 
 To deploy the Azure VM Extension with PowerShell, you can use the following example:
@@ -226,7 +226,7 @@ The Dependency agent can be installed manually on Windows computers by running  
 
 Use the following steps to install the Dependency agent on each Windows computer:
 
-1.	Install the Log Analytics agent for Windows following one of the methods described in [Collect data in a hybrid environment with Log Analytics agent](../log-analytics/log-analytics-concept-hybrid.md).
+1.	Install the Log Analytics agent for Windows following one of the methods described in [Log Analytics agent overview](../log-analytics/log-analytics-agent-overview.md).
 2.	Download the Windows agent and run it by using the following command: 
     
     `InstallDependencyAgent-Windows.exe`
@@ -254,7 +254,7 @@ The Dependency agent is installed on Linux computers from `InstallDependencyAgen
 
 Use the following steps to install the Dependency agent on each Linux computer:
 
-1.	Install the Log Analytics agent following one of the methods described in [Collect data in a hybrid environment with Log Analytics agent](../log-analytics/log-analytics-concept-hybrid.md).
+1.	Install the Log Analytics agent following one of the methods described in [Log Analytics agent overview](../log-analytics/log-analytics-agent-overview.md).
 2.	Install the Linux Dependency agent as root by running the following command:
     
     `sh InstallDependencyAgent-Linux64.bin`

@@ -1,6 +1,6 @@
 ---
 title: Enroll TPM device to Azure Device Provisioning Service using C# | Microsoft Docs
-description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using C# service SDK
+description: Azure Quickstart - Enroll TPM device to Azure IoT Hub Device Provisioning Service using C# service SDK.This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/16/2018
@@ -29,7 +29,7 @@ These steps show how to programmatically create an individual enrollment for a T
 ## Get the connection string for your provisioning service
 
 For the sample in this Quickstart, you need the connection string for your provisioning service.
-1. Log in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning Service. 
+1. Sign in to the Azure portal, click on the **All resources** button on the left-hand menu and open your Device Provisioning Service. 
 2. Click **Shared access policies**, then click the access policy you want to use to open its properties. In the **Access Policy** window, copy and note down the primary key connection string. 
 
     ![Get provisioning service connection string from the portal](media/quick-enroll-device-tpm-csharp/get-service-connection-string.png)

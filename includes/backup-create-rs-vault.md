@@ -2,11 +2,12 @@
 title: include file
 description: include file
 services: backup
-author: markgalioto
+author: rayne-wiselman
+manager: carmonm
 ms.service: backup
 ms.topic: include
-ms.date: 5/14/2018
-ms.author: markgal
+ms.date: 10/18/2018
+ms.author: raynew
 ms.custom: include file
 ---
 

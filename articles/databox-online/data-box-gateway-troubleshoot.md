@@ -1,5 +1,5 @@
 ---
-title: Azure Data Box Gateway troubleshoot | Micruse the Azure portal to tosoft Docs 
+title: Use the Azure portal to troubleshoot Azure Data Box Gateway | Microsoft Docs 
 description: Describes how to troubleshoot Azure Data Box Gateway issues.
 services: databox
 author: alkohli

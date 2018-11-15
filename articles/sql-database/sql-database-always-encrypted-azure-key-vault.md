@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Always Encrypted: SQL Database - Azure Key Vault | Microsoft Docs'
 description: This article shows you how to secure sensitive data in a SQL database with data encryption using the Always Encrypted Wizard in SQL Server Management Studio. 
 keywords: data encryption, encryption key, cloud encryption
@@ -42,7 +42,7 @@ For this tutorial, you'll need:
 ## Enable your client application to access the SQL Database service
 You must enable your client application to access the SQL Database service by setting up an Azure Active Directory (AAD) application and copying the *Application ID* and *key* that you will need to authenticate your application.
 
-To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+To get the *Application ID* and *key*, follow the steps in [create an Azure Active Directory application and service principal that can access resources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 ## Create a key vault to store your keys
 Now that your client app is configured and you have your application ID, it's time to create a key vault and configure its access policy so you and your application can access the vault's secrets (the Always Encrypted keys). The *create*, *get*, *list*, *sign*, *verify*, *wrapKey*, and *unwrapKey* permissions are required for creating a new column master key and for setting up encryption with SQL Server Management Studio.
@@ -629,5 +629,5 @@ After you create a database that uses Always Encrypted, you may want to do the f
 * [Transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Always Encrypted blog](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

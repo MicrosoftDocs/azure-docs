@@ -1,7 +1,7 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: Use synonyms to expand scope of a search query
-authors: mhko
+author: mhko
 services: search
 ms.service: search
 ms.devlang: rest-api

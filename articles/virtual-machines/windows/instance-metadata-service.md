@@ -297,7 +297,7 @@ subscriptionId | Azure subscription for the Virtual Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) for your Virtual Machine  | 2017-08-01
 resourceGroupName | [Resource group](../../azure-resource-manager/resource-group-overview.md) for your Virtual Machine | 2017-08-01
 placementGroupId | [Placement Group](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) of your virtual machine scale set | 2017-08-01
-plan | [Plan] (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its a Azure Marketplace Image, contains name, product and publisher | 2017-04-02
+plan | [Plan](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) for a VM in its a Azure Marketplace Image, contains name, product and publisher | 2017-04-02
 publicKeys | Collection of Public Keys[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] assigned to the VM and paths | 2017-04-02
 vmScaleSetName | [Virtual Machine ScaleSet Name](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) of your virtual machine scale set | 2017-12-01
 zone | [Availability Zone](../../availability-zones/az-overview.md) of your virtual machine | 2017-12-01 

@@ -1,10 +1,10 @@
 # displayName: additional text for filtering down the ToC in meaningful way.
-- name: Speech Service SDK Documentation
+- name: Speech Service Documentation
   href: index.yml
 - name: Overview
   expanded: true
   items:
-  - name: What is the Speech service?
+  - name: What is the Speech Service?
     href: overview.md
 - name: Quickstarts
   items:
@@ -129,7 +129,7 @@
     href: https://aka.ms/azure-powershell-cognitiveservices
   - name: Azure CLI
     href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
-  - name: Language and region support
+  - name: Language support
     href: language-support.md
   - name: Regions
     href: regions.md

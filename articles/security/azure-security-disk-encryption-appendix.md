@@ -6,7 +6,7 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
+ms.date: 11/12/2018
 ---
 
 
@@ -546,6 +546,35 @@ When encrypting using an Azure AD app (previous release), the disk-encryption se
 ### <a name="bkmk_SecretnoKEK"></a> Disk encryption secret not encrypted with a KEK
 To set up the secret in your key vault, use [Set-AzureKeyVaultSecret](/powershell/module/azurerm.keyvault/set-azurekeyvaultsecret). If you have a Windows virtual machine, the bek file is encoded as a base64 string and then uploaded to your key vault using the `Set-AzureKeyVaultSecret` cmdlet. For Linux, the passphrase is encoded as a base64 string and then uploaded to the key vault. In addition, make sure that the following tags are set when you create the secret in the key vault.
 
+#### Windows BEK file
+```powershell
+# Change the VM Name, key vault name, and specify the path to the BEK file.
+$VMName ="MySecureVM"
+$BEKFilepath = "C:\test\BEK\12345678-90AB-CDEF-A1B2-C3D4E5F67890A.BEK"
+$VeyVaultName ="MySecureVault"
+
+# Get the name of the BEK file from the BEK file path. This will be a tag for the key vault secret.
+$BEKFileName =  Split-Path $BEKFilepath -Leaf
+
+# These tags will be added to the key vault secret so you can easily see which BEK file belongs to which VM.
+$tags = @{“MachineName” = “$VMName”;"DiskEncryptionKeyEncryptionAlgorithm" = "RSA-OAEP"; "DiskEncryptionKeyFileName" = "$BEKFileName"}
+
+# Convert the BEK file to a Base64 string.
+$FileContentEncoded = [System.convert]::ToBase64String((Get-Content -Path $BEKFilepath -Encoding Byte))
+
+# Create a new secret in the vault from the converted BEK file. 
+# The file is converted to a secure string before import into the key vault
+
+$SecretName = [guid]::NewGuid().ToString()
+$SecureSecretValue = ConvertTo-SecureString $FileContentEncoded -AsPlainText -Force
+$Secret = Set-AzureKeyVaultSecret -VaultName $VeyVaultName -Name $SecretName -SecretValue $SecureSecretValue -tags $tags
+
+# Show the secret's URL and store it as a variable. This is used as -DiskEncryptionKeyUrl in Set-AzureRmVMOSDisk when you attach your OS disk. 
+$SecretUrl=$secret.Id
+$SecretUrl
+```
+
+#### Linux
 ```powershell
 
  # This is the passphrase that was provided for encryption during the distribution installation

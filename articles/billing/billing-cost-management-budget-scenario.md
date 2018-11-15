@@ -136,7 +136,7 @@ Every logic app must start with a trigger, which fires when a specific event hap
 4.	Search for "parse JSON" in the **Logic Apps Designer** search box to find and select the **Data Operations - Parse JSON** [action](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview#logic-app-concepts). 
     
     ![Azure - Logic app - Add parse JSON action](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-06.png) 
-5.	Enter "Payload" as the **Content** name for the Parse JSON payload.
+5.	Enter "Payload" as the **Content** name for the Parse JSON payload or use the "Body" tag from dynamic content.
 6.	Select the **Use sample payload to generate schema** option in the **Parse JSON** box.
     
     ![Azure - Logic app - Use sample JSON data to generate schema](./media/billing-cost-management-budget-scenario/billing-cost-management-budget-scenario-07.png) 

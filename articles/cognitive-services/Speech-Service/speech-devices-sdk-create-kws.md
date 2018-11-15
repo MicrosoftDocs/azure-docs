@@ -1,13 +1,14 @@
 ---
 title: Create a custom wake word
-description: Learn how to create a custom wake word for the Speech Devices SDK.
 titleSuffix: Azure Cognitive Services
+description: Learn how to create a custom wake word for the Speech Devices SDK.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
 ---

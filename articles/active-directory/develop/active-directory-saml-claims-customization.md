@@ -14,9 +14,9 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
 ---
 
@@ -45,22 +45,38 @@ You can also remove claims (other than NameIdentifier) using the context menu, w
 ![Edit User Attribute][3]
 
 ## Editing the NameIdentifier claim
-To solve the problem where the application has been deployed using a different username, click on the **User Identifier** drop down in the **User Attributes** section. This action provides a dialog with several different options:
+
+To solve the problem where the application has been deployed using a different username, select on the **User Identifier** drop down in the **User Attributes** section. This action provides a dialog with several different options:
 
 ![Edit User Attribute][4]
 
-In the drop-down, select **user.mail** to set the NameIdentifier claim to be the user’s email address in the directory. Or, select **user.onpremisessamaccountname** to set to the user’s SAM Account Name that has been synced from on-premises Azure AD.
+### Attributes
 
-You can also use the special **ExtractMailPrefix()** function to remove the domain suffix from either the email address, SAM Account Name, or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com).
+Select the desired source for the `NameIdentifier` (or NameID) claim. You can select from the following options.
 
-![Edit User Attribute][5]
+| Name | Description |
+|------|-------------|
+| Email | The email address of the user |
+| userprincipalName | The user principal name (UPN) of the user |
+| onpremisessamaccount | SAM account name that has been synced from on-premises Azure AD |
+| objectID | The objectID of the user in Azure AD |
+| EmployeeID | The EmployeeID of the user |
+| Directory extensions | Directory extensions [synced from on-premises Active Directory using Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Extension Attributes 1-15 | On-premises extension attributes used to extend the Azure AD schema |
 
-We have now also added the **join()** function to join the verified domain with the user identifier value. when you select the join() function in the **User Identifier**
-First select the user identifier as like email address or user principal name and then in the second drop-down select your verified domain. If you select the email address with the verified domain, then Azure AD extracts the username from the first value joe_smith from joe_smith@contoso.com and appends it with contoso.onmicrosoft.com. See the following example:
+### Transformations
 
-![Edit User Attribute][6]
+You can also use the special claims transformations functions.
+
+| Function | Description |
+|----------|-------------|
+| **ExtractMailPrefix()** | Removes the domain suffix from either the email address, SAM account name, or the user principal name. This extracts only the first part of the user name being passed through (for example, "joe_smith" instead of joe_smith@contoso.com). |
+| **join()** | Joins an attribute with a verified domain. If the selected user identifier value has a domain, it will extract the username to append the selected verified domain. For example, if you select the email (joe_smith@contoso.com) as the user identifier value and select contoso.onmicrosoft.com as the verified domain, this will result in joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Converts the characters of the selected attribute into lowercase characters. |
+| **ToUpper()** | Converts the characters of the selected attribute into uppercase characters. |
 
 ## Adding claims
+
 When adding a claim, you can specify the attribute name (which doesn’t strictly need to follow a URI pattern as per the SAML spec). Set the value to any user attribute that is stored in the directory.
 
 ![Add User Attribute][7]
@@ -129,8 +145,8 @@ There are some restricted claims in SAML. If you add these claims, then Azure AD
 ## Next steps
 
 * [Application management in Azure AD](../manage-apps/what-is-application-management.md)
-* [Configuring single sign-on to applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Troubleshooting SAML-Based Single Sign-On](howto-v1-debug-saml-sso-issues.md)
+* [Configure single sign-on on applications that are not in the Azure AD application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Troubleshoot SAML-based single sign-on](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

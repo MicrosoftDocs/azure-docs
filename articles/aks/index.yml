@@ -40,19 +40,19 @@ sections:
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_java.svg
       text: Java
-      href: quickstart-java.md
+      href: ../dev-spaces/quickstart-java.md
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_NETcore.svg
       text: .NET and VS Code
-      href: quickstart-netcore.md
+      href: ../dev-spaces/quickstart-netcore.md
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_visual-studio.svg
       text: .NET and Visual Studio
-      href: quickstart-netcore-visualstudio.md
+      href: ../dev-spaces/quickstart-netcore-visualstudio.md
     - image: 
         src: https://docs.microsoft.com/media/logos/logo_nodejs.svg
       text: Node.js
-      href: quickstart-nodejs.md
+      href: ../dev-spaces/quickstart-nodejs.md
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

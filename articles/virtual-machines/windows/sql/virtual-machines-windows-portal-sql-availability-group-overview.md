@@ -23,7 +23,7 @@ ms.author: mikeray
 
 This article introduces SQL Server availability groups on Azure Virtual Machines. 
 
-Always On availability groups on Azure Virtual Machines are similar to Always On availability groups on premises. For more information, see [Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
+Always On availability groups on Azure Virtual Machines are similar to Always On availability groups on premises. For more information, see [Always On Availability Groups (SQL Server)](https://msdn.microsoft.com/library/hh510230.aspx). 
 
 The diagram illustrates the parts of a complete SQL Server Availability Group in Azure Virtual Machines.
 

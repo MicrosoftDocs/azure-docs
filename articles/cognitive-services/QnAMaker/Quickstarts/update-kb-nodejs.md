@@ -9,11 +9,11 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 
-# Quickstart: Update a QnA Maker knowledge base in Node.js
+# Quickstart: Update a knowledge base in QnA Maker using Node.js
 
 This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
 

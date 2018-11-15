@@ -80,7 +80,7 @@ az storage account update --name "mystorageaccount" --resource-group "myresource
 az storage account update --name "mystorageaccount" --resource-group "myresourcegroup" --default-action Allow
 ```
 
-## Grant access from a virtual network
+## Grant access from a Virtual Network
 Storage accounts can be configured to allow access only from specific Azure Virtual Networks. 
 
 By enabling a [Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) for Azure Storage within the Virtual Network, traffic is ensured an optimal route to the Azure Storage service. The identities of the virtual network and the subnet are also transmitted with each request.  Administrators can subsequently configure network rules for the Storage account that allow requests to be received from specific subnets in the Virtual Network.  Clients granted access via these network rules must continue to meet the authorization requirements of the Storage account to access the data.
@@ -184,11 +184,13 @@ Allowed internet address ranges can be provided using [CIDR notation](https://to
 
 IP network rules are only allowed for **public internet** IP addresses.  IP address ranges reserved for private networks (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed in IP rules.  Private networks include addresses that start with *10.\**, *172.16.\** - *172.31.\**, and *192.168.\**.
 
-Note that IP network rules will have no effect on requests originating from the same Azure region as the Storage account.  Use virtual network rules to allow same-region requests.
+> [!NOTE]
+> IP network rules will have no effect on requests originating from the same Azure region as the Storage account.  Use [Virtual Network rules](#grant-access-from-a-virtual-network) to allow same-region requests.
+>
 
 Only IPV4 addresses are supported at this time.
 
-Each storage account can support up to 100 IP network rules which may be combined with [Virtual Network rules](#grant-access-from-a-virtual-network)
+Each storage account can support up to 100 IP network rules which may be combined with [Virtual Network rules](#grant-access-from-a-virtual-network).
 
 ### Configuring access from on-premises networks
 In order to grant access from your on-premises networks to your storage account with an IP network rule, you must identify the internet facing IP addresses used by your network.  Contact your network administrator for help.
@@ -286,7 +288,7 @@ When the "Trusted Microsoft Services" exception is enabled, the following servic
 |Azure Event Grid|Microsoft.EventGrid|Enable Blob Storage event publishing.  [Learn more](https://docs.microsoft.com/azure/event-grid/overview).|
 |Azure Event Hubs|Microsoft.EventHub|Archive data with Event Hubs Capture.  [Learn More](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure Networking|Microsoft.Networking|Store and analyze network traffic logs.  [Learn more](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Azure Monitor|Microsoft.Insights| Allows writing of monitoring data to a secured storaage account [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
+|Azure Monitor|Microsoft.Insights| Allows writing of monitoring data to a secured storage account [Learn more](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security#monitoring-and-secured-Azure-storage-and-networks).|
 |
 
 

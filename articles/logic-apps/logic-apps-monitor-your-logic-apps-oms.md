@@ -1,6 +1,6 @@
 ---
-title: Monitor logic app runs with Log Analytics - Azure Logic Apps | Microsoft Docs
-description: Get insights and debugging data about your logic app runs with Log Analytics for troubleshooting and diagnostics
+title: Monitor logic apps with Log Analytics - Azure Logic Apps | Microsoft Docs
+description: Get insights and debugging data for troubleshooting and diagnosing your logic app runs with Azure Log Analytics
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -8,31 +8,33 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/19/2018
 ---
 
-# Monitor and get insights about logic app runs with Log Analytics
+# Monitor logic apps with Azure Log Analytics
 
-For monitoring and richer debugging information, 
-you can turn on Log Analytics at the same time 
-when you create a logic app. Log Analytics provides 
-diagnostics logging and monitoring for your 
-logic app runs through the Azure portal. 
-When you add the Logic Apps Management solution, 
-you get aggregated status for your logic app runs and 
-specific details like status, execution time, 
-resubmission status, and correlation IDs.
+To monitor and get richer debugging details about your logic apps, 
+turn on [Azure Log Analytics](../log-analytics/log-analytics-overview.md) 
+when you create your logic app. Log Analytics provides diagnostics 
+logging and monitoring for your logic apps when you install the 
+Logic Apps Management solution in the Azure portal. This solution 
+also provides aggregated information for your logic app runs with 
+specific details such as status, execution time, resubmission status, 
+and correlation IDs. This article shows how to turn on Log Analytics 
+so you can view runtime events and data for your logic app runs.
 
-This article shows how to turn on Log Analytics so you can 
-view runtime events and data for your logic app run.
+To turn on Azure Log Analytics for existing logic apps, follow these steps to 
+[turn on diagnostic logging and send logic app runtime data to Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
 
- > [!TIP]
- > To monitor your existing logic apps, follow these steps to 
- > [turn on diagnostic logging and send logic app runtime data to Log Analytics](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics).
+> [!NOTE]
+> This page previously described steps for how to perform these tasks 
+> with the Microsoft Operations Management Suite (OMS), which is 
+> [retiring in January 2019](../log-analytics/log-analytics-oms-portal-transition.md), 
+> replaces those steps with Azure Log Analytics instead. 
 
-## Requirements
+## Prerequisites
 
-Before you start, you need to have a Log Analytics workspace. 
+Before you start, you need a Log Analytics workspace. 
 Learn [how to create a Log Analytics workspace](../log-analytics/log-analytics-quick-create-workspace.md). 
 
 ## Turn on diagnostics logging when creating logic apps
@@ -66,24 +68,23 @@ Choose **Create a resource** > **Integration** > **Logic App**.
 1. To view your logic app runs, 
 [continue with these steps](#view-logic-app-runs-oms).
 
-## Install the Logic Apps Management solution
+## Install Logic Apps Management solution
 
 If you already turned on Log Analytics when you created your logic app, 
 skip this step. You already have the Logic Apps Management solution installed.
 
 1. In the [Azure portal](https://portal.azure.com), 
 select **All services**. In the search box, 
-enter "log analytics" as your filter, 
-and select **Log Analytics**.
+find "log analytics", and select **Log Analytics**.
 
    ![Select "Log Analytics"](./media/logic-apps-monitor-your-logic-apps-oms/find-log-analytics.png)
 
-1. Under **Log Analytics**, 
-find and select your Log Analytics workspace. 
+1. Under **Log Analytics**, find and 
+select your Log Analytics workspace. 
 
    ![Select your Log Analytics workspace](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. Under **Configure monitoring solutions**, 
+1. Under **Get started with Log Analytics** > **Configure monitoring solutions**, 
 choose **View solutions**.
 
    ![Choose "View solutions"](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
@@ -97,23 +98,30 @@ From that list, select **Logic Apps Management**.
    If you can't find the solution, at the bottom of the list, 
    choose **Load more** until the solution appears.
 
-1. Choose **Create**, which installs the solution.
+1. Choose **Create**, confirm the Log Analytics 
+workspace where you want to install the solution, 
+and then choose **Create** again.   
 
-   ![Choose "Add" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+   ![Choose "Create" for "Logic Apps Management"](./media/logic-apps-monitor-your-logic-apps-oms/create-logic-apps-management-solution.png)
+
+   If you don't want to use an existing workspace, 
+   you can also create a new workspace at this time.
+
+   When you're done, the Logic Apps Management 
+   solution appears on the Overview page. 
 
 <a name="view-logic-app-runs-oms"></a>
 
-## View logic app runs in Log Analytics workspace
+## View logic app run information
 
-1. To view the count and status for your logic app runs, 
-go to your Log Analytics workspace, and open the Overview page. 
+After your logic app runs, you can view 
+the status and count for those runs on the 
+**Logic Apps Management** tile. 
 
-   Details about your logic app runs appear on the 
-   **Logic Apps Management** tile. To view a summary 
-   with more details about your logic app runs, 
-   choose the **Logic Apps Management** tile. 
+1. Go to your Log Analytics workspace, and open the Overview page. 
+Choose **Logic Apps Management**. 
 
-   ![Overview tile showing logic app run count and status](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
+   ![Logic app run status and count](media/logic-apps-monitor-your-logic-apps-oms/overview.png)
 
    Here, your logic app runs are grouped by name or by execution status. 
    This page also shows details about failures in actions or triggers 

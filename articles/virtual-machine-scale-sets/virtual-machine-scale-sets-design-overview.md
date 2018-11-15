@@ -4,7 +4,7 @@ description: Learn about design considerations for your Azure Virtual Machine Sc
 keywords: linux virtual machine,virtual machine scale sets
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
-ms.author: negat
+ms.author: manayar
 
 ---
 # Design Considerations For Scale Sets

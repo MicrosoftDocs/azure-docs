@@ -1,15 +1,16 @@
 ---
-title: Replicate applications with SQL Server and Azure Site Recovery | Microsoft Docs
-description: This article describes how to replicate SQL Server using Azure Site Recovery for SQL Server disaster capabilities.
+title: Set up disaster recovery for SQL Server with SQL Server and Azure Site Recovery | Microsoft Docs
+description: This article describes how to set up disaster recovery for SQL Server using SQL Server and Azure Site Recovery .
 services: site-recovery
-author: rayne-wiselman
+author: sujayt
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
-ms.author: raynew
+ms.author: sutalasi
 
 ---
-# Protect SQL Server using SQL Server disaster recovery and Azure Site Recovery
+# Set up disaster recovery for SQL Server 
 
 This article describes how to protect the SQL Server back end of an application using a combination of SQL Server business continuity and disaster recovery (BCDR) technologies, and [Azure Site Recovery](site-recovery-overview.md).
 

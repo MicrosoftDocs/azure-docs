@@ -11,7 +11,7 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer:
 manager: craigg
-ms.date: 10/15/2018
+ms.date: 11/09/2018
 ---
 # Create and manage logical servers and single databases in Azure SQL Database
 
@@ -54,7 +54,7 @@ To manage an existing database, navigate to the **SQL databases** page and click
 To create and manage Azure SQL server, databases, and firewalls with Azure PowerShell, use the following PowerShell cmdlets. If you need to install or upgrade PowerShell, see [Install Azure PowerShell module](/powershell/azure/install-azurerm-ps).
 
 > [!TIP]
-> For a PowerShell quickstart, see [Create a single Azure SQL database using PowerShell](sql-database-get-started-portal.md). For PowerShell example scripts, see [Use PowerShell to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
+> For PowerShell example scripts, see [Use PowerShell to create a single Azure SQL database and configure a firewall rule](scripts/sql-database-create-and-configure-database-powershell.md) and [Monitor and scale a single SQL database using PowerShell](scripts/sql-database-monitor-and-scale-database-powershell.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -136,22 +136,22 @@ To create and manage Azure SQL server, databases, and firewalls, use these REST 
 
 | Command | Description |
 | --- | --- |
-|[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Creates or updates a new server.|
-|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Deletes a SQL server.|
-|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Gets a server.|
-|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Returns a list of servers.|
-|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Returns a list of servers in a resource group.|
-|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Updates an existing server.|
-|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Creates a new database or updates an existing database.|
-|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Deletes a database.|
-|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Gets a database.|
-|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Returns a list of databases in an elastic pool.|
-|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Returns a list of databases in a server.|
-|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Updates an existing database.|
-|[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Creates or updates a firewall rule.|
-|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Deletes a firewall rule.|
-|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Gets a firewall rule.|
-|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Returns a list of firewall rules.|
+|[Servers - Create Or Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Creates or updates a new server.|
+|[Servers - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Deletes a SQL server.|
+|[Servers - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Gets a server.|
+|[Servers - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Returns a list of servers.|
+|[Servers - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Returns a list of servers in a resource group.|
+|[Servers - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Updates an existing server.|
+|[Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Creates a new database or updates an existing database.|
+|[Databases - Delete](https://docs.microsoft.com/rest/api/sql/databases/delete)|Deletes a database.|
+|[Databases - Get](https://docs.microsoft.com/rest/api/sql/databases/get)|Gets a database.|
+|[Databases - List By Elastic Pool](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Returns a list of databases in an elastic pool.|
+|[Databases - List By Server](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Returns a list of databases in a server.|
+|[Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)|Updates an existing database.|
+|[Firewall Rules - Create Or Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Creates or updates a firewall rule.|
+|[Firewall Rules - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Deletes a firewall rule.|
+|[Firewall Rules - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Gets a firewall rule.|
+|[Firewall Rules - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Returns a list of firewall rules.|
 
 ## Next steps
 

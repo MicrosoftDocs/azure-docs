@@ -1,13 +1,14 @@
 ---
-title: Try the Speech service for free
-description: Discover how you can try the Speech service at no cost.
-titleSuffix: "Azure Cognitive Services"
+title: Try the Speech Service for free
+titleSuffix: Azure Cognitive Services
+description: Discover how you can try the Speech Service at no cost.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: erhopf
 ---

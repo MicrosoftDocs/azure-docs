@@ -1,10 +1,10 @@
 ---
-title: Manage a process server in Azure Site Recovery | Microsoft Docs
-description: This article describes manage a process server set up for VMware VM and physical server replication in Azure Site Recovery.
+title: Manage a process server for disaster recovery of VMware VMs and physical servers to Azure using Azure Site Recovery | Microsoft Docs
+description: This article describes manage a process server set up for disaster recovery of VMware VMs and physical server to Azure using Azure Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/21/2018
+ms.date: 10/29/2018
 ms.author: ramamill
 
 ---
@@ -75,4 +75,16 @@ If the process server uses a proxy to connect to Site Recovery in Azure, use thi
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
 
+## Manage anti-virus software on process servers
+
+If anti-virus software is active on a standalone process server or master target server, exclude the following folders from anti-virus operations:
+
+
+- C:\Program Files\Microsoft Azure Recovery Services Agent
+- C:\ProgramData\ASR
+- C:\ProgramData\ASRLogs
+- C:\ProgramData\ASRSetupLogs
+- C:\ProgramData\LogUploadServiceLogs
+- C:\ProgramData\Microsoft Azure Site Recovery
+- Process server installation directory, Example: C:\Program Files (x86)\Microsoft Azure Site Recovery
 

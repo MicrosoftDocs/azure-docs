@@ -5,7 +5,7 @@ services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
@@ -15,7 +15,7 @@ ms.custom:
 
 Before you can properly control and optimize your Azure costs, you need to understand where costs originated within your organization. It's also useful to know how much money your services cost, and in support of what environments and systems. Visibility into the full spectrum of costs is critical to accurately understand organizational spending patterns. Spending patterns can be used to enforce cost control mechanisms, like budgets.
 
-In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provider adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
+In this quickstart, you use cost analysis to explore and analyze your organizational costs. You can view aggregated costs by organization to understand where costs occur over time and identify spending trends. You can view accumulated costs over time to estimate monthly, quarterly, or even yearly cost trends against a budget. A budget helps to provide adherence to financial constraints. And a budget is used to view daily or monthly costs to isolate spending irregularities. And, you can download the current report's data for further analysis or to use in an external system.
 
 In this quickstart, you learn how to:
 
@@ -26,23 +26,14 @@ In this quickstart, you learn how to:
 
 ## Prerequisites
 
-Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data.
+Cost analysis is available to all [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) customers. You must have at least read access to one or more of the following scopes to view cost data. For more information about assigning access to Cost Management data, see [Assign access to data](assign-access-acm-data.md).
 
-- The *billing account* scope is defined at  https://ea.azure.com and requires Enterprise Admin access. No prerequisite EA setting is required. Billing information in cost analysis is consolidated for all subscriptions in the enterprise agreement. Billing account is often referred to as the *Enterprise Agreement* or *Enrollment*.
-
-- The *department* scope is defined at https://ea.azure.com and requires Department Admin access. The **DA view charges**  enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions belonging to the enrollment account that are linked to the department.
-
-- The *enrollment account* scope is defined at https://ea.azure.com and requires Account Owner access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions belonging to the enrollment account. The enrollment account is often referred to as the *account owner*.
-
-- The *management group* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all subscriptions below the management group.
-
-- The *subscription* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all resources and resource groups in the subscription.
-
-- The *resource group* scope is defined at https://portal.azure.com and requires Cost Management Reader (or Reader) access. The **AO view charges** enabled setting in the EA portal is required. Billing information in cost analysis is consolidated for all resources in the resource group.
-
-
-
-For more information about configuring **DA view charges** and **AO view charges** settings, see [Enabling access to costs](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
+- Billing account
+- Department
+- Enrollment account
+- Management group
+- Subscription
+- Resource group
 
 ## Sign in to Azure
 

@@ -41,6 +41,8 @@
       href: tutorial-nodejs-mongodb-app.md
     - name: Python with Postgres
       href: tutorial-python-postgresql-app.md
+    - name: Java Enterprise with Postgres
+      href: tutorial-java-enterprise-postgresql-app.md
   - name: Multi-container app
     href: tutorial-multi-container-app.md
   - name: Custom Docker image
@@ -69,6 +71,8 @@
     href: ../environment/intro.md
   - name: Java developer guide
     href: app-service-linux-java.md
+  - name: Java Enterprise  guide
+    href: app-service-java-enterprise.md
   - name: Inbound and outbound IPs
     href: ../app-service-ip-addresses.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Authentication and authorization
@@ -85,6 +89,8 @@
       href: how-to-configure-python.md
     - name: Use app settings
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Serve content with Storage
+      href: how-to-serve-content-from-azure-storage.md
   - name: Deploy to Azure
     items:
     - name: Deploy the app
@@ -99,6 +105,8 @@
         href: ../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Deploy with template
         href: ../app-service-deploy-complex-application-predictably.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+      - name: Java SE with Maven
+        href: https://docs.microsoft.com/java/azure/spring-framework/deploy-spring-boot-java-app-with-maven-plugin?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Set deployment credentials
       href: ../app-service-deployment-credentials.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Create staging environments
@@ -127,7 +135,7 @@
         href: ../app-service-mobile-how-to-configure-microsoft-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Authenticate with Twitter
         href: ../app-service-mobile-how-to-configure-twitter-authentication.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Customize auth
+    - name: Advanced auth
       href: ../app-service-authentication-how-to.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Configure TLS mutual authentication
       href: ../app-service-web-configure-tls-mutual-auth.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
