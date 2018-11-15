@@ -98,7 +98,7 @@ In this section, you create two virtual machines for the backend pool of your Ba
 
 ## Create Basic Load Balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer and NAT rules.
+In this section, you  configure load balancer settings for a backend address pool and a health probe, and specify load balancer rules.
 
 
 ### Create a backend address pool
