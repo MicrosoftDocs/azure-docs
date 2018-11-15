@@ -95,7 +95,7 @@ package = dprep.Package([dataflow_1, dataflow_2])
 package.save("<your-local-path>")
 ```
 
-Use the following code to reopen your package in any environment and extract a list of dataflow objects.
+Use the following code to reopen your package in any environment and retrieve a list of dataflow objects.
 
 ```python
 package = dprep.Package.open("<your-local-path>")
@@ -115,4 +115,4 @@ To see detailed examples and code for each preparation step, use the following h
 ## Next steps
 Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
 
-Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
+FAzure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
