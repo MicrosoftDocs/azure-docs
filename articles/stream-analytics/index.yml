@@ -19,8 +19,8 @@ abstract:
       height: 110
       src: ./media/index/streaming-analytics-thumbnail.png
       width: 250  
-    title: Streaming Analytics on Microsoft Azure. (8:48)
-    href: https://channel9.msdn.com/Events/Connect/2016/161
+    title: Enable real-time analytics and ML models in the Cloud and on IoT Edge with Azure Stream Analytics. (1:15:05)
+    href: https://myignite.techcommunity.microsoft.com/sessions/65358?source=sessions#ignite-html-anchor
     width: 250
 sections:
 - title: 5-Minute Quickstarts
