@@ -122,4 +122,4 @@ Connecting machines in your Azure subscription or hybrid environment directly wi
 
 * Learn about [log queries](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
 
-* Learn about [monitoring solutions](../monitoring/monitoring-solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.
+* Learn about [monitoring solutions](../azure-monitor/insights/solutions.md) that add functionality to Azure Monitor and also collect data into the Log Analytics workspace.

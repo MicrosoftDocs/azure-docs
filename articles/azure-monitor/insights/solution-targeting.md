@@ -25,7 +25,7 @@ There are three steps to targeting a solution as described in the following sect
 
 
 ### 1. Create a computer group
-You specify the computers that you want to include in a scope by creating a [computer group](../log-analytics/log-analytics-computer-groups.md) in Log Analytics.  The computer group can be based on a log search or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Log Analytics will be included in the scope.
+You specify the computers that you want to include in a scope by creating a [computer group](../../log-analytics/log-analytics-computer-groups.md) in Log Analytics.  The computer group can be based on a log search or imported from other sources such as Active Directory or WSUS groups. As [described below](#solutions-and-agents-that-cant-be-targeted), only computers that are directly connected to Log Analytics will be included in the scope.
 
 Once you have the computer group created in your workspace, then you'll include it in a scope configuration that can be applied to one or more solutions.
  
@@ -61,7 +61,7 @@ Apply a scope configuration using the following process.
 Following are the criteria for agents and solutions that can't be used with solution targeting.
 
 - Solution targeting only applies to solutions that deploy to agents.
-- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](monitoring-solutions-creating.md).
+- Solution targeting only applies to solutions provided by Microsoft.  It does not apply to solutions [created by yourself or partners](solutions-creating.md).
 - You can only filter out agents that connect directly to Log Analytics.  Solutions will automatically deploy to any agents that are part of a connected Operations Manager management group whether or not they're included in a scope configuration.
 
 ### Exceptions
@@ -70,5 +70,5 @@ Solution targeting cannot be used with the following solutions even though they 
 - Agent Health Assessment
 
 ## Next steps
-- Learn more about management solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics management solutions to your workspace](monitoring-solutions.md).
-- Learn more about creating computer groups at [Computer groups in Log Analytics log searches](../log-analytics/log-analytics-computer-groups.md).
+- Learn more about management solutions including the solutions that are available to install in your environment at [Add Azure Log Analytics management solutions to your workspace](solutions.md).
+- Learn more about creating computer groups at [Computer groups in Log Analytics log searches](../../log-analytics/log-analytics-computer-groups.md).
