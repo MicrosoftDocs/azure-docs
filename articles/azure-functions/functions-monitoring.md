@@ -9,7 +9,7 @@ ms.assetid: 501722c3-f2f7-4224-a220-6d59da08a320
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/15/2017
+ms.date: 11/15/2018
 ms.author: glenga
 ---
 
@@ -197,7 +197,7 @@ Log level `None` is explained in the next section.
 
 ### Configure logging in host.json
 
-The *host.json* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. There are two examples, one that targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and one for the version 1.x runtime.
+The *[host.json](functions-host-json.md)* file configures how much logging a function app sends to Application Insights. For each category, you indicate the minimum log level to send. There are two examples, one that targets the [Functions version 2.x runtime](functions-versions.md#version-2x) (.NET Core) and one for the version 1.x runtime.
 
 ### Version 2.x
 
@@ -236,13 +236,13 @@ The v2.x runtime uses the [.NET Core logging filter hierarchy](https://docs.micr
 
 This example sets up the following rules:
 
-1. For logs with category "Host.Results" or "Function", send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
-2. For logs with category Host.Aggregator, send all logs to Application Insights. The `Trace` log level is the same as what some loggers call `Verbose`, but use `Trace` in the *host.json* file.
+1. For logs with category `Host.Results`**` or `**`Function`, send only `Error` level and above to Application Insights. Logs for `Warning` level and below are ignored.
+2. For logs with category `Host.Aggregator`, send all logs to Application Insights. The `Trace` log level is the same as what some loggers call `Verbose`, but use `Trace` in the [host.json](functions-host-json.md) file.
 3. For all other logs, send only `Information` level and above to Application Insights.
 
-The category value in *host.json* controls logging for all categories that begin with the same value. For example, "Host" in *host.json* controls logging for "Host.General", "Host.Executor", "Host.Results", and so forth.
+The category value in [host.json](functions-host-json.md) controls logging for all categories that begin with the same value. For example, `Host` in [host.json](functions-host-json.md) controls logging for `Host.General`, `Host.Executor`, `Host.Results`, and so forth.
 
-If *host.json* includes multiple categories that start with the same string, the longer ones are matched first. For example, suppose you want everything from the runtime except "Host.Aggregator" to log at `Error` level, but you want "Host.Aggregator" to log at the `Information` level:
+If [host.json](functions-host-json.md) includes multiple categories that start with the same string, the longer ones are matched first. For example, suppose you want everything from the runtime except `Host.Aggregator` to log at `Error` level, but you want `Host.Aggregator` to log at the `Information` level:
 
 ### Version 2.x 
 
@@ -311,7 +311,7 @@ Logs written by your function code have category "Function" and may be any log l
 
 ## Configure the aggregator
 
-As noted in the previous section, the runtime aggregates data about function executions over a period of time. The default period is 30 seconds or 1,000 runs, whichever comes first. You can configure this setting in the *host.json* file.  Here's an example:
+As noted in the previous section, the runtime aggregates data about function executions over a period of time. The default period is 30 seconds or 1,000 runs, whichever comes first. You can configure this setting in the [host.json](functions-host-json.md) file.  Here's an example:
 
 ```json
 {
@@ -324,7 +324,7 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 ## Configure sampling
 
-Application Insights has a [sampling](../application-insights/app-insights-sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in *host.json*.  Here's an example:
+Application Insights has a [sampling](../application-insights/app-insights-sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in [host.json](functions-host-json.md).  Here's an example:
 
 ```json
 {
@@ -630,7 +630,7 @@ You can stream log files to a command-line session on a local workstation using 
 
 For the Azure CLI,  use the following commands to sign in, choose your subscription, and stream log files:
 
-```
+```azurecli
 az login
 az account list
 az account set <subscriptionNameOrId>
@@ -639,7 +639,7 @@ az webapp log tail --resource-group <resource group name> --name <function app n
 
 For Azure PowerShell, use the following commands to add your Azure account, choose your subscription, and stream log files:
 
-```
+```powershell
 PS C:\> Add-AzureAccount
 PS C:\> Get-AzureSubscription
 PS C:\> Get-AzureSubscription -SubscriptionName "<subscription name>" | Select-AzureSubscription
