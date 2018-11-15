@@ -63,67 +63,89 @@ DevOps Projects automatically configured a CI build and release trigger.  You're
 
 ## Commit code changes and execute CI/CD
 
-The Azure DevOps Project created a Git repository in your Azure DevOps Services organization or GitHub account.  Follow the steps below to view the repository and make code changes to your application.
+DevOps Projects creates a Git repository in Azure Repos or GitHub. Take the following steps to view the repository and make code changes to your application.
 
-1. On the left-hand side of the DevOps Project dashboard, select the link for your **master** branch.  This link opens a view to the newly created Git repository.
+1. On the left of the DevOps Projects dashboard, select the link for your master branch.  
+This link opens a view to the newly created Git repository.
 
-1. To view the repository clone URL, select **Clone** from the top right of the browser. You can clone your Git repository in your favorite IDE.  In the next few steps, you can use the web browser to make and commit code changes directly to the master branch.
+1. To view the repository clone URL, select **Clone** on the top right of the browser.   
+	You can clone your Git repository in your favorite IDE. In the next few steps, you can use the web browser to make and commit code changes directly to the master branch.
 
-1. On the left-hand side of the browser, navigate to the **views/index.pug** file.
+1. On the left side of the browser, go to the **views/index.pug** file.
 
-1. Select **Edit**, and make a change to the h2 heading.  For example, type **Get started right away with the Azure DevOps Project** or make some other change.
+1. Select **Edit**, and make a change to the h2 heading.  
+	For example, type **Get started right away with the Azure DevOps Project** or make some other change.
 
-1. Choose **Commit**, then save your changes.
+1. Select **Commit**, and then save your changes.
 
-1. In your browser, navigate to the **Azure DevOps Project dashboard**.  You should now see a build is in progress.  The changes you just made are automatically built and deployed via an Azure CI/CD pipeline.
+1. In your browser, go to the DevOps Projects dashboard.   
+You should now see a build in progress. The changes you just made are automatically built and deployed via a CI/CD pipeline.
 
 ## Examine the Azure CI/CD pipeline
 
-The Azure DevOps Project automatically configured a full Azure CI/CD pipeline in your Azure DevOps Services organization.  Explore and customize the pipeline as needed.  Follow the steps below to familiarize yourself with the Azure DevOps Services build and release pipelines.
+In the previous step, DevOps Projects automatically configured a full CI/CD pipeline. Explore and customize the pipeline as needed. Take the following steps to familiarize yourself with the build and release pipelines.
 
-1. Select **Build Pipelines** from the **top** of the Azure DevOps Project dashboard.  This link opens a browser tab and opens the Azure DevOps Services build pipeline for your new project.
+1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
+This link opens a browser tab and the build pipeline for your new project.
 
-1. Move the mouse cursor to the right of the build pipeline next to the **Status** field. Select the **ellipsis** that appears.  This action opens a menu where you can start several activities such as queue a new build, pause a build, and edit the build pipeline.
+1. Point to the **Status** field, and then select the ellipsis  (...).  
+	This action opens a menu where you can start several activities such as queuing a new build, pausing a build, and editing the build pipeline.
 
 1. Select **Edit**.
 
-1. From this view, **examine the various tasks** for your build pipeline.  The build executes various tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs used for deployments.
+1. In this pane, you can examine the various tasks for your build pipeline.  
+The build performs a variety of tasks such as fetching sources from the Git repository, restoring dependencies, and publishing outputs that are used for deployments.
 
-1. At the top of the build pipeline, select the **build pipeline name**.
+1. At the top of the build pipeline, select the build pipeline name.
 
-1. Change the **name** of your build pipeline to something more descriptive.  Select **Save & queue**, then select **Save**.
+1. Change the name of your build pipeline to something more descriptive, select **Save & queue**, and then select **Save**.
 
-1. Under your build pipeline name, select **History**.  You see an audit trail of your recent changes for the build.  Azure DevOps Services keeps track of any changes made to the build pipeline, and allows you to compare versions.
+1. Under your build pipeline name, select **History**.   
+In the **History** pane, you see an audit trail of your recent changes for the build.  Azure Pipelines keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
 
-1. Select **Triggers**.  The Azure DevOps Project automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
+1. Select **Triggers**.   
+ DevOps Projects automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
-1. Select **Retention**.  Based on your scenario, you can specify policies to keep or remove a certain number of builds.
+1. Select **Retention**.   
+Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
 
-1. Select **Build and Release**, then choose **Releases**.  The Azure DevOps Project created an Azure DevOps Services release pipeline to manage deployments to Azure.
+1. Select **Build and Release**, and then select **Releases**.  
+ DevOps Projects creates a release pipeline to manage 		deployments to Azure.
 
-1. On the left-hand side of the browser, select the **ellipsis** next to your release pipeline, then choose **Edit**.
+1. On the left, select the ellipsis (...) next to your release pipeline, and then select **Edit**.  
+The release pipeline defines the release process.
 
-1. The release pipeline contains a **pipeline**, which defines the release process.  Under **Artifacts**, select **Drop**.  The build pipeline you examined in the previous steps produces the output used for the artifact. 
+12. Under **Artifacts**, select **Drop**.  
+	The build pipeline you examined in the previous steps produces the output used for the artifact. 
 
-1. To the right-hand side of the **Drop** icon, select the **Continuous deployment trigger**.  This release pipeline has an enabled CD trigger, which executes a deployment every time there is a new build artifact available.  Optionally, you can disable the trigger, so your deployments require manual execution. 
+1. Next to the **Drop** icon, select the **Continuous deployment trigger**.  
+This release pipeline has an enabled CD trigger, which runs a deployment every time there is a new build artifact available. Optionally, you can disable the trigger so that your deployments require manual execution. 
 
-1. On the left-hand side of the browser, select **Tasks**.  The tasks are the activities your deployment process performs.  In this example, a task was created to deploy to **Azure App service**.
 
-1. On the right-hand side of the browser, select **View releases**.  This view shows a history of releases.
+1. On the left, select **Tasks**.   
+The tasks are the activities that your deployment process performs. In this example, a task was created to deploy to Azure App Service.
 
-1. Select the **ellipsis** next to one of your releases, and choose **Open**.  There are several menus to explore from this view such as a release summary, associated work items, and tests.
 
-1. Select **Commits**.  This view shows code commits associated with the specific deployment. 
+1. On the right, select **View releases**.  
+This view shows a history of releases.
 
-1. Select **Logs**.  The logs contain useful information about the deployment process.  They can be viewed both during and after deployments.
+1. Select the ellipsis (...) next to one of your releases, and then select **Open**.  
+There are several menus to explore, such as a release summary, associated work items, and tests.
+
+1. Select **Commits**.   
+This view shows code commits that are associated with the specific deployment.
+
+1. Select **Logs**.  
+The logs contain useful information about the deployment process. They can be viewed both during and after deployments.
 
 ## Clean up resources
 
-When no longer needed, you can delete the Azure App service and related resources created in this quickstart by using the **Delete** functionality on the Azure DevOps Project dashboard.
+You can delete Azure App Service and other related resources that you created when you don't need them anymore. Use the **Delete** functionality on the DevOps Projects dashboard.
+
 
 ## Next steps
 
-When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created in your Azure DevOps Project. You can modify these build and release pipelines to meet the needs of your team. To learn more see this tutorial:
+When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
 
 > [!div class="nextstepaction"]
 > [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
