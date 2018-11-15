@@ -55,6 +55,4 @@ As you hover the mouse over a row in the list of virtual machine, you see contro
 
 
 ## Next steps
-In this tutorial, you learned how to find users who have registered with the lab, track usage of VMs in the lab, and manage VMs in the lab.
-
 To learn more about classroom labs, see articles under [How-to guides](how-to-manage-lab-accounts.md).
