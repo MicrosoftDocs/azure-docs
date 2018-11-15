@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Conduct a root cause analysis on an alert
 
-In this tutorial, you learn how to use the Remote Monitoring solution accelerator to diagnose the root cause of an alert. You see that an alert has been triggered in the Remote Monitoring solution dashboard and then use the Azure Time Series Insights explorer to investigate the root cause.
+In this tutorial, you learn how to use the Remote Monitoring solution accelerator to diagnose the root cause of an alert. When you see an alert has been triggered in the Remote Monitoring solution dashboard, you can use the Azure Time Series Insights explorer to investigate the root cause.
 
 The tutorial uses two simulated delivery truck devices that send location, altitude, speed, and cargo temperature telemetry. The trucks are managed by an organization called Contoso and are connected to the Remote Monitoring solution accelerator. As a Contoso operator, you need to understand why one of your trucks (delivery-truck-02) has logged a low temperature alert.
 
