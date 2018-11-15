@@ -3,7 +3,7 @@ title: Create a store locator using Azure Maps | Microsoft Docs
 description: Create a store locator by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2018
+ms.date: 11/14/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -74,6 +74,9 @@ Looking at the screenshot of the data, we can make the following observations:
 * Location information is stored by using the **AddressLine**, **City**, **Municipality** (county), **AdminDivision** (state/province), **PostCode** (postal code), and **Country** columns.  
 * The **Latitude** and **Longitude** columns contain the coordinates for each Contoso Coffee coffee shop location. If you don't have coordinates information, you can use the Search services in Azure Maps to determine the location coordinates.
 * Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns for Wi-Fi hotspot and wheelchair accessibility, and store opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
+
+> [!Note]
+> Azure maps uses a spherical Mercato projection EPSG:3857.
 
 There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data and sends the results to the user’s browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires significantly more development work and has a higher cost. 
 
