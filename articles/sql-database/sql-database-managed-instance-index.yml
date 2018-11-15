@@ -50,7 +50,7 @@ sections:
         html: <p>Migrate a fleet of database with minimal downtime using Database Migration Service.</p>
       - title: Pricing
         href: /pricing/hybrid-benefit/
-        html: <p>Save up 40% with Azure Hybrid Benefit.</p>
+        html: <p>Save up to 40% with Azure Hybrid Benefit.</p>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
@@ -89,12 +89,12 @@ sections:
           - href: 
           - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
           - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
-      - title: Restore databases from some point in time
+      - title: Point in time restore
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-get-started
           - href: 
-          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/25/quick-start-script-setup-azure-network-environment-for-azure-sql-managed-instance/
-          - href: https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/
+          - href: https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/28/point-in-time-restore-of-a-database-on-azure-sql-managed-instance-using-azurerm-sql-powershell-library
+          - href: 
 - title: Step-by-Step tutorials and learning materials
   items:
   - type: paragraph
@@ -105,11 +105,11 @@ sections:
     - html: Learn about <a href="/azure/sql-database/sql-database-managed-instance-resource-limits">hardware characteristics and limitations</a> and <a href="/azure/sql-database/sql-database-managed-instance-transact-sql-information">SQL language limitations</a>.
     - html: <a href="https://medium.com/azure-sqldb-managed-instance/the-ultimate-guide-for-creating-and-configuring-azure-sql-managed-instance-environment-91ff58c0be01">Configure</a> and <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-vnet-configuration#modify-an-existing-virtual-network-for-managed-instances">validate</a> VNet where the managed instance will be deployed.
     - html: Connect to your instance using <a href="https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/09/21/the-easiest-way-to-create-azure-vm-that-can-access-your-azure-sql-managed-instance/">Azure Virtual Machine</a> or <a href="/azure/sql-database/sql-database-managed-instance-configure-p2s">Point-to-site connection</a>, or <a href="https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-connect-app">Applications</a>.
-    - html: Verify that your database can be migrated using <a href="">Data Migration Asisstant</a> or <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.
+    - html: Verify that your database can be migrated using <a href="https://www.microsoft.com/en-us/download/details.aspx?id=53595">Data Migration Asisstant</a> or <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.
     - html: Bring your data using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Native restore</a> or <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>
     - html: Move your SSIS packages to <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tabular models to <a href="/resources/videos/azure-analysis-services-moving-models/">Azure Analytic Service</a>, and SSRS reports to <a href="https://docs.microsoft.com/en-us/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
-    - html: <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">Secure your instance</a>.
-    - html: Distribute your data using <a href="/azure/sql-database/sql-database-implement-geo-distributed-database">Geo-distributed database</a> or <a href="/azure/sql-database/replication-with-sql-database-managed-instance">Transactional replication</a>
+    - html: How to <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">secure your instance</a>.
+    - html: Distribute your data using <a href="/azure/sql-database/replication-with-sql-database-managed-instance">Transactional replication</a>
 - title: Reference
   items:
   - type: list
