@@ -117,7 +117,7 @@ Replace `{tenant id}`, `{application id}`, and `{redirect uri}` using the follow
 
 ## Calling the backup and restore operations
 
-The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/apimanagementservice/restore) and [Api Management Service - Restore](/rest/api/apimanagement/apimanagementservice/backup).
+The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/apimanagementservice/backup) and [Api Management Service - Restore](/rest/api/apimanagement/apimanagementservice/restore).
 
 Before calling the "backup and restore" operations described in the following sections, set the authorization request header for your REST call.
 

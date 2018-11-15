@@ -226,7 +226,7 @@ Cosmos DB supports [dynamic partitioning](https://azure.microsoft.com/blog/10-th
 
 For a social experience, you must align your partitioning strategy with the way you query and write. (For example, reads within the same partition are desirable, and avoid "hot spots" by spreading writes on multiple partitions.) Some options are: partitions based on a temporal key (day/month/week), by content category, by geographical region, or by user. It all really depends on how you'll query the data and show the data in your social experience.
 
-Cosmos DB will run across your queries (including aggregates) all your partitions transparently, so you don't need to add any logic as your data grows.
+Cosmos DB will run your queries (including [aggregates](https://azure.microsoft.com/blog/planet-scale-aggregates-with-azure-documentdb/)) across all your partitions transparently, so you don't need to add any logic as your data grows.
 
 With time, you'll eventually grow in traffic and your resource consumption (measured in [RUs](request-units.md), or Request Units) will increase. You will read and write more frequently as your user base grows. The user base will start creating and reading more content. So the ability of **scaling your throughput** is vital. Increasing your RUs is easy. You can do it with a few clicks on the Azure portal or by [issuing commands through the API](https://docs.microsoft.com/rest/api/cosmos-db/replace-an-offer).
 
