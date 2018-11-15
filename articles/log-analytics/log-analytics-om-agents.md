@@ -327,6 +327,6 @@ In the future if you plan on reconnecting your management group to a Log Analyti
 * From the most recent update rollup applied to your management group. For Operations Manager 2012, the source folder is` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` and for 2012 R2, it is located in `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## Next steps
-To add functionality and gather data, see [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+To add functionality and gather data, see [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 
 
