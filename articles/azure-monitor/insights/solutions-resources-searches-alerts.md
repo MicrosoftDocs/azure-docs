@@ -25,18 +25,18 @@ ms.custom: H1Hack27Feb2017
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
 
 
-[Management solutions](monitoring-solutions.md) will typically include 
-[saved searches](../log-analytics/log-analytics-queries.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](monitoring-solutions-creating.md).
+[Management solutions](solutions.md) will typically include 
+[saved searches](../../log-analytics/log-analytics-queries.md) in Log Analytics to analyze data collected by the solution.  They may also define [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) to notify the user or automatically take action in response to a critical issue.  This article describes how to define Log Analytics saved searches and alerts in a [Resource Management template](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) so they can be included in [management solutions](solutions-creating.md).
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](monitoring-solutions-creating.md)  
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure](solutions-creating.md)  
 
 ## Prerequisites
-This article assumes that you're already familiar with how to [create a management solution](monitoring-solutions-creating.md) and the structure of a [Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) and solution file.
+This article assumes that you're already familiar with how to [create a management solution](solutions-creating.md) and the structure of a [Resource Manager template](../../azure-resource-manager/resource-group-authoring-templates.md) and solution file.
 
 
 ## Log Analytics Workspace
-All resources in Log Analytics are contained in a [workspace](../log-analytics/log-analytics-manage-access.md).  As described in [Log Analytics workspace and Automation account](monitoring-solutions.md#log-analytics-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
+All resources in Log Analytics are contained in a [workspace](../../log-analytics/log-analytics-manage-access.md).  As described in [Log Analytics workspace and Automation account](solutions.md#log-analytics-workspace-and-automation-account), the workspace isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install fails.
 
 The name of the workspace is in the name of each Log Analytics resource.  This is done in the solution with the **workspace** parameter as in the following example of a SavedSearch resource.
 
@@ -53,9 +53,9 @@ The following table lists the API version for the resource used in this example.
 
 
 ## Saved Searches
-Include [saved searches](../log-analytics/log-analytics-queries.md) in a solution to allow users to query data collected by your solution.  Saved searches appear under **Saved Searches** in the Azure portal.  A saved search is also required for each alert.   
+Include [saved searches](../../log-analytics/log-analytics-queries.md) in a solution to allow users to query data collected by your solution.  Saved searches appear under **Saved Searches** in the Azure portal.  A saved search is also required for each alert.   
 
-[Log Analytics saved search](../log-analytics/log-analytics-queries.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Log Analytics saved search](../../log-analytics/log-analytics-queries.md) resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches` and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 	{
 		"name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",
@@ -86,16 +86,16 @@ Each property of a saved search is described in the following table.
 > You may need to use escape characters in the query if it includes characters that could be interpreted as JSON.  For example, if your query was **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, it should be written in the solution file as **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## Alerts
-[Azure Log alerts](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) are created by Azure Alert rules that run specified log queries at regular intervals.  If the results of the query match specified criteria, an alert record is created and one or more actions are run using [Action Groups](../monitoring-and-diagnostics/monitoring-action-groups.md).  
+[Azure Log alerts](../../monitoring-and-diagnostics/monitor-alerts-unified-log.md) are created by Azure Alert rules that run specified log queries at regular intervals.  If the results of the query match specified criteria, an alert record is created and one or more actions are run using [Action Groups](../../monitoring-and-diagnostics/monitoring-action-groups.md).  
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to extend into Azure. For more information, see [Extend Alerts into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to extend into Azure. For more information, see [Extend Alerts into Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 Alert rules in a management solution are made up of the following three different resources.
 
 - **Saved search.**  Defines the log search that is run.  Multiple alert rules can share a single saved search.
 - **Schedule.**  Defines how often the log search is run.  Each alert rule has one and only one schedule.
-- **Alert action.**  Each alert rule has one action group resource or action resource (legacy) with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record is created and the alert's severity. [Action group](../monitoring-and-diagnostics/monitoring-action-groups.md) resource can have a list of configured actions to take when alert is fired - such as voice call, SMS, email, webhook, ITSM tool, automation runbook, logic app, etc.
+- **Alert action.**  Each alert rule has one action group resource or action resource (legacy) with a type of **Alert** that defines the details of the alert such as the criteria for when an alert record is created and the alert's severity. [Action group](../../monitoring-and-diagnostics/monitoring-action-groups.md) resource can have a list of configured actions to take when alert is fired - such as voice call, SMS, email, webhook, ITSM tool, automation runbook, logic app, etc.
  
 The action resource (legacy) will optionally define a mail and runbook response.
 - **Webhook action (legacy).**  If the alert rule calls a webhook, then it requires an additional action resource with a type of **Webhook**.    
@@ -145,7 +145,7 @@ A schedule can have multiple actions. An action may define one or more processes
 Actions can be defined using [action group] resource or action resource.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 
 There are two types of action resource specified by the **Type** property.  A schedule requires one **Alert** action, which defines the details of the alert rule and what actions are taken when an alert is created. Action resources have a type of `Microsoft.OperationalInsights/workspaces/savedSearches/schedules/actions`.  
@@ -227,7 +227,7 @@ This section is optional.  Include this section if you want to suppress alerts f
 #### Azure action group
 All alerts in Azure, use Action Group as the default mechanism for handling actions. With Action Group, you can specify your actions once and then associate the action group to multiple alerts - across Azure. Without the need, to repeatedly declare the same actions over and over again. Action Groups support multiple actions - including email, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI and more. 
 
-For user's who have extended their alerts into Azure - a schedule should now have Action Group details passed along with threshold, to be able to create an alert. E-mail details, Webhook URLs, Runbook Automation details, and other Actions, need to be defined in side an Action Group first before creating an alert; one can create [Action Group from Azure Monitor](../monitoring-and-diagnostics/monitoring-action-groups.md) in Portal or use [Action Group - Resource Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+For user's who have extended their alerts into Azure - a schedule should now have Action Group details passed along with threshold, to be able to create an alert. E-mail details, Webhook URLs, Runbook Automation details, and other Actions, need to be defined in side an Action Group first before creating an alert; one can create [Action Group from Azure Monitor](../../monitoring-and-diagnostics/monitoring-action-groups.md) in Portal or use [Action Group - Resource Template](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 | Element name | Required | Description |
 |:--|:--|:--|
@@ -241,7 +241,7 @@ For user's who have extended their alerts into Azure - a schedule should now hav
 Every schedule has one **Alert** action.  This defines the details of the alert and optionally notification and remediation actions.  A notification sends an email to one or more addresses.  A remediation starts a runbook in Azure Automation to attempt to remediate the detected issue.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
+> Beginning May 14, 2018, all alerts in an Azure public cloud instance of Log Analytics workspace began to automatically extend into Azure. For more information, see [Extend Alerts into Azure](../../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group - Azure Resource Manager Template](../../monitoring-and-diagnostics/monitoring-create-action-group-with-resource-manager-template.md).
 
 ##### EmailNotification
  This section is optional  Include it if you want the alert to send mail to one or more recipients.
@@ -302,7 +302,7 @@ Following is a sample of a solution that includes the following resources:
 - Schedule
 - Action group
 
-The sample uses [standard solution parameters]( monitoring-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
+The sample uses [standard solution parameters]( solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 ```
 	{
@@ -490,6 +490,6 @@ The following parameter file provides samples values for this solution.
 ```
 
 ## Next steps
-* [Add views](monitoring-solutions-resources-views.md) to your management solution.
-* [Add Automation runbooks and other resources](monitoring-solutions-resources-automation.md) to your management solution.
+* [Add views](solutions-resources-views.md) to your management solution.
+* [Add Automation runbooks and other resources](solutions-resources-automation.md) to your management solution.
 
