@@ -34,27 +34,27 @@ ms.author: magoedte
                               <li>
                                  <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
                                     <li>
-                                        <a href="">
-                                           <div class="cardSize">
-                                               <div class="cardPadding">
-                                                   <div class="card">
-                                                        <div class="cardImageOuter">
-                                                             <div class="cardImage">
-                                                                 <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
-                                                             </div>
-                                                        </div>
-                                                        <div class="cardText" style="padding-left: 0px">
-                                                             <h3>Fundamentals</h3>
-                                                             <p>
-                                                                 <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
-                                                                 <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
-                                                                 <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
-                                                                 <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
-                                                             </p>
-                                                        </div>
+                                       <a href="">
+                                         <div class="cardSize">
+                                             <div class="cardPadding">
+                                                 <div class="card">
+                                                     <div class="cardImageOuter">
+                                                         <div class="cardImage">
+                                                             <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                         </div>
                                                       </div>
-                                                     </div>
+                                                     <div class="cardText" style="padding-left: 0px">
+                                                     <h3>Fundamentals</h3>
+                                                     <p>
+                                                         <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
+                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
+                                                         <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
+                                                         <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
+                                                     </p>
                                                    </div>
+                                                 </div>
+                                               </div>
+                                             </div>
                               </a>
                             </li>
                           <li>
@@ -119,7 +119,7 @@ ms.author: magoedte
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="cardText">
+                    <div class="cardText" style="padding-left: 0px">
                         <h3>Monitoring data</h3>
                         <p>
                         <a href="/azure/monitoring/monitoring-data-collection">Metrics and logs</a><br/>
