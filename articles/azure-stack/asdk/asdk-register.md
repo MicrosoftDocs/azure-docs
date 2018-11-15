@@ -137,7 +137,7 @@ Return to the Azure Stack environment with the file or text from the activation 
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = "<activation key>"
   New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
-  -PrivilegedEndpoint $YourPrivilegedEndpoint `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
 
@@ -147,7 +147,7 @@ Alternatively, you can use the **Get-Content** cmdlet to point to a file that co
   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
   $ActivationKey = Get-Content -Path '<path>\<Activation Key File>'
   New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
-  -PrivilegedEndpoint $YourPrivilegedEndpoint `
+  -PrivilegedEndpoint AzS-ERCS01 `
   -ActivationKey $ActivationKey
   ```
 
