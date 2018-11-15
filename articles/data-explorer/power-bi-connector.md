@@ -48,9 +48,9 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
 
     **Setting** | **Value** | **Field description**
     |---|---|---|
-    | Cluster | *help* | The full cluster name is *help.kusto.windows.net*, but only the part before *kusto* is required here.|
-    | Database | *Samples* | The sample database that is hosted on the cluster. |
-    | Table name | *StormEvents* | One of the tables in the sample database. |
+    | Cluster | *https://help.kusto.windows.net* | The URL for the help cluster. For other clusters, the URL is in the form *https://\<ClusterName\>.\<Region\>.kusto.windows.net*. |
+    | Database | Leave blank | A database that is hosted on the cluster you're connecting to. We'll select this in a later step. |
+    | Table name | Leave blank | One of the tables in the database, or a query like `StormEvents | take 1000`. We'll select this in a later step. |
     | Advanced options | Leave blank | Options for your queries, such as result set size. |
     | Data connectivity mode | *DirectQuery* | Determines whether Power BI imports the data or connects directly to the data source. |
     | | | |
@@ -59,7 +59,9 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
 
     ![Sign in](media/power-bi-connector/sign-in.png)
 
-1. On the **help: Samples: StormEvents** preview screen, select **Edit**.
+1. On the **Navigator** screen, expand the **Samples** database, select **StormEvents** then **Edit**.
+
+    ![Select table](media/power-bi-connector/select-table.png)
 
     The table opens in Power Query Editor, where you can edit rows and columns before importing the data.
 
