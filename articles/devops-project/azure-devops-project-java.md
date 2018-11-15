@@ -65,7 +65,7 @@ The Java samples include a choice of several application frameworks.
 
 ## Commit code changes and execute CI/CD
 
- Projects creates a Git repository in your Azure DevOps organization or GitHub account. To view the repository and make code changes to your application, do the following:
+ Projects a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
 
 1. On the left of the DevOps Projects dashboard, select the link for your master branch.  
 This link opens a view to the newly created Git repository.
