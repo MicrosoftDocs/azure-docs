@@ -6,7 +6,7 @@ author: trinadhk
 manager: shreeshd
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/1/2018
+ms.date: 11/14/2018
 ms.author: trinadhk
 ---
 
@@ -36,7 +36,7 @@ The following table captures the Backup management actions and corresponding min
 | | Virtual Machine Contributor | VM resource |
 | On-demand backup of VM | Backup Operator | Recovery vault resource |
 | Restore VM | Backup Operator | Recovery Services vault |
-| | Virtual Machine Contributor | Resource group in which VM will be deployed |
+| | Contributor | Resource group in which VM will be deployed |
 | | Virtual Machine Contributor | Source VM which got backed up |
 | Restore unmanaged disks VM backup | Backup Operator | Recovery vault resource |
 | | Virtual Machine Contributor | Source VM which got backed up |

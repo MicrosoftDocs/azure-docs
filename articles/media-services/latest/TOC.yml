@@ -36,9 +36,8 @@
   - name: Analyzing content
     href: analyzing-video-audio-files-concept.md
   - name: Encoding content
+    href: encoding-concept.md
     items:
-    - name: Overview
-      href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
   - name: Examining entities

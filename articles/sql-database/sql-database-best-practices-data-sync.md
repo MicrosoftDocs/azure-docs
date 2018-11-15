@@ -213,13 +213,18 @@ If you attempt to remove a database and then edit a sync group without first dep
 ## Next steps
 For more information about SQL Data Sync, see:
 
--   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
--   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)
--   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
--   [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)  
--   Complete PowerShell examples that show how to configure SQL Data Sync:  
-    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
+-   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Set up Data Sync
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
+    - With PowerShell
+        -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   Update the sync schema
+    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)
 
 For more information about SQL Database, see:
 
