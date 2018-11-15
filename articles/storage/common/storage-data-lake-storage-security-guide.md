@@ -33,6 +33,8 @@ Here are the topics to be covered in this article:
   In this section, we'll look at allowing access to the actual data objects in your Storage account, such as blobs, files, queues, and tables, using Shared Access Signatures and Stored Access Policies. We will cover both service-level SAS and account-level SAS. We'll also see how to limit access to a specific IP address (or range of IP addresses), how to limit the protocol used to HTTPS, and how to revoke a Shared Access Signature without waiting for it to expire.
 * [Encryption in Transit](#encryption-in-transit)
 
+This section discusses how to secure data when you transfer it into or out of Azure Storage. We'll talk about the recommended use of HTTPS.
+
 ## Management Plane Security
 The management plane consists of operations that affect the storage account itself. For example, you can create or delete a storage account, get a list of storage accounts in a subscription, retrieve the storage account keys, or regenerate the storage account keys.
 
