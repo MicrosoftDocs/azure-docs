@@ -33,11 +33,11 @@ method to detect faces in an image and return face attributes including:
 To run the sample, do the following steps:
 
 1. Create a new Visual C# Console App in Visual Studio.
-2. Replace Program.cs with the following code.
-3. Replace `<Subscription Key>` with your valid subscription key.
-4. Change the `uriBase` value to use the location where you obtained your subscription keys, if necessary.
-5. Run the program.
-6. At the prompt, enter the path to an image.
+1. Replace Program.cs with the following code.
+1. Replace `<Subscription Key>` with your valid subscription key.
+1. If necessary, change `uriBase` to the match Azure region associated with your subscription keys (see the [Face API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all possible region endpoints).
+1. Run the program.
+1. At the prompt, enter the path to an image.
 
 ### Face - Detect request
 

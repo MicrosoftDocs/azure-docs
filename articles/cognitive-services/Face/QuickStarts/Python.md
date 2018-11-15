@@ -38,7 +38,7 @@ To run the sample, do the following steps:
 
 1. Copy the following code to a new Python script file.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change the `face_api_url` value to the location where you obtained your subscription keys, if necessary.
+1. If necessary, change `face_api_url` to match the Azure region associated with your subscription keys (see the [Face API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all possible region endpoints).
 1. Optionally, change the `image_url` value to another image.
 1. Run the script.
 
@@ -64,8 +64,6 @@ assert subscription_key
 # westus, replace "westcentralus" in the URI below with "westus".
 #
 # Free trial subscription keys are generated in the westus region.
-# If you use a free trial subscription key, you shouldn't need to change
-# this region.
 face_api_url = 'https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect'
 
 # Set image_url to the URL of an image that you want to analyze.
