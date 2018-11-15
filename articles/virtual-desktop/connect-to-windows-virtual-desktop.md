@@ -17,7 +17,7 @@ You can connect to a Windows Virtual Desktop deployment using old Windows client
 
 The Remote Desktop Windows client supports Windows 7 or later.
 
-### Install the Windows client
+## Install the Windows client
 
 Before getting started, confirm that your user account is set up and can access published apps or desktops.
 
@@ -31,7 +31,7 @@ Follow these steps to deploy the client to your local PC.
    * For Windows 7 and 8, install the [VC++ Redistributable Package](https://www.microsoft.com/download/details.aspx?id=53840) if you haven't already.
    * For Windows 7, install the [Microsoft .Net Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653) if you haven't already.
 
-### Subscribe to a feed
+## Subscribe to a feed
 
 From the local PC, get the list of resources available to you by subscribing to the feed provided by your admin. Once you have the list, follow these steps:
 

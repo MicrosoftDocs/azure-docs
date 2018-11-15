@@ -11,7 +11,7 @@ ms.author: helohr
 ---
 # Connect to an existing Remote Desktop environment
 
-You may have an existing RD tenant environment already connected to an existing Windows Virtual Desktop deployment that you want to connect to a different Windows Virtual Desktop deployment. You can reuse the RD tenant environment for a new connection by following these steps. This procedure assumes you're already familiar with how to set up a Windows Virtual Desktop environment on Active Directory, but if you need more specific instructions, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](set-up-wvd-tenants-in-azure-active-directory.md).
+You may have an existing Remote Desktop tenant environment already connected to an existing Windows Virtual Desktop deployment that you want to connect to a different Windows Virtual Desktop deployment. You can reuse the RD tenant environment for a new connection by following these steps. This procedure assumes you're already familiar with how to set up a Windows Virtual Desktop environment on Active Directory, but if you need more specific instructions, see [Set up Windows Virtual Desktop tenants in Azure Active Directory](set-up-wvd-tenants-in-azure-active-directory.md).
 
 1. Give consent to allow the new Windows Virtual Desktop application to read the tenant’s Azure Active Directory.
 2. Create an RD tenant and host pool in the new Windows Virtual Desktop deployment.
@@ -23,11 +23,11 @@ You may have an existing RD tenant environment already connected to an existing 
 >[!NOTE]
 >This procedure assumes the two Windows Virtual Desktop deployments you're trying to connect to each other are different versions.
 
-## Validation scenarios
+## Validating your connection
 
 The following scenarios are expected to work and should be verified through validation testing. Any issues should be reported with the new diagnostics role service. For more information, see [Introducing the new diagnostics role service](introducing-the-new-diagnostics-role-service.md).
 
-### Validation scenarios for default desktop application group
+## Validation scenarios for default desktop application group
 
 |Scenario|Auth|PaaS or WSCore|UPN match|Remote desktop tenant|Host pools per tenant|Session hosts per host pool|Desktop app groups per host pool|Users|
 |---|---|---|---|---|---|---|---|---|
@@ -37,7 +37,7 @@ The following scenarios are expected to work and should be verified through vali
 |DT4|Azure AD|PaaS|Y|1|1|N|1|N users per tenant assigned to the same host pool|
 |DT5–DT8|Azure AD|PaaS|N (Repeat above for mismatch UPN)| | | | | |
 
-#### Validation questions
+### Validation questions
 
 Scenarios DT1 and DT5:
 
@@ -58,14 +58,14 @@ Scenarios DT4 and DT8:
 
 * If multiple users are assigned to a desktop app group in a host pool with multiple session hosts, and all users are signed in at once, how are their sessions distributed across the pool's session hosts?
 
-### Validation scenarios for the RemoteApp groups and user profile disk
+## Validation scenarios for the RemoteApp groups and user profile disk
 
 |Scenario|Auth|PaaS or WSCore|UPN match|Remote desktop tenant|Host pools per tenant|Session hosts per host pool|RemoteApp groups per host pool|RemoteApps per RemoteApp group|Users|
 |---|---|---|---|---|---|---|---|---|---|
 |RA1|Azure AD|PaaS|Y|1|1|>2|1|>2|>1 users per tenant assigned to each app group|
 |RA2|Azure AD|PaaS|N|N|1|1|>2|1||>2|>1 users per tenant assigned to each app group|
 
-#### Validation Questions
+### Validation questions
 
 Scenarios RA1 and RA2:
 

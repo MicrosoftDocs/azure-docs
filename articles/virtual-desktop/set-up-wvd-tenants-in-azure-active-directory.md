@@ -57,11 +57,13 @@ Now that the Windows Virtual Desktop service has permissions to query your Azure
 2. Search for **Windows Virtual Desktop**.
 3. Select **Windows Virtual Desktop – Create a tenant**.
 4. Enter a name for your Windows Virtual Desktop and configure its settings. The following table shows examples of configuration types.
+    
     |Setting|Example value|Description|
     |---|---|---|
     |Name|Your company name|Choose an appropirate value for your Windows Virtual Desktop tenant.|
     |Resource Group|yourcompanynameWVDTenant|This resource group will only be used for tenant creation.|
     |Location|East US 2|Choose a location where your assets are located for running of Azure Automation. If the region does not support Azure Automation, then the Azure Automation account will be created in East US 2.|
+    
 5. Once you've configured your settings, select **Create**, then **Purchase**.
 
 ## Confirm your Windows Virtual Desktop tenant
