@@ -30,14 +30,26 @@ The SDK offers:
 
 The following examples highlight some of the unique functionality of the SDK.
 
-### Automatic file type detection
+### Install the SDK
 
-Use the `smart_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
+Install the SDK in your Python environment using the following command.
+
+```shell
+pip install azureml-dataprep
+```
+
+Use the following code to import the package.
 
 ```python
 import azureml.dataprep as dprep
+```
 
-dataflow = dprep.smart_read_file(path="<your-file-path>")
+### Automatic file type detection
+
+Use the `auto_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
+
+```python
+dataflow = dprep.auto_read_file(path="<your-file-path>")
 ```
 
 ### Automated feature engineering
@@ -102,3 +114,5 @@ To see detailed examples and code for each preparation step, use the following h
 
 ## Next steps
 Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
+
+Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/en-us/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
