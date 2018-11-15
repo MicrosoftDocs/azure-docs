@@ -531,6 +531,16 @@
             href: ../data-lake-storage/use-distcp.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
           - name: Copy data into Data Lake Storage Gen2 using Azure Data Factory
             href: ../../data-factory/load-azure-data-lake-storage-gen2.md?toc=%2fazure%2fstorage%2fdata-lake-storage%2ftoc.json
+      - name: Performance
+        items: 
+          - name: Overview
+            href: ../data-lake-storage/performance-tuning-guidance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Using Spark on HDInsight
+            href: ../data-lake-storage/performance-tuning-spark.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Using Hive on HDInsight
+            href: ../data-lake-storage/performance-tuning-hive.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+          - name: Using MapReduce on HDInsight
+            href: ../data-lake-storage/performance-tuning-mapreduce.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Connect to Azure Databricks
         href: https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html
     - name: Reference
