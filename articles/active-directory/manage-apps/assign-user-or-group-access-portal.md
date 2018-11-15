@@ -57,8 +57,8 @@ To allow all users to access an application:
 The **User assignment required?** option:
 
 - Does not affect whether or not an application appears on the application access panel. To show the application on the access panel, you need to assign an appropriate user or group to the application.
-- Only functions with the cloud applications that are configured for SAML single sign-on, and on-premises applications configured with Application Proxy. See [Single sign-on for applications](what-is-single-sign-on).
-- Requires that users consent to an application. An admin can grant consent for all users.  See [Configure the way end-users consent to an application](configure-user-consent).
+- Only functions with the cloud applications that are configured for SAML single sign-on, and on-premises applications configured with Application Proxy. See [Single sign-on for applications](what-is-single-sign-on.md).
+- Requires that users consent to an application. An admin can grant consent for all users.  See [Configure the way end-users consent to an application](configure-user-consent.md).
 
 
 ## How do I assign a user to an enterprise app using PowerShell?
