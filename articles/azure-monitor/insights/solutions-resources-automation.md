@@ -24,21 +24,21 @@ ms.custom: H1Hack27Feb2017
 > This is preliminary documentation for creating management solutions which are currently in preview. Any schema described below is subject to change.   
 
 
-[Management solutions]( monitoring-solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
+[Management solutions]( solutions.md) will typically include runbooks in Azure Automation to automate processes such as collecting and processing monitoring data.  In addition to runbooks, Automation accounts includes assets such as variables and schedules that support the runbooks used in the solution.  This article describes how to include runbooks and their related resources in a solution.
 
 > [!NOTE]
-> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure ]( monitoring-solutions-creating.md) 
+> The samples in this article use parameters and variables that are either required or common to management solutions  and described in [Design and build a management solution in Azure ]( solutions-creating.md) 
 
 
 ## Prerequisites
 This article assumes that you're already familiar with the following information.
 
-- How to [create a management solution]( monitoring-solutions-creating.md).
-- The structure of a [solution file]( monitoring-solutions-solution-file.md).
-- How to [author Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md)
+- How to [create a management solution]( solutions-creating.md).
+- The structure of a [solution file]( solutions-solution-file.md).
+- How to [author Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md)
 
 ## Automation account
-All resources in Azure Automation are contained in an [Automation account](../automation/automation-security-overview.md#automation-account-overview).  As described in [Log Analytics workspace and Automation account]( monitoring-solutions.md#log-analytics-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
+All resources in Azure Automation are contained in an [Automation account](../../automation/automation-security-overview.md#automation-account-overview).  As described in [Log Analytics workspace and Automation account]( solutions.md#log-analytics-workspace-and-automation-account) the Automation account isn't included in the management solution but must exist before the solution is installed.  If it isn't available, then the solution install will fail.
 
 The name of each Automation resource includes the name of its Automation account.  This is done in the solution with the **accountName** parameter as in the following example of a runbook resource.
 
@@ -48,7 +48,7 @@ The name of each Automation resource includes the name of its Automation account
 ## Runbooks
 You should include any runbooks used by the solution in the solution file so that they're created when the solution is installed.  You cannot contain the body of the runbook in the template though, so you should publish the runbook to a public location where it can be accessed by any user installing your solution.
 
-[Azure Automation runbook](../automation/automation-runbook-types.md) resources have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Azure Automation runbook](../../automation/automation-runbook-types.md) resources have a type of **Microsoft.Automation/automationAccounts/runbooks** and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 	{
 		"name": "[concat(parameters('accountName'), '/', variables('Runbook').Name)]",
@@ -76,8 +76,8 @@ The properties for runbooks are described in the following table.
 | Property | Description |
 |:--- |:--- |
 | runbookType |Specifies the types of the runbook. <br><br> Script - PowerShell script <br>PowerShell - PowerShell workflow <br> GraphPowerShell - Graphical PowerShell script runbook <br> GraphPowerShellWorkflow - Graphical PowerShell workflow runbook |
-| logProgress |Specifies whether [progress records](../automation/automation-runbook-output-and-messages.md) should be generated for the runbook. |
-| logVerbose |Specifies whether [verbose records](../automation/automation-runbook-output-and-messages.md) should be generated for the runbook. |
+| logProgress |Specifies whether [progress records](../../automation/automation-runbook-output-and-messages.md) should be generated for the runbook. |
+| logVerbose |Specifies whether [verbose records](../../automation/automation-runbook-output-and-messages.md) should be generated for the runbook. |
 | description |Optional description for the runbook. |
 | publishContentLink |Specifies the content of the runbook. <br><br>uri - Uri to the content of the runbook.  This will be a .ps1 file for PowerShell and Script runbooks, and an exported graphical runbook file for a Graph runbook.  <br> version - Version of the runbook for your own tracking. |
 
@@ -114,13 +114,13 @@ The properties for automation jobs are described in the following table.
 | runbook |Single name entity with the name of the runbook to start. |
 | parameters |Entity for each parameter value required by the runbook. |
 
-The job includes the runbook name and any parameter values to be sent to the runbook.  The job should [depend on]( monitoring-solutions-solution-file.md#resources) the runbook that it's starting since the runbook must be created before the job.  If you have multiple runbooks that should be started you can define their order by having a job depend on any other jobs that should be run first.
+The job includes the runbook name and any parameter values to be sent to the runbook.  The job should [depend on]( solutions-solution-file.md#resources) the runbook that it's starting since the runbook must be created before the job.  If you have multiple runbooks that should be started you can define their order by having a job depend on any other jobs that should be run first.
 
-The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating a management solution file in Azure]( monitoring-solutions-solution-file.md#parameters).  
+The name of a job resource must contain a GUID which is typically assigned by a parameter.  You can read more about GUID parameters in [Creating a management solution file in Azure]( solutions-solution-file.md#parameters).  
 
 
 ## Certificates
-[Azure Automation certificates](../automation/automation-certificates.md) have a type of **Microsoft.Automation/automationAccounts/certificates** and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Azure Automation certificates](../../automation/automation-certificates.md) have a type of **Microsoft.Automation/automationAccounts/certificates** and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Certificate').Name)]",
@@ -148,7 +148,7 @@ The properties for Certificates resources are described in the following table.
 
 
 ## Credentials
-[Azure Automation credentials](../automation/automation-credentials.md) have a type of **Microsoft.Automation/automationAccounts/credentials** and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Azure Automation credentials](../../automation/automation-credentials.md) have a type of **Microsoft.Automation/automationAccounts/credentials** and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
 
     {
@@ -174,7 +174,7 @@ The properties for Credential resources are described in the following table.
 
 
 ## Schedules
-[Azure Automation schedules](../automation/automation-schedules.md) have a type of **Microsoft.Automation/automationAccounts/schedules** and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
+[Azure Automation schedules](../../automation/automation-schedules.md) have a type of **Microsoft.Automation/automationAccounts/schedules** and have the following structure. This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names. 
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Schedule').Name)]",
@@ -246,7 +246,7 @@ The properties for job schedules are described in the following table.
 
 
 ## Variables
-[Azure Automation variables](../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names.
+[Azure Automation variables](../../automation/automation-variables.md) have a type of **Microsoft.Automation/automationAccounts/variables** and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Variable').Name)]",
@@ -285,9 +285,9 @@ If you set the initial value for the variable, it must be configured as the corr
 | datetime | Serialized date value.<br>You can use the ConvertTo-Json cmdlet in PowerShell to generate this value for a particular date.<br>Example: get-date "5/24/2017 13:14:57" \| ConvertTo-Json | "\\/Date(1495656897378)\\/" | 2017-05-24 13:14:57 |
 
 ## Modules
-Your management solution does not need to define [global modules](../automation/automation-integration-modules.md) used by your runbooks because they will always be available in your Automation account.  You do need to include a resource for any other module used by your runbooks.
+Your management solution does not need to define [global modules](../../automation/automation-integration-modules.md) used by your runbooks because they will always be available in your Automation account.  You do need to include a resource for any other module used by your runbooks.
 
-[Integration modules](../automation/automation-integration-modules.md) have a type of **Microsoft.Automation/automationAccounts/modules** and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names.
+[Integration modules](../../automation/automation-integration-modules.md) have a type of **Microsoft.Automation/automationAccounts/modules** and have the following structure.  This includes common variables and parameters so that you can copy and paste this code snippet into your solution file and change the parameter names.
 
     {
       "name": "[concat(parameters('accountName'), '/', variables('Module').Name)]",
@@ -331,7 +331,7 @@ Following is a sample of a solution that include that includes the following res
 - Variable.
 - Module.  This is the [OMSIngestionAPI module](https://www.powershellgallery.com/packages/OMSIngestionAPI/1.5) for writing data to Log Analytics. 
 
-The sample uses [standard solution parameters]( monitoring-solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
+The sample uses [standard solution parameters]( solutions-solution-file.md#parameters) variables that would commonly be used in a solution as opposed to hardcoding values in the resource definitions.
 
 
 	{
@@ -648,4 +648,4 @@ The sample uses [standard solution parameters]( monitoring-solutions-solution-fi
 
 
 ## Next steps
-* [Add a view to your solution]( monitoring-solutions-resources-views.md) to visualize collected data.
+* [Add a view to your solution]( solutions-resources-views.md) to visualize collected data.
