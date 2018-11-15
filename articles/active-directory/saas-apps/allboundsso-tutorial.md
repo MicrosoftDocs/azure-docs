@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.author: jeedes
 
 ---
@@ -124,7 +124,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Allbound SSO Client support team](mailto:engineering@allbound.com) to get these values.
 
-6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save certificate file on your computer.
+6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save metadata file on your computer.
 
 	![The Certificate download link](./media/allboundsso-tutorial/tutorial_allboundsso_certificate.png) 
 
