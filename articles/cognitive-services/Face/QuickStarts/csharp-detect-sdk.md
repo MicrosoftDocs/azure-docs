@@ -44,7 +44,7 @@ To run the sample, do the following steps:
     1. Select **Microsoft.Azure.CognitiveServices.Vision.Face** when it displays, then click the checkbox next to your project name, and **Install**.
 1. Replace *Program.cs* with the following code.
 1. Replace `<Subscription Key>` with your valid subscription key.
-1. Change `faceEndpoint` to the Azure region associated with your subscription keys, if necessary (see the [Face API reference docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all possible region endpoints).
+1. Change `faceEndpoint` to the Azure region associated with your subscription keys, if necessary.
 1. Optionally, replace <`LocalImage>` with the path and file name of a local image (will be ignored if not set).
 1. Optionally, set `remoteImageUrl` to a different image.
 1. Run the program.
