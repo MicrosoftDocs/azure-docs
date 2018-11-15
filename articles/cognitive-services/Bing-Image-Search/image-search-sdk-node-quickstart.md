@@ -33,7 +33,6 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 
     ```javascript
     'use strict';
-    https = require('https');
     const Search = require('azure-cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
