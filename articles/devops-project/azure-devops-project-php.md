@@ -65,7 +65,7 @@ If you don't have an Azure subscription, you can get one for free through [Visua
 
 ## Commit code changes and execute CI/CD
 
- DevOps Projects creates a Git repository in your Azure DevOps organization or GitHub account. To view the repository and make code changes to your application, take the following steps:
+ DevOps Projects creates a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, take the following steps:
 
 1. On the left of the DevOps Projects dashboard, select the link for your master branch.   
 	This link opens a view to the newly created Git repository.
