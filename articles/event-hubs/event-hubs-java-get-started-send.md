@@ -8,7 +8,7 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/12/2018
 ms.author: shvija
 
 ---
@@ -140,7 +140,7 @@ eventHubClient.closeSync();
 
 ## Next steps
 
-In this quickstart, you have sent messages to an event hub using Java. To learn how to receive events from an event hub using .NET Framework, see [Receive events from event hub - Java](event-hubs-java-get-started-receive-eph.md).
+In this quickstart, you have sent messages to an event hub using Java. To learn how to receive events from an event hub using Java, see [Receive events from event hub - Java](event-hubs-java-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md

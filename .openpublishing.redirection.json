@@ -7860,6 +7860,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/cosmos-db/sql-api-resources.md",
+            "redirect_url": "/azure/cosmos-db/databases-containers-items",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/multi-master-oss-nosql.md",
             "redirect_url": "/azure/cosmos-db/consistency-levels-across-apis",
             "redirect_document_id": false
@@ -10012,6 +10017,11 @@
         {
             "source_path": "articles/log-analytics/log-analytics-security.md",
             "redirect_url": "/azure/log-analytics/log-analytics-data-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/log-analytics/log-analytics-concept-hybrid.md",
+            "redirect_url": "/azure/log-analytics/log-analytics-agent-overview",
             "redirect_document_id": false
         },
         {

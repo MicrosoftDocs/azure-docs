@@ -106,6 +106,10 @@ To configure access control to your Azure Cosmos account, the Resource Manager t
 The following command shows how to create a Azure Cosmos account with IP access control: 
 
 ```azurecli-interactive
+
+name="<Azure Cosmos account name>"
+resourceGroupName="<Resource group name>"
+
 az cosmosdb create \
   --name $name \
   --kind GlobalDocumentDB \
