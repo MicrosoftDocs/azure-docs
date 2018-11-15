@@ -2,22 +2,18 @@
 title: Assign a user or group to an enterprise app in Azure Active Directory | Microsoft Docs
 description: How to select an enterprise app to assign a user or group to it in Azure Active Directory
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-editor: ''
 
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/05/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: luleon
-
 ---
+
 # Assign a user or group to an enterprise app in Azure Active Directory
 To assign a user or group to an enterprise app, you must have the appropriate permissions to manage the enterprise app, and you must be global admin for the directory.
 
@@ -56,7 +52,7 @@ To allow all users to access an application:
 4. On the **Enterprise applications** blade, select **All applications**. This lists the apps you can manage.
 5. On the **Enterprise applications - All applications** blade, select an app.
 6. On the ***appname*** blade, select **Properties**.
-7. On the ***appname*** **- Properties** blade, set the **User assignment required? ** setting to **No**. 
+7. On the ***appname* - Properties** blade, set the **User assignment required?** setting to **No**. 
 
 The **User assignment required?** option:
 
