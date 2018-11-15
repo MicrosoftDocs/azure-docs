@@ -116,7 +116,7 @@ The sample web API is included in the project you downloaded in the prerequisite
 
 There are two projects in the sample solution:
 
-**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** policy to sign up or sign in users with an email address.
+**Web app sample app (TaskWebApp):** Web app to create and edit a task list. The web app uses the **sign-up or sign-in** user flow to sign up or sign in users with an email address.
 
 **Web API sample app (TaskService):** Web API that supports the create, read,  update, and delete task list functionality. The web API is secured by Azure AD B2C and called by the web app.
 
@@ -158,7 +158,7 @@ Open the **B2C-WebAPI-DotNet** solution in Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Update the policy setting with the name generated when you created your sign up and sign-in policy.
+4. Update the user flow setting with the name generated when you created your sign up and sign-in user flow.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
