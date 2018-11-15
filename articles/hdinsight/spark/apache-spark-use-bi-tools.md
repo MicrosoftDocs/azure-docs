@@ -76,7 +76,7 @@ The first steps in working with Spark are to connect to the cluster in Power BI 
     ![Get data into Power BI Desktop from HDInsight Apache Spark](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Get data into Power BI from Apache Spark BI")
 
 
-2. Enter `Spark` in the search box, select **Azure HDInsight Spark (Beta)**, and then click **Connect**.
+2. Enter `Spark` in the search box, select **Azure HDInsight Spark**, and then click **Connect**.
 
     ![Get data into Power BI from Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Get data into Power BI from Apache Spark BI")
 
