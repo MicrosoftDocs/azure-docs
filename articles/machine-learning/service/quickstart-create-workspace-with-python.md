@@ -35,7 +35,9 @@ The following Azure resources are added automatically to your workspace when the
 >[!NOTE]
 > Code in this article was tested with Azure Machine Learning SDK version 0.1.74 
 
+
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+
 
 ## Install the SDK
 
