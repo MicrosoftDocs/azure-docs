@@ -32,22 +32,20 @@ This page will guide you through the steps needed to get Application Insights pr
     * [Virtual machine](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachine.json)
     * [Virtual machine scale set](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/WindowsVirtualMachineScaleSet.json)
     
-    The key part is the ApplicationInsightsProfilerSink in the WadCfg. Add another sink to this section to tell WAD to enable the profiler to send data to your iKey. 
-                
-
+    The key part is the ApplicationInsightsProfilerSink in the WadCfg. Add another sink to this section to tell WAD to enable the profiler to send data to your iKey.
     ```json
-            "SinksConfig": {
-              "Sink": [
-                {
-                  "name": "ApplicationInsightsSink",
-                  "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
-                },
-                {
-                  "name": "MyApplicationInsightsProfilerSink",
-                  "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
-                }
-              ]
-            },
+      "SinksConfig": {
+        "Sink": [
+          {
+            "name": "ApplicationInsightsSink",
+            "ApplicationInsights": "85f73556-b1ba-46de-9534-606e08c6120f"
+          },
+          {
+            "name": "MyApplicationInsightsProfilerSink",
+            "ApplicationInsightsProfiler": "85f73556-b1ba-46de-9534-606e08c6120f"
+          }
+        ]
+      },
     ```
 
 1. Deploy the modified environment deployment definition.  
