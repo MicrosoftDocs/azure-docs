@@ -158,7 +158,7 @@ Data collected from the Microsoft Monitoring Agent (on behalf of Azure Security 
 In the Azure portal, you can browse to see a list of your Log Analytics workspaces, including any created by Azure Security Center. A related resource group will be created for new workspaces. Both will follow this naming convention: 
 
 * Workspace: *DefaultWorkspace-[subscription-ID]-[geo]*
-* Resource Group: *DefaultResouceGroup-[geo]*
+* Resource Group: *DefaultResourceGroup-[geo]*
 
 For workspaces created by Azure Security Center, data is retained for 30 days. For existing workspaces, retention is based on the workspace pricing tier. If you want, you can also use an existing workspace.
 

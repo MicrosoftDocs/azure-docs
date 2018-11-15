@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -234,7 +234,7 @@ Your new data plan is displayed in the OMS portal ribbon at the top of your web 
 ![OMS ribbon](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## Next steps
-* See [Collect data from computers in your environment with Log Analytics](log-analytics-concept-hybrid.md) to gather data from computers in your datacenter or other cloud environment.
+* See [Log Analytics agent overview](log-analytics-agent-overview.md) to gather data from computers in your datacenter or other cloud environment.
 * See [Collect data about Azure Virtual Machines](log-analytics-quick-collect-azurevm.md) to configure data collection from Azure VMs.  
-* [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md) to add functionality and gather data.
+* [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md) to add functionality and gather data.
 

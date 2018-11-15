@@ -28,7 +28,7 @@ The following sections describe how to configure VNET service endpoint for a Azu
 
 ### Configure service endpoint for an existing Azure virtual network and subnet
 
-1. From **All resources** blade, find the virtual network you want to secure.
+1. From **All resources** blade, find the Azure Cosmos account you want to secure.
 
 1. Select **Firewalls and virtual networks** from settings menu and choose allow access from **Selected networks**.
 
@@ -39,7 +39,7 @@ The following sections describe how to configure VNET service endpoint for a Azu
    ![Select virtual network and subnet](./media/how-to-configure-vnet-service-endpoint/choose-subnet-and-vnet.png)
 
 
-1. After the Azure Cosmos account is enabled, it will only allow traffic from this chosen subnet. The virtual network and subnet you added should appear as shown in the following screenshot:
+1. After the Azure Cosmos account is enabled to access from a virtual network, it will only allow traffic from this chosen subnet. The virtual network and subnet you added should appear as shown in the following screenshot:
 
    ![virtual network and subnet configured successfully](./media/how-to-configure-vnet-service-endpoint/vnet-and-subnet-configured-successfully.png)
 
@@ -180,11 +180,15 @@ Use the following steps to configure service endpoint to a Azure Cosmos DB accou
 1. Update existing Azure Cosmos account with subnet ACLs
 
    ```azurecli-interactive
+
+   name="<Azure Cosmos account name>"
+   resourceGroupName="<Resource group name>"
+
    az cosmosdb update \
  	  --name $name \
     --resource-group $resourceGroupName \
     --enable-virtual-network true \
-    --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/frontend”
+    --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/frontend"
    ```
 
 1. Create a new Azure Cosmos account with subnet ACLs
@@ -197,7 +201,7 @@ Use the following steps to configure service endpoint to a Azure Cosmos DB accou
     --max-interval 10 \
     --max-staleness-prefix 200 \
     --enable-virtual-network true \
-    --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default
+    --virtual-network-rules "/subscriptions/testsub/resourceGroups/testRG/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/default"
    ```
 
 ## <a id="migrate-from-firewall-to-vnet"></a>Migrating from IP firewall rule to VNET ACL 
