@@ -189,23 +189,6 @@ You need a few more packages in your environment to use it with Machine Learning
     pip install azureml-sdk[databricks]
     ```
 
-    You can also use different "extra" keywords to install additional components of the SDK.
-
-    ```shell
-    # install the base SDK and auto ml components
-    pip install azureml-sdk[automl]
-
-    # install the base SDK and model explainability component
-    pip install azureml-sdk[explain]
-
-    # install the base SDK and experimental components
-    pip install azureml-sdk[contrib]
-
-    # install the base SDK and automl components in Azure Databricks environment
-    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
-    pip install azureml-sdk[databricks]
-    ```
-
 
 After you install these packages, follow the tutorials to train and deploy a model. 
 
