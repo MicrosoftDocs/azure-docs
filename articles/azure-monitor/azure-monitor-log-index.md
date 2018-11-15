@@ -19,8 +19,7 @@ ms.author: magoedte
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Monitor logs Documentation</h1>
-        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs</p>
-        <p>that allow you to maximize the performance and availability of your cloud resources and applications.</p>
+        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs<br>that allow you to maximize the performance and availability of your cloud resources and applications.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
          <li>
@@ -88,16 +87,7 @@ ms.author: magoedte
                         <a href="/azure/log-analytics/log-analytics-quick-create-workspace-posh">Create workspace - Azure PowerShell</a><br/>
                         <a href="/azure/log-analytics/log-analytics-manage-del-workspace">Delete workspace</a><br/>
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
+                     <br><br>
                         <h3>Data sources</h3>
                         <p>
                         <a href="/azure/monitoring/monitoring-data-sources">Overview</a><br/>
@@ -113,16 +103,7 @@ ms.author: magoedte
                         <a href="/azure/log-analytics/log-analytics-custom-fields">Custom fields</a><br/>
                         <a href="/azure/log-analytics/log-analytics-data-collector-api">Data Collector API</a><br/>
                         </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
-           <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText" style="padding-left: 0px">
+                      <br><br>
                         <h3>Monitoring data</h3>
                         <p>
                         <a href="/azure/monitoring/monitoring-data-collection">Metrics and logs</a><br/>
