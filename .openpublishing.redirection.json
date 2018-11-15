@@ -30635,6 +30635,86 @@
             "source_path":  "articles/monitoring/monitoring-solution-targeting.md",
             "redirect_url":  "/azure/azure-monitor/insights/solution-targeting",
             "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-analyze.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-analyze",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-onboard.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-onboard",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-optout.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-optout",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-troubleshoot",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-agent-upgrade.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-agent-upgrade",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-faq.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-faq",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-health.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-health",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-known-issues.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-known-issues",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-log-search.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-log-search",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-maps.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-maps",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-onboard.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-onboard",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-performance.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-performance",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-optout.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-optout",
+            "redirect_document_id":  "false"
         }
     ]
 }
