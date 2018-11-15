@@ -33,17 +33,47 @@ This topic shows how to use Media Services .NET SDK to create [Account Filters](
 ## Considerations
 
 - The values for [PresentationTimeRange.PresentationWindow](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.presentationtimerange.presentationwindowduration?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_PresentationTimeRange_PresentationWindowDuration) and [PresentationTimeRange.LiveBackoffDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.presentationtimerange.livebackoffduration?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_PresentationTimeRange_LiveBackoffDuration) should not be set for a video on-demand filter. They are only used for live filter scenarios.  
-
-    ```
-    new PresentationTimeRange(scaledStartTime, scaledEndTime, null, null, (long)timeScale, false);
-    ```
 - If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Always clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
 
-## FilterTrackSelection and FilterTrackPropertyType
+## Configure filter  
 
-The track selections support both an **AND** semantic and an **OR** semantic. 
+This section shows how you might want to configure your filters.
 
-The following example show how to get an **AND** semantic. You do it by adding multiple **FilterTrackPropertyCondition** statements to the same list. To match the **FilterTrackPropertyCondition** all of the conditions must be met. 
+### Configure first quality
+
+Use [FirstQuality](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.firstquality?view=azure-dotnet) to set the first quality bitrate as shown below:
+
+```csharp
+var firstQuality = new FirstQuality(128000);
+```
+
+### Configure presentation time range
+
+Use [PresentationTimeRange](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.presentationtimerange?view=azure-dotnet) to set the presentation time range. Not recommended to use when defining Account filters.
+
+#### For live filter
+
+```csharp
+long startTimestamp = 0;
+long endTimestamp = 170000000;
+long timescale = 10000000;
+long liveBackoffDuration = 0;
+long presentationWindowDuration = 9223372036854776000;
+
+var range =  new PresentationTimeRange(startTimestamp, endTimestamp, liveBackoffDuration, presentationWindowDuration, timescale, false);
+```
+
+#### For video on-demand filter
+
+```csharp
+var range = new PresentationTimeRange(scaledStartTime, scaledEndTime, null, null, (long)timeScale, false);
+```
+
+### Configure track selections
+
+This section configures track selections with [FilterTrackSelection](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackselection?view=azure-dotnet) and [FilterTrackPropertyCondition](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.filtertrackpropertycondition?view=azure-dotnet) classes. The track selections support both an **AND** semantic and an **OR** semantic. 
+
+To get an **AND** semantic, you add multiple **FilterTrackPropertyCondition** statements to the same list. To match the **FilterTrackPropertyCondition** all of the conditions must be met. 
 
 ```csharp
 var listOfAudioConditions = new List<FilterTrackPropertyCondition>()
@@ -80,8 +110,8 @@ List<FilterTrackSelection> includedTracks = new List<FilterTrackSelection>()
 The following code shows how to use .NET to create an account filter that includes all track selections defined above.
 
 ```csharp
-AccountFilter accountFilter = new AccountFilter(tracks: includedTracks);
-client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "accountFilterName", accountFilter);
+AccountFilter accountFilterParams = new AccountFilter(tracks: includedTracks);
+client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "accountFilterName1", accountFilter);
 ```
 
 ## Create asset filters
@@ -89,30 +119,8 @@ client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "
 The following code shows how to use .NET to create asset filters.  
 
 ```csharp
-string assetFilterName = "AssetFilter_" + Guid.NewGuid().ToString();
-long startTimestamp = 0;
-long endTimestamp = 264333333;
-long timescale = 10000000;
-
-var range =  new PresentationTimeRange(startTimestamp, endTimestamp, null, null, timescale, false);
-
-var tracks = new List<FilterTrackSelection>
-    {
-        new FilterTrackSelection(new List<FilterTrackPropertyCondition>
-        {
-            new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Audio", FilterTrackPropertyCompareOperation.Equal),
-        }),
-        new FilterTrackSelection(new List<FilterTrackPropertyCondition>
-        {
-            new FilterTrackPropertyCondition(FilterTrackPropertyType.Type, "Video", FilterTrackPropertyCompareOperation.Equal),
-        }),
-    };
-
-var firstQuality = new FirstQuality(128000);
-
-var filterParams = new AssetFilter(null, name, FilterType, range, firstQuality, tracks);
-
-var filter = _client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, asset.Name, assetFilterName, filterParams);
+AssetFilter assetFilterParams = new AssetFilter(null, name, FilterType, range, firstQuality, includedTracks);
+client.AssetFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, asset.Name, "assetFilterName1", assetFilterParams);
 ```
 
 ## Next steps

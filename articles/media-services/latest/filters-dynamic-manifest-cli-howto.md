@@ -38,7 +38,7 @@ This topic shows how to use CLI for Media Services v3 to create [Account Filters
 - The values for **presentation-window-duration** and **live-backoff-duration** should not be set for a video on-demand filter. They are only used for live filter scenarios. 
 - If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Always clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
 
-## Filter track selections
+## Configure filter track selections
 
 The filter commands shown in this article use a json file that defines filter track selections. Here is the definition of tracks.json:
 
