@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 11/07/2018
+ms.date: 11/15/2018
 ms.author: juliako
 ---
 
@@ -61,9 +61,7 @@ If you have a video service developed today on top of the [legacy Media Services
 * The following entities were renamed
     * JobOutput replaces Task, and is now part of a Job.
     * StreamingLocator replaces Locator.
-    * LiveEvent replaces Channel.
-        
-        LiveEvents billing is based on Live Channel meters. For more information, see [Live streaming overview](live-streaming-overview.md#billing) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
+    * LiveEvent replaces Channel.<br/>LiveEvents billing is based on Live Channel meters. For more information, see [Live streaming overview](live-streaming-overview.md#billing) and [pricing](https://azure.microsoft.com/pricing/details/media-services/).
     * LiveOutput replaces Program.
 * LiveOutputs do not need to be started explicitly, they start on creation and stop when deleted. Programs worked differently in the v2 APIs, they had to be started after creation.
 
@@ -71,10 +69,7 @@ If you have a video service developed today on top of the [legacy Media Services
 
 The v3 API has the following feature gaps with respect to the v2 API. Closing the gaps is work in progress.
 
-* The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.
-
-    Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
-
+* The [Premium Encoder](../previous/media-services-premium-workflow-encoder-formats.md) and the legacy [media analytics processors](../previous/media-services-analytics-overview.md) (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) are not accessible via v3.<br/>Customers who wish to migrate from the Media Indexer 1 or 2 preview can immediately use the AudioAnalyzer preset in the v3 API.  This new preset contains more features than the older Media Indexer 1 or 2. 
 * Many of the advanced features of the Media Encoder Standard in v2 APIs are currently not available in v3, such as:
     * Clipping (for on-demand and live scenarios)
     * Stitching of Assets
@@ -103,9 +98,7 @@ The following table shows the code differences between v2 and v3 for common scen
 * Media Services entities created with the v3 API cannot be managed by the v2 API.  
 * It is not recommended to manage entities that were created with v2 APIs via the v3 APIs. Following are examples of the differences that make the entities in two versions incompatible:   
     * Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. The recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
-    * Channels and Programs created with v2 (which are mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop.
-    
-        Presently, you cannot migrate continuously running Channels.  
+    * Channels and Programs created with v2 (which are mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop.<br/>Presently, you cannot migrate continuously running Channels.  
 > [!NOTE]
 > Please bookmark this article and keep checking for updates.
 
