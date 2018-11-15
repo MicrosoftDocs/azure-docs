@@ -17,7 +17,7 @@ As your QnA Maker knowledge base grows large, it becomes difficult to maintain i
 
 While it is straightforward to create multiple knowledge bases in QnA Maker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
 
-This article uses Bot Framework v3 SDK. Please see this [Bot Framework article](https://docs.microsoft.com/en-us/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), if you are interested in Bot Framework v4 SDK version of this information.
+This article uses Bot Framework v3 SDK. Please see this [Bot Framework article](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), if you are interested in Bot Framework v4 SDK version of this information.
 
 ## Architecture
 

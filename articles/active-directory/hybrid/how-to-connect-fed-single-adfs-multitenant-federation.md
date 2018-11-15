@@ -43,7 +43,7 @@ For AD FS in contoso.com to be able to authenticate users in fabrikam.com, a two
  
 The default issuer set for a single domain federated to AD FS is "http://ADFSServiceFQDN/adfs/services/trust", for example, "http://fs.contoso.com/adfs/services/trust". Azure Active Directory requires unique issuer for each federated domain. Since the same AD FS is going to federate two domains, the issuer value needs to be modified so that it is unique for each domain AD FS federates with Azure Active Directory. 
  
-On the AD FS server, open Azure AD PowerShell and perform the following steps:
+On the AD FS server, open Azure AD PowerShell (ensure that the MSOnline module is installed) and perform the following steps:
  
 Connect to the Azure Active Directory that contains the domain contoso.com
     Connect-MsolService
