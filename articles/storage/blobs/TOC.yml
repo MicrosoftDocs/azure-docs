@@ -374,9 +374,6 @@
     - name: PowerShell
       href: /powershell/module/azure.storage
     - name: Azure CLI
-<<<<<<< HEAD
-      href: /cli/azure/storage
-=======
       href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Azure classic CLI
       href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -504,7 +501,6 @@
       href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
   - name: Source code
     items:
->>>>>>> a9fd360f0320421893a195a8ac4fbcf9311dd84e
     - name: .NET
       items:
       - name: Blobs, Queues, Tables, and Files
