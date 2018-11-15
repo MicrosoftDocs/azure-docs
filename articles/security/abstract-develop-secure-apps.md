@@ -24,4 +24,4 @@ This paper is a general guide to the security questions and controls you should 
 
 This paper is intended to be a resource for software designers, developers, and testers at all levels who build and deploy secure Azure solutions.
 
-[Download the white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/azure-network-security/Azure%20Network%20Security.pdf)
+[Download the white paper](https://acomportal.azure.net/files/resourcefiles/develop-secure-applications-on-azure/Develop%20secure%20applications%20on%20Azure.pdf)
