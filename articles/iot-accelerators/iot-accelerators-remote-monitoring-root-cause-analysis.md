@@ -14,7 +14,7 @@ ms.custom: mvc
 
 # Tutorial: Conduct a root cause analysis on an alert
 
-In this tutorial, you learn how to use the Remote Monitoring solution accelerator to diagnose the root cause of an alert. When you see an alert has been triggered in the Remote Monitoring solution dashboard, you can use the Azure Time Series Insights explorer to investigate the root cause.
+In this tutorial, you learn how to use the Remote Monitoring solution accelerator to diagnose the root cause of an alert. You see that an alert has been triggered in the Remote Monitoring solution dashboard and then use the Azure Time Series Insights explorer to investigate the root cause.
 
 The tutorial uses two simulated delivery truck devices that send location, altitude, speed, and cargo temperature telemetry. The trucks are managed by an organization called Contoso and are connected to the Remote Monitoring solution accelerator. As a Contoso operator, you need to understand why one of your trucks (delivery-truck-02) has logged a low temperature alert.
 
@@ -37,7 +37,7 @@ To select which connected devices display on the **Dashboard** page, use filters
 
 [![Filter for trucks on the dashboard](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
-When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard** page. You can see that there are two trucks connected to the solution accelerator, including **truck-02**.
+When you apply a filter, only those devices that match the filter conditions are displayed on the map and in the telemetry panel on the **Dashboard**. You can see that there are two trucks connected to the solution accelerator, including **truck-02**.
 
 ## View real-time telemetry
 
@@ -63,7 +63,7 @@ Filter the devices by typing **delivery-truck** in the filter box, and select **
 
 [![TSI Explorer truck temperature](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-tsi-temp-expanded.png#lightbox)
 
-You see the same view that you saw in the Remote Monitoring dashboard and can now zoom in closer to the time frame that the alert was triggered within:
+You see the same view that you saw in the Remote Monitoring dashboard. Also, you can now zoom in closer to the time frame that the alert was triggered within:
 
 [![TSI Explorer zoom](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/tsi-zoom-expanded.png#lightbox)
 
@@ -77,7 +77,7 @@ In the new pane, change the name of the new label to **Devices** so that it matc
 
 ## Diagnose the alert
 
-When you look at the streams in the current view, you can see that the altitude profiles for the two trucks are different. Also, the temperature drop in **delivery-truck-02** happens when the truck reaches a high altitude. You are surprised by the finding, because the trucks were scheduled to take the same route.
+When you look at the streams in the current view, you can see that the altitude profiles for the two trucks are different. Also, the temperature drop in **delivery-truck-02** happens when it reaches a high altitude. You are surprised by the finding, because the trucks were scheduled to take the same route.
 
 To confirm your suspicion that the trucks took different journey paths, add in another pane to the side panel using the **Add** button. In the new pane, change the name of the new label to **Devices** so that it matches the previous one. Select **longitude** as the **Measure** and **iothub-connection-device-id** as the **Split By** value to add the longitude telemetry into your view. You can see that the trucks did take different journeys by looking at the difference between **longitude** streams:
 
