@@ -13,11 +13,11 @@ ms.reviewer: sngun
 
 # Automatic and online backup and on-demand data restore in Azure Cosmos DB
 
-Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are helpful in scenarios when you accidentally delete or update your Azure Cosmos account, database or container and later require the data recovery.
+Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are helpful in scenarios when you accidentally delete or update your Azure Cosmos account, database, or container and later require the data recovery.
 
 ## Automatic and online backups
 
-With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The automated backups are currently taken every four hours and at any point of time, the latest two backups are stored. If you have accidentally deleted or corrupted your data you should contact [Azure support]( Azure support) within eight hours so that the Azure Cosmos DB team can help you restore the data from the backups.
+With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The automated backups are currently taken every four hours and at any point of time, the latest two backups are stored. If you have accidentally deleted or corrupted your data, you should contact [Azure support](Azure support) within eight hours so that the Azure Cosmos DB team can help you restore the data from the backups.
 
 The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB backups data in the background without consuming any additional provisioned throughput (RUs) or affecting the performance and availability of your database.
 
@@ -61,7 +61,7 @@ When an Azure Cosmos database is deleted, it is possible to restore the whole da
 
 When one or more items within a container are deleted or changed (the data corruption case), you will need to specify the time to restore to. Time is of essence for this case. Since the container is live, the backup is still running, so if you wait beyond the retention period (the default is eight hours) the backups would be overwritten. In the case of deletes, your data is no longer stored because they won’t be overwritten by the backup cycle. Backups for deleted databases or containers are saved for 30 days.
 
-If you provision throughput at the database level (that is, where a set of containers share the provisioned throughput), the backup and restore process in this case happen at the entire database level, and not at the individual containers level. In such cases, selecting a subset of containers to restore is not an option.
+If you provision throughput at the database level (that is, where a set of containers shares the provisioned throughput), the backup and restore process in this case happen at the entire database level, and not at the individual containers level. In such cases, selecting a subset of containers to restore is not an option.
 
 ## Migrating data to the original account
 
@@ -74,14 +74,14 @@ The following are different ways to migrate data back to the original Azure Cosm
 * Using [change feed](change-feed.md) in Azure Cosmos DB 
 * Write custom code
 
-You should delete the restored accounts as soon as you are done migrating, because they will incur ongoing charges.
+Delete the restored accounts as soon as you are done migrating, because they will incur ongoing charges.
 
 ## Next steps
 
 Next you can learn about how to restore data from an Azure Cosmos account or learn how to migrate data to an Azure Cosmos account
 
 * To make a restore request, contact Azure Support, [file a ticket from the Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)
-* [How to restore data from an Azure Cosmos account]()
-* [Use Cosmos DB change feed](change-feed.md) 
+* [How to restore data from an Azure Cosmos account](how-to-backup-and-restore.md)
+* [Use Cosmos DB change feed](change-feed.md) to move data to Azure Cosmos DB.
 * [Use Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) to move data to Azure Cosmos DB.
 
