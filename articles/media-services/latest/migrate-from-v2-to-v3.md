@@ -94,11 +94,12 @@ The following table shows the code differences between v2 and v3 for common scen
 ## Known issues
 
 * Currently, you cannot use the Azure portal to manage v3 resources. Use the [REST API](https://aka.ms/ams-v3-rest-sdk), CLI, or one of the supported SDKs.
-* Today, Media Reserved Units can only be managed using the Media Services v2 API. For more information, see [Scaling media processing](../previous/media-services-scale-media-processing-overview.md).
+* Media Reserved Units can be managed with [Media Services v3 CLI](media-reserved-units-cli-how-to.md) or [Media Services v2 API](../previous/media-services-scale-media-processing-overview.md).
 * Media Services entities created with the v3 API cannot be managed by the v2 API.  
 * It is not recommended to manage entities that were created with v2 APIs via the v3 APIs. Following are examples of the differences that make the entities in two versions incompatible:   
     * Jobs and Tasks created in v2 do not show up in v3 as they are not associated with a Transform. The recommendation is to switch to v3 Transforms and Jobs. There will be a relatively short time period of needing to monitor the inflight v2 Jobs during the switchover.
     * Channels and Programs created with v2 (which are mapped to LiveEvents and LiveOutputs in v3) cannot continue being managed with v3. The recommendation is to switch to v3 LiveEvents and LiveOutputs at a convenient Channel Stop.<br/>Presently, you cannot migrate continuously running Channels.  
+
 > [!NOTE]
 > Please bookmark this article and keep checking for updates.
 
