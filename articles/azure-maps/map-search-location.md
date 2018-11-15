@@ -30,7 +30,7 @@ The third block of code creates a data source object using the [DataSource](http
 
 The last block of code adjusts the camera bounds for the map by using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) property.
 
-The search request, creation of the data source and symbol layer and the camera bounds are set within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the results are displayed after the map loads fully.
+The search request, the data source and symbol layer and the camera bounds are created and set within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the results are displayed after the map loads fully.
 
 
 ## Make a search request via XMLHttpRequest
@@ -48,7 +48,7 @@ The fourth block of code creates a data source object using the [DataSource](htt
 
 The last block of code creates a [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) object using the array of results and then adjusts the camera bounds for the map by using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) to render the result pins.
 
-The search request, creation of the data source and symbol layer and the camera bounds are set within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the results are displayed after the map loads fully.
+The search request, the data source and symbol layer and the camera bounds are set within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the results are displayed after the map loads fully.
 
 ## Next steps
 
