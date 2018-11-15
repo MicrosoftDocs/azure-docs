@@ -77,7 +77,7 @@ In the new pane, change the name of the new label to **Devices** so that it matc
 
 ## Diagnose the alert
 
-When you look at the streams in the current view, you can see that the altitude profiles for the two trucks are different. Also, the temperature drop in **delivery-truck-02** happens when it reaches a high altitude. You are surprised by the finding, because the trucks were scheduled to take the same route.
+When you look at the streams in the current view, you can see that the altitude profiles for the two trucks are different. Also, the temperature drop in **delivery-truck-02** happens when the truck reaches a high altitude. You are surprised by the finding, because the trucks were scheduled to take the same route.
 
 To confirm your suspicion that the trucks took different journey paths, add in another pane to the side panel using the **Add** button. In the new pane, change the name of the new label to **Devices** so that it matches the previous one. Select **longitude** as the **Measure** and **iothub-connection-device-id** as the **Split By** value to add the longitude telemetry into your view. You can see that the trucks did take different journeys by looking at the difference between **longitude** streams:
 
