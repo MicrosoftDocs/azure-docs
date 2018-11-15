@@ -26,7 +26,7 @@ The first block of code constructs a map object and initializes the client servi
 
 The second block of code uses the [Azure Maps Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for point of interest. Fuzzy search API can handle any combination of fuzzy inputs. The response from the fuzzy search service is then parsed into GeoJSON format using the [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) method. The pins are then added to the map to show the points of interest on the map.
 
-The last block of code adjusts the camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) property.
+The last block of code adjusts the camera bounds for the map by using the Map's [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) property.
 
 ## Make a search request via XMLHttpRequest
 
@@ -39,7 +39,7 @@ The second code block adds search results layer to the map. The search results l
 
 The third block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for the point of interest. Fuzzy search API can handle any combination of fuzzy inputs.
 
-The last block of code parses the response and adjusts the adjusts the camera bounds for the map by using the Map's [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) to render the result pins.
+The last block of code parses the response and adjusts the adjusts the camera bounds for the map by using the Map's [setCameraBounds](/javascript/api/azure-maps-control/atlas.map#setcamerabounds-cameraboundsoptions-) to render the result pins.
 
 ## Next steps
 
@@ -57,6 +57,6 @@ See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
 > [Get information from a coordinate](./map-get-information-from-coordinate.md)
-
+<!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
 > [Show directions from A to B](./map-route.md)
