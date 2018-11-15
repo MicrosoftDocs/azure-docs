@@ -22,25 +22,42 @@ ms.author: magoedte
         <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
-
-<ul class="panelContent cards">
-    <li>
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Fundamentals</h3>
-                        <p>
-                        <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
-                        <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
-                        <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
-                        <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </li>
-    <li>
+         <li>
+           <a href="#products"></a>
+             <ul id="products">
+               <li>
+                  <a class="singlePanelNavItem selected" style="display: none" href="#indexA" data-linktype="self-bookmark"></a>
+                  <ul class="panelContent singlePanelContent" id="indexA" style="border: medium; border-image: none; margin-top: 0px; display: flex; float: left;">
+                      <li class="fullSpan">
+                          <a href="#index1" data-linktype="self-bookmark"></a>
+                          <ul class="cardsF cols cols4" id="index1" style="float: left; display: flex; width: 100%; border-bottom: 1px var(--grey-lighter) solid;">  
+                              <li>
+                                 <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
+                                    <li>
+                                        <a href="">
+                                           <div class="cardSize">
+                                               <div class="cardPadding">
+                                                   <div class="card">
+                                                        <div class="cardImageOuter">
+                                                             <div class="cardImage">
+                                                                 <img alt="" src="https://docs.microsoft.com/media/common/i_learn-about.svg" data-linktype="external">
+                                                             </div>
+                                                        </div>
+                                                        <div class="cardText" style="padding-left: 0px">
+                                                             <h3>Fundamentals</h3>
+                                                             <p>
+                                                                 <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
+                                                                 <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
+                                                                 <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
+                                                                 <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
+                                                             </p>
+                                                        </div>
+                                                      </div>
+                                                     </div>
+                                                   </div>
+                              </a>
+                            </li>
+                          <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
