@@ -35,7 +35,7 @@ A subnet must be delegated to Azure NetApp Files.
 3.	In the New Volume window, click **Create** and provide information for the following fields:   
     * **Name**      
         Specify the name for the volume that you are creating.   
-        
+
         The name must be unique within a resource group. It must be at least three characters long.  It can use any alphanumeric characters.
 
     * **File path**  
@@ -57,7 +57,7 @@ A subnet must be delegated to Azure NetApp Files.
         Specify the subnet that you want to use for the volume.  
         The subnet you specify must be delegated to Azure NetApp Files. 
         
-        If you have not delegated a subnet, you can select **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files.    
+        If you have not delegated a subnet, you can click **Create new** on the Create a Volume page. Then in the Create Subnet page, specify the subnet information and select **Microsoft.NetApp/volumes** to delegate the subnet for Azure NetApp Files.    
  
         ![New volume](../media/azure-netapp-files/azure-netapp-files-new-volume.png)
     
