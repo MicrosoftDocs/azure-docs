@@ -4,11 +4,10 @@ description: In this quickstart, you create a container in object (Azure Blob) s
 services: storage
 author: roygara
 
-
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/19/2018
+ms.date: 11/14/2018
 ms.author: rogarana
 ---
 
@@ -18,14 +17,14 @@ In this quickstart, you learn how to use the new Java Storage SDK to upload, dow
 
 ## Prerequisites
 
-Install and configure these applications:
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
+
+Make sure you have the following prerequisites installed:
 
 * [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer
 * [JDK](https://aka.ms/azure-jdks)
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Download the sample application
 

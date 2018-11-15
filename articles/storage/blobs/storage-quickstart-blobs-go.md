@@ -3,12 +3,11 @@ title: Azure Quickstart - Create a blob in object storage using Go | Microsoft D
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
 author: seguler
- 
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: seguler
 ---
 
@@ -18,16 +17,17 @@ In this quickstart, you learn how to use the Go programming language to upload, 
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [Go 1.8 or above](https://golang.org/dl/)
-* Download and install [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
+
+Make sure you have the following prerequisites installed:
+ 
+* [Go 1.8 or above](https://golang.org/dl/)
+* [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
 
 > [!NOTE]
 > Make sure that you capitalize Azure in the URL. Doing otherwise can cause case-related import problems when working with the SDK. You also need to capitalize Azure in your import statements.
-
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.  
