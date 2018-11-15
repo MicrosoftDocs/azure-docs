@@ -36,6 +36,16 @@
 
 # [Cloud Partner Portal](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
 
+## [Portal Tour](./cloud-partner-portal/portal-tour/cpp-portal-tour.md)
+### [Portal navigation](./cloud-partner-portal/portal-tour/cpp-portal-navigation.md)
+### [New offer menu](./cloud-partner-portal/portal-tour/cpp-new-offer-menu.md)
+### [All offers page](./cloud-partner-portal/portal-tour/cpp-all-offers-page.md)
+### [Approvals page](./cloud-partner-portal/portal-tour/cpp-approvals-page.md)
+### [All publishers page](./cloud-partner-portal/portal-tour/cpp-all-publishers-page.md)
+### [Users page](./cloud-partner-portal/portal-tour/cpp-users-page.md)
+### [Audit history page](./cloud-partner-portal/portal-tour/cpp-history-page.md)
+### [Insights page](./cloud-partner-portal/portal-tour/cpp-insights-page.md)
+
 ## Portal management
 ### [Dev center account registration](./cloud-partner-portal-orig/cloud-partner-portal-dev-center-accounts-registration.md)
 ### [Private SKUs](./cloud-partner-portal-orig/cloud-partner-portal-azure-private-skus.md)
