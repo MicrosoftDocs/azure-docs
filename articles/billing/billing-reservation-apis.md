@@ -23,9 +23,9 @@ Use Azure APIs to programmatically get information for your organization about A
 
 ## Identify reservation plans to buy
 
-Use the Reservation recommendation API to get recommendations on which reservations plan to buy based on your organization's usage. For more information, see [Get reservation recommendations](../rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation.md).
+Use the Reservation recommendation API to get recommendations on which reservations plan to buy based on your organization's usage. For more information, see [Get reservation recommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation.md).
 
-You can also analyze your resource usage by using the Consumption API Usage Detail. For more information, see [Usage Details - List For Billing Period By Billing Account](../rest/api/consumption/usagedetails/listforbillingperiodbybillingaccount.md). The Azure resources that you use consistently are usually the best candidate for a reservation.
+You can also analyze your resource usage by using the Consumption API Usage Detail. For more information, see [Usage Details - List For Billing Period By Billing Account](/rest/api/consumption/usagedetails/listforbillingperiodbybillingaccount.md). The Azure resources that you use consistently are usually the best candidate for a reservation.
 
 ## Buy a reservation
 
@@ -41,12 +41,12 @@ Software plans:
 
 ## View reservations
 
-If you're an Azure customer with an Enterprise Agreement (EA customer), you can view the reservations your organization bought by using the [Get Reserved Instance transaction charges API](../rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges.md).  
+If you're an Azure customer with an Enterprise Agreement (EA customer), you can view the reservations your organization bought by using the [Get Reserved Instance transaction charges API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges.md).  
 
 ## See reservation usage
 
 If you're an EA customer, you can programmatically view how the reservations in your organization are being used. For more information, see
-[Get Reserved Instance usage for enterprise customers](../rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage.md). 
+[Get Reserved Instance usage for enterprise customers](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage.md).
 
 If you find that your organization's reservations are being under-used:
 
@@ -57,9 +57,9 @@ If you find that your organization's reservations are being under-used:
 
 ## Give access to reservations
 
-Get the list of all reservations that a user has access to by using the [Reservation - Operation - List API](../rest/api/reserved-vm-instances/reservationorder/list.md). To give access to a reservation, see one of the following articles:
+Get the list of all reservations that a user has access to by using the [Reservation - Operation - List API](/rest/api/reserved-vm-instances/reservationorder/list.md). To give access to a reservation, see one of the following articles:
 
-- [Manage access using RBAC and the REST API](../role-based-access-control/role-assignments-res.md)
+- [Manage access using RBAC and the REST API](../role-based-access-control/role-assignments-rest.md)
 - [Manage access using RBAC and Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)
 - [Manage access using RBAC and Azure CLI](../role-based-access-control/role-assignments-cli.md)
 
