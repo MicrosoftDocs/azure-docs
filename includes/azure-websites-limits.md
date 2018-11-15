@@ -28,10 +28,10 @@
 <sup>1</sup>Apps and storage quotas are per App Service plan unless noted otherwise.  
 <sup>2</sup>The actual number of apps that you can host on these machines depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
 <sup>3</sup>Dedicated instances can be of different sizes. See [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/) for more details.  
-<sup>4</sup>More allowed upon request.
-<sup>5</sup>The storage limit is the total content size across all apps in the same App Service plan.
+<sup>4</sup>More allowed upon request.  
+<sup>5</sup>The storage limit is the total content size across all apps in the same App Service plan.  
 <sup>6</sup>These resources are constrained by physical resources on the dedicated instances (the instance size and the number of instances).  
 <sup>7</sup>If you scale an app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances.  
-<sup>8</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs. There is no predefined limit on the number of WebJobs that can run in an App Service instance, but there are practical limits that depend on what the application code is trying to do.
-<sup>9</sup>App Service Isolated SKUs have the ability to be internally load balanced (ILB) with Azure Load Balancer, which means no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.
-<sup>10</sup>The App Service Certificate quota limit per subscription can be increased via a support request to a maximum limit of 200.
+<sup>8</sup>Run custom executables and/or scripts on demand, on a schedule, or continuously as a background task within your App Service instance. Always On is required for continuous WebJobs execution. Azure Scheduler Free or Standard is required for scheduled WebJobs. There is no predefined limit on the number of WebJobs that can run in an App Service instance, but there are practical limits that depend on what the application code is trying to do.  
+<sup>9</sup>App Service Isolated SKUs have the ability to be internally load balanced (ILB) with Azure Load Balancer, which means no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.  
+<sup>10</sup>The App Service Certificate quota limit per subscription can be increased via a support request to a maximum limit of 200.  
