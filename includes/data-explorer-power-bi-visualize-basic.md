@@ -8,7 +8,7 @@ ms.author: mblythe
 
 Now that you have data in Power BI Desktop, you can create reports based on that data. You'll create a simple report with a column chart that shows crop damage by state.
 
-1. On the left side of the main window, select the report view.
+1. On the left side of the main Power BI window, select the report view.
 
     ![Report view](media/data-explorer-power-bi-visualize-basic/report-view.png)
 

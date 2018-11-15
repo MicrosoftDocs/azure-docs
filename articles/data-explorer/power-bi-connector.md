@@ -55,7 +55,7 @@ First, you connect to the Azure Data Explorer help cluster, then you bring in a 
     | Data connectivity mode | *DirectQuery* | Determines whether Power BI imports the data or connects directly to the data source. |
     | | | |
 
-1. If you don't already have a connection to the help cluster, sign in. Use an organizational account or a Microsoft account, then select **Connect**.
+1. If you don't already have a connection to the help cluster, sign in. Sign in with an organizational account, then select **Connect**.
 
     ![Sign in](media/power-bi-connector/sign-in.png)
 
