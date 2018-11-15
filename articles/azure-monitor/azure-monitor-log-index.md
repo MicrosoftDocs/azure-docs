@@ -58,7 +58,8 @@ ms.author: magoedte
                               </a>
                             </li>
                           <li>
-        <div class="cardSize">
+          <a href="">
+           <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -72,8 +73,10 @@ ms.author: magoedte
                 </div>
             </div>
         </div>
+     </a>
     </li>
     <li>
+       <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -89,6 +92,7 @@ ms.author: magoedte
                 </div>
             </div>
         </div>
+    </a>
     </li>
     <li>
         <div class="cardSize">
@@ -116,7 +120,8 @@ ms.author: magoedte
         </div>
     </li>
     <li>
-        <div class="cardSize">
+          <a href="">
+           <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText" style="padding-left: 0px">
@@ -131,6 +136,7 @@ ms.author: magoedte
                 </div>
             </div>
         </div>
+      </a>
     </li>
     <li>
         <div class="cardSize">
@@ -151,6 +157,7 @@ ms.author: magoedte
         </div>
     </li>
     <li>
+       <a href="">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -167,5 +174,6 @@ ms.author: magoedte
                 </div>
             </div>
         </div>
+      </a>
     </li>
 </ul>
