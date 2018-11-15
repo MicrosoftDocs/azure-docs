@@ -119,7 +119,7 @@ Join the discussion in the [Microsoft Partner Community](https://aka.ms/PALdiscu
 
 **Who can link the partner ID?**
 
-Any user from the partner organization who is managing customer's Azure resources can link the partner ID to the account.
+Any user from the partner organization who is managing customer's Azure resources can link the partner ID to the customer environment.
 
 **Once a partner ID is linked can it be changed?**
 
