@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: jeedes
 
 ---
@@ -198,7 +198,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 5. In the **Users and groups** dialog select **Britta Simon** in the Users list, then click the **Select** button at the bottom of the screen.
 
-6. In the **Add Assignment** dialog select the **Assign** button.
+6. In the **Add Assignment**, dialog select the **Assign** button.
 
 ### Testing single sign-on
 
