@@ -49,18 +49,26 @@ All apps that are configured for **Windows-Integrated authentication** seamlessl
 
 Windows Hello for Business requires additional configuration to enable on-premises SSO from an Azure AD joined device. For more information, see [Configure Azure AD joined devices for On-premises Single-Sign On using Windows Hello for Business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-aadj-sso-base). 
 
+## What you get
+
+With SSO on a Azure AD joined device, you can: 
+
+- Access a UNC path on an AD member server
+
+- Access a AD member web server configured for Windows integrated security 
+
+You can use:
+
+- The Active Directory Users and Computers (ADUC) snap-in to administer all AD objects. However, you have to manually specify the domain that you want to connect to manually.
+
+- The DHCP snap-in to administer an AD-joined DHCP server. However, you may need to specify the DHCP server name or address.
+
  
 ## What you should know
 
-Because Azure AD joined devices don't have a computer object associated with them in on-premises Active Directory:
+You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized.
 
-- You might have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized.
-
-- Apps and resources that depend on Active Directory machine authentication don't work. 
-
-- Windows object picker doesn't list the users and objects in Active Directory. 
-
-
+Because Azure AD joined devices don't have a computer object in AD, apps and resources that depend on Active Directory machine authentication don't work. 
 
 
 ## Next steps
