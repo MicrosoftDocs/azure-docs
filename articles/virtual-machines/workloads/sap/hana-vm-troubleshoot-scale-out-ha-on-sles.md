@@ -52,7 +52,7 @@ There was a technical issue with SAP HANA scale-out in combination with multiple
 
 If you need support from SUSE, follow this [guide][suse-pacemaker-support-log-files]. Collect all the information about the SAP HANA high-availability (HA) cluster as described in the article. SUSE support needs this information for further analysis.
 
-During internal testing, the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. So we recommend that you test a cluster failover by other methods. Use methods like forcing a kernel panic, or shut down the networks or migrate the MSL resource. See details in the following sections. The assumption is that a standard shutdown happens with intention. The best example of an intentional shutdown is for maintenance. See details in [Planned maintenance](#planned-maintenance).
+During internal testing, the cluster setup got confused by a normal graceful VM shutdown via the Azure portal. So we recommend that you test a cluster failover by other methods. Use methods like forcing a kernel panic, or shut down the networks or migrate the **msl** resource. See details in the following sections. The assumption is that a standard shutdown happens with intention. The best example of an intentional shutdown is for maintenance. See details in [Planned maintenance](#planned-maintenance).
 
 Also, during internal testing, the cluster setup got confused after a manual SAP HANA takeover while the cluster was in maintenance mode. We recommend that you switch it back again manually before you end the cluster maintenance mode. Another option is to trigger a failover before you put the cluster into maintenance mode. For more information, see [Planned maintenance](#planned-maintenance). The documentation from SUSE describes how you can reset the cluster in this way by using the **crm** command. But the approach mentioned previously was robust during internal testing and never showed any unexpected side effects.
 
@@ -62,7 +62,7 @@ When you use the **crm migrate** command, make sure to clean up the cluster conf
 
 ## Test system description
 
- For SAP HANA scale-out HA verification and certification, a setup was used. It consisted of two systems with three SAP HANA nodes each: one master and two workers. The following table lists VM names and internal IP addresses. All the verification samples that follow were done on these VMs. By using these VM names and IP addresses in the command samples, you can better understand the commands and their outputs.
+ For SAP HANA scale-out HA verification and certification, a setup was used. It consisted of two systems with three SAP HANA nodes each: one master and two workers. The following table lists VM names and internal IP addresses. All the verification samples that follow were done on these VMs. By using these VM names and IP addresses in the command samples, you can better understand the commands and their outputs:
 
 
 | Node type | VM name | IP address |
@@ -220,7 +220,7 @@ logging {
 }
 </code></pre>
 
-The third section shows the **nodelist**. All nodes of the cluster have to show up with their node ID:
+The third section shows the **nodelist**. All nodes of the cluster have to show up with their **nodeid**:
 
 <pre><code>
 nodelist {
@@ -356,7 +356,7 @@ The next proof point is to verify that the node sees the SDB device. Check it on
 lsscsi | grep dbhso
 </code></pre>
 
-The output should look like the following sample. However, the names might differ. The device name might also change after VM reboots:
+The output should look like the following sample. However, the names might differ. The device name might also change after the VM reboots:
 
 <pre><code>
 [6:0:0:0]    disk    LIO-ORG  sbddbhso         4.0   /dev/sdm
@@ -504,7 +504,7 @@ To see all configured resources in Pacemaker, run the following command:
 crm status
 </code></pre>
 
-The output should look like the following sample. It's fine that the **cln** and MSL resources are shown as stopped on the majority maker VM, **hso-hana-dm**. There's no SAP HANA installation on the majority maker node. So the **cln** and MSL resources are shown as stopped. It's important that it shows the correct total number of VMs, **7**. All VMs that are part of the cluster must be listed with the status **Online**. The current primary master node must be recognized correctly. In this example, it's **hso-hana-vm-s1-0**:
+The output should look like the following sample. It's fine that the **cln** and **msl** resources are shown as stopped on the majority maker VM, **hso-hana-dm**. There's no SAP HANA installation on the majority maker node. So the **cln** and **msl** resources are shown as stopped. It's important that it shows the correct total number of VMs, **7**. All VMs that are part of the cluster must be listed with the status **Online**. The current primary master node must be recognized correctly. In this example, it's **hso-hana-vm-s1-0**:
 
 <pre><code>
 Stack: corosync
@@ -704,7 +704,7 @@ overall host status: ok
 </code></pre>
 
 
-There's another command to check current cluster activities. See the following command and the output tail after the master node of the primary site was killed. You can see the list of transition actions like **promoting** the former secondary master node, **hso-hana-vm-s2-0**, as the new primary master. If everything is fine, and all activities are finished, this list of **Transition Summary** has to be empty.
+There's another command to check current cluster activities. See the following command and the output tail after the master node of the primary site was killed. You can see the list of transition actions like **promoting** the former secondary master node, **hso-hana-vm-s2-0**, as the new primary master. If everything is fine, and all activities are finished, this **Transition Summary** list has to be empty.
 
 <pre><code>
  crm_simulate -Ls
@@ -731,9 +731,9 @@ Intense internal testing was done to verify the infrastructure maintenance use c
 
 There are two different situations in this regard:
 
-- Planned maintenance on the current secondary. In this case, you can just put the cluster into maintenance mode and do the work on the secondary without affecting the cluster.
+- **Planned maintenance on the current secondary**. In this case, you can just put the cluster into maintenance mode and do the work on the secondary without affecting the cluster.
 
-- Planned maintenance on the current primary. So that users can continue to work during maintenance, you need to force a failover. With this approach, you must trigger the cluster failover by Pacemaker and not just on the SAP HANA HSR level. The Pacemaker setup automatically triggers the SAP HANA takeover. You also need to accomplish the failover before you put the cluster into maintenance mode.
+- **Planned maintenance on the current primary**. So that users can continue to work during maintenance, you need to force a failover. With this approach, you must trigger the cluster failover by Pacemaker and not just on the SAP HANA HSR level. The Pacemaker setup automatically triggers the SAP HANA takeover. You also need to accomplish the failover before you put the cluster into maintenance mode.
 
 The procedure for maintenance on the current secondary site is as follows:
 
@@ -753,7 +753,7 @@ The procedure for maintenance on the current primary site is more complex:
 
 Migrating a resource adds an entry to the cluster configuration. An example is forcing a failover. You have to clean up these entries before you end maintenance mode. See the following sample.
 
-First, force a cluster failover by migrating the MSL resource to the current secondary master node. This command gives a warning that a **move constraint** was created:
+First, force a cluster failover by migrating the **msl** resource to the current secondary master node. This command gives a warning that a **move constraint** was created:
 
 <pre><code>
 crm resource migrate msl_SAPHanaCon_HSO_HDB00 force
