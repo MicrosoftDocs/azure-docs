@@ -135,6 +135,8 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	b. Select Source as **Attribute**.
 
+	c, Make the **Namespace** blank.
+
 	c. From the **Source attribute** list, select **user.displayname**.
 
 	d. Click **Save**.
