@@ -32,7 +32,7 @@
   items:
   - name: Jupyter notebooks (GitHub)
     displayName: example, examples
-    href: http://aka.ms/aml-notebooks
+    href: https://aka.ms/aml-notebooks
 - name: Concepts   
   items: 
   - name: Model management
@@ -137,10 +137,10 @@
   items:    
   - name: Machine learning SDK
     displayName: api, core, package
-    href: http://aka.ms/aml-sdk
+    href: https://aka.ms/aml-sdk
   - name: Data prep SDK
     displayName: api, preparation, package
-    href: http://aka.ms/data-prep-sdk
+    href: https://aka.ms/data-prep-sdk
   - name: Monitoring SDK
     displayName: api, package
     href: https://aka.ms/aml-monitoring-sdk 
