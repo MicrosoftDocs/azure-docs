@@ -35,7 +35,7 @@ sections:
     items:
       - title: Overview
         href: /azure/sql-database/sql-database-managed-instance
-        html: <p>Find out more info about the Managed Instance service.</p>
+        html: <p>Find out more information about the Azure SQL Database Managed Instance service.</p>
       - title: Rich surface area
         href: /azure/sql-database/sql-database-managed-instance#sql-features-supported
         html: <p>Managed Instance has near 100% SQL feature compatibility with the latest version of SQL Server Database Engine.</p>
