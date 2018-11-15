@@ -27,19 +27,19 @@ You can also read the best practices for [cluster security][best-practices-clust
 
 **Best practice guidance** - To run as a different user or group and limit access to the underlying node processes and services, define pod security context settings. Assign the least number of privileges required.
 
-For your applications to run correctly, pods may need to run as a defined user or group. The `securityContext` for a pod or container lets you define settings such as `runAsUser` or `fsGroup` to assume the appropriate permissions. Only assign the required user or group permissions, and don't use the security context as a means to assume additional permissions.
+For your applications to run correctly, pods may need to run as a defined user or group. The `securityContext` for a pod or container lets you define settings such as *runAsUser* or *fsGroup* to assume the appropriate permissions. Only assign the required user or group permissions, and don't use the security context as a means to assume additional permissions.
 
 A pod security context can also define additional capabilities or permissions for accessing processes and services. The following common security context definitions can be set:
 
-* **allowPrivilegeEscalation** defines if the pod can assume `root` privileges. Design your applications so this setting is always set to *false*.
+* **allowPrivilegeEscalation** defines if the pod can assume *root* privileges. Design your applications so this setting is always set to *false*.
 * **Linux capabilities** let the pod access underlying node processes. Take care with assigning these capabilities. Assign the least number of privileges needed. For more information, see [Linux capabilities][linux-capabilities].
 * **SELinux labels** is a Linux kernel security module that lets you define access policies for services, processes, and filesystem access. Again, assign the least number of privileges needed. For more information, see [SELinux options in Kubernetes][selinux-labels]
 
 The following example pod YAML manifest sets security context settings to define:
 
-* Runs as user ID *1000* and as part of group ID *2000*
+* Pod runs as user ID *1000* and part of group ID *2000*
 * Cannot escalate privileges to use `root`
-* Linux capabilities to access network interfaces and the host's real-time (hardware) clock
+* Allows Linux capabilities to access network interfaces and the host's real-time (hardware) clock
 
 ```yaml
 apiVersion: v1
