@@ -3,7 +3,7 @@ title: Show information about a coordinate with Azure Maps | Microsoft Docs
 description: How to display information about an address on the map when a user selects a coordinate
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/13/2018
+ms.date: 11/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps

@@ -3,7 +3,7 @@ title: Show search results with Azure Maps | Microsoft Docs
 description: How to perform a search request with Azure Maps then display the results on a Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 11/13/2018
+ms.date: 11/15/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -41,9 +41,9 @@ In the code above, the first block of code constructs a Map object. You can see 
 
 The second block of code sends an [XMLHttpRequest](https://xhr.spec.whatwg.org/) to [Azure Maps Fuzzy search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) to search for the point of interest. The Fuzzy search API can handle any combination of fuzzy inputs. 
 
-The fourth block of code parses the search response and stores the results in an array to calculate the bounds. It then returns the search results.
+The third block of code parses the search response and stores the results in an array to calculate the bounds. It then returns the search results.
 
-The third block of code creates a data source object using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class and add search results to it. A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as symbols on the map.  A symbol layer is then created and the data source is added to the symbol layer, which is then added to the map.
+The fourth block of code creates a data source object using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class and add search results to it. A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as symbols on the map.  A symbol layer is then created and the data source is added to the symbol layer, which is then added to the map.
 
 The last block of code creates a [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox?view=azure-iot-typescript-latest) object using the array of results and then adjusts the camera bounds for the map by using the Map's [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) to render the result pins.
 
