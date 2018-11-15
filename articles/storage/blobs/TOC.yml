@@ -10,7 +10,7 @@
   items:
   - name: Create a storage account
     href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Work with blobs - UI and script
+  - name: Manage blobs without code
     items:    
     - name: Azure portal
       href: storage-quickstart-blobs-portal.md

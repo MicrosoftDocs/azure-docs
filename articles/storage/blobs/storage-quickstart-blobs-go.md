@@ -17,11 +17,9 @@ In this quickstart, you learn how to use the Go programming language to upload, 
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
-
-Make sure you have the following prerequisites installed:
+Make sure you have the following additional prerequisites installed:
  
 * [Go 1.8 or above](https://golang.org/dl/)
 * [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 

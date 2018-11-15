@@ -16,11 +16,9 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
-
-Make sure you have the following prerequisites installed:
+Make sure you have the following additional prerequisites installed:
 
 * Install [PHP](http://php.net/downloads.php)
 * Install [the Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)

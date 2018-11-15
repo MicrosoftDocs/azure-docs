@@ -17,11 +17,9 @@ In this quickstart, you learn how to use the new Java Storage SDK to upload, dow
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
-
-Make sure you have the following prerequisites installed:
+Make sure you have the following additional prerequisites installed:
 
 * [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer
 * [JDK](https://aka.ms/azure-jdks)

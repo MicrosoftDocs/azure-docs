@@ -17,11 +17,11 @@ In this quickstart, you'll see how to use Python to upload, download, and list b
 
 ## Prerequisites
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-Create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
+Make sure you have the following additional prerequisites installed:
 
-Make sure you have the following prerequisites installed:* Install [Python](https://www.python.org/downloads/).
+* Install [Python](https://www.python.org/downloads/).
 * Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
 
 ## Download the sample application
