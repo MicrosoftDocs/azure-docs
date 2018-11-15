@@ -22,11 +22,15 @@ In this quickstart, you learn how to use the Go programming language to upload, 
 Make sure you have the following additional prerequisites installed:
  
 * [Go 1.8 or above](https://golang.org/dl/)
-* [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
+* [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/), using the following command:
 
-> [!NOTE]
-> Make sure that you capitalize Azure in the URL. Doing otherwise can cause case-related import problems when working with the SDK. You also need to capitalize Azure in your import statements.
+    ```
+    go get -u github.com/Azure/azure-storage-blob-go/azblob
+    ``` 
 
+    > [!NOTE]
+    > Make sure that you capitalize `Azure` in the URL to avoid case-related import problems when working with the SDK. Also capitalize `Azure` in your import statements.
+    
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.  
 

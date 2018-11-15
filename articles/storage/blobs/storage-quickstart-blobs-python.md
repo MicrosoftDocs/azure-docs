@@ -21,8 +21,8 @@ In this quickstart, you'll see how to use Python to upload, download, and list b
 
 Make sure you have the following additional prerequisites installed:
 
-* Install [Python](https://www.python.org/downloads/).
-* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
+* [Python](https://www.python.org/downloads/)
+* [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) in this quickstart is a basic Python application.  

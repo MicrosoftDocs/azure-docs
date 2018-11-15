@@ -21,7 +21,7 @@ In this quickstart, you learn how to use the new Java Storage SDK to upload, dow
 
 Make sure you have the following additional prerequisites installed:
 
-* [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer
+* [Maven](http://maven.apache.org/download.cgi) to work from the command line, or any Java integrated development environment that you prefer.
 * [JDK](https://aka.ms/azure-jdks)
 
 ## Download the sample application

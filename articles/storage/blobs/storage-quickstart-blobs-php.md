@@ -20,8 +20,8 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 Make sure you have the following additional prerequisites installed:
 
-* Install [PHP](http://php.net/downloads.php)
-* Install [the Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
+* [PHP](http://php.net/downloads.php)
+* [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) used in this quickstart is a basic PHP application.  
