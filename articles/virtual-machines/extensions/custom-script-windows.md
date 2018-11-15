@@ -197,7 +197,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ### How to run custom script more than once with CLI
 If you want to run the custom script extension more than once, you can only do this under these conditions:
 1. The extension 'Name' parameter is the same as the previous deployment of the extension.
-2. You must updated the configuration otherwise the command will not re-executed, for example, you could add in a dynamic property in to the command, such as a timestamp. 
+2. You must update the configuration otherwise the command will not be re-executed, for example, you could add in a dynamic property in to the command, such as a timestamp. 
 
 ## Troubleshoot and support
 

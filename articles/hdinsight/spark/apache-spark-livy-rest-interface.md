@@ -2,13 +2,13 @@
 title: Use Livy Spark to submit jobs to Spark cluster on Azure HDInsight
 description: Learn how to use Apache Spark REST API to submit Spark jobs remotely to an Azure HDInsight cluster.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 11/06/2018
 ---
 # Use Apache Spark REST API to submit remote jobs to an HDInsight Spark cluster
 
@@ -146,9 +146,9 @@ Perform the following steps:
    
     The last line of the output shows that the batch was successfully deleted. Deleting a job, while it is running, also kills the job. If you delete a job that has completed, successfully or otherwise, it deletes the job information completely.
 
-## Using Livy Spark on HDInsight 3.5 clusters
+## Updates to Livy configuration starting with HDInsight 3.5 version
 
-HDInsight 3.5 cluster, by default, disables use of local file paths to access sample data files or jars. We encourage you to use the `wasb://` path instead to access jars or sample data files from the cluster. If you do want to use local path, you must update the Ambari configuration accordingly. To do so:
+HDInsight 3.5 clusters and above, by default, disable use of local file paths to access sample data files or jars. We encourage you to use the `wasb://` path instead to access jars or sample data files from the cluster. If you do want to use local path, you must update the Ambari configuration accordingly. To do so:
 
 1. Go to the Ambari portal for the cluster. The Ambari Web UI is available on your HDInsight cluster at https://**CLUSTERNAME**.azurehdidnsight.net, where CLUSTERNAME is the name of your cluster.
 

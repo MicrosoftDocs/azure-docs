@@ -106,143 +106,7 @@ Data Sync doesn’t handle circular references. Be sure to avoid them.
 
 ## Client agent issues
 
-- [The client agent install, uninstall, or repair fails](#agent-install)
-
-- [The client agent doesn't work after I cancel the uninstall](#agent-uninstall)
-
-- [My database isn't listed in the agent list](#agent-list)
-
-- [Client agent doesn't start (Error 1069)](#agent-start)
-
-- [I can't submit the agent key](#agent-key)
-
-- [The client agent can't be deleted from the portal if its associated on-premises database is unreachable](#agent-delete)
-
-- [Local Sync Agent app can't connect to the local sync service](#agent-connect)
-
-### <a name="agent-install"></a> The client agent install, uninstall, or repair fails
-
-- **Cause**. Many scenarios might cause this failure. To determine the specific cause for this failure, look at the logs.
-
-- **Resolution**. To find the specific cause of the failure, generate and look at the Windows Installer logs. You can turn on logging at a command prompt. For example, if the downloaded AgentServiceSetup.msi file is LocalAgentHost.msi, generate and examine log files by using the following command lines:
-
-    -   For installs: `msiexec.exe /i SQLDataSyncAgent-Preview-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-    -   For uninstalls: `msiexec.exe /x SQLDataSyncAgent-se-ENU.msi /l\*v LocalAgentSetup.InstallLog`
-
-    You can also turn on logging for all installations that are performed by Windows Installer. The Microsoft Knowledge Base article [How to enable Windows Installer logging](https://support.microsoft.com/help/223300/how-to-enable-windows-installer-logging) provides a one-click solution to turn on logging for Windows Installer. It also provides the location of the logs.
-
-### <a name="agent-uninstall"></a> The client agent doesn't work after I cancel the uninstall
-
-The client agent doesn't work, even after you cancel its uninstallation.
-
-- **Cause**. This occurs because the SQL Data Sync client agent doesn't store credentials.
-
-- **Resolution**. You can try these two solutions:
-
-    -   Use services.msc to reenter the credentials for the client agent.
-    -   Uninstall this client agent and then install a new one. Download and install the latest client agent from [Download Center](http://go.microsoft.com/fwlink/?linkid=221479).
-
-### <a name="agent-list"></a> My database isn't listed in the agent list
-
-When you attempt to add an existing SQL Server database to a sync group, the database doesn't appear in the list of agents.
-
-These scenarios might cause this issue:
-
-- **Cause**. The client agent and sync group are in different datacenters.
-
-- **Resolution**. The client agent and the sync group must be in the same datacenter. To set this up, you have two options:
-
-    -   Create a new agent in the datacenter where the sync group is located. Then, register the database with that agent.
-    -   Delete the current sync group. Then, re-create the sync group in the datacenter where the agent is located.
-
-- **Cause**. The client agent's list of databases isn't current.
-
-- **Resolution**. Stop and then restart the client agent service.
-
-    The local agent downloads the list of associated databases only on the first submission of the agent key. It doesn't download the list of associated databases on subsequent agent key submissions. Databases that are registered during an agent move don't show up in the original agent instance.
-
-### <a name="agent-start"></a> Client agent doesn't start (Error 1069)
-
-You discover that the agent isn't running on a computer that hosts SQL Server. When you attempt to manually start the agent, you see a dialog box that displays the message, "Error 1069: The service did not start due to a logon failure."
-
-![Data Sync error 1069 dialog box](media/sql-database-troubleshoot-data-sync/sync-error-1069.png)
-
-- **Cause**. A likely cause of this error is that the password on the local server has changed since you created the agent and agent password.
-
-- **Resolution**. Update the agent's password to your current server password:
-
-  1. Locate the SQL Data Sync client agent service.  
-    a. Select **Start**.  
-    b. In the search box, enter **services.msc**.  
-    c. In the search results, select **Services**.  
-    d. In the **Services** window, scroll to the entry for **SQL Data Sync Agent**.  
-  1. Right-click **SQL Data Sync Agent**, and then select **Stop**.
-  1. Right-click **SQL Data Sync Agent**, and then select **Properties**.
-  1. On **SQL Data Sync Agent Properties**, select the **Log in** tab.
-  1. In the **Password** box, enter your password.
-  1. In the **Confirm Password** box, reenter your password.
-  1. Select **Apply**, and then select **OK**.
-  1. In the **Services** window, right-click the **SQL Data Sync Agent** service, and then click **Start**.
-  1. Close the **Services** window.
-
-### <a name="agent-key"></a> I can't submit the agent key
-
-After you create or re-create a key for an agent, you try to submit the key through the SqlAzureDataSyncAgent application. The submission fails to complete.
-
-![Sync Error dialog box - Can't submit agent key](media/sql-database-troubleshoot-data-sync/sync-error-cant-submit-agent-key.png)
-
-- **Prerequisites**. Before you proceed, check the following prerequisites:
-
-  - The SQL Data Sync Windows service is running.
-
-  - The service account for SQL Data Sync Windows service has network access.
-
-  - The outbound 1433 port is open in your local firewall rule.
-
-  - The local ip is added to the server or database firewall rule for the sync metadata database.
-
-- **Cause**. The agent key uniquely identifies each local agent. The key must meet two conditions:
-
-  -   The client agent key on the SQL Data Sync server and the local computer must be identical.
-  -   The client agent key can be used only once.
-
-- **Resolution**. If your agent isn't working, it's because one or both of these conditions are not met. To get your agent to work again:
-
-  1. Generate a new key.
-  1. Apply the new key to the agent.
-
-  To apply the new key to the agent:
-
-  1. In File Explorer, go to your agent installation directory. The default installation directory is C:\\Program Files (x86)\\Microsoft SQL Data Sync.
-  1. Double-click the bin subdirectory.
-  1. Open the SqlAzureDataSyncAgent application.
-  1. Select **Submit Agent Key**.
-  1. In the space provided, paste the key from your clipboard.
-  1. Select **OK**.
-  1. Close the program.
-
-### <a name="agent-delete"></a> The client agent can't be deleted from the portal if its associated on-premises database is unreachable
-
-If a local endpoint (that is, a database) that is registered with a SQL Data Sync client agent becomes unreachable, the client agent can't be deleted.
-
-- **Cause**. The local agent can't be deleted because the unreachable database is still registered with the agent. When you try to delete the agent, the deletion process tries to reach the database, which fails.
-
-- **Resolution**. Use "force delete" to delete the unreachable database.
-
-> [!NOTE]
-> If sync metadata tables remain after a "force delete", use `deprovisioningutil.exe` to clean them up.
-
-### <a name="agent-connect"></a> Local Sync Agent app can't connect to the local sync service
-
-- **Resolution**. Try the following steps:
-
-  1. Exit the app.  
-  1. Open the Component Services Panel.  
-    a. In the search box on the taskbar, enter **services.msc**.  
-    b. In the search results, double-click **Services**.  
-  1. Stop the **SQL Data Sync** service.
-  1. Restart the **SQL Data Sync** service.  
-  1. Reopen the app.
+To troubleshoot issues with the client agent, see [Troubleshoot Data Sync Agent issues](sql-database-data-sync-agent.md#agent-tshoot).
 
 ## Setup and maintenance issues
 
@@ -369,13 +233,18 @@ If you restore a lost or corrupted database from a backup, there might be a non-
 ## Next steps
 For more information about SQL Data Sync, see:
 
--   [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)  
--   [Set up Azure SQL Data Sync](sql-database-get-started-sql-data-sync.md)  
--   [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)  
--   [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)  
--   Complete PowerShell examples that show how to configure SQL Data Sync:  
-    -   [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)  
-    -   [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)  
+-   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Set up Data Sync
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
+    - With PowerShell
+        -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Update the sync schema
+    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)
 
 For more information about SQL Database, see:
 

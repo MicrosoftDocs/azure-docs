@@ -3,7 +3,7 @@ title: Manage Azure Blob Storage resources with Storage Explorer | Microsoft Doc
 description: Manage Azure Blob Containers and Blobs with Storage Explorer
 services: storage
 documentationcenter: na
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 

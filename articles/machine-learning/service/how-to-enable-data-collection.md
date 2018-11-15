@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 09/24/2018
+ms.date: 11/08/2018
 ---
 # Collect data for models in production
 
@@ -45,7 +45,7 @@ The path to the output data in the blob follows this syntax:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 - An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
@@ -53,17 +53,7 @@ The path to the output data in the blob follows this syntax:
 
 - An [AKS cluster](how-to-deploy-to-aks.md).
 
-- The following dependencies and module installed [in your environment](how-to-configure-environment.md):
-  + On Linux:
-    ```shell
-    sudo apt-get install libxml++2.6-2v5
-    pip install azureml-monitoring
-    ```
-
-  + On Windows:
-    ```shell
-    pip install azureml-monitoring
-    ```
+- [Set up your environment](how-to-configure-environment.md) and install the [Monitoring SDK](https://aka.ms/aml-monitoring-sdk).
 
 ## Enable data collection
 Data collection can be enabled regardless of the model being deployed through Azure Machine Learning Service or other tools. 
@@ -72,7 +62,7 @@ To enable it, you need to:
 
 1. Open the scoring file. 
 
-1. Add the following code at the top of the file:
+1. Add the [following code](https://aka.ms/aml-monitoring-sdk) at the top of the file:
 
    ```python 
    from azureml.monitoring import ModelDataCollector

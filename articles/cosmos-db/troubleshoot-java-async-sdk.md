@@ -10,7 +10,7 @@ ms.date: 10/28/2018
 ms.author: moderakh
 ms.devlang: java
 ms.component: cosmosdb-sql
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ---
 
 # Troubleshooting issues when using Java Async SDK with Azure Cosmos DB SQL API accounts
@@ -146,7 +146,7 @@ Cosmos DB emulator HTTPS certificate is self-signed. For SDK to work with emulat
 
 ## <a name="enable-client-sice-logging"></a>Enable client SDK logging
 
-The async Java SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
+The Java Async SDK uses SLF4j as the logging facade that supports logging into popular logging frameworks such as log4j and logback.
 
 For example, if you want to use log4j as the logging framework, add the following libs in your Java classpath:
 

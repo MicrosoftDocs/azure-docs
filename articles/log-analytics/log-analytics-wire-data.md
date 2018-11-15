@@ -192,7 +192,7 @@ The following sections list the supported operating systems for the Dependency A
 
 Perform the following steps to configure the Wire Data solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.WireData2OMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 2. Install the Dependency Agent on each computer where you want to get data. The Dependency Agent can monitor connections to immediate neighbors, so you might not need an agent on every computer.
 
 > [!NOTE]
@@ -369,7 +369,7 @@ Use the following information to install and configure the solution.
 
 - The Wire Data solution acquires data from computers running Windows Server 2012 R2, Windows 8.1, and later operating systems.
 - Microsoft .NET Framework 4.0 or later is required on computers where you want to acquire wire data from.
-- Add the Wire Data solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md). There is no further configuration required.
+- Add the Wire Data solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md). There is no further configuration required.
 - If you want to view wire data for a specific solution, you need to have the solution already added to your workspace.
 
 After you have agents installed and you install the solution, the Wire Data 2.0 tile appears in your workspace.
@@ -447,4 +447,4 @@ A record with a type of _WireData_ is created for each type of input data. WireD
 
 ## Next steps
 
-- [Search logs](log-analytics-log-search.md) to view detailed wire data search records.
+- [Search logs](log-analytics-queries.md) to view detailed wire data search records.

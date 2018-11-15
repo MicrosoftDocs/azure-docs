@@ -27,7 +27,7 @@ In this quickstart, you create an event hub using Azure PowerShell.
 To complete this tutorial, make sure you have:
 
 - Azure subscription. If you don't have one, [create a free account][] before you begin.
-- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](http://www.visualstudio.com/vs) or later.
+- [Visual Studio 2017 Update 3 (version 15.3, 26730.01)](https://www.visualstudio.com/vs) or later.
 - [.NET Standard SDK](https://www.microsoft.com/net/download/windows), version 2.0 or later.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]

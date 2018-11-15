@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/15/2018
 ms.author: spelluru
 
 ---
@@ -110,7 +110,9 @@ Follow instructions in the previous section to see a list of the labs in the lab
 
 
 ## Next steps
-Get started with setting up a lab using Azure Lab Services:
+See the following articles:
 
-- [Set up a classroom lab](tutorial-setup-classroom-lab.md)
-- [Set up a lab](../tutorial-create-custom-lab.md)
+- [As a lab owner, create and manage labs](how-to-manage-classroom-labs.md)
+- [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
+- [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
+- [As a lab user, access classroom labs](how-to-use-classroom-lab.md)

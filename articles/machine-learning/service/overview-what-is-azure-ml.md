@@ -45,7 +45,7 @@ You can manage the deployed models, and track multiple runs as you experiment to
 Azure Machine Learning service can auto-generate a model and auto-tune it for you.
 For an example, see [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md).
 
-Or, using the Azure Machine Learning <a href="http://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, along with open-source Python packages, you can build and train highly accurate machine learning and deep learning models yourself in an Azure Machine Learning service workspace.
+Or, using the Azure Machine Learning <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> for Python, along with open-source Python packages, you can build and train highly accurate machine learning and deep learning models yourself in an Azure Machine Learning service workspace.
 You can choose from many machine learning components available in open-source Python packages, such as the following:
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>

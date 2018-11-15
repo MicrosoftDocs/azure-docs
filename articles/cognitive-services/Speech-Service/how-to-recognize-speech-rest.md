@@ -25,7 +25,7 @@ The REST API is the simplest way to recognize speech if you aren't using a langu
 > Utterances are limited to 15 seconds or less when you use the REST API.
 > Check out the [Speech SDK](how-to-recognize-speech-csharp.md) for recognition of longer utterances.
 
-For more information on the **Speech to Text** REST API, see the [REST APIs](rest-apis.md#speech-to-text) article. To see the API in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST) from GitHub.
+For more information on the **Speech to Text** REST API, see the [REST APIs](rest-apis.md#speech-to-text-api) article. To see the API in action, download the [REST API samples](https://github.com/Azure-Samples/SpeechToText-REST) from GitHub.
 
 ## Next steps
 

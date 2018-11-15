@@ -143,7 +143,7 @@ Follow the instructions in the [Bind an existing custom SSL certificate](/azure/
 >[!NOTE]
 > If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
 
-The example configuration snippets in this section use MySQL database. For additional information, see the configuration docs for [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/en-us/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), and [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+The example configuration snippets in this section use MySQL database. For additional information, see the configuration docs for [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), and [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
 
 To configure Tomcat to use managed connections to databases using Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first 
 customize the CATALINA_OPTS environment variable read in by Tomcat at start up. Set these values through an app setting in App Service Maven plugin:

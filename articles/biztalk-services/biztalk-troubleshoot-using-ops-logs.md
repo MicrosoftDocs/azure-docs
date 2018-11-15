@@ -27,8 +27,8 @@ ms.author: mandia
 Operation Logs is a Management Services feature that allows you to view historical logs of operations performed on your Azure services, including BizTalk Services. This enables you to view historical data related to management operations on your BizTalk Service subscription as far back as 180 days.
 
 > [!NOTE]
-> This feature only captures logs for management operations on BizTalk Services, such as when the service was started, backed up, and so on. Such operations are tracked  using the [BizTalk Service REST APIs](http://msdn.microsoft.com/library/azure/dn232347.aspx). For a complete list of operations that are tracked using Management Services, see [Operations Tracked Using Azure Management Services](#bizops).<br/><br/>
-> This does not capture the logs for activities related to BizTalk Service runtime (such as message processed by bridges, and so on.). To view these logs, use the Tracking view from the BizTalk Services portal. For more information, see [Tracking Messages](http://msdn.microsoft.com/library/azure/hh949805.aspx).
+> This feature only captures logs for management operations on BizTalk Services, such as when the service was started, backed up, and so on. Such operations are tracked  using the [BizTalk Service REST APIs](https://msdn.microsoft.com/library/azure/dn232347.aspx). For a complete list of operations that are tracked using Management Services, see [Operations Tracked Using Azure Management Services](#bizops).<br/><br/>
+> This does not capture the logs for activities related to BizTalk Service runtime (such as message processed by bridges, and so on.). To view these logs, use the Tracking view from the BizTalk Services portal. For more information, see [Tracking Messages](https://msdn.microsoft.com/library/azure/hh949805.aspx).
 > 
 > 
 
@@ -61,15 +61,15 @@ The following table lists the operations that are tracked using the Azure Manage
 | PurgeBackupBizTalkService |Operation to purge backups of the BizTalk Service outside the retention period |
 
 ## See Also
-* [Backup BizTalk Service](http://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Restore BizTalk Service from Backup](http://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](http://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: Provisioning](http://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: Provisioning Status Chart](http://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: Dashboard, Monitor and Scale tabs](http://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: Throttling](http://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: Issuer Name and Issuer Key](http://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [How do I Start Using the Azure BizTalk Services SDK](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Backup BizTalk Service](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Restore BizTalk Service from Backup](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard and Premium Editions Chart](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: Provisioning](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Provisioning Status Chart](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Dashboard, Monitor and Scale tabs](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Throttling](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Issuer Name and Issuer Key](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [How do I Start Using the Azure BizTalk Services SDK](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [ViewLogs]: ./media/biztalk-troubleshoot-using-ops-logs/Operation-Logs.png
 
