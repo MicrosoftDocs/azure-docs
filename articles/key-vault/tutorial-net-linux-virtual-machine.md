@@ -256,8 +256,7 @@ Then change the class file to contain the below code. It's a 2 step process.
                 String responseString = reader.ReadToEnd();
 
                 JObject joResponse = JObject.Parse(responseString);    
-                JValue ojObject = (JValue)joResponse[tokenName];
-                Console.WriteLine(ojObject.Value);                
+                JValue ojObject = (JValue)joResponse[tokenName];   
                 token = ojObject.Value.ToString();
             }
             return token;
