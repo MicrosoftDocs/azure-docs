@@ -85,17 +85,15 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 > The hierarchical namespace is currently available in all public regions but none of the private regions. It is currently unavailable in sovereign clouds.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
-2. Enter a name for your storage account.
-3. Leave **Deployment model** set to the default value.
-4. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
-5. Set **Location** to **West US 2**
-6. Leave the **Replication** field set to **Locally-redundant storage (LRS)**.
-7. Leave these fields set to their defaults: **Replication**. **Performance**, **Access tier**.
-8. Choose the subscription in which you want to create the storage account.
-9. In the **Resource group** section, select **Use existing**, then choose the resource group you created in the previous section.
-10. Keep the default value for **Virtual Networks**
-11. In the **Data Lake Storage Gen2 (preview)** section set **Hierarchical namespace** to **Enabled**.
-12. Click **Create** to create the storage account.
+2. Select your **Subscription** and the **Resource group** you created earlier.
+3. Enter a name for your storage account.
+4. Set **Location** to **West US 2**
+5. Leave these fields set to their defaults: **Performance**, **Account kind**, **Replication**, **Access tier**.
+6. Choose the subscription in which you want to create the storage account.
+7. Select **Next : Advanced >**
+8. Leave the values under **SECURITY** and **VIRTUAL NETWORKS** fields set to their defaults.
+9. In the **Data Lake Storage Gen2 (preview)** section set **Hierarchical namespace** to **Enabled**.
+10. Click **Review + Create** to create the storage account.
 
 ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create.png)
 
