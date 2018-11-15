@@ -42,7 +42,7 @@ Run the following command.
 ```bash
 ulimit -a
 ```
-The number of open files, which are identified as "no file," needs to be at least double your connection pool size. For more information, see [Performance tips](performance-tips-async-java.md).
+The number of max allowed open files, which are identified as "nofile," needs to be at least double your connection pool size. For more information, see [Performance tips](performance-tips-async-java.md).
 
 ##### <a name="snat"></a>Azure SNAT (PAT) port exhaustion
 
@@ -62,7 +62,7 @@ Otherwise, you face connection issues.
 
 #### Invalid coding pattern: Blocking Netty IO thread
 
-The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure Cosmos DB. The SDK has an Async API and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
+The SDK uses the [Netty](https://netty.io/) IO library to communicate with Azure Cosmos DB. The SDK has Async APIs and uses non-blocking IO APIs of Netty. The SDK's IO work is performed on IO Netty threads. The number of IO Netty threads is configured to be the same as the number of CPU cores of the app machine. 
 
 The Netty IO threads are meant to be used only for non-blocking Netty IO work. The SDK returns the API invocation result on one of the Netty IO threads to the app's code. If the app performs a long-lasting operation after it receives results on the Netty thread, the SDK might not have enough IO threads to perform its internal IO work. Such app coding might result in low throughput, high latency, and `io.netty.handler.timeout.ReadTimeoutException` failures. The workaround is to switch the thread when you know the operation takes time.
 
@@ -124,7 +124,7 @@ public void badCodeWithReadTimeoutException() throws Exception {
 ExecutorService ex  = Executors.newFixedThreadPool(30);
 Scheduler customScheduler = rx.schedulers.Schedulers.from(ex);
    ```
-   You might need to do work that takes time, for example, computationally heavy work or blocking IO. Switch the thread to a worker provided by your `customScheduler` by using the `.observeOn(customScheduler)` API.
+   You might need to do work that takes time, for example, computationally heavy work or blocking IO. In this case, switch the thread to a worker provided by your `customScheduler` by using the `.observeOn(customScheduler)` API.
 ```java
 Observable<ResourceResponse<Document>> createObservable = client
         .createDocument(getCollectionLink(), docDefinition, null, false);
@@ -190,7 +190,7 @@ log4j.appender.A1.layout.ConversionPattern=%d %5X{pid} [%t] %-5p %c - %m%n
 For more information, see the [sfl4j logging manual](https://www.slf4j.org/manual.html).
 
 ## <a name="netstats"></a>OS network statistics
-Run the netstat command to get a sense of how many connections are in states such as `Established` and `CLOSE_WAIT`.
+Run the netstat command to get a sense of how many connections are in states such as `ESTABLISHED` and `CLOSE_WAIT`.
 
 On Linux, you can run the following command.
 ```bash
@@ -198,9 +198,9 @@ netstat -nap
 ```
 Filter the result to only connections to the Azure Cosmos DB endpoint.
 
-The number of connections to the Azure Cosmos DB endpoint in the `Established` state can't be greater than your configured connection pool size.
+The number of connections to the Azure Cosmos DB endpoint in the `ESTABLISHED` state can't be greater than your configured connection pool size.
 
-Many connections to the Azure Cosmos DB endpoint might be in the `CLOSE_WAIT` state. There might be more than 1,000. A number that high indicates that connections are established and torn down quickly. This process potentially causes problems. For more information, see the [Common issues and workarounds] section.
+Many connections to the Azure Cosmos DB endpoint might be in the `CLOSE_WAIT` state. There might be more than 1,000. A number that high indicates that connections are established and torn down quickly. This situation potentially causes problems. For more information, see the [Common issues and workarounds] section.
 
  <!--Anchors-->
 [Common issues and workarounds]: #common-issues-workarounds
