@@ -18,7 +18,7 @@ This quickstart describes how to set up a new Fivetran user to work with Azure S
 
 ## Set up a connection
 
-1. Find your fully qualified server name and database name for connecting to SQL Data Warehouse.
+1. Find the fully qualified server name and database name that you use to connect to SQL Data Warehouse.
     
     If you need help finding this information, see [Connect to Azure SQL Data Warehouse](sql-data-warehouse-connect-overview.md).
 
@@ -28,7 +28,7 @@ This quickstart describes how to set up a new Fivetran user to work with Azure S
 
    If you choose to connect by using an SSH tunnel, Fivetran connects to a separate server on your network. The server provides an SSH tunnel to your database. You must use this method if your database is in an inaccessible subnet on a virtual network.
 
-3. Add the IP address **52.0.2.4** in your server-level firewall to allow incoming connections to your SQL Data Warehouse instance from Fivetran.
+3. Add the IP address **52.0.2.4** to your server-level firewall to allow incoming connections to your SQL Data Warehouse instance from Fivetran.
 
    For more information, see [Create a server-level firewall rule](create-data-warehouse-portal.md#create-a-server-level-firewall-rule).
 
@@ -75,5 +75,5 @@ To sign in to Fivetran, enter the credentials that you use to access SQL Data Wa
 * Host (your server name).
 * Port.
 * Database.
-* User (the user name should be **fivetran@*server_name*** where *server_name* is part of your azure host URI: ***server_name*.database.windows.net**).
+* User (the user name should be **fivetran@_server_name_** where *server_name* is part of your azure host URI: ***server_name*.database.windows.net**).
 * Password.
