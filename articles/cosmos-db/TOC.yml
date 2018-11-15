@@ -69,40 +69,6 @@
         href: create-table-python.md
   - name: Concepts
     items:
-    - name: Working with Azure Cosmos account
-      href: account-overview.md
-    - name: Containers and items
-      items:
-      - name: Working with databases, containers, and items
-        href: databases-containers-items.md
-      - name: Indexing
-        items:
-        - name: Overview
-          href: index-overview.md
-        - name: Indexing policy
-          href: index-policy.md
-        - name: Index types
-          href: index-types.md
-        - name: Index paths
-          href: index-paths.md
-      - name: Change feed
-        items:
-        - name: Overview
-          href: change-feed.md
-        - name: Reading change feed
-          href: read-change-feed.md
-        - name: Change feed processor
-          href: change-feed-processor.md
-        - name: Change feed with Azure Functions 
-          href: change-feed-functions.md
-      - name: Time to live
-        href: time-to-live.md
-      - name: Unique key constraints
-        href: unique-keys.md
-      - name: Transactions and optimistic concurrency
-        href: database-transactions-optimistic-concurrency.md
-    - name: Resource model
-      href: sql-api-resources.md
     - name: Global distribution
       items:
       - name: Overview
@@ -137,6 +103,38 @@
         href: request-units.md
       - name: Provision throughput on containers and databases
         href: set-throughput.md
+    - name: Working with Azure Cosmos account
+      href: account-overview.md
+    - name: Containers and items
+      items:
+      - name: Working with databases, containers, and items
+        href: databases-containers-items.md
+      - name: Indexing
+        items:
+        - name: Overview
+          href: index-overview.md
+        - name: Indexing policy
+          href: index-policy.md
+        - name: Index types
+          href: index-types.md
+        - name: Index paths
+          href: index-paths.md
+      - name: Change feed
+        items:
+        - name: Overview
+          href: change-feed.md
+        - name: Reading change feed
+          href: read-change-feed.md
+        - name: Change feed processor
+          href: change-feed-processor.md
+        - name: Change feed with Azure Functions 
+          href: change-feed-functions.md
+      - name: Time to live
+        href: time-to-live.md
+      - name: Unique key constraints
+        href: unique-keys.md
+      - name: Transactions and optimistic concurrency
+        href: database-transactions-optimistic-concurrency.md
     - name: Security
       items:
         - name: Overview

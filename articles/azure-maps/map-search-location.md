@@ -32,6 +32,7 @@ The last block of code adjusts the camera bounds for the map by using the Map's 
 
 The search request, creation of the data source and symbol layer and the camera bounds are set within the map's [event listener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) to ensure that the results are displayed after the map loads fully.
 
+
 ## Make a search request via XMLHttpRequest
 
 <iframe height='500' scrolling='no' title='Show search results on a map' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>Show search results on a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
@@ -65,6 +66,6 @@ See the following articles for full code examples:
 
 > [!div class="nextstepaction"]
 > [Get information from a coordinate](./map-get-information-from-coordinate.md)
-
+<!-- Comment added to suppress false positive warning -->
 > [!div class="nextstepaction"]
 > [Show directions from A to B](./map-route.md)
