@@ -97,6 +97,11 @@ Below is a complete list of all the checks executed through resource health by r
 |---|
 |<ul><li> Can runtime operations like registration, installation, or send be performed on the namespace?</li></ul>|
 
+## Microsoft.PowerBIDedicated/Capacities
+|Executed Checks|
+|---|
+|<ul><li>Is the capacity resource up and running?</li><li>Are all the workloads up and running?</li></ul>|
+
 ## Microsoft.PowerBI/workspaceCollections
 |Executed Checks|
 |---|

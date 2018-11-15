@@ -224,10 +224,10 @@ Then change the class file to contain the below code. It's a 2 step process.
     {
         static void Main(string[] args)
         {
-            // Step 1: Get a token from local Managed Service Identity which in turn fetches it from Azure Active Directory
+            // Step 1: Get a token from local (URI) Managed Service Identity endpoint which in turn fetches it from Azure Active Directory
             var token = GetToken();
 
-            // Fetch the secret value from Key Vault
+            // Step 2: Fetch the secret value from Key Vault
             System.Console.WriteLine(FetchSecretValueFromKeyVault(token));
         }
 
