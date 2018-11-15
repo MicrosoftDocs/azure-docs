@@ -51,7 +51,7 @@ Windows Hello for Business requires additional configuration to enable on-premis
 
 ## What you get
 
-With SSO on an Azure AD joined device, you can: 
+With SSO, on an Azure AD joined device you can: 
 
 - Access a UNC path on an AD member server
 
@@ -69,7 +69,7 @@ You can use:
 
 You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sync-configure-filtering.md#domain-based-filtering) in Azure AD Connect to ensure that the data about the required domains is synchronized.
 
-Because Azure AD joined devices don't have a computer object in AD, apps and resources that depend on Active Directory machine authentication don't work. 
+Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD. 
 
 
 ## Next steps
