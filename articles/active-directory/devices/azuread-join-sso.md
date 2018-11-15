@@ -51,11 +51,11 @@ Windows Hello for Business requires additional configuration to enable on-premis
 
 ## What you get
 
-With SSO on a Azure AD joined device, you can: 
+With SSO on an Azure AD joined device, you can: 
 
 - Access a UNC path on an AD member server
 
-- Access a AD member web server configured for Windows integrated security 
+- Access an AD member web server configured for Windows-integrated security 
 
 You can use:
 
