@@ -21,7 +21,7 @@ ms.author: magoedte
 The Agent Health solution in Azure helps you understand, for all of the agents reporting directly to the Log Analytics workspace or a System Center Operations Manager management group  connected to Log Analytics, which are unresponsive and submitting operational data.  You can also keep track of how many agents are deployed, where they are distributed geographically, and perform other queries to maintain awareness of the distribution of agents deployed in Azure, other cloud environments, or on-premises.    
 
 ## Prerequisites
-Before you deploy this solution, confirm you have currently supported [Windows agents](../log-analytics/log-analytics-windows-agent.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../log-analytics/log-analytics-om-agents.md) integrated with your workspace.    
+Before you deploy this solution, confirm you have currently supported [Windows agents](../../log-analytics/log-analytics-windows-agent.md) reporting to the Log Analytics workspace or reporting to an [Operations Manager management group](../../log-analytics/log-analytics-om-agents.md) integrated with your workspace.    
 
 ## Solution components
 This solution consists of the following resources that are added to your workspace and directly connected agents or Operations Manager connected management group.
@@ -32,10 +32,10 @@ If your System Center Operations Manager management group is connected to a Log 
 * Microsoft System Center Advisor HealthAssessment Direct Channel Intelligence Pack  (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Microsoft System Center Advisor HealthAssessment Server Channel Intelligence Pack (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
+For more information on how solution management packs are updated, see [Connect Operations Manager to Log Analytics](../../log-analytics/log-analytics-om-agents.md).
 
 ## Configuration
-Add the Agent Health solution to your Log Analytics workspace using the process described in [Add solutions](monitoring-solutions.md). There is no further configuration required.
+Add the Agent Health solution to your Log Analytics workspace using the process described in [Add solutions](solutions.md). There is no further configuration required.
 
 
 ## Data collection
@@ -48,7 +48,7 @@ The following table describes the connected sources that are supported by this s
 | System Center Operations Manager management group | Yes | Heartbeat events are collected from  agents reporting to the management group every 60 seconds and then forwarded to Log Analytics. A direct connection from Operations Manager agents to Log Analytics is not required. Heartbeat event data is forwarded from the management group to the Log Analytics repository.|
 
 ## Using the solution
-When you add the solution to your Log Analytics workspace, the **Agent Health** tile will be added to your dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.<br><br> ![Agent Health Solution tile on dashboard](./media/monitoring-solution-agenthealth/agenthealth-solution-tile-homepage.png)
+When you add the solution to your Log Analytics workspace, the **Agent Health** tile will be added to your dashboard. This tile shows the total number of agents and the number of unresponsive agents in the last 24 hours.<br><br> ![Agent Health Solution tile on dashboard](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The dashboard includes the columns in the following table. Each column lists the top ten events by count that match that column’s criteria for the specified time range. You can run a log search that provides the entire list by selecting **See all** at the right bottom of each column, or by clicking the column header.
 
@@ -63,7 +63,7 @@ Click on the **Agent Health** tile to open the **Agent Health** dashboard.  The 
 | Geo-location of Agents | A partition of the different countries where you have agents and a total count of the number of agents that have been installed in each country.|
 | Count of Gateways Installed | The number of servers that have the Log Analytics gateway installed, and a list of these servers.|
 
-![Agent Health Solution dashboard example](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
+![Agent Health Solution dashboard example](./media/solution-agenthealth/agenthealth-solution-dashboard.png)  
 
 ## Log Analytics records
 The solution creates one type of record in the Log Analytics workspace.  
@@ -114,4 +114,4 @@ The following table provides sample log searches for records collected by this s
 
 ## Next steps
 
-* Learn about [Alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) for details on generating alerts from Log Analytics. 
+* Learn about [Alerts in Log Analytics](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) for details on generating alerts from Log Analytics. 
