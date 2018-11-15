@@ -48,11 +48,11 @@ The Transact publishing option in Azure Marketplace is currently supported for t
 
 ### Billing infrastructure costs
 
-### For Virtual Machines and Azure applications
+**For Virtual Machines and Azure applications**
 
 For Virtual Machines and Azure Applications, the Azure infrastructure usage fees are billed to the customer’s Azure subscription.  Infrastructure usage fees are priced and presented separately from the software provider’s licensing fees on the customer’s invoice.
 
-### For SaaS apps
+**For SaaS apps**
 
 For SaaS Apps, the publisher must account for Azure infrastructure usage fees, and software licensing fees as a single cost item.  It is represented as a flat monthly fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly.  Actual infrastructure usage fees are not seen by the customer.  Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing.  Software licensing fees aren't metered or consumption based.
 
