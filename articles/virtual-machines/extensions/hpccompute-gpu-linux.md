@@ -133,7 +133,7 @@ Set-AzureRmVMExtension
 
 ### Azure CLI
 
-The following example mirrors the above ARM and PowerShell example and also adds custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel and installs a specific CUDA toolkit version driver.
+The following example mirrors the above Azure Resource Manager and PowerShell examples and also adds custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel and installs a specific CUDA toolkit version driver.
 
 ```azurecli
 az vm extension set `
