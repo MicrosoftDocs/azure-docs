@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: lastcoolnameleft
 ---
-# Business Continuity and Disaster Recovery
+# Best practices for Business Continuity and Disaster Recovery in Azure Kubernetes Service (AKS)
 
-As the uptime for your application becomes more vital, you may want to consider removing Single Point of Failures from your application and increasing it's fault tolerance.  AKS supports High Availability through using multiple VM’s in an Availability Set; however, this doesn’t protect you from a region failure.
+As you manage clusters in Azure Kubernetes Service (AKS) and your application uptime becomes more vital, you may want to consider removing Single Point of Failures and increasing the application's fault tolerance.  AKS supports High Availability through using multiple VM’s in an Availability Set; however, this doesn’t protect you from a region failure.  To maximize your uptime, these Business Continuity and Disaster Recovery recommendations should be understood and implemented.
 
-This article reviews the main considerations that help you plan for Business Continuity / Disaster Recovery in AKS:
+This best practices article focuses on considerations that help you plan for Business Continuity / Disaster Recovery in AKS:
 
+> [!div class="checklist"]
 * [Region Planning](#region-planning)
 * [Ingress Traffic](#ingress-traffic)
 * [Container Registry](#container-registry)
 * [Managing Application State](#managing-application-state)
 * [Storage](#storage)
-* [CI/CD](#ci-cd)
 
 ## Region Planning
 
@@ -39,6 +39,7 @@ To support routing incoming traffic to the desired region, use [Azure Traffic Ma
 Instead of directly publishing your Kubernetes Service IP, end users should be directed to the Azure Traffic Manager CNAME which will direct the users to the intended IP.  This can be setup by using Azure Traffic Manager Endpoints.  Each endpoint will be the Service Load Balancer IP allowing you to direct network traffic to from the Azure Endpoint in one region to the Azure Endpoint in a different region.
 
 TODO: Insert basic DR diagram of two clusters, fronted by Azure Traffic Manager
+TODO:  Show example
 
 ## Container Registry
 
@@ -72,3 +73,4 @@ TODO:  Elaborate on Azure Files and Blob Storage BC/DR
 It is recommended to use Azure DevOps for your CI/CD deployment.  If your BC/DR strategy is to be hot/hot, then you will want your CI/CD process to deploy to each cluster individually.
 
 TODO:  Is this section relevant?  If so, elaborate. Should I talk about deployment strategies?  (e.g. Canary deployment?  Blue/Green?)
+TODO:  Elaborate on Azure Files and Blob Storage BC/DR
