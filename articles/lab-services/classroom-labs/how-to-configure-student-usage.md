@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/01/2018
+ms.date: 11/14/2018
 ms.author: spelluru
 
 ---
@@ -55,10 +55,10 @@ Select **Users** on the left menu to see the list of users registered with the l
 1. Select **Users** on the left menu.
 2. Select **Quota per user: unlimited** on the toolbar. 
 3. On the **Quota per user** page, select **Limit the number of hours a user can use a VM**. 
-4. For **How many hours do you want to give to each user?**, enter the number of hours, and select **Save**. 
+4. For **How many hours do you want to give to each user**, enter the number of hours, and select **Save**. 
 
     ![Number of hours per user](../media/how-to-configure-student-usage/number-of-hours-per-user.png)
-5. You see the number of hours on the on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
+5. You see the number of hours on the toolbar now: **Quota per user: &lt;number of hours&gt;**. 
 
     ![Quota per user](../media/how-to-configure-student-usage/quota-per-user.png)
 

@@ -37,7 +37,7 @@ In this tutorial, you do the following actions:
 
 ## Connect to the virtual machine
 
-1. Select **Connect** on the tile that represents the virtual machine of the lab that you want to access. 
+1. Select **Connect** on the tile for the virtual machine of the lab that you want to access. 
 
     ![Connect to VM](../media/tutorial-connect-vm-in-classroom-lab/connect-vm.png)
 2. Save the RDP file to the hard disk and open it (assuming that it's a Windows VM)
@@ -46,7 +46,7 @@ In this tutorial, you do the following actions:
 ## Next steps
 In this tutorial, you accessed a classroom lab using the registration link you get from your educator/professor.
 
-As a lab owner, you want to view who is registered with your lab and track the usage of VMs. Advance to the next tutorial to learn how to do so:
+As a lab owner, you want to view who has registered with your lab and track the usage of VMs. Advance to the next tutorial to learn how to track the usage of the lab:
 
 > [!div class="nextstepaction"]
 > [Track usage of a lab](tutorial-track-usage.md) 
