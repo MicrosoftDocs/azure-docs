@@ -69,7 +69,6 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
         deb http://debian-archive.trafficmanager.net/debian jessie-backports main
         deb-src http://debian-archive.trafficmanager.net/debian jessie-backports main
 
-
     **Debian 9.x "Stretch"**
 
         deb http://debian-archive.trafficmanager.net/debian stretch main
