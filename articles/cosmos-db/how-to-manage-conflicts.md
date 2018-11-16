@@ -221,7 +221,7 @@ udp_collection = {
 udp_collection = self.try_create_document_collection(create_client, database, udp_collection)
 ```
 
-## Read from a conflict feed
+## Read from conflict feed
 
 These samples show how to read from a container's conflict feed. Conflicts show up in the conflict feed only if they weren't resolved automatically.
 
