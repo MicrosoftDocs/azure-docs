@@ -98,9 +98,9 @@
       - name: Log-based & pre-aggregated metrics
         href: ../application-insights/pre-aggregated-metrics-log-metrics.md?toc=/azure/azure-monitor/toc.json
     - name: Containers
-      href: ../monitoring/monitoring-container-insights-overview.md?toc=/azure/azure-monitor/toc.json
+      href: insights/container-insights-overview.md
     - name: Virtual Machines
-      href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
+      href: insights/vminsights-overview.md
     - name: Monitoring solutions
       href: insights/solutions-inventory.md
   - name: Analyze data
@@ -519,17 +519,17 @@
       - name: Azure Monitor for containers 
         items:
         - name: Overview
-          href: ../monitoring/monitoring-container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-overview.md
         - name: Onboard 
-          href: ../monitoring/monitoring-container-insights-onboard.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-onboard.md
         - name: Analyze 
-          href: ../monitoring/monitoring-container-insights-analyze.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-analyze.md
         - name: Disable monitoring
-          href: ../monitoring/monitoring-container-insights-optout.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-optout.md
         - name: Upgrade agent
-          href: ../monitoring/monitoring-container-insights-agent-upgrade.md?toc=%2fazure%2fmonitoring%2ftoc.json
+          href: insights/container-insights-agent-upgrade.md
         - name: Troubleshooting
-          href: ../monitoring/monitoring-container-insights-troubleshoot.md
+          href: insights/container-insights-troubleshoot.md
       - name: Docker and Windows Container monitoring
         href: ../log-analytics/log-analytics-containers.md?toc=/azure/azure-monitor/toc.json
       - name: Monitor Docker applications
@@ -565,23 +565,23 @@
       - name: Azure Monitor for VMs
         items:
         - name: Overview
-          href: ../monitoring/monitoring-vminsights-overview.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-overview.md
         - name: Known issues
-          href: ../monitoring/monitoring-vminsights-known-issues.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-known-issues.md
         - name: FAQ
-          href: ../monitoring/monitoring-vminsights-faq.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-faq.md
         - name: Onboard
-          href: ../monitoring/monitoring-vminsights-onboard.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-onboard.md
         - name: Monitor health
-          href: ../monitoring/monitoring-vminsights-health.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-health.md
         - name: Map dependencies
-          href: ../monitoring/monitoring-vminsights-maps.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-maps.md
         - name: Monitor performance
-          href: ../monitoring/monitoring-vminsights-performance.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-performance.md
         - name: Query data with Log Analytics
-          href: ../monitoring/monitoring-vminsights-log-search.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-log-search.md
         - name: Disable monitoring
-          href: ../monitoring/monitoring-vminsights-optout.md?toc=/azure/azure-monitor/toc.json
+          href: insights/vminsights-optout.md
       - name: Agent Health
         href: insights/solution-agenthealth.md
       - name: Capacity and performance
