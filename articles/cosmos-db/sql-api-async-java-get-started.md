@@ -112,7 +112,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Step 5: Create a database
 
-Your Azure Cosmos DB [database](sql-api-resources.md#databases) can be created by using the createDatabaseIfNotExists() method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
+Your Azure Cosmos DB [database](databases-containers-items.md#azure-cosmos-databases) can be created by using the createDatabaseIfNotExists() method of the DocumentClient class. A database is the logical container of JSON document storage partitioned across collections.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -199,7 +199,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>Step 7: Create JSON documents
 
-A [document](sql-api-resources.md#documents) can be created by using the createDocument method of the DocumentClient class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. The "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" file defines the family JSON documents 
+A document can be created by using the createDocument method of the DocumentClient class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. The "src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java" file defines the family JSON documents 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

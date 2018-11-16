@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2018
+ms.date: 11/12/2018
 ms.author: sethm
 ms.reviewer: justini
 
@@ -61,12 +61,13 @@ This update includes the following improvements for Azure Stack.
 - **Kubernetes marketplace item**. You can now deploy Kubernetes clusters using the [Kubernetes Marketplace item](azure-stack-solution-template-kubernetes-cluster-add.md). Users can select the Kubernetes item and fill out a few parameters to deploy a Kubernetes cluster to Azure Stack. The purpose of the templates is to make it simple to users to set up dev/test Kubernetes deployments in a few steps.
 
 <!-- | IS ASDK--> 
-- **Blockchain templates**. You can now execute [Ethereum consortium deployments](user/azure-stack-ethereum.md) on Azure Stack. You can find three new templates in the [Azure Stack Quick Start Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to set up dev/test Blockchain deployments in a few steps.
+- **Blockchain templates**. You can now execute [Ethereum consortium deployments](user/azure-stack-ethereum.md) on Azure Stack. You can find three new templates in the [Azure Stack quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates). They allow the user to deploy and configure a multi-member consortium Ethereum network with minimal Azure and Ethereum knowledge. The purpose of the templates is to make it simple to users to set up dev/test Blockchain deployments in a few steps.
 
 <!-- | IS ASDK--> 
 - **The API version profile 2017-03-09-profile has been updated to 2018-03-01-hybrid**. API profiles specify the Azure resource provider and the API version for Azure REST endpoints. For more information about profiles, see [Manage API version profiles in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
- ### Fixed issues
+### Fixed issues
+
 <!-- IS ASDK--> 
 - We fixed the issue for creating an availability set in the portal which resulted in the set having a fault domain and update domain of 1. 
 
@@ -159,7 +160,7 @@ This update also contains the mitigation for the speculative execution side chan
 > Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md). 
-- [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.5.110](https://support.microsoft.com/help/4468920/)
+- [KB 4468920 – Azure Stack Hotfix Azure Stack Hotfix 1.1808.7.113](https://support.microsoft.com/help/4471992/)
 
 
 ## Known issues (post-installation)
@@ -216,6 +217,8 @@ The following are post-installation known issues for this build version.
    
   Please run the [Test-AzureStack](azure-stack-diagnostic-test.md) cmdlet to verify the health of the infrastructure role instances and scale unit nodes. If no issues are detected by [Test-AzureStack](azure-stack-diagnostic-test.md), you can ignore these alerts. If an issue is detected, you can attempt to start the infrastructure role instance or node using the admin portal or PowerShell.
 
+  This issue is fixed in the latest [1808 hotfix release](https://support.microsoft.com/help/4471992/), so be sure to install this hotfix if you're experiencing the issue.
+
 <!-- 1264761 - IS ASDK --> 
 - You might see alerts for the **Health controller** component that have the following details:  
 
@@ -263,7 +266,7 @@ The following are post-installation known issues for this build version.
       1. In the Tenant portal, go to **Subscriptions** and find the subscription. Click **Resource Providers**, then click **Microsoft.Compute**, and then click **Re-register**.
       2. Under the same subscription, go to **Access Control (IAM)**, and verify that **Azure Stack – Managed Disk** is listed.
    2. If you have configured a multi-tenant environment, deploying VMs in a subscription associated with a guest directory may fail with an internal error message. To resolve the error, follow these steps:
-      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4468920/).
+      1. Apply the [1808 Azure Stack Hotfix](https://support.microsoft.com/help/4471992/).
       2. Follow the steps in [this article](azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) to reconfigure each of your guest directories.
       
 <!-- 3179561 - IS --> 

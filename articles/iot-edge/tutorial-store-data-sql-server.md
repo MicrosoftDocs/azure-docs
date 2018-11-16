@@ -4,7 +4,7 @@ title: Store data with Azure IoT Edge SQL module | Microsoft Docs
 description: Learn how to store data locally on your IoT Edge device with a SQL Server module
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
