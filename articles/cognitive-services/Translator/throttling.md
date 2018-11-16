@@ -14,17 +14,17 @@ ms.author: erhopf
 
 # Throttling Limits for Translator Text
 
-This article provides throttling limits for the Translator Text API, which includes translation, transliteration, sentence length detection, language detection, and alternate translation services.
+This article provides throttling limits for the Translator Text API. Services include translation, transliteration, sentence length detection, language detection, and alternate translations.
 
 ## Character limit per request
 
-Each request is limited to 5,000 characters. You are charged per character, not by the number of requests. Therefore, it's recommended to send shorter requests, and to have some requests outstanding at any given time.
+Each request is limited to 5,000 characters. You're charged per character, not by the number of requests. It's recommended to send shorter requests, and to have some requests outstanding at any given time.
 
-There is no limit on the number of outstanding requests to the Translator Text API.
+There's no limit on the number of outstanding requests to the Translator Text API.
 
 ## Character limit per hour
 
-The number of characters that you can send to the Translator Text API per hour are based on your Translator Text subscription tier in the Azure portal. If you reach or surpass these limits, you'll likely receive an out of quota response:
+Your character limit per hour is based on your Translator Text subscription tier. If you reach or surpass these limits, you'll likely receive an out of quota response:
 
 | Tier | Character limit |
 |------|-----------------|
@@ -38,7 +38,7 @@ These limits are restricted to Microsoft's generic systems. Custom translation s
 
 ## Latency
 
-Translator Text has a maximum latency of 13 seconds. By this time you'll have received a result or a timeout response. Typically, responses are returned in 150 to 300 milliseconds. Response times will vary based on the size or the request and language pair.
+Translator Text has a maximum latency of 13 seconds. By this time you'll have received a result or a timeout response. Typically, responses are returned in 150 milliseconds to 300 milliseconds. Response times will vary based on the size or the request and language pair.
 
 ## BreakSentence length limits
 
