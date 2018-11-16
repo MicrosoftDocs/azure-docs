@@ -388,7 +388,8 @@
         - name: Time Skew Policies
           href: /stream-analytics-query/time-skew-policies-azure-stream-analytics 
     - name: Event Delivery Guarantees
-      href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics       
+      href: /stream-analytics-query/event-delivery-guarantees-azure-stream-analytics
+  maintainContext: true       
 - name: Reference
   items:
   - name: Azure PowerShell
