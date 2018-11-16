@@ -2268,6 +2268,6 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-[1]: ./media/sql-api-sql-query/sql-query1.png
+[1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md
