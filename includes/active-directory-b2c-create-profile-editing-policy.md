@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 11/14/2018
 ms.author: patricka
 ---
-If you want to enable profile editing on your application, you use a **profile editing** policy. This policy describes the experiences that customers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
+If you want to enable profile editing on your application, you use a **profile editing** user flow. This user flow describes the experiences that customers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
 
@@ -15,7 +15,7 @@ Under **Manage**, select **User flows** and click +**New user flow**.
 
 On the **Recommended** tab, select **Profile editing**.
 
-Enter a policy **Name** for your application to reference. For example, enter `SiPe`.
+Enter a user flow **Name** for your application to reference. For example, enter `SiPe`.
 
 Under **Identity providers**, check **Local Account Signin**. Optionally, you can also select social identity providers, if already configured.
 
@@ -33,7 +33,7 @@ Click **Create** to add the user flow. The user flow is listed as **B2C_1_SiPe**
 
 Select **Run user flow**. Verify the settings specified in the table then click **Run user flow**.
 
-![Select policy and run it](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
+![Select user flow and run it](media/active-directory-b2c-create-profile-editing-policy/add-b2c-profile-editing-run-user-flow.png)
 
 | Setting      | Value  |
 | ------------ | ------ |
@@ -43,5 +43,5 @@ Select **Run user flow**. Verify the settings specified in the table then click 
 A new browser tab opens, and you can verify the profile editing consumer experience as configured.
 
 > [!NOTE]
-> It takes up to a minute for policy creation and updates to take effect.
+> It takes up to a minute for user flow creation and updates to take effect.
 >

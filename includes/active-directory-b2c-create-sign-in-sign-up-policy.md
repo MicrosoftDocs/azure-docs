@@ -33,7 +33,7 @@ Click **OK**.
 
 ![Select some user attributes and claims and click OK button](media/active-directory-b2c-create-sign-in-sign-up-policy/add-b2c-signup-signin-sign-up-all-attributes.png)
 
-Click **Create** to add the user flow. The policy is listed as **B2C_1_SiUpIn**. The **B2C_1_** prefix is appended to the name.
+Click **Create** to add the user flow. The user flow is listed as **B2C_1_SiUpIn**. The **B2C_1_** prefix is appended to the name.
 
 Select **Run user flow**. Verify the settings specified in the table then click **Run user flow**.
 
