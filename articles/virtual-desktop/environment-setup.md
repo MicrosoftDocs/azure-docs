@@ -40,8 +40,7 @@ Learn more about infrastructure roles and how to assign roles to users at [Deleg
 
 To learn how to set up a tenant environment, see one of the following tutorials:
 
-* [Set up Windows Virtual Desktop tenants in Azure Active Directory](set-up-wvd-tenants-in-ad.md)
 * [Set up Windows Virtual Desktop tenants in Azure Active Directory](tenant-setup-azure-active-directory.md)
 * [Connect to an existing Remote Desktop environment](tenant-setup-remote-desktop.md)
 
-To learn how to connect to Windows virtual desktop, see the [Connect to Windows Virtual Desktop](connect.md) tutorial.
+To learn how to connect to Windows Virtual Desktop, see the [Connect to Windows Virtual Desktop](connect.md) tutorial.

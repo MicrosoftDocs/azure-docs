@@ -37,7 +37,7 @@ The following scenarios are expected to work and should be verified through vali
 |DT4|Azure AD|PaaS|Y|1|1|N|1|N users per tenant assigned to the same host pool|
 |DT5–DT8|Azure AD|PaaS|N (Repeat above for mismatch UPN)| | | | | |
 
-### Validation questions
+### Validation questions for default desktop application group
 
 Scenarios DT1 and DT5:
 
@@ -65,7 +65,7 @@ Scenarios DT4 and DT8:
 |RA1|Azure AD|PaaS|Y|1|1|>2|1|>2|>1 users per tenant assigned to each app group|
 |RA2|Azure AD|PaaS|N|N|1|1|>2|1||>2|>1 users per tenant assigned to each app group|
 
-### Validation questions
+### Validation questions for the RemoteApp groups and user profile disk
 
 Scenarios RA1 and RA2:
 

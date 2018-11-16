@@ -49,7 +49,7 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/virtual-desktop/environment-setup">Windows Virtual Desktop environment</a>
-    - html: <a href="/azure/virtual-desktop/diagnostics-role-service-introduction">Introducing the new diagnostics role service</a>
+    - html: <a href="/azure/virtual-desktop/diagnostics-role-service">The Windows Virtual Desktop diagnostics role service</a>
     - html: <a href="/azure/virtual-desktop/delegated-access-virtual-desktop">Delegated access in Windows Virtual Desktop</a>
 - title: Reference
   items: 

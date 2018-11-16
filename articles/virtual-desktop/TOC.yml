@@ -27,8 +27,8 @@
   items:
   - name: Windows Virtual Desktop environment
     href: environment-setup.md
-  - name: Introducing the new diagnostics role service
-    href: diagnostics-role-service-introduction.md
+  - name: The Windows Virtual Desktop diagnostics role service
+    href: diagnostics-role-service.md
   - name: Delegated access in Windows Virtual Desktop
     href: delegated-access-virtual-desktop.md
 - name: Reference
