@@ -1,27 +1,29 @@
 ---
-title: 'Quickstart: Upload, download, and list blobs using Node.js - Azure Storage'
-description: Create a storage account and a container in object (Blob) storage. Then you use the storage client library for Node.js to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
+title: How to create a blob in Azure Storage using the Node.js SDK v2
+description: Create a storage account and a container in object (Blob) storage. Then use the Azure Storage client library for Node.js v2 to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage
 author: tamram
 
 ms.custom: mvc
 ms.service: storage
-ms.topic: quickstart
-ms.date: 09/20/2018
+ms.topic: conceptual
+ms.date: 11/14/2018
 ms.author: tamram
 ---
 
-# Quickstart: Upload, download, and list blobs using Node.js
+# How to upload, download, and list blobs using Node.js SDK v2
 
-In this quickstart, you learn how to use Node.js to upload, download, and list blobs and manage containers with Azure Blob storage.
+In this how-to guide, you learn how to use Node.js to upload, download, and list blobs and manage containers with Azure Blob storage.
 
-To complete this quickstart, you need an [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+## Prerequisites
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+Create an Azure storage account in the [Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). For help creating the account, see [Create a storage account](../common/storage-quickstart-create-account.md).
 
 ## Download the sample application
 
-The [sample application](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git)  in this quickstart is a simple Node.js console application. To begin, clone the repository to your machine using the following command:
+The [sample application](https://github.com/Azure-Samples/storage-blobs-node-quickstart.git) is a simple Node.js console application. To begin, clone the repository to your machine using the following command:
 
 ```bash
 git clone https://github.com/Azure-Samples/storage-blobs-node-quickstart.git
@@ -68,7 +70,7 @@ Container "demo" is deleted
 Done
 ```
 
-Note that if you are using a new storage account for this quickstart, then you may not see container names listed under the label "*Containers*".
+If you are using a new storage account for this example, then you may not see any container names listed under the label "*Containers*".
 
 ## Understanding the code
 The first expression is used to load values into environment variables.
@@ -349,7 +351,7 @@ See these additional resources for Node.js development with Blob storage:
 
 ## Next steps
 
-This quickstart demonstrates how to upload a file between a local disk and Azure Blob storage using Node.js. To learn more about working with Blob storage, continue to the GitHub repository.
+This article demonstrates how to upload a file between a local disk and Azure Blob storage using Node.js. To learn more about working with Blob storage, continue to the GitHub repository.
 
 > [!div class="nextstepaction"]
 > [Azure Storage SDK for JavaScript repository](https://github.com/Azure/azure-storage-node)

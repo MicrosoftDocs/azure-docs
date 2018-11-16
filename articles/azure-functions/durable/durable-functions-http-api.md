@@ -8,7 +8,7 @@ keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 11/15/2018
 ms.author: azfuncdf
 ---
 
@@ -232,25 +232,6 @@ The Functions 2.0 format has all the same parameters but a slightly different UR
 GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&createdTimeFrom={createdTimeFrom}&createdTimeTo={createdTimeTo}&runtimeStatus={runtimeStatus,runtimeStatus,...}&showInput={showInput}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
-#### Request with paging
-
-You can set the `top` parameter to split the results of the query into pages.
-
-For Functions 1.0, the request format is as follows:
-
-```http
-GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
-```
-
-The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
-
-```http
-GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
-
-If the next page exists, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
-
-If you set continuation token value in the next request header, you can get the next page.  This key in request header is `x-ms-continuation-token`.
-
 #### Response
 
 Here is an example of response payloads including the orchestration status (formatted for readability):
@@ -307,6 +288,26 @@ Here is an example of response payloads including the orchestration status (form
 > [!NOTE]
 > This operation can be very expensive in terms of Azure Storage I/O if there are a lot of rows in the Instances table. More details on Instance table can be found in the [Performance and scale in Durable Functions (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentation.
 > 
+
+#### Request with paging
+
+You can set the `top` parameter to split the results of the query into pages.
+
+For Functions 1.0, the request format is as follows:
+
+```http
+GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+The Functions 2.0 format has all the same parameters but a slightly different URL prefix: 
+
+```http
+GET /runtime/webhooks/durableTask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}&top={top}
+```
+
+If the next page exists, a continuation token is returned in the response header.  The name of the header is `x-ms-continuation-token`.
+
+If you set continuation token value in the next request header, you can get the next page.  This key in request header is `x-ms-continuation-token`.
 
 
 ### Raise event
