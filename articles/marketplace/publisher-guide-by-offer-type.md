@@ -44,7 +44,7 @@ Azure Marketplace offer types are listed in the table below.
 | [**Consulting services**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Consulting Services in Azure Marketplace help to connect customers with services to support and extend their use of Azure. |
 | [**AppSource offers**](https://docs.microsoft.com/azure/marketplace/appsource-offer-publishing-guide) | The AppSource storefront includes offers that build on or extend Dynamics 365, Office 365, Power BI, and Power Apps. |
 
-Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) | by listing options and offer types for more information on single sign-on requirements.
+Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) by listing options and offer types for more information on single sign-on requirements.
 
 ## Next Steps
 
