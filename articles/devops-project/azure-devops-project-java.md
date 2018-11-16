@@ -106,7 +106,7 @@ The build performs a variety of tasks such as fetching sources from the Git repo
 In the **History** pane, you see an audit trail of your recent changes for the build.  Azure Pipelines keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.   
- DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
+ DevOps Projects automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.   
 Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
