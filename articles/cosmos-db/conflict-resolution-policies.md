@@ -49,4 +49,4 @@ Learn how to configure conflict resolution policies. See the following articles:
 
 * [Use the LWW conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
 * [Use the custom conflict resolution policy](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Use the conflicts feed](how-to-manage-conflicts.md#read-from-a-conflict-feed)
+* [Use the conflicts feed](how-to-manage-conflicts.md#read-from-conflict-feed)
