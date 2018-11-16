@@ -24,7 +24,7 @@ Service Map automatically discovers application components on Windows and Linux 
 This article describes the details of onboarding and using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure]( monitoring-service-map-configure.md).
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](monitoring-vminsights-overview.md).
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../azure-monitor/insights/vminsights-overview.md).
 
 
 ## Sign in to Azure

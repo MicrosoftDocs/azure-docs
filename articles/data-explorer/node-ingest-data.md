@@ -146,8 +146,8 @@ kustoClient.execute(kustoDatabse, query, (err, results) => {
 Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com) and connect to your cluster. Run the following command in your database to see if there were any ingestion failures in the last four hours. Replace the database name before running.
     
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Run the following command to view the status of all ingestion operations in the last four hours. Replace the database name before running.

@@ -128,11 +128,11 @@ $images = Get-AzureRMResource -ResourceType Microsoft.Compute/images
 $images.name
 ```
 
-Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+Delete an image. This example deletes the image named *myImage* from the *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
 	-ResourceGroupName myResourceGroup
 ```
 

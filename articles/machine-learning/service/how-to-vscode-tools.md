@@ -22,7 +22,7 @@ Use the Tools for AI extension in Visual Studio code to use the Azure Machine Le
 
 + [Install Python 3.5 or greater](https://www.anaconda.com/download/).
 
-+ If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
++ If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 ## Install VS Code Tools for AI extension
 
@@ -34,7 +34,7 @@ To work with Azure Machine Learning, we need to turn VS Code into a Python IDE. 
 
 1. Launch VS Code.
 
-1. In a browser, visit: http://aka.ms/vscodetoolsforai. 
+1. In a browser, visit: https://aka.ms/vscodetoolsforai. 
 
 1. In that web page, click **Install**. 
 
