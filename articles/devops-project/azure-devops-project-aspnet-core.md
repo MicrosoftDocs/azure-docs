@@ -68,7 +68,7 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps.  You can create a new 
 
 ## Commit code changes and execute CI/CD
 
- DevOps Projects created a Git repository in your Azure DevOps  organization or GitHub account. To view the repository and make code changes to your application, do the following:
+ DevOps Projects created a Git repository in Azure Repos or GitHub. To view the repository and make code changes to your application, do the following:
 
 1. On the left of the DevOps Projects dashboard, select the link for your **master** branch.  
 This link opens a view to the newly created Git repository.
