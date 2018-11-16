@@ -398,9 +398,9 @@
     - name: IBM Db2 pureScale
       items:
       - name: Architecture
-        href: IBM-Db2-pureScale-on-Azure.md
+        href: ibm-db2-purescale-azure.md
       - name: Deployment
-        href: Deploy-IBM-Db2-pureScale-on-Azure.md
+        href: deploy-ibm-db2-pureScale-azure.md
   - name: Manage storage
     items:
     - name: Disks FAQs

@@ -1,6 +1,6 @@
 ---
 title:  Deploy IBM Db2 pureScale on Azure
-description: Learn how to deploy an [example architecture](IBM-db2-pureScale-on-Azure.md) used recently to migrate an enterprise from their IBM Db2 environment running on z/OS to IBM Db2 pureScale on Azure.
+description: Learn how to deploy an [example architecture](ibm-db2-purescale-azure.md) used recently to migrate an enterprise from their IBM Db2 environment running on z/OS to IBM Db2 pureScale on Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -21,7 +21,7 @@ ms.author: njray
 
 # Deploy IBM Db2 pureScale on Azure
 
-This article describes how to deploy an [example architecture](IBM-db2-pureScale-on-Azure.md) used recently to migrate an enterprise from their IBM Db2 environment running on z/OS to IBM Db2 pureScale on Azure.
+This article describes how to deploy an [example architecture](ibm-db2-purescale-azure.md) used recently to migrate an enterprise from their IBM Db2 environment running on z/OS to IBM Db2 pureScale on Azure.
 
 To follow the steps used during the migration, see the installation scripts in [Db2onAzure](http://aka.ms/db2onazure) repository on GitHub. These scripts are based on the architecture used for a typical, medium-sized online transaction processing (OLTP) workload.
 
