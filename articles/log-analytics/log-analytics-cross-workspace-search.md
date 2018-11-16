@@ -125,7 +125,7 @@ applicationsScoping
 | sort by count_ desc 
 | render timechart
 ```
-
+![Timechart](media/log-analytics-cross-workspace-search/chart.png)
 
 ## Next steps
 
