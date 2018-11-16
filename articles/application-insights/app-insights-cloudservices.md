@@ -235,7 +235,7 @@ Did you build for .NET 4.6? 4.6 is not automatically supported in Azure Cloud Se
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
-[azure]: app-insights-azure.md
+[azure]: app-insights-overview.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md

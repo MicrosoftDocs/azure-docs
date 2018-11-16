@@ -53,7 +53,7 @@ Spark clusters in HDInsight include the following components that are available 
 * [Jupyter notebook](https://jupyter.org)
 * [Zeppelin notebook](http://zeppelin-project.org/)
 
-Spark clusters in HDInsight also provide an [ODBC driver](http://go.microsoft.com/fwlink/?LinkId=616229) for connectivity to Spark clusters in HDInsight from BI tools such as Microsoft Power BI.
+Spark clusters in HDInsight also provide an [ODBC driver](https://go.microsoft.com/fwlink/?LinkId=616229) for connectivity to Spark clusters in HDInsight from BI tools such as Microsoft Power BI.
 
 ## Spark cluster architecture
 

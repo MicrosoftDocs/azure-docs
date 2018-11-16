@@ -462,7 +462,7 @@ Output from Console methods that you call in a function or in the **Main()** met
 
 Console output can't be linked to a particular method invocation because the Console is single-threaded, while many job functions may be running at the same time. That's why the  SDK provides each function invocation with its own unique log writer object.
 
-To write [application tracing logs](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use **Console.Out** (creates logs marked as INFO) and **Console.Error** (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](http://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error. Application tracing logs appear in the web app log files, Azure tables, or Azure blobs depending on how you configure your Azure web app. As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation.
+To write [application tracing logs](../app-service/web-sites-dotnet-troubleshoot-visual-studio.md#logsoverview), use **Console.Out** (creates logs marked as INFO) and **Console.Error** (creates logs marked as ERROR). An alternative is to use [Trace or TraceSource](https://blogs.msdn.com/b/mcsuksoldev/archive/2014/09/04/adding-trace-to-azure-web-sites-and-web-jobs.aspx), which provides Verbose, Warning, and Critical levels in addition to Info and Error. Application tracing logs appear in the web app log files, Azure tables, or Azure blobs depending on how you configure your Azure web app. As is true of all Console output, the most recent 100 application logs also appear in the Dashboard page for the WebJob, not the page for a function invocation.
 
 Console output appears in the Dashboard only if the program is running in an Azure WebJob, not if the program is running locally or in some other environment.
 
@@ -508,5 +508,5 @@ And in an Azure table the **Console.Out** and **Console.Error** logs look like t
 ![Error log in table](./media/vs-storage-webjobs-getting-started-queues/tableerror.png)
 
 ## Next steps
-This article has provided code samples that show how to handle common scenarios for working with Azure queues. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](http://go.microsoft.com/fwlink/?linkid=390226).
+This article has provided code samples that show how to handle common scenarios for working with Azure queues. For more information about how to use Azure WebJobs and the WebJobs SDK, see [Azure WebJobs documentation resources](https://go.microsoft.com/fwlink/?linkid=390226).
 

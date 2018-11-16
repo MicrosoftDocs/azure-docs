@@ -39,7 +39,7 @@ To learn more about IP addresses in Azure, read the [IP addresses](virtual-netwo
 - How many reserved IPs can I have?
     For details, see the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 - Is there a charge for reserved IPs?
-    Sometimes. For pricing details, see the [Reserved IP Address Pricing Details](http://go.microsoft.com/fwlink/?LinkID=398482) page.
+    Sometimes. For pricing details, see the [Reserved IP Address Pricing Details](https://go.microsoft.com/fwlink/?LinkID=398482) page.
 - How do I reserve an IP address?
     You can use PowerShell, the [Azure Management REST API](https://msdn.microsoft.com/library/azure/dn722420.aspx), or the [Azure portal](https://portal.azure.com) to reserve an IP address in an Azure region. A reserved IP address is associated to your subscription.
 - Can I use a reserved IP with affinity group-based VNets?

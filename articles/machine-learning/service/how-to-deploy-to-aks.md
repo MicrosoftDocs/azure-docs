@@ -59,6 +59,9 @@ Azure Kubernetes Service uses Docker images. To create the image, use the follow
 
     * [Create a scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
 
+        > [!IMPORTANT]
+        > The scoring script receives data submitted from clients and passes it to the model for scoring. Document the data structure that the script and model expect. Having this documentation makes things easier when building a client to consume the web service.
+
     * [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
    The following example uses these files to configure the image:
@@ -185,3 +188,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## Next steps
+
+Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).

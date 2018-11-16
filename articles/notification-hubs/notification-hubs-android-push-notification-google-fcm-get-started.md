@@ -41,7 +41,7 @@ In this tutorial, you take the following steps:
 ## Prerequisites
 To complete this tutorial, you must have an active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/free/).
 
-* In addition to an active Azure account mentioned above, this tutorial requires the latest version of [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+* In addition to an active Azure account mentioned above, this tutorial requires the latest version of [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 * Android 2.3 or higher for Firebase Cloud Messaging.
 * Google Repository revision 27 or higher is required for Firebase Cloud Messaging.
 * Google Play Services 9.0.2 or higher for Firebase Cloud Messaging.

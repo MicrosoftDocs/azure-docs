@@ -57,4 +57,4 @@ In this article, you learned how to integrate the Application Gateway WAF in Sec
 * [Security health monitoring in Security Center](security-center-monitoring.md).
 * [Monitor partner solutions with Security Center](security-center-partner-solutions.md).
 * [Azure Security Center FAQs](security-center-faq.md).
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/).
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/).
