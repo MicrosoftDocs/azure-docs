@@ -5,6 +5,7 @@ services: jenkins
 ms.service: jenkins
 author: ecfan
 ms.author: estfan
+manager: jeconnoc
 ms.topic: tutorial
 ms.date: 11/19/2018
 ---

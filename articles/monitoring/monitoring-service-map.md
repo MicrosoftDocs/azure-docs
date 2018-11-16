@@ -24,7 +24,7 @@ Service Map automatically discovers application components on Windows and Linux 
 This article describes the details of onboarding and using Service Map. For information about configuring Service Map and onboarding agents, see [Configuring Service Map solution in Azure]( monitoring-service-map-configure.md).
 
 >[!NOTE]
->If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](monitoring-vminsights-overview.md).
+>If you have already deployed Service Map, you can now also view your maps in Azure Monitor for VMs, which includes additional features to monitor VM health and performance. To learn more, see [Azure Monitor for VMs overview](../azure-monitor/insights/vminsights-overview.md).
 
 
 ## Sign in to Azure
@@ -275,7 +275,7 @@ The **Machine Updates** pane displays data from the Update Management solution f
 ![Machine Change Tracking pane](media/monitoring-service-map/machine-updates.png)
 
 ## Log Analytics records
-Service Map computer and process inventory data is available for [search](../log-analytics/log-analytics-log-search.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
+Service Map computer and process inventory data is available for [search](../log-analytics/log-analytics-queries.md) in Log Analytics. You can apply this data to scenarios that include migration planning, capacity analysis, discovery, and on-demand performance troubleshooting.
 
 One record is generated per hour for each unique computer and process, in addition to the records that are generated when a process or computer starts or is on-boarded to Service Map. These records have the properties in the following tables. The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap Azure Resource Manager API. The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap Azure Resource Manager API. The ResourceName_s field matches the name field in the corresponding Resource Manager resource. 
 
@@ -502,7 +502,7 @@ For more information about data collection and usage, see the [Microsoft Online 
 
 
 ## Next steps
-Learn more about [log searches](../log-analytics/log-analytics-log-search.md) in Log Analytics to retrieve data that's collected by Service Map.
+Learn more about [log searches](../log-analytics/log-analytics-queries.md) in Log Analytics to retrieve data that's collected by Service Map.
 
 
 ## Troubleshooting

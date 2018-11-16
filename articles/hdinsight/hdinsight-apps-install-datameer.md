@@ -1,6 +1,6 @@
 ---
 title: Install published application - Datameer - Azure HDInsight 
-description: Install and use the Datameer third-party Hadoop application.
+description: Install and use the Datameer third-party Apache Hadoop application.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -14,7 +14,7 @@ ms.author: ashish
 ---
 # Install published application - Datameer
 
-This article describes how to install and run the [Datameer](https://www.datameer.com/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [Datameer](https://www.datameer.com/) published Apache Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About Datameer
 

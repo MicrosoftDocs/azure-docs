@@ -69,7 +69,7 @@ A vital part of content management is to understand who is accessing which resou
 * Adding or removing licenses
 
 > [!NOTE]
-> Read [Microsoft Azure Security and Audit Log Management](http://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) to know more about logging capabilities in Azure.
+> Read [Microsoft Azure Security and Audit Log Management](https://download.microsoft.com/download/B/6/C/B6C0A98B-D34A-417C-826E-3EA28CDFC9DD/AzureSecurityandAuditLogManagement_11132014.pdf) to know more about logging capabilities in Azure.
 > Depending on how you answered the questions in [Determine content management requirements](plan-hybrid-identity-design-considerations-contentmgt-requirements.md), you should be able to determine how you want the content to be managed in your hybrid identity solution. While all options exposed in Table 6 are capable of integrating with Azure AD, it is important to define which is more appropriate for your business needs.
 >
 >

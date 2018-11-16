@@ -4,7 +4,7 @@ title: Azure IoT Edge Python tutorial | Microsoft Docs
 description: This tutorial shows you how to create an IoT Edge module with Python code and deploy it to an edge device.
 services: iot-edge
 author: shizn
-manager: timlt
+manager: philmea
 
 ms.author: xshi
 ms.date: 09/21/2018

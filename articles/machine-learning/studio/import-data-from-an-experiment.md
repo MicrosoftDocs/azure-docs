@@ -5,7 +5,8 @@ keywords: import data,data,data sources,training data
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-ms.author: deguhath
+ms.custom: (previous ms.author deguhath)
+ms.author: amlstudiodocs
 manager: jhubbard
 editor: cgronlun
 
@@ -20,7 +21,6 @@ ms.date: 03/20/2017
 
 ---
 # Import your data into Azure Machine Learning Studio from another experiment
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 There will be times when you'll want to take an intermediate result from one experiment and use it as part of another experiment. To do this, you save the module as a dataset:
 

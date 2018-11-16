@@ -2,7 +2,7 @@
 title: Azure IoT Edge module composition | Microsoft Docs 
 description: Learn how a deployment manifest declares which modules to deploy, how to deploy them, and how to create message routes between them. 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 06/06/2018
 ms.topic: conceptual
@@ -169,7 +169,7 @@ The deployment manifest can specify desired properties for the module twin of ea
 
 If you do not specify a module twin's desired properties in the deployment manifest, IoT Hub will not modify the module twin in any way, and you will be able to set the desired properties programmatically.
 
-The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [device twin developer guide](../iot-hub/iot-hub-devguide-device-twins.md).   
+The same mechanisms that allow you to modify device twins are used to modify module twins. For more information, see the [module twin developer guide](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## Deployment manifest example
 

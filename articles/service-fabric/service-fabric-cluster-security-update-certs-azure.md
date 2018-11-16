@@ -1,9 +1,9 @@
-﻿---
+---
 title: Manage certificates in an Azure Service Fabric cluster | Microsoft Docs
 description: Describes how to add new certificates, rollover certificate, and remove certificate to or from a Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: ChackDan
+author: aljo-microsoft
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/23/2018
-ms.author: chackdan
+ms.date: 11/13/2018
+ms.author: aljo-microsoft
 
 ---
 # Add or remove certificates for a Service Fabric cluster in Azure
@@ -43,7 +43,7 @@ If your intent is to remove the certificate that is marked primary, then you wil
 > [!TIP]
 > It is now better and easier way to add a secondary certificate using the [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet. You don't need to follow the rest of the steps in this section.  Also, you do not need the template originally used to create and deploy the cluster when using the [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) cmdlet.
 
-These steps assume that you are familiar with how Resource Manager works and have deployed atleast one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
+These steps assume that you are familiar with how Resource Manager works and have deployed at least one Service Fabric cluster using a Resource Manager template, and have the template that you used to set up the cluster handy. It is also assumed that you are comfortable using JSON.
 
 > [!NOTE]
 > If you are looking for a sample template and parameters that you can use to follow along or as a starting point, then download it from this [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample). 
@@ -171,7 +171,7 @@ For ease of following along, sample 5-VM-1-NodeTypes-Secure_Step2.JSON contains 
 > 
 
 ### Edit your template file to reflect the new parameters you added above
-If you are using the sample from the [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) to follow along, you can start to make changes in The sample 5-VM-1-NodeTypes-Secure.paramters_Step2.JSON 
+If you are using the sample from the [git-repo](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Cert%20Rollover%20Sample) to follow along, you can start to make changes in The sample 5-VM-1-NodeTypes-Secure.parameters_Step2.JSON 
 
 Edit your Resource Manager Template parameter File, add the two new parameters for secCertificateThumbprint and secCertificateUrlValue. 
 
@@ -192,7 +192,7 @@ Edit your Resource Manager Template parameter File, add the two new parameters f
 
 ```powershell
 Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subcription ID> 
+Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
@@ -217,11 +217,11 @@ New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <R
 Here is a filled out example of the same powershell.
 
 ```powershell
-$ResouceGroup2 = "chackosecure5"
+$ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResouceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResouceGroup2
+New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 

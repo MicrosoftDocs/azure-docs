@@ -3,7 +3,7 @@
 
 # Get started
 ## [Log Analytics](../log-analytics/log-analytics-get-started.md)
-## [Automation](../automation/automation-offering-get-started.md)
+## [Automation](/azure/automation/)
 ## [Backup](../backup/backup-introduction-to-azure-backup.md)
 ## [Site Recovery](../site-recovery/site-recovery-overview.md)
 
@@ -11,7 +11,7 @@
 # How to
 
 ## Analyze
-### [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Log Analytics](../log-analytics/log-analytics-queries.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 ## Automate
 ### [Azure Automation overview](../automation/automation-intro.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
@@ -28,8 +28,8 @@
 ### [Web baseline assessment](../security-center/security-center-customize-os-security-config.md)
 
 ## Use solutions
-### [Management solutions](../monitoring/monitoring-solutions.md)
-### [Target solutions](../monitoring/monitoring-solution-targeting.md)
+### [Management solutions](../azure-monitor/insights/solutions.md)
+### [Target solutions](../azure-monitor/insights/solution-targeting.md)
 ### Insight & analytics
 #### [AD Assessment](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [Antimalware Assessment](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Create solutions
-### [Design and build](../monitoring/monitoring-solutions-creating.md)
-### [Solution file](../monitoring/monitoring-solutions-solution-file.md)
-### [Automation resources](../monitoring/monitoring-solutions-resources-automation.md)
-### [Log searches and alerts](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [Views](../monitoring/monitoring-solutions-resources-views.md)
-### [Best practices](../monitoring/monitoring-solutions-best-practices.md)
+### [Design and build](../azure-monitor/insights/solutions-creating.md)
+### [Solution file](../azure-monitor/insights/solutions-solution-file.md)
+### [Automation resources](../azure-monitor/insights/solutions-resources-automation.md)
+### [Log searches and alerts](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [Views](../azure-monitor/insights/solutions-resources-views.md)
+### [Best practices](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Management scenarios
 ### [Collect analytics data from runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)

@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: quickstart
-ms.date: 10/12/2018
+ms.date: 11/06/2018
 ms.author: wolfma
 ---
 
@@ -27,7 +27,7 @@ You need a Speech service subscription key to complete this Quickstart. You can 
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-The current version of the Cognitive Services Speech SDK is `1.0.1`.
+The current version of the Cognitive Services Speech SDK is `1.1.0`.
 
 The Speech SDK for Linux can be used to build both 64-bit and 32-bit applications. The required libraries and header files can be downloaded as a tarfile from https://aka.ms/csspeech/linuxbinary.
 

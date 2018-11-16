@@ -26,7 +26,7 @@ ms.author: hascipio
 This article is provided to help developers create, deploy, and manage their solutions listed in the Azure Marketplace for other Azure customers and partners to purchase and use.
 
 ## Marketplace publishing
-As an Azure publisher, you can distribute and sell your innovative solution or service to other developers, ISVs, and IT professionals in the Marketplace. Through the Marketplace, you can reach customers who want to quickly develop their cloud-based applications and mobile solutions. If your solution targets business users, you might want to consider the [AppSource](http://appsource.microsoft.com) marketplace.
+As an Azure publisher, you can distribute and sell your innovative solution or service to other developers, ISVs, and IT professionals in the Marketplace. Through the Marketplace, you can reach customers who want to quickly develop their cloud-based applications and mobile solutions. If your solution targets business users, you might want to consider the [AppSource](https://appsource.microsoft.com) marketplace.
 
 
 ## Supported types of solutions
@@ -49,7 +49,7 @@ To publish a virtual machine [solution](https://createopportunity.azurewebsites.
 >[!NOTE]
 > If you are working with a Partner Account Manager or a DX Partner Manager, ask them to nominate your solution for the Azure Certified program. You can also go to the [Microsoft Azure Certified](http://createopportunity.azurewebsites.net) webpage and fill out the application form. Enter the email of your Partner Account Manager or DX Partner Manager in the **Microsoft Sponsor Contact** box.
 
-If you meet the eligibility criteria in the [Azure Marketplace participation policies](http://go.microsoft.com/fwlink/?LinkID=526833) and your application is approved, we start working with you to onboard your solution to the Marketplace.
+If you meet the eligibility criteria in the [Azure Marketplace participation policies](https://go.microsoft.com/fwlink/?LinkID=526833) and your application is approved, we start working with you to onboard your solution to the Marketplace.
 
 ### Register your account as a Microsoft seller
 Register your Microsoft account as a [Microsoft Developer account](marketplace-publishing-accounts-creation-registration.md).
