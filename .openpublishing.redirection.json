@@ -30738,7 +30738,7 @@
         },
         {
             "source_path":  "articles/monitoring/monitoring-runbook-datacollect.md",
-            "redirect_url":  "/azure/azure-monitor/insights/runbook-datacollect",
+            "redirect_url":  "/azure/azure-monitor/platform/runbook-datacollect",
             "redirect_document_id":  "false"
         },
         {
