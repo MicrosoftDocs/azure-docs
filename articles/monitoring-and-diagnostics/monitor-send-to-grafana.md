@@ -123,4 +123,4 @@ You are charged when VMs are running whether you are using them or not. To avoid
 2. On your resource group page, click **Delete**, type **Grafana** in the text box, and then click **Delete**.
 
 ## Next steps
-* [Overview of Azure Monitor Metrics](../monitoring/monitoring-data-collection.md)
+* [Overview of Azure Monitor Metrics](../azure-monitor/platform/data-collection.md)

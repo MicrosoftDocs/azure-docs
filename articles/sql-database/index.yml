@@ -58,7 +58,7 @@ sections:
         image:
           src: media/index/i_elasticpool.svg
         title: Elastic pools
-      - href: /azure/sql-database/sql-database-managed-instance
+      - href: /azure/sql-database/sql-database-managed-instance-index
         html: <p>Use the Managed Instance to easily migrate your on-premises databases to the fully managed Azure PaaS database service with minimal or no database code changes.</p>
         image:
           src: media/index/i_mi.svg
