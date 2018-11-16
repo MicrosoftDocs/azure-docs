@@ -88,4 +88,4 @@ If you no longer need the report you created for this quickstart, delete the Pow
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Visualize data using an imported query in Power BI](power-bi-blank-query.md)
+> [Quickstart: Visualize data using an imported query in Power BI](power-bi-imported-query.md)

@@ -27,8 +27,8 @@
     items:
     - name: Power BI - connector
       href: power-bi-connector.md
-    - name: Power BI - blank query
-      href: power-bi-blank-query.md
+    - name: Power BI - imported query
+      href: power-bi-imported-query.md
     - name: Power BI - SQL query
       href: power-bi-sql-query.md
 - name: Tutorials

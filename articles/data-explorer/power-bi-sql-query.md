@@ -53,7 +53,7 @@ You typically use the native query language with Azure Data Explorer, but it als
     | Data connectivity mode | *Import* | Determines whether Power BI imports the data or connects directly to the data source. |
     | Command timeout | Leave blank | How long the query runs before it throws a timeout error. |
     | SQL statement | Copy the query below this table | The SQL statement that Azure Data Explorer translates into a native query. |
-    | Other options | Leave as default values | Options aren't applicable to Azure Data Explorer clusters. |
+    | Other options | Leave as default values | Options don't apply to Azure Data Explorer clusters. |
     | | | |
 
     ```SQL
@@ -83,4 +83,4 @@ If you no longer need the report you created for this quickstart, delete the Pow
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Quickstart: Visualize data using an imported query in Power BI](power-bi-blank-query.md)
+> [Quickstart: Visualize data using an imported query in Power BI](power-bi-connector.md)
