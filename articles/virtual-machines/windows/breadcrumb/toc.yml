@@ -9,3 +9,7 @@
     - name: Windows
       tocHref: /azure/active-directory/managed-identities-azure-resources/
       topicHref: /azure/virtual-machines/windows/index
+    - name: SQL VM
+      tocHref: /azure/virtual-machines/windows/sql
+      topicHref: /azure/virtual-machines/windows/sql
+      

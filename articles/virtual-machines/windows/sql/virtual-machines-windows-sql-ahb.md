@@ -91,18 +91,22 @@ $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtua
 $SqlVm.Properties.sqlServerLicenseType
 ```
 
+```azurecli
+code goes here
+```
+
 ## Verify SQL resource provider
 
 The below code snippets will allow you to verify if your SQL VM has been registered with the new resource provider. 
 
-
-## Register SQL IaaS Extension
-There is a new extension that improves the manageability of your VM. With this IaaS extension, you can configure auto patching, set cloud backup policies, and use Advanced Analytics in the UI within Azure.  To register the SQL IaaS extension, use the below code snippets. 
-
 ```powershell
-Set-AzureRmVMSqlServerExtension -ResourceGroupName "<resourcegroupname>" -VMName "<vmname>" -Name "SQLIaasExtension" -Version "2.0" -Location "<location>"
-# example: Set-AzureRmVMSqlServerExtension -ResourceGroupName "AHBTest" -VMName "AHBTest" -Name "SQLIaasExtension" -Version "2.0" -Location "East US 2"
+code goes here
 ```
+
+```azurecli
+code goes here
+```
+
 
 **Windows VMs**:
 
