@@ -47,7 +47,7 @@ sections:
         html: <p>Easily migrate your on-prem databases to Azure cloud using native restore.</p>
       - title: Migration without downtime
         href: /azure/dms/tutorial-sql-server-to-managed-instance
-        html: <p>Migrate a fleet of database with minimal downtime using Database Migration Service.</p>
+        html: <p>Migrate a fleet of databases with minimal downtime using Database Migration Service.</p>
       - title: Pricing
         href: /pricing/hybrid-benefit/
         html: <p>Save up to 40% with Azure Hybrid Benefit with your existing on-premises licences.</p>
