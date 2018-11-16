@@ -24,29 +24,33 @@ Here are the details about how billing and pricing work for Logic Apps.
 
 For new logic apps that you create by using the public or "global" 
 Logic Apps service, you pay only for what you use. These logic apps 
-use a consumption-based plan and pricing model, which means that all 
-action executions performed by a logic app are metered. Every step 
-in a logic app definition is an action, which includes triggers, 
-control flow steps, calls to built-in actions, and calls to connectors. 
+use a consumption-based plan and pricing model. Logic Apps meters 
+all action executions that your logic app performs. In a logic app 
+definition, each step is an action, including the trigger, 
+control flow steps, built-in actions, and connector calls. 
 For more information, see [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="fixed-pricing"></a>
 
 ## Fixed pricing model
 
+For new logic apps that you create and run inside an 
+[*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
+you pay a fixed monthly price for built-in actions and 
+standard ISE-labeled connectors. An ISE is a private 
+isolated Logic Apps service instance that you can *inject* 
+into an Azure virtual network so that logic apps can access 
+resources inside that virtual network.  
+
+Your ISE includes one free Enterprise connector, which includes 
+as many connections as you want. Usage for additional Enterprise 
+connectors are charged based on the Enterprise consumption price. 
+
 > [!NOTE]
 > The integration service environment is in *private preview*. 
-> To request access, [create your request to join here](https://aka.ms/iseprivatepreview).
-
-For new logic apps that you create with an 
-[*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-which is a private isolated Logic Apps instance that uses 
-dedicated resources, you pay a fixed monthly price for built-in 
-actions and standard ISE-labeled connectors. Your ISE includes 
-one free Enterprise connector, which includes as many connections 
-as you want. Usage for additional Enterprise connectors are charged 
-based on the Enterprise consumption price. For more information, see 
-[Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
+> To request access, [create your request to join here](https://aka.ms/iseprivatepreview). 
+> For more information, see 
+> [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
 
