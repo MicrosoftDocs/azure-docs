@@ -4,7 +4,8 @@ description: A printable machine learning algorithm cheat sheet helps you choose
 keywords: algorithm cheat sheet,cheat sheet,machine learning algorithm
 services: machine-learning
 author: pakalra
-ms.author: pakalra
+ms.custom: (previous ms.author pakalra)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 

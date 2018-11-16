@@ -105,6 +105,8 @@ The configuration server runs the on-premises Site Recovery components, includin
 - The process server that acts as a replication gateway. It receives replication data; optimizes it with caching, compression, and encryption; and sends it to Azure storage.,The process server also installs Mobility Service on VMs you want to replicate and performs automatic discovery of on-premises VMware VMs.
 - The master target server that handles replication data during failback from Azure.
 
+[Learn more](vmware-azure-architecture.md) about the configuration server components and processes.
+
 ### Where do I set up the configuration server?
 You need a single highly available on-premises VMware VM for the configuration server.
 
@@ -121,15 +123,35 @@ No. To do this, you need to set up a configuration server in each region.
 ### Can I host a configuration server in Azure?
 While possible, the Azure VM running the configuration server would need to communicate with your on-premises VMware infrastructure and VMs. This can add latencies and impact ongoing replication.
 
-
-### Where can I get the latest version of the configuration server template?
-Download the latest version from the [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
-
 ### How do I update the configuration server?
-You install update rollups. You can find the latest update information in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+[Learn about](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) updating the configuration server. You can find the latest update information in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery). You can also directly download the latest version of the configuration server from [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 
 ### Should I backup the deployed configuration server?
 We recommend taking regular scheduled backups of the configuration server. For successful failback, the virtual machine being failed back must exist in the configuration server database, and the configuration server must be running and in a connected state. You can learn more about common configuration server management tasks [here](vmware-azure-manage-configuration-server.md).
+
+### When I'm setting up the configuration server, can I download and install MySQL manually?
+Yes. Download MySQL and place it in the **C:\Temp\ASRSetup** folder. Then install it manually. When you set up the configuration server VM and accept the terms, MySQL will be listed as **Already installed** in **Download and install**.
+
+### Can I avoid downloading MySQL but let Site Recovery install it?
+Yes. Download the MySQL installer and place it in the **C:\Temp\ASRSetup** folder.  When you set up the configuration server VM, accept the terms, and click on **Download and install**, the portal will use the installer you added to install MySQL.
+ 
+### CanL I use the configuration server VM for anything else?
+No, you should only use the VM for the configuration server. 
+
+### Can I change the vault registered in the configuration server?
+No. After a vault is registered with configuration server, it can't be changed.
+
+### Can I use the same configuration server for disaster recovery of both VMware VMs and physical servers
+Yes, but note that physical machine can be only be failed back to a VMware VM.
+
+### Where can I download the passphrase for the configuration server?
+[Review this article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) to learn about downloading the passphrase.
+
+### Where can I download vault registration keys?
+
+In the **Recovery Services Vault**, **Manage** > **Site Recovery Infrastructure** > **Configuration Servers**. In **Servers**, select **Download registration key** to download the vault credentials file.
+
+
 
 ## Mobility service
 
