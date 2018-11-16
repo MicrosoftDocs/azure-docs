@@ -24,9 +24,9 @@ ms.author: mlearned
 
 ## Why should I use DevOps Projects?
 
-  DevOps Project automates the setup of an entire continuous integration (CI) and continuous delivery (CD) pipeline to Azure.  You can start with existing code or use one of the provided sample applications. Then you can quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Container Service, Azure SQL Database, and Azure Service Fabric.  
+  DevOps Project automates the setup of an entire continuous integration (CI) and continuous delivery (CD) pipeline to Azure.  You can start with existing code or use one of the provided sample applications. Then you can quickly deploy that application to various Azure services such as Virtual Machines, App Service, Azure Kubernetes Servies (AKS), Azure SQL Database, and Azure Service Fabric.  
 
-  DevOps Projects does all the work for the initial configuration of a DevOps pipeline including everything from setting up the initial Git repository, configuring the CI/CD pipeline, creating an Application Insights resource for monitoring, and providing a single view of the entire solution with the creation of a DevOps Project dashboard in the Azure portal.
+  DevOps Projects does all the work for the initial configuration of a DevOps pipeline including everything from setting up the initial Git repository, configuring the CI/CD pipeline, creating an Application Insights resource for monitoring, and providing a single view of the entire solution with the creation of a DevOps Projects dashboard in the Azure portal.
 
 You can use DevOps Projects to:
 
@@ -54,7 +54,7 @@ After you use DevOps Projects, you can also delete all of the resources from a s
 
 ## DevOps Projects and Azure DevOps integration
 
-DevOps Projects is powered by Azure DevOps. DevOps Projects automates all of the work that's needed in Azure DevOps to set up a CI/CD pipeline. It creates a Git repository in a new or existing Azure DevOps organization, and then commits a sample application or your existing code to a new Git repository.  
+DevOps Projects is powered by Azure DevOps. DevOps Projects automates all of the work that's needed in Azure Pipelines to set up a CI/CD pipeline. It creates a Git repository in a new or existing Azure DevOps organization, and then commits a sample application or your existing code to a new Git repository.  
 
 The automation also establishes a CI trigger for the build so that every new code commit initiates a build. DevOps Projects creates a CD trigger and deploys every new successful build to the Azure service of your choice.  
 
@@ -65,7 +65,7 @@ After creating your DevOps Project, you can:
 * Customize your build and release pipeline
 * Use pull requests to manage your code flow and keep your quality high
 * Test and build each commit before you merge your code to raise the quality bar
-* Track your project backlog and issues right along with your application
+* Track your backlog and issues right along with your application
 
 ## How do I start using DevOps Projects?
 

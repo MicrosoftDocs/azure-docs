@@ -26,7 +26,7 @@ abstract:
     href: https://channel9.msdn.com/Events/Connect/2017/T174/player/
     width: 250
 sections:
-- title: 5-Minute quickstarts
+- title: 5-Minute Quickstarts
   items:
   - type: paragraph
     text: 'Learn how to build your app type and deploy it to your choice of Azure service:'
