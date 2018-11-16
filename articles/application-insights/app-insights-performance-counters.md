@@ -92,7 +92,7 @@ Or you can do the same thing with custom metrics you created:
 ## Performance counters in Analytics
 You can search and display performance counter reports in [Analytics](app-insights-analytics.md).
 
-The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 
 ![Performance counters in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

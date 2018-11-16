@@ -64,7 +64,7 @@ The following sample *host.json* files have all possible options specified.
           "default": "None"
         },
         "applicationInsights": {
-            "sampling": {
+            "samplingSettings": {
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 5
             }
