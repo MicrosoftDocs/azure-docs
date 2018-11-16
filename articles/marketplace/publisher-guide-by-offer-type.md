@@ -40,7 +40,7 @@ Azure Marketplace offer types are listed in the table below.
 | [**Managed applications**](https://docs.microsoft.com/azure/marketplace/marketplace-managed-apps) | Use the Azure app: managed app offer type when the following conditions are required: <br> <ul> <li> You deploy either a subscription-based solution for your customer using either a VM or an entire IaaS-based solution. </li> <li>You or your customer require that the solution is managed by a partner. </li> <ul> |
 | [**SaaS applications**](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide) | Use the SaaS app offer type to enable your customer to buy your SaaS-based, technical solution as a subscription. |
 | [**Container offers**](https://docs.microsoft.com/azure/marketplace/marketplace-containers) | Use the Container offer type when your solution is a Docker container image provisioned as a Kubernetes-based Azure container service. |
-| [**IoT Edge modules**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services or your own solution-specific code. |
+| [**IoT Microsoft Edge modules**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services, or your own solution-specific code. |
 | [**Consulting services**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Consulting Services in Azure Marketplace help to connect customers with services to support and extend their use of Azure. |
 | [**AppSource offers**](https://docs.microsoft.com/azure/marketplace/appsource-offer-publishing-guide) | The AppSource storefront includes offers that build on or extend Dynamics 365, Office 365, Power BI, and Power Apps. |
 
@@ -50,4 +50,4 @@ Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/market
 
 *	Review the eligibility requirements in the publishing options by offer type section to finalize the selection and configuration of your offer.
 *	Review the publishing patterns by storefront for examples on how your solution maps to an offer type and configuration.
-*	Log in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.
+*	Sign in to the [Cloud Partner Portal](https://cloudpartner.azure.com) to create and configure your offer.

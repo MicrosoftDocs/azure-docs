@@ -23,13 +23,13 @@ Private offers on [Microsoft Azure Marketplace](https://azuremarketplace.microso
 
 ## Unlock enterprise deals with Private offers
 
-Enterprise customers increasingly leverage online marketplaces to find, try, and buy cloud solutions. Now with private offers, publishers can use marketplace to privately share customized solutions with targeted customers with capabilities that enterprises require:
+Enterprise customers increasingly use online marketplaces to find, try, and buy cloud solutions. Now with private offers, publishers can use marketplace to privately share customized solutions with targeted customers.  Private offers provide the following capabilities that enterprises require:
 
 - *Negotiated pricing* lets publishers extend discounts and off-list pricing from publicly available offerings.
 - *Private terms and conditions* enable publishers to tailor terms and conditions to a specific customer.
 - *Specialized configurations* let publishers tailor their Virtual Machines, Azure applications, and SaaS App offer to an individual customer's needs. The private option also enables publishers to provide preview access to new product features, before launching more broadly to all customers.
 
-Private offers allow publishers to leverage the scale and global availability of a public marketplace, with the flexibility and control needed to negotiate and deliver custom deals and configurations.
+Private offers allow publishers to take advantage of the scale and global availability of a public marketplace, with the flexibility and control needed to negotiate and deliver custom deals and configurations.
 
 Private offers are now available for Virtual Machine, Azure Application (implemented as solution templates or managed applications), and SaaS Apps offers. Like public offers, private offers can be created and managed via the [Cloud Partner Portal](https://cloudpartner.azure.com/) where customers can be granted or revoked access to private offers in minutes.
 
