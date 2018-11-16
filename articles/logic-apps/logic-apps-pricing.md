@@ -9,7 +9,7 @@ ms.author: klam
 ms.reviewer: estfan, LADocs
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/16/2018
 ---
 
 # Pricing model for Azure Logic Apps
@@ -40,10 +40,12 @@ For more information, see [Logic Apps Pricing](https://azure.microsoft.com/prici
 
 For new logic apps that you create with an 
 [*integration service environment* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), 
-which is a private isolated Logic Apps instance that uses dedicated resources, 
-you pay a fixed monthly price for built-in actions and standard ISE-labeled connectors. 
-Your ISE includes one Enterprise connector at no charge, while additional Enterprise 
-connectors are charged based on the Enterprise consumption price. For more information, see 
+which is a private isolated Logic Apps instance that uses 
+dedicated resources, you pay a fixed monthly price for built-in 
+actions and standard ISE-labeled connectors. Your ISE includes 
+one free Enterprise connector, which includes as many connections 
+as you want. Usage for additional Enterprise connectors are charged 
+based on the Enterprise consumption price. For more information, see 
 [Logic Apps Pricing](https://azure.microsoft.com/pricing/details/logic-apps).
 
 <a name="triggers"></a>
