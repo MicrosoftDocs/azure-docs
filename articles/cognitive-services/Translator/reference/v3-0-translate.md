@@ -82,7 +82,7 @@ Request parameters passed on the query string are:
   </tr>
   <tr>
     <td>AllowFallback</td>
-    <td>*Optional parameter*.<br/>Specifies that the service is allowed to fallback to a general system when a custom system does not exist. Possible values are: `true` (default) or `false`.<br/>‘AllowFallback=false’ specifies that the translation should only use systems trained for the ‘category’ specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. ‘AllowFallback=true’ specifies that the service is allowed to fallback to a general system when a custom system does not exist.
+    <td>*Optional parameter*.<br/>Specifies that the service is allowed to fallback to a general system when a custom system does not exist. Possible values are: `true` (default) or `false`.<br/><br/>`AllowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `AllowFallback=true` specifies that the service is allowed to fallback to a general system when a custom system does not exist.
 </td>
   </tr>
 </table> 
@@ -110,9 +110,7 @@ Request headers include:
   </tr>
   <tr>
     <td>X-MT-System</td>
-    <td>*Optional*.<br/>Specifies the system type that was used for translation for each ‘to’ language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:<br/>
-* Custom -  Request includes a custom system and at least one custom system was used during translation.
-* Team - All other requests
+    <td>*Optional*.<br/>Specifies the system type that was used for translation for each ‘to’ language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:<br/><ul><li>Custom -  Request includes a custom system and at least one custom system was used during translation.</li><li>Team - All other requests</li></ul>
 </td>
   </tr>
 </table> 
