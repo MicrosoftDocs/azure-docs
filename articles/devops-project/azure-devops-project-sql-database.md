@@ -11,7 +11,6 @@ author: mlearned
 monikerRange: 'vsts'
 ---
 
-
 # Tutorial: Deploy your ASP.NET app and Azure SQL Database code by using Azure DevOps Projects
 
 Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
@@ -68,7 +67,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 	Optionally, to view additional Azure configuration settings and to identify the username in the **Database Server Login Details** section, you can select **Change**. Store the username for future steps in this tutorial. If you perform this optional step, exit the Azure configuration area before you select **Done**.
  
 1. Select **Done**.  
-    After a few minutes, the process is completed and the Azure DevOps Projects dashboard opens in the Azure portal. You can also navigate to the dashboard directly from **All resources** in the Azure portal. At the right, select **Browse** to view your running application.
+    After a few minutes, the process is completed and the DevOps Projects dashboard opens in the Azure portal. You can also navigate to the dashboard directly from **All resources** in the Azure portal. At the right, select **Browse** to view your running application.
 	
 ## Examine the CI pipeline
 
@@ -162,7 +161,7 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 You need appropriate permissions to connect to the Azure SQL database.
 
-1. On the Azure DevOps Projects dashboard, select **SQL Database** to go to the management page for the SQL database.
+1. On the DevOps Projects dashboard, select **SQL Database** to go to the management page for the SQL database.
    
 1. Select **Set server firewall**, and then select **Add client IP**. 
 
@@ -185,18 +184,18 @@ You need appropriate permissions to connect to the Azure SQL database.
 
 ## Clean up resources
 
-If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure SQL database and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the Azure DevOps Projects dashboard.
+If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure SQL database and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the DevOps Projects dashboard.
 
 > [!IMPORTANT]
 > The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in DevOps Projects in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
 
-1. In the Azure portal, go to the Azure DevOps Projects dashboard.
+1. In the Azure portal, go to the DevOps Projects dashboard.
 2. At the top right, select **Delete**. 
 3. At the prompt, select **Yes** to *permanently delete* the resources.
 
 ## Next steps
 
-You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other projects. In this tutorial, you learned how to:
+You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Use Azure DevOps Projects to deploy your ASP.NET app and Azure SQL Database code
