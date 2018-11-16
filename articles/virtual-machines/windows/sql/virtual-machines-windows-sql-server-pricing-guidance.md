@@ -85,7 +85,7 @@ To create a SQL Server 2017 Azure VM with one of these pay-per-usage images, see
 >It does not include additional SQL Server licensing costs for Web, Standard, and Enterprise editions. To get the most accurate pricing estimate, select your operating system and SQL Server edition on the pricing page for [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) or [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/).
 
 > [!NOTE]
-> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [Switch licensing model for a SQL VM in Azure](virtual-machines-windows-sql-ahb.md). 
+> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
 
 ## <a id="byol"></a> Bring your own license (BYOL)
 
@@ -120,7 +120,7 @@ To create a SQL Server 2017 Azure VM with one of these bring-your-own-license im
 > Let us know within 10 days how many SQL Server licenses you are using in Azure. The links to the previous images have instructions on how to do this.
 
 > [!NOTE]
-> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [Switch licensing model for a SQL VM in Azure](virtual-machines-windows-sql-ahb.md). 
+> It is now possible to change the licensing model from pay-per-usage to bring your own license (BYOL) and back. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md). 
 
 
 
