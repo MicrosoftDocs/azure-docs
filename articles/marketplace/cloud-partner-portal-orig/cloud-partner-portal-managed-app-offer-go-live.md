@@ -1,5 +1,5 @@
 ---
-title: TITLE | Microsoft Docs
+title: Make your Azure Application offer live on Azure Marketplace | Microsoft Docs
 description: .
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
