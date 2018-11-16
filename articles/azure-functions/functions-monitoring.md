@@ -188,7 +188,7 @@ If you write logs in your function code, their category is "Function".
 
 ### Log levels
 
-The Azure functions logger also includes a *log level* with every log. <xref:Microsoft.Extensions.Logging.LogLevel> is an enumeration, and the integer code indicates relative importance:
+The Azure functions logger also includes a *log level* with every log. [LogLevel](xref:Microsoft.Extensions.Logging.LogLevel) is an enumeration, and the integer code indicates relative importance:
 
 |LogLevel    |Code|
 |------------|---|
