@@ -89,8 +89,8 @@ ms.author: magoedte
                                                     <div class="cardText">
 														<h3>Manage workspace</h3>
                                                         <p>
-                                                            <a href="/azure/log-analytics/log-analytics-quick-create-workspace">Crreate workspace - Azure portal</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-quick-create-workspace-cli">Crreate workspace - Azure CLI</a><br/>
+                                                            <a href="/azure/log-analytics/log-analytics-quick-create-workspace">Create workspace - Azure portal</a><br/>
+                                                            <a href="/azure/log-analytics/log-analytics-quick-create-workspace-cli">Create workspace - Azure CLI</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-quick-create-workspace-posh">Create workspace - Azure PowerShell</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-manage-del-workspace">Delete workspace</a><br/>
 														</p>
