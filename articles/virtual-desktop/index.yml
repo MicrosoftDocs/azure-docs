@@ -22,7 +22,6 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/virtual-desktop/overview">What is Windows Virtual Desktop?</a>
-    - html: <a href="/azure/virtual-desktop/comparison-virtual-desktop-remote-desktop">Windows Virtual Desktop and Remote Desktop Services comparison</a>
 - title: Step-by-Step Tutorials
   items:
   - type: paragraph

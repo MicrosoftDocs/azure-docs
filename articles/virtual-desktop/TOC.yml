@@ -4,8 +4,6 @@
   items:
   - name: What is Windows Virtual Desktop?
     href: overview.md
-  - name: Comparison with Remote Desktop Services
-    href: comparison-virtual-desktop-remote-desktop.md
 
 - name: Tutorials
   items:
