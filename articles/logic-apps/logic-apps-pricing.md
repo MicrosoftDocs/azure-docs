@@ -7,6 +7,7 @@ ms.suite: logic-apps
 author: kevinlam1
 ms.author: klam
 ms.reviewer: estfan, LADocs
+manager: carmonm
 ms.assetid: f8f528f5-51c5-4006-b571-54ef74532f32
 ms.topic: article
 ms.date: 10/16/2018
@@ -75,9 +76,11 @@ For example, you can set up a recurrence trigger that runs every three days or o
 
 ## Actions
 
-Logic Apps meters built-in actions, such as HTTP calls, Azure Functions, and API Management, 
-and control flow steps, as native actions, which have their own action types. Actions that 
-call [connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. 
+Logic Apps meters built-in actions as native actions. For example, 
+built-in actions include calls over HTTP, calls from Azure Functions 
+or API Management, and control flow steps such as loops and conditions 
+- each with their own action type. Actions that call 
+[connectors](https://docs.microsoft.com/connectors) have the "ApiConnection" type. 
 These connectors are classified as standard or enterprise connectors, 
 which are metered based on their respective [pricing][pricing]. 
 Enterprise connectors in *Preview* are charged as standard connectors.
@@ -95,10 +98,10 @@ because they can't create new instances.
 > After you disable a logic app, any currently running instances 
 > might take some time before they completely stop.
 
-Actions that run inside loops are counted per each cycle in the loop. 
-For example, Logic Apps meters an action in a "for each" loop that 
-processes a list by multiplying the number of list items by the number 
-of actions in the loop plus the action that starts the loop. 
+For actions that run inside loops, Logic Apps counts each action per cycle in the loop. 
+For example, suppose you have a "for each" loop that processes a list. 
+Logic Apps meters an action in that loop by multiplying the number of list items 
+with the number of actions in the loop, and adds the action that starts the loop. 
 The calculation for a 10-item list is (10 * 1) + 1, which results in 11 action executions.
 
 ## Integration Account usage
@@ -111,8 +114,8 @@ where you can explore, develop, and test the
 features in Logic Apps at no additional cost. You can have 
 one integration account per region. Each integration account 
 can store up to specific [numbers of artifacts](../logic-apps/logic-apps-limits-and-config.md), 
-such as trading partners, agreements, maps, schemas, 
-assemblies, certificates, and batch configurations.
+which include trading partners, agreements, maps, schemas, 
+assemblies, certificates, batch configurations, and so on.
 
 Logic Apps also offers basic and standard integration accounts with supported Logic Apps SLA. 
 You can use basic integration accounts when you just want message handling or act as a small 
