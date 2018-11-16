@@ -78,7 +78,7 @@ You can clone your Git repository in your favorite IDE.  In the next few steps, 
 
 1. On the left of the browser, go to the **Views/Home/index.cshtml** file.
 
-1. Select **Edit**, and then make a change to the h2 heading. For example, type **Get started right away with the Azure DevOps Project** or make some other change.
+1. Select **Edit**, and then make a change to the h2 heading. For example, type **Get started right away with the Azure DevOps Projects** or make some other change.
 
     ![Code edits](_img/azure-devops-project-aspnet-core/codechange.png)
 
@@ -110,7 +110,7 @@ This link opens a browser tab and the Azure DevOps build pipeline for your new p
 In the **History** pane, you see an audit trail of your recent changes for the build.  Azure Pipelines keeps track of any changes that are made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
-DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
+DevOps Projects automatically created a CI trigger, and every commit to the repository starts a new build.  You can optionally choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  
 Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
