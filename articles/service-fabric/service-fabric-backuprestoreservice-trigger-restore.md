@@ -20,32 +20,35 @@ ms.author: aagup
 
 #  Restoring Backup in Azure Service Fabric
 
-> [!div class="op_single_selector"]
-> * [Clusters on Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
-> * [Standalone Clusters](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)
-> 
 
-Service Fabric is a distributed systems platform that makes it easy to develop and manage reliable, distributed, microservices based cloud applications. It allows running of both stateless and stateful micro services. Stateful services can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a Stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to some recent backup of its state in order to continue providing service after it comes back up.
+Reliable Stateful services in Service Fabric can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to latest acceptable backup of its state in order to continue providing service after it comes back.
 
-For example, service may want to back up its data in order to protect from the following scenarios:
+For example, service may want to backup its data in order to protect from the following scenarios:
 
-- In the event of the permanent loss of an entire Service Fabric cluster. **(Case of Disaster Recovery)**
-- Permanent loss of a majority of the replicas of a service partition. **(Case of Data Loss)**
-- Administrative errors whereby the state accidentally gets deleted or corrupted. For example, an administrator with sufficient privilege erroneously deletes the service.**(Case of Data Corruption)**
-- Bugs in the service that cause data corruption. For example, data corruption may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state. **(Case of Data Corruption)**
+- In the event of the permanent loss of an entire Service Fabric cluster. **(Case of Disaster Recovery - DR )**
+- Permanent loss of a majority of the replicas of a service partition. **(Case of data loss)**
+- Administrative errors whereby the state accidentally gets deleted or corrupted. For example, an administrator with sufficient privilege erroneously deletes the service.**(Case of data loss)**
+- Bugs in the service that cause data corruption. For example, data corruption may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state. **(Case of data corruption)**
 
 
 ## Prerequisites
-* To trigger, restore the Fault Analysis Service (FAS) should be enabled on cluster
-* The backup for restore should be taken by Backup Restore Service (BRS)
-* The restore can be requested partition by partition. 
+* To trigger, restore the Fault Analysis Service (FAS) should be enabled for cluster
+* The backup to be restore should be taken by Backup Restore Service (BRS)
+* The restore can only be triggered at a partition. 
 
 The restore can be for any of the following scenarios 
+1. On-Demand Restore - The Case of Disaster Recovery (DR).
+2. On-Demand Restore  - The case of data loss / corruption.
+3. Auto Restore
+
 
 ## On-Demand Restore - The Case of Disaster Recovery (DR)
-In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to a backup cluster. The desired backup can be selected from enumeration of GetBackupAPI with Backup Storage Details. The Backup Enumeration can be for an application, service, or partition.
+In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with Backup Storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
 
-Execute following PowerShell script to invoke the HTTP API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster.
+Lets assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors, which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
+
+
+Execute following PowerShell script to invoke the REST API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster.
 The enumeration API requires storage for enumeration and the service fabric entity it is trying to enumerate.
 
 ```powershell
@@ -131,12 +134,13 @@ FailureError            :
 ```
 
 For the restore API, we need to provide the __BackupId__ and __BackupLocation__ Details. 
-The partition information for the backup cluster is mapped to the original cluster. 
-The partition in backup cluster is chosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). 
+The partition in alternate cluster is chosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). It's the user responsibility to chose target partition to restore the backup from the alternate cluster as per the partition scheme in original lost cluster.
 
-The partition id on Backup Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6, which maps to the original cluster partition ID 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the high key and low key for Ranged partitioning (UniformInt64Partition), name for NamedPartitioning.
+The partition ID on alternate Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6, which maps to the original cluster partition ID 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the high key and low key for Ranged partitioning (UniformInt64Partition).
 
-The restore is requested against partition of backup cluster by the following Restore API 
+In case of Named Partitioning, the name value is compared to identify the target partition in alternate cluster.
+
+The restore is requested against partition of backup cluster by the following [Restore API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
 
 ```powershell 
 $RestorePartitionReference = @{ 
@@ -190,12 +194,6 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 The progress of the restore can be [TrackRestoreProgress](service-fabric-backuprestoreservice-trigger-restore.md#tracking-restore-progress)
 
 
-## Auto Restore
-
- The partitions for the Reliable Service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore, while enabling the Backup Policy the partition can be hooked up with the policy that has the Auto Restore Enabled which automatically restore the reliable collection data of the partition to the latest backup if Data Loss is reported for the partition.
- 
- [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
-
 ## Tracking Restore Progress
 
 A partition of a Reliable Service and Reliable Actor accepts only one restore request at a time. Another request can be accepted only when the current restore request has completed. Multiple restore requests can be triggered on different partitions at a same time.
@@ -209,14 +207,13 @@ $restoreResponse = (ConvertFrom-Json $response.Content)
 $restoreResponse 
 ```
 
-
 The restore request following the following order
 
-1. __Accepted__  - Signifies the restore request is accepted. The restore requested has been triggered with correct request.
-2. __InProgress__ - The Data Loss has been initiated on the partition and partition will undergo a restore now.
+1. __Accepted__  - Signifies the restore request is accepted. The restore requested has been triggered with correct request parameters.
+2. __InProgress__ - The partition will undergo a restore by initiating data loss on the partition and triggering restore with the backup mentioned in request.
 3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following states. Each state has the following significance and response details.
        
-    1. __Success__ - The restore state as Success corresponds to the Partition state is regained. The response will provide RestoreEpoch and RestordLSN for the Partition along with the time in UTC. 
+    1. __Success__ - The restore state as Success corresponds to the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the Partition along with the time in UTC. 
     
         ```
         RestoreState    Success        
@@ -228,7 +225,7 @@ The restore request following the following order
  
     2. __Failure__ - The restore state as Failure symbolizes the failure of the restore request. The cause of the failure will be stated in request.
      
-    3. __Timeout__ - The restore state as TimeOut symbolizes that default timeout of 10 minutes wasn’t enough to complete restore. The state of the partition is unknown. Initiating a new restore request with greater timeout in Restore Request will be the correct way to restore partition. 
+    3. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. The state of partition is uncertain. Initiating a new restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in restore request will be the correct way to restore partition. The timeout can be stated in restore request, that defaults to 10 minutes. Before initiating a new restore request, it is advised to make sure that the partition has completed the data loss
      
         ```
         RestoreState    Timeout
@@ -237,7 +234,14 @@ The restore request following the following order
         ```
 
 
-[RestorePartition API reference](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-restorepartition)
+## Auto restore
+
+ The partitions for the Reliable Stateful service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. When enabling the Backup Policy for the partition the policy can have Auto Restore set to True.  Enabling Auto restore for partition restore the data to latest backup if data loss is reported.
+ 
+ [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
+
+
+[RestorePartition API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
 [GetPartitionRestoreProgress API reference](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## Next steps
