@@ -587,7 +587,7 @@
           href: service-fabric-cluster-programmatic-scaling.md
         - name: Virtual Machine Scale Set Node Type scale out
           href: virtual-machine-scale-set-scale-node-type-scale-out.md
-      - name: Update
+      - name: Upgrade
         items:
         - name: Upgrade the Service Fabric version 
           href: service-fabric-cluster-upgrade-version-azure.md    
@@ -623,7 +623,7 @@
           href: service-fabric-cluster-standalone-package-contents.md
       - name: Scale
         href: service-fabric-cluster-windows-server-add-remove-nodes.md                   
-      - name: Update
+      - name: Upgrade
         items:
         - name: Upgrade the Service Fabric version
           href: service-fabric-cluster-upgrade-windows-server.md
