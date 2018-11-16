@@ -118,6 +118,10 @@ A backup policy consists of the following configurations:
             }
             ```
 
+> [!NOTE]
+> Ensure that the storage reliability meets or exceeds reliability requirements of backup data.
+>
+
 * **Retention Policy**: Specifies the policy to retain backups in the configured storage. Only Basic Retention Policy is supported.
     1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. `RetentionDuration` can be specified to set the time span for which backups are required to be retained in the storage. `MinimumNumberOfBackups` is an optional parameter that can be specified to make sure that the specified number of backups are always retained irrespective of the `RetentionDuration`. Below example illustrates the configuration to retain backups for _10_ days and does not allow number of backups to go below _20_.
 
@@ -128,11 +132,7 @@ A backup policy consists of the following configurations:
             "MinimumNumberOfBackups": 20
         }
         ```
-
-> [!NOTE]
-> Ensure that the storage reliability meets or exceeds reliability requirements of backup data.
->
-
+        
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
 
