@@ -34,7 +34,7 @@ ms.author: magoedte
                                     <li>
                                         <ul class="cardsB panelContent" id="cardtypes-B" style="float: left; display: flex; width: 100%;">
                                             <li>
-                                                <a href="">
+                                                
                                                     <div class="cardSize">
                                                         <div class="cardPadding">
                                                             <div class="card">
@@ -55,10 +55,10 @@ ms.author: magoedte
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                
                                             </li>
                                             <li>
-                                                <a href="">
+                                                
                                                     <div class="cardSize">
                                                         <div class="cardPadding">
                                                             <div class="card">
@@ -73,7 +73,7 @@ ms.author: magoedte
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </a>
+                                                
                                             </li>
 										</ul>
                                     </li>
