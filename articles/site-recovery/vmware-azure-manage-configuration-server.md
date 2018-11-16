@@ -218,6 +218,13 @@ For configuration server deployments before May 2016, certificate expiry was set
 2. The expiry date appears under **Configuration Server health**.
 3. Select **Renew Certificates**.
 
+## Refresh Configuration server
+
+1. In the Azure portal, navigate to **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **For VMware & Physical machines** > **Configuration Servers**
+2. Click on the configuration server you wish to refresh.
+3. On the blade with details of chosen configuration server, click **More** > **Refresh Server**.
+4. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
+
 ## Update Windows licence
 
 The licence provided with the OVF template is an evaluation licence valid for 180 days. For uninterrupted usage, you must activate Windows with a procured licence.
