@@ -63,7 +63,7 @@ To reset network interface, follow these steps:
     #Add/Change static IP. This process will not change MAC address
     Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
-3. Try to RDP to your machine.If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it. 
+3. Try to RDP to your machine. If successful, you can change the Private IP address back to the original if you would like. Otherwise, you can keep it. 
 
 ### For VMs deployed in Resource group model
 
