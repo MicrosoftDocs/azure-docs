@@ -20,7 +20,7 @@ In Azure Cosmos DB, provisioned throughput is represented as request units/secon
 
 You can provision RUs on a Cosmos container or a Cosmos database. RUs provisioned on a container are exclusively available for operations performed on that container. RUs provisioned on a database are shared among all the containers within that database (except for any containers with exclusively assigned RUs).
 
-For elastically scaling throughput, you can increase or decrease the provisioned RU/s at any time. For more information, see [How-to provision throughput](set-throughput.md) and elastically scale Cosmos containers and databases. For globally scaling throughput, you can add or remove regions on your Cosmos account at any time. For more information, see [How-to add or remove regions to your Cosmos account](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associating multiple regions with a Cosmos account is important in many scenarios to achieve low latency and [high availability](high-availability.md) around the world.
+For elastically scaling throughput, you can increase or decrease the provisioned RU/s at any time. For more information, see [How-to provision throughput](set-throughput.md) and elastically scale Cosmos containers and databases. For globally scaling throughput, you can add or remove regions on your Cosmos account at any time. For more information, see [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account). Associating multiple regions with a Cosmos account is important in many scenarios to achieve low latency and [high availability](high-availability.md) around the world.
 
 ## how provisioned throughput is distributed across regions
 

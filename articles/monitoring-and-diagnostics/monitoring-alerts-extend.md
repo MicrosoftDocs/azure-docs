@@ -49,10 +49,10 @@ When you attempt to edit an existing alert or create a new alert in the Operatio
 > Ensure that the permissions assigned to individuals who need to add or edit alerts are properly assigned in Azure. To understand what permissions you need to grant, see [permissions for using Azure Monitor and Alerts](monitoring-roles-permissions-security.md).  
 > 
 
-You can continue to create alerts from the [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) and [Log Analytics Resource Template](../monitoring/monitoring-solutions-resources-searches-alerts.md). You must include action groups when you do so.
+You can continue to create alerts from the [Log Analytics API](../log-analytics/log-analytics-api-alerts.md) and [Log Analytics Resource Template](../azure-monitor/insights/solutions-resources-searches-alerts.md). You must include action groups when you do so.
 
 ## Next steps
 
 * Learn about the tools to [initiate extending alerts from Log Analytics into Azure](monitoring-alerts-extend-tool.md).
-* Learn more about the [Azure Alerts experience](monitoring-overview-unified-alerts.md).
+* Learn more about the [Azure Alerts experience](monitoring-overview-alerts.md).
 * Learn how to create [log alerts in Azure Alerts](monitor-alerts-unified-log.md).

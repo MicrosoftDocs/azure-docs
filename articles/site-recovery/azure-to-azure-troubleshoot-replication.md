@@ -52,12 +52,6 @@ Premium P10 or P15 disk | 32 KB or greater | 8 MB/s | 672 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 8 KB	| 5 MB/s | 421 GB per disk
 Premium P20 or P30 or P40 or P50 disk | 16 KB or greater |10 MB/s | 842 GB per disk
 
-
-**Source data churn** | **Maximium limit**
----|---
-Average data churn per VM| 25 MB/s
-Peak data churn across all disks on a VM | 54 MB/s
-
 ### Solution
 We must understand that Azure Site Recovery has data change rate limits based on the type of disk. To know if this issue is recurring or momentarily, it is important to find the data change rate  pattern  of the affected  virtual machine.
 To find the  data change rate of the affected virtual machine. Go to the source virtual machine> metrics under Monitoring and add the metrics as shown below.
