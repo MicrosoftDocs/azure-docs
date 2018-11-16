@@ -1,6 +1,6 @@
 ---
-title: Delegated access in Windows Virtual Desktop - Windows Virtual Desktop
-description: How to delegate administrative capabilities on a Winows Virtual Desktop deployment, including examples.
+title: Delegated access in Windows Virtual Desktop - Azure
+description: How to delegate administrative capabilities on a Windows Virtual Desktop deployment, including examples.
 services: virtual-desktop
 author: Heidilohr
 
@@ -11,7 +11,9 @@ ms.author: helohr
 ---
 # Delegated access in Windows Virtual Desktop
 
-The Windows Virtual Desktop delegated access model is based on the Azure RBAC model. You can grant users access by assigning them roles. A role assignment has three components: service principal, role definition, and scope. To learn more about specific role assignments and their components, see [the overview of Azure role-based access control](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles). Windows Virtual Desktop delegated access supports the following values for each element of the role assignment:
+Windows Virtual Desktop has a delegated access model that lets you define the amount of access a particular user is allowed to have by assigning them a role. A role assignment has three components: service principal, role definition, and scope. The Windows Virtual Desktop delegated access model is based on the Azure RBAC model. To learn more about specific role assignments and their components, see [the Azure role-based access control overview](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+
+Windows Virtual Desktop delegated access supports the following values for each element of the role assignment:
 
 * Security principal
     * Users
@@ -26,7 +28,7 @@ The Windows Virtual Desktop delegated access model is based on the Azure RBAC mo
 
 ## Built-in roles
 
-Delegated acces in Windows Virtual Desktop has several built-in role definitions you can assign to users and service principals.
+Delegated access in Windows Virtual Desktop has several built-in role definitions you can assign to users and service principals.
 
 * An RDS Owner can manage everything, including access to resources.
 * An RDS Contributor can manage everything but access to resources.
@@ -59,4 +61,4 @@ You can modify the basic three cmdlets with the following parameters:
 
 For a more complete list of PowerShell cmdlets each role can use, see [PowerShell cmdlets](powershell-cmdlet-table.md).
 
-For guidelines for how to set up a Windows Virtual Desktop environment, see [Set up a Windows Virtual Desktop environment](set-up-wvd-environment.md).
+For guidelines for how to set up a Windows Virtual Desktop environment, see [Set up a Windows Virtual Desktop environment](environment-setup.md).

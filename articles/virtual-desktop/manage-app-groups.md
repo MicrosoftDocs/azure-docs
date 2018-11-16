@@ -1,5 +1,5 @@
 ---
-title: Manage app groups for Windows Virtual Desktop - Windows Virtual Desktop
+title: Manage app groups for Windows Virtual Desktop - Azure
 description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr

@@ -1,5 +1,5 @@
 ---
-title: What is Windows Virtual Desktop?
+title: What is Windows Virtual Desktop? - Azure
 description: An overview of Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -70,6 +70,4 @@ Once their Windows Virtual Desktop accounts are set up, users can connect to a W
 
 ## Next steps
 
-To learn how to set up a tenant, see either Set up Windows Virutal Desktop tenants in Active Directory or Connect Windows Virtual Desktop to a Remote Desktop environment.
-
-To access the web client, etc.
+To learn how to set up a tenant, see either [Set up Windows Virutal Desktop tenants in Active Directory](tenant-setup-azure-active-directory.md) or [Connect Windows Virtual Desktop to a Remote Desktop environment](connect.md).

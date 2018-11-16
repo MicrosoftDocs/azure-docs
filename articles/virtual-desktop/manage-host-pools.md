@@ -1,5 +1,5 @@
 ---
-title: Create a host pool for Windows Virtual Desktop - Windows Virtual Desktop
+title: Create a host pool for Windows Virtual Desktop - Azure
 description: How to create a host pool for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -10,6 +10,8 @@ ms.date: 10/25/2018
 ms.author: helohr
 ---
 # Create a host pool for Windows Virtual Desktop
+
+After you've created a tenant, you'll need to create a host pool for the virtual machines your Windows Virtual Desktop environment will use. The following instructions will tell you how to do that through Azure Marketplace.
 
 >[!NOTE]
 >Windows Virtual Desktop Marketplace offerings are hidden by default. You must send your subscription ID to Microsoft to whitelist your subscription before you can complete this section’s instructions.

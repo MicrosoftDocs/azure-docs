@@ -1,5 +1,5 @@
 ---
-title: Manage user storage in Windows Virtual Desktop - Windows Virtual Desktop
+title: Manage user storage in Windows Virtual Desktop - Azure
 description: How to manage file shares for virtual machines in Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
@@ -10,6 +10,15 @@ ms.date: 10/25/2018
 ms.author: helohr
 ---
 # Manage user storage in Windows Virtual Desktop
+
+After creating the host pools, you'll need to manage user storage in the Windows Virtual Desktop environment. You can do this by setting up virtual machines (VMs) as file shares.
+
+In this tutorial, you'll learn how to:
+
+> [!div class="checklist"]
+> * Create a VM that will act as a file share.
+> * Prepare the VM to act as a file share for the User Profile Disk.
+> * Enable the host pool to use the file share.
 
 ## Create a new VM that will act as a file share
 

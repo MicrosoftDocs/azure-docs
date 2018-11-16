@@ -1,5 +1,5 @@
 ---
-title: Windows Virtual Desktop and Remote Desktop Services comparison
+title: Windows Virtual Desktop and Remote Desktop Services comparison - Azure
 description: A comparison between Windows Virtual Desktop and Remote Desktop Services.
 services: virtual-desktop
 author: Heidilohr
@@ -34,10 +34,10 @@ When is it better to use Windows Virtual Desktop or Remote Desktop Services?
 
 ## Next steps
 
-For more information about Windows Virtual Desktop, see [Set up a Windows Virtual Desktop environment](set-up-wvd-environment.md).
+For more information about Windows Virtual Desktop, see [Set up a Windows Virtual Desktop environment](environment-setup.md).
 
 To get started with Windows Virtual Desktop, see the following resources:
 
-* [Set up Windows Virtual Desktop tenants](set-up-wvd-tenants-in-azure-active-directory.md)
+* [Set up Windows Virtual Desktop tenants](tenant-setup-azure-active-directory.md)
 * [Create a host pool in Windows Virtual Desktop](manage-host-pools.md)
-* [Connect to Windows Virtual Desktop](connect-to-windows-virtual-desktop.md)
+* [Connect to Windows Virtual Desktop](connect.md)

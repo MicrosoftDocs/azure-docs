@@ -3,34 +3,34 @@
 - name: Overview
   items:
   - name: What is Windows Virtual Desktop?
-    href: windows-virtual-desktop-overview.md
+    href: overview.md
   - name: Comparison with Remote Desktop Services
-    href: wvd-and-rds-comparison.md
+    href: comparison-virtual-desktop-remote-desktop.md
 
 - name: Tutorials
   items:
   - name: Set up Windows Virtual Desktop tenants
-    href: set-up-wvd-tenants-in-azure-active-directory.md
+    href: tenant-setup-azure-active-directory.md
   - name: Create a host pool in Windows Virtual Desktop
     href: manage-host-pools.md
   - name: Connect to Windows Virtual Desktop
-    href: connect-to-windows-virtual-desktop.md
+    href: connect.md
   - name: Manage app groups
-    href: manage-app-groups-for-wvd.md
+    href: manage-app-groups.md
   - name: Manage user storage
     href: manage-user-storage.md
 - name: How-to
   items:
   - name: Connect to a Remote Desktop environment
-    href: set-up-wvd-tenants-in-rd.md
+    href: tenant-setup-remote-desktop.md
 - name: Concepts
   items:
   - name: Windows Virtual Desktop environment
-    href: set-up-wvd-environment.md
+    href: environment-setup.md
   - name: Introducing the new diagnostics role service
-    href: introducing-the-new-diagnostics-role-service.md
+    href: diagnostics-role-service-introduction.md
   - name: Delegated access in Windows Virtual Desktop
-    href: delegated-access-windows-virtual-desktop.md
+    href: delegated-access-virtual-desktop.md
 - name: Reference
   items:
   - name: PowerShell cmdlets

@@ -1,5 +1,5 @@
 ---
-title: Set up Windows Virtual Desktop tenants in Azure Active Directory - Windows Virtual Desktop
+title: Set up Windows Virtual Desktop tenants in Azure Active Directory - Azure
 description: Describes how to set up Windows Virtual Desktop tenants in Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
@@ -94,4 +94,4 @@ Now that the Windows Virtual Desktop service has permissions to query your Azure
 
 Once you've created your tenant, you'll need to [make a host pool](manage-host-pools.md).
 
-Need help learning how to publish RemoteApps and manage assignments? Check out [Manage app groups for Windows Virtual Desktop](manage-app-groups-for-wvd.md).
+Need help learning how to publish RemoteApps and manage assignments? Check out [Manage app groups for Windows Virtual Desktop](manage-app-groups.md).
