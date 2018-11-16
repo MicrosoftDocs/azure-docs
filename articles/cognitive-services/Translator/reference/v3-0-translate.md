@@ -110,9 +110,7 @@ Request headers include:
   </tr>
   <tr>
     <td>X-MT-System</td>
-    <td>*Optional*.<br/>Specifies the system type that was used for translation for each ‘to’ language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:<br/>
-* Custom -  Request includes a custom system and at least one custom system was used during translation.
-* Team - All other requests
+    <td>*Optional*.<br/>Specifies the system type that was used for translation for each ‘to’ language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:<br/><ul><li>Custom -  Request includes a custom system and at least one custom system was used during translation.</li><li>Team - All other requests</li></ul>
 </td>
   </tr>
 </table> 
