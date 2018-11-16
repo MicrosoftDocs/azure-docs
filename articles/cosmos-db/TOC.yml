@@ -151,7 +151,7 @@
           href: access-secrets-from-keyvault.md
     - name: Enterprise readiness 
       items:
-      - name: Backups and on-demand restore
+      - name: Online backup and restore
         href: online-backup-and-restore.md
     - name: Prepay for reserved capacity
       href: cosmos-db-reserved-capacity.md
@@ -450,7 +450,7 @@
         href: how-to-configure-vnet-service-endpoint.md
     - name: Enterprise readiness 
       items:
-      - name: Restore data from backup
+      - name: Restore data from a backup
         href: how-to-backup-and-restore.md
     - name : Manage
       items:
