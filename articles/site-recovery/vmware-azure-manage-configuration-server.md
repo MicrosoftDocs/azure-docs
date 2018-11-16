@@ -225,9 +225,9 @@ For configuration server deployments before May 2016, certificate expiry was set
 3. On the blade with details of chosen configuration server, click **More** > **Refresh Server**.
 4. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
 
-## Update Windows licence
+## Update Windows license
 
-The licence provided with the OVF template is an evaluation licence valid for 180 days. For uninterrupted usage, you must activate Windows with a procured licence.
+The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license.
 
 ## Failback requirements
 
