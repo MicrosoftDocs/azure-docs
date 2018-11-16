@@ -7,7 +7,7 @@ manager: jeconnoc
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 11/16/2018
 ms.author: danlep
 ---
 
