@@ -51,30 +51,18 @@ ms.author: magoedte
                                                             <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
                                                         </p>
+														<br><br>
+														<p>
+                                                            <a href="/azure/log-analytics/log-analytics-data-security">Log data</a><br/>
+                                                            <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
+                                                            <a href="/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security">Role permissions and security</a><br/>
+                                                        </p>
                                                    </div>
                                                  </div>
                                               </div>
                                             </div>
                                         </a>
                                    </li>
-                                   <li>
-                                        <div class="cardSize">
-                                            <div class="cardPadding">
-                                                <div class="card">
-                                                    <div class="cardText style="padding-left: 0px">
-                                                        <h3>Data security</h3>
-                                                        <p>
-                                                            <a href="/azure/log-analytics/log-analytics-data-security">Log data</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
-                                                            <a href="/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security">Role permissions and security</a><br/>
-                                                        </p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                               </ul>
-                            </li>
                             <li>
         <div class="cardSize">
             <div class="cardPadding">
