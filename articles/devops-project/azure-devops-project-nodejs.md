@@ -1,5 +1,5 @@
 ---
-title: 'Quickstart: Create a CI/CD pipeline for  Node.js with Azure DevOps Projects | Quickstart
+title: 'Quickstart: Create a CI/CD pipeline for  Node.js with Azure DevOps Projects' | Quickstart
 description: DevOps Projects makes it easy to get started on Azure. It helps you launch an app on an Azure service of your choice in few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
@@ -41,7 +41,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a  n
 1. Select the Node.js sample application.  
 	The Node.js samples include a choice of several application frameworks.
 
-1. The default sample framework is Express.js. Leave the default setting, and choose **Next**.  
+1. The default sample framework is Express.js. Leave the default setting, and then select **Next**.  
 	**Web App on Windows** is the default deployment target.  The application framework, which you chose previously, dictates the type of Azure service deployment target available here.  
 
 2. Leave the default service, and then select **Next**.
@@ -73,7 +73,7 @@ This link opens a view to the newly created Git repository.
 
 1. On the left side of the browser, go to the **views/index.pug** file.
 
-1. Select **Edit**, and make a change to the h2 heading.  
+1. Select **Edit**, and then make a change to the h2 heading.  
 	For example, type **Get started right away with the Azure DevOps Project** or make some other change.
 
 1. Select **Commit**, and then save your changes.
@@ -145,7 +145,7 @@ You can delete Azure App Service and other related resources that you created wh
 
 ## Next steps
 
-When you configured your CI/CD process in this quickstart, a build and release pipeline were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
+When you configured your CI/CD process, build and release pipelines were automatically created. You can modify these build and release pipelines to meet the needs of your team. To learn more about the CI/CD pipeline, see:
 
 > [!div class="nextstepaction"]
 > [Customize CD process](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
