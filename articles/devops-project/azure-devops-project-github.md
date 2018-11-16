@@ -33,6 +33,7 @@ You will:
 > * Commit changes to GitHub and automatically deploy them to Azure
 > * Examine the Azure Pipelines CI/CD pipeline
 > * Configure Azure Application Insights monitoring
+> * Clean up resources
 
 ## Prerequisites
 
@@ -195,6 +196,7 @@ When you configured your CI/CD process in this tutorial, a build and release pip
 > * Commit changes to GitHub and automatically deploy them to Azure
 > * Examine the Azure Pipelines CI/CD pipeline
 > * Configure Azure Application Insights monitoring
+> * Clean up resources
 
 To learn more about the CI/CD pipeline, see:
 
