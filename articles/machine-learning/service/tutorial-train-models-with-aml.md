@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: hning86
 ms.author: haining
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 11/16/2018
 #Customer intent: As a professional data scientist, I can build an image classification model with Azure Machine Learning using Python in a Jupyter notebook.
 ---
 
@@ -39,7 +39,7 @@ For your convenience, this tutorial is available as a [Jupyter notebook](https:/
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-in-azure-notebook.md)]
 
 >[!NOTE]
-> This tutorial was tested with Azure Machine Learning SDK version 0.168 
+> This tutorial was tested with Azure Machine Learning SDK version 0.1.74 
 
 ## Set up your development environment
 
@@ -79,7 +79,7 @@ print(ws.name, ws.location, ws.resource_group, ws.location, sep = '\t')
 
 ### Create experiment
 
-Create an experiment to track the runs in your workspace. A workspace can have muliple experiments. 
+Create an experiment to track the runs in your workspace. A workspace can have multiple experiments. 
 
 ```python
 experiment_name = 'sklearn-mnist'
