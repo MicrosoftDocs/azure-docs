@@ -1,4 +1,4 @@
-﻿---
+---
 
 title: Azure Operational Security best practices| Microsoft Docs
 description: This article provides a set of best practices for Azure Operational Security.
@@ -66,18 +66,18 @@ The following are best practices for network monitoring and available tools.
 Use the following DevOps best practices to ensure that your enterprise and teams are productive and efficient.
 
 **Best practice**: Automate the build and deployment of services.  
-**Detail**: [Infrastructure as code](https://docs.microsoft.com/en-us/azure/devops/learn/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
+**Detail**: [Infrastructure as code](https://docs.microsoft.com/azure/devops/learn/what-is-infrastructure-as-code) is a set of techniques and practices that help IT pros remove the burden of day-to-day build and management of modular infrastructure. It enables IT pros to build and maintain their modern server environment in a way that’s like how software developers build and maintain application code.
 
 You can use [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) to provision your applications by using a declarative template. In a single template, you can deploy multiple services along with their dependencies. You use the same template to repeatedly deploy your application in every stage of the application lifecycle.
 
 **Best practice**: Automatically build and deploy to Azure web apps or cloud services.  
-**Detail**: You can use Azure Pipelines to [automatically build and deploy](https://docs.microsoft.com/en-us/azure/devops/pipelines/index?view=vsts) to Azure web apps or cloud services. Azure Pipelines automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
+**Detail**: You can use Azure Pipelines to [automatically build and deploy](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) to Azure web apps or cloud services. Azure Pipelines automatically deploys the binaries after doing a build to Azure after every code check-in. The package build process is equivalent to the Package command in Visual Studio, and the publishing steps are equivalent to the Publish command in Visual Studio.
 
 **Best practice**: Use continuous deployment.  
-**Detail**: [Azure Pipelines](https://docs.microsoft.com/en-us/azure/devops/pipelines/index?view=vsts) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Azure Pipelines, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
+**Detail**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?view=vsts) is a solution for automating multiple-stage deployment and managing the release process. Create managed continuous deployment pipelines to release quickly, easily, and often. With Azure Pipelines, you can automate your release process, and you can have predefined approval workflows. Deploy on-premises and to the cloud, extend, and customize as required.
 
 **Best practice**: Check your app's performance before you launch it or deploy updates to production.  
-**Detail**: Run cloud-based [load tests](https://docs.microsoft.com/en-us/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) by using Azure Test Plans to:
+**Detail**: Run cloud-based [load tests](https://docs.microsoft.com/azure/devops/test/load-test/app-service-web-app-performance-test?view=vsts) by using Azure Test Plans to:
 
 - Find performance problems in your app.
 - Improve deployment quality.
