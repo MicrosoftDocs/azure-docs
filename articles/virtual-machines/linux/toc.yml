@@ -400,7 +400,7 @@
       - name: Architecture
         href: ibm-db2-purescale-azure.md
       - name: Deployment
-        href: deploy-ibm-db2-pureScale-azure.md
+        href: deploy-ibm-db2-purescale-azure.md
   - name: Manage storage
     items:
     - name: Disks FAQs
