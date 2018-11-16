@@ -170,7 +170,7 @@
       href: https://azure.microsoft.com/global-infrastructure/services/
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: Pricing
+    - name: Throttling limits
       href: throttling-limits.md
     - name: UserVoice
       href: https://cognitive.uservoice.com/forums/558796-translator
