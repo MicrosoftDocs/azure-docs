@@ -186,19 +186,9 @@ Using sysprep on a server which has the Azure File Sync agent installed is not s
 If cloud tiering is enabled on a server endpoint, files that are tiered are skipped and not indexed by Windows Search. Non-tiered files are indexed properly.
 
 ### Antivirus solutions
-Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. Because tiered files have the "offline" attribute set, we recommend consulting with your software vendor to learn how to configure their solution to skip reading offline files. 
+Because antivirus works by scanning files for known malicious code, an antivirus product might cause the recall of tiered files. In versions 4.0 and above of the Azure File Sync agent, tiered files have the secure Windows attribute FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS set. We recommend consulting with your software vendor to learn how to configure their solution to skip reading files with this attribute set (many do it automatically).
 
-The following solutions are known to support skipping offline files:
-
-- [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - Windows Defender automatically skips reading files that have the offline attribute set. We have tested Defender and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
-- [System Center Endpoint Protection (SCEP)](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)
-    - SCEP works the same as Defender; see above
-- [Symantec Endpoint Protection](https://support.symantec.com/en_US/article.tech173752.html)
-- [McAfee EndPoint Security](https://kc.mcafee.com/resources/sites/MCAFEE/content/live/PRODUCT_DOCUMENTATION/26000/PD26799/en_US/ens_1050_help_0-00_en-us.pdf) (see "Scan only what you need to" on page 90 of the PDF)
-- [Kaspersky Anti-Virus](https://support.kaspersky.com/4684)
-- [Sophos Endpoint Protection](https://community.sophos.com/kb/en-us/40102)
-- [TrendMicro OfficeScan](https://success.trendmicro.com/solution/1114377-preventing-performance-or-backup-and-restore-issues-when-using-commvault-software-with-osce-11-0#collapseTwo) 
+Microsoft's in-house antivirus solutions, Windows Defender and System Center Endpoint Protection (SCEP), both automatically skip reading files that have this attribute set. We have tested them and identified one minor issue: when you add a server to an existing sync group, files smaller than 800 bytes are recalled (downloaded) on the new server. These files will remain on the new server and will not be tiered since they do not meet the tiering size requirement (>64kb).
 
 ### Backup solutions
 Like antivirus solutions, backup solutions might cause the recall of tiered files. We recommend using a cloud backup solution to back up the Azure file share instead of an on-premises backup product.

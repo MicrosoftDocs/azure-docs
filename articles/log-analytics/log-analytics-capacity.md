@@ -59,7 +59,7 @@ The following table describes the connected sources that are supported by this s
 
 Perform the following step to add the Capacity and Performance solution to your workspace.
 
-- Add the Capacity and Performance solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+- Add the Capacity and Performance solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 
 ## Management packs
 
