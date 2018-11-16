@@ -42,7 +42,7 @@ Translator Text has a maximum latency of 13 seconds. By this time you'll have re
 
 ## Sentence length limits
 
-When using the [BreakSentence](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/reference/v3-0-break-sentence) function, sentence length is limited to 275 characters. There are exceptions for these languages:
+When using the [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) function, sentence length is limited to 275 characters. There are exceptions for these languages:
 
 | Language | Code | Character limit |
 |----------|------|-----------------|
