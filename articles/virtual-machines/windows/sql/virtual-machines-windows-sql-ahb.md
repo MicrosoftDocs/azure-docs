@@ -27,13 +27,17 @@ The BYOL model is also known as the Azure Hybrid Benefit, and it allows you to u
 
 
 ## Register legacy SQL VM with new SQL VM resource provider
-The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register your legacy VM with the new SQL VM resource provider. To register your SQL VM with the provider, use the following code. 
+The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first register the new provider to your subscription, and then register your legacy VM with the new SQL VM resource provider. To register your SQL VM with the provider, use the following code. 
 
 ```powershell
-$vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>​
+# Register the new SQL resource provider
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
+
+# Register your legacy SQL VM with the new resource provider
 # example: $vm=Get-AzureRmVm -ResourceGroupName AHBTest -Name AHBTest​
 
-New-AzureRmResource -ResourceName $vm.Name ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id} ​
+$vm=Get-AzureRmVm -ResourceGroupName <ResourceGroupName> -Name <VMName>​
+New-AzureRmResource -ResourceName $vm.Name ResourceGroupName $vm.ResourceGroupName -Location $vm.Location -ResourceType Microsoft.SqlVirtualMachine/sqlVirtualMachines -Properties @{virtualMachineResourceId=$vm.Id}
 ```
 
   >[!IMPORTANT]
@@ -44,16 +48,16 @@ The following code examples show how to use Powershell to change your licensing 
 
 This code snippet switches your pay-per-usage license model to BYOL (or using Azure Hybrid Benefit): 
 ```powershell
-$SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_grou_name> -ResourceName <VM_name>
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
+$SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_grou_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="AHUB"
 $SqlVm | Set-AzureRmResource -Force 
 ``` 
 
 This code snippet switches your BYOL model to pay-per-usage:
 ```powershell
-$SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_grou_name> -ResourceName <VM_name>
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
+$SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_grou_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType="NeedValue"
 $SqlVm | Set-AzureRmResource -Force 
 ``` 
