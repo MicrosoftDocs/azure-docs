@@ -70,7 +70,7 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. And you can change your BYOL license to be pay-as-you-go. For more information about switching between the two licensing models, see [Switch licensing model for a SQL VM in Azure](virtual-machines-windows-sql-ahb.md).
+   Yes. And you can change your BYOL license to be pay-as-you-go. For more information about switching between the two licensing models, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md).
 
 1. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
 
