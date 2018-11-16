@@ -131,6 +131,19 @@ If you want more detailed migration report about your projects, trainings and do
 >[!Note]
 >Migration is only supported to the language pairs where NMT languages exist. Please check the list of currently [supported NMT languages](https://www.microsoft.com/translator/business/languages/). For the language pairs where NMT languages does not exist, data will be moved from Hub to Custom Translator, but trainings can't be conducted on those language pairs.
 
+## Custom Translator versus Hub
+
+This table compare the features between Bub and Custom Translator.
+
+|   | **Hub** | **Custom Translator**|
+|:-----|:----:|:----:|
+|Customization Feature Status	| General Availability	| Preview |
+| Text API version	| V2 only	| V3 only |
+| SMT customization	| Yes	| No |
+| NMT customization	| No	| Yes |
+| New unified Speech services customization	| No	| Yes |
+| [No Trace](https://www.aka.ms/notrace) | Yes	| Yes |
+
 ## Next steps
 
 - [Train a model](how-to-train-model.md).
