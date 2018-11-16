@@ -149,6 +149,12 @@
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
+    - name: Enterprise readiness 
+      items:
+      - name: Compliance
+        href: compliance.md
+    - name: Regional availability
+      href: regional-presence.md
     - name: Prepay for reserved capacity
       href: cosmos-db-reserved-capacity.md
     - name : Backup and restore

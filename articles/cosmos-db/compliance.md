@@ -21,7 +21,9 @@ Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct
 
 1. **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
 
-1. **Azure Government** is available in four regions in the United States to US government agencies and their partners. Azure Government for Department of Defense(DoD) is available in two regions in the United States to the US Department of Defense.
+1. **Azure Government** is available in four regions in the United States to US government agencies and their partners. 
+
+1. **Azure Government for Department of Defense(DoD)** is available in two regions in the United States to the US Department of Defense.
 
 To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry in terms of both breadth (total number of offerings) and depth (number of customer-facing services in assessment scope).  Azure compliance offerings are grouped into four segments - globally applicable, US Government, industry specific, and region or country specific.  Compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft.
 
@@ -40,6 +42,8 @@ The following table lists the certifications supported by Azure Cosmos DB in Azu
 | CSA STAR Certification<br/>CSA STAR Attestation<br/>ISO 20000-1:2011<br/>ISO 9001:2015<br/>ISO 27001:2013<br/>ISO 27017:2015<br/>ISO 27018:2014<br/>SOC 1, 2, 3 | DoD SRG Level 2<br/>DoD SRG Level 5<br/>CJIS<br/>FedRAMP High<br/>IRS 1075<br/>NIST CSF<br/>NIST SP 800-171| HIPAA BAA<br/>HITRUST<br/>PCI DSS | Australia IRAP Unclassified<br/>Germany C5<br/>Singapore MTCS Level 3<br/>Spain ENS High|
 
 ## Next steps
+
+To learn more about Azure compliance certifications, see the following articles:
 
 * To find out the latest compliance certifications for Azure Cosmos DB, see the [Overview of Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942).  
 
