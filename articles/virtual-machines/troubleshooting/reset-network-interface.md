@@ -57,7 +57,7 @@ To reset network interface, follow these steps:
     Add-AzureAccount
     Select-AzureSubscription -SubscriptionId $SubscriptionId 
 
-    #Check if the IP is not using by another resource
+    #Check whether the new IP address is available in the virtual network.
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
@@ -95,7 +95,7 @@ To reset network interface, follow these steps:
     Add-AzureRMAccount
     Select-AzureRMSubscription -SubscriptionId $SubscriptionId 
     
-    #Check if the IP is not using by another resource
+    #Check whether the new IP address is available in the virtual network.
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
