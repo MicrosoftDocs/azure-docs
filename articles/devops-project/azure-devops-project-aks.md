@@ -14,7 +14,7 @@ monikerRange: 'vsts'
 
 # Tutorial: Deploy your ASP.NET Core app to Azure Kubernetes Service (AKS) by using Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repo. Or you can choose one of the sample apps to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
+Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Projects also:
 * Automatically creates Azure resources, such as Azure Kubernetes Service (AKS).
@@ -24,19 +24,19 @@ DevOps Projects also:
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create a project in DevOps Projects for an ASP.NET Core app and AKS
+> * Use DevOps Projects to deploy an ASP.NET Core app to AKS
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the AKS cluster
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit changes to Git and automatically deploy them to Azure
-> * Clean up your resources
+> * Clean up resources
 
 ## Prerequisites
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## Create a project in DevOps Projects for an ASP.NET Core app and AKS
+## Use DevOps Projects to deploy an ASP.NET Core app to AKS
 
 DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as an AKS cluster, in the Azure subscription of your choice.
 
@@ -44,7 +44,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the left pane, select **Create a resource**.
 
-1. In the search box, type **DevOps Project**, and then select **Create**.
+1. In the search box, type **DevOps Projects**, and then select **Create**.
 
    	![The DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
@@ -68,7 +68,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 1. Exit the Azure configuration area, and then select **Done**.  
 	After a few minutes, the process is completed. A sample ASP.NET Core app is set up in a Git repo in your Azure DevOps organization, an AKS cluster is created, a CI/CD pipeline is executed, and your app is deployed to Azure. 
 
-	After all this is completed, the Azure DevOps Project dashboard is displayed in the Azure portal. You can also go to the Azure DevOps Projects dashboard directly from **All resources** in the Azure portal. 
+	After all this is completed, the Azure DevOps Project dashboard is displayed in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal. 
 
 	This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your AKS cluster. You can configure additional CI/CD options in your Azure DevOps pipeline. At the right, select **Browse** to view your running app.
 
@@ -76,7 +76,7 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 DevOps Projects automatically configures an AKS cluster, which you can explore and customize. To familiarize yourself with the AKS cluster, do the following:
 
-1. Go to the Azure DevOps Projects dashboard.
+1. Go to the DevOps Projects dashboard.
 
 1. At the right, select the AKS service.  
 	A pane opens for the AKS cluster. From this view you can perform various actions, such as monitoring container health, searching logs, and opening the Kubernetes dashboard.
@@ -88,7 +88,7 @@ DevOps Projects automatically configures an AKS cluster, which you can explore a
 
 DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
 
-1. Go to the Azure DevOps Projects dashboard.
+1. Go to the DevOps Projects dashboard.
 
 1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
 	A browser tab displays the build pipeline for your new project.
@@ -141,7 +141,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 1. Select **Logs**.  
 	The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
-## Commit changes to Azure DevOps and automatically deploy them to Azure 
+## Commit changes to Azure Repos and automatically deploy them to Azure 
 
  > [!NOTE]
  > The following procedure tests the CI/CD pipeline by making a simple text change.
@@ -155,18 +155,18 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 1. Make a change to the file, such as adding some text within one of the div tags. 
 
 1. At the top right, select **Commit**, and then select **Commit** again to push your change.  
-	After a few moments, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status on the Azure DevOps Projects dashboard or in the browser with your Azure DevOps organization.
+	After a few moments, a build starts in Azure DevOps and a release executes to deploy the changes. Monitor the build status on the DevOps Projects dashboard or in the browser with your Azure DevOps organization.
 
 1. After the release is completed, refresh your app to verify your changes.
 
-## Clean up your resources
+## Clean up resources
 
-If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the AKS cluster and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the Azure DevOps Projects dashboard.
+If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the AKS cluster and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the DevOps Projects dashboard.
 
-> [!CAUTION]
+> [!IMPORTANT]
 > The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in DevOps Projects in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
 
-1. In the Azure portal, go to the Azure DevOps Projects dashboard.
+1. In the Azure portal, go to the DevOps Projects dashboard.
 2. At the top right, select **Delete**. 
 3. At the prompt, select **Yes** to *permanently delete* the resources.
 
@@ -175,15 +175,15 @@ If you are testing, you can avoid accruing billing charges by cleaning up your r
 You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a project in DevOps Projects for an ASP.NET Core app and AKS
+> * Use DevOps Projects to deploy an ASP.NET Core app to AKS
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the AKS cluster
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit changes to Git and automatically deploy them to Azure
-> * Clean up your resources
+> * Clean up resources
 
 To learn more about using the Kubernetes dashboard, see:
 
 > [!div class="nextstepaction"]
-> [Use the Kubernetes dashboard](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
+> [Use the Kubernetes dashboard](https://docs.microsoft.com/en-us/azure/aks/kubernetes-dashboard)
