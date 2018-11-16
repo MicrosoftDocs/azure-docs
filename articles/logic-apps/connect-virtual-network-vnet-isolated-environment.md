@@ -120,7 +120,8 @@ and then choose **Create**.
 
    ![Choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
 
-1. Provide these details for your environment:
+1. Provide these details for your environment, 
+and then choose **Review + create**, for example:
 
    ![Provide environment details](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
@@ -134,8 +135,11 @@ and then choose **Create**.
    | **Virtual network** | Yes | <*Azure-VNET-name*> | The Azure virtual network where you want to inject your environment so logic apps in that environment can access your virtual network. If you don't have a network, you can create one here. <p>**Important**: You can *only* perform this injection when you create your ISE. However, before you can create this relationship, make sure you already [set up role-based access control in your virtual network for Azure Logic Apps](#vnet-access). | 
    | **Subnets** | Yes | <*IP-address-range*> | An ISE requires four *empty* subnets, which don't have delegation to any service and are used for creating resources in your environment. Each subnet must meet these criteria: <p>- Includes a `/27`, for example: `10.0.0.0/27`, `10.0.0.32/27`, `10.0.0.64/27`, and `10.0.0.96/27`. <br>- Uses the [Classless Inter-Domain Routing (CIDR) format](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). <br>- Requires a Class B address space. <br>- Must not exist in the same address range for your selected virtual network nor any other private IP addresses where the virtual network is connected. <br>- Must be empty. <p><p>**Important**: You *can't change* these IP ranges after you create your environment. |
    |||||
-   
-1. When you're done, choose **Review + create**. 
+
+1. After Azure successfully validates your ISE information, 
+choose **Create**, for example:
+
+   ![After successful validation, choose "Create"](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
    Azure starts deploying your environment, but this 
    process might take *up to two hours* before finishing. 
