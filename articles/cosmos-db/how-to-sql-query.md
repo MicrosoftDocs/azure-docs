@@ -1,13 +1,11 @@
 ---
 title: SQL queries for Azure Cosmos DB | Microsoft Docs
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
-keywords: sql syntax, sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
-services: cosmos-db
 author: markjbrown
 
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/10/2018
+ms.date: 11/15/2018
 ms.author: mjbrown
 
 ---

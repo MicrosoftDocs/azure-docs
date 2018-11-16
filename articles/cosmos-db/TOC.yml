@@ -440,7 +440,7 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
-      - name: Write SQL queries
+      - name: Query Azure Cosmos DB data
         href: how-to-sql-query.md
     - name: Indexing
       items:
