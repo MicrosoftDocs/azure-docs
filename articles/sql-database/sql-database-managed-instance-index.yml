@@ -50,7 +50,16 @@ sections:
         html: <p>Migrate a fleet of databases with minimal downtime using Database Migration Service.</p>
       - title: Pricing
         href: /pricing/hybrid-benefit/
-        html: <p>Save up to 40% with Azure Hybrid Benefit with your existing on-premises licences.</p>
+        html: <p>Save up to 40% with Azure Hybrid Benefit (AHB) with your existing on-premises licences.</p>
+      - title: PaaS capabilities
+        href: /azure/sql-database/sql-database-technical-overview#availability-capabilities
+        html: <p>Azure PaaS enables you to use 99.99% available instance with minimal management.</p>
+      - title: Service tiers
+        href: /azure/sql-database/sql-database-high-availability
+        html: <p>Choose between General Purpose and Business Critical service tiers depending on your business needs.</p>
+      - title: Advanced security
+        href: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
+        html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
