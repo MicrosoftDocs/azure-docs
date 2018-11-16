@@ -7,27 +7,39 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/27/2018
 ms.author: victorh
-#Customer intent: As an administrator, I want to deploy and configure Azure Firewall in a hybrid network so that I can control access from an on-premises network to an Azure virtual network.
+#Customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
 ---
 # Tutorial: Deploy and configure Azure Firewall in a hybrid network using Azure PowerShell
 
-In this tutorial, you learn how to:
+When you connect your on-premises network to an Azure virtual network to create a hybrid network, the ability to control access to your Azure network resources is an important part of an overall security plan.
 
-> [!div class="checklist"]
-> * Set up the network environment
-> * Configure and deploy the firewall
-> * Create the routes
-> * Create the virtual machines
-> * Test the firewall
+You can use Azure Firewall to control network access in a hybrid network using rules that define allowed and denied network traffic.
 
 For this tutorial, you create three virtual networks:
+
 - **VNet-Hub** - the firewall is in this virtual network.
 - **VNet-Spoke** - the spoke virtual network represents the workload located on Azure.
 - **VNet-Onprem** - The on-premises virtual network represents an on-premises network. In an actual deployment, it can be connected by either a VPN or Express Route connection. For simplicity, this tutorial uses a VPN gateway connection, and an Azure-located virtual network is used to represent an on-premises network.
 
 ![Firewall in a hybrid network](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
+In this tutorial, you learn how to:
+
+> [!div class="checklist"]
+> * Declare the variables
+> * Create the firewall hub virtual network
+> * Create the spoke virtual network
+> * Create the on-premises virtual network
+> * Configure and deploy the firewall
+> * Create and connect the VPN gateways
+> * Peer the hub and spoke virtual networks
+> * Create the routes
+> * Create the virtual machines
+> * Test the firewall
+
 ## Prerequisites
+
+This tutorial requires that you run PowerShell locally. You must have Azure PowerShell module version 6.12.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
 
 There are three key requirements for this scenario to work correctly:
 
@@ -40,11 +52,9 @@ See the [Create Routes](#create-routes) section in this tutorial to see how thes
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
-
 ## Declare the variables
 
-The following example declares the variables using the values for this tutorial. In most cases, you should replace the values with your own. However, you can use these variables if you are running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
+The following example declares the variables using the values for this tutorial. In some cases, you might need to replace some values with your own to work in your subscription. Modify the variables if needed, then copy and paste them into your PowerShell console.
 
 ```azurepowershell
 $RG1 = "FW-Hybrid-Test"
@@ -85,15 +95,14 @@ $GWOnprempipName = "VNet-Onprem-GW-pip"
 $SNnameGW = "GatewaySubnet"
 ```
 
-## Create a resource group
 
-Create a resource group to contain all the resources required for this tutorial:
+## Create the firewall hub virtual network
+
+First, create the resource group to contain the resources for this tutorial:
 
 ```azurepowershell
   New-AzureRmResourceGroup -Name $RG1 -Location $Location1
   ```
-
-## Create and configure the firewall hub virtual network
 
 Define the subnets to be included in the virtual network:
 
@@ -116,7 +125,7 @@ Request a public IP address to be allocated to the VPN gateway you will create f
   -Location $Location1 -AllocationMethod Dynamic
 ```
 
-## Create and configure the spoke virtual network
+## Create the spoke virtual network
 
 Define the subnets to be included in the spoke virtual network:
 
@@ -132,7 +141,7 @@ $VNetSpoke = New-AzureRmVirtualNetwork -Name $VnetNameSpoke -ResourceGroupName $
 -Location $Location1 -AddressPrefix $VNetSpokePrefix -Subnet $Spokesub,$GWsubSpoke
 ```
 
-## Create and configure the on-premises virtual network
+## Create the on-premises virtual network
 
 Define the subnets to be included in the virtual network:
 
@@ -290,7 +299,7 @@ Add-AzureRmVirtualNetworkPeering -Name HubtoSpoke -VirtualNetwork $VNetHub -Remo
 Add-AzureRmVirtualNetworkPeering -Name SpoketoHub -VirtualNetwork $VNetSpoke -RemoteVirtualNetworkId $VNetHub.Id -AllowForwardedTraffic -UseRemoteGateways
 ```
 
-## Create routes
+## Create the routes
 
 Next, create a couple routes:
 
@@ -298,7 +307,7 @@ Next, create a couple routes:
 - A default route from the spoke subnet through the firewall IP address
 
 > [!NOTE]
-> Azure Firewall learns your on-premises networks using BGP. This may include a default route, which will route Internet traffic back through your on-premises network. If instead you want Internet traffic to be sent directly from the firewall to the Internet, add a user-defined default route (0.0.0.0/0) on the AzureFirewallSubnet with next hop type **Internet**. Your on-premises destined traffic is still forced-tunneled through the VPN/ExpressRoute gateway using the more specific routes learned from BGP.
+> Azure Firewall learns your on-premises networks using BGP. This may include a default route, which routes Internet traffic back through your on-premises network. In a production deployment, you might want Internet traffic to be sent directly from the firewall to the Internet. You could add a user-defined default route (0.0.0.0/0) on the AzureFirewallSubnet with next hop type **Internet**. Your on-premises destined traffic is still forced-tunneled through the VPN/ExpressRoute gateway using the more specific routes learned from BGP.
 
 ```azurepowershell
 #Create a route table
@@ -413,7 +422,7 @@ Set-AzureRmVMExtension `
 
 ### Create the on-premises virtual machine
 
-This is a simple virtual machine that you can connect to using Remote Desktop to the public IP address. From there, you can then connect to the on-premises server through the firewall. When prompted, type a user name and password for the virtual machine.
+This is a simple virtual machine that you use to connect using Remote Desktop to the public IP address. From there, you then connect to the on-premises server through the firewall. When prompted, type a user name and password for the virtual machine.
 
 ```azurepowershell
 New-AzureRmVm `
@@ -428,7 +437,7 @@ New-AzureRmVm `
 
 ## Test the firewall
 
-First, get and note the private IP address for **VM-spoke-01** virtual machine.
+First, get and then note the private IP address for **VM-spoke-01** virtual machine.
 
 ```azurepowershell
 $NIC.IpConfigurations.privateipaddress
