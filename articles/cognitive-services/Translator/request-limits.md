@@ -12,7 +12,7 @@ ms.date: 11/15/2018
 ms.author: erhopf
 ---
 
-# Throttling Limits for Translator Text
+# Request limits for Translator Text
 
 This article provides throttling limits for the Translator Text API. Services include translation, transliteration, sentence length detection, language detection, and alternate translations.
 
