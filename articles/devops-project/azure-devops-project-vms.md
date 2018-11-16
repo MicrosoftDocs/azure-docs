@@ -14,7 +14,7 @@ monikerRange: 'vsts'
 
 # Tutorial: Deploy your ASP.NET app to Azure virtual machines by using Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repository. Or you can choose from one of the sample applications to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
+Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Projects also:
 * Automatically creates Azure resources, such as a new Azure virtual machine (VM).
@@ -25,11 +25,11 @@ DevOps Projects also:
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create a project in DevOps Projects for an ASP.NET app
+> * Use DevOps Projects to deploy your ASP.NET app
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
-> * Commit changes to Azure DevOps and automatically deploy them to Azure
+> * Commit changes to Azure Repos and automatically deploy them to Azure
 > * Configure Azure Application Insights monitoring
 > * Clean up resources
 
@@ -37,7 +37,7 @@ In this tutorial, you will:
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## Create a project in DevOps Projects for an ASP.NET app
+## Use DevOps Projects to deploy your ASP.NET app
 
 DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources such as virtual machines in the Azure subscription of your choice.
 
@@ -45,9 +45,9 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the left pane, select **New**.
 
-1. In the search box, type **DevOps Project**, and then select **Create**.
+1. In the search box, type **DevOps Projects**, and then select **Create**.
 
-   	![The Azure DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
+   	![The DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
 1. Select **.NET**, and then select **Next**.
 
@@ -66,19 +66,19 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 	Optionally, you can select **Change** and then enter more configuration details, such as the location of the Azure resources.
  
 1. Enter a virtual machine name, username, and password for your new Azure virtual machine resource, and then select **Done**.  
-	After a few minutes, the Azure virtual machine will be ready. A sample ASP.NET application is set up in a repository in your Azure DevOps organization, a build and release is executed, and your application is deployed to the newly created Azure VM. 
+	After a few minutes, the Azure virtual machine will be ready. A sample ASP.NET application is set up in a repo in your Azure DevOps organization, a build and release is executed, and your application is deployed to the newly created Azure VM. 
 
-	After it's completed, the Azure DevOps Projects dashboard loads in the Azure portal. You can also navigate to the dashboard directly from **All resources** in the Azure portal. 
+	After it's completed, the DevOps Projects dashboard is displayed in the Azure portal. You can also navigate to the dashboard directly from **All resources** in the Azure portal. 
 
-	The dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your running application in Azure.   
+	The dashboard provides visibility into your Azure DevOps code repo, your CI/CD pipeline, and your running application in Azure.   
 
    	![Dashboard view](_img/azure-devops-project-vms/dashboardnopreview.png)
 
-DevOps Projects automatically configures a CI build and release trigger that deploys code changes to your repository. You can further configure additional options in Azure DevOps. To view your running application, select **Browse**.
+DevOps Projects automatically configures a CI build and release trigger that deploys code changes to your repo. You can further configure additional options in Azure DevOps. To view your running application, select **Browse**.
 	
 ## Examine the CI pipeline
  
-DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with the build pipeline, do the following:
+DevOps Projects automatically configured a CI/CD pipeline in Azure Pipelines. You can explore and customize the pipeline. To familiarize yourself with the build pipeline, do the following:
 
 1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
 	A browser tab displays the build pipeline for your new project.
@@ -89,7 +89,7 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 1. Select **Edit**.
 
 1. In this pane, you can examine the various tasks for your build pipeline.  
-	The build performs various tasks, such as fetching sources from the Git repository, restoring dependencies, and publishing outputs used for deployments.
+	The build performs various tasks, such as fetching sources from the Git repo, restoring dependencies, and publishing outputs used for deployments.
 
 1. At the top of the build pipeline, select the build pipeline name.
 
@@ -99,7 +99,7 @@ DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps o
 	This pane displays an audit trail of your recent changes for the build. Azure DevOps keeps track of any changes made to the build pipeline, and it allows you to compare versions.
 
 1. Select **Triggers**.  
-	DevOps Projects automatically creates a CI trigger, and every commit to the repository starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
+	DevOps Projects automatically creates a CI trigger, and every commit to the repo starts a new build. Optionally, you can choose to include or exclude branches from the CI process.
 
 1. Select **Retention**.  
     Depending on your scenario, you can specify policies to keep or remove a certain number of builds.
@@ -138,11 +138,11 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 1. Select **Logs**.  
 	The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
-## Commit changes to Azure DevOps and automatically deploy them to Azure 
+## Commit changes to Azure Repos and automatically deploy them to Azure 
 
-You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repository. The code changes initiate the CI/CD process and automatically deploy your changes to the IIS website on the Azure VM.
+You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. The code changes initiate the CI/CD process and automatically deploy your changes to the IIS website on the Azure VM.
 
-1. In the left pane, select **Code**, and then go to your repository.
+1. In the left pane, select **Code**, and then go to your repo.
 
 1. Go to the *Views\Home* directory, select the ellipsis (...) next to the *Index.cshtml* file, and then select **Edit**.
 
@@ -157,7 +157,7 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 
 With Azure Application insights, you can easily monitor your application's performance and usage. DevOps Projects automatically configures an Application Insights resource for your application. You can further configure various alerts and monitoring capabilities as needed.
 
-1. In the Azure portal, go to the Azure DevOps Projects dashboard. 
+1. In the Azure portal, go to the DevOps Projects dashboard. 
 
 1. At the lower right, select the **Application Insights** link for your app.  
 	The **Application Insights** pane opens. This view contains usage, performance, and availability monitoring information for your app.
@@ -191,25 +191,25 @@ With Azure Application insights, you can easily monitor your application's perfo
 
 ## Clean up resources
 
-If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure virtual machine and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the Azure DevOps Project dashboard. 
+If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure virtual machine and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the DevOps Project dashboard. 
 
 > [!CAUTION]
 > The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in DevOps Projects in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
 
-1. In the Azure portal, go to the Azure DevOps Projects dashboard.
-2. At the top right, select **Delete**. 
-3. At the prompt, select **Yes** to *permanently delete* the resources.
+1. In the Azure portal, go to the DevOps Projects dashboard.
+1. At the top right, select **Delete**. 
+1. At the prompt, select **Yes** to *permanently delete* the resources.
 
 ## Next steps
 
 You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other projects. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a project in DevOps Projects for an ASP.NET app
+> * Use DevOps Projects to deploy your ASP.NET app
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
-> * Commit changes to Azure DevOps and automatically deploy them to Azure
+> * Commit changes to Azure Repos and automatically deploy them to Azure
 > * Configure Azure Application Insights monitoring
 > * Clean up resources
 
