@@ -238,7 +238,10 @@ Run an actual failover for the EC2 instances to migrate them to Azure VMs:
 1. In **Protected items** > **Replicated items**, select the AWS instances, and then select **Failover**.
 2. In **Failover**, select a **Recovery Point** to failover to. Select the latest recovery point, and start the failover. You can follow the failover progress on the **Jobs** page.
 1. Ensure that the VM appears in **Replicated items**.
-2. Right-click each VM, and then select **Complete Migration**. This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+2. Right-click each VM, and then select **Complete Migration**. This does the following:
+
+    - This finishes the migration process, stops replication for the AWS VM, and stops Site Recovery billing for the VM.
+    - This step cleans up the replication data. It doesn't delete the migrated VMs. 
 
     ![Complete migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 
