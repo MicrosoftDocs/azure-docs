@@ -362,7 +362,7 @@ Make sure your web app has a unique name.
 
    * [**`az appservice plan create`**](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)
 
-   * [**`az webapp create`**](https://docs.microsoft.com/en-us/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
+   * [**`az webapp create`**](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)
 
 1. In Jenkins, select your pipeline job, and select **Build Now**.
 
