@@ -165,7 +165,7 @@
   - name: Debug using job diagram
     href: stream-analytics-job-diagram-with-metrics.md
 - name: Stream Analytics Query Language
-  href: ../stream-analytics-query/stream-analytics-query-language-reference.md
+  href: /stream-analytics-query/stream-analytics-query-language-reference.md
   items: 
     - name: Built-in Functions
       items: 
