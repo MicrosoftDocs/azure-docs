@@ -7950,6 +7950,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/jenkins/java-deploy-webapp-tutorial.md",
+            "redirect_url": "/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
             "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
