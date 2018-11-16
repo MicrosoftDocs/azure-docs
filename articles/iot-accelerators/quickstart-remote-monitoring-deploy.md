@@ -7,7 +7,7 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/26/2018
+ms.date: 11/08/2018
 ms.author: dobett
 
 # As an IT Pro, I want to try out a cloud-based solution to understand how I can monitor my IoT devices.
@@ -29,7 +29,7 @@ When you deploy the solution accelerator to your Azure subscription, you must se
 
 Sign in to [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) using your Azure account credentials.
 
-Click **Try Now** on the **Remote Monitoring** tile.
+Click the **Remote Monitoring** tile. On the **Remote Monitoring** page, click **Try Now**:
 
 ![Choose Remote Monitoring](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
@@ -37,9 +37,10 @@ On the **Create Remote Monitoring solution** page, select a **Basic** deployment
 
 Choose **.NET** as the language. The Java and .NET implementations have the same features.
 
-Enter a unique **Solution name** for your Remote Monitoring solution accelerator. For this quickstart, we're calling ours **contoso-rm2**.
+Enter a unique **Solution name** for your Remote Monitoring solution accelerator. For this quickstart, we're calling ours **contoso-rm**.
 
-Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. For this quickstart, we're using **Visual Studio Enterprise** and **West Europe**. You must be a [global administrator or user](iot-accelerators-permissions.md) in the subscription.
+Select the **Subscription** and **Region** you want to use to deploy the solution accelerator. Typically, you choose the region closest to you. For this quickstart, we're using **East US**.
+You can choose **Visual Studio Enterprise**, but you must be a [global administrator or user](iot-accelerators-permissions.md) to do so.
 
 To begin your deployment, click **Create Solution**. This process takes at least five minutes to run:
 

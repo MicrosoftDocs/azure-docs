@@ -47,7 +47,7 @@ The Microsoft Azure HDInsight service uses an ecosystem of open-source technolog
 
 There are two types of open-source components that are available in the HDInsight service:
 
-* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning).
+* **Built-in components** - These components are pre-installed on HDInsight clusters and provide core functionality of the cluster. For example, YARN ResourceManager, the Hive query language (HiveQL), and the Mahout library belong to this category. A full list of cluster components is available in [What's new in the Hadoop cluster versions provided by HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning).
 * **Custom components** - You, as a user of the cluster, can install or use in your workload any component available in the community or created by you.
 
 > [!WARNING]
