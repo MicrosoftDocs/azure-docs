@@ -30,7 +30,7 @@ your application meet the quality requirements to be Azure Certified, before goi
 Let\'s go through this process in more detail to better understand what
 is happening during each step, and the action items in this process for you to ensure your offer continues to make progress.
 
-Publishing Process 
+Publishing process 
 ------------------
 
 You will click \"Publish\" under the **Editor** tab to start the publishing process.
@@ -47,11 +47,11 @@ can click directly on the status for your offer and see the details on
 where your offer is in the publishing process.
 
 > [!WARNING]
-> If the customer usage attribution is not enabled, you will get the following error message during the publishing process: “Azure partner customer usage attribution missing in one or more ARM templates. To resolve, add a tracking GUID to the ARM template in mainTemplate.json packages for the following plan: servicenow. For more details, see http://aka.ms/customerusageattribution.” 
+> If the customer usage attribution is not enabled, you will get the following error message during the publishing process: “Azure partner customer usage attribution missing in one or more Azure Resource Manager templates. To resolve, add a tracking GUID to the Azure Resource Manager template in mainTemplate.json packages for the following plan: servicenow. For more details, see http://aka.ms/customerusageattribution.” 
 
-Let\'s walk through each of the publishing steps, discuss what happens at each step and how long you should estimate each step will take.
+Let's walk through each of the publishing steps, and discuss what happens at each step and how long you should estimate each step will take.
 
-### Validate Pre-Requisites (\<1 day) 
+### Validate prerequisites (\<1 day) 
 
 When you click \"Publish\", an automated check will take place to ensure
 you\'ve populated all the required fields on your offer. If any fields
@@ -76,12 +76,12 @@ Partner Portal. We will send you an email notification if there are any
 errors. If everything passes with success, the
 process will automatically move on to the Provisioning step.
 
-### Packaging and Lead Generation Registration (\<1 hour) 
+### Packaging and lead generation registration (\<1 hour) 
 
 During this stage, we are combining the technical and marketing content
 into what will be the product page on the website.
 
-### Offer Available in Preview 
+### Offer available in preview 
 
 You will get a notification email that your offer has successfully
 completed the steps required to access the offer in preview. In this
@@ -102,7 +102,7 @@ email notification once your offer is officially live on the website.
 ![Offer Go Live Sequence
 6 - Go Live](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_goLive.png)
 
-### Microsoft Review 
+### Microsoft review 
 
 Once you are ready to go, and clicked on \"Go Live\", a worksite
 will be created in Visual Studio online, followed by a Microsoft code review of the package contents. The code review will cover best
@@ -121,7 +121,7 @@ offers tab, and see the status for all your offers listed on the right
 column. You can click on the status to see the publishing flow status in
 detail for your offer.
 
-### Error Handling 
+### Error handling 
 
 If you encounter an error, you will receive a notification email informing you that
 an error occurred with instructions on next steps. You can also see
