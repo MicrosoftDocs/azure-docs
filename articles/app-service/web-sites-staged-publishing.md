@@ -51,7 +51,7 @@ The app must be running in the **Standard**, **Premium**, or **Isolated* tier in
     After you have created several slots, you will be able to clone configuration from a slot other than the one in production:
    
     ![Configuration sources][MultipleConfigurationSources]
-4. In your app's resource blade, click  **Deployment slots**, then click a deployment slot to open that slot's resource blade, with a set of metrics and configuration just like any other app. The name of the slot is shown at the top of the blade to remind you that you are viewing the deployment slot.
+4. In your app's resource blade, click **Deployment slots**, then click a deployment slot to open that slot's resource blade, with a set of metrics and configuration just like any other app. The name of the slot is shown at the top of the blade to remind you that you are viewing the deployment slot.
    
     ![Deployment Slot Title][StagingTitle]
 5. Click the app URL in the slot's blade. Notice the deployment slot has its own hostname and is also a live app. To limit public access to the deployment slot, see [App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/).
@@ -71,6 +71,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Handler mappings
 * Monitoring and diagnostic settings
 * WebJobs content
+* CORS
 
 **Settings that are not swapped**:
 
