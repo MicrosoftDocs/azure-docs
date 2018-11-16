@@ -142,7 +142,7 @@ If you open-up `http://yourdomain.cloudapp.net/make_call` in a browser, that wil
 
 The third parameter (`url`) is the URL that Twilio requests to get instructions on what to do once the call is connected. In this case we set-up a URL (`http://yourdomain.cloudapp.net`) that returns a simple TwiML document and uses the `<Say>` verb to do some text-to-speech and say "Hello Monkey" to the person recieving the call.
 
-## <a id="howto_recieve_sms"></a>How to: Recieve an SMS message
+## <a id="howto_receive_sms"></a>How to: Receive an SMS message
 In the previous example we initiated an **outgoing** phone call. This time, let's use the phone number that Twilio gave us during sign-up to process an **incoming** SMS message.
 
 First, log-in to your [Twilio dashboard][twilio_account]. Click on "Numbers" in the top nav and then click on the Twilio number you were provided. You'll see two URLs that you can configure. A Voice Request URL and an SMS Request URL. These are the URLs that Twilio calls whenever a phone call is made or an SMS is sent to your number. The URLs are also known as "web hooks".
