@@ -124,7 +124,7 @@ ms.author: magoedte
                                                     <div class="cardText">
                                                         <h3>Analyze data</h3>
                                                         <p>
-                                                            <a href="/azure/log-analytics/query-language/get-started-queries">Get started with queries</a><br/>                        
+                                                            <a href="/azure/log-analytics/query-language/get-started-queries">Get started with queries</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-log-search">Understand Log queries</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-log-search-portals">Log query portals</a><br/>
                                                             <a href="/azure/log-analytics/query-language/query-language">Log query language reference</a><br/>
