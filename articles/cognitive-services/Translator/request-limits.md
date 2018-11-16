@@ -60,6 +60,6 @@ When using the [BreakSentence](https://docs.microsoft.com/azure/cognitive-servic
 
 ## Next steps
 
-* [Pricing]()
+* [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Regional availability](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [v3 API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [v3 Translator Text API reference](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
