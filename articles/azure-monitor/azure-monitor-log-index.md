@@ -110,10 +110,19 @@ ms.author: magoedte
                                                         <p>
                                                             <a href="/azure/monitoring/monitoring-data-collection">Metrics and logs</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-security">Log data security</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling security</a><br/>
-															</p>
-														<br><br>
+														</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+									<li>
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText">
+													<br><br>
                                                         <h3>Analyze data</h3>
                                                         <p>
                                                             <a href="/azure/log-analytics/query-language/get-started-queries">Get started with queries</a><br/>                        
@@ -131,11 +140,11 @@ ms.author: magoedte
                                                             <a href="/azure/monitoring-and-diagnostics/monitoring-activity-log-alerts-new-experience">Activity log alerts</a><br/>
                                                             <a href="/azure/monitoring-and-diagnostics/monitoring-action-groups">Action groups</a><br/>
                                                         </p>
-                                                    </div>
+													</div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </li>
+								    </li>
                                 </ul>
                             </li>
                         </ul>
