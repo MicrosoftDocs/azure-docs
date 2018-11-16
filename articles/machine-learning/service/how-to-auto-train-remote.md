@@ -198,7 +198,7 @@ experiment=Experiment(ws, 'automl_remote')
 remote_run = experiment.submit(automl_config, show_output=True)
 ```
 
-You will see output similar to the following:
+You will see output similar to the following example:
 
     Running on remote compute: mydsvmParent Run ID: AutoML_015ffe76-c331-406d-9bfd-0fd42d8ab7f6
     ***********************************************************************************************
