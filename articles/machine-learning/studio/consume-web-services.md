@@ -4,7 +4,8 @@ description: Once a machine learning service is deployed, the RESTFul Web servic
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 
