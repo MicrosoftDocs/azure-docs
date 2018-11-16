@@ -24,7 +24,8 @@ ms.author: mareat
 
 You can have many network security groups in your network with flow logging enabled. Several network security groups with flow logging enabled can make it cumbersome to parse and gain insights from your logs. This article provides a solution to centrally manage these network security group flow logs using Graylog, an open source log management and analysis tool, and Logstash, an open source server-side data processing pipeline.
 
-[!Warning] This scenario leverages NSG Flow Logs version 1 and will not support version 2 without modification.
+> [!Warning]
+> The following steps work with flow logs version 1. For details, see [Introduction to flow logging for network security groups](network-watcher-nsg-flow-logging-overview.md). The following instructions will not work with version 2 of the log files, without modification.
 
 ## Scenario
 

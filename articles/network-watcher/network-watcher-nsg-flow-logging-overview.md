@@ -66,8 +66,9 @@ Flow logs include the following properties:
                     * **Packets - Destination to source - Version 2 Only** The total number of TCP or UDP packets sent from destination to source since last update.
                     * **Bytes sent - Destination to source - Version 2 Only** The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.
 
-## NSG Flow Logs Version 2
-[!NOTE] Flow Logs Version 2 are only available in select the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
+## NSG flow logs version 2
+> [!NOTE] 
+> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
 
 Version 2 of the logs introduces flow state. You can configure which version of flow logs you receive. To learn how to enable flow logs, see [Enabling NSG flow logging](network-watcher-nsg-flow-logging-portal.md).
 
@@ -85,15 +86,15 @@ For continuation *C* and end *E* flow states, byte and packet counts are aggrega
 
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
 
-##Sample Log Records
-=======
+## Sample log records
+
 The text that follows is an example of a flow log. As you can see, there are multiple records that follow the property list described in the preceding section.
 
 
 > [!NOTE]
 > Values in the **flowTuples* property are a comma-separated list.
  
-### Version 1 NSG Flow Log Format Sample
+### Version 1 NSG flow log format sample
 ```json
 {
     "records": [
@@ -202,7 +203,7 @@ The text that follows is an example of a flow log. As you can see, there are mul
 		,
 		...
 ```
-### Version 2 NSG Flow Log Format Sample
+### Version 2 NSG flow log format sample
 ```json
  {
     "records": [
