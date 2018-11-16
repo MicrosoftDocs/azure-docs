@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/16/2018
 ms.author: jeedes
 
 ---
@@ -111,15 +111,20 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager(ism)-tutorial/tutorial_ivantiservicemanager_url.png)
 
-    a. In the **Identifier** textbox, type a URL using the following pattern: ``
+    a. In the **Identifier** textbox, type a URL using the following pattern:
+	| |
+	|--|
+	| `https://<customer>.saasit.com/` |
+	| `https://<customer>.saasiteu.com/` |
+	| `https://<customer>.saasitau.com/` |
 
-	b. In the **Reply URL** textbox, type a URL using the following pattern: ``
+	b. In the **Reply URL** textbox, type a URL using the following pattern: `https://<customer>/handlers/sso/SamlAssertionConsumerHandler.ashx`
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
 	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager(ism)-tutorial/tutorial_ivantiservicemanager_url1.png)
 
-    In the **Sign-on URL** textbox, type a URL using the following pattern: ``
+    In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customer>.saasit.com/`
 
 	> [!NOTE]
 	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. Contact [Ivanti Service Manager (ISM) Client support team](https://www.ivanti.com/support/contact) to get these values.
