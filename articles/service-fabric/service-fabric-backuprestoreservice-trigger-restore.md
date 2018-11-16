@@ -37,13 +37,13 @@ For example, service may want to backup its data in order to protect from the fo
 * The restore can only be triggered at a partition. 
 
 The restore can be for any of the following scenarios 
-1. Data restore in the case of disaster recovery (DR)
-2. Data restore in the case of data corruption / data loss
+1. Data restore in the event of disaster recovery (DR)
+2. Data restore in the event of data corruption / data loss
 
 
 
 ## On-Demand Restore - The Case of Disaster Recovery (DR)
-In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
+In event of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
 
 Lets assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors, which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
 
@@ -236,7 +236,7 @@ The restore request following the following order
 
 ## Auto restore
 
- The partitions for the Reliable Stateful service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. When enabling the Backup Policy for the partition the policy can have Auto Restore set to True.  Enabling Auto restore for partition restore the data to latest backup if data loss is reported.
+ The partitions for the Reliable Stateful service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. While enabling the backup policy for the partition, the policy can have Auto Restore set to True.  Enabling Auto restore for partition restore the data to latest backup if data loss is reported.
  
  [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 
