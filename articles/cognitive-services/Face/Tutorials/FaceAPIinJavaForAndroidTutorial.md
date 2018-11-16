@@ -89,11 +89,7 @@ Then, insert the following code in the **MainActivity** class, above the **onCre
 
 [!code-java[](~/cognitive-services-face-android-detect/FaceTutorial/app/src/main/java/com/contoso/facetutorial/MainActivity.java?range=17-27)]
 
-You will need to replace `<Subscription Key>` with your subscription key. Also, replace `<API endpoint>` with the your Face API endpoint, using the appropriate region identifier for your key. Free trial subscription keys are generated in the **westus** region. An example API endpoint value would be:
-
-```java
-apiEndpoint = "https://westus.api.cognitive.microsoft.com/face/v1.0";
-```
+You will need to replace `<Subscription Key>` with your subscription key. Also, replace `<API endpoint>` with your Face API endpoint, using the appropriate region identifier for your key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). Free trial subscription keys are generated in the **westus** region.
 
 In the **Project** pane, expand **app**, then **manifests**, and open *AndroidManifest.xml*. Insert the following element as a direct child of the `manifest` element:
 
