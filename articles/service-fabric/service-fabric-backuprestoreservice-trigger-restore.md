@@ -18,10 +18,10 @@ ms.author: aagup
 
 ---
 
-#  Restoring Backup in Azure Service Fabric
+#  Restoring backup in Azure Service Fabric
 
 
-Reliable Stateful services in Service Fabric can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to latest acceptable backup of its state in order to continue providing service after it comes back.
+Reliable Stateful services and Reliable Actors in Service Fabric can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to latest acceptable backup of its state in order to continue providing service after it comes back.
 
 For example, service may want to backup its data in order to protect from the following scenarios:
 
@@ -32,24 +32,25 @@ For example, service may want to backup its data in order to protect from the fo
 
 
 ## Prerequisites
-* To trigger, restore the Fault Analysis Service (FAS) should be enabled for cluster
-* The backup to be restore should be taken by Backup Restore Service (BRS)
-* The restore can only be triggered at a partition. 
+* To trigger, restore the _Fault Analysis Service (FAS)_ should be enabled for the cluster
+* The backup to be restore should have been taken by _Backup Restore Service (BRS)_
+* The restore can only be triggered at a partition.
+
+## Triggering restore
 
 The restore can be for any of the following scenarios 
-1. Data restore in the event of disaster recovery (DR)
-2. Data restore in the event of data corruption / data loss
+1. Data restore in the case of _disaster recovery_ (DR)
+2. Data restore in the case of _data corruption / data loss_
 
 
 
-## On-Demand Restore - The Case of Disaster Recovery (DR)
-In event of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
+### Data restore in the case of _disaster recovery_ (DR)
+In the event of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Stateful service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
 
-Lets assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors, which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
+Lets assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
 
 
-Execute following PowerShell script to invoke the REST API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster.
-The enumeration API requires storage for enumeration and the service fabric entity it is trying to enumerate.
+Execute following PowerShell script to invoke the REST API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster. Note that the enumeration API requires storage information, where the backups of an application are stored, for enumerating available backups. 
 
 ```powershell
 $StorageInfo = @{
@@ -69,7 +70,7 @@ $BackupLocationAndEntityInfo = @{
 }
 
 $body = (ConvertTo-Json $BackupLocationAndEntityInfo)
-$url = "https://mybackupsfcluster.southcentralus.cloudapp.azure.com:19080/$/GetBackups?api-version=6.4"
+$url = "https://myalternatesfcluster.southcentralus.cloudapp.azure.com:19080/$/GetBackups?api-version=6.4"
 
 Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 $BackupPoints = (ConvertFrom-Json $response.Content)
@@ -117,7 +118,7 @@ FailureError            :
 
 
 
-For triggering the restore, we need to choose the desired backup. Let the desired backup for the current Disaster Recovery (DR) be the following backup
+For triggering the restore, we need to choose the desired backup. Let the desired backup for the current disaster recovery (DR) be the following backup
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -133,12 +134,12 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            : 
 ```
 
-For the restore API, we need to provide the __BackupId__ and __BackupLocation__ Details. 
-The partition in alternate cluster is chosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). It's the user responsibility to chose target partition to restore the backup from the alternate cluster as per the partition scheme in original lost cluster.
+For the restore API, we need to provide the __BackupId__ and __BackupLocation__ details. 
+The partition in alternate cluster needs to chosen as per the [partition scheme](service-fabric-concepts-partitioning.md#get-started-with-partitioning). It's the user responsibility to chose target partition to restore the backup from the alternate cluster as per the partition scheme in original lost cluster.
 
-The partition ID on alternate Cluster is identified as 1c42c47f-439e-4e09-98b9-88b8f60800c6, which maps to the original cluster partition ID 974bd92a-b395-4631-8a7f-53bd4ae9cf22 by comparing the high key and low key for Ranged partitioning (UniformInt64Partition).
+Assume that the partition ID on alternate cluster is `1c42c47f-439e-4e09-98b9-88b8f60800c6`, which maps to the original cluster partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` by comparing the high key and low key for _Ranged Partitioning (UniformInt64Partition)_.
 
-In case of Named Partitioning, the name value is compared to identify the target partition in alternate cluster.
+In case of _Named Partitioning_, the name value is compared to identify the target partition in alternate cluster.
 
 The restore is requested against partition of backup cluster by the following [Restore API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
 
@@ -155,13 +156,13 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 The progress of the restore can be [TrackRestoreProgress](service-fabric-backuprestoreservice-trigger-restore.md#tracking-restore-progress)
 
-## On-Demand Restore - The Case of Data Corruption / Data Loss
+### Data restore in the case of _data corruption / data loss_
 
-For the case of Data Loss or Data Corruption the data, for the partitions of the Reliable Service and Reliable Actors can be restored to any of the chosen backups. 
+For the case of _data loss_ or _data corruption_ the data, for the partitions of the Reliable Stateful service and Reliable Actors can be restored to any of the chosen backups. 
 The following case is the continuation of sample as mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), where the partition has a backup policy enabled and is taking backup at a desired frequency in an Azure Storage. 
 
-The desired backup is selected from the output of  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups).
-For triggering the restore, we need to choose the desired backup from the list. Let our desired backup for the current Data Loss / Data Corruption be the following backup
+The desired backup is selected from the output of  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In this scenario the backup is generated from the same cluster in the past.
+For triggering the restore, we need to choose the desired backup from the list. Let our desired backup for the current _data loss_ / _data corruption_ be the following backup
 
 ```
 BackupId                : b0035075-b327-41a5-a58f-3ea94b68faa4
@@ -177,7 +178,7 @@ CreationTimeUtc         : 2018-04-06T21:10:27Z
 FailureError            : 
 ```
 
-For the restore API, we need to provide the __BackupId__ and __BackupLocation__ Details. Since the cluster has backup enabled the Service Fabric backup restore service (BRS) identifies the correct storage location from the policy enabled and restore by automatically connecting to it. 
+For the restore API, we need to provide the __BackupId__ and __BackupLocation__ details. Since the cluster has backup enabled the Service Fabric _Backup Restore Service (BRS)_ identifies the correct storage location from the associated backup policy.
 
 ```powershell
 $RestorePartitionReference = @{ 
@@ -194,9 +195,9 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 The progress of the restore can be [TrackRestoreProgress](service-fabric-backuprestoreservice-trigger-restore.md#tracking-restore-progress)
 
 
-## Tracking Restore Progress
+## Tracking restore progress
 
-A partition of a Reliable Service and Reliable Actor accepts only one restore request at a time. Another request can be accepted only when the current restore request has completed. Multiple restore requests can be triggered on different partitions at a same time.
+A partition of a Reliable Stateful service or Reliable Actor accepts only one restore request at a time. Another request can be accepted only when the current restore request has completed. Multiple restore requests can be triggered on different partitions at a same time.
 
 ```powershell
 $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Partitions/974bd92a-b395-4631-8a7f-53bd4ae9cf22/$/GetRestoreProgress?api-version=6.4" 
@@ -236,7 +237,7 @@ The restore request following the following order
 
 ## Auto restore
 
- The partitions for the Reliable Stateful service and Reliable Actors in the Service Fabric Cluster can be enabled for Auto Restore. While enabling the backup policy for the partition, the policy can have Auto Restore set to True.  Enabling Auto restore for partition restore the data to latest backup if data loss is reported.
+The partitions for the Reliable Stateful service and Reliable Actors in the Service Fabric cluster can be configured for _auto restore_. While creating the backup policy, the policy can have `AutoRestore` set to _true_.  Enabling _auto restore_ for a partition, restores the data from the latest backup if data loss is reported.
  
  [Auto Restore Enablement in Backup Policy](service-fabric-backuprestoreservice-configure-periodic-backup.md#auto-restore-on-data-loss)
 
