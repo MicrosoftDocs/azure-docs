@@ -3,7 +3,6 @@ title: Automate image build, test, and patch with Azure Container Registry multi
 description: An introduction to multi-step tasks, a feature of ACR Tasks in Azure Container Registry that provides task-based workflows for building, testing, and patching container images in the cloud.
 services: container-registry
 author: dlepow
-
 ms.service: container-registry
 ms.topic: article
 ms.date: 10/29/2018
@@ -87,7 +86,7 @@ See [task examples][task-examples] for complete multi-step task YAML files and D
 
 Tasks support both manual execution, called a "quick run," and automated execution on Git commit or base image update.
 
-To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][/cli/azure/acr#az-acr-run].
+To run a task, you first define the task's steps in a YAML file, then execute the Azure CLI command [az acr run][az-acr-run].
 
 Here's an example Azure CLI command that runs a task using a sample task YAML file. Its steps build and then push an image. Update `\<acrName\>` with the name of your own Azure container registry before running the command.
 
@@ -172,5 +171,5 @@ You can find multi-step task reference and examples here:
 
 <!-- LINKS - Internal -->
 [az-acr-task-create]: /cli/azure/acr/task#az-acr-task-create
-[az-acr-run]: /cli/azure/acr/run#az-acr-run
-[az-acr-task]: /cli/azure/acr#az-acr-task
+[az-acr-run]: /cli/azure/acr#az-acr-run
+[az-acr-task]: /cli/azure/acr/task
