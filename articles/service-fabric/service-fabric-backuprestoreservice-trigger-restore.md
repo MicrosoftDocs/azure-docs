@@ -37,13 +37,13 @@ For example, service may want to backup its data in order to protect from the fo
 * The restore can only be triggered at a partition. 
 
 The restore can be for any of the following scenarios 
-1. On-Demand Restore - The Case of Disaster Recovery (DR).
-2. On-Demand Restore  - The case of data loss / corruption.
-3. Auto Restore
+1. Data restore in the case of disaster recovery (DR)
+2. Data restore in the case of data corruption / data loss
+
 
 
 ## On-Demand Restore - The Case of Disaster Recovery (DR)
-In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with Backup Storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
+In case of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
 
 Lets assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors, which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
 
@@ -158,7 +158,7 @@ The progress of the restore can be [TrackRestoreProgress](service-fabric-backupr
 ## On-Demand Restore - The Case of Data Corruption / Data Loss
 
 For the case of Data Loss or Data Corruption the data, for the partitions of the Reliable Service and Reliable Actors can be restored to any of the chosen backups. 
-The following case is the continuation of sample as mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), where the partition has a backup policy enabled and is taking backup at a desired frequency in an azure storage. 
+The following case is the continuation of sample as mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), where the partition has a backup policy enabled and is taking backup at a desired frequency in an Azure Storage. 
 
 The desired backup is selected from the output of  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups).
 For triggering the restore, we need to choose the desired backup from the list. Let our desired backup for the current Data Loss / Data Corruption be the following backup
