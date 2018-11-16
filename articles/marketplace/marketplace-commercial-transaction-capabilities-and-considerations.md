@@ -40,23 +40,21 @@ In addition to the list and trial publishing options, the transact publishing op
 
 ## Transact general overview
 
-When using the transact publishing option, Microsoft enables the sale and deployment of third-party software to the customer’s Azure subscription. The publisher can  choose from pricing models supported in Azure Marketplace.
+When using the transact publishing option, Microsoft enables the sale and deployment of third-party software to the customer’s Azure subscription. The publisher must consider the billing of Azure infrastructure fees, and the publisher’s own software licensing fees, when selecting a billing model and offer type in Azure Marketplace. 
 
-The Transact publishing option in Azure Marketplace is currently supported in the following offer types: Virtual Machines, Azure Applications, or SaaS Apps.
+The Transact publishing option in Azure Marketplace is currently supported for the following offer types: Virtual Machines, Azure Applications, or SaaS Apps.
 
 ![[Transacting Enterprise Deals in Azure Marketplace]](./media/marketplace-publishers-guide/Transact-enterprise-deals.png)
 
-### Virtual Machines and Azure applications
+### Billing infrastructure costs
+
+**For Virtual Machines and Azure applications**
 
 For Virtual Machines and Azure Applications, the Azure infrastructure usage fees are billed to the customer’s Azure subscription.  Infrastructure usage fees are priced and presented separately from the software provider’s licensing fees on the customer’s invoice.
 
-### SaaS apps
+**For SaaS apps**
 
 For SaaS Apps, the publisher must account for Azure infrastructure usage fees, and software licensing fees as a single cost item.  It is represented as a flat monthly fee to the customer. The Azure infrastructure usage is managed and billed to the partner directly.  Actual infrastructure usage fees are not seen by the customer.  Publishers typically opt to bundle Azure infrastructure usage fees into their software license pricing.  Software licensing fees aren't metered or consumption based.
-
-### Private offers
-
-In addition to using offer types and billing models to monetize an offer, publishers can transact a private version of solution offer, complete with negotiated, deal-specific pricing, and custom configurations using a customized image. [Private offers](./private-offers.md) are supported by all 3 transact publishing options.
 
 ## Transact billing models
 
@@ -68,7 +66,7 @@ Depending on the transaction option used, the publisher’s software license fee
 
 * Pay-as-you-go: Software license fees are presented as a per-hour, per-core (vCPU) pricing rate based on the Azure infrastructure used. This only applies to Virtual Machines and Azure Applications.
 
-* Subscription pricing: Software license fees are presented as a monthly, recurring fee.  (SaaS Apps and Azure Applications – Managed Apps only.) 
+* Subscription pricing (site-based): Software license fees are presented as a monthly, recurring fee.  This only applies to SaaS Apps and Azure Applications – Managed Apps.
 
 * Free software trial: No charge for software licenses for 30-days or 90-days.
 
@@ -76,7 +74,7 @@ Depending on the transaction option used, the publisher’s software license fee
 
 When publishing a free or bring-your-own-license transaction offer, Microsoft does not play a role in facilitating the sales transaction for your software license fees. Like the list and trial publishing options, the publisher keeps 100% of software license fees. 
 
-### Pay-as-you-go and subscription pricing
+### Pay-as-you-go and subscription (site-based) pricing
 
 When publishing a pay-as-you-go or subscription transaction offer, Microsoft provides the technology and services to process software license purchases, returns, and chargebacks. In this scenario, the publisher authorizes Microsoft to act as an agent for these purposes. The publisher allows Microsoft to facilitate the software licensing transaction, while retaining their designation as the seller, provider, distributor, and licensor.
 
@@ -86,11 +84,11 @@ Orders processed through marketplace are billed to the customer’s Azure subscr
 
 ### Free software trials
 
-For transact publishing scenarios, the publisher can make a software license available free for 30-days or 90 days. This capability does not eliminate the cost of Azure infrastructure usage that is driven by use of the partner solution.
+For transact publishing scenarios, the publisher can make a software license available free for 30-days or 90 days. This discounting capability does not include the cost of Azure infrastructure usage that is driven by use of the partner solution.
 
-### Private offers and discounting
+### Private offers
 
-For each transact publishing scenario, the publisher can optionally make available privately negotiated pricing and terms for an offer. For a virtual machine offer, the publisher can also optionally make available custom images. For more information, see the [Private offers](./private-offers.md) documentation.
+In addition to using offer types and billing models to monetize an offer, publishers can transact a private version of solution offer, complete with negotiated, deal-specific pricing, and custom configurations using a customized image. Private offers are supported by all 3 transact publishing options.
 
 This pricing option can be the higher or lower than the publicly displayed pricing.  Private offers can be used to discount, or add a premium for an offer. Private offers can be made available to one or more customers by white listing their Azure subscription at the offer level.
 
