@@ -42,7 +42,7 @@
 #### [Multiple regions](virtual-machines-windows-portal-sql-availability-group-dr.md)
 ### Failover Cluster Instance
 #### [Configure](virtual-machines-windows-portal-sql-create-failover-cluster.md)
-## [Switch licensing model](virtual-machines-windows-sql-ahb.md)
+## [Change licensing model](virtual-machines-windows-sql-ahb.md)
 
 # Reference
 ## [Azure PowerShell](/powershell/azure/overview)
