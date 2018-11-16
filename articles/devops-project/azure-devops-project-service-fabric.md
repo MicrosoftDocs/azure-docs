@@ -14,7 +14,7 @@ monikerRange: 'vsts'
 
 # Tutorial: Deploy your ASP.NET Core app to Azure Service Fabric by using Azure DevOps Projects
 
-Azure DevOps Projects presents a simplified experience where you bring your existing code and Git repo. Or you can choose one of the sample apps to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
+Azure DevOps Projects presents a simplified experience where you can bring your existing code and Git repo or choose a sample application to create a continuous integration (CI) and continuous delivery (CD) pipeline to Azure. 
 
 DevOps Projects also:
 * Automatically creates Azure resources, such as Azure Service Fabric.
@@ -24,18 +24,18 @@ DevOps Projects also:
 In this tutorial, you will:
 
 > [!div class="checklist"]
-> * Create a project in DevOps Projects for an ASP.NET Core app and Service Fabric
+> * Use DevOps Projects to create an ASP.NET Core app and deploy it to Service Fabric
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit changes to Git and automatically deploy to Azure
-> * Clean up your resources
+> * Clean up resources
 
 ## Prerequisites
 
 * An Azure subscription. You can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## Create a project in DevOps Projects for an ASP.NET Core app and Service Fabric
+## Use DevOps Projects to create an ASP.NET Core app and deploy it to Service Fabricc
 
 DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources, such as a Service Fabric cluster, in the Azure subscription of your choice.
 
@@ -43,9 +43,9 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 
 1. In the left pane, select **Create a resource**.
 
-1. In the search box, type **DevOps Project**, and then select **Create**.
+1. In the search box, type **DevOps Projects**, and then select **Create**.
 
-   	![The Azure DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
+   	![The DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
 1. Select **.NET**, and then select **Next**.
 
@@ -67,17 +67,17 @@ DevOps Projects creates a CI/CD pipeline in Azure Pipelines. You can create a ne
 1. Exit the Azure configuration area, and then select **Done**.  
 	After a few minutes, the process is completed. A sample ASP.NET Core app is set up in a Git repo in your Azure DevOps organization, a Service Fabric cluster is created, a CI/CD pipeline is executed, and your app is deployed to Azure. 
 
-	After all this is completed, the Azure DevOps Project dashboard is displayed in the Azure portal. You can also go to the Azure DevOps Projects dashboard directly from **All resources** in the Azure portal. 
+	After all this is completed, the DevOps Projects dashboard is displayed in the Azure portal. You can also go to the DevOps Projects dashboard directly from **All resources** in the Azure portal. 
 
-	This dashboard provides visibility into your Azure DevOps code repository, your CI/CD pipeline, and your Service Fabric cluster. You can configure additional options in Azure DevOps. At the right, select **Browse** to view your running app.
+	This dashboard provides visibility into your Azure DevOps code repo, your CI/CD pipeline, and your Service Fabric cluster. You can configure additional options for your CI/CD pipeline in Azure Repos. At the right, select **Browse** to view your running app.
 
 ## Examine the CI pipeline
 
-DevOps Projects automatically configures a CI/CD pipeline in your Azure DevOps organization. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
+DevOps Projects automatically configures a CI/CD pipeline in in Azure Pipelines. You can explore and customize the pipeline. To familiarize yourself with it, do the following:
 
-1. Go to the Azure DevOps Projects dashboard.
+1. Go to the DevOps Projectss dashboard.
 
-1. At the top of the DevOps Projects dashboard, select **Build Pipelines**.  
+1. At the top of the DevOps Projects dashboard, select **Build pipelines**.  
 	A browser tab displays the build pipeline for your new project.
 
 1. Point to the **Status** field, and then select the ellipsis (...).  
@@ -140,32 +140,32 @@ You're now ready to collaborate with a team on your app by using a CI/CD process
 1. Make a change to the file, such as adding some text within one of the div tags. 
 
 1. At the top right, select **Commit**, and then select **Commit** again to push your change.  
-	After a few moments, a build starts, and then a release executes to deploy the changes. You can monitor the build status on the Azure DevOps Projects dashboard or in the browser with Azure DevOps real-time logging.
+	After a few moments, a build starts, and then a release executes to deploy the changes. You can monitor the build status on the DevOps Projects dashboard or in the browser with Azure DevOps real-time logging.
 
 1. After the release is completed, refresh your app to verify your changes.
 
-## Clean up your resources
+## Clean up resources
 
-If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure Service Fabric cluster and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the Azure DevOps Projects dashboard.
+If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure Service Fabric cluster and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the DevOps Projects dashboard.
 
-> [!CAUTION]
+> [!IMPORTANT]
 > The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in DevOps Projects in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
 
-1. In the Azure portal, go to the Azure DevOps Projects dashboard.
-2. At the top right, select **Delete**. 
-3. At the prompt, select **Yes** to *permanently delete* the resources.
+1. In the Azure portal, go to the DevOps Projects dashboard.
+1. At the top right, select **Delete**. 
+1. At the prompt, select **Yes** to *permanently delete* the resources.
 
 ## Next steps
 
-You can optionally modify the Azure CI/CD pipeline to meet the needs of your team. You can also use this CI/CD pattern as a template for your other projects. In this tutorial, you learned how to:
+You can optionally modify the Azure CI/CD pipeline to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. In this tutorial, you learned how to:
 
 > [!div class="checklist"]
-> * Create a project in DevOps Projects for an ASP.NET Core app and Service Fabric
+> * Use DevOps Projects to create an ASP.NET Core app and deploy it to Service Fabric
 > * Configure Azure DevOps and an Azure subscription 
 > * Examine the CI pipeline
 > * Examine the CD pipeline
 > * Commit changes to Git and automatically deploy them to Azure
-> * Clean up your resources
+> * Clean up resources
 
 To learn more about Service Fabric and microservices, see:
 
