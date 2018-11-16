@@ -27,9 +27,9 @@ From Azure Monitor, the Performance feature provides a multi-virtual machine vie
 2. Choose **Virtual Machines (preview)** in the **Solutions** section.
 3. Select the **Performance** tab.
 
-![VM insights Performance Top N List view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
+![VM insights Performance Top N List view](./media/vminsights-performance/vminsights-performance-aggview-01.png)
 
-On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../log-analytics/log-analytics-computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
+On the **Top N Charts** tab, if you have more than one Log Analytics workspace, choose the workspace enabled with the solution from the **Workspace** selector at the top of the page. The **Group** selector will return subscriptions, resource groups, [computer groups](../../log-analytics/log-analytics-computer-groups.md), and virtual machine scale sets of computers related to the selected workspace that you can use to further filter results presented in the charts on this page and across the other pages. Your selection only applies to the Performance feature and does not carry over to Health or Map.  
 
 By default, the charts show the last 24 hours. Using the **TimeRange** selector, you can query for historical time ranges of up to 30 days to show how performance looked in the past.   
 
@@ -43,15 +43,15 @@ The five capacity utilization charts shown on the page are:
 
 Clicking on the upper right-hand corner of any one of the five charts will open **Top N List** view.  Here you see the resource utilization for that performance metric by individual VM in a list view and which machine is trending highest.  
 
-![Top N List view for a selected performance metric](./media/monitoring-vminsights-performance/vminsights-performance-topnlist-01.png)
+![Top N List view for a selected performance metric](./media/vminsights-performance/vminsights-performance-topnlist-01.png)
 
 When you click on the virtual machine, the **Properties** pane is expanded on the right to show the properties of the item selected, such as system information reported by the operating system, properties of the Azure VM, etc. Clicking on one of the options under the **Quick Links** section will redirect you to that feature directly from the selected VM.  
 
-![Virtual Machine Properties pane](./media/monitoring-vminsights-performance/vminsights-properties-pane-01.png)
+![Virtual Machine Properties pane](./media/vminsights-performance/vminsights-properties-pane-01.png)
 
 Switch to the **Aggregated Charts** tab to view the performance metrics filtered by average or percentiles measures.  
 
-![VM insights Performance Aggregate view](./media/monitoring-vminsights-performance/vminsights-performance-aggview-02.png)
+![VM insights Performance Aggregate view](./media/vminsights-performance/vminsights-performance-aggview-02.png)
 
 The following capacity utilization charts are provided:
 
@@ -69,7 +69,7 @@ To view the resource utilization by individual VM in a list view and see which m
 >The list cannot show more than 500 machines at a time.  
 >
 
-![Top N List page example](./media/monitoring-vminsights-performance/vminsights-performance-topnlist-01.png)
+![Top N List page example](./media/vminsights-performance/vminsights-performance-topnlist-01.png)
 
 To filter the results on a specific virtual machine in the list, enter its computer name in the **Search by name** textbox.  
 
@@ -97,14 +97,14 @@ The following capacity utilization charts are provided:
 * Bytes Sent Rate - defaults showing average bytes sent 
 * Bytes Receive Rate - defaults showing average bytes received
 
-![VM insights Performance directly from VM view](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
+![VM insights Performance directly from VM view](./media/vminsights-performance/vminsights-performance-directvm-01.png)
 
 ## Alerting and alert management 
-Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are [health alerts](monitoring-vminsights-health.md#alerting-and-alert-management) corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, disk I/O, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace enabled for Azure Monitor for VMs. 
+Performance metrics enabled as part of Azure Monitor for VMs do not include pre-configured alert rules. While there are [health alerts](vminsights-health.md#alerting-and-alert-management) corresponding to performance issues detected on your Azure VM, such as high CPU utilization, low memory available, disk I/O, low disk space, etc., these health alerts are only applied to all the VMs connected to the same Log Analytics workspace enabled for Azure Monitor for VMs. 
 
-However, we may only collect and store a subset of the performance metrics you require in the Log Analytics workspace. If your monitoring strategy requires analysis or alerting that includes other performance metrics in order to effectively evaluate capacity or health of the virtual machine, or you need the flexibility to specify your own alerting criteria or logic, you can configure [collection of those performance counters](../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) in Log Analytics and define [log alerts](../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json). While Log Analytics allows you to perform complex analysis with other data types, and provide longer retention to support trend analysis, metrics on the other hand, are lightweight and capable of supporting near real-time scenarios. They are collected by the [Azure Diagnostic agent](../virtual-machines/windows/monitor.md) and stored in the Azure Monitor metrics store, allowing you to create alerts with lower latency and at a lower cost.
+However, we may only collect and store a subset of the performance metrics you require in the Log Analytics workspace. If your monitoring strategy requires analysis or alerting that includes other performance metrics in order to effectively evaluate capacity or health of the virtual machine, or you need the flexibility to specify your own alerting criteria or logic, you can configure [collection of those performance counters](../../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) in Log Analytics and define [log alerts](../../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json). While Log Analytics allows you to perform complex analysis with other data types, and provide longer retention to support trend analysis, metrics on the other hand, are lightweight and capable of supporting near real-time scenarios. They are collected by the [Azure Diagnostic agent](../../virtual-machines/windows/monitor.md) and stored in the Azure Monitor metrics store, allowing you to create alerts with lower latency and at a lower cost.
 
-Review the overview of [collection of metrics and logs with Azure Monitor](monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json) to further understand the fundamental differences and other considerations before configuring collection of these additional metrics and alert rules.  
+Review the overview of [collection of metrics and logs with Azure Monitor](../../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json) to further understand the fundamental differences and other considerations before configuring collection of these additional metrics and alert rules.  
 
 ## Next steps
-To learn how to use the health feature, see [View Azure Monitor for VMs Health](monitoring-vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](monitoring-vminsights-maps.md). 
+To learn how to use the health feature, see [View Azure Monitor for VMs Health](vminsights-health.md), or to view discovered application dependencies, see [View Azure Monitor for VMs Map](vminsights-maps.md). 
