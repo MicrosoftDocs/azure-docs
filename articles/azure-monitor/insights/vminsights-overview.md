@@ -43,7 +43,7 @@ You can view this data in the context of single VM from the virtual machine dire
 * Health - VMs related to a resource group
 * Map and Performance - VMs configured to report to a specific Log Analytics workspace
 
-![Virtual machine insights perspective from portal](./media/monitoring-vminsights-overview/vminsights-azmon-directvm-01.png)
+![Virtual machine insights perspective from portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 
 DevOps can effectively deliver predictable performance and availability of vital applications by identifying critical operating system events and performance bottlenecks, network issues, and understand if an issue is related to other dependencies.  
 
@@ -54,4 +54,4 @@ As soon as you onboard Azure Monitor for VMs, data collected by your VMs is inge
 The log size varies based on string lengths of counters and can increase with the number of logical disks and network adapters. If you already have a workspace and are collecting these counters, there will not be any duplicate charges applied. If you are already using Service Map, the only change you’ll see is the additional connection data being sent to Azure Monitor.​
 
 ## Next steps
-Review [Onboard Azure Monitor for VMs](monitoring-vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.
+Review [Onboard Azure Monitor for VMs](vminsights-onboard.md) to understand requirements and methods to enable monitoring of your virtual machines.
