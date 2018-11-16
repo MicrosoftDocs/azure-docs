@@ -22,10 +22,10 @@ ms.author: magoedte
         <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs<br>that allow you to maximize the performance and availability of your cloud resources and applications.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
-         <li>
-           <a href="#products"></a>
-             <ul id="products">
-               <li>
+           <li>
+              <a href="#products"></a>
+              <ul id="products">
+                 <li>
                   <a class="singlePanelNavItem selected" style="display: none" href="#indexA" data-linktype="self-bookmark"></a>
                   <ul class="panelContent singlePanelContent" id="indexA" style="border: medium; border-image: none; margin-top: 0px; display: flex; float: left;">
                       <li class="fullSpan">
@@ -44,40 +44,40 @@ ms.author: magoedte
                                                          </div>
                                                       </div>
                                                      <div class="cardText" style="padding-left: 0px">
-                                                     <h3>Fundamentals</h3>
-                                                     <p>
-                                                         <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
-                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
-                                                         <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
-                                                         <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
-                                                     </p>
+                                                         <h3>Fundamentals</h3>
+                                                         <p>
+                                                            <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
+                                                            <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
+                                                            <a href="/azure/monitoring/monitoring-data-sources">Monitoring data sources</a><br/>
+                                                            <a href="/azure/log-analytics/log-analytics-service-providers">Design considerations for Service Providers</a><br/>
+                                                        </p>
                                                    </div>
                                                  </div>
                                                </div>
                                              </div>
-                                       </a>
+                                        </a>
                                    </li>
-         <li>
-          <a href="">
-           <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Data security</h3>
-                        <p>
-                        <a href="/azure/log-analytics/log-analytics-data-security">Log data</a><br/>
-                        <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
-                        <a href="/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security">Role permissions and security</a><br/>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </a>
-    </li>
-   </ul>
- </li>
-    <li>
+                                   <li>
+                                       <a href="">
+                                          <div class="cardSize">
+                                               <div class="cardPadding">
+                                                    <div class="card">
+                                                      <div class="cardText style="padding-left: 0px">
+                                                        <h3>Data security</h3>
+                                                        <p>
+                                                            <a href="/azure/log-analytics/log-analytics-data-security">Log data</a><br/>
+                                                            <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
+                                                            <a href="/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security">Role permissions and security</a><br/>
+                                                        </p>
+                                                       </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </li>
+                               </ul>
+                            </li>
+                            <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -155,3 +155,5 @@ ms.author: magoedte
         </div>
     </li>
 </ul>
+</div>
+</div>
