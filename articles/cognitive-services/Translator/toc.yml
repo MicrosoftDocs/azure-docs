@@ -168,10 +168,10 @@
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - name: Regional availability
       href: https://azure.microsoft.com/global-infrastructure/services/
+    - name: Request limits
+      href: request-limits.md
     - name: Stack Overflow
       href: https://stackoverflow.com/questions/tagged/microsoft-translator
-    - name: Throttling limits
-      href: throttling-limits.md
     - name: UserVoice
       href: https://cognitive.uservoice.com/forums/558796-translator
 - name: Custom Translator
