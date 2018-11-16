@@ -71,6 +71,7 @@ There are tools available for generating Debian VHDs for Azure, such as the [azu
 
 
     **Debian 9.x "Stretch"**
+
         deb http://debian-archive.trafficmanager.net/debian stretch main
         deb-src http://debian-archive.trafficmanager.net/debian stretch main
         deb http://debian-archive.trafficmanager.net/debian-security stretch/updates main
