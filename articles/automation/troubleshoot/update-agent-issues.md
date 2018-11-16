@@ -13,7 +13,7 @@ manager: carmonm
 
 # Understand the Windows agent check results in Update Management
 
-There are many reasons why a non-Azure machine doesn't show a **Ready** status in Azure Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine the underlying problem. This article discusses how to run the troubleshooter from the Azure portal and in offline scenarios.
+There are many reasons why a non-Azure machine might not show a **Ready** status in Azure Update Management. In Update Management, you can check the health of a Hybrid Worker agent to determine underlying problem. This article describes how to run the Update Management troubleshooter from the Azure portal and in offline scenarios.
 
 ## Start the troubleshooter
 
@@ -24,11 +24,11 @@ In the Azure portal, the **Troubleshoot Update Agent** page displays problems wi
 > [!NOTE]
 > To check the health of an agent, the VM must be running. If the VM isn't running, a **Start the VM** button appears.
 
-On the **Troubleshoot Update Agent** page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/windows/run-command.md) to run a script on the machine to verify the agent dependencies. When the troubleshooter is finished, it returns the result of the checks.
+On the **Troubleshoot Update Agent** page, select **Run checks** to start the troubleshooter. The troubleshooter uses [Run Command](../../virtual-machines/windows/run-command.md) to run a script on the machine to verify agent dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
 ![Troubleshoot Update Agent page](../media/update-agent-issues/troubleshoot-page.png)
 
-Results are shown on the page when they're ready. The [check sections](#pre-requisistes-checks) show what is included in each check.
+Results are shown on the page when they're ready. The [checks sections](#prerequisiste-checks) show what's included in each check.
 
 ![Troubleshoot Update Agent checks](../media/update-agent-issues/update-agent-checks.png)
 
@@ -41,7 +41,7 @@ The operating system check verifies whether the Hybrid Runbook Worker is running
 |Operating system  |Notes  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | Supports only update assessments.         |
-|Windows Server 2008 R2 SP1 and later |.NET Framework 4.5.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 and later |.NET Framework 4.5.1 or later is required. ([Download the .NET Framework](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 4.0 or later is required. ([Download Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855))<br/> Windows PowerShell 5.1 is recommended for increased reliability.  ([Download Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### .NET 4.5.1
 
@@ -49,7 +49,7 @@ The .NET Framework check verifies that the system has a minimum of [.NET Framewo
 
 ### WMF 5.1
 
-The WMF check, verifies that the system has the required version of the Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the earliest supported version. We recommend that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) to increased reliability of the Hybrid Runbook Worker.
+The WMF check verifies that the system has the required version of the Windows Management Framework (WMF). [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855) is the earliest supported version. We recommend that you install [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616) to increase reliability of the Hybrid Runbook Worker.
 
 ### TLS 1.2
 
@@ -73,7 +73,7 @@ Proxy and firewall configurations must allow the Hybrid Runbook Worker agent to 
 
 ### Monitoring agent service status
 
-This check determines whether the Microsoft Monitoring Agent, `HealthService`, is running on the machine.
+This check determines whether `HealthService`, the Microsoft Monitoring Agent, is running on the machine.
 
 To learn more about troubleshooting the service, see [The Microsoft Monitoring Agent is not running](hybrid-runbook-worker.md#mma-not-running).
 
@@ -81,7 +81,7 @@ To reinstall the Microsoft Monitoring Agent, see [Install and configure the Micr
 
 ### Monitoring agent service events
 
-This check determines whether any 4502 events appear in the Operations Manager log on the machine in the past 24 hours.
+This check determines whether any `4502` events appear in the Azure Operations Manager log on the machine in the past 24 hours.
 
 To learn more about this event, see the [troubleshooting guide](hybrid-runbook-worker.md#event-4502) for this event.
 
@@ -89,7 +89,7 @@ To learn more about this event, see the [troubleshooting guide](hybrid-runbook-w
 
 ### MachineKeys folder access
 
-The Crypto Folder Access check determines whether the Local System Account has access to C:\ProgramData\Microsoft\Crypto\RSA.
+The Crypto folder access check determines whether the Local System Account has access to C:\ProgramData\Microsoft\Crypto\RSA.
 
 ## Troubleshoot offline
 
@@ -189,4 +189,4 @@ CheckResultMessageArguments : {}
 
 ## Next steps
 
-To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot - Hybrid Runbook Workers](hybrid-runbook-worker.md).
+To troubleshoot more issues with your Hybrid Runbook Workers, see [Troubleshoot Hybrid Runbook Workers](hybrid-runbook-worker.md).
