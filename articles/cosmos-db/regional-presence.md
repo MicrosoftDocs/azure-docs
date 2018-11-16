@@ -9,7 +9,7 @@ ms.date: 11/15/2018
 ms.author: rimman
 ---
 
-# Regional presence of Azure Cosmos DB
+# Regional availability of Azure Cosmos DB
 
 Currently, Azure is available in [54 regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/) worldwide. Azure Cosmos DB is a foundational service in Azure and is available in all regions where Azure is available.
 
@@ -26,6 +26,8 @@ Cosmos DB is available in all five distinct Azure cloud environments available t
 1. **Azure Government** is available in four regions in the United States to US government agencies and their partners. 
 
 1. **Azure Government for Department of Defense(DoD)** is available in two regions in the United States to the US Department of Defense.
+
+## Regional presence with global distribution
 
 Different APIs exposed by Azure Cosmos DB (including SQL, MongoDB, Cassandra, Gremlin, and Azure Table storage) are available in all Azure regions. For example, you can have MongoDB and Cassandra APIs exposed by Azure Cosmos DB not only in all of the global Azure regions but also in Azure sovereign regions like China, Germany, Government, and Department of Defense (DoD) regions.
 

@@ -27,11 +27,13 @@ Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct
 
 To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry in terms of both breadth (total number of offerings) and depth (number of customer-facing services in assessment scope).  Azure compliance offerings are grouped into four segments - globally applicable, US Government, industry specific, and region or country specific.  Compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft.
 
+## Azure Cosmos DB certifications  
+
 Azure Cosmos DB is continually expanding its certification coverage. Currently, Azure Cosmos DB is certified with the following certificates:
 
 | **Globally  applicable** | **US Government** | **Industry specific** | **Region or country specific** |
 | --- | --- | --- | --- | --- |
-| CSA STAR Certification<br/>CSA STAR Attestation<br/>ISO 20000-1:2011<br/>ISO 22301:2012<br/>ISO 27001:2013<br/>ISO 27017:2015<br/>ISO 27018:2014<br/>SOC 1, 2, 3| DoD SRG Level 2<br/>FedRAMP Moderate<br/>GxP (FDA 21 CFR Part 11)<br/>| HIPAA BAA<br/>HITRUST<br/>PCI DSS | Australia IRAP Unclassified<br/>Germany C5<br/>Singapore MTCS Level 3<br/>Spain ENS High|
+| CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 22301:2012<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3| DoD SRG Level 2<br/><br/>FedRAMP Moderate<br/><br/>GxP (FDA 21 CFR Part 11)<br/><br/>| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
 
 To learn more about each of these compliance offerings and how they benefit you, see [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) page.
 
@@ -39,7 +41,7 @@ The following table lists the certifications supported by Azure Cosmos DB in Azu
 
 | **Globally  applicable** | **US Government** | **Industry specific** | **Region or country specific** |
 | --- | --- | --- | --- |
-| CSA STAR Certification<br/>CSA STAR Attestation<br/>ISO 20000-1:2011<br/>ISO 9001:2015<br/>ISO 27001:2013<br/>ISO 27017:2015<br/>ISO 27018:2014<br/>SOC 1, 2, 3 | DoD SRG Level 2<br/>DoD SRG Level 5<br/>CJIS<br/>FedRAMP High<br/>IRS 1075<br/>NIST CSF<br/>NIST SP 800-171| HIPAA BAA<br/>HITRUST<br/>PCI DSS | Australia IRAP Unclassified<br/>Germany C5<br/>Singapore MTCS Level 3<br/>Spain ENS High|
+| CSA STAR Certification<br/><br/>CSA STAR Attestation<br/><br/>ISO 20000-1:2011<br/><br/>ISO 9001:2015<br/><br/>ISO 27001:2013<br/><br/>ISO 27017:2015<br/><br/>ISO 27018:2014<br/><br/>SOC 1, 2, 3 | DoD SRG Level 2<br/><br/>DoD SRG Level 5<br/><br/>CJIS<br/><br/>FedRAMP High<br/><br/>IRS 1075<br/><br/>NIST CSF<br/><br/>NIST SP 800-171| HIPAA BAA<br/><br/>HITRUST<br/><br/>PCI DSS | Australia IRAP Unclassified<br/><br/>Germany C5<br/><br/>Singapore MTCS Level 3<br/><br/>Spain ENS High|
 
 ## Next steps
 

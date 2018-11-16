@@ -112,7 +112,7 @@ Now let's try a few queries against this data to understand some of the key aspe
     }]
 ```
 
-**Query2: Now consider the case where we need to reformat the JSON output in a different shape. This query projects a new JSON object with two selected fields, Name and City, when the address' city has the same name as the state. In this case, "NY, NY" matches.
+**Query2:** Now consider the case where we need to reformat the JSON output in a different shape. This query projects a new JSON object with two selected fields, Name and City, when the address' city has the same name as the state. In this case, "NY, NY" matches.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
