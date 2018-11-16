@@ -32,9 +32,9 @@ In this tutorial, you'll complete these tasks:
 > * Create an Azure service principal so Jenkins 
 > can access Azure without using your credentials.
 > * Add your service principal to Jenkins.
-> * Create a Jenkins pipeline for building and deploying 
+> * Create the Jenkins pipeline that builds and deploys 
 > the sample app each time you update the app in GitHub.
-> * Create a build and deployment script that your Jenkins pipeline can use.
+> * Create build and deployment files for your Jenkins pipeline.
 > * Point your Jenkins pipeline at the build and deployment script.
 > * Deploy your sample app to Azure by running a manual build.
 > * Push an app update in GitHub, which triggers Jenkins to build and redeploy to Azure.
@@ -163,7 +163,7 @@ to Azure resources. To create this service principal, run the Azure CLI command
 either from your local command line or Azure Cloud Shell, for example: 
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name "yourServicePrincipalName" --password yourSecurePassword
+az ad sp create-for-rbac --name "yourAzureServicePrincipalName" --password yourSecurePassword
 ```
 
 Make sure you use quotation marks around the service principal name. 
@@ -224,7 +224,7 @@ choose **Verify Service Principal**. When you're done, choose **OK**.
 
 Next, create the Jenkins pipeline that builds and deploys your app.
 
-## Create pipeline
+## Create Jenkins pipeline
 
 In Jenkins, create the pipeline job for building and deploying your app.
 
@@ -262,7 +262,7 @@ can deploy to Azure without using your own credentials.
 
 Next, create build and deployment scripts for Jenkins.
 
-## Create scripts
+## Create build and deployment files
 
 Now create the files that Jenkins uses for building and deploying your app.
 
