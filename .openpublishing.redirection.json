@@ -1,4 +1,4 @@
-osmos{
+{
     "redirections": [
         {
             "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
