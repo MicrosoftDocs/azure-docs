@@ -1,5 +1,5 @@
 ---
-title: Throttling Limits - Translator Text API
+title: Throttling limits - Translator Text API
 titleSuffix: Azure Cognitive Services
 description: This article lists throttling limits for the Translator Text API. Charges are incurred based on character count, not request frequency with a limit of 5,000 characters per request. Character limits are subscription based, with F0 limited to 2 million characters per hour.
 services: cognitive-services
@@ -56,4 +56,4 @@ When using the BreakSentence function, sentence length is limited to 275 charact
 | Thai | th | 258 |
 
 > [!NOTE]
-> This limit doesn't apply to translations. 
+> This limit doesn't apply to translations.
