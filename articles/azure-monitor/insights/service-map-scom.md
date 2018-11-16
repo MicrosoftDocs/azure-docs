@@ -23,7 +23,7 @@ ms.author: bwren
   > This feature is in public preview.
   > 
   
-Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation]( monitoring-service-map.md).
+Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. Service Map allows you to view your servers the way you think of them, as interconnected systems that deliver critical services. Service Map shows connections between servers, processes, and ports across any TCP-connected architecture, with no configuration required besides the installation of an agent. For more information, see the [Service Map documentation]( service-map.md).
 
 With this integration between Service Map and System Center Operations Manager, you can automatically create distributed application diagrams in Operations Manager that are based on the dynamic dependency maps in Service Map.
 
@@ -50,19 +50,19 @@ To configure Service Map integration, do the following:
 
 1. To open the configuration wizard, in the **Service Map Overview** pane, click **Add workspace**.  
 
-    ![Service Map Overview pane](media/monitoring-service-map-scom/scom-configuration.png)
+    ![Service Map Overview pane](media/service-map-scom/scom-configuration.png)
 
 2. In the **Connection Configuration** window, enter the tenant name or ID, application ID (also known as the username or clientID), and password of the service principal, and then click **Next**. For more information, go to [Create a service principal](#creating-a-service-principal).
 
-    ![The Connection Configuration window](media/monitoring-service-map-scom/scom-config-spn.png)
+    ![The Connection Configuration window](media/service-map-scom/scom-config-spn.png)
 
 3. In the **Subscription Selection** window, select the Azure subscription, Azure resource group (the one that contains the Log Analytics workspace), and Log Analytics workspace, and then click **Next**.
 
-    ![The Operations Manager Configuration Workspace](media/monitoring-service-map-scom/scom-config-workspace.png)
+    ![The Operations Manager Configuration Workspace](media/service-map-scom/scom-config-workspace.png)
 
 4. In the **Machine Group Selection** window, you choose which Service Map Machine Groups you want to sync to Operations Manager. Click **Add/Remove Machine Groups**, choose groups from the list of **Available Machine Groups**, and click **Add**.  When you are finished selecting groups, click **Ok** to finish.
     
-    ![The Operations Manager Configuration Machine Groups](media/monitoring-service-map-scom/scom-config-machine-groups.png)
+    ![The Operations Manager Configuration Machine Groups](media/service-map-scom/scom-config-machine-groups.png)
 	
 5. In the **Server Selection** window, you configure the Service Map Servers Group with the servers that you want to sync between Operations Manager and Service Map. Click **Add/Remove Servers**.   
     
@@ -72,36 +72,36 @@ To configure Service Map integration, do the following:
     * Managed by Service Map
     * Listed in the Service Map Servers Group
 
-    ![The Operations Manager Configuration Group](media/monitoring-service-map-scom/scom-config-group.png)
+    ![The Operations Manager Configuration Group](media/service-map-scom/scom-config-group.png)
 
 6. Optional: Select the Management Server resource pool to communicate with Log Analytics, and then click **Add Workspace**.
 
-    ![The Operations Manager Configuration Resource Pool](media/monitoring-service-map-scom/scom-config-pool.png)
+    ![The Operations Manager Configuration Resource Pool](media/service-map-scom/scom-config-pool.png)
 
     It might take a minute to configure and register the Log Analytics workspace. After it is configured, Operations Manager initiates the first Service Map sync.
 
-    ![The Operations Manager Configuration Resource Pool](media/monitoring-service-map-scom/scom-config-success.png)
+    ![The Operations Manager Configuration Resource Pool](media/service-map-scom/scom-config-success.png)
 
 
 ## Monitor Service Map
 After the Log Analytics workspace is connected, a new folder, Service Map, is displayed in the **Monitoring** pane of the Operations Manager console.
 
-![The Operations Manager Monitoring pane](media/monitoring-service-map-scom/scom-monitoring.png)
+![The Operations Manager Monitoring pane](media/service-map-scom/scom-monitoring.png)
 
 The Service Map folder has four nodes:
 * **Active Alerts**: Lists all the active alerts about the communication between Operations Manager and Service Map.  Note that these alerts are not Log Analytics alerts being synced to Operations Manager. 
 
 * **Servers**: Lists the monitored servers that are configured to sync from Service Map.
 
-    ![The Operations Manager Monitoring Servers pane](media/monitoring-service-map-scom/scom-monitoring-servers.png)
+    ![The Operations Manager Monitoring Servers pane](media/service-map-scom/scom-monitoring-servers.png)
 
 * **Machine Group Dependency Views**: Lists all machine groups that are synced from Service Map. You can click any group to view its distributed application diagram.
 
-    ![The Operations Manager distributed application diagram](media/monitoring-service-map-scom/scom-group-dad.png)
+    ![The Operations Manager distributed application diagram](media/service-map-scom/scom-group-dad.png)
 
 * **Server Dependency Views**: Lists all servers that are synced from Service Map. You can click any server to view its distributed application diagram.
 
-    ![The Operations Manager distributed application diagram](media/monitoring-service-map-scom/scom-dad.png)
+    ![The Operations Manager distributed application diagram](media/service-map-scom/scom-dad.png)
 
 ## Edit or delete the workspace
 You can edit or delete the configured workspace through the **Service Map Overview** pane (**Administration** pane > **Operations Management Suite** > **Service Map**).
@@ -111,12 +111,12 @@ You can edit or delete the configured workspace through the **Service Map Overvi
 
 You can configure only one Log Analytics workspace for now.
 
-![The Operations Manager Edit Workspace pane](media/monitoring-service-map-scom/scom-edit-workspace.png)
+![The Operations Manager Edit Workspace pane](media/service-map-scom/scom-edit-workspace.png)
 
 ## Configure rules and overrides
 A rule, _Microsoft.SystemCenter.ServiceMapImport.Rule_, is created to periodically fetch information from Service Map. To change sync timings, you can configure overrides of the rule (**Authoring** pane > **Rules** > **Microsoft.SystemCenter.ServiceMapImport.Rule**).
 
-![The Operations Manager Overrides properties window](media/monitoring-service-map-scom/scom-overrides.png)
+![The Operations Manager Overrides properties window](media/service-map-scom/scom-overrides.png)
 
 * **Enabled**: Enable or disable automatic updates. 
 * **IntervalMinutes**: Reset the time between updates. The default interval is one hour. If you want to sync server maps more frequently, you can change the value.
