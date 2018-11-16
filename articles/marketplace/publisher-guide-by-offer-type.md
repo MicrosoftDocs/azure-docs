@@ -21,7 +21,7 @@ ms.author: qianw211
 
 Once you [decide on a publishing option](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type), you are ready to select the offer type that will be used to present your offer. 
 
-The offer is the publishing object that you will create, publish, and manage in the Cloud Partner Portal. The offer structure including the metadata, artifacts, and other content used to present the offer in the marketplace is defined by the offer type.
+The offer is the publishing object that you will create, publish, and manage in the [Cloud Partner Portal](https://cloudpartner.azure.com). The *offer type* defines the offer structure, which includes the metadata, artifacts, and other content used to present the offer in the marketplace.
 
 Before you can create an offer, you must choose an offer type. The offer type will correspond to the type of solution, app, or service offer that you wish to publish, as well as its alignment to Microsoft products and services. 
 
@@ -43,8 +43,8 @@ Azure Marketplace offer types are listed in the table below.
 | [**IoT Edge modules**](https://docs.microsoft.com/azure/marketplace/iot-edge-module) | Azure IoT Edge modules are the smallest computation units managed by IoT Edge, and can contain Microsoft services (such as Azure Stream Analytics), 3rd-party services or your own solution-specific code. |
 | [**Consulting services**](https://docs.microsoft.com/azure/marketplace/consulting-services) | Consulting Services in Azure Marketplace help to connect customers with services to support and extend their use of Azure. |
 | [**AppSource offers**](https://docs.microsoft.com/azure/marketplace/appsource-offer-publishing-guide) | The AppSource storefront includes offers that build on or extend Dynamics 365, Office 365, Power BI, and Power Apps. |
-| [**Azure AD requirements**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) | See the requirements for Azure AD by listing options and offer types here. |
 
+Finally, see [**Azure AD requirements**](https://docs.microsoft.com/azure/marketplace/enable-appsource-marketplace-using-azure-ad) | by listing options and offer types for more information on single sign-on options.
 
 ## Next Steps
 
