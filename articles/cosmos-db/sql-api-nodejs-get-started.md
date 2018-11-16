@@ -327,7 +327,10 @@ Congratulations! You have successfully created an Azure Cosmos DB database.
 
 ## <a id="CreateContainer"></a>Create a container
 
-[You want to create a container, because it will help you organize things in your new database. Heads up though: this is something that has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.]
+[You want to create a container, because it will help you organize things in your new database.]
+
+> [!WARNING]
+Creating a container has pricing implications. Visit our [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/) so you know what to expect.
 
 A container can be created by using either the createIfNotExists or create function from the **Containers** class.  A container consists of items (which in the case of the SQL API is JSON documents) and associated JavaScript application logic.
 
