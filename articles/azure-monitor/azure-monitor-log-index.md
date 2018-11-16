@@ -122,7 +122,6 @@ ms.author: magoedte
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-													<br><br>
                                                         <h3>Analyze data</h3>
                                                         <p>
                                                             <a href="/azure/log-analytics/query-language/get-started-queries">Get started with queries</a><br/>                        
