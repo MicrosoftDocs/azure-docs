@@ -47,12 +47,12 @@ let https = require('https');
 let subscriptionKey = 'your-access-key';
 
 let host = 'api.cognitive.microsoft.com/bing';
-let path = '/v7.0/localbusinesses/search';
+let path = '/v7.0/search';
 
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';
 
-let params = '?q=' + encodeURI(q) + "&appid=" + accessKey + "&traffictype=Internal_monitor&mkt=" + mkt;
+let params = '?q=' + encodeURI(q) + "&appid=" + accessKey + "&mkt=" + mkt;
 
 let response_handler = function (response) {
     let body = '';
