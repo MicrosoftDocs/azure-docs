@@ -119,7 +119,7 @@ A backup policy consists of the following configurations:
             ```
 
 * **Retention Policy**: Specifies the policy to retain backups in the configured storage. Only Basic Retention Policy is supported.
-    1. **Basic Retention Policy**: This retention policy allows to keep a cap on storage utilization. `RetentionDuration` can be specified to set the time span for which backups are required to be retained in the storage. `MinimumNumberOfBackups` is an optional parameter that can be specified to make sure that the specified number of backups are always retained. Below example illustrates the configuration to retain backups for _10_ days and does not allow number of backups to go below _20_.
+    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. `RetentionDuration` can be specified to set the time span for which backups are required to be retained in the storage. `MinimumNumberOfBackups` is an optional parameter that can be specified to make sure that the specified number of backups are always retained irrespective of the `RetentionDuration`. Below example illustrates the configuration to retain backups for _10_ days and does not allow number of backups to go below _20_.
         ```json
         {
             "RetentionPolicyType": "Basic",
