@@ -203,7 +203,7 @@ osdiskid=$(az vm show \
 
 Now that you have the ID of the virtual machine disk, the following command creates a snapshot of the disk.
 
-```azurcli
+```azurecli-interactive
 az snapshot create \
     --resource-group myResourceGroupDisk \
     --source "$osdiskid" \
@@ -250,7 +250,7 @@ First find the data disk name using the [az disk list](/cli/azure/disk#az-disk-l
 ```azurecli-interactive
 datadisk=$(az disk list \
    -g myResourceGroupDisk \
-   --query "[?contains(name,'myVM')].[name]" \
+   --query "[?contains(name,'myVM')].[id]" \
    -o tsv)
 ```
 
