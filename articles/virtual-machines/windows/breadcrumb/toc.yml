@@ -11,6 +11,6 @@
       topicHref: /azure/virtual-machines/windows/index
       items: 
         - name: SQL VM
-        tocHref: /azure/virtual-machines/windows/sql
-        topicHref: /azure/virtual-machines/windows/sql
+          tocHref: /azure/virtual-machines/windows/sql
+          topicHref: /azure/virtual-machines/windows/sql
       
