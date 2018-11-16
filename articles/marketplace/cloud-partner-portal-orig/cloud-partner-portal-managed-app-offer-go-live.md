@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
 ---
 
@@ -33,24 +33,23 @@ is happening during each step, and the action items in this process for you to e
 Publishing Process 
 ------------------
 
-You will click \"Publish\" under the
-Editor tab to start the Publish process.
+You will click \"Publish\" under the **Editor** tab to start the publishing process.
 
-![Offer Go Live Sequence
-1 - publish](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
+![Offer Go Live Sequence 1 - publish](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_publish.png)
 
-Under the Status tab, you will see the Publishing Steps and which step your offer is at.
+Under the **Status** tab, you will see the Publishing Steps and which step your offer is at.
 
-![Offer Go Live Sequence
-2 - workflow](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
+![Offer Go Live Sequence 2 - workflow](./media/cloud-partner-portal-publish-managed-app/newOffer_managedApp_workflow.png)
 
 At any point in the publishing process, you can also sign in and click
-the All Offers tab to view the latest status for any of your offers. You
+the **All Offers** tab to view the latest status for any of your offers. You
 can click directly on the status for your offer and see the details on
 where your offer is in the publishing process.
 
-Let\'s walk through each of the publishing steps, discuss what happens
-at each step and how long you should estimate each step will take.
+> [!WARNING]
+> If the customer usage attribution is not enabled, you will get the following error message during the publishing process: “Azure partner customer usage attribution missing in one or more ARM templates. To resolve, add a tracking GUID to the ARM template in mainTemplate.json packages for the following plan: servicenow. For more details, see http://aka.ms/customerusageattribution.” 
+
+Let\'s walk through each of the publishing steps, discuss what happens at each step and how long you should estimate each step will take.
 
 ### Validate Pre-Requisites (\<1 day) 
 
