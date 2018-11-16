@@ -64,9 +64,9 @@
   - name: Monitoring data
     items: 
     - name: Metrics and logs
-      href: ../monitoring/monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-collection.md
     - name: Data sources
-      href: ../monitoring/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
+      href: platform/data-sources.md
     - name: Azure data sources
       href: ../monitoring-and-diagnostics/monitoring-data-sources.md?toc=/azure/azure-monitor/toc.json
     - name: Activity log
@@ -186,7 +186,7 @@
     - name: Install and configure agents
       items:
       - name: Monitoring agents overview
-        href: ../monitoring/monitoring-overview-azure-agents.md?toc=/azure/azure-monitor/toc.json
+        href: platform/agents-overview.md
       - name: Log Analytics agents  
         items:
         - name: Overview
@@ -539,9 +539,9 @@
     - name: Monitor databases
       items:
       - name: Azure SQL
-        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/monitoring/toc.json
+        href: ../log-analytics/log-analytics-azure-sql.md?toc=/azure/azure-monitor/toc.json
       - name: SQL Server
-        href: ../log-analytics/log-analytics-sql-assessment.md?toc=/azure/monitoring/toc.json
+        href: ../log-analytics/log-analytics-sql-assessment.md?toc=/azure/azure-monitor/toc.json
     - name: Monitor networks
       items:
       - name: Networking Analytics
@@ -593,11 +593,11 @@
       - name: Service Map
         items:
         - name: Use
-          href: ../monitoring/monitoring-service-map.md?toc=/azure/azure-monitor/toc.json
+          href: insights/service-map.md
         - name: Configure
-          href: ../monitoring/monitoring-service-map-configure.md?toc=/azure/azure-monitor/toc.json
+          href: insights/service-map-configure.md
         - name: Integration with Operations Manager
-          href: ../monitoring/monitoring-service-map-scom.md?toc=/azure/azure-monitor/toc.json
+          href: insights/service-map-scom.md
     - name: Monitor Azure resources
       items:
       - name: Key Vault Analytics
@@ -898,7 +898,7 @@
       - name: Best practices
         href: insights/solutions-best-practices.md
       - name: Collect monitoring data from a runbook
-        href: ../monitoring/monitoring-runbook-datacollect.md?toc=/azure/azure-monitor/toc.json
+        href: platform/runbook-datacollect.md
 - name: Reference
   items:
   - name: Application Insights
