@@ -11,32 +11,35 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 11/12/2018
+ms.date: 11/15/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
 # Create an access review of group members or application access with Azure AD
 
-Access assignments become stale when users have access they don't need any more. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create an access review for group members or users assigned to an application. Creating recurring access reviews can be time-saving. If you need to routinely review users who have access to an application or are members of a group, you can define the frequency of those reviews. For more information on these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
+Access to groups and applications for employees and guests changes over time. To reduce the risk associated with stale access assignments, administrators can use Azure Active Directory (Azure AD) to create access reviews for group members or application access. If you need to routinely review access, you can also create recurring access reviews. For more information about these scenarios, see [Manage user access](manage-user-access-with-access-reviews.md) and [Manage guest access](manage-guest-access-with-access-reviews.md).
+
+This article describes how to create a new access review for group members or application access.
 
 ## Prerequisites
 
-- If this is your first time using access reviews, make sure you have [enabled access reviews](access-reviews-overview.md).
+- [Access reviews enabled](access-reviews-overview.md)
+- Global Administrator or Account Administrator
 
 ## Create an access review
 
-1. As a Global Administrator or User Account Administrator, open the [Access Reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/) in the Azure portal.
+1. Sign-in to the Azure portal and open the [Access Reviews page](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Click **Controls**.
 
-    ![Access review - Controls](./media/create-access-review/controls.png)
-
 1. Click **New access review** to create a new access review.
 
-    ![Create an access review - Review name and description](./media/create-access-review/name-description.png)
+    ![Access review - Controls](./media/create-access-review/controls.png)
 
 1. Name the access review. Optionally, give the review a description. The name and description are shown to the reviewers.
+
+    ![Create an access review - Review name and description](./media/create-access-review/name-description.png)
 
 1. Set the **Start date**. By default, an access review occurs once, starts the same time it's created, and it ends in one month. You can change the start and end dates to have an access review start in the future and last however many days you want.
 
@@ -107,7 +110,7 @@ Based on your selections in Upon completion settings, auto-apply will be execute
 
 ## Create reviews via APIs
 
-Microsoft Graph APIs are available for administrators. What you do to manage access reviews of groups and application users in the Azure portal can also be done via APIs. For more information, see the [Azure AD Access Reviews API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root). For a code sample, see [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
+You can also create access reviews using APIs. What you do to manage access reviews of groups and application users in the Azure portal can also be done using Microsoft Graph APIs. For more information, see the [Azure AD Access Reviews API reference](https://developer.microsoft.com/en-us/graph/docs/api-reference/beta/resources/accessreviews_root). For a code sample, see [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## Next steps
 
