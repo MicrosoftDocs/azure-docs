@@ -148,7 +148,7 @@ Here is a command-line sample to import from MongoDB export JSON files:
 
 ```console
 dt.exe /s:MongoDBExport /s.Files:D:\mongoemployees.json /t:DocumentDBBulk /t.ConnectionString:"AccountEndpoint=<CosmosDB Endpoint>;AccountKey=<CosmosDB Key>;Database=<CosmosDB Database>;" /t.Collection:employees /t.IdField:_id /t.Dates:Epoch /t.CollectionThroughput:2500
-```console
+```
 
 ## <a id="SQL"></a>Import from SQL Server
 
