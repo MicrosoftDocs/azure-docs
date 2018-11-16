@@ -61,7 +61,7 @@ Explanations of the columns are as follows:
 | [Office 365 Analytics (Preview)](solution-office-365.md) |Windows | | | | | |on notification |
 | **Management solution** | **Platform** | **Microsoft monitoring agent** | **Operations Manager agent** | **Azure storage** | **Operations Manager required?** | **Operations Manager agent data sent via management group** | **Collection frequency** |
 | [Service Fabric Analytics](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutes |
-| [Service Map](../../monitoring/monitoring-service-map.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 15 seconds |
+| [Service Map](../../azure-monitor/insights/service-map.md) | Windows and Linux | &#8226; | &#8226; |  |  |  | 15 seconds |
 | [SQL Assessment](../../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 days |
 | [SurfaceHub](../../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |on arrival |
 | [System Center Operations Manager Assessment (Preview)](../../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | seven days |
