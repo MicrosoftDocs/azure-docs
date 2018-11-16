@@ -21,7 +21,7 @@ ms.author: qianw211
 
 Private offers on [Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/) enable publishers to create SKUs that are only visible to targeted customers.
 
-## Unlock Enterprise Deals with Private Offers
+## Unlock enterprise deals with Private offers
 
 Enterprise customers increasingly leverage online marketplaces to find, try, and buy cloud solutions. Now with private offers, publishers can use marketplace to privately share customized solutions with targeted customers with capabilities that enterprises require:
 
