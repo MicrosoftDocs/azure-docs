@@ -11,18 +11,18 @@ ms.author: cherylmc
 
 ---
 
-# How to configure ExpressRoute Direct by using the Azure CLI (Preview)
+# Configure ExpressRoute Direct by using the Azure CLI (Preview)
 
 You can use Azure ExpressRoute Direct to connect directly to the Microsoft global network at peering locations strategically distributed across the world. For more information, see [About ExpressRoute Direct Connect](expressroute-erdirect-about.md).
 
 > [!IMPORTANT]
 > ExpressRoute Direct currently is in preview.
 >
-> The ExpressRoute Direct public preview is provided without a service level agreement and should not be used for production workloads. Some features might not be supported, some features might have constrained capabilities, and some features might not be available in all Azure locations. For details, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> The ExpressRoute Direct public preview is provided without a service-level agreement. You shouldn't use ExpressRoute Direct Preview for production workloads. Some features might not be supported, some features might have constrained capabilities, and some features might not be available in all Azure locations. For details, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="resources"></a>Create the resource
 
-1. Sign in to Azure and select the subscription that has ExpressRoute. The ExpressRoute Direct resource and ExpressRoute circuits must be in the same subscription. In the Azure CLI, run the following commands:
+1. Sign in to Azure and select the subscription that contains ExpressRoute. The ExpressRoute Direct resource and your ExpressRoute circuits must be in the same subscription. In the Azure CLI, run the following commands:
 
   ```azurecli
   az login
@@ -107,7 +107,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
    }
   ]
   ```
-3. Determine whether a location listed in the preceding step has available bandwidth:
+3. Determine whether one of the locations listed in the preceding step has available bandwidth:
 
   ```azurecli
   az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -133,14 +133,14 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
   "type": "Microsoft.Network/expressRoutePortsLocations"
   }
   ```
-4. Create an ExpressRoute Direct resource that's based on the location you chose from the preceding steps.
+4. Create an ExpressRoute Direct resource that's based on the location you chose in the preceding steps.
 
   ExpressRoute Direct supports both QinQ and Dot1Q encapsulation. If you select QinQ, each ExpressRoute circuit is dynamically assigned an S-Tag and is unique throughout the ExpressRoute Direct resource. Each C-Tag on the circuit must be unique on the circuit but not across the ExpressRoute Direct resource.  
 
   If you select Dot1Q encapsulation, you must manage uniqueness of the C-Tag (VLAN) across the entire ExpressRoute Direct resource.  
 
   > [!IMPORTANT]
-  > ExpressRoute Direct can be only one encapsulation type.You can't change the encapsulation type after you create the ExpressRoute Direct resource.
+  > ExpressRoute Direct can be only one encapsulation type .You can't change the encapsulation type after you create the ExpressRoute Direct resource.
   > 
  
   ```azurecli
@@ -205,11 +205,11 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
   }  
   ```
 
-## <a name="state"></a>Change Admin State of links
+## <a name="state"></a>Change AdminState for links
 
-Use this process to conduct a Layer 1 test. Ensure that each cross-connection is properly patched into each router for the primary and secondary ports.
+Use this process to conduct a layer 1 test. Ensure that each cross-connection is properly patched into each router in the primary and secondary ports.
 
-1. Set **Link** to **Enabled**. Repeat this step to set each link to **Enabled**.
+1. Set links to **Enabled**. Repeat this step to set each link to **Enabled**.
 
   Links[0] is the primary port and Links[1] is the secondary port.
 
@@ -273,15 +273,15 @@ Use this process to conduct a Layer 1 test. Ensure that each cross-connection is
   }
   ```
 
-  Use the same procedure with `AdminState = “Disabled”` to turn down the ports.
+  Use the same procedure to down the ports by using `AdminState = “Disabled”`.
 
 ## <a name="circuit"></a>Create a circuit
 
-By default, you can create 10 circuits in the subscription that has the ExpressRoute Direct resource. The default limit can be increased by Microsoft Support. You are responsible for tracking provisioned and utilized bandwidth. Provisioned bandwidth is the sum of the bandwidth of all the circuits on the ExpressRoute Direct resource. Utilized bandwidth is the physical usage of the underlying physical interfaces.
+By default, you can create 10 circuits in the subscription that contains the ExpressRoute Direct resource. Microsoft Support can increase the default limit. You're responsible for tracking provisioned and utilized bandwidth. Provisioned bandwidth is the sum of the bandwidth of all the circuits on the ExpressRoute Direct resource. Utilized bandwidth is the physical usage of the underlying physical interfaces.
 
-You can use additional circuit bandwidths on ExpressRoute Direct only to support the scenarios outlined here. The bandwidths are 40 GBps and 100 GBps.
+You can use additional circuit bandwidths on ExpressRoute Direct only to support the scenarios outlined here. The bandwidths are 40 Gbps and 100 Gbps.
 
-You can create either Standard or Premium circuits. Standard circuits are included in the cost. The cost of Premium circuits is based on the bandwidth you select. You can create circuits only as metered. Unlimited circuits aren't supported on ExpressRoute Direct.
+You can create either Standard or Premium circuits. Standard circuits are included in the cost of the service. The cost of Premium circuits is based on the bandwidth you select. You can create circuits only as metered. Unlimited circuits aren't supported on ExpressRoute Direct.
 
 Create a circuit on the ExpressRoute Direct resource:
 
@@ -289,7 +289,7 @@ Create a circuit on the ExpressRoute Direct resource:
   az network express-route create --express-route-port "/subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Network/expressRoutePorts/Contoso-Direct" -n "Contoso-Direct-ckt" -g "Contoso-Direct-rg" --sku-family MeteredData --sku-tier Standard --bandwidth 100 Gbps
   ```
 
-  Other bandwidths include 5 GBps, 10 GBps, and 40 GBps.
+  Other bandwidths include 5 Gbps, 10 Gbps, and 40 Gbps.
 
   **Example output**
 
