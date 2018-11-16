@@ -77,25 +77,21 @@ find and select your virtual network.
 
 1. On your virtual network's menu, select **Access control (IAM)**. 
 
-1. Under **Access Control**, select **Role assignment** 
-if not already selected. On the **Role assignment** toolbar, 
-choose **Add**. 
+1. Under **Access Control (IAM)**, choose **Add**. 
 
-   ![Add role assignments](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
+   ![Add roles](./media/connect-virtual-network-vnet-isolated-environment/set-up-role-based-access-control-vnet.png)
 
-1. On the **Add permissions** pane, set up each role in this 
-table for the Azure Logic Apps service. Make sure you choose 
-**Save** after you finish each role:
+1. On the **Add role assignment** pane, set up each role for the 
+Azure Logic Apps service as described by the table in this step. 
+Make sure you choose **Save** after you finish each role.
+
+   ![Add role assignment](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
 
    | Role | Assign access to | Select | 
    |------|------------------|--------|
    | **Network Contributor** | **Azure AD user, group, or application** | Enter **Azure Logic Apps**. After the member list appears, select the same value. <p>**Tip**: If you can't find this service, enter the Logic Apps service's app ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` | 
    | **Classic Contributor** | **Azure AD user, group, or application** | Enter **Azure Logic Apps**. After the member list appears, select the same value. <p>**Tip**: If you can't find this service, enter the Logic Apps service's app ID: `7cd684f4-8a78-49b0-91ec-6a35d38739ba` | 
    |||| 
-
-   For example:
-
-   ![Add permissions](./media/connect-virtual-network-vnet-isolated-environment/add-contributor-roles.png)
 
 For more information, see 
 [Permissions for virtual network access](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md).
