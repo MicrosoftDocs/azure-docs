@@ -19,7 +19,7 @@ The Windows Virtual Desktop diagnostics role service is a Remote Desktop role th
   
 Connections that don’t reach Windows Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Windows Virtual Desktop. Windows Virtual Desktop connection issues can happen when the end user is experiencing network connectivity issues.
 
-## Diagnosing issues with PowerShell
+## Diagnose issues with PowerShell
 
 Windows Virtual Desktop Diagnostics uses just one PowerShell cmdlet but contains many optional parameters to help narrow down and isolate issues. The following sections list the cmdlets you can run to diagnose issues. Most filters can be applied together. Values listed in brackets, such as `<tenantName>`, should be replaced with the values that apply to your situation.
 
@@ -106,3 +106,9 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 ```
 
 The *-Outcome* parameter can also be combined with other optional filtering parameters.
+
+## Next steps
+
+To learn more about roles within Windows Virtual Desktop, see [Windows Virtual Desktop environment](environment-setup.md).
+
+To see a list of available PowerShell cmdlets for Windows Virtual Desktop, see the [PowerShell cmdlets](powershell-cmdlet-table.md) reference.
