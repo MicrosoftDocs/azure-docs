@@ -2,7 +2,7 @@
 layout: HubPage
 hide_bc: false
 title: Azure Monitor logs Documentation | Microsoft Docs
-description: Azure Monitor logs is a sophisticated tool for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.
+description: Azure Monitor is a sophisticated tool for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.
 services: azure-monitor
 author: mgoedtel
 manager: carmonm
@@ -19,7 +19,7 @@ ms.author: magoedte
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Monitor logs Documentation</h1>
-        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs<br>that allows you to maximize the performance and availability of your cloud resources and applications.</p>
+        <p>Azure Monitor is a sophisticated tool for collecting and analyzing logs<br>that allows you to maximize the performance and availability of your cloud resources and applications.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
             <li>
