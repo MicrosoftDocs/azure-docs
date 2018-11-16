@@ -188,7 +188,7 @@ Backup policies can be disabled when there is no need to backup data. Backup pol
 * While disabling backup for an entity(application/service/partition), `CleanBackup` can be set to _true_ to delete all the backups in configured storage.
             ```json
             {
-               “CleanBackup”: true 
+               "CleanBackup": true 
             }
             ```
 
