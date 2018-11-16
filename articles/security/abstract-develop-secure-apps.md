@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: terrylan
 
 ---
@@ -24,4 +24,4 @@ This paper is a general guide to the security questions and controls you should 
 
 This paper is intended to be a resource for software designers, developers, and testers at all levels who build and deploy secure Azure solutions.
 
-[Download the white paper](https://acomportal.azure.net/files/resourcefiles/develop-secure-applications-on-azure/Develop%20secure%20applications%20on%20Azure.pdf)
+[Download the white paper](https://azure.microsoft.com/mediahandler/files/resourcefiles/develop-secure-applications-on-azure/Develop%20secure%20applications%20on%20Azure.pdf)
