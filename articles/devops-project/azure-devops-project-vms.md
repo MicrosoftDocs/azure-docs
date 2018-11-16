@@ -140,7 +140,7 @@ DevOps Projects automatically creates and configures the necessary steps to depl
 
 ## Commit changes to Azure Repos and automatically deploy them to Azure 
 
-You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the GitHub repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. The code changes initiate the CI/CD process and automatically deploy your changes to the IIS website on the Azure VM.
+You're now ready to collaborate with a team on your app by using a CI/CD process that automatically deploys your latest work to your website. Each change to the Git repo starts a build in Azure DevOps, and a CD pipeline executes a deployment to Azure. Follow the procedure in this section, or use another technique to commit changes to your repo. The code changes initiate the CI/CD process and automatically deploy your changes to the IIS website on the Azure VM.
 
 1. In the left pane, select **Code**, and then go to your repo.
 
@@ -193,16 +193,18 @@ With Azure Application insights, you can easily monitor your application's perfo
 
 If you are testing, you can avoid accruing billing charges by cleaning up your resources. When they are no longer needed, you can delete the Azure virtual machine and related resources that you created in this tutorial. To do so, use the **Delete** functionality on the DevOps Project dashboard. 
 
-> [!CAUTION]
+> [!IMPORTANT]
 > The following procedure permanently deletes resources. The *Delete* functionality destroys the data that's created by the project in DevOps Projects in both Azure and Azure DevOps, and you will be unable to retrieve it. Use this procedure only after you've carefully read the prompts.
 
 1. In the Azure portal, go to the DevOps Projects dashboard.
 1. At the top right, select **Delete**. 
 1. At the prompt, select **Yes** to *permanently delete* the resources.
 
+You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other projects. 
+
 ## Next steps
 
-You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other projects. In this tutorial, you learned how to:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Use DevOps Projects to deploy your ASP.NET app
