@@ -50,12 +50,12 @@ The Azure Diagnostics agent should be used when you want to:
 ## Log Analytics agent
 For advanced monitoring where you need to do more than collect metrics and a subset of logs, the Log Analytics agent for Windows and Linux is required. The Log Analytics agent was developed for comprehensive management across on-premises physical and virtual machines, computers monitored by System Center Operations Manager, and VMs in hosted in other clouds. The Windows and Linux agents connect to a Log Analytics workspace to collect both monitoring solution-based data as well as custom data sources that you configure.
 
-[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 The Log Analytics agent should be used when you want to:
 
 * Collect data from a variety of sources both within Azure, other cloud providers, and on-premises resources. 
-* Using one of the Azure Monitor monitoring solutions such as [Azure Monitor for VMs](../../monitoring/../../azure-monitor/insights/vminsights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), [Azure Monitor for containers](../../monitoring/../../azure-monitor/insights/container-insights-overview.md?toc=%2fazure%2fmonitoring%2ftoc.json), etc.  
+* Using one of the Azure Monitor monitoring solutions such as [Azure Monitor for VMs](../insights/vminsights-overview.md), [Azure Monitor for containers](../insights/container-insights-overview.md), etc.  
 * Use one of the other Azure management services such as [Azure Security Center](../../security-center/security-center-intro.md), [Azure Automation](../../automation/automation-intro.md), etc.
 
 Previously, several Azure services were bundled as the *Operations Management Suite*, and as a result the Log Analytics agent is shared across services including Azure Security Center and Azure Automation.  This includes the full set of features they offer, delivering comprehensive management of your Azure VMs through their lifecycle.  Some examples of this are:
@@ -66,7 +66,7 @@ Previously, several Azure services were bundled as the *Operations Management Su
 * Azure services such as [Application Insights](https://docs.microsoft.com/azure/application-insights/) and [Azure Security Center](https://docs.microsoft.com/azure/security-center/), which natively store their data directly in Log Analytics.  
 
 ## Dependency agent
-The Dependency agent was developed as part of the Service Map solution, which was originally developed externally from Microsoft. [Service Map](../../monitoring/service-map.md) and [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines and it integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Log Analytics and visualizes the discovered interconnected components.
+The Dependency agent was developed as part of the Service Map solution, which was originally developed externally from Microsoft. [Service Map](service-map.md) and [Azure Monitor for VMs](../../azure-monitor/insights/vminsights-overview.md) requires a Dependency Agent on Windows and Linux virtual machines and it integrates with the Log Analytics agent to collects discovered data about processes running on the virtual machine and external process dependencies. It stores this data in Log Analytics and visualizes the discovered interconnected components.
 
 You may need some combination of these agents to monitor your VM. The agents can be installed side by side as Azure extensions, however on Linux, the Log Analytics agent *must* be installed first or else installation will fail. 
 

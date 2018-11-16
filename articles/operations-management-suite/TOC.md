@@ -65,7 +65,7 @@
 ### [Best practices](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Management scenarios
-### [Collect analytics data from runbook](../azure-monitor/insights/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
+### [Collect analytics data from runbook](../azure-monitor/platform/runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 # Resources
 ## [Azure Roadmap](https://azure.microsoft.com/roadmap/)

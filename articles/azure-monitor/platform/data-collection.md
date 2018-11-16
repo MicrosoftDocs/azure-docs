@@ -137,7 +137,7 @@ Log Analytics can collect data from a variety of sources both within Azure and f
 - [Activity logs](../../log-analytics/log-analytics-activity.md) from Azure resources that include information on their configuration and health and [Diagnostic logs](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) that provide insights into their operation.
 - Agents on [Windows](../../log-analytics/log-analytics-windows-agent.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtual machines that send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](../../log-analytics/log-analytics-data-sources.md) that you configure.
 - Application data collected by [Application Insights](https://docs.microsoft.com/azure/application-insights/).
-- Data providing insights into a particular application or service from [monitoring solutions](../../monitoring/../../azure-monitor/insights/solutions.md) or features such as Container Insights, VM Insights, or Resource Group Insights.
+- Data providing insights into a particular application or service from [monitoring solutions](../insights/solutions.md) or features such as Container Insights, VM Insights, or Resource Group Insights.
 - Security data collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
 - [Metrics](#metrics) from Azure resources. This allows you to store metrics for longer than 93 days and to analyze it with other log data.
 - Telemetry written to [Azure Storage](../../log-analytics/log-analytics-azure-storage-iis-table.md).
