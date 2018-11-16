@@ -140,7 +140,7 @@ You can use Azure ExpressRoute Direct to connect directly to the Microsoft globa
   If you select Dot1Q encapsulation, you must manage uniqueness of the C-Tag (VLAN) across the entire ExpressRoute Direct resource.  
 
   > [!IMPORTANT]
-  > ExpressRoute Direct can be only one encapsulation type .You can't change the encapsulation type after you create the ExpressRoute Direct resource.
+  > ExpressRoute Direct can be only one encapsulation type. You can't change the encapsulation type after you create the ExpressRoute Direct resource.
   > 
  
   ```azurecli
