@@ -35,7 +35,9 @@ To balance load between two process servers,
 2. Click on the configuration server to which the process servers are registered with.
 3. List of process servers registered to the configuration servers are available on the page.
 4. Click on the process server on which you wish to modify the workload.
+
     ![LoadBalance](media/vmware-azure-manage-process-server/LoadBalance.png)
+
 5. You can either use **Load Balance** or **Switch** options, as explained below, as per the requirement.
 
 ### Load balance
@@ -43,7 +45,9 @@ To balance load between two process servers,
 Through this option, you can select one or more virtual machines and can transfer them to another process server.
 
 1. Click on **Load balance**, select target process server from the drop down. Click **OK**
+
     ![LoadPS](media/vmware-azure-manage-process-server/LoadPS.PNG)
+
 2. Click on **Select machines**, choose the virtual machines you wish to move from current process server to the target process server. Details of average data change are displayed against each virtual machine.
 3. Click **OK**. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
 4. It takes 15 minutes for the changes to reflect post successful completion of this operation OR [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) for immediate effect.
@@ -53,7 +57,9 @@ Through this option, you can select one or more virtual machines and can transfe
 Through this option, entire workload protected under a process server is moved to a different process server.
 
 1. Click on **Switch**, select the Target process server, click **OK**.
+
     ![Switch](media/vmware-azure-manage-process-server/Switch.PNG)
+
 2. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
 3. It takes 15 minutes for the changes to reflect post successful completion of this operation OR [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) for immediate effect.
 
