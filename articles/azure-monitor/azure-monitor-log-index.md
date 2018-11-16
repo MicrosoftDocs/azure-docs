@@ -53,27 +53,25 @@ ms.author: magoedte
                                                         </p>
                                                    </div>
                                                  </div>
-                                               </div>
-                                             </div>
+                                              </div>
+                                            </div>
                                         </a>
                                    </li>
                                    <li>
-                                       <a href="">
-                                          <div class="cardSize">
-                                               <div class="cardPadding">
-                                                    <div class="card">
-                                                      <div class="cardText style="padding-left: 0px">
+                                        <div class="cardSize">
+                                            <div class="cardPadding">
+                                                <div class="card">
+                                                    <div class="cardText style="padding-left: 0px">
                                                         <h3>Data security</h3>
                                                         <p>
                                                             <a href="/azure/log-analytics/log-analytics-data-security">Log data</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling</a><br/>
                                                             <a href="/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security">Role permissions and security</a><br/>
                                                         </p>
-                                                       </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </a>
+                                        </div>
                                     </li>
                                </ul>
                             </li>
