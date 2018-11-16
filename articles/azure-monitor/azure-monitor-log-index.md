@@ -19,7 +19,7 @@ ms.author: magoedte
 <div id="main" class="v2">
     <div class="container">
         <h1>Azure Monitor logs Documentation</h1>
-        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs<br>that allow you to maximize the performance and availability of your cloud resources and applications.</p>
+        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs<br>that allows you to maximize the performance and availability of your cloud resources and applications.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
             <li>
@@ -62,12 +62,7 @@ ms.author: magoedte
                                                     <div class="cardSize">
                                                         <div class="cardPadding">
                                                             <div class="card">
-                                                                <div class="cardImageOuter">
-                                                                    <div class="cardImage">
-                                                                        <img alt="" src="/learn/achievements/secure-azure-resources-with-conditional-access.svg" data-linktype="external">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="cardText" style="padding-left: 0px">
+                                                                <div class="cardText">
                                                                     <h3>Understand security</h3> 
 																	<p>
 																	    <a href="/azure/log-analytics/log-analytics-data-security">Log data</a><br/>
