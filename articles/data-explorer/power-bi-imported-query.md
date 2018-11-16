@@ -16,7 +16,7 @@ ms.date: 11/14/2018
 
 Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. Power BI is a business analytics solution that lets you visualize your data and share the results across your organization.
 
-Azure Data Explorer provides three options for connecting to data in Power BI: use the built-in connector, import a query from Azure Data Explorer, or use a SQL query. This quickstart shows you how to use the built-in connector to get data and visualize it in a Power BI report.
+Azure Data Explorer provides three options for connecting to data in Power BI: use the built-in connector, import a query from Azure Data Explorer, or use a SQL query. This quickstart shows you how to import a query so that you can get data and visualize it in a Power BI report.
 
 If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin.
 
