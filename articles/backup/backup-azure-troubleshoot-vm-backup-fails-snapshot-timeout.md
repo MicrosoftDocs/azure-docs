@@ -72,7 +72,7 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 **Cause 2: [The backup extension fails to update or load](#the-backup-extension-fails-to-update-or-load)**  
 **Cause 3: [The VM doesn't have internet access](#the-vm-has-no-internet-access)**
 
-## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailed - VMSnapshot extension operation failed
+## <a name="ExtentionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtentionOperationFailedForManagedDisks - VMSnapshot extension operation failed
 
 **Error code**: ExtentionOperationFailedForManagedDisks <br>
 **Error message**: VMSnapshot extension operation failed<br>
