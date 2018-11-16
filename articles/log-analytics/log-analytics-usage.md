@@ -158,19 +158,19 @@ Use the following steps to reduce the volume of logs collected:
 | Event logs                 | Change [event log configuration](log-analytics-data-sources-windows-events.md) to: <br> - Reduce the number of event logs collected <br> - Collect only required event levels. For example, do not collect *Information* level events |
 | Syslog                     | Change [syslog configuration](log-analytics-data-sources-syslog.md) to: <br> - Reduce the number of facilities collected <br> - Collect only required event levels. For example, do not collect *Info* and *Debug* level events |
 | AzureDiagnostics           | Change resource log collection to: <br> - Reduce the number of resources send logs to Log Analytics <br> - Collect only required logs |
-| Solution data from computers that don't need the solution | Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers. |
+| Solution data from computers that don't need the solution | Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to collect data from only required groups of computers. |
 
 ### Check if there are more nodes than expected
 If you are on the *per node (Log Analytics)* pricing tier, then you are charged based on the number of nodes and solutions you use. You can see how many nodes of each offer are being used in the *offerings* section of the usage dashboard.<br><br> ![usage dashboard](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Click on **See all...** to view the full list of computers sending data for the selected offer.
 
-Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers.
+Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to collect data from only required groups of computers.
 
 ## Next steps
 * See [Log searches in Log Analytics](log-analytics-queries.md) to learn how to use the search language. You can use search queries to perform additional analysis on the usage data.
 * Use the steps described in [create a new log alert](../monitoring-and-diagnostics/alert-metric.md) to be notified when a search criteria is met.
-* Use [solution targeting](../monitoring/monitoring-solution-targeting.md) to collect data from only required groups of computers.
+* Use [solution targeting](../azure-monitor/insights/solution-targeting.md) to collect data from only required groups of computers.
 * To configure an effective security event collection policy, review [Azure Security Center filtering policy](../security-center/security-center-enable-data-collection.md).
 * Change [performance counter configuration](log-analytics-data-sources-performance-counters.md).
 * To modify your event collection settings, review [event log configuration](log-analytics-data-sources-windows-events.md).

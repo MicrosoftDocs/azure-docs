@@ -3292,6 +3292,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/application-gateway/application-gateway-create-gateway-portal.md",
+            "redirect_url": "/azure/application-gateway/quick-create-portal",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/application-insights/app-insights-azure-diagnostics.md",
             "redirect_url": "/azure/monitoring-and-diagnostics/azure-diagnostics-configure-application-insights",
             "redirect_document_id": false
@@ -30182,6 +30187,11 @@
             "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
             "redirect_document_id" : true
         },
+		 {
+            "source_path": "articles/active-directory/hybrid/reference-connect-sync-connector-version-history.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history",
+            "redirect_document_id" : true
+        },
         {
             "source_path": "articles/container-registry/container-registry-tutorial-quick-build.md",
             "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
@@ -30575,7 +30585,141 @@
             "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
             "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
             "redirect_document_id" : false
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-agenthealth.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solution-agenthealth",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-office-365.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solution-office-365",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-best-practices.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-best-practices",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-creating.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-creating",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-inventory.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-inventory",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-automation.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-resources-automation",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-searches-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-resources-searches-alerts",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-views.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-resources-views",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-solution-file.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-solution-file",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-targeting.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solution-targeting",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-analyze.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-analyze",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-onboard.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-onboard",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-optout.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-optout",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-troubleshoot",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-agent-upgrade.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-agent-upgrade",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-faq.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-faq",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-health.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-health",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-known-issues.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-known-issues",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-log-search.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-log-search",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-maps.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-maps",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-onboard.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-onboard",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-performance.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-performance",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-optout.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-optout",
+            "redirect_document_id":  "false"
         }
-
     ]
 }
