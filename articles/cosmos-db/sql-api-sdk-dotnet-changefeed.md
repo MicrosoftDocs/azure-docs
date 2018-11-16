@@ -39,6 +39,13 @@ ms.author: maquaran
 
 ### v2 builds
 
+### <a name="2.2.3"/>2.2.3
+* Added support for using any custom store for persisting continuation tokens per partition.
+  * For example, a custom lease store can be Cosmos DB lease collection partitioned in any custom way.
+  * Custom lease stores can use new extensibility point ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) and ILeaseStoreManager public interface.
+  * Refactored the ILeaseManager interface into multiple role interfaces.
+* Minor breaking change: removed extensibility point ChangeFeedProcessorBuilder.WithLeaseManager(ILeaseManager), use ChangeFeedProcessor.WithLeaseStoreManager(ILeaseStoreManager) instead.
+
 ### <a name="2.2.2"/>2.2.2
 * Fixed an issue that may occur during processing split when lease collection is partitioned. The issue may lead to leases for gone partitions not being deleted from lease collection. The issue is fixed with this release.
 
