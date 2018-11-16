@@ -74,6 +74,6 @@ sections:
     className: cardsD
     items:
     - title: Command-Line
-      html: <p><a href="/powershell/module/azurerm.siterecovery>Azure PowerShell</a></p>
+      html: <p><a href="/powershell/module/azurerm.siterecovery/">Azure PowerShell</a></p>
     - title: REST
       html: <p><a href="/rest/api/site-recovery/">REST API Reference</a></p>
