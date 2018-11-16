@@ -29,14 +29,14 @@ Use the [az aks disable-addons](https://docs.microsoft.com/cli/azure/aks?view=az
 az aks disable-addons -a monitoring -n MyExistingManagedCluster -g MyExistingManagedClusterRG
 ```
 
-To re-enable monitoring for your cluster, see [Enable monitoring using Azure CLI](monitoring-container-insights-onboard.md#enable-monitoring-using-azure-cli).
+To re-enable monitoring for your cluster, see [Enable monitoring using Azure CLI](container-insights-onboard.md#enable-monitoring-using-azure-cli).
 
 ## Azure Resource Manager template
 Provided are two Azure Resource Manager template to support removing the solution resources consistently and repeatedly in your resource group. One is a JSON template specifying the configuration to *opt out* and the other contains parameter values that you configure to specify the AKS cluster resource ID and resource group that the cluster is deployed in. 
 
 If you're unfamiliar with the concept of deploying resources by using a template, see:
-* [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Deploy resources with Resource Manager templates and the Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [Deploy resources with Resource Manager templates and Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Deploy resources with Resource Manager templates and the Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
 >[!NOTE]
 >The template needs to be deployed in the same resource group as the cluster.
@@ -107,7 +107,7 @@ If you choose to use the Azure CLI, you first need to install and use the CLI lo
 
 4. Edit the values for **aksResourceId** and **aksResourceLocation** by using the values of the AKS cluster, which you can find on the **Properties** page for the selected cluster.
 
-    ![Container properties page](media/monitoring-container-insights-optout/container-properties-page.png)
+    ![Container properties page](media/container-insights-optout/container-properties-page.png)
 
     While you are on the **Properties** page, also copy the **Workspace Resource ID**. This value is required if you decide you want to delete the Log Analytics workspace later. Deleting the Log Analytics workspace is not performed as part of this process. 
 
@@ -145,5 +145,5 @@ The configuration change can take a few minutes to complete. When it's completed
 ProvisioningState       : Succeeded
 ```
 
-If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../log-analytics/log-analytics-manage-del-workspace.md). Don't forget about the **Workspace Resource ID** we copied earlier in step 4, you're going to need that. 
+If the workspace was created only to support monitoring the cluster and it's no longer needed, you have to manually delete it. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace with the Azure portal](../../log-analytics/log-analytics-manage-del-workspace.md). Don't forget about the **Workspace Resource ID** we copied earlier in step 4, you're going to need that. 
 
