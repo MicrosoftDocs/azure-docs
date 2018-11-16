@@ -12,9 +12,9 @@ ms.date: 11/16/2018
 ms.author: erhopf
 ---
 
-# Quickstart: Convert text-to-speech with the Speech Service REST API (.NET Core)
+# Quickstart: Convert text-to-speech using .NET Core
 
-In this quickstart, you'll learn how to convert text-to-speech using .NET Core and the Text-to-Speech REST API. The sample text included in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). This allows you to choose the voice and language of the speech response. The REST API also supports plain text (ASCII or UTF-8), however, if plain text is provided the response will be returned in the Speech Service's default voice and language.
+In this quickstart, you'll learn how to convert text-to-speech using .NET Core and the Text-to-Speech REST API. The sample text included in this guide is structured as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md), which allows you to choose the voice and language of the response. Plain text (ASCII or UTF-8) is supported, however, the response uses the Speech Service's default voice and language.
 
 This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Speech Service resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
@@ -39,7 +39,7 @@ The first command does two things. It creates a new .NET console application, an
 
 ## Select the C# language version
 
-This quickstart requires C# 7.1 or later. There are a few ways that we can change the C# version; in this guide, we'll show you how to adjust the `tts-sample.csproj` file. For all available options, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `tts-sample.csproj` file. For all available options, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
 Open your project in Visual Studio, Visual Studio Code, or your favorite text editor. Open `tts-sample.csproj` and locate `LangVersion`.
 
@@ -53,7 +53,7 @@ Make sure that the version is set to 7.1 or later. Then save your changes.
 
 ## Add required namespaces to your project
 
-The `dotnet new console` command that you ran earlier created a project, which includes `Program.cs`. Open this file, and replace the using statements:
+The `dotnet new console` command that you ran earlier created a project, including `Program.cs`. This file is where you'll put your application code. Open `Program.cs`, and replace the existing using statements. These statements ensure that you have access to all the types required to build and run the sample app.
 
 ```csharp
 using System;
@@ -62,8 +62,6 @@ using System.Text;
 using System.IO;
 using System.Threading.Tasks;
 ```
-
-This ensures that you have access to all the types required to build and run the app.
 
 ## Create a class for token exchange
 
@@ -104,7 +102,7 @@ public class Authentication
 ```
 
 > [!NOTE]
-> For additional information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
+> For more information on authentication, see [How to get an access token](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#how-to-get-an-access-token).
 
 ## Set the access token, host, and route
 
@@ -139,7 +137,7 @@ string route = "/cognitiveservices/v1";
 
 ## Build the SSML request
 
-The text that will be converted to speech is sent as the body of a `POST` request. Plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) are accepted. Plain text requests use the Speech Service's default voice and language. With SSML you can specify the voice and language.
+Text is sent as the body of a `POST` request. Plain text (ASCII or UTF-8) or [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md) are accepted. Plain text requests use the Speech Service's default voice and language. With SSML, you can specify the voice and language.
 
 In this quickstart, we'll use SSML with the language set to `en-US` and the voice set as `Guy24kRUS`. Let's construct the SSML for your request (feel free to get creative):
 
