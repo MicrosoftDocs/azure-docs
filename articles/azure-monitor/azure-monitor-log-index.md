@@ -55,9 +55,9 @@ ms.author: magoedte
                                                  </div>
                                                </div>
                                              </div>
-                              </a>
-                            </li>
-                          <li>
+                                       </a>
+                                   </li>
+         <li>
           <a href="">
            <div class="cardSize">
             <div class="cardPadding">
@@ -75,6 +75,8 @@ ms.author: magoedte
         </div>
      </a>
     </li>
+   </ul>
+ </li>
     <li>
         <div class="cardSize">
             <div class="cardPadding">
