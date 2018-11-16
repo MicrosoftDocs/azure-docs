@@ -73,7 +73,7 @@ This code doesn't create a user name or password for the DSVM that is provisione
 You can also attach an existing Linux DSVM as the compute target. To create a Linux DSVM from the Azure CLI, run the following command.
 
 ```shell
-az vm create -n cpudsvm -l eastus2 -g <my-resource-group> --size Standard_D2_v2 --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --generate-ssh-keys
+az vm create --resource-group <resource_group_name> --name <some_vm_name> --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username <username> --admin-password <password> --generate-ssh-keys --authentication-type password
 ```
 
 The `--generate-ssh-keys` parameter automatically places the ssh keys to a standard location, typically to ~/.ssh folder. The default port is 22.
@@ -83,11 +83,12 @@ The `--generate-ssh-keys` parameter automatically places the ssh keys to a stand
 > The following code uses the `ComputeTarget` and `RemoteCompute` classes to create the compute target.
 > The `DsvmCompute` class will be deprecated in future releases in favor of this design pattern.
 
-Run the following code to create the compute target from an existing Linux DSVM.
+Run the following code to create the compute target from a Linux DSVM.
 
 ```python
 from azureml.core.compute import ComputeTarget, RemoteCompute 
-attach_config = RemoteCompute.attach_configuration(username='<my_username>',
+
+attach_config = RemoteCompute.attach_configuration(username='<username>',
                                                    address='<ip_adress_or_fqdn>',
                                                    ssh_port=22,
                                                    private_key_file='./.ssh/id_rsa')
