@@ -1,5 +1,5 @@
 ---
-title: Create Azure subscription | Microsoft Docs
+title: Create additional Azure subscription | Microsoft Docs
 description: Learn how to add a new Azure subscription in the Azure portal.
 services: 'billing'
 documentationcenter: ''
@@ -13,15 +13,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/05/2018
+ms.date: 11/16/2018
 ms.author: cwatson
 
 ---
-# Create a subscription in the Azure portal
+# Create an additional subscription in the Azure portal
 
 You can create additional subscriptions for your Azure account. But if you want to create a subscription for your Enterprise account, you must have the Azure Enterprise or Department Administrator role for your organization.
 
-## Create an Azure subscription
+If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
+
+## Create an additional Azure subscription
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for **Subscriptions**.
