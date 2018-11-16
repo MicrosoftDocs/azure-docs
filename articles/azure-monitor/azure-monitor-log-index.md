@@ -1,25 +1,25 @@
 ---
 layout: HubPage
 hide_bc: false
-title: Azure Active Directory Documentation - Tutorials, API Reference | Microsoft Docs
-description: Azure Active Directory (Azure AD) is Microsoft's multi-tenant, cloud-based directory, and identity management service that combines core directory services, application access management, and identity protection into a single solution.
-services: active-directory
-author: barbkess
-manager: mtillman
+title: Azure Monitor logs Documentation | Microsoft Docs
+description: Azure Monitor logs is a sophisticated tool for collecting and analyzing logs that allow you to maximize the performance and availability of your cloud resources and applications.
+services: azure-monitor
+author: mgoedtel
+manager: carmonm
 ms.assetid:	
-ms.service: active-directory
+ms.service: azure-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: landing-page
-ms.date: 10/29/2018
-ms.author: mtillman
+ms.topic: hub-page
+ms.date: 11/16/2018
+ms.author: magoedte
 
 ---
 
 <div id="main" class="v2">
     <div class="container">
-        <h1>Azure Active Directory Documentation</h1>
-        <p>Azure Active Directory (Azure AD) is a multi-tenant, cloud-based directory, and identity management service.</p>
+        <h1>Azure Monitor logs Documentation</h1>
+        <p>Azure Monitor logs is a sophisticated tool for collecting and analyzing logs<br>that allow you to maximize the performance and availability of your cloud resources and applications.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
             <li>
@@ -44,7 +44,7 @@ ms.author: mtillman
                                                                     </div>
                                                                 </div>
                                                                 <div class="cardText" style="padding-left: 0px">
-                                                                    <h3><a href="Fundamentals/index.yml">Learn the fundamentals</a></h3> 
+                                                                    <h3>Learn the fundamentals</h3> 
 																	<p> 
 																	    <a href="/azure/azure-monitor/overview">What is Azure Monitor?</a><br/>
                                                                         <a href="/azure/azure-monitor/azure-monitor-rebrand">Branding changes</a><br/>
