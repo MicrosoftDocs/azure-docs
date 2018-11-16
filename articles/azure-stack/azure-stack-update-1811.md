@@ -38,7 +38,7 @@ The Azure Stack 1811 update build number is **1.1811.x.xx**.
 
 This update includes the following improvements for Azure Stack:
 
-- Enhanced Azure STack operator experience for managing Updates.
+- Enhanced Azure Stack operator experience for managing updates.
 
 - With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
