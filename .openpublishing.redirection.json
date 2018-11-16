@@ -7950,6 +7950,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path": "articles/jenkins/java-deploy-webapp-tutorial.md",
+            "redirect_url": "/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/container-service/dcos-swarm/container-service-deployment.md",
             "redirect_url": "/azure/container-service/dcos-swarm",
             "redirect_document_id": false
@@ -30719,6 +30724,41 @@
         {
             "source_path":  "articles/monitoring/monitoring-vminsights-optout.md",
             "redirect_url":  "/azure/azure-monitor/insights/vminsights-optout",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-data-sources.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-data-collection.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-collection",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-overview-azure-agents.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agents-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-runbook-datacollect.md",
+            "redirect_url":  "/azure/azure-monitor/platform/runbook-datacollect",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map-configure.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map-configure",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map-scom.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map-scom",
             "redirect_document_id":  "false"
         }
     ]
