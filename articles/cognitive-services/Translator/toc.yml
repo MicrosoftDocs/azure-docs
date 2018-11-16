@@ -167,7 +167,7 @@
     - name: Pricing
       href: https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/
     - name: Regional availability
-      href: https://azure.microsoft.com/global-infrastructure/services/
+      href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
     - name: Request limits
       href: request-limits.md
     - name: Stack Overflow
