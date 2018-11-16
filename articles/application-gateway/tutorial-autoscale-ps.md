@@ -14,7 +14,8 @@ ms.custom: mvc
 
 If you're an IT admin dealing with too many complaints from customers about accessing information on the web, you might need to optimize your application gateway. This tutorial helps you use features of Azure Application Gateway that will help: autoscaling, zone redundancy, and reserved VIPs (static IP). We'll be using Azure PowerShell cmdlets and the Azure Resource Manager deployment model to get your problem solved.
 
-One quick caveat: the autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details.
+> [!IMPORTANT] 
+> The autoscaling and zone-redundant application gateway SKU is currently in public preview. This preview is provided without a service level agreement and is not recommended for production workloads. Certain features may not be supported or may have constrained capabilities. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for details. 
 
 In this tutorial, you learn how to:
 
@@ -25,6 +26,8 @@ In this tutorial, you learn how to:
 > * Create and test the application gateway
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+## Prerequisites
 
 This tutorial requires that you run Azure PowerShell locally. You must have Azure PowerShell module version 6.9.0 or later installed. Run `Get-Module -ListAvailable AzureRM` to find the version. If you need to upgrade, see [Install Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-azurerm-ps). After you verify the PowerShell version, run `Login-AzureRmAccount` to create a connection with Azure.
 
@@ -58,7 +61,7 @@ $vnet = New-AzureRmvirtualNetwork -Name "AutoscaleVNet" -ResourceGroupName $rg `
 
 ## Create a reserved public IP
 
-Specifying the allocation method of PublicIPAddress as **Static**. An autoscaling application gateway VIP can only be static. Dynamic IPs are not supported. Only the standard PublicIpAddress SKU is supported.
+Specify the allocation method of PublicIPAddress as **Static**. An autoscaling application gateway VIP can only be static. Dynamic IPs are not supported. Only the standard PublicIpAddress SKU is supported.
 
 ```azurepowershell
 #Create static public IP
@@ -122,8 +125,6 @@ Now you can specify autoscale configuration for the application gateway. Two aut
 ## Create application gateway
 
 Create Application Gateway and include redundancy zones. 
-
-The zone configuration is supported only in regions where Azure Zones is available. In regions where Azure Zones is not available, the zone parameter should not be used. An application gateway can also be deployed in a single zone, two zone, or all three zones. The PublicIPAddress for a single zone application gateway must be bound to the same zone. For two or three zone redundant application gateway, the PublicIPAddress must be zone redundant as well, so no zone specified.
 
 ```azurepowershell
 $appgw = New-AzureRmApplicationGateway -Name "AutoscalingAppGw" -Zone 1,2,3 `
