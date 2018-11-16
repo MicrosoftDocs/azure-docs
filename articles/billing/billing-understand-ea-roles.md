@@ -44,7 +44,7 @@ The following sections describe the limitations and capabilities of each role.
 ## Organization structure and permissions by role
 
 |Tasks| Enterprise Administrator|Enterprise Administrator (read only)|Department Administrator|Department Administrator (read only)|Account Owner|
-|---|---|---|---|
+|---|---|---|---|---|---|
 |View, add, or remove Enterprise Administrators|✔|✔<sup>2</sup>|✘|✘|✘|
 |View, add, or remove Notification Contacts<sup>4</sup> |✔|✔<sup>2</sup>|✘|✘|✘|
 |Create and manage Departments |✔|✘|✘|✘|✘|
