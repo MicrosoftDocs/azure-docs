@@ -4,7 +4,7 @@ description: Try out Azure IoT Edge by running analytics on a simulated edge dev
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/02/2018
+ms.date: 10/02/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
@@ -56,8 +56,8 @@ IoT Edge device:
 * A Windows computer or virtual machine to act as your IoT Edge device. Use a supported Windows version:
   * Windows 10 or newer
   * Windows Server 2016 or newer
-* If it's a Windows computer, ensure it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V.
-* If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2GB memory.
+* If it's a Windows computer, check that it meets the [system requirements](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/hyper-v-requirements) for Hyper-V.
+* If it's a virtual machine, enable [nested virtualization](https://docs.microsoft.com/virtualization/hyper-v-on-windows/user-guide/nested-virtualization) and allocate at least 2 GB memory.
 * Install [Docker for Windows](https://docs.docker.com/docker-for-windows/install/) and make sure it's running.
 
 > [!TIP]
@@ -77,7 +77,7 @@ The following code creates a free **F1** hub in the resource group **IoTEdgeReso
    az iot hub create --resource-group IoTEdgeResources --name {hub_name} --sku F1
    ```
 
-   If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. If you get an error that the IoT Hub name is not available, it means that someone else already has a hub with that name. Try a new name. 
+   If you get an error because there's already one free hub in your subscription, change the SKU to **S1**. If you get an error that the IoT Hub name isn't available, it means that someone else already has a hub with that name. Try a new name. 
 
 ## Register an IoT Edge device
 
@@ -86,7 +86,7 @@ Register an IoT Edge device with your newly created IoT Hub.
 
 Create a device identity for your simulated device so that it can communicate with your IoT hub. The device identity lives in the cloud, and you use a unique device connection string to associate a physical device to a device identity.
 
-Since IoT Edge devices behave and can be managed differently than typical IoT devices, you declare this to be an IoT Edge device from the beginning.
+Since IoT Edge devices behave and can be managed differently than typical IoT devices, declare this identity to be for an IoT Edge device with the `--edge-enabled` flag. 
 
 1. In the Azure cloud shell, enter the following command to create a device named **myEdgeDevice** in your hub.
 
@@ -194,7 +194,7 @@ iotedge logs tempSensor -f
 
   ![View the data from your module](./media/quickstart/iotedge-logs.png)
 
-You can also view the messages that are received by your IoT hub by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit).
+You can also watch the messages arrive at your IoT hub by using the [Azure IoT Toolkit extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 ## Clean up resources
 
@@ -202,7 +202,7 @@ If you want to continue on to the IoT Edge tutorials, you can use the device tha
 
 ### Delete Azure resources
 
-If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. If there's anything in that resource group that you want to keep, then just delete the individual resources that you want to clean up.
+If you created your virtual machine and IoT hub in a new resource group, you can delete that group and all the associated resources. Double check the contents of the resource group to make sure that there's nothing you want to keep. If you don't want to delete the whole group, you can delete individual resources instead.
 
 Remove the **IoTEdgeResources** group.
 
