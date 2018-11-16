@@ -200,7 +200,7 @@ If you are testing, you can avoid accruing billing charges by cleaning up your r
 1. At the top right, select **Delete**. 
 1. At the prompt, select **Yes** to *permanently delete* the resources.
 
-You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other projects. 
+You can optionally modify these build and release pipelines to meet the needs of your team. You can also use this CI/CD pattern as a template for your other pipelines. 
 
 ## Next steps
 
