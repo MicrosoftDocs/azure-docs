@@ -125,6 +125,9 @@ To do that, open an elevated PowerShell and enter the following command: `Instal
 
 Then restart your shell.
 
+> [!NOTE]
+> > If this module installation fails, first run `Install-Module PowerShellGet –Repository PSGallery –Force` and restart the shell.
+
 ### Create a resource group
 
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
