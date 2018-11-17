@@ -217,6 +217,17 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 These commands print all the certificates associating your tenant with your instance of the NPS extension in your PowerShell session. Look for your certificate by exporting your client cert as a "Base-64 encoded X.509(.cer)" file without the private key, and compare it with the list from PowerShell.
 
+The following command will create a file named "npscertificate" on your "C:" drive in format .cer. 
+
+```
+import-module MSOnline
+Connect-MsolService
+Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer 
+```
+Once you run this command, go to your C drive, locate the file and double click on it. Go to details and scroll down to "thumbprint". Then compare the certificate installed on the Server local computer account against this one.
+
+This will let you know if both are the same or not.
+
 Valid-From and Valid-Until timestamps, which are in human-readable form, can be used to filter out obvious misfits if the command returns more than one cert.
 
 -------------------------------------------------------------
