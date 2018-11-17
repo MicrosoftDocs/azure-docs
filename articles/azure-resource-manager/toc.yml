@@ -33,6 +33,12 @@
     href: resource-manager-tutorial-deploy-sql-extensions-bacpac.md
   - name: Use safe deployment practices
     href: deployment-manager-tutorial.md
+- name: Samples
+  items:
+  - name: Resource Manager templates
+    href: template-samples.md
+  - name: Code samples
+    href: https://azure.microsoft.com/resources/samples/?sort=0&service=azure-resource-manager
 - name: Concepts
   items:
   - name: Resource providers and types
