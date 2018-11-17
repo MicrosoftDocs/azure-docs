@@ -20,7 +20,7 @@ ms.author: danlep
 
 # Run a CNTK training job using the Azure Python SDK
 
-[!INCLUDE [batch-ai-retiring](~/includes/batch-ai-retiring.md)]
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
 
 This article shows you how to use the Azure Python SDK to train a sample Microsoft Cognitive Toolkit (CNTK) model using the Batch AI service.
 
