@@ -89,7 +89,7 @@ public class LocalSearchCls {
 	    static String subscriptionKey = "YOUR-ACCESS-KEY";
 
 	    static String host = "https://api.cognitive.microsoft.com/bing";
-	    static String path = "/v7.0/search";
+	    static String path = "/v7.0/localbusinesses/search";
 
 	    static String searchTerm = "Hotel in Bellevue";
 
