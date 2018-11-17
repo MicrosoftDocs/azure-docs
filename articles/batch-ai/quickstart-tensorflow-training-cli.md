@@ -21,6 +21,8 @@ ms.author: danlep
 
 # Quickstart: Train a deep learning model with Batch AI
 
+[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
+
 This quickstart shows how to train a sample deep learning model on a GPU-enabled virtual machine managed by Batch AI. Batch AI is a managed service for data scientists and AI researchers to train AI and machine learning models at scale on clusters of Azure virtual machines. 
 
 In this example, you use the Azure CLI to set up Batch AI to train an example [TensorFlow](https://www.tensorflow.org/) neural network on the [MNIST database](http://yann.lecun.com/exdb/mnist/) of handwritten digits. After completing this quickstart, you'll understand key concepts of using Batch AI to train an AI or machine learning model, and be ready to try training different models at larger scale.
