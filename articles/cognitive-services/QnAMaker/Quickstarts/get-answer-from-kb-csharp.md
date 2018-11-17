@@ -42,8 +42,6 @@ At the top of the Program.cs file, replace the single using statement with the f
 
 [!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/get-answer/QnAMakerAnswerQuestion/Program.cs?range=1-3 "Add the required dependencies")]
 
-The question includes a property to return the top three answers. 
-
 ## Add the required constants
 
 At the top of the `Program` class, inside the `Main`, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 

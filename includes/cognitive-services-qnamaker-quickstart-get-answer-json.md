@@ -12,11 +12,15 @@ ms.date: 11/12/2018
 ms.author: diberry
 ---
 
+## Request and response JSON
+
 An example JSON-formatted question for the REST API:
 
 ```json
 {'question': 'Is the QnA Maker Service free?','top': 3}
 ```
+
+The question includes a property to return the top three answers. 
 
 The answer is returned in a JSON object:
 

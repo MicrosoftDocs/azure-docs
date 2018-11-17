@@ -49,13 +49,11 @@ Add the required constants to access QnA Maker. These values are on the **Publis
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=5-25 "Add the required constants")]
 
-The question includes a property to return the top three answers. 
-
 ## Add a POST request to send question and get an answer
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the KB and receives the response:
 
-[!code-python[Add a POST request to send question to KB](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=35-48 "Add a POST request to send question to KB")]
+[!code-python[Add a POST request to send question to KB](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=27-48 "Add a POST request to send question to KB")]
 
 The `Authorization` header's value includes the string `EndpointKey `. 
 
@@ -63,11 +61,11 @@ The `Authorization` header's value includes the string `EndpointKey `.
 
 Run the program from the command line. It will automatically send the request to the QnA Maker API, then it will print to the console window.
 
-1. Run the file:
+Run the file:
 
-    ```Python
-    python get-answer-3x.py
-    ```
+```Python
+python get-answer-3x.py
+```
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)] 
 

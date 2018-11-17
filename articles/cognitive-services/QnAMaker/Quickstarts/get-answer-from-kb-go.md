@@ -33,7 +33,7 @@ The code for this quickstart is in the [https://github.com/Azure-Samples/cogniti
 
 ## Create a Go file
 
-Open VSCode and create a new file named `GetAnswer.Go` and add the following class:
+Open VSCode and create a new file named `get-answer.go` and add the following class:
 
 ```Go
 package main
@@ -54,8 +54,6 @@ Above the `main` function, at the top of the `get-answer.go` file, add necessary
 At the top of the `main` function, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=17-33 "Add the required constants")]
-
-The question includes a property to return the top three answers. 
 
 ## Add a POST request to send question and get answer
 

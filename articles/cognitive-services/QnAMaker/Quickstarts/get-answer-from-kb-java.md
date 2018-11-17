@@ -61,13 +61,11 @@ At the top of the `GetAnswer.java` class, add the required constants to access Q
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=26-42 "Add the required constants")]
 
-The question includes a property to return the top three answers. 
-
 ## Add a POST request to send question
 
 The following code makes an HTTPS request to the QnA Maker API to send the question to the KB and receives the response:
 
-[!code-java[Add a POST request to send question to KB](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=37-72 "Add a POST request to send question to KB")]
+[!code-java[Add a POST request to send question to KB](~/samples-qnamaker-java/documentation-samples/quickstarts/get-answer/GetAnswer.java?range=44-72 "Add a POST request to send question to KB")]
 
 The `Authorization` header's value includes the string `EndpointKey `. 
 

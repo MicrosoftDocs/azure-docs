@@ -41,8 +41,6 @@ At the top of the `get-answer.js` file, add necessary dependencies to the projec
 
 [!code-nodejs[Add the required dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/get-answer/get-answer.js?range=1-4 "Add the required dependencies")]
 
-The question includes a property to return the top three answers. 
-
 ## Add the required constants
 
 Next, add the required constants to access QnA Maker. These values are on the **Publish** page after you publish the knowledge base. 
@@ -69,11 +67,11 @@ npm install request request-promise
 
 Run the program from the command line. It will automatically send the request to the QnA Maker API, then it will print to the console window.
 
-1. Run the file:
+Run the file:
 
-    ```Nodejs
-    node get-answer.js
-    ```
+```Nodejs
+node get-answer.js
+```
 
 [!INCLUDE [JSON request and response](../../../../includes/cognitive-services-qnamaker-quickstart-get-answer-json.md)]
 
