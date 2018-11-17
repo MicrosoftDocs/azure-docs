@@ -211,7 +211,7 @@ To see what permissions you have, select the management group and then select **
 
 ### Move subscriptions in PowerShell
 
-To move a subscription in PowerShell, you use the Add-AzureRmManagementGroupSubscription command.  
+To move a subscription in PowerShell, you use the New-AzureRmManagementGroupSubscription command.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
