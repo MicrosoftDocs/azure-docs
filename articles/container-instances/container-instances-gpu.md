@@ -40,6 +40,8 @@ Support will be added for additional regions over time.
 
 ## About GPU resources
 
+### Count and SKU
+
 To use GPUs in a container instance, specify a *GPU resource* with the following information:
 
 * **Count** - The number of GPUs. You can add 1, 2, or 4 GPUs to a container instance.
@@ -51,7 +53,7 @@ To use GPUs in a container instance, specify a *GPU resource* with the following
   | P100 | [NCv2](../virtual-machines/linux/sizes-gpu.md#ncv2-series) |
   | V100 | [NCv3](../virtual-machines/linux/sizes-gpu.md#ncv3-series) |
 
-### CPU and Memory resources
+### CPU and Memory
 
 When deploying GPU resources, set CPU and Memory resources appropriate for the workload, up to the maximum values supported in the underlying VM size: 
 
@@ -69,10 +71,11 @@ When deploying GPU resources, set CPU and Memory resources appropriate for the w
 
 ### Things to know
 
-* Creation of a container group containing GPU resources may take up to **10 minutes**. This is due to the additional time to provision and configure a GPU VM in Azure. 
-* As with container groups without GPU resources, Azure bills for the *duration* of the container group (after the group is created). The duration is calculated from the time to pull your first container's image until the container group terminates.
-* Pricing for container group duration is greater for container groups with GPU resources than for container groups without.
-* GPU resources are pre-provisioned with CUDA drivers, so you can run container images developed for CUDA workloads. 
+* **Deployment time** - Creation of a container group containing GPU resources may take up to **10 minutes**. This is due to the additional time to provision and configure a GPU VM in Azure. 
+* **Pricing** - As with container groups without GPU resources, Azure bills for the *duration* of the container group (after the group is created). The duration is calculated from the time to pull your first container's image until the container group terminates.
+
+  Pricing for container group duration is greater for container groups with GPU resources than for container groups without.
+* **CUDA drivers** - GPU resources are pre-provisioned with CUDA drivers, so you can run container images developed for CUDA workloads. 
 
 
 ## Azure CLI example
@@ -81,7 +84,7 @@ When deploying GPU resources, set CPU and Memory resources appropriate for the w
 
 ## YAML example
 
-Copy the following YAML into a new file named *vnet-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainer* with a K80 GPU. The image runs a CUDA vector addition application.
+Copy the following YAML into a new file named *gpu-deploy-aci.yaml*, then save the file. This YAML creates a container group named *gpucontainer* with a K80 GPU. The container runs a CUDA vector addition application.
 
 ```YAML
 additional_properties: {}
