@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Train a distributed model with Horovod
 
-[!INCLUDE [batch-ai-retiring](../../../includes/batch-ai-retiring.md)]
+[!INCLUDE [batch-ai-retiring](~/includes/batch-ai-retiring.md)]
 
 In this tutorial, you train a distributed deep learning model by running it in parallel across multiple nodes in a Batch AI cluster. Batch AI is a managed service for training machine learning and AI models at scale on clusters of Azure GPUs. 
 
