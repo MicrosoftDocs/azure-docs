@@ -17,7 +17,7 @@ Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct
 
 1. **Azure public** cloud, which is available globally.
 
-1. **Azure China** 21Vianet is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
+1. **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
 
 1. **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
 

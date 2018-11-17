@@ -89,6 +89,8 @@
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
+      - name: Regional presence
+        href: regional-presence.md
     - name: Partitioning
       items:
       - name: Overview
@@ -153,8 +155,6 @@
       items:
       - name: Compliance
         href: compliance.md
-    - name: Regional availability
-      href: regional-presence.md
     - name: Prepay for reserved capacity
       href: cosmos-db-reserved-capacity.md
     - name : Backup and restore

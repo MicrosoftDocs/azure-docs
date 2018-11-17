@@ -9,7 +9,7 @@ ms.date: 11/15/2018
 ms.author: rimman
 ---
 
-# Regional availability of Azure Cosmos DB
+# Regional presence of Azure Cosmos DB
 
 Currently, Azure is available in [54 regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/) worldwide. Azure Cosmos DB is a foundational service in Azure and is available in all regions where Azure is available.
 
