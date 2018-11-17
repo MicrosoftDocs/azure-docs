@@ -57,15 +57,16 @@ The following sections show how to assign a role scoped to the storage account o
 To assign a built-in role granting access to all containers or queues in the storage account in the Azure portal:
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your storage account.
-2. Select your storage account, then select **Access Control (IAM)** to display access control settings for the account. Click the **Add** button to add a new role.
+1. Select your storage account, then select **Access control (IAM)** to display access control settings for the account. Select the **Role assignments** tab to see the list of role assignments.
 
     ![Screen shot showing storage access control settings](media/storage-auth-aad-rbac/portal-access-control.png)
 
-3. In the **Add permissions** window, select the role to assign to an Azure AD identity. Then search to locate the identity to whom you want to assign that role. For example, the following image shows the **Storage Blob Data Reader (Preview)** role assigned to a user.
+1. Click the **Add role assignment** button to add a new role.
+1. In the **Add role assignment** window, select the role to assign to an Azure AD identity. Then search to locate the identity to whom you want to assign that role. For example, the following image shows the **Storage Blob Data Reader (Preview)** role assigned to a user.
 
     ![Screen shot showing how to assign an RBAC role](media/storage-auth-aad-rbac/add-rbac-role.png)
 
-4. Click **Save**. The identity to whom you assigned the role appears listed under that role. For example, the following image shows that the users added now have read permissions to all blob data in the storage account.
+1. Click **Save**. The identity to whom you assigned the role appears listed under that role. For example, the following image shows that the user added now has read permissions to all blob data in the storage account.
 
     ![Screen shot showing list of users assigned to a role](media/storage-auth-aad-rbac/account-scoped-role.png)
 
@@ -74,17 +75,20 @@ To assign a built-in role granting access to all containers or queues in the sto
 The steps for assigning a built-in role scoped to a container or to a queue are similar. The procedure shown here assigns a role scoped to a container, but you can follow the same steps to assign a role scoped to a queue: 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your storage account and display the **Overview** for the account.
-2. Under Blob Service, select **Browse Blobs**. 
-3. Locate the container for which you want to assign a role, and display the container's settings. 
-4. Select **Access Control (IAM)** to display access control settings for the container.
-5. In the **Add permissions** window, select the role that you want to assign to an Azure AD identity. Then search to locate the identity to which you want to assign that role.
-6. Click **Save**. The identity to whom you assigned the role appears listed under that role. For example, the following image shows that the user added now has read permissions to data in the container named *sample-container*.
+1. Under Services, select **Blobs**. 
+1. Locate the container for which you want to assign a role, and display the container's settings. 
+1. Select **Access control (IAM)** to display access control settings for the container. Select the **Role assignments** tab to see the list of role assignments.
+
+    ![Screen shot showing container access control settings](media/storage-auth-aad-rbac/portal-access-control-container.png)
+1. Click the **Add role assignment** button to add a new role.
+1. In the **Add role assignment** window, select the role that you want to assign to an Azure AD identity. Then search to locate the identity to which you want to assign that role.
+1. Click **Save**. The identity to whom you assigned the role appears listed under that role. For example, the following image shows that the user added now has read permissions to data in the container named *sample-container*.
 
     ![Screen shot showing list of users assigned to a role](media/storage-auth-aad-rbac/container-scoped-role.png)
 
 ## Next Steps
 
-- To learn more about RBAC, see [Get started with Role-Based Access Control](../../role-based-access-control/overview.md).
+- To learn more about RBAC, see [What is role-based access control (RBAC)?](../../role-based-access-control/overview.md).
 - To learn how to assign and manage RBAC role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Manage role-based access control (RBAC) with Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md)
     - [Manage role-based access control (RBAC) with Azure CLI](../../role-based-access-control/role-assignments-cli.md)

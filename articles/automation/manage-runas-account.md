@@ -353,11 +353,11 @@ To renew the certificate, do the following:
 
 To control targeting of automation against resources in Azure Automation, the Run As account by default is granted contributor rights in the subscription. If you need to restrict what the RunAs service principal can do, you can remove the account from the contributor role to the subscription and add it as a contributor to the resource groups you want to specify.
 
-In the Azure portal, select **Subscriptions** and choose the subscription of your Automation Account. Select **Access control (IAM)** and search for the service principal for your Automation Account (it looks like \<AutomationAccountName\>_unique identifier). Select the account and click **Remove** to remove it from the subscription.
+In the Azure portal, select **Subscriptions** and choose the subscription of your Automation Account. Select **Access control (IAM)** and then select the **Role assignments** tab. Search for the service principal for your Automation Account (it looks like \<AutomationAccountName\>_unique identifier). Select the account and click **Remove** to remove it from the subscription.
 
 ![Subscription contributors](media/manage-runas-account/automation-account-remove-subscription.png)
 
-To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add**, this opens the **Add permissions** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Complete these steps for the resources groups you want to give your Azure Automation Run As service principal access to.
+To add the service principal to a resource group, select the resource group in the Azure portal and select **Access control (IAM)**. Select **Add role assignment**, this opens the **Add role assignment** page. For **Role**, select **Contributor**. In the **Select** text box type in the name of the service principal for your Run As account, and select it from the list. Click **Save** to save the changes. Complete these steps for the resources groups you want to give your Azure Automation Run As service principal access to.
 
 ## Misconfiguration
 

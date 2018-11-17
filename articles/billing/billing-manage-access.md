@@ -46,15 +46,13 @@ The Billing Reader role has read-only access to subscription billing information
 
 1. Select your subscription from the [Subscriptions blade](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) in Azure portal.
 
-1. Select **Access control (IAM)** and then click **Add**.
+1. Select **Access control (IAM)** and then click **Add role assignment**.
 
     ![Screenshot shows IAM in the subscription blade](./media/billing-manage-access/select-iam.PNG)
 
-1. Choose **Billing Reader** in the **Select a role** page.
+1. In the **Add role assignment** page, select the **Billing Reader** role.
 
-    ![Screenshot shows Billing Reader in the popup view](./media/billing-manage-access/select-roles.PNG)
-
-1. Type the email for the user you want to invite, then click **OK** to send the invitation.
+1. Type the email for the user you want to invite, click the user, and then click **Save** to send the invitation.
 
     ![Screenshot that shows to enter email to invite someone](./media/billing-manage-access/add-user.PNG)
 
