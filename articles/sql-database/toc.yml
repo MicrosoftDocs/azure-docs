@@ -162,7 +162,7 @@
       href: sql-database-business-continuity.md
     - name: High availability
       href: sql-database-high-availability.md
-    - name: Database backups
+    - name: Automated backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       items:
