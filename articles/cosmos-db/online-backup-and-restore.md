@@ -17,9 +17,9 @@ Azure Cosmos DB automatically takes backups of your data at regular intervals. T
 
 ## Automatic and online backups
 
-With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The automated backups are currently taken every four hours and at any point of time, the latest two backups are stored. If you have accidentally deleted or corrupted your data, you should contact [Azure support](Azure support) within eight hours so that the Azure Cosmos DB team can help you restore the data from the backups.
+With Azure Cosmos DB, not only your data, but also the backups of your data are highly redundant and resilient to regional disasters. The automated backups are currently taken every four hours and at any point of time, the latest two backups are stored. If you have accidentally deleted or corrupted your data, you should contact [Azure support](https://azure.microsoft.com/support/options/) within eight hours so that the Azure Cosmos DB team can help you restore the data from the backups.
 
-The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB backups data in the background without consuming any additional provisioned throughput (RUs) or affecting the performance and availability of your database.
+The backups are taken without affecting the performance or availability of your application. Azure Cosmos DB performs data backup in the background without consuming any additional provisioned throughput (RUs) or affecting the performance and availability of your database.
 
 Azure Cosmos DB stores automatic backups in Azure Blob Storage whereas the actual data resides locally within Azure Cosmos DB. To guarantee the low latency, the snapshot of your backup is stored in Azure Blob storage in the same region as the current write region (or one of the write regions, if you have a multi-master configuration) of your Cosmos DB database account. For resiliency against regional disaster, each snapshot of the backup data in Azure Blob storage is again replicated to another region through geo-redundant storage (GRS). 
 The region to which the backup is replicated is based on your source region and the regional pair associated with the source region. To learn more, see the [list of geo-redundant pairs of Azure regions](../best-practices-availability-paired-regions.md) article. You cannot access this backup directly. Azure Cosmos DB will use this backup only if a backup restore is initiated.
@@ -37,7 +37,7 @@ With Azure Cosmos DB SQL API accounts, you can also maintain your own backups by
 
 ## Backup retention period
 
-Azure Cosmos DB takes snapshots of your data for every four hours. At any given time, only the last two snapshots are retained. However, if the container or database is deleted, Azure Cosmos DB retains the existing snapshots of all the deleted partitions within the given container or database for 30 days.
+Azure Cosmos DB takes snapshots of your data every four hours. At any given time, only the last two snapshots are retained. However, if the container or database is deleted, Azure Cosmos DB retains the existing snapshots of a given container or database for 30 days.
 
 ## Restoring data from online backups
 
@@ -59,7 +59,7 @@ When an Azure Cosmos account is deleted, we can restore the data into an account
 
 When an Azure Cosmos database is deleted, it is possible to restore the whole database or a subset of the containers within that database. It is also possible to select containers across databases and restore them and all the restored data is placed in a new Azure Cosmos account.
 
-When one or more items within a container are deleted or changed (the data corruption case), you will need to specify the time to restore to. Time is of essence for this case. Since the container is live, the backup is still running, so if you wait beyond the retention period (the default is eight hours) the backups would be overwritten. In the case of deletes, your data is no longer stored because they won’t be overwritten by the backup cycle. Backups for deleted databases or containers are saved for 30 days.
+When one or more items within a container are accidentally deleted or changed (the data corruption case), you will need to specify the time to restore to. Time is of essence for this case. Since the container is live, the backup is still running, so if you wait beyond the retention period (the default is eight hours) the backups would be overwritten. In the case of deletes, your data is no longer stored because they won’t be overwritten by the backup cycle. Backups for deleted databases or containers are saved for 30 days.
 
 If you provision throughput at the database level (that is, where a set of containers shares the provisioned throughput), the backup and restore process in this case happen at the entire database level, and not at the individual containers level. In such cases, selecting a subset of containers to restore is not an option.
 
