@@ -40,7 +40,7 @@ The network connectivity between your source data and Data Lake Storage Gen2 can
 
 ### Configure Data Ingestion tools for maximum parallelization
 
-Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them. 
+Once you have addressed the source hardware and network connectivity bottlenecks above, you are ready to configure your ingestion tools. The following table summarizes the key settings for several popular ingestion tools and provides in-depth performance tuning articles for them.  To learn more about which tool to use for your scenario, visit this [article](data-scenarios.md).
 
 | Tool               | Settings		| More Details                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
@@ -132,7 +132,7 @@ In addition to the general guidelines above, each application has different para
 | [Spark on HDInisight](performance-tuning-spark.md)       | <ul><li>Num-executors</li><li>Executor-memory</li><li>Executor-cores</li></ul> |
 | [Hive on HDInsight](performance-tuning-hive.md)    | <ul><li>hive.tez.container.size</li></ul>         |
 | [MapReduce on HDInsight](performance-tuning-mapreduce.md)            | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
-| **Storm on HDInsight** | <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
+| [Storm on HDInsight](performance-tuning-storm.md)|  | <ul><li>Number of worker processes</li><li>Number of spout executor instances</li><li>Number of bolt executor instances </li><li>Number of spout tasks</li><li>Number of bolt tasks</li></ul>|
 
 ## See also
 * [Overview of Azure Data Lake Storage Gen2](introduction.md)
