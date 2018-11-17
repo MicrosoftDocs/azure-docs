@@ -69,6 +69,8 @@ You can send the contribution feed at resolutions up to 4K and at a frame rate o
 > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
 > 
 
+See a live example in [MediaV3LiveApp](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/blob/master/NETCore/Live/MediaV3LiveApp/Program.cs#L126).
+
 ### Live encoding  
 
 ![live encoding](./media/live-streaming/live-encoding.png)
