@@ -154,8 +154,10 @@
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication
       href: replication-with-sql-database-managed-instance.md
-  - name: Business continuity
+  - name: Platform as a Service
     items:
+    - name: Platform as a Service
+      href: sql-database-paas.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
     - name: High availability
