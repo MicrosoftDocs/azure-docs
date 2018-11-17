@@ -63,7 +63,7 @@ Run the program from the command line. It will automatically send the request to
 
 Run the file:
 
-```Python
+```bash
 python get-answer-3x.py
 ```
 

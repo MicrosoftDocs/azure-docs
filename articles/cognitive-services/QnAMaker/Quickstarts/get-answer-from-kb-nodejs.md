@@ -69,7 +69,7 @@ Run the program from the command line. It will automatically send the request to
 
 Run the file:
 
-```Nodejs
+```bash
 node get-answer.js
 ```
 

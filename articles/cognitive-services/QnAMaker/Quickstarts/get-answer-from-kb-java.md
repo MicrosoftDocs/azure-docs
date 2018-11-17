@@ -75,13 +75,13 @@ Build and run the program from the command line. It will automatically send the 
 
 1. Build the file:
 
-    ```Java
+    ```bash
     javac -cp "lib/*" GetAnswer.java
     ```
 
 1. Run the file:
 
-    ```Java
+    ```bash
     java -cp ".;lib/*" GetAnswer
     ```
 

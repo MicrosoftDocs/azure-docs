@@ -69,13 +69,13 @@ Build and run the program from the command line. It will automatically send the 
 
 1. Build the file:
 
-    ```Go
+    ```bash
     go build get-answer.go
     ```
 
 1. Run the file:
 
-    ```Go
+    ```bash
     ./get-answer
     ```
 
