@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2017
+ms.date: 11/15/2018
 ms.author: ryanwi
 ms.custom: mvc
 
@@ -90,23 +90,23 @@ A Azure DevOps release pipeline describes a workflow that deploys an application
 
 Open a web browser and navigate to your new project at: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Select the **Build and release** tab, then **Builds**, then click **New Pipeline**.
+Select the **Pipelines** tab, then **Builds**, then click **New Pipeline**.
 
 ![New Pipeline][new-pipeline]
 
-Select **Azure DevOps Git** as source, **Voting** Project, **Voting** Repository, and **master** Default branch or manual and scheduled builds.  Then click **Continue**.
+Select **Azure Repos Git** as source, **Voting** Team project, **Voting** Repository, and **master** Default branch for manual and scheduled builds.  Then click **Continue**.
+
+![Select repo][select-repo]
 
 In **Select a template**, select the **Azure Service Fabric application** template and click **Apply**.
 
 ![Choose build template][select-build-template]
 
-In **Tasks**, enter "Hosted VS2017" as the **Agent queue**.
+In **Tasks**, enter "Hosted VS2017" as the **Agent pool**.
 
 ![Select tasks][save-and-queue]
 
-Under **Triggers**, enable continuous integration by checking **Enable continuous integration**. Within **Branch filters**, click **+ Add**, and the **Branch specification** will default to **master**. Select **Save and queue** to manually start a build.
-
-In the **Save build pipeline and queue dialog**, click **Save & queue**.
+Under **Triggers**, enable continuous integration by checking **Enable continuous integration**. Within **Branch filters**, the **Branch specification** defaults to **master**. Select **Save and queue** to manually start a build.
 
 ![Select triggers][save-and-queue2]
 
@@ -114,7 +114,7 @@ Builds also trigger upon push or check-in. To check your build progress, switch 
 
 ### Create a release pipeline
 
-Select the **Build & Release** tab, then **Releases**, then **+ New pipeline**.  In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.
+Select the **Pipelines** tab, then **Releases**, then **+ New pipeline**.  In **Select a template**, select the **Azure Service Fabric Deployment** template from the list and then **Apply**.
 
 ![Choose release template][select-release-template]
 
@@ -194,6 +194,7 @@ Advance to the next tutorial:
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
 [new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
+[select-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectRepo.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

@@ -10,11 +10,83 @@
     href: /azure/data-lake-store/
 - name: Blob storage for text and binary data
   items:
-  - name: Overview
-    items:  
-    - name: Introduction
-      href: storage-blobs-introduction.md
-  - name: Quickstarts
+  - name: Create a storage account
+    href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Manage blobs without code
+    items:    
+    - name: Azure portal
+      href: storage-quickstart-blobs-portal.md
+    - name: Storage Explorer
+      href: storage-quickstart-blobs-storage-explorer.md
+    - name: PowerShell
+      href: storage-quickstart-blobs-powershell.md
+    - name: CLI
+      href: storage-quickstart-blobs-cli.md
+  - name: Develop with blobs
+    items:    
+    - name: .NET 
+      href: storage-quickstart-blobs-dotnet.md
+    - name: Java (Storage SDK V10) 
+      href: storage-quickstart-blobs-java-v10.md 
+    - name: Python 
+      href: storage-quickstart-blobs-python.md
+    - name: Go 
+      href: storage-quickstart-blobs-go.md
+    - name: Ruby 
+      href: storage-quickstart-blobs-ruby.md
+    - name: Node.js (Storage SDK v10)
+      href: storage-quickstart-blobs-nodejs-v10.md
+    - name: JS/HTML
+      href: storage-quickstart-blobs-javascript-client-libraries.md
+    - name: PHP
+      href: storage-quickstart-blobs-php.md
+- name: Tutorials
+  items:
+  - name: Upload and process an image
+    items:
+      - name: 1 - Upload and retrieve image data in the cloud
+        href: storage-upload-process-images.md
+      - name: 2 - Trigger Azure Functions to process blobs
+        href: ../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: 3 - Secure application data
+        href: storage-secure-access-application.md 
+      - name: 4 - Monitor and troubleshoot storage
+        href: storage-monitor-troubleshoot-storage-application.md
+  - name: Design for high availability in cloud storage
+    items:
+      - name: 1 - Make your application highly available
+        href: storage-create-geo-redundant-storage.md
+      - name: 2 - Simulate a failure with RA-GRS storage
+        href: storage-simulate-failure-ragrs-account-app.md
+  - name: Migrate data to cloud with AzCopy
+    href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json    
+  - name: Search unstructured data in cloud storage
+    href: storage-unstructured-search.md
+  - name: Optimize storage application performance and scalability
+    items:
+      - name: 1 - Create a VM and storage account
+        href: storage-blob-scalable-app-create-vm.md
+      - name: 2 - Upload large data to an Azure storage account
+        href: storage-blob-scalable-app-upload-files.md
+      - name: 3- Download large data from a Azure storage account
+        href: storage-blob-scalable-app-download-files.md
+      - name: 4 - Verify throughput and latency metrics
+        href: storage-blob-scalable-app-verify-metrics.md
+- name: Samples
+  items:
+  - name: .NET
+    href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Java
+   
+    href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+  - name: Azure PowerShell
+    href: storage-samples-blobs-powershell.md 
+  - name: Azure CLI 
+    href: storage-samples-blobs-cli.md
+- name: Concepts
+  items:
+  - name: Storage accounts
+    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     items:
     - name: Create a storage account
       href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
@@ -295,81 +367,51 @@
           href: ../common/storage-import-export-diagnostics-and-error-recovery.md
         - name: Commands for import jobs
           href: ../common/storage-import-export-tool-quick-reference-v1.md
-        - name: Service manifest file
-          href: ../common/storage-import-export-file-format-manifest.md
-        - name: Service metadata and properties file 
-          href: ../common/storage-import-export-file-format-metadata-and-properties.md
-        - name: Service log file 
-          href: ../common/storage-import-export-file-format-log.md
-  - name: How to
+      - name: Create import job
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Create export job
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Get job state
+        href: ../common/storage-import-export-retrieving-state-info-for-a-job.md
+      - name: Create export job
+        href: ../common/storage-import-export-creating-an-import-job.md
+      - name: Enumerate jobs
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: Cancel & delete job
+        href: ../common/storage-import-export-cancelling-and-deleting-jobs.md
+      - name: Back up drive manifest
+        href: ../common/storage-import-export-backing-up-drive-manifests.md
+      - name: Enumerate jobs
+        href: ../common/storage-import-export-enumerating-jobs.md
+      - name: Diagnostics & error recovery
+        href: ../common/storage-import-export-diagnostics-and-error-recovery.md
+      - name: Commands for import jobs
+        href: ../common/storage-import-export-tool-quick-reference-v1.md
+      - name: Service manifest file
+        href: ../common/storage-import-export-file-format-manifest.md
+      - name: Service metadata and properties file 
+        href: ../common/storage-import-export-file-format-metadata-and-properties.md
+      - name: Service log file 
+        href: ../common/storage-import-export-file-format-log.md
+- name: How to
+  items:
+  - name: Develop with blobs
     items:
-    - name: Develop
+    - name: REST
+      href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: C++
+      href: storage-c-plus-plus-how-to-use-blobs.md
+    - name: iOS
+      href: storage-ios-how-to-use-blob-storage.md
+    - name: Xamarin
+      href: storage-xamarin-blob-storage.md
+    - name: Legacy SDKs
       items:
-      - name: REST
-        href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: C++
-        href: storage-c-plus-plus-how-to-use-blobs.md
-      - name: iOS
-        href: storage-ios-how-to-use-blob-storage.md
-      - name: Xamarin
-        href: storage-xamarin-blob-storage.md
-    - name: Manage
-      items:
-      - name: PowerShell for Azure Storage
-        href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: PowerShell for China, Government, and German clouds
-        href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure CLI
-        href: ../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure classic CLI
-        href: ../common/storage-azure-cli-nodejs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Manage blobs with Storage Explorer
-        href: ../../vs-azure-tools-storage-explorer-blobs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Azure Automation
-        href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Client-side encryption
-      items:
-      - name: .NET
-        href: ../common/storage-client-side-encryption.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Java
-        href: ../common/storage-client-side-encryption-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Python
-        href: ../common/storage-client-side-encryption-python.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Configure connection strings
-      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Designing HA Apps using RA-GRS
-      href: ../common/storage-designing-ha-apps-with-ragrs.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Encrypt and decrypt blobs using Azure Key Vault
-      href: storage-encrypt-decrypt-blobs-key-vault.md
-    - name: Set and retrieve properties and metadata
-      href: storage-properties-metadata.md
-    - name: Use the Storage Emulator
-      href: ../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Route events to a custom endpoint
-      href: storage-blob-event-quickstart.md
-    - name: Recover deleted blobs
-      href: storage-blob-soft-delete.md
-    - name: Configure a custom domain
-      href: storage-custom-domain-name.md
-    - name: Search Blob storage with Azure Search
-      href: ../../search/search-blob-storage-integration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Host a static website
-      href: storage-blob-static-website.md
-    - name: Transfer data
-      items:
-      - name: AzCopy (v10)
-        href: ../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy on Windows (v8)
-        href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: AzCopy on Linux (v8)
-        href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-      - name: Using Azure Data Factory
-        href: ../../data-factory/connector-azure-blob-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json      
-      - name: Mount Blob storage as a file system on Linux
-        href: storage-how-to-mount-container-linux.md
-      - name: Storage migration FAQ
-        href: ../common/storage-migration-faq.md
-  - name: Reference
+      - name: Java (Storage SDK V7) 
+        href: storage-quickstart-blobs-java.md
+      - name: Node.js (Storage SDK v2)
+        href: storage-quickstart-blobs-nodejs.md
+  - name: Manage
     items:
     - name: PowerShell
       href: /powershell/module/azure.storage
