@@ -14,7 +14,7 @@ ms.author: garye
 
 # What's happening to Azure Batch AI?
 
-We recently released [Azure Machine Learning Compute](../machine-learning/service/overview-what-is-azure-ml.md) which allows you to (***insert brief value statement of replacement service/feature***). Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on June 28, 2019.
+We recently released [Azure Machine Learning Compute](link) which allows you to (***insert brief value statement of replacement service/feature***). Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on June 28, 2019.
 
 In addition to the Batch AI features you’re already familiar with, Azure Machine Learning Compute also includes:
 
@@ -47,6 +47,6 @@ For guidance in updating your code, see ["migration" article](link).
 
 ## For more information
 
-- To learn how to configure various compute targets for your machine learning models, see [Set up compute targets for model training with Azure Machine Learning service](../machine-learning/service/how-to-set-up-training-targets.md").
+- To learn how to configure various compute targets for your machine learning models, see [Set up compute targets for model training with Azure Machine Learning service](../machine-learning/service/how-to-set-up-training-targets.md).
 
 - For more information about updates to Azure services, see the [Azure roadmap](https://azure.microsoft.com/updates/).
