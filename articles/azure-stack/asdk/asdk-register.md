@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/16/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -46,7 +46,7 @@ Follow these steps to register the ASDK with Azure.
     ```PowerShell  
     # Add the Azure cloud subscription environment name. 
     # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
-    Add-AzureRmAccount -EnvironmentName "AzureCloud"
+    Add-AzureRmAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -58,7 +58,7 @@ Follow these steps to register the ASDK with Azure.
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
-    $UsageReporting = $true # Set to $false if using the Capacity Billing model
+    $UsageReporting = $true
     Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
@@ -88,6 +88,7 @@ On the ASDK host computer, start PowerShell as an administrator and navigate to 
    -UsageReportingEnabled:$False `
    -PrivilegedEndpoint AzS-ERCS01 `
    -BillingModel Development `
+   -MarketplaceSyndicationEnabled:$false `
    -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 By default, the registration token is saved in the file specified for *$FilePathForRegistrationToken* parameter. You can change the filepath or filename at your discretion.
