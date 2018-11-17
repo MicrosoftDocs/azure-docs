@@ -3,7 +3,8 @@
 - name: Overview
   items:
   - name: What's happening to Batch AI?
-    href: whats-happening-to-batch-ai.md
+    displayName: retire, retired, retiring, deprecate, deprecated, deprecating, happening
+    href: overview-what-happened-to-batch-ai.md
   - name: What is Batch AI?
     href: overview.md
 - name: Quickstarts

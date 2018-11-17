@@ -14,7 +14,7 @@ ms.author: garye
 
 # What's happening to Azure Batch AI?
 
-We recently released [Azure Machine Learning Compute](link) which allows you to (***insert brief value statement of replacement service/feature***). Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on June 28, 2019.
+We recently released **Azure Machine Learning Compute** *(link)* which allows you to (***insert brief value statement of replacement service/feature***). Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on June 28, 2019.
 
 In addition to the Batch AI features you’re already familiar with, Azure Machine Learning Compute also includes:
 
@@ -34,7 +34,7 @@ On June 28, 2019, the Azure Batch AI service will be retired and no longer be av
 
 Convert your scripts to use Azure Machine Learning Compute before June 28, 2019, to avoid disruptions to your applications and enjoy quality and feature updates.
 
-For guidance in updating your code, see ["migration" article](link).
+For guidance in updating your code, see **"migration" article** *(link)*.
 
 ## Support timeline
 
