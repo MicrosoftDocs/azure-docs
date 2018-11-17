@@ -21,11 +21,8 @@ ms.reviewer: quying
 
 Before you remove the MySQL resource provider, you must remove all the provider dependencies. You'll also need a copy of the deployment package that was used to install the resource provider.
 
-  |Minimum Azure Stack version|MySQL RP version|
-  |-----|-----|
-  |Version 1808 (1.1808.0.97)|[MySQL RP version 1.1.30.0](https://aka.ms/azurestacksqlrp11300)|
-  |Version 1804 (1.0.180513.1)|[MySQL RP version 1.1.24.0](https://aka.ms/azurestackmysqlrp11240)
-  |     |     |
+> [!NOTE]
+> You can find the download links for the resource provider installers in [Deploy the resource provider prerequisites](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## Dependency cleanup
 
