@@ -264,6 +264,6 @@ For more information about using Draft, see the Draft documentation on GitHub.
 <!-- LINKS - internal -->
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-helm]: ./kubernetes-helm.md
-[kubernetes-ingress]: ./ingress.md
+[kubernetes-ingress]: ./ingress-basic.md
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [az-acr-login]: /cli/azure/acr#az-acr-login

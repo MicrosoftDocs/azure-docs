@@ -1,9 +1,9 @@
 ---
-title: Create custom analytics for your Azure IoT Central application | Microsoft Docs
-description: As an operator, how to create custom analytics for your Azure IoT Central application.
+title: Analyze your device data in your Azure IoT Central application | Microsoft Docs
+description: Analyze your device data in your Azure IoT Central application.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 08/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
@@ -12,7 +12,11 @@ manager: peterpr
 
 # How to use analytics to analyze your device data
 
-Microsoft Azure IoT Central provides rich analytics capabilities to make sense of large amounts of data from your devices. To get started, visit **Analytics** on the left navigation menu. 
+
+*This article applies to operators, builders, and administrators.*
+
+
+Azure IoT Central provides rich analytics capabilities to make sense of large amounts of data from your devices. To get started, visit **Analytics** on the left navigation menu. 
 
   ![IoT Central navigation to analytics](media\howto-create-analytics\analytics-navigation.png)
 
@@ -51,12 +55,12 @@ to-do: confirm if 10 is the max number of measurements
 
 You have various ways in which you can further change your query results to meet your visualization needs. You can alternate between a graph view and a grid view, zoom in/out, refresh your data set, and alter how lines are shown.
 
-* **Show grid:** Your results will be available in table format to enabling you to view the specific value for each data point. This view also meets accessibility standards. 
+* **Show grid:** Your results will be available in a table format, enabling you to view the specific value for each data point. This view also meets accessibility standards. 
 * **Show chart:** Your results will be displayed in a line format to easily spots upward/downward trends and anomalies. 
 
  ![Showing the grid view for your analytics](media\howto-create-analytics\analytics-showgrid.png)
 
-Zoom enables you to hone in on your data. If you find a time period you'd like to focus on within your result set, using your cursor grab the area that you'd like to zoom in on and use the available controls to perform one of the following actions:
+Zoom enables you to hone in on your data. If you find a time period you'd like to focus on within your result set, use your cursor to grab the area that you'd like to zoom in on and use the available controls to perform one of the following actions:
 * **Zoom in:** Once you've selected a time period, zoom in will be enabled and allow you to zoom in to your data.
 * **Zoom out:** This control enables you to zoom out one level from your last zoom. For example, if you've zoom in to your data three times, zoom out will take you back one step at a time.
 * **Zoom reset:** Once you've performed various levels of zooming, you can use the zoom reset control to return to your original result set. 

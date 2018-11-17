@@ -3,18 +3,18 @@ title: Manage security alerts in Azure Security Center | Microsoft Docs
 description: This document helps you to use Azure Security Center capabilities to manage and respond to security alerts.
 services: security-center
 documentationcenter: na
-author: terrylan
+author: rkarlin
 manager: mbaldwin
 editor: ''
 
 ms.assetid: b88a8df7-6979-479b-8039-04da1b8737a7
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2017
-ms.author: yurid
+ms.date: 10/3/2018
+ms.author: rkarlin
 
 ---
 # Managing and responding to security alerts in Azure Security Center
@@ -53,6 +53,7 @@ In the bottom part of this page are the details for each alert. To sort, click t
 * **Date**: The date that the event occurred.
 * **State**: The current state for that alert. There are two types of states:
   * **Active**: The security alert has been detected.
+  * **Dismissed**: The security alert has been dismissed by the user. This status is typically used for alerts that were investigated and either mitigated or found not to be an actual attack.
 * **Severity**: The severity level, which can be high, medium or low.
 
 > [!NOTE]
@@ -91,4 +92,4 @@ In this document, you learned how to configure security policies in Security Cen
 * [Azure Security Center Detection Capabilities](security-center-detection-capabilities.md)
 * [Azure Security Center Planning and Operations Guide](security-center-planning-and-operations-guide.md)
 * [Azure Security Center FAQ](security-center-faq.md) — Find frequently asked questions about using the service.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/) — Find blog posts about Azure security and compliance.

@@ -1,18 +1,18 @@
 ---
-title: Autosuggest Bing search terms
-titleSuffix: Microsoft Cognitive Services
-description: Pair the Bing Web Search API with the Bing Autosuggest API to provide users with an improved search experience.
+title: Autosuggest search terms - Bing Web Search API
+titleSuffix: Azure Cognitive Services
+description: Pair the Bing Web Search API with the Bing Autosuggest API to provide users with an enhanced search experience.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
 ---
 
-# Autosuggest Bing search terms
+# Autosuggest Bing search terms in your application
 
 If you provide a search box where the user enters their search term, use the [Bing Autosuggest API](../bing-autosuggest/get-suggested-search-terms.md) to improve the experience. The API returns suggested query strings based on partial search terms as the user types.
 

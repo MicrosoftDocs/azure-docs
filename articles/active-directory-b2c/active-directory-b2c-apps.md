@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/13/2018
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
 
@@ -20,7 +20,7 @@ Azure Active Directory (Azure AD) B2C supports authentication for a variety of m
 Every application that uses Azure AD B2C must be registered in your [Azure AD B2C tenant](active-directory-b2c-get-started.md) by using the [Azure Portal](https://portal.azure.com/). The application registration process collects and assigns values, such as:
 
 * An **Application ID** that uniquely identifies your application.
-* A **Redirect URI** that can be used to direct responses back to your application.
+* A **Reply URL** that can be used to direct responses back to your application.
 
 Each request that is sent to Azure AD B2C specifies a **policy**. A policy controls the behavior of Azure AD. You can also use these endpoints to create a highly customizable set of user experiences. Common policies include sign-up, sign-in, and profile-edit policies. If you are not familiar with policies, you should read about the Azure AD B2C [extensible policy framework](active-directory-b2c-reference-policies.md) before you continue.
 
@@ -84,11 +84,6 @@ Accept: application/json
 
 The web API can then use the token to verify the API caller's identity and to extract information about the caller from claims that are encoded in the token. Learn more about the types of tokens and claims available to an app in the [Azure AD B2C token reference](active-directory-b2c-reference-tokens.md).
 
-> [!NOTE]
-> Azure AD B2C currently supports only web APIs that are accessed by their own well-known clients. For instance, your complete app may include an iOS application, an Android application, and a back-end web API. This architecture is fully supported. Allowing a partner client, such as another iOS application, to access the same web API is not currently supported. All of the components of your complete application must share a single application ID.
->
->
-
 A web API can receive tokens from many types of clients, including web applications, desktop and mobile applications, single page applications, server-side daemons, and other web APIs. Here's an example of the complete flow for a web application that calls a web API:
 
 1. The web application executes a policy and the user completes the user experience.
@@ -111,16 +106,11 @@ Applications that are installed on devices, such as mobile and desktop applicati
 
 In this flow, the application executes [policies](active-directory-b2c-reference-policies.md) and receives an `authorization_code` from Azure AD after the user completes the policy. The `authorization_code` represents the application's permission to call back-end services on behalf of the user who is currently signed in. The application can then exchange the `authorization_code` in the background for an `id_token` and a `refresh_token`.  The application can use the `id_token` to authenticate to a back-end web API in HTTP requests. It can also use the `refresh_token` to get a new `id_token` when an older one expires.
 
-> [!NOTE]
-> Azure AD B2C currently supports only tokens that are used to access an application's own back-end web service. For instance, your complete application may include an iOS application, an Android application, and a back-end web API. This architecture is fully supported. Allowing your iOS application to access a partner web API by using OAuth 2.0 access tokens is not currently supported. All of the components of your complete application must share a single application ID.
->
->
-
 ## Current limitations
 
-Azure AD B2C does not currently support the following types of apps, but they are on the roadmap. 
+### Application not supported 
 
-### Daemons/server-side applications
+#### Daemons/server-side applications
 
 Applications that contain long-running processes or that operate without the presence of a user also need a way to access secured resources such as web APIs. These applications can authenticate and get tokens by using the application's identity (rather than a user's delegated identity) and by using the OAuth 2.0 client credentials flow. Client credential flow is not the same as on-behalf-flow and on-behalf-flow should not be used for server-to-server authentication.
 
@@ -128,9 +118,60 @@ Although client credential flow is not currently supported by Azure AD B2C, you 
 
 To set up client credential flow, see [Azure Active Directory v2.0 and the OAuth 2.0 client credentials flow](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-protocols-oauth-client-creds). A successful authentication results in the receipt of a token formatted so that it can be used by Azure AD as described in [Azure AD token reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims).
 
-
-### Web API chains (on-behalf-of flow)
+#### Web API chains (on-behalf-of flow)
 
 Many architectures include a web API that needs to call another downstream web API, where both are secured by Azure AD B2C. This scenario is common in native clients that have a Web API back-end. This then calls a Microsoft online service such as the Azure AD Graph API.
 
 This chained web API scenario can be supported by using the OAuth 2.0 JWT bearer credential grant, also known as the on-behalf-of flow.  However, the on-behalf-of flow is not currently implemented in the Azure AD B2C.
+
+### Reply URL values
+
+Currently, apps that are registered with Azure AD B2C are restricted to a limited set of reply URL values. The reply URL for web apps and services must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, you cannot register a web app that has one of these reply URLs:
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name fails if either of the following conditions is true:
+
+- The whole DNS name of the new reply URL does not match the DNS name of the existing reply URL.
+- The whole DNS name of the new reply URL is not a subdomain of the existing reply URL.
+
+For example, if the app has this reply URL:
+
+`https://login.contoso.com`
+
+You can add to it, like this:
+
+`https://login.contoso.com/new`
+
+In this case, the DNS name matches exactly. Or, you can do this:
+
+`https://new.login.contoso.com`
+
+In this case, you're referring to a DNS subdomain of login.contoso.com. If you want to have an app that has login-east.contoso.com and login-west.contoso.com as reply URLs, you must add those reply URLs in this order:
+
+`https://contoso.com`
+
+`https://login-east.contoso.com`
+
+`https://login-west.contoso.com`
+
+You can add the latter two because they are subdomains of the first reply URL, contoso.com. 
+
+When you create mobile/native applications, you define a **Redirect URI** instead of a **Replay URL**. There are two important considerations when choosing a Redirect URI:
+
+- **Unique**: The scheme of the redirect URI should be unique for every application. In the example `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` is the scheme. This pattern should be followed. If two applications share the same scheme, the user sees a **choose app** dialog. If the user makes an incorrect choice, the login fails.
+- **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain. For example, `//contoso/` works and `//contoso` fails. Ensure there are no special characters like underscores in the redirect URI.
+
+### Faulted apps
+
+Azure AD B2C applications should NOT be edited:
+
+- On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
+- Using Graph API or PowerShell.
+
+If you edit the Azure AD B2C application outside of the Azure portal, it becomes a faulted application and is no longer usable with Azure AD B2C. You need to delete the application and create it again.
+
+To delete the application, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
+

@@ -45,9 +45,12 @@ The applications that will be used and have a licensing fee need to be specified
 * Specify the `applicationLicenses` property when [creating a pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  The following values can be specified in the array of strings - "vray", "arnold", "3dsmax", "maya".
 * When you specify one or more applications, then the cost of those applications is added to the cost of the VMs.  Application prices are listed on the [Azure Batch pricing page](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> If instead you connect to a license server to use the rendering applications, do not specify the `applicationLicenses` property.
+
 You can use the Azure portal or Batch Explorer to select applications and show the application prices.
 
-If an attempt is made to use an application, but the application hasn’t been specified in the `applicationLicenses` property of the pool configuration, then the application execution fails with a licensing error and non-zero exit code.
+If an attempt is made to use an application, but the application hasn’t been specified in the `applicationLicenses` property of the pool configuration or does not reach a license server, then the application execution fails with a licensing error and non-zero exit code.
 
 ### Environment variables for pre-installed applications
 

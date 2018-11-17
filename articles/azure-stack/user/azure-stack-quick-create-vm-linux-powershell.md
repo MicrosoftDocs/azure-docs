@@ -7,18 +7,17 @@ author: mattbriggs
 manager: femila
 editor: ''
 
-ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
 ---
 
-# Quickstart: create a Linux server virtual machine by using PowerShell in Azure Stack
+# Quickstart: Create a Linux server virtual machine by using PowerShell in Azure Stack
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
@@ -34,7 +33,9 @@ You can create a Ubuntu Server 16.04 LTS virtual machine by using Azure Stack Po
 
    The Azure Stack marketplace doesn't contain a Linux image by default. Get the Azure Stack operator to provide the **Ubuntu Server 16.04 LTS** image you need. The operator can use the steps described in the [Download marketplace items from Azure to Azure Stack](../azure-stack-download-azure-marketplace-item.md) article.
 
-* Azure Stack requires a specific version of Azure PowerShell to create and manage resources. If you don't have PowerShell configured for Azure Stack, sign in to the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) and follow the steps to [install](azure-stack-powershell-install.md) and [configure](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack requires a specific version of Azure PowerShell to create and manage the resources. If you don't have PowerShell configured for Azure Stack, follow the steps to [install](azure-stack-powershell-install.md) PowerShell.
+
+* With the Azure Stack PowerShell set up, you will need to connect to your Azure Stack environment. For instruction, see [Connect to Azure Stack with PowerShell as a user](azure-stack-powershell-configure-user.md).
 
 * A public SSH key with the name id_rsa.pub saved in the .ssh directory of your Windows user profile. For detailed information about creating SSH keys, see [Creating SSH keys on Windows](../../virtual-machines/linux/ssh-from-windows.md).
 

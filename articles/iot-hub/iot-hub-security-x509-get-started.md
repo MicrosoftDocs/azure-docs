@@ -67,9 +67,9 @@ These steps show you how to add a new Certificate Authority to your IoT hub thro
 
 ## Create an X.509 device for your IoT hub
 
-1. In the Azure portal, navigate to your IoT hub's **Device Explorer**.
+1. In the Azure portal, navigate to your IoT hub's **Explorers > IoT devices** page.
 
-2. Click **Add** to add a new device. 
+2. Click **+ Add** to add a new device.
 
 3. Give a friendly display name for the **Device ID**, and select **_X.509 CA Signed_** as the **Authentication Type**. Click **Save**.
 
@@ -136,7 +136,7 @@ Next, we will show you how to create a C# application to simulate the X.509 devi
     ```CSharp
     try
     {
-        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "123");
+        var cert = new X509Certificate2(@"<absolute-path-to-your-device-pfx-file>", "1234");
         var auth = new DeviceAuthenticationWithX509Certificate("<device-id>", cert);
         var deviceClient = DeviceClient.Create("<your-iot-hub-name>.azure-devices.net", auth, TransportType.Amqp_Tcp_Only);
 

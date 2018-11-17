@@ -3,19 +3,15 @@ title: Azure Blob storage bindings for Azure Functions
 description: Understand how to use Azure Blob storage triggers and bindings in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: azure functions, functions, event processing, dynamic compute, serverless architecture
 
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/03/2018
-ms.author: glenga
+ms.author: cshoe
 ---
 
 # Azure Blob storage bindings for Azure Functions
@@ -29,7 +25,7 @@ This article explains how to work with Azure Blob storage bindings in Azure Func
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!NOTE]
-> Use the Event Grid trigger instead of the Blob storage trigger for blob-only storage accounts, for high scale, or to avoid cold-start delays. For more information, see the [Trigger](#trigger) section. 
+> Use the Event Grid trigger instead of the Blob storage trigger for Blob storage accounts, for high scale, or to avoid cold-start delays. For more information, see the [Trigger](#trigger) section. 
 
 ## Packages - Functions 1.x
 
@@ -53,13 +49,13 @@ The [Event Grid trigger](functions-bindings-event-grid.md) has built-in support 
 
 Use Event Grid instead of the Blob storage trigger for the following scenarios:
 
-* Blob-only storage accounts
+* Blob storage accounts
 * High scale
 * Minimizing cold-start delay
 
-### Blob-only storage accounts
+### Blob storage accounts
 
-[Blob-only storage accounts](../storage/common/storage-create-storage-account.md#blob-storage-accounts) are supported for blob input and output bindings but not for blob triggers. Blob storage triggers require a general-purpose storage account.
+[Blob storage accounts](../storage/common/storage-account-overview.md#types-of-storage-accounts) are supported for blob input and output bindings but not for blob triggers. Blob storage triggers require a general-purpose storage account.
 
 ### High scale
 
@@ -80,7 +76,7 @@ See the language-specific example:
 * [C#](#trigger---c-example)
 * [C# script (.csx)](#trigger---c-script-example)
 * [JavaScript](#trigger---javascript-example)
-* [Java](#trigger---javascript-example)
+* [Java](#trigger---java-example)
 
 ### Trigger - C# example
 
@@ -88,9 +84,9 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
-public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, TraceWriter log)
+public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -126,9 +122,9 @@ For more information about *function.json* file properties, see the [Configurati
 Here's C# script code that binds to a `Stream`:
 
 ```cs
-public static void Run(Stream myBlob, TraceWriter log)
+public static void Run(Stream myBlob, ILogger log)
 {
-   log.Info($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
+   log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes");
 }
 ```
 
@@ -139,9 +135,9 @@ Here's C# script code that binds to a `CloudBlockBlob`:
 
 using Microsoft.WindowsAzure.Storage.Blob;
 
-public static void Run(CloudBlockBlob myBlob, string name, TraceWriter log)
+public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 {
-    log.Info($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
+    log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name}\nURI:{myBlob.StorageUri}");
 }
 ```
 
@@ -203,18 +199,17 @@ Here's the *function.json* file:
 Here's the Java code:
 
 ```java
- @FunctionName("blobprocessor")
- public void run(
-    @BlobTrigger(name = "file",
-                  dataType = "binary",
-                  path = "myblob/filepath",
-                  connection = "myconnvarname") byte[] content,
-    @BindingName("name") String filename,
-     final ExecutionContext context
- ) {
-     context.getLogger().info("Name: " + name + " Size: " + content.length + " bytes");
- }
-
+@FunctionName("blobprocessor")
+public void run(
+  @BlobTrigger(name = "file",
+               dataType = "binary",
+               path = "myblob/{name}",
+               connection = "MyStorageAccountAppSetting") byte[] content,
+  @BindingName("name") String filename,
+  final ExecutionContext context
+) {
+  context.getLogger().info("Name: " + filename + " Size: " + content.length + " bytes");
+}
 ```
 
 
@@ -283,8 +278,8 @@ The following table explains the binding configuration properties that you set i
 |**type** | n/a | Must be set to `blobTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** | n/a | Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. Exceptions are noted in the [usage](#trigger---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code. | 
-|**path** | **BlobPath** |The container to monitor.  May be a [blob name pattern](#trigger-blob-name-patterns). | 
-|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**path** | **BlobPath** |The container to monitor.  May be a [blob name pattern](#trigger---blob-name-patterns). | 
+|**connection** | **Connection** | The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -365,9 +360,9 @@ The blob trigger provides several metadata properties. These properties can be u
 For example, the following C# script and JavaScript examples log the path to the triggering blob, including the container:
 
 ```csharp
-public static void Run(string myBlob, string blobTrigger, TraceWriter log)
+public static void Run(string myBlob, string blobTrigger, ILogger log)
 {
-    log.Info($"Full blob path: {blobTrigger}");
+    log.LogInformation($"Full blob path: {blobTrigger}");
 } 
 ```
 
@@ -442,9 +437,9 @@ The following example is a [C# function](functions-dotnet-class-library.md) that
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```        
 
@@ -490,9 +485,9 @@ The [configuration](#input---configuration) section explains these properties.
 Here's the C# script code:
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -565,7 +560,7 @@ public void blobSize(@QueueTrigger(name = "filename",  queueName = "myqueue-item
 
 ## Input - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 
@@ -574,9 +569,9 @@ The attribute's constructor takes the path to the blob and a `FileAccess` parame
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read)] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 
 ```
@@ -588,9 +583,9 @@ You can set the `Connection` property to specify the storage account to use, as 
 public static void Run(
     [QueueTrigger("myqueue-items")] string myQueueItem,
     [Blob("samples-workitems/{queueTrigger}", FileAccess.Read, Connection = "StorageConnectionAppSetting")] Stream myBlob,
-    TraceWriter log)
+    ILogger log)
 {
-    log.Info($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
+    log.LogInformation($"BlobInput processed blob\n Name:{myQueueItem} \n Size: {myBlob.Length} bytes");
 }
 ```
 
@@ -606,7 +601,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `in`. Exceptions are noted in the [usage](#input---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.|
 |**path** |**BlobPath** | The path to the blob. | 
-|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/a | **Access** | Indicates whether you will be reading or writing. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -722,9 +717,9 @@ The [configuration](#output---configuration) section explains these properties.
 Here's the C# script code:
 
 ```cs
-public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, TraceWriter log)
+public static void Run(string myQueueItem, string myInputBlob, out string myOutputBlob, ILogger log)
 {
-    log.Info($"C# Queue trigger function processed: {myQueueItem}");
+    log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
     myOutputBlob = myInputBlob;
 }
 ```
@@ -799,7 +794,7 @@ public String blobCopy(
 
 ## Output - attributes
 
-In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs).
+In [C# class libraries](functions-dotnet-class-library.md), use the [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/dev/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobAttribute.cs).
 
 The attribute's constructor takes the path to the blob and a `FileAccess` parameter indicating read or write, as shown in the following example:
 
@@ -839,7 +834,7 @@ The following table explains the binding configuration properties that you set i
 |**direction** | n/a | Must be set to `out` for an output binding. Exceptions are noted in the [usage](#output---usage) section. |
 |**name** | n/a | The name of the variable that represents the blob in function code.  Set to `$return` to reference the function return value.|
 |**path** |**BlobPath** | The path to the blob. | 
-|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [blob-only storage account](../storage/common/storage-create-storage-account.md#blob-storage-accounts).|
+|**connection** |**Connection**| The name of an app setting that contains the Storage connection string to use for this binding. If the app setting name begins with "AzureWebJobs", you can specify only the remainder of the name here. For example, if you set `connection` to "MyStorage", the Functions runtime looks for an app setting that is named "AzureWebJobsMyStorage." If you leave `connection` empty, the Functions runtime uses the default Storage connection string in the app setting that is named `AzureWebJobsStorage`.<br><br>The connection string must be for a general-purpose storage account, not a [Blob storage account](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 |n/a | **Access** | Indicates whether you will be reading or writing. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -883,8 +878,9 @@ In JavaScript, access the blob data using `context.bindings.<name from function.
 
 ## Next steps
 
+* [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+
+<!---
 > [!div class="nextstepaction"]
 > [Go to a quickstart that uses a Blob storage trigger](functions-create-storage-blob-triggered-function.md)
-
-> [!div class="nextstepaction"]
-> [Learn more about Azure functions triggers and bindings](functions-triggers-bindings.md)
+--->

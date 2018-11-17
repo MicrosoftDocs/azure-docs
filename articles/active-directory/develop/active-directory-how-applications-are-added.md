@@ -66,7 +66,7 @@ Like application objects, service principals can also be created through multipl
 
 * When users sign in to a third-party application integrated with Azure AD
   * During sign-in, users are asked to give permission to the application to access their profile and other permissions. The first person to give consent causes a service principal that represents the application to be added to the directory.
-* When users sign in to Microsoft online services like [Office 365](http://products.office.com/)
+* When users sign in to Microsoft online services like [Office 365](https://products.office.com/)
   * When you subscribe to Office 365 or begin a trial, one or more service principals are created in the directory representing the various services that are used to deliver all of the functionality associated with Office 365.
   * Some Office 365 services like SharePoint create service principals on an ongoing basis to allow secure communication between components including workflows.
 * When an admin adds an application from the app gallery (this will also create an underlying app object)

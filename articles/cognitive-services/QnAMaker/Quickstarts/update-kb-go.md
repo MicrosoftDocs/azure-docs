@@ -1,20 +1,27 @@
 ---
-title: Update Knowledge Base - Go Quickstart - Azure Cognitive Services | Microsoft Docs
-description: How to update a knowledge base in Go for QnA Maker.
+title: "Quickstart: Update knowledge base - REST, Go - QnA Maker"
+titleSuffix: Azure Cognitive Services
+description: This REST-based quickstart walks you through updating your sample QnA Maker knowledge base (KB), programmatically. The JSON definition you use to update a KB allows you to add, change or delete question and answer pairs. 
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 06/18/2018
-ms.author: nolachar
+ms.date: 10/19/2018
+ms.author: diberry
 ---
 
-# Update a knowledge base
+# Quickstart: Update a knowledge base in QnA Maker using Go
 
-The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+
+This API is equivalent to editing, then using the **Save and train** button in the QnA Maker portal.
+
+This quickstart calls QnA Maker APIs:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. Create a new Go project in your favorite IDE.
 2. Add the code provided below.
@@ -106,7 +113,7 @@ var req string = `{
       }
     ],
     'urls': [
-      'https://docs.microsoft.com/en-us/azure/cognitive-services/Emotion/FAQ'
+      'https://docs.microsoft.com/azure/cognitive-services/Emotion/FAQ'
     ]
   },
   'update' : {
@@ -186,7 +193,7 @@ Press any key to continue.
 
 ## Get request status
 
-You can call the [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) method to check the status of a request to create or update a knowledge base. To see how this method is used, please see the sample code for the [Create](#Create) or [Update](#Update) method.
+You can call the [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) method to check the status of a request to create or update a knowledge base. To see how this method is used, please see the sample code for the [Create](create-new-kb-go.md) quickstart.
 
 ## Next steps
 

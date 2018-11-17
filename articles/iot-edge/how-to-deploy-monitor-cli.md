@@ -3,7 +3,7 @@ title: Deploy and monitor modules for Azure IoT Edge (CLI) | Microsoft Docs
 description: Manage the modules that run on edge devices
 keywords: 
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
@@ -15,24 +15,24 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge enables you to move analytics to the edge and provides a cloud interface so that you can manage and monitor your IoT Edge devices without having to physically access each one. The capability to remotely manage devices is increasingly important as Internet of Things solutions are growing larger and more complex. Azure IoT Edge is designed to support your business goals, no matter how many devices you add.
+Azure IoT Edge enables you to move analytics to the edge, and provides a cloud interface so that you can manage and monitor your IoT Edge devices remotely. The capability to remotely manage devices is increasingly important as Internet of Things solutions are growing larger and more complex. Azure IoT Edge is designed to support your business goals, no matter how many devices you add.
 
 You can manage individual devices and deploy modules to them one at a time. However, if you want to make changes to devices at a large scale, you can create an **IoT Edge automatic deployment**, which is part of Automatic Device Management in IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices at once, track the status and health of the modules, and make changes when necessary. 
 
-In this article, you set up Azure CLI 2.0 and the IoT extension. Then you learn how to deploy modules to a set of IoT Edge devices and monitor the progress using the available CLI commands.
+In this article, you set up Azure CLI and the IoT extension. Then, you learn how to deploy modules to a set of IoT Edge devices and monitor the progress using the available CLI commands.
 
 ## CLI Prerequisites
 
 * An [IoT hub](../iot-hub/iot-hub-create-using-cli.md) in your Azure subscription. 
 * [IoT Edge devices](how-to-register-device-cli.md) with the IoT Edge runtime installed.
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI 2.0 version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
-* The [IoT extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension).
+* [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.24 or above. Use `az –-version` to validate. This version supports az extension commands and introduces the Knack command framework. 
+* The [IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension).
 
 ## Configure a deployment manifest
 
 A deployment manifest is a JSON document that describes which modules to deploy, how data flows between the modules, and desired properties of the module twins. For more information about how deployment manifests work and how to create them, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
 
-To deploy modules using Azure CLI 2.0, save the deployment manifest locally as a .txt file. You will use the file path in the next section when you run the command to apply the configuration to your device. 
+To deploy modules using Azure CLI, save the deployment manifest locally as a .txt file. You will use the file path in the next section when you run the command to apply the configuration to your device. 
 
 Here's a basic deployment manifest with one module as an example:
 
@@ -123,7 +123,7 @@ Before you can create a deployment, you have to be able to specify which devices
 }
 ```
 
-For more information about device twins and tags, see [Understand and use device twins in IoT Hub][lnk-device-twin].
+For more information about device twins and tags, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## Create a deployment
 
@@ -204,16 +204,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## Next steps
 
-Learn more about [Deploying modules to Edge devices][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Learn more about [Deploying modules to Edge devices](module-deployment-monitoring.md).

@@ -1,16 +1,19 @@
 ---
-title: Supported Languages of Microsoft Speech Service | Microsoft Docs
-description: A list of spoken languages that are supported by Microsoft Speech Service.
+title: Bing Speech Supported Languages | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: A list of spoken languages that are supported by Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
 # Supported languages
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 ## Interactive and dictation mode
 

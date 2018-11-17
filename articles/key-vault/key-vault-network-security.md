@@ -6,7 +6,7 @@ services: key-vault
 author: amitbapat
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/31/2018
 ms.author: ambapat

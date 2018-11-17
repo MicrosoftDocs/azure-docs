@@ -19,7 +19,7 @@ It shows how Conversation Learner can learn non-trivial dialog flows, multi-turn
 
 ## Video
 
-[![Demo Password Preview](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
+[![Demo Password Preview](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
 
 ## Requirements
 This tutorial requires that the password reset bot is running

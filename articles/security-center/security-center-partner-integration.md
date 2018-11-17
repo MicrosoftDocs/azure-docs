@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -113,4 +113,4 @@ In this article, you learned how to integrate partner solutions in Security Cent
 * [Security health monitoring in Security Center](security-center-monitoring.md). Learn how to monitor the health of your Azure resources.
 * [Monitor partner solutions with Security Center](security-center-partner-solutions.md). Learn how to monitor the health status of your partner solutions.
 * [Azure Security Center FAQs](security-center-faq.md). Get answers to frequently asked questions about using Security Center.
-* [Azure Security blog](http://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.
+* [Azure Security blog](https://blogs.msdn.com/b/azuresecurity/). Find blog posts about Azure security and compliance.

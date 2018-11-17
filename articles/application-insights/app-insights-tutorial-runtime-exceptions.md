@@ -32,7 +32,7 @@ To complete this tutorial:
 - Install [Visual Studio 2017](https://www.visualstudio.com/downloads/) with the following workloads:
 	- ASP.NET and web development
 	- Azure development
-- Download and install the [Visual Studio Snapshot Debugger](http://aka.ms/snapshotdebugger).
+- Download and install the [Visual Studio Snapshot Debugger](https://aka.ms/snapshotdebugger).
 - Enable [Visual Studio Snapshot Debugger](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 - Deploy a .NET application to Azure and [enable the Application Insights SDK](app-insights-asp-net.md). 
 - The tutorial tracks the identification of an exception in your application, so modify your code in your development or test environment to generate an exception. 
@@ -96,6 +96,15 @@ All data collected by Application Insights is stored in Azure Log Analytics, whi
 	![Code](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Click **Analyze impact** to open Application Insights Analytics.  It's populated with several queries that provide details on failed requests such as impacted users, browsers, and regions.<br><br>![Analytics](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## Add work item
+If you connect Application Insights to a tracking system such as Azure DevOps or GitHub, you can create a work item directly from Application Insights.
+
+1. Return to the **Exception Properties** panel in Application Insights.
+2. Click **New Work Item**.
+3. The **New Work Item** panel opens with details about the exception already populated.  You can add any additional information before saving it.
+
+	![New Work Item](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## Next steps
 Now that you've learned how to identify run-time exceptions, advance to the next tutorial to learn how to identify and diagnose performance issues.

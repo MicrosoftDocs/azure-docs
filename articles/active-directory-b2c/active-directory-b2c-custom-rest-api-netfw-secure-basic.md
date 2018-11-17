@@ -233,7 +233,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 6. In the **Secret** box, enter the app ID that you defined earlier.
 
-7. For **Key usage**, select **Secret**.
+7. For **Key usage**, select **Signature**.
 
 8. Select **Create**.
 
@@ -253,7 +253,7 @@ After your RESTful service is protected by the client ID (username) and secret, 
 
 6. In the **Secret** box, enter the app secret that you defined earlier.
 
-7. For **Key usage**, select **Secret**.
+7. For **Key usage**, select **Signature**.
 
 8. Select **Create**.
 

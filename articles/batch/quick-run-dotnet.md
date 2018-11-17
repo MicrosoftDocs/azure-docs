@@ -8,7 +8,7 @@ manager: jeconnoc
 ms.service: batch
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 01/16/2018
+ms.date: 09/06/2018
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -23,7 +23,7 @@ This quickstart runs an Azure Batch job from a C# application built on the Azure
 
 ## Prerequisites
 
-* [Visual Studio 2017](https://www.visualstudio.com/vs). 
+* [Visual Studio 2017](https://www.visualstudio.com/vs), or [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1) for Linux, macOS, or Windows. 
 
 * A Batch account and a linked Azure Storage account. To create these accounts, see the Batch quickstarts using the [Azure portal](quick-create-portal.md) or [Azure CLI](quick-create-cli.md). 
 
@@ -56,9 +56,11 @@ private const string StorageAccountName = "mystorageaccount";
 private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
 ```
 
+[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
+
 ## Build and run the app
 
-To see the Batch workflow in action, build and run the application. After running the application, review the code to learn what each part of the application does. 
+To see the Batch workflow in action, build and run the application in Visual Studio, or at the command line with the `dotnet build` and `dotnet run` commands. After running the application, review the code to learn what each part of the application does. For example, in Visual Studio:
 
 * Right-click the solution in Solution Explorer, and click **Build Solution**. 
 
@@ -118,9 +120,9 @@ The app uses the `blobClient` reference to create a container in the storage acc
 ```csharp
 List<string> inputFilePaths = new List<string>
 {
-    @"taskdata0.txt",
-    @"taskdata1.txt",
-    @"taskdata2.txt"
+    "taskdata0.txt",
+    "taskdata1.txt",
+    "taskdata2.txt"
 };
 
 List<ResourceFile> inputFiles = new List<ResourceFile>();
@@ -188,7 +190,7 @@ try
 
     job.Commit(); 
 }
-...       
+...
 ```
 
 ### Create tasks

@@ -13,7 +13,7 @@ ms.author: sajagtap
 
 # About Tags #
 
-In addition to the two default tags (a – isadult and r – isracy), you can create custom tags for more targeted scanning. These custom tags are then available for human reviewers to assign to images or text.
+In addition to the two default tags, **isadult** (**a**) and **isracy** (**r**), you can create custom tags for more targeted scanning. These custom tags are then available for human reviewers to assign to images or text.
 
 ## Create tags ##
 
@@ -22,7 +22,7 @@ In addition to the two default tags (a – isadult and r – isracy), you can cr
   ![Content Moderation Tags](images/tags-1.png)
 
 2.	Enter a two-letter Short code for the tag.
-3.	Enter a Name for the tag. Keep the name short and descriptive. For example, “isNudity”.
+3.	Enter a Name for the tag. Keep the name short and descriptive. For example, **isbullying**.
 4.	Enter a Description.
 5.	Click Add.
 6.	Click Save when you are done creating tags.
@@ -39,10 +39,10 @@ You can turn off different tags for different reviews, by checking or unchecking
  
 ![Disabling Content Moderation Tags](images/tags-4-disable.png)
 
-While you can’t delete the two default tags, isadult and isracy, you can delete any custom tags that you have defined. Click the garbage can next to the tag you want to delete.
+While you can’t delete the two default tags, **isadult** and **isracy**, you can delete any custom tags that you have defined. Click the trash can next to the tag you want to delete.
 
 ![Deleting Content Moderation Tags](images/tags-5-delete.png)
 
 ## Next steps ##
 
-To learn how to use tags for image moderation, see [how to review moderated images](Review-Moderated-Images.md).
+To learn how to use tags for image moderation, see [Review moderated images](Review-Moderated-Images.md).

@@ -22,6 +22,8 @@ The **OCR** skill extracts text from image files. Supported file formats include
 + .BMP
 + .GIF
 
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
 
 ## Skill parameters
 
@@ -168,7 +170,7 @@ The following example skillset creates a *merged_text* field to contain the text
       ],
       "outputs": [
         {
-          "name": "mergedText", "targetname" : "merged_text"
+          "name": "mergedText", "targetName" : "merged_text"
         }
       ]
     }

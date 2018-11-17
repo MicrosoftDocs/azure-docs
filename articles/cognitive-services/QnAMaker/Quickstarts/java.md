@@ -1,18 +1,19 @@
 ---
-title: Java Quickstart for Microsoft QnA Maker API (v4) - Azure Cognitive Services | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
+title: "REST API (V4) - Java - QnA Maker"
+titleSuffix: Azure Cognitive Services 
+description: Get Java REST-based information and code samples to help you quickly get started using the Microsoft Translator Text API in Microsoft Cognitive Services on Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: qna-maker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
+ms.date: 10/19/2018
+ms.author: diberry
 
 ---
-# Quickstart for Microsoft QnA Maker API with Java 
+# QnA Maker REST API with Java 
 <a name="HOLTop"></a>
 
 This article shows you how to use the [Microsoft QnA Maker API](../Overview/overview.md) with Java to do the following.
@@ -32,9 +33,11 @@ This article shows you how to use the [Microsoft QnA Maker API](../Overview/over
 - [Get the current set of word alterations.](#GetAlterations)
 - [Replace the current set of word alterations.](#PutAlterations)
 
+[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
 ## Prerequisites
 
-You will need [JDK 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
+You will need [JDK 7 or 8](https://aka.ms/azure-jdks) to compile and run this code. You may use a Java IDE if you have a favorite, but a text editor will suffice.
 
 You must have a [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with **Microsoft QnA Maker API**. You will need a paid subscription key from your [Azure dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
@@ -217,7 +220,8 @@ public class CreateKB {
 
 		kb.qnaList = new Question[]{q};
 
-		kb.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"};
+		kb.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"};
+
 
 		return kb;
 	}
@@ -324,7 +328,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -451,13 +455,13 @@ public class UpdateKB {
 		HttpPatch patch = new HttpPatch(url.toString());
 		// HttpPatch implements HttpMessage, which includes addHeader. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
 		patch.addHeader("Content-Type", "application/json");
 		// Note: Adding the Content-Length header causes the exception:
 		// "Content-Length header already present."
 		patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 		// HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
 		HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -467,8 +471,8 @@ public class UpdateKB {
 		// CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
 		// Header implements NameValuePair. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
 		Map<String, List<String>> headers = new HashMap<String, List<String>>();
 		for (Header header : response.getAllHeaders()) {
 			List<String> list = new ArrayList<String>() {
@@ -480,9 +484,9 @@ public class UpdateKB {
 		}
 
 		// CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
 		// HttpEntity implements getContent, which returns an InputStream. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
 		StringBuilder output = new StringBuilder ();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 		String line;
@@ -526,7 +530,8 @@ public class UpdateKB {
 
 		req.add = new Add ();
 		req.add.qnaList = new Question[]{q};
-		req.add.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"};
+		req.add.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",     "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"};
+
 
 		return req;
 	}
@@ -1028,7 +1033,7 @@ A successful response is returned in JSON, as shown in the following example:
     {
       "id": 2,
       "answer": "QnA Maker provides an FAQ data source that you can query from your bot or application. Although developers will find this useful, content owners will especially benefit from this tool. QnA Maker is a completely no-code way of managing the content that powers your bot or application.",
-      "source": "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
+      "source": "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
       "questions": [
         "Who is the target audience for the QnA Maker tool?"
       ],
@@ -1174,7 +1179,7 @@ A successful response is returned in JSON, as shown in the following example:
       "answer": "Yes. However, shadow copies made prior to enabling BitLocker will be automatically deleted when BitLocker is enabled on software-encrypted drives. If you are using a hardware encrypted drive, the shadow copies are retained.",
       "score": 17.3,
       "id": 62,
-      "source": "https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
+      "source": "https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-frequently-asked-questions",
       "metadata": []
     },
 ...
@@ -1300,8 +1305,8 @@ A successful response is returned in JSON, as shown in the following example:
   "name": "QnA Maker FAQ",
   "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "sources": [
     "Custom Editorial"
@@ -1436,8 +1441,8 @@ A successful response is returned in JSON, as shown in the following example:
       "name": "QnA Maker FAQ",
       "userId": "2280ef5917bb4ebfa1aae41fb1cebb4a",
       "urls": [
-        "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-        "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+        "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+        "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
       ],
       "sources": [
         "Custom Editorial"
@@ -1721,7 +1726,7 @@ import com.google.gson.reflect.TypeToken;
 
 // Java does not natively support HTTP PATCH requests, so Apache HttpClient is required.
 /*
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -1774,13 +1779,13 @@ public class RefreshKeys {
 		HttpPatch patch = new HttpPatch(url.toString());
 		// HttpPatch implements HttpMessage, which includes addHeader. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/HttpPatch.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpMessage.html
 		patch.addHeader("Content-Type", "application/json");
 		// Note: Adding the Content-Length header causes the exception:
 		// "Content-Length header already present."
 		patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
 		// HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntityEnclosingRequest.html
 		HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
 
@@ -1790,8 +1795,8 @@ public class RefreshKeys {
 		// CloseableHttpResponse implements HttpMessage, which includes getAllHeaders. See:
 		// https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/client/methods/CloseableHttpResponse.html
 		// Header implements NameValuePair. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/NameValuePair.html
 		Map<String, List<String>> headers = new HashMap<String, List<String>>();
 		for (Header header : response.getAllHeaders()) {
 			List<String> list = new ArrayList<String>() {
@@ -1803,9 +1808,9 @@ public class RefreshKeys {
 		}
 
 		// CloseableHttpResponse implements HttpResponse, which includes getEntity. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpResponse.html
 		// HttpEntity implements getContent, which returns an InputStream. See:
-		// http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
+		// https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/HttpEntity.html
 		StringBuilder output = new StringBuilder ();
 		BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity().getContent(), "UTF-8"));
 		String line;

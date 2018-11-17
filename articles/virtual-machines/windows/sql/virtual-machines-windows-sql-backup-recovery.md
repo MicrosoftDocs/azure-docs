@@ -18,7 +18,7 @@ ms.author: mikeray
 ---
 # Backup and Restore for SQL Server in Azure Virtual Machines
 
-This article provides guidance on the backup and restore options available for SQL Server running in Windows Azure Virtual Machines. Azure Storage maintains three copies of every Azure VM disk to guarantee protection against data loss or physical data corruption. Thus, unlike on-premises, you don't need to focus on hardware failures. However, you should still backup your SQL Server databases to protect against application or user errors, such as inadvertent data insertions or deletions. In this situation, it is important to be able to restore to a specific point in time.
+This article provides guidance on the backup and restore options available for SQL Server running in a Windows virtual machine in Azure. Azure Storage maintains three copies of every Azure VM disk to guarantee protection against data loss or physical data corruption. Thus, unlike on-premises, you don't need to focus on hardware failures. However, you should still backup your SQL Server databases to protect against application or user errors, such as inadvertent data insertions or deletions. In this situation, it is important to be able to restore to a specific point in time.
 
 The first part of this article provides an overview of the available backup and restore options. This is followed by sections that provide more information on each strategy.
 
@@ -36,7 +36,7 @@ The following sections describe each option in more detail. The final section of
 
 ## <a id="autoamted"></a> Automated Backup
 
-Automated Backup provides an automatic backup service for SQL Server Standard and Enterprise editions running in a Windows Azure VM. This service is provided by the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md), which is automatically installed on SQL Server Windows virtual machine images in the Azure portal.
+Automated Backup provides an automatic backup service for SQL Server Standard and Enterprise editions running in a Windows VM in Azure. This service is provided by the [SQL Server IaaS Agent Extension](virtual-machines-windows-sql-server-agent-extension.md), which is automatically installed on SQL Server Windows virtual machine images in the Azure portal.
 
 All databases are backed up to an Azure storage account that you configure. Backups can be encrypted and retained for up to 30 days.
 
@@ -138,7 +138,7 @@ The following table summarizes the capabilities of each backup and restore optio
 | Backup to attached disks on the VM |   |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Central customizable backup reports |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Consolidated email alerts for failures |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
-| Customize monitoring based on OMS |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
+| Customize monitoring based on Log Analytics |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   |
 | Monitor backup jobs with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 | Restore databases with SSMS or Transact-SQL scripts | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |   | ![Yes](./media/virtual-machines-windows-sql-backup-recovery/yes.png) |
 

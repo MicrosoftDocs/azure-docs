@@ -1,5 +1,5 @@
 ﻿---
-title: Configure reliable Azure microservices | Microsoft Docs
+title: Configure Azure Service Fabric Reliable Services | Microsoft Docs
 description: Learn about configuring stateful Reliable Services in Azure Service Fabric.
 services: Service-Fabric
 documentationcenter: .net

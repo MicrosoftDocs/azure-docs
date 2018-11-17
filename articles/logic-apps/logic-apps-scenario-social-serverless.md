@@ -39,7 +39,7 @@ The workflow that you create monitors a hashtag on Twitter.
 You can [build the entire solution in Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) 
 and [deploy the solution with Azure Resource Manager template](../logic-apps/logic-apps-create-deploy-template.md). 
 For a video walkthrough that shows how to create this solution, 
-[watch this Channel 9 video](http://aka.ms/logicappsdemo). 
+[watch this Channel 9 video](https://aka.ms/logicappsdemo). 
 
 ## Trigger on customer data
 
@@ -171,7 +171,7 @@ you can capture and deploy your app as an
 to any Azure region in the world. 
 You can use this capability both to modify parameters 
 for creating different versions of your app and for 
-integrating your solution into a build and release pipeline. 
+integrating your solution into Azure Pipelines. 
 You can also include Azure Functions in your deployment 
 template so that you can manage the entire solution 
 with all dependencies as a single template. Learn 

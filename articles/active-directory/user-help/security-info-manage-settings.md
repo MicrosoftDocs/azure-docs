@@ -1,4 +1,4 @@
----
+﻿---
 title: Manage your security info - Azure Active Directory | Microsoft Docs
 description: Learn how to manage your security info, including how to work with your two-step verification settings.
 services: active-directory
@@ -16,7 +16,7 @@ ms.author: lizross
 
 # Manage your security info (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 You can use your security info to sign in to your work or school account or to reset your password.
 

@@ -1,24 +1,26 @@
 ---
-title: Use Cost Management reports in Azure Cost Management | Microsoft Docs
-description: This article describes how to use various Cost Management reports in the Cloudyn portal.
+title: Use Cloudyn reports in Azure | Microsoft Docs
+description: This article describes how to use various reports in the Cloudyn portal.
 services: cost-management
 keywords:
 author: bandersmsft
 ms.author: banders
-ms.date: 07/06/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom:
 ---
 
-# Use cost management reports
+# Use Cloudyn reports
 
-This article describes the purpose of the cost management reports that are included in the Cloudyn portal. It also describes how you can effectively use the reports. Most reports are intuitive and have a uniform look and feel. Most of the actions that you can do in one report, you can also do in other reports. For an overview about how to use cost management reports, including how to customize and save or to schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
+This article describes the purpose of the Cloudyn reports that are included in the Cloudyn portal. It also describes how you can effectively use the reports. Most reports are intuitive and have a uniform look and feel. Most of the actions that you can do in one report, you can also do in other reports. For an overview about how to use Cloudyn reports, including how to customize and save or to schedule reports, see [Understanding cost reports](understanding-cost-reports.md).
+
+Azure Cost Management offers similar functionality to Cloudyn. Azure Cost Management is a native Azure cost management solution. It helps you analyze costs, create and manage budgets, export data, and review and act on optimization recommendations to save money. For more information, see [Azure Cost Management](overview-cost-mgt.md).
 
 ## Report types
 
-There are three types of cost management reports:
+There are three types of Cloudyn reports:
 
 - Over-time reports. For example, the Cost Over Time report. Over-time reports show a time series of data over a selected interval with a predefined resolution and show a weekly resolution for last two months. You can use grouping and filtering to zoom in to various data points.
   - Over-time reports can help you view trends and detect spikes or anomalies.
@@ -44,7 +46,7 @@ _Cost analysis_ reports display billing data from your cloud providers. Using th
 
 Some _cost analysis_ reports don't group costs by resource tags. And, tag-based billing information only appears in reports after you allocate costs by creating a cost model using [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-_Cost allocation_ reports are available after you create a cost model using [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cost Management processes cost and billing data and _matches_ the data to the usage and tag data of your cloud accounts. To match the data, Cost Management requires access to your usage data. If you have accounts that are missing credentials, they are labeled as _uncategorized resources_.
+_Cost allocation_ reports are available after you create a cost model using [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs). Cloudyn processes cost and billing data and _matches_ the data to the usage and tag data of your cloud accounts. To match the data, Cloudyn requires access to your usage data. If you have accounts that are missing credentials, they are labeled as _uncategorized resources_.
 
 ## Dashboards
 
@@ -52,7 +54,7 @@ Dashboards in Cloudy provide a high-level view of reports. Dashboards are made u
 
 ## Budget information in reports
 
-Many cost management reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget settings](#budget-settings).
+Many Cloudyn reports show budget information after you've manually created one. So reports won't show budget information until you create a budget. For more information, see [Budget settings](#budget-settings).
 
 ## Reports and reporting features
 
@@ -76,7 +78,7 @@ The Cost Analysis report is a calculation of showback and chargeback, based on y
 
 The policies set in [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report and results are then combined with information from your cloud vendor's raw data.
 
-How is this report calculated? The Cost Management service ensures allocation retains the integrity of each linked account by applying _account affinity_. Affinity ensures an account that doesn't use a specific service doesn't have any costs of this service allocated to it. The costs accrued in that account remain in that account and are not calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
+How is this report calculated? The Cloudyn service ensures allocation retains the integrity of each linked account by applying _account affinity_. Affinity ensures an account that doesn't use a specific service doesn't have any costs of this service allocated to it. The costs accrued in that account remain in that account and are not calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
 
 Use the Cost Analysis report to:
 
@@ -142,7 +144,7 @@ This set of amortized cost reports shows linearized non-usage based service fees
 - Reserved Instances purchase fees
 - Some Azure Marketplace items
 
-In the billing file, one-time fees are characterized when the service consumption start and end dates (timestamp) have equal values. The Cost Management service then recognizes them as one-time fees that are amortized. Other consumption-based services with on-demand usage costs are not amortized.
+In the billing file, one-time fees are characterized when the service consumption start and end dates (timestamp) have equal values. The Cloudyn service then recognizes them as one-time fees that are amortized. Other consumption-based services with on-demand usage costs are not amortized.
 
 Amortized cost reports include:
 
@@ -153,9 +155,9 @@ Amortized cost reports include:
 
 The Cost Analysis report provides insight into your cloud consumption and spending during a selected time frame. The policies set in the [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) are used in the Cost Analysis report.
 
-How does Cost Management calculate this report?
+How does Cloudyn calculate this report?
 
-Cost Management ensures that allocation retains the integrity of each linked account by applying _account affinity_. Affinity ensures an account that doesn't use a specific service also doesn't have any costs of this service allocated to it. The costs accrued in that account remain in that account and aren't calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
+Cloudyn ensures that allocation retains the integrity of each linked account by applying _account affinity_. Affinity ensures an account that doesn't use a specific service also doesn't have any costs of this service allocated to it. The costs accrued in that account remain in that account and aren't calculated by the allocation policies. For example, you might have five linked accounts. If only three of them use storage services, then the cost of storage services is only allocated across tags in the three accounts.
 
 Use the Cost Analysis report to:
 
@@ -201,7 +203,7 @@ Custom charges are shown in Cost reports. For example, open the Actual Cost Anal
 
 You use Cost Allocation 360 to create custom cost allocation models to assign costs to consumed cloud resources. Many reports show information from custom cost models that you've created with custom cost models. And, some reports only show information after you've created a custom cost model with cost allocation.
 
-For more information about creating custom cost models, see [Tutorial: Manage costs by using Azure Cost Management](tutorial-manage-costs.md).
+For more information about creating custom cost models, see [Tutorial: Manage costs by using Cloudyn](tutorial-manage-costs.md).
 
 ### Cost vs. Budget Over Time report
 
@@ -243,11 +245,11 @@ When completed, your budget is shown in Cost Analysis reports and in the Cost vs
 
 ### Azure Resource Explorer report
 
-The Azure Resource Explorer report shows a bulk list of all the Azure resources available in Cost Management. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cost Management access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
+The Azure Resource Explorer report shows a bulk list of all the Azure resources available in Cloudyn. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
 
 ### Azure Resources Over Time report
 
-The Azure Resources Over Time report shows a breakdown of all resources running over a specific period. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cost Management access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
+The Azure Resources Over Time report shows a breakdown of all resources running over a specific period. To effectively use the report, your Azure accounts should have extended metrics enabled. Extended metrics provide Cloudyn access to your Azure VMs. For more information, see [Add extended metrics for Azure virtual machines](azure-vm-extended-metrics.md).
 
 ### Instance Explorer report
 
@@ -350,7 +352,7 @@ Three payment options for RIs, which are all-upfront:
 - No upfront - in which the cost of RI is paid in monthly installments over the duration of the RI, offering the lowest discount
 - Partial upfront, in which ¼ - ½ of the price is paid up front, and the rest in monthly installments, with a discount rate that is lower, but close, to the all-upfront rate
 
-Cost Management evaluates the uptime of each machine for the last 30 days. Cost Management recommends buying RIs when it is more cost-effective to run the machine with an RI at the current uptime level.
+Cloudyn evaluates the uptime of each machine for the last 30 days. Cloudyn recommends buying RIs when it is more cost-effective to run the machine with an RI at the current uptime level.
 
 The report shows the justification for its recommendations to save the most money over the year. The recommendations suggest replacing on-demand instances with RIs. You can purchase RIs directly from the report.
 
@@ -358,9 +360,9 @@ Each tab opens as a full report. Notable sections in tabs include:
 
 - **EC2 RI Purchase Impact** - This section provides a simulation of the difference between on-demand vs reserved instances. Click  **Zoom in**, to see the full EC2 RI Purchase Impact report with the filters already defined to your recommendation. This report shows the purchase impact of all potential RI purchases. You can adjust the expected average uptime to see the potential saving when you purchase EC2 Reserved Instances.
 
-- **Saving Analysis** - This section provides the potential savings achieved and the month the savings are actualized when following Cost Management recommendations. The actual savings and the percent saved are highlighted in red.
+- **Saving Analysis** - This section provides the potential savings achieved and the month the savings are actualized when following Cloudyn recommendations. The actual savings and the percent saved are highlighted in red.
 
-- **EC2 RI Type Comparison** - This section emphasizes the ROI highlights of Cost Management's recommended deployment, including all relevant options. The results in this report assume that the machine is running at 100% uptime. Click **Zoom In**  to open the detailed report.
+- **EC2 RI Type Comparison** - This section emphasizes the ROI highlights of Cloudyn's recommended deployment, including all relevant options. The results in this report assume that the machine is running at 100% uptime. Click **Zoom In**  to open the detailed report.
 
 - **Instances Over Time** - This section displays a breakdown of all instances associated with the recommendation, OnDemand, Reserved Instances, and Spot. Click  **Zoom In**  to open the detailed report.
 - **Breakeven Points** - This section displays a table of all the possible recommended deployments and the ROI and the month when the ROI occurs. Click  **Zoom In** to open the detailed report.
@@ -389,7 +391,7 @@ RDS RI Buying Recommendations report recommends when to use RDS RIs instead of o
 Each tab opens as a full report. Notable sections in tabs include:
 
 - **RDS RI Purchase Impact** - This section provides a simulation of the difference between on demand vs reserved instances. Click  **Zoom in** to see the full RDS RI Purchase Impact report with the filters already defined to your recommendation. This report allows you to see the purchase impact of all potential RI purchases.  You can adjust the expected average uptime and see the potential saving by purchasing RIs.
-- **Saving Analysis** – This section provides the potential savings achieved and the month the savings are actualized when following Cost Management recommendations. The actual savings and the percent saved are highlighted in red.
+- **Saving Analysis** – This section provides the potential savings achieved and the month the savings are actualized when following Cloudyn recommendations. The actual savings and the percent saved are highlighted in red.
 
 - **RDS RI Type Comparison** - This section emphasizes the ROI highlights of the recommended deployment, including all relevant options. The results in this report assume that the machine is running at 100% uptime. Click **Zoom In** to open the detailed report for the selected machine.
 - **Instances Over Time** – This section displays a breakdown of all instances associated with the recommendation, OnDemand, Reserved Instances, and Spot. Click **Zoom In** to open the detailed report.
@@ -412,7 +414,7 @@ You can't download the list of instance IDs that are recommended to downsize fro
 
 Consider the following downsizing example:
 
-You have six m3.xlarge running instances. Cost Management analysis shows that five of them have low CPU utilization. Consider downsizing them.
+You have six m3.xlarge running instances. Cloudyn analysis shows that five of them have low CPU utilization. Consider downsizing them.
 
 In Cost Impact, the cost impact is calculated. In this example, by expanding the line item, you can see the current price for one m3.xlarge instance (Linux/Unix) costs $0.266 per hour and one m3.large instance (Linux/Unix) costs $0.133 per hour. So, the annual cost is $11,651 for five m3.xlarge instances running at 100% utilization. The annual cost is $5,825 for five m3.large instances running at 100% utilization. The potential savings are $5,825.
 
@@ -420,7 +422,7 @@ To view cost-effective sizing justifications, click + to expand the line item. I
 
 - The **Recommendation Justification** section displays the current deployment and the number of instances recommended to downsize.
 - The **Cost Impact** section displays the calculation used to determine potential savings.
-- The **Potential Annual Savings** section displays the potential annual savings when downsizing per Cost Management's recommendation.
+- The **Potential Annual Savings** section displays the potential annual savings when downsizing per Cloudyn's recommendation.
 
 ### All Sizing Recommendations report
 
@@ -478,11 +480,11 @@ To view a specific instance's metrics over time:
 
 ### RDS Sizing Recommendations report
 
-The RDS Sizing Recommendations report provides RDS sizing recommendations to optimize your cloud usage. It provides a list of underutilized instances that are candidates to downsize. Cost Management recommendations are based on the usage and performance data of the last 30 days. You can filter recommendations by Account Name, Region, Instance Type, and Status.
+The RDS Sizing Recommendations report provides RDS sizing recommendations to optimize your cloud usage. It provides a list of underutilized instances that are candidates to downsize. Cloudyn recommendations are based on the usage and performance data of the last 30 days. You can filter recommendations by Account Name, Region, Instance Type, and Status.
 
 ### Sizing Threshold Manager report
 
-Cost Management's built-in sizing recommendations are calculated using a complex algorithm to provide accurate sizing suggestions. You can adjust the thresholds for downsizing recommendations.
+Cloudyn's built-in sizing recommendations are calculated using a complex algorithm to provide accurate sizing suggestions. You can adjust the thresholds for downsizing recommendations.
 
 To manually adjust threshold sizing recommendations:
 

@@ -37,6 +37,10 @@ Currently, only the Remote Monitoring solution uses the microservices architectu
 
 Over the last two years, cloud architecture has greatly evolved. Microservices have emerged as a great pattern to achieve scale and flexibility, without sacrificing development speed. This architectural pattern is used in several Microsoft services internally with great reliability and scalability results. We are putting these learning in practice so that our customers benefit from them.
 
+### Where can I find information about the previous version of the Remote Monitoring solution?
+
+The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+
 ### Is the new solution accelerator available in the same geographic region as the existing solution?
 
 Yes, the new Remote Monitoring is available in the same geographic regions.
@@ -69,13 +73,9 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 Currently, you cannot create a solution accelerator with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
 
-### Can I create a solution accelerator if I have Cloud Solution Provider (CSP) subscription?
-
-Currently, you cannot create a solution accelerator with a Cloud Solution Provider (CSP) subscription. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
-
 ### How do I delete an AAD tenant?
 
-See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
 ### Next steps
 

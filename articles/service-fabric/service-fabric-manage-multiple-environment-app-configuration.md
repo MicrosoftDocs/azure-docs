@@ -40,7 +40,7 @@ The configuration you provide can be divided in two categories:
 
 > [!NOTE]
 > Not all attributes in the application and service manifest file support parameters.
-> In those cases, you have to rely on substituting strings as part of your deployment workflow. In Visual Studio Team Services you can use an extension like Replace Tokens: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens or in Jenkins you could run a script task to replace the values.
+> In those cases, you have to rely on substituting strings as part of your deployment workflow. In Azure DevOps you can use an extension like Replace Tokens: https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens or in Jenkins you could run a script task to replace the values.
 >
 
 ## Specifying parameters during application creation
@@ -49,7 +49,7 @@ When creating a named application instances in Service Fabric, you have the opti
 
   - In PowerShell, the [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet takes the application parameters as a hashtable.
   - Using sfctl, The [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) command takes parameters as a JSON string. The install.sh script uses sfctl.
-  - Visual Studio provides you with a set of parameter files in the Parameters folder in the application project. These parameter files are used when publishing from Visual Studio, using Visual Studio Team Service or Team Foundation Server. In Visual Studio, the parameter files are being passed on to the Deploy-FabricApplication.ps1 script.
+  - Visual Studio provides you with a set of parameter files in the Parameters folder in the application project. These parameter files are used when publishing from Visual Studio, using Azure DevOps Services or Team Foundation Server. In Visual Studio, the parameter files are being passed on to the Deploy-FabricApplication.ps1 script.
 
 ## Next steps
 The following articles show you how to use some of the concepts described here:

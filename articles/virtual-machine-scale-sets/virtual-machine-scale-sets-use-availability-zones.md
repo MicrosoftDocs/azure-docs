@@ -3,7 +3,7 @@ title: Create an Azure scale set that uses Availability Zones | Microsoft Docs
 description: Learn how to create Azure virtual machine scale sets that use Availability Zones for increased redundancy against outages
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor:
 tags: azure-resource-manager
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: cynthn
+ms.author: zarhoads
 
 ---
 
@@ -62,7 +62,7 @@ When you create a scale set in a single zone, you control which zone all those V
 To use Availability Zones, your scale set must be created in a [supported Azure region](../availability-zones/az-overview.md#regions-that-support-availability-zones). You can create a scale set that uses Availability Zones with one of the following methods:
 
 - [Azure portal](#use-the-azure-portal)
-- [Azure CLI 2.0](#use-the-azure-cli-20)
+- [Azure CLI](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Azure Resource Manager templates](#use-azure-resource-manager-templates)
 
@@ -74,7 +74,7 @@ The process to create a scale set that uses an Availability Zone is the same as 
 
 The scale set and supporting resources, such as the Azure load balancer and public IP address, are created in the single zone that you specify.
 
-## Use the Azure CLI 2.0
+## Use the Azure CLI
 
 The process to create a scale set that uses an Availability Zone is the same as detailed in the [getting started article](quick-create-cli.md). To use Availability Zones, you must create your scale set in a supported Azure region.
 

@@ -5,7 +5,8 @@ keywords: import data,data format,data types,data sources,training data
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 
@@ -26,10 +27,6 @@ This article describes the support for importing online data from various source
 > This article provides general information about the [Import Data][import-data] module. For more detailed information about the types of data you can access, formats, parameters, and answers to common questions, see the module reference topic for the [Import Data][import-data] module.
 > 
 > 
-
-<!-- -->
-
-[!INCLUDE [import-data-into-aml-studio-selector](../../../includes/machine-learning-import-data-into-aml-studio.md)]
 
 ## Introduction
 By using the [Import Data][import-data] module, you can access data from one of several online data sources while your experiment is running in [Azure Machine Learning Studio](https://studio.azureml.net/Home):

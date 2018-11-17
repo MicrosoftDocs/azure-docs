@@ -8,29 +8,30 @@ manager: timlt
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 08/27/2018
+ms.date: 11/12/2018
 ms.author: shvija
 
 ---
 
 # Send events to Azure Event Hubs using Java
 
-Event Hubs is a highly scalable ingestion system that can ingest millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into an event hub, you can transform and store data using any real-time analytics provider or storage cluster.
+Azure Event Hubs is a Big Data streaming platform and event ingestion service, capable of receiving and processing millions of events per second. Event Hubs can process and store events, data, or telemetry produced by distributed software and devices. Data sent to an event hub can be transformed and stored using any real-time analytics provider or batching/storage adapters. For detailed overview of Event Hubs, see [Event Hubs overview](event-hubs-about.md) and [Event Hubs features](event-hubs-features.md).
 
-For more information, see the [Event Hubs overview][Event Hubs overview].
+This tutorial shows how to send events to an event hub by using a console application written in Java. 
 
-This tutorial shows how to send events to an event hub by using a console application in Java. To receive events using the Java Event Processor Host library, see [this article](event-hubs-java-get-started-receive-eph.md), or click the appropriate receiving language in the left-hand table of contents.
+> [!NOTE]
+> You can download this quickstart as a sample from the [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), replace `EventHubConnectionString` and `EventHubName` strings with your event hub values, and run it. Alternatively, you can follow the steps in this tutorial to create your own.
 
 ## Prerequisites
 
-In order to complete this tutorial, you need the following prerequisites:
+To complete this tutorial, you need the following prerequisites:
 
 * A Java development environment. This tutorial uses [Eclipse](https://www.eclipse.org/).
-* An active Azure account. If you do not have an Azure subscription, create a [free account][] before you begin.
 
-The code in this tutorial is based on the [SimpleSend GitHub sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend), which you can examine to see the full working application.
+## Create an Event Hubs namespace and an event hub
+The first step is to use the [Azure portal](https://portal.azure.com) to create a namespace of type Event Hubs, and obtain the management credentials your application needs to communicate with the event hub. To create a namespace and an event hub, follow the procedure in [this article](event-hubs-create.md), then proceed with the following steps in this tutorial.
 
-## Send events to Event Hubs
+## Add reference to Azure Event Hubs library
 
 The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-eventhubs%22). You can reference this library using the following dependency declaration inside your Maven project file. The current version is 1.0.2:    
 
@@ -46,7 +47,7 @@ For different types of build environments, you can explicitly obtain the latest 
 
 For a simple event publisher, import the *com.microsoft.azure.eventhubs* package for the Event Hubs client classes and the *com.microsoft.azure.servicebus* package for utility classes such as common exceptions that are shared with the Azure Service Bus messaging client. 
 
-### Declare the Send class
+## Write code to send messages to the event hub
 
 For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. Name the class `SimpleSend`:     
 
@@ -106,7 +107,11 @@ ehClient.closeSync();
 
 ``` 
 
-### How messages are routed to EventHub partitions
+Build and run the program, and ensure that there are no errors.
+
+Congratulations! You have now sent messages to an event hub.
+
+### Appendix: How messages are routed to EventHub partitions
 
 Before messages are retrieved by consumers, they have to be published to the partitions first by the publishers. When messages are published to event hub synchronously using the sendSync() method on the com.microsoft.azure.eventhubs.EventHubClient object, the message could be sent to a specific partition or distributed to all available partitions in a round-robin manner depending on whether the partition key is specified or not.
 
@@ -135,12 +140,7 @@ eventHubClient.closeSync();
 
 ## Next steps
 
-You can learn more about Event Hubs by visiting the following links:
-
-* [Receive events using the EventProcessorHost](event-hubs-java-get-started-receive-eph.md)
-* [Event Hubs overview][Event Hubs overview]
-* [Create an event hub](event-hubs-create.md)
-* [Event Hubs FAQ](event-hubs-faq.md)
+In this quickstart, you have sent messages to an event hub using Java. To learn how to receive events from an event hub using Java, see [Receive events from event hub - Java](event-hubs-java-get-started-receive-eph.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-overview.md

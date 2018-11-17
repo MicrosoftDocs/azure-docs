@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 11/04/2018
 ms.author: juliako;dbgeorge
 
 ---
@@ -57,7 +57,7 @@ Video:
 -   Codec: H.264
 -   Profile: High (Level 4.0)
 -   Bitrate: 5000 kbps
--   Keyframe: 2 seconds (60 seconds)
+-   Keyframe: 2 seconds (60 frames)
 -   Frame Rate: 30
 
 Audio:

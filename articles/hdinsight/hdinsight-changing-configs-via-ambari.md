@@ -1,6 +1,6 @@
 ---
-title: Optimize cluster configurations with Ambari - Azure HDInsight 
-description: Use the Ambari web UI to configure and optimize HDInsight clusters.
+title: Optimize cluster configurations with Apache Ambari - Azure HDInsight 
+description: Use the Apache Ambari web UI to configure and optimize HDInsight clusters.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight

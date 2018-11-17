@@ -18,7 +18,7 @@ This tutorial shows the difference between wait actions and non-wait actions in 
 
 ## Video
 
-[![Tutorial 2 Preview](http://aka.ms/cl-tutorial-02-preview)](http://aka.ms/blis-tutorial-02)
+[![Tutorial 2 Preview](https://aka.ms/cl-tutorial-02-preview)](https://aka.ms/blis-tutorial-02)
 
 ## Requirements
 This tutorial requires that the general tutorial bot is running
@@ -28,7 +28,7 @@ This tutorial requires that the general tutorial bot is running
 ## Details
 
 - Wait action: After the system takes a "wait" action, it will stop taking actions and wait for user input.
-- Non-wait action: After the system takes a "non-wait" action, it will immediately choose another action (without waiting for user inpu first).
+- Non-wait action: After the system takes a "non-wait" action, it will immediately choose another action (without waiting for user input first).
 
 ## Steps
 

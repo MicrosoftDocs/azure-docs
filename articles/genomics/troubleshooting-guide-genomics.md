@@ -4,71 +4,139 @@ titleSuffix: Azure
 description: Learn more about troubleshooting strategies
 keywords: troubleshooting, error, debugging
 services: microsoft-genomics
-author: grhuynh
-manager: jhubbard
+author: ruchir
 editor: jasonwhowell
-ms.author: grhuynh
+ms.author: ruchir
 ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/29/2018
 
 ---
 # Troubleshooting guide
-This overview describes strategies to address common issues when using the Microsoft Genomics service. For general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 
 
+Here are a few troubleshooting tips for some of the common issues that you might face when using the Microsoft Genomics service, MSGEN.
 
-## How do I check my job status?
-You can check the status of your workflow by calling `msgen status` from the command line, as shown. 
+ For FAQ, not related to troubleshooting, see [Common questions](frequently-asked-questions-genomics.md).
+## Step 1: Locate error codes associated with the workflow
 
+You can locate the error messages associated with the workflow by:
+
+1. Using the command line and typing in  `msgen status`
+2. Examining the contents of standardoutput.txt.
+
+### 1. Using the command line `msgen status`
+
+```bash
+msgen status -u URL -k KEY -w ID 
 ```
-msgen status -u URL -k KEY -w ID [-f CONFIG] 
-```
+
+
+
 
 There are three required arguments:
+
 * URL - the base URI for the API
-* KEY - the access key for your Genomics account. 
+* KEY - the access key for your Genomics account
+    * To find your URL and KEY, go to Azure portal and open your Microsoft Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
+
+  
 * ID - the workflow ID
+    * To  find your workflow ID type in `msgen list` command. Assuming your config file  contains the URL and your access keys, and is located is in the same location as your msgen exe, the command will look  like this: 
+        
+        ```bash
+        msgen list -f "config.txt"
+        ```
+        Output from this command will look like this :
+        
+        ```bash
+        	Microsoft Genomics command-line client v0.7.4
+                Copyright (c) 2018 Microsoft. All rights reserved.
+                
+                Workflow List
+                -------------
+                Total Count  : 1
+                
+                Workflow ID     : 10001
+                Status          : Completed successfully
+                Message         :
+                Process         : snapgatk-20180730_1
+                Description     :
+                Created Date    : Mon, 27 Aug 2018 20:27:24 GMT
+                End Date        : Mon, 27 Aug 2018 20:55:12 GMT
+                Wall Clock Time : 0h 27m 48s
+                Bases Processed : 1,348,613,600 (1 GBase)
+        ```
 
-To find your URL and KEY, go to Azure portal and open your Genomics account page. Under the **Management** heading, choose **Access keys**. There, you find both the API URL and your access keys.
+ > [!NOTE]
+ >  Alternatively you can include the path to the config file instead of directly entering the URL and KEY. 
+If you include these arguments in the command line as well as the config file, the command-line arguments will take precedence.  
 
-Alternatively, you can include the path to the config file instead of directly entering the URL and KEY. Note that if you include these arguments in the command line as well as the config file, the command-line arguments will take precedence. 
+For workflow ID 1001, and config.txt file placed in the same path as the msgen executable, the command will look like this:
 
-After calling `msgen status`, a user-friendly message will be displayed, describing whether the workflow succeeded or giving a reason for the job failure. 
+```bash
+msgen status -w 1001 -f "config.txt"
+```
 
-
-## Get more information about my workflow status
-
-To get more information about why a job might not have succeeded, you can explore the log files produced during the workflow. In your output container, you should see a `[youroutputfilename].logs.zip` folder.  Unzipping this folder, you will see the following items:
+### 2.  Examine the contents of standardoutput.txt 
+Locate the output container for the workflow in question. MSGEN creates a,   `[workflowfilename].logs.zip` folder after every workflow execution. Unzip the folder to view its contents:
 
 * outputFileList.txt - a list of the output files produced during the workflow
 * standarderror.txt - this file is blank.
-* standardoutput.txt - contains top-level logging of the workflow. 
+* standardoutput.txt - logs  all top-level status messages including errors, that occurred while running the workflow.
 * GATK log files - all other files in the `logs` folder
 
-The `standardoutput.txt` file is a good place to start to determine why your workflow did not succeed, as it includes more low-level information of the workflow. 
-
-## Common issues and how to resolve them
-This section briefly highlights common issues and how to resolve them.
-
-### Fastq files are unmatched
-Fastq files should only differ by the trailing /1 or /2 in the sample identifier. If you have accidentally submitted unmatched FASTQ files, you might see the following error messages when calling `msgen status`.
-* `Encountered an unmatched read`
-* `Error reading a FASTQ file, make sure the input files are valid and paired correctly` 
-
-To resolve this, review if the fastq files submitted to the workflow are actually a matched set. 
+For troubleshooting, examine the contents of standardoutput.txt and note any error messages that appear.
 
 
-### Error uploading .bam file. Output blob already exists and the overwrite option was set to False.
-If you see the following error message, `Error uploading .bam file. Output blob already exists and the overwrite option was set to False`, the output folder already contains an output file with the same name.  Either delete the existing output file or turn on the overwrite option in the config file. Then, resubmit your workflow.
+## Step 2: Try recommended steps for common errors
 
-### When to contact Microsoft Genomics support
-If you see the following error messages, an internal error occurred. 
+This section briefly highlights common errors output by Microsoft Genomics service (msgen) and the strategies you can use to resolve them. 
 
-* `Error locating input files on worker machine`
-* `Process management failure`
+The Microsoft Genomics service (msgen) can throw the following two kinds of errors:
 
-Try to resubmit your workflow. If you continue to have job failures, or if you have any other questions, contact Microsoft Genomics support from the Azure portal. Additional information on how to submit a support request can be found [here](file-support-ticket-genomics.md).
+1. Internal Service Errors: Errors that are internal to the service, that may not be resolved by fixing parameters or input files. Sometimes resubmitting the workflow might fix these errors.
+2. Input Errors: Errors that can be resolved by using the correct arguments or fixing file formats.
+
+### 1. Internal service errors
+
+An Internal service error is not user actionable. You may resubmit the workflow but if that does not work, contact Microsoft Genomics support
+
+| Error message                                                                                                                            | Recommended troubleshooting steps                                                                                                                                   |
+|------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| An internal error occurred. Try resubmitting the workflow. If you see this error again, contact Microsoft Genomics support for assistance | Submit the workflow again. Contact Microsoft Genomics support for assistance if the issue persists by creating a support [ticket](file-support-ticket-genomics.md ). |
+
+### 2. Input errors
+
+These errors are user actionable. Based on the type of file, and error code, Microsoft Genomics service outputs distinct error codes. Follow the recommended troubleshooting steps listed below.
+
+| Type of file | Error code | Error message                                                                           | Recommended troubleshooting steps                                                                                         |
+|--------------|------------|-----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------|
+| Any          | 701        | Read [readId] has [numberOfBases] bases, but the limit is [maxReadLength]           | The most common reason for this error is file corruption leading to concatenation of two reads. Check your input files. |                                |
+| BAM          | 200        |   Unable to read file '[yourFileName]'.                                                                                       | Check the format of the BAM file. Submit the workflow again with a properly formatted file.                                                                           |
+| BAM          | 201        |  Unable to read BAM file [File_name].                                                                                      |Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 202        | Unable to read BAM file [File_name]. File too small and missing header.                                                                                        | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 203        |   Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                      |Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                           |
+| BAM          | 204        |    Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                     | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                           |
+| BAM          | 205        |    Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                     | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 206        |   Unable to read BAM file [File_name]. Header of file was corrupt.                                                                                      | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 207        |  Unable to read BAM file [File_name]. File truncated near offset [offset].                                                                                       | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                            |
+| BAM          | 208        |   Invalid BAM file. The ReadID [Read_Id] has no sequence in file [File_name].                                                                                      | Check the format of the BAM file.  Submit the workflow with a correctly formatted file.                                                                             |
+| FASTQ        | 300        |  Unable to read FASTQ file. [File_name] doesn't end with a newline.                                                                                     | Correct the format of the FASTQ file and submit  the workflow again.                                                                           |
+| FASTQ        | 301        |   Unable to read FASTQ file [File_name]. FASTQ record is larger than buffer size at offset: [_offset]                                                                                      | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 302        |     FASTQ Syntax error. File [File_name] has a blank line.                                                                                    | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 303        |       FASTQ Syntax error. File[File_name] has an invalid starting character at offset: [_offset],  line type: [line_type], character: [_char]                                                                                  | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 304      |  FASTQ Syntax error at readID [_ReadID].  First read of batch doesn’t have readID ending in /1 in file [File_name]                                                                                       | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+| FASTQ        | 305        |  FASTQ Syntax error at readID [_readID]. Second read of batch doesn’t have readID ending in /2 in file [File_name]                                                                                      | Correct the format of the FASTQ file and submit  the workflow again.                                                                          |
+| FASTQ        | 306        |  FASTQ Syntax error at readID [_ReadID]. First read of pair doesn’t have an ID that ends in /1 in file [File_name]                                                                                       | Correct the format of the FASTQ file and submit  the workflow again.                                                                          |
+| FASTQ        | 307        |   FASTQ Syntax error at readID [_ReadID]. ReadID doesn’t end with /1 or/2. File [File_name] can't be used as a paired FASTQ file.                                                                                      |Correct the format of the FASTQ file and submit  the workflow again.                                                                          |
+| FASTQ        | 308        |  FASTQ read error. Reads of both ends responded differently. Did you choose the correct FASTQ files?                                                                                       | Correct the format of the FASTQ file and submit  the workflow again.                                                                         |
+|        |       |                                                                                        |                                                                           |
+
+## Step 3: Contact Microsoft Genomics support
+
+If you continue to have job failures, or if you have any other questions, contact Microsoft Genomics support from the Azure portal. Additional information on how to submit a support request can be found [here](file-support-ticket-genomics.md).
 
 ## Next steps
+
 In this article, you learned how to troubleshoot and resolve common issues with the Microsoft Genomics service. For more information and more general FAQ, see [Common questions](frequently-asked-questions-genomics.md). 

@@ -18,7 +18,7 @@
 - name: SDK
   expanded: true
   items:
-  - name: SDK samples overview 
+  - name: SDK samples overview
     href: sdk.md
   - name: SDK in C#
     href: visual-search-sdk-c-sharp.md
@@ -46,10 +46,8 @@
   items:
     - name: Default image insights
       href: default-insights-tag.md
-    - name: Bing insights usage 
+    - name: Bing insights usage
       href: bing-insights-usage.md
-    - name: Supported countries and markets
-      href: supported-countries-markets.md
     - name: Analytics for Visual Search API
       href: bing-visual-search-stats.md
 - name: How-to guides
@@ -67,6 +65,8 @@
     href: https://aka.ms/bingvisualsearchreferencedoc
 - name: Resources
   items:
+  - name: Language and region support
+    href: language-support.md
   - name: Get free access key
     href: https://azure.microsoft.com/try/cognitive-services/?api=bing-visual-search-api
   - name: Try it!

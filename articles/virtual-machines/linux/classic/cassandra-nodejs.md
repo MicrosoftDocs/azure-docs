@@ -46,7 +46,7 @@ Cassandra can be deployed to a single Azure region or to multiple regions based 
 ### Single Region Deployment
 Let's start with a single region deployment and harvest the learnings in creating a multi-region model. Azure virtual networking is used to create isolated subnets so that the network security requirements mentioned above can be met.  The process described in creating the single region deployment uses Ubuntu 14.04 LTS and Cassandra 2.08. However, the process can easily be adopted to the other Linux variants. The following are some of the systemic characteristics of the single region deployment.  
 
-**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains. Azure uses the concept of fault domain to manage unplanned down time (for example hardware or software failures). The concept of upgrade domain (for example host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time. Please see [Disaster Recovery and High Availability for Azure Applications](http://msdn.microsoft.com/library/dn251004.aspx) for the role of fault and upgrade domains in attaining high availability.
+**High Availability:** The Cassandra nodes shown in the Figure 1 are deployed to two availability sets so that the nodes are spread between multiple fault domains for high availability. VMs annotated with each availability set is mapped to 2 fault domains. Azure uses the concept of fault domain to manage unplanned down time (for example hardware or software failures). The concept of upgrade domain (for example host or guest OS patching/upgrades, application upgrades) is used for managing scheduled down time. Please see [Disaster Recovery and High Availability for Azure Applications](https://msdn.microsoft.com/library/dn251004.aspx) for the role of fault and upgrade domains in attaining high availability.
 
 ![Single region deployment](./media/cassandra-nodejs/cassandra-linux1.png)
 
@@ -115,13 +115,13 @@ The following software versions are used during the deployment:
 
 <table>
 <tr><th>Software</th><th>Source</th><th>Version</th></tr>
-<tr><td>JRE    </td><td>[JRE 8](http://www.oracle.com/technetwork/java/javase/downloads/server-jre8-downloads-2133154.html) </td><td>8U5</td></tr>
+<tr><td>JRE    </td><td>[JRE 8](https://aka.ms/azure-jdks) </td><td>8U5</td></tr>
 <tr><td>JNA    </td><td>[JNA](https://github.com/twall/jna) </td><td> 3.2.7</td></tr>
 <tr><td>Cassandra</td><td>[Apache Cassandra 2.0.8](http://www.apache.org/dist/cassandra/)</td><td> 2.0.8</td></tr>
 <tr><td>Ubuntu    </td><td>[Microsoft Azure](https://azure.microsoft.com/) </td><td>14.04 LTS</td></tr>
 </table>
 
-You must manually accept the Oracle license when you download JRE. So, to simplify the deployment, download all the required software to the desktop. Then upload it to the Ubuntu template image to create as a precursor to the cluster deployment.
+To simplify the deployment, download all the required software to the desktop. Then upload it to the Ubuntu template image to create as a precursor to the cluster deployment.
 
 Download the above software into a well-known download directory (for example %TEMP%/downloads on Windows or ~/Downloads on most Linux distributions or Mac) on the local computer.
 
@@ -397,7 +397,7 @@ The above process can be executed using Azure portal; use a Windows machine (use
         #Create internal load balancer
         Add-AzureInternalLoadBalancer -ServiceName $serviceName -InternalLoadBalancerName $ilbName -SubnetName "data" -StaticVNetIPAddress "$ilbIP"
         Write-Host "Created $ilbName"
-        #Add add the thrift endpoint to the internal load balancer for all the VMs
+        #Add the thrift endpoint to the internal load balancer for all the VMs
         foreach($vmName in $vmNames)
         {
             Get-AzureVM -ServiceName $serviceName -Name $vmName |

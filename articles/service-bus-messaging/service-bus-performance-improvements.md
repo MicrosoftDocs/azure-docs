@@ -8,7 +8,7 @@ manager: timlt
 
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/14/2018
+ms.date: 09/14/2018
 ms.author: spelluru
 
 ---
@@ -62,7 +62,7 @@ The client schedules concurrent operations by performing asynchronous operations
   var receiver = new MessageReceiver(connectionString, queueName, ReceiveMode.PeekLock);
   var doneReceiving = new TaskCompletionSource<bool>();
 
-  receiver.RegisterMessageHandler(
+  receiver.RegisterMessageHandler(...);
   ```
 
 ## Receive mode

@@ -3,7 +3,7 @@ title: Azure Security Center Quickstart - Onboard your Windows computers to Secu
 description: This quickstart shows you how to provision the Microsoft Monitoring Agent on a Windows computer.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,8 +14,8 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
+ms.date: 09/2/2018
+ms.author: rkarlin
 
 ---
 # Quickstart: Onboard Windows computers to Azure Security Center
@@ -35,14 +35,14 @@ You must be on Security Center’s Standard pricing tier before starting this qu
 
  ![Security Center overview][2]
 
-3. Under the Security Center main menu, select **Onboarding to advanced security**.
-4. Select **Do you want to add non-Azure computers**.
+3. Under the Security Center main menu, select **Getting started**.
+4. Select the **Get started** tab.
 
-   ![Onboard to advanced security][3]
+   ![Get started][3]
 
-5. On **Add new non-Azure computers**, a list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you wish to use.
+5. Click **Configure** under **Add new non-Azure computers**. A list of your Log Analytics workspaces is shown. The list includes, if applicable, the default workspace created for you by Security Center when automatic provisioning was enabled. Select this workspace or another workspace you want to use.
 
-    ![Add non-Azure computer][4]
+    ![Add non-Azure computer](./media/quick-onboard-windows-computer/non-azure.png)
 
   The **Direct Agent** blade opens with a link for downloading a Windows agent and keys for your workspace ID to use in configuring the agent.
 
@@ -100,7 +100,7 @@ In this quickstart, you provisioned the Microsoft Monitoring Agent on a Windows 
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

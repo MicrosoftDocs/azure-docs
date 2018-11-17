@@ -1,6 +1,6 @@
 ---
-title: Common Azure CLI 2.0 commands | Microsoft Docs
-description: Learn some of the common Azure CLI 2.0 commands to get you started managing your VMs in Azure Resource Manager mode
+title: Common Azure CLI commands | Microsoft Docs
+description: Learn some of the common Azure CLI commands to get you started managing your VMs in Azure Resource Manager mode
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -18,6 +18,6 @@ ms.date: 05/12/2017
 ms.author: rclaus
 
 ---
-# Common Azure CLI 2.0 commands for managing Azure resources
+# Common Azure CLI commands for managing Azure resources
 [!INCLUDE [virtual-machines-common-cli-manage](../../../includes/virtual-machines-common-cli-manage.md)]
 

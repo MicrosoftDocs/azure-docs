@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
-ms.component: na
+ms.component: 
 ---
 
 # Create a custom dashboard for use in Log Analytics
@@ -83,4 +83,4 @@ To remove a tile, navigate to the My Dashboard view and click **Customize** to e
 ![Remove a Tile](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## Next steps
-* Create [alerts](log-analytics-alerts.md) in Log Analytics to generate notifications and to remediate problems.
+* Create [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics to generate notifications and to remediate problems.

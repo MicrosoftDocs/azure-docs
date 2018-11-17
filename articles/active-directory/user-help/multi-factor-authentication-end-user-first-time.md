@@ -37,12 +37,15 @@ The first question in the enrollment process is how you want us to contact you. 
 
 | Contact method | Description |
 | --- | --- |
-| [Mobile app](#use-a-mobile-app-as-the-contact-method) |- **Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.<br>- **Use verification code.** In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface.<br>The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Mobile app](#use-a-mobile-app-as-the-contact-method) |- **Receive notifications for verification.** This option pushes a notification to the authenticator app on your smartphone or tablet. View the notification and, if it is legitimate, select **Authenticate** in the app. Your work or school may require that you enter a PIN before you authenticate.<br>- **Use verification code.** In this mode, the authenticator app generates a verification code that updates every 30 seconds. Enter the most current verification code in the sign-in interface.<br>The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |
 | [Mobile phone call or text](#use-your-mobile-phone-as-the-contact-method) |- **Phone call** places an automated voice call to the phone number you provide. Answer the call and press # in the phone keypad to authenticate.<br>- **Text message** ends a text message containing a verification code. Following the prompt in the text, either reply to the text message or enter the verification code provided into the sign-in interface. |
 | [Office Phone Call](#use-your-office-phone-as-the-contact-method) |Places an automated voice call to the phone number you provide. Answer the call and presses # in the phone keypad to authenticate. |
 
 ## Use a mobile app as the contact method
-Using this method requires that you install an authenticator app on your phone or tablet. The steps in this article are based on the Microsoft Authenticator app, which is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](http://go.microsoft.com/fwlink/?Linkid=825073).
+Using this method requires that you install an authenticator app on your phone or tablet. The steps in this article are based on the Microsoft Authenticator app, which is available for [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071), [Android](https://go.microsoft.com/fwlink/?Linkid=825072), and [iOS](https://go.microsoft.com/fwlink/?Linkid=825073).
+
+>[!NOTE]
+>You don’t have to use the Microsoft Authenticator app. If you’re already using another authenticator app, you can continue to use it.
 
 1. Select **Mobile app** from the drop-down list.
 2. Select either **Receive notifications for verification** or **Use verification code**, then select **Set up**.

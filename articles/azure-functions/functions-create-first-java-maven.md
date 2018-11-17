@@ -6,12 +6,10 @@ documentationcenter: na
 author: rloutlaw
 manager: justhe
 keywords: azure functions, functions, event processing, compute, serverless architecture
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
 ms.devlang: java
-ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
@@ -21,7 +19,7 @@ ms.custom: mvc, devcenter
 
 [!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
-This quickstart guides through creating a [serverless](https://azure.microsoft.com/overview/serverless-computing/) function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
+This quickstart guides through creating a [serverless](https://azure.microsoft.com/solutions/serverless/) function project with Maven, testing it locally, and deploying it to Azure Functions. When you're done, you have a HTTP-triggered function app running in Azure.
 
 ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png)
 

@@ -11,9 +11,16 @@ ms.author: dmpechyo
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
+
+ROBOTS: NOINDEX
 ---
 
+
 # Distributed tuning of hyperparameters using Azure Machine Learning Workbench
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 This scenario shows how to use Azure Machine Learning Workbench to scale out tuning of hyperparameters of machine learning algorithms that implement scikit-learn API. We show how to configure and use a remote Docker container and Spark cluster as an execution backend for tuning hyperparameters.
 
@@ -33,7 +40,7 @@ Grid search using cross-validation can be time-consuming. If an algorithm has fi
 ## Prerequisites
 
 * An [Azure account](https://azure.microsoft.com/free/) (free trials are available).
-* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [Install and create Quickstart](../service/quickstart-installation.md) to install the Workbench and create accounts.
+* An installed copy of [Azure Machine Learning Workbench](../service/overview-what-is-azure-ml.md) following the [Install and create Quickstart](quickstart-installation.md) to install the Workbench and create accounts.
 * This scenario assumes that you are running Azure ML Workbench on Windows 10 or MacOS with Docker engine locally installed. 
 * To run the scenario with a remote Docker container, provision Ubuntu Data Science Virtual Machine (DSVM) by following the [instructions](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). We recommend using a virtual machine with at least 8 cores and 28 Gb of memory. D4 instances of virtual machines have such capacity. 
 * To run this scenario with a Spark cluster, provision Spark HDInsight cluster by following these [instructions](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). We recommend having a cluster with the following configuration in both header and worker nodes:
@@ -152,7 +159,7 @@ After that, select dataset container from the list and click Upload button. Azur
 
 Upload of the files takes several minutes, depending on your Internet connection. 
 
-In our code, we use [Azure Storage SDK](https://docs.microsoft.com/en-us/python/azure/) to download the dataset from blob storage to the current execution environment. The download is performed in load\_data() function from load_data.py file. To use this code, you need to replace <ACCOUNT_NAME> and <ACCOUNT_KEY> with the name and primary key of your storage account that hosts the dataset. You can see the account name in the top left corner of your storage account's Azure page. To get account key, select Access Keys in Azure page of storage account (see the first screenshot in Data Ingestion section) and then copy the long string in the first row of key column:
+In our code, we use [Azure Storage SDK](https://docs.microsoft.com/python/azure/) to download the dataset from blob storage to the current execution environment. The download is performed in load\_data() function from load_data.py file. To use this code, you need to replace <ACCOUNT_NAME> and <ACCOUNT_KEY> with the name and primary key of your storage account that hosts the dataset. You can see the account name in the top left corner of your storage account's Azure page. To get account key, select Access Keys in Azure page of storage account (see the first screenshot in Data Ingestion section) and then copy the long string in the first row of key column:
  
 ![access key](media/scenario-distributed-tuning-of-hyperparameters/access_key.png)
 

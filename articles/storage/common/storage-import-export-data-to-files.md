@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
 ---
@@ -20,7 +20,7 @@ The Import/Export service supports only import of Azure Files into Azure Storage
 Before you create an import job to transfer data into Azure Files, carefully review and complete the following list of prerequisites. You must:
 
 - Have an active Azure subscription to use with Import/Export service.
-- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-create-storage-account.md#create-a-storage-account).
+- Have at least one Azure Storage account. See the list of [Supported storage accounts and storage types for Import/Export service](storage-import-export-requirements.md). For information on creating a new storage account, see [How to Create a Storage Account](storage-quickstart-create-account.md).
 - Have adequate number of disks of [Supported types](storage-import-export-requirements.md#supported-disks). 
 - Have a Windows system running a [Supported OS version](storage-import-export-requirements.md#supported-operating-systems).
 - [Download the WAImportExport version 2](https://www.microsoft.com/download/details.aspx?id=55280) on the Windows system. Unzip to the default folder `waimportexport`. For example, `C:\WaImportExport`.
@@ -62,8 +62,7 @@ Perform the following steps to prepare the drives.
         ```
             "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file,rename,"None",None
             "F:\MyFolder2\","MyAzureFileshare1/",file,rename,"None",None 
-            "F:\MyFolder3\MyFile3.txt","MyAzureFileshare2/",file,rename,"None",None 
-            
+                        
         ```
     Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
@@ -134,7 +133,7 @@ Perform the following steps to create an import job in the Azure portal.
     
     - Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives). 
     - Select the storage account that the data will be imported into. 
-    - The drop-off location is automatically populated based on the region of the storage account selected.
+    - The dropoff location is automatically populated based on the region of the storage account selected.
    
        ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob4.png)
 
@@ -145,7 +144,7 @@ Perform the following steps to create an import job in the Azure portal.
     - Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
 
         > [!TIP] 
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you recieve notifications even if an admin leaves.
+        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
 
        ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob5.png)
 

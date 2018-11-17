@@ -157,7 +157,7 @@ Azure virtual machines, virtual machine scale sets, Batch, and related compute s
 ### Data and analytics
 * [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md)
 * [Data Factory](../articles/data-factory/introduction.md)
-* [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
+* [Data Lake Storage Gen1](../articles/data-lake-store/data-lake-store-overview.md)
 * [Databricks](../articles/azure-databricks/what-is-azure-databricks.md)
 * [SQL Database](../articles/sql-database/sql-database-technical-overview.md)
 
@@ -192,7 +192,7 @@ Examples of customers that have solved business problems with Azure HPC solution
 * [Milliman](https://customers.microsoft.com/story/actuarial-firm-works-to-transform-insurance-industry-w)
 * [Mitsubishi UFJ Securities International](https://customers.microsoft.com/story/powering-risk-compute-grids-in-the-cloud)
 * [NeuroInitiative](https://customers.microsoft.com/en-us/story/neuroinitiative-health-provider-azure)
-* [Schlumberger](http://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
+* [Schlumberger](https://azure.microsoft.com/blog/big-compute-for-large-engineering-simulations)
 * [Towers Watson](https://customers.microsoft.com/story/insurance-tech-provider-delivers-disruptive-solutions)
 
 

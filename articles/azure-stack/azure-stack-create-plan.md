@@ -3,7 +3,7 @@ title: Create a plan in Azure Stack | Microsoft Docs
 description: As a cloud administrator, create a plan that lets subscribers provision virtual machines.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer:
 
 ---
@@ -26,7 +26,7 @@ ms.reviewer:
 
 1. Sign in to the Azure Stack administrator portal (https://adminportal.local.azurestack.external).
 
-2. To create a plan and offer that users can subscribe to, select **New** > **Offers + Plans** > **Plan**.
+2. To create a plan and offer that users can subscribe to, select **+ Create a resource** > **Offers + Plans** > **Plan**.
   
    ![Select a plan](media/azure-stack-create-plan/select-plan.png)
 

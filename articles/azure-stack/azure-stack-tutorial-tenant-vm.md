@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: 
 ms.custom: mvc
@@ -43,11 +43,11 @@ To learn more, see [Key features and concepts in Azure Stack](azure-stack-key-fe
 
 Offers are groups of one or more plans that providers present to users to purchase or subscribe to. The process of creating an offer has several steps. First, you're prompted to create the offer, then a plan, and finally, quotas.
 
-1. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then select **New** > **Offers + Plans** > **Offer**.
+1. [Sign in](azure-stack-connect-azure-stack.md) to the portal as a cloud administrator and then select **+ Create a resource** > **Offers + Plans** > **Offer**.
 
    ![New offer](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-1. In **New Offer**, enter a **Display Name** and **Resource Name**, and then select a new or existing **Resource Group**. The Display Name is the offer's friendly name. Only the cloud operator can see the Resource Name. It's the name that admins use to work with the offer as an Azure Resource Manager resource.
+1. In **New offer**, enter a **Display name** and **Resource name**, and then select a new or existing **Resource group**. The Display name is the offer's friendly name. Only the cloud operator can see the Resource name which is the name that admins use to work with the offer as an Azure Resource Manager resource.
 
    ![Display name](media/azure-stack-tutorial-tenant-vm/image02.png)
 
@@ -55,7 +55,7 @@ Offers are groups of one or more plans that providers present to users to purcha
 
    ![Add a plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-1. In the **New Plan** section, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that users see. Only the cloud operator can see the Resource Name. It's the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
+1. In the **New plan** section, fill in **Display name** and **Resource name**. The Display name is the plan's friendly name that users see. Only the cloud operator can see the Resource name which is the name that cloud operators use to work with the plan as an Azure Resource Manager resource.
 
    ![Plan display name](media/azure-stack-tutorial-tenant-vm/image04.png)
 
@@ -109,13 +109,13 @@ Now that you’ve created an offer, you can test it. You'll sign in as a user, s
    - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
    - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
-   ![Get a subscription](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Get a subscription](media/azure-stack-tutorial-tenant-vm/image10.png)
 
    b. In **Get a Subscription**, enter a name for your subscription in the **Display Name** field. Select **Offer**, and then choose one of the offers in the **Choose an offer** list. Select **Create**.
 
-   ![Create an offer](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Create an offer](media/azure-stack-tutorial-tenant-vm/image11.png)
 
-   c. To view the subscription, select **More services**, and then select **Subscriptions**. Select your new subscription to see which services are part of the subscription.
+   c. To view the subscription, select **All services**, and then under the **GENERAL** category select **Subscriptions**. Select your new subscription to see which services are part of the subscription.
 
    >[!NOTE]
    >After you subscribe to an offer, you might have to refresh the portal to see which services are part of the new subscription.
@@ -128,7 +128,7 @@ Now that you’ve created an offer, you can test it. You'll sign in as a user, s
       - For an integrated system, the URL varies based on your operator’s region and external domain name, and will be in the format https://portal.&lt;*region*&gt;.&lt;*FQDN*&gt;.
    - If you’re using the Azure Stack Development Kit, the portal address is https://portal.local.azurestack.external.
 
-   b.  On the dashboard, select **New** > **Compute** > **Windows Server 2016 Datacenter Eval**, and then select **Create**.
+   b.  On the dashboard, select **+Create a resource** > **Compute** > **Windows Server 2016 Datacenter Eval**, and then select **Create**.
 
    c. In **Basics**, provide the following information:
       - Enter a **Name**
@@ -148,14 +148,11 @@ Now that you’ve created an offer, you can test it. You'll sign in as a user, s
 
    h. Select **OK** in **Settings** to save the network configuration.
 
-   ![Create virtual network](media/azure-stack-provision-vm/image04.png)
-
-   i. In **Summary**, select **OK** to create the virtual machine.  
+      i. In **Summary**, select **OK** to create the virtual machine.  
 
    j. To see the new virtual machine, select **All resources**. Search for the virtual machine and select its name from the search results.
 
-   ![All resources](media/azure-stack-provision-vm/image06.png)
-
+   
 ## Next steps
 
 In this tutorial you learned how to:

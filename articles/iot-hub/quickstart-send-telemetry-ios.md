@@ -29,45 +29,37 @@ If you don’t have an Azure subscription, create a [free account](https://azure
 - Download the code sample from [Azure samples](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip) 
 - The latest version of [XCode](https://developer.apple.com/xcode/), running the latest version of the iOS SDK. This quickstart was tested with XCode 9.3 and iOS 11.3.
 - The latest version of [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-- The iothub-explorer CLI utility, which reads telemetry from IoT Hub. To install, first install [Node.js](https://nodejs.org) v4.x.x or higher, then run the following command: 
-
-   ```sh
-   sudo npm install -g iothub-explorer
-   ```
 
 ## Create an IoT hub
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
-
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## Register a device
 
-A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure CLI to register a simulated device.
+A device must be registered with your IoT hub before it can connect. In this quickstart, you use the Azure Cloud Shell to register a simulated device.
 
-1. Add the IoT Hub CLI extension and create the device identity. Replace `{YourIoTHubName}` with a name for your IoT hub:
+1. Run the following commands in Azure Cloud Shell to add the IoT Hub CLI extension and to create the device identity. 
+
+   **YourIoTHubName** : Replace this placeholder below with the name you choose for your IoT hub.
+
+   **myiOSdevice** : This is the name given for the registered device. Use myiOSdevice as shown. If you choose a different name for your device, you will also need to use that name throughout this article, and update the device name in the sample applications before you run them.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
-   az iot hub device-identity create --hub-name {YourIoTHubName} --device-id myiOSdevice
+   az iot hub device-identity create --hub-name YourIoTHubName --device-id myiOSdevice
    ```
-
-    If you choose a different name for your device, update the device name in the sample applications before you run them.
 
 1. Run the following command to get the _device connection string_ for the device you just registered:
 
    ```azurecli-interactive
-   az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id myiOSdevice --output table
+   az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id myiOSdevice --output table
    ```
 
-   Make a note of the device connection string, which looks like `Hostname=...=`. You use this value later in the article.
+   Make a note of the device connection string, which looks like:
 
-1. You also need a _service connection string_ to enable back-end applications to connect to your IoT hub and retrieve device-to-cloud messages. The following command retrieves the service connection string for your IoT hub:
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
 
-   ```azurecli-interactive
-   az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
-   ```
-
-   Make a note of the service connection string, which looks like `Hostname=...=`. You use this value later in the article.
+    You use this value later in the quickstart.
 
 ## Send simulated telemetry
 
@@ -77,7 +69,7 @@ The sample application runs on an iOS device, which connects to a device-specifi
 
 CocoaPods manage dependencies for iOS projects that use third-party libraries.
 
-In a terminal window, navigate to the Azure-IoT-Samples-iOS folder that you downloaded in the prerequisites. Then, navigate to the sample project:
+In a local terminal window, navigate to the Azure-IoT-Samples-iOS folder that you downloaded in the prerequisites. Then, navigate to the sample project:
 
 ```sh
 cd quickstart/sample-device
@@ -115,19 +107,19 @@ The following screenshot shows some example output as the application sends simu
 
 ## Read the telemetry from your hub
 
-The sample app that you ran on the XCode emulator shows data about messages sent from the device. You can also view the data through your IoT hub as it is received. The `iothub-explorer` CLI utility connects to the service-side **Events** endpoint on your IoT Hub. 
+The sample app that you ran on the XCode emulator shows data about messages sent from the device. You can also view the data through your IoT hub as it is received. The IoT Hub CLI extension can connect to the service-side **Events** endpoint on your IoT Hub. The extension receives the device-to-cloud messages sent from your simulated device. An IoT Hub back-end application typically runs in the cloud to receive and process device-to-cloud messages.
 
-Open a new terminal window. Run the following command replacing {your hub service connection string} with the service connection string that you retrieved at the beginning of this article:
+Run the following commands in Azure Cloud Shell, replacing `YourIoTHubName` with the name of your IoT hub:
 
-```sh
-iothub-explorer monitor-events myiOSdevice --login "{your hub service connection string}"
+```azurecli-interactive
+az iot hub monitor-events --device-id myiOSdevice --hub-name YourIoTHubName
 ```
 
-The following screenshot shows the type of telemetry that you see in your terminal window:
+The following screenshot shows the output as the extension receives telemetry sent by the simulated device to the hub:
+
+The following screenshot shows the type of telemetry that you see in your local terminal window:
 
 ![View telemetry](media/quickstart-send-telemetry-ios/view-telemetry.png)
-
-If you get an error when you run the iothub-explorer command, double check that you're using the *service connection string* for your IoT hub, rather than the *device connection string* for your IoT device. Both connection strings start with **Hostname={iothubname}** but the service connection string contains the **SharedAccessKeyName** property while the device connection string contains **DeviceID**. 
 
 ## Clean up resources
 

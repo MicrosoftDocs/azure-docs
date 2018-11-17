@@ -25,7 +25,7 @@ The IP Restrictions capability works with all App Service hosted work loads, whi
 
 When a request is made to your app, the FROM IP address is evaluated against the IP Restrictions list. If the address is not allowed access based on the rules in the list, the service replies with an [HTTP 403](https://en.wikipedia.org/wiki/HTTP_403) status code.
 
-The IP Restrictions capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. IP Restrictions are therefor effectively network ACLs.  
+The IP Restrictions capability is implemented in the App Service front-end roles, which are upstream of the worker hosts where your code runs. Therefore, IP Restrictions are effectively network ACLs.  
 
 ![IP restrictions flow](media/app-service-ip-restrictions/ip-restrictions-flow.png)
 

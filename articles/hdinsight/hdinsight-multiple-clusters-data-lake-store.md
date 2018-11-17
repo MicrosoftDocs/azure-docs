@@ -3,14 +3,14 @@ title: Use multiple HDInsight clusters with an Azure Data Lake Store account - A
 description: Learn how to use more than one HDInsight cluster with a single Data Lake Store account
 keywords: hdinsight storage,hdfs,structured data,unstructured data, data lake store
 services: hdinsight,storage
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Use multiple HDInsight clusters with an Azure Data Lake Store account
@@ -43,7 +43,7 @@ In the table,
 - **Service principal** is the Azure Active Directory (AAD) service principal associated with the account.
 - **FINGRP** is a user group created in AAD that contains users from the Finance organization.
 
-For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
+For instructions on how to create an AAD application (that also creates a Service Principal), see [Create an AAD application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). For instructions on how to create a user group in AAD, see [Managing groups in Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
 Some key points to consider.
 

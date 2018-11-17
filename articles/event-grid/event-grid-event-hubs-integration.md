@@ -179,6 +179,7 @@ You've finished setting up your event hub, SQL data warehouse, Azure function ap
 
 ## Next steps
 
+* To learn about differences in the Azure messaging services, see [Choose between Azure services that deliver messages](compare-messaging-services.md).
 * For an introduction to Event Grid, see [About Event Grid](overview.md).
 * For an introduction to Event Hubs Capture, see [Enable Event Hubs Capture using the Azure portal](../event-hubs/event-hubs-capture-enable-through-portal.md).
 * For more information about setting up and running the sample, see [Event Hubs Capture and Event Grid sample](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo).

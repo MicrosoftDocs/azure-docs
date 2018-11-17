@@ -12,7 +12,7 @@ ms.component: autoscale
 # Get started with Autoscale in Azure
 This article describes how to set up your Autoscale settings for your resource in the Microsoft Azure portal.
 
-Azure Monitor Autoscale applies only to virtual machine scale sets, cloud services, Azure App Service plans, and App Service environments. 
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## Discover the Autoscale settings in your subscription
 You can discover all the resources for which Autoscale is applicable in Azure Monitor. Use the following steps for a step-by-step walkthrough:
@@ -41,8 +41,8 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
 1. Provide a name for the scale setting, and then click **Add a rule**. Notice the scale rule options that open as a context pane on the right side. By default, this sets the option to scale your instance count by 1 if the CPU percentage of the resource exceeds 70 percent. Leave it at its default values and click **Add**.
   ![Create scale setting for a web app][6]
 1. You've now created your first scale rule. Note that the UX recommends best practices and states that "It is recommended to have at least one scale in rule." To do so:
-  
-    a. Click **Add a rule**. 
+
+    a. Click **Add a rule**.
 
     b. Set **Operator** to **Less than**.
 
@@ -56,7 +56,7 @@ Let's now go through a simple step-by-step walkthrough to create your first Auto
 
 Congratulations! You've now successfully created your first scale setting to autoscale your web app based on CPU usage.
 
-> [!NOTE] 
+> [!NOTE]
 > The same steps are applicable to get started with a virtual machine scale set or cloud service role.
 
 ## Other considerations
@@ -99,8 +99,8 @@ There might be times when you want to disable your current scale setting and man
 Click the **Disable autoscale** button at the top.
 ![Disable Autoscale][13]
 
-> [!NOTE] 
-> This option disables your configuration. However, you can get back to it after you enable Autoscale again. 
+> [!NOTE]
+> This option disables your configuration. However, you can get back to it after you enable Autoscale again.
 
 You can now set the number of instances that you want to scale to manually.
 
@@ -127,4 +127,3 @@ You can always return to Autoscale by clicking **Enable autoscale** and then **S
 [12]: ./media/monitoring-autoscale-get-started/scale-definition-json.png
 [13]: ./media/monitoring-autoscale-get-started/disable-autoscale.png
 [14]: ./media/monitoring-autoscale-get-started/set-manualscale.png
-

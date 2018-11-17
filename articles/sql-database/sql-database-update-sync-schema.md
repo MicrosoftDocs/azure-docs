@@ -2,18 +2,20 @@
 title: Automate the replication of schema changes in Azure SQL Data Sync | Microsoft Docs
 description: Learn how to automate the replication of schema changes in Azure SQL Data Sync.
 services: sql-database
-ms.date: 06/19/2018
-ms.topic: conceptual
 ms.service: sql-database
+ms.subservice: data-movement
+ms.custom: data sync
+ms.devlang: 
+ms.topic: conceptual
 author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.custom: data-sync
+ms.date: 09/20/2018
 ---
 # Automate the replication of schema changes in Azure SQL Data Sync
 
-SQL Data Sync lets users synchronize data between Azure SQL Databases and on-premises SQL Server in one direction or in both directions. One of the current limitations of SQL Data Sync is a lack of support for the replication of schema changes. Every time you change the table schema, you need to apply the changes manually on all endpoints, including the hub and all members, and then update the sync schema.
+SQL Data Sync lets users synchronize data between Azure SQL databases and on-premises SQL Server in one direction or in both directions. One of the current limitations of SQL Data Sync is a lack of support for the replication of schema changes. Every time you change the table schema, you need to apply the changes manually on all endpoints, including the hub and all members, and then update the sync schema.
 
 This article introduces a solution to automatically replicate schema changes to all SQL Data Sync endpoints.
 1. This solution uses a DDL trigger to track schema changes.
@@ -24,7 +26,7 @@ This article introduces a solution to automatically replicate schema changes to 
 This article uses ALTER TABLE as an example of a schema change, but this solution also works for other types of schema changes.
 
 > [!IMPORTANT]
-> We recommend that you read this article carefully, especially the sections about [Troubleshooting](#troubleshooting) and [Other considerations](#other), before you start to implement automated schema change replication in your sync environment. We also recommend that you read [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md). Some database operations may break the solution described in this article. Additional domain knowledge of SQL Server and Transact-SQL may be required to troubleshoot those issues.
+> We recommend that you read this article carefully, especially the sections about [Troubleshooting](#troubleshoot) and [Other considerations](#other), before you start to implement automated schema change replication in your sync environment. We also recommend that you read [Sync data across multiple cloud and on-premises databases with SQL Data Sync](sql-database-sync-data.md). Some database operations may break the solution described in this article. Additional domain knowledge of SQL Server and Transact-SQL may be required to troubleshoot those issues.
 
 ![Automating the replication of schema changes](media/sql-database-update-sync-schema/automate-schema-changes.png)
 
@@ -209,3 +211,20 @@ If you want to clean up the records in the schema change tracking table, use DEL
 -   Don't reseed the identity column by using DBCC CHECKIDENT.
 
 -   Don't use TRUNCATE to clean up data in the schema change tracking table.
+
+## Next steps
+
+For more info about SQL Data Sync, see:
+
+-   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Set up Data Sync
+    - In the portal - [Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises](sql-database-get-started-sql-data-sync.md)
+    - With PowerShell
+        -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   Update the sync schema
+    -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)

@@ -40,7 +40,20 @@ sections:
     style: ordered
     items:
     - html: Design a Database&#58; <a href="/azure/postgresql/tutorial-design-database-using-azure-portal">Azure portal</a> | <a href="/azure/postgresql/tutorial-design-database-using-azure-cli">Azure CLI</a>
-    - html: <a href="/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
+    - html: <a href="/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json">Build a Web App using Python and the CLI</a>
+- title: Build your skills with Microsoft Learn
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: Create an Azure Database for PostgreSQL server
+      href: /learn/modules/create-azure-db-for-postgresql-server/
+      image: 
+        src: /learn/achievements/create-azure-db-for-postgresql-server.svg
+        href: /learn/modules/create-azure-db-for-postgresql-server/
+  - type: paragraph
+    text: <a href="/learn/browse/?products=azure">More interactive learning...</a>
 - title: Samples
   items:
   - type: paragraph

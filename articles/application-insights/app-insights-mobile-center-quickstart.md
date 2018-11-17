@@ -121,7 +121,7 @@ Application Insights can query, segment, filter, and analyze the custom event te
    1. Select the query by clicking anywhere on the query in the text editor.
    2. Then click **Go** to run the query. 
 
-   Learn more about [Application Insights Analytics](app-insights-analytics.md) and the [Log Analytics query language](https://docs.loganalytics.io/docs/Language-Reference).
+   Learn more about [Application Insights Analytics](app-insights-analytics.md) and the [Log Analytics query language](https://aka.ms/LogAnalyticsLanguageReference).
 
 
 2. **Segment and filter your custom event telemetry.** From the Application Insights **Overview** page, choose **Users** in the table of contents.

@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -81,13 +81,13 @@ The telemetry levels are cumulative and categorized into four levels (0-3):
 **1 (Basic)**. Security data, and Basic Health and Quality data. Basic device information, including: quality-related data, app compatibility, app usage data, and data from the Security level. Setting your telemetry level to Basic enables Azure Stack telemetry. The data gathered at this level includes:
 
 - **Basic device information** that helps provide an understanding about the types and configurations of native and virtualized Windows Server 2016 instances in the ecosystem, including:
- - Machine attributes, such as the OEM, model,
- - Networking attributes, such as the number and speed of network adapters,
- - Processor and memory attributes, such as the number of cores, memory size,
- - Storage attributes, such as the number of drives, type, and size.
+  - Machine attributes, such as the OEM, model,
+  - Networking attributes, such as the number and speed of network adapters,
+  - Processor and memory attributes, such as the number of cores, memory size,
+  - Storage attributes, such as the number of drives, type, and size.
 - **Telemetry Functionality**, including percent of uploaded events, dropped events, and the last upload time.
 - **Quality-related information** that helps Microsoft develop a basic understanding of how Azure Stack is performing. An example is the count of critical alerts on a particular hardware configuration.
-- **Compatibility data, which helps provide an understanding about which Resource Providers are installed on a system and virtual machine and identifies potential compatibility problems.
+- **Compatibility data**, which helps provide an understanding about which Resource Providers are installed on a system and virtual machine and identifies potential compatibility problems.
 
 **2 (Enhanced)**. Additional insights, including: how the operating system, and other Azure Stack services are used, how they perform, advanced reliability data, and data from both the Basic and Security levels.
 
@@ -139,4 +139,4 @@ if($psSession)
 ```
 
 ## Next steps
-[Add a marketplace item](asdk-marketplace-item.md)
+[Start and stop the ASDK](asdk-start-stop.md)

@@ -1,53 +1,78 @@
 ---
-title: Manage the configuration server for VMware disaster recovery with Azure Site Recovery | Microsoft Docs
-description: This article describes how to manage an existing configuration server for VMware disaster recovery to Azure with Azure Site RecoveryS.
+title: Manage the configuration server for VMware and physical server disaster recovery with Azure Site Recovery | Microsoft Docs
+description: This article describes how to manage an existing configuration server for disaster recovery of VMware VMs and physical servers to Azure with Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 11/11/2018
 ms.author: raynew
 ---
 
-# Manage the configuration server for VMware VMs
+# Manage the configuration server for VMware VM disaster recovery
 
 You set up an on-premises configuration server when you use [Azure Site Recovery](site-recovery-overview.md) for disaster recovery of VMware VMs and physical servers to Azure. The configuration server coordinates communications between on-premises VMware and Azure and manages data replication. This article summarizes common tasks for managing the configuration server after it's deployed.
 
-
-
-## Modify VMware settings
+## Access configuration server
 
 You can access the configuration server as follows:
-    - Sign in to the VM on which it's deployed, and Start Azure Site Recovery Configuration Manager from the desktop shortcut.
-    - Alternatively, you can access the configuration server remotely from **https://*ConfigurationServerName*/:44315/**. Sign in with administrator credentials.
 
-### Modify VMware server settings
+* Sign in to the VM on which it's deployed, and Start **Azure Site Recovery Configuration Manager** from the desktop shortcut.
+* Alternatively, you can access the configuration server remotely from https://*ConfigurationServerName*/:44315/ . Sign in with administrator credentials.
 
-1. To associate a different VMware server with the configuration server, after sign-in, select **Add vCenter Server/vSphere ESXi server**.
+## Modify VMware server settings
+
+1. To associate a different VMware server with the configuration server, after [sign-in](#access-configuration-server), select **Add vCenter Server/vSphere ESXi server**.
 2. Enter the details, and then select **OK**.
 
+## Modify credentials for automatic discovery
 
-### Modify credentials for automatic discovery
-
-1. To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, after sign-in, select **Edit**.
+1. To update the credentials used to connect to the VMware server for automatic discovery of VMware VMs, after [sign-in](#access-configuration-server), choose the account and click **Edit**.
 2. Enter the new credentials, and then select **OK**.
 
     ![Modify VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
+You can also modify the credentials through CSPSConfigtool.exe.
+
+1. Login to the configuration server and launch CSPSConfigtool.exe
+2. Choose the account you wish to modify and click **Edit**.
+3. Enter the modified credentials and click **Ok**
 
 ## Modify credentials for Mobility Service installation
 
 Modify the credentials used to automatically install Mobility Service on the VMware VMs you enable for replication.
 
-1. After sign-in, select **Manage virtual machine credentials**
-2. Enter the new credentials, and then select **OK**.
+1. After [sign-in](#access-configuration-server), select **Manage virtual machine credentials**
+2. Choose the account you wish to modify and click **Edit**
+3. Enter the new credentials, and then select **OK**.
 
     ![Modify Mobility Service credentials](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
+
+You can also modify credentials through CSPSConfigtool.exe.
+
+1. Login to the configuration server and launch CSPSConfigtool.exe
+2. Choose the account you wish to modify and click **Edit**
+3. Enter the new credentials and click **Ok**.
+
+## Add credentials for Mobility service installation
+
+If you missed adding credentials during OVF deployment of configuration server,
+
+1. After [sign-in](#access-configuration-server), select **Manage virtual machine credentials**.
+2. Click on **Add virtual machine credentials**.
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+3. Enter the new credentials and click on **Add**.
+
+You can also add credentials through CSPSConfigtool.exe.
+
+1. Login to the configuration server and launch CSPSConfigtool.exe
+2. Click **Add**, enter the new credentials and click **Ok**.
 
 ## Modify proxy settings
 
 Modify the proxy settings used by the configuration server machine for internet access to Azure. If you have a process server machine in addition to the default process server running on the configuration server machine, modify the settings on both machines.
 
-1. After sign-in to the configuration server, select **Manage connectivity**.
+1. After [sign-in](#access-configuration-server) to the configuration server, select **Manage connectivity**.
 2. Update the proxy values. Then select **Save** to update the settings.
 
 ## Add a network adapter
@@ -55,7 +80,7 @@ Modify the proxy settings used by the configuration server machine for internet 
 The Open Virtualization Format (OVF) template deploys the configuration server VM with a single network adapter.
 
 - You can [add an additional adapter to the VM](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), but you must add it before you register the configuration server in the vault.
-- To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then you need to reregister the server in the vault.
+- To add an adapter after you register the configuration server in the vault, add the adapter in the VM properties. Then you need to [re-register](#reregister-a-configuration-server-in-the-same-vault) the server in the vault.
 
 
 ## Reregister a configuration server in the same vault
@@ -83,8 +108,24 @@ You can reregister the configuration server in the same vault if you need to. If
   ```
           net stop obengine
           net start obengine
-  ```
-  
+   ```
+
+
+## Register a configuration server with a different vault
+
+> [!WARNING]
+> The following step disassociates the configuration server from the current vault, and the replication of all protected virtual machines under the configuration server is stopped.
+
+1. Log in to the configuration server.
+2. Open an admin PowerShell command window, and run the following command:
+
+    ```
+    reg delete "HKLM\Software\Microsoft\Azure Site Recovery\Registration"
+    net stop dra
+    ```
+3. Launch the configuration server appliance browser portal using the shortcut on your desktop.
+4. Perform the registration steps similar to a new configuration server [registration](vmware-azure-tutorial.md#register-the-configuration-server).
+
 ## Upgrade the configuration server
 
 You run update rollups to update the configuration server. Updates can be applied for up to N-4 versions. For example:
@@ -92,7 +133,10 @@ You run update rollups to update the configuration server. Updates can be applie
 - If you run 9.7, 9.8, 9.9, or 9.10, you can upgrade directly to 9.11.
 - If you run 9.6 or earlier and you want to upgrade to 9.11, you must first upgrade to version 9.7. before 9.11.
 
-Links to update rollups for upgrading to all versions of the configuration server are available in the [wiki updates page](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+Links to update rollups for upgrading to all versions of the configuration server are available in the [Azure updates page](https://azure.microsoft.com/updates/?product=site-recovery).
+
+> [!IMPORTANT]
+> With every new version 'N' of an Azure Site Recovery component that is released, all versions below 'N-4' is considered out of support. It is always advisable to upgrade to the latest versions available.
 
 Upgrade the server as follows:
 
@@ -174,9 +218,16 @@ For configuration server deployments before May 2016, certificate expiry was set
 2. The expiry date appears under **Configuration Server health**.
 3. Select **Renew Certificates**.
 
-## Update Windows licence
+## Refresh Configuration server
 
-The licence provided with the OVF template is an evaluation licence valid for 180 days. For uninterrupted usage, you must activate Windows with a procured licence.
+1. In the Azure portal, navigate to **Recovery Services Vault** > **Manage** > **Site Recovery Infrastructure** > **For VMware & Physical machines** > **Configuration Servers**
+2. Click on the configuration server you wish to refresh.
+3. On the blade with details of chosen configuration server, click **More** > **Refresh Server**.
+4. Monitor the progress of the job under **Recovery Services Vault** > **Monitoring** > **Site Recovery jobs**.
+
+## Update Windows license
+
+The license provided with the OVF template is an evaluation license valid for 180 days. For uninterrupted usage, you must activate Windows with a procured license.
 
 ## Failback requirements
 

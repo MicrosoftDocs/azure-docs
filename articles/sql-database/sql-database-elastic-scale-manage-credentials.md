@@ -2,14 +2,16 @@
 title: Managing credentials in the elastic database client library | Microsoft Docs
 description: How to set the right level of credentials, admin to read-only, for elastic database apps
 services: sql-database
-manager: craigg
-author: stevestein
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: 
+ms.devlang: 
 ms.topic: conceptual
-ms.date: 04/01/2018
+author: stevestein
 ms.author: sstein
-
+ms.reviewer:
+manager: craigg
+ms.date: 04/01/2018
 ---
 # Credentials used to access the Elastic Database client library
 The [Elastic Database client library](sql-database-elastic-database-client-library.md) uses three different kinds  of credentials to access the [shard map manager](sql-database-elastic-scale-shard-map-management.md). Depending on the need, use the credential with  the lowest level of access possible.

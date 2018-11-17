@@ -442,7 +442,7 @@ Linked services link data stores or compute services to an Azure data factory. I
 2. Click **New data store** on the command bar and choose **Azure storage**. You should see the JSON script for creating an Azure Storage linked service in the editor.
 	
 	![New data store - Azure Storage](media/data-factory-use-custom-activities/new-data-store-menu.png)
-3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+3. Replace `<accountname>` with name of your Azure storage account and `<accountkey>` with access key of the Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys).
 
 	![Azure Storage liked service](media/data-factory-use-custom-activities/azure-storage-linked-service.png)
 4. Click **Deploy** on the command bar to deploy the linked service.

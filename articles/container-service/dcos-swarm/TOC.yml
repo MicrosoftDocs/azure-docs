@@ -61,9 +61,9 @@
       href: container-service-swarm-mode-walkthrough.md
     - name: Docker and Docker Compose
       href: container-service-docker-swarm.md
-    - name: CI/CD with Docker Swarm and VSTS
+    - name: CI/CD with Docker Swarm and Azure DevOps
       href: container-service-docker-swarm-setup-ci-cd.md
-    - name: CI/CD with Docker Swarm (ACS Engine) and VSTS
+    - name: CI/CD with Docker Swarm (ACS Engine) and Azure DevOps
       href: container-service-docker-swarm-mode-setup-ci-cd-acs-engine.md
 - name: Reference
   items:

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/02/2017
+ms.date: 09/24/2018
 ms.author: jdial
 
 ---
@@ -24,6 +24,8 @@ You can assign IP addresses to Azure resources to communicate with other Azure r
 
 * **Public IP addresses**: Used for communication with the Internet, including Azure public-facing services.
 * **Private IP addresses**: Used for communication within an Azure virtual network (VNet), and your on-premises network, when you use a VPN gateway or ExpressRoute circuit to extend your network to Azure.
+
+You can also create a contiguous range of static public IP addresses through a public IP prefix. [Learn about a public IP prefix.](public-ip-address-prefix.md)
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).  This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the [classic deployment model](virtual-network-ip-addresses-overview-classic.md).
@@ -69,7 +71,7 @@ Standard SKU public IP addresses are:
 
 - Assigned with the static allocation method only.
 - Are secure by default and closed to inbound traffic. You must explicit whitelist allowed inbound traffic with a [network security group](security-overview.md#network-security-groups).
-- Assigned to network interfaces or public standard load balancers. For more information about Azure standard load balancers, see [Azure standard load balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Assigned to network interfaces, public standard load balancers, Application Gateways, or VPN Gateways. For more information about Azure standard load balancers, see [Azure standard load balancer](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Zone redundant by default. Can be created zonal and guaranteed in a specific availability zone. To learn more about availability zones, see [Availability zones overview](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [Standard Load Balancer and Availability Zones](../load-balancer/load-balancer-standard-availability-zones.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
  
 > [!NOTE]
@@ -126,8 +128,8 @@ The following table shows the specific property through which a public IP addres
 | --- | --- | --- | --- |
 | Virtual machine |Network interface |Yes |Yes |
 | Internet-facing Load balancer |Front-end configuration |Yes |Yes |
-| VPN gateway |Gateway IP configuration |Yes |No |
-| Application gateway |Front-end configuration |Yes |No |
+| VPN gateway |Gateway IP configuration |Yes |Yes |
+| Application gateway |Front-end configuration |Yes |Yes |
 
 ## Private IP addresses
 Private IP addresses allow Azure resources to communicate with other resources in a [virtual network](virtual-networks-overview.md) or an on-premises network through a VPN gateway or ExpressRoute circuit, without using an Internet-reachable IP address.

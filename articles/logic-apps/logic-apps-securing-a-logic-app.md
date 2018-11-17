@@ -93,7 +93,7 @@ This setting can be configured within the logic app settings:
 1. Click the **Workflow Settings** menu item under **Settings**
 1. Specify the list of IP address ranges to be accepted by the trigger
 
-A valid IP range takes the format `192.168.1.1/255`. 
+A valid IP range takes the format `192.168.1.1/32`. 
 If you want the logic app to only fire as a nested logic app, 
 select the **Only other logic apps** option. 
 This option writes an empty array to the resource, 
@@ -217,7 +217,7 @@ such as a client ID and client secret for
 ### Using parameters and secure parameters
 
 To access the value of a resource parameter at runtime, 
-the [workflow definition language](http://aka.ms/logicappsdocs) provides a `@parameters()` operation. 
+the [workflow definition language](https://aka.ms/logicappsdocs) provides a `@parameters()` operation. 
 Also, you can [specify parameters in the resource deployment template](../azure-resource-manager/resource-group-authoring-templates.md#parameters). 
 But if you specify the parameter type as `securestring`, the parameter won't be returned with the rest of the resource definition, 
 and won't be accessible by viewing the resource after deployment.

@@ -11,8 +11,8 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/21/2018
+ms.topic: get-09/28/2018started-article
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: scottnap
 
@@ -21,7 +21,7 @@ ms.reviewer: scottnap
 
 *Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
 
-iDNS is an Azure Stack networking feature that enables you to resolve external DNS names (for example, http://www.bing.com.) It also allows you to register internal virtual network names. By doing so, you can resolve VMs on the same virtual network by name rather than IP address. This approach removes the need to provide custom DNS server entries. for more information about DNS, see the [Azure DNS Overview](https://docs.microsoft.com/en-us/azure/dns/dns-overview).
+iDNS is an Azure Stack networking feature that enables you to resolve external DNS names (for example, http://www.bing.com.) It also allows you to register internal virtual network names. By doing so, you can resolve VMs on the same virtual network by name rather than IP address. This approach removes the need to provide custom DNS server entries. for more information about DNS, see the [Azure DNS Overview](https://docs.microsoft.com/azure/dns/dns-overview).
 
 ## What does iDNS do?
 

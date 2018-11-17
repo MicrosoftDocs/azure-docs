@@ -1,33 +1,39 @@
 ---
-title: Sign up for Azure AD as an organization | Microsoft Docs
-description: Learn how you can use a work or school account to leverage the existing user accounts, policies, settings, or on-premises server deployments you already have and improve efficiency between your organization's on-premises identity infrastructure and Azure AD.
+title: How to sign up for Azure Active Directory as an organization | Microsoft Docs
+description: Learn how to sign up your organization to use Azure and Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
+
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ---
 
-# How to: Sign up for Azure AD as an organization
-Until recently, you could only sign up for a new Microsoft Azure subscription using your Microsoft account (Windows Live ID). Azure now supports using either of the following two account methods to sign up:
+# How to: Sign up for Azure Active Directory as an organization
+Sign up for Azure Active Directory (Azure AD) a new Microsoft Azure subscription using either:
 
-* **Microsoft accounts** (created by you for personal use) - Provide access to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE, or Office 365. Signing up for an Outlook.com mailbox automatically creates a Microsoft account. After a Microsoft account is created, it can be used to access consumer-related Microsoft cloud services or Azure. [Learn more](https://account.microsoft.com/account)
-* **Work or school accounts** (issued by an admin for business/academic use) - Provide access to all small, medium, and enterprise business-level Microsoft cloud services, such as Azure, Microsoft Intune, or Office 365. When you sign up to one of these services as an organization, a cloud-based directory is automatically provisioned in Azure Active Directory to represent your organization. [Learn more](active-directory-administer.md)
-  
-    After this directory has been created, an admin can then create users and assign licenses to them based on which cloud service subscriptions they need access to, such as Azure.
+- **Microsoft account.** Use your personal, Microsoft account to get access to Azure and all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE, or Office 365. Signing up for an Outlook.com mailbox automatically creates a Microsoft account. For more information, see [Microsoft account overview](https://account.microsoft.com/account).
 
-Want to sign up for Azure as an organization? [**Sign up now**](https://azure.microsoft.com/pricing/purchase-options/)
+- **Work or school account.** Use your work or school-related account to get access to all the small, medium, and enterprise cloud services from Microsoft, such as Azure, Microsoft Intune, or Office 365. After you sign up for one of these services as an organization, Azure AD automatically provisions a cloud-based directory that represents your organization. For more information, see [Manage your Azure AD directory](active-directory-administer.md).
 
-**Additional Resources**
+    >[!Note]
+    We recommend that you use your work or school account if you already have access to Azure AD. However, you should use whichever type of account is associated with your Azure subscription.
 
-* [Microsoft Azure blog](https://azure.microsoft.com/blog/)
-* [What is Azure AD?](active-directory-whatis.md)
-* [Use your on-premises identity infrastructure in the cloud](../connect/active-directory-aadconnect.md)
+## Next steps
+
+- [How to buy Azure](https://azure.microsoft.com/pricing/purchase-options/)
+
+- [Sign up for Azure Active Directory Premium editions](active-directory-get-started-premium.md)
+
+- [Learn more about Azure AD](active-directory-whatis.md)
+
+- [Use your on-premises identity infrastructure in the cloud](../connect/active-directory-aadconnect.md)
+
+- [Visit the Microsoft Azure blog](https://azure.microsoft.com/blog/)
 

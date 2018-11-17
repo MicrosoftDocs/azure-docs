@@ -1,18 +1,21 @@
 ---
-title: Support | Microsoft Docs
-description: Support for Microsoft Speech Service.
+title: Bing Speech Support | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Support for Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 10/15/2017
+ms.date: 09/08/2018
 ms.author: zhouwang
 ---
 # Support
 
-If you have questions, feedback, or suggestions about Speech Service, you can reach out to us via GitHub. 
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
+
+If you have questions, feedback, or suggestions about Bing Speech, you can reach out to us via GitHub. 
  - [REST API-related questions](https://github.com/Azure-Samples/SpeechToText-REST/issues)
  - [JavaScript library](https://github.com/Azure-Samples/Cognitive-Speech-STT-JavaScript/issues)
  - [C# desktop library-related questions](https://github.com/Azure-Samples/Cognitive-Speech-STT-Windows/issues)

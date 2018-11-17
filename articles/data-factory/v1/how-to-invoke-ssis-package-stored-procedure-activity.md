@@ -25,7 +25,7 @@ This article describes how to invoke an SSIS package from an Azure Data Factory 
 ## Prerequisites
 
 ### Azure SQL Database 
-The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance (Preview).
+The walkthrough in this article uses an Azure SQL database that hosts the SSIS catalog. You can also use an Azure SQL Database Managed Instance.
 
 ### Create an Azure-SSIS integration runtime
 Create an Azure-SSIS integration runtime if you don't have one by following the step-by-step instruction in the [Tutorial: Deploy SSIS packages](../tutorial-create-azure-ssis-runtime-portal.md). You cannot use Data Factory version 1 to create an Azure-SSIS integration runtime. 

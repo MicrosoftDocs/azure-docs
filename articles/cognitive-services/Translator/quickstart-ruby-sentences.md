@@ -1,18 +1,17 @@
 ---
-title: Translator Text get sentence lengths with Ruby | Microsoft Docs
-titleSuffix: "Microsoft Cognitive Services"
-description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Ruby in Cognitive Services.
+title: "Quickstart: Get sentence lengths, Ruby - Translator Text API"
+titleSuffix: Azure Cognitive Services
+description: In this quickstart, you find the lengths of sentences in text using the Translator Text API with Ruby.
 services: cognitive-services
-author: noellelacharite
-manager: nolachar
-
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
+ms.author: erhopf
 ---
-# Quickstart: Get sentence lengths with Ruby
+# Quickstart: Get sentence lengths with the Translator Text REST API (Ruby)
 
 In this quickstart, you find the lengths of sentences in text using the Translator Text API.
 

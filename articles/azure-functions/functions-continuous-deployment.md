@@ -4,22 +4,18 @@ description: Use continuous deployment facilities of Azure App Service to publis
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
 
 ---
 # Continuous deployment for Azure Functions
-Azure Functions makes it easy to deploy your function app using App Service continuous integration. Functions integrates with BitBucket, Dropbox, GitHub, and Visual Studio Team Services (VSTS). This enables a workflow where function code updates made by using one of these integrated services trigger deployment to Azure. If you are new to Azure Functions, start with [Azure Functions Overview](functions-overview.md).
+Azure Functions makes it easy to deploy your function app using App Service continuous integration. Functions integrates with BitBucket, Dropbox, GitHub, and Azure DevOps. This enables a workflow where function code updates made by using one of these integrated services trigger deployment to Azure. If you are new to Azure Functions, start with [Azure Functions Overview](functions-overview.md).
 
 Continuous deployment is a great option for projects where multiple and frequent contributions are being integrated. It also lets you maintain source control on your functions code. The following deployment sources are currently supported:
 
@@ -29,7 +25,7 @@ Continuous deployment is a great option for projects where multiple and frequent
 * [Git local repository](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
 
 Deployments are configured on a per-function app basis. After continuous deployment is enabled, access to function code in the portal is set to *read-only*.
 
@@ -39,10 +35,10 @@ You must have your deployment source configured and your functions code in the d
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-To be able to deploy from VSTS, you must first link your VSTS account with your Azure subscription. For more information, see [Set up billing for your VSTS account](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+To be able to deploy from Azure DevOps, you must first link your Azure DevOps organization with your Azure subscription. For more information, see [Set up billing for your Azure DevOps organization](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## Set up continuous deployment
-Use this procedure to configure continuous deployment for an existing function app. These steps demonstrate integration with a GitHub repository, but similar steps apply for Visual Studio Team Services or other deployment services.
+Use this procedure to configure continuous deployment for an existing function app. These steps demonstrate integration with a GitHub repository, but similar steps apply for Azure DevOps or other deployment services.
 
 1. In your function app in the [Azure portal](https://portal.azure.com), click **Platform features** and **Deployment options**. 
    

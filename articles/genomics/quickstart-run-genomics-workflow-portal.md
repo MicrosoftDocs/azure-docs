@@ -1,13 +1,11 @@
 ---
-title: 'Quickstart: Run a workflow through the Microsoft Genomics service | Microsoft Docs'
+title: 'Quickstart: Run a workflow through Microsoft Genomics'
 description: The quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. 
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
 
@@ -16,7 +14,8 @@ ms.date: 12/07/2017
 
 # Quickstart: Run a workflow through the Microsoft Genomics service
 
-Microsoft Genomics is a scalable, secure service for secondary analysis that can rapidly process a genome, starting from raw reads and producing aligned reads and variant calls. 
+This quickstart shows how to load input data into Azure Blob Storage and run a workflow through the Microsoft Genomics service. Microsoft Genomics is a scalable, secure service for secondary analysis that can rapidly process a genome, starting from raw reads and producing aligned reads and variant calls. 
+
 Get started in just a few steps: 
 1.	Set up: Create a Microsoft Genomics account through the Azure portal, and install the Microsoft Genomics Python client in your local environment. 
 2.	Upload input data: Create a Microsoft Azure storage account through the Azure portal, and upload the input files. The input files should be paired end reads (fastq or bam files).
@@ -38,7 +37,7 @@ Configure your Genomics account with the following information, as shown in the 
  |:-------------       |:-------------         |:----------            |
  |Account name         | MyGenomicsAccount     |Choose a unique account identifier. For valid names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Subscription         | Your subscription name|This is the billing unit for your Azure services - For details about your subscription see [Subscriptions](https://account.azure.com/Subscriptions) |      
- |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
+ |Resource group       | MyResourceGroup       |  Resource groups allow you to group multiple Azure resources (storage account, genomics account, etc.) into a single group for simple management. For more information, see [Resource Groups](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups). For valid resource group names, see [Naming Rules](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) |
  |Location                   | West US 2                    |    Service is available in West US 2, West Europe, and Southeast Asia |
 
 
@@ -177,4 +176,4 @@ Once your workflow completes, you can view the output files in your Azure Storag
 
 
 ## Next steps
-In this article, you uploaded sample input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure notebook tutorial.](http://aka.ms/genomicsnotebook)
+In this article, you uploaded sample input data into Azure Storage and submitted a workflow to the Microsoft Genomics service through the `msgen` Python client. To learn more about other input file types that can be used with the Microsoft Genomics service, see the following pages: [paired FASTQ](quickstart-input-pair-FASTQ.md) | [BAM](quickstart-input-BAM.md) | [Multiple FASTQ or BAM](quickstart-input-multiple.md). You can also explore this tutorial using our [Azure notebook tutorial.](https://aka.ms/genomicsnotebook)

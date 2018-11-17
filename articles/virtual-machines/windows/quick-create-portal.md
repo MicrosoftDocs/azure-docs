@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ---
@@ -33,23 +33,28 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Choose **Create a resource** in the upper left-hand corner of the Azure portal.
 
-2. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
+1. In the search box above the list of Azure Marketplace resources, search for and select **Windows Server 2016 Datacenter**, then choose **Create**.
 
-3. Provide a VM name, such as *myVM*, leave the disk type as *SSD*, then provide a username, such as *azureuser*. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
+1. In the **Basics** tab, under **Project details**, make sure the correct subscription is selected and then choose to **Create new** resource group. Type the *myResourceGroup* for the name. 
 
-    ![Enter basic information about your VM in the portal blade](./media/quick-create-portal/create-windows-vm-portal-basic-blade.png)
+	![Create a new resource group for your VM](./media/quick-create-portal/project-details.png)
 
-5. Choose to **Create new** resource group, then provide a name, such as *myResourceGroup*. Choose your **Location**, then select **OK**.
+1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *East US* for your **Location**. Leave the other defaults.
 
-4. Select a size for the VM. You can filter by *Compute type* or *Disk type*, for example. A suggested VM size is *D2s_v3*. Click **Select** after you have chosen a size.
+	![Instance details section](./media/quick-create-portal/instance-details.png)
 
-    ![Screenshot that shows VM sizes](./media/quick-create-portal/create-windows-vm-portal-sizes.png)
+1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.md#what-are-the-password-requirements-when-creating-a-vm).
 
-5. On the **Settings** page, in **Network** > **Network Security Group** > **Select public inbound ports**, select **HTTP** and **RDP (3389)** from the drop-down. Leave the rest of the defaults and select **OK**.
+    ![Enter your username and password](./media/quick-create-portal/administrator-account.png)
 
-6. On the summary page, select **Create** to start the VM deployment.
+1. Under **Inbound port rules**, choose **Allow selected ports** and then select **RDP (3389)** and **HTTP** from the drop-down.
 
-7. The VM is pinned to the Azure portal dashboard. Once the deployment has completed, the VM summary automatically opens.
+	![Open ports for RDP and HTTP](./media/quick-create-portal/inbound-port-rules.png)
+
+1. Leave the remaining defaults and then select the **Review + create** button at the bottom of the page.
+
+	![Review and create](./media/quick-create-portal/review-create.png)
+
 
 ## Connect to virtual machine
 
@@ -57,13 +62,13 @@ Create a remote desktop connection to the virtual machine. These directions tell
 
 1. Click the **Connect** button on the virtual machine properties page. 
 
-    ![Connect to an Azure VM from the portal](./media/quick-create-portal/quick-create-portal/portal-quick-start-9.png)
+    ![Connect to an Azure VM from the portal](./media/quick-create-portal/portal-quick-start-9.png)
 	
 2. In the **Connect to virtual machine** page, keep the default options to connect by DNS name over port 3389 and click **Download RDP file**.
 
 2. Open the downloaded RDP file and click **Connect** when prompted. 
 
-3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as *vmname*\\*username*, enter password you created for the virtual machine, and then click **OK**.
+3. In the **Windows Security** window, select **More choices** and then **Use a different account**. Type the username as **localhost**\\*username*, enter password you created for the virtual machine, and then click **OK**.
 
 4. You may receive a certificate warning during the sign-in process. Click **Yes** or **Continue** to create the connection.
 

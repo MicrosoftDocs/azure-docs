@@ -9,7 +9,7 @@ ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
 ms.workload: infrastructure-services
-ms.date: 5/15/2018
+ms.date: 10/11/2018
 ms.author: victorh
 #Customer intent: As an IT administrator, I want to learn about Azure Application Gateways and what I can use them for.
 ---
@@ -23,7 +23,41 @@ Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and
 
 This type of routing is known as application layer (OSI layer 7) load balancing. Azure Application Gateway can do URL-based routing and more. 
 
-The following features are included with Azure Application Gateway: 
+The following features are included with Azure Application Gateway:
+
+## Autoscaling public preview
+
+In addition to the features described in this article, Application Gateway also offers a public preview of a new SKU [Standard_V2] which offers autoscaling and other critical performance enhancements.
+
+- **Autoscaling** -
+Application Gateway or WAF deployments under the autoscaling SKU can scale up or down based on changing traffic load patterns. Autoscaling also removes the requirement to choose a deployment size or instance count during provisioning. 
+
+- **Zone redundancy** -
+An Application Gateway or WAF deployment can span multiple Availability Zones, removing the need to provision and spin separate Application Gateway instances in each zone with a Traffic Manager.
+
+- **Static VIP** -
+The application gateway VIP now supports the static VIP type exclusively. This ensures that the VIP associated with application gateway does not change even after a restart.
+
+- **Faster deployment and update time** as compared to the generally available SKU. 
+
+- **5X better SSL offload performance** as compared to the generally available SKU.
+
+For more information about the Application Gateway public preview features, see [Autoscaling and Zone-redundant Application Gateway (Public Preview)](application-gateway-autoscaling-zone-redundant.md).
+
+## Azure Kubernetes Service (AKS) Ingress controller preview 
+
+The Application Gateway Ingress controller runs as a pod within the AKS cluster and allows Application Gateway to act as ingress for an AKS cluster. 
+
+For more information, see [Azure Application Gateway Ingress Controller](https://azure.github.io/application-gateway-kubernetes-ingress/).
+
+## Connection draining
+
+Connection draining helps you achieve graceful removal of backend pool members during planned service updates. This setting is enabled via the backend http setting and can be applied to all members of a backend pool during rule creation. Once enabled, Application Gateway ensures that all deregistering instances of a backend pool do not receive any new request while allowing existing requests to complete within a configured time limit. This applies to both backend instances that are explicitly removed from the backend pool by an API call as well as backend instances that are reported as unhealthy as determined by the health probes.
+
+## Custom error pages
+Application Gateway allows you to create custom error pages instead of displaying default error pages. You can use your own branding and layout using a custom error page.
+
+For more information, see [Create Application Gateway custom error pages](custom-error.md).
 
 ## Secure Sockets Layer (SSL) termination
 

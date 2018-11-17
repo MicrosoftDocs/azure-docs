@@ -1,6 +1,6 @@
 ---
 title: Quickstart - Require terms of use to be accepted before accessing cloud apps that are protected by Azure Active Directory conditional access | Microsoft Docs
-description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by by Azure Active Directory conditional access.
+description: In this quickstart, you learn how you can require that your terms of use are accepted before access to selected cloud apps is granted by Azure Active Directory conditional access.
 services: active-directory
 keywords: conditional access to apps, conditional access with Azure AD, secure access to company resources, conditional access policies, terms of use
 documentationcenter: ''
@@ -42,7 +42,7 @@ To complete the scenario in this quickstart, you need:
 
 - **Access to an Azure AD Premium edition** - Azure AD conditional access is an Azure AD Premium capability. 
 
-- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **A test account called Isabella Simonsen** - If you don't know how to create a test account, see [Add cloud-based users](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## Test your sign-in
@@ -247,7 +247,7 @@ To test your policy, try to sign-in to your [Azure portal](https://portal.azure.
 
 When no longer needed, delete the test user and the conditional access policy:
 
-- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- If you don't know how to delete an Azure AD user, see [Delete users from Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - To delete your policy, select your policy, and then click **Delete** in the quick access toolbar.
 

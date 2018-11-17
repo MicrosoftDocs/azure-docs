@@ -3,7 +3,7 @@ title: Region management in Azure Stack | Microsoft Docs
 description: Overview of region management in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: efemmano
 
 ---

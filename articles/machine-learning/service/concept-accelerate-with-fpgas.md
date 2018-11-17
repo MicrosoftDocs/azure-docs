@@ -1,90 +1,83 @@
 ---
-title: What is an FPGA? – Project Brainwave – Azure Machine Learning
-description: Learn how to accelerate models and deep neural networks with FPGAs. 
+title: What is an FPGA and Project Brainwave? - Azure Machine Learning service
+description: Learn how to accelerate models and deep neural networks with FPGAs on Azure. This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning Service provides real-time artificial intelligence (AI) when you deploy your model to an Azure FPGA.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
-ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 05/31/2018
-
-# What is an FPGA and what is it used for in Azure Machine learning?
+ms.reviewer: jmartens
+ms.date: 9/24/2018
 ---
 
 # What is FPGA and Project Brainwave?
 
-This article provides an introduction to field-programmable gate arrays (FPGA) and how FPGA is integrated with Azure machine learning to provide real-time AI.
+This article provides an introduction to field-programmable gate arrays (FPGA) and how Azure Machine Learning service provides real-time artificial intelligence (AI) when you deploy your model to an Azure FPGA.
+
+FPGAs contain an array of programmable logic blocks and a hierarchy of reconfigurable interconnects. The interconnects allow these blocks to be configured in various ways post-manufacturing. FPGAs provide a combination of programmability and performance compared to other chips.
 
 ## FPGAs vs. CPU, GPU, and ASIC
 
-FPGAs contain an array of programmable logic blocks, and a hierarchy of reconfigurable interconnects that allow the blocks to be configured in different ways after manufacturing.
+![Azure Machine Learning service FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-FPGAs provide a combination of programmability and performance comparing to other chips:
-
-![Azure Machine Learning FPGA comparison](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
-
-- **Central processing units (CPU)** are general-purpose processors. CPU performance is not ideal for graphics and video processing.
-- **Graphics processing units (GPU)** offer parallel processing and are a popular choice for AI computations. The parallel processing with GPUs result in faster image rendering than CPUs.
-- **Application-specific integrated circuits (ASIC)**, such as Google’s TensorFlow Processor Units, are customized circuits. While these chips provide the highest efficiency, ASICs are inflexible.
-- **FPGAs**, such as those available on Azure, provide the performance close to ASIC, but offer the flexibility to be reconfigured later.
-
-FPGAs are now in every new Azure server. Microsoft is already using FPGAs for Bing search ranking, deep neural network (DNN) evaluation, and software defined networking (SDN) acceleration. These FPGA implementations reduce latency while freeing CPUs for other tasks.
+|Processor||Description|
+|---|:-------:|------|
+|Application-specific integrated circuits|ASICs|Custom circuits, such as Google's TensorFlow Processor Units (TPU), provide the highest efficiency. They cannot be reconfigured as your needs change.|
+|Field-programmable gate arrays|FPGAs|FPGAs, such as those available on Azure, provide performance close to ASICs, but are flexible and reconfigurable over time to implement new logic.|
+|Graphics processing units|GPUs|A popular choice for AI computations offering parallel processing capabilities making it faster at image rendering than CPUs.|
+|Central processing units|CPUs|General-purpose processors whose performance is not ideal for graphics and video processing.|
 
 ## Project Brainwave on Azure
 
-Project Brainwave is a hardware architecture that is designed based on Intel's FPGA devices and used to accelerate real-time AI calculations. With this economical FPGA-enabled architecture, a trained neural network can be run as quickly as possible and with lower latency. Project Brainwave can parallelize pre-trained DNNs across FPGAs to scale out your service.
+[Project Brainwave](https://www.microsoft.com/research/project/project-brainwave/) is Microsoft's economical hardware architecture, based on Intel's FPGA devices, that data scientists and developers use to accelerate real-time AI calculations.  This FPGA-enabled architecture offers **performance**, **flexibility**, and **scale** and is available on Azure.
 
-- Performance
+**FPGAs make it possible to achieve low latency for real-time inferencing requests.** Batching means collecting a large amount of data and feeding it to a processor to improve hardware utilization. Batching can cause latency because more data needs to be processed, but it can improve throughput. Project Brainwave implementations of neural processing units don't require batching; therefore the latency can be many times lower compared to CPU and GPU.
 
-    FPGAs make it possible to achieve low latency for real-time inferencing requests. Batching means breaking up a request into smaller pieces and feeding them to a processor to improve hardware utilization. Batching is not efficient and can cause latency. Brainwave doesn't require batching; therefore the latency is 10 times lower compared to CPU and GPU.
+### Reconfigurable power
+**FPGAs can be reconfigured for different types of machine learning models.** This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used.
 
-- Flexibility
+New machine learning techniques are being developed on a regular basis, and Project Brainwave's hardware design is also evolving rapidly. Since FPGAs are reconfigurable, it is possible to stay current with the requirements of the rapidly changing AI algorithms.
 
-    FPGAs can be reconfigured for different types of machine learning models. This flexibility makes it easier to accelerate the applications based on the most optimal numerical precision and memory model being used.
+### What's supported on Azure
+**Microsoft Azure is the world's largest cloud investment in FPGAs.** You can run Project Brainwave on Azure's scale infrastructure.
 
-    New machine learning techniques are being developed on a regular basis, and Project Brainwave's hardware design is also evolving rapidly. Since FPGAs are reconfigurable, it is possible to stay current with the requirements of the rapidly changing AI algorithms.
+Today, Project Brainwave supports:
++ Image classification and recognition scenarios
++ TensorFlow deployment
++ DNNs: ResNet 50, ResNet 152, VGG-16, SSD-VGG, and DenseNet-121
++ Intel FPGA hardware 
 
-- Scale
+Using this FPGA-enabled hardware architecture, trained neural networks run quickly and with lower latency. Project Brainwave can parallelize pre-trained deep neural networks (DNN) across FPGAs to scale out your service. The DNNs can be pre-trained, as a deep featurizer for transfer learning, or fine-tuned with updated weights.
 
-    Microsoft Azure is the world's largest cloud investment in FPGAs. You can run Brainwave on Azure's scale infrastructure.
+### Scenarios and applications
 
-A preview of Project Brainwave integrated with Azure Machine Learning is currently available. And a limited preview is also available to bring Project Brainwave to the edge so that you can take advantage of that computing speed in your own businesses and facilities.
-
-In current preview, Brainwave is limited to the TensorFlow deployment and the ResNet50-based neural networks on Intel FPGA hardware for image classification and recognition. There are plans to support more gallery models and other frameworks.
+Project Brainwave is integrated with Azure Machine Learning. Microsoft uses FPGAs for DNN evaluation, Bing search ranking, and software defined networking (SDN) acceleration to reduce latency while freeing CPUs for other tasks.
 
 The following scenarios use FPGA on Project Brainwave architecture:
++ [Automated optical inspection system](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
 
-- Automated optical inspection system. See [Real-time AI: Microsoft announces preview of Project Brainwave](https://blogs.microsoft.com/ai/build-2018-project-brainwave/).
-- Land cover mapping. See [How to Use FPGAs for Deep Learning Inference to Perform Land Cover Mapping on Terabytes of Aerial Images](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/).
++ [Land cover mapping](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
-## How to deploy a web service to an FPGA?
+## Deploy to FPGAs on Azure
 
-The high-level flow for creating an image recognition service in Azure using ResNet50 as a featurizer is as follows:
+Here is the workflow for creating an image recognition service in Azure using supported DNNs as a featurizer for deployment on Azure FPGAs:
 
-1. ResNet50 is already deployed in Brainwave. You can build other graphs (date input, classification, and so on) with TensorFlow, and define a pipeline (input -> featurize -> classify) using a service definition json file. Compress the definition and graphs into a zip file, and upload the zip file to Azure Blob storage.
-2. Register the model using Azure ML Model Management API with the zip file in the Blob storage.
-3. Deploy the service with the registered model using Azure ML Model Management API.
+1. Use the Azure Machine Learning SDK for Python to create a service definition, which is a file describing a pipeline of graphs (input, featurizer, and classifier) based on TensorFlow. The deployment command will automatically compress the definition and graphs into a ZIP file and upload the ZIP to Azure Blob storage.  The DNN is already deployed on Project Brainwave to run on the FPGA.
 
-Learn more about this process in the article, [Deploy a model as a web service on an FPGA with Azure Machine Learning](how-to-deploy-fpga-web-service.md).
+1. Register the model using the SDK with the ZIP file in Azure Blob storage.
 
+1. Deploy the service with the registered model using SDK.
 
-## Start using FPGA
+You can get started deploying trained DNN models to FPGAs in the Azure cloud with this article, **"[Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)"**.
 
-Azure Machine Learning Hardware Accelerated Models allow you to deploy trained DNN models to FPGAs in the Azure cloud. To get started, see:
-
-- [Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)
-- [Microsoft Azure Machine Learning Hardware Accelerated Models Powered by Project Brainwave](https://github.com/azure/aml-real-time-ai).
 
 ## Next steps
 
-[Deploy a model as a web service on an FPGA](how-to-deploy-fpga-web-service.md)
+Check out these videos and blogs:
 
-[Learn how to install the FPGA SDK](reference-fpga-package-overview.md)
++ [Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
 
-[Hyperscale hardware: ML at scale on top of Azure + FPGA : Build 2018 (video)](https://www.youtube.com/watch?v=BMgQAHIx2eY)
++ [Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
 
-[Inside the Microsoft FPGA-based configurable cloud (video)](https://channel9.msdn.com/Events/Build/2017/B8063)
-
-[Microsoft unveils Project Brainwave for real-time AI](https://www.microsoft.com/research/blog/microsoft-unveils-project-brainwave/)
++ [Project Brainwave for real-time AI: project home page](https://www.microsoft.com/research/project/project-brainwave/)

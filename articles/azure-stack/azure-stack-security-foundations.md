@@ -1,27 +1,26 @@
 ---
-title: Understand Azure Stack security controls | Microsoft Docs
+title: Understand Azure Stack security controls
 description: As a service administrator learn about the security controls applied to Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
 
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
+ms.date: 10/9/2018
+ms.author: patricka
 
 ---
 # Azure Stack infrastructure security posture
 
 *Applies to: Azure Stack integrated systems*
 
-Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack was designed for these scenarios, and it is important to understand the controls already in place when adopting Azure Stack.
+Security considerations and compliance regulations are among the main drivers for using hybrid clouds. Azure Stack is designed for these scenarios. This article explains the security controls in place for Azure Stack.
 
 Two security posture layers coexist in Azure Stack. The first layer is the Azure Stack infrastructure, which includes the hardware components up to the Azure Resource Manager. The first layer includes the Administrator and the Tenant portals. The second layer consists of the workloads created, deployed, and managed by tenants. The second layer includes items like virtual machines and App Services web sites.
 
@@ -47,14 +46,14 @@ All external infrastructure endpoints, such as the REST endpoints or the Azure S
 While self-signed certificates can be used for these external endpoints, Microsoft strongly advises against using them. 
 
 ## Secret management
-Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are automatically rotated frequently, because they are Group Managed Service accounts, which rotate every 24 hours.
+Azure Stack infrastructure uses a multitude of secrets, like passwords, to function. Most of them are automatically rotated frequently, because they are Group-Managed Service accounts, which rotate every 24 hours.
 
-The remaining secrets that are not Group Managed Service accounts can be rotated manually with a script in the Privileged Endpoint.
+The remaining secrets that are not Group-Managed Service accounts can be rotated manually with a script in the Privileged Endpoint.
 
 ## Code integrity
 Azure Stack makes use of the latest Windows Server 2016 security features. One of them is Windows Defender Device Guard, which provides application whitelisting, and ensures that only authorized code runs within the Azure Stack infrastructure. 
 
-Authorized code is signed by either Microsoft or the OEM partner, and it is included in the list of allowed software that is specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code is blocked and an audit is generated.
+Authorized code is signed by either Microsoft or the OEM partner. The signed authorized code is included in the list of allowed software specified in a policy defined by Microsoft. In other words, only software that has been approved to run in the Azure Stack infrastructure can be executed. Any attempt to execute unauthorized code is blocked and an audit is generated.
 
 The Device Guard policy also prevents third-party agents or software from running in the Azure Stack infrastructure.
 
@@ -64,7 +63,7 @@ Another Windows Server 2016 security feature in Azure Stack is Windows Defender 
 ## Antimalware
 Every component in Azure Stack (both Hyper-V hosts and Virtual Machines) is protected with Windows Defender Antivirus.
 
-In connected scenarios, antivirus definition and engine updates are applied multiple times a day. In disconnected scenarios, antimalware updates are applied as part of monthly Azure Stack updates. See [update Windows Defender Antivirus on Azure Stack](azure-stack-security-av.md) for more information.
+In connected scenarios, antivirus definition and engine updates are applied multiple times a day. In disconnected scenarios, antimalware updates are applied as part of monthly Azure Stack updates. For more information, see [update Windows Defender Antivirus on Azure Stack](azure-stack-security-av.md).
 
 ## Constrained administration model
 Administration in Azure Stack is controlled through the use of three entry points, each with a specific purpose: 
@@ -73,13 +72,27 @@ Administration in Azure Stack is controlled through the use of three entry point
 3. For specific low-level operations, for example data center integration or support scenarios, Azure Stack exposes a PowerShell endpoint called [Privileged Endpoint](azure-stack-privileged-endpoint.md). This endpoint exposes only a whitelisted set of cmdlets and it is heavily audited.
 
 ## Network controls
-Azure Stack infrastructure comes with multiple layers of network Access Control List(ACL). The ACLs prevent unauthorized access to the infrastructure components and limit infrastructure communications to only the paths that are required for its functioning. 
+Azure Stack infrastructure comes with multiple layers of network Access Control List (ACL). The ACLs prevent unauthorized access to the infrastructure components and limit infrastructure communications to only the paths that are required for its functioning. 
 
 Network ACLs are enforced in three layers:
 1.  Top of Rack switches
 2.  Software Defined Network
 3.  Host and VM operating system firewalls
 
+## Regulatory compliance
+
+Azure Stack has gone through a formal assessment by a third party-independent auditing firm. As a result, documentation on how the Azure Stack infrastructure meets the applicable controls from several major compliance standards is available. The documentation is not a certification of Azure Stack due to the standards including several personnel-related and process-related controls. Rather, customers can use this documentation to jump-start their certification process.
+
+The assessments include the following standards:
+
+- [PCI-DSS](https://www.pcisecuritystandards.org/pci_security/) addresses the payment card industry.
+- [CSA Cloud Control Matrix](https://cloudsecurityalliance.org/group/cloud-controls-matrix/#_overview) is a comprehensive mapping across multiple standards, including FedRAMP Moderate, ISO27001, HIPAA, HITRUST, ITAR, NIST SP800-53, and others.
+- [FedRAMP High](https://www.fedramp.gov/fedramp-releases-high-baseline/) for government customers.
+
+The compliance documentation can be found on the [Microsoft Service Trust Portal](https://servicetrust.microsoft.com/ViewPage/Blueprint). The compliance guides are a protected resource and require you to sign in with your Azure cloud service credentials.
+
 ## Next steps
 
 - [Learn how to rotate your secrets in Azure Stack](azure-stack-rotate-secrets.md)
+- [PCI-DSS and the CSA-CCM documents for Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [DoD and NIST documents for Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

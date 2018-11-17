@@ -2,9 +2,9 @@
 title: Get started with Azure Stack storage development tools  | Microsoft Docs
 description: Guidance to get started with using Azure Stack storage development tools
 services: azure-stack 
-author: mabriggs
+author: mattbriggs
 ms.author: mabrigg
-ms.date: 07/03/2018
+ms.date: 11/05/2018
 ms.topic: get-started-article
 ms.service: azure-stack
 manager: femila

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/10/2017
 ms.author: spelluru
 
 ---

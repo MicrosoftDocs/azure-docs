@@ -102,7 +102,7 @@ Cloud Shell supports the latest versions of following browsers:
 
 ### Copy and paste
 
-[!include [copy-paste](../../includes/cloud-shell-copy-paste.md)]
+[!INCLUDE [copy-paste](../../includes/cloud-shell-copy-paste.md)]
 
 ### For a given user, only one shell can be active
 

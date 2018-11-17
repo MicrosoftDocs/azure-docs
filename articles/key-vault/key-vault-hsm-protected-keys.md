@@ -12,7 +12,7 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: barclayn
 
@@ -57,7 +57,7 @@ See the following table for a list of prerequisites for bring your own key (BYOK
 | A subscription to Azure |To create an Azure Key Vault, you need an Azure subscription: [Sign up for free trial](https://azure.microsoft.com/pricing/free-trial/) |
 | The Azure Key Vault Premium service tier to support HSM-protected keys |For more information about the service tiers and capabilities for Azure Key Vault, see the [Azure Key Vault Pricing](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | Thales HSM, smartcards, and support software |You must have access to a Thales Hardware Security Module and basic operational knowledge of Thales HSMs. See [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) for the list of compatible models, or to purchase an HSM if you do not have one. |
-| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>Note that in the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>Note that in the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
+| The following hardware and software:<ol><li>An offline x64 workstation with a minimum Windows operation system of Windows 7 and Thales nShield software that is at least version 11.50.<br/><br/>If this workstation runs Windows 7, you must [install Microsoft .NET Framework 4.5](https://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>A workstation that is connected to the Internet and has a minimum Windows operating system of Windows 7 and [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimum version 1.1.0** installed.</li><li>A USB drive or other portable storage device that has at least 16 MB free space.</li></ol> |For security reasons, we recommend that the first workstation is not connected to a network. However, this recommendation is not programmatically enforced.<br/><br/>Note that in the instructions that follow, this workstation is referred to as the disconnected workstation.</p></blockquote><br/>In addition, if your tenant key is for a production network, we recommend that you use a second, separate workstation to download the toolset and upload the tenant key. But for testing purposes, you can use the same workstation as the first one.<br/><br/>Note that in the instructions that follow, this second workstation is referred to as the Internet-connected workstation.</p></blockquote><br/> |
 
 ## Generate and transfer your key to Azure Key Vault HSM
 
@@ -97,7 +97,7 @@ Do not close the Azure PowerShell window.
 
 ### Step 1.3: Download the BYOK toolset for Azure Key Vault
 
-Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](http://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
+Go to the Microsoft Download Center and [download the Azure Key Vault BYOK toolset](https://www.microsoft.com/download/details.aspx?id=45345) for your geographic region or instance of Azure. Use the following information to identify the package name to download and its corresponding SHA-256 package hash:
 
 - - -
 **United States:**

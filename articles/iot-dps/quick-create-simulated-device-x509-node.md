@@ -1,6 +1,6 @@
 ﻿---
 title: Provision a simulated X.509 device to Azure IoT Hub using Node.js | Microsoft Docs
-description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service
+description: Create and provision a simulated X.509 device using Node.js device SDK for Azure IoT Hub Device Provisioning Service.This quickstart uses individual enrollments.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -17,7 +17,13 @@ ms.custom: mvc
 
 These steps show how to create an enrollment entry in the Device Provisioning Service, simulate an X.509 device on your development machine, connect the simulated device with the Device Provisioning Service, and register the device on your IoT hub using the [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node).
 
-If you're unfamiliar with the process of auto-provisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+If you're unfamiliar with the process of autoprovisioning, be sure to also review [Auto-provisioning concepts](concepts-auto-provisioning.md). Also make sure you've completed the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md) before continuing. 
+
+The Azure IoT Device Provisioning Service supports two types of enrollments:
+- [Enrollment groups](concepts-service.md#enrollment-group): Used to enroll multiple related devices.
+- [Individual Enrollments](concepts-service.md#individual-enrollment): Used to enroll a single device.
+
+This article will demonstrate individual enrollments.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -39,8 +45,8 @@ If you're unfamiliar with the process of auto-provisioning, be sure to also revi
 
 In this section you, will use a self-signed X.509 certificate, it is important to keep in mind the following:
 
-* Self-signed certificates are for testing only, and should not to be used in production.
-* The default expiration date for a self-signed certificate is 1 year.
+* Self-signed certificates are for testing only, and should not be used in production.
+* The default expiration date for a self-signed certificate is one year.
 
 You will use sample code from the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node.git) to create the certificate to be used with the individual enrollment entry for the simulated device.
 
@@ -58,7 +64,7 @@ You will use sample code from the [Azure IoT SDK for Node.js](https://github.com
     npm install
     ```
 
-3. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. Note that the leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
+3. Create a _leaf_ X.509 certificate by running the script using your own _certificate-name_. The leaf certificate's common name becomes the [Registration ID](https://docs.microsoft.com/azure/iot-dps/concepts-device#registration-id) so be sure to only use lower-case alphanumerics and hyphens.
 
     ```cmd/sh
     node create_test_cert.js device {certificate-name}
@@ -66,9 +72,9 @@ You will use sample code from the [Azure IoT SDK for Node.js](https://github.com
 
 4. Sign in to the [Azure portal](https://portal.azure.com), click on the **All resources** button on the left-hand menu and open your Device Provisioning Service instance.
 
-5. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add** button at the top. 
+5. On the Device Provisioning Service summary blade, select **Manage enrollments**. Select **Individual Enrollments** tab and click the **Add individual enrollment** button at the top. 
 
-6. Under the **Add enrollment** panel, enter the following information:
+6. Under the **Add Enrollment** panel, enter the following information:
     - Select **X.509** as the identity attestation *Mechanism*.
     - Under the *Primary certificate .pem or .cer file*, click *Select a file* to select the certificate file **{certificate-name}_cert.pem** created in the previous steps.  
     - Optionally, you may provide the following information:
@@ -77,13 +83,13 @@ You will use sample code from the [Azure IoT SDK for Node.js](https://github.com
       - Update the **Initial device twin state** with the desired initial configuration for the device.
    - Once complete, click the **Save** button. 
 
-    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-node/individual-enrollment.png)](./media/quick-create-simulated-device-x509-node/individual-enrollment.png#lightbox)
+    [![Add individual enrollment for X.509 attestation in the portal](./media/quick-create-simulated-device-x509-node/device-enrollment.png)](./media/quick-create-simulated-device-x509-node/device-enrollment.png#lightbox)
 
     On successful enrollment, your X.509 device appears as **{certificatename}** under the *Registration ID* column in the *Individual Enrollments* tab. Note this value for later.
 
 ## Simulate the device
 
-The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For further reading see [Device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
+The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-node) provides an easy way to simulate a device. For further reading, see [Device concepts](https://docs.microsoft.com/azure/iot-dps/concepts-device).
 
 1. In the Azure portal, select the **Overview** blade for your Device Provisioning service and note down the **_GLobal Device Endpoint_** and **_ID Scope_** values.
 
@@ -117,7 +123,7 @@ The [Azure IoT Hub Node.js Device SDK](https://github.com/Azure/azure-iot-sdk-no
 
 6. In the portal, navigate to the IoT hub linked to your provisioning service and open the **IoT Devices** blade. On successful provisioning of the simulated X.509 device to the hub, its device ID appears on the **IoT Devices** blade, with *STATUS* as **enabled**. You might need to click the **Refresh** button at the top if you already opened the blade prior to running the sample device application. 
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-node/hub-registration.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-x509-node/hubregistration.png) 
 
     If you changed the *initial device twin state* from the default value in the enrollment entry for your device, it can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 

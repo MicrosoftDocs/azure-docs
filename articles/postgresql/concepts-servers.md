@@ -4,11 +4,10 @@ description: This article provides considerations and guidelines for configuring
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/22/2018
+ms.date: 11/07/2018
 ---
 # Azure Database for PostgreSQL servers
 This article provides considerations and guidelines for working with Azure Database for PostgreSQL servers.
@@ -23,7 +22,7 @@ An Azure Database for PostgreSQL server:
 - Provides a namespace for databases.
 - Is a container with strong lifetime semantics - delete a server and it deletes the contained databases.
 - Collocates resources in a region.
-- Provides a connection endpoint for server and database access (.postgresql.database.azure.com).
+- Provides a connection endpoint for server and database access 
 - Provides the scope for management policies that apply to its databases: login, firewall, users, roles, configurations, etc.
 - Is available in multiple versions. For more information, see [supported PostgreSQL database versions](concepts-supported-versions.md).
 - Is extensible by users. For more information, see [PostgreSQL extensions](concepts-extensions.md).
@@ -47,9 +46,10 @@ While creating a server, you set up the credentials for your admin user. The adm
 
 The PostgreSQL superuser attribute is assigned to the azure_superuser, which belongs to the managed service. You do not have access to this role.
 
-An Azure Database for PostgreSQL server has two default databases: 
+An Azure Database for PostgreSQL server has default databases: 
 - **postgres** - A default database you can connect to once your server is created.
 - **azure_maintenance** - This database is used to separate the processes that provide the managed service from user actions. You do not have access to this database.
+- **azure_sys** - A database for the Query Store. This database does not accumulate data when Query Store is off; this is the default setting. For more information, see the [Query Store overview](concepts-query-store.md).
 
 
 ## Server parameters

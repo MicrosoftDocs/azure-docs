@@ -24,7 +24,7 @@ ms.custom: mvc
 >
 
 This tutorial shows you how to create a Java web app in Azure and connect it to a MySQL database. 
-When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) running on [Azure App Service Web Apps](app-service-web-overview.md).
+When you are finished, you will have a [Spring Boot](https://projects.spring.io/spring-boot/) application storing data in [Azure Database for MySQL](../mysql/overview.md) running on [Azure App Service Web Apps](app-service-web-overview.md).
 
 ![Java app running in Azure appservice](./media/app-service-web-tutorial-java-mysql/appservice-web-app.png)
 
@@ -43,7 +43,7 @@ In this tutorial, you learn how to:
 ## Prerequisites
 
 1. [Download and install Git](https://git-scm.com/)
-1. [Download and install the Java 7 JDK or above](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+1. [Download and install the Java JDK](https://aka.ms/azure-jdks)
 1. [Download, install, and start MySQL](https://dev.mysql.com/doc/refman/5.7/en/installing.html) 
 
 ## Prepare local MySQL 
@@ -118,7 +118,7 @@ Stop the application by hitting `Ctrl`+`C` in the terminal.
 
 ## Create an Azure MySQL database
 
-In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). You configure the sample application to use this database later on in the tutorial.
+In this step, you create an [Azure Database for MySQL](../mysql/quickstart-create-mysql-server-database-using-azure-cli.md) instance using the [Azure CLI](/cli/azure/install-azure-cli). You configure the sample application to use this database later on in the tutorial.
 
 ### Create a resource group
 
@@ -268,7 +268,7 @@ When the web app definition is ready, the Azure CLI shows information similar to
 
 In the Cloud Shell, set up the Java runtime configuration that your app needs with the  [`az webapp config set`](/cli/azure/webapp/config#az-webapp-config-set) command.
 
-The following command configures the web app to run on a recent Java 8 JDK and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
+The following command configures the web app to run on a recent [Java 8 JDK](https://aka.ms/azure-jdks) and [Apache Tomcat](http://tomcat.apache.org/) 8.0.
 
 ```azurecli-interactive
 az webapp config set --name <app_name> --resource-group myResourceGroup --java-version 1.8 --java-container Tomcat --java-container-version 8.0
@@ -278,7 +278,7 @@ az webapp config set --name <app_name> --resource-group myResourceGroup --java-v
 
 Before running the sample app, set application settings on the web app to use the Azure MySQL database you created in Azure. These properties are exposed to the web application as environment variables and override the values set in the application.properties inside the packaged web app. 
 
-In the Cloud Shell, set application settings using [`az webapp config appsettings`](https://docs.microsoft.com/cli/azure/webapp/config/appsettings) in the CLI:
+In the Cloud Shell, set application settings using [`az webapp config appsettings`](/cli/azure/webapp/config/appsettings) in the CLI:
 
 ```azurecli-interactive
 az webapp config appsettings set --settings SPRING_DATASOURCE_URL="jdbc:mysql://<mysql_server_name>.mysql.database.azure.com:3306/tododb?verifyServerCertificate=true&useSSL=true&requireSSL=false" --resource-group myResourceGroup --name <app_name>
@@ -293,10 +293,10 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ```
 
 ### Get FTP deployment credentials 
-You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Visual Studio Team Services, and BitBucket. 
+You can deploy your application to Azure appservice in various ways including FTP, local Git, GitHub, Azure DevOps, and BitBucket. 
 For this example, FTP to deploy the .WAR file built previously on your local machine to Azure App Service.
 
-To determine what credentials to pass along in an ftp command to the Web App, Use [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) command in the Cloud Shell: 
+To determine what credentials to pass along in an ftp command to the Web App, Use [`az webapp deployment list-publishing-profiles`](/cli/azure/webapp/deployment#az-webapp-deployment-list-publishing-profiles) command in the Cloud Shell: 
 
 ```azurecli-interactive
 az webapp deployment list-publishing-profiles --name <app_name> --resource-group myResourceGroup --query "[?publishMethod=='FTP'].{URL:publishUrl, Username:userName,Password:userPWD}" --output json

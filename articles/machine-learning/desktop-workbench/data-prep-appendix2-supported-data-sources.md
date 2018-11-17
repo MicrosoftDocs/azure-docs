@@ -13,9 +13,14 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 02/01/2018
+
+ROBOTS: NOINDEX
 ---
 
 # Supported data sources for Azure Machine Learning data preparation 
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
 This article outlines the currently supported data sources for Azure Machine Learning data preparation.
 
 The supported data sources for this release are as follows.
@@ -106,7 +111,7 @@ Scale-out execution relies on Spark's Parquet reading capabilities and supports 
 A local hard drive or a mapped network storage location.
 
 ### SQL Server
-On-prem SQL sever, or Azure SQL database.
+On-prem SQL server, or Azure SQL database.
 
 ### Azure Blob storage
 Azure Blob storage, which requires an Azure subscription.

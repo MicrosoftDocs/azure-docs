@@ -6,7 +6,7 @@ description: Shows how an admin can add guest users to their directory from a pa
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/10/2018
 
 ms.author: mimart

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
-ms.component: na
+ms.component: 
 ---
 
 # Computer groups in Log Analytics log searches
 
-Computer groups in Log Analytics allow you to scope [log searches](log-analytics-log-search-new.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log search, the results are limited to records that match the computers in the group.
+Computer groups in Log Analytics allow you to scope [log searches](log-analytics-queries.md) to a particular set of computers.  Each group is populated with computers either using a query that you define or by importing groups from different sources.  When the group is included in a log search, the results are limited to records that match the computers in the group.
 
 ## Creating a computer group
 You can create a computer group in Log Analytics using any of the methods in the following table.  Details on each method are provided in the sections below. 
@@ -58,7 +58,7 @@ Use the following procedure to create a computer group from a log search in the 
 
 
 ### Active Directory
-When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the OMS agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
+When you configure Log Analytics to import Active Directory group memberships, it analyzes the group membership of any domain joined computers with the Log Analytics agent.  A computer group is created in Log Analytics for each security group in Active Directory, and each computer is added to the computer groups corresponding to the security groups they are members of.  This membership is continuously updated every 4 hours.  
 
 You configure Log Analytics to import Active Directory security groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **Active Directory**, and then **Import Active Directory group memberships from computers**.  There is no further configuration required.
 
@@ -67,7 +67,7 @@ You configure Log Analytics to import Active Directory security groups from Log 
 When groups have been imported, the menu lists the number of computers with group membership detected and the number of groups imported.  You can click on either of these links to return the **ComputerGroup** records with this information.
 
 ### Windows Server Update Service
-When you configure Log Analytics to import WSUS group memberships, it analyzes the targeting group membership of any computers with the OMS agent.  If you are using client-side targeting, any computer that is connected to Log Analytics and is part of any WSUS targeting groups has its group membership imported to Log Analytics. If you are using server-side targeting, the OMS agent should be installed on the WSUS server in order for the group membership information to be imported to Log Analytics.  This membership is continuously updated every 4 hours. 
+When you configure Log Analytics to import WSUS group memberships, it analyzes the targeting group membership of any computers with the Log Analytics agent.  If you are using client-side targeting, any computer that is connected to Log Analytics and is part of any WSUS targeting groups has its group membership imported to Log Analytics. If you are using server-side targeting, the Log Analytics agent should be installed on the WSUS server in order for the group membership information to be imported to Log Analytics.  This membership is continuously updated every 4 hours. 
 
 You configure Log Analytics to import WSUS groups from Log Analytics **Advanced settings** in the Azure portal.  Select **Computer Groups**, **WSUS**, and then **Import WSUS group memberships**.  There is no further configuration required.
 
@@ -132,5 +132,5 @@ A record is created in the Log Analytics workspace for each computer group membe
 | TimeGenerated |Date and time the computer group was created or updated. |
 
 ## Next steps
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions.  
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
 

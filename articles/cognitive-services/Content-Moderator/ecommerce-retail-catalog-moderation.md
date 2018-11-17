@@ -1,17 +1,19 @@
 ---
-title: eCommerce catalog moderation with machine learning and AI with Azure Content Moderator | Microsoft Docs
-description: Automatically moderate eCommerce catalogs with machine learning and AI
+title: "Tutorial: eCommerce catalog moderation - Content Moderator"
+titlesuffix: Azure Cognitive Services
+description: Automatically moderate eCommerce catalogs with machine learning and AI.
 services: cognitive-services
 author: sanjeev3
-manager: mikemcca
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: content-moderator
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: sajagtap
 ---
 
-# eCommerce catalog moderation with machine learning
+# Tutorial: eCommerce catalog moderation with machine learning
 
 In this tutorial, we learn how to implement machine-learning-based intelligent ecommerce catalog moderation by combining machine-assisted AI technologies with human moderation to provide an intelligent catalog system.
 
@@ -153,7 +155,7 @@ In our case, we define these custom tags (**celebrity**, **flag**, **us**, **toy
 
 ## Classify into flags, toys, and pens
 
-1. [Sign in](https://azure.microsoft.com/en-us/services/cognitive-services/custom-vision-service/) to the [Custom Vision API preview](https://www.customvision.ai/).
+1. [Sign in](https://azure.microsoft.com/services/cognitive-services/custom-vision-service/) to the [Custom Vision API preview](https://www.customvision.ai/).
 2. Use the [Quickstart](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) to build your custom classifier to detect the potential presence of flags, toys, and pens.
    ![Custom Vision Training Images](images/tutorial-ecommerce-custom-vision.PNG)
 3. [Get the prediction endpoint URL](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api) for your custom classifier.

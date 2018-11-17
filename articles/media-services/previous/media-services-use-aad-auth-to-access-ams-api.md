@@ -4,7 +4,7 @@ description: Learn about concepts and steps to take to use Azure Active Director
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/17/2017
+ms.date: 10/29/2018
 ms.author: juliako
 
 ---
@@ -142,7 +142,7 @@ Solution: For the Media Services REST request to succeed, the calling user must 
 
 The following articles are overviews of Azure AD authentication concepts: 
 
-- [Authentication scenarios addressed by Azure AD](../../active-directory/develop/authentication-scenarios.md#basics-of-authentication-in-azure-ad)
+- [Authentication scenarios addressed by Azure AD](../../active-directory/develop/authentication-scenarios.md)
 - [Add, update, or remove an application in Azure AD](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md)
 - [Configure and manage Role-Based Access Control by using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 

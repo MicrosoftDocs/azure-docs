@@ -1,8 +1,10 @@
 ---
-title: "Quickstart: Use PHP to call the Bing Web Search API"
+title: "Quickstart: Perform a search with PHP - Bing Web Search API"
+titleSuffix: Azure Cognitive Services
 description: In this quickstart, you will learn how to make your first call to the Bing Web Search API using PHP and receive a JSON response.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart

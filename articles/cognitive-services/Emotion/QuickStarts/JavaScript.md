@@ -1,21 +1,23 @@
 ---
-title: Emotion API JavaScript quick start | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Emotion API with JavaScript in Cognitive Services.
+title: "Quickstart: Recognize emotions on faces in an image - Emotion API, JavaScript"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Emotion API with JavaScript.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/23/2017
 ms.author: anroth
+ROBOTS: NOINDEX
 ---
 
-# Emotion API JavaScript Quick Start
+# Quickstart: Build an app to recognize emotions on faces in an image.
 
 > [!IMPORTANT]
-> Video API Preview will end on October 30th, 2017. Try the new [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) to easily extract insights from 
-videos and to enhance content discovery experiences, such as search results, by detecting spoken words, faces, characters, and emotions. [Learn more](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> The Emotion API will be deprecated on February 15, 2019. The emotion recognition capability is now generally available as part of the [Face API](https://docs.microsoft.com/azure/cognitive-services/face/). 
 
 This article provides information and code samples to help you quickly get started using the [Emotion API Recognize method](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa) with JavaScript to recognize the emotions expressed by one or more people in an image.
 
@@ -26,7 +28,7 @@ This article provides information and code samples to help you quickly get start
 
 ## Recognize Emotions JavaScript Example Request
 
-Copy the following and save it to a file such as `test.html`. Change the request `url` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key. These can be found in the Azure portal in the Overview and Keys sections of your Emotion API resource, respectively. 
+Copy the following and save it to a file such as `test.html`. Change the request `url` to use the location where you obtained your subscription keys, and replace the "Ocp-Apim-Subscription-Key" value with your valid subscription key. These can be found in the Azure portal in the Overview and Keys sections of your Emotion API resource, respectively.
 
 ![API Endpoint](../Images/api-url.png)
 
@@ -58,10 +60,10 @@ Change the request body to the location of an image you want to use. To run the 
     $(function() {
         // No query string parameters for this API call.
         var params = { };
-      
+
         $.ajax({
             // NOTE: You must use the same location in your REST call as you used to obtain your subscription keys.
-            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the 
+            //   For example, if you obtained your subscription keys from westcentralus, replace "westus" in the
             //   URL below with "westcentralus".
             url: "https://westus.api.cognitive.microsoft.com/emotion/v1.0/recognize?" + $.param(params),
             beforeSend: function(xhrObj){
@@ -83,7 +85,7 @@ Change the request body to the location of an image you want to use. To run the 
             for (var prop in faceRectangle) {
                 faceRectangleList.append("<li> " + prop + ": " + faceRectangle[prop] + "</li>");
             }
-            
+
             // Get emotion confidence scores
             var scores = data[0].scores;
             var scoresList = $('#scores');
@@ -104,10 +106,10 @@ Change the request body to the location of an image you want to use. To run the 
 ## Recognize Emotions Sample Response
 A successful call returns an array of face entries and their associated emotion scores, ranked by face rectangle size in descending order. An empty response indicates that no faces were detected. An emotion entry contains the following fields:
 * faceRectangle - Rectangle location of face in the image.
-* scores - Emotion scores for each face in the image. 
+* scores - Emotion scores for each face in the image.
 
 ```json
-application/json 
+application/json
 [
   {
     "faceRectangle": {

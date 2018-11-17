@@ -38,8 +38,8 @@ sections:
     style: ordered
     items:
     - html: <a href="provision-vm">Provision a Windows DSVM</a>
-    - html: <a href="vm-do-ten-thing">Use a Windows DSVM</a>
-    - html: <a href:"linux-dsvm-intro">Provision a Linux CentOS DSVM</a>
+    - html: <a href="vm-do-ten-things">Use a Windows DSVM</a>
+    - html: <a href="linux-dsvm-intro">Provision a Linux CentOS DSVM</a>
     - html: <a href="dsvm-ubuntu-intro">Provision a Linux Ubuntu DSVM</a>
     - html: <a href="linux-dsvm-walkthrough">Use a Linux DSVM</a>
 
@@ -51,7 +51,7 @@ sections:
     style: cards
     className: cardsFTitle
     items:
-    - title: Azure Machine Learning services (preview)
+    - title: Azure Machine Learning service (preview)
       href: /azure/machine-learning/service/
       image: 
         src: media/index/i_machine-learning.svg

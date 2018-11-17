@@ -29,7 +29,7 @@ Creating an import job for the Microsoft Azure Import/Export service using the R
 
 The steps to prepare drives for an import job are the same whether you create the jobvia the portal or via the REST API.
 
-Below is a brief overview of drive preparation. Refer to the [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) for complete instructions. You can download the Azure Import/Export Tool [here](http://go.microsoft.com/fwlink/?LinkID=301900).
+Below is a brief overview of drive preparation. Refer to the [Azure Import-ExportTool Reference](storage-import-export-tool-how-to-v1.md) for complete instructions. You can download the Azure Import/Export Tool [here](https://go.microsoft.com/fwlink/?LinkID=301900).
 
 Preparing your drive involves:
 
@@ -91,7 +91,7 @@ You must ship your drives to the address that you obtained from the previous ste
 >  You must ship your drives via a supported carrier service, which will provide a tracking number for your package.
 
 ## Updating the import job with your shipping information
-After you have your tracking number, call the [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.
+After you have your tracking number, call the [Update Job Properties](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

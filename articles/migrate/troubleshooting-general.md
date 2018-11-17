@@ -4,7 +4,7 @@ description: Provides an overview of known issues in the Azure Migrate service, 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 10/31/2018
 ms.author: raynew
 ---
 
@@ -13,6 +13,16 @@ ms.author: raynew
 ## Troubleshoot common errors
 
 [Azure Migrate](migrate-overview.md) assesses on-premises workloads for migration to Azure. Use this article to troubleshoot issues when deploying and using Azure Migrate.
+
+### I am using the continuous discovery OVA, but VMs that are deleted in my on-premises environment are still being shown in the portal.
+
+The appliance for continuous discovery appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+
+- Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
+
+   ![Stop discovery](./media/troubleshooting-general/stop-discovery.png)
+
+- Deletion of VMs: Due to the way the appliance is designed, deletion of VMs is not reflected even if you stop and start the discovery. This is because data from subsequent discoveries are appended to older discoveries and not overridden. In this case, you can simply ignore the VM in the portal, by removing it from your group and recalculating the assessment.
 
 ### Migration project creation failed with error *Requests must contain user identity headers*
 
@@ -30,11 +40,24 @@ To enable collection of disk and network performance data, change the statistics
 * Post planned or unplanned failover, on-premises machines are turned off and equivalent machines are spun up in Azure. These machines acquire a different MAC address. They may acquire a different IP address based on whether the user chose to retain on-premises IP address or not. If both MAC and IP addresses differ, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 * Post test failover, the on-premises machines remain turned on as expected. Equivalent machines spun up in Azure acquire different MAC address and may acquire different IP address. Unless the user blocks outgoing Log Analytics traffic from these machines, Azure Migrate does not associate the on-premises machines with any Service Map dependency data and asks user to install agents instead of viewing dependencies.
 
+### I specified an Azure geography, while creating a migration project, how do I find out the exact Azure region where the discovered metadata would be stored?
+
+You can go to the **Essentials** section in the **Overview** page of the project to identify the exact location where the metadata is stored. The location is selected randomly within the geography by Azure Migrate and you cannot modify it. If you want to create a project in a specific region only, you can use the REST APIs to create the migration project and pass the desired region.
+
+   ![Project location](./media/troubleshooting-general/geography-location.png)
+
 ## Collector errors
 
-### Deployment of collector OVA failed
+### Deployment of Azure Migrate Collector failed with the error: The provided manifest file is invalid: Invalid OVF manifest entry.
 
-This could happen if the OVA is partially downloaded or due to the browser if you are using vSphere web client to deploy the OVA. Ensure that the download is complete and try deploying the OVA with a different browser.
+1. Verify if Azure Migrate Collector OVA file is downloaded correctly by checking its hash value. Refer to the [article](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware#verify-the-collector-appliance) to verify the hash value. If the hash value is not matching, download the OVA file again and retry the deployment.
+2. If it still fails and if you are using VMware vSphere Client to deploy the OVF, try deploying it through vSphere Web Client. If it still fails, try using different web browser.
+3. If you are using vSphere web client and trying to deploy it on vCenter Server 6.5, try to deploy the OVA directly on ESXi host by following the below steps:
+  - Connect to the ESXi host directly (instead of vCenter Server) using the web client (https://<*host IP Address*>/ui)
+  - Go to Home > Inventory
+  - Click File > Deploy OVF template > Browse to the OVA and complete the deployment
+4. If the deployment still fails, contact Azure Migrate support.
+
 
 ### Collector is not able to connect to the internet
 
@@ -81,9 +104,11 @@ Azure Migrate collector downloads PowerCLI and installs it on the appliance. Fai
 
 ### Error UnhandledException Internal error occured: System.IO.FileNotFoundException
 
-This is an issue seen on Collector versions less than 1.0.9.5. If you are on a Collector version 1.0.9.2 or pre-GA versions like 1.0.8.59, you will face this issue. Follow the [link given here to the forums for a detailed answer](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+This issue could occur due to an issue with VMware PowerCLI installation. Follow the below steps to resolve the issue:
 
-[Upgrade your Collector to fix the issue](https://aka.ms/migrate/col/checkforupdates).
+1. If you are not on the latest version of the collector appliance, [upgrade your Collector to the latest version](https://aka.ms/migrate/col/checkforupdates) and check if the issue is resolved.
+2. If you already have the latest collector version, manually install [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) and check if the issue is resolved.
+3. If the above does not resolve the issue, navigate to the C:\Program Files\ProfilerService folder and remove the VMware.dll and VimService65.dll files present in the folder and then restart the 'Azure Migrate Collector' service in Windows Services Manage (Open 'Run' and type 'services.msc' to open Windows Service Manager).
 
 ### Error UnableToConnectToServer
 
@@ -97,6 +122,37 @@ If the issue still happens in the latest version, it could be because the collec
 2. If step 1 fails, try to connect to the vCenter server over IP address.
 3. Identify the correct port number to connect to the vCenter.
 4. Finally check if the vCenter server is up and running.
+
+## Troubleshoot dependency visualization issues
+
+### I installed the Microsoft Monitoring Agent (MMA) and the dependency agent on my on-premises VMs, but the dependencies are now showing up in the Azure Migrate portal.
+
+Once you have installed the agents, Azure Migrate typically takes 15-30 mins to display the dependencies in the portal. If you have waited for more than 30 minutes, ensure that the MMA agent is able to talk to the OMS workspace by following the below steps:
+
+For Windows VM:
+1. Go to **Control Panel** and launch **Microsoft Monitoring Agent**
+2. Go to the **Azure Log Analytics (OMS)** tab in the MMA properties pop-up
+3. Ensure that the **Status** for the workspace is green.
+4. If the status is not green, try removing the workspace and adding it again to MMA.
+        ![MMA Status](./media/troubleshooting-general/mma-status.png)
+
+For Linux VM, ensure that the installation commands for MMA and dependency agent had succeeded.
+
+### What are the operating systems supported by MMA?
+
+The list of Windows operating systems supported by MMA is [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+The list of Linux operating systems supported by MMA is [here](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### What are the operating systems supported by dependency agent?
+
+The list of Windows operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+The list of Linux operating systems supported by dependency agent is [here](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### I am unable to visualize dependencies in Azure Migrate for more than one hour duration?
+Azure Migrate lets you visualize dependencies for up to one hour duration. Although, Azure Migrate allows you to go back to a particular date in the history for up to last one month, the maximum duration for which you can visualize the dependencies is up to 1 hour. For example, you can use the time duration functionality in the dependency map, to view dependencies for yesterday, but can only view it for a one hour window.
+
+### I am unable to visualize dependencies for groups with more than 10 VMs?
+You can [visualize dependencies for groups](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) that have up to 10 VMs, if you have a group with more than 10 VMs, we recommend you to split the group in to smaller groups and visualize the dependencies.
 
 ## Troubleshoot readiness issues
 
@@ -160,9 +216,8 @@ To collect Event Tracing for Windows, do the following:
 
 ## Collector error codes and recommended actions
 
-|           |                                |                                                                               |                                                                                                       |                                                                                                                                            |
-|-----------|--------------------------------|-------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Error Code | Error name                      | Message                                                                       | Possible causes                                                                                        | Recommended action                                                                                                                          |
+| Error Code | Error name   | Message   | Possible causes | Recommended action  |
+| --- | --- | --- | --- | --- |
 | 601       | CollectorExpired               | Collector has expired.                                                        | Collector Expired.                                                                                    | Please download a new version of collector and retry.                                                                                      |
 | 751       | UnableToConnectToServer        | Unable to connect to vCenter Server '%Name;' due to error: %ErrorMessage;     | Check the error message for more details.                                                             | Resolve the issue and try again.                                                                                                           |
 | 752       | InvalidvCenterEndpoint         | The server '%Name;' is not a vCenter Server.                                  | Provide vCenter Server details.                                                                       | Retry the operation with correct vCenter Server details.                                                                                   |

@@ -4,8 +4,8 @@ description: DevOps continuous deployment using Azure Automation State Configura
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
@@ -154,7 +154,7 @@ Integration Modules, see this article: [Authoring Integration Modules for Azure
 Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Install the module that you need on your workstation, as follows:
-  - Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) (not needed for Windows 10)
+  - Install [Windows Management Framework, v5](https://aka.ms/wmf5latest) (not needed for Windows 10)
   - `Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
 - Copy the module folder from `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` to a temp folder
 - Delete samples and documentation from the main folder
@@ -261,7 +261,7 @@ nupkg updated and deployed to the NuGet server. In addition, the configuration (
 be updated to agree with the new version number. It must be sent to the pull server and compiled.
 From that point on, it's up to the VMs that depend on that configuration to pull the update and
 install it. Each of these updates are simple - just a line or two of PowerShell. In the case of
-Visual Studio Team Services, some of them are encapsulated in build tasks that can be chained
+Azure DevOps, some of them are encapsulated in build tasks that can be chained
 together in a build. This
 [article](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery)
 provides more details. This [GitHub repo](https://github.com/Microsoft/vso-agent-tasks) details the

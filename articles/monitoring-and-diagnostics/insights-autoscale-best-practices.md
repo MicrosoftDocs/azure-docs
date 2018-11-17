@@ -10,7 +10,7 @@ ms.author: ancav
 ms.component: autoscale
 ---
 # Best practices for Autoscale
-This article teaches best practices to autoscale in Azure. Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), and [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/). Other Azure services use different scaling methods.
+Azure Monitor autoscale applies only to [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Cloud Services](https://azure.microsoft.com/services/cloud-services/), [App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/), and [API Management services](https://docs.microsoft.com/azure/api-management/api-management-key-concepts).
 
 ## Autoscale concepts
 * A resource can have only *one* autoscale setting
@@ -18,9 +18,9 @@ This article teaches best practices to autoscale in Azure. Azure Monitor autosca
 * An autoscale setting scales instances horizontally, which is *out* by increasing the instances and *in* by decreasing the number of instances.
   An autoscale setting has a maximum, minimum, and default value of instances.
 * An autoscale job always reads the associated metric to scale by, checking if it has crossed the configured threshold for scale-out or scale-in. You can view a list of metrics that autoscale can scale by at [Azure Monitor autoscaling common metrics](insights-autoscale-common-metrics.md).
-* All thresholds are calculated at an instance level. For example, "scale out by 1 instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
-* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./monitoring-activity-log-alerts.md) so that you can be notified via email, SMS, webhook, etc. whenever there is an autoscale failure.
-* Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, webhooks, etc. whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
+* All thresholds are calculated at an instance level. For example, "scale out by one instance when average CPU > 80% when instance count is 2", means scale-out when the average CPU across all instances is greater than 80%.
+* All autoscale failures are logged to the Activity Log. You can then configure an [activity log alert](./monitoring-activity-log-alerts.md) so that you can be notified via email, SMS, or webhooks whenever there is an autoscale failure.
+* Similarly, all successful scale actions are posted to the Activity Log. You can then configure an activity log alert so that you can be notified via email, SMS, or webhooks whenever there is a successful autoscale action. You can also configure email or webhook notifications to get notified for successful scale actions via the notifications tab on the autoscale setting.
 
 ## Autoscale best practices
 Use the following best practices as you use autoscale.
@@ -29,10 +29,10 @@ Use the following best practices as you use autoscale.
 If you have a setting that has minimum=2, maximum=2 and the current instance count is 2, no scale action can occur. Keep an adequate margin between the maximum and minimum instance counts, which are inclusive. Autoscale always scales between these limits.
 
 ### Manual scaling is reset by autoscale min and max
-If you manually update the instance count to a value above or below the maximum, the autoscale engine automatically scales back to the minimum (if below) or the maximum (if above). For example, you set the range between 3 and 6. If you have one running instance, the autoscale engine scales to 3 instances on its next run. Likewise, if you manually set the scale to 8 instances, on the next run autoscale will scale it back to 6 instances on its next run.  Manual scaling is very temporary unless you reset the autoscale rules as well.
+If you manually update the instance count to a value above or below the maximum, the autoscale engine automatically scales back to the minimum (if below) or the maximum (if above). For example, you set the range between 3 and 6. If you have one running instance, the autoscale engine scales to three instances on its next run. Likewise, if you manually set the scale to eight instances, on the next run autoscale will scale it back to six instances on its next run.  Manual scaling is temporary unless you reset the autoscale rules as well.
 
 ### Always use a scale-out and scale-in rule combination that performs an increase and decrease
-If you use only one part of the combination, autoscale scale-in that single out, or in, until the maximum, or minimum, is reached.
+If you use only one part of the combination, autoscale will only take action in a single direction (scale out, or in) until it reaches the maximum, or minimum istance counts of defined in the profile. This is not optimal, ideally you want your resource to scale up at times of high usage to ensure availability. Similarly, at times of low usage you want your resource to scale down, so you can realize cost savings.
 
 ### Choose the appropriate statistic for your diagnostics metric
 For diagnostics metrics, you can choose among *Average*, *Minimum*, *Maximum* and *Total* as a metric to scale by. The most common statistic is *Average*.
@@ -47,11 +47,11 @@ We *do not recommend* autoscale settings like the examples below with the same o
 
 Let's look at an example of what can lead to a behavior that may seem confusing. Consider the following sequence.
 
-1. Assume there are 2 instances to begin with and then the average number of threads per instance grows to 625.
-2. Autoscale scales out adding a 3rd instance.
+1. Assume there are two instances to begin with and then the average number of threads per instance grows to 625.
+2. Autoscale scales out adding a third instance.
 3. Next, assume that the average thread count across instance falls to 575.
 4. Before scaling down, autoscale tries to estimate what the final state will be if it scaled in. For example, 575 x  3 (current instance count) = 1,725 / 2 (final number of instances when scaled down) = 862.5 threads. This means autoscale would have to immediately scale-out again even after it scaled in, if the average thread count remains the same or even falls only a small amount. However, if it scaled up again, the whole process would repeat, leading to an infinite loop.
-5. To avoid this situation (termed "flapping"), autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This could confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
+5. To avoid this situation (termed "flapping"), autoscale does not scale down at all. Instead, it skips and reevaluates the condition again the next time the service's job executes. This can confuse many people because autoscale wouldn't appear to work when the average thread count was 575.
 
 Estimation during a scale-in is intended to avoid "flapping" situations, where scale-in and scale-out actions continually go back and forth. Keep this behavior in mind when you choose the same thresholds for scale-out and in.
 
@@ -78,11 +78,11 @@ Let's illustrate it with an example to ensure you understand the behavior better
 
 Consider the following sequence:
 
-1. There are 2 storage queue instances.
+1. There are two storage queue instances.
 2. Messages keep coming and when you review the storage queue, the total count reads 50. You might assume that autoscale should start a scale-out action. However, note that it is still 50/2 = 25 messages per instance. So, scale-out does not occur. For the first scale-out to happen, the total message count in the storage queue should be 100.
 3. Next, assume that the total message count reaches 100.
 4. A 3rd storage queue instance is added due to a scale-out action.  The next scale-out action will not happen until the total message count in the queue reaches 150 because 150/3 = 50.
-5. Now the number of messages in the queue gets smaller. With 3 instances, the first scale-in action happens when the total messages in all queues add up to 30 because 30/3 = 10 messages per instance, which is the scale-in threshold.
+5. Now the number of messages in the queue gets smaller. With three instances, the first scale-in action happens when the total messages in all queues add up to 30 because 30/3 = 10 messages per instance, which is the scale-in threshold.
 
 ### Considerations for scaling when multiple profiles are configured in an autoscale setting
 In an autoscale setting, you can choose a default profile, which is always applied without any dependency on schedule or time, or you can choose a recurring profile or a profile for a fixed period with a date and time range.
@@ -97,9 +97,9 @@ If a profile condition is met, autoscale does not check the next profile conditi
 
 Let's review this using an example:
 
-The image below shows an autoscale setting with a default profile of minimum instances = 2 and maximum instances = 10. In this example, rules are configured to scale-out when the message count in the queue is greater than 10 and scale-in when the message count in the queue is less than 3. So now the resource can scale between 2 and 10 instances.
+The image below shows an autoscale setting with a default profile of minimum instances = 2 and maximum instances = 10. In this example, rules are configured to scale-out when the message count in the queue is greater than 10 and scale-in when the message count in the queue is less than three. So now the resource can scale between two and ten instances.
 
-In addition, there is a recurring profile set for Monday. It is set for minimum instances = 3 and maximum instances = 10. This means on Monday, the first time autoscale checks for this condition, if the instance count is 2, it scales to the new minimum of 3. As long as autoscale continues to find this profile condition matched (Monday), it only processes the CPU-based scale-out/in rules configured for this profile. At this time, it does not check for the queue length. However, if you also want the queue length condition to be checked, you should include those rules from the default profile as well in your Monday profile.
+In addition, there is a recurring profile set for Monday. It is set for minimum instances = 3 and maximum instances = 10. This means on Monday, the first-time autoscale checks for this condition, if the instance count is two, it scales to the new minimum of three. As long as autoscale continues to find this profile condition matched (Monday), it only processes the CPU-based scale-out/in rules configured for this profile. At this time, it does not check for the queue length. However, if you also want the queue length condition to be checked, you should include those rules from the default profile as well in your Monday profile.
 
 Similarly, when autoscale switches back to the default profile, it first checks if the minimum and maximum conditions are met. If the number of instances at the time is 12, it scales in to 10, the maximum allowed for the default profile.
 
@@ -111,7 +111,7 @@ There are cases where you may have to set multiple rules in a profile. The follo
 On *scale out*, autoscale runs if any rule is met.
 On *scale-in*, autoscale require all rules to be met.
 
-To illustrate, assume that you have the following 4 autoscale rules:
+To illustrate, assume that you have the following four autoscale rules:
 
 * If CPU < 30 %, scale-in by 1
 * If Memory < 50%, scale-in by 1

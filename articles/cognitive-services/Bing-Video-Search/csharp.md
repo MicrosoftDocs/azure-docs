@@ -1,18 +1,20 @@
 ---
-title: C# Quickstart for Azure Cognitive Services, Bing Video Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Video Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Video Search API, C#"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Video Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jerkin
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
-# Quickstart for Bing Video Search API with C#
+# Quickstart: Bing Video Search API with C#
 
-This article shows you how use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. While this article employs C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
+This article shows you how use the Bing Video Search API, part of Azure Cognitive Services. While this article employs C#, the API is a RESTful Web service compatible with any programming language that can make HTTP requests and parse JSON. 
 
 The example code was written in C# as a .NET Core application, with minimal external dependencies, so you can also run it on Linux or Mac OS X using Mono.
 

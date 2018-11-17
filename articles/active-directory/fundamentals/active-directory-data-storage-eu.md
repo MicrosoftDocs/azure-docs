@@ -2,16 +2,14 @@
 title: Where Azure AD stores identity data for European customers | Microsoft Docs
 description: Learn about where Microsoft Azure Active Directory stores identity-related data for its European customers.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.author: lizross
+
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 05/17/2018
 ms.custom: it-pro
 ---
@@ -71,7 +69,6 @@ Most Azure AD-related European identity data, for organizations with European-ba
 
 ## Next steps
 For more information about any of the features and functionality described above, see these articles.
-- [Get started with Azure Active Directory](get-started-azure-ad.md)
 - [What is Multi-Factor Authentication?](https://docs.microsoft.com/azure/active-directory/authentication/multi-factor-authentication)
 - [Azure AD self-service password reset](https://docs.microsoft.com/azure/active-directory/authentication/active-directory-passwords-overview)
 - [What is Azure Active Directory B2C?](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview)

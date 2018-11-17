@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI 2.0](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
+The CLI scripts you run in this tutorial use the [Microsoft Azure IoT Extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension/blob/master/README.md). To install this extension, run the following CLI command:
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -74,7 +74,7 @@ To simulate **MyTestDevice** sending telemetry to your IoT hub, run the Node.js 
 
 In a terminal window on your development machine, navigate to the root folder of the sample Node.js project you downloaded. Then navigate to the **iot-hub\Tutorials\ConnectivityTests\simulated-device** folder.
 
-In the terminal window, run the following commands to install the required libraries and run the simulated device application. Use the device connectin string you made a note of when you added the device in the portal.
+In the terminal window, run the following commands to install the required libraries and run the simulated device application. Use the device connection string you made a note of when you added the device in the portal.
 
 ```cmd/sh
 npm install
@@ -97,7 +97,7 @@ To reset the primary device key for **MyTestDevice**, run the following commands
 # Generate a new Base64 encoded key using the current date
 read key < <(date +%s | sha256sum | base64 | head -c 32)
 
-# Requires the IoT Extension for Azure CLI 2.0
+# Requires the IoT Extension for Azure CLI
 # az extension add --name azure-cli-iot-ext
 
 # Reset the primary device key for MyTestDevice

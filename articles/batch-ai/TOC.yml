@@ -1,18 +1,40 @@
 - name: Batch AI Documentation
-  href: index.md
+  href: index.yml
 - name: Overview
   items:
   - name: What is Batch AI?
     href: overview.md
-- name: Get started
+- name: Quickstarts
   expanded: true
   items:
-  - name: Run training job - CLI
-    href: quickstart-cli.md
-  - name: Run training job - Python
-    href: quickstart-python.md
+  - name: Create cluster - CLI
+    href: quickstart-create-cluster-cli.md
+  - name: Create cluster - Portal
+    href: quickstart-create-cluster-portal.md
+  - name: Train an AI model - CLI
+    href: quickstart-tensorflow-training-cli.md
+- name: Tutorials
+  items:
+  - name: Distributed training using Horovod
+    href: tutorial-horovod-tensorflow.md
+- name: Samples
+  items:
+  - name: Azure CLI
+    href: cli-samples.md
+- name: Concepts
+  items:
+  - name: Batch AI resources
+    href: resource-concepts.md
+  - name: Batch AI quotas and limits
+    href: quota-limits.md
 - name: How-to guides
   items:
+  - name: Work with clusters
+    href: clusters.md
+  - name: Use Azure storage
+    href: use-azure-storage.md
+  - name: Train a model using Python SDK
+    href: cntk-training-python.md
   - name: Migrate to updated API
     href: migrate-to-new-api.md
 - name: Reference

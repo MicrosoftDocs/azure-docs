@@ -1,5 +1,5 @@
 ---
-title: Tutorial:Create and manage a Standard Load Balancer - Azure portal | Microsoft Docs
+title: Tutorial:Load balance internet traffic to VMs - Azure portal | Microsoft Docs
 description: This tutorial shows how to create and manage a Standard Load Balancer by using the Azure portal.
 services: load-balancer
 documentationcenter: na
@@ -20,9 +20,9 @@ ms.author: kumud
 ms.custom: mvc
 ---
 
-# Tutorial: Create and manage Standard Load Balancer using the Azure portal
+# Tutorial: Load balance internet traffic to VMs using the Azure portal
 
-Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure Standard Load Balancer that distribute traffic and provide high availability. You learn how to:
+Load balancing provides a higher level of availability and scale by spreading incoming requests across multiple virtual machines. In this tutorial, you learn about the different components of the Azure Standard Load Balancer that distribute internet traffic to VMs and provide high availability. You learn how to:
 
 
 > [!div class="checklist"]
@@ -133,7 +133,7 @@ In this section, you create a NSG rule to allow inbound connections using HTTP.
 
 ## Create load balancer resources
 
-In this section, you  configure load balancer settings for a backend address pool, a health probe, and specify a  balancer rule.
+In this section, you configure load balancer settings for a backend address pool, a health probe, and specify a balancer rule.
 
 ### Create a backend address pool
 
@@ -200,11 +200,11 @@ To add *myVM1* back to the backend pool, follow the procedure in the *Add VMs to
 
 ## Clean up resources
 
-When no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
+When they are no longer needed, delete the resource group, load balancer, and all related resources. To do so, select the resource group that contains the load balancer and click **Delete**.
 
 ## Next steps
 
-In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also, removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
+In this tutorial, you created a Standard Load Balancer, attached VMs to it, configured the load balancer traffic rule, health probe, and then tested the load balancer. You also removed a VM from the load-balanced set, and added the VM back to the backend address pool. To learn more about Azure Load Balancer, continue to the tutorials for Azure Load Balancer.
 
 > [!div class="nextstepaction"]
 > [Azure Load Balancer tutorials](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

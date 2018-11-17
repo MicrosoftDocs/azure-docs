@@ -114,7 +114,7 @@ To add the claims exchange to the self-asserted technical profile:
 
 1. Open the TrustFrameworkBase.xml file and search for `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Review the configuration of this technical profile. Observe how the exchange with the user is defined as claims that will be asked of the user (input claims) and claims that will be expected back from the self-asserted provider (output claims).
-3. Search for `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, and notice that this profile is invoked as orchestration step 4 of `<UserJourney Id="ProfileEdit">`.
+3. Search for `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, and notice that this profile is invoked as orchestration step 5 of `<UserJourney Id="ProfileEdit">`.
 
 ## Step 4: Upload and test the profile edit RP policy file
 

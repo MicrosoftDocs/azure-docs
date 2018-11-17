@@ -3,15 +3,11 @@ title: Overview of function types and features for Durable Functions  - Azure
 description: Learn the types of functions and roles that allow for function-to-function communication as part of a durable function orchestration.
 services: functions
 author: jeffhollan
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords:
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/04/2018
 ms.author: azfuncdf
 ---

@@ -23,7 +23,7 @@
     href: ruby.md
 - name: SDK Quickstarts
   items:
-  - name: SDK samples overview 
+  - name: SDK samples overview
     href: sdk.md
   - name: News Search SDK C# quickstart
     href: news-search-sdk-quickstart.md
@@ -31,7 +31,7 @@
     href: news-search-sdk-node-quickstart.md
   - name: News Search SDK Python quickstart
     href: news-sdk-python-quickstart.md
-  - name: News Search SDK Java quickstart  
+  - name: News Search SDK Java quickstart
     href: news-sdk-java-quickstart.md
 - name: Tutorials
   items:
@@ -63,8 +63,8 @@
   items:
   - name: Bing News Search API v7
     href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference
-  - name: Bing News Search API v5 
-    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference  
+  - name: Bing News Search API v5
+    href: https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference
 - name: Resources
   items:
   - name: Pricing
@@ -85,7 +85,7 @@
     href: https://dev.cognitive.microsoft.com/docs/services/56b43f72cf5ff8098cef380a/operations/56f02400dbe2d91900c68553
   - name: Bing News Search endpoints
     href: endpoint-news.md
-  - name: Supported countries and markets
-    href: supported-countries-markets.md
+  - name: Language and region support
+    href: language-support.md
   - name: Analytics for Bing News Search API
     href: bing-news-stats.md

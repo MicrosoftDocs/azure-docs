@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
 
 ---
@@ -30,7 +30,7 @@ You must subscribe to an offer that includes the Azure Key Vault service.
 
 1. Sign in to the [user portal](https://portal.local.azurestack.external).
 
-2. From the dashboard, select **New** > **Security + Identity** > **Key Vault**.
+2. From the dashboard, select **+ Create a resource** > **Security + Identity** > **Key Vault**.
 
     ![Key Vault screen](media/azure-stack-kv-manage-portal/image1.png)
 

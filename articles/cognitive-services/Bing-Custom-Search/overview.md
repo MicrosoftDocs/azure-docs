@@ -1,15 +1,18 @@
 ---
-title: What is Bing Custom Search? | Microsoft Docs
-description: Provides a high-level overview of Bing Custom Search
+title: What is Bing Custom Search?
+titlesuffix: Azure Cognitive Services
+description: Provides a high-level overview of Bing Custom Search.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: overview
 ms.date: 09/29/2017
 ms.author: v-brapel
 ---
+
 # What is Bing Custom Search?
 
 Bing Custom Search enables you to create tailored search experiences for topics that you care about. For example, if you own a website that provides a search experience, you can specify the domains, websites, and webpages that Bing searches. Your users see search results tailored to the content they care about instead of having to page through search results that have irrelevant content.
@@ -22,20 +25,36 @@ After defining your instance, you can integrate custom search into your website,
 
 The following image shows the simplicity of the custom search integration.
 
-![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
+![picture alt](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/Bing-Custom-Search/media/BCS-Overview.png "How Bing Custom Search works.")
 
-## Customize search suggestions
+## Adding custom search box suggestions
 
-If you subscribed to Custom Search at the appropriate level (see the [pricing pages](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)), you can customize the search suggestions made in your Custom Search experience. The Custom Autosuggest API returns a list of suggested queries based on a partial query string that the user provides. With Custom Autosuggest, you provide custom search suggestions relevant to your search experience. You specify whether to return only custom suggestions or to include Bing suggestions. If Bing suggestions are included, custom suggestions appear before the suggestions Bing provides. Bing suggestions are restricted to the context of your Custom Search instance.
+You can enrich your custom search experience with custom search box suggestions. This feature lets you provide custom search suggestions relevant to your search experience. As the user types in the search box, the dropdown list contains suggested query strings based on the user's partial query string. You can specify whether to return only your custom suggestions or also include Bing suggestions. [Read more](define-custom-suggestions.md).
+
+## Adding custom image search experience
+
+You can enrich your custom search experience with images. Similar to web results, custom search supports searching for images in your instance's list of websites. [Read more](get-images-from-instance.md).
+
+## Adding custom video search experience
+
+You can enrich your custom search experience with videos. Similar to web results, custom search supports searching for videos in your instance's list of websites. [Read more](get-videos-from-instance.md).
+
+## Sharing your custom search instance with others
+
+You can easily allow collaborative editing and testing of your instance by sharing it with members of your team. [Read more](share-your-custom-search.md).
 
 ## Next steps
 
 To get started quickly, see [Create your first Bing Custom Search instance](quick-start.md).
 
-For details about available options to customize your search instance, see [Define a custom search instance](define-your-custom-view.md).
+For details about customizing your search instance, see [Define a custom search instance](define-your-custom-view.md).
 
-Familiarize yourself with the [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference) reference. The reference contains the list of endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects.
+Familiarize yourself with the reference content for each of the custom search endpoints. The reference contains the endpoints, headers, and query parameters that you'd use to request search results. It also includes definitions of the response objects.
 
-To learn how to customize suggestions, see [Define custom search suggestions](define-custom-suggestions.md).
+- [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
+- [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
+- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
+
 
 Be sure to read [Bing Use and Display Requirements](./use-and-display-requirements.md) so you don't break any of the rules about using the search results.

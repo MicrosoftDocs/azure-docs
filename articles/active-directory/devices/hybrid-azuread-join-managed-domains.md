@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/25/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -66,7 +66,7 @@ Hybrid Azure AD join requires the devices to have access to the following Micros
 - https://device.login.microsoftonline.com
 - https://autologon.microsoftazuread-sso.com (If you are using or planning to use Seamless SSO)
 
-If your organization requires access to the Internet via an outbound proxy, starting with Windows 10 1709, you can configure proxy settings on your computer using a group policy object (GPO). If your computer is running anything older than Windows 10 1709, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to do device registration with Azure AD. 
+If your organization requires access to the Internet via an outbound proxy, starting with Windows 10 1709, you can [configure proxy settings on your computer using a group policy object (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). If your computer is running anything older than Windows 10 1709, you must implement Web Proxy Auto-Discovery (WPAD) to enable Windows 10 computers to do device registration with Azure AD. 
 
 If your organization requires access to the Internet via an authenticated outbound proxy, you must make sure that your Windows 10 computers can successfully authenticate to the outbound proxy. Because Windows 10 computers run device registration using machine context, it is necessary to configure outbound proxy authentication using machine context. Follow up with your outbound proxy provider on the configuration requirements. 
 
@@ -138,6 +138,9 @@ If some of your domain-joined devices are Windows down-level devices, you need t
  
 - Configure the local intranet settings for device registration
 
+- Control Windows down-level devices 
+
+
 ### Update device settings 
 
 To register Windows down-level devices, you need to make sure that the device settings to allow users to register devices in Azure AD are set. In the Azure portal, you can find this setting  under:
@@ -154,13 +157,19 @@ The following policy must be set to **All**: **Users may register their devices 
 
 ### Configure the local intranet settings for device registration
 
-To successfully complete hybrid Azure AD join of your Windows down-level devices, and to avoid certificate prompts when devices authenticate authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URLs to the Local Intranet zone in Internet Explorer:
+To successfully complete hybrid Azure AD join of your Windows down-level devices, and to avoid certificate prompts when devices authenticate to Azure AD you can push a policy to your domain-joined devices to add the following URLs to the Local Intranet zone in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 
 - `https://autologon.microsoftazuread-sso.com`.
 
 Additionally, you need to enable **Allow updates to status bar via script** in the user’s local intranet zone.
+
+
+### Control Windows down-level devices 
+
+To register Windows down-level devices, you need to download and install a Windows Installer package (.msi) from the Download Center. For more information, click [here](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 ## Verify the registration
 
@@ -170,7 +179,7 @@ When using the **Get-MSolDevice** cmdlet to check the service details:
 
 - An object with the **device id** that matches the ID on the Windows client must exist.
 - The value for **DeviceTrustType** must be **Domain Joined**. This is equivalent to the **Hybrid Azure AD joined** state on the Devices page in the Azure AD portal.
-- The value for **Enabled** must be **True** for devices that are used in conditional access. 
+- The value for **Enabled** must be **True** and **DeviceTrustLevel** must be **Managed** for devices that are used in conditional access. 
 
 
 **To check the service details:**

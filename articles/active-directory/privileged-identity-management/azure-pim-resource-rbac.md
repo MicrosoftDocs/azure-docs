@@ -34,11 +34,11 @@ With Azure Active Directory Privileged Identity Management (PIM), you can manage
 
 ## View activation and Azure resource activity
 
-In the event you need to see what actions a specific user took on various resources, you can review the Azure Resource activity associated with a given activation period (for eligible users). Start by selecting a user from the Members view or from the list of members in a specific role. The result displays a graphical view of the user’s actions on Azure Resources by date, and the recent role activations over that same time period.
+In the event you need to see what actions a specific user took on various resources, you can review the Azure resource activity associated with a given activation period (for eligible users). Start by selecting a user from the Members view or from the list of members in a specific role. The result displays a graphical view of the user’s actions on Azure resources by date, and the recent role activations over that same time period.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-Selecting a specific role activation will show the role activation details, and corresponding Azure Resource activity that occurred while that user was active.
+Selecting a specific role activation will show the role activation details, and corresponding Azure resource activity that occurred while that user was active.
 
 ![](media/azure-pim-resource-rbac/audits.png)
 
