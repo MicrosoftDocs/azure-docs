@@ -1,6 +1,6 @@
 ---
-title: Create Azure Web Apps using Ansible (Preview)
-description: Learn how to use Ansible create a Web App with Java 8 and Tomcat container runtime in App Service on Linux
+title: Create Azure web apps by using Ansible (preview)
+description: Learn how to use Ansible to create a web app with Java 8 and the Tomcat container runtime in App Service on Linux
 ms.service: ansible
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 author: tomarcher
@@ -10,22 +10,22 @@ ms.topic: tutorial
 ms.date: 09/20/2018
 ---
 
-# Create Azure App Service Web Apps using Ansible (preview)
-[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview)  (or just Web Apps) is a service for hosting web applications, REST APIs, and mobile back ends. You can develop in your favorite language, be it .NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
+# Create Azure App Service web apps by using Ansible (preview)
+[Azure App Service Web Apps](https://docs.microsoft.com/azure/app-service/app-service-web-overview) (or just Web Apps) hosts web applications, REST APIs, and mobile back ends. You can develop in your favorite language&mdash;.NET, .NET Core, Java, Ruby, Node.js, PHP, or Python.
 
-Ansible allows you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a Web App with Java runtime. 
+Ansible enables you to automate the deployment and configuration of resources in your environment. This article shows you how to use Ansible to create a web app by using the Java runtime. 
 
 ## Prerequisites
 - **Azure subscription** - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
 
 > [!Note]
-> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You could install Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. Ansible 2.7 will be released on Oct of 2018. After that, you need not specify the version here because the default version will be 2.7. 
+> Ansible 2.7 is required to run the following the sample playbooks in this tutorial. You can install the Ansible 2.7 RC version by running `sudo pip install ansible[azure]==2.7.0rc2`. After Ansible 2.7 is released, you won't need to specify a version here because the default version will be 2.7. 
 
 ## Create a simple App service
 This section presents a sample Ansible playbook that defines the following resources:
-- Resource group, where your app service plan and web app will be deployed to
-- Web App, a Web App with Java 8 and Tomcat container runtime in App Service on Linux
+- Resource group, where your App Service plan and web app will be deployed to
+- Web app with Java 8 and the Tomcat container runtime in App Service on Linux
 
 ```
 - hosts: localhost
@@ -57,14 +57,14 @@ This section presents a sample Ansible playbook that defines the following resou
               java_container: tomcat
               java_container_version: 8.5
 ```
-Save above playbook as firstwebapp.yml.
+Save the preceding playbook as **firstwebapp.yml**.
 
 To run the playbook,  use the **ansible-playbook** command as follows:
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-The output from running the Ansible playbook shows that the Web app has been successfully created:
+The output from running the Ansible playbook shows that the web app was successfully created:
 
 ```
 TASK [Create a resource group] *************************************************
@@ -79,19 +79,19 @@ PLAY RECAP *********************************************************************
 localhost                  : ok=2    changed=2    unreachable=0    failed=0   
 ```
 
-## Create App Service with Traffic Manager
-You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Azure Traffic Manager keeps track of the status of your App Service apps (running, stopped, or deleted) so that it can decide which of those endpoints should receive traffic.
+## Create an app service by using Traffic Manager
+You can use [Azure Traffic Manager](https://docs.microsoft.com/azure/app-service/web-sites-traffic-manager) to control how requests from web clients are distributed to apps in Azure App Service. When App Service endpoints are added to an Azure Traffic Manager profile, Traffic Manager tracks the status of your App Service apps. Statuses include running, stopped, and deleted. Traffic Manager can then decide which of those endpoints should receive traffic.
 
 In App Service, an app runs in an [App Service plan](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview
-). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and Web App in different groups.
+). An App Service plan defines a set of compute resources for a web app to run. You can manage your App Service plan and web app in different groups.
 
 This section presents a sample Ansible playbook that defines the following resources:
 - Resource group, where your app service plan will be deployed to
-- App Service Plan
-- Secondary Resource group, where your web app will be deployed to
-- Web App, a Web App with Java 8 and Tomcat container runtime in App Service on Linux
-- Traffic Manager Profile
-- Traffic Manager endpoint, using created website
+- App Service plan
+- Secondary resource group, where your web app will be deployed to
+- Web app with Java 8 and the Tomcat container runtime in App Service on Linux
+- Traffic Manager profile
+- Traffic Manager endpoint, using the created website
 
 ```
 - hosts: localhost
@@ -174,14 +174,14 @@ This section presents a sample Ansible playbook that defines the following resou
       target_resource_id: "{{ webapp.webapps[0].id }}"
 
 ```
-Save above playbook as webapp.yml, or [download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
+Save the preceding playbook as **webapp.yml**, or [download the playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/webapp.yml).
 
 To run the playbook,  use the **ansible-playbook** command as follows:
 ```bash
 ansible-playbook webapp.yml
 ```
 
-The output from running the Ansible playbook shows that the App service plan, Web app, Traffic Manager profile, and endpoint have been successfully created:
+The output from running the Ansible playbook shows that the App service plan, web app, Traffic Manager profile, and endpoint were successfully created:
 ```
 TASK [Create resource group] ****************************************************************************
 changed: [localhost]

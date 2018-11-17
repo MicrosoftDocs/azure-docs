@@ -9,9 +9,9 @@ ms.devlang:
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: carlrab, jovanpop
+ms.reviewer: carlrab, jovanpop, sachinp
 manager: craigg
-ms.date: 10/04/2018
+ms.date: 10/17/2018
 ---
 # Overview Azure SQL Database Managed Instance resource limits
 
@@ -135,6 +135,7 @@ To initiate the process of obtaining a larger quota:
      > - Region in which subscription limit needs to be increased
      > - Required number of instances, per service tier in existing subnets after the quota increase (if any of the existing subnets needs to be expanded
      > - Required number of new subnets and total number of instances per service tier within the new subnets (if you need to deploy managed instances in new subnets).
+     
 5. Click **Next**.
 6. On the Contact Information tab for the new support request, enter preferred contact method (email or phone) and the contact details.
 7. Click **Create**.

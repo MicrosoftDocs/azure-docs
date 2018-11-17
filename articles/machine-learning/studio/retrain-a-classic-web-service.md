@@ -4,7 +4,8 @@ description: Learn how to programmatically retrain a model and update the web se
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 
@@ -47,7 +48,7 @@ There are two ways in which you can add a new end point to a web service:
 2. Use the Microsoft Azure Web Services portal
 
 ### Programmatically add an endpoint
-You can add scoring endpoints using the sample code provided in this [github repository](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
+You can add scoring endpoints using the sample code provided in this [github repository](https://github.com/hning86/azuremlps#add-amlwebserviceendpoint).
 
 ### Use the Microsoft Azure Web Services portal to add an endpoint
 1. In Machine Learning Studio, on the left navigation column, click Web Services.

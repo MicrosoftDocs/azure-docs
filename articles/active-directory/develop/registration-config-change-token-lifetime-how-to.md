@@ -23,17 +23,14 @@ ms.author: celested
 
 Azure AD Premium allows app developers and tenant admins to configure the lifetime of tokens issued for non-confidential clients. Token lifetime policies are set on a tenant-wide basis or the resources being accessed.
 
- * To set a token lifetime policy, you need to download the [Azure AD PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview).
+1. To set a token lifetime policy, you need to download the [Azure AD PowerShell Module](https://www.powershellgallery.com/packages/AzureADPreview).
+1. Run the **Connect-AzureAD -Confirm** command.
 
- * Run the **Connect-AzureAD -Confirm** command.
-
- * Here’s an example policy that sets the max age single factor refresh token. Create the policy: 
+    Here’s an example policy that sets the max age single factor refresh token. Create the policy:
   ```New-AzureADPolicy -Definition @('{"TokenLifetimePolicy":{"Version":1, "MaxAgeSingleFactor":"until-revoked"}}') -DisplayName "OrganizationDefaultPolicyScenario" -IsOrganizationDefault $true -Type "TokenLifetimePolicy"```
 
- * Checkout the [Configuring token lifetime](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)   document to learn how to create other custom.
-
 ## Next steps
-[Configuring Token Lifetime](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)<br>
 
-[Azure AD Token Reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
+* See [Configurable token lifetimes in Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes) to learn how to configure token lifetimes issued by Azure AD, including how to set token lifetimes for all apps in your organization, for a multi-tenant app, or for a specific service principal in your organization. 
+* [Azure AD Token Reference](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
 

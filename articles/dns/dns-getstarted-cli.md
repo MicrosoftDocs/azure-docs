@@ -13,9 +13,9 @@ ms.author: victorh
 
 This article walks you through the steps to create your first DNS zone and record using Azure CLI, which is available for Windows, Mac and Linux. You can also perform these steps using the [Azure portal](dns-getstarted-portal.md) or [Azure PowerShell](dns-getstarted-powershell.md).
 
-A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally,to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described below.
+A DNS zone is used to host the DNS records for a particular domain. To start hosting your domain in Azure DNS, you need to create a DNS zone for that domain name. Each DNS record for your domain is then created inside this DNS zone. Finally, to publish your DNS zone to the Internet, you need to configure the name servers for the domain. Each of these steps is described below.
 
-Azure DNS now also supports private DNS zones (currently in public preview). To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example of how to create a private DNS zone, see [Get started with Azure DNS private zones using CLI](./private-dns-getstarted-cli.md).
+Azure DNS now also supports private DNS zones (currently in public preview). To learn more about private DNS zones, see [Using Azure DNS for private domains](private-dns-overview.md). For an example on how to create a private DNS zone, see [Get started with Azure DNS private zones using CLI](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -41,9 +41,9 @@ az network dns zone create -g MyResourceGroup -n contoso.com
 
 ## Create a DNS record
 
-To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help, for A records for example, see `azure network dns record-set A add-record -h`.
+To create a DNS record, use the `az network dns record-set [record type] add-record` command. For help on A records, see `azure network dns record-set A add-record -h`.
 
-The following example creates a record with the relative name "www" in the DNS Zone "contoso.com", in resource group "MyResourceGroup". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", with IP address "1.2.3.4", and a default TTL of 3600 seconds (1 hour) is used.
+The following example creates a record with the relative name "www" in the DNS Zone "contoso.com" in the resource group "MyResourceGroup". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", with IP address "1.2.3.4", and a default TTL of 3600 seconds (1 hour).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
@@ -51,7 +51,7 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 
 ## View records
 
-To list the DNS records in your zone, use:
+To list the DNS records in your zone, run:
 
 ```azurecli
 az network dns record-set list -g MyResourceGroup -z contoso.com
@@ -59,7 +59,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.com
 
 ## Update name servers
 
-Once you are satisfied that your DNS zone and records have been set up correctly, you need to configure your domain name to use the Azure DNS name servers. This enables other users on the Internet to find your DNS records.
+Once you are satisfied that your DNS zone and records have been set up correctly, you need to configure your domain name to use the Azure DNS name servers enabling other users on the Internet to find your DNS records.
 
 The name servers for your zone are given by the `az network dns zone show` command. To see the name server names, use JSON output, as shown in the following example.
 

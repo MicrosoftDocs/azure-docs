@@ -2,13 +2,12 @@
 title: Container instance logging with Azure Log Analytics
 description: Learn how to send container output (STDOUT and STDERR) to Azure Log Analytics.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 
 ms.service: container-instances
 ms.topic: overview
 ms.date: 07/17/2018
-ms.author: marsma
+ms.author: danlep
 ---
 # Container instance logging with Azure Log Analytics
 
@@ -96,7 +95,7 @@ You should receive a response from Azure containing deployment details shortly a
 
 After you've deployed the container group, it can take several minutes (up to 10) for the first log entries to appear in the Azure portal. To view the container group's logs, open your Log Analytics workspace, then:
 
-1. In the **OMS Workspace** overview, select **Log Search**
+1. In the **OMS workspace** overview, select **Log Search**. OMS workspaces are now referred to as Log Analytics workspaces.  
 1. Under **A few more queries to try**, select the **All collected data** link
 
 You should see several results displayed by the `search *` query. If at first you don't see any results, wait a few minutes, then select the **RUN** button to execute the query again. By default, log entries are displayed in "List" view--select **Table** to see the log entries in a more condensed format. You can then expand a row to see the contents of an individual log entry.
@@ -131,7 +130,8 @@ ContainerInstanceLog_CL
 For more information about querying logs and configuring alerts in Azure Log Analytics, see:
 
 * [Understanding log searches in Log Analytics](../log-analytics/log-analytics-log-search.md)
-* [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md)
+* [Unified alerts in Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md)
+
 
 ### Monitor container CPU and memory
 

@@ -1,7 +1,7 @@
 ---
-title: "Quickstart: Java Update knowledge base - QnA Maker"
+title: "Quickstart: Update knowledge base - REST, Java - QnA Maker"
 titleSuffix: Azure Cognitive Services
-description: How to update a knowledge base in Java for QnA Maker.
+description: This REST-based quickstart walks you through updating your sample QnA Maker knowledge base (KB), programmatically. The JSON definition you use to update a KB allows you to add, change or delete question and answer pairs. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -9,13 +9,19 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
 ---
 
-# Update a knowledge base in Java
+# Quickstart: Update a knowledge base in QnA Maker using Java
 
-The following code updates an existing knowledge base, using the [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) method.
+This quickstart walks you through programmatically updating an existing QnA Maker knowledge base (KB).  This JSON allows you to update a KB by adding new data sources, changing data sources, or deleting data sources.
+
+This API is equivalent to editing, then using the **Save and train** button in the QnA Maker portal.
+
+This quickstart calls QnA Maker APIs:
+* [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) - The model for the knowledge base is defined in the JSON sent in the body of the API request. 
+* [Get Operation Details](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 
@@ -28,7 +34,7 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-1. You'll need the [apache httpclient](http://hc.apache.org/downloads.cgi) library. For example, download the binary HttpClient 4.x.x.tar.gz to find all the jar files you need for importing into your project.
+1. You'll need the [apache httpclient](https://hc.apache.org/downloads.cgi) library. For example, download the binary HttpClient 4.x.x.tar.gz to find all the jar files you need for importing into your project.
 1. The [GSON](https://github.com/google/gson) library is also needed. Either by manually [creating](https://stackoverflow.com/questions/5258159/how-to-make-an-executable-jar-file) & importing the .jar file or adding a dependency to your preferred project management tool, such as Maven.
 1. Run the program.
 
@@ -57,7 +63,7 @@ import com.google.gson.reflect.TypeToken;
 
 /**
  * Java does not natively support HTTP PATCH requests; Apache HttpClient is required.
- * HttpClient: http://hc.apache.org/downloads.cgi
+ * HttpClient: https://hc.apache.org/downloads.cgi
  * Maven info:
  *    <dependency>
  *      <groupId>org.apache.httpcomponents</groupId>
@@ -211,14 +217,14 @@ public class UpdateKB {
         // HttpPatch implements HttpMessage, which includes addHeader.
         // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/
         // apache/http/client/methods/HttpPatch.html">HttpPatch</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpMessage.html">HttpMessage</a>
         patch.addHeader("Content-Type", "application/json");
         // Note: Adding the Content-Length header causes the exception:
         // "Content-Length header already present."
         patch.addHeader("Ocp-Apim-Subscription-Key", subscriptionKey);
         // HttpPatch implements HttpEntityEnclosingRequest, which includes setEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpEntityEnclosingRequest.html">HttpEntityEnclosingRequest</a>
         HttpEntity entity = new ByteArrayEntity(content.getBytes("UTF-8"));
         patch.setEntity(entity);
@@ -230,9 +236,9 @@ public class UpdateKB {
         // See: <a href="https://hc.apache.org/httpcomponents-client-ga/httpclient/apidocs/org/apache/http/
         // client/methods/CloseableHttpResponse.html">CloseableHttpResponse</a>
         // Header implements NameValuePair.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/Header.html">
         // Header</a>
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // NameValuePair.html">NameValuePair</a>
         Map<String, List<String>> headers = new HashMap<String, List<String>>();
         for (Header header : response.getAllHeaders()) {
@@ -245,10 +251,10 @@ public class UpdateKB {
         }
 
         // CloseableHttpResponse implements HttpResponse, which includes getEntity.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpResponse.html">HttpResponse</a>
         // HttpEntity implements getContent, which returns an InputStream.
-        // See: <a href="http://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
+        // See: <a href="https://hc.apache.org/httpcomponents-core-ga/httpcore/apidocs/org/apache/http/
         // HttpEntity.html">HttpEntity</a>
         StringBuilder output = new StringBuilder ();
         BufferedReader reader = new BufferedReader(new InputStreamReader(response.getEntity()
@@ -266,7 +272,7 @@ public class UpdateKB {
      * Sends the request to update the knowledge base.
      * @param kb The ID for the existing knowledge base
      * @param req The data source for the updated knowledge base
-     * @return Reponse Returns the response from a PATCH request
+     * @return Response Returns the response from a PATCH request
      */
     public static Response UpdateKB (String kb, Request req) throws Exception {
         URL url = new URL(host + service + method + kb);
@@ -308,8 +314,8 @@ public class UpdateKB {
 
         req.add = new Add ();
         req.add.qnaList = new Question[]{q};
-        req.add.urls = new String[]{"https://docs.microsoft.com/en-in/azure/cognitive-services"
-        + "/qnamaker/faqs", "https://docs.microsoft.com/en-us/bot-framework/resources-bot-"
+        req.add.urls = new String[]{"https://docs.microsoft.com/azure/cognitive-services"
+        + "/qnamaker/faqs", "https://docs.microsoft.com/bot-framework/resources-bot-"
         + "framework-faq"};
 
         return req;

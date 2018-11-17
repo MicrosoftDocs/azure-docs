@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 
@@ -169,23 +169,25 @@ Use these commands to set the contained database authentication server option fo
    > You can't mix standalone servers with Always On instances in the same SKU. Attempting to mix types after adding the first hosting server results in an error.
 
 ## SKU notes
-
-You can use SKUs to differentiate service offerings. For example, you can have a SQL Enterprise instance that has the following characteristics:
+Use a SKU name that describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU. For example, you can use SKU names to differentiate service offerings by the following characteristics:
   
 * high capacity
 * high-performance
 * high availability
 
-SKUs can't be assigned to specific users or groups in this release.
-
- SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
-
->[!TIP]
->Use a SKU name that reflects describes the capabilities of the servers in the SKU, such as capacity and performance. The name serves as an aid to help users deploy their databases to the appropriate SKU.
-
 As a best practice, all the hosting servers in a SKU should have the same resource and performance characteristics.
 
-## Make the SQL databases available to users
+SKUs can't be assigned to specific users or groups.
+
+SKUs can take up to an hour to be visible in the portal. Users can't create a database until the SKU is fully created.
+
+To edit a SKU, go to **All services** > **SQL Adapter** > **SKUs**. Select the SKU to modify, make any necessary changes, and click **Save** to save changes. 
+To delete a SKU that is no longer needed, go to **All services** > **SQL Adapter** > **SKUs**. Right-click the SKU name and select **Delete** to delete it.
+
+> [!TIP]
+> You can edit or delete SQL resource provider quotas in the same location.
+
+## Make SQL databases available to users
 
 Create plans and offers to make SQL databases available for users. Add the **Microsoft.SqlAdapter** service to the plan and create a new quota.
 

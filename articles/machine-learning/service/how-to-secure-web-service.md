@@ -49,9 +49,8 @@ When requesting a certificate, you must provide the fully qualified domain name 
 > [!TIP]
 > If the Certificate Authority cannot provide the certificate and key as PEM-encoded files, you can use a utility such as [OpenSSL](https://www.openssl.org/) to change the format.
 
-> [!IMPORTANT]
-> Self-signed certificates should be used only for development. They should not be used in production. If you use a self-signed certificate, see the [Consuming web services with self-signed certificates](#self-signed) section for specific instructions.
-
+> [!WARNING]
+> Self-signed certificates should be used only for development. They should not be used in production. Self-signed certificates can cause problems in your client applications. For more information, see the documentation for the network libraries used in your client application.
 
 ## Enable SSL and deploy
 
@@ -77,7 +76,7 @@ To deploy (or re-deploy) the service with SSL enabled, set the `ssl_enabled` par
     aci_config = AciWebservice.deploy_configuration(ssl_enabled=True, ssl_cert_pem_file="cert.pem", ssl_key_pem_file="key.pem", ssl_cname="www.contoso.com")
     ```
 
-+ **Deploy on field programmable gamma arrays (FPGAs)**
++ **Deploy on Field Programmable Gate Arrays (FPGAs)**
 
   The response of the `create_service` operation contains the IP address of the service. The IP address is used when mapping the DNS name to the IP address of the service. The response also contains a __primary key__ and __secondary key__ that are used to consume the service. Provide values for SSL-related parameters as shown in the code snippet:
 
@@ -115,91 +114,8 @@ Next, you must update your DNS to point to the web service.
 
   Update the DNS under the "Configuration" tab of the "Public IP Address" of the AKS cluster as shown in the image. You can find the Public IP Address as one of the resource types created under the resource group that contains the AKS agent nodes and other networking resources.
 
-  [ ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png) ]((.media/how-to-secure-web-service/aks-public-ip-address.png#lightbox)
+  ![Azure Machine Learning service: Securing web services with SSL](./media/how-to-secure-web-service/aks-public-ip-address.png)self-
 
-## Consume authenticated services
+## Next steps
 
-### How to consume 
-+ **For ACI and AKS**: 
-
-  For ACI and AKS web services, learn how to consume web services in these articles:
-  + [How to deploy to ACI](how-to-deploy-to-aci.md)
-
-  + [How to deploy to AKS](how-to-deploy-to-aks.md)
-
-+ **For ACI and FPGA**:  
-
-  The following examples demonstrate how to consume an authenticated FPGA service in Python and C#.
-  Replace `authkey` with the primary or secondary key that was returned when the service was deployed.
-
-  Python example:
-    ```python
-    from amlrealtimeai import PredictionClient
-    client = PredictionClient(service.ipAddress, service.port, use_ssl=True, access_token="authKey")
-    image_file = R'C:\path_to_file\image.jpg'
-    results = client.score_image(image_file)
-    ```
-
-  C# example:
-    ```csharp
-    var client = new ScoringClient(host, 50051, useSSL, "authKey");
-    float[,] result;
-    using (var content = File.OpenRead(image))
-        {
-            IScoringRequest request = new ImageRequest(content);
-            result = client.Score<float[,]>(request);
-        }
-    ```
-
-### Set the authorization header
-Other gRPC clients can authenticate requests by setting an authorization header. The general approach is to create a `ChannelCredentials` object that combines `SslCredentials` with `CallCredentials`. This is added to the authorization header of the request. For more information on implementing support for your specific headers, see [https://grpc.io/docs/guides/auth.html](https://grpc.io/docs/guides/auth.html).
-
-The following examples demonstrate how to set the header in C# and Go:
-
-+ Use C# to set the header:
-    ```csharp
-    creds = ChannelCredentials.Create(baseCreds, CallCredentials.FromInterceptor(
-                          async (context, metadata) =>
-                          {
-                              metadata.Add(new Metadata.Entry("authorization", "authKey"));
-                              await Task.CompletedTask;
-                          }));
-    
-    ```
-
-+ Use Go to set the header:
-    ```go
-    conn, err := grpc.Dial(serverAddr, 
-        grpc.WithTransportCredentials(credentials.NewClientTLSFromCert(nil, "")),
-        grpc.WithPerRPCCredentials(&authCreds{
-        Key: "authKey"}))
-    
-    type authCreds struct {
-        Key string
-    }
-    
-    func (c *authCreds) GetRequestMetadata(context.Context, uri ...string) (map[string]string, error) {
-        return map[string]string{
-            "authorization": c.Key,
-        }, nil
-    }
-    
-    func (c *authCreds) RequireTransportSecurity() bool {
-        return true
-    }
-    ```
-
-<a id="self-signed"></a>
-
-## Consume services with self-signed certificates
-
-There are two ways to enable the client to authenticate to a server secured with a self-signed certificate:
-
-* On the client system, set the `GRPC_DEFAULT_SSL_ROOTS_FILE_PATH` environment variable on the client system to point to the certificate file.
-
-* When constructing an `SslCredentials` object, pass the contents of the certificate file to the constructor.
-
-Using either method causes gRPC to use the certificate as the root cert.
-
-> [!IMPORTANT]
-> gRPC does not accept untrusted certificates. Using an untrusted certificate will fail with an `Unavailable` status code. The details of the failure contain `Connection Failed`.
+Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).

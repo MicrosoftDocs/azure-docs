@@ -4,7 +4,8 @@ description: Discover and share collections in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.author: yahajiza
+ms.custom: (previous ms.author yahajiza)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 
@@ -19,10 +20,8 @@ ms.date: 03/31/2017
 
 ---
 # Discover and share collections in Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## Collections
-You can use a [collection](https://gallery.cortanaintelligence.com/collections) to group experiments, APIs, and other Gallery items that you use for a specific solution or concept. You can group them to use, to save for later reference, or to share.
+You can use a [collection](https://gallery.cortanaintelligence.com/collections) in [Azure AI Gallery](http://gallery.cortanaintelligence.com) to group experiments, APIs, and other Gallery items that you use for a specific solution or concept. You can group them to use, to save for later reference, or to share.
 
 ## Discover
 To browse collections [in the Gallery](http://gallery.cortanaintelligence.com), under **More**, select **Collections**.

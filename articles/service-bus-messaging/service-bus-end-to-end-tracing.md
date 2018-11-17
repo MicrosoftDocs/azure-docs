@@ -179,7 +179,7 @@ In every event, you can access `Activity.Current` that holds current operation c
 
 #### Logging additional properties
 
-`Activty.Current` provides detailed context of current operation and its parents. For more information, see [Activity documentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) for more details.
+`Activity.Current` provides detailed context of current operation and its parents. For more information, see [Activity documentation](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) for more details.
 Service Bus instrumentation provides additional information in the `Activity.Current.Tags` - they hold `MessageId` and `SessionId` whenever they are available.
 
 Activities that track 'Receive', 'Peek' and 'ReceiveDeferred' event also may have `RelatedTo` tag. It holds distinct list of `Diagnostic-Id`(s) of messages that were received as a result.
@@ -225,7 +225,6 @@ In presence of multiple `DiagnosticSource` listeners for the same source, it's e
 
 ## Next steps
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
 * [Application Insights Correlation](../application-insights/application-insights-correlation.md)
 * [Application Insights Monitor Dependencies](../application-insights/app-insights-asp-net-dependencies.md) to see if REST, SQL, or other external resources are slowing you down.
 * [Track custom operations with Application Insights .NET SDK](../application-insights/application-insights-custom-operations-tracking.md)

@@ -1,9 +1,11 @@
 ---
-title: Introduction to acoustics - Cognitive Services
+title: What is Project Acoustics?
+titlesuffix: Azure Cognitive Services
 description: The Project Acoustics Unity plugin provides occlusion, reverberation, and spatialization for projects targeting VR and traditional screens.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: acoustics
 ms.topic: overview

@@ -84,7 +84,7 @@ For each type of alert, there are different alert conditions that need to be def
 
 #### Log Analytics query alert
 
-For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments, you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrators update deployments fails. You can write a custom query for additional alerts to cover many different scenarios.
+For successful deployments, you can create an alert based on a Log Analytics query. For failed deployments, you can use the [Runbook alert](#runbook-alert) steps to alert when the master runbook that orchestrates update deployments fails. You can write a custom query for additional alerts to cover many different scenarios.
 
 In the Azure portal, go to **Monitor**, and then select **Create Alert**.
 
@@ -110,7 +110,7 @@ Under **Alert logic**, for **Threshold**, enter **1**. When you're finished, sel
 
 #### Runbook alert
 
-For failed deployments you must alert of the failure of the master run
+For failed deployments you must alert on the failure of the master runbook.
 In the Azure portal, go to **Monitor**, and then select **Create Alert**.
 
 Under **1. Define alert condition**, click **Select target**. Under **Filter by resource type**, select **Automation Accounts**. Select your Automation Account, and then select **Done**.
@@ -189,6 +189,9 @@ When you're finished configuring the schedule, select **Create**.
 ![Update Schedule Settings pane](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
 You're returned to the status dashboard. Select **Scheduled Update deployments** to show the deployment schedule you created.
+
+> [!NOTE]
+> Update Management supports deploying first party updates and pre-downloading patches. This requires changes on the systems being patched, see [first party and pre-download support](automation-update-management.md#firstparty-predownload) to learn how to configure these settings on your systems.
 
 ## View results of an update deployment
 

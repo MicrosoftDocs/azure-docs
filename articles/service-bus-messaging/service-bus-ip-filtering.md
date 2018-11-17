@@ -46,6 +46,9 @@ For example, if you want to accept addresses in the range 70.37.104.0/24 and rej
 
 ### Creating a virtual network rule with Azure Resource Manager templates
 
+> ![IMPORTANT]
+> Virtual Networks are supported only in the **premium** tier of Service Bus.
+
 The following Resource Manager template enables adding a virtual network rule to an existing Service Bus namespace.
 
 Template parameters:

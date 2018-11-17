@@ -143,6 +143,8 @@ Follow the instructions in the [Bind an existing custom SSL certificate](/azure/
 >[!NOTE]
 > If your application uses the Spring Framework or Spring Boot, you can set database connection information for Spring Data JPA as environment variables [in your application properties file]. Then use [app settings](/azure/app-service/web-sites-configure#app-settings) to define these values for your application in the Azure portal or CLI.
 
+The example configuration snippets in this section use MySQL database. For additional information, see the configuration docs for [MySQL](https://dev.mysql.com/doc/connector-j/8.0/en/connector-j-usagenotes-tomcat.html) , [SQL Server JDBC](https://docs.microsoft.com/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server?view=sql-server-2017), and [PostgreSQL](https://jdbc.postgresql.org/documentation/head/index.html).
+
 To configure Tomcat to use managed connections to databases using Java Database Connectivity (JDBC) or the Java Persistence API (JPA), first 
 customize the CATALINA_OPTS environment variable read in by Tomcat at start up. Set these values through an app setting in App Service Maven plugin:
 
@@ -213,20 +215,24 @@ For shared server-level resources:
 
 4. Ensure that the JDBC driver files are available to the Tomcat classloader by placing them in the `/home/tomcat/lib` directory. To upload these files to your App Service instance, perform the following steps:  
     1. Install the Azure App Service webpp extension:
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. Run the following CLI command to create a SSH tunnel from your local system to App Service:
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. Connect to the local tunneling port with your SFTP client and upload the files to `/home/tomcat/lib`.
+
+    3. Connect to the local tunneling port with your SFTP client and upload the files to the `/home/tomcat/lib` folder.
 
 5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat` and use the updated configuration and classes.
 
 ## Docker containers
 
-To use the Azure-supported Zulu JDK in your containers, make sure to pull and use the pre-built images listed on [Azul's download page](https://www.azul.com/downloads/azure-only/zulu/#docker) or use the `Dockerfile` examples from the [Microsoft Java GitHub repo](https://github.com/Microsoft/java/tree/master/docker).
+To use the Azure-supported Zulu JDK in your containers, make sure to pull and use the pre-built images as documented from the [supported Azul Zulu Enterprise for Azure download page](https://www.azul.com/downloads/azure-only/zulu/) or use the `Dockerfile` examples from the [Microsoft Java GitHub repo](https://github.com/Microsoft/java/tree/master/docker).
 
 ## Runtime availability and statement of support
 

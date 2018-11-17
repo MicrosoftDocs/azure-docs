@@ -1,17 +1,18 @@
 ---
-title: PHP Quickstart for Azure Cognitive Services, Bing Entity Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Entity Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Entity Search API, PHP"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Entity Search API.
 services: cognitive-services
-documentationcenter: ''
 author: v-jaswel
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 11/28/2017
 ms.author: v-jaswel
 ---
-# Quickstart for Microsoft Bing Entity Search API with PHP 
-<a name="HOLTop"></a>
+# Quickstart for Bing Entity Search API with PHP
 
 This article shows you how to use the [Bing Entity Search](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) API with PHP.
 

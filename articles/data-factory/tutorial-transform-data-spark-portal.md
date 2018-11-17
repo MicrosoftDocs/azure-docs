@@ -146,7 +146,7 @@ You author two linked services in this section:
    
    e. For **Service principal id**, enter the ID of the service principal that has permission to create an HDInsight cluster. 
    
-      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+      This service principal needs to be a member of the Contributor role of the subscription or the resource group in which the cluster is created. For more information, see [Create an Azure Active Directory application and service principal](../active-directory/develop/howto-create-service-principal-portal.md).
    
    f. For **Service principal key**, enter the key. 
    

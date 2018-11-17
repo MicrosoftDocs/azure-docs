@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/01/2018
+ms.date: 11/14/2018
 ms.author: spelluru
 
 ---
@@ -77,7 +77,7 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
         > [!WARNING]
         > Once you publish, you can't unpublish. 
-    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see [Publish the template](how-to-manage-classroom-labs.md#publish-the-template) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
+    2. To publish later, select **Save for later**. You can publish the template VM after the wizard completes. For details on how to configure and publish after the wizard completes, see [Publish the template](how-to-create-manage-template.md#publish-the-template-vm) section in the [How to manage classroom labs](how-to-manage-classroom-labs.md) article.
 
         ![Publish template](../media/tutorial-setup-classroom-lab/publish-template.png)
 11. You see the **progress of publishing** the template. This process can take up to an hour. 
@@ -93,17 +93,33 @@ To set up a classroom lab in a lab account, you must be a member of the **Lab Cr
 
     ![Virtual machines in stopped state](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
+## Add users to the lab
+
+1. Select **Users** on the left menu. By default, the **Restrict access** option is enabled. When this setting is on, a user can't register with the lab even if the user has the registration link unless the user is in the list of users. Only users in the list can register with the lab by using the registration link you send. In this procedure, you add users to the list. Alternatively, you can turn off **Restrict access**, which allows users to register with the lab as long as they have the registration link. 
+2. Select **Add users** on the toolbar. 
+3. On the **Add users** page, enter email addresses of users in separate lines or in a single line separated by semicolons. 
+
+    ![Add user email addresses](../media/how-to-configure-student-usage/add-users-email-addresses.png)
+4. Select **Save**. You see the email addresses of users and their statuses (registered or not) in the list. 
+
+    ![Users list](../media/how-to-configure-student-usage/users-list-new.png)
+
+
 ## Send registration link to students
 
-1. Switch to the **Dashboard** view by selecting **Dashboard** on the left menu. 
-2. Select **User registration** tile.
+1. Switch to the **Users** view if you are not on the page already. 
+2. Select **Get registration link** tile.
 
     ![Student registration link](../media/tutorial-setup-classroom-lab/dashboard-user-registration-link.png)
-1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. Paste it in an email editor, and send an email to the student. 
+1. In the **User registration** dialog box, select the **Copy** button. The link is copied to the clipboard. 
 
     ![Student registration link](../media/tutorial-setup-classroom-lab/registration-link.png)
 2. On the **User registration** dialog box, select **Close**. 
-3. Share the registration link with a student so that the student can register for the class. 
+4. Share the registration link with a student so that the student can register for the class. If you have the **Restrict option** setting enabled and have a list of users in the list, do the following actions:
+    1. Select the **email address** of the user in the list. 
+    2. You see a window from your default email program with the **TO** address filled in. 
+    3. Paste the **registration URL** you copied earlier. 
+    4. Send the **email**.
 
 
 ## Next steps

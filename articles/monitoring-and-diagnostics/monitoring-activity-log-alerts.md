@@ -1,4 +1,4 @@
-﻿---
+---
 title: Activity log alerts in Azure Monitor
 description: Be notified via SMS, webhook, SMS, email and more, when certain events occur in the activity log.
 author: msvijayn
@@ -44,7 +44,7 @@ Activity log alerts have a few common options:
 - **Event initiated by**: Also known as the "caller." The email address or Azure Active Directory identifier of the user who performed the operation.
 
 > [!NOTE]
-> In a subscription up to 100 alert rules for activity of scope at either:a single resource, all resources in resource group (or) entire subscription level.
+> In a subscription up to 100 alert rules can be created for an activity of scope at either: a single resource, all resources in resource group (or) entire subscription level.
 
 When an activity log alert is activated, it uses an action group to generate actions or notifications. An action group is a reusable set of notification receivers, such as email addresses, webhook URLs, or SMS phone numbers. The receivers can be referenced from multiple alerts to centralize and group your notification channels. When you define your activity log alert, you have two options. You can:
 

@@ -48,7 +48,7 @@ The **ClaimsProvider** element contains the following child elements:
 
 | Element | Occurrences | Description |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | A string that contains the domain name for the claim provider. For example, if your claims provider includes the Facebook technical profile, the domain name is Facebook.com. This domain name is used for all technical profiles defined in the claims provider unless overridden by the technical profile. |
+| Domain | 0:1 | A string that contains the domain name for the claim provider. For example, if your claims provider includes the Facebook technical profile, the domain name is Facebook.com. This domain name is used for all technical profiles defined in the claims provider unless overridden by the technical profile. The domain name can also be referenced in a **domain_hint**. For more information, see the **Redirect sign-in to a social provider** section of [Set up direct sign-in using Azure Active Directory B2C](direct-signin.md). |
 | DisplayName | 0:1 | A string that contains the name of the claims provider that can be displayed to users. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | A set of technical profiles supported by the claim provider |
 

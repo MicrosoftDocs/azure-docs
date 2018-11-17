@@ -1,9 +1,9 @@
 ---
-title: Tutorial - Create VMs running an SQL&#47;IIS&#47;.NET stack in Azure| Microsoft Docs
+title: Tutorial - Create VMs running an SQL, IIS, .NET stack in Azure| Microsoft Docs
 description: In this tutorial, you learn how to install the Azure SQL, IIS, .NET stack on a Windows virtual machine in Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,15 +14,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/27/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
 
 #Customer intent: As an IT administrator, I want to learn how to install the LAMP stack so that I can quickly prepare a Windows VM to run web applications.
 ---
 
-# Tutorial: Install the SQL&#47;IIS&#47;.NET stack in a Windows VM with Azure PowerShell
+# Tutorial: Install the SQL, IIS, .NET stack in a Windows VM with Azure PowerShell
 
-In this tutorial, we install a SQL&#47;IIS&#47;.NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
+In this tutorial, we install a SQL, IIS, .NET stack using Azure PowerShell. This stack consists of two VMs running Windows Server 2016, one with IIS and .NET and the other with SQL Server.
 
 > [!div class="checklist"]
 > * Create a VM 
@@ -55,7 +55,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Install IIS and the .NET framework using the custom script extension.
+Install IIS and the .NET framework using the custom script extension with the [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension) cmdlet.
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `
@@ -114,7 +114,7 @@ New-AzureRmVm `
     -OpenPorts 3389,1401 
 ```
 
-Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) to the SQL VM.
+Use [Set-AzureRmVMSqlServerExtension](/powershell/module/azurerm.compute/set-azurermvmsqlserverextension) to add the [SQL Server extension](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension) to the SQL VM.
 
 ```azurepowershell-interactive
 Set-AzureRmVMSqlServerExtension `

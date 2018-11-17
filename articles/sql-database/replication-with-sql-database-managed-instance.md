@@ -70,21 +70,22 @@ Supports:
 
 ## Configure publishing and distribution example
 
-1. [Create an Azure SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal) in the portal.
+1. [Create an Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) in the portal.
+2. [Create an Azure Storage Account](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory.
 
-1. [Create an Azure Storage Account](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) for the working directory. Be sure to copy the storage keys. See [View and copy storage access keys](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys).
-
-1. Create a database for the publisher.
+   Be sure to copy the storage keys. See [View and copy storage access keys](../storage/common/storage-account-manage.md#access-keys
+).
+3. Create a database for the publisher.
 
    In the example scripts below, replace `<Publishing_DB>` with the name of this database.
 
-1. Create a database user with SQL Authentication for the distributor. See, [Creating database users](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use a secure password.
+4. Create a database user with SQL Authentication for the distributor. See, [Creating database users](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Use a secure password.
 
    In the example scripts below, use `<SQL_USER>` and `<PASSWORD>` with this SQL Server Account database user and password.
 
-1. [Connect to the SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connect to the SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
-1. Run the following query to add the distributor and the distribution database.
+6. Run the following query to add the distributor and the distribution database.
 
    ```sql
    USE [master]​
@@ -93,7 +94,7 @@ Supports:
    EXEC sp_adddistributiondb @database = N'distribution'​;
    ```
 
-1. To configure a publisher to use a specified distribution database, update and run the follwing query.
+7. To configure a publisher to use a specified distribution database, update and run the following query.
 
    Replace `<SQL_USER>` and `<PASSWORD>` with the SQL Server Account and password.
 
@@ -101,7 +102,7 @@ Supports:
 
    Replace `<STORAGE_CONNECTION_STRING>` with the connection string from the **Access keys** tab of your Microsoft Azure storage account.
 
-   After you update the following query, run it. 
+   After you update the following query, run it.
 
    ```sql
    USE [master]​
@@ -115,7 +116,7 @@ Supports:
    GO​
    ```
 
-1. Configure the publisher for replication. 
+8. Configure the publisher for replication.
 
     In the following query, replace `<Publishing_DB>` with the name of your publisher database.
 
@@ -149,15 +150,13 @@ Supports:
                 @job_password = N'<PASSWORD>'
    ```
 
-1. Add the article, subscription, and push subscription agent. 
+9. Add the article, subscription, and push subscription agent.
 
    To add these objects, update the following script.
 
-   Replace `<Object_Name>` with the name of the publication object.
-
-   Replace `<Object_Schema>` with the name of the source schema. 
-
-   Replace the other parameters in angle brackets `<>` to match the values in the previous scripts. 
+   - Replace `<Object_Name>` with the name of the publication object.
+   - Replace `<Object_Schema>` with the name of the source schema.
+   - Replace the other parameters in angle brackets `<>` to match the values in the previous scripts.
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -177,7 +176,7 @@ Supports:
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO​
    ```
@@ -192,4 +191,4 @@ The following features are not supported:
 
 ## See Also
 
-- [What is a Managed Instance?](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [What is a Managed Instance?](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

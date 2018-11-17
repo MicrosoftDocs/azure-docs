@@ -129,7 +129,7 @@ error=access_denied
 
 Just receiving an id_token is not sufficient to authenticate the user; you must also validate the id_token's signature and verify the claims in the token based on your app's requirements. The v2.0 endpoint uses [JSON Web Tokens (JWTs)](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) and public key cryptography to sign tokens and verify that they are valid.
 
-You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [validating tokens](id-tokens.md#validating-idtokens) and [important information about signing key rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
+You can choose to validate the `id_token` in client code, but a common practice is to send the `id_token` to a backend server and perform the validation there. Once you've validated the signature of the id_token, there are a few claims you will be required to verify. See the [`id_token` reference](id-tokens.md) for more information, including [validating tokens](id-tokens.md#validating-an-idtoken) and [important information about signing key rollover](active-directory-signing-key-rollover.md). We recommend making use of a library for parsing and validating tokens - there is at least one available for most languages and platforms.
 
 You may also wish to validate additional claims depending on your scenario. Some common validations include:
 
@@ -141,7 +141,7 @@ Once you have completely validated the id_token, you can begin a session with th
 
 ## Get access tokens
 
-Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://graph.microsoft.io). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
+Now that you've signed the user into your single-page app, you can get access tokens for calling web APIs secured by Azure AD, such as the [Microsoft Graph](https://developer.microsoft.com/graph). Even if you already received a token using the `token` response_type, you can use this method to acquire tokens to additional resources without having to redirect the user to sign in again.
 
 In the normal OpenID Connect/OAuth flow, you would do this by making a request to the v2.0 `/token` endpoint. However, the v2.0 endpoint does not support CORS requests, so making AJAX calls to get and refresh tokens is out of the question. Instead, you can use the implicit flow in a hidden iframe to get new tokens for other web APIs: 
 

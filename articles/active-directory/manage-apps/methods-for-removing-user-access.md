@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/17/2018
 ms.author: barbkess
 
 ---
@@ -26,7 +26,7 @@ This article helps you to understand how to remove a user's access to an applica
 
 To remove a user or group assignment to an application, follow the steps listed in the [Remove a user or group assignment from an enterprise app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal) article.
 
-.## I want to disable all access to an application for every user
+## I want to disable all access to an application for every user
 
 To disable all user sign-ins to an application, follow the steps listed in the [Disable user sign-ins for an enterprise app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal) article.
 
@@ -52,21 +52,19 @@ To **delete an application**, follow these instructions:
 
 ## I want to disable all future user consent operations to any application
 
-Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalves. To learn more about application consent, and why you may or may not wish to do this, read [Understanding user and admin consent](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent).
+Disabling user consent for your entire directory prevent end users from consenting to any application. Administrators can still consent on user’s behalves. For more information about application consent, and why you may or may not wish to do this, read [Understanding user and admin consent](../develop/howto-convert-app-to-be-multi-tenant.md#understand-user-and-admin-consent). See also, [Permissions and consent](../develop/v2-permissions-and-consent.md).
 
 To **disable all future user consent operations in your entire directory**, follow these instructions:
 
 1.  Open the [**Azure portal**](https://portal.azure.com/) and sign in as a **Global Administrator.**
 
-2.  Open the **Azure Active Directory Extension** by clicking **All services** at the top of the main left-hand navigation menu.
+2.  Open the **Azure Active Directory Extension** 
 
-3.  Type in **“Azure Active Directory**” in the filter search box and select the **Azure Active Directory** item.
-
-4.  Click **Users and groups** in the navigation menu.
+3.  Click **Enterprise applications** in the navigation menu.
 
 5.  Click **User settings**.
 
-6.  Disable all future user consent operations by setting the **Users can allow apps to access their data** toggle to **No** and click the **Save** button.
+6.  Set the **Users can allow apps to access company data on their behalf** toggle to **No** and click the Save button.
 
 
 # Next steps

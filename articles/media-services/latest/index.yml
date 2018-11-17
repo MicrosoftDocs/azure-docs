@@ -1,21 +1,21 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Azure Media Services v3 (preview) Documentation 
+title: Azure Media Services v3 Documentation 
 metadata:
   document_id: 
   title: Azure Media Services v3 Documentation - Tutorials, API Reference | Microsoft Docs
   meta.description: Learn how to stream on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and more.
   services: media-services
   author: Juliako
-  manager: cfowler
+  manager: femila
   ms.service: media-services
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 07-27-2018
+  ms.date: 10-15-2018
   ms.author: juliako
 abstract:
-  description: Learn how to stream videos on-demand, broadcast live, and analyze your videos with Media Services. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
+  description: Learn how to stream videos on-demand, broadcast live, and analyze your videos with Media Services v3. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users. <br/> The SDKs are based on <a href="https://aka.ms/ams-v3-rest-sdk">Media Services v3 OpenAPI Specification (Swagger)</a>.
 sections:
 - title: 5-Minute Quickstarts
   items:
@@ -72,7 +72,7 @@ sections:
       href: https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials
     - image: 
         src: media/index/logo_nodejs.svg
-      text: Node.js
+      text: Node .js
       href: https://github.com/Azure-Samples/media-services-v3-node-tutorials 
 - title: Reference
   items:
@@ -80,12 +80,11 @@ sections:
     text: ''
   - type: list
     style: unordered
+    className: spaced noBullet    
     items:
-    - html: <a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview">OpenAPI Specification (Swagger)</a>
     - html: <a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>
     - html: <a href="https://aka.ms/ams-v3-rest-ref">REST</a>
     - html: <a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>
     - html: <a href="https://aka.ms/ams-v3-java-ref">Java</a>
     - html: <a href="https://aka.ms/ams-v3-python-ref">Python</a>
-    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node .js</a>
-    
+    - html: <a href="https://aka.ms/ams-v3-nodejs-ref">Node.js</a>

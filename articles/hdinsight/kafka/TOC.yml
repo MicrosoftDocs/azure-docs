@@ -115,6 +115,9 @@
       maintainContext: true
     - name: Bring your own key
       href: apache-kafka-byok.md
+    - name: Apache Kafka RBAC with Apache Ranger
+      href: ../domain-joined/apache-domain-joined-run-kafka.md
+      maintainContext: true
   - name: Manage
     items:
     - name: Create Linux clusters
@@ -240,7 +243,7 @@
 - name: Reference
   items:
   - name: Code samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
+    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
   - name: .NET SDK

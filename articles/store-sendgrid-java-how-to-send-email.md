@@ -56,7 +56,6 @@ to send email using SMTP is to do the following:
 
 ```
         import java.util.Properties;
-        import javax.activation.*;
         import javax.mail.*;
         import javax.mail.internet.*;
 

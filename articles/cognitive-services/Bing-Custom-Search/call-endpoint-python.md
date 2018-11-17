@@ -1,17 +1,19 @@
 ---
-title: Call endpoint by using Python - Bing Custom Search - Microsoft Cognitive Services
+title: "Quickstart: Call endpoint by using Python - Bing Custom Search"
+titlesuffix: Azure Cognitive Services
 description: This quickstart shows how to request search results from your custom search instance by using Python to call the Bing Custom Search endpoint.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 05/07/2018
 ms.author: v-brapel
 ---
 
-# Call Bing Custom Search endpoint (Python)
+# Quickstart: Call Bing Custom Search endpoint (Python)
 
 This quickstart shows how to request search results from your custom search instance using Python to call the Bing Custom Search endpoint. 
 

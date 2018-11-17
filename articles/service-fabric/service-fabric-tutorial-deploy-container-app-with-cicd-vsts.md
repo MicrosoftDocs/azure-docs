@@ -3,7 +3,7 @@ title: Deploy a container application with CI/CD to an Azure Service Fabric clus
 description: In this tutorial, you learn how to set up continuous integration and deployment for an Azure Service Fabric container application using Visual Studio Team Services (VSTS).
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/29/2018
-ms.author: ryanwi,v-steg
+ms.author: twhitney
 ms.custom: mvc
 
 ---
@@ -72,6 +72,9 @@ A Team Services release definition describes a workflow that deploys an applicat
 Open a web browser and navigate to your new team project at: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 Select the **Build and release** tab, then **Builds**, then click **New Pipeline**.
+
+>[!NOTE]
+>If you do not see the build definition template, make sure the **New YAML pipeline creation experience** feature is turned off. This feature is configured within the **Preview Features** section of your DevOps account.
 
 ![New Pipeline][new-pipeline]
 

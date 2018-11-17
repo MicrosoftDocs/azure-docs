@@ -3,20 +3,18 @@ title: "Quickstart: Extract text - SDK, C# - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you extract text from an image using the Computer Vision Windows C# client library.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/27/2018
-ms.author: nolachar
+ms.author: pafarley
 ---
 # Quickstart: Extract text using the Computer Vision SDK and C#
 
 In this quickstart, you extract handwritten or printed text from an image using the Computer Vision Windows client library.
-
-The source code for this sample is available on [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 ## Prerequisites
 
@@ -25,6 +23,9 @@ The source code for this sample is available on [Github](https://github.com/Azur
 * The [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision) client library NuGet package. It isn't necessary to download the package. Installation instructions are provided below.
 
 ## RecognizeTextAsync method
+
+> [!TIP]
+> Get the latest code as a Visual Studio solution from [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/ComputerVision).
 
 The `RecognizeTextAsync` and `RecognizeTextInStreamAsync` methods wrap the [Recognize Text API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) for remote and local images, respectively. The `GetTextOperationResultAsync` method wraps the [Get Recognize Text Operation Results API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201).  You can use these methods to detect text in an image and extract recognized characters into a machine-usable character stream.
 
@@ -82,7 +83,7 @@ namespace ExtractText
             // keys. For example, if you got your subscription keys from westus,
             // replace "westcentralus" with "westus".
             //
-            // Free trial subscription keys are generated in the westcentralus
+            // Free trial subscription keys are generated in the "westus"
             // region. If you use a free trial subscription key, you shouldn't
             // need to change the region.
 

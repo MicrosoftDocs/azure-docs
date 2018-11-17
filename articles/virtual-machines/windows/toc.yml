@@ -40,11 +40,9 @@
     href: tutorial-monitoring.md
   - name: 12 - Manage VM security
     href: tutorial-azure-security.md
-  - name: 13 - Azure Pipelines CI/CD
-    href: tutorial-vsts-iis-cicd.md
-  - name: 14 - Install a SQL\IIS\.NET stack
+  - name: 13 - Install a SQL\IIS\.NET stack
     href: tutorial-iis-sql.md
-  - name: 15 - Secure web server with SSL
+  - name: 14 - Secure web server with SSL
     href: tutorial-secure-web-server.md
 - name: Samples
   items:
@@ -102,7 +100,7 @@
     items:
     - name: Managed Disks
       href: managed-disks-overview.md
-    - name: Premium storage
+    - name: Premium SSDs
       href: premium-storage.md
     - name: Standard SSDs
       href: disks-standard-ssd.md

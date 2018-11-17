@@ -1,6 +1,6 @@
 ---
 title: "Quickstart: Use the Python SDK to create a machine learning service workspace - Azure Machine Learning"
-description: Get started with Azure Machine Learning.  Install the Python SDK and use it to create a workspace. This workspace is the foundational block in the cloud for experimenting, training, and deploying machine learning models with Azure Machine Learning service.  
+description: Get started with Azure Machine Learning. Install the Python SDK and use it to create a workspace. This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Azure Machine Learning.  
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -8,112 +8,118 @@ ms.topic: quickstart
 ms.reviewer: sgilley
 author: hning86
 ms.author: haining
-ms.date: 09/24/2018
+ms.date: 11/09/2018
 ---
 
 # Quickstart: Use Python to get started with Azure Machine Learning
 
-In this quickstart, you'll use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). This workspace is the foundational block for experimenting, training, and deploying machine learning models in the cloud with the Azure Machine Learning service.
-
-In this tutorial, you will install the Python SDK and:
-* Create a workspace in your Azure subscription
-* Create a configuration file for that workspace to use later in other notebooks and scripts
-* Write code that logs values inside the workspace
-* View the logged values in your workspace
-
-The workspace and its configuration file you create in this quickstart can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles. As with other Azure services, there are limits and quotas associated with the Azure Machine Learning service. [Learn about quotas and how to request more.](how-to-manage-quotas.md)
-
-For your convenience, the following Azure resources are added automatically to your workspace when regionally available:  [container registry](https://azure.microsoft.com/services/container-registry/), [storage](https://azure.microsoft.com/services/storage/), [application insights](https://azure.microsoft.com/services/application-insights/), and [key vault](https://azure.microsoft.com/services/key-vault/).
-
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+In this quickstart, you use the Azure Machine Learning SDK for Python to create and then use a Machine Learning service [workspace](concept-azure-machine-learning-architecture.md). This workspace is the foundational block in the cloud that you use to experiment, train, and deploy machine learning models with Machine Learning. In this quickstart, you start by configuring your own Python environment and Jupyter notebook server. To run with no installation, see [Quickstart: Use the Azure portal to get started with Azure Machine Learning](quickstart-get-started.md).
 
 
-##  Install the SDK
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
 
-**Skip this section if you are using** a Data Science Virtual Machine (DSVM) created after September 27, 2018 since those DSVMs come with the Python SDK pre-installed.
+In this tutorial, you install the Python SDK and:
 
-Before installing the SDK, we recommend you create an isolated Python environment first. While this quickstart uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you can also use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
+* Create a workspace in your Azure subscription.
+* Create a configuration file for that workspace to use later in other notebooks and scripts.
+* Write code that logs values inside the workspace.
+* View the logged values in your workspace.
+
+In this quickstart, you create a workspace and a configuration file. You can use them as prerequisites to other Machine Learning tutorials and how-to articles. As with other Azure services, there are limits and quotas associated with Machine Learning. [Learn about quotas and how to request more.](how-to-manage-quotas.md)
+
+The following Azure resources are added automatically to your workspace when they're regionally available:
+ 
+- [Azure Container Registry](https://azure.microsoft.com/services/container-registry/)
+- [Azure Storage](https://azure.microsoft.com/services/storage/)
+- [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) 
+- [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
+
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.74 
+
+If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+
+
+## Install the SDK
+
+*Skip this section if you use a data science virtual machine created after September 27, 2018.* Those data science virtual machines come with the Python SDK preinstalled.
+
+Before you install the SDK, we recommend that you create an isolated Python environment. While this quickstart uses [Miniconda](https://conda.io/docs/user-guide/install/index.html), you also can use full [Anaconda](https://www.anaconda.com/) installed or [Python virtualenv](https://virtualenv.pypa.io/en/stable/).
 
 ### Install Miniconda
 
 
-[Download](https://conda.io/miniconda.html) and install Miniconda. Choose the Python 3.7 version or later. Do not choose Python 2.x version.
+[Download](https://conda.io/miniconda.html) and install Miniconda. Select the Python 3.7 version or later. Don't select the Python 2.x version.
 
 ### Create an isolated Python environment 
 
-Launch a command-line window and create a new conda environment named `myenv` with Python 3.6.
+Open a command-line window. Then create a new conda environment named `myenv` with Python 3.6.
 
-```sh
+```shell
 conda create -n myenv -y Python=3.6
 ```
 
 Activate the environment.
 
-  ```sh
+  ```shell
   conda activate myenv
   ```
 
 ### Install the SDK
 
-In the activated conda environment, install the SDK. This code installs the core components of the Azure Machine Learning SDK as well as a Jupyter Notebook server in the `myenv` conda environment.  The installation takes **approximately 4 minutes** to complete.
+In the activated conda environment, install the SDK. The below command installs the core components of the Machine Learning SDK. It also installs a Jupyter Notebook server in the `myenv` conda environment. The installation takes a few minutes to finish, depending on the configuration of your machine.
 
-```sh
+```shell
+# install the base SDK and Jupyter Notebook
 pip install azureml-sdk[notebooks]
 ```
 
+
+
 ## Create a workspace
 
-Launch Jupyter Notebook by typing this command.
-```sh
+To launch the Jupyter Notebook, enter this command.
+```shell
 jupyter notebook
 ```
 
-In the browser window, create a new notebook using the default `Python 3` kernel. 
+In the browser window, create a new notebook by using the default `Python 3` kernel. 
 
-Display the SDK version by typing the following Python code in a notebook cell and execute it.
+To display the SDK version, enter the following Python code in a notebook cell and execute it.
 
-```python
-import azureml.core
-print(azureml.core.VERSION)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=import)]
 
 Create a new Azure resource group and a new workspace.
 
 Find a value for `<azure-subscription-id>` in the [subscriptions list in the Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade). Use any subscription in which your role is owner or contributor.
 
 ```python
+from azureml.core import Workspace
 ws = Workspace.create(name='myworkspace',
-                      subscription_id='<azure-subscription-id>'
+                      subscription_id='<azure-subscription-id>',	
                       resource_group='myresourcegroup',
                       create_resource_group=True,
-                      location='eastus2' # or other supported Azure region
+                      location='eastus2' # or other supported Azure region	
                      )
 ```
 
-Executing the preceding code may trigger a new browser window for you to sign into your Azure account. Once you sign in, the authentication token will be cached locally.
+Executing the preceding code might trigger a new browser window for you to sign into your Azure account. After you sign in, the authentication token is cached locally.
 
-To see the details of the workspace, including the associated storage, container registry, and key vault, type:
+To see the workspace details, such as associated storage, container registry, and key vault, enter the following code.
 
-```python
-ws.get_details()
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=getDetails)]
+
 
 ## Write a configuration file
 
 Save the details of your workspace in a configuration file into the current directory. This file is called 'aml_config\config.json'.  
 
-This workspace configuration file makes it easy to load this same workspace later with other notebooks and scripts in the same directory or a subdirectory. 
+This workspace configuration file makes it easy to load this same workspace later. You can load it with other notebooks and scripts in the same directory or a subdirectory. 
 
-```python
-# Create the configuration file.
-ws.write_config()
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=writeConfig)]
 
-# Use this code to load the workspace from 
-# other scripts and notebooks in this directory.
-# ws = Workspace.from_config()
-```
 
-The `write_config()` API call creates the configuration file in the current directory. The `config.json` file contains the following:
+The `write_config()` API call creates the configuration file in the current directory. The `config.json` file contains the following script.
 
 ```json
 {
@@ -127,27 +133,11 @@ The `write_config()` API call creates the configuration file in the current dire
 
 Write some code that uses the basic APIs of the SDK to track experiment runs.
 
-```python
-from azureml.core import Experiment
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=useWs)]
 
-# create a new experiemnt
-exp = Experiment(workspace=ws, name='myexp')
-
-# start a run
-run = exp.start_logging()
-
-# log a number
-run.log('my magic number', 42)
-
-# log a list (Fibonacci numbers)
-run.log_list('my list', [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]) 
-
-# finish the run
-run.complete()
-```
 
 ## View logged results
-When the run completes, you can view the experiment run in the Azure portal. Use the following code to print a URL to the results for the last run.
+When the run finishes, you can view the experiment run in the Azure portal. Use the following code to print a URL to the results for the last run.
 
 ```python
 print(run.get_portal_url())
@@ -155,36 +145,59 @@ print(run.get_portal_url())
 
 Use the link to view the logged values in the Azure portal in your browser.
 
-![logged values in portal](./media/quickstart-create-workspace-with-python/logged-values.png)
+![Logged values in portal](./media/quickstart-create-workspace-with-python/logged-values.png)
 
 ## Clean up resources 
 >[!IMPORTANT]
->The resources you created can be used as prerequisites to other Azure Machine Learning tutorials and how-to articles.
+>The resources you created can be used as prerequisites to other Machine Learning tutorials and how-to articles.
 
-If you're not going to use what you've created here, delete the resources you created with this quickstart so you don't incur any charges.
+If you don't plan to use the resources you created here, delete them so you don't incur any charges.
 
-```python
-ws.delete(delete_dependent_resources=True)
-```
+[!code-python[](~/aml-sdk-samples/ignore/doc-qa/quickstart-create-workspace-with-python/quickstart.py?name=delete)]
+
 
 ## Next steps
 
-You have now created the necessary resources to start experimenting and deploying models. You also ran code in a notebook, and explored the run history from that code in your workspace in the cloud.
+You created the necessary resources you need to experiment with and deploy models. You also ran code in a notebook. And you explored the run history from that code in your workspace in the cloud.
 
-You will need a few more packages in your environment to use it with the Azure Machine Learning tutorials:
+You need a few more packages in your environment to use it with Machine Learning tutorials.
 
 1. In your browser, close your notebook.
 1. In the command-line window, use `Ctrl`+`C` to stop the notebook server.
 1. Install additional packages.
 
-    ```sh
+    ```shell
     conda install -y cython matplotlib scikit-learn pandas numpy
     pip install azureml-sdk[automl]
+
+    # install run history widget
+    jupyter nbextension install --py --user azureml.train.widgets
+
+    # enable run history widget
+    jupyter nbextension enable --py --user azureml.train.widgets
     ```
 
-After installing these packages, follow the tutorials to train and deploy a model.  
+    You can also use different "extra" keywords to install additional components of the SDK.
+
+    ```shell
+    # install the base SDK and auto ml components
+    pip install azureml-sdk[automl]
+
+    # install the base SDK and model explainability component
+    pip install azureml-sdk[explain]
+
+    # install the base SDK and experimental components
+    pip install azureml-sdk[contrib]
+
+    # install the base SDK and automl components in Azure Databricks environment
+    # read more at: https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks
+    pip install azureml-sdk[databricks]
+    ```
+
+
+After you install these packages, follow the tutorials to train and deploy a model. 
 
 > [!div class="nextstepaction"]
 > [Tutorial: Train an image classification model](tutorial-train-models-with-aml.md)
 
-You can also explore [more advanced examples on GitHub](https://aka.ms/aml-notebooks).
+You also can explore [more advanced examples on GitHub](https://aka.ms/aml-notebooks).

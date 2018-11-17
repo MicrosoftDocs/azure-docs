@@ -1,7 +1,7 @@
 ---
 pageTitle: Synonyms in Azure Search | Microsoft Docs
 description: Use synonyms to expand scope of a search query
-authors: mhko
+author: mhko
 services: search
 ms.service: search
 ms.devlang: rest-api
@@ -142,6 +142,8 @@ The synonyms feature rewrites the original query with synonyms with the OR opera
 Synonym feature applies to search queries and does not apply to filters or facets. Similarly, suggestions are based only on the original term; synonym matches do not appear in the response.
 
 Synonym expansions do not apply to wildcard search terms; prefix, fuzzy, and regex terms aren't expanded.
+
+If you need to do a single query that applies synonym expansion and wildcard, regex, or fuzzy searches, you can combine the queries using the OR syntax. For example, to combine synonyms with wildcards for simple query syntax, the term would be `<query> | <query>*`.
 
 ## Tips for building a synonym map
 

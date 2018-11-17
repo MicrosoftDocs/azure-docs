@@ -5,7 +5,7 @@
  author: cherylmc
  ms.service: expressroute
  ms.topic: include
- ms.date: 09/24/2018
+ ms.date: 10/23/2018
  ms.author: cherylmc
  ms.custom: include file
 ---
@@ -15,7 +15,7 @@ ExpressRoute Global Reach is an Azure service that connects your on-premises net
 
 ### How do I enable or disable ExpressRoute Global Reach?
 
-You enable ExpressRoute Global Reach by connecting your ExpressRoute circuits together. You disable the feature by disconnecting the circuits. See the configuration.
+You enable ExpressRoute Global Reach by connecting your ExpressRoute circuits together. You disable the feature by disconnecting the circuits. See the [configuration](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### Do I need ExpressRoute Premium for ExpressRoute Global Reach?
 
@@ -29,13 +29,14 @@ ExpressRoute enables connectivity from your on-premises network to Microsoft clo
 
 ExpressRoute Global Reach is supported in the following countries. The ExpressRoute circuits must be created at the peering locations in these countries.
 
-* United States
-* United Kingdom
+* Australia
+* France
 * Hong Kong
 * Ireland
-* Netherlands
 * Japan
-
+* Netherlands
+* United Kingdom
+* United States
 
 ### I have more than two on-premises networks, each connected to an ExpressRoute circuit. Can I enable ExpressRoute Global Reach to connect all of my on-premises networks together?
 
@@ -52,3 +53,11 @@ No. To enable connectivity between any two of your on-premises networks, you mus
 ### What is the network throughput I can expect between my on-premises networks after I enable ExpressRoute Global Reach?
 
 The network throughput between your on-premises networks, enabled by ExpressRoute Global Reach, is capped by the smaller of the two ExpressRoute circuits.
+
+### With ExpressRoute Global Reach, what are the limits on the number of routes I can advertise and the number of routes I will receive?
+
+The number of routes you can advertise to Microsoft on Azure private peering remains at 4000 on a Standard circuit or 10000 on a Premium circuit. The number of routes you will receive from Microsoft on Azure private peering will be the sum of the routes of your Azure virtual networks and the routes from your other on-premises networks connected via ExpressRoute Global Reach. Please make sure you set an appropriate maximum prefix limit on your on-premises router. 
+
+### What is the SLA for ExpressRoute Global Reach?
+
+ExpressRoute Global Reach will provide the same [availability SLA](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) as the regular ExpressRoute service.

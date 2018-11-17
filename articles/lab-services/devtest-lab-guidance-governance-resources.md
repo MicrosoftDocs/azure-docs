@@ -64,7 +64,7 @@ We recommend that business units and development groups that are associated with
 
 You may also need to consider geographic boundaries. For example, developers in the north east United States (US) may use a lab provisioned in East US2. And, developers in Dallas, Texas, and Denver, Colorado may be directed to use a resource in US South Central. If there is a collaborative effort with an external third party, they could be assigned to a lab that is not used by internal developers. 
 
-You may also use a lab for a specific project within Visual Studio Team Services team project. Then, you apply security through a specified Azure Active Directory group, which allows access to both set of resources. The virtual network assigned to the lab can be another boundary to consolidate users.
+You may also use a lab for a specific project within Azure DevOps projects. Then, you apply security through a specified Azure Active Directory group, which allows access to both set of resources. The virtual network assigned to the lab can be another boundary to consolidate users.
 
 ## Deletion of resources
 

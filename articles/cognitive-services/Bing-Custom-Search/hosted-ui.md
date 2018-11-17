@@ -1,12 +1,14 @@
 ---
-title: "Bing Custom Search: Site search | Microsoft Docs"
-description: Describes how to configure hosted UI
+title: Site search, use the hosted UI Bing Custom Search
+titlesuffix: Azure Cognitive Services
+description: Describes how to configure the Bing Custom Search hosted UI.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
 ---

@@ -1,13 +1,14 @@
 ---
-title: Resize and crop Bing thumbnails | Microsoft Docs
+title: Resize and crop Bing thumbnails - Bing News Search
+titlesuffix: Azure Cognitive Services
 description: Shows how to resize and crop thumbnails included in a Bing response.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 9103DA11-FDB0-4031-BA40-4AD5AD30F1AC
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
 ---

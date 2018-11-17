@@ -49,6 +49,14 @@ ms.custom: H1Hack27Feb2017
 
 The Azure Cosmos DB .NET Core SDK has feature parity with the latest version of the [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
 
+### <a name="2.1.3"/>2.1.3
+
+* Updated System.Net.Security to 4.3.2.
+
+### <a name="2.1.2"/>2.1.2
+
+* Diagnostic tracing improvements.
+
 ### <a name="2.1.1"/>2.1.1
 
 * Added more resilience to Multi-region request transient failures.
@@ -200,6 +208,8 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |October 15, 2018 |--- |
+| [2.1.2](#2.1.2) |October 04, 2018 |--- |
 | [2.1.1](#2.1.1) |September 27, 2018 |--- |
 | [2.1.0](#2.1.0) |September 21, 2018 |--- |
 | [2.0.0](#2.0.0) |September 07, 2018 |--- |

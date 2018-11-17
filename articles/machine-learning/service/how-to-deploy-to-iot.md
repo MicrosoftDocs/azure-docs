@@ -22,7 +22,7 @@ Before deploying a model to an edge device, use the steps in this document to pr
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+* An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 * An Azure Machine Learning service workspace. To create one, use the steps in the [Get started with Azure Machine Learning service](quickstart-get-started.md) document.
 
@@ -40,9 +40,6 @@ To learn how to register your device and install the IoT runtime, follow the ste
 
 Azure IoT Edge modules are based on container images. To deploy your model to an IoT Edge device, use the following steps to register your model on an Azure Machine Learning service workspace and create a Docker image. 
 
-> [!IMPORTANT]
-> If you used Azure Machine Learning to train your model it may already be registered in your workspace, in this case skip step 3.
-
 1. Initialize the workspace and load the config.json file:
 
     ```python
@@ -53,6 +50,9 @@ Azure IoT Edge modules are based on container images. To deploy your model to an
     ```    
 
 1. Register the model into your workspace. Replace the default text with your model path, name, tags, and description:
+
+    > [!IMPORTANT]
+    > If you used Azure Machine Learning to train the model, it may already be registered in the workspace. If so, skip this step. To see a list of models registered with this workspace, use `Model.list(ws)`.
 
     ```python
     from azureml.core.model import Model

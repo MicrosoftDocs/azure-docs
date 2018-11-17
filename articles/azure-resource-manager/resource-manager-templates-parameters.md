@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/18/2018
+ms.date: 10/30/2018
 ms.author: tomfitz
 
 ---
 # Parameters section of Azure Resource Manager templates
-In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You do not have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
+In the parameters section of the template, you specify which values you can input when deploying the resources. These parameter values enable you to customize the deployment by providing values that are tailored for a particular environment (such as dev, test, and production). You don't have to provide parameters in your template, but without parameters your template would always deploy the same resources with the same names, locations, and properties.
 
-You are limited to 255 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as shown in this article.
+You're limited to 256 parameters in a template. You can reduce the number of parameters by using objects that contain multiple properties, as shown in this article.
 
 ## Define and use a parameter
 
@@ -93,7 +93,7 @@ The preceding example showed only some of the properties you can use in the para
 
 ## Template functions with parameters
 
-When providing the default value for a parameter, you can use most template functions. You can use another parameter value to build a default value. The following template demonstrates the use of functions in the default value:
+When specifying the default value for a parameter, you can use most template functions. You can use another parameter value to build a default value. The following template demonstrates the use of functions in the default value:
 
 ```json
 "parameters": {
@@ -114,7 +114,7 @@ When providing the default value for a parameter, you can use most template func
 }
 ```
 
-You cannot use the `reference` function in the parameters section. Parameters are evaluated before deployment so the `reference` function cannot obtain the runtime state of a resource. 
+You can't use the `reference` function in the parameters section. Parameters are evaluated before deployment so the `reference` function can't get the runtime state of a resource. 
 
 ## Objects as parameters
 
@@ -193,7 +193,7 @@ The following information can be helpful when you work with parameters:
    * Resource names that you want to specify for easy identification.
    * Values that you use frequently to complete other tasks (such as an admin user name).
    * Secrets (such as passwords).
-   * The number or array of values to use when you create multiple instances of a resource type.
+   * The number or array of values to use when you create more than one instance of a resource type.
 * Use camel case for parameter names.
 * Provide a description of every parameter in the metadata:
 
@@ -208,7 +208,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Define default values for parameters (except for passwords and SSH keys). By providing a default value, the parameter becomes optional during deployment. The default value can be an empty string. 
+* Define default values for parameters (except for passwords and SSH keys). By specifying a default value, the parameter becomes optional during deployment. The default value can be an empty string. 
    
    ```json
    "parameters": {
@@ -222,7 +222,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Use **securestring** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with securestring or secureObject types cannot be read after resource deployment. 
+* Use **securestring** for all passwords and secrets. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with securestring or secureObject types can't be read after resource deployment. 
    
    ```json
    "parameters": {
@@ -235,7 +235,7 @@ The following information can be helpful when you work with parameters:
    }
    ```
 
-* Use a parameter to specify location, and share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes the number of times users are asked to provide location information. If a resource type is supported in only a limited number of locations, you might want to specify a valid location directly in the template, or add another location parameter. When an organization limits the allowed regions for its users, the **resourceGroup().location** expression might prevent a user from being able to deploy the template. For example, one user creates a resource group in a region. A second user must deploy to that resource group but does not have access to the region. 
+* Use a parameter to specify location, and share that parameter value as much as possible with resources that are likely to be in the same location. This approach minimizes the number of times users are asked to provide location information. If a resource type is supported in only a limited number of locations, you might want to specify a valid location directly in the template, or add another location parameter. When an organization limits the allowed regions for its users, the **resourceGroup().location** expression might prevent a user from deploying the template. For example, one user creates a resource group in a region. A second user must deploy to that resource group but does not have access to the region. 
    
    ```json
    "resources": [
@@ -258,8 +258,8 @@ These example templates demonstrate some scenarios for using parameters. Deploy 
 
 |Template  |Description  |
 |---------|---------|
-|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstrates how to use template functions when defining default values for parameters. The template does not deploy any resources. It constructs parameter values and returns those values. |
-|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstrates using an object for a parameter. The template does not deploy any resources. It constructs parameter values and returns those values. |
+|[parameters with functions for default values](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterswithfunctions.json) | Demonstrates how to use template functions when defining default values for parameters. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
+|[parameter object](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/parameterobject.json) | Demonstrates using an object for a parameter. The template doesn't deploy any resources. It constructs parameter values and returns those values. |
 
 ## Next steps
 

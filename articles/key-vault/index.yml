@@ -26,7 +26,7 @@ sections:
       - href: /azure/key-vault/key-vault-whatis
         html: <p>Learn foundational concepts related to Azure Key Vault.</p>
         image:
-          src: https://docs.microsoft.com/en-us/media/common/i_article.svg
+          src: https://docs.microsoft.com/media/common/i_article.svg
         title: Concepts
 
 - title: 5-Minute Quickstarts
@@ -64,7 +64,7 @@ sections:
     className: cardsFTitle
     items:
     - title:  Get Started with Key Vault from a Web Application
-      href: /azure/key-vault/key-vault-use-from-web-application
+      href: /azure/key-vault/tutorial-net-create-vault-azure-web-app
       image: 
         src: media/index/get-started.svg
         href: /azure/key-vault/key-vault-use-from-web-application

@@ -65,7 +65,7 @@ Install-WindowsFeature Containers
 Install the Service Fabric Mesh runtime, SDK, and tools in the following order.
 
 1. Install the [Service Fabric Mesh SDK][download-sdkmesh] using Web Platform Installer. This will also install the Microsoft Azure Service Fabric SDK and runtime.
-2. Install the [Visual Studio Service Fabric Tools (preview) extension][download-tools] from Visual Studio Marketplace.
+2. Install the [Visual Studio Service Fabric Mesh Tools (preview) extension][download-tools] from Visual Studio Marketplace.
 
 ## Build a cluster
 
@@ -96,6 +96,8 @@ You're now ready to create Service Fabric Mesh applications!
 ## Next steps
 
 Read through the [Create an Azure Service Fabric app](service-fabric-mesh-tutorial-create-dotnetcore.md) tutorial.
+
+Find answers to [common questions](service-fabric-mesh-faq.md).
 
 [azure-cli-install]: https://docs.microsoft.com/cli/azure/install-azure-cli
 [download-docker]: https://store.docker.com/editions/community/docker-ce-desktop-windows

@@ -144,11 +144,11 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
 
         Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
-More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
+More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx).
 
 **Configure a VM and create your SKU**
 
-After the operating system VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](http://technet.microsoft.com/library/hh846766.aspx).
+After the operating system VHD is downloaded, use Hyper­V and configure a VM to begin creating your SKU. Detailed steps can be found at the following TechNet link: [Install Hyper­V and Configure a VM](https://technet.microsoft.com/library/hh846766.aspx).
 
 ### 3.4 Choose the correct VHD size
 The Windows operating system VHD in your VM image should be created as a 128-GB fixed-format VHD.  
@@ -187,7 +187,7 @@ To learn more about VM images, review the following blog posts:
 
 ### Set up the necessary tools, PowerShell and Azure classic CLI
 * [How to setup PowerShell](/powershell/azure/overview)
-* [How to setup Azure classic CLI](../cli-install-nodejs.md)
+* [How to setup Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 ### 4.1 Create a user VM image
 #### Capture VM
@@ -428,64 +428,50 @@ Following are the steps for generating SAS URL by using Microsoft Azure Storage 
 
 11.	Repeat these steps for each VHD in the SKU.
 
-**Azure classic CLI (Recommended for Non-Windows & Continuous Integration)**
+**Azure CLI 2.0 (Recommended for Non-Windows & Continuous Integration)**
 
 Following are the steps for generating SAS URL by using Azure classic CLI
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.	Download the Azure classic CLI from [here](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). You can also find different links for **[Windows](http://aka.ms/webpi-azure-cli)** and **[MAC OS](http://aka.ms/mac-azure-cli)**.
+1.	Download Microsoft Azure CLI from [here](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). You can also find different links for **[Windows](https://docs.microsoft.com/cli/azure/install-azure-cli-windows?view=azure-cli-latest)** and **[MAC OS](https://docs.microsoft.com/cli/azure/install-azure-cli-macos?view=azure-cli-latest)**.
 
 2.	Once it is downloaded, please install
 
-3.	Create a PowerShell (or other script executable) file with following code and save it locally
+3.	Create a Bash (or other equivalent script executable) file with the following code and save it locally
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=<StorageAccountName>;AccountKey=<Storage Account Key>"
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl <Permission End Date> -c $conn --start <Permission Start Date>  
+        export AZURE_STORAGE_ACCOUNT=<Storage Account Name>
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas --account-name -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n <VHD Blob Name> -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
     Update the following parameters in above
 
-    a. **`<StorageAccountName>`**: Give your storage account name
+    a. **`<Storage Account Name>`**: Give your storage account name
 
-    b. **`<Storage Account Key>`**: Give your storage account key
+    b. **`<VHD Blob Name>`**: Give the name of your VHD blob.
 
-    c. **`<Permission Start Date>`**: To safeguard for UTC time, select the day before the current date. For example, if the current date is October 26, 2016, then value should be 10/25/2016. If using Azure CLI version 2.0 or higher, provide both the date and time in the Start and End Dates, for example: 10-25-2016T00:00:00Z.
-
-    d. **`<Permission End Date>`**: Select a date that is at least 3 weeks after the **Start Date**. The value should be **11/02/2016**. If using Azure CLI version 2.0 or higher, provide both the date and time in the Start and End Dates, for example: 11-02-2016T00:00:00Z.
+    Select a date that is at least 3 weeks after the start date (defaults to time of sas-token generation). An example value is: **2018-10-11T23:56Z**.
 
     Following is the example code after updating proper parameters
+        export AZURE_STORAGE_ACCOUNT=vhdstorage1ba78dfb6bc2d8
+        EXPIRY=$(date -d "3 weeks" '+%Y-%m-%dT%H:%MZ')
+        CONTAINER_SAS=$(az storage container generate-sas -n vhds --permissions rl --expiry $EXPIRY -otsv)
+        BLOB_URL=$(az storage blob url -c vhds -n osdisk_1ba78dfb6b.vhd -otsv)
+        echo $BLOB_URL\?$CONTAINER_SAS
 
-          $conn="DefaultEndpointsProtocol=https;AccountName=st20151;AccountKey=TIQE5QWMKHpT5q2VnF1bb+NUV7NVMY2xmzVx1rdgIVsw7h0pcI5nMM6+DVFO65i4bQevx21dmrflA91r0Vh2Yw=="
-          azure storage container list vhds -c $conn
-          azure storage container sas create vhds rl 11/02/2016 -c $conn --start 10/25/2016  
+4.	Run the script and it will provide you the SAS URL for container level access.
 
-4.	Open Powershell editor with “Run as Administrator” mode and open file in step #3. You can use any script editor that is available on your OS.
-
-5.	Run the script and it will provide you the SAS URL for container level access
-
-    Following will be the output of the SAS Signature and copy the highlighted part in a notepad
-
-    ![drawing](media/marketplace-publishing-vm-image-creation/img5.2_16.png)
-
-6.	Now you will get container level SAS URL and you need to add VHD name in it.
-
-    Container level SAS URL #
-
-    `https://st20151.blob.core.windows.net/vhds?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-7.	Insert VHD name after the container name in SAS URL as shown below
-    `https://st20151.blob.core.windows.net/vhds/<VHDName>?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
-
-    Example:
-
-    TestRGVM201631920152.vhd is the VHD Name then VHD SAS URL will be
-
-    `https://st20151.blob.core.windows.net/vhds/ TestRGVM201631920152.vhd?st=2016-10-25T07%3A00%3A00Z&se=2016-11-02T07%3A00%3A00Z&sp=rl&sv=2015-12-11&sr=c&sig=wnEw9RfVKeSmVgqDfsDvC9IHhis4x0fc9Hu%2FW4yvBxk%3D`
+5.	Check your SAS URL.
 
     - Make sure that your image file name and ".vhd" are in the URI.
     -	In middle of the signature, make sure that "sp=rl" appears. This demonstrates that Read and List access was provided successfully.
     -	In middle of the signature, make sure that "sr=c" appears. This demonstrates that you have container level access
+
+    Example:
+
+    `https://vhdstorage1ba78dfb6bc2d8.blob.core.windows.net/vhds/osdisk_1ba78dfb6b.vhd?se=2018-10-12T00%3A04Z&sp=rl&sv=2018-03-28&sr=c&sig=...`
 
 8.	To ensure that the generated shared access signature URI works, test it in browser. It should start the download process
 

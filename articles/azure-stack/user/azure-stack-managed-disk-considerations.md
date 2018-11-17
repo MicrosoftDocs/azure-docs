@@ -3,7 +3,7 @@ title: Differences and considerations for Managed Disks in Azure Stack | Microso
 description: Learn about differences and considerations when working with Managed Disks in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: jiahan
 
 ---

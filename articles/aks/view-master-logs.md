@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/25/2018
 ms.author: iainfou
 ---
 
@@ -33,9 +33,12 @@ Log Analytics is enabled and managed in the Azure portal. To enable log collecti
 1. In the list of available logs, select the logs you wish to enable, such as *kube-apiserver*, *kube-controller-manager*, and *kube-scheduler*. You can return and change the collected logs once Log Analytics are enabled.
 1. When ready, select **Save** to enable collection of the selected logs.
 
-The following example portal screenshot shows the *Diagnostics settings* window and then option to create an OMS workspace:
+The following example portal screenshot shows the *Diagnostics settings* window and then option to create an Log Analytics workspace:
 
-![Enable OMS workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
+![Enable Log Analytics workspace for Log Analytics of AKS cluster](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>OMS workspaces are now referred to as Log Analytics workspaces.
 
 ## Schedule a test pod on the AKS cluster
 
@@ -48,8 +51,15 @@ metadata:
   name: nginx
 spec:
   containers:
-  - name: myfrontend
-    image: nginx
+  - name: mypod
+    image: nginx:1.15.5
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        cpu: 250m
+        memory: 256Mi
     ports:
     - containerPort: 80
 ```
@@ -64,11 +74,11 @@ pod/nginx created
 
 ## View collected logs
 
-It may take a few minutes for the diagnostics logs to be enabled and appear in the OMS workspace. In the Azure portal, select the resource group for your Log Analytics workspace, such as *myResourceGroup*, then choose your Log Analytics resource, such as *myAKSLogs*.
+It may take a few minutes for the diagnostics logs to be enabled and appear in the Log Analytics workspace. In the Azure portal, select the resource group for your Log Analytics workspace, such as *myResourceGroup*, then choose your Log Analytics resource, such as *myAKSLogs*.
 
 ![Select the Log Analytics workspace for your AKS cluster](media/view-master-logs/select-log-analytics-workspace.png)
 
-On the left-hand side, choose **Log Search**. To view the *kube-apiserver*, enter the following query in the text box:
+On the left-hand side, choose **Logs**. To view the *kube-apiserver*, enter the following query in the text box:
 
 ```
 AzureDiagnostics
@@ -102,7 +112,7 @@ To help analyze the log data, the following table details the schema used for ea
 | *resourceId*             | Azure resource that produced the log |
 | *time*                   | Timestamp of when the log was uploaded |
 | *category*               | Name of container/component generating the log |
-| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *operationName*          | Always *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *properties.log*         | Full text of the log from the component |
 | *properties.stream*      | *stderr* or *stdout* |
 | *properties.pod*         | Pod name that the log came from |

@@ -1,3 +1,10 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c 
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+---
 If you want to enable profile editing on your application, you use a **profile editing** policy. This policy describes the experiences that customers will go through during profile editing and the contents of tokens that the application will receive on successful completion.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]
