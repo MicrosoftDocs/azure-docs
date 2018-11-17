@@ -3,7 +3,7 @@ title: Azure status overview | Microsoft Docs
 description: A global view into the health of Azure services. 
 services: Azure status
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shtabriz
+ms.date: 11/16/2018
+ms.author: stbaron
 
 ---
 # Azure status
