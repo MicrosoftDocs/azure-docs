@@ -141,19 +141,23 @@
   - name: Managed instances
     items:
     - name: Managed instances
+      href: sql-database-managed-instance-index.yml
+    - name: What is Managed Instance
       href: sql-database-managed-instance.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
-    - name: VNet configuration
-      href: sql-database-managed-instance-vnet-configuration.md
-    - name: Custom DNS
-      href: sql-database-managed-instance-custom-dns.md
-    - name: Sync network configuration
-      href: sql-database-managed-instance-sync-network-configuration.md
-    - name: Connectivity architecture
-      href: sql-database-managed-instance-connectivity-architecture.md
-    - name: Connect applications
-      href: sql-database-managed-instance-connect-app.md
+    - name: VNet Integration
+      items:
+      - name: VNet configuration
+        href: sql-database-managed-instance-vnet-configuration.md
+      - name: Custom DNS
+        href: sql-database-managed-instance-custom-dns.md
+      - name: Sync network configuration
+        href: sql-database-managed-instance-sync-network-configuration.md
+      - name: Connectivity architecture
+        href: sql-database-managed-instance-connectivity-architecture.md
+      - name: Connect applications
+        href: sql-database-managed-instance-connect-app.md
     - name: T-SQL differences
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication

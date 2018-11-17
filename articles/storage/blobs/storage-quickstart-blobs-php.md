@@ -4,11 +4,10 @@ description: Quickly learn to transfer objects to/from Azure Blob storage using 
 services: storage
 author: roygara
 
-
 ms.service: storage
 ms.devlang: php
 ms.topic: quickstart
-ms.date: 04/09/2018
+ms.date: 11/14/2018
 ms.author: rogarana
 ---
 
@@ -17,14 +16,12 @@ In this quickstart, you learn how to use PHP to upload, download, and list block
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [PHP](http://php.net/downloads.php)
-* Install [the Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
+Make sure you have the following additional prerequisites installed:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+* [PHP](http://php.net/downloads.php)
+* [Azure Storage SDK for PHP](https://github.com/Azure/azure-storage-php)
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-php-quickstart.git) used in this quickstart is a basic PHP application.  
