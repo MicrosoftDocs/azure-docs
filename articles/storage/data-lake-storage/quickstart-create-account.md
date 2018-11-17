@@ -104,6 +104,14 @@ To remove a resource group using the Azure portal:
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
 
+## Upgrade your powershell module
+
+In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the PowerShell module Az.Storage version **0.7** or later.
+
+To do that, open an elevated PowerShell and enter the following command: `Install-Module Az.Storage –Repository PSGallery -RequiredVersion .07 –AllowPrerelease –AllowClobber –Force `
+
+Then restart your shell.
+
 ## Create an account using PowerShell
 
 Log in to your Azure subscription with the `Login-AzureRmAccount` command and follow the on-screen directions to authenticate.
@@ -112,20 +120,12 @@ Log in to your Azure subscription with the `Login-AzureRmAccount` command and fo
 Login-AzureRmAccount
 ```
 
-### Upgrade your powershell module
-
-In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the PowerShell module Az.Storage version **0.7** or later.
-
-To do that, open an elevated PowerShell and enter the following command: `Install-Module Az.Storage –Repository PSGallery -RequiredVersion .07 –AllowPrerelease –AllowClobber –Force `
-
-Then restart your shell.
-
 ### Create a resource group
 
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
 > [!NOTE]
-> > The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -140,7 +140,6 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command:
 
 ```powershell
-Get-AzureRmLocation | select Location 
 $location = "westus2"
 
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
@@ -169,7 +168,7 @@ To log into your local installation of the CLI, run the login command:
 az login
 ```
 
-### Upgrade your CLI module
+### Install the Data Lake Storage Gen2 module
 
 In order to interact with Data Lake Storage Gen2 through CLI, you will have to add the extension to your shell.
 
@@ -180,9 +179,9 @@ To do that: enter the following command using either the Cloud Shell or a local 
 To create a new resource group with Azure CLI, use the [az group create](/cli/azure/group#az_group_create) command.
 
 ```azurecli-interactive
-az group create \
-    --name storage-quickstart-resource-group \
-    --location westus2
+az group create `
+  --name storage-quickstart-resource-group `
+  --location westus2
 ```
 
 > [!NOTE]
@@ -193,12 +192,12 @@ az group create \
 To create a general-purpose v2 storage account from the Azure CLI with locally-redundant storage, use the [az storage account create](/cli/azure/storage/account#az_storage_account_create) command.
 
 ```azurecli-interactive
-az storage account create \
-    --name storagequickstart \
-    --resource-group storage-quickstart-resource-group \
-    --location westus2 \
-    --sku Standard_LRS \
-    --kind StorageV2 \
+az storage account create `
+    --name storagequickstart `
+    --resource-group storage-quickstart-resource-group `
+    --location westus2 `
+    --sku Standard_LRS `
+    --kind StorageV2 `
     --hierarchical-namespace true
 ```
 
