@@ -17,7 +17,10 @@ ms.author: diberry
 An example JSON-formatted question for the REST API:
 
 ```json
-{'question': 'Is the QnA Maker Service free?','top': 3}
+{
+    "question": "Is the QnA Maker Service free?",
+    "top": 3
+}
 ```
 
 The question includes a property to return the top three answers. 
