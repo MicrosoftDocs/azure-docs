@@ -64,4 +64,5 @@ LiveEvent source limits for pass-through and live encoding channels.
 
 ## Next steps
 
-[Live streaming tutorial](stream-live-tutorial-with-api.md)
+- [Live streaming overview](live-streaming-overview.md)
+- [Live streaming tutorial](stream-live-tutorial-with-api.md)

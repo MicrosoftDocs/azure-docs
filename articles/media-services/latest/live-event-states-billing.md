@@ -17,11 +17,13 @@ ms.author: juliako
 
 ---
 
-## LiveEvent states and billing
+# LiveEvent states and billing
 
 In Azure Media Services, a LiveEvent begins billing as soon as its state transitions to **Running**. To stop the LiveEvent from billing, you have to stop the LiveEvent.
 
-When **LiveEventEncodingType** on your [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) is set to Standard (Basic), Media Services will auto shutoff any LiveEvent that is still in the **Running** state 12 hours after the input feed is lost, and there are no LiveOutputs running. However, you will still be billed for the time the LiveEvent was in the **Running** state.
+When **LiveEventEncodingType** on your [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) is set to Standard (Basic), Media Services auto shuts off any LiveEvent that is still in the **Running** state 12 hours after the input feed is lost, and there are no **LiveOutput**s running. However, you will still be billed for the time the LiveEvent was in the **Running** state.
+
+## States
 
 The LiveEvent can be in one of the following states.
 
@@ -35,4 +37,5 @@ The LiveEvent can be in one of the following states.
 
 ## Next steps
 
-[Live streaming tutorial](stream-live-tutorial-with-api.md)
+- [Live streaming overview](live-streaming-overview.md)
+- [Live streaming tutorial](stream-live-tutorial-with-api.md)

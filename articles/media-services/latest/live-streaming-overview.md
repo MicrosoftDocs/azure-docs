@@ -22,19 +22,19 @@ Azure Media Services enables you to deliver live events to your customers on the
 
 - A camera that is used to capture the live event.
 - A live video encoder that converts signals from the camera (or another device, like a laptop) into a contribution feed that is sent to Media Services. The contribution feed can include signals related to advertising, such as SCTE-35 markers.
-- Components in Media Services which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
+- Components in Media Services, which enable you to ingest, preview, package, record, encrypt, and broadcast the live event to your customers, or to a CDN for further distribution.
 
 This article gives a detailed overview, guidance, and includes diagrams of the main components involved in live streaming with Media Services.
 
 ## Overview of main components
 
-To deliver on-demand or live streams with Media Services, you need to have at least one [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints). When your Media Services account is created a **default** StreamingEndpoint is added to your account in the **Stopped** state. You need to start the StreamingEndpoint from which you want to stream your content to your viewers. You can use the default StreamingEndpoint, or create another customized StreamingEndpoint with your desired configuration and CDN settings. You may decide to enable multiple StreamingEndpoints, each one targeting a different CDN and providing a unique hostname for delivery of content. 
+To deliver on-demand or live streams with Media Services, you need to have at least one [StreamingEndpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints). When your Media Services account is created a **default** StreamingEndpoint is added to your account in the **Stopped** state. You need to start the StreamingEndpoint from which you want to stream your content to your viewers. You can use the default **StreamingEndpoint**, or create another customized **StreamingEndpoint** with your desired configuration and CDN settings. You may decide to enable multiple StreamingEndpoints, each one targeting a different CDN, and providing a unique hostname for delivery of content. 
 
 In Media Services, [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a LiveEvent, an input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://en.wikipedia.org/wiki/Real-Time_Messaging_Protocol) or [Smooth Streaming](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming#Microsoft_Smooth_Streaming) (fragmented-MP4) protocol.  
 
 Once the **LiveEvent** starts receiving the contribution feed, you can use its preview endpoint (preview URL to preview and validate that you are receiving the live stream before further publishing. After you have checked that the preview stream is good, you can use the LiveEvent to make the live stream available for delivery through one or more (pre-created) **StreamingEndpoints**. To accomplish this, you create a new [LiveOutput](https://docs.microsoft.com/rest/api/media/liveoutputs) on the **LiveEvent**. 
 
-The **LiveOutput** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource.  The **LiveOuput** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (i.e. the capacity of the cloud DVR). The archive on disk is a circular archive “window” that only holds the amount of content that is specified in the **archiveWindowLength** property of the **LiveOutput**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple LiveOutputs (up to 3 maximum) on a LiveEvent with different archive lengths and settings.  
+The **LiveOutput** object is like a tape recorder that will catch and record the live stream into an Asset in your Media Services account. The recorded content will be persisted into the Azure Storage account attached to your account, into the container defined by the Asset resource.  The **LiveOuput** also allows you to control some properties of the outgoing live stream, such as how much of the stream is kept in the archive recording (for example, the capacity of the cloud DVR). The archive on disk is a circular archive "window" that only holds the amount of content that is specified in the **archiveWindowLength** property of the **LiveOutput**. Content that falls outside of this window is automatically discarded from the storage container, and is not recoverable. You can create multiple LiveOutputs (up to three maximum) on a LiveEvent with different archive lengths and settings.  
 
 With Media Services you can take advantage of **Dynamic Packaging**, which allows you to preview and broadcast your live streams in [MPEG DASH, HLS, and Smooth Streaming formats](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) from the contribution feed that you send to the service. Your viewers can play back the live stream with any HLS, DASH, or Smooth Streaming compatible players. You can use [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) in your web or mobile applications to deliver your stream in any of these protocols.
 
@@ -55,15 +55,7 @@ With the v3 APIs of Media Services, you benefit from the following new features:
 
 ## LiveEvent types
 
-A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
-
-### Live encoding  
-
-![live encoding](./media/live-streaming/live-encoding.png)
-
-When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the LiveEvent (using RTMP or Fragmented-Mp4 protocol). The LiveEvent encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to playback devices via protocols like MPEG-DASH, HLS and Smooth Streaming. When creating this type of LiveEvent, specify Standard (Basic) (LiveEventEncodingType.Basic).
-
-You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1 or HE-AACv2) audio codec. See the [LiveEvent types comparison and limitations](live-event-types-comparison.md) article for more details.
+A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: pass-through and live encoding. 
 
 ### Pass-through
 
@@ -71,11 +63,19 @@ You can send the contribution feed at up to 1080p resolution at a frame rate of 
 
 When using the pass-through LiveEvent, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the LiveEvent (using RTMP or fragmented-MP4 protocol). The LiveEvent then carries through the incoming video streams without any further processing. Such a pass-through LiveEvent is optimized for long-running live events or 24x365 linear live streaming. When creating this type of LiveEvent, specify None (LiveEventEncodingType.None).
 
-You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1 or HE-AACv2) audio codec.  See the [LiveEvent types comparison and limitations](live-event-types-comparison.md) article for more details.
+You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec.  See the [LiveEvent types comparison and limitations](live-event-types-comparison.md) article for more details.
 
 > [!NOTE]
 > Using a pass-through method is the most economical way to do live streaming when you are doing multiple events over a long period of time, and you have already invested in on-premises encoders. See [pricing](https://azure.microsoft.com/pricing/details/media-services/) details.
 > 
+
+### Live encoding  
+
+![live encoding](./media/live-streaming/live-encoding.png)
+
+When using live encoding with Media Services, you would configure your on-premises live encoder to send a single bitrate video as the contribution feed to the LiveEvent (using RTMP or Fragmented-Mp4 protocol). The LiveEvent encodes that incoming single bitrate stream to a [multiple bitrate video stream](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), makes it available for delivery to playback devices via protocols like MPEG-DASH, HLS and Smooth Streaming. When creating this type of LiveEvent, specify Standard (Basic) (LiveEventEncodingType.Basic).
+
+You can send the contribution feed at up to 1080p resolution at a frame rate of 30 frames/second, with H.264/AVC video codec and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. See the [LiveEvent types comparison and limitations](live-event-types-comparison.md) article for more details.
 
 ## LiveEvent types comparison 
 
@@ -95,6 +95,7 @@ A **LiveEvent** supports up to three concurrently running **LiveOutput**s so you
 
 > [!Note]
 > **LiveOutput**s start on creation and stop when deleted. When you delete the **LiveOutput**, you are not deleting the underlying **Asset** and content in the Asset.  
+>
 
 ## StreamingEndpoint
 
@@ -116,17 +117,19 @@ For detailed information about LiveEvents latency, see [Latency](live-event-late
 
 Here are the steps for a live streaming workflow:
 
-1. Create a new Asset object.
-2. Create a LiveOutput and use the asset name that you created.
-3. Create a Streaming Policy and Content Key if you intend to encrypt your content with DRM.
-4. If not using DRM, create a Streaming Locator with the built in Streaming Policy types.
-5. List the paths on the Streaming Policy to get back the URLs to use (these are deterministic).
-6. Get the hostname for the Streaming Endpoint you wish to stream from. 
-7. Combine the URL from step 5 with the hostname in step 6 to get your full URL.
+1. Create a LiveEvent.
+2. Create a new Asset object.
+3. Create a LiveOutput and use the asset name that you created.
+4. Create a Streaming Policy and Content Key if you intend to encrypt your content with DRM.
+5. If not using DRM, create a Streaming Locator with the built-in Streaming Policy types.
+6. List the paths on the Streaming Policy to get back the URLs to use (these are deterministic).
+7. Get the hostname for the Streaming Endpoint you wish to stream from. 
+8. Combine the URL from step 6 with the hostname in step 7 to get your full URL.
+
+For more information, see a [Live streaming tutorial](stream-live-tutorial-with-api.md) that is based on the [Live .NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore/Live) sample.
 
 ## Next steps
 
-- [Live streaming tutorial](stream-live-tutorial-with-api.md)
 - [LiveEvent types comparison](live-event-types-comparison.md)
 - [States and billing](live-event-states-billing.md)
 - [Latency](live-event-latency.md)
