@@ -9,12 +9,12 @@ ms.topic: overview
 ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
-ms.date: 09/24/2018
+ms.date: 12/04/2018
 ---
 
-# What is Azure Machine Learning service (preview)?
+# What is Azure Machine Learning service ?
 
-Azure Machine Learning service (Preview) is a cloud service that you can use to develop and deploy machine learning models. Using Azure Machine Learning service, you can track your models as you build, train, deploy, and manage them, all at the broad scale that the cloud provides.
+Azure Machine Learning service is a cloud service that you can use to develop and deploy machine learning models. Using Azure Machine Learning service, you can track your models as you build, train, deploy, and manage them, all at the broad scale that the cloud provides.
 
 ## What is machine learning?
 
@@ -33,12 +33,12 @@ Azure Machine Learning service fully supports open-source technologies, so you c
 Rich tools, such as [Jupyter notebooks](http://jupyter.org) or the [Visual Studio Code Tools for AI](https://visualstudio.microsoft.com/downloads/ai-tools-vscode/), make it easy to interactively explore data, transform it, and then develop, and test models.
 Azure Machine Learning service also includes features that [automate model generation and tuning](tutorial-auto-train-models.md) to help you create models with ease, efficiency, and accuracy.
 
-Azure Machine Learning service lets you start training on your local machine, and then scale out to the cloud. With native support for [Azure Batch AI](https://azure.microsoft.com/services/batch-ai/) and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster, using the power of the cloud. 
+Azure Machine Learning service lets you start training on your local machine, and then scale out to the cloud. With many available [compute targets](how-to-set-up-training-targets) such as Azure Machine Learning Compute *(link?)* and [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), and with [advanced hyperparameter tuning services](how-to-tune-hyperparameters.md), you can build better models faster, using the power of the cloud.
 
 When you have the right model, you can easily deploy it in a container such as Docker. This means that it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md), or you can use the container in your own deployments, either on-premises or in the cloud.
 You can manage the deployed models, and track multiple runs as you experiment to find the best solution.
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
+And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on all the steps of data prepration, model training and evaluation, and deployment.
 
 ## What can I do with Azure Machine Learning service?
 

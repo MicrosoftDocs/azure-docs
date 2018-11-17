@@ -19,7 +19,7 @@ This tutorial is **part two of a two-part tutorial series**. In the [previous tu
 
 Now, you're ready to deploy the model as a web service in [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/) (ACI). A web service is an image, in this case a Docker image, that encapsulates the scoring logic and the model itself. 
 
-In this part of the tutorial, you use Azure Machine Learning service (Preview) to:
+In this part of the tutorial, you use Azure Machine Learning service to:
 
 > [!div class="checklist"]
 > * Set up your testing environment

@@ -30,8 +30,6 @@ The workflow generally follows these steps:
 1. __Deploy the image__ as a __web service__ in Azure.
 
 
-[!INCLUDE [aml-preview-note](../../../includes/aml-preview-note.md)]
-
 > [!NOTE]
 > While this document defines terms and concepts used by Azure Machine Learning, it does not define terms and concepts for the Azure platform. For more information on Azure platform terminology, see the [Microsoft Azure glossary](https://docs.microsoft.com/azure/azure-glossary-cloud-terminology).
 
