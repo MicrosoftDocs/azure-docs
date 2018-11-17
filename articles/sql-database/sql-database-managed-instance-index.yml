@@ -52,7 +52,7 @@ sections:
         href: /pricing/hybrid-benefit/
         html: <p>Save up to 40% with Azure Hybrid Benefit (AHB) with your existing on-premises licences.</p>
       - title: PaaS capabilities
-        href: /azure/sql-database/sql-database-technical-overview#availability-capabilities
+        href: /azure/sql-database-pass
         html: <p>Azure PaaS enables you to use 99.99% available instance with minimal management.</p>
       - title: Service tiers
         href: /azure/sql-database/sql-database-high-availability

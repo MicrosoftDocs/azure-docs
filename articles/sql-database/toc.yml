@@ -134,7 +134,7 @@
     items:
     - name: Managed instances
       href: sql-database-managed-instance-index.yml
-    - name: What is Managed Instance
+    - name: Overview
       href: sql-database-managed-instance.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
