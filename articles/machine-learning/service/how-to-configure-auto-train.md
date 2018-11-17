@@ -223,19 +223,19 @@ If you use `preprocess=True`, the following data preprocessing steps are perform
 
 ## Run experiment
 
-Next, we can initiate the experiment to run and generate a model for us. Pass the `AutoMLConfig` to the `submit` method to generate the model.
+Submit the experiment to run and generate a model. Pass the `AutoMLConfig` to the `submit` method to generate the model.
 
 ```python
 run = experiment.submit(automl_config, show_output=True)
 ```
 
 >[!NOTE]
->Dependencies are first installed on a new DSVM.  It may take up to 10 minutes before output is shown.
+>Dependencies are first installed on a new machine.  It may take up to 10 minutes before output is shown.
 >Setting `show_output` to True results in output being shown on the console.
 
 
 ## Explore model metrics
-You can view your results in a widget or inline if you are in a notebook. See details to “Track and evaluate models”. (ensure AML content contains relevant information to automated ML).
+You can view your results in a widget or inline if you are in a notebook. See [Track and evaluate models](how-to-track-experiments.md#view-run-details) for more details.
 
 
 ### Classification metrics
