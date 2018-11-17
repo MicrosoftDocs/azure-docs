@@ -133,16 +133,16 @@ If you want more detailed migration report about your projects, trainings and do
 
 ## Custom Translator versus Hub
 
-This table compare the features between Bub and Custom Translator.
+This table compares the features between Microsoft Translator Hub and Custom Translator.
 
 |   | **Hub** | **Custom Translator**|
 |:-----|:----:|:----:|
 |Customization Feature Status	| General Availability	| Preview |
-| Text API version	| V2 only	| V3 only |
+| Text API version	| V2 	| V3  |
 | SMT customization	| Yes	| No |
 | NMT customization	| No	| Yes |
 | New unified Speech services customization	| No	| Yes |
-| [No Trace](https://www.aka.ms/notrace) | Yes	| Yes |
+| No Trace | Yes | Yes |
 
 ## Next steps
 

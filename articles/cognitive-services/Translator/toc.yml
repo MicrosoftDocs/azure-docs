@@ -184,7 +184,7 @@
       href: custom-translator/quickstart-build-deploy-custom-model.md
   - name: Concepts
     items:
-    - name: Workspace and project
+    - name: Workspaces and projects
       href: custom-translator/workspace-and-project.md
     - name: Parallel documents
       href: custom-translator/what-are-parallel-documents.md
