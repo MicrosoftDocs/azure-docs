@@ -238,7 +238,7 @@ Try these steps to resolve the most common SSH connection failures for VMs that 
 * Redeploy the VM to a new Azure node. For information about how to redeploy a VM, see [Redeploy virtual machine to new Azure node](../windows/redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
   
     After this operation finishes, ephemeral disk data will be lost and dynamic IP addresses that are associated with the virtual machine will be updated.
-* Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](../linux/classic/reset-access-classic.md?) to:
+* Follow the instructions in [How to reset a password or SSH for Linux-based virtual machines](../linux/classic/reset-access-classic.md) to:
   
   * Reset the password or SSH key.
   * Create a *sudo* user account.

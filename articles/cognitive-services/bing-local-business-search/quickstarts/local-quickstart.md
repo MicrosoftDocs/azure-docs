@@ -33,7 +33,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
-    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search";   
+    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";   
 
     const string searchTerm = "restaurant in Bellevue";
     // Construct the URI of the search request
@@ -73,7 +73,7 @@ namespace localSearch
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";
 
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search";   
+        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";   
 
         const string searchTerm = "restaurant in Bellevue";
 
@@ -109,7 +109,7 @@ namespace localSearch
         {
             // Construct the URI of the search request
             var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + 
-                                "&appid=" + accessKey + "&traffictype=Internal_monitor&market=en-us";
+                                "&appid=" + accessKey + "&market=en-us";
 
             // Perform the Web request and get the response
             WebRequest request = HttpWebRequest.Create(uriQuery);
