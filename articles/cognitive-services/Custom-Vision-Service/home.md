@@ -23,7 +23,7 @@ The Custom Vision service uses a machine learning algorithm to classify images. 
 
 ### Classification and object detection
 
-Custom Vision functionality can be divided into two features. **Image classification** assigns a distribution of classifications to each image. **Object detection** is similar, but it also returns the coordinates in the image where the applied tags can be found.
+Custom Vision functionality can be divided into two features. **Image classification** assigns a distribution of classifications to each image. Both multiclass (one class per image) and multilabel (any number of classes per image) classification models are supported. **Object detection** is similar to multilabel classification, but it also returns the coordinates in the image where the applied labels can be found.
 
 ### Optimization
 
