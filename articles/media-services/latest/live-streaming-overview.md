@@ -53,16 +53,6 @@ With the v3 APIs of Media Services, you benefit from the following new features:
 - RTMPS secure ingest.<br/>When you create a LiveEvent, you get 4 ingest URLs. The 4 ingest URLs are almost identical, have the same streaming token (AppId), only the port number part is different. Two of the URLs are primary and backup for RTMPS.   
 - You can stream live events that are up to 24 hours long when using Media Services for transcoding a single bitrate contribution feed into an output stream that has multiple bitrates. 
 
-### Basic workflow
-
-1. Create a new Asset object
-2. Create a LiveOutput and use the asset name from #1 during creation.
-3. Create a Streaming Policy and Content Key if you intend to do DRM.
-4. If not using DRM, create a Streaming Locator with the built in Streaming Policy types
-5. list the paths on the Streaming Policy to get back the URLs to use (these are actually deterministic)
-6. Get the hostname for the Streaming Endpoint you wish to use. 
-7. Combine the URL from step 5 with the hostname in step 6 to get your full URL
-
 ## LiveEvent types
 
 A  [LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents) can be one of two types: live encoding and pass-through. 
@@ -121,6 +111,18 @@ For detailed information, see [States and billing](live-event-states-billing.md)
 ## Latency
 
 For detailed information about LiveEvents latency, see [Latency](live-event-latency.md).
+
+## Live streaming workflow
+
+Here are the steps for a live streaming workflow:
+
+1. Create a new Asset object.
+2. Create a LiveOutput and use the asset name that you created.
+3. Create a Streaming Policy and Content Key if you intend to encrypt your content with DRM.
+4. If not using DRM, create a Streaming Locator with the built in Streaming Policy types.
+5. List the paths on the Streaming Policy to get back the URLs to use (these are deterministic).
+6. Get the hostname for the Streaming Endpoint you wish to stream from. 
+7. Combine the URL from step 5 with the hostname in step 6 to get your full URL.
 
 ## Next steps
 
