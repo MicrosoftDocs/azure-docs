@@ -47,7 +47,7 @@ let https = require('https');
 let subscriptionKey = 'your-access-key';
 
 let host = 'api.cognitive.microsoft.com/bing';
-let path = '/v7.0/search';
+let path = '/v7.0/localbusinesses/search';
 
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';
