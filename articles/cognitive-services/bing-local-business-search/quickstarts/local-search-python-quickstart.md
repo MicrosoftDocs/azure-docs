@@ -43,11 +43,11 @@ import json
 subscriptionKey = 'YOUR-SUBSCRIPTION-KEY'
 
 host = 'api.cognitive.microsoft.com/bing'
-path = '/v7.0/localbusinesses/search'
+path = '/v7.0/search'
 
 query = 'restaurant in Bellevue'
 
-params = '?q=' + urllib.parse.quote (query) + '&appid=' + subscriptionKey + '&traffictype=Internal_monitor&mkt=en-us'
+params = '?q=' + urllib.parse.quote (query) + '&appid=' + subscriptionKey + '&mkt=en-us'
 
 def get_local():
     headers = {'Ocp-Apim-Subscription-Key': subscriptionKey}

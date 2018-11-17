@@ -32,7 +32,7 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ````
     // construct URL of search request (endpoint + query string)
-	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "appid=AEA845921DC03F506DC317A90EDDBF33074523F7&traffictype=Internal_monitor&market=en-us");
+	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "appid=AEA845921DC03F506DC317A90EDDBF33074523F7&market=en-us");
 	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
 	//connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
@@ -89,14 +89,14 @@ public class LocalSearchCls {
 	    static String subscriptionKey = "YOUR-ACCESS-KEY";
 
 	    static String host = "https://api.cognitive.microsoft.com/bing";
-	    static String path = "/v7.0/localbusinesses/search";
+	    static String path = "/v7.0/search";
 
 	    static String searchTerm = "Hotel in Bellevue";
 
 	    public static SearchResults SearchLocal (String searchQuery) throws Exception {
 	        // construct URL of search request (endpoint + query string)
 	        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + 
-                         "&appid=" + subscriptionKey + "&traffictype=Internal_monitor&market=en-us");
+                         "&appid=" + subscriptionKey + "&market=en-us");
 	        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
 	        //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
