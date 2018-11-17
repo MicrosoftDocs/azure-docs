@@ -73,7 +73,7 @@ namespace localSearch
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";
 
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";   
+        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/";   
 
         const string searchTerm = "restaurant in Bellevue";
 
