@@ -52,13 +52,13 @@ sections:
         href: /pricing/hybrid-benefit/
         html: <p>Save up to 40% with Azure Hybrid Benefit (AHB) with your existing on-premises licences.</p>
       - title: PaaS capabilities
-        href: /azure/sql-database-pass
+        href: /azure/sql-database/sql-database-paas
         html: <p>Azure PaaS enables you to use 99.99% available instance with minimal management.</p>
       - title: Service tiers
         href: /azure/sql-database/sql-database-high-availability
         html: <p>Choose between General Purpose and Business Critical service tiers depending on your business needs.</p>
       - title: Advanced security
-        href: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
+        href: /azure/sql-database/sql-database-security-index
         html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
 - title: 5-Minute Quickstarts
   items:

@@ -32,11 +32,11 @@ sections:
         html: <p>Advanced security capabilities such as Data Discovery & Classification, Vulnerability Assessment, and Threat Detection.</p>
       - title: Vulnerability assessment
         href: /azure/sql-database/sql-vulnerability-assessment
-        html: <p>Vulnerability assessment enables you to discover, track, and remediate potential database vulnerabilities to proactively improve your database security.</p>
+        html: <p>Vulnerability assessment enables you to discover, track, and remediate potential database vulnerabilities.</p>
       - title: Encryption as rest
         href: /azure/sql-database/transparent-data-encryption-azure-sql
-        html: <p>Transparent data encryption (TDE) ensures that information in your databases are transparently encrypted when stored on the storage.</p>
-      - title: Data discovery and classification(Preview)
+        html: <p>Transparent data encryption (TDE) ensures that information in your databases are transparently encrypted.</p>
+      - title: Data discovery and classification
         href: /azure/sql-database/sql-database-data-discovery-and-classification
         html: <p>Data discovery and classification enables you to discover, classify, label, and protect the sensitive data in your databases.</p>
       - title: Azure Active Directory
