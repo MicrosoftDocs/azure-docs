@@ -65,7 +65,7 @@ python publish-kb-3x.py
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](./Tutorials/create-publish-answer.md#generating-an-answer). 
+After the knowledge base is published, you need the [endpoint URL to generate an answer](../Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
