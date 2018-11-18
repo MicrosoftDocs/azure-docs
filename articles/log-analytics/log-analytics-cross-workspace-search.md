@@ -122,7 +122,6 @@ applicationsScoping
 | where success == 'False'
 | parse SourceApp with * '(' applicationName ')' * 
 | summarize count() by applicationName, bin(timestamp, 1h) 
-| sort by count_ desc 
 | render timechart
 ```
 ![Timechart](media/log-analytics-cross-workspace-search/chart.png)
