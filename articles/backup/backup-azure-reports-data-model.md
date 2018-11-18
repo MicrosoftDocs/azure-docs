@@ -27,7 +27,7 @@ This table provides basic fields and aggregations over various alert related fie
 | #AlertsCreatedInPeriod |Whole Number |Number of alerts created in selected time period |
 | %ActiveAlertsCreatedInPeriod |Percentage |Percentage of active alerts in selected time period |
 | %CriticalAlertsCreatedInPeriod |Percentage |Percentage of critical alerts in selected time period |
-| AlertOccurenceDate |Date |Date when alert was created |
+| AlertOccurrenceDate |Date |Date when alert was created |
 | AlertSeverity |Text |Severity of the alert for example, Critical |
 | AlertStatus |Text |Status of the alert for example, Active |
 | AlertType |Text |Type of the generated alert for example, Backup |
