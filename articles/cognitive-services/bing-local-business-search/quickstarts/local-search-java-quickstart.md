@@ -32,9 +32,9 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
 ````
     // construct URL of search request (endpoint + query string)
-	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + "appid=AEA845921DC03F506DC317A90EDDBF33074523F7&market=en-us");
+	 URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + &mkt=en-us");
 	HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-	//connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+	connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 
 	// receive JSON body
 	InputStream stream = connection.getInputStream();
@@ -96,7 +96,7 @@ public class LocalSearchCls {
 	    public static SearchResults SearchLocal (String searchQuery) throws Exception {
 	        // construct URL of search request (endpoint + query string)
 	        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8") + 
-                         "&appid=" + subscriptionKey + "&market=en-us");
+                         "&appid=" + subscriptionKey + "&mkt=en-us");
 	        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
 	        //connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
 

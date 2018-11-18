@@ -73,7 +73,7 @@ namespace localSearch
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";
 
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";   
+        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/";   
 
         const string searchTerm = "restaurant in Bellevue";
 
@@ -105,15 +105,14 @@ namespace localSearch
         /// <summary>
         /// Performs a Bing Local business search and return the results as a SearchResult.
         /// </summary>
-        static SearchResult BingLocalSearch(string searchQuery)
+        static SearchResult BingLocalSearch(string searchQuery, string key)
         {
             // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + 
-                                "&appid=" + accessKey + "&market=en-us";
+            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "&mkt=en-us";
 
             // Perform the Web request and get the response
             WebRequest request = HttpWebRequest.Create(uriQuery);
-            //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+            request.Headers["Ocp-Apim-Subscription-Key"] = key; 
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
             string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
