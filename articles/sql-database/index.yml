@@ -68,7 +68,7 @@ sections:
         image:
           src: media/index/gear.svg
         title: Platform as a Service
-      - href: /azure/sql-database/sql-database-security-overview
+      - href: /azure/sql-database/sql-database-security-index.yml
         html: <p>Secure your database with Azure AD authentication, Virtual Networks, Firewalls, Always Encrypted connections. Identify threats and vulnerabilities with built-in security.</p>
         image:
           src: media/index/i_security.svg
