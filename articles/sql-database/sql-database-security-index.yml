@@ -27,9 +27,9 @@ sections:
       - title: Overview
         href: /azure/sql-database/sql-database-security-overview
         html: <p>Azure SQL Database provides a set of advanced security features that can help you make your data secure.</p>
-      - title: Threat protection
-        href: /azure/sql-database/sql-advanced-threat-protection
-        html: <p>Learn more about Data Discovery & Classification, Vulnerability Assessment, and Threat Detection.</p>
+      - title: Threat detection
+        href: /azure/sql-database/sql-database-threat-detection
+        html: <p>Detect anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.</p>
       - title: Vulnerability assessment
         href: /azure/sql-database/sql-vulnerability-assessment
         html: <p>Vulnerability assessment enables you to discover, track, and remediate potential database vulnerabilities.</p>
