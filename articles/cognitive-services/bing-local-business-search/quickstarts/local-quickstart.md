@@ -33,15 +33,15 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
     // Replace the accessKey string value with your valid access key.
     const string accessKey = "enter key here";
 
-    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/search";   
+    const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search";   
 
     const string searchTerm = "restaurant in Bellevue";
     // Construct the URI of the search request
-    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "appid=" + accessKey;
+    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + mkt=en-us;
 
     // Run the Web request and get response.
     WebRequest request = HttpWebRequest.Create(uriQuery);
-    //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -73,7 +73,7 @@ namespace localSearch
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "enter key here";
 
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/";   
+        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/localbusinesses/search";   
 
         const string searchTerm = "restaurant in Bellevue";
 
@@ -89,7 +89,7 @@ namespace localSearch
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Searching locally for: " + searchTerm);
 
-            SearchResult result = BingLocalSearch(searchTerm);
+            SearchResult result = BingLocalSearch(searchTerm, accessKey);
 
             Console.WriteLine("\nRelevant HTTP Headers:\n");
             foreach (var header in result.relevantHeaders)
