@@ -61,7 +61,7 @@ Kusto offers client SDK that can be used to ingest and query data with :
 
 **Programmatic ingestion techniques**:
 
-* Ingesting data through the Azure Data Explorer data management service (high-throughput and reliable ingestion)
+* Ingesting data through the Azure Data Explorer data management service (high-throughput and reliable ingestion):
 
   * [**Batch ingestion**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (provided by SDK): the client uploads the data to Azure Blob storage (designated by the Azure Data Explorer data management service) and posts a notification to an Azure Queue. This is the recommended technique for high-volume, reliable and cheap data ingestion.
 
