@@ -55,13 +55,13 @@ public class PublishKB {
 
 At the top of `PublishKB.java`, above the class, add the following lines to add necessary dependencies to the project:
 
-[!code-java[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=1-13 "Add the required dependencies")]
+[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=1-13 "Add the required dependencies")]
 
 ## Add required constants
 
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
 
-[!code-java[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
+[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
 
 ## Add POST request to publish KB
 

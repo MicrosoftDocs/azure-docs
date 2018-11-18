@@ -41,13 +41,13 @@ At the top of `publish-kb-3x.py`, add the following lines to add necessary depen
 
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
 
-[!code-python[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.py?range=16-20 "Add the required constants")]
+[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.py?range=16-20 "Add the required constants")]
 
 ## Add POST request to publish KB
 
 The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
-[!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.py?range=35-48 "Add a POST request to publish KB")]
+[!code-go[Add a POST request to publish KB](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.py?range=35-48 "Add a POST request to publish KB")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
@@ -58,7 +58,7 @@ For any other response, that response is returned unaltered.
 Enter the following command at a command-line to run the program. It will send the request to the QnA Maker API to publish the KB, then print out 204 for success or errors.
 
 ```bash
-python publish-kb--3x.py
+python publish-kb-3x.py
 ```
 
 [!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
