@@ -47,15 +47,15 @@ At the top of Program.cs, replace the single using statement with the following 
 
 ## Add required constants
 
-At the top of the Program class, add the following constants to access QnA Maker:
+After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=11-14 "Add the required constants")]
 
 ## Add POST request to publish KB
 
-The following code makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
+The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
-[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-30 "Add HTTP Post request and response")]
+[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-29&dedent=8 "Add HTTP Post request and response")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
@@ -67,7 +67,11 @@ Build and run the program. It will automatically send the request to the QnA Mak
 
 Once your knowledge base is published, you can query it from the endpoint with a client application or chat bot. 
 
+[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+
 ## Next steps
+
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./Tutorials/create-publish-answer.md?branch=pr-en-us-58267#generating-an-answer). 
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
