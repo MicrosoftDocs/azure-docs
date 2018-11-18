@@ -43,7 +43,7 @@ import json
 subscriptionKey = 'YOUR-SUBSCRIPTION-KEY'
 
 host = 'api.cognitive.microsoft.com/bing'
-path = '/v7.0/search'
+path = '/v7.0/localbusinesses/search'
 
 query = 'restaurant in Bellevue'
 
