@@ -18,7 +18,7 @@ sections:
 
 - items:
   - type: paragraph
-    text: Azure SQL Database has advanced built-in security features that helps to protect your databases.
+    text: Azure SQL Database has advanced built-in security features that help to protect your databases.
   - type: list
     style: cards
     className: cardsM
@@ -27,9 +27,9 @@ sections:
       - title: Overview
         href: /azure/sql-database/sql-database-security-overview
         html: <p>Azure SQL Database provides a set of advanced security features that can help you make your data secure.</p>
-      - title: Threat detection
+      - title: Threat protection
         href: /azure/sql-database/sql-advanced-threat-protection
-        html: <p>Threat detection detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.</p>
+        html: <p>Advanced security capabilities such as Data Discovery & Classification, Vulnerability Assessment, and Threat Detection.</p>
       - title: Vulnerability assessment
         href: /azure/sql-database/sql-vulnerability-assessment
         html: <p>Vulnerability assessment enables you to discover, track, and remediate potential database vulnerabilities to proactively improve your database security.</p>
@@ -49,6 +49,7 @@ sections:
   - type: list
     style: ordered
     items:
+    - html: Threat protection in <a href="/azure/sql-database/sql-database-managed-instance-threat-detection">Managed Instances</a> and <a href="/azure/sql-database/sql-database-threat-detection">databases</a> detects anomalous activities indicating unusual and potentially harmful attempts to access or exploit databases.
     - html: Auditing for <a href="/azure/sql-database/sql-database-managed-instance-auditing">Managed Instances</a> and <a href="/azure/sql-database/sql-database-auditing">databases</a> tracks database events and writes them to an audit log in your Azure storage account, OMS workspace or Event Hubs.
     - html: <a href="/azure/sql-database/sql-database-firewall-configure">Firewall rules</a> in single databases enable you to controll what IP addresses can access your database.
     - html: <a href="/azure/sql-database/sql-database-managed-instance-vnet-configuration">VNet integration</a> in Managed Instance enables you to put the databases in your own private address space.
