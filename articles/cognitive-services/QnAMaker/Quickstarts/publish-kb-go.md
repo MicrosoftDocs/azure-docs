@@ -86,7 +86,7 @@ Enter the following command at a command-line to run the program. It will send t
 
 ## Next steps
 
-After the knowledge base is published, you need the [endpoint URL to generate an answer](./Tutorials/create-publish-answer.md?branch=pr-en-us-58267#generating-an-answer). 
+After the knowledge base is published, you need the [endpoint URL to generate an answer](./Tutorials/create-publish-answer.md#generating-an-answer). 
 
 > [!div class="nextstepaction"]
 > [QnA Maker (V4) REST API Reference](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
