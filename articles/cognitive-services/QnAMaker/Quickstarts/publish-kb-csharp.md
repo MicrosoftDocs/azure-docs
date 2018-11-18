@@ -49,13 +49,13 @@ At the top of Program.cs, replace the single using statement with the following 
 
 At the top of the Program class, add the following constants to access QnA Maker:
 
-[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=11-14 "Add the required dependencies")]
+[!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=11-14 "Add the required constants")]
 
 ## Add POST request to publish KB
 
 The following code makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
-[!code-csharp[Add the required dependencies](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-28 "Add the required dependencies")]
+[!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-30 "Add HTTP Post request and response")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
