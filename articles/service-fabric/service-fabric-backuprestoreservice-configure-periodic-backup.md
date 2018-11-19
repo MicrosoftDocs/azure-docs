@@ -188,11 +188,11 @@ Backup policies can be disabled when there is no need to backup data. Backup pol
 * Disabling backup policy for a _partition_ stops all periodic data backup happening due to the backup policy at the partition.
 
 * While disabling backup for an entity(application/service/partition), `CleanBackup` can be set to _true_ to delete all the backups in configured storage.
-            ```json
-            {
-               "CleanBackup": true 
-            }
-            ```
+    ```json
+    {
+        "CleanBackup": true 
+    }
+    ```
 
 ## Suspend & resume backup
 Certain situation may demand temporary suspension of periodic backup of data. In such situation, depending on the requirement, suspend backup API may be used at an _Application_, _Service_, or _Partition_. Periodic backup suspension is transitive over subtree of the application's hierarchy from the point it is applied. 
