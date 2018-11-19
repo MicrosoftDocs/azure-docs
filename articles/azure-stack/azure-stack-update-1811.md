@@ -46,9 +46,9 @@ This update includes the following improvements for Azure Stack:
 
 - Support for Azure CLI using Web Browser authentication with ADFS
 
-- Added new privivledged endpoint cmdlets to update & remove service principles for ADFS (@Matt add link to updated SPN - ADFS article)
+- Added new privileged endpoint commands to update & remove service principles for ADFS (@Matt add link to updated SPN - ADFS article)
 
-- New Scale Unit Node operations that allow an Azure Stack operator to Start, Stop and Shutdown a node [@Matt add link to updated operations doc]
+- New Scale Unit Node operations that allow an Azure Stack operator to Start, Stop and Shutdown a node [@Matt add link to updated node actions doc]
 
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
@@ -74,7 +74,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed: when you installed a new Azure Stack environment, the alert that indicates *Activation Required* might not display.
 
 <!--1236441 – IS  ASDK --> 
-- Fixed an issue that did prevent applying a RBAC policy to a User Group when deployed with ADFS
+- Fixed an issue that did prevent applying RBAC policies to a User Group when using ADFS
 
 ### Changes
 
