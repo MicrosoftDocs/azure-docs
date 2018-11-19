@@ -65,6 +65,9 @@ This update includes the following improvements for Azure Stack:
 <!--2760466 – IS  ASDK --> 
 - Fixed: when you installed a new Azure Stack environment, the alert that indicates *Activation Required* might not display.   
 
+<!--3463840 - IS, ASDK --> 
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [1809 hotfix - MUST UPDATE LINK!](https://support.microsoft.com/en-us/help/4471993) that addressed this issue, 1811 update will not make any further modifications.  
+
 ### Changes
 
 None.
