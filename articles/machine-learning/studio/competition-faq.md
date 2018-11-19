@@ -4,7 +4,8 @@ description: Frequently asked questions about Microsoft Cortana Intelligence Com
 services: machine-learning
 documentationcenter: ''
 author: hning86
-ms.author: haining
+ms.custom: (previous ms.author haining)
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
 
