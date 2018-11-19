@@ -493,9 +493,9 @@ Congratulations! You have successfully created an Azure Cosmos DB item.
 
 
 ## <a id="Query"></a>Step 8: Query Azure Cosmos DB resources
-Azure Cosmos DB supports [rich queries](sql-api-sql-query.md) against JSON documents stored in each container. The following sample code shows a query that you can run against the documents in your container.
+Azure Cosmos DB supports [rich queries](how-to-sql-query.md) against JSON documents stored in each container. The following sample code shows a query that you can run against the documents in your container.
 
-1. Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](sql-api-sql-query.md).
+1. Copy and paste the **queryContainer** function below the **createFamilyItem** function in the app.js file. Azure Cosmos DB supports SQL-like queries as shown below. For more information on building complex queries, check out the [Query Playground](https://www.documentdb.com/sql/demo) and the [query documentation](how-to-sql-query.md).
 
    ```nodejs
    /**
