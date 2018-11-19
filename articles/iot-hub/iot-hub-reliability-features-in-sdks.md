@@ -17,7 +17,7 @@ ms.custom: mvc
 
 # How to manage connectivity and reliable messaging using Azure IoT Hub device SDKs
 
-This guide provides high-level guidance for designing resilient device applications, by taking advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this article is to help answer questions and handle these scenarios:
+This guide provides high-level guidance for designing resilient, device applications by taking advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this article is to help answer questions and handle these scenarios:
 
 - Managing a dropped network connection
 - Managing switching between different network connections
