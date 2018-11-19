@@ -36,7 +36,7 @@ To complete this tutorial:
 
 Create the vault in any region, except the source region.
 
-1. Sign into the [Azure portal](https://portal.azure.com) > **Recovery Services**.
+1. Sign in to the [Azure portal](https://portal.azure.com) > **Recovery Services**.
 2. Click **Create a resource** > **Monitoring & Management** > **Backup and Site Recovery**.
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one
    subscription, select the appropriate one.
@@ -60,11 +60,10 @@ Create the vault in any region, except the source region.
 
 For Site Recovery to work as expected, you need to modify outbound network connectivity from the VMs that you want to replicate.
 
-> [NOTE]
-  Site Recovery doesn't support using an authentication proxy to control network connectivity.
+> [!NOTE]
+> Site Recovery doesn't support using an authentication proxy to control network connectivity.
 
-
-
+  
 
 ### Outbound connectivity for URLs
 
