@@ -50,18 +50,18 @@ If source machine has an Antivirus software active, installation folder should b
 
 Exclude following folders from Antivirus software for smooth replication and to avoid connectivity issues
 
- 1. C:\Program Files\Microsoft Azure Recovery Services Agent.
- 2. C:\Program Files\Microsoft Azure Site Recovery Provider
- 3. C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
- 4. C:\Program Files\Microsoft Azure Site Recovery Error Collection Tool 
- 5. C:\thirdparty
- 6. C:\Temp
- 7. C:\strawberry
- 8. C:\ProgramData\MySQL
- 9. C:\Program Files (x86)\MySQL
- 10. C:\ProgramData\ASR
- 11. C:\ProgramData\Microsoft Azure Site Recovery
- 12. C:\ProgramData\ASRLogs
+- C:\Program Files\Microsoft Azure Recovery Services Agent.
+- C:\Program Files\Microsoft Azure Site Recovery Provider
+- C:\Program Files\Microsoft Azure Site Recovery Configuration Manager 
+- C:\Program Files\Microsoft Azure Site Recovery Error Collection Tool 
+ - C:\thirdparty
+ - C:\Temp
+ - C:\strawberry
+ - C:\ProgramData\MySQL
+ - C:\Program Files (x86)\MySQL
+ - C:\ProgramData\ASR
+ - C:\ProgramData\Microsoft Azure Site Recovery
+ - C:\ProgramData\ASRLogs
  13. C:\ProgramData\ASRSetupLogs
  14. C:\ProgramData\LogUploadServiceLogs
  15. C:\inetpub
@@ -83,4 +83,4 @@ Exclude following folders from Antivirus software
 [!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 ## Next steps
-[Set up your target environment](./vmware-azure-set-up-target.md) i
+[Set up your target environment](./vmware-azure-set-up-target.md) 
