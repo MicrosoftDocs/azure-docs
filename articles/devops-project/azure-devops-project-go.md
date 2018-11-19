@@ -122,7 +122,7 @@ DevOps Projects automatically configures a full CI/CD pipeline in Azure Repos. E
 	This release pipeline has an enabled CD trigger, which executes a deployment every time a new build artifact is available. Optionally, you can disable the trigger so that your deployments require manual execution. 
 
 1. At the left, select **Tasks**.  
-	Tasks are the activities your deployment process performs. In this example, a task was created to deploy to Azure App service.
+	Tasks are the activities your deployment process performs. In this example, a task was created to deploy to Azure App Service.
 
 1. At the right, select **View releases** to display a history of releases.
 
@@ -137,7 +137,7 @@ DevOps Projects automatically configures a full CI/CD pipeline in Azure Repos. E
 
 ## Clean up resources
 
-When they are no longer needed, you can delete the Azure App service and related resources that you created in this quickstart. To do so, use the **Delete** functionality on the DevOps Projects dashboard.
+When they are no longer needed, you can delete the Azure App Service instance and related resources that you created in this quickstart. To do so, use the **Delete** functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
