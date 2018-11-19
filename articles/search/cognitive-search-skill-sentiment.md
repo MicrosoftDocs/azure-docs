@@ -4,9 +4,6 @@ description: Extract sentiment from text in an Azure Search enrichment pipeline.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-
-ms.assetid: 
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -19,6 +16,9 @@ ms.author: luisca
 #	Sentiment cognitive skill
 
 The **Sentiment** skill evaluates unstructured text along a positive-negative continuum, and for each record, returns a numeric score between 0 and 1. Scores close to 1 indicate positive sentiment, and scores close to 0 indicate negative sentiment.
+
+> [!NOTE]
+> Cognitive Search is in public preview. Skillset execution, and image extraction and normalization are currently offered for free. At a later time, the pricing for these capabilities will be announced. 
 
 ## @odata.type  
 Microsoft.Skills.Text.SentimentSkill

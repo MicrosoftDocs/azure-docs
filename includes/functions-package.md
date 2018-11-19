@@ -6,17 +6,15 @@ author: tdykstra
 manager: cfowler
 ms.service: functions
 ms.topic: include
-ms.date: 03/12/2018
+ms.date: 05/23/2018
 ms.author: tdykstra
 ms.custom: include file
 ---
 
-### C# class library
+The following table tells how to add support for this binding in each development environment.
 
-For C# class library development, support for the binding is added by [installing the package](../articles/azure-functions/functions-triggers-bindings.md#local-c-development-using-visual-studio-or-vs-code).
-
-### Binding extensions in Functions 2.x
-
-For local development in Azure Functions version2.x, the package is used to [register the binding extension](../articles/azure-functions/functions-triggers-bindings.md#local-development-azure-functions-core-tools).
-
-
+| Development environment               | To add support in <br>Functions 1.x  |
+|----------------------|----------------|---------------|
+|Local development - C# class library       | [Install the package](../articles/azure-functions/functions-triggers-bindings.md#c-class-library-with-visual-studio-2017) | 
+|Local development - C# script, JavaScript, F# |Automatic         |
+|Portal development|  Automatic    |

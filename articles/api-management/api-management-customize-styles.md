@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 11/19/2017
+ms.date: 06/15/2018
 ms.author: apimpm
 
 ---
@@ -35,6 +35,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
++ Learn the [Azure API Management terminology](api-management-terminology.md).
 + Complete the following quickstart: [Create an Azure API Management instance](get-started-create-service-instance.md).
 + Also, complete the following tutorial: [Import and publish your first API](import-and-publish.md).
 
@@ -78,5 +79,4 @@ In this tutorial, you learned how to:
 > * Customize the style of elements on pages of the **Developer** portal
 > * View your change
 
-> [!div class="nextstepaction"]
-> [Customize the Azure API Management developer portal using templates](api-management-developer-portal-templates.md)
+You might also be interested in learning [how to customize the Azure API Management developer portal using templates](api-management-developer-portal-templates.md).

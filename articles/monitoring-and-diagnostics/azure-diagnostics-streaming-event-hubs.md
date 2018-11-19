@@ -1,21 +1,14 @@
 ---
-title: Streaming Azure Diagnostics data in the hot path using Event Hubs | Microsoft Docs
+title: Stream Azure Diagnostics data to Event Hubs
 description: Configuring Azure Diagnostics with Event Hubs end to end, including guidance for common scenarios.
-services: event-hubs
-documentationcenter: na
+services: azure-monitor
 author: rboucher
-manager: carmonm
-editor: ''
-
-ms.assetid: edeebaac-1c47-4b43-9687-f28e7e1e446a
-ms.service: monitoring-and-diagnostics
+ms.service: azure-monitor
 ms.devlang: dotnet
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
-
+ms.component: diagnostic-extension
 ---
 # Streaming Azure Diagnostics data in the hot path by using Event Hubs
 Azure Diagnostics provides flexible ways to collect metrics and logs from cloud services virtual machines (VMs) and transfer results to Azure Storage. Starting in the March 2016 (SDK 2.9) time frame, you can send Diagnostics to custom data sources and transfer hot path data in seconds by using [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -41,9 +34,9 @@ Event Hubs receieving data from Azure Diagnostics is supported in Cloud Services
 * Azure Diagnostics extension 1.6 ([Azure SDK for .NET 2.9 or later](https://azure.microsoft.com/downloads/) targets this by default)
 * [Visual Studio 2013 or later](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Existing configurations of Azure Diagnostics in an application by using a *.wadcfgx* file and one of the following methods:
-  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio: [Configuring Diagnostics for Azure Cloud Services and Virtual Machines](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell: [Enable diagnostics in Azure Cloud Services using PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Event Hubs namespace provisioned per the article, [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## Connect Azure Diagnostics to Event Hubs sink
 By default, Azure Diagnostics always sends logs and metrics to an Azure Storage account. An application may also send data to Event Hubs by adding a new **Sinks** section under the **PublicConfig** / **WadCfg** element of the *.wadcfgx* file. In Visual Studio, the *.wadcfgx* file is stored in the following path: **Cloud Service Project** > **Roles** > **(RoleName)** > **diagnostics.wadcfgx** file.
@@ -71,7 +64,7 @@ By default, Azure Diagnostics always sends logs and metrics to an Azure Storage 
 
 In this example, the event hub URL is set to the fully qualified namespace of the event hub: Event Hubs namespace  + "/" + event hub name.  
 
-The event hub URL is displayed in the [Azure portal](http://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
+The event hub URL is displayed in the [Azure portal](https://go.microsoft.com/fwlink/?LinkID=213885) on the Event Hubs dashboard.  
 
 The **Sink** name can be set to any valid string as long as the same value is used consistently throughout the config file.
 
@@ -222,7 +215,7 @@ In the following figure, the Event Hubs dashboard shows healthy sending of diagn
 As discussed previously, there are many use cases for listening to and processing Event Hubs data.
 
 One simple approach is to create a small test console application to listen to the event hub and print the output stream. You can place the following code, which is explained in more detail
-in [Get started with Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)), in a console application.  
+in [Get started with Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)), in a console application.  
 
 Note that the console application must include the [Event Processor Host NuGet package](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -391,9 +384,11 @@ The complementary *ServiceConfiguration.Cloud.cscfg* for this example looks like
 </ServiceConfiguration>
 ```
 
-Equivalent Json based settings for virtual machines is as follows:
+Equivalent JSON settings for virtual machines is as follows:
+
+Public Settings:
 ```JSON
-"settings": {
+{
     "WadCfg": {
         "DiagnosticMonitorConfiguration": {
             "overallQuotaInMB": 4096,
@@ -489,8 +484,11 @@ Equivalent Json based settings for virtual machines is as follows:
     "StorageAccount": "{account name}"
 }
 
+```
 
-"protectedSettings": {
+Protected Settings:
+```JSON
+{
     "storageAccountName": "{account name}",
     "storageAccountKey": "{account key}",
     "storageAccountEndPoint": "{storage endpoint}",
@@ -505,7 +503,7 @@ Equivalent Json based settings for virtual machines is as follows:
 ## Next steps
 You can learn more about Event Hubs by visiting the following links:
 
-* [Event Hubs overview](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Event Hubs overview](../event-hubs/event-hubs-about.md)
 * [Create an event hub](../event-hubs/event-hubs-create.md)
 * [Event Hubs FAQ](../event-hubs/event-hubs-faq.md)
 

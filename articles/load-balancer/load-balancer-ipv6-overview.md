@@ -4,17 +4,13 @@ description: Understanding IPv6 support for Azure Load Balancer and load-balance
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-
-ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 08/24/2018
 ms.author: kumud
 ---
 
@@ -75,6 +71,7 @@ Limitations
 * Changing the IdleTimeout parameter for IPv6 is **currently not supported**. The default is four minutes.
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * Reserved IPv6 IPs (where IPAllocationMethod = static) are **currently not supported**.
+* NAT64 (translation of IPv6 to IPv4) is not supported.
 
 ## Next steps
 

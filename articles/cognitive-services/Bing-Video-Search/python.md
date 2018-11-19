@@ -1,16 +1,19 @@
 ---
-title: Python Quickstart for Azure Cognitive Services, Bing Video Search API | Microsoft Docs
-description: Get information and code samples to help you quickly get started using the Bing Video Search API in Microsoft Cognitive Services on Azure.
+title: "Quickstart: Bing Video Search, Python"
+titlesuffix: Azure Cognitive Services
+description: Get information and code samples to help you quickly get started using the Bing Video Search API.
 services: cognitive-services
 author: v-jerkin
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-video-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 9/21/2017
 ms.author: v-jerkin
 ---
 
-# Quickstart for Bing Video Search API with Python
+# Quickstart: Bing Video Search API with Python
 
 This walkthrough shows you how to use the Bing Video Search API, part of Microsoft Cognitive Services on Azure. Refer to the [API reference](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference) for technical details about the APIs.
 

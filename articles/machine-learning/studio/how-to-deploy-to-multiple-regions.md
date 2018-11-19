@@ -9,12 +9,14 @@ editor: cgronlun
 
 ms.assetid: 36c60411-f2db-4ee2-9b66-b1f1d77a8f44
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: aashishb
+ms.custom: (previous ms.author aashishb)
+ms.author: amlstudiodocs
 
 ---
 # How to deploy a Web Service to multiple regions

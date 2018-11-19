@@ -3,7 +3,7 @@ title: Azure Stack Infrastructure Backup Service reference | Microsoft Docs
 description: This article contains reference material for the Azure Stack Infrastructure Backup Service.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
-ms.author: mabrigg
+ms.date: 10/25/2018
+ms.author: jeffgilb
 ms.reviewer: hectorl
 
 ---
@@ -85,7 +85,7 @@ Infrastructure Backup Controller will back up data on demand. The recommendation
 
 | Environment Scale | Projected size of backup | Total amount of space required |
 |-------------------|--------------------------|--------------------------------|
-| 4-12 nodes        | 10 GB                     | 140 GB                          |
+| 4-16 nodes        | 10 GB                     | 140 GB                          |
 
 ### Network requirements
 | Storage location                                                                 | Details                                                                                                                                                                                 |

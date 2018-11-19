@@ -3,9 +3,9 @@ title: Asynchronous refresh for Azure Analysis Services models | Microsoft Docs
 description: Learn how to code asynchronous refresh by using REST API.
 author: minewiskan
 manager: kfile
-ms.service: analysis-services
+ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
 
@@ -231,7 +231,7 @@ This form of authentication requires an Azure application be created with the ne
 
 #### Service principal
 
-See [Create service principal - Azure portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
+See [Create service principal - Azure portal](../active-directory/develop/howto-create-service-principal-portal.md) and [Add a service principal to the server administrator role](analysis-services-addservprinc-admins.md) for more info on how to set up a service principal and assign the necessary permissions in Azure AS. Once you've completed the steps, complete the following additional steps:
 
 1.	In the code sample, find **string authority = …**, replace **common** with your organization’s tenant ID.
 2.	Comment/uncomment so the ClientCredential class is used to instantiate the cred object. Ensure the \<App ID> and \<App Key> values are accessed in a secure way or use certificate-based authentication for service principals.

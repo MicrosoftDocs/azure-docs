@@ -1,23 +1,18 @@
 ---
-title: Use Hadoop Hive and Remote Desktop in HDInsight - Azure | Microsoft Docs
+title: Use Apache Hive and Remote Desktop in HDInsight - Azure 
 description: Learn how to connect to Hadoop cluster in HDInsight by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 8c228e35-d58a-4f22-917a-1d20c9da89b4
 ms.service: hdinsight
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: larryfr
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Use Hive with Hadoop on HDInsight with Remote Desktop
+# Use Apache Hive with Apache Hadoop on HDInsight with Remote Desktop
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
 In this article, you will learn how to connect to an HDInsight cluster by using Remote Desktop, and then run Hive queries by using the Hive Command-Line Interface (CLI).
@@ -92,7 +87,7 @@ When you have connected to the desktop for the HDInsight cluster, use the follow
      Three rows of data should be returned, all containing **[ERROR]** in column t4.
 
 ## <a id="summary"></a>Summary
-As you can see, the the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
+As you can see, the Hive command provides an easy way to interactively run Hive queries on an HDInsight cluster, monitor the job status, and retrieve the output.
 
 ## <a id="nextsteps"></a>Next steps
 For general information about Hive in HDInsight:
@@ -110,8 +105,6 @@ If you are using Tez with Hive, see the following documents for debugging inform
 * [Use the Ambari Tez view on Linux-based HDInsight](../hdinsight-debug-ambari-tez-view.md)
 
 [1]:apache-hadoop-visual-studio-tools-get-started.md
-
-[hdinsight-sdk-documentation]: http://msdnstage.redmond.corp.microsoft.com/library/dn479185.aspx
 
 [azure-purchase-options]: http://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/

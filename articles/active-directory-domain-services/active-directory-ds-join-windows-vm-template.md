@@ -3,22 +3,25 @@ title: 'Join a Windows Server VM to Azure Active Directory Domain Services | Mic
 description: Join a Windows Server virtual machine to a managed domain using Azure Resource Manager templates.
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
 ms.assetid: 4eabfd8e-5509-4acd-86b5-1318147fddb5
-ms.service: active-directory-ds
+ms.service: active-directory
+ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/19/2017
-ms.author: maheshu
+ms.topic: conceptual
+ms.date: 06/22/2018
+ms.author: ergreenl
 ---
 
 # Join a Windows Server virtual machine to a managed domain using a Resource Manager template
 This article shows you how to join a Windows Server virtual machine to an Azure AD Domain Services managed domain using Resource Manager templates.
+
+[!INCLUDE [active-directory-ds-prerequisites.md](../../includes/active-directory-ds-prerequisites.md)]
 
 ## Before you begin
 To perform the tasks listed in this article, you need:
@@ -32,7 +35,7 @@ To perform the tasks listed in this article, you need:
 ## Install and configure required tools
 You can use either of the following options to perform the steps outlined in this document:
 * **Azure PowerShell**: [Install and configure](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-* **Azure cross-platform command-line interface**: [Install and configure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
+* **Azure CLI**: [Install and configure](https://azure.microsoft.com/documentation/articles/xplat-cli-install/)
 
 
 ## Option 1: Provision a new Windows Server VM and join it to a managed domain

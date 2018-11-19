@@ -1,26 +1,18 @@
 ---
 title: Azure IoT solution accelerators FAQ | Microsoft Docs
 description: Frequently asked questions for IoT solution accelerators
-services: iot-suite
-suite: iot-suite
-documentationcenter: ''
 author: dominicbetts
 manager: timlt
-editor: ''
-
-ms.assetid: cb537749-a8a1-4e53-b3bf-f1b64a38188a
-ms.service: iot-suite
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.service: iot-accelerators
+services: iot-accelerators
+ms.topic: conceptual
 ms.date: 02/15/2018
 ms.author: dobett
-
 ---
+
 # Frequently asked questions for IoT solution accelerators
 
-See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md) and the [remote monitoring-specific FAQ](iot-accelerators-faq-rm-v2.md) .
+See also, the [Connected Factory-specific FAQ](iot-accelerators-faq-cf.md) and the [Remote Monitoring-specific FAQ](iot-accelerators-faq-rm-v2.md) .
 
 ### Where can I find the source code for the solution accelerators?
 
@@ -39,19 +31,23 @@ If you are using the DevKit device, you can find resources and samples in the [I
 
 ### Is the new microservices architecture available for all the three solution accelerators?
 
-Currently, only the remote monitoring solution uses the microservices architecture as it covers the broadest scenario.
+Currently, only the Remote Monitoring solution uses the microservices architecture as it covers the broadest scenario.
 
 ### What advantages does the new open-sourced microservices-based architecture provide in the new update?
 
 Over the last two years, cloud architecture has greatly evolved. Microservices have emerged as a great pattern to achieve scale and flexibility, without sacrificing development speed. This architectural pattern is used in several Microsoft services internally with great reliability and scalability results. We are putting these learning in practice so that our customers benefit from them.
 
+### Where can I find information about the previous version of the Remote Monitoring solution?
+
+The previous version of the Remote Monitoring solution accelerator was known as the IoT Suite Remote Monitoring preconfigured solution. You can find the archived documentation at [https://docs.microsoft.com/previous-versions/azure/iot-suite/](https://docs.microsoft.com/previous-versions/azure/iot-suite/).
+
 ### Is the new solution accelerator available in the same geographic region as the existing solution?
 
-Yes, the new remote monitoring is available in the same geographic regions.
+Yes, the new Remote Monitoring is available in the same geographic regions.
 
 ### What's the difference between deleting a resource group in the Azure portal and clicking delete on a solution accelerator in azureiotsuite.com?
 
-* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsuite.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
+* If you delete the solution accelerator in [azureiotsuite.com](https://www.azureiotsolutions.com/), you delete all the resources that were provisioned when you created the solution accelerator. If you added additional resources to the resource group, these resources are also deleted.
 * If you delete the resource group in the [Azure portal](https://portal.azure.com), you only delete the resources in that resource group. You also need to delete the Azure Active Directory application associated with the solution accelerator.
 
 ### Can I continue to leverage my existing investments in Azure IoT solution accelerators?
@@ -68,7 +64,7 @@ Fifty. You can create an [Azure support ticket](https://portal.azure.com/#blade/
 
 ### How many Free Bing Maps APIs can I provision in a subscription?
 
-Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The remote monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two remote monitoring solutions in a subscription with no modifications.
+Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterprise plans in an Azure subscription. The Remote Monitoring solution is provisioned by default with the Internal Transactions Level 1 plan. As a result, you can only provision up to two Remote Monitoring solutions in a subscription with no modifications.
 
 ### Can I create a solution accelerator if I have Microsoft Azure for DreamSpark?
 
@@ -77,19 +73,15 @@ Two. You can create only two Internal Transactions Level 1 Bing Maps for Enterpr
 
 Currently, you cannot create a solution accelerator with a [Microsoft Azure for DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/) account. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
 
-### Can I create a solution accelerator if I have Cloud Solution Provider (CSP) subscription?
-
-Currently, you cannot create a solution accelerator with a Cloud Solution Provider (CSP) subscription. However, you can create a [free trial account for Azure](https://azure.microsoft.com/free/) in just a couple of minutes that enables you create a solution accelerator.
-
 ### How do I delete an AAD tenant?
 
-See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](http://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
+See Eric Golpe's blog post [Walkthrough of Deleting an Azure AD Tenant](https://blogs.msdn.com/b/ericgolpe/archive/2015/04/30/walkthrough-of-deleting-an-azure-ad-tenant.aspx).
 
 ### Next steps
 
 You can also explore some of the other features and capabilities of the IoT solution accelerators:
 
-* [Explore the capabilities of the remote monitoring solution accelerator](iot-accelerators-remote-monitoring-explore.md)
+* [Explore the capabilities of the Remote Monitoring solution accelerator](quickstart-remote-monitoring-deploy.md)
 * [Predictive Maintenance solution accelerator overview](iot-accelerators-predictive-overview.md)
-* [Connected Factory solution accelerator overview](iot-accelerators-connected-factory-overview.md)
-* [IoT security from the ground up](securing-iot-ground-up.md)
+* [Deploy Connected Factory solution accelerator](quickstart-connected-factory-deploy.md)
+* [IoT security from the ground up](/azure/iot-fundamentals/iot-security-ground-up)

@@ -1,22 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: What is Azure IoT Central | Microsoft Docs
 description: Azure IoT Central is a end-to-end SaaS solution you can use to build and manage your custom IoT solution. This article provides an overview of the features of Azure IoT Central.
-services: iot-central
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/30/2017
 ms.topic: overview
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
+ms.service: iot-central
+services: iot-central
+ms.custom: mvc
 manager: timlt
 ---
 
@@ -29,7 +20,7 @@ Purpose of an Overview article:
 
 # What is Azure IoT Central?
 
-Microsoft Azure IoT Central is a fully managed IoT Software-as-a-Service solution that makes it easy to create products that connect the physical and digital worlds. You can bring your connected product vision to life by:
+Azure IoT Central is a fully managed IoT Software-as-a-Service solution that makes it easy to create products that connect the physical and digital worlds. You can bring your connected product vision to life by:
 
 - Deriving new insights from connected devices to enable better products and experiences for your customers.
 - Creating new business opportunities for your organization.
@@ -46,7 +37,7 @@ The following video presents an overview of Azure IoT Central:
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-The remainder of this article outlines for Azure IoT Central:
+The remainder of this article outlines Azure IoT Central:
 
 - The typical personas associated with a project.
 - How to create your application.
@@ -69,11 +60,11 @@ As a builder, you use Azure IoT Central to create a custom, cloud-hosted IoT sol
 - A cloud-based application that receives telemetry from your devices and enables you to manage those devices.
 - Multiple devices running custom code connected to your cloud-based application.
 
-You can quickly deploy a new Azure IoT Central application and then customize it to your specific requirements right in your browser. As an Azure IoT Central builder, you can use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint of a device model that all devices created from the device template share. A device template defines the characteristics and behavior of a type of device such as:
+You can quickly deploy a new Azure IoT Central application and then customize it to your specific requirements right in your browser. As an Azure IoT Central builder, you can use the web-based tools to create a _device template_ for the devices that connect to your application. A device template is the blueprint of a device model. All devices created from the same device template share the template. A device template defines the characteristics and behavior of a type of device such as:
 
 - The telemetry it sends.
 - Business properties that an operator can modify.
-- Device properties that are set by a device and that are read-only in the application.
+- Device properties that are set by a device and are read-only in the application.
 - The thresholds the application responds to.
 - Settings that determine the behavior of the device.
 
@@ -114,7 +105,7 @@ Administrators can manage access to your application with [user roles and permis
 
 Now that you have an overview of Azure IoT Central, here are suggested next steps:
 
-- Understand the differences between [Azure IoT Central and Azure IoT Suite](overview-iot-options.md).
+- Understand the differences between [Azure IoT Central and Azure IoT solution accelerators](overview-iot-options.md).
 - Familiarize yourself with the [Azure IoT Central UI](overview-iot-central-tour.md).
 - Get started by [creating an Azure IoT Central application](quick-deploy-iot-central.md).
 - Follow a sequence of tutorials that show you how to:

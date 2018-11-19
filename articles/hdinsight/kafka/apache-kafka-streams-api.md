@@ -1,19 +1,14 @@
 ---
-title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight | Microsoft Docs'
+title: 'Tutorial: Use the Apache Kafka Streams API - Azure HDInsight '
 description: Learn how to use the Apache Kafka Streams API with Kafka on HDInsight. This API enables you to perform stream processing between topics in Kafka.
 services: hdinsight
-documentationcenter: ''
-author: Blackmist
-manager: cgronlun
-editor: cgronlun
-tags: azure-portal
-
 ms.service: hdinsight
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 04/17/2018
-ms.author: larryfr
+ms.date: 11/06/2018
 #Customer intent: As a developer, I need to create an application that uses the Kafka streams API with Kafka on HDInsight
 ---
 
@@ -47,7 +42,7 @@ In this tutorial, you learn how to:
 
 You must have the following components installed in your development environment:
 
-* [Java JDK 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html) or an equivalent, such as OpenJDK.
+* [Java JDK 8](https://aka.ms/azure-jdks) or an equivalent, such as OpenJDK.
 
 * [Apache Maven](http://maven.apache.org/)
 
@@ -85,7 +80,7 @@ The important things to understand in the `pom.xml` file are:
 
 ### Stream.java
 
-The `Stream.java` file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
+The [Stream.java](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Streaming/src/main/java/com/microsoft/example/Stream.java) file uses the Streams API to implement a word count application. It reads data from a Kafka topic named `test` and writes the word counts into a topic named `wordcounts`.
 
 The following code defines the word count application:
 
@@ -222,7 +217,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
 2. To send records to the `test` topic, use the following command to start the producer application:
 
     ```bash
-    java -jar kafka-producer-consumer.jar producer $KAFKABROKERS
+    java -jar kafka-producer-consumer.jar producer test $KAFKABROKERS
     ```
 
 3. Once the producer completes, use the following command to view the information stored in the `wordcounts` topic:
@@ -250,7 +245,7 @@ To build and deploy the project to your Kafka on HDInsight cluster, use the foll
         jumped  13641
    
     > [!NOTE]
-    > The parameter `--from-beggining` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
+    > The parameter `--from-beginning` configures the consumer to start at the beginning of the records stored in the topic. The count increments each time a word is encountered, so the topic contains multiple entries for each word, with an increasing count.
 
 7. Use the __Ctrl + C__ to exit the producer. Continue using __Ctrl + C__ to exit the application and the consumer.
 

@@ -1,14 +1,14 @@
 ---
-title: Bing Search SDK | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Bing Search SDK for applications that search the web.
+title: Bing Entity Search SDK
+titleSuffix: Azure Cognitive Services
+description: Bing Entity Search SDK for applications that search the web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: 
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/24/2018
 ms.author: v-gedod
 ---
@@ -30,7 +30,7 @@ The Bing Search SDKs make web search functionality readily accessible in the fol
 * Get started with [Node.js samples](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples) 
     * See also [Node.js libraries](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/entitySearch) for definitions and dependencies.
 * Get started with [Java samples](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples) 
-    * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/cognitiveservices/azure-entitysearch) for definitions and dependencies.
+    * See also [Java libraries](https://github.com/Azure/azure-sdk-for-java/tree/master/azure-cognitiveservices/search/bingentitysearch) for definitions and dependencies.
 * Get started with [Python samples](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples) 
     * See also [Python libraries](https://github.com/Azure/azure-sdk-for-python/tree/master/azure-cognitiveservices-search-entitysearch) for definitions and dependencies.
 

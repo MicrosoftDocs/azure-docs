@@ -1,17 +1,16 @@
 ﻿---
 title: Customize the UI of a user journey with custom policies | Microsoft Docs
-description: Learn about Azure Active Directory B2C custom policies
+description: Learn about Azure Active Directory B2C custom policies.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
-editor: ''
 
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
 ms.author: davidmu
-
+ms.component: B2C
 ---
 
 # Customize the UI of a user journey with custom policies
@@ -38,7 +37,7 @@ Compared to the old traditional way, where template pages are owned by the solut
 You can provide as many content pages as you like by crafting HTML5/CSS files as appropriate.
 
 > [!NOTE]
-> For security reasons, the use of JavaScript is currently blocked for customization. To unblock JavaScript, use of a custom domain name for your Azure AD B2C tenant is needed.
+> For security reasons, the use of JavaScript is currently blocked for customization. 
 
 In each of your HTML5/CSS templates, you provide an *anchor* element, which corresponds to the required `<div id=”api”>` element in the HTML or the content page as illustrate hereafter. Azure AD B2C requires that all content pages have this specific div.
 

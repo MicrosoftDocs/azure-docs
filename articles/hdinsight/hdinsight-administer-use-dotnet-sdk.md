@@ -1,26 +1,21 @@
 ---
-title: Manage Hadoop clusters in HDInsight with .NET SDK - Azure | Microsoft Docs
-description: Learn how to perform administrative tasks for the Hadoop clusters in HDInsight using HDInsight .NET SDK.
+title: Manage Apache Hadoop clusters in HDInsight with .NET SDK - Azure 
+description: Learn how to perform administrative tasks for the Apache Hadoop clusters in HDInsight using HDInsight .NET SDK.
 services: hdinsight
-editor: cgronlun
-manager: jhubbard
-tags: azure-portal
-author: mumian
-documentationcenter: ''
+ms.reviewer: jasonh
+author: hrasheed-msft
 
-ms.assetid: fd134765-c2a0-488a-bca6-184d814d78e9
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jgao
+ms.author: hrasheed
 
 ---
-# Manage Hadoop clusters in HDInsight by using .NET SDK
+# Manage Apache Hadoop clusters in HDInsight by using .NET SDK
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
-Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://msdn.microsoft.com/library/mt271028.aspx).
+Learn how to manage HDInsight clusters using [HDInsight.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight).
 
 **Prerequisites**
 
@@ -143,12 +138,12 @@ The cluster scaling feature allows you to change the number of worker nodes used
 
 The impact of changing the number of data nodes for each type of cluster supported by HDInsight:
 
-* Hadoop
+* Apache Hadoop
   
     You can seamlessly increase the number of worker nodes in a Hadoop cluster that is running without impacting any pending or running jobs. New jobs can also be submitted while the operation is in progress. Failures in a scaling operation are gracefully handled so that the cluster is always left in a functional state.
   
     When a Hadoop cluster is scaled down by reducing the number of data nodes, some of the services in the cluster are restarted. This causes all running and pending jobs to fail at the completion of the scaling operation. You can, however, resubmit the jobs once the operation is complete.
-* HBase
+* Apache HBase
   
     You can seamlessly add or remove nodes to your HBase cluster while it is running. Regional Servers are automatically balanced within a few minutes of completing the scaling operation. However, you can also manually balance the regional servers by logging into the headnode of cluster and running the following commands from a command prompt window:
   
@@ -157,7 +152,7 @@ The impact of changing the number of data nodes for each type of cluster support
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     You can seamlessly add or remove data nodes to your Storm cluster while it is running. But after a successful completion of the scaling operation, you will need to rebalance the topology.
   
@@ -193,9 +188,9 @@ HDInsight clusters have the following HTTP web services (all of these services h
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 By default, these services are granted for access. You can revoke/grant the access. To revoke:
 
@@ -247,19 +242,19 @@ foreach (var key in results.Configuration.Keys)
 
 See [Run Hadoop MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**To submit Hive jobs** 
+**To submit Apache Hive jobs** 
 
 See [Run Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**To submit Pig jobs**
+**To submit Apache Pig jobs**
 
 See [Run Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**To submit Sqoop jobs**
+**To submit Apache Sqoop jobs**
 
 See [Use Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**To submit Oozie jobs**
+**To submit Apache Oozie jobs**
 
 See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
@@ -267,7 +262,7 @@ See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-
 See [Upload data to HDInsight][hdinsight-upload-data].
 
 ## See Also
-* [HDInsight .NET SDK reference documentation](https://msdn.microsoft.com/library/mt271028.aspx)
+* [HDInsight .NET SDK reference documentation](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
 * [Administer HDInsight by using the Azure portal][hdinsight-admin-portal]
 * [Administer HDInsight using a command-line interface][hdinsight-admin-cli]
 * [Create HDInsight clusters][hdinsight-provision]

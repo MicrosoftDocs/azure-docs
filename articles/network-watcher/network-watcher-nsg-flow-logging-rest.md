@@ -24,11 +24,13 @@ ms.author: jdial
 > [!div class="op_single_selector"]
 > - [Azure portal](network-watcher-nsg-flow-logging-portal.md)
 > - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
-> - [CLI 1.0](network-watcher-nsg-flow-logging-cli-nodejs.md)
-> - [CLI 2.0](network-watcher-nsg-flow-logging-cli.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
 > - [REST API](network-watcher-nsg-flow-logging-rest.md)
 
 Network Security Group flow logs are a feature of Network Watcher that allows you to view information about ingress and egress IP traffic through a Network Security Group. These flow logs are written in json format and show outbound and inbound flows on a per rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
+
+> [!NOTE] 
+> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure Portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs outputted to your storage account.
 
 ## Before you begin
 
@@ -45,7 +47,7 @@ The scenario covered in this article shows you how to enable, disable, and query
 
 In this scenario, you will:
 
-* Enable flow logs
+* Enable flow logs (Version 2)
 * Disable flow logs
 * Query flow logs status
 
@@ -68,7 +70,7 @@ armclient post "https://management.azure.com//subscriptions/${subscriptionId}/pr
 
 ## Enable Network Security Group flow logs
 
-The command to enable flow logs is shown in the following example:
+The command to enable flow logs version 2 is shown in the following example. For version 1 replace the 'version' field with '1':
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -85,7 +87,11 @@ $requestBody = @"
     'retentionPolicy' : {
 			days: 5,
 			enabled: true
-		}
+		},
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
 	}
 }
 "@
@@ -104,6 +110,10 @@ The response returned from the preceding example is as follows:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -128,7 +138,11 @@ $requestBody = @"
     'retentionPolicy' : {
 			days: 5,
 			enabled: true
-		}
+		},
+    'format': {
+        'type': 'JSON',
+        'version': 2
+    }
 	}
 }
 "@
@@ -147,6 +161,10 @@ The response returned from the preceding example is as follows:
     "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }
@@ -181,6 +199,10 @@ The following is an example of the response returned:
    "retentionPolicy": {
       "days": 5,
       "enabled": true
+    },
+    "format": {
+    "type": "JSON",
+    "version": 2
     }
   }
 }

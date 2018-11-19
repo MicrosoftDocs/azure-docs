@@ -1,25 +1,20 @@
 ---
 title: Search Categories in Azure Maps | Microsoft Docs
 description: Learn about search categories in Azure Maps 
-services: azure-maps
-keywords: 
 author: sataneja
 ms.author: sataneja
-ms.date: 5/14/2018
-ms.topic: article
+ms.date: 05/14/2018
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: 
+services: azure-maps
+manager: 
 ---
 
 
 
 # Azure Maps supported categories
 
-When doing a [category search](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top level categories. All sub categories share same category code. Please note that this category list is subject to change with new data releases.
+When doing a [category search](https://docs.microsoft.com/rest/api/maps/search/getsearchpoicategory) for points of interest, there are over a hundred supported categories. Below is a list of the category codes for supported category names. Category codes are generated for top level categories. All sub categories share same category code. Please note that this category list is subject to change with new data releases.
 
 <br/>
 

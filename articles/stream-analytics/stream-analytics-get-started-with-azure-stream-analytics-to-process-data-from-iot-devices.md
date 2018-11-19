@@ -3,11 +3,11 @@ title: IoT real-time data streams using Azure Stream Analytics
 description: IoT sensor tags and data streams with stream analytics and real-time data processing
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 03/28/2017
 ---
 # Get started with Azure Stream Analytics to process data from IoT devices
@@ -81,7 +81,7 @@ The simplest form of query is a pass-through query that archives all input data 
     ![Test results](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-07.png)
 
 ### Query: Filter the data based on a condition
-Let’s try to filter the results based on a condition. We would like to show results for only those events that come from “sensorA.” The query is in the Filtering.txt file.
+Let’s try to filter the results based on a condition. We would like to show results for only those events that come from "sensorA." The query is in the Filtering.txt file.
 
 ![Filtering a data stream](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-08.png)
 

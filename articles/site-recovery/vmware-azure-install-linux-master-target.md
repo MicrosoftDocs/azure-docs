@@ -1,17 +1,14 @@
 ---
-title: Install a Linux master target server for failover from Azure to on-premises| Microsoft Docs
-description: Before reprotecting a Linux virtual machine, you need a Linux master target server. Learn how to install one.
-services: site-recovery
-documentationcenter: ''
+title: Install a Linux master target server for failback to an on-premises site | Microsoft Docs
+description: Learn how to set up a Linux master target server for failback to an on-premises site during disaster recovery of VMware VMs to Azure using Azure Site Recovery.
 author: nsoneji
-manager: gauravd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/08/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
 
 ---
-# Install a Linux master target server
+# Install a Linux master target server for failback
 After you fail over your virtual machines to Azure, you can fail back the virtual machines to the on-premises site. To fail back, you need to reprotect the virtual machine from Azure to the on-premises site. For this process, you need an on-premises master target server to receive the traffic. 
 
 If your protected virtual machine is a Windows virtual machine, then you need a Windows master target. For a Linux virtual machine, you need a Linux master target. Read the following steps to learn how to create and install a Linux master target.
@@ -239,7 +236,7 @@ Use the following steps to create a retention disk:
 
 2. Use the **multipath -ll** command to learn the multipath ID of the retention disk: **multipath -ll**
 
-    ![Multipath ID](./media/vmware-azure-install-linux-master-target/image22.png)
+    ![Multipath ID](./media/vmware-azure-install-linux-master-target/image27.png)
 
 3. Format the drive, and then create a file system on the new drive: **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>**.
 	

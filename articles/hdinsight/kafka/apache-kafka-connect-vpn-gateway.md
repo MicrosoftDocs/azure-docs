@@ -1,22 +1,14 @@
-﻿---
-title: Connect to Kafka using virtual networks - Azure HDInsight | Microsoft Docs
+---
+title: Connect to Kafka using virtual networks - Azure HDInsight 
 description: Learn how to directly connect to Kafka on HDInsight through an Azure Virtual Network. Learn how to connect to Kafka from development clients using a VPN gateway, or from clients in your on-premises network by using a VPN gateway device.
 services: hdinsight
-documentationCenter: ''
-author: Blackmist
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
-
 ms.service: hdinsight
-ms.devlang: ''
+author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.tgt_pltfrm: 'na'
-ms.workload: big-data
-ms.date: 05/02/2018
-ms.author: larryfr
-
+ms.date: 11/06/2018
 ---
 
 # Connect to Kafka on HDInsight through an Azure Virtual Network
@@ -38,7 +30,7 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
     2. Create a VPN gateway that uses a site-to-site configuration. The configuration used in this document connects to a VPN gateway device in your on-premises network.
     3. Create a DNS server in the virtual network.
     4. Configure forwarding between the DNS server in each network.
-    5. Install Kafka on HDInsight into the virtual network.
+    5. Create a Kafka on HDInsight cluster in the virtual network.
 
     For more information, see the [Connect to Kafka from an on-premises network](#on-premises) section. 
 
@@ -46,8 +38,8 @@ HDInsight does not allow direct connection to Kafka over the public internet. In
 
     1. Create a virtual network.
     2. Create a VPN gateway that uses a point-to-site configuration. This configuration can be used with both Windows and MacOS clients.
-    3. Install Kafka on HDInsight into the virtual network.
-    4. Configure Kafka for IP advertising. This configuration allows the client to connect using IP addressing instead of domain names.
+    3. Create a Kafka on HDInsight cluster in the virtual network.
+    4. Configure Kafka for IP advertising. This configuration allows the client to connect using broker IP addresses instead of domain names.
     5. Download and use the VPN client on the development system.
 
     For more information, see the [Connect to Kafka with a VPN client](#vpnclient) section.

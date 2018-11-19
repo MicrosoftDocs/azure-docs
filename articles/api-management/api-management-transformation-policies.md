@@ -16,7 +16,7 @@ ms.date: 11/27/2017
 ms.author: apimpm
 ---
 # API Management transformation policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="TransformationPolicies"></a> Transformation policies
 
@@ -78,7 +78,7 @@ This topic provides a reference for the following API Management policies. For i
 |parse-date|When set to `false` date values are simply copied during transformation|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
@@ -122,7 +122,7 @@ This topic provides a reference for the following API Management policies. For i
 |consider-accept-header|The attribute must be set to one of the following values.<br /><br /> -   true - apply conversion if XML is requested in request Accept header.<br />-   false -always apply conversion.|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
@@ -157,7 +157,7 @@ This topic provides a reference for the following API Management policies. For i
 |to|The replacement string. Specify a zero length replacement string to remove the search string.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -188,7 +188,7 @@ This topic provides a reference for the following API Management policies. For i
 |redirect-content-urls|Root element.|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound
 
@@ -264,7 +264,7 @@ In this example the policy routes the request to a service fabric backend, using
 |sf-listener-name|Only applicable when the backend is a Service Fabric service and is specified using ‘backend-id’. Service Fabric Reliable Services allows you to create multiple listeners in a service. This attribute is used to select a specific listener when a backend Reliable Service has more than one listener. If this attribute is not specified, API Management will attempt to use a listener without a name. A listener without a name is typical for Reliable Services that have only one listener. |No|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, backend
 
@@ -434,7 +434,7 @@ OriginalUrl.
 
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend
 
@@ -476,6 +476,20 @@ OriginalUrl.
 
  For more information, see [Policy expressions](api-management-policy-expressions.md) and [Context variable](api-management-policy-expressions.md#ContextVariables).
 
+> [!NOTE]
+> Multiple values of a header are concatenated to a CSV string, for example:  
+> `headerName: value1,value2,value3`
+>
+> Exceptions include standardized headers, which values:
+> - may contain commas (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
+> - may contain date (`Cookie`, `Set-Cookie`, `Warning`),
+> - contain date (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
+>
+> In case of those exceptions, multiple header values will not be concatenated into one string and will be passed as separate headers, for example:  
+>`User-Agent: value1`  
+>`User-Agent: value2`  
+>`User-Agent: value3`
+
 ### Elements
 
 |Name|Description|Required|
@@ -491,7 +505,7 @@ OriginalUrl.
 |name|Specifies name of the header to be set.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -551,7 +565,7 @@ OriginalUrl.
 |name|Specifies name of the query parameter to be set.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, backend
 
@@ -629,11 +643,11 @@ OriginalUrl.
 |copy-unmatched-params|Specifies whether query parameters in the incoming request not present in the original URL template are added to the URL defined by the re-write template|No|true|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
 
--   **Policy scopes:** product, API, operation
+-   **Policy scopes:** global, product, API, operation
 
 ##  <a name="XSLTransform"></a> Transform XML using an XSLT
  The `Transform XML using an XSLT` policy applies an XSL transformation to XML in the request or response body.
@@ -693,7 +707,7 @@ OriginalUrl.
 |xsl:stylesheet|Root stylesheet element. All elements and attributes defined within follow the standard [XSLT specification](http://www.w3.org/TR/xslt)|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound
 

@@ -1,32 +1,28 @@
 ---
-title: Use Zeppelin to run Hive queries in Azure HDInsight  | Microsoft Docs
-description: Learn how to use Zeppelin to run Hive queries.
+title: Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight  
+description: Learn how to use Apache Zeppelin to run Apache Hive queries.
 keywords: hdinsight,hadoop,hive,interactive query,LLAP 
 services: hdinsight
-documentationcenter: ''
-author: mumian
-manager: jhubbard
-editor: cgronlun
+author: hrasheed-msft
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive,
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jgao
+ms.date: 11/05/2018
+ms.author: hrasheed
 
 ---
-# Use Zeppelin to run Hive queries in Azure HDInsight 
+# Use Apache Zeppelin to run Apache Hive queries in Azure HDInsight 
 
-HDInsight Interactive Query clusters include Zeppelin notebooks that you can use to run interactive Hive queries. In this article, you learn how to use Zeppelin to run Hive queries in Azure HDInsight. 
+HDInsight Interactive Query clusters include Apache Zeppelin notebooks that you can use to run interactive Hive queries. In this article, you learn how to use Apache Zeppelin to run Apache Hive queries in Azure HDInsight. 
 
 ## Prerequisites
 Before going through this article, you must have the following items:
 
 * **HDInsight Interactive Query cluster**. See [Create cluster](hadoop/apache-hadoop-linux-tutorial-get-started.md#create-cluster) to create a HDInsight cluster.  Make sure to choose the Interactive Query type. 
 
-## Create a Zeppelin Note
+## Create a Apache Zeppelin Note
 
 1. Browse to the following URL:
 

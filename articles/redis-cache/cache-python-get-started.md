@@ -20,15 +20,7 @@ ms.custom: mvc
 #Customer intent: As a Python developer, new to Azure Redis Cache, I want to create a new Python app that uses Redis Cache.
 ---
 # Quickstart: Use Azure Redis Cache with Python
-> [!div class="op_single_selector"]
-> * [.NET](cache-dotnet-how-to-use-azure-redis-cache.md)
-> * [.NET Core](cache-dotnet-core-quickstart.md)
-> * [ASP.NET](cache-web-app-howto.md)
-> * [Node.js](cache-nodejs-get-started.md)
-> * [Java](cache-java-get-started.md)
-> * [Python](cache-python-get-started.md)
-> 
-> 
+
 
 ## Introduction
 

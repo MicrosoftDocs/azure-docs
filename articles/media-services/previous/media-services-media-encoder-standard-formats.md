@@ -4,7 +4,7 @@ description: This topic gives an overview of Media Encoder Standard formats and 
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.assetid: f334b1ce-2f56-4968-a019-f0a2b0016d9f
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako;anilmur
 
 ---
@@ -51,8 +51,8 @@ or
 
 Support for explicit/user-supplied channel mapping will be provided in the near future.
 
-## Input Video Codecs
-| Input Video Codecs | Supported |
+## Input video codecs
+| Input video codecs | Supported |
 | --- | --- | --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |
 | Avid DNxHD (in MXF) |Yes |
@@ -72,6 +72,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Apple ProRes Proxy |Yes |
 | Apple ProRes 4444 |Yes |
 | Apple ProRes 4444 XQ |Yes |
+| HEVC/H.265| Main Profile|
 
 ## Input Audio Codecs
 | Input Audio Codecs | Supported |
@@ -82,7 +83,7 @@ Support for explicit/user-supplied channel mapping will be provided in the near 
 | Windows Media Audio |Yes |
 | WAV/PCM |Yes |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Yes |
-| [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Yes |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Yes |
 | AMR (adaptive multi-rate) |Yes |
 | AES (SMPTE 331M and 302M, AES3-2003) |No |

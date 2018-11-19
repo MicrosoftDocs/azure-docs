@@ -22,27 +22,27 @@ This article shows you how to integrate Azure service health alerts with Service
 ## Creating a scripted REST API in ServiceNow
 1.  Make sure you have signed up for and are signed into your [ServiceNow](https://www.servicenow.com/) account.
 
-2.  Navigate to the **System Web Services** section in ServiceNow and select **Scripted REST APIs**.
+1.  Navigate to the **System Web Services** section in ServiceNow and select **Scripted REST APIs**.
 
     ![The "Scripted Web Service" section in ServiceNow](./media/webhook-alerts/servicenow-sws-section.png)
 
-3.  Select **New** to create a new Scripted REST service.
+1.  Select **New** to create a new Scripted REST service.
  
     ![The "New Scripted REST API" button in ServiceNow](./media/webhook-alerts/servicenow-new-button.png)
 
-4.  Add a **Name** to your REST API and set the **API ID** to `azureservicehealth`.
+1.  Add a **Name** to your REST API and set the **API ID** to `azureservicehealth`.
 
-5.  Select **Submit**.
+1.  Select **Submit**.
 
     ![The "REST API Settings" in ServiceNow](./media/webhook-alerts/servicenow-restapi-settings.png)
 
-6.  Select the REST API you created, and under the **Resources** tab select **New**.
+1.  Select the REST API you created, and under the **Resources** tab select **New**.
 
     ![The "Resource Tab" in ServiceNow](./media/webhook-alerts/servicenow-resources-tab.png)
 
-7.  **Name** your new resource `event` and change the **HTTP method** to `POST`.
+1.  **Name** your new resource `event` and change the **HTTP method** to `POST`.
 
-8.  In the **Script** section, add the following JavaScript code:
+1.  In the **Script** section, add the following JavaScript code:
 
     >[!NOTE]
     >You need to update the `<secret>`,`<group>`, and `<email>` value in the script below.
@@ -135,15 +135,15 @@ This article shows you how to integrate Azure service health alerts with Service
     })(request, response);
     ```
 
-9.  In the security tab, uncheck **Requires authentication** and select **Submit**. The `<secret>` you set protects this API instead.
+1.  In the security tab, uncheck **Requires authentication** and select **Submit**. The `<secret>` you set protects this API instead.
 
     ![The "Requires Authentication" checkbox in ServiceNow](./media/webhook-alerts/servicenow-resource-settings.png)
 
-10.  Back at the Scripted REST APIs section, you should find the **Base API Path** for your new REST API:
+1.  Back at the Scripted REST APIs section, you should find the **Base API Path** for your new REST API:
 
      ![The "Base API Path" in ServiceNow](./media/webhook-alerts/servicenow-base-api-path.png)
 
-11.  Your full Integration URL looks like:
+1.  Your full Integration URL looks like:
         
          https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
 
@@ -152,7 +152,7 @@ This article shows you how to integrate Azure service health alerts with Service
 ### For a new action group:
 1. Follow steps 1 through 8 in [this article](../monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md) to create an alert with a new action group.
 
-2. Define in the list of **Actions**:
+1. Define in the list of **Actions**:
 
     a. **Action Type:** *Webhook*
 
@@ -160,16 +160,16 @@ This article shows you how to integrate Azure service health alerts with Service
 
     c. **Name:** Webhook's name, alias, or identifier.
 
-3. Select **Save** when done to create the alert.
+1. Select **Save** when done to create the alert.
 
 ### For an existing action group:
 1. In the [Azure portal](https://portal.azure.com/), select **Monitor**.
 
-2. In the **Settings** section, select **Action groups**.
+1. In the **Settings** section, select **Action groups**.
 
-3. Find and select the action group you want to edit.
+1. Find and select the action group you want to edit.
 
-4. Add to the list of **Actions**:
+1. Add to the list of **Actions**:
 
     a. **Action Type:** *Webhook*
 
@@ -177,12 +177,12 @@ This article shows you how to integrate Azure service health alerts with Service
 
     c. **Name:** Webhook's name, alias, or identifier.
 
-5. Select **Save** when done to update the action group.
+1. Select **Save** when done to update the action group.
 
 ## Testing your webhook integration via an HTTP POST request
 1. Create the service health payload you want to send. You can find an example service health webhook payload at [Webhooks for Azure activity log alerts](../monitoring-and-diagnostics/monitoring-activity-log-alerts-webhook.md).
 
-2. Create an HTTP POST request as follows:
+1. Create an HTTP POST request as follows:
 
     ```
     POST        https://<yourInstanceName>.service-now.com/<baseApiPath>?apiKey=<secret>
@@ -191,9 +191,9 @@ This article shows you how to integrate Azure service health alerts with Service
 
     BODY        <service health payload>
     ```
-3. You should receive a `200 OK` response with the message "Incident created."
+1. You should receive a `200 OK` response with the message "Incident created."
 
-4. Go to [ServiceNow](https://www.servicenow.com/) to confirm that your integration was set up successfully.
+1. Go to [ServiceNow](https://www.servicenow.com/) to confirm that your integration was set up successfully.
 
 ## Next steps
 - Learn how to [configure webhook notifications for existing problem management systems](service-health-alert-webhook-guide.md).

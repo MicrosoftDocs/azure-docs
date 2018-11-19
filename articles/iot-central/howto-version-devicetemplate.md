@@ -1,28 +1,18 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Understanding device template versioning for your Azure IoT Central apps | Microsoft Docs
 description: Iterate over your device templates by creating new versions and without impacting your live connected devices
-services: iot-central
 author: sandeeppujar
 ms.author: sandeepu
 ms.date: 01/19/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+ms.topic: conceptual
+ms.service: iot-central
+services: iot-central
+manager: peterpr
 ---
 
 # Create a new device template version
 
-Microsoft Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting measurements, settings, or properties. Some of these changes could be intrusive for the currently connected devices. Azure IoT Central identifies these breaking changes and provides a way to safely deploy these updates to the devices.
+Azure IoT Central allows rapid development of IoT Applications. You can quickly iterate over your device template designs by adding, editing, or deleting measurements, settings, or properties. Some of these changes could be intrusive for the currently connected devices. Azure IoT Central identifies these breaking changes and provides a way to safely deploy these updates to the devices.
 
 A device template has a version number when you create it. By default, the version number is 1.0.0. If you edit a device template, and if that change could impact live connected devices, Azure IoT Central prompts you to create a new device template version.
 

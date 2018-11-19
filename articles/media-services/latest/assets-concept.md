@@ -5,13 +5,13 @@ description: This article gives an explanation of what assets are, and how they 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/24/2018
 ms.author: juliako
 ---
 
@@ -31,23 +31,23 @@ Also, read about [storage accounts in Media Services](storage-account-concept.md
 
 The following table shows the Asset's properties and gives their definitions.
 
-|Name|Type|Description|
-|---|---|---|
-|Id|string|Fully qualified resource ID for the resource.|
-|name|string|The name of the resource.|
-|properties.alternateId |string|The alternate ID of the Asset.|
-|properties.assetId |string|The Asset ID.|
-|properties.container |string|The name of the asset blob container.|
-|properties.created |string|The creation date of the Asset.|
-|properties.description |string|The Asset description.|
-|properties.lastModified |string|The last modified date of the Asset.|
-|properties.storageAccountName |string|The name of the storage account.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
-|type|string|The type of the resource.|
+|Name|Description|
+|---|---|
+|id|Fully qualified resource ID for the resource.|
+|name|The name of the resource.|
+|properties.alternateId |The alternate ID of the Asset.|
+|properties.assetId |The Asset ID.|
+|properties.container |The name of the asset blob container.|
+|properties.created |The creation date of the Asset.|
+|properties.description|The Asset description.|
+|properties.lastModified |The last modified date of the Asset.|
+|properties.storageAccountName |The name of the storage account.|
+|properties.storageEncryptionFormat |The Asset encryption format. One of None or MediaStorageEncryption.|
+|type|The type of the resource.|
 
 For the full definition, see [Assets](https://docs.microsoft.com/rest/api/media/assets).
 
-## Filtering, ordering, and paging support
+## Filtering, ordering, paging
 
 Media Services supports the following OData query options for Assets: 
 
@@ -56,18 +56,27 @@ Media Services supports the following OData query options for Assets:
 * $top 
 * $skiptoken 
 
+Operator description:
+
+* Eq = equal to
+* Ne = not equal to
+* Ge = Greater than or equal to
+* Le = Less than or equal to
+* Gt = Greater than
+* Lt = Less than
+
 ### Filtering/ordering
 
 The following table shows how these options may be applied to the Asset properties: 
 
 |Name|Filter|Order|
 |---|---|---|
-|Id|Supports:<br/>Equals<br/>Greater than<br/>Less Than|Supports:<br/>Ascending<br/>Descending|
-|name|||
-|properties.alternateId |Supports:<br/>Equals||
-|properties.assetId |Supports:<br/>Equals||
+|id|||
+|name|Supports: Eq, Gt, Lt|Supports:Ascending and Descending|
+|properties.alternateId |Supports: Eq||
+|properties.assetId |Supports: Eq||
 |properties.container |||
-|properties.created|Supports:<br/>Equals<br/>Greater than<br/>Less Than|Supports:<br/>Ascending<br/>Descending|
+|properties.created|Supports: Eq, Gt, Lt| Supports: Ascending and Descending|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -83,9 +92,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### Pagination
 
-Pagination is supported for each of the four enabled sort orders. 
+Pagination is supported for each of the four enabled sort orders. Currently, the page size is 1000.
 
-If a query response contains many (currently over 1000) items, the service returns an "@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. The page size is not configurable by the user. 
+> [!TIP]
+> You should always use the next link to enumerate the collection and not depend on a particular page size.
+
+If a query response contains many items, the service returns an "\@odata.nextLink" property to get the next page of results. This can be used to page through the entire result set. You cannot configure the page size. 
 
 If Assets are created or deleted while paging through the collection, the changes are reflected in the returned results (if those changes are in the part of the collection that has not been downloaded.) 
 
@@ -103,7 +115,20 @@ while (currentPage.NextPageLink != null)
 
 For REST examples, see [Assets - List](https://docs.microsoft.com/rest/api/media/assets/list)
 
+## Storage side encryption
+
+To protect your Assets at rest, the assets should be encrypted by the storage side encryption. The following table shows how the storage side encryption works in Media Services:
+
+|Encryption option|Description|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services Storage Encryption|AES-256 encryption, key managed by Media Services|Supported<sup>(1)</sup>|Not supported<sup>(2)</sup>|
+|[Storage Service Encryption for Data at Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Server-side encryption offered by Azure Storage, key managed by Azure or by customer|Supported|Supported|
+|[Storage Client-Side Encryption](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Client-side encryption offered by Azure storage, key managed by customer in Key Vault|Not supported|Not supported|
+
+<sup>1</sup> While Media Services does support handling of content in the clear/without any form of encryption, doing so is not recommended.
+
+<sup>2</sup> In Media Services v3, storage encryption (AES-256 encryption) is only supported for backwards compatibility when your Assets were created with Media Services v2. Meaning v3 works with existing storage encrypted assets but will not allow creation of new ones.
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Stream a file](stream-files-dotnet-quickstart.md)
+[Stream a file](stream-files-dotnet-quickstart.md)

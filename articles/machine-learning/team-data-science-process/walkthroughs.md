@@ -4,11 +4,12 @@ description: How to combine cloud and on-premises tools and services into a work
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: aa63d5a5-25ee-4c4b-9a4c-7553b98d7f6e
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -42,5 +43,5 @@ For a discussion of the key components that comprise the Team Data Science Proce
 
 For a discussion of the Team Data Science Process lifecycle that you can use to structure your data science projects, see [Team Data Science Process lifecycle](lifecycle.md). The lifecycle outlines the steps, from start to finish, that projects usually follow when they are executed. 
 
-For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Data Science Process](http://aka.ms/datascienceprocess). 
+For an overview of topics that walk you through the tasks that comprise the data science process in Azure, see [Data Science Process](https://aka.ms/datascienceprocess). 
 

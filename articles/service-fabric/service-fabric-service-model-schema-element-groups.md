@@ -12,7 +12,7 @@ ms.devlang: xml
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 05/18/2018
+ms.date: 06/06/2018
 ms.author: ryanwi
 ---
 
@@ -215,7 +215,7 @@ Defines the scaling mechanism.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of instances by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -237,7 +237,7 @@ Defines the scaling mechanism.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of partitions by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -252,9 +252,9 @@ Defines the scaling mechanism.
 Defines a mechanism for increasing the instance count of a partition. This is for stateless services only.
 |Attribute|Value|
 |---|---|
-|maxOccurs|1|
 |name|InstanceCountScalingMechanism|
 |minOccurs|0|
+|maxOccurs|1|
 
 ##### XML source
 ```xml
@@ -275,7 +275,7 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of instances by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of instances by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -288,9 +288,9 @@ Defines a mechanism for increasing the instance count of a partition. This is fo
 Defines a mechanism for adding or removing named partitions.
 |Attribute|Value|
 |---|---|
-|maxOccurs|1|
 |name|AddRemoveIncrementalNamedPartitionScalingMechanism|
 |minOccurs|0|
+|maxOccurs|1|
 
 ##### XML source
 ```xml
@@ -311,7 +311,7 @@ Defines a mechanism for adding or removing named partitions.
                     </xs:attribute>
                     <xs:attribute name="ScaleIncrement" type="xs:string" use="required">
                         <xs:annotation>
-                            <xs:documentation>The number of partitions by wich to perform the upshift/downshift.</xs:documentation>
+                            <xs:documentation>The number of partitions by which to perform the upshift/downshift.</xs:documentation>
                         </xs:annotation>
                     </xs:attribute>
                 </xs:complexType>
@@ -398,9 +398,9 @@ Defines the scaling trigger.
 Defines a scaling mechanism based on the average load of replicas of a partition.
 |Attribute|Value|
 |---|---|
-|maxOccurs|1|
 |name|AveragePartitionLoadScalingTrigger|
 |minOccurs|0|
+|maxOccurs|1|
 
 ##### XML source
 ```xml
@@ -439,9 +439,9 @@ Defines a scaling mechanism based on the average load of replicas of a partition
 Defines a scaling mechanism based on the average load of partitions of a service.
 |Attribute|Value|
 |---|---|
-|maxOccurs|1|
 |name|AverageServiceLoadScalingTrigger|
 |minOccurs|0|
+|maxOccurs|1|
 
 ##### XML source
 ```xml

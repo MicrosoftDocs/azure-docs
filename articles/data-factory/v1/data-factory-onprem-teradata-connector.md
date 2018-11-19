@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 
@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data from Teradata using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-teradata-connector.md)
-> * [Version 2 - Preview](../connector-teradata.md)
+> * [Version 1](data-factory-onprem-teradata-connector.md)
+> * [Version 2 (current version)](../connector-teradata.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [Teradata connector in V2](../connector-teradata.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [Teradata connector in V2](../connector-teradata.md).
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises Teradata database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
 
@@ -39,7 +39,7 @@ Gateway is required even if the Teradata is hosted in an Azure IaaS VM. You can 
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the Teradata Database, you need to install the [.NET Data Provider for Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the same system as the Data Management Gateway. Teradata version 12 and above is supported.
+For Data Management Gateway to connect to the Teradata Database, you need to install the [.NET Data Provider for Teradata](https://go.microsoft.com/fwlink/?LinkId=278886) version 14 or above on the same system as the Data Management Gateway. Teradata version 12 and above is supported.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises Cassandra data store by using different tools/APIs. 

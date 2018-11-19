@@ -1,16 +1,19 @@
 ---
 title: How to Chunked Transfer Audio Stream | Microsoft Docs
-description: How to use chunked trasfer to send audio stream to the speech service
+titlesuffix: Azure Cognitive Services
+description: How to use chunked trasfer to send audio stream to the Bing Speech service
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
 ---
 # Chunked transfer encoding
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 To transcribe speech to text, Microsoft speech recognition API allows you to send the audio as one whole chunk or to chop the audio into small chunks. For efficient audio streaming and reducing transcription latency, it is recommended that you use [chunked transfer encoding](https://en.wikipedia.org/wiki/Chunked_transfer_encoding) to stream the audio to the service. Other implementations may result in higher user-perceived latency. For more information, see the [Audio Streams](../concepts.md#audio-streams) page.
 

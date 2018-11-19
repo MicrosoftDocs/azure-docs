@@ -114,7 +114,7 @@ await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ## Code sample on GitHub
 To see job preparation and release tasks in action, check out the [JobPrepRelease][job_prep_release_sample] sample project on GitHub. This console application does the following:
 
-1. Creates a pool with two "small" nodes.
+1. Creates a pool with two nodes.
 2. Creates a job with job preparation, release, and standard tasks.
 3. Runs the job preparation task, which first writes the node ID to a text file in a node's "shared" directory.
 4. Runs a task on each node that writes its task ID to the same text file.
@@ -127,7 +127,7 @@ Output from the sample application is similar to the following:
 
 ```
 Attempting to create pool: JobPrepReleaseSamplePool
-Created pool JobPrepReleaseSamplePool with 2 small nodes
+Created pool JobPrepReleaseSamplePool with 2 nodes
 Checking for existing job JobPrepReleaseSampleJob...
 Job JobPrepReleaseSampleJob not found, creating...
 Submitting tasks and awaiting completion...

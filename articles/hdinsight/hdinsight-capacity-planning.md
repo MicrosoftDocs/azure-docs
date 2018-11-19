@@ -1,18 +1,13 @@
 ---
-title: Cluster capacity planning in Azure HDInsight | Microsoft Docs
+title: Cluster capacity planning in Azure HDInsight 
 description: 'How to specify an HDInsight cluster for capacity and performance.'
 services: hdinsight
-documentationcenter: ''
-tags: azure-portal
 author: maxluk
-manager: jhubbard
-editor: cgronlun
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/22/2017
 ms.author: maxluk
 ---
@@ -38,7 +33,7 @@ HDInsight is available in many Azure regions. To find the closest region, see th
 
 ### Location of default storage
 
-The default storage, either an Azure Storage account or Azure Data Lake Store, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Store is available in some regions - see the current Data Lake Store availability under *Storage* in [Azure Products Available by Region](https://azure.microsoft.com/regions/services/).
+The default storage, either an Azure Storage account or Azure Data Lake Store, must be in the same location as your cluster. Azure Storage is available at all locations. Data Lake Store Gen1 is available in some regions - see the current Data Lake Store availability under *Storage* in [Azure Products Available by Region](https://azure.microsoft.com/regions/services/).
 
 ### Location of existing data
 
@@ -48,7 +43,7 @@ If you already have a storage account or Data Lake Store containing your data an
 
 After you have an HDInsight cluster deployed, you can attach additional Azure Storage accounts or access other Data Lake Stores. All your storage accounts must reside in the same location as your cluster. A Data Lake Store can be in a different location, although this may introduce some data read/write latency.
 
-Azure Storage has some [capacity limits](../azure-subscription-service-limits.md#storage-limits), while  Data Lake Store is virtually unlimited.
+Azure Storage has some [capacity limits](../azure-subscription-service-limits.md#storage-limits), while  Data Lake Store Gen1 is virtually unlimited.
 
 A cluster can access a combination of different storage accounts. Typical examples include:
 
@@ -112,5 +107,5 @@ However, there are some fixed quota limits, for example a single Azure subscript
 
 ## Next steps
 
-* [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Hive, HBase, R Server, or Storm.
+* [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services, or Storm.
 * [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Learn about key scenarios to monitor for your HDInsight cluster that might affect your cluster's capacity.

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
 ---
@@ -26,6 +26,7 @@ Successful communication between a virtual machine (VM) and an endpoint such as 
 > [!div class="checklist"]
 > * Create two VMs
 > * Monitor communication between VMs with the connection monitor capability of Network Watcher
+> * Generate alerts on Connection Monitor metrics
 > * Diagnose a communication problem between two VMs, and learn how you can resolve it
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
@@ -117,6 +118,19 @@ Create a connection monitor to monitor communication over TCP port 22 from *myVm
     | Hops                     | Connection monitor lets you know the hops between the two endpoints. In this example, the connection is between two VMs in the same virtual network, so there is only one hop, to the 10.0.0.5 IP address. If any existing system or custom routes, route traffic between the VMs through a VPN gateway, or network virtual appliance, for example, additional hops are listed.                                                                                                                         |
     | STATUS                   | The green check marks for each endpoint let you know that each endpoint is healthy.    ||
 
+## Generate alerts
+
+Alerts are created by alert rules in Azure Monitor and can automatically run saved queries or custom log searches at regular intervals. A generated alert can automatically run one or more actions, such as to notify someone or start another process. When setting an alert rule, the resource that you target determines the list of available metrics that you can use to generate alerts.
+
+1. In Azure portal, select the **Monitor** service, and then select **Alerts** > **New alert rule**.
+2. Click **Select target**, and then select the resources that you want to target. Select the **Subscription**, and set **Resource type** to filter down to the Connection Monitor that you want to use.
+
+    ![alert screen with target selected](./media/connection-monitor/set-alert-rule.png)
+1. Once you have selected a resource to target, select **Add criteria**.The Network Watcher has [metrics on which you can create alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Set **Available signals** to the metrics ProbesFailedPercent and AverageRoundtripMs:
+
+    ![alert page with signals selected](./media/connection-monitor/set-alert-signals.png)
+1. Fill out the alert details like alert rule name, description and severity. You can also add an action group to the alert to automate and customize the alert response.
+
 ## View a problem
 
 By default, Azure allows communication over all ports between VMs in the same virtual network. Over time, you, or someone in your organization, might override Azure's default rules, inadvertently causing a communication failure. Complete the following steps to create a communication problem and then view the connection monitor again:
@@ -138,8 +152,7 @@ By default, Azure allows communication over all ports between VMs in the same vi
 
 5. Since connection monitor probes at 60-second intervals, wait a few minutes and then on the left side of the portal, select **Network Watcher**, then **Connection monitor**, and then select the **myVm1-myVm2(22)** monitor again. The results are different now, as shown in the following picture:
 
-    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault
-.png)
+    ![Monitor details fault](./media/connection-monitor/vm-monitor-fault.png)
 
     You can see that there's a red exclamation icon in the status column for the **myvm2529** network interface.
 

@@ -1,15 +1,12 @@
-﻿---
+---
 title: Provision a simulated X.509 device to Azure IoT Hub using Java and enrollment groups | Microsoft Docs
 description: Azure Tutorial - Create and provision a simulated X.509 device using Java device and service SDK and enrollment groups for IoT Hub Device Provisioning Service
-services: iot-dps 
-keywords: 
-author: bryanla
-ms.author: v-masebo
+author: wesmc7777
+ms.author: wesmc
 ms.date: 01/04/2018
 ms.topic: tutorial
 ms.service: iot-dps
-
-documentationcenter: ''
+services: iot-dps 
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
@@ -24,13 +21,13 @@ Make sure to complete the steps in the [Setup IoT Hub Device Provisioning Servic
 
 ## Prepare the environment 
 
-1. Make sure you have [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) installed on your machine.
+1. Make sure you have [Java SE Development Kit 8](https://aka.ms/azure-jdks) installed on your machine.
 
 1. Download and install [Maven](https://maven.apache.org/install.html).
 
 1. Make sure `git` is installed on your machine and is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes the **Git Bash**, the command-line app that you can use to interact with your local Git repository. 
 
-1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates. For a more in-depth look at creating certificates, please see [PowerShell scripts to manage CA-signed X.509 certificates](https://docs.microsoft.com/azure/iot-hub/iot-hub-security-x509-create-certificates).
+1. Use the following [Certifcate Overview](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) to create your test certificates.
 
     > [!NOTE]
     > This step requires [OpenSSL](https://www.openssl.org/), which can either be built and installed from source or downloaded and installed from a [3rd party](https://wiki.openssl.org/index.php/Binaries) such as [this](https://sourceforge.net/projects/openssl/). If you have already created your _root_, _intermediate_ and _device_ certificates you may skip this step.

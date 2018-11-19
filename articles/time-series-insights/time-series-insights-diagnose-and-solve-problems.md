@@ -1,18 +1,26 @@
 ---
 title: Diagnose and solve problems in Azure Time Series Insights | Microsoft Docs
 description: This article describes how to diagnose, troubleshoot, and solve common problems you might encounter in your Azure Time Series Insights environment. 
-services: time-series-insights
 ms.service: time-series-insights
-author: venkatgct
-ms.author: venkatja
-manager: jhubbard
-editor: MicrosoftDocs/tsidocs
+services: time-series-insights
+author: ashannon7
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
 ---
+
 # Diagnose and solve problems in your Time Series Insights environment
+
+This article describes some problems you might see in your Time Series Insights environment. It offers potential causes and solutions for resolution.
+
+## Video: 
+
+### In this video, we cover common Time Series Insights customer challenges and mitigations.</br>
+
+> [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
 ## Problem 1: No data is shown
 There are several common reasons why you might not see your data in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com):
@@ -26,7 +34,7 @@ Azure Time Series Insights supports only JSON data. For JSON samples, see [Suppo
    ![IoT Hub service connect permission](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    As shown in the preceding image, either of the policies **iothubowner** and **service** would work, because both have **service connect** permission.
-   
+
 * For an event hub, you need to provide the key that has **Listen** permission.
 
    ![Event hub listen permission](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)

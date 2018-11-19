@@ -35,7 +35,7 @@ For more information about adding users and permissions, see [Add owners and use
 ### Create a formula from a base
 The following steps guide you through the process of creating a formula from a custom image, Marketplace image, or another formula.
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 
@@ -58,7 +58,7 @@ The following steps guide you through the process of creating a formula from a c
 	* **Formula name** - Enter a name for your formula. This value is displayed in the list of base images when you create a VM. The name is validated as you type it, and if not valid, a message indicates the requirements for a valid name.
 	* **Description** - Enter a meaningful description for your formula. This value is available from the formula's context menu when you create a VM.
 	* **User name** - Enter a user name that is granted administrator privileges.
-	* **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user. For more information about the secrets, see [Azure DevTest Labs: Personal secret store](https://azure.microsoft.com/updates/azure-devtest-labs-keep-your-secrets-safe-and-easy-to-use-with-the-new-personal-secret-store/).
+	* **Password** - Enter - or select from the dropdown - a value that is associated with the secret (password) that you want to use for the specified user. To learn about saving secrets in a key vault and using them when creating lab resources, see [Store secrets in Azure Key Vault](devtest-lab-store-secrets-in-key-vault.md).
 	* **Virtual machine disk type** - Specify either HDD (hard-disk drive) or SSD (solid-state drive) to indicate which storage disk type is allowed for the virtual machines provisioned using this base image.
 	* ** Virtual machine size** - Select one of the predefined items that specify the processor cores, RAM size, and the hard drive size of the VM to create. 
 	* **Artifacts** - Select to open the **Add artifacts** blade, in which you select and configure the artifacts that you want to add to the base image. For more information about artifacts, see [Create custom artifacts for your Azure DevTest Labs virtual machine](devtest-lab-artifact-author.md).
@@ -83,7 +83,7 @@ The following steps guide you through the process of creating a formula based on
 > 
 > 
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab's **Overview** blade, select the VM from which you wish to create the formula.
@@ -100,7 +100,7 @@ The following steps guide you through the process of creating a formula based on
 ## Modify a formula
 To modify a formula, follow these steps:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab's blade, select **Formulas (reusable bases)**.
@@ -112,7 +112,7 @@ To modify a formula, follow these steps:
 ## Delete a formula
 To delete a formula, follow these steps:
 
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab.  
 4. On the lab **Settings** blade, select **Formulas**.

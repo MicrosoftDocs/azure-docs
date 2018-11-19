@@ -1,23 +1,17 @@
 ---
 title: IoT remote monitoring and notifications with Azure Logic Apps | Microsoft Docs
 description: Use Azure Logic Apps for IoT temperature monitoring on your IoT hub and automatically send email notifications to your mailbox for any anomalies detected.
-services: iot-hub
-documentationcenter: ''
 author: rangv
-manager: timlt
-tags: ''
-keywords: 'iot monitoring, iot notifications, iot temperature monitoring'
-
-ms.assetid: 43043067-2e1f-42c9-953d-e2dce8fd86df
+manager: 
+keywords: iot monitoring, iot notifications, iot temperature monitoring
 ms.service: iot-hub
-ms.devlang: arduino
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 4/11/2018
+services: iot-hub
+ms.topic: conceptual
+ms.tgt_pltfrm: arduino
+ms.date: 04/11/2018
 ms.author: rangv
-
 ---
+
 # IoT remote monitoring and notifications with Azure Logic Apps connecting your IoT hub and mailbox
 
 ![End-to-end diagram](media/iot-hub-get-started-e2e-diagram/7.png)
@@ -152,7 +146,7 @@ You learn how to create a logic app that connects your IoT hub and your mailbox 
 
       ![Enter SMTP connection info in your logic app in the Azure portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
 
-      Get the SMTP information for [Hotmail/Outlook.com](https://support.office.com/en-us/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en), and [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
+      Get the SMTP information for [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en), and [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
    1. Enter your email address for **From** and **To**, and `High temperature detected` for **Subject** and **Body**.
    1. Click **Save**.
 

@@ -1,18 +1,13 @@
 ---
 title: Geocoding Coverage in Azure Maps | Microsoft Docs
 description: Learn about Geocoding Coverage in Azure Maps
-services: azure-maps
-keywords: 
-author: kgremban
-ms.author: kgremban
+author: dsk-2015
+ms.author: dkshir
 ms.date: 05/07/2018
-ms.topic: article
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
+services: azure-maps
 manager: timlt
-ms.devlang: na
-ms.custom: mvc
 ---
 
 # Azure Maps geocoding coverage
@@ -152,7 +147,7 @@ When you search for a location with Azure Maps, the search service takes your se
 | Belgium                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Bosnia And Herzegovina                              |                 |                |       ✓      |      ✓     |          ✓         |
 | Bulgaria                                            |                 |        ✓       |       ✓      |      ✓     |          ✓         |
-| Belerus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
+| Belarus|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Croatia                                             |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Cyprus                                              |                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Czech Republic                                      |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |

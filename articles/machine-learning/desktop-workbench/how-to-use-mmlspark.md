@@ -8,11 +8,16 @@ manager: jhubbard
 
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 01/12/2018
+
+ROBOTS: NOINDEX
 ---
 # How to Use Microsoft Machine Learning Library for Apache Spark
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 ## Introduction
 
@@ -25,7 +30,7 @@ ms.date: 01/12/2018
 ## Prerequisites
 
 To step through this how-to guide, you need to:
-- [Install Azure Machine Learning Workbench](../service/quickstart-installation.md)
+- [Install Azure Machine Learning Workbench](quickstart-installation.md)
 - [Set up Azure HDInsight Spark cluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## Run Your Experiment in Docker Container

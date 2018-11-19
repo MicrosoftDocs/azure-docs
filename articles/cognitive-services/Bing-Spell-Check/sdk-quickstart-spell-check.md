@@ -1,17 +1,18 @@
 ---
-title: Spell Check SDK C# quickstart - Azure Cognitive Services | Microsoft Docs
+title: "Quickstart: Bing Spell Check SDK, C#"
+titlesuffix: Azure Cognitive Services
 description: Setup for Spell Check SDK console application
-titleSuffix: Azure cognitive services setup Spell check search SDK C# console application
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-spell-check
 ms.topic: quickstart
 ms.date: 01/30/2018
 ms.author: v-gedod
 ---
-# Spell Check SDK C# Quickstart
+# Quickstart: Bing Spell Check SDK with C#
 
 The Bing Spell Check SDK contains the functionality of the REST API for spell check.
 
@@ -19,7 +20,7 @@ The Bing Spell Check SDK contains the functionality of the REST API for spell ch
 
 To set up a console application using the Bing Spell Check SDK, browse to the `Manage NuGet Packages` option from the Solution Explorer in Visual Studio. Add the `Microsoft.Azure.CognitiveServices.SpellCheck` package.
 
-Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.SpellCheck/1.2.0) also installs dependencies, including:
+Installing the [SpellCheck SDK package](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.SpellCheck/1.2.0) also installs dependencies, including:
 
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.AZure
@@ -42,7 +43,7 @@ var client = new SpellCheckAPI(new ApiKeyServiceClientCredentials("YOUR-ACCESS-K
 Use the client to check spelling:
 
 ```cs
-var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof").Result;
+var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
 Console.WriteLine("Correction for Query# \"bill gatas\"");
 ```
 
@@ -100,7 +101,7 @@ namespace SpellCheckSDK
 
             try
             {
-                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof").Result;
+                var result = client.SpellCheckerWithHttpMessagesAsync(text: "Bill Gatas", mode: "proof", acceptLanguage: "en-US").Result;
                 Console.WriteLine("Correction for Query# \"bill gatas\"");
 
                 // SpellCheck Results

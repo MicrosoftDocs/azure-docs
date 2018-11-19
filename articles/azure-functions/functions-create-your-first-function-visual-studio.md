@@ -1,32 +1,28 @@
 ---
-title: Create your first function in Azure using Visual Studio | Microsoft Docs
+title: Create your first function in Azure using Visual Studio
 description: Create and publish an HTTP triggered Azure Function using Visual Studio.
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 05/22/2018
+ms.date: 10/17/2018
 ms.author: glenga
-ms.custom: mvc, devcenter
-experimental: true  
-experiment_id: 23113853-34f2-4f
+ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
 
 ---
 # Create your first function using Visual Studio
 
-Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/overview/serverless-computing/) environment without having to first create a VM or publish a web application.
+Azure Functions lets you execute your code in a [serverless](https://azure.microsoft.com/solutions/serverless/) environment without having to first create a VM or publish a web application.
 
 In this article, you learn how to use the Visual Studio 2017 tools for Azure Functions to locally create and test a "hello world" function. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017.
+
+![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
 This topic includes [a video](#watch-the-video) that demonstrates the same basic steps.
 
@@ -36,7 +32,7 @@ To complete this tutorial:
 
 * Install [Visual Studio 2017](https://azure.microsoft.com/downloads/) and ensure that the **Azure development** workload is also installed.
 
-* If you installed the Azure development workload with Visual Studio 2017 version 15.4 or earlier, you will need to [update your Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
+* Make sure you have the [latest Azure Functions tools](functions-develop-vs.md#check-your-tools-version).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -56,13 +52,13 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
 2. Copy the URL of your function from the Azure Functions runtime output.
 
-    ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
+    ![Azure local runtime](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-debugging.png)
 
-3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<yourname>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
+3. Paste the URL for the HTTP request into your browser's address bar. Append the query string `?name=<YOUR_NAME>` to this URL and execute the request. The following shows the response in the browser to the local GET request returned by the function: 
 
-    ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+    ![Function localhost response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local.png)
 
-4. To stop debugging, press Shift + F5.
+4. To stop debugging, press **Shift + F5**.
 
 After you have verified that the function runs correctly on your local computer, it's time to publish the project to Azure.
 
@@ -74,15 +70,15 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Test your function in Azure
 
-1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<yourname>` to this URL and execute the request.
+1. Copy the base URL of the function app from the Publish profile page. Replace the `localhost:port` portion of the URL you used when testing the function locally with the new base URL. As before, make sure to append the query string `?name=<YOUR_NAME>` to this URL and execute the request.
 
     The URL that calls your HTTP triggered function should be in the following format:
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME> 
 
 2. Paste this new URL for the HTTP request into your browser's address bar. The following shows the response in the browser to the remote GET request returned by the function:
 
-    ![Function response in the browser](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![Function response in the browser](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
 ## Watch the video
 
@@ -90,9 +86,7 @@ You must have a function app in your Azure subscription before you can publish y
 
 ## Next steps
 
-You have used Visual Studio to create and publish a C# function app with a simple HTTP triggered function. 
+You have used Visual Studio to create and publish a C# function app with a simple HTTP triggered function.
 
-* To learn how to configure your project to support other types of triggers and bindings, see the [Configure the project for local development](functions-develop-vs.md#configure-the-project-for-local-development) section in [Azure Functions Tools for Visual Studio](functions-develop-vs.md).
-* To learn more about local testing and debugging using the Azure Functions Core Tools, see [Code and test Azure Functions locally](functions-run-local.md).
-* To learn more about developing functions as .NET class libraries, see [Using .NET class libraries with Azure Functions](functions-dotnet-class-library.md).
-
+* [Learn how to add input and output bindings that integrate with other services.](functions-develop-vs.md#add-bindings)
+* [Learn more about developing functions as .NET class libraries](functions-dotnet-class-library.md).

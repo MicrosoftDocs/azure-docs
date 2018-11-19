@@ -3,7 +3,7 @@ title: CLI Example - Create a DNS zone and record for a domain name - Azure | Mi
 description: This Azure CLI script example shows how to create a DNS zone and record for a domain name
 services: load-balancer
 documentationcenter: traffic-manager
-author: KumudD
+author: vhorne
 manager: jeconnoc
 editor: tysonn
 tags: 
@@ -15,7 +15,7 @@ ms.topic: sample
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: victorh
 ---
 
 # Azure CLI script example: Create a DNS zone and record
@@ -69,11 +69,11 @@ This script uses the following commands to create a resource group, virtual mach
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
 | [az network dns zone create](/cli/azure/network/dns/zone#az-network-dns-zone-create) | Creates an Azure DNS zone. |
 | [az network dns record-set a add-record](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-add-record) | Adds an *A* record to a DNS zone. |
 | [az network dns record-set list](/cli/azure/network/dns/record-set#az-network-dns-record-set-a-list) | List all *A* record sets in a DNS zone. |
-| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
+| [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Deletes a resource group including all nested resources. |
 
 ## Next steps
 

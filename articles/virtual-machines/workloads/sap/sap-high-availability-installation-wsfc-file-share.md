@@ -4,7 +4,7 @@ description: SAP NetWeaver high availability installation on a Windows failover 
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
-manager: timlt
+manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
 keywords: ''

@@ -1,5 +1,5 @@
 ---
-title: Events in actor-based Azure microservices| Microsoft Docs
+title: Events in actor-based Azure Service Fabric actors| Microsoft Docs
 description: Introduction to events for Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net

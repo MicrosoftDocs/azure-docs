@@ -1,41 +1,43 @@
 ---
-title: Microsoft Translator Speech API Reference | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Reference documentation for the Microsoft Translator Speech API.
+title: Translator Speech API Reference
+titleSuffix: Azure Cognitive Services
+description: Reference documentation for the Translator Speech API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech
+ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
 ---
 
-# Microsoft Translator Speech API
+# Translator Speech API
 
-This service offers a streaming API to transcribe conversational speech from one language into text of another language. The API also integrates text-to-speech capabilities to speak the translated text back. Microsoft Translator Speech API enables scenarios like real-time translation of conversations as seen in Skype Translator.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
-With Microsoft Translator Speech API, client applications stream speech audio to the service and receive back a stream of text-based results, which include the recognized text in the source language, and its translation in the target language. Text results are produced by applying Automatic Speech Recognition (ASR) powered by deep neural networks to the incoming audio stream. Raw ASR output is further improved by a new technique called TrueText in order to more closely reflect user intent. For example, TrueText removes disfluencies (the hmms and coughs) and restore proper punctuation and capitalization. The ability to mask or exclude profanities is also included. The recognition and translation engines are specifically trained to handle conversational speech. The Speech Translation service uses silence detection to determine the end of an utterance. After a pause in voice activity, the service will stream back a final result for the completed utterance. The service can also send back partial results, which give intermediate recognitions and translations for an utterance in progress. For final results, the service provides the ability to synthesize speech (text-to-speech) from the spoken text in the target languages. Text-to-speech audio is created in the format specified by the client. WAV and MP3 formats are available.
+This service offers a streaming API to transcribe conversational speech from one language into text of another language. The API also integrates text-to-speech capabilities to speak the translated text back. The Translator Speech API enables scenarios like real-time translation of conversations as seen in Skype Translator.
 
-Microsoft Translator Speech API leverages the WebSocket protocol to provide a full-duplex communication channel between the client and the server. An application will require these steps to use the service:
+With the Translator Speech API, client applications stream speech audio to the service and receive back a stream of text-based results, which include the recognized text in the source language, and its translation in the target language. Text results are produced by applying Automatic Speech Recognition (ASR) powered by deep neural networks to the incoming audio stream. Raw ASR output is further improved by a new technique called TrueText in order to more closely reflect user intent. For example, TrueText removes disfluencies (the hmms and coughs) and restore proper punctuation and capitalization. The ability to mask or exclude profanities is also included. The recognition and translation engines are specifically trained to handle conversational speech. The Speech Translation service uses silence detection to determine the end of an utterance. After a pause in voice activity, the service will stream back a final result for the completed utterance. The service can also send back partial results, which give intermediate recognitions and translations for an utterance in progress. For final results, the service provides the ability to synthesize speech (text-to-speech) from the spoken text in the target languages. Text-to-speech audio is created in the format specified by the client. WAV and MP3 formats are available.
+
+Translator Speech API leverages the WebSocket protocol to provide a full-duplex communication channel between the client and the server. An application will require these steps to use the service:
 
 ## 1. Getting started
-To access the Microsoft Translator Text API you will need to [sign up for Microsoft Azure](translator-speech-how-to-signup.md).
+To access the Translator Text API you will need to [sign up for Microsoft Azure](translator-speech-how-to-signup.md).
 
 ## 2. Authentication
 
-Use the subscription key to authenticate. Microsoft Translator Speech API supports two modes of authentication:
+Use the subscription key to authenticate. The Translator Speech API supports two modes of authentication:
 
-* **Using an access token:** In your application, obtain an access token from the token service. Use your Microsoft Translator Speech API subscription key to obtain an acess token from the Cognitive Services authentication service. The acces token is valid for 10 minutes. Obtain a new acces token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
+* **Using an access token:** In your application, obtain an access token from the token service. Use your Translator Speech API subscription key to obtain an access token from the Azure Cognitive Services authentication service. The access token is valid for 10 minutes. Obtain a new access token every 10 minutes, and keep using the same access token for repeated requests within these 10 minutes.
 
 * **Using a subscription key directly:** In your application, pass your subscription key as a value in `Ocp-Apim-Subscription-Key` header.
 
 Treat your subscription key and the access token as secrets that should be hidden from view.
 
 ## 3. Query languages
-**Query the Languages resource for the current set of supported languages.** The [languages resource](languages-reference.md) exposes the set of languages and voices available for speech recognition, for text translation and for text-to-speech. Each language or voice is given an identifier which Microsoft Translator Speech API uses to identify the same language or voice.
+**Query the Languages resource for the current set of supported languages.** The [languages resource](languages-reference.md) exposes the set of languages and voices available for speech recognition, for text translation and for text-to-speech. Each language or voice is given an identifier which the Translator Speech API uses to identify the same language or voice.
 
 ## 4. Stream audio
 **Open a connection and begin streaming audio to the service.** The service URL is `wss://dev.microsofttranslator.com/speech/translate`. Parameters and audio formats expected by the service are described below, in the `/speech/translate` operation. One of the parameters is used to pass the access token from Step 2 above.
@@ -43,7 +45,7 @@ Treat your subscription key and the access token as secrets that should be hidde
 ## 5. Process the results
 **Process the results streamed back from the service.** The format of partial results, final results and text-to-speech audio segments are described in the documentation of the `/speech/translate` operation below.
 
-Code samples demonstrating use of Microsoft Translator Speech API are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
+Code samples demonstrating use of the Translator Speech API are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
 
 ## Implementation notes
 
@@ -170,10 +172,10 @@ When a client application has finished streaming audio and has received the last
 |Ocp-Apim-Subscription-Key|(empty)|Required if the `Authorization` header is not specified.|header|string|
 |access_token|(empty)	|Alternate way to pass a valid OAuth access token. The bearer token is usually provided with header `Authorization`. Some websocket libraries do not allow client code to set headers. In such case, the client can use the `access_token` query parameter to pass a valid token. When using an access token to authenticate, if `Authorization` header is not set, then `access_token` must be set. If both header and query parameter are set, then the query parameter is ignored. Clients should only use one method to pass the token.|query|string|
 |subscription-key|(empty)	|Alternate way to pass subscription key. Some websocket libraries do not allow client code to set headers. In such case, the client can use the `subscription-key` query parameter to pass a valid subscription key. When using a subscription key to authenticate, if `Ocp-Apim-Subscription-Key` header is not set, then  subscription-key must be set. If both header and query parameter are set, then the query parameter is ignored. Clients should only use one method to pass the `subscription key`.|query|string|
-|X-ClientTraceId	|(empty)	|A client-generated GUID used to trace a request. For proper troubleshooting of issues, clients should provide a new value with each request and log it.<br/>Instead of using a header, this value can be passed with query parameter `X-ClientTraceId`. If both header and query paramter are set, then the query parameter is ignored.|header|string|
-|X-CorrelationId|(empty)	|A client-generated identifier used to correlate multiple channels in a conversation. Multiple speech translation sessions can be created to enable conversations between users. In such scenario, all speech translation sessions use the same correlation ID to tie the channels together. This facilitates tracing and diagnostics. The identifier should conform to: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Instead of using a header, this value can be passed with query parameter `X-CorrelationId`. If both header and query paramter are set, then the query parameter is ignored.|header|string|
-|X-ClientVersion|(empty)	|Identifies the version of the client application. Example: "2.1.0.123".<br/>Instead of using a header, this value can be passed with query parameter `X-ClientVersion`. If both header and query paramter are set, then the query parameter is ignored.|header|string|
-|X-OsPlatform|(empty)	|Identifies the name and version of the operating system the client application is running on. Examples: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Instead of using a header, this value can be passed with query parameter `X-OsPlatform`. If both header and query paramter are set, then the query parameter is ignored.|header|string|
+|X-ClientTraceId	|(empty)	|A client-generated GUID used to trace a request. For proper troubleshooting of issues, clients should provide a new value with each request and log it.<br/>Instead of using a header, this value can be passed with query parameter `X-ClientTraceId`. If both header and query parameter are set, then the query parameter is ignored.|header|string|
+|X-CorrelationId|(empty)	|A client-generated identifier used to correlate multiple channels in a conversation. Multiple speech translation sessions can be created to enable conversations between users. In such scenario, all speech translation sessions use the same correlation ID to tie the channels together. This facilitates tracing and diagnostics. The identifier should conform to: `^[a-zA-Z0-9-_.]{1,64}$`<br/>Instead of using a header, this value can be passed with query parameter `X-CorrelationId`. If both header and query parameter are set, then the query parameter is ignored.|header|string|
+|X-ClientVersion|(empty)	|Identifies the version of the client application. Example: "2.1.0.123".<br/>Instead of using a header, this value can be passed with query parameter `X-ClientVersion`. If both header and query parameter are set, then the query parameter is ignored.|header|string|
+|X-OsPlatform|(empty)	|Identifies the name and version of the operating system the client application is running on. Examples: "Android 5.0", "iOs 8.1.3", "Windows 8.1".<br/>Instead of using a header, this value can be passed with query parameter `X-OsPlatform`. If both header and query parameter are set, then the query parameter is ignored.|header|string|
 
 ### Response messages
 
@@ -182,7 +184,7 @@ When a client application has finished streaming audio and has received the last
 |101	|WebSocket upgrade.|Model Example Value <br/> Object {}|X-RequestId<br/>A value identifying the request for troubleshooting purposes.<br/>string|
 |400	|Bad request. Check input parameters to ensure they are valid. The response object includes a more detailed description of the error.|||
 |401	|Unauthorized. Ensure that credentials are set, that they are valid and that your Azure Data Market subscription is in good standing with an available balance.|||
-|500	|An error occured. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|||
+|500	|An error occurred. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|||
 |503	|Server temporarily unavailable. Please retry the request. If the error persists, please report it with client trace identifier (X-ClientTraceId) or request identifier (X-RequestId).|||
 
 	

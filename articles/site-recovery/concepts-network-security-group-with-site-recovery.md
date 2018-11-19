@@ -1,14 +1,12 @@
 ---
 title: Network Security Groups with Azure Site Recovery | Microsoft Docs
 description: Describes how to use Network Security Groups with Azure Site Recovery for disaster recovery and migration
-services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 05/21/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 
 ---
 # Network Security Groups with Azure Site Recovery
@@ -52,7 +50,7 @@ For example, if the post-failover VM configuration is similar to the [example sc
 
 Once the NSGs are created and configured, we recommend running a [test failover](site-recovery-test-failover-to-azure.md) to verify scripted NSG associations and post-failover VM connectivity.
 
-## Azure to Azure replication with ExpressRoute
+## Azure to Azure replication with NSG
 
 Azure Site Recovery enables disaster recovery of [Azure virtual machines](azure-to-azure-architecture.md). When enabling replication for Azure VMs, Site Recovery can create the replica virtual networks (including subnets and gateway subnets) on the target region and create the required mappings between the source and target virtual networks. You can also pre-create the target side networks and subnets, and use the same while enabling replication. Site Recovery does not create any VMs on the target Azure region prior to [failover](azure-to-azure-tutorial-failover-failback.md).
 
@@ -71,5 +69,5 @@ Once the NSGs are created and configured, we recommend running a [test failover]
 ## Next steps
 -	Learn more about [Network Security Groups](../virtual-network/security-overview.md#network-security-groups).
 -	Learn more about NSG [security rules](../virtual-network/security-overview.md#security-rules).
--	Learn more about [effective security rules](../virtual-network/virtual-network-nsg-troubleshoot-portal.md#nsg) for an NSG.
+-	Learn more about [effective security rules](../virtual-network/diagnose-network-traffic-filter-problem.md) for an NSG.
 -	Learn more about [recovery plans](site-recovery-create-recovery-plans.md) to automate application failover.

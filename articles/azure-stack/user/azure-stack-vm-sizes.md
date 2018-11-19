@@ -3,18 +3,17 @@ title: Virtual Machine sizes supported in Azure Stack | Microsoft Docs
 description: Reference for the supported VM sizes in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: mattbriggs
 manager: femila
-editor: ''
 
-ms.assetid: 
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
-ms.author: brenduns
+ms.date: 10/23/2018
+ms.author: mabrigg
+ms.reviewer: kivenkat
 
 ---
 
@@ -26,16 +25,20 @@ This article lists the virtual machine (VM) sizes that are available in Azure St
 
 ## General purpose
 
-General purpose VM sizes provide a balanced CPU-to-memory ratio. They are used for testing and development, small to medium databases, and low to medium traffic web servers.
+General-purpose VM sizes provide a balanced CPU-to-memory ratio. They are used for testing and development, small to medium databases, and low to medium traffic web servers.
 
 ### Basic A
+
+> [!NOTE]
+> *Basic A* virtual machine sizes are retired for [creating virtual machine scale sets](../azure-stack-compute-add-scalesets.md) (VMSS) through the portal. To create a VMSS with this size, use PowerShell or a template.
+
 |Size - Size\Name |vCPU     |Memory | Max temporary disk size | Max OS disk throughput: (IOPS) | Max temp storage throughput (IOPS) | Max data disk throughput (IOPS) | Max NICs |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 MB   | 20 GB   |300  | 300  |1 / 1x300  |1   |
 |**A1\Basic_A1**  |1    |1.75 GB  | 40 GB   |300  | 300  |2 / 2x300  |1   |
 |**A2\Basic_A2**  |2    |3.5 GB   | 60 GB   |300  | 300  |4 / 4x300  |1   |
 |**A3\Basic_A3**  |4    |7 GB     | 120 GB  |300  | 300  |8 / 8x300  |1   |
-|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |6 / 16X300 |1   |
+|**A4\Basic_A4**  |8    |14 GB    | 240 GB  |300  | 300  |16 / 16X300 |1   |
 
 ### Standard A 
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs / expected network bandwidth (Mbps) |    
@@ -104,7 +107,7 @@ General purpose VM sizes provide a balanced CPU-to-memory ratio. They are used f
 
 |Size     |vCPU     |Memory (GiB) | Temp storage (GiB)  | Max OS disk throughput (IOPS) | Max temp storage throughput (IOPS) | Max data disks / throughput (IOPS) | Max NICs / expected network bandwidth (Mbps) |
 |-----------------|----|----|-----|----|------|------------|---------|
-|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4x400   |2 / 750  |
+|**Standard_F1**  |1   |2   |16   |500 |3000  |4 / 4x500   |2 / 750  |
 |**Standard_F2**  |2   |4   |32   |500 |6000  |8 / 8x500   |2 / 1500 |
 |**Standard_F4**  |4   |8   |64   |500 |12000 |16 / 16x500 |4 / 3000 |
 |**Standard_F8**  |8   |16  |128  |500 |24000 |32 / 32x500 |8 / 6000 |

@@ -1,23 +1,13 @@
 ---
-# Mandatory fields. See more on aka.ms/skyeye/meta.
 title: Connnect a Raspberry Pi to your Azure IoT Central application (C#) | Microsoft Docs
 description: As an device developer, how to connect a Raspberry Pi to your Azure IoT Central application using C#.
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
+ms.topic: conceptual
+ms.service: iot-central
 services: iot-central
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
-ms.topic: article
-# Use only one of the following. Use ms.service for services, ms.prod for on-prem. Remove the # before the relevant field.
-ms.prod: microsoft-iot-central
-# product-name-from-white-list
-
-# Optional fields. Don't forget to remove # if you need a field.
-# ms.custom: can-be-multiple-comma-separated
-# ms.devlang:devlang-from-white-list
-# ms.suite: 
-# ms.tgt_pltfrm:
-# ms.reviewer:
-manager: timlt
+manager: peterpr
 ---
 
 # Connect a Raspberry Pi to your Azure IoT Central application (C#)
@@ -28,59 +18,41 @@ This article describes how, as a device developer, to connect a Raspberry Pi to 
 
 ## Before you begin
 
-To complete the steps in this article, you need the following:
+To complete the steps in this article, you need the following components:
 
 * [.NET Core 2](https://www.microsoft.com/net) installed on your development machine. You should also have a suitable code editor such as [Visual Studio Code](https://code.visualstudio.com/).
-* An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see [Create your Azure IoT Central Application](howto-create-application.md).
+* An Azure IoT Central application created from the **Sample Devkits** application template. For more information, see the [create an application quickstart](quick-deploy-iot-central.md).
 * A Raspberry Pi device running the Raspbian operating system.
 
-An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
 
-### Telemetry measurements
+## **Sample Devkits** application
 
-| Field name     | Units  | Minimum | Maximum | Decimal places |
-| -------------- | ------ | ------- | ------- | -------------- |
-| humidity       | %      | 0       | 100     | 0              |
-| temp           | °C     | -40     | 120     | 0              |
-| pressure       | hPa    | 260     | 1260    | 0              |
-| magnetometerX  | mgauss | -1000   | 1000    | 0              |
-| magnetometerY  | mgauss | -1000   | 1000    | 0              |
-| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
-| accelerometerX | mg     | -2000   | 2000    | 0              |
-| accelerometerY | mg     | -2000   | 2000    | 0              |
-| accelerometerZ | mg     | -2000   | 2000    | 0              |
-| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
-| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics: 
 
-### Settings
+- Telemetry, which includes the following measurements the device will collect:
+    - Humidity
+    - Temperature
+    - Pressure
+    - Magnetometer (X, Y, Z)
+    - Accelerometer (X, Y, Z)
+    - Gyroscope (X, Y, Z)
+- Settings
+    - Voltage
+    - Current
+    - Fan Speed
+    - IR toggle.
+- Properties
+    - Die number device property
+    - Location cloud property
 
-Numeric settings
+For full details on the configuration of the device template refer to [Raspberry PI Device template details](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details)
 
-| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
-| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
-| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
-| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
-| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
 
-Toggle settings
-
-| Display name | Field name | On text | Off text | Initial |
-| ------------ | ---------- | ------- | -------- | ------- |
-| IR           | activateIR | ON      | OFF      | Off     |
-
-### Properties
-
-| Type            | Display name | Field name | Data type |
-| --------------- | ------------ | ---------- | --------- |
-| Device property | Die number   | dieNumber  | number    |
-| Text            | Location     | location   | N/A       |
-
-### Add a real device
+## Add a real device
 
 In your Azure IoT Central application, add a real device from the **Raspberry Pi** device template and make a note of the device connection string. For more information, see [Add a real device to your Azure IoT Central application](tutorial-add-device.md).
 
-## Create your .NET application
+### Create your .NET application
 
 You create and test the device application on your desktop machine.
 
@@ -297,6 +269,9 @@ To complete the following steps, you can use Visual Studio Code. For more inform
 
 Add your device-specific connection string to the code for the device to authenticate with Azure IoT Central. You made a note of this connection string when you added your real device to your Azure IoT Central application.
 
+  > [!NOTE]
+   > Azure IoT Central has transitioned to using Azure IoT Hub Device Provisioning service (DPS) for all device connections, follow these instrustions to [get the device connection string](concepts-connectivity.md#getting-device-connection-string) and continue with the rest of the tutorial.
+
 1. Replace `{your device connection string}` in the **Program.cs** file with the connection string you noted previously.
 
 1. Run the following command in your command-line environment:
@@ -340,6 +315,51 @@ Add your device-specific connection string to the code for the device to authent
     The following screenshot shows the Raspberry Pi receiving the setting change:
 
     ![Raspberry Pi receives setting change](./media/howto-connect-raspberry-pi-csharp/device_switch.png)
+
+
+## Raspberry PI Device template details
+
+An application created from the **Sample Devkits** application template includes a **Raspberry Pi** device template with the following characteristics:
+
+### Telemetry measurements
+
+| Field name     | Units  | Minimum | Maximum | Decimal places |
+| -------------- | ------ | ------- | ------- | -------------- |
+| humidity       | %      | 0       | 100     | 0              |
+| temp           | °C     | -40     | 120     | 0              |
+| pressure       | hPa    | 260     | 1260    | 0              |
+| magnetometerX  | mgauss | -1000   | 1000    | 0              |
+| magnetometerY  | mgauss | -1000   | 1000    | 0              |
+| magnetometerZ  | mgauss | -1000   | 1000    | 0              |
+| accelerometerX | mg     | -2000   | 2000    | 0              |
+| accelerometerY | mg     | -2000   | 2000    | 0              |
+| accelerometerZ | mg     | -2000   | 2000    | 0              |
+| gyroscopeX     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeY     | mdps   | -2000   | 2000    | 0              |
+| gyroscopeZ     | mdps   | -2000   | 2000    | 0              |
+
+### Settings
+
+Numeric settings
+
+| Display name | Field name | Units | Decimal places | Minimum | Maximum | Initial |
+| ------------ | ---------- | ----- | -------------- | ------- | ------- | ------- |
+| Voltage      | setVoltage | Volts | 0              | 0       | 240     | 0       |
+| Current      | setCurrent | Amps  | 0              | 0       | 100     | 0       |
+| Fan Speed    | fanSpeed   | RPM   | 0              | 0       | 1000    | 0       |
+
+Toggle settings
+
+| Display name | Field name | On text | Off text | Initial |
+| ------------ | ---------- | ------- | -------- | ------- |
+| IR           | activateIR | ON      | OFF      | Off     |
+
+### Properties
+
+| Type            | Display name | Field name | Data type |
+| --------------- | ------------ | ---------- | --------- |
+| Device property | Die number   | dieNumber  | number    |
+| Text            | Location     | location   | N/A       |
 
 ## Next steps
 

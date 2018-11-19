@@ -1,12 +1,14 @@
 ---
-title: Graph Search method in the Academic Knowledge API | Microsoft Docs
-description: Use the Graph Search method in the Academic Knowledge API to return a set of academic entities based on specific graph patterns in Microsoft Cognitive Services.
+title: Graph Search method - Academic Knowledge API
+titlesuffix: Azure Cognitive Services
+description: Use the Graph Search method in the Academic Knowledge API to return a set of academic entities based on specific graph patterns.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
 ---

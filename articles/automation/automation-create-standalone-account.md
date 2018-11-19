@@ -14,7 +14,7 @@ manager: carmonm
 
 This article shows you how to create an Azure Automation account in the Azure portal. You can use the portal Automation account to evaluate and learn about Automation without using additional management solutions or integration with Azure Log Analytics. You can add those management solutions or integrate with Log Analytics for advanced monitoring of runbook jobs at any point in the future.
 
-With an Automation account, you can authenticate runbooks by managing resources in either Azure Resource Manager or the classic deployment model.
+With an Automation account, you can authenticate runbooks by managing resources in either Azure Resource Manager or the classic deployment model. One Automation Account can manage resources across all regions and subscriptions for a given tenant.
 
 When you create an Automation account in the Azure portal, these accounts are automatically created:
 
@@ -31,11 +31,11 @@ With these accounts created for you, you can quickly start building and deployin
 To create or update an Automation account, and to complete the tasks described in this article, you must have the following privileges and permissions:
 
 * To create an Automation account, your Azure AD user account must be added to a role with permissions equivalent to the Owner role for **Microsoft. Automation** resources. For more information, see [Role-Based Access Control in Azure Automation](automation-role-based-access-control.md).
-* In the Azure portal, under **Azure Active Directory** > **MANAGE** > **App registrations**, if **App registrations** is set to **Yes**, non-admin users in your Azure AD tenant can [register Active Directory applications](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
+* In the Azure portal, under **Azure Active Directory** > **MANAGE** > **App registrations**, if **App registrations** is set to **Yes**, non-admin users in your Azure AD tenant can [register Active Directory applications](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). If **App registrations** is set to **No**, the user who performs this action must be a global administrator in Azure AD.
 
 If you aren't a member of the subscription’s Active Directory instance before you are added to the subscription's global administrator/coadministrator role, you are added to Active Directory as a guest. In this scenario, you see this message on the **Add Automation Account** page: “You do not have permissions to create."
 
-If a user is added to the global administrator/coadministrator role first, you can remove them from the subscription's Active Directory instance, and then re-add them to the full User role in Active Directory.
+If a user is added to the global administrator/coadministrator role first, you can remove them from the subscription's Active Directory instance, and then readd them to the full User role in Active Directory.
 
 To verify user roles:
 
@@ -55,14 +55,15 @@ To create an Azure Automation account in the Azure portal, complete the followin
    ![Search for and select Automation & Control in the Azure Marketplace](media/automation-create-standalone-account/automation-marketplace-select-create-automationacct.png)
 
 1. On the next screen select **Create**.
+
   ![Add Automation account](media/automation-create-standalone-account/automation-create-automationacct-properties.png)
 
   > [!NOTE]
   > If you see the following message in the **Add Automation Account** pane, your account is not a member of the subscription Administrators role and a coadministrator of the subscription.
   >
   > ![Add Automation account warning](media/automation-create-standalone-account/create-account-without-perms.png)
-  >
-1. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account.
+
+1. In the **Add Automation Account** pane, in the **Name** box, enter a name for your new Automation account. This name cannot be changed after it is chosen. *Automation Account names are unique per region and resource group.*
 1. If you have more than one subscription, in the **Subscription** box, specify the subscription you want to use for the new account.
 1. For **Resource group**, enter or select a new or existing resource group.
 1. For **Location**, select an Azure datacenter location.
@@ -80,7 +81,7 @@ To create an Azure Automation account in the Azure portal, complete the followin
 
 ### Resources included
 
-When the Automation account is successfully created, several resources are automatically created for you. After creation these the runbooks can be safely deleted if you do not wish to keep them. The Run As Accounts, can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the Run As account.
+When the Automation account is successfully created, several resources are automatically created for you. After creation, these runbooks can be safely deleted if you do not wish to keep them. The Run As Accounts, can be used to authenticate to your account in a runbook, and should be left unless you create another one or do not require them. The following table summarizes resources for the Run As account.
 
 | Resource | Description |
 | --- | --- |

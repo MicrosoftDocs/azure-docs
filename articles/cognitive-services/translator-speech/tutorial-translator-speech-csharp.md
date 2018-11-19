@@ -1,20 +1,22 @@
 ---
-title: Translator Speech Tutorial (C#) | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Learn how to use the Translator speech service to translate text in real time.
+title: "Tutorial: Translator Speech API C#"
+titleSuffix: Azure Cognitive Services
+description: Use the Translator Speech API to translate text in real time.
 services: cognitive-services
 author: v-jerkin
-manager: chriswendt1
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: translator-speech
-ms.devlang: csharp
-ms.topic: article
+ms.topic: tutorial
 ms.date: 3/5/2018
 ms.author: v-jerkin
 ---
-# Tutorial: Microsoft Translator WPF application in C#
+# Tutorial: Translator Speech application in C#
 
-This tutorial is a tour of an interactive speech translation tool that uses the Microsoft Translator Speech translation service, a part of Microsoft Cognitive Services in Azure. You learn how to:
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+This tutorial is a tour of an interactive speech translation tool that uses the Translator Speech API, a part of Azure Cognitive Services. You will learn how to:
 
 > [!div class="checklist"]
 > * Request a list of the languages supported by the service
@@ -36,7 +38,7 @@ The third-party [JSON.Net library](https://www.newtonsoft.com/json) (from Newton
 
 ## Trying the translation app
 
-After opening the Microsoft Speech Translator solution (`SpeechTranslator.sln`) in Visual STudio, press F5 to build and launch the application.  The program's main window appears.
+After opening the Speech Translator solution (`SpeechTranslator.sln`) in Visual STudio, press F5 to build and launch the application.  The program's main window appears.
 
 ![[Speech Translator main window]](media/speech-translator-main-window.png)
 
@@ -44,7 +46,7 @@ On the first run, choose **Account Settings** from the **Settings** menu to open
 
 ![[Speech Translator main window]](media/speech-translator-settings-window.png)
 
-Paste your Microsoft Translator Speech subscription key in this window, then click **Save.** Your key is saved between runs.
+Paste your Translator Speech subscription key in this window, then click **Save.** Your key is saved between runs.
 
 Back in the main window, choose the audio input and output devices you want to use and the From and To languages. If you want to hear audio of the translation, make sure the **TTS** (text-to-speech) option is checked. If you want to see speculative partial translations as you speak, enable the **Partial Results** option.
 
@@ -52,7 +54,7 @@ Finally, click **Start** to begin translation. Say something you wish to have tr
 
 ## Obtaining supported languages
 
-At this writing, the Microsoft Translator service supports more than five dozen languages for text translation. A smaller number of languages are supported for speech translation. Such languages require support for both transcription (speech recognition) and, for text-to-speech output, synthesis.
+At this writing, the Translator Speech service supports more than five dozen languages for text translation. A smaller number of languages are supported for speech translation. Such languages require support for both transcription (speech recognition) and, for text-to-speech output, synthesis.
 
 In other words, for speech translation, the source language must be one supported for transcription. The output language may be any of the languages supported for text translation, assuming you want a text result. If you want speech output, you can only translate into a language supported for text-to-speech.
 
@@ -351,7 +353,7 @@ private void Connect()
 }
 ```
 
-A substantial portion of `Connect()` involves the creation of a `SpeechClientOptions` instance (see `SpeechClientOptions.cs`) to hold the options for translation. Options include the information needed to connect to the service (such as authentication key and hostname) and the features used for the translation. The fields here map to the header fields and HTTP parameters exposed by [the Translator Speech API](http://docs.microsofttranslator.com/speech-translate.html).
+A substantial portion of `Connect()` involves the creation of a `SpeechClientOptions` instance (see `SpeechClientOptions.cs`) to hold the options for translation. Options include the information needed to connect to the service (such as authentication key and hostname) and the features used for the translation. The fields here map to the header fields and HTTP parameters exposed by [the Translator Speech API](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference).
 
 `Connect()` also creates and initializes the audio input device (variable `sampleProvider`) that serves as the source of the speech to be translated. This device is either a hardware input device such as a microphone, or a file containing WAVE audio data.
 
@@ -425,4 +427,4 @@ Binary data is audio (text-to-speech output) sent by the service when TTS is ena
 This code sample is a feature-rich application demonstrating the use of the Translator Speech API. As such, there are a fair number of moving parts to understand. You've walked through the most important bits. For the rest, it can be instructive to set a few breakpoints in Visual Studio and walk through the translation process. When you understand the sample application, you're equipped to use the Translator Speech service in your own applications.
 
 > [!div class="nextstepaction"]
-> [Microsoft Translator Speech API reference](http://docs.microsofttranslator.com/speech-translate.html)
+> [Microsoft Translator Speech API reference](https://docs.microsoft.com/azure/cognitive-services/translator-speech/reference)

@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 05/01/2017
 ms.author: mbullwin
 
@@ -209,7 +209,7 @@ server.on("listening", () => {
 ## Next steps
 
 * [Monitor your telemetry in the portal](app-insights-dashboards.md)
-* [Write Analytics queries over your telemetry](app-insights-analytics-tour.md)
+* [Write Analytics queries over your telemetry](../log-analytics/query-language/get-started-analytics-portal.md)
 
 <!--references-->
 

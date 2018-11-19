@@ -3,7 +3,7 @@ title: Creating, updating statistics - Azure SQL Data Warehouse | Microsoft Docs
 description: Recommendations and examples for creating and updating query-optimization statistics on tables in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
@@ -45,11 +45,14 @@ Automatic creation of statistics is generated synchronously so you may incur a s
 > The creation of stats will also be logged in [sys.dm_pdw_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=aps-pdw-2016) under a different user context.
 > 
 
-When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats which have already been created by running the following command:
+When automatic statistics are created, they will take the form: _WA_Sys_<8 digit column id in Hex>_<8 digit table id in Hex>. You can view stats which have already been created by running the [DBCC SHOW_STATISTICS](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?view=sql-server-2017) command:
 
 ```sql
 DBCC SHOW_STATISTICS (<tablename>, <targetname>)
 ```
+The first argument is table that contains the statistics to display. This cannot be an external table. The second argument is the name of the target index, statistics, or column for which to display statistics information.
+
+
 
 ## Updating statistics
 
@@ -57,6 +60,8 @@ One best practice is to update statistics on date columns each day as new dates 
 
 The following are recommendations updating statistics:
 
+|||
+|-|-|
 | **Frequency of stats updates**  | Conservative: Daily <br></br> After loading or transforming your data |
 | **Sampling** |  Less than 1 billion rows, use default sampling (20 percent) <br></br> With more than 1 billion rows, statistics on a 2-percent range is good |
 

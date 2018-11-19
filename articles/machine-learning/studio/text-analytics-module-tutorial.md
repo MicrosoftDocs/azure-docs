@@ -4,12 +4,14 @@ description: How to create text analytics models in Azure Machine Learning Studi
 services: machine-learning
 documentationcenter: ''
 author: rastala
-ms.author: roastala
+ms.custom: (previous ms.author roastala)
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: ''
 
 ms.assetid: 08cd6723-3ae6-4e99-a924-e650942e461b
 ms.service: machine-learning
+ms.component: studio
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na

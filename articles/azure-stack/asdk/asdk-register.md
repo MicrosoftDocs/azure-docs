@@ -6,13 +6,13 @@ documentationcenter: ''
 author: jeffgilb
 manager: femila
 
-ms.assetid: 
+ms.assetid:
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/17/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -22,21 +22,31 @@ You can register your Azure Stack Development Kit (ASDK) installation with Azure
 
 If you do not register your ASDK, you might see an **Activation Required** warning alert that advises you to register your Azure Stack Development Kit. This behavior is expected.
 
-## Register Azure Stack with Azure 
+## Prerequisites
+Before using these instructions to register the ASDK with Azure, ensure that you have installed the Azure Stack PowerShell and downloaded the Azure Stack tools as described in the [post-deployment configuration](asdk-post-deploy.md) article.
+
+In addition, the PowerShell language mode must be set to **FullLanguageMode** on the computer used to register the ASDK with Azure. To verify that the current language mode is set to full, open an elevated PowerShell window and run the following PowerShell commands:
+
+```PowerShell  
+$ExecutionContext.SessionState.LanguageMode
+```
+
+Ensure the output returns **FullLanguageMode**. If any other language mode is returned, registration will need to be run on another computer or the language mode will need to be set to **FullLanguageMode** before continuing.
+
+## Register Azure Stack with Azure
 Follow these steps to register the ASDK with Azure.
 
 > [!NOTE]
-> All these steps must be run from a computer that has access to the privileged endpoint. For the ASDK, that's the development kit host computer. 
-
-Before using these steps to register the ASDK with Azure, ensure that you have installed the Azure Stack PowerShell and downloaded the Azure Stack tools as described in the [post-deployment configuration](asdk-post-deploy.md) article. 
+> All these steps must be run from a computer that has access to the privileged endpoint. For the ASDK, that's the development kit host computer.
 
 1. Open a PowerShell console as an administrator.  
 
-2. Run the following PowerShell commands to register your ASDK installation with Azure (you will need to log in to both your Azure subscription and the local ASDK installation):
+2. Run the following PowerShell commands to register your ASDK installation with Azure. You will need to sign in to both your Azure subscription and the local ASDK installation. If you don’t have an Azure subscription yet, you can [create a free Azure account here](https://azure.microsoft.com/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.<br><br>If you are running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID, set a unique name for the registration when you run the **Set-AzsRegistration** cmdlet. The **RegistrationName** parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail.
 
-    ```PowerShell
-    # Add the Azure cloud subscription environment name. Supported environment names are AzureCloud or, if using a China Azure Subscription, AzureChinaCloud.
-    Add-AzureRmAccount -EnvironmentName "AzureCloud"
+    ```PowerShell  
+    # Add the Azure cloud subscription environment name. 
+    # Supported environment names are AzureCloud, AzureChinaCloud or AzureUSGovernment depending which Azure subscription you are using.
+    Add-AzureRmAccount -EnvironmentName "<environment name>"
 
     # Register the Azure Stack resource provider in your Azure subscription
     Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
@@ -47,14 +57,99 @@ Before using these steps to register the ASDK with Azure, ensure that you have i
     #Register Azure Stack
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+    $RegistrationName = "<unique-registration-name>"
     Set-AzsRegistration `
-        -PrivilegedEndpointCredential $CloudAdminCred `
-        -PrivilegedEndpoint AzS-ERCS01 `
-        -BillingModel Development
-
+    -PrivilegedEndpointCredential $CloudAdminCred `
+    -PrivilegedEndpoint AzS-ERCS01 `
+    -BillingModel Development `
+    -RegistrationName $RegistrationName `
+    -UsageReportingEnabled:$true
+    ```
 3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
-    ![](media/asdk-register/1.PNG) 
+    ![Your environment is now registered](media/asdk-register/1.PNG)
+
+
+## Register in disconnected environments
+If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a computer that can connect to Azure to register and create an activation resource for your ASDK environment.
+ 
+ > [!IMPORTANT]
+ > Before using these instructions to register Azure Stack, ensure that you have installed PowerShell for Azure Stack and downloaded the Azure Stack tools as described in the [post-deployment configuration](asdk-post-deploy.md) article on both the ASDK host computer and the computer with internet access used to connect to Azure and register.
+
+### Get a registration token from the Azure Stack environment
+On the ASDK host computer, start PowerShell as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Use the following PowerShell commands to import the **RegisterWithAzure.psm1** module and then use the **Get-AzsRegistrationToken** cmdlet to get the registration token:  
+
+   ```PowerShell  
+   Import-Module .\RegisterWithAzure.psm1
+   $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
+   -UsageReportingEnabled:$false `
+   -PrivilegedEndpoint AzS-ERCS01 `
+   -BillingModel Development `
+   -MarketplaceSyndicationEnabled:$false `
+   -TokenOutputFilePath $FilePathForRegistrationToken
+   ```
+By default, the registration token is saved in the file specified for *$FilePathForRegistrationToken* parameter. You can change the filepath or filename at your discretion.
+
+Save this registration token for use on the internet-connected computer. You can copy the file or the text from $FilePathForRegistrationToken.
+
+### Connect to Azure and register
+On the internet connected computer, start PowerShell as an administrator and navigate to the **Registration** folder in the **AzureStack-Tools-master** directory created when you downloaded the Azure Stack tools. Use the following PowerShell commands to import the **RegisterWithAzure.psm1** module and then use the **Register-AzsEnvironment** cmdlet to register with Azure by providing the registration token you just created and a unique registration name:  
+
+  ```PowerShell  
+  $registrationToken = "<your registration token>"
+  $RegistrationName = "<unique registration name>"
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+Alternatively, you can use the **Get-Content** cmdlet to point to a file that contains your registration token:
+
+  ```PowerShell  
+  $registrationToken = Get-Content -Path '<path>\<registration token file>'
+  Register-AzsEnvironment -RegistrationToken $registrationToken `
+  -RegistrationName $RegistrationName
+  ```
+
+Save the registration token and registration resource name for future reference.
+
+### Retrieve an activation key from the Azure registration resource
+
+Still using the internet-connected computer, retrieve an activation key from the registration resource created when you registered with Azure.
+
+To get the activation key, run the following PowerShell commands, use the same unique registration name value you provided when registering with Azure in the previous step:  
+
+  ```Powershell
+  $RegistrationResourceName = "<unique-registration-name>"
+  $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
+  $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName `
+  -KeyOutputFilePath $KeyOutputFilePath
+  ```
+
+The activation key is saved in the file specified for *$KeyOutputFilePath*. You can change the filepath or filename at your discretion.
+
+### Create an Activation Resource in Azure Stack
+
+Return to the Azure Stack environment with the file or text from the activation key created from **Get-AzsActivationKey**. Run the following PowerShell commands to create an activation resource in Azure Stack using that activation key:   
+
+  ```Powershell
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $ActivationKey = "<activation key>"
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
+
+Alternatively, you can use the **Get-Content** cmdlet to point to a file that contains your registration token:
+
+  ```Powershell
+  $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
+  $ActivationKey = Get-Content -Path '<path>\<Activation Key File>'
+  New-AzsActivationResource -PrivilegedEndpointCredential $CloudAdminCred `
+  -PrivilegedEndpoint AzS-ERCS01 `
+  -ActivationKey $ActivationKey
+  ```
 
 ## Verify the registration was successful
 Follow these steps to verify that the ASDK registration with Azure was successful.
@@ -63,11 +158,15 @@ Follow these steps to verify that the ASDK registration with Azure was successfu
 
 2. Click **Marketplace Management** > **Add from Azure**.
 
-    ![](media/asdk-register/2.PNG) 
+    ![](media/asdk-register/2.PNG)
 
 3. If you see a list of items available from Azure, your activation was successful.
 
-    ![](media/asdk-register/3.PNG) 
+    ![](media/asdk-register/3.PNG)
+
+## Move a registration resource
+Moving a registration resource between resource groups under the same subscription **is** supported. For more information about moving resources to a new resource group, see [Move resources to new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+
 
 ## Next steps
-[Add an Azure Stack marketplace item](asdk-marketplace-item.md)
+[Add an Azure Stack marketplace item](.\.\azure-stack-marketplace.md)

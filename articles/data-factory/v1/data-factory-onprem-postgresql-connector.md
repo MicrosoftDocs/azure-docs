@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 
@@ -20,11 +20,11 @@ robots: noindex
 ---
 # Move data from PostgreSQL using Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1 - GA](data-factory-onprem-postgresql-connector.md)
-> * [Version 2 - Preview](../connector-postgresql.md)
+> * [Version 1](data-factory-onprem-postgresql-connector.md)
+> * [Version 2 (current version)](../connector-postgresql.md)
 
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [PostgreSQL connector in V2](../connector-postgresql.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [PostgreSQL connector in V2](../connector-postgresql.md).
 
 
 This article explains how to use the Copy Activity in Azure Data Factory to move data from an on-premises PostgreSQL database. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with the copy activity.
@@ -41,7 +41,7 @@ Gateway is required even if the PostgreSQL database is hosted in an Azure IaaS V
 > See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway related issues.
 
 ## Supported versions and installation
-For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
+For Data Management Gateway to connect to the PostgreSQL Database, install the [Ngpsql data provider for PostgreSQL](https://go.microsoft.com/fwlink/?linkid=282716) with version between 2.0.12 and 3.1.9 on the same system as the Data Management Gateway. PostgreSQL version 7.4 and above is supported.
 
 ## Getting started
 You can create a pipeline with a copy activity that moves data from an on-premises PostgreSQL data store by using different tools/APIs. 

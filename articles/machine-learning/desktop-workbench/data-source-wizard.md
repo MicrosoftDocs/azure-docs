@@ -7,12 +7,19 @@ ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
+
+ROBOTS: NOINDEX
 ---
 
 # Data Source Wizard #
+
+[!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)] 
+
+
 
 The Data Source Wizard is a quick and easy way to bring a dataset into Azure ML Workbench without code. It is where you can also select a sample strategy for the dataset and data types for each column. 
 

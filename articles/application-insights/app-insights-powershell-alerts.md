@@ -11,7 +11,7 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/31/2016
 ms.author: mbullwin
 
@@ -31,7 +31,7 @@ If you haven't used PowerShell with your Azure subscription before:
 
 Install the Azure Powershell module on the machine where you want to run the scripts.
 
-* Install [Microsoft Web Platform Installer (v5 or higher)](http://www.microsoft.com/web/downloads/platform.aspx).
+* Install [Microsoft Web Platform Installer (v5 or higher)](https://www.microsoft.com/web/downloads/platform.aspx).
 * Use it to install Microsoft Azure Powershell
 
 ## Connect to Azure

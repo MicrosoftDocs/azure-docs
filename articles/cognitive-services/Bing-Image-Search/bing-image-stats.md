@@ -1,18 +1,18 @@
 ---
-title: Bing analytics for Bing Web Search APIs | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Describes how to get analytics for Bing Images API. 
+title: Bing Image Search analytics - Bing Image Search API
+titleSuffix: Azure Cognitive Services
+description: Describes how to get analytics for Bing Images API.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: bing-image-search
+ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
 ---
 
-# How to get analytics for Bing Images API
+# How to get analytics for the Bing Image Search API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

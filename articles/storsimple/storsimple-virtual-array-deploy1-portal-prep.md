@@ -47,8 +47,8 @@ You can now begin to set up the Azure portal.
 
 The configuration checklist describes the information that you need to collect before you configure the software on your StorSimple Virtual Array. Preparing this information ahead of time helps streamline the process of deploying the StorSimple device in your environment. Depending upon whether your StorSimple Virtual Array is deployed as a file server or an iSCSI server, you need one of the following checklists.
 
-* Download the [StorSimple Virtual Array File Server Configuration Checklist](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
-* Download the [StorSimple Virtual Array iSCSI Server Configuration Checklist](http://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
+* Download the [StorSimple Virtual Array File Server Configuration Checklist](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayFileServerConfigurationChecklist.pdf).
+* Download the [StorSimple Virtual Array iSCSI Server Configuration Checklist](https://download.microsoft.com/download/E/E/6/EE690BB0-B442-4B84-8165-4731EE727ACF/MicrosoftAzureStorSimpleVirtualArrayiSCSIServerConfigurationChecklist.pdf).
 
 ## Prerequisites
 
@@ -139,7 +139,7 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/).
 
 This step is optional and should be performed only if you did not enable the automatic creation of a storage account with your service.
 
-If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-create-storage-account.md#create-a-storage-account) for step-by-step instructions.
+If you need to create an Azure storage account in a different region, see [How to create a storage account](../storage/common/storage-quickstart-create-account.md) for step-by-step instructions.
 
 Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) on the StorSimple Device Manager service page to add an existing Microsoft Azure storage account.
 

@@ -22,11 +22,11 @@ This sample PowerShell script creates a custom image from a VHD file in Azure La
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
 ## Prerequisites
-* **A custom lab**. The script requires you to have an existing custom lab. 
+* **A lab**. The script requires you to have an existing lab. 
 
 ## Sample script
 
-[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a custom lab")]
+[!code-powershell[main](../../../powershell_scripts/devtest-lab/create-custom-image-from-vhd/create-custom-image-from-vhd.ps1 "Add external user to a lab")]
 
 ## Script explanation
 

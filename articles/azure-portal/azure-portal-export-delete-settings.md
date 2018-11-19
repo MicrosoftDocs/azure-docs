@@ -4,13 +4,13 @@ description: Learn how you can export or delete your user settings, private dash
 services: azure-portal
 keywords: 
 author: santhoshsomayajula
-ms.author: santhosh.somayajulu
 ms.date: 05/18/2018
 ms.topic: conceptual
 
 ms.service: azure-portal
 ms.custom: 
 manager:  dougeby
+ms.author: cwatson
 ---
 # Export or delete settings in the Azure portal
 You can export and delete the following settings from the Azure portal settings menu:

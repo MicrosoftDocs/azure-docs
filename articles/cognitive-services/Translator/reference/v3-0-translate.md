@@ -1,19 +1,19 @@
 ---
-title: Microsoft Translator Text API Translate Method | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Use the Microsoft Translator Text API Translate method.
+title: Translator Text API Translate Method
+titleSuffix: Azure Cognitive Services
+description: Use the Translator Text API Translate method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ---
 
-# Text API 3.0: Translate
+# Translator Text API 3.0: Translate
 
 Translates text.
 
@@ -80,6 +80,11 @@ Request parameters passed on the query string are:
     <td>toScript</td>
     <td>*Optional parameter*.<br/>Specifies the script of the translated text.</td>
   </tr>
+  <tr>
+    <td>AllowFallback</td>
+    <td>*Optional parameter*.<br/>Specifies that the service is allowed to fallback to a general system when a custom system does not exist. Possible values are: `true` (default) or `false`.<br/><br/>`AllowFallback=false` specifies that the translation should only use systems trained for the `category` specified by the request. If a translation for language X to language Y requires chaining through a pivot language E, then all the systems in the chain (X->E and E->Y) will need to be custom and have the same category. If no system is found with the specific category, the request will return a 400 status code. `AllowFallback=true` specifies that the service is allowed to fallback to a general system when a custom system does not exist.
+</td>
+  </tr>
 </table> 
 
 Request headers include:
@@ -103,6 +108,11 @@ Request headers include:
     <td>X-ClientTraceId</td>
     <td>*Optional*.<br/>A client-generated GUID to uniquely identify the request. You can omit this header if you include the trace ID in the query string using a query parameter named `ClientTraceId`.</td>
   </tr>
+  <tr>
+    <td>X-MT-System</td>
+    <td>*Optional*.<br/>Specifies the system type that was used for translation for each ‘to’ language requested for translation. The value is a comma-separated list of strings. Each string indicates a type:<br/><ul><li>Custom -  Request includes a custom system and at least one custom system was used during translation.</li><li>Team - All other requests</li></ul>
+</td>
+  </tr>
 </table> 
 
 ## Request body
@@ -118,7 +128,6 @@ The body of the request is a JSON array. Each array element is a JSON object wit
 The following limitations apply:
 
 * The array can have at most 25 elements.
-* The text value of an array element cannot exceed 1,000 characters including spaces.
 * The entire text included in the request cannot exceed 5,000 characters including spaces.
 
 ## Response body
@@ -183,6 +192,10 @@ The following are the possible HTTP status codes that a request returns.
   <tr>
     <td>403</td>
     <td>The request is not authorized. Check the details error message. This often indicates that all free translations provided with a trial subscription have been used up.</td>
+  </tr>
+  <tr>
+    <td>408</td>
+    <td>The request could not be fulfilled because a resource is missing. Check the details error message. When using a custom `category`, this often indicates that the custom translation system is not yet available to serve requests. The request should be retried after a waiting period (e.g. 10 minutes).</td>
   </tr>
   <tr>
     <td>429</td>
@@ -259,7 +272,7 @@ Let's extend the previous example by adding transliteration. The following reque
 # [curl](#tab/curl)
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 ---
@@ -273,7 +286,7 @@ The response body is:
         "translations":[
             {
                 "text":"你好, 你叫什么名字？",
-                "transliteration":{"text":"nǐ hǎo , nǐ jiào shén me míng zì ？","script":"Latn"},
+                "transliteration":{"script":"Latn", "text":"nǐ hǎo , nǐ jiào shén me míng zì ？"},
                 "to":"zh-Hans"
             }
         ]

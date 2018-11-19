@@ -3,7 +3,7 @@ title: Cloud Services and management certificates | Microsoft Docs
 description: Learn how to create and use certificates with Microsoft Azure
 services: cloud-services
 documentationcenter: .net
-author: Thraka
+author: jpconnock
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
-ms.author: adegeo
+ms.author: jeconnoc
 
 ---
 # Certificates overview for Azure Cloud Services
@@ -23,6 +23,9 @@ Certificates are used in Azure for cloud services ([service certificates](#what-
 Certificates used in Azure are x.509 v3 certificates and can be signed by another trusted certificate or they can be self-signed. A self-signed certificate is signed by its own creator, therefore it is not trusted by default. Most browsers can ignore this problem. You should only use self-signed certificates when developing and testing your cloud services. 
 
 Certificates used by Azure can contain a private or a public key. Certificates have a thumbprint that provides a means to identify them in an unambiguous way. This thumbprint is used in the Azure [configuration file](cloud-services-configure-ssl-certificate-portal.md) to identify which certificate a cloud service should use. 
+
+>[!Note]
+>Azure Cloud Services does not accept AES256-SHA256 encrypted certificate.
 
 ## What are service certificates?
 Service certificates are attached to cloud services and enable secure communication to and from the service. For example, if you deployed a web role, you would want to supply a certificate that can authenticate an exposed HTTPS endpoint. Service certificates, defined in your service definition, are automatically deployed to the virtual machine that is running an instance of your role. 

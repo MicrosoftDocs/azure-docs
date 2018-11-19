@@ -48,7 +48,7 @@ To create an image of a virtual machine, you need to prepare the VM by generaliz
 
 ### Generalize the Windows VM using Sysprep
 
-Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](http://technet.microsoft.com/library/bb457073.aspx).
+Sysprep removes all your personal account information, among other things, and prepares the machine to be used as an image. For details about Sysprep, see [How to Use Sysprep: An Introduction](https://technet.microsoft.com/library/bb457073.aspx).
 
 
 1. Connect to the virtual machine.
@@ -119,20 +119,20 @@ New-AzureRmVm `
 
 ## Image management 
 
-Here are some examples of common management image tasks and how to complete them using PowerShell.
+Here are some examples of common managed image tasks and how to complete them using PowerShell.
 
 List all images by name.
 
 ```azurepowershell-interactive
-$images = Find-AzureRMResource -ResourceType Microsoft.Compute/images 
+$images = Get-AzureRMResource -ResourceType Microsoft.Compute/images 
 $images.name
 ```
 
-Delete an image. This example deletes the image named *myOldImage* from the *myResourceGroup*.
+Delete an image. This example deletes the image named *myImage* from the *myResourceGroup*.
 
 ```azurepowershell-interactive
 Remove-AzureRmImage `
-    -ImageName myOldImage `
+    -ImageName myImage `
 	-ResourceGroupName myResourceGroup
 ```
 

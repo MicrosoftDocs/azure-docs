@@ -20,7 +20,7 @@ ms.author: raiye
 # Azure Guest OS supportability and retirement policy
 The information on this page relates to the Azure Guest operating system ([Guest OS](cloud-services-guestos-update-matrix.md)) for Cloud Services worker and web roles (PaaS). It does not apply to Virtual Machines (IaaS).
 
-Microsoft has a published [support policy for the Guest OS](http://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
+Microsoft has a published [support policy for the Guest OS](https://support.microsoft.com/gp/azure-cloud-lifecycle-faq). The page you are reading now describes how the policy is implemented.
 
 The policy is
 
@@ -30,9 +30,7 @@ The policy is
 
 At times, more than two families or releases may be supported. Official Guest OS support information will appear on the [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md).
 
-## When a Guest OS family or version is retired
-A new Guest OS **family** is introduced sometime after the release of a new official version of the Windows Server operating system. Whenever a new Guest OS family is introduced, Microsoft will retire the oldest Guest OS family.
-
+## When a Guest OS version is retired
 New Guest OS **versions** are introduced about every month to incorporate the latest MSRC updates. Because of the regular monthly updates, a Guest OS version is normally disabled around 60 days after its release. This activity keeps at least two Guest OS versions for each family available for use.
 
 ### Process during a Guest OS family retirement

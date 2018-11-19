@@ -3,7 +3,7 @@ title: Configure networking modes for Azure Service Fabric container services | 
 description: Learn how to set up the different networking modes that are supported by Azure Service Fabric. 
 services: service-fabric
 documentationcenter: .net
-author: mani-ramaswamy
+author: TylerMSFT
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
+ms.author: twhitney, subramar
 
 ---
 # Service Fabric container networking modes
@@ -227,7 +227,23 @@ When a container service restarts or moves to another node in the cluster, the I
      </Endpoints>
    </Resources>
    ```
+   
+6. For Windows, a VM reboot will cause the open network to be recreated. This is to mitigate an underlying issue in the networking stack. The default behaviour is to recreate the network. If this behaviour needs to be turned off, the following configuration can be used followed by a config upgrade.
 
+```json
+"fabricSettings": [
+                {
+                    "name": "Setup",
+                    "parameters": [
+                    {
+                            "name": "SkipContainerNetworkResetOnReboot",
+                            "value": "true"
+                    }
+                    ]
+                }
+            ],          
+ ``` 
+ 
 ## Next steps
 * [Understand the Service Fabric application model](service-fabric-application-model.md)
 * [Learn more about the Service Fabric service manifest resources](https://docs.microsoft.com/azure/service-fabric/service-fabric-service-manifest-resources)

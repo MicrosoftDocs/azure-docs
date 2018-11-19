@@ -1,12 +1,14 @@
 ---
 title: Terraform with Azure provider deployment slots
 description: Tutorial about using Terraform with Azure provider deployment slots
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtual machine, Azure, deployment slots
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 4/05/2018
-ms.topic: article
 ---
 
 # Use Terraform to provision infrastructure with Azure deployment slots
@@ -212,7 +214,7 @@ At this point, you have deployed the production slot. To deploy the staging slot
 
 In the previous sections, you set up two slots--**slotAppService** and **slotAppServiceSlotOne**--to deploy from different branches in GitHub. Let's preview the web apps to validate that they were successfully deployed.
 
-Perform the following steps two times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
+Perform the following steps 2 times. In step 3, you select **slotAppService** the first time, and then select **slotAppServiceSlotOne** the second time.
 
 1. On the main menu of the Azure portal, select **Resource groups**.
 

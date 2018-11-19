@@ -9,6 +9,7 @@ editor: cgronlun
 
 ms.assetid: 80a9dfae-e3a6-4cfb-aecc-5701cfc7e39d
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -18,15 +19,12 @@ ms.author: deguhath
 
 ---
 # <a name="heading"></a>Sample data in Azure blob containers, SQL Server, and Hive tables
-This document links to articles that cover how to sample data that is stored in one of three different Azure locations:
 
-* **Azure blob container data** is sampled by downloading it programmatically and then sampling it with sample Python code.
-* **SQL Server data** is sampled using both SQL and the Python Programming Language. 
-* **Hive table data** is sampled using Hive queries.
+The following articles describe how to sample data that is stored in one of three different Azure locations:
 
-The following **menu** links to the topics that describe how to sample data from each of these Azure storage environments. 
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
+* [**Azure blob container data**](sample-data-blob.md) is sampled by downloading it programmatically and then sampling it with sample Python code.
+* [**SQL Server data**](sample-data-sql-server.md) is sampled using both SQL and the Python Programming Language. 
+* [**Hive table data**](sample-data-hive.md) is sampled using Hive queries.
 
 This sampling task is a step in the [Team Data Science Process (TDSP)](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
 

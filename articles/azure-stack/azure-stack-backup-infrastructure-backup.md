@@ -5,15 +5,13 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
 
-ms.assetid: 9B51A3FB-EEFC-4CD8-84A8-38C52CFAD2E4
-ms.service: azure-stack
+mss.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/20/2017
+ms.date: 10/25/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
 
@@ -29,11 +27,11 @@ You can enable backup when you are ready to put your cloud into production. Do n
 Before you enable your backup service, make sure you have [requirements in place](#verify-requirements-for-the-infrastructure-backup-service).
 
 > [!Note]  
-> The Infrastructure Backup Service does not include user data and applications. See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data..
+> The Infrastructure Backup Service does not include user data and applications. <!-- See the following articles for instructions on backing up and restore [App Services](https://aka.ms/azure-stack-app-service), [SQL](https://aka.ms/azure-stack-ms-sql), and [MySQL](https://aka.ms/azure-stack-mysql) resource providers and associated user data. -->
 
 ## The Infrastructure Backup Service
 
-The services contains the following features.
+The services contain the following features.
 
 | Feature                                            | Description                                                                                                                                                |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -50,7 +48,7 @@ The services contains the following features.
 - **Credentials**  
   You need a domain user account and credentials, for example, you may use the Azure Stack administrator credentials.
 - **Encryption key**  
-  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](http://azure-stack-backup-enable-backup-powershell.md).
+  Backup files are encrypted using this key. Make sure to store this key in a secure location. Once you set this key for the first time or rotate the key in the future, you cannot view this key from this interface. For more instructions to generate a pre-shared key, follow the scripts at [Enable Backup for Azure Stack with PowerShell](azure-stack-backup-enable-backup-powershell.md).
 
 ## Next steps
 

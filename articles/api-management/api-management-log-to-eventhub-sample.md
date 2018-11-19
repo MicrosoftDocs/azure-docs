@@ -276,5 +276,5 @@ Azure API Management service provides an ideal place to capture the HTTP traffic
   * [Event Hubs programming guide](../event-hubs/event-hubs-programming-guide.md)
 * Learn more about API Management and Event Hubs integration
   * [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md)
-  * [Logger entity reference](https://msdn.microsoft.com/library/azure/mt592020.aspx)
+  * [Logger entity reference](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
   * [log-to-eventhub policy reference](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)

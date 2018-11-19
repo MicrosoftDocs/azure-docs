@@ -1,4 +1,4 @@
-﻿---
+---
 title: Live Metrics Stream with custom metrics and diagnostics in Azure Application Insights | Microsoft Docs
 description: Monitor your web app in real time with custom metrics, and diagnose issues with a live feed of failures, traces, and events.
 services: application-insights
@@ -11,12 +11,13 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
-ms.date: 05/24/2017
-ms.author: mbullwin; Soubhagya.Dash
+ms.topic: conceptual
+ms.date: 05/24/2018
+ms.reviewer: sdash
+ms.author: mbullwin
 ---
 
-# Live Metrics Stream: Monitor & Diagnose with 1-second latency 
+# Live Metrics Stream: Monitor & Diagnose with 1-second latency
 
 Probe the beating heart of your live, in-production web application by using Live Metrics Stream from [Application Insights](app-insights-overview.md). Select and filter metrics and performance counters to watch in real time, without any disturbance to your service. Inspect stack traces from sample failed requests and exceptions. Together with [Profiler](app-insights-profiler.md), [Snapshot debugger](app-insights-snapshot-debugger.md), and [performance testing](app-insights-monitor-web-app-availability.md#performance-tests),  Live Metrics Stream provides a powerful and non-invasive diagnostic tool for your live web site.
 
@@ -31,8 +32,6 @@ With Live Metrics Stream, you can:
 * Easily identify a server that is having issues, and filter all the KPI/live feed to just that server.
 
 [![Live Metrics Stream video](./media/app-insights-live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
-
-Live Metrics Stream is currently available on ASP.NET apps running on-premises or in the Cloud. 
 
 ## Get started
 
@@ -200,7 +199,7 @@ No data? If your application is in a protected network: Live Metrics Stream uses
 
 
 ## Next steps
-* [Monitoring usage with Application Insights](app-insights-web-track-usage.md)
+* [Monitoring usage with Application Insights](app-insights-usage-overview.md)
 * [Using Diagnostic Search](app-insights-diagnostic-search.md)
 * [Profiler](app-insights-profiler.md)
 * [Snapshot debugger](app-insights-snapshot-debugger.md)

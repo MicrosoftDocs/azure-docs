@@ -52,11 +52,18 @@ The TXT record you need depends on the DNS record you want to migrate. For examp
 
 | DNS record example | TXT Host | TXT Value |
 | - | - | - |
-| @ (root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
+| \@ (root) | _awverify_ | _&lt;appname>.azurewebsites.net_ |
 | www (sub) | _awverify.www_ | _&lt;appname>.azurewebsites.net_ |
 | \* (wildcard) | _awverify.\*_ | _&lt;appname>.azurewebsites.net_ |
 
 In your DNS records page, note the record type of the DNS name you want to migrate. App Service supports mappings from CNAME and A records.
+
+> [!NOTE]
+> For certain providers, such as CloudFlare, `awverify.*` is not a valid record. Use `*` only instead.
+
+> [!NOTE]
+> Wildcard `*` records won't validate subdomains with an existing CNAME's record. You may need to explicitly create a TXT record for each subdomain.
+
 
 ### Enable the domain for your app
 

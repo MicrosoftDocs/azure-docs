@@ -3,7 +3,7 @@ title: View Azure Application Insights app data | Microsoft Docs
 description: You can use the Application Insights Connector solution to diagnose performance issues and understand what users do with your app when monitored with Application Insights.
 services: log-analytics
 documentationcenter: ''
-author: MGoedtel
+author: mgoedtel
 manager: carmonm
 editor: ''
 ms.assetid: 49280cad-3526-43e1-a365-c6a3bf66db52
@@ -11,15 +11,18 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/18/2017
+ms.topic: conceptual
+ms.date: 06/29/2018
 ms.author: magoedte
-
+ms.component: 
 ---
 
 # Application Insights Connector management solution (Preview)
 
 ![Application Insights symbol](./media/log-analytics-app-insights-connector/app-insights-connector-symbol.png)
+
+>[!NOTE]
+> With the support of [cross-resource queries](log-analytics-cross-workspace-search.md), the Application Insights connector management solution is no longer required and will be deprecated. Starting July, you will not be able to link new Application Insights resources to Log Analytics workspaces. Existing links and dashboards will continue to function until November 2018. For more information, see [OMS portal moving to Azure](log-analytics-oms-portal-transition.md).
 
 The Applications Insights Connector solution helps you diagnose performance issues and understand what users do with your app when it is monitored with [Application Insights](../application-insights/app-insights-overview.md). Views of the same application telemetry that developers see in Application Insights are available in Log Analytics. However, when you integrate your Application Insights apps with Log Analytics, visibility of your applications is increased by having operation and application data in one place. Having the same views helps you to collaborate with your app developers. The common views can help reduce the time to detect and resolve both application and platform issues.
 
@@ -36,8 +39,8 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| [Windows agents](log-analytics-windows-agent.md) | No | The solution does not collect information from Windows agents. |
-| [Linux agents](log-analytics-linux-agents.md) | No | The solution does not collect information from Linux agents. |
+| [Windows agents](log-analytics-agent-windows.md) | No | The solution does not collect information from Windows agents. |
+| [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | The solution does not collect information from Linux agents. |
 | [SCOM management group](log-analytics-om-agents.md) | No | The solution does not collect information from agents in a connected SCOM management group. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | The solution does not collection information from Azure storage. |
 
@@ -49,9 +52,9 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 ## Configuration
 
-1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
-2. In the OMS portal, click **Settings** &gt; **Data** &gt; **Application Insights**.
-3. Under **Select a subscription**, select a subscription that has Application Insights resources and then under **Application Name**, select one or more applications.
+1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
+2. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Application Insights. Then, search for Application Insights. 
+3. Under **Subscriptions**, select a subscription that has Application Insights resources and then under **Name**, select one or more applications.
 4. Click **Save**.
 
 In approximately 30 minutes, data becomes available and the Application Insights tile is updated with data, like the following image:
@@ -81,7 +84,6 @@ Click the **Application Insights** tile to open the **Application Insights** das
 
 The dashboard includes the blades shown in the table. Each blade lists up to 10 items matching that blade's criteria for the specified scope and time range. You can run a log search that returns all records when you click **See all** at the bottom of the blade or when you click the blade header.
 
-[!INCLUDE [log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 | **Column** | **Description** |
 | --- | --- |
@@ -126,7 +128,7 @@ Perspective components are updated depending on the search query. This means tha
 
 ### Pivot to an app in the Azure portal
 
-Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the OMS portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
+Application Insights Connector blades are designed to enable you to pivot to the selected Application Insights app *when you use the Azure portal*. You can use the solution as a high-level monitoring platform that helps you troubleshoot an app. When you see a potential problem in any of your connected applications, you can either drill into it in Log Analytics search or you can pivot directly to the Application Insights app.
 
 To pivot, click the ellipses (**…**) that appears at the end of each line, and select **Open in Application Insights**.
 
@@ -260,4 +262,4 @@ This solution does not have a set of sample log searches shown on the dashboard.
 
 ## Next steps
 
-- Use [Log Search](log-analytics-log-searches.md) to view detailed information for your Application Insights apps.
+- Use [Log Search](log-analytics-queries.md) to view detailed information for your Application Insights apps.

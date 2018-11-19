@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
 
@@ -168,7 +175,7 @@ To delete a single entity, get a reference to that entity and pipe it into **Rem
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
 $userToDelete = Get-AzureStorageTableRowByCustomFilter `
     -table $storageTable `
-    -customFilter 
+    -customFilter $filter
 $userToDelete | Remove-AzureStorageTableRow -table $storageTable 
 
 # Retrieve entities from table and see that Jessie2 has been deleted.

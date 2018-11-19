@@ -3,7 +3,7 @@ title: Set up Azure Key Vault with end-to-end key rotation and auditing | Micros
 description: Use this how-to to help you get set up with key rotation and monitoring key vault logs.
 services: key-vault
 documentationcenter: ''
-author: swgriffith
+author: barclayn
 manager: mbaldwin
 tags: ''
 
@@ -12,19 +12,25 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: stgriffi
+ms.topic: conceptual
+ms.date: 06/12/2018
+ms.author: barclayn
 
 ---
-# Set up Azure Key Vault with end-to-end key rotation and auditing
+# Set up Azure Key Vault with key rotation and auditing
+
 ## Introduction
-After creating your key vault, you will be able to start using that vault to store your keys and secrets. Your applications no longer need to persist your keys or secrets, but rather will request them from the key vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
+
+After you have a key vault, you can start using it to store keys and secrets. Your applications no longer need to persist your keys or secrets, but can request them from the vault as needed. This allows you to update keys and secrets without affecting the behavior of your application, which opens up a breadth of possibilities around your key and secret management.
 
 >[!IMPORTANT]
 > The examples in this article are provided for illustration purposes only. They are not intended for production use. 
 
-This article walks through an example of using Azure Key Vault to store a secret, in this case an Azure Storage Account key that is accessed by an application. It also demonstrates implementation of a scheduled rotation of that storage account key. Finally, it walks through a demonstration of how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
+This article walks through:
+
+- An example of using Azure Key Vault to store a secret. In this tutorial, the secret stored is the Azure Storage Account key accessed by an application. 
+- It also demonstrates implementation of a scheduled rotation of that storage account key.
+- It demonstrates how to monitor the key vault audit logs and raise alerts when unexpected requests are made.
 
 > [!NOTE]
 > This tutorial is not intended to explain in detail the initial setup of your key vault. For this information, see [Get started with Azure Key Vault](key-vault-get-started.md). For Cross-Platform Command-Line Interface instructions, see [Manage Key Vault using CLI](key-vault-manage-with-cli2.md).
@@ -32,6 +38,7 @@ This article walks through an example of using Azure Key Vault to store a secret
 >
 
 ## Set up Key Vault
+
 To enable an application to retrieve a secret from Key Vault, you must first create the secret and upload it to your vault. This can be accomplished by starting an Azure PowerShell session and signing in to your Azure account with the following command:
 
 ```powershell
@@ -65,6 +72,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
 Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
+
 Next, get the URI for the secret you created. This is used in a later step when you call the key vault to retrieve your secret. Run the following PowerShell command and make note of the ID value, which is the secret URI:
 
 ```powershell
@@ -72,6 +80,7 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## Set up the application
+
 Now that you have a secret stored, you can use code to retrieve and use it. There are a few steps required to achieve this. The first and most important step is registering your application with Azure Active Directory and then telling Key Vault your application information so that it can allow requests from your application.
 
 > [!NOTE]
@@ -79,29 +88,23 @@ Now that you have a secret stored, you can use code to retrieve and use it. Ther
 >
 >
 
-Open the applications tab of Azure Active Directory.
+1. Navigate to Azure Active Directory.
+2. Choose **App registrations** 
+3. Choose **New application registration** to add an application to your Azure Active Directory.
 
-![Open applications in Azure Active Directory](./media/keyvault-keyrotation/AzureAD_Header.png)
+    ![Open applications in Azure Active Directory](./media/keyvault-keyrotation/azure-ad-application.png)
 
-Choose **ADD** to add an application to your Azure Active Directory.
+4. In the **Create** section Leave the application type as **WEB APPLICATION AND/OR WEB API** and give your application a name. Give your application a **SIGN-ON URL**. This can be anything you want for this demo.
 
-![Choose ADD](./media/keyvault-keyrotation/Azure_AD_AddApp.png)
+    ![Create application registration](./media/keyvault-keyrotation/create-app.png)
 
-Leave the application type as **WEB APPLICATION AND/OR WEB API** and give your application a name.
+5. After the application is added to Azure Active Directory, you will be brought into the application page. Select **Settings**  and then select properties. Copy the **Application ID** value. It will be needed in later steps.
 
-![Name the application](./media/keyvault-keyrotation/AzureAD_NewApp1.png)
+Next, generate a key for your application so it can interact with your Azure Active Directory. You can create a key under by navigating to the **Keys** section under **Settings**. Make note of the newly generated key from your Azure Active Directory application for use in a later step. Notice that the key will not be available after you navigate out of this section. 
 
-Give your application a **SIGN-ON URL** and an **APP ID URI**. These can be anything you want for this demo, and they can be changed later if needed.
+![Azure Active Directory App Keys](./media/keyvault-keyrotation/create-key.png)
 
-![Provide required URIs](./media/keyvault-keyrotation/AzureAD_NewApp2.png)
-
-After the application is added to Azure Active Directory, you will be brought into the application page. Click the **Configure** tab and then find and copy the **Client ID** value. Make note of the client ID for later steps.
-
-Next, generate a key for your application so it can interact with your Azure Active Directory. You can create this under the **Keys** section in the **Configuration** tab. Make note of the newly generated key from your Azure Active Directory application for use in a later step.
-
-![Azure Active Directory App Keys](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
-
-Before establishing any calls from your application into the key vault, you must tell the key vault about your application and its permissions. The following command takes the vault name and the client ID from your Azure Active Directory app and grants
+Before establishing any calls from your application into the key vault, you must tell the key vault about your application and its permissions. The following command takes the vault name and the application ID from your Azure Active Directory app and grants
 **Get** access to your key vault for the application.
 
 ```powershell
@@ -158,6 +161,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 When you run your application, you should now be authenticating to Azure Active Directory and then retrieving your secret value from Azure Key Vault.
 
 ## Key rotation using Azure Automation
+
 There are various options for implementing a rotation strategy for values you store as Azure Key Vault secrets. Secrets can be rotated as part of a manual process, they may be rotated programmatically by using API calls, or they may be rotated by way of an Automation script. For the purposes of this article, you will be using Azure PowerShell combined with Azure Automation to change an Azure Storage Account access key. You will then update a key vault secret with that new key.
 
 To allow Azure Automation to set secret values in your key vault, you must get the client ID for the connection named AzureRunAsConnection, which was created when you established your Azure Automation instance. You can find this ID by choosing **Assets** from your Azure Automation instance. From there, you choose **Connections** and then select the **AzureRunAsConnection** service principle. Take note of the **Application ID**.
@@ -404,6 +408,7 @@ And add a file called project.json with following content:
        }
     }
 ```
+
 Upon **Save**, Azure Functions will download the required binaries.
 
 Switch to the **Integrate** tab and give the timer parameter a meaningful name to use within the function. In the preceding code, it expects the timer to be called *myTimer*. Specify a [CRON expression](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) as follows: 0 \* \* \* \* \* for the timer that will cause the function to run once a minute.
@@ -415,6 +420,7 @@ Add an output of the type *Azure Blob Storage* output. This will point to the sy
 At this point, the function is ready. Make sure to switch back to the **Develop** tab and save the code. Check the output window for any compilation errors and correct them accordingly. If the code compiles, then the code should now be checking the key vault logs every minute and pushing any new events onto the defined Service Bus queue. You should see logging information write out to the log window every time the function is triggered.
 
 ### Azure logic app
+
 Next you must create an Azure logic app that picks up the events that the function is pushing to the Service Bus queue, parses the content, and sends an email based on a condition being matched.
 
 [Create a logic app](../logic-apps/quickstart-create-first-logic-app-workflow.md) by going to **New > Logic App**.

@@ -2,20 +2,12 @@
 title: Create Support ticket or case for Azure Import/Export job | Microsoft Docs
 description: Learn how to log support request for issues related to your Import/Export job.
 services: storsimple
-documentationcenter: ''
 author: alkohli
-manager: jeconnoc
-editor: ''
-
-ms.assetid: 
 ms.service: storage
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/29/2018
 ms.author: alkohli;
-
+ms.component: common
 ---
 # Open a support ticket for an Import/Export job
 

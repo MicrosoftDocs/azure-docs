@@ -1,15 +1,14 @@
 ---
 title: What is Azure Time Series Insights? | Microsoft Docs
 description: Introduction to Azure Time Series Insights, a new service for time series data analytics and IoT solutions.
-services: time-series-insights
 ms.service: time-series-insights
+services: time-series-insights
 author: ashannon7
-ms.author: anshan, jasonh
-manager: jhubbard
-editor: MarkMcGeeAtAquent
+ms.author: anshan
+manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
-ms.topic: article
+ms.topic: overview
 ms.date: 01/26/2018
 ---
 
@@ -29,6 +28,12 @@ Time Series Insights has four key jobs:
 If you're building an application, either for internal consumption or for external customers to use, Time Series Insights can be used as a back-end for indexing, storing, and aggregating time series data. You can build a custom visualization and user experience on top.  Time Series Insights exposes Query APIs to enable this scenario.  
 
 If you are unsure if your data is time series, here is what you should know.  Time series data represents how an asset or process changes over time.  It’s unique in that it has a timestamp and time is most meaningful as an axis.  Time series data typically arrives in time order and is usually treated as an insert rather than an update to your database.  Because Time Series Insights captures and stores every new event as a row, change is measured over time, enabling you to look backward and to predict future change.  In large volumes, storing, indexing, querying, analyzing, and visualizing time series data can be challenging.  
+
+## Video: 
+
+### In this video, we provide an overview of Time Series Insights, a cloud-based IoT analytics platform.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## Primary scenarios
 

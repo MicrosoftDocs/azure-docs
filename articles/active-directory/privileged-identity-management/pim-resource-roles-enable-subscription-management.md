@@ -1,17 +1,18 @@
 ---
-title: Privileged Identity Management for Azure resources - enable subscription management | Microsoft Docs
-description: Learn how global administrators can manage subscriptions in the tenant.
+title: Enable subscription management in your tenant - Azure | Microsoft Docs
+description: Learn how to enable subscription management in your tenant when using Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
-author: billmath
+author: rolyon
 manager: mtillman
 ms.service: active-directory
 ms.devlang: na
-ms.topic: how-to
+ms.topic: conceptual
 ms.tgt_pltfrm: na
-ms.workload: identity 
+ms.workload: identity
+ms.component: pim 
 ms.date: 03/27/2018
-ms.author: billmath
+ms.author: rolyon
 ms.custom: pim
 ---
 
@@ -73,14 +74,5 @@ Now that you have eligible assignments for the important subscriptions in your o
 
 ## Next steps
 
-[Discover resources](pim-resource-roles-discover-resources.md)
-
-[Configure role settings](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Discover Azure resources to manage in PIM](pim-resource-roles-discover-resources.md)
+- [Configure Azure resource role settings in PIM](pim-resource-roles-configure-role-settings.md)

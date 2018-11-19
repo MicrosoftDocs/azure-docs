@@ -17,7 +17,7 @@ ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management access restriction policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).  
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Access restriction policies  
   
@@ -35,7 +35,7 @@ This topic provides a reference for the following API Management policies. For i
 ### Policy statement  
   
 ```xml  
-<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="True">  
+<check-header name="header name" failed-check-httpcode="code" failed-check-error-message="message" ignore-case="true">  
     <value>Value1</value>  
     <value>Value2</value>  
 </check-header>  
@@ -66,7 +66,7 @@ This topic provides a reference for the following API Management policies. For i
 |ignore-case|Can be set to True or False. If set to True case is ignored when the header value is compared against the set of acceptable values.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound, outbound  
   
@@ -121,7 +121,7 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
   
@@ -131,9 +131,6 @@ This topic provides a reference for the following API Management policies. For i
  The `rate-limit-by-key` policy prevents API usage spikes on a per key basis by limiting the call rate to a specified number per a specified time period. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the limit. When this policy is triggered the caller receives a `429 Too Many Requests` response status code.  
   
  For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
-  
-> [!IMPORTANT]
->  This policy can be used only once per policy document.  
   
 ### Policy statement  
   
@@ -179,7 +176,7 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
   
@@ -222,7 +219,7 @@ This topic provides a reference for the following API Management policies. For i
 |ip-filter action="allow &#124; forbid"|Specifies whether calls should be allowed or not for the specified IP addresses and ranges.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** global, product, API, operation  
@@ -277,19 +274,16 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** product  
   
 ##  <a name="SetUsageQuotaByKey"></a> Set usage quota by key  
- The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota.  
+ The `quota-by-key` policy enforces a renewable or lifetime call volume and/or bandwidth quota, on a per key basis. The key can have an arbitrary string value and is typically provided using a policy expression. Optional increment condition can be added to specify which requests should be counted towards the quota. If multiple policies would increment the same key value, it is incremented only once per request. When the call limit is reached, the caller receives a `403 Forbidden` response status code.
   
  For more information and examples of this policy, see [Advanced request throttling with Azure API Management](https://azure.microsoft.com/documentation/articles/api-management-sample-flexible-throttling/).  
   
-> [!IMPORTANT]
->  This policy can be used only once per policy document.  
->   
 >  [Policy expressions](api-management-policy-expressions.md) cannot be used in any of the policy attributes for this policy.  
   
 ### Policy statement  
@@ -337,7 +331,7 @@ This topic provides a reference for the following API Management policies. For i
 |renewal-period|The time period in seconds after which the quota resets.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** global, product, API, operation  
@@ -499,7 +493,7 @@ This topic provides a reference for the following API Management policies. For i
 |header-name|The name of the HTTP header holding the token.|Either `header-name` or `query-parameter-name` must be specified; but not both.|N/A|  
 |id|The `id` attribute on the `key` element allows you to specify the string that will be matched against `kid` claim in the token (if present) to find out the appropriate key to use for signature validation.|No|N/A|  
 |match|The `match` attribute on the `claim` element specifies whether every claim value in the policy must be present in the token for validation to succeed. Possible values are:<br /><br /> -                          `all` - every claim value in the policy must be present in the token for validation to succeed.<br /><br /> -                          `any` - at least one claim value must be present in the token for validation to succeed.|No|all|  
-|query-paremeter-name|The name of the the query parameter holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  
+|query-paremeter-name|The name of the query parameter holding the token.|Either `header-name` or `query-paremeter-name` must be specified; but not both.|N/A|  
 |require-expiration-time|Boolean. Specifies whether an expiration claim is required in the token.|No|true|
 |require-scheme|The name of the token scheme, e.g. "Bearer". When this attribute is set, the policy will ensure that specified scheme is present in the Authorization header value.|No|N/A|
 |require-signed-tokens|Boolean. Specifies whether a token is required to be signed.|No|true|  
@@ -507,7 +501,7 @@ This topic provides a reference for the following API Management policies. For i
 |url|Open ID configuration endpoint URL from where Open ID configuration metadata can be obtained. The response should be according to specs as defined at URL:`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  For Azure Active Directory use the following URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituting your directory tenant name, e.g. `contoso.onmicrosoft.com`.|Yes|N/A|  
   
 ### Usage  
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).  
   
 -   **Policy sections:** inbound  
 -   **Policy scopes:** global, product, API, operation  

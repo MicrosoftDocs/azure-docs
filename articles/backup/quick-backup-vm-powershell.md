@@ -1,21 +1,15 @@
-﻿---
-title: Azure Quickstart - Back up a VM with PowerShell | Microsoft Docs
+---
+title: Azure Quickstart - Back up a VM with PowerShell
 description: Learn how to back up your virtual machines with Azure PowerShell
 services: backup
-documentationcenter: virtual-machines
 author: markgalioto
 manager: carmonm
-editor:
 tags: azure-resource-manager, virtual-machine-backup
-
-ms.assetid: 
 ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure
 ms.date: 2/14/2018
-ms.author: iainfou
+ms.author: markgal
 ms.custom: mvc
 ---
 

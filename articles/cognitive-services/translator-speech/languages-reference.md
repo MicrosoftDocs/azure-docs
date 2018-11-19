@@ -1,21 +1,23 @@
 ---
-title: Microsoft Translator Speech API Languages Method | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Use the Microsoft Translator Speech API Languages method.
+title: Translator Speech API Languages Method
+titleSuffix: Azure Cognitive Services
+description: Use the Translator Speech API Languages method.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-speech 
+ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
 ---
 
-# Speech API: Languages
+# Translator Speech API: Languages
 
-Microsoft Translator continually extends the list of languages supported by its services. Use this API to discover the set of languages currently available for use with the Speech Translation service.
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
+
+Translator Speech continually extends the list of languages supported by its services. Use this API to discover the set of languages currently available for use with the Translator Speech service.
 
 Code samples demonstrating use of the API to get available languages are available from the [Microsoft Translator Github site](https://github.com/MicrosoftTranslator).
 

@@ -3,8 +3,8 @@ title: Technical prerequisites for creating a solution template for the Marketpl
 description: Understand the requirements for creating a solution template to deploy and sell on the Azure Marketplace
 services: marketplace-publishing
 documentationcenter: ''
-author: msmbaldwin
-manager: mbaldwin
+author: HannibalSII
+manager: hascipio
 editor: ''
 
 ms.assetid: bbcc12dd-1c2f-4ce6-830c-f0e06524aa38
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/28/2016
-ms.author: mbaldwin
+ms.author: hascipio; v-divte
 
 ---
 # Technical prerequisites for creating a solution template for the Azure Marketplace

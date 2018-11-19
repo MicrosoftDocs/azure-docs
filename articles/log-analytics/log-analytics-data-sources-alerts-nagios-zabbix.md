@@ -1,6 +1,6 @@
 ---
-title: Collect Nagios and Zabbix alerts in OMS Log Analytics | Microsoft Docs
-description: Nagios and Zabbix are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with alerts from other sources.  This article describes how to configure the OMS Agent for Linux to collect alerts from these systems.
+title: Collect Nagios and Zabbix alerts in Log Analytics | Microsoft Docs
+description: Nagios and Zabbix are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with alerts from other sources.  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -10,18 +10,20 @@ editor: tysonn
 ms.assetid: f1d5bde4-6b86-4b8e-b5c1-3ecbaba76198
 ms.service: log-analytics
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2018
 ms.author: magoedte
-
+ms.component: 
 ---
-# Collect alerts from Nagios and Zabbix in Log Analytics from OMS Agent for Linux 
-[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](log-analytics-alerts.md).  This article describes how to configure the OMS Agent for Linux to collect alerts from these systems.
+
+# Collect alerts from Nagios and Zabbix in Log Analytics from Log Analytics agent for Linux 
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](../monitoring-and-diagnostics/monitoring-overview-alerts.md).  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
  
 ## Prerequisites
-The OMS Agent for Linux supports collecting alerts from Nagios up to version 4.2.x, and Zabbix up to version 2.x.
+The Log Analytics agent for Linux supports collecting alerts from Nagios up to version 4.2.x, and Zabbix up to version 2.x.
 
 ## Configure alert collection
 
@@ -53,7 +55,7 @@ To collect alerts, perform the following steps on the Nagios server.
     ```
 
 ### Configuring Zabbix alert collection
-To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*.  While not ideal, we recommend that you create the user and grant permissions to monitor onlu.
+To collect alerts from a Zabbix server, you need to specify a user and password in *clear text*.  While not ideal, we recommend that you create a Zabbix user with read-only permissions to catch relevant alarms.
 
 To collect alerts on the Nagios server, perform the following steps.
 
@@ -70,11 +72,11 @@ To collect alerts on the Nagios server, perform the following steps.
 
 2. Restart the omsagent daemon
 
-	sudo sh /opt/microsoft/omsagent/bin/service_control restart
+	`sudo sh /opt/microsoft/omsagent/bin/service_control restart`
 
 
 ## Alert records
-You can retrieve alert records from Nagios and Zabbix using [log searches](log-analytics-log-searches.md) in Log Analytics.
+You can retrieve alert records from Nagios and Zabbix using [log searches](log-analytics-queries.md) in Log Analytics.
 
 ### Nagios Alert records
 
@@ -112,5 +114,5 @@ Alert records collected by Zabbix have a **Type** of **Alert** and a **SourceSys
 
 
 ## Next steps
-* Learn about [alerts](log-analytics-alerts.md) in Log Analytics.
-* Learn about [log searches](log-analytics-log-searches.md) to analyze the data collected from data sources and solutions. 
+* Learn about [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics.
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 

@@ -5,13 +5,13 @@ description: This article discusses how Media Services uses storage accounts.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
 ---
 
@@ -24,7 +24,7 @@ You must have one **Primary** storage account and you can have any number of **S
 >[!NOTE]
 > Blob only accounts are not allowed as **Primary**. 
 
-We recommend that you use GPv2, so you can take advantage of choosing between hot and cool storage tiers. To learn more about storage accounts, see [Azure Storage account options](../../storage/common/storage-account-options.md). 
+We recommend that you use GPv2, so you can take advantage of choosing between hot and cool storage tiers. To learn more about storage accounts, see [Azure Storage account overview](../../storage/common/storage-account-overview.md). 
 
 ## Assets in a storage account
 

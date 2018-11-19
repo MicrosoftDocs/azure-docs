@@ -1,18 +1,13 @@
 ---
 title: Supported languages in Azure Maps | Microsoft Docs
 description: Learn about supported languages for the services in Azure Maps
-services: azure-maps
-keywords: 
 author: juliekohler
 ms.author: julieko
-ms.date: 3/30/2018
-ms.topic: article
+ms.date: 03/30/2018
+ms.topic: conceptual
 ms.service: azure-maps
-
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: 
+services: azure-maps
+manager: 
 ---
 
 # Azure Maps supported languages
@@ -56,6 +51,8 @@ table provides the supported language codes for each service. 
 | lt-LT      | Lithuanian             |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ms-MY      | Malay (Latin)          |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | nb-NO      | Norwegian Bokmål       |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| NGT        | Neutral Ground Truth - Official languages for all regions in local scripts if available |   ✓     |        |         |                   |      ✓          |         |
+| NGT-Latn   | Neutral Ground Truth - Latin exonyms. Latin script will be used if available |   ✓     |        |         |                   |        ✓         |          |
 | pl-PL      | Polish                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portuguese (Brazil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portuguese (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

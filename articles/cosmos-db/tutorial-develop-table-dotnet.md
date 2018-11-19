@@ -2,15 +2,12 @@
 title: 'Azure Cosmos DB: Develop with the Table API in .NET | Microsoft Docs'
 description: Learn how to develop with Azure Cosmos DB's Table API using .NET
 services: cosmos-db
-documentationcenter: ''
 author: SnehaGunda
 manager: kfile
 editor: ''
 
-ms.assetid: 4b22cb49-8ea2-483d-bc95-1172cd009498
 ms.service: cosmos-db
-ms.workload: 
-ms.tgt_pltfrm: na
+ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/18/2017
@@ -43,7 +40,7 @@ This tutorial is for developers who are familiar with the Azure Table storage SD
 
 If you currently use Azure Table storage, you gain the following benefits with Azure Cosmos DB Table API:
 
-- Turn-key [global distribution](distribute-data-globally.md) with multi-homing and [automatic and manual failovers](regional-failover.md)
+- Turn-key [global distribution](distribute-data-globally.md) with multi-homing and [automatic and manual failovers](high-availability.md)
 - Support for automatic schema-agnostic indexing against all properties ("secondary indexes"), and fast queries 
 - Support for [independent scaling of storage and throughput](partition-data.md), across any number of regions
 - Support for [dedicated throughput per table](request-units.md) that can be scaled from hundreds to millions of requests per second

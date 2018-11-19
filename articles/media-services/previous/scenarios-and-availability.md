@@ -1,10 +1,10 @@
 ---
 title: Microsoft Azure Media Services scenarios and availability of features across datacenters | Microsoft Docs
-description: This topic gives an overview of Microsoft Azure Media Services scenarios and availability of features and services across data centers. 
+description: This topic gives an overview of Microsoft Azure Media Services scenarios and availability of features and services across datacenters. 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 
 ms.service: media-services
@@ -12,17 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-
+ms.date: 10/15/2018
+ms.author: juliako 
 ---
 # Scenarios and availability of Media Services features across datacenters
 
 Microsoft Azure Media Services (AMS) enables you to securely upload, store, encode, and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
-AMS operates in multiple data centers around the world. These data centers are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
+AMS operates in multiple datacenters around the world. These datacenters are grouped in to geographic regions, giving you flexibility in choosing where to build your applications. You can review the [list of regions and their locations](https://azure.microsoft.com/regions/). 
 
-This topic shows common scenarios for delivering your content [live](#live_scenarios) or [on-demand](#vod_scenarios). The topic also provides details about availability of media features and services across data centers.
+This topic shows common scenarios for delivering your content [live](#live_scenarios) or [on-demand](#vod_scenarios). The topic also provides details about availability of media features and services across datacenters.
 
 ## Overview
 
@@ -154,7 +153,7 @@ AMS customers can scale streaming endpoints, media processing, and storage in th
     For more information see, [Scale media processing](media-services-portal-scale-media-processing.md).
 * You can also scale your Media Services account by adding storage accounts to it. Each storage account is limited to 500 TB. To expand your storage beyond the default limitations, you can choose to attach multiple storage accounts to a single Media Services account. For more information, see [Manage storage accounts](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Availability of Media Services features across datacenters
+## <a id="availability"></a> Availability of Media Services features across datacenters
 
 This section provides details about availability of Media Services features across datacenters.
 
@@ -162,7 +161,7 @@ This section provides details about availability of Media Services features acro
 
 #### Availability
 
-To determine if Media Services is available in a data center, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
+To determine if Media Services is available in a datacenter, browse to https://azure.microsoft.com/status/ and scroll to the MEDIA table.
 
 ### Streaming endpoints 
 

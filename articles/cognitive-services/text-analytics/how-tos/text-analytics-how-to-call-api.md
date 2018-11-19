@@ -1,14 +1,15 @@
 ---
-title: Call the Text Analytics API (Microsoft Cognitive Services on Azure) | Microsoft Docs
+title: Call the Text Analytics API
+titlesuffix: Azure Cognitive Services
 description: Learn how to call the Text Analytics REST API.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 
 ms.service: cognitive-services
-ms.technology: text-analytics
-ms.topic: get-started-article
-ms.date: 05/02/2018
+ms.component: text-analytics
+ms.topic: conceptual
+ms.date: 10/01/2018
 ms.author: ashmaka
 ---
 
@@ -35,7 +36,7 @@ You must have the [endpoint and access key](text-analytics-how-to-access-key.md)
 
 Input must be JSON in raw unstructured text. XML is not supported. The schema is simple, consisting of the elements described in the following list. 
 
-You can currently submit the same documents for all Text Analytics operations: sentiment, key phrase, language detection, and entity linking. (The schema is likely to vary for each analysis in the future.)
+You can currently submit the same documents for all Text Analytics operations: sentiment, key phrase, language detection, and entity identification. (The schema is likely to vary for each analysis in the future.)
 
 | Element | Valid values | Required? | Usage |
 |---------|--------------|-----------|-------|
@@ -60,7 +61,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
    + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 2. Set the three request headers:
 
@@ -81,7 +82,7 @@ The service accepts request up to 1 MB in size. If you are using Postman (or ano
   + [Language detection](text-analytics-how-to-language-detection.md)  
   + [Key phrase extraction](text-analytics-how-to-keyword-extraction.md)  
   + [Sentiment analysis](text-analytics-how-to-sentiment-analysis.md)  
-  + [Entity linking](text-analytics-how-to-entity-linking.md)  
+  + [Entity recognition (Preview)](text-analytics-how-to-entity-linking.md)  
 
 
 6. Click **Send** to submit the request. You can submit up to 100 requests per minute. 

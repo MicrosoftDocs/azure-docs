@@ -36,7 +36,11 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 1. Modify the following values in your `apimodel.json` file:
     * `dnsPrefix`: The dns name you want for the cluster. For example, `contoso` will result in `https://contoso.usgovvirginia.cloudapp.usgovcloudapi.net`
     * `keyData`: The public SSH key to SSH into the Kubernetes cluster. See [How to create and use an SSH public and private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
-    * `clientId` and `secret`: The client ID and secret for the Azure AD service principal that Kubernetes uses to communicate with Azure Government (for example, to create load balancers, request public IPs and access Azure storage). See [Create an Azure service principal with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest).
+    * `clientId` and `secret`: The client ID and secret for the Azure AD service principal that Kubernetes uses to communicate with Azure Government (for example, to create load balancers, request public IPs and access Azure storage). 
+    
+        > [!NOTE]
+        > Make sure this service principal is set up with the correct scope. See [ACS-Engine: Service Principals](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md).
+        >
 
 ## Deploy your Kubernetes cluster using acs-engine
 1. Obtain your Subscription ID. The subscription ID is available in the Azure portal, via Powershell and via the Azure CLI:
@@ -49,7 +53,7 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
     az account list
     ```
 
-1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for 3 nodes.
+1. Use acs-engine to deploy your template to Azure Government. This operation takes up to 30 minutes for three nodes.
 
     ```bash
     acs-engine deploy --azure-env AzureUSGovernmentCloud --location usgovvirginia --subscription-id <YOUR_SUBSCRIPTION_ID> --api-model apimodel.json
@@ -88,4 +92,4 @@ This article describes how to deploy a Kubernetes cluster to Azure Government us
 
 * Subscribe to the [Azure Government blog](https://blogs.msdn.microsoft.com/azuregov/)
 * Get help on Stack Overflow by using the "[azure-gov](https://stackoverflow.com/questions/tagged/azure-gov)" tag
-* Give us feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)
+* Give feedback or request new features via the [Azure Government feedback forum](https://feedback.azure.com/forums/558487-azure-government)

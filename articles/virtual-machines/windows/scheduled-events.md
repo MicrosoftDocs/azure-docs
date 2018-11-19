@@ -38,7 +38,7 @@ Many applications can benefit from time to prepare for virtual machine maintenan
 - Event logging
 - Graceful shutdown 
 
-Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact.  
+Using Scheduled Events your application can discover when maintenance will occur and trigger tasks to limit its impact. Enabling scheduled events gives your virtual machine a minimum amount of time before the maintenance activity is performed. See the Event Scheduling section below for details.
 
 Scheduled Events provides events in the following use cases:
 - Platform initiated maintenance (e.g. Host OS Update)
@@ -68,7 +68,7 @@ The Scheduled Events Service is versioned. Versions are mandatory and the curren
 > Previous preview releases of scheduled events supported {latest} as the api-version. This format is no longer supported and will be deprecated in the future.
 
 ### Enabling and Disabling Scheduled Events
-Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes.
+Scheduled Events is enabled for your service the first time you make a request for events. You should expect a delayed response in your first call of up to two minutes. You should query the endpoint periodically to detect upcoming maintenance events as well as the status of maintenance activities that are being performed.
 
 Scheduled Events is disabled for your service if it does not make a request for 24 hours.
 
@@ -107,6 +107,7 @@ In the case where there are scheduled events, the response contains an array of 
     ]
 }
 ```
+The DocumentIncarnation is an ETag and provides an easy way to inspect if the Events payload has changed since the last query.
 
 ### Event Properties
 |Property  |  Description |
@@ -152,7 +153,7 @@ The following is the json expected in the `POST` request body. The request shoul
 
 #### Powershell
 ```
-curl -H @{"Metadata"="true"} -Method POST -Body '{"DocumentIncarnation":"5", "StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
+curl -H @{"Metadata"="true"} -Method POST -Body '{"StartRequests": [{"EventId": "f020ba2e-3bc0-4c40-a10b-86575a9eabd5"}]}' -Uri http://169.254.169.254/metadata/scheduledevents?api-version=2017-08-01
 ```
 
 > [!NOTE] 
@@ -174,11 +175,11 @@ function Get-ScheduledEvents($uri)
 }
 
 # How to approve a scheduled event
-function Approve-ScheduledEvent($eventId, $docIncarnation, $uri)
+function Approve-ScheduledEvent($eventId, $uri)
 {    
     # Create the Scheduled Events Approval Document
     $startRequests = [array]@{"EventId" = $eventId}
-    $scheduledEventsApproval = @{"StartRequests" = $startRequests; "DocumentIncarnation" = $docIncarnation} 
+    $scheduledEventsApproval = @{"StartRequests" = $startRequests} 
     
     # Convert to JSON string
     $approvalString = ConvertTo-Json $scheduledEventsApproval
@@ -213,7 +214,7 @@ foreach($event in $scheduledEvents.Events)
     $entry = Read-Host "`nApprove event? Y/N"
     if($entry -eq "Y" -or $entry -eq "y")
     {
-        Approve-ScheduledEvent $event.EventId $scheduledEvents.DocumentIncarnation $scheduledEventURI 
+        Approve-ScheduledEvent $event.EventId $scheduledEventURI 
     }
 }
 ``` 

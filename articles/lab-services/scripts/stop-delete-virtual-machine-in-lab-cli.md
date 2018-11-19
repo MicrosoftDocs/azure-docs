@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Stop and delete a virtual machine in a custom lab | Microsoft Docs
-description: This Azure CLI script stops and delets a virtual machine in a custom lab. 
+title: Azure CLI Script Sample - Stop and delete a virtual machine in a lab | Microsoft Docs
+description: This Azure CLI script stops and delets a virtual machine in a lab. 
 services: lab-services
 author: spelluru
 manager: 
@@ -17,9 +17,9 @@ ms.author: spelluru
 ms.custom: mvc
 ---
 
-# Use Azure CLI to stop and delete a virtual machine in a custom lab
+# Use Azure CLI to stop and delete a virtual machine in a lab in Azure DevTest Labs
 
-This Azure CLI script stops and deletes a virtual machine (VM) in a custom lab. 
+This Azure CLI script stops and deletes a virtual machine (VM) in a lab. 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -27,7 +27,7 @@ This Azure CLI script stops and deletes a virtual machine (VM) in a custom lab.
 
 ## Sample script
 
-[!code-azurecli-interactive[main](../../../cli_scripts/devtest-lab/stop-delete-virtual-machine-in-lab/stop-delete-virtual-machine-in-lab.sh "Stop and delete a VM in a custom lab")]
+[!code-azurecli-interactive[main](../../../cli_scripts/devtest-lab/stop-delete-virtual-machine-in-lab/stop-delete-virtual-machine-in-lab.sh "Stop and delete a VM in a lab")]
 
 ## Script explanation
 
@@ -35,12 +35,12 @@ This script uses the following commands:
 
 | Command | Notes |
 |---|---|
-| [az lab vm stop](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-stop) | Stops a virtual machine (VM) in a custom lab. This operation can take a while to complete. |
-| [az lab vm delete](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-delete) | Delets a virtual machine (VM) in a custom lab. This operation can take a while to complete. |
+| [az lab vm stop](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-stop) | Stops a virtual machine (VM) in a lab. This operation can take a while to complete. |
+| [az lab vm delete](/cli/azure/lab/vm?view=azure-cli-latest#az-lab-vm-delete) | Delets a virtual machine (VM) in a lab. This operation can take a while to complete. |
 
 
 ## Next steps
 
 For more information on the Azure CLI, see [Azure CLI documentation](https://docs.microsoft.com/cli/azure).
 
-Additional Azure Lab Services PowerShell script samples can be found in the [Azure Lab Services CLI samples](../samples-cli.md).
+Additional Azure Lab Services CLI script samples can be found in the [Azure Lab Services CLI samples](../samples-cli.md).

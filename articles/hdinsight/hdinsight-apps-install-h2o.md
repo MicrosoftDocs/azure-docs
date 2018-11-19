@@ -1,25 +1,20 @@
 ---
-title: Install published application - H2O Sparkling Water - Azure HDInsight | Microsoft Docs
+title: Install published application - H2O Sparkling Water - Azure HDInsight 
 description: Install and use the H2O Sparkling Water third-party Hadoop application.
 services: hdinsight
-documentationcenter: ''
 author: ashishthaps
-manager: jhubbard
-editor: cgronlun
-tags: azure-portal
+ms.reviewer: jasonh
 
-ms.assetid: 
 ms.service: hdinsight
 ms.custom: hdinsightactive
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
 
 ---
 # Install published application - H2O Sparkling Water
 
-This article describes how to install and run the [H20 Sparkling Water](http://www.h2o.ai/) published Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
+This article describes how to install and run the [H20 Sparkling Water](http://www.h2o.ai/) published Apache Hadoop application on Azure HDInsight. For an overview of the HDInsight application platform, and a list of available Independent Software Vendor (ISV) published applications, see [Install third-party Hadoop applications](hdinsight-apps-install-applications.md). For instructions on installing your own application, see [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
 
 ## About H2O Sparkling Water
 
@@ -34,7 +29,7 @@ H2O Sparkling Water provides:
 
 ### Resource links
 
-* [H2O.ai Engineering Roadmap](https://jira.h2o.ai/)
+* [H2O.ai Engineering Roadmap](http://jira.h2o.ai/)
 * [H2O.ai Home](http://www.h2o.ai/)
 * [H2O.ai Documentation](http://docs.h2o.ai/)
 * [H2O.ai Support](https://support.h2o.ai/)

@@ -12,7 +12,7 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 
@@ -20,7 +20,7 @@ robots: noindex
 ---
 # Move data between on-premises sources and the cloud with Data Management Gateway
 > [!NOTE]
-> This article applies to version 1 of Data Factory, which is generally available (GA). If you are using version 2 of the Data Factory service, which is in preview, see [copy data between on-premises and cloud using Data Factory version 2](../tutorial-hybrid-copy-powershell.md).
+> This article applies to version 1 of Data Factory. If you are using the current version of the Data Factory service, see [copy data between on-premises and cloud using Data Factory](../tutorial-hybrid-copy-powershell.md).
 
 This article provides an overview of data integration between on-premises data stores and cloud data stores using Data Factory. It builds on the [Data Movement Activities](data-factory-data-movement-activities.md) article and other data factory core concepts articles: [datasets](data-factory-create-datasets.md) and [pipelines](data-factory-create-pipelines.md).
 
@@ -44,8 +44,8 @@ In this walkthrough you do the following steps:
 ## Prerequisites for the tutorial
 Before you begin this walkthrough, you must have the following prerequisites:
 
-* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](http://azure.microsoft.com/pricing/free-trial/) article for details.
-* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-create-storage-account.md#create-a-storage-account) article for steps to create one.
+* **Azure subscription**.  If you don't have a subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article for details.
+* **Azure Storage Account**. You use the blob storage as a **destination/sink** data store in this tutorial. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-quickstart-create-account.md) article for steps to create one.
 * **SQL Server**. You use an on-premises SQL Server database as a **source** data store in this tutorial. 
 
 ## Create data factory
@@ -62,7 +62,7 @@ In this step, you use the Azure portal to create an Azure Data Factory instance 
    > [!IMPORTANT]
    > The name of the Azure data factory must be globally unique. If you receive the error: **Data factory name “ADFTutorialOnPremDF” is not available**, change the name of the data factory (for example, yournameADFTutorialOnPremDF) and try creating again. Use this name in place of ADFTutorialOnPremDF while performing remaining steps in this tutorial.
    >
-   > The name of the data factory may be registered as a **DNS** name in the future and hence become publically visible.
+   > The name of the data factory may be registered as a **DNS** name in the future and hence become publicly visible.
    >
    >
 4. Select the **Azure subscription** where you want the data factory to be created.
