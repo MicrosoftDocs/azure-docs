@@ -5,7 +5,7 @@ author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 10/27/2017
+ms.date: 11/19/2018
 ms.author: robb
 ms.component: ""
 ---
