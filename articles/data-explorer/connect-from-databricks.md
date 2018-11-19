@@ -1,6 +1,6 @@
 # Connect to Azure Data Explorer from Azure Databricks using Python
 
-This article shows you how to use Python library in Azure Databricks to access data from Azure Data Explorer (ADX). There are several ways to authenticate with ADX including device login using your AAD account and ADD App.
+This article shows you how to use Python library in Azure Databricks to access data from Azure Data Explorer (ADX). There are several ways to authenticate with ADX including device login and AAD App.
 
 ## Prerequisites
 
@@ -9,7 +9,7 @@ This article shows you how to use Python library in Azure Databricks to access d
 
     Under **Azure Databricks Service**, in the **Pricing Tier** dropdown, select **Premium**. This allows you to use Azure Databricks secrets to store your credentials and reference them in notebooks and jobs.
 
-- [Create a cluster](https://docs.azuredatabricks.net/user-guide/clusters/create.html) in Azure Databricks with the following specifications:
+- [Create a cluster](https://docs.azuredatabricks.net/user-guide/clusters/create.html) in Azure Databricks with the following specifications (minimum settings needed to run the sample notebooks):
 
 ![Create cluster](media/connect-from-databricks/databricks-create-cluster.png)
 
@@ -24,7 +24,7 @@ To install [Python library](/azure/kusto/api/python/kusto-python-client-library)
 
 ## Connect to ADX using device login
 
-[Import](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) a Notebook using this sample notebook to connect to ADX using your credentials.
+[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using this Query-ADX-device-login notebook to connect to ADX using your credentials.
 
 ## Connect to ADX using AAD App
 
@@ -42,17 +42,27 @@ To install [Python library](/azure/kusto/api/python/kusto-python-client-library)
 
 ### Find your AAD Tenant ID
 
-1. Use the following URL, substituting **YourDomain** with your domain name: https://login.windows.net/YourDomain/.well-known/openid-configuration/
-For example: If your domain is contoso.com, the URL is: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/)
-1. Enter your URL to see the following results:
-&quot;authorization\_endpoint&quot;:[https://login.windows. net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize](https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize)
-1. Your tenant ID is **6babcaad-604b-40ac-a9d7-9fd97c0b779f**
+To authenticate an application, Azure Data Explorer uses your AAD tenant ID. 
+To find your tenant ID, use the following URL, substituting your domain for *YourDomain*.
+
+```
+https://login.windows.net/<YourDomain>/.well-known/openid-configuration/
+```
+
+For example, if your domain is *contoso.com*, the URL is: [https://login.windows.net/contoso.com/.well-known/openid-configuration/](https://login.windows.net/contoso.com/.well-known/openid-configuration/). Click this URL to see the results; the first line is as follows. 
+
+```
+"authorization_endpoint":"https://login.windows.net/6babcaad-604b-40ac-a9d7-9fd97c0b779f/oauth2/authorize"
+```
+
+Your tenant ID is `6babcaad-604b-40ac-a9d7-9fd97c0b779f`. 
 
 ### Store and secure your AAD App ID and Key 
 
-Store and secure your AAD App ID and Key using Azure Databricks [Secrets](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) 
-1. In [Databricks CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#databricks-cli), [Set up the CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-the-cli), [Install the CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli) and [Set up authentication](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-authentication).
-
+Store and secure your AAD App ID and Key using Azure Databricks [Secrets](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) as follows:
+1. [Set up the CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-the-cli)
+1. [Install the CLI](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#install-the-cli) 
+1. [Set up authentication](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-authentication).
 1. Configure the [Secrets](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) using the following sample commands:
 
 ```databricks secrets create-scope --scope adx```
@@ -64,4 +74,4 @@ Store and secure your AAD App ID and Key using Azure Databricks [Secrets](https:
 ```databricks secrets list --scope adx```
 
 ### Import a Notebook
-[Import](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) a Notebook using this sample notebook to connect to ADX and update the placeholder values with your cluster name, database name, and AAD Tenant ID.
+[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using Query-ADX-AAD-App to connect to ADX and update the placeholder values with your cluster name, database name, and AAD Tenant ID.
