@@ -281,7 +281,11 @@ print(per_class_summary)
 print(per_class_imp)
 ```
 
-You can visualize feature importance through the widget UI as well as the web UI on Azure portal inside your workspace.
+Printing the `best_run` explanation summary variables results in the following output.
+
+![Model explainability console output](./media/how-to-auto-train-remote/expl-print.png)
+
+You can also visualize feature importance through the widget UI as well as the web UI on Azure portal inside your workspace.
 
 ![Model explainability UI](./media/how-to-auto-train-remote/model-exp.png)
 
