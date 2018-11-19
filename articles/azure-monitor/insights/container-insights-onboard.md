@@ -50,6 +50,8 @@ To enable monitoring of a new AKS cluster created with Azure CLI, follow the ste
 >If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.43 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
+If you are [deploying an AKS cluster using Terraform](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html), you can also enable Azure Monitor for containers by including the argument [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specifying **oms_agent**.  
+
 After you've enabled monitoring and all configuration tasks are completed successfully, you can monitor the performance of your cluster in either of two ways:
 
 * Directly in the AKS cluster by selecting **Health** in the left pane.
