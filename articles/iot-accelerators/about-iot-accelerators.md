@@ -48,7 +48,7 @@ You can use the connected factory dashboard to monitor and manage your industria
 
 ### Predictive Maintenance
 
-Use this solution accelerator to predict when a remote device is expected to fail so you can carry out maintenance before the predicted failure happens. This solution accelerator uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
+Use this solution accelerator to predict when a remote device is expected to fail so you can carry out maintenance before the device fails. This solution accelerator uses machine learning algorithms to predict failures from device telemetry. Example devices might be airplane engines or elevators.
 
 You can use the predictive maintenance dashboard to view predictive maintenance analytics:
 
@@ -95,7 +95,7 @@ You can deploy the Remote Monitoring solution accelerator in the following confi
 * **Basic:** Reduced cost version for a demonstration or to test a deployment. All the microservices deploy to a single Azure virtual machine.
 * **Local:** Local machine deployment for testing and development. This approach deploys the microservices to a local Docker container and connects to IoT Hub, Azure Cosmos DB, and Azure storage services in the cloud.
 
-The cost of running a solution accelerator is an aggregate of the [cost of the underlying Azure services](https://azure.microsoft.com/pricing). You see details of the Azure services used when you choose your deployment options.
+The cost of running a solution accelerator is the combined [cost of running the underlying Azure services](https://azure.microsoft.com/pricing). You see details of the Azure services used when you choose your deployment options.
 
 ## Next steps
 
