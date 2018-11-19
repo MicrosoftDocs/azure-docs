@@ -372,7 +372,7 @@ In this section, you upload the transformed data into Azure SQL Data Warehouse. 
 
 As mentioned earlier, the SQL date warehouse connector uses Azure Blob Storage as temporary storage location to upload data between Azure Databricks and Azure SQL Data Warehouse. So, you start by providing the configuration to connect to the storage account. You must have already created the account as part of the prerequisites for this article.
 
-1. Provide the configuration to access the Azure Storage account from Azure Databricks. If you copy the URL for your blob storage from the portal, be sure to remove *"https://* from the beginning. 
+1. Provide the configuration to access the Azure Storage account from Azure Databricks. If you copy the URL for your blob storage from the portal, be sure to remove *https://* from the beginning. 
 
         val blobStorage = "<STORAGE ACCOUNT NAME>.blob.core.windows.net"
         val blobContainer = "<CONTAINER NAME>"
