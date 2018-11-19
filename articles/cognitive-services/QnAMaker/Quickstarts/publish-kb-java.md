@@ -33,14 +33,24 @@ This quickstart calls QnA Maker APIs:
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
+    If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE] 
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-java** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a Java file
 
-Open VSCode and create a new file named `PublishKB.java` and add the following class:
+Open VSCode and create a new file named `PublishKB.java`.
+
+## Add the required dependencies
+
+At the top of `PublishKB.java`, above the class, add the following lines to add necessary dependencies to the project:
+
+[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=1-13 "Add the required dependencies")]
+
+## Create PublishKB class with main method
+
+After the dependencies, add the following class:
 
 ```Go
 public class PublishKB {
@@ -51,15 +61,9 @@ public class PublishKB {
 }
 ```
 
-## Add the required dependencies
-
-At the top of `PublishKB.java`, above the class, add the following lines to add necessary dependencies to the project:
-
-[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=1-13 "Add the required dependencies")]
-
 ## Add required constants
 
-After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
+In the **main** method, add the required constants to access QnA Maker. Replace the values with your own.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
 

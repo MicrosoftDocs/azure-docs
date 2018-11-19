@@ -29,14 +29,24 @@ This quickstart calls QnA Maker APIs:
 
     ![QnA Maker knowledge base ID](../media/qnamaker-quickstart-kb/qna-maker-id.png)
 
-If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
+    If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE] 
 > The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-go** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a Go file
 
-Open VSCode and create a new file named `publish-kb.go` and add the following class:
+Open VSCode and create a new file named `publish-kb.go`.
+
+## Add the required dependencies
+
+At the top of `publish-kb.go`, add the following lines to add necessary dependencies to the project:
+
+[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
+
+## Create the main function
+
+After the required dependencies, add the following class:
 
 ```Go
 package main
@@ -46,15 +56,12 @@ func main() {
 }
 ```
 
-## Add the required dependencies
-
-At the top of `publish-kb.go`, add the following lines to add necessary dependencies to the project:
-
-[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=3-7 "Add the required dependencies")]
-
 ## Add required constants
 
-After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
+Inside the **main**
+
+
+ function, add the required constants to access QnA Maker. Replace the values with your own.
 
 [!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/publish-knowledge-base/publish-kb.go?range=16-20 "Add the required constants")]
 
