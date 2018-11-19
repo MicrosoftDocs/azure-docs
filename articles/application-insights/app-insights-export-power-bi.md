@@ -105,7 +105,6 @@ If reducing the dataset coming from the Analytics query doesn't meet your requir
    * Replace **https://management.azure.com/subscriptions/...**
    * with, **https://api.applicationinsights.io/beta/apps/...**
 3. Finally, update the credentials to basic, and use your API key.
- �
 
 **Existing script**
  ```
