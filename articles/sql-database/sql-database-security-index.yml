@@ -42,6 +42,43 @@ sections:
       - title: Azure Active Directory
         href: /azure/sql-database/sql-database-aad-authentication
         html: <p>Azure SQL Database enables you to connect to your database by using identities in Azure Active Directory (Azure AD).</p>
+- title: 5-Minute Quickstarts
+  items:
+  - type: paragraph
+    text: 'Setup and manage security features in Azure SQL Database using the Azure portal, Azure CLI, or PowerShell:'
+  - type: table
+    style: dataMatrix
+    columns:
+      - image:
+          src: media/index/portal.svg
+        title: The Azure portal
+      - image:
+          src: media/index/cli.svg
+        title: Azure CLI
+      - image:
+          src: media/index/logo_powershell.svg
+        title: PowerShell
+    rows:
+      - title: Setup Threat Detection on Single Database
+        values:
+          - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
+          - href: 
+          - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-using-powershell
+      - title: Setup Threat Detection on Managed Instance
+        values:
+          - href: /azure/sql-database/sql-database-managed-instance-threat-detection
+          - href:
+          - href:
+      - title: Setup Firewall rules on Single database
+        values:
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-cli
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-powershell
+      - title: Setup Firewall rules on Single database
+        values:
+          - href:
+          - href:
+          - href: /azure/sql-database/sql-vulnerability-assessment#manage-vulnerability-assessments-using-azure-powershell
 - title: More resources
   items:
   - type: paragraph
