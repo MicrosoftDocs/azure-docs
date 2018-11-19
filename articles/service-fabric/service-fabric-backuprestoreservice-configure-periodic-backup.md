@@ -106,6 +106,7 @@ A backup policy consists of the following configurations:
             ```
 
         2. _Protecting file share using user name and password_, where the access to file share is provided to specific users. File share storage specification also provides capability to specify secondary user name and secondary password to provide fall-back credentials in case authentication fails with primary user name and primary password. In this case, set following fields to configure _file-share_ based backup storage.
+
             ```json
             {
                 "StorageKind": "FileShare",
@@ -132,7 +133,7 @@ A backup policy consists of the following configurations:
             "MinimumNumberOfBackups": 20
         }
         ```
-        
+
 ## Enable periodic backup
 After defining backup policy to fulfill data backup requirements, the backup policy should be appropriately associated either with an _application_, or _service_, or a _partition_.
 
