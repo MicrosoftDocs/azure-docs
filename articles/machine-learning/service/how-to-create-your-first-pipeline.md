@@ -42,7 +42,7 @@ Pipelines use remote compute resources to perform the computational steps and to
      location = '<workspace_region>',
      exist_ok = True)
  ```
-## Set up machine leaning resources
+## Set up machine learning resources
 
 Create the resources required to run a pipeline:
 
