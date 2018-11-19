@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Create a CI/CD pipeline for Ruby on Rails by using Azure DevOps Projects'
-description: Azure DevOps Projects makes it easy to get started on Azure. It helps you launch a Ruby web app on an Azure service in a few quick steps.
+description: Azure DevOps Projects makes it easy to get started on Azure. You can launch a Ruby web app on an Azure service in a few quick steps.
 ms.prod: devops
 ms.technology: devops-cicd
 services: vsts
@@ -22,21 +22,21 @@ monikerRange: 'vsts'
 
 # Create a CI/CD pipeline for Ruby on Rails by using Azure DevOps Projects
 
-Configure continuous integration (CI) and continuous delivery (CD) for your Ruby on Rails app by using Azure DevOps Projects. Azure DevOps Projects simplifies the initial configuration of an Azure DevOps build and release pipeline.
+Configure continuous integration (CI) and continuous delivery (CD) for your Ruby on Rails app by using Azure DevOps Projects. DevOps Projects simplifies the initial configuration of an Azure DevOps build and release pipeline.
 
 If you don't have an Azure subscription, you can get one free through [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
 ## Sign in to the Azure portal
 
-Azure DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
+Azure DevOps Projects creates a CI/CD pipeline in Azure Repos. You can create a new Azure DevOps organization or use an existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 1. In the left pane, select **Create a resource**.
 
-1. In the search box, type **DevOps Project**, and then select **Create**.
+1. In the search box, type **DevOps Projects**, and then select **Create**.
 
-   	![The Azure DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
+   	![The DevOps Projects dashboard](_img/azure-devops-project-github/fullbrowser.png)
 
 ## Select a sample app and Azure service
 
@@ -64,9 +64,9 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a
 
 ## Commit your code changes and execute the CI/CD
 
- Azure DevOps Projects creates a Git repo in your Azure DevOps organization or GitHub account. To view the repo and make code changes to your app, do the following:
+Azure DevOps Projects creates a Git repo in Azure Pipelines or GitHub. To view the repo and make code changes to your app, do the following:
 
-1. On the Azure DevOps Projects dashboard, at the left, select the link for your master branch.  
+1. On the DevOps Projects dashboard, at the left, select the link for your master branch.  
 	The link opens a view to the newly created Git repo.
 
 1. To view the repo clone URL, select **Clone** at the top right.  
@@ -78,16 +78,16 @@ Azure DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a
 
 1. Select **Commit**, and then save your changes.
 
-1. In your browser, go to the Azure DevOps Projects dashboard.  
+1. In your browser, go to the DevOps Projects dashboard.  
 	A build should be in progress. The changes you made are automatically built and deployed via a CI/CD pipeline.
 
-## Examine the Azure CI/CD pipeline
+## Examine the Azure Pipelines CI/CD pipeline
 
 Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azure DevOps organization. Explore and customize the pipeline as needed. To familiarize yourself with the Azure DevOps build and release pipelines, do the following:
 
-1. Go to the Azure DevOps Projects dashboard.
+1. Go to the DevOps Projects dashboard.
 
-1. At the top, select **Build Pipelines**.  
+1. At the top, select **Build pipelines**.  
 	A browser tab displays the build pipeline for your new project.
 
 1. Point to the **Status** field, and then select the ellipsis (...).  
@@ -137,9 +137,9 @@ Azure DevOps Projects automatically configures a full CI/CD pipeline in your Azu
 1. Select **Logs**.  
 	The logs contain useful information about the deployment process. You can view them both during and after deployments.
 
-## Clean up your resources
+## Clean up resources
 
-When they are no longer needed, you can delete the Azure App service and related resources that you created in this quickstart. To do so, use the **Delete** functionality on the Azure DevOps Projects dashboard.
+When they are no longer needed, you can delete the Azure App service and related resources that you created in this quickstart. To do so, use the **Delete** functionality on the DevOps Projects dashboard.
 
 ## Next steps
 
