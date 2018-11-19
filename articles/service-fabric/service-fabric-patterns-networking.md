@@ -102,15 +102,20 @@ In the examples in this article, we use the Service Fabric template.json. You ca
             },*/
     ```
 
+2. Comment out `nicPrefixOverride` attribute of `Microsoft.Compute/virtualMachineScaleSets`, because you are using existing subnet and you have disabled this variable in step 1.
 
-2. Change the `vnetID` variable to point to the existing virtual network:
+    ```
+            /*"nicPrefixOverride": "[parameters('subnet0Prefix')]",*/
+    ```
+
+3. Change the `vnetID` variable to point to the existing virtual network:
 
     ```
             /*old "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",*/
             "vnetID": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', parameters('existingVNetRGName'), '/providers/Microsoft.Network/virtualNetworks/', parameters('existingVNetName'))]",
     ```
 
-3. Remove `Microsoft.Network/virtualNetworks` from your resources, so Azure does not create a new virtual network:
+4. Remove `Microsoft.Network/virtualNetworks` from your resources, so Azure does not create a new virtual network:
 
     ```
     /*{
@@ -140,7 +145,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
     },*/
     ```
 
-4. Comment out the virtual network from the `dependsOn` attribute of `Microsoft.Compute/virtualMachineScaleSets`, so you don't depend on creating a new virtual network:
+5. Comment out the virtual network from the `dependsOn` attribute of `Microsoft.Compute/virtualMachineScaleSets`, so you don't depend on creating a new virtual network:
 
     ```
     "apiVersion": "[variables('vmssApiVersion')]",
@@ -154,7 +159,7 @@ In the examples in this article, we use the Service Fabric template.json. You ca
 
     ```
 
-5. Deploy the template:
+6. Deploy the template:
 
     ```powershell
     New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
