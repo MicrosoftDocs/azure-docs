@@ -31,18 +31,18 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 ## Try it out
 
-The notebooks demonstrate how to prepare data, train, and deploy a Spark ML model from within Azure Databricks using the Azure ML Python SDK. 
+The Databricks notebooks demonstrate how to prepare data, train, and deploy a Spark ML model from within Azure Databricks using the Azure Machine Learning Python SDK. 
 
-Use the notebooks to predict income based on [census dataset](https://archive.ics.uci.edu/ml/datasets/adult).  You train an income prediction model. The model  predicts whether an individual's income is >50 K or <50 K based on demographic data.
+Use the Databricks notebooks to predict income based on [census dataset](https://archive.ics.uci.edu/ml/datasets/adult).  You train an income prediction model. The model  predicts whether an individual's income is >50 K or <50 K based on demographic data.
 
 1. Prepare your environment.  Run the [Installation and Configuration](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/01.Installation_and_Configuration.ipynb) Databricks notebook to:
 
-    * Create an Azure ML workspace
-    * Save the ML workspace configuration
+    * Create an Azure Machine Learning workspace
+    * Save the machine learning workspace configuration
 
-2. Prepare your data. Run the [Ingest data](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/02.Ingest_data.ipynb) Databricks notebookto download the Adult Census Income data and splits it into train and test sets.
+2. Prepare your data. Run the [Ingest data](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/02.Ingest_data.ipynb) notebookto download the Adult Census Income data and splits it into train and test sets.
 
-3. Build  models. Run the [Build model with Run History](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/03b.Build_model_runHistory.ipynb) Databricks notebook to:
+3. Build  models. Run the [Build model with Run History](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/03b.Build_model_runHistory.ipynb) notebook to:
 
     * Prepare data using Pandas
     * Split data into train and test sets
@@ -52,13 +52,13 @@ Use the notebooks to predict income based on [census dataset](https://archive.ic
 
 4. Deploy and predict.  Deploy your model from within Azure Databricks:  
 
-    * Test the deployment on [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI).  Run the [Deploy to ACI](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/04.Deploy_to_ACI.ipynb) Databricks notebook to:
+    * Test the deployment on [Azure Container Instances](https://azure.microsoft.com/services/container-instances/) (ACI).  Run the [Deploy to ACI](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/04.Deploy_to_ACI.ipynb) notebook to:
 
         * Register your best model in the machine learning workspace
         * Provide a scoring file and a conda config file
         * Deploy the model to ACI and test the webservice
 
-    * Use the image you created on ACI to deploy to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) for scalable webservice.   Run the [Deploy to AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/04.Deploy_to_AKS_existingImage.ipynb) Databricks notebook to:
+    * Use the image you created on ACI to deploy to [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/) (AKS) for scalable webservice.   Run the [Deploy to AKS](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/04.Deploy_to_AKS_existingImage.ipynb) notebook to:
 
         * Deploy the the image created in the ACI notebook to AKS as a scalable webservice
         * Monitor the deployed webservice and model in Azure portal
@@ -67,3 +67,5 @@ Use the notebooks to predict income based on [census dataset](https://archive.ic
 > You can also train your model on Databricks and then use [Visual Studio Code](how-to-vscode-train-deploy.md#deploy-your-service-from-vs-code) to deploy the model.
 
 ## Next steps
+
+See the [Databrics notebooks on GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks).
