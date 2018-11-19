@@ -37,11 +37,11 @@ The following code creates a `WebRequest`, sets the access key header, and adds 
 
     const string searchTerm = "restaurant in Bellevue";
     // Construct the URI of the search request
-    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "appid=" + accessKey;
+    var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + mkt=en-us;
 
     // Run the Web request and get response.
     WebRequest request = HttpWebRequest.Create(uriQuery);
-    //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+    request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
 
     HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
     string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
@@ -89,7 +89,7 @@ namespace localSearch
             Console.OutputEncoding = System.Text.Encoding.UTF8;
             Console.WriteLine("Searching locally for: " + searchTerm);
 
-            SearchResult result = BingLocalSearch(searchTerm);
+            SearchResult result = BingLocalSearch(searchTerm, accessKey);
 
             Console.WriteLine("\nRelevant HTTP Headers:\n");
             foreach (var header in result.relevantHeaders)
@@ -105,15 +105,14 @@ namespace localSearch
         /// <summary>
         /// Performs a Bing Local business search and return the results as a SearchResult.
         /// </summary>
-        static SearchResult BingLocalSearch(string searchQuery)
+        static SearchResult BingLocalSearch(string searchQuery, string key)
         {
             // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + 
-                                "&appid=" + accessKey + "&traffictype=Internal_monitor&market=en-us";
+            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery) + "&mkt=en-us";
 
             // Perform the Web request and get the response
             WebRequest request = HttpWebRequest.Create(uriQuery);
-            //request.Headers["Ocp-Apim-Subscription-Key"] = accessKey; 
+            request.Headers["Ocp-Apim-Subscription-Key"] = key; 
 
             HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
             string json = new StreamReader(response.GetResponseStream()).ReadToEnd();

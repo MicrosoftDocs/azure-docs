@@ -13,7 +13,7 @@
 - name: Tutorials
   items:
   - name: CI/CD to App Service
-    href: /azure/jenkins/java-deploy-webapp-tutorial
+    href: /azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service
   - name: CI/CD to Kubernetes
     href: /azure/aks/jenkins-continuous-deployment
     maintainContext: true
