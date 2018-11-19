@@ -77,7 +77,7 @@ When you scale out your cloud service by adding role instances, those new instan
 
 ### Requests from virtual machines
 
-You can also use [virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) to host middle-tier services by using Azure Cosmos DB. To configure your Cosmos DB account to allow access from virtual machines, you must configure the public IP addresses of the virtual machine and/or virtual machine scale set as one of the allowed IP addresses for your Azure Cosmos DB account by [configuring the IP access control policy](#configure-ip-policy). 
+You can also use [virtual machines](https://azure.microsoft.com/services/virtual-machines/) or [virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) to host middle-tier services by using Azure Cosmos DB. To configure your Cosmos DB account to allow access from virtual machines, you must configure the public IP address of the virtual machine and/or virtual machine scale set as one of the allowed IP addresses for your Azure Cosmos DB account by [configuring the IP access control policy](#configure-ip-policy). 
 
 You can retrieve IP addresses for virtual machines in the Azure portal, as shown in the following screenshot:
 
@@ -142,7 +142,7 @@ You can troubleshoot issues with an IP access control policy by using the follow
 By enabling an IP access control policy for your Azure Cosmos DB account, you block all requests to your account from machines outside the allowed list of IP address ranges. To enable portal data plane operations like browsing containers and query documents, you need to explicitly allow Azure portal access by using the **Firewall** pane in the portal.
 
 ### SDKs 
-When you access Azure Cosmos DB resources by using SDKs from machines that are not in the allowed list, a generic **404 Not Found** response is returned with no additional details. Verify the allowed IP list for your account, and ensure that the correct policy configuration is applied to your Azure Cosmos DB account. 
+When you access Azure Cosmos DB resources by using SDKs from machines that are not in the allowed list, a generic **404 Not Found** response is returned with no additional details. Verify the allowed IP list for your account, and make sure that the correct policy configuration is applied to your Azure Cosmos DB account. 
 
 ### Source IPs in blocked requests
 Enable diagnostic logging on your Azure Cosmos DB account. These logs show each request and response. The firewall-related messages are internally logged with a 403 return code. By filtering these messages, you can see the source IPs for the blocked requests. See [Azure Cosmos DB diagnostic logging](logging.md).
