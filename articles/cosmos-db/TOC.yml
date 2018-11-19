@@ -85,10 +85,12 @@
         href: high-availability.md
       - name: Globally scaling provisioned throughput
         href: scaling-throughput.md
-      - name: Conflict resolution policies
+      - name: Conflict types and resolution policies
         href: conflict-resolution-policies.md
       - name: Global distribution - under the hood
         href: global-dist-under-the-hood.md
+      - name: Regional presence
+        href: regional-presence.md
     - name: Partitioning
       items:
       - name: Overview
@@ -149,6 +151,10 @@
           href: vnet-service-endpoint.md
         - name: Key vault support
           href: access-secrets-from-keyvault.md
+    - name: Enterprise readiness 
+      items:
+      - name: Compliance
+        href: compliance.md
     - name: Prepay for reserved capacity
       href: cosmos-db-reserved-capacity.md
     - name : Backup and restore
@@ -160,8 +166,6 @@
       items:
       - name: Introduction
         href: sql-api-introduction.md
-      - name: Write SQL queries
-        href: sql-api-sql-query.md
       - name: Model document data
         href: modeling-data.md
       - name: Tutorials
@@ -436,6 +440,8 @@
         href: how-to-create-container.md
       - name: Query a container
         href: how-to-query-container.md
+      - name: Query data with SQL queries
+        href: how-to-sql-query.md
     - name: Indexing
       items:
       - name: Configure indexing
