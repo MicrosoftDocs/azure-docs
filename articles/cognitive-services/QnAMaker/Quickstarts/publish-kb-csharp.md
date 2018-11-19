@@ -65,7 +65,7 @@ Build and run the program. It will automatically send the request to the QnA Mak
 
 Once your knowledge base is published, you can query it from the endpoint with a client application or chat bot. 
 
-[!INCLUDE [Clean up files and knowledge base(../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## Next steps
 
