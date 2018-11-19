@@ -129,6 +129,8 @@
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
+  - name: Create your first pipeline
+    href: how-to-create-your-first-pipeline.md 
   - name: Manage resource quotas
     displayName: limits
     href: how-to-manage-quotas.md
