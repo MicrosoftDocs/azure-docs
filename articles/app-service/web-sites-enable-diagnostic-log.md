@@ -69,16 +69,16 @@ By default, logs are not automatically deleted (with the exception of **Applicat
 > If you [regenerate your storage account's access keys](../storage/common/storage-create-storage-account.md), you must reset the respective logging configuration to use the updated keys. To do this:
 >
 > 1. In the **Configure** tab, set the respective logging feature to **Off**. Save your setting.
-> 2. Enable logging to the storage account blob or table again. Save your setting.
+> 2. Enable logging to the storage account blob again. Save your setting.
 >
 >
 
-Any combination of file system, table storage, or blob storage can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.
+Any combination of file system or blob storage can be enabled at the same time, and have individual log level configurations. For example, you may wish to log errors and warnings to blob storage as a long-term logging solution, while enabling file system logging with a level of verbose.
 
-While all three storage locations provide the same basic information for logged events, **table storage** and **blob storage** log additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
+While both storage locations provide the same basic information for logged events, **blob storage** logs additional information such as the instance ID, thread ID, and a more granular timestamp (tick format) than logging to **file system**.
 
 > [!NOTE]
-> Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](https://azure.microsoft.com/downloads/).
+> Information stored in **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](https://azure.microsoft.com/downloads/).
 >
 
 ## <a name="download"></a> How to: Download logs
@@ -155,7 +155,9 @@ To filter specific log types, such as HTTP, use the **--Path** parameter. For ex
 
 ## <a name="understandlogs"></a> How to: Understand diagnostics logs
 ### Application diagnostics logs
-Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system, table storage, or blob storage. The base set of data stored is the same across all three storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message.
+Application diagnostics stores information in a specific format for .NET applications, depending on whether you store logs to the file system or blob storage. 
+
+The base set of data stored is the same across both storage types - the date and time the event occurred, the process ID that produced the event, the event type (information, warning, error), and the event message. Using the file system for log storage is useful when you need immediate access to troubleshoot an issue because the log files are updated near instantaneously. Blob storage is use for archival purposes because the files are cached and then flushed to the storage container on a schedule.
 
 **File system**
 
@@ -169,27 +171,9 @@ For example, an error event would appear similar to the following sample:
 
 Logging to the file system provides the most basic information of the three available methods, providing only the time, process ID, event level, and message.
 
-**Table storage**
-
-When logging to table storage, additional properties are used to facilitate searching the data stored in the table as well as more granular information on the event. The following properties (columns) are used for each entity (row) stored in the table.
-
-| Property name | Value/format |
-| --- | --- |
-| PartitionKey |Date/time of the event in yyyyMMddHH format |
-| RowKey |A GUID value that uniquely identifies this entity |
-| Timestamp |The date and time that the event occurred |
-| EventTickCount |The date and time that the event occurred, in Tick format (greater precision) |
-| ApplicationName |The web app name |
-| Level |Event level (for example, error, warning, information) |
-| EventId |The event ID of this event<p><p>Defaults to 0 if none specified |
-| InstanceId |Instance of the web app that the even occurred on |
-| Pid |Process ID |
-| Tid |The thread ID of the thread that produced the event |
-| Message |Event detail message |
-
 **Blob storage**
 
-When logging to blob storage, data is stored in comma-separated values (CSV) format. Similar to table storage, additional fields are logged to provide more granular information about the event. The following properties are used for each row in the CSV:
+When logging to blob storage, data is stored in comma-separated values (CSV) format. Additional fields are logged to provide more granular information about the event. The following properties are used for each row in the CSV:
 
 | Property name | Value/format |
 | --- | --- |
@@ -209,7 +193,7 @@ The data stored in a blob would look similar to the following example:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> The first line of the log contains the column headers as represented in this example.
+> For ASP.NET Core, logging is accomplished using the [Microsoft.Extensions.Logging.AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) provider This provider deposits additional log files into the blob container. For more information, see [ASP.NET Core logging in Azure](/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#logging-in-azure).
 >
 >
 
