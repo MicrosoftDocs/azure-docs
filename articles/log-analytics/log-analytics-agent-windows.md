@@ -51,7 +51,7 @@ To configure use of the [TLS 1.2](https://docs.microsoft.com/windows-server/secu
     * **Enabled** [Value = 1]
     * **DisabledByDefault** [Value = 0]  
 
-.NET Framework 4.6 or later needs to be configured to support secure cryptography, as by default it is disabled. The [strong cryptography](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) uses more secure network protocols like TLS 1.2, and blocks protocols that are not secure. 
+Configure .NET Framework 4.6 or later to support secure cryptography, as by default it is disabled. The [strong cryptography](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) uses more secure network protocols like TLS 1.2, and blocks protocols that are not secure. 
 
 1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319**.  
 2. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**.  
@@ -89,7 +89,7 @@ The following table highlights the specific Log Analytics parameters supported b
 |---------------------------------------|--------------|
 | NOAPM=1                               | Optional parameter. Installs the agent without .NET Application Performance Monitoring.|   
 |ADD_OPINSIGHTS_WORKSPACE               | 1 = Configure the agent to report to a workspace                |
-|OPINSIGHTS_WORKSPACE_ID                | Workspace Id (guid) for the workspace to add                    |
+|OPINSIGHTS_WORKSPACE_ID                | Workspace ID (guid) for the workspace to add                    |
 |OPINSIGHTS_WORKSPACE_KEY               | Workspace key used to initially authenticate with the workspace |
 |OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE  | Specify the cloud environment where the workspace is located <br> 0 = Azure commercial cloud (default) <br> 1 = Azure Government |
 |OPINSIGHTS_PROXY_URL               | URI for the proxy to use |
