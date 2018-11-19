@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Tutorial: Train an image classification model with Azure Machine Learning service"
 description: This tutorial shows how to use Azure Machine Learning service to train an image classification model with scikit-learn in a Python Jupyter notebook. This tutorial is part one of a two-part series. 
 services: machine-learning
@@ -90,7 +90,7 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### Create remote compute target
 
-Azure Azure ML Managed Compute is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Managed Compute cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
+Azure ML Managed Compute is a managed service that enables data scientists to train machine learning models on clusters of Azure virtual machines, including VMs with GPU support.  In this tutorial, you create an Azure Managed Compute cluster as your training environment. This code creates a cluster for you if it does not already exist in your workspace. 
 
  **Creation of the cluster takes approximately 5 minutes.** If the cluster is already in the workspace this code uses it and skips the creation process.
 
