@@ -64,6 +64,7 @@ The information in this article can help you understand and resolve common issue
 ## Key size
 
 **Failure** - Key size is smaller than 2048.
+
 **Remediation** - Use the steps in [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md) to regenerate the CSR with the correct key length (2048), and then resubmit the CSR to the Certificate Authority.
 
 ## Chain order
