@@ -25,7 +25,7 @@ Azure Monitor for containers can be enabled for new deployments of AKS using the
 * Deploy a managed Kubernetes cluster from the Azure portal or with Azure CLI
 * Creating a Kubernetes cluster using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
-You can enable monitoring for one or more existing AKS clusters from the Azure portal or with Azure CLI. 
+You can also enable monitoring for one or more existing AKS clusters from the Azure portal or with Azure CLI. 
 
 ## Prerequisites 
 Before you start, make sure that you have the following:
