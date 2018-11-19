@@ -47,7 +47,7 @@ After the preceding required dependencies, add the required constants to access 
 
 The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
-[!code-go[Add a POST request to publish KB](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=35-48 "Add a POST request to publish KB")]
+[!code-python[Add a POST request to publish KB](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=35-48 "Add a POST request to publish KB")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 

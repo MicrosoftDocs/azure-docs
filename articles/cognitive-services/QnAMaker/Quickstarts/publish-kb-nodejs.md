@@ -54,7 +54,7 @@ After the preceding required dependencies, add the required constants to access 
 
 The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
-[!code-nodejs[Add a POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.java?range=16-47 "Add a POST request to publish KB")]
+[!code-nodejs[Add a POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=16-47 "Add a POST request to publish KB")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
