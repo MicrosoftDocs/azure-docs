@@ -35,19 +35,19 @@ Create a file named `publish-kb-3x.py`.
 
 At the top of `publish-kb-3x.py`, add the following lines to add necessary dependencies to the project:
 
-[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=3-7 "Add the required dependencies")]
+[!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=1-1 "Add the required dependencies")]
 
 ## Add required constants
 
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
 
-[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=16-20 "Add the required constants")]
+[!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=5-15 "Add the required constants")]
 
 ## Add POST request to publish KB
 
 The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
 
-[!code-python[Add a POST request to publish KB](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=35-48 "Add a POST request to publish KB")]
+[!code-python[Add a POST request to publish KB](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=17-26 "Add a POST request to publish KB")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
