@@ -140,7 +140,7 @@ Add this function to `web.md`:
 
 If you open-up `http://yourdomain.cloudapp.net/make_call` in a browser, that will trigger the call to the Twilio API to make the phone call. The first two parameters in `client.account.calls.create` are fairly self-explanatory: the number the call is `from` and the number the call is `to`. 
 
-The third parameter (`url`) is the URL that Twilio requests to get instructions on what to do once the call is connected. In this case we set-up a URL (`http://yourdomain.cloudapp.net`) that returns a simple TwiML document and uses the `<Say>` verb to do some text-to-speech and say "Hello Monkey" to the person recieving the call.
+The third parameter (`url`) is the URL that Twilio requests to get instructions on what to do once the call is connected. In this case we set-up a URL (`http://yourdomain.cloudapp.net`) that returns a simple TwiML document and uses the `<Say>` verb to do some text-to-speech and say "Hello Monkey" to the person receiving the call.
 
 ## <a id="howto_receive_sms"></a>How to: Receive an SMS message
 In the previous example we initiated an **outgoing** phone call. This time, let's use the phone number that Twilio gave us during sign-up to process an **incoming** SMS message.

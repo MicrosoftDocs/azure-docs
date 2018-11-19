@@ -142,7 +142,7 @@
     items:
     - name: Managed instances
       href: sql-database-managed-instance-index.yml
-    - name: What is Managed Instance
+    - name: Overview
       href: sql-database-managed-instance.md
     - name: Resource limits
       href: sql-database-managed-instance-resource-limits.md
@@ -162,15 +162,15 @@
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Transactional replication
       href: replication-with-sql-database-managed-instance.md
-  - name: Business continuity
+  - name: Platform as a Service
     items:
+    - name: Platform as a Service
+      href: sql-database-paas.yml
     - name: Business continuity
       href: sql-database-business-continuity.md
     - name: High availability
       href: sql-database-high-availability.md
-    - name: Accelerated database recovery
-      href: sql-database-accelerated-database-recovery.md
-    - name: Database backups
+    - name: Automated backups
       href: sql-database-automated-backups.md
     - name: Long-term backup retention
       items:
@@ -192,6 +192,8 @@
       items:
       - name: Recovery using backups
         href: sql-database-recovery-using-backups.md
+      - name: Accelerated database recovery
+        href: sql-database-accelerated-database-recovery.md
       - name: Outage recovery guidance
         href: sql-database-disaster-recovery.md
       - name: Recovery drills
@@ -207,6 +209,8 @@
   - name: Security   
     items:
     - name: Security
+      href: sql-database-security-index.yml
+    - name: Overview
       href: sql-database-security-overview.md
     - name: Advanced Threat Protection
       items:
