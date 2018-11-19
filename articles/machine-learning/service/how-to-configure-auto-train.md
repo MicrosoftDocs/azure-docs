@@ -13,22 +13,22 @@ ms.date: 11/07/2018
 
 # Configure your automated machine learning experiment
 
-Automated machine learning (Automated ML) picks an algorithm and hyperparameters for you and generates a model ready for deployment. The model can be downloaded to be further customized as well. There are several options that you can use to configure Automated ML experiments. In this guide, you will learn how to define various configuration settings.
+Automated machine learning picks an algorithm and hyperparameters for you and generates a model ready for deployment. You can download the  model and further customize it as well. There are several options that you can use to configure automated machine learning experiments. In this guide, learn how to define various configuration settings.
 
-To view examples of an automated ML, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
+To view examples of an automated machine learning, see [Tutorial: Train a classification model with automated machine learning](tutorial-auto-train-models.md) or [Train models with automated machine learning in the cloud](how-to-auto-train-remote.md).
 
 Configuration options available in automated machine learning:
 
 * Select your experiment type, for example,  Classification, Regression 
 * Data source, formats, and fetch data
 * Choose your compute target (local or remote)
-* Automated ML experiment settings
-* Run an automated ML experiment
+* Automated machine learning experiment settings
+* Run an automated machine learning experiment
 * Explore model metrics
 * Register and deploy model
 
 ## Select your experiment type
-Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated ML supports two categories of supervised learning: Classification and Regression. Automated ML supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
+Before you begin your experiment, you should determine the kind of machine learning problem you are solving. Automated machine learning supports two categories of supervised learning: Classification and Regression. Automated machine learning supports the following algorithms during the automation and tuning process. As a user, there is no need for you to specify the algorithm.
 Classification | Regression |
 --|-- |--
 [Logistic Regression](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Elastic Net](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
@@ -44,16 +44,14 @@ Classification | Regression |
 [Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|
 
 
-
-## Data Pre-processing and Data Prep
-Automated ML supports two options for data preparation 1) Using AzureML.DataPrep SDK 2) Data Prep 
-
 ## Data source and format
-Automated ML supports data that resides on your local desktop or in the cloud in Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into 1) Numpy arrays X (features) and y (target variable or also known as label) 2) Pandas dataframe 
+Automated machine learning supports data that resides on your local desktop or in the cloud in Azure Blob Storage. The data can be read into scikit-learn supported data formats. You can read the data into:
+* Numpy arrays X (features) and y (target variable or also known as label)
+* Pandas dataframe 
 
 Examples:
 
-1.	Numpy arrays
+*	Numpy arrays
 
     ```python
     digits = datasets.load_digits()
@@ -61,7 +59,7 @@ Examples:
     y_digits = digits.target
     ```
 
-2.	Pandas dataframe
+*	Pandas dataframe
 
     ```python
     Import pandas as pd
@@ -76,7 +74,7 @@ Examples:
 
 ## Fetch data for running experiment on remote compute
 
-If you are using a remote compute to run your experiment, the data fetch must be wrapped in a separate python script `get_data()`. This script is run on the remote compute where the automated ML experiment is run. `get_data` eliminates the need to fetch the data over the wire for each iteration. Without `get_data`, your experiment will fail when you run on remote compute.
+If you are using a remote compute to run your experiment, the data fetch must be wrapped in a separate python script `get_data()`. This script is run on the remote compute where the automated machine learning experiment is run. `get_data` eliminates the need to fetch the data over the wire for each iteration. Without `get_data`, your experiment will fail when you run on remote compute.
 
 Here is an example of `get_data`:
 
@@ -103,7 +101,7 @@ In your `AutoMLConfig` object, you specify the `data_script` parameter and provi
 automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`get_data` script can return the following:
+`get_data` script can return:
 Key	| Type |	Mutually Exclusive with	| Description
 ---|---|---|---
 X |	Pandas Dataframe or Numpy Array	| data_train, label, columns |	All features to train with
@@ -125,7 +123,7 @@ You can specify separate train and validation set either through get_data() or d
 
 ### K-Folds Cross Validation
 
-Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. Finally, the average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
+Use `n_cross_validations` setting to specify the number of cross validations. The training data set will be randomly split into `n_cross_validations` folds of equal size. During each cross validation round, one of the folds will be used for validation of the model trained on the remaining folds. This process repeats for `n_cross_validations` rounds until each fold is used once as validation set. The average scores across all `n_cross_validations` rounds will be reported, and the corresponding model will be retrained on the whole training data set.
 
 ### Monte Carlo Cross Validation (a.k.a. Repeated Random Sub-Sampling)
 
@@ -137,19 +135,19 @@ Use custom validation dataset if random split is not acceptable (usually time se
 
 ## Compute to run experiment
 
-Next determine where the model will be trained. An automated ML training experiment runs on a compute target that you own and manage. 
+Next determine where the model will be trained. An automated machine learning training experiment runs on a compute target that you own and manage. 
 
 Compute options supported are:
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
 *	A remote machine in the cloud – [Azure Machine Learning Managed Compute](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines, for example,  Linux Data Science Virtual Machines or Azure Batch AI.
 
-[Github site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) contains example notebooks of local and remote compute targets.
+See the [Github site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) for example notebooks with local and remote compute targets.
 
 <a name='configure-experiment'/>
 
 ## Configure your experiment settings
 
-There are several knobs that you can use to configure your automated ML experiment. These parameters are set by instantiating an `AutoMLConfig` object.
+There are several options that you can use to configure your automated machine learning experiment. These parameters are set by instantiating an `AutoMLConfig` object.
 
 Some examples include:
 
@@ -183,8 +181,8 @@ This table lists parameter settings available for your experiment and their defa
 Property |	Description	| Default Value
 --|--|--
 `task`	|Specify the type of machine learning problem. Allowed values are <li>classification</li><li>regression</li>	| None |
-`primary_metric` |Metric that you want to optimize in building your model. For example, if you specify accuracy as the primary_metric, Automated ML looks to find a model with maximum accuracy. You can only specify one primary_metric per experiment. Allowed values are <br/>**Classification**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score	 </li> | For Classification: accuracy <br/>For Regression: spearman_correlation <br/> |
-`exit_score` |	You can set a target value for your primary_metric. Once a model is found that meets the primary_metric target, Automated ML will stop iterating and the experiment terminates. If this value is not set (default), Automated ML experiment will continue to run the number of iterations specified in iterations. Takes a double value. If the target never reaches, then Automated ML will continue until it reaches the number of iterations specified in iterations.|	None
+`primary_metric` |Metric that you want to optimize in building your model. For example, if you specify accuracy as the primary_metric, automated machine learning looks to find a model with maximum accuracy. You can only specify one primary_metric per experiment. Allowed values are <br/>**Classification**:<br/><li> accuracy  </li><li> AUC_weighted</li><li> precision_score_weighted </li><li> balanced_accuracy </li><li> average_precision_score_weighted </li><br/>**Regression**: <br/><li> normalized_mean_absolute_error </li><li> spearman_correlation </li><li> normalized_root_mean_squared_error </li><li> normalized_root_mean_squared_log_error</li><li> R2_score	 </li> | For Classification: accuracy <br/>For Regression: spearman_correlation <br/> |
+`exit_score` |	You can set a target value for your primary_metric. Once a model is found that meets the primary_metric target, automated machine learning will stop iterating and the experiment terminates. If this value is not set (default), Automated machine learning experiment will continue to run the number of iterations specified in iterations. Takes a double value. If the target never reaches, then Automated machine learning will continue until it reaches the number of iterations specified in iterations.|	None
 `iterations` |Maximum number of iterations. Each iteration is equal to a training job that results in a pipeline. Pipeline is data preprocessing and model. To get a high-quality model, use 250 or more	| 100
 `Concurrent_iterations`|	Max number of iterations to run in parallel. This setting works only for remote compute.|	1
 `max_cores_per_iteration`	| Indicates how many cores on the compute target would be used to train a single pipeline. If the algorithm can leverage multiple cores, then this increases the performance on a multi-core machine. You can set it to -1 to use all the cores available on the machine.|	1
@@ -192,7 +190,7 @@ Property |	Description	| Default Value
 `n_cross_validations`	|Number of cross validation splits|	None
 `validation_size`	|Size of validation set as percentage of all training sample.|	None
 `preprocess` | True/False <br/>True enables experiment to perform preprocessing on the input. Following is a subset of preprocessing<li>Missing Data: Imputes the missing data- Numerical with Average, Text with most occurrence </li><li>Categorical Values: If data type is numeric and number of unique values is less than 5 percent, Converts into one-hot encoding </li><li>Etc. for complete list check [the GitHub repository](https://aka.ms/aml-notebooks)</li><br/>Note : if data is sparse you cannot use preprocess = true |	False |	
-`blacklist_algos`	| Automated ML experiment has many different algorithms that it tries. Configure Automated ML to exclude certain algorithms from the experiment. Useful if you are aware that algorithm(s) do not work well for your dataset. Excluding algorithms can save you compute resources and training time.<br/>Allowed values for Classification<br/><li>logistic regression</li><li>SGD classifier</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra trees</li><li>gradient boosting</li><li>lgbm_classifier</li><br/>Allowed values for Regression<br/><li>Elastic net</li><li>Gradient boosting regressor</li><li>DT regressor</li><li>kNN regressor</li><li>Lasso lars</li><li>SGD regressor</li><li>RF regressor</li><li>extra trees regressor</li>|	None
+`blacklist_algos`	| Automated machine learning experiment has many different algorithms that it tries. Configure to exclude certain algorithms from the experiment. Useful if you are aware that algorithm(s) do not work well for your dataset. Excluding algorithms can save you compute resources and training time.<br/>Allowed values for Classification<br/><li>logistic regression</li><li>SGD classifier</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>extra trees</li><li>gradient boosting</li><li>lgbm_classifier</li><br/>Allowed values for Regression<br/><li>Elastic net</li><li>Gradient boosting regressor</li><li>DT regressor</li><li>kNN regressor</li><li>Lasso lars</li><li>SGD regressor</li><li>RF regressor</li><li>extra trees regressor</li>|	None
 `verbosity`	|Controls the level of logging with INFO being the most verbose and CRITICAL being the least.<br/>Allowed values are:<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>	| logging.INFO</li> 
 `X`	| All features to train with |	None
 `y` |	Label data to train with. For classification, should be an array of integers.|	None
@@ -216,7 +214,7 @@ If you use `preprocess=True`, the following data preprocessing steps are perform
     *	For categorical features, impute missing values with most frequent value.
 1.	Generate additional features
     * For DateTime features: Year, Month, Day, Day of week, Day of year, Quarter, Week of the year, Hour, Minute, Second.
-    * For Text features: Term frequency based on word unigram, bi-grams and tri-gram, Count vectorizer.
+    * For Text features: Term frequency based on word unigram, bi-grams, and tri-gram, Count vectorizer.
 1.	Transformations and encodings
     * Numeric features with very few unique values transformed into categorical features.
     * Depending on cardinality of categorical features, perform label encoding or (hashing) one-hot encoding.
@@ -231,7 +229,7 @@ run = experiment.submit(automl_config, show_output=True)
 
 >[!NOTE]
 >Dependencies are first installed on a new machine.  It may take up to 10 minutes before output is shown.
->Setting `show_output` to True results in output being shown on the console.
+>Setting `show_output` to `True` results in output being shown on the console.
 
 
 ## Explore model metrics
@@ -281,13 +279,13 @@ normalized_root_mean_squared_error|Normalized root mean squared error is root me
 root_mean_squared_log_error|Root mean squared log error is the square root of the expected squared logarithmic error|[Calculation](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|None|
 normalized_root_mean_squared_log_error|Noramlized Root mean squared log error is root mean squared log error divided by the range of the data|[Calculation](http://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|Divide by range of the data||
 
-## Explaining the model
+## Explain the model
 
-Automated ML allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You need to provide an validation dataset (X_valid) to get feature importance during training.
+Automated machine learning allows you to understand feature importance.  During the training process, you can get global feature importance for the model.  For classification scenarios, you can also get class-level feature importance.  You must provide a validation dataset (X_valid) to get feature importance.
 
-There are 2 ways to generate feature importance.
+There are two ways to generate feature importance.
 
-*	Once an AutoML experiment is complete, you can use explain_model method on any iteration.
+*	Once an experiment is complete, you can use `explain_model` method on any iteration.
 
     ```
     from azureml.train.automl.automlexplainer import explain_model
@@ -304,7 +302,7 @@ There are 2 ways to generate feature importance.
     print(per_class_summary) 
     ```
 
-*	If you want to view feature importance for all iterations, set `model_explainability` flag to `True` in AutoMLConfig.  
+*	To view feature importance for all iterations, set `model_explainability` flag to `True` in AutoMLConfig.  
 
     ```
     automl_config = AutoMLConfig(task = 'classification',
@@ -329,7 +327,7 @@ There are 2 ways to generate feature importance.
     shap_values, expected_values, overall_summary, overall_imp, per_class_summary, per_class_imp = \
         retrieve_model_explanation(best_run)
     
-    #Overall fea    ture importance
+    #Overall feature importance
     print(overall_imp)
     print(overall_summary) 
     
@@ -350,4 +348,4 @@ RunDetails(local_run).show()
 
 Learn more about [how and where to deploy a model](how-to-deploy-and-where.md).
 
-Learn more about [how to train a classification model with Automated ML](tutorial-auto-train-models.md) or [how to train using Automated ML on a remote resource](how-to-auto-train-remote.md). 
+Learn more about [how to train a classification model with Automated machine learning](tutorial-auto-train-models.md) or [how to train using Automated machine learning on a remote resource](how-to-auto-train-remote.md). 
