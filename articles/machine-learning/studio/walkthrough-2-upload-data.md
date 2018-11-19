@@ -4,7 +4,8 @@ description: 'Step 2 of the Develop a predictive solution walkthrough: Upload st
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 
