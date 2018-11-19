@@ -1,6 +1,6 @@
 ---
-title: Automatic and online backup and on-demand data restore in Azure Cosmos DB
-description: This article describes how Azure Cosmos DB provides high availability
+title: Automatic, online backup and on-demand data restore in Azure Cosmos DB
+description: This article describes how automatic, online backup and on-demand data restore works in Azure Cosmos DB.
 author: kanshiG
 
 ms.service: cosmos-db
@@ -11,7 +11,7 @@ ms.reviewer: sngun
 
 ---
 
-# Automatic and online backup and on-demand data restore in Azure Cosmos DB
+# Online backup and on-demand data restore in Azure Cosmos DB
 
 Azure Cosmos DB automatically takes backups of your data at regular intervals. The automatic backups are taken without affecting the performance or availability of the database operations. All the backups are stored separately in a storage service, and those backups are globally replicated for resiliency against regional disasters. The automatic backups are helpful in scenarios when you accidentally delete or update your Azure Cosmos account, database, or container and later require the data recovery.
 
@@ -43,15 +43,15 @@ Azure Cosmos DB takes snapshots of your data every four hours. At any given time
 
 Accidental deletion or modification of data can happen in one of the following scenarios:  
 
-1. The entire Azure Cosmos account is deleted
+* The entire Azure Cosmos account is deleted
 
-1. One or more Azure Cosmos databases are deleted
+* One or more Azure Cosmos databases are deleted
 
-1. One or more Azure Cosmos containers are deleted
+* One or more Azure Cosmos containers are deleted
 
-1. Azure Cosmos items (for example, documents) within a container are deleted or modified. This specific case is typically referred to as “data corruption”.
+* Azure Cosmos items (for example, documents) within a container are deleted or modified. This specific case is typically referred to as “data corruption”.
 
-1. A shared offer database or containers within a shared offer database are deleted or corrupted
+* A shared offer database or containers within a shared offer database are deleted or corrupted
 
 Azure Cosmos DB can restore data in all the above scenarios. The restore process always creates a new Azure Cosmos account to hold the restored data. The name of the new account, if not specified, will have the format `<Azure_Cosmos_account_original_name>-restored1`. The last digit is incremented, if multiple restores are attempted. You can’t restore data to a pre-created Azure Cosmos account.
 
