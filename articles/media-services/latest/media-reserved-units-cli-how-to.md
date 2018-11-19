@@ -18,12 +18,12 @@ ms.author: juliako
 ---
 # Scaling media processing
 
-Azure Media Services enables you to scale media processing in your account by managing Media Reserved Units (MRUs). For detailed overview, see [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). This article shows how to use [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) to scale MRUs.
+Azure Media Services enables you to scale media processing in your account by managing Media Reserved Units (MRUs). For detailed overview, see [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
 
-> [!IMPORTANT]
-> Review considerations described in [this section](#considerations).  
-> 
->
+This article shows how to use [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) to scale MRUs.
+
+> [!NOTE]
+> For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs. <br/>If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
 
 ## Prerequisites 
 
@@ -38,13 +38,8 @@ Azure Media Services enables you to scale media processing in your account by ma
 The following [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest) command sets Media Reserved Units on the "amsaccount" account using the **count** and **type** parameters.
 
 ```azurecli
-az account set mru -n amsaccount -g amsResourceGroup --count 10 type S3
+az account set mru -n amsaccount -g amsResourceGroup --count 10 --type S3
 ```
-
-## Considerations
-
-- For the Audio Analysis and Video Analysis Jobs that are triggered by Media Services v3 or Video Indexer, it is highly recommended to provision your account with 10 S3 MRUs.
-- If you need more than 10 S3 MRUs, open a support ticket using the [Azure portal](https://portal.azure.com/).
 
 ## Billing
 

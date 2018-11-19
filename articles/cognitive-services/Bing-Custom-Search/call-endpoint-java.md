@@ -118,7 +118,7 @@ To run this example, follow these steps:
     }
     
     // Container class for search results encapsulates relevant headers and JSON data
-    class SearchResults{
+    static class SearchResults{
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {
