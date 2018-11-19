@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/15/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 
@@ -22,17 +22,23 @@ ms.reviewer: quying
 
 Before you remove the SQL resource provider, you must remove all the provider dependencies. You'll also need a copy of the deployment package that was used to install the resource provider.
 
-There are several cleanup tasks to do before you run the _DeploySqlProvider.ps1_ script to remove the resource provider.
-The tenants are responsible for the following cleanup tasks:
+> [!NOTE]
+> You can find the download links for the resource provider installers in [Deploy the resource provider prerequisites](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+
+## Dependency cleanup
+
+There are several cleanup tasks to do before you run the DeploySqlProvider.ps1 script to remove the resource provider.
+
+Azure Stack tenant users are responsible for the following cleanup tasks:
 
 * Delete all their databases from the resource provider. (Deleting the tenant databases doesn't delete the data.)
-* Unregister from the resource provider namespace.
+* Unregister from the provider namespace.
 
-The administrator is responsible for the following cleanup tasks:
+The Azure Stack Operator is responsible for the following cleanup tasks:
 
-* Deletes the hosting servers from the SQL resource provider.
-* Deletes any plans that reference the SQL resource provider.
-* Deletes any quotas that are associated with the SQL resource provider.
+* Deletes the hosting servers from the MySQL Adapter.
+* Deletes any plans that reference the MySQL Adapter.
+* Deletes any quotas that are associated with the MySQL Adapter.
 
 ## To remove the SQL resource provider
 

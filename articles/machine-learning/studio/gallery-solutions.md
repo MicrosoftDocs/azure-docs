@@ -4,7 +4,8 @@ description: Discover Solutions in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
 
@@ -19,11 +20,8 @@ ms.date: 03/31/2017
 
 ---
 # Discover Solutions in the Azure AI Gallery
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## Solutions
-A
-**[Solution](https://gallery.cortanaintelligence.com/solutions)** in the Gallery
+A **[Solution](https://gallery.cortanaintelligence.com/solutions)** in [Azure AI Gallery](http://gallery.cortanaintelligence.com)
 provides a jumpstart to quickly build Cortana Intelligence Solutions from preconfigured solutions, reference architectures, and design patterns.
 Make them your own with the included instructions or with a featured partner.  
 

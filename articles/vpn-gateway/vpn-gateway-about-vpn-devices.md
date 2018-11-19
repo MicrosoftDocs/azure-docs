@@ -35,7 +35,7 @@ A VPN device is required to configure a Site-to-Site (S2S) cross-premises VPN co
 
 In partnership with device vendors, we have validated a set of standard VPN devices. All of the devices in the device families in the following list should work with VPN gateways. See [About VPN Gateway Settings](vpn-gateway-about-vpn-gateway-settings.md#vpntype) to understand the VPN type use (PolicyBased or RouteBased) for the VPN Gateway solution you want to configure.
 
-To help configure your VPN device, refer to the links that correspond to appropriate device family. The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
+To help configure your VPN device, refer to the links that correspond to the appropriate device family. The links to configuration instructions are provided on a best-effort basis. For VPN device support, contact your device manufacturer.
 
 |**Vendor**          |**Device family**     |**Minimum OS version** |**PolicyBased configuration instructions** |**RouteBased configuration instructions** |
 | ---                | ---                  | ---                   | ---            | ---           |

@@ -19,11 +19,8 @@ ms.author: deguhath
 
 ---
 # Create Hive tables and load data from Azure Blob Storage
-This topic presents generic Hive queries that create Hive tables and load data from Azure blob storage. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
-This **menu** links to topics that describe how to ingest data into target environments where the data can be stored and processed during the Team Data Science Process (TDSP).
-
-[!INCLUDE [cap-ingest-data-selector](../../../includes/cap-ingest-data-selector.md)]
+This article presents generic Hive queries that create Hive tables and load data from Azure blob storage. Some guidance is also provided on partitioning Hive tables and on using the Optimized Row Columnar (ORC) formatting to improve query performance.
 
 ## Prerequisites
 This article assumes that you have:
