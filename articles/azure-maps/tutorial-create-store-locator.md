@@ -3,7 +3,7 @@ title: Create a store locator using Azure Maps | Microsoft Docs
 description: Create a store locator by using Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/14/2018
+ms.date: 11/15/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
@@ -938,6 +938,12 @@ In this tutorial, you learn how to create a basic store locator by using Azure M
 * Add support to specify an initial search value by using a query string. When you include this option in your store locator, users can bookmark and share searches. It  also provides an easy method for you to pass searches to this page from another page.  
 * Deploy your store locator as an [Azure App Service Web App](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-html). 
 * Store your data in a database and search for nearby locations. To learn more, see the [SQL Server spatial data types overview](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) and [Query spatial data for the nearest neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+
+You can access the code sample for this tutorial here:
+
+> [Create a store locator by using Azure Maps](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)
+
+[See the sample live here](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator)
 
 To learn more about the coverage and capabilities of Azure Maps:
 
