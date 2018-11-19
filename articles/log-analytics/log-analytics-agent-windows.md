@@ -45,7 +45,7 @@ Before installing the Microsoft Monitoring Agent for Windows, you need the works
 To configure use of the [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protocol for communication between the Windows agent and the Log Analytics service, you can follow the steps below to enable before the agent is installed on the virtual machine or afterwards.   
 
 1. Create a subkey under Protocols for TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
-2. Create a **Client** asubkey under the TLS 1.2 protocol version subkey you created earlier. For example, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+2. Create a **Client** subkey under the TLS 1.2 protocol version subkey you created earlier. For example, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
 3. Create the following DWORD values under **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
 
     * **Enabled** [Value = 1]
@@ -62,7 +62,7 @@ To configure use of the [TLS 1.2](https://docs.microsoft.com/windows-server/secu
 ## Install the agent using setup wizard
 The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud by using the setup wizard for the Microsoft Monitoring Agent on your computer.  
 
-1. In your Log Analyics workspace, from the **Windows Servers** page you navigated to earlier, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.   
+1. In your Log Analytics workspace, from the **Windows Servers** page you navigated to earlier, select the appropriate **Download Windows Agent** version to download depending on the processor architecture of the Windows operating system.   
 2. Run Setup to install the agent on your computer.
 2. On the **Welcome** page, click **Next**.
 3. On the **License Terms** page, read the license and then click **I Agree**.
@@ -100,13 +100,13 @@ The following table highlights the specific Log Analytics parameters supported b
 2. To silently install the agent and configure it to report to a workspace in Azure commercial cloud, from the folder you extracted the setup files to type: 
    
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
    or to configure the agent to report to Azure US Government cloud, type: 
 
      ```dos
-    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace id> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
+    setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID=<your workspace ID> OPINSIGHTS_WORKSPACE_KEY=<your workspace key> AcceptEndUserLicenseAgreement=1
     ```
 
 ## Install the agent using DSC in Azure Automation
