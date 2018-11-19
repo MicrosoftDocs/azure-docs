@@ -40,7 +40,7 @@ After you have set the signature algorithm with one of the two processes below, 
 1. On any AD FS server, open PowerShell under administrator privileges.
 2. Set the secure hash algorithm by using the **Set-AdfsRelyingPartyTrust** cmdlet.
    
-   <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'http://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
+   <code>Set-AdfsRelyingPartyTrust -TargetName 'Microsoft Office 365 Identity Platform' -SignatureAlgorithm 'https://www.w3.org/2001/04/xmldsig-more#rsa-sha256'</code>
 
 ## Also read
 * [Repair Office 365 trust with Azure AD Connect](how-to-connect-fed-management.md#repairthetrust)
