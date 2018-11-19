@@ -68,4 +68,4 @@ Use the Databricks notebooks to predict income based on [census dataset](https:/
 
 ## Next steps
 
-See the [Databrics notebooks on GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks).
+See the [Databricks notebooks on GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/databricks).
