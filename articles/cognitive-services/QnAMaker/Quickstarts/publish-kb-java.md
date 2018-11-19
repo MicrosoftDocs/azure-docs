@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Publish knowledge base - REST, Java - QnA Maker"
 titleSuffix: Azure Cognitive Services 
-description: This REST-based quickstart walks you through publishing your KB which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
+description: This REST-based quickstart walks you through publishing your knowledge base which pushes the latest version of the tested knowledge base to a dedicated Azure Search index representing the published knowledge base. It also creates an endpoint that can be called in your application or chat bot.
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -63,11 +63,11 @@ After the preceding required dependencies, add the required constants to access 
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=27-30 "Add the required constants")]
 
-## Add POST request to publish KB
+## Add POST request to publish knowledge base
 
-The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
+The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
-[!code-java[Add a POST request to publish KB](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=32-44 "Add a POST request to publish KB")]
+[!code-java[Add a POST request to publish knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=32-44 "Add a POST request to publish knowledge base")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
@@ -89,7 +89,7 @@ Build and run the program from the command line. It will automatically send the 
     java -cp ".;lib/*" PublishKB
     ```
 
-[!INCLUDE [Clean up files and KB](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base](../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## Next steps
 

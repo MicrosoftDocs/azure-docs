@@ -50,11 +50,11 @@ After the preceding required dependencies, add the required constants to access 
 
 [!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=11-14 "Add required constants")]
 
-## Add POST request to publish KB
+## Add POST request to publish knowledge base
 
-The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
+The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
-[!code-nodejs[Add a POST request to publish KB](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=16-47 "Add a POST request to publish KB")]
+[!code-nodejs[Add a POST request to publish knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=16-47 "Add a POST request to publish knowledge base")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
@@ -62,7 +62,7 @@ For any other response, that response is returned unaltered.
 
 ## Run the program
 
-Build and run the program. It will automatically send the request to the QnA Maker API to publish the KB, then the response is printed to the console window.
+Build and run the program. It will automatically send the request to the QnA Maker API to publish the knowledge base, then the response is printed to the console window.
 
 Once your knowledge base is published, you can query it from the endpoint with a client application or chat bot. 
 
