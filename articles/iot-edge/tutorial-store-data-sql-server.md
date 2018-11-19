@@ -15,7 +15,7 @@ ms.custom: mvc
 
 # Tutorial: Store data at the edge with SQL Server databases
 
-Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge comes built-in with basic storage features that cache messages if a device goes offline and then forwards them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. By incorporating local databases, your IoT Edge devices can perform more complex computing without having to maintain a connection to IoT Hub. For example, a field technician can visualize the last few days of sensor data on a machine locally, even though that data is only uploaded to the cloud once a month to help improve a machine learning model.
+Use Azure IoT Edge and SQL Server to store and query data at the edge. Azure IoT Edge has basic storage capabilities to cache messages if a device goes offline, and then forward them when the connection is reestablished. However, you may want more advanced storage capabilities, like being able to query data locally. By incorporating local databases, your IoT Edge devices can perform more complex computing without having to maintain a connection to IoT Hub. For example, a sensor on a machine uploads data to the cloud once a month for reporting and improving a machine learning module. However, if a field technician is working on the machine, they can access the last few days of sensor data locally.
 
 This article provides instructions for deploying a SQL Server database to an IoT Edge device. Azure Functions, running on the IoT Edge device, structures the incoming data then sends it to the database. The steps in this article can also be applied to other databases that work in containers, like MySQL or PostgreSQL.
 
@@ -196,7 +196,7 @@ The following steps show you how to create an IoT Edge function using Visual Stu
    }
    ```
 
-6. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container name, which you will create with the name **SQL** in the next section. 
+6. In line 35, replace the string **\<sql connection string\>** with the following string. The **Data Source** property references the SQL Server container name, which you create with the name **SQL** in the next section. 
 
    ```csharp
    Data Source=tcp:sql,1433;Initial Catalog=MeasurementsDB;User Id=SA;Password=Strong!Passw0rd;TrustServerCertificate=False;Connection Timeout=30;
@@ -265,7 +265,8 @@ In the previous sections, you created a solution with one module, and then added
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
-    You will be prompted for the password. Paste your password into the prompt (it will ) and press **Enter**. 
+    
+    You are prompted for the password. Paste your password into the prompt (you password is hidden for security) and press **Enter**. 
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
