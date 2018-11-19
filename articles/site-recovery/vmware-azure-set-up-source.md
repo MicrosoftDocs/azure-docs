@@ -62,10 +62,10 @@ Exclude following folders from Antivirus software for smooth replication and to 
  - C:\ProgramData\ASR
  - C:\ProgramData\Microsoft Azure Site Recovery
  - C:\ProgramData\ASRLogs
- 13. C:\ProgramData\ASRSetupLogs
- 14. C:\ProgramData\LogUploadServiceLogs
- 15. C:\inetpub
- 16. ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
+ - C:\ProgramData\ASRSetupLogs
+ - C:\ProgramData\LogUploadServiceLogs
+ - C:\inetpub
+ - ASR server installation directory. For example: E:\Program Files (x86)\Microsoft Azure Site Recovery
 
 ### If Antivirus Software is active on scale-out Process server/Master Target
 
