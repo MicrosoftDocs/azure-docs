@@ -8,6 +8,7 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/5/2018
 ms.author: lastcoolnameleft
+#Customer intent: As an AKS Cluster Operator, I want plan for Business Continuity/Disaster Recovery so that my cluster is resilient from region issues.
 ---
 # Best practices for Business Continuity and Disaster Recovery in Azure Kubernetes Service (AKS)
 
@@ -24,15 +25,17 @@ This best practices article focuses on considerations that help you plan for Bus
 
 ## Plan for Multi-region Deployment
 
-**Best practice guidance** - When deploying multiple AKS clusters for BC/DR, use regions where both AKS is available that are also Azure Paired Regions.
+**Best practice guidance** - When deploying multiple AKS clusters for BC/DR, use regions where both AKS clusters are available that are also Azure Paired Regions.
 
-A single AKS cluster is only available for one region, so to protect yourself from region failure, you should distribute your application across multiple AKS clusters in different regions.  When planning which regions to deploy your AKS cluster, you should consider:
+An AKS cluster is deployed into a single region. To protect yourself from region failure, deploy your application into separate AKS clusters, each deployed in a different region.  When planning which regions to deploy your AKS cluster, you should consider:
 
 * [AKS Region Availibility](https://docs.microsoft.com/en-us/azure/aks/container-service-quotas#region-availability)
 * [Azure Paired Regions](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions)
 * Service Availibility Level (Hot/Hot, Hot/Warm, Hot/Cold)
 
 AKS Region Availibility and Azure Paired Regions should be considered jointly so that you deploy your AKS clusters into paired regions that are designed to manage region disaster recovery together.
+
+For example, AKS is available in East US and West US, which are also Paired Regions, so these two regions are recommended when creating an AKS BC/DR strategy.
 
 ## Use Azure Traffic Manager to Route Traffic to Desired Region
 
@@ -42,8 +45,8 @@ To support routing incoming traffic to the desired region, use [Azure Traffic Ma
 
 Instead of directly publishing your Kubernetes Service IP, end users should be directed to the Azure Traffic Manager CNAME which will direct the users to the intended IP.  This can be setup by using Azure Traffic Manager Endpoints.  Each endpoint will be the Service Load Balancer IP allowing you to direct network traffic to from the Azure Endpoint in one region to the Azure Endpoint in a different region.
 
-TODO: Insert basic DR diagram of two clusters, fronted by Azure Traffic Manager
-TODO:  Show example
+For details on how to implement this, see [Traffic Manager Routing Details](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#geographic).
+TODO:
 
 ## Enable Geo-Replication in Azure Container Registry
 
@@ -57,26 +60,26 @@ Benefits of using ACR Geo-replication are:
 * Pulling images from within the same region is more reliable
 * Pulling images from within the same region is cheaper (no network egress charge between datacenters)
 
-TODO: Show or reference ACR Geo replication example
+For details on how to implement this, see [Azure Container Registry Geo Replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication)
 
 ## Remove State From Inside Containers
 
-**Best practice guidance** - Where possible, do not store application state inside the container.  Instead, use Azure PaaS services which support multi-region replication
+**Best practice guidance** - Where possible, do not store application state inside the container.  Instead, use Azure PaaS services which support multi-region replication.
 
-Containers and Microservices are most resilient when the processes that run inside them do not retain state.  Your application will almost always contain some state, and it is recommended to use an Platform as a Service solution (e.g. Azure Database for MySQL/Postgres, Azure SQL, etc.).  
+Containers and Microservices are most resilient when the processes that run inside them do not retain state.  Your application will almost always contain some state, and it is recommended to use a Platform as a Service solution (e.g. Azure Database for MySQL/Postgres, Azure SQL, etc.).  
 
-TODO: Elaborate on application state/12 factor apps.
+For details on for how to build applications that are more portable, please review the following guidelines:
+
+* [The Twelve-Factor App Methodology](https://12factor.net/).
+* [Run a web application in multiple Azure Regions](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/multi-region)
 
 ## Create a Storage Migration Plan
 
-**Best practice guidance** - If using Azure Storage, then prepare and test how you plan to migrate your storage from the primary to the backup region
+**Best practice guidance** - If using Azure Storage, then prepare and test how you plan to migrate your storage from the primary to the backup region.
 
-Sometimes your application needs to store files local to the running processes and needs these files to be persisted beyond the lifecycle of the Pod.  Kubernetes enables this through Persistent Volumes which are mounted to host VM and then to the containers running on that VM.  Persistent Volumes will follow Pods, even if the Pod is moved to a different node inside the same cluster.
+Sometimes your application requires persistent storage even after the pod is deleted.  Kubernetes enables this through Persistent Volumes which are mounted to host VM and then to the containers running on that VM.  Persistent Volumes will follow Pods, even if the Pod is moved to a different node inside the same cluster.
 
 If using Managed Disks, the recommended approaches to migrate storage across regions are:
 
 * [Ark on Azure](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/en-us/blog/asr-managed-disks-between-azure-regions/)
-
-TODO:  Elaborate on Azure Files and Blob Storage BC/DR
-TODO:  Show example
