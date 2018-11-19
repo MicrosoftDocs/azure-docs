@@ -103,12 +103,6 @@
     href: ./export-delete-data.md
   - name: Azure webinar series
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-- name: Samples
-  items:
-  - name: .NET SDK samples
-    href: samples-dotnet.md
-  - name: REST API samples in C#
-    href: samples-rest.md
 - name: Reference
   items:
   - name: Content Moderator API
@@ -126,7 +120,13 @@
 - name: Resources
   items:
   - name: Samples
-    href: https://azure.microsoft.com/en-us/resources/samples/?service=cognitive-services&term=content+moderator
+    items:
+    - name: .NET SDK samples
+      href: samples-dotnet.md
+    - name: REST API samples in C#
+      href: samples-rest.md
+    - name: other Azure samples
+      href: https://azure.microsoft.com/en-us/resources/samples/?service=cognitive-services&term=content+moderator
   - name: FAQ
     href: FAQs.md
   - name: Pricing and limits
