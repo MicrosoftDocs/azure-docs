@@ -49,7 +49,7 @@ sections:
         href: /azure/dms/tutorial-sql-server-to-managed-instance
         html: <p>Migrate a fleet of databases with minimal downtime using Database Migration Service.</p>
       - title: Pricing
-        href: /pricing/hybrid-benefit/
+        href: https://azure.microsoft.com/pricing/hybrid-benefit/
         html: <p>Save up to 40% with Azure Hybrid Benefit (AHB) with your existing on-premises licences.</p>
       - title: PaaS capabilities
         href: /azure/sql-database/sql-database-technical-overview#availability-capabilities
