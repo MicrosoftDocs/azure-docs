@@ -30,7 +30,7 @@ You can also read the best practices for [cluster security][best-practices-clust
 
 One concern with the adoption of container-based workloads is verifying the security of images and runtime used to build your own applications. How do you make sure that you don't introduce security vulnerabilities into your deployments? Your deployment workflow should include a process to scan container images using tools such as [Twistlock][twistlock] or [Aqua][aqua], and then only allow verified images to be deployed. In a real-world example, you can use a continuous integration and continuous deployment (CI/CD) pipeline to automate the image scans, verification, and deployments. Azure Container Registry includes these vulnerabilities scanning capabilities.
 
-![Scan and remediate container images, validate, and deploy](media/operator-best-practices-container-security/scan-container-images.png)
+![Scan and remediate container images, validate, and deploy](media/operator-best-practices-container-security/scan-container-images-simplified.png)
 
 ### Use a trusted registry
 
