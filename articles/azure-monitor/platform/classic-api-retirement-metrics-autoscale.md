@@ -8,17 +8,30 @@ The same operations have been supported through a set of Azure Resource Manager 
 
 This article applies to you in the following cases:
 
-- **Older Azure Insights SDK** - If you're using our classic Azure Insights SDK, move to use the new Azure Monitor SDK for .NET or Java located [TODO LINK HERE](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor). 
-- **Classic Azure Insights .NET SDK** - If you're directly managing autoscale settings or consuming metrics using this SDK, you should switch to use the newer [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/). 
-- **Azure classic deployment model APIs** - If you're directly managing autoscale settings or consuming metrics using these APIs, you should switch to use the newer Resource Manager [Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/).  
+- **Classic Azure Insights SDK** - If you are using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/),  switch to using the new Azure Monitor SDK for ([.NET](https://github.com/azure/azure-libraries-for-net#download) or [Java](https://github.com/azure/azure-libraries-for-java#download)).
 
-    The classic APIs being deprecated are documented here: 
-    - [Autoscaling](https://msdn.microsoft.com/en-us/library/azure/mt348562.aspx) 
-    - [Metrics](https://msdn.microsoft.com/en-us/library/azure/dn510374.aspx)     
-- **Code or custom tools using retired APIs** - If you are unsure whether your code or custom tools are calling the classic APIs, review URI referenced in your code or tool. The classic APIs use the URI https://management.core.windows.net. You should change to use the URI for the Resource Manager based APIs, which will always begin with https://management.azure.com/.  
+- **Classic Autoscale** - If you are calling the [classic autoscale settings APIs](https://msdn.microsoft.com/en-us/library/azure/mt348562.aspx) from your custom-built tools or using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), you should switch to using the [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/autoscalesettings).
 
+- **Classic Metrics** - If you are consuming metrics using the [classic REST APIs](https://msdn.microsoft.com/en-us/library/azure/dn510374.aspx) or  [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/) from custom-built tools, you should switch to using the [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/autoscalesettings). 
+
+
+If you are unsure whether your code or custom tools are calling the classic APIs, look at the following: 
+
+- Review the URI referenced in your code or tool. The classic APIs use the URI https://management.core.windows.net. You should be using the newer URI for the Resource Manager based APIs begins with https://management.azure.com/.
+
+- Compare the assembly name on your machine. The older classic assembly is  at  https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
+
+- If you are using certificate authentication to access metrics or autoscale APIs and not using Azure Active Directory, you are using a classic endpoint and library. The newer Resource Manager APIs require Azure Active Directory authentication via a service principal.
+
+- If you are using calls referenced in the older documentation at any of the following links, you are using the older classic APIs. This article refers to just autoscale and metrics, but classic alerts are also being retired
+
+    - [Windows.Azure.Management.Monitoring Class Library](https://docs.microsoft.com/en-us/previous-versions/azure/dn510414(v=azure.100))
+
+    - [Monitoring (classic) .NET](https://docs.microsoft.com/en-us/previous-versions/azure/reference/mt348562(v%3dazure.100))
+
+    - [IMetricOperations Interface](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn802395(v%3dazure.100))
+     
  
-
 ## Who is not affected 
 
 If you are managing autoscale via the Azure portal, the new Azure Monitor SDK, PowerShell, CLI, or Resource Manager templates, no action is necessary.  
