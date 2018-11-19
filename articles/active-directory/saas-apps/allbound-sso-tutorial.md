@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 11/19/2018
 ms.author: jeedes
 
 ---
@@ -73,7 +73,7 @@ To configure the integration of Allbound SSO into Azure AD, you need to add Allb
 
 4. In the search box, type **Allbound SSO**, select **Allbound SSO** from result panel then click **Add** button to add the application.
 
-	![Allbound SSO in the results list](./media/allboundsso-tutorial/tutorial_allboundsso_addfromgallery.png)
+	![Allbound SSO in the results list](./media/allbound-sso-tutorial/tutorial_allbound-sso_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** initiated mode:
 
-	![Allbound SSO Domain and URLs single sign-on information](./media/allboundsso-tutorial/tutorial_allboundsso_url.png)
+	![Allbound SSO Domain and URLs single sign-on information](./media/allbound-sso-tutorial/tutorial_allbound-sso_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.allbound.com/`
 
@@ -117,7 +117,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Allbound SSO Domain and URLs single sign-on information](./media/allboundsso-tutorial/tutorial_allboundsso_url1.png)
+	![Allbound SSO Domain and URLs single sign-on information](./media/allbound-sso-tutorial/tutorial_allbound-sso_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<SUBDOMAIN>.allbound.com/`
 
@@ -126,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Federation Metadata XML** and then save metadata file on your computer.
 
-	![The Certificate download link](./media/allboundsso-tutorial/tutorial_allboundsso_certificate.png) 
+	![The Certificate download link](./media/allbound-sso-tutorial/tutorial_allbound-sso_certificate.png) 
 
 7. On the **Set up Allbound SSO** section, copy the appropriate URL as per your requirement.
 
@@ -181,7 +181,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Allbound SSO**.
 
-	![Configure Single Sign-On](./media/allboundsso-tutorial/tutorial_allboundsso_app.png) 
+	![Configure Single Sign-On](./media/allbound-sso-tutorial/tutorial_allbound-sso_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
