@@ -607,16 +607,17 @@ This section describes the global configuration settings available for this bind
 
 ```json
 {
-    "version": "2.0",
-    "extensions": {
-        "serviceBus": {
-            "prefetchCount": 100,
-            "messageHandlerOptions": {
-                "autoComplete": false,
-                "maxConcurrentCalls": 32,
-                "maxAutoRenewDuration": "00:55:00"
-        }
-    }
+	"version": "2.0",
+	"extensions": {
+		"serviceBus": {
+			"prefetchCount": 100,
+			"messageHandlerOptions": {
+				"autoComplete": false,
+				"maxConcurrentCalls": 32,
+				"maxAutoRenewDuration": "00:55:00"
+			}
+		}
+	}
 }
 ```
 
