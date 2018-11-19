@@ -14,23 +14,27 @@ ms.author: diberry
 
 # Install and run containers
 
-Containerization is an approach to software distribution in which an application or service is packaged as a container image. The configuration and dependencies for the application or service are included in the container image. The container image can then be deployed on a container host with little or no modification. Containers are isolated from each other and the underlying operating system, with a smaller footprint than a virtual machine. Containers can be instantiated from container images for short-term tasks, and removed when no longer needed.
+Containerization is an approach to software distribution in which an application or service is packaged, including configuration and dependencies, as a single container image. The container is deployed on a container host with little or no modification. 
 
-LUIS allows you to get prediction queries to identify the intent and entities of conversational, natural language text, using LUIS applications that you create and export from the Language Understanding service. You can also capture and import application query logs to the Language Understanding service for review, to [improve prediction accuracy](luis-concept-review-endpoint-utterances.md) through active learning.
+
+The LUIS container allows you to:
+
+* Load an existing LUIS app's model
+* Get prediction queries from the container's endpoint
+* Capture query logs and upload to [LUIS.ai](https://www.luis.ai) to [improve prediction accuracy](luis-concept-review-endpoint-utterances.md) through active learning. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Preparation
+## Prerequisites
 
-You must meet the following prerequisites before using the LUIS container:
+You must satisfy the following prerequisites before using Cognitive Services Containers:
 
-**Docker Engine**: You must have Docker Engine installed locally. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Linux](https://docs.docker.com/engine/installation/#supported-platforms), and [Windows](https://docs.docker.com/docker-for-windows/). On Windows, Docker must be configured to support Linux containers. Docker containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information about deploying Kubernetes to Azure Stack, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-
-Docker must be configured to allow the containers to connect with and send billing data to Azure.
-
-**Familiarity with Microsoft Container Registry and Docker**: You should have a basic understanding of both Microsoft Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.  
-
-For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).
+|Prerequisite|Notes|
+|--|--|
+|Azure CLI| You must have Azure CLI version 2.0.29 or later installed on your local computer. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).<br><br>Because Azure Cloud Shell does not include the Docker daemon, you *must* install both the Azure CLI and Docker Engine on your *local computer*. You cannot use the Azure Cloud Shell.|
+|Docker Engine | To complete this preview, you need Docker Engine installed on a host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send usage data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.|
+|Familiarity with Azure Container Registry and Docker | You should have a basic understanding of both Azure Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `az acr` and `docker` commands.<br><br>For Azure Container Registry basics, see the [Azure Container Registry overview](https://docs.microsoft.com/azure/container-registry/container-registry-intro).| 
+|LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID and the Endpoint Key. **The LUIS resource associated with this app must use the F0 pricing tier.** |
 
 ### Server requirements and recommendations
 
@@ -42,44 +46,25 @@ This container supports minimum and recommended values for the following:
 |Memory|2 GB|4 GB|
 |Transactions per second<BR>(TPS)|20 TPS|40 TPS|
 
-## Create a LUIS resource on Azure
+## Installation steps
 
-You must create a LUIS resource on Azure if you want to use the LUIS container. After you create the resource, you then use the subscription key and endpoint URL from the resource to instantiate the container. For more information about instantiating a container, see [Instantiate a container from a downloaded container image](#instantiate-a-container-from-a-downloaded-container-image).
+The container image is available from the Microsoft Container Registry. To install and run the container, complete the following steps:
 
-Perform the following steps to create and retrieve information from an LUIS
-   > [!IMPORTANT]
-   > The LUIS resource must use the F0 pricing tier.
+1. [Download container images from the container registry](#download-container-images-from-the-container-registry) - `docker pull`
+1. [Download the LUIS app's package](#download-the-package-LUIS-app) with a REST-based API call
+1. [Run the container](#run-a-container-from-a-downloaded-container-image) - `docker run`
 
-1. Get the endpoint URL and subscription key for the Azure resource.  
-   Once the Azure resource is created, you must use the endpoint URL and subscription key from that resource to instantiate the corresponding LUIS container. You can copy the endpoint URL and subscription key from, respectively, the Quick Start and Keys pages of the LUIS resource on the Azure portal.
+## Download container image from the container registry
 
-## Log in to the private container registry
+The container image is available from  `mcr.microsoft.com/azure-cognitive-services/luis`, in the Microsoft Container Registry. The container image for the LUIS container must be downloaded from the repository to run the container.
 
-There are several ways to authenticate with the private container registry for Cognitive Services Containers, but the recommended method from the command line is by using the [Docker CLI](https://docs.docker.com/engine/reference/commandline/cli/).
-
-Use the [docker login](https://docs.docker.com/engine/reference/commandline/login/) command, as shown in the following example, to log into `containerpreview.azurecr.io`, the private container registry for Cognitive Services Containers. Replace *\<username\>* with the user name and *\<password\>* with the password provided in the credentials you received from the Azure Cognitive Services team.
-
-```docker
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
-
-If you have secured your credentials in a text file, you can concatenate the contents of that text file, using the `cat` command, to the `docker login` command as shown in the following example. Replace *\<passwordFile\>* with the path and name of the text file containing the password and *\<username\>* with the user name provided in your credentials.
-
-```docker
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
-
-## Download container images from the private container registry
-
-The container image for the LUIS container is available from a private Docker container registry, named `containerpreview.azurecr.io`, in Azure Container Registry. The container image for the LUIS container must be downloaded from the repository to run the container locally.
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example, to download the latest LUIS container image from the repository, use the following command:
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example:
 
 ```Docker
-docker pull containerpreview.azurecr.io/microsoft/cognitive-services-luis:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/luis/microsoft/cognitive-services-luis:latest
 ```
 
-For a full description of available tags for the LUIS container, see [Recognize Text](https://go.microsoft.com/fwlink/?linkid=2018655) on Docker Hub.
+TBD: update for LUIS? For a full description of available tags for the LUIS container, see [LUIS]() on Docker Hub.
 
 > [!TIP]
 > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
@@ -87,36 +72,95 @@ For a full description of available tags for the LUIS container, see [Recognize 
 >  ```Docker
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ```
->
 
-## Instantiate a container from a downloaded container image
+## Download the packaged LUIS app
 
-Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to instantiate a container from a downloaded container image. For example, the following command:
+The LUIS container requires a trained or published LUIS app model. In order to get the LUIS app model, use either the [published](get-a-published-models-package.md) or [trained](get-a-trained-models-package.md) download API. 
 
-* Instantiates a container from the LUIS container image
+The resulting gzip file needs to be in the input location you specify in the `docker run` command. The default location is `input`, a subdirectory to the location from where you run the `docker run` command.  
+
+### Get a published model's package
+
+If you want to use a LUIS application that you've already published on Azure, you can package that application for use with your LUIS container by calling the following REST API method, substituting the appropriate values for the placeholders in the table below the HTTP specification:
+
+```http
+GET /luis/webapi/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip HTTP/1.1
+Host: {AZURE_REGION}.api.cognitive.microsoft.com
+Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
+```
+
+| Placeholder | Value |
+|-------------|-------|
+|{APPLICATION_ID} | The application ID of the published LUIS application. |
+|{APPLICATION_ENVIRONMENT} | The environment of the published LUIS application. Use one of the following values:<br/>```PRODUCTION```<br/>```STAGING``` |
+|{AUTHORING_KEY} | The authoring key of the LUIS account for the published LUIS application.<br/>You can get your authoring key from the **User Settings** page for your LUIS account on the LUIS portal. |
+|{AZURE_REGION} | One of the following values for the appropriate Azure region:<br/>```westus``` - West US<br/>```westeurope``` - West Europe<br/>```australiaeast``` - Australia East |
+
+Use the following CURL command to download the published package:
+
+```bash
+curl -X GET \
+https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip  \
+ -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
+ -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
+```
+
+Remember to save or move the file to the `input` location.
+
+### Get a trained model's package
+
+If you don't want to publish your LUIS application on Azure, you can download the package for a trained LUIS application for use with your LUIS container by calling the following REST API method, substituting the appropriate values for the placeholders in the table below the HTTP specification:
+
+```http
+GET /luis/webapi/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip HTTP/1.1
+Host: {AZURE_REGION}.api.cognitive.microsoft.com
+Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
+```
+
+| Placeholder | Value |
+|-------------|-------|
+|{APPLICATION_ID} | The application ID of the trained LUIS application. |
+|{APPLICATION_VERSION} | The application version of the trained LUIS application. |
+|{AUTHORING_KEY} | The authoring key of the LUIS account for the trained LUIS application.<br/>You can get your authoring key from the **User Settings** page for your LUIS account on the LUIS portal. |
+|{AZURE_REGION} | One of the following values for the appropriate Azure region:<br/>```westus``` - West US<br/>```westeurope``` - West Europe<br/>```australiaeast``` - Australia East |
+
+Use the following CURL command to download the trained package:
+
+```bash
+curl -X GET \
+https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip  \
+ -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
+ -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
+```
+
+Remember to save or move the file to the `input` location.
+
+## Run the container 
+
+Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run a container. This command:
+
+* Runs a container from the LUIS container image
 * Allocates two CPU cores and 6 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
 * Automatically removes the container after it exits
 
 ```Docker
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 containerpreview.azurecr.io/microsoft/cognitive-services-luis Eula=accept Billing=https://westus.api.cognitive.microsoft.com/luis/v1.0 ApiKey=0123456789
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 mcr.microsoft.com/azure-cognitive-services/luis/microsoft/cognitive-services-luis Eula=accept Billing=https://westus.api.cognitive.microsoft.com/luis/v1.0 ApiKey={APPLICATION_ID}
 ```
 
 > [!IMPORTANT]
-> The `Eula`, `Billing`, and `ApiKey` options must be specified to instantiate the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal. It is not the Azure Resource key value.  
 
-Once instantiated, you can call operations from the container by using the container's host URI. For example, the following host URI represents the LUIS container that was instantiated in the previous example:
+Once running, you can make HTTP requests to the container by using the container's host URI. For example, the following URI can be used to make a GET request with the user utterance `turn on the lights`:
 
 ```http
-http://localhost:5000/
+http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true
 ```
 
-> [!TIP]
-> You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a instantiated container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the LUIS container that was instantiated in the previous example:
->
->  ```http
->  http://localhost:5000/swagger
->  ```
+In the preceding URI, replace the `{APPLICATION_ID}` with your own LUIS app's ID. 
+
+### How to use the container's endpoint
 
 You can either [call the Prediction REST API operations](https://aka.ms/LUIS-endpoint-APIs) available from your container, or use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) client library to call those operations.  
 > [!IMPORTANT]
@@ -127,6 +171,32 @@ The only difference between calling a given operation from your container and ca
 ```http
 POST https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}[?timezoneOffset][&verbose][&staging][&log]
 ```
+
+## Usage steps
+
+When the container is running, the container receives and responds to HTTP REST-based requests for LUIS predictions. The format of the REST-based request is exactly the same as a REST-based request to the Azure LUIS service. The only difference is the host URL and port used to make the request. 
+
+### LUIS rest-based APIs on the container
+
+The container provides two REST-based API endpoints.
+
+|REST-based API|Purpose|
+|--|--|
+|LUIS prediction endpoint|Send an user's utterance and receive the prediction for intent, entities, and any other configured settings.|
+|LUIS query log extraction|Upload container's query logs to Azure LUIS service to continuing improving model with [Active Learning](luis-concept-review-endpoint-utterances)|. 
+
+### LUIS documentation on the container
+
+The container provides a full set of documentation for the endpoints as well as the `Try it now` feature. This feature allows you to enter your settings and information into an HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
+
+
+> [!TIP]
+> You can access the [OpenAPI specification](https://swagger.io/docs/specification/about/) (formerly the Swagger specification), describing the operations supported by a run container, from the `/swagger` relative URI for that container. For example, the following URI provides access to the OpenAPI specification for the LUIS container that was rund in the previous example:
+>
+>  ```http
+>  http://localhost:5000/swagger
+>  ```
+
 
 ### Billing
 
