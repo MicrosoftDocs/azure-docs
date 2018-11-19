@@ -21,9 +21,9 @@ ms.reviewer: johnhas
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-You can use interactive feature verification testing to exercise manual, that is interactive, Azure Stack scenarios. Your script can cover a wide variety of use scenarios.
+You can use the interactive feature verification testing framework to run tests that require manual interactive steps. You can use the framework to chain together several standalone automated tests.
 
-You can use this article to create pre-set manual scenarios. The service gathers diagnostic logs. When your scenario finishes, you'll be prompted to share additional logs, and give feedback on the quality of the scenario. This data is reviewed by the Microsoft Azure Stack team. The team uses the data manage release quality and improve Validation as Service (VaaS).
+This article describes a simple manual scenario. You test replacing a disk in Azure Stack. This explanation serves as an example for you to create more complicated scenarios. The framework gathers diagnostic logs at each step. You can debug issues as you find them. The framework also allows you to share logs produced by other tools or processes, and enables you to provide feedback on the scenario.
 
 ## Overview of a test pass
 
