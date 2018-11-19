@@ -169,7 +169,7 @@ To enable output for model explanations, first install the `explain` variant of 
 pip install azureml_sdk[explain]
 ```
 
-Set the optional `model_explainability` parameter in the `AutoMLConfig` constructor.
+Set the optional `model_explainability` parameter in the `AutoMLConfig` constructor. Additionally, a validation dataframe object must be passed as a parameter `X_valid` to use the model explainability feature.
 
 ```python
 automl_config = AutoMLConfig(task='classification',
@@ -178,7 +178,8 @@ automl_config = AutoMLConfig(task='classification',
                              compute_target = dsvm_compute,
                              data_script=project_folder + "/get_data.py",
                              **automl_settings,
-                             model_explainability=True
+                             model_explainability=True,
+                             X_valid = X_test
                             )
 ```
 
@@ -279,6 +280,10 @@ print(overall_imp)
 print(per_class_summary)
 print(per_class_imp)
 ```
+
+You can visualize feature importance through the widget UI as well as the web UI on Azure portal inside your workspace.
+
+![Model explainability UI](./media/how-to-auto-train-remote/model-exp.png)
 
 ## Example
 
