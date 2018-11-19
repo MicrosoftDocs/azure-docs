@@ -32,6 +32,17 @@ Required permissions | For permissions required to apply an update, see [account
 
 Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
+
+## 1.2.xx.0 (tbd)
+
+### Release status 
+
+11/19/2018:  Released for download
+
+### Fixed issues
+
+This Hotfix build fixes a regression in the previous build where Password Writeback fails when using an ADDS Domain Controller on Windows Server 2008/R2
+
 ## 1.2.65.0 
 
 ### Release status 
