@@ -1,3 +1,17 @@
+---
+title: "Tutorial: Use Azure DataPrep SDK to prepare data for machine learning"
+description: This tutorial shows how to use Azure Machine Learning Data Prep SDK to prepare data for machine learning. This tutorial is part one of a two-part series.
+services: machine-learning
+ms.service: machine-learning
+ms.component: core
+ms.topic: tutorial
+
+author: cforbe
+ms.author: cforbe
+ms.reviewer: trbye
+ms.date: 11/19/2018
+
+---
 
 # Tutorial: Use Azure DataPrep SDK to prepare data for machine learning
 
