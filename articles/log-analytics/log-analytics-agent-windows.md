@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -41,6 +41,24 @@ Before installing the Microsoft Monitoring Agent for Windows, you need the works
 4. Select **Connected Sources**, and then select **Windows Servers**.   
 5. Copy and paste into your favorite editor, the **Workspace ID** and **Primary Key**.    
    
+## Configure Agent to use TLS 1.2
+To configure use of the [TLS 1.2](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12) protocol for communication between the Windows agent and the Log Analytics service, you can follow the steps below to enable before the agent is installed on the virtual machine or afterwards.   
+
+1. Create a subkey under Protocols for TLS 1.2 **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2**
+2. Create a **Client** asubkey under the TLS 1.2 protocol version subkey you created earlier. For example, **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**.
+3. Create the following DWORD values under **HKLM\System\System\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client**:
+
+    * **Enabled** [Value = 1]
+    * **DisabledByDefault** [Value = 0]  
+
+.NET Framework 4.6 or later needs to be configured to support secure cryptography, as by default it is disabled. The [strong cryptography](https://docs.microsoft.com/dotnet/framework/network-programming/tls#schusestrongcrypto) uses more secure network protocols like TLS 1.2, and blocks protocols that are not secure. 
+
+1. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft.NETFramework\v4.0.30319**.  
+2. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**.  
+3. Locate the following registry subkey: **HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\Microsoft.NETFramework\v4.0.30319**.  
+4. Create the DWORD value **SchUseStrongCrypto** under this subkey with a value of **1**. 
+5. Restart the system for the settings to take effect. 
+
 ## Install the agent using setup wizard
 The following steps install and configure the agent for Log Analytics in Azure and Azure Government cloud by using the setup wizard for the Microsoft Monitoring Agent on your computer.  
 
