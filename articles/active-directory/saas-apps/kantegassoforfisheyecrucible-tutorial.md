@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Kantega SSO for FishEye/Crucible | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Kantega SSO for FishEye/Crucible.
 services: active-directory
@@ -120,7 +120,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 	 
 	> [!NOTE] 
-	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. These values are recieved during the configuration of FishEye/Crucible plugin which is explained later in the tutorial.
+	> These values are not real. Update these values with the actual Identifier, Reply URL, and Sign-On URL. These values are received during the configuration of FishEye/Crucible plugin which is explained later in the tutorial.
 
 1. On the **SAML Signing Certificate** section, click **Metadata XML** and then save the metadata file on your computer.
 

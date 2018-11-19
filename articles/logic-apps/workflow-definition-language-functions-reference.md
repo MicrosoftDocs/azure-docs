@@ -3550,7 +3550,7 @@ These examples get the specified number of
 items from the front of these collections:
 
 ```
-take('abcde`, 3)
+take('abcde', 3)
 take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
