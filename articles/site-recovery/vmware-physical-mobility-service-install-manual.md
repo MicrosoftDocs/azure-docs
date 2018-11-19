@@ -1,13 +1,15 @@
 ---
 title: Install the Mobility Service manually for disaster recovery of VMware VMs and physical servers with Azure Site Recovery | Microsoft Docs
 description: Learn how to install the Mobility Service agent for disaster recovery of VMware VMs and physical servers to Azure using the  Azure Site Recovery service.
-author: rayne-wiselman
-manager: carmonm
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/04/2018
-ms.author: raynew
+ms.author: ramamill
 ---
+
+ms.author: ramamill
 
 # Install the Mobility service manually on VMware VMs and physical servers
 
