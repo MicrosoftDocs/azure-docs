@@ -129,7 +129,7 @@ This PowerShell script should be run locally while RDP’d into IIS01.
     $WebConfig | Out-File -FilePath "C:\inetpub\wwwroot\Web.config" -Encoding ascii
 
 # Set App Pool to Classic Pipeline to remote file access will work easier
-    Write-Host "Updaing IIS Settings" -ForegroundColor Cyan
+    Write-Host "Updating IIS Settings" -ForegroundColor Cyan
     c:\windows\system32\inetsrv\appcmd.exe set app "Default Web Site/" /applicationPool:".NET v4.5 Classic"
     c:\windows\system32\inetsrv\appcmd.exe set config "Default Web Site/" /section:system.webServer/security/authentication/anonymousAuthentication /userName:$theAdmin /password:$thePassword /commit:apphost
 

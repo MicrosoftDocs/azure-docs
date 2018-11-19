@@ -54,7 +54,7 @@ The DevTest Labs resource should be owned by owners who are close to the project
 
 The project/application team members should be added to the DevTest Labs Users role. These users can create virtual machines (in-line with the lab and subscription-level policies). They can also manage their own virtual machines. They can't manage virtual machines that belong to other users.
 
-For more information, see [Azure enterprise scaffold – prescriptive subscription governance](/architecture/cloud-adoption/appendix/azure-scaffold) documentation.
+For more information, see [Azure enterprise scaffold – prescriptive subscription governance](/azure/architecture/cloud-adoption/appendix/azure-scaffold) documentation.
 
 
 ## Next steps
