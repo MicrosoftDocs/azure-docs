@@ -76,7 +76,7 @@ This link opens a view to the newly created Git repository.
 1. On the left side of the browser, go to the **src/main/webapp/index.html** file.
 
 1. Select **Edit**, and then make a change to some of the text.
-		For example, change some of the text for one of the div tags.
+	For example, change some of the text for one of the div tags.
 
 1. Select **Commit**, and then save your changes.
 
@@ -91,7 +91,7 @@ You should now see a build in progress. The changes you just made are automatica
 This link opens a browser tab and the build pipeline for your new project.
 
 1. Point to the **Status** field, and then select the ellipsis  (...).  
-		This action opens a menu where you can start several activities such as queuing a new build, pausing a build, and editing the build pipeline.
+	This action opens a menu where you can start several activities such as queuing a new build, pausing a build, and editing the build pipeline.
 
 1. Select **Edit**.
 
