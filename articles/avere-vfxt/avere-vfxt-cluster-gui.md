@@ -66,7 +66,7 @@ This step uses a web browser to connect to the configuration utility running on 
 
 * For an SSH tunnel connection, open your web browser and navigate to https://127.0.0.1:8443. 
 
-  You connected to the cluster IP address when you created the tunnel, so you just need to use the localhost IP address. If you used a local port other than 8443, use your port number instead.
+  You connected to the cluster IP address when you created the tunnel, so you just need to use the localhost IP address in the browser. If you used a local port other than 8443, use your port number instead.
 
 * If you are using a VPN or ExpressRoute to reach the cluster, navigate to the cluster management IP address in your browser. Example: ``https://203.0.113.51``
 
