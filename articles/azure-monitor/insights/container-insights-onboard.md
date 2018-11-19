@@ -23,7 +23,7 @@ This article describes how to set up Azure Monitor for containers to monitor the
 Azure Monitor for containers can be enabled for new deployments of AKS using the following supported methods:
 
 * Deploy a managed Kubernetes cluster from the Azure portal or with Azure CLI
-* Creating a Kubernetes cluster using [Terraform and AKS](../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
+* Creating a Kubernetes cluster using [Terraform and AKS](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)
 
 You can enable monitoring for one or more existing AKS clusters from the Azure portal or with Azure CLI. 
 
@@ -55,7 +55,7 @@ To enable monitoring of a new AKS cluster created with Azure CLI, follow the ste
 >If you choose to use the Azure CLI, you first need to install and use the CLI locally. You must be running the Azure CLI version 2.0.43 or later. To identify your version, run `az --version`. If you need to install or upgrade the Azure CLI, see [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
 >
 
-If you are [deploying an AKS cluster using Terraform](../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), you can also enable Azure Monitor for containers by including the argument [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specifying **oms_agent**.  
+If you are [deploying an AKS cluster using Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), you can also enable Azure Monitor for containers by including the argument [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) and specifying **oms_agent**.  
 
 After you've enabled monitoring and all configuration tasks are completed successfully, you can monitor the performance of your cluster in either of two ways:
 
