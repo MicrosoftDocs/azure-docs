@@ -9,7 +9,7 @@ ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: 
-manager: dougeby
+manager: benshy
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->

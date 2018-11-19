@@ -9,7 +9,7 @@ ms.date: 04/26/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: 
-manager: dougeby
+manager: benshy
 ---
 
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage

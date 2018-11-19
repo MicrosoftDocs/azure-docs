@@ -4,11 +4,11 @@ description: Enable access using Azure Resource Manager APIs for new and existin
 services: cost-management
 keywords:
 author: bandersmsft
+manager: vitavor
 ms.author: banders
 ms.date: 04/26/2018
 ms.topic: quickstart
 ms.service: cost-management
-manager: dougeby
 ms.custom:
 ---
 
