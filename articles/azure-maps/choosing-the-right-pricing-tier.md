@@ -10,6 +10,8 @@ services: azure-maps
 manager: 
 ---
 
+# Choosing the right pricing tier in Azure Maps
+
 Azure Maps offers two pricing tiers based on the APIs and throughput. The purpose of this article is to help you choose which pricing tier is right for you. We discuss both pricing tiers below. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
 ## Pricing Tiers:
