@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 11/16/2018
+ms.date: 11/19/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ---
 
 # What are Azure AD Access Reviews?
 
-Azure Active Directory (Azure AD) Access Reviews enable organizations to efficiently manage group memberships and access to enterprise applications. User's access can be reviewed on a regular basis to make sure only the right people have continued access.
+Azure Active Directory (Azure AD) Access Reviews enable organizations to efficiently manage group memberships, access to enterprise applications, and role assignments. User's access can be reviewed on a regular basis to make sure only the right people have continued access.
 
 Here's a video that provides a quick overview of access reviews:
 
@@ -42,7 +42,7 @@ Azure AD enables you to collaborate internally within your organization and with
 - **Business critical data access:** for certain resources, it might be required to ask people outside of IT to regularly sign off and give a justification on why they need access for auditing purposes.
 - **To maintain a policy's exception list:** In an ideal world, all users would follow the access polices to secure access to your organization's resources. However, sometimes there are business cases that require you to make exceptions. As the IT admin, you can manage this task, avoid oversight of policy exceptions, and provide auditors with proof that these exceptions are reviewed regularly.
 - **Ask group owners to confirm they still need guests in their groups:** Employee access might be automated with some on-prem IAM, but not invited guests. If a group gives guests access to business sensitive content, then it's the group owner's responsibility to confirm the guests still have a legitimate business need for access.
-- **Have reviews recur periodically:** You can set up recurring access reviews of all users, employees, or guests in groups and applications at set frequencies such as weekly, monthly, quarterly or annually. Assigned reviewers will be notified. Reviewers can approve or deny access with a friendly interface and with the help of smart recommendations.
+- **Have reviews recur periodically:** You can set up recurring access reviews of users at set frequencies such as weekly, monthly, quarterly or annually, and the reviewers will be notified at the start of each review. Reviewers can approve or deny access with a friendly interface and with the help of smart recommendations.
 
 ## Where do you create reviews?
 
