@@ -16,7 +16,7 @@ ms.date: 09/24/2018
 
 In Azure Machine Learning, you train your model on different types of compute resources that you manage. The compute target could be a local computer or a computer in the cloud.
 
-You can easily scale up or scale out your machine learning experiment by adding additional compute targets. Compute target options include Ubuntu-based Data Science Virtual Machine (DSVM) or Azure Batch AI. The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
+You can easily scale up or scale out your machine learning experiment by adding additional compute targets. Compute target options include Ubuntu-based Data Science Virtual Machine (DSVM) or Azure Machine Learning Compute. The DSVM is a customized VM image on Microsoft’s Azure cloud built specifically for doing data science. It has many popular data science and other tools pre-installed and pre-configured.  
 
 In this article, you learn how to build a model using automated ML on the DSVM. You can find examples using Azure Batch AI in [these sample notebooks in GitHub](https://aka.ms/aml-notebooks).  
 
@@ -70,20 +70,14 @@ This code doesn't create a user name or password for the DSVM that is provisione
 
 ### Attach existing Linux DSVM
 
-You can also attach an existing Linux DSVM as the compute target. To create a Linux DSVM from the Azure CLI, run the following command.
-
-```shell
-az vm create --resource-group <resource_group_name> --name <some_vm_name> --image microsoft-dsvm:linux-data-science-vm-ubuntu:linuxdsvmubuntu:latest --admin-username <username> --admin-password <password> --generate-ssh-keys --authentication-type password
-```
-
-The `--generate-ssh-keys` parameter automatically places the ssh keys to a standard location, typically to ~/.ssh folder. The default port is 22.
+You can also attach an existing Linux DSVM as the compute target. This example utilizes an existing DSVM, but doesn't create a new resource.
 
 > [!NOTE]
 >
-> The following code uses the `ComputeTarget` and `RemoteCompute` classes to create the compute target.
+> The following code uses the `RemoteCompute` target class to attach an existing VM as your compute target.
 > The `DsvmCompute` class will be deprecated in future releases in favor of this design pattern.
 
-Run the following code to create the compute target from a Linux DSVM.
+Run the following code to create the compute target from a pre-existing Linux DSVM.
 
 ```python
 from azureml.core.compute import ComputeTarget, RemoteCompute 
