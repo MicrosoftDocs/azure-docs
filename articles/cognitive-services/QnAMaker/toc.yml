@@ -47,15 +47,15 @@
     - name: Get answer from knowledge base
       items:
       - name: C#
-        href: Quickstarts/get-answer-from-kb-csharp.md   
+        href: Quickstarts/get-answer-from-knowledge-base-csharp.md   
       - name: Go
-        href: Quickstarts/get-answer-from-kb-go.md 
+        href: Quickstarts/get-answer-from-knowledge-base-go.md 
       - name: Java
-        href: Quickstarts/get-answer-from-kb-java.md 
+        href: Quickstarts/get-answer-from-knowledge-base-java.md 
       - name: Node.js
-        href: Quickstarts/get-answer-from-kb-nodejs.md 
+        href: Quickstarts/get-answer-from-knowledge-base-nodejs.md 
       - name: Python
-        href: Quickstarts/get-answer-from-kb-python.md
+        href: Quickstarts/get-answer-from-knowledge-base-python.md
     
 - name: Tutorials
   items: 
