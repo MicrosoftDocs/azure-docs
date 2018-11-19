@@ -26,39 +26,47 @@ The information in this article can help you understand and resolve common issue
 ## PFX Encryption
 
 **Failure** - PFX encryption is not TripleDES-SHA1.   
+
 **Remediation** - Export PFX files with **TripleDES-SHA1** encryption. This is the default for all Windows 10 clients when exporting from certificate snap-in or using `Export-PFXCertificate`. 
 
 ## Read PFX
 
 **Warning** - Password only protects the private information in the certificate.  
+
 **Remediation** - Export PFX files with the optional setting for **Enable certificate privacy**.  
 
 **Failure** - PFX file invalid.  
+
 **Remediation** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md).
 
 ## Signature algorithm
 
-**Failure** - Signature algorithm is SHA1.    
+**Failure** - Signature algorithm is SHA1.   
+ 
 **Remediation** - Use the steps in Azure Stack certificates signing request generation to regenerate the Certificate Signing Request (CSR) with the signature algorithm of SHA256. Then resubmit the CSR to the Certificate Authority to reissue the certificate.
 
 ## Private key
 
 **Failure** - The private key is missing or does not contain the Local Machine Attribute.  
+
 **Remediation** - From the computer that generated the CSR, re-export the certificate using the steps in Prepare Azure Stack PKI certificates for deployment. These steps include exporting from the local machine certificate store.
 
 ## Certificate chain
 
 **Failure** - Certificate chain is not complete.  
+
 **Remediation** - Certificates should contain a complete certificate chain. Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md) and select the option **Include all certificates in the certification path if possible.**
 
 ## DNS names
 
-**Failure** - DNSNameList on the certificate does not contain the Azure Stack service endpoint name, or a valid wildcard match. Wildcard matches are only valid for the left-most namespace of the DNS name. For example, _*.region.domain.com_ is only valid for *portal.region.domain.com*, not _*.table.region.domain.com_.  
+**Failure** - DNSNameList on the certificate does not contain the Azure Stack service endpoint name, or a valid wildcard match. Wildcard matches are only valid for the left-most namespace of the DNS name. For example, _*.region.domain.com_ is only valid for *portal.region.domain.com*, not _*.table.region.domain.com_. 
+ 
 **Remediation** - Use the steps in Azure Stack certificates signing request generation to regenerate the CSR with the correct DNS names to support Azure Stack endpoints. Resubmit the CSR to a Certificate Authority, and then follow the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md) to export the certificate from the machine that generated the CSR.  
 
 ## Key usage
 
 **Failure** - Key usage is missing digital signature or key encipherment, or enhanced key usage is missing server authentication or client authentication.  
+
 **Remediation** - Use the steps in [Azure Stack certificates signing request generation](azure-stack-get-pki-certs.md) to regenerate the CSR with the correct Key Usage attributes. Resubmit the CSR to the Certificate Authority and confirm that a certificate template is not overwriting the key usage in the request.
 
 ## Key size
@@ -70,11 +78,13 @@ The information in this article can help you understand and resolve common issue
 ## Chain order
 
 **Failure** - The order of the certificate chain is incorrect.  
+
 **Remediation** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md) and select the option **Include all certificates in the certification path if possible.** Ensure that only the leaf certificate is selected for export. 
 
 ## Other certificates
 
 **Failure** - The PFX package contains certificates that are not the leaf certificate or part of the certificate chain.  
+
 **Remediation** - Re-export the certificate using the steps in [Prepare Azure Stack PKI certificates for deployment](azure-stack-prepare-pki-certs.md), and select the option **Include all certificates in the certification path if possible.** Ensure that only the leaf certificate is selected for export.
 
 ## Fix common packaging issues
