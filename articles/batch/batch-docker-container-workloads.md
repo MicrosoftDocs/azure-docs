@@ -9,7 +9,7 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/08/2018
+ms.date: 11/19/2018
 ms.author: danlep
 
 ---
@@ -285,11 +285,11 @@ The following C# example shows basic container settings for a cloud task:
 ```csharp
 // Simple container task command
 
-string cmdLine = "c:\app\myApp.exe";
+string cmdLine = "c:\\app\\myApp.exe";
 
 TaskContainerSettings cmdContainerSettings = new TaskContainerSettings (
     imageName: "myimage",
-    containerRunOptions: "--rm --read-only --workdir c:\\"
+    containerRunOptions: "--rm --workdir c:\\app"
     );
 
 CloudTask containerTask = new CloudTask (
