@@ -139,7 +139,7 @@ az cosmosdb update \
 You can troubleshoot issues with an IP access control policy by using the following options: 
 
 ### Azure portal 
-By enabling an IP access control policy for your Azure Cosmos DB account, you block all requests to your account from machines outside the allowed list of IP address ranges. To enable portal data plane operations like browsing containers and query documents, you need to explicitly allow Azure portal access by using the **Firewall** pane in the portal.
+By enabling an IP access control policy for your Azure Cosmos DB account, you block all requests to your account from machines outside the allowed list of IP address ranges. To enable portal data-plane operations like browsing containers and querying documents, you need to explicitly allow Azure portal access by using the **Firewall** pane in the portal.
 
 ### SDKs 
 When you access Azure Cosmos DB resources by using SDKs from machines that are not in the allowed list, a generic **404 Not Found** response is returned with no additional details. Verify the allowed IP list for your account, and make sure that the correct policy configuration is applied to your Azure Cosmos DB account. 

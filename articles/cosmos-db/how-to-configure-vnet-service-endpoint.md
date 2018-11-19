@@ -56,7 +56,7 @@ The following sections describe how to configure a virtual network service endpo
 
 1. Select **Firewalls and Azure virtual networks** from the settings menu, and choose to allow access from **Selected networks**.  
 
-1. To grant access to a new Azure virtual network, under virtual networks, select **Add new virtual network**.  
+1. To grant access to a new Azure virtual network, under **Virtual networks**, select **Add new virtual network**.  
 
 1. Provide the details required to create a new virtual network, and then select **Create**. The subnet will be created with a service endpoint for "Microsoft.AzureCosmosDB" enabled.
 
