@@ -61,20 +61,20 @@ sections:
     rows:
       - title: Setup Threat Detection on Single Database
         values:
-          - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-for-your-database-in-the-azure-portal
+          - href: /azure/sql-database/scripts/sql-database-auditing-and-threat-detection-powershell
           - href: 
           - href: /azure/sql-database/sql-database-threat-detection#set-up-threat-detection-using-powershell
       - title: Setup Threat Detection on Managed Instance
         values:
-          - href: /azure/sql-database/sql-database-managed-instance-threat-detection
+          - href: /azure/sql-database/sql-database-managed-instance-threat-detection#set-up-threat-detection-for-your-managed-instance-in-the-azure-portal
           - href:
           - href:
       - title: Setup Firewall rules on Single database
         values:
           - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-portal
-          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-cli
-          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-the-azure-powershell
-      - title: Setup Firewall rules on Single database
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-cli
+          - href: /azure/sql-database/sql-database-firewall-configure#manage-firewall-rules-using-azure-powershell
+      - title: Manage Vulnerability Assessments rules
         values:
           - href:
           - href:
