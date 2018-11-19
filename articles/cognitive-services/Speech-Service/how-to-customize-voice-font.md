@@ -82,7 +82,7 @@ For example:
 The custom voice system normalizes transcripts by converting the text to lowercase and removing extraneous punctuation. It’s important that the transcripts are 100% accurate transcriptions of the corresponding audio recordings.
 
 > [!TIP]
-> When building production Text-to-Speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice team](mailto:tts@microsoft.com) to find out more about having us consult.
+> When building production Text-to-Speech voices, select utterances (or write scripts) that take into account both phonetic coverage and efficiency. Having trouble getting the results you want? [Contact the Custom Voice team](mailto:speechsupport@microsoft.com) to find out more about having us consult.
 
 ## Upload your datasets
 
