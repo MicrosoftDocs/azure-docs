@@ -25,7 +25,8 @@ This quickstart calls QnA Maker APIs:
 * [Python 3.7](https://www.python.org/downloads/)
 * You must have a QnA Maker service. To retrieve your key, select Keys under Resource Management in your dashboard.
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
+> [!NOTE] 
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-python** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-python/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a knowledge base Python file
 
@@ -45,7 +46,7 @@ After the preceding required dependencies, add the required constants to access 
 
 ## Add POST request to publish knowledge base
 
-The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
+After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
 [!code-python[Add a POST request to publish knowledge base](~/samples-qnamaker-python/documentation-samples/quickstarts/publish-knowledge-base/publish-kb-3x.py?range=17-26 "Add a POST request to publish knowledge base")]
 

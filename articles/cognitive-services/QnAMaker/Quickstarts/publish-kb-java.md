@@ -36,7 +36,7 @@ This quickstart calls QnA Maker APIs:
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-java** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-java).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-java** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a Java file
 
@@ -65,7 +65,7 @@ After the preceding required dependencies, add the required constants to access 
 
 ## Add POST request to publish knowledge base
 
-The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
+After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
 [!code-java[Add a POST request to publish knowledge base](~/samples-qnamaker-java/documentation-samples/quickstarts/publish-knowledge-base/PublishKB.java?range=32-44 "Add a POST request to publish knowledge base")]
 

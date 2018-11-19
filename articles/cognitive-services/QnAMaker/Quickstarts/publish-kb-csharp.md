@@ -31,13 +31,13 @@ This quickstart calls QnA Maker APIs:
 
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
-[!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-csharp-repo-note.md)]
+> [!NOTE] 
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-csharp** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create knowledge base project
 
 1. Open Visual Studio 2017 Community edition.
 1. Create a new **Console App (.Net Core)** project and name the project `QnaMakerQuickstart`. Accept the defaults for the remaining settings.
-1. In the Solution Explorer, right-click on the project name, **QnaMakerQuickstart**, then select **Manage NuGet Packages...**.
 
 ## Add required dependencies
 
@@ -47,19 +47,17 @@ At the top of Program.cs, replace the single using statement with the following 
 
 ## Add required constants
 
-After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
+In the **Main** method, add the required constants to access QnA Maker. Replace the values with your own.
 
 [!code-csharp[Add the required constants](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=11-14 "Add the required constants")]
 
 ## Add POST request to publish knowledge base
 
-The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
+After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
 [!code-csharp[Add HTTP Post request and response](~/samples-qnamaker-csharp/documentation-samples/quickstarts/publish-knowledge-base/QnAMakerPublishQuickstart/Program.cs?range=16-29&dedent=8 "Add HTTP Post request and response")]
 
-The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
-
-For any other response, that response is returned unaltered.
+The API call returns a 204 status for a successful publish without any content in the body of the response. 
  
 ## Build and run the program
 
@@ -67,7 +65,7 @@ Build and run the program. It will automatically send the request to the QnA Mak
 
 Once your knowledge base is published, you can query it from the endpoint with a client application or chat bot. 
 
-[!INCLUDE [Clean up files and knowledge base(../../../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
+[!INCLUDE [Clean up files and knowledge base(../../includes/cognitive-services-qnamaker-quickstart-cleanup-resources.md)] 
 
 ## Next steps
 

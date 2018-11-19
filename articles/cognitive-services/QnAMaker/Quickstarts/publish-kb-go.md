@@ -32,7 +32,7 @@ This quickstart calls QnA Maker APIs:
 If you don't have a knowledge base yet, you can create a sample one to use for this quickstart: [Create a new knowledge base](create-new-kb-csharp.md).
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-go** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-go).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-go** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-go/tree/master/documentation-samples/quickstarts/publish-knowledge-base).
 
 ## Create a Go file
 
@@ -60,7 +60,7 @@ After the preceding required dependencies, add the required constants to access 
 
 ## Add POST request to publish KB
 
-The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a KB and receives the response:
+After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
 [!code-go[Add a POST request to publish KB](~/samples-qnamaker-go/documentation-samples/quickstarts/get-answer/get-answer.go?range=35-48 "Add a POST request to publish KB")]
 

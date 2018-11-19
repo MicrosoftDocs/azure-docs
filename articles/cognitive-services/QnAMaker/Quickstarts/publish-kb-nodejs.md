@@ -32,7 +32,7 @@ If you don't have a knowledge base yet, you can create a sample one to use for t
 
 
 > [!NOTE] 
-> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-nodejs** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs).
+> The complete solution file(s) are available from the [**Azure-Samples/cognitive-services-qnamaker-nodejs** Github repository](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/publish-knowledge-base-short).
 
 ## Create a knowledge base Node.js file
 
@@ -52,7 +52,7 @@ After the preceding required dependencies, add the required constants to access 
 
 ## Add POST request to publish knowledge base
 
-The following code, added after the required constants, makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
+After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
 [!code-nodejs[Add a POST request to publish knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=16-47 "Add a POST request to publish knowledge base")]
 
