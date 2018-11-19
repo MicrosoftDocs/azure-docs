@@ -30587,6 +30587,31 @@
             "redirect_document_id" : false
         },
         {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-go.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/go#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-java.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/java#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-nodejs.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/nodejs#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-python.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/python#Update",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
             "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
             "redirect_document_id" : false
@@ -30768,3 +30793,4 @@
         }
     ]
 }
+https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/csharp#Update
