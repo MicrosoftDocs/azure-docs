@@ -42,6 +42,14 @@ This update includes the following improvements for Azure Stack:
 
 - With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
+- Support for Device Authentication with ADFS in particular when using Azure CLI [@Matt add Link to CLI for ADFS]
+
+- Support for Azure CLI using Web Browser authentication with ADFS
+
+- Added new privivledged endpoint cmdlets to update & remove service principles for ADFS (@Matt add link to updated SPN - ADFS article)
+
+- New Scale Unit Node operations that allow an Azure Stack operator to Start, Stop and Shutdown a node [@Matt add link to updated operations doc]
+
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
 
@@ -63,7 +71,10 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue in both the administrator and user portals: under **All services**, the asset **DDoS protection plans** was incorrectly listed. It is not available in Azure Stack.
  
 <!--2760466 – IS  ASDK --> 
-- Fixed: when you installed a new Azure Stack environment, the alert that indicates *Activation Required* might not display.   
+- Fixed: when you installed a new Azure Stack environment, the alert that indicates *Activation Required* might not display.
+
+<!--1236441 – IS  ASDK --> 
+- Fixed an issue that did prevent applying a RBAC policy to a User Group when deployed with ADFS
 
 ### Changes
 
@@ -135,6 +146,8 @@ For more information about these vulnerabilities, click on the preceding links, 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
   ``` 
+> [!Important]  
+> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
 
 ### Known issues with the update process
 
@@ -148,8 +161,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Post-update steps
 
-> [!Important]  
-> Get your Azure Stack deployment ready for extension host which is enabled by the next update package. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
+
 
 After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
 <!-- Hotfix link here -->  
