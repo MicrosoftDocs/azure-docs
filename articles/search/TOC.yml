@@ -173,6 +173,8 @@
         href: search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md
       - name: Field mappings
         href: search-indexer-field-mappings.md
+      - name: Troubleshooting common issues
+        href: search-indexer-troubleshooting.md
   - name: Query data
     items:
     - name: Query types & composition
