@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 11/19/2018
 ms.author: jeedes
 
 ---
@@ -35,7 +35,7 @@ If you want to know more details about SaaS app integration with Azure AD, see [
 To configure Azure AD integration with Ivanti Service Manager (ISM), you need the following items:
 
 - An Azure AD subscription
-- A Ivanti Service Manager (ISM) single sign-on enabled subscription
+- An Ivanti Service Manager (ISM) single sign-on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -73,7 +73,7 @@ To configure the integration of Ivanti Service Manager (ISM) into Azure AD, you 
 
 4. In the search box, type **Ivanti Service Manager (ISM)**, select **Ivanti Service Manager (ISM)** from result panel then click **Add** button to add the application.
 
-	![Ivanti Service Manager (ISM) in the results list](./media/ivantiservicemanager(ism)-tutorial/tutorial_ivantiservicemanager_addfromgallery.png)
+	![Ivanti Service Manager (ISM) in the results list](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** initiated mode:
 
-	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager(ism)-tutorial/tutorial_ivantiservicemanager_url.png)
+	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager(ism)-tutorial/tutorial_ivantiservicemanager_url1.png)
+	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customer>.saasit.com/`
 
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Raw)** and then save certificate file on your computer.
 
-	![The Certificate download link](./media/ivantiservicemanager(ism)-tutorial/tutorial_ivantiservicemanager_certificate.png) 
+	![The Certificate download link](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_certificate.png) 
 
 7. On the **Set up Ivanti Service Manager (ISM)** section, copy the appropriate URL as per your requirement.
 
@@ -186,7 +186,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Ivanti Service Manager (ISM)**.
 
-	![Configure Single Sign-On](./media/ivantiservicemanager(ism)-tutorial/tutorial_ivantiservicemanager_app.png) 
+	![Configure Single Sign-On](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
