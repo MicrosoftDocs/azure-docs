@@ -1,6 +1,6 @@
 ---
-title: Update device firmware in Remote Monitoring - Azure | Microsoft Docs
-description: In this tutorial you learn how to update the firmware of devices connected to a Remote Monitoring solution.
+title: Manage devices connected to Remote Monitoring in bulk - Azure | Microsoft Docs
+description: In this tutorial you learn how to manage the devices connected to a Remote Monitoring solution in bulk.
 author: aditidugar
 manager: philmea
 ms.service: iot-accelerators
@@ -9,17 +9,15 @@ ms.topic: tutorial
 ms.date: 11/28/2018
 ms.author: adugar
 
-# As an operator of an IoT monitoring solution, I want to update the firmware of some of my connected devices in bulk.
-
 # As an operator of an IoT monitoring solution, I want to manage the local configuration of my connected devices in bulk.
 ---
-# Tutorial: Update the firmware on connected devices
+# Tutorial: Manage your connected devices in bulk
 
-In this tutorial, you use the Remote Monitoring solution accelerator to update the firmware on a group of connected devices.
+In this tutorial, you use the Remote Monitoring solution accelerator to manage the configuration of your connected devices in bulk.
 
 <!-- TODO - check terminology matches what's in the Remote Monitoring Web UI -->
 
-As an operator at Contoso, you need to update a group of devices with a new firmware version. You don't want to have to update the firmware on each device individually. To update the firmware on a group of devices, you can use device groups and automatic device management in the Remote Monitoring solution accelerator. Any device you add to the device group gets the latest firmware as soon as the device comes online.
+As an operator at Contoso, you need to configure a group of devices with a new firmware version. You don't want to have to update the firmware on each device individually. To update the firmware on a group of devices, you can use device groups and automatic device management in the Remote Monitoring solution accelerator. Any device you add to the device group gets the latest firmware as soon as the device comes online.
 
 In this tutorial, you:
 
@@ -69,10 +67,6 @@ Then click **Launch** on the tile for the Remote Monitoring solution accelerator
 
 ## Create a device group
 
-<!--
-TODO - if this is a tutorial, it should be expanded to provide detailed steps - if it's a how-to, we can leave as is.
--->
-
 To automatically update the firmware on a group of devices, the devices must be members of a device group in your Remote Monitoring solution:
 
 1. On the **Devices**** page, select all the **IoT DevKit** devices you've connected to the solution accelerator. Then click **Jobs**.
@@ -97,7 +91,7 @@ The [Azure IoT Workbench](https://marketplace.visualstudio.com/items?itemName=vs
 
 1. Find **Firmware OTA** and click **Open Sample**. A new VS Code window opens and shows the **firmware_ota** project folder:
 
-    ![IoT Workbench, select Firmware OTA example](media/iot-accelerators-remote-monitoring-firmware-update/iot-workbench-firmware-example.png)
+    ![IoT Workbench, select Firmware OTA example](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-firmware-example.png)
 
 ### Build the new firmware
 
@@ -105,11 +99,11 @@ The initial version of the device firmware is 1.0.0. The new firmware should hav
 
 1. In VS Code, open the **FirmwareOTA.ino** file and change the `currentFirmwareVersion` from `1.0.0` to `1.0.1`:
 
-    ![Change firmware version](media/iot-accelerators-remote-monitoring-firmware-update/version-1-0-1.png)
+    ![Change firmware version](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
 1. Open the command palette, then type and select **IoT Workbench: Device**. Then select **Device Compile** to compile the code:
 
-    ![Device compile](media/iot-accelerators-remote-monitoring-firmware-update/iot-workbench-device-compile.png)
+    ![Device compile](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
     VS Code saves the compiled file in the `.build` folder in the project. Depending on your settings, VS Code may hide the `.build` folder in the explorer view.
 
@@ -117,11 +111,11 @@ The initial version of the device firmware is 1.0.0. The new firmware should hav
 
 1. Open the command palette, then type and select **IoT Workbench: Device**. Then select **Generate CRC**:
 
-    ![Generate CRC](media/iot-accelerators-remote-monitoring-firmware-update/iot-workbench-device-crc.png)
+    ![Generate CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
 1. VS Code generates and prints the CRC value, the firmware filename and path, and the file size in the output window. Make a note of these values for later:
 
-    ![CRC info](media/iot-accelerators-remote-monitoring-firmware-update/crc-info.png)
+    ![CRC info](media/iot-accelerators-remote-monitoring-bulk-configuration-update/crc-info.png)
 
 ### Upload the firmware to the cloud
 
@@ -129,7 +123,7 @@ Use your Azure storage account to host your new firmware file in the cloud.
 
 1. Navigate to your storage account in the Azure portal. In the Services section, select **Blobs**. Create a public container called **firmware** to store your firmware files:
 
-    ![Create Folder](media/iot-accelerators-remote-monitoring-firmware-update/blob-folder.png)
+    ![Create Folder](media/iot-accelerators-remote-monitoring-bulk-configuration-update/blob-folder.png)
 
 1. To upload your firmware file to the container, Select the **firmware** container and click **Upload**.
 
@@ -141,67 +135,77 @@ Use your Azure storage account to host your new firmware file in the cloud.
 
 1. In VS Code, open the **FirmwareOTA.ino** file and change the `currentFirmwareVersion` back to `1.0.0`:
 
-    ![Version 1.0.0](media/iot-accelerators-remote-monitoring-firmware-update/version-1-0-1.png)
+    ![Version 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
 1. Open the command palette, then type and select **IoT Workbench: Device**. Then select **Device Upload**:
 
-    ![Device Upload](media/iot-accelerators-remote-monitoring-firmware-update/device-upload.png)
+    ![Device Upload](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
 1. VS Code verifies and uploads the code to your IoT DevKit device.
 
 1. When the upload finishes, the IoT DevKit device reboots. When the reboot is complete, the screen of IoT DevKit shows **FW version: 1.0.0**, and that it's checking for new firmware:
 
-    ![ota-1](media/iot-accelerators-remote-monitoring-firmware-update/ota-1.jpg)
+    ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## Create a device configuration
 
+A device configuration specifies the desired state of your devices. Typically, a developer [creates the configuration](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) on the **IoT device configuration** page in the Azure portal. A device configuration is a JSON document that specifies the desired state of your devices and a set of metrics.
+
+Save the following configuration as file called **firmware_update.json** on your local machine. Replace the `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM`, and `YOURPACKAGESIZE` placeholders with the values you made a note of previously:
+
 <!--
-TODO - Do we need this section? Couldn't we just provide some JSON to use instead?
+TODO - Check if we can remove timestamps, etag, and results to simplify this.
 -->
 
-A device configuration specifies the desired state of your devices. Typically, a developer creates the configuration on the **IoT device configuration** page in the Azure portal. A device configuration is a JSON document that specifies the desired state of your devices and a set of metrics.
-
-1. In the Azure Portal, navigate to the IoT hub that's part of your Remote Monitoring solution. Select **IoT device configuration** and then click **Add Configuration**.
-
-1. On the **Create Configuration > Name and Label** page, enter then name **firmware-update**. Add the following labels to describe your configuration:
-
-    | Name    | Value      |
-    | ------- | ---------- |
-    | Version | 1.0.1      |
-    | Device  | IoT DevKit |
-
-    Click **Next**.
-
-1. On the **Create Configuration > Specify Settings** page, enter **properties.desired.firmware** as the **Device Twin Path**. This path identifies the JSON section within the [device twin desired properties](../iot-hub/iot-hub-devguide-device-twins.md). Next, specify the JSON content to insert into that section. Replace the placeholders with the values you made a note of previously:
-
-    ```json
-    {
+```json
+{
+  "id": "firmware-update",
+  "schemaVersion": null,
+  "labels": {
+    "Version": "1.0.1",
+    "Devices": "IoT DevKit"
+  },
+  "content": {
+    "deviceContent": {
+      "properties.desired.firmware": {
         "fwVersion": "1.0.1",
-        "fwPackageURI": "https://{your storage account name}.blob.core.windows.net/firmware/FirmwareOTA.ino.bin",
-        "fwPackageCheckValue": "{your CRC value}",
-        "fwSize": {your package size}
+        "fwPackageURI": "https://YOURSTRORAGEACCOUNTNAME.blob.core.windows.net/firmware/FirmwareOTA.ino.bin",
+        "fwPackageCheckValue": "YOURCHECKSUM",
+        "fwSize": YOURPACKAGESIZE
+      }
     }
-    ```
+  },
+  "targetCondition": "",
+  "createdTimeUtc": "2018-11-15T14:52:06.697Z",
+  "lastUpdatedTimeUtc": "2018-11-15T14:52:06.697Z",
+  "priority": 10,
+  "systemMetrics": {
+    "results": {
+      "targetedCount": 0,
+      "appliedCount": 0
+    },
+    "queries": {
+      "targetedCount": "",
+      "appliedCount": "select deviceId from devices where configurations.[[firmware-update]].status = 'Applied'"
+    }
+  },
+  "metrics": {
+    "results": {
+      "Current": 1
+    },
+    "queries": {
+      "Current": "SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Current' AND properties.reported.firmware.type='IoTDevKit'",
+      "Downloading": "SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Downloading' AND properties.reported.firmware.type='IoTDevKit'",
+      "Verifying": "SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Verifying' AND properties.reported.firmware.type='IoTDevKit'",
+      "Applying": "SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Applying' AND properties.reported.firmware.type='IoTDevKit'",
+      "Error": "SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Error' AND properties.reported.firmware.type='IoTDevKit'"
+    }
+  },
+  "etag": "MQ=="
+}
+```
 
-    Click **Next**.
-
-1. On the **Create Configuration > Specify Metrics** page, add in the following metrics, and then click **Next**. These metrics summarize the state of your IoT DevKit devices during the update process:
-
-    | Metric name | Metric criteria |
-    | ----------- | --------------- |
-    | Current     | `SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Current' AND properties.reported.firmware.type='IoTDevKit'`|
-    | Downloading | `SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Downloading' AND properties.reported.firmware.type='IoTDevKit'`|
-    | Verifying   | `SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Verifying' AND properties.reported.firmware.type='IoTDevKit'`|
-    | Applying    | `SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Applying' AND properties.reported.firmware.type='IoTDevKit'`|
-    | Error       | `SELECT deviceId FROM devices WHERE properties.reported.firmware.fwUpdateStatus='Error' AND properties.reported.firmware.type='IoTDevKit'`|
-
-1. On the **Create Configuration > Target Devices** page, enter 10 as the **Priority**, and then click **Next**. The Remote Monitoring solution overrides this priority value when you deploy the configuration.
-
-1. On the **Create Configuration > Review Configuration** page, review the summary of the configuration, and then click **Submit**.
-
-1. On the main **IoT device configuration** page, **firmware-update** is listed as a configuration.
-
-1. Click the **firmware-update** configuration and then click **Download configuration file**. Save the file as **firmware-update.json** to a suitable location on your local machine. You need this configuration file in the following section.
+You use this configuration file in the following section.
 
 ## Import a configuration
 
@@ -249,23 +253,23 @@ In this section, you create and execute a deployment that applies the device con
 
 After a few minutes, the IoT DevKit retrieves the new firmware information and starts downloading it to the device:
 
-![ota-2](media/iot-accelerators-remote-monitoring-firmware-update/ota-2.jpg)
+![ota-2](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-2.jpg)
 
 Depending on the speed of your network, the download may take up to a couple of minutes. After the firmware is downloaded, the device verifies the file size and CRC value. The screen on the MXChip displays "passed" if verification is successful.
 
-![ota-3](media/iot-accelerators-remote-monitoring-firmware-update/ota-3.jpg)
+![ota-3](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-3.jpg)
 
 If the check is successful, the device reboots. You see a countdown from **5** to **0** before the reboot happens.
 
-![ota-4](media/iot-accelerators-remote-monitoring-firmware-update/ota-4.jpg)
+![ota-4](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-4.jpg)
 
 After the reboot, the IoT DevKit bootloader upgrades the firmware to the new version. The upgrade may take several seconds. During this stage, the RGB LED in the device is red and the screen is blank.
 
-![ota-5](media/iot-accelerators-remote-monitoring-firmware-update/ota-5.jpg)
+![ota-5](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-5.jpg)
 
 When the reboot is finished, your IoT DevKit device is now running version 1.0.1 of the firmware.
 
-![ota-6](media/iot-accelerators-remote-monitoring-firmware-update/ota-6.jpg)
+![ota-6](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-6.jpg)
 
 On the **Deployments** page, click on a deployment to see the status of your devices as they update. You can see the status of each device in your device group and the custom metrics you defined.
 
