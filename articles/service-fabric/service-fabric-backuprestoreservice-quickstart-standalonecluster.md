@@ -128,8 +128,8 @@ $StorageInfo = @{
 }
 
 $RetentionPolicy = @{ 
-    RetentionPolicyType = 'Basic' 
-    RetentionDuration =  'P10D'    
+    RetentionPolicyType = 'Basic'
+    RetentionDuration =  'P10D'
 }
 
 $BackupPolicy = @{
