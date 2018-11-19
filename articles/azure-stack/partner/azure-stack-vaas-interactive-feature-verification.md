@@ -21,9 +21,9 @@ ms.reviewer: johnhas
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-You can use the interactive feature verification testing framework to run tests that require manual interactive steps. You can use the framework to chain together several standalone automated tests.
+You can use the interactive feature verification testing framework to request tests for your system. When you request a test, Microsoft uses the framework to prepare tests that require manual interactive steps. Microsoft can use the framework to chain together several standalone automated tests.
 
-This article describes a simple manual scenario. You test replacing a disk in Azure Stack. This explanation serves as an example for you to create more complicated scenarios. The framework gathers diagnostic logs at each step. You can debug issues as you find them. The framework also allows you to share logs produced by other tools or processes, and enables you to provide feedback on the scenario.
+This article describes a simple manual scenario. The test checks replacing a disk in Azure Stack. The framework gathers diagnostic logs at each step. You can debug issues as you find them. The framework also allows the sharing of logs produced by other tools or processes, and enables you to provide feedback on the scenario.
 
 ## Overview of a test pass
 
