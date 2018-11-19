@@ -5,7 +5,8 @@ keywords: azure machine learning,azure ml, ml studio
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.author: hshapiro
+ms.custom: (previous ms.author hshapiro)
+ms.author: amlstudiodocs
 
 
 ms.assetid: e65c8fe1-7991-4a2a-86ef-fd80a7a06269

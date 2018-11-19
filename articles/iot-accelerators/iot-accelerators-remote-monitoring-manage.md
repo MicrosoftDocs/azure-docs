@@ -57,7 +57,7 @@ To view detailed diagnostics, scroll down in the **Device Details** panel to vie
 
 ## Reconfigure a device
 
-To test that you can update the engine's configuration properties, select it in the device list on the **Devices** page. Then click **Jobs**, and then choose **Reconfigure**. The jobs panel shows the updateable property values for the selected device:
+To test that you can update the engine's configuration properties, select it in the device list on the **Devices** page. Then click **Jobs**, and then choose **Properties**. The jobs panel shows the updateable property values for the selected device:
 
 [![Reconfigure a device](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-inline.png)](./media/iot-accelerators-remote-monitoring-manage/devicesreconfigure-expanded.png#lightbox)
 

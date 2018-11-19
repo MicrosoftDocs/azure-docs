@@ -64,8 +64,8 @@ Next, set up and configure Postman to obtain an Azure AD token. Afterwards, make
     | Callback URL | [`https://www.getpostman.com/oauth2/callback`](https://www.getpostman.com/oauth2/callback) |
     | Auth URL | Use the **Authorization URL** from step 2 above |
     | Client ID | Use the **Application ID** for the Azure AD app that was created or repurposed from the previous section |
-    | Scope | leave blank |
-    | State | leave blank |
+    | Scope | Leave blank |
+    | State | Leave blank |
     | Client Authentication | `Send as Basic Auth header` |
 
 1. The client should now look like:
