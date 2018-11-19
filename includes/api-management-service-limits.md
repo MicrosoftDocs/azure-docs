@@ -18,7 +18,7 @@ ms.custom: include file
 | Units of scale | 10 per region<sup>1</sup> |
 | Cache | 5 GB per unit<sup>1</sup> |
 | Concurrent backend connections<sup>2</sup> per HTTP authority | 2048 per unit<sup>3</sup> |
-| Maximum cached response size | 10MB |
+| Maximum cached response size | 2MB |
 | Maximum policy document size | 256KB |
 | Maximum custom gateway domains | 20 per service instance<sup>4</sup> |
 
