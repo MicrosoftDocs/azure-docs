@@ -42,19 +42,19 @@ Create a file named `publish-knowledge-base.js`.
 
 At the top of `publish-knowledge-base.js`, add the following lines to add necessary dependencies to the project:
 
-[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base-short.js?range=1-3 "Add the dependencies")]
+[!code-nodejs[Add the dependencies](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=1-3 "Add the dependencies")]
 
 ## Add required constants
 
 After the preceding required dependencies, add the required constants to access QnA Maker. Replace the values with your own.
 
-[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base-short.js?range=11-14 "Add required constants")]
+[!code-nodejs[Add required constants](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base.js?range=11-14 "Add required constants")]
 
 ## Add POST request to publish knowledge base
 
 After the required constants, add the following code, which makes an HTTPS request to the QnA Maker API to publish a knowledge base and receives the response:
 
-[!code-nodejs[Add a POST request to publish knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-base-short.js?range=16-47 "Add a POST request to publish knowledge base")]
+[!code-nodejs[Add a POST request to publish knowledge base](~/samples-qnamaker-nodejs/documentation-samples/quickstarts/publish-knowledge-base/publish-knowledge-basejs?range=16-47 "Add a POST request to publish knowledge base")]
 
 The API call returns a 204 status for a successful publish without any content in the body of the response. The code adds content for 204 responses.
 
