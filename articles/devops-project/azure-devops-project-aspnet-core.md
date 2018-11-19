@@ -28,7 +28,7 @@ If you don't have an Azure subscription, you can get one free through [Visual St
 
 ## Sign in to the Azure portal
 
-DevOps Projects creates a CI/CD pipeline in Azure DevOps.  You can create a new Azure DevOps organization or use an  existing organization.  DevOps Projects also creates Azure resources in the Azure subscription of your choice.
+DevOps Projects creates a CI/CD pipeline in Azure DevOps. You can create a new Azure DevOps organization or use an  existing organization. DevOps Projects also creates Azure resources in the Azure subscription of your choice.
 
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com).
 
@@ -40,7 +40,7 @@ DevOps Projects creates a CI/CD pipeline in Azure DevOps.  You can create a new 
 
 ## Select a sample application and Azure service
 
-1. Select the .NET sample application.  The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
+1. Select the .NET sample application. The .NET samples include a choice of either the open-source ASP.NET framework or the cross-platform .NET Core framework.
 
    	![.NET framework](_img/azure-devops-project-aspnet-core/chooselanguagedotnet.png)
 
