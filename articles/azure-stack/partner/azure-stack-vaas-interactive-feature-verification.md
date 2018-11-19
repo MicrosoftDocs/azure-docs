@@ -51,7 +51,7 @@ A test for disk replacement is a common scenario. In this example, the test has 
 
 5.  Enter the environment and common test parameters by following the instructions in the [Workflow common parameters for Azure Stack Validation as a Service](azure-stack-vaas-parameters.md) article.
 
-6.  The diagnostics connection string must follow the format specified in the [Diagnostics Collection](https://github.com/Azure/azurestack-solutionvalidation/wiki/Diagnostics-Collection-as-a-part-of-Test) article.
+6.  The diagnostics connection string must follow the format specified in the [Test parameters](azure-stack-vaas-parameters.md#test-parameters) section in the [Workflow common parameters](azure-stack-vaas-parameters.md) article.
 
 7.  Enter the required parameters for the test.
 
@@ -93,30 +93,25 @@ The Disk Identification Test prompts show on the computer that runs the VaaS age
 
     ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image9.png)
 
-2.  For reference:
-
-    - The Document link points to: `Documentation link should be online or in MS download center`.
-    - The Validation link points to: `Validation link should be online or in MS download center`.
-
-3.  Select **Next**.
+2.  Select **Next**.
 
     ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image10.png)
 
-4.  Follow the instructions to run the precheck script.
+3.  Follow the instructions to run the precheck script.
 
     ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image11.png)
 
-5.  Once the precheck script is completed successfully, execute the manual scenario (Disk replacement) as per the **Documentation** and **Validation** links from the **Information** tab.
+4.  Once the precheck script is completed successfully, execute the manual scenario (Disk replacement) as per the **Documentation** and **Validation** links from the **Information** tab.
 
     ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image12.png)
 
-6.  Do not close the dialog box while you are performing the manual scenario.
+5.  Do not close the dialog box while you are performing the manual scenario.
 
-7.  When you are finished performing the manual scenario, follow the instructions to run the post check script.
+6.  When you are finished performing the manual scenario, follow the instructions to run the post check script.
 
     ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image13.png)
 
-8.  On successful completion of the manual scenario (Disk replacement), select **Next**.
+7.  On successful completion of the manual scenario (Disk replacement), select **Next**.
 
     ![Alt text](media\azure-stack-vaas-interactive-feature-verification\image14.png)
 
