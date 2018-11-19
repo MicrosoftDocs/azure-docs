@@ -71,9 +71,9 @@
           href: try-review-api-review.md
         - name: Workflows - API console
           href: try-review-api-workflow.md
-    - name: Human in the loop
+    - name: Review tool overview
       href: Review-Tool-User-Guide/human-in-the-loop.md
-    - name: Use settings
+    - name: Review tool settings
       href: Review-Tool-User-Guide/Configure.md
     - name: Manage team
       href: Review-Tool-User-Guide/SubTeams.md

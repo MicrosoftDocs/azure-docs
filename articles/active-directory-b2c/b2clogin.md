@@ -20,7 +20,7 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 Using b2clogin.com gives you additional benefits, such as:
 
 - Cookies are no longer shared with the other Microsoft services.
-- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
+- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
 
 Consider these settings that might need to change when using b2clogin.com:
 

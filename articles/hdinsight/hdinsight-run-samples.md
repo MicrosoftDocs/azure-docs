@@ -922,7 +922,7 @@ public class TeraSort extends Configured implements Tool {
         splitPoints = readPartitions(fs, partFile, job);
         trie = buildTrie(splitPoints, 0, splitPoints.length, new Text(), 2);
         } catch (IOException ie) {
-        throw new IllegalArgumentException("can't read paritions file", ie);
+        throw new IllegalArgumentException("can't read partitions file", ie);
         }
     }
 

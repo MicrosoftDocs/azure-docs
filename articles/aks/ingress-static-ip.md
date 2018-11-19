@@ -77,7 +77,7 @@ For the HTTPS certificates to work correctly, configure an FQDN for the ingress 
 #!/bin/bash
 
 # Public IP address of your ingress controller
-IP="51.145.155.210"
+IP="40.121.63.72"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"

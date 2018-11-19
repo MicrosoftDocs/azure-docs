@@ -23,12 +23,12 @@ Log Analytics collects data from your Connected Sources and stores it in your Lo
 
 ![Log Analytics data collection](./media/log-analytics-data-sources/overview.png)
 
-Data Sources are different than [management solutions](../monitoring/monitoring-solutions.md), which also collect data from Connected Sources and create records in Log Analytics.  In addition to 
+Data Sources are different than [management solutions](../azure-monitor/insights/solutions.md), which also collect data from Connected Sources and create records in Log Analytics.  In addition to 
 collecting data, solutions typically include log searches and views to help you analyze the operation of a particular application or service.
 
 
 ## Summary of data sources
-The following table lists the data sources that are currently available in Log Analytics.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of data collection into Log Analytics.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different management solutions. For explanations of the columns, see [Data collection details for management solutions in Azure](../monitoring/monitoring-solutions-inventory.md).
+The following table lists the data sources that are currently available in Log Analytics.  Each has a link to a separate article providing detail for that data source.   It also provides information on their method and frequency of data collection into Log Analytics.  You can use the information in this article to identify the different solutions available and to understand the data flow and connection requirements for different management solutions. For explanations of the columns, see [Data collection details for management solutions in Azure](../azure-monitor/insights/solutions-inventory.md).
 
 
 | Data source | Platform | Microsoft monitoring agent | Operations Manager agent | Azure storage | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
@@ -56,7 +56,7 @@ You configure data sources from the **Data** menu in Log Analytics **Advanced Se
 ## Data collection
 Data source configurations are delivered to agents that are directly connected to Log Analytics within a few minutes.  The specified data is collected from the agent and delivered directly to Log Analytics at intervals specific to each data source.  See the documentation for each data source for these specifics.
 
-For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will be either sent to a management server which forwards the data to the Log Analytics, or the agent will send the data to Log Analytics without going through the management server. See [Data collection details for management solutions in Azure](../monitoring/monitoring-solutions-inventory.md) for details.  You can read about details of connecting Operations Manager and Log Analytics and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md).
+For System Center Operations Manager agents in a connected management group, data source configurations are translated into management packs and delivered to the management group every 5 minutes by default.  The agent downloads the management pack like any other and collects the specified data. Depending on the data source, the data will be either sent to a management server which forwards the data to the Log Analytics, or the agent will send the data to Log Analytics without going through the management server. See [Data collection details for management solutions in Azure](../azure-monitor/insights/solutions-inventory.md) for details.  You can read about details of connecting Operations Manager and Log Analytics and modifying the frequency that configuration is delivered at [Configure Integration with System Center Operations Manager](log-analytics-om-agents.md).
 
 If the agent is unable to connect to Log Analytics or Operations Manager, it will continue to collect data that it will deliver when it establishes a connection.  Data can be lost if the amount of data reaches the maximum cache size for the client, or if the agent is not able to establish a connection within 24 hours.
 
@@ -64,6 +64,6 @@ If the agent is unable to connect to Log Analytics or Operations Manager, it wil
 All data collected by Log Analytics is stored in the workspace as records.  Records collected by different data sources will have their own set of properties and be identified by their **Type** property.  See the documentation for each data source and solution for details on each record type.
 
 ## Next steps
-* Learn about [solutions](../monitoring/monitoring-solutions.md) that add functionality to Log Analytics and also collect data into the workspace.
+* Learn about [solutions](../azure-monitor/insights/solutions.md) that add functionality to Log Analytics and also collect data into the workspace.
 * Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
-* Configure [alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to proactively notify you of critical data collected from data sources and solutions.
+* Configure [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to proactively notify you of critical data collected from data sources and solutions.
