@@ -175,7 +175,7 @@ You need appropriate permissions to connect to the Azure SQL database.
 1. Select **Reset password**, enter a password for the SQL Server admin login, and then select **Save**.  
     Be sure to keep this password to use later in this tutorial.
 
-    You may now optionally use client tools such as SQL Server Management Studio or Visual Studio to connect to Azure SQL Server and the Azure SQL database. Use the **Server name** property to connect.
+    You may now optionally use client tools such as SQL Server Management Studio or Visual Studio to connect to SQL Server and the Azure SQL database. Use the **Server name** property to connect.
 
     If you didn't change the database username when you initially configured the project in DevOps Projects, your username is the local part of your email address. For example, if your email address is *johndoe@microsoft.com*, your username is *johndoe*.
 
