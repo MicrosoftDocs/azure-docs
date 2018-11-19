@@ -17,11 +17,11 @@ This article defines several of the primary terminologies used in the Azure Disk
 
 ## What is an Azure Disk?
 
-An Azure Disk is essentially a VHD (virtual hard disks). You can think of them just as you would an on-prem disk but, for a more direct analogy, they're akin to a VMDK or a VHDx/VMD. Internally, they are page blobs which you don't have to manage, if you're using managed disks. In the Azure space they can either be data or OS disks.
+An Azure Disk is essentially a VHD (virtual hard disk). You can think of them just like physical disks you might put into an on-premises server, but virtualized. VHDs are also similar to other virtual hard disk formats you may be familiar with such as VMDK or QCOW2 files. Azure Disks are stored in a special type of Azure storage object called a page blob, which allows for random IO patterns, just like what you would expect from a real physical disk. An Azure Disk can be either an OS disk or a data disk.
 
 ### Data Disks
 
-A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4095 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
+A data disk is a VHD that's attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose. Each data disk has a maximum capacity of 4095 GiB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 > [!NOTE]
 > For more information about virtual machines capacities, see [Sizes for Linux virtual machines](./sizes.md).
@@ -32,11 +32,11 @@ You can add data disks to a virtual machine at any time, by **attaching** the di
 
 ### OS Disks
 
-Every virtual machine has one attached operating system disk. It's registered as a SATA drive and is labeled /dev/sda by default. This disk has a maximum capacity of 2048 gigabytes (GB).
+Every virtual machine has one attached operating system disk. It's registered as a SATA drive and is labeled /dev/sda by default. This disk has a maximum capacity of 2048 GiB.
 
 ## IOPS
 
-IOPS is number of requests that your application is sending to the storage disks in one second. An input/output operation could be read or write, sequential or random. OLTP applications like an online retail website need to process many concurrent user requests immediately. The user requests are insert and update intensive database transactions, which the application must process quickly. Therefore, OLTP applications require very high IOPS. Such applications handle millions of small and random IO requests. If you have such an application, you must design the application infrastructure to optimize for IOPS. In the later section, *Optimizing Application Performance*, we discuss in detail all the factors that you must consider to get high IOPS.
+IOPS, or Input/output Operations Per Second, is the number of requests that your application is sending to the storage disks in one second. An input/output operation could be read or write, sequential or random. OLTP applications like an online retail website need to process many concurrent user requests immediately. The user requests are insert and update intensive database transactions, which the application must process quickly. Therefore, OLTP applications require very high IOPS. Such applications handle millions of small and random IO requests. If you have such an application, you must design the application infrastructure to optimize for IOPS. In the later section, *Optimizing Application Performance*, we discuss in detail all the factors that you must consider to get high IOPS.
 
 When you attach a premium storage disk to your high scale VM, Azure provisions for you a guaranteed number of IOPS as per the disk specification. For example, a P50 disk provisions 7500 IOPS. Each high scale VM size also has a specific IOPS limit that it can sustain. For example, a Standard GS5 VM has 80,000 IOPS limit.
 
