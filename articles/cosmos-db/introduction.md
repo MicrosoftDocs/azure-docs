@@ -77,7 +77,7 @@ Azure Cosmos DB provides the best capabilities of traditional relational and non
 | Horizontal scale | No | Yes | Yes, you can independently scale storage and throughput | 
 | Latency guarantees | No | Yes | Yes, 99% of reads in <10 ms and writes in <10 ms | 
 | High availability | No | Yes | Yes, Azure Cosmos DB is always on, has well-defined PACELC tradeoffs, and offers automatic and manual failover options|
-| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API (more coming soon) |
+| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API |
 | SLAs | Yes | No | Yes, comprehensive SLAs for latency, throughput, consistency, availability |
 
 ## Solutions that benefit from Azure Cosmos DB

@@ -11,21 +11,21 @@ ms.author: rimman
 
 # Regional presence of Azure Cosmos DB
 
-Currently, Azure is available in [54 regions](https://azure.microsoft.com/en-us/global-infrastructure/regions/) worldwide. Azure Cosmos DB is a foundational service in Azure and is available in all regions where Azure is available.
+Currently, Azure is available in [54 regions](https://azure.microsoft.com/global-infrastructure/regions/) worldwide. Azure Cosmos DB is a foundational service in Azure and is available in all regions where Azure is available.
 
 ![Azure Cosmos DB regional availability](./media/regional-presence/regional-presence.png)
 
 Cosmos DB is available in all five distinct Azure cloud environments available to customers:
 
-1. **Azure public** cloud, which is available globally.
+* **Azure public** cloud, which is available globally.
 
-1. **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
+* **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
 
-1. **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
+* **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
 
-1. **Azure Government** is available in four regions in the United States to US government agencies and their partners. 
+* **Azure Government** is available in four regions in the United States to US government agencies and their partners. 
 
-1. **Azure Government for Department of Defense(DoD)** is available in two regions in the United States to the US Department of Defense.
+* **Azure Government for Department of Defense(DoD)** is available in two regions in the United States to the US Department of Defense.
 
 ## Regional presence with global distribution
 
@@ -40,4 +40,4 @@ You can now learn about different concepts of Azure Cosmos DB with the following
 * [Global data distribution](distribute-data-globally.md)
 * [How to manage an Azure Cosmos DB account](manage-account.md)
 * [Provision throughput for Azure Cosmos containers and databases](set-throughput.md)
-* [Cosmos DB SLA](https://azure.microsoft.com/en-us/support/legal/sla/cosmos-db/v1_2/)
+* [Cosmos DB SLA](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/)

@@ -15,15 +15,15 @@ ms.reviewer: sngun
 
 Azure Cosmos DB is available in all Azure regions. Microsoft makes five distinct Azure cloud environments available to customers:
 
-1. **Azure public** cloud, which is available globally.
+* **Azure public** cloud, which is available globally.
 
-1. **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
+* **Azure China** is available through a unique partnership between Microsoft and 21Vianet, one of the country’s largest internet providers.
 
-1. **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
+* **Azure Germany** provides services under a data trustee model, which ensures that customer data remains in Germany under the control of T-Systems International GmbH, a subsidiary of Deutsche Telecom, acting as the German data trustee.
 
-1. **Azure Government** is available in four regions in the United States to US government agencies and their partners. 
+* **Azure Government** is available in four regions in the United States to US government agencies and their partners. 
 
-1. **Azure Government for Department of Defense(DoD)** is available in two regions in the United States to the US Department of Defense.
+* **Azure Government for Department of Defense(DoD)** is available in two regions in the United States to the US Department of Defense.
 
 To help customers meet their own compliance obligations across regulated industries and markets worldwide, Azure maintains the largest compliance portfolio in the industry in terms of both breadth (total number of offerings) and depth (number of customer-facing services in assessment scope).  Azure compliance offerings are grouped into four segments - globally applicable, US Government, industry specific, and region or country specific.  Compliance offerings are based on various types of assurances, including formal certifications, attestations, validations, authorizations, and assessments produced by independent third-party auditing firms, as well as contractual amendments, self-assessments, and customer guidance documents produced by Microsoft.
 

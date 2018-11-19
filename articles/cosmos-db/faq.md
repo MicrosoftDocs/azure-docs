@@ -460,7 +460,7 @@ From the .NET SDK it can be submitted in the app.config file:
 
 ### Azure Cosmos DB as a platform seems to have lot of capabilities, such as sorting, aggregates, hierarchy, and other functionality. Will you be adding these capabilities to the Table API?
 
-The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. We'll provide additional functionality in the Table API in a future service update. For more information, see [SQL queries](how-to-sql-query.md).
+The Table API provides the same query functionality as Azure Table storage. Azure Cosmos DB also supports sorting, aggregates, geospatial query, hierarchy, and a wide range of built-in functions. For more information, see [SQL queries](how-to-sql-query.md).
 
 ### When should I change TableThroughput for the Table API?
 
