@@ -39,7 +39,7 @@ The first command does two things. It creates a new .NET console application, an
 
 ## Select the C# language version
 
-This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `tts-sample.csproj` file. For all available options, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
+This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `tts-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
 Open your project in Visual Studio, Visual Studio Code, or your favorite text editor. Open `tts-sample.csproj` and locate `LangVersion`.
 
@@ -185,8 +185,8 @@ using (var client = new HttpClient())
         request.Headers.Add("X-Microsoft-OutputFormat", "riff-24khz-16bit-mono-pcm");
         request.Headers.Add("Connection", "Keep-Alive");
 
-        Console.WriteLine("Calling the TTS service. Please wait... \n");
         // Create a request
+        Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request))
         {
             // Make sure the request returns a success code
