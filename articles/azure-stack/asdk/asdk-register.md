@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
 ---
@@ -58,20 +58,19 @@ Follow these steps to register the ASDK with Azure.
     $AzureContext = Get-AzureRmContext
     $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
     $RegistrationName = "<unique-registration-name>"
-    $UsageReporting = $true
     Set-AzsRegistration `
     -PrivilegedEndpointCredential $CloudAdminCred `
     -PrivilegedEndpoint AzS-ERCS01 `
     -BillingModel Development `
     -RegistrationName $RegistrationName `
-    -UsageReportingEnabled:$UsageReporting
+    -UsageReportingEnabled:$true
     ```
 3. When the script completes, you should see this message: **Your environment is now registered and activated using the provided parameters.**
 
     ![Your environment is now registered](media/asdk-register/1.PNG)
 
 
-## Register Azure Stack with Azure in disconnected environments
+## Register in disconnected environments
 If you are registering Azure Stack in a disconnected environment (with no internet connectivity), you need to get a registration token from the Azure Stack environment and then use that token on a computer that can connect to Azure to register and create an activation resource for your ASDK environment.
  
  > [!IMPORTANT]
@@ -85,7 +84,7 @@ On the ASDK host computer, start PowerShell as an administrator and navigate to 
    $CloudAdminCred = Get-Credential -UserName AZURESTACK\CloudAdmin -Message "Enter the credentials to access the privileged endpoint."
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $CloudAdminCred `
-   -UsageReportingEnabled:$False `
+   -UsageReportingEnabled:$false `
    -PrivilegedEndpoint AzS-ERCS01 `
    -BillingModel Development `
    -MarketplaceSyndicationEnabled:$false `
