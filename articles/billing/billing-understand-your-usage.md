@@ -4,7 +4,7 @@ description: Learn how to read and understand the sections of your detailed usag
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
-ms.author: tonguyen
+ms.author: cwatson
 
 ---
 # Understand terms on your Microsoft Azure detailed usage charges 

@@ -4,7 +4,7 @@ description: Learn how you can change subscription scope and manage access for A
 services: billing
 documentationcenter: ''
 author: vikramdesai01
-manager: vikramdesai01
+manager: yashar
 editor: ''
 
 ms.service: billing

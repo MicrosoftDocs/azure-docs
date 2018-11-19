@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: manshuk
+ms.author: cwatson
 
 ---
 # Understand Reserved Instance usage for your Pay-As-You-Go subscription

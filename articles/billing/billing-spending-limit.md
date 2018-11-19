@@ -4,7 +4,7 @@ description: Describes how Azure spending limit works and how to remove it
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: alherz
 editor: ''
 tags: billing
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 
 ---
 # Understand Azure spending limit and how to remove it

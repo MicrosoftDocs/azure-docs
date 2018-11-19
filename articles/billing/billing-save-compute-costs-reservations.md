@@ -4,7 +4,7 @@ description: Learn about Azure Reserved VM Instances and VM pricing to save on y
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
-manager: yashesvi
+manager: yashar
 editor: ''
 
 ms.service: billing
@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: yashar
+ms.author: cwatson
 
 ---
 # What are Azure Reserved VM Instances?

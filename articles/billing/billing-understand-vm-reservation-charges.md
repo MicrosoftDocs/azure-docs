@@ -13,7 +13,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
-ms.author: yashar
+ms.author: cwatson
 ---
 # Understand how the Reserved Instance discount is applied
 After you buy a Azure Reserved VM Instance, the Azure Reserved Instance discount is automatically applied to virtual machines matching the attributes and quantity of the Reserved Instance. A Reserved Instance covers the infrastructure costs of your virtual machines. The following table illustrates the costs for your virtual machine after you purchase a Reserved Instance. In all cases, you are charged for storage and networking at the normal rates.

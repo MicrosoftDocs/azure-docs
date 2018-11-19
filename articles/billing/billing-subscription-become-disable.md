@@ -5,7 +5,7 @@ keywords: azure subscription disabled
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jlian
+manager: adpick
 editor: ''
 tags: billing
 
@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
+ms.author: cwatson
 
 ---
 # Why is my Azure subscription disabled and how do I reactivate it?
