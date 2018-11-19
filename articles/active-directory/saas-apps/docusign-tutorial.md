@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2018
+ms.date: 11/19/2018
 ms.author: jeedes
 
 ---
@@ -199,11 +199,11 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configuring single sign-on][60]
 
-	a. Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** textbox in **DocuSign Domain and URLs** section on the Azure portal.
+	* Copy the **Service Provider Issuer URL**, and then paste it into the **Identifier** textbox in **DocuSign Domain and URLs** section on the Azure portal.
 
-	b. Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** textbox in **DocuSign Domain and URLs** section on the Azure portal.
+	* Copy the **Service Provider Login URL**, and then paste it into the **Sign On URL** textbox in **DocuSign Domain and URLs** section on the Azure portal.
 
-	c. Click **Close**
+	* Click **Close**
 
 ### Creating an Azure AD test user
 
