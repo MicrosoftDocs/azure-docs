@@ -1,5 +1,5 @@
 ---
-title: How to create and run your first pipeline - Azure Machine Learning service
+title: How to create and run your first machine learning pipeline - Azure Machine Learning service
 description: Create and submit your first machine learning pipeline using the Azure Machine Learning SDK.  Pipelines are used to create and manage the workflows that stitch together machine learning (ML) phases such as data preparation, model training, model deployment, and inferencing. 
 services: machine-learning
 ms.service: machine-learning
@@ -11,11 +11,11 @@ author: sanpil
 ms.date: 11/08/2018
 ---
 
-# Create and run your first pipeline using Azure Machine Learning SDK
+# Create and run your first machine learning pipeline using Azure Machine Learning SDK
 
-In this article, you learn how to create, publish, run, and track a [pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  
+In this article, you learn how to create, publish, run, and track a machine learning [pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  
 
-Pipelines help create and manage the workflows that stitch together machine learning (ML) phases:
+Machine learning pipelines help create and manage the workflows that stitch together machine learning (ML) phases:
 * Data preparation
 * Model training
 * Model deployment
