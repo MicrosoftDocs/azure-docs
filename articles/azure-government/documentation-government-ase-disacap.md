@@ -4,7 +4,7 @@ description: This provides a comparision of features and guidance on developing 
 services: azure-government
 cloud: gov
 documentationcenter: ''
-author: 
+author: jftl6y
 manager: 
 
 ms.assetid: 
