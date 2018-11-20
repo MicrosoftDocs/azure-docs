@@ -51,27 +51,32 @@ Development resources:
 >[!Note]
 >C modules for Azure IoT Edge don't support Windows containers. 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-
 ## Create a container registry
-In this tutorial, you use the Azure IoT Edge extension for VS Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
-You can use any Docker-compatible registry for this tutorial. Two popular Docker registry services available in the cloud are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
+In this tutorial, you use the Azure IoT Edge extension for Visual Studio Code to build a module and create a **container image** from the files. Then you push this image to a **registry** that stores and manages your images. Finally, you deploy your image from your registry to run on your IoT Edge device.  
 
-The following Azure CLI command creates a registry in a resource group called **IoTEdgeResources**. Replace **{acr_name}** with a unique name for your registry. 
+You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
-   ```azurecli-interactive
-   az acr create --resource-group IoTEdgeResources --name {acr_name} --sku Basic --admin-enabled true
-   ```
+If you don't already have a container registry, follow these steps to create a new one in Azure:
 
-Retrieve the credentials for your registry. 
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
 
-   ```azurecli-interactive
-   az acr credential show --name {acr_name}
-   ```
+2. Provide the following values to create your container registry:
 
-Copy the values for **Username** and one of the passwords. You'll use these values later in the tutorial when you publish the Docker image to your registry, and when you add the registry credentials to the Edge runtime. 
+   | Field | Value | 
+   | ----- | ----- |
+   | Registry name | Provide a unique name. |
+   | Subscription | Select a subscription from the drop-down list. |
+   | Resource group | We recommend that you use the same resource group for all of the test resources that you create during the IoT Edge quickstarts and tutorials. For example, **IoTEdgeResources**. |
+   | Location | Choose a location close to you. |
+   | Admin user | Set to **Enable**. |
+   | SKU | Select **Basic**. | 
+
+5. Select **Create**.
+
+6. After your container registry is created, browse to it, and then select **Access keys**. 
+
+7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry. 
 
 ## Create an IoT Edge module project
 The following steps show you how to create an IoT Edge module project based on .NET core 2.0 using Visual Studio Code and the Azure IoT Edge extension.

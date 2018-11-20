@@ -53,9 +53,9 @@ In this tutorial, you use the Azure IoT Edge extension for Visual Studio Code to
 
 You can use any Docker-compatible registry to hold your container images. Two popular Docker registry services are [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) and [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). This tutorial uses Azure Container Registry. 
 
-1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
+If you don't already have a container registry, follow these steps to create a new one in Azure:
 
-    ![Create a container registry](./media/tutorial-deploy-function/create-container-registry.png)
+1. In the [Azure portal](https://portal.azure.com), select **Create a resource** > **Containers** > **Container Registry**.
 
 2. Provide the following values to create your container registry:
 
@@ -72,7 +72,7 @@ You can use any Docker-compatible registry to hold your container images. Two po
 
 6. After your container registry is created, browse to it, and then select **Access keys**. 
 
-7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry. 
+7. Copy the values for **Login server**, **Username**, and **Password**. You use these values later in the tutorial to provide access to the container registry.  
 
 ## Create a function project
 
