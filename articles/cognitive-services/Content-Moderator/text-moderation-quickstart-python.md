@@ -24,7 +24,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
-- 
+
 ## Get the Content Moderator SDK
 
 Install the Content Moderator Python SDK by opening a command prompt and running the following command:
