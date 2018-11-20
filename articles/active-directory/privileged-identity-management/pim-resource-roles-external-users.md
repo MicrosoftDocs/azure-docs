@@ -11,16 +11,30 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 11/14/2018
+ms.date: 11/19/2018
 ms.author: rolyon
 ms.custom: pim
 ---
 
 # Invite external users and assign Azure resource roles in PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables better security management for organizations working with external collaborators, vendors, or freelancers that need access to specific resources in your environment. With PIM, you can use the same role assignment settings and approval workflows for external users that you use for members. To keep track of what external users are doing, you can use the audit logs.
+Azure Activity Directory (Azure AD) business-to-business (B2B) is a set of capabilities within Azure AD that enables organizations to collaborate with external collaborators and vendors using any account. When you combine B2B with Azure AD Privileged Identity Management (PIM), you can continue to apply your compliance and governance requirements. For example, you can continue to use PIM features with external users such as:
+
+- Assign specific roles
+- Assign access to specific Azure resources
+- Enable just-in-time access
+- Perform access reviews
+- Utilize alerts and audit logs
+
+## How does external collaboration using B2B work?
+
+When you use B2B, you can invite an external user to your directory. The external user appears to be in your directory, but the user does not have any credentials associated with it. Whenever an external user has to be authenticated, they must be authenticated in their home directory and not your directory. This means that if the external user no longer has access to their home directory, they automatically lose access to your directory. For example, if the external user leaves their organization, they automatically lose access to any resources you shared with them in your directory without you having to do anything. For more information about B2B, see [What is guest user access in Azure Active Directory B2B?](../b2b/what-is-b2b.md).
+
+![B2B and external user](./media/pim-resource-roles-external-users/b2b-external-user.png)
 
 ## Check external collaboration settings
+
+To make sure you can invite external users into your directory, you should check your external collaboration settings.
 
 1. Sign in to [Azure portal](https://portal.azure.com/).
 
@@ -33,6 +47,8 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) enables b
 1. Make sure that the **Admins and users in the guest inviter role can invite** switch is set to **Yes**.
 
 ## Invite an external user and assign a role
+
+Using PIM, you can invite an external user and make them eligible for an Azure resource role just like a member user.
 
 1. Sign in to [Azure portal](https://portal.azure.com/) with a user that is a member of the [Privileged Role Administrator](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) or [User Account Administrator](../users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) role.
 
@@ -116,7 +132,9 @@ As an external user, you first need to accept the invite to the Azure AD directo
 
     Unless the administrator has approved your request, you should access to the specified resources.
 
-## View activity for external user
+## View activity for an external user
+
+Just like a member user, you can view audit logs to keep track of what external users are doing.
 
 1. As an administrator, open PIM and select the resource that has been shared.
 
