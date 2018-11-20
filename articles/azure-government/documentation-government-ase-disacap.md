@@ -36,7 +36,7 @@ When the creating the ASE via the portal, a route table with a default route of 
 
 ### NSG
 
-The ASE will be created with inbound and outbound security rules as shown below.  The inbound security rules MUST allow ports 454-455 with an ephemeral source port range (*).  Source IPs must include the following Azure Government ranges see [App Service Environment management addresses](../app-service/environment/management-addresses
+The ASE will be created with inbound and outbound security rules as shown below.  The inbound security rules MUST allow ports 454-455 with an ephemeral source port range (*).  Source IPs must include the following Azure Government ranges see [App Service Environment management addresses](https://docs.microsoft.com/en-us/azure/app-service/environment/management-addresses
 )
 
 * 23.97.29.209
@@ -47,7 +47,7 @@ The ASE will be created with inbound and outbound security rules as shown below.
 
 #### Default NSG security rules
 
-The images below describe the default NSG rules created during the ASE creation.  For more information, see [Networking considerations for an App Service Environment](../app-service/environment/network-info#network-security-groups)
+The images below describe the default NSG rules created during the ASE creation.  For more information, see [Networking considerations for an App Service Environment](https://docs.microsoft.com/en-us/azure/app-service/environment/network-info#network-security-groups)
 
 ![Default inbound NSG security rules for an ILB ASE](media/documentation-government-ase-disacap-inbound-route-table.png)
 
