@@ -15,7 +15,7 @@ ms.author: sngun
 clicktale: true
 
 ---
-# Quickstart: Build a .NET web app with Azure Cosmos DB using the SQL API and the Azure portal
+# Quickstart: Build an ASP.NET web app with Azure Cosmos DB using the SQL API and the Azure portal
 
 > [!div class="op_single_selector"]
 > * [.NET](create-sql-api-dotnet.md)
