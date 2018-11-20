@@ -33,7 +33,7 @@ You cannot make a Remote Desktop Protocol (RDP) connection to a VM in Azure beca
 
 When you create a new VM, all traffic from the Internet is blocked by default. 
 
-To enable the RPD port in Network security group, follow these steps:
+To enable the RDP port in Network security group, follow these steps:
 1. Sign in to [Azure portal](https://portal.azure.com).
 2. In **Virtual Machines**, the VM that has problem. 
 3. In **Settings**, select **Networking**. 
