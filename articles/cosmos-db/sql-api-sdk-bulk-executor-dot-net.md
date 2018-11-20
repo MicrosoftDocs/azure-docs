@@ -55,12 +55,12 @@ ms.author: ramkris
 ### <a name="1.3.0"/>1.3.0
 
 * Added an overload for BulkDelete operation for SQL API accounts to accept partition key, document id tuples to delete.
-* Added an overload for BulkDelete operation for SQL API accounts to accept RequestOptions containing the partition key to delete.
+* Added an overload for BulkDelete operation for SQL API accounts to accept RequestOptions containing the partition key specifying the value of the partition key, in addition to using it as a filter in the input query specifying documents to delete.
 * Fixed an issue which caused a formatting issue in the user agent used by BulkExecutor.
 
 ### <a name="1.2.0"/>1.2.0
 
-* Fixed an issue which caused BulkExecutor to throw internal exceptions resulting in incomplete import and update operations.
+* Made improvement to BulkExecutor import and update APIs to transparently adapt to elastic scaling of Cosmos DB container when storage exceeds current capacity without throwing exceptions.
 
 ### <a name="1.1.2"/>1.1.2
 
