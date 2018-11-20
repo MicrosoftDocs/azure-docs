@@ -121,7 +121,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 ## Define ingestion mapping
 
 Map incoming CSV data to the column names and data types used when creating the table.
-Provision a [CSV column mapping object](../controlCommands/controlcommands_tables.md#create-ingestion-mapping) on that table
+Provision a [CSV column mapping object](/azure/kusto/management/tables#create-ingestion-mapping) on that table
 
 ```csharp
 var tableMapping = "StormEvents_CSV_Mapping";
@@ -191,7 +191,7 @@ using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConn
 
 ## Validate that data was ingested into the table
 
-Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into Azure Data Explorer. Then run the following code to get the count of records in the StormEvents table.
+Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into ADX. Then run the following code to get the count of records in the StormEvents table.
 
 ```csharp
 using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
