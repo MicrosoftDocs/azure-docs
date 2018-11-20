@@ -10,7 +10,7 @@ ms.author: tamram
 ms.custom: "include file"
 ---
 
-Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data, such as text or binary data. 
+Azure Blob storage is Microsoft's object storage solution for the cloud. Blob storage is optimized for storing massive amounts of unstructured data. Unstructured data is data that does not adhere to a particular data model or definition, such as text or binary data. 
 
 Blob storage also supports Azure Data Lake Storage Gen2 for enterprise big data analytics. For more information about Azure Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2 ](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction).
 
@@ -27,15 +27,13 @@ Users or client applications can access objects in Blob storage via HTTP/HTTPS, 
 
 ## Blob service concepts
 
-Blob storage exposes three types of resources:
+Blob storage offers three types of resources:
 
 - The storage account
 - Containers in the storage account
-- Blobs in a container. 
+- Blobs in a container 
 
 The following diagram shows the relationship between these resources.
-
-![Diagram of Blob (object) storage architecture](./media/storage-blob-concepts-include/blob1.png)
 
 ### Storage account
 
