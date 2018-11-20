@@ -112,8 +112,10 @@ details, see this article: [Onboarding machines for management by Azure Automati
 
 At an authenticated (`Connect-AzureRmAccount`) PowerShell command line: (can take a few minutes while the pull server is set up)
 
-    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```azurepowershell-interactive
+New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```
 
 You can put your automation account into any of the following regions (aka location): East US 2,
 South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and
