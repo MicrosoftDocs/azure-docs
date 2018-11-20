@@ -33,14 +33,33 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > * Android Studio 3+
 > * Android 21+ is required 
 
+
 > [!div renderon="docs"]
-> ## Register and download
-> ### Register and configure your application and code sample
+> ## Register and download your quickstart app
+> You have two options to start your quickstart application:
+> * [Express] [Option 1: Register and auto configure your app and then download your code sample](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manual] [Option 2: Register and manually configure your application and code sample](#option-2-register-and-manually-configure-your-application-and-code-sample)
+>
+> ### Option 1: Register and auto configure your app and then download your code sample
 > #### Step 1: Register your application
 > To register your app,
 > 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
+>
+> ### Option 2: Register and manually configure your application and code sample
+>
+> #### Step 1: Register your application
+> To register your application and add the app's registration information to your solution manually, follow these steps:
+>
+> 1. Sign in to the [Azure portal](https://portal.azure.com) using either a work or school account or a personal Microsoft account.
+> 1. If your account gives you access to more than one tenant, select your account in the top right corner, and set your portal session to the desired Azure AD tenant.
+> 1. In the left-hand navigation pane, select the **Azure Active Directory** service, and then select **App registrations (Preview)** > **New registration**.
+> 1. When the **Register an application page** appears, enter your application's registration information:
+>      - In the **Name** section, enter a meaningful application name that will be displayed to users of the app, for example `Android-Quickstart`.
+>      - Hit the `Register` button.
+> 1. Go to `Authentication` > `Redirect URIs` > `Suggested Redirect URIs for public clients`, and select the Redirect URI of format **msal{AppId}://auth**. Save the change
+
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
