@@ -27,7 +27,7 @@ This article shows how to resolve a problem in which you cannot connect to Azure
 
 ## Symptom
 
-You cannot make an Remote Desktop Protocol (RDP) connection to a VM in Azure because of the RDP port is not opened in the network security group.
+You cannot make a Remote Desktop Protocol (RDP) connection to a VM in Azure because of the RDP port is not opened in the network security group.
 
 ## Solution 
 
