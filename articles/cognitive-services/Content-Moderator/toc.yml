@@ -125,8 +125,8 @@
       href: samples-dotnet.md
     - name: REST API samples in C#
       href: samples-rest.md
-    - name: other Azure samples
-      href: https://azure.microsoft.com/en-us/resources/samples/?service=cognitive-services&term=content+moderator
+    - name: Other Azure samples
+      href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=content+moderator
   - name: FAQ
     href: FAQs.md
   - name: Pricing and limits
