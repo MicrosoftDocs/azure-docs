@@ -85,7 +85,7 @@ Webhooks enables automation and remediation, for example, using:
 ## Next steps
 Get information about alert rules and configuring them by using:
 
-* Learn more about [Metrics](../monitoring/monitoring-data-collection.md)
+* Learn more about [Metrics](../azure-monitor/platform/data-collection.md)
 * Configure [classic Metric Alerts via Azure portal](alert-metric-classic.md)
 * Configure [classic Metric Alerts PowerShell](alert-metric-classic.md)
 * Configure [classic Metric Alerts Command-line interface (CLI)](alert-metric-classic.md)

@@ -78,5 +78,5 @@ The semantics of the five consistency models in Cosmos DB are described [here](c
 Next learn how to configure global distribution by using the following articles:
 
 * [How to configure clients for multi-homing](how-to-manage-database-account.md#configure-clients-for-multi-homing)
-* [Add or remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Add/remove regions from your database account](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
 * [How to create a custom conflict resolution policy for SQL API accounts](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
