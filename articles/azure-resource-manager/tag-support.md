@@ -64,7 +64,7 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | batchAccounts | Yes | 
 
-## BatchAI
+## Batch AI
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | clusters | Yes | 
@@ -427,7 +427,7 @@ This article describes whether a resource type supports [tagging](resource-group
 | servers/waitStatistics | No | 
 | servers/advisors | No | 
 
-## PowerBI
+## Power BI
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | workspaceCollections | Yes | 
@@ -460,11 +460,6 @@ This article describes whether a resource type supports [tagging](resource-group
 | ------------- | ----------- |
 | searchServices | Yes | 
 | resourceHealthMetadata | No | 
-
-## Security
-| Resource type | Supports tags |
-| ------------- | ----------- |
-| dataCollectionAgents | No | 
 
 ## Security
 | Resource type | Supports tags |
