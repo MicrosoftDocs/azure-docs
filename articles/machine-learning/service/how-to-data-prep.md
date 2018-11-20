@@ -51,7 +51,10 @@ import azureml.dataprep as dprep
 
 To learn about the modules and functions of this SDK, see the [Data Prep SDK reference docs](https://aka.ms/data-prep-sdk).
 
-The following examples highlight some of the unique functionality of the SDK.
+The following examples highlight some of the unique functionality of the SDK, including:
++ Automatic file type detection
++ Automated feature engineering
++ Summary statistics
 
 #### Automatic file type detection
 
