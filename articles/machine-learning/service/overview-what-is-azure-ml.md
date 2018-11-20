@@ -37,6 +37,7 @@ Azure Machine Learning service lets you start training on your local machine, an
 
 When you have the right model, you can easily deploy it in a container such as Docker. This means that it's simple to deploy to [Azure Container Instances](how-to-deploy-to-aci.md) or [Azure Kubernetes Service](how-to-deploy-to-aks.md), or you can use the container in your own deployments, either on-premises or in the cloud.
 You can manage the deployed models, and track multiple runs as you experiment to find the best solution.
+Once deployed, your model can return predictions in [real-time](how-to-consume-web-service.md), or [asynchronously](how-to-run-batch-predictions.md) on large quantities of data.
 
 And with advanced [machine learning pipelines](concept-ml-pipelines.md), you can collaborate on all the steps of data preparation, model training and evaluation, and deployment.
 
