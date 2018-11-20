@@ -12,19 +12,17 @@ manager:
 
 # Choosing the right pricing tier in Azure Maps
 
-Azure Maps offers two pricing tiers based on the APIs and throughput. The purpose of this article is to help you choose which pricing tier is right for you. We discuss both pricing tiers below. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
+Azure Maps offers two pricing tiers. The purpose of this article is to help you choose which pricing tier is right for you. To decide which pricing tier is right for you, ask yourself two questions:
 
-## Pricing Tiers:
-The two pricing tiers offered by Azure Maps are based on two main categories of customers. See the table below for details.
+**What geospatial capabilities do I plan to use?**
+If you feel that your service requirements are met by the core geospatial APIs than the S0 pricing tier is right for you. If you want more advanced capabilities for your application such as areal+hybrid imagery, getting route range, batch geocoding etc. then consider opting for the S1 pricing tier.
 
-### S0 Pricing Tier:
-The S0 pricing tier is for customers who are either small or medium-sized enterprises. It is a right pricing tier for you if you do not expect high volumes of concurrent users and your service requirements are met by the core geospatial APIs as indicated by the table below. This tier is generally available and is applicable for applications in all stages of production from proof of concept development and early stage testing to application production and deployment.
+**How many concurrent users do I plan to support?** 
+S0 and S1 pricing tiers can handle different amounts of data throughput. Before choosing an Azure Maps pricing tier consider asking yourself questions like how many concurrent users do you want to support? The S0 pricing tier can handle up to **50 queries per second** and the S1 pricing tier can handle **more than 50 queries per second**. 
 
-### S1 pricing Tier:
-The S1 pricing tier is for customers in need of support for large-scale enterprise, mission critical applications, high volumes of concurrent users or require advanced geospatial services.
+The following table will help you get a better idea of your application's needs and will help you choose a pricing tier most suitable for your application.
 
-
-| Azure Maps Capabilities                 |        S0           |  S1      | 
+| Capability                              |        S0           |  S1      | 
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    | 
 | Routing                                 |        ✓           |     ✓    | 
@@ -39,6 +37,22 @@ The S1 pricing tier is for customers in need of support for large-scale enterpri
 | Batch Routing (preview)                 |                    |     ✓    |
 | Matrix Routing (preview)                |                    |     ✓    |
 | **Throughput (Queries per Second)**     |   Up to 50 QPS     |  >50 QPS  |
+
+Some additional data that may help you choose a most suitable pricing tier is, what sort of enterprise do you have or how critical is the application that you are building?
+
+See the following table to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
+
+| Pricing Tier  |        Targeted Customers                                                               |
+|---------------|:---------------------------------------------------------------------------------------:|
+| S0                The S0 pricing tier is for customers who are either small or medium-sized enterprises.|
+|                   It is a right pricing tier for you if you do not expect high volumes of concurrent    |
+|                   users and your service requirements are met by the core geospatial APIs as indicated  |
+|                   by the table below. This tier is generally available and is applicable for            |
+|                   applications in all stages of production from proof of concept development and early  |
+|                   stage testing to application production and deployment.                               |
+| S1                The S1 pricing tier is for customers in need of support for large-scale enterprise,   |
+|                   mission critical applications, high volumes of concurrent users or require advanced   |
+|                   geospatial services.                                                                  |
 
 ## Next steps
 
