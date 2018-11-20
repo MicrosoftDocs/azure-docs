@@ -38,9 +38,9 @@ The following table will help you get a better idea of your application's needs 
 | Batch Geocoding (preview)               |                    |     ✓    |
 | Batch Routing (preview)                 |                    |     ✓    |
 | Matrix Routing (preview)                |                    |     ✓    |
-| **Throughput (Queries per Second)**     |   Up to 50 QPS     |  >50 QPS  |
+                       **Pricing Tier capabilities**
 
-Some additional data points worth considering are, what kind enterprise do you have or how critical is the application that you are building?
+Some additional data points worth considering are, what kind enterprise do you have or how critical is the application being built?
 
 See the following table to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
