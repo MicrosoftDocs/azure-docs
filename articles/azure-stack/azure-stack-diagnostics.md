@@ -109,8 +109,6 @@ Use these steps to run Get-AzureStackLog on an ASDK host computer.
 
 - The **FromDate** and **ToDate** parameters can be used to collect logs for a particular time period. If these parameters are not specified, logs are collected for the past four hours by default.
 
-- If the **FromDate** and **ToDate** parameters are not specified, logs are collected for the past four hours by default.
-
 - Use the **FilterByNode** parameter to filter logs by computer name. For example:
 
     ```powershell
