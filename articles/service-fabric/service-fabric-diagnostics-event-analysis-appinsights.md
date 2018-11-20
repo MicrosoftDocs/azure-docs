@@ -13,18 +13,20 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/04/2018
+ms.date: 11/21/2018
 ms.author: srrengar
 
 ---
 
 # Event analysis and visualization with Application Insights
 
-Microsoft Azure Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. It is the recommended platform for monitoring and diagnostics for Service Fabric applications and services. This article helps address the following common questions
+Part of Azure Monitor, Application Insights is an extensible platform for application monitoring and diagnostics. It includes a powerful analytics and querying tool, customizable dashboard and visualizations, and further options including automated alerting. App Insights's integration with Service Fabric includes tooling experiences for Visual Studio and Azure portal, as well as Service Fabric specific metrics, providing a comprehensive out-of-the-box logging experience. Though many logs are automatically created and collected for you with App Insights, we recommend that you add further custom logging to your applications to create a richer diagnostics experience.
 
-* How do I know what is going on inside my application and services and gather telemetry
-* How do I troubleshoot my application, especially services communicating with one another
-* How do I get metrics about how my services are performing, for example, page load time, http requests
+This article helps address the following common questions:
+
+* How do I know what is going on inside my application and services and gather telemetry?
+* How do I troubleshoot my application, especially services communicating with one another?
+* How do I get metrics about how my services are performing, for example, page load time, HTTP requests?
 
 The purpose of this article is to show how to gain insights and troubleshoot from within Application Insights. If you'd like to learn how to set up and configure Application Insights with Service Fabric, check out this [tutorial](service-fabric-tutorial-monitoring-aspnet.md).
 
