@@ -3,43 +3,45 @@
 - name: Overview of Azure Blob storage
   items:
   - name: What is Azure Blob storage?
-    href: storage-blobs-introduction.md
-  - name: Choose Blobs, Files, or Data Disks
-    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Switch to Data Lake Storage Gen1 documentation
-    href: /azure/data-lake-store/
+    href: storage-blobs-overview.md
 - name: Blob storage for text and binary data
   items:
-  - name: Create a storage account
-    href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-  - name: Manage blobs without code
-    items:    
-    - name: Azure portal
-      href: storage-quickstart-blobs-portal.md
-    - name: Storage Explorer
-      href: storage-quickstart-blobs-storage-explorer.md
-    - name: PowerShell
-      href: storage-quickstart-blobs-powershell.md
-    - name: CLI
-      href: storage-quickstart-blobs-cli.md
-  - name: Develop with blobs
-    items:    
-    - name: .NET 
-      href: storage-quickstart-blobs-dotnet.md
-    - name: Java (Storage SDK V10) 
-      href: storage-quickstart-blobs-java-v10.md 
-    - name: Python 
-      href: storage-quickstart-blobs-python.md
-    - name: Go 
-      href: storage-quickstart-blobs-go.md
-    - name: Ruby 
-      href: storage-quickstart-blobs-ruby.md
-    - name: Node.js (Storage SDK v10)
-      href: storage-quickstart-blobs-nodejs-v10.md
-    - name: JS/HTML
-      href: storage-quickstart-blobs-javascript-client-libraries.md
-    - name: PHP
-      href: storage-quickstart-blobs-php.md
+  - name: Overview
+    items:
+    - name: Blob storage for text and binary data
+      href: storage-blobs-introduction.md
+  - name: Quickstarts
+    items:
+    - name: Create a storage account
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Manage blobs without code
+      items:    
+      - name: Azure portal
+        href: storage-quickstart-blobs-portal.md
+      - name: Storage Explorer
+        href: storage-quickstart-blobs-storage-explorer.md
+      - name: PowerShell
+        href: storage-quickstart-blobs-powershell.md
+      - name: CLI
+        href: storage-quickstart-blobs-cli.md
+    - name: Develop with blobs
+      items:    
+      - name: .NET 
+        href: storage-quickstart-blobs-dotnet.md
+      - name: Java (Storage SDK V10) 
+        href: storage-quickstart-blobs-java-v10.md 
+      - name: Python 
+        href: storage-quickstart-blobs-python.md
+      - name: Go 
+        href: storage-quickstart-blobs-go.md
+      - name: Ruby 
+        href: storage-quickstart-blobs-ruby.md
+      - name: Node.js (Storage SDK v10)
+        href: storage-quickstart-blobs-nodejs-v10.md
+      - name: JS/HTML
+        href: storage-quickstart-blobs-javascript-client-libraries.md
+      - name: PHP
+        href: storage-quickstart-blobs-php.md
   - name: Tutorials
     items:
     - name: Upload and process an image
@@ -639,6 +641,8 @@
           href: https://github.com/Azure/azure-storage-ios
 - name: Blob storage for big data analytics
   items:
+    - name: Switch to Data Lake Storage Gen1 documentation
+      href: /azure/data-lake-store/
     - name: Overview
       items:
       - name: Introduction
