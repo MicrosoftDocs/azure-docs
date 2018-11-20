@@ -139,7 +139,7 @@ Next determine where the model will be trained. An automated machine learning tr
 
 Compute options supported are:
 *	Your local machine such as a local desktop or laptop – Generally when you have small dataset and you are still in the exploration stage.
-*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines, for example,  Linux Data Science Virtual Machines or Azure Batch AI.
+*	A remote machine in the cloud – [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) is a managed service that enables the ability to train machine learning models on clusters of Azure virtual machines.
 
 See the [Github site](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) for example notebooks with local and remote compute targets.
 
