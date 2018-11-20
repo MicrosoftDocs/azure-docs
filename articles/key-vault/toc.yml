@@ -28,6 +28,8 @@
       items: 
         - name: .NET
           href: tutorial-net-linux-virtual-machine.md
+        - name: Python
+          href: tutorial-python-linux-virtual-machine.md
     - name: Windows Virtual Machine 
       items: 
         - name: .NET
