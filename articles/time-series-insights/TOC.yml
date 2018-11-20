@@ -72,7 +72,7 @@
   - name: Azure Time Series Insights Update
     items:
       - name: Shaping events
-        href: time-series-insights-shaping-json.md
+        href: time-series-insights-how-to-shape-events.md
 - name: Reference
   items:
   - name: Query API
