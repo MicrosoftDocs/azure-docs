@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 11/13/2018
+ms.date: 11/20/2018
 ms.author: alkohli
 #Customer intent: As an IT admin, I need to be able to copy data to Data Box to upload on-premises data from my server onto Azure.
 ---
@@ -30,10 +30,10 @@ Before you begin, make sure that:
 1. You've completed the [Tutorial: Set up Azure Data Box](data-box-deploy-set-up.md).
 2. You've received your Data Box and the order status in the portal is **Delivered**.
 3. You've reviewed the [system requirements for Data Box Blob storage](data-box-system-requirements-rest.md) and are familiar with supported versions of APIs, SDKs, and tools.
-4. You have a host computer that has the data that you want to copy over to Data Box. Your host computer must
+4. You've access to a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds will be impacted.
-5. You have the latest version of AzCopy on Linux or Windows. You'll use AzCopy to copy data to Azure from your host computer.
+5. You have the latest version of AzCopy on Linux or Windows. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
 6. You have access to a GPv1 storage account associated with your Data Box. You'll copy data to this account.
 
 

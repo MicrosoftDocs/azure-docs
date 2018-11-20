@@ -2,11 +2,11 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 11/20/2018
 ms.author: alkohli
 ---
 
-Perform the following steps to connect to the storage account and verify the connection.
+Follow these steps to connect to the storage account and verify the connection.
 
 1. In Storage Explorer, open the **Connect to Azure Storage** dialog.
 
@@ -16,10 +16,9 @@ Perform the following steps to connect to the storage account and verify the con
 
     ![Data Box dashboard](media/data-box-verify-connection/data-box-connect-via-rest-9.png)
 
-3. Paste your **Account name** and **Account key** (key 1 value from your storage account in the Azure portal). Select Storage endpoints domain as **Other** (enter below) and then provide the string from the local web UI Connect and Copy page saved in step 3 of to add device IP and blob service endpoint to remote host. Check **Use HTTP** option only if transferring over *http*. If using *https*, leave the option unchecked. Select **Next**.
+3. Paste your **Account name** and **Account key** (key 1 value from the **Connect and copy** page in the local web UI). Select Storage endpoints domain as **Other (enter below)** and then provide the blob service endpoint as shown below. Check **Use HTTP** option only if transferring over *http*. If using *https*, leave the option unchecked. Select **Next**.
 
     ![Data Box dashboard](media/data-box-verify-connection/data-box-connect-via-rest-10.png)    
-
 
 4. In the **Connection Summary** dialog, review the provided information. Select **Connect**.
 

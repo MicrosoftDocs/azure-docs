@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 11/12/2018
+ms.date: 11/20/2018
 ms.author: alkohli
 ---
 # Azure Data Box Blob storage requirements
@@ -21,7 +21,7 @@ We recommend that you review the information carefully before you connect to the
 
 |     Feature                                             |     Azure Storage                                     |     Data Box Blob storage |
 |---------------------------------------------------------|-------------------------------------------------------|---------------------------|
-|    Azure File storage                                   |    Cloud-based SMB file shares supported              |    Not yet supported      |
+|    Azure File storage                                   |    Cloud-based SMB file shares supported              |    Not supported      |
 |    Service encryption for data at Rest                  |    256-bit AES encryption                             |    256-bit AES encryption |
 |    Storage account type                                 |    General-purpose and Azure blob storage accounts    |    General-purpose v1 only|
 |    Blob name                                            |    1,024 characters (2,048 bytes)                     |    880 characters (1,760 bytes)|
@@ -61,8 +61,8 @@ The supported REST API versions for Data Box Blob storage are 2017-04-17, 2016-0
 
 ### Azure Data Box 1.7 onwards
 
-|     Client library     |     Data Box Blob    storage supported version     |     Link                                                                                                                                                                                                                                                                                                                                                          |     Endpoint    specification      |
-|------------------------|----------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| Client library     |Data Box Blob storage supported version     | Link   |     Endpoint specification      |
+|--------------------|--------------------------------------------|--------|---------------------------------|
 |    .NET                |    8.7.0                                           |    Nuget package:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>GitHub release:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    app.config file                 |
 |    Java                |    6.1.0                                           |    Maven package:   http://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>GitHub release:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Connection string setup         |
 |    Node.js             |    2.7.0                                           |    NPM link:   https://www.npmjs.com/package/azure-storage   (Run: npm install azure-storage@2.7.0)   <br>GitHub release:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Service instance declaration    |

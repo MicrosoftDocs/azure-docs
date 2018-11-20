@@ -2,11 +2,11 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 11/13/2018
+ms.date: 11/20/2018
 ms.author: alkohli
 ---
 
-Configure the partner software to connect to the client. To connect to the partner software, for example, Commvault, you need the following information you gathered from the local web UI in the previous step:
+Configure the partner software to connect to the client. To connect to the partner software, you would typically need the following information (may vary) you gathered from the **Connect and copy** page of the local web UI in the previous step:
 
 - Storage account name
 - Access key
