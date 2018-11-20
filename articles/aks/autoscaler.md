@@ -21,17 +21,12 @@ This article shows you how to enable and manage the cluster autoscaler in an AKS
 
 ## Before you begin
 
-If you don't have an AKS cluster, the first step in this article shows you how to create one. If you have an existing AKS cluster, it must meet the following requirements:
-
-* AKS cluster created after *INSERT DATE OF DEFAULT VMSS CLUSTER CREATION*. Clusters created after this date automatically use virtual machine scale sets for the node resources, which benefit from an improved cluster autoscaler experience.
-* The AKS cluster must run Kubernetes version 1.10.7 or later. If your cluster runs an older Kubernetes version, see [Upgrade an AKS cluster][aks-upgrade].
-
 This article requires that you are running the Azure CLI version 2.0.49 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-The *aks-preview* Azure CLI extension must also be installed using the [az extension add][az-extension-add] command, as shown in the following example:
+AKS clusters that support the cluster autoscaler must use virtual machine scale sets and run Kubernetes version *1.12.x* or later. This scale set support is in preview. To opt-in and create clusters that use scale sets, install the *aks-preview* Azure CLI extension using the [az extension add][az-extension-add] command, as shown in the following example:
 
 ```azurecli-interactive
-az extension add -n aks-preview
+az extension add --name aks-preview
 ```
 
 ## About the cluster autoscaler
@@ -45,7 +40,10 @@ To adjust to changing application demands, such as between the workday and eveni
 
 Both the horizontal pod autoscaler and cluster autoscaler can also then decrease the number of pods and nodes as needed. The two autoscalers can work together, and are often both deployed in a cluster. When combined, the horizontal pod autoscaler is focused on running the number of pods required to meet application demand, and the cluster autoscaler is focused on running the number of nodes required to support the scheduled pods.
 
-## Create or update an AKS cluster
+> [!NOTE]
+> Manual scaling is disabled when you use the cluster autoscaler. Let the cluster autoscaler determine the required number of nodes. If you want to manually scale your cluster, [disable the cluster autoscaler](#disable-the-cluster-autoscaler).
+
+## Create an AKS cluster and enable the cluster autoscaler
 
 If you need to create an AKS cluster, use the [az aks create][az-aks-create] command. Specify a *--kubernetes-version* that meets or exceeds the minimum version number required as outlined in the preceding [Before you begin](#before-you-begin) section. To enabled and configure the cluster autoscaler, use the *--enable-cluster-autoscaler* parameter, and specify a node *--min-count* and *--max-count*.
 
@@ -54,7 +52,7 @@ The following example creates an AKS cluster with cluster autoscaler enabled tha
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup \
   --name myAKSCluster \
-  --kubernetes-version 1.11.4 \
+  --kubernetes-version 1.12 \
   --node-count 1 \
   --enable-cluster-autoscaler \
   --min-count 1 \
@@ -63,7 +61,7 @@ az aks create --resource-group myResourceGroup \
 
 It takes a few minutes to create the cluster and configure the cluster autoscaler settings.
 
-### Enable cluster autoscale on an existing AKS cluster
+### Enable the cluster autoscaler on an existing AKS cluster
 
 You can enable the cluster autoscaler on an existing AKS cluster that meets the requirements as outlined in the preceding [Before you begin](#before-you-begin) section. Use the [az aks update][az-aks-update] command and choose to *--enable-cluster-autoscaler*, then specify a node *--min-count* and *--max-count*. The following example enables cluster autoscaler on an existing cluster that uses a minimum of *1* and maximum of *5* nodes:
 
@@ -78,7 +76,7 @@ az aks update \
 
 If the minimum node count is greater than the existing number of nodes in the cluster, it takes a few minutes to create the additional nodes.
 
-## Change cluster autoscaler settings
+## Change the cluster autoscaler settings
 
 In the previous step to create or update an existing AKS cluster, the cluster autoscaler minimum node count was set to *1*, and the maximum node count was set to *5*. As your application demands change, you may need to adjust the cluster autoscaler node count.
 
@@ -95,7 +93,7 @@ az aks update \
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 
-## Disable cluster autoscaler
+## Disable the cluster autoscaler
 
 If you no longer wish to use the cluster autoscaler, you can disable it using the [az aks update][az-aks-update] command. Nodes are not removed when the cluster autoscaler is disabled.
 
