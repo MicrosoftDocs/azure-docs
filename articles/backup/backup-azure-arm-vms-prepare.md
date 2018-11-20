@@ -34,6 +34,7 @@ If these conditions already exist in your environment, proceed to the [Back up y
     > Other bring-your-own-Linux distributions might work, as long as the VM agent is available on the virtual machine, and support for Python exists. However, those distributions are not supported.
     >
  * **Windows Server**, **Windows client**:  Versions older than Windows Server 2008 R2 or Windows 7, are not supported.
+ * **Linux**: Linux-based 32-bit operating system is not supported.
 
 
 ## Limitations when backing up and restoring a VM
