@@ -18,7 +18,7 @@ ms.date: 11/19/2018
 
 To create a virtual network rule, there must first be a [virtual network][vm-virtual-network-overview] (VNet) and a [virtual network service endpoint][vm-virtual-network-service-endpoints-overview-649d] for the rule to reference. The following picture illustrates how a Virtual Network service endpoint works with Azure Database for MariaDB:
 
-![Example of how a VNet Service Endpoint works](media/concepts-data-access-and-security-vnet/vnet-concept.png)
+![Example of how a VNet Service Endpoint works](media/concepts-data-access-security-vnet/vnet-concept.png)
 
 > [!NOTE]
 > This feature is available in all regions of Azure where Azure Database for MariaDB is deployed for General Purpose and Memory Optimized servers.
@@ -137,7 +137,7 @@ You can set the **IgnoreMissingServiceEndpoint** flag by using the Azure CLI or 
 
 ## Next steps
 For articles on creating VNet rules, see:
-- [Create and manage Azure Database for MariaDB VNet rules using the Azure portal](howto-manage-vnet-using-portal.md)
+- [Create and manage Azure Database for MariaDB VNet rules using the Azure portal](howto-manage-vnet-portal.md)
  
 <!--
 - [Create and manage Azure Database for MariaDB VNet rules using Azure CLI](howto-manage-vnet-using-cli.md)

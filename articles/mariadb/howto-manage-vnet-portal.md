@@ -14,7 +14,7 @@ ms.date: 11/19/2018
 > [!IMPORTANT]
 > The VNet service endpoints feature is in Public Preview.
 
-Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MariaDB server. For an overview of Azure Database for MariaDB VNet service endpoints, including limitations, see [Azure Database for MariaDB Server VNet service endpoints](concepts-data-access-and-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for MariaDB.
+Virtual Network (VNet) services endpoints and rules extend the private address space of a Virtual Network to your Azure Database for MariaDB server. For an overview of Azure Database for MariaDB VNet service endpoints, including limitations, see [Azure Database for MariaDB Server VNet service endpoints](concepts-data-access-security-vnet.md). VNet service endpoints are available in all supported regions for Azure Database for MariaDB.
 
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
@@ -23,11 +23,11 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 1. On the MariaDB server page, under the Settings heading, click **Connection Security** to open the Connection Security pane for Azure Database for MariaDB. Next, click on **+ Adding existing virtual network**. If you do not have an existing VNet you can click **+ Create new virtual network** to create one. See [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
-   ![Azure portal - click Connection security](./media/howto-manage-vnet-using-portal/1-connection-security.png)
+   ![Azure portal - click Connection security](./media/howto-manage-vnet-portal/1-connection-security.png)
 
 2. Enter a VNet rule name, select the subscription, Virtual network and Subnet name and then click **Enable**. This automatically enables VNet service endpoints on the subnet using the **Microsoft.SQL** service tag.
 
-   ![Azure portal - configure VNet](./media/howto-manage-vnet-using-portal/2-configure-vnet.png)
+   ![Azure portal - configure VNet](./media/howto-manage-vnet-portal/2-configure-vnet.png)
 
    The account must have the necessary permissions to create a virtual network and service endpoint.
 
@@ -45,7 +45,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 
 3. Once enabled, click **OK** and you will see that VNet service endpoints are enabled along with a VNet rule.
 
-   ![VNet service endpoints enabled and VNet rule created](./media/howto-manage-vnet-using-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
+   ![VNet service endpoints enabled and VNet rule created](./media/howto-manage-vnet-portal/3-vnet-service-endpoints-enabled-vnet-rule-created.png)
 
 ## Next steps
 - Learn more about [configuring SSL on Azure Database for MySQL](howto-configure-ssl.md)
