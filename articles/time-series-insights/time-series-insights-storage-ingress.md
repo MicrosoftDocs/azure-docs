@@ -66,18 +66,21 @@ Time Series Insights events are mapped to Parquet file contents:
 
 Timestamp property is never null.  It defaults to event source enqueued time or timestamp is not specified in event source.  Timestamp is in UTC.  
 
-* All other properties map to columns will end with “_string” for string, “_bool” for boolean, “_datetime” for date time, and “_double” for double depending on the property type.
+* All other properties map to columns will end with `_string` (string), `_bool` (boolean), `_datetime` (datetime), and `_double` (double) depending on property type.
 * This is the first version of the file format, and we refer to it as V=1.  If we evolve this in the future, this could change to V=2, V=3, and so on if the naming schema changes.
 
 ## How does partitioning work?
 
-Each Time Series Insights update environment must have a time series ID property and a timestamp property, which uniquely identify it. Your time series ID acts as a logical partition for your data and provides the Azure Time Series Insights update environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure Time Series Insights update in an Azure storage account. 
+Each Time Series Insights update environment must have a time series ID property and a timestamp property, which uniquely identify it. Your time series ID acts as a logical partition for your data and provides the Azure Time Series Insights update environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure Time Series Insights update in an Azure storage account.
 
 Time Series Insights uses dynamic partitioning to optimize storage utilization and query performance by dropping and recreating partitions. The Time Series Insights update dynamic partitioning algorithm strives to avoid a single physical partition having data for multiple different logical partitions. Or in other words the partitioning algorithm’s goal is to try and keep all data related to a single time series ID to be exclusively present in Parquet file(s) without being interleaved with other Time Series IDs. The dynamic partitioning algorithm also strives to preserve the original order of events within a single Time Series ID.
 
 Initially, at ingress time, data is partitioned by the timestamp so a single, logical partition within a given time range might be spread across multiple physical partitions. A single physical partition could also contain many or all logical partitions.  Due to blob size limitations even with optimal partitioning a single logical partition could occupy multiple physical partitions.
 
-Note – timestamp ID is the message enqueued time in your configured event source by default.  If you are uploading historical data or batch messages, you should designate the timestamp property in your data that maps to the appropriate timestamp value you wish to store with your data.  This property is case sensitive.  More on this, here.  
+> [!NOTE]
+> Timestamp ID is the message enqueued time in your configured event source by default.  
+
+If you are uploading historical data or batch messages, you should designate the timestamp property in your data that maps to the appropriate timestamp value you wish to store with your data.  This property is case sensitive.  More on this, [here]().  
 
 ## Physical partition
 
@@ -100,7 +103,7 @@ Time Series Insights update provides very performant queries that are based on t
 The choice of the time series ID is like selecting a partition key for a database and is an important decision that you must make at design time. You cannot update an existing Time Series Insights update environment to use a different time series ID.  In other words, once an environment is created with a time Series ID, the policy cannot be changed as it is an immutable property.  With this in mind, selecting the appropriate Time Series ID is critical.  Consider the following properties when selecting a time series ID:
 
 * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like device ID, sensor ID, etc.
-* It should be unique at the leaf node level of your model.  
+* It should be unique at the leaf node level of your [model](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsm?branch=pr-en-us-53688).  
 * A time series ID property name character string can be up to 128 characters and time series ID property values can be up to 1024 characters.  
 * If some unique time series ID property values are missing, they are treated as null values, which take part in the uniqueness constraint.
 * You can select up to 3 key properties as your time series ID.  Note – they must all be string properties.  With regards to selecting more than one key property as your time series ID, please see the following scenarios:
@@ -144,14 +147,14 @@ You can export data as a CSV file from the Time Series Insights update explorer.
 
 ### From an Azure storage account
 
-1. You need to have read access granted to whatever account you will be using to access your Time Series Insights data. To learn more about granting read access to Azure blob storage please take a look at this [page]().
+1. You need to have read access granted to whatever account you will be using to access your Time Series Insights data. To learn more about granting read access to Azure blob storage please take a look at this [page](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
 
-1. For more information on direct ways to read data from Azure blob Storage you can head here.
+1. For more information on direct ways to read data from Azure blob Storage you can head [here](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 1. Exporting data from an Azure Storage account:
 
-    * First make sure your account has the necessary requirements met to export data. You can read more about it on this page
-    * Learn different ways to export data from your Azure storage account by visiting this link
+    * First make sure your account has the necessary requirements met to export data. You can read more about it on [this](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements) page
+    * Learn different ways to export data from your Azure storage account by visiting this [link](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs)
 
 ### Blob Storage Considerations
 
@@ -184,7 +187,7 @@ Supported file types include:
 
 * JSON
 
-    * For more on the supported JSON shapes we can handle, please see documentation here.
+    * For more on the supported JSON shapes we can handle, please see documentation [here](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsq?branch=pr-en-us-53688).
 
 ### Data availability
 
@@ -196,12 +199,12 @@ We expect Azure Time Series Insights to support at least 72,000 events per minut
 
 ### V2 Private Preview Time Series Insights update documents
 
-•	Private Preview Explorer
-•	Private Preview Storage and ingress
-•	Private Preview TSM
-•	Private Preview TSQ
-•	Private Preview TSI Javascript SDK
-•	Private Preview Provisioning
+* [Private Preview Explorer](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-explorer?branch=pr-en-us-53688)
+* [Private Preview Storage and ingress](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-storage-ingress?branch=pr-en-us-53688)
+* [Private Preview TSM](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsm?branch=pr-en-us-53688)
+* [Private Preview TSQ](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsq?branch=pr-en-us-53688)
+* [Private Preview TSI Javascript SDK](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-sdk?branch=pr-en-us-53688)
+* [Private Preview Provisioning](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-provisioning?branch=pr-en-us-53688)
 
 ## Next steps
 
