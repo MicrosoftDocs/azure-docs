@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2018
+ms.date: 11/20/2018
 ms.author: juliako
 
 ---
@@ -21,7 +21,7 @@ ms.author: juliako
 When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 For detailed information related to filters and Dynamic Manifest, see [Filters and dynamic manifests overview]().
 
-This topic shows how to use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+This topic shows how to configure filters and use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 ## Prerequisites 
 
@@ -73,7 +73,7 @@ The filter commands shown in this article use a json file (tracks.json) that def
 
 ## Create account filters
 
-The following [az ams account-filter](https://docs.microsoft.com/en-us/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections.
+The following [az ams account-filter](https://docs.microsoft.com/en-us/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections. Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --force-end-timestamp=False --end-timestamp 200000 --start-timestamp 100000 --live-backoff-duration 60 --presentation-window-duration 600000 --timescale 1000 --bitrate 720 --tracks @C:\tracks.json
@@ -81,7 +81,7 @@ az ams account-filter create -a amsAccount -g resourceGroup -n filterName --forc
 
 ## Create asset filters
 
-The following [az ams asset-filter](https://docs.microsoft.com/en-us/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections.
+The following [az ams asset-filter](https://docs.microsoft.com/en-us/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections. Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter.
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --force-end-timestamp=False --end-timestamp 200000 --start-timestamp 100000 --live-backoff-duration 60 --presentation-window-duration 600000 --timescale 1000 --bitrate 720 --asset-name assetName --tracks @C:\tracks.json
