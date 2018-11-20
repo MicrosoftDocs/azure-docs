@@ -8,18 +8,57 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/20/2018
 ms.author: erhopf
 ---
 # Quickstart: Translate text with the Translator Text REST API (C#)
 
-In this quickstart, you translate text from one language to another using the Translator Text API.
+In this quickstart, you'll learn how to translate a text string from English to Italian and German using .NET Core and the Translator Text REST API.
+
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 ## Prerequisites
 
-You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
+* An Azure subscription key for the Speech Service
 
-To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
+## Create a .NET Core project
+
+Open a new command prompt (or terminal session) and run these commands:
+
+```console
+dotnet new console -o translate-sample
+cd translate-sample
+```
+
+The first command does two things. It creates a new .NET console application, and creates a directory named `translate-sample`. The second command changes to the directory for your project.
+
+## Add required namespaces to your project
+
+The `dotnet new console` command that you ran earlier created a project, including `Program.cs`. This file is where you'll put your application code. Open `Program.cs`, and replace the existing using statements. These statements ensure that you have access to all the types required to build and run the sample app.
+
+```csharp
+using System;
+using System.Net.Http;
+using System.Text;
+```
+
+## Set the subscription key, host name, and path
+
+## Add headers
+
+## Create a request to translate the response
+
+## Print the response
+
+## Put it all together
+
+## Run the sample app
+
+## Clean up resources
+
+## Samples response
 
 ## Translate request
 
