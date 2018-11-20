@@ -22,6 +22,7 @@ S0 and S1 pricing tiers can handle different amounts of data throughput. Before 
 
 The following table will help you get a better idea of your application's needs and will help you choose a pricing tier most suitable for your application.
 
+<br>
 
 | Capability                              |        S0           |  S1      | 
 |-----------------------------------------|:-------------------:|:--------:|
@@ -43,6 +44,7 @@ Some additional data points worth considering are, what kind enterprise do you h
 
 See the following table to get a better sense of the S0 and S1 pricing tiers. For more information on Azure Maps pricing, see, [Azure Maps Pricing](https://azure.microsoft.com/pricing/details/azure-maps/). 
 
+<br>
 
 | Pricing Tier  |        Targeted Customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
