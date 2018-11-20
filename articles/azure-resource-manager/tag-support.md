@@ -11,12 +11,12 @@ ms.author: tomfitz
 # Tag support for Azure resources
 This article describes whether a resource type supports [tagging](resource-group-using-tags.md).
 
-## MICROSOFT.AADDOMAINSERVICES
+## AAD Domain Services
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | domains | No | 
 
-## MICROSOFT.ADHYBRIDHEALTHSERVICE
+## AD Hybrid Health Service
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | services | No | 
@@ -29,12 +29,12 @@ This article describes whether a resource type supports [tagging](resource-group
 | logs | No | 
 | anonymousapiusers | No | 
 
-## MICROSOFT.ANALYSISSERVICES
+## Analysis Services
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | servers | Yes | 
 
-## MICROSOFT.APIHUBS
+## API Hubs
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | apiManagementAccounts | No | 
@@ -44,12 +44,12 @@ This article describes whether a resource type supports [tagging](resource-group
 | apiManagementAccounts/connectionProviderAcls | No | 
 | apiManagementAccounts/apis | No | 
 
-## MICROSOFT.APIMANAGEMENT
+## API Management
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | service | Yes | 
 
-## MICROSOFT.AUTOMATION
+## Automation
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | automationAccounts | Yes | 
@@ -59,12 +59,12 @@ This article describes whether a resource type supports [tagging](resource-group
 | automationAccounts/softwareUpdateConfigurations | No | 
 | automationAccounts/jobs | No | 
 
-## MICROSOFT.BATCH
+## Batch
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | batchAccounts | Yes | 
 
-## MICROSOFT.COMPUTE
+## C
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | availabilitySets | Yes | 
