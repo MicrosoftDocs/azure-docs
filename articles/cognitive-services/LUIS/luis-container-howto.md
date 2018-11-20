@@ -37,6 +37,22 @@ You must satisfy the following prerequisites before using Cognitive Services Con
 |Familiarity with Azure Container Registry and Docker | You should have a basic understanding of both Azure Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `az acr` and `docker` commands.<br><br>For Azure Container Registry basics, see the [Azure Container Registry overview](https://docs.microsoft.com/azure/container-registry/container-registry-intro).| 
 |LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID and the Endpoint Key.<br><br>**Authoring key**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud.<br><br>**App ID**: This ID is used to select the App, either on the container or in the cloud.<br><br>**Endpoint key**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. [TBD???] Do not use the starter key.<br><br>**Billing endpoint**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
 
+## Unsupported dependencies
+
+You can use a LUIS application if it **doesn't include** any of the following:
+
+|Do not use<br>in trained app|Do not use<br>in published app|Unsupported app configurations|Details|
+|--|--|--|--|
+|X|X|Unsupported container cultures| German (de-DE)<br>Dutch (nl-NL)<br>Japanese (ja-JP)<br>|
+|X|X|Unsupported domains|Prebuilt domains, including prebuilt domain intents and entities|
+|X|X|Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
+|X|X|Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) and [PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entities|
+|X|X|Unsupported entities for Chinese (zh-CN) culture|[PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entity for Chinese| 
+||X|Speech priming|External dependencies are not supported in the container.|
+||X|Sentiment analysis|External dependencies are not supported in the container.|
+||X|Bing spell check|External dependencies are not supported in the container.|
+
+
 ### Server requirements and recommendations
 
 This container supports minimum and recommended values for the following:
@@ -87,6 +103,31 @@ The LUIS container requires a trained or published LUIS app model to answer pred
 
 The resulting gzip file needs to be in the input location you specify in the `docker run` command. The default location is the `input` subdirectory in relation to where you run the `docker run` command.  
 
+Place the package file in a directory and reference this directory as the input mount when you run the docker container. 
+
+The input mount directory can contain the **Production**, **Staging**, and **Trained** versions of the app simultaneously. All the packages are mounted. The production and staging endpoints are available through the same GET/POST APIs as the Azure LUIS service provides. The trained version has its own GET/POST APIs which are only available on the container. There is no corresponding API on the Azure LUIS service. 
+
+|Version|API|Availability|
+|--|--|--|
+|Trained|Get, Post|Container only|
+|Staging|Get, Post|Azure and container|
+|Production|Get, Post|Azure and container|
+
+For information on how to query the container, see [Performing LUIS operations](#performing-luis-operations).
+
+>**Important:** Do not rename, alter, or decompress LUIS package files.
+
+### Packaging prerequisites
+
+Before packaging a LUIS application, you must have the following:
+
+|Packaging Requirements|Details|
+|--|--|
+|Azure LUIS resource instance|Supported regions include<br>West US (```westus```)<br>West Europe (```westeurope```)<br>Australia East (```australiaeast```)|
+|Trained or published LUIS app ID|With no [unsupported dependencies](#unsupported-dependencies). You can get the application ID from the **Manage** section's **Application Information** page for the LUIS application on the LUIS portal.|
+|Access to storage for host computer mounts|For more information about using an input mount with your LUIS container, see [Using mounts with LUIS](#using-mounts-with-luis)|
+  
+
 ### Request published model's package
 
 Use the following REST API method, to package a LUIS application that you've already published on Azure. Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
@@ -112,6 +153,10 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APP
  -H "Ocp-Apim-Subscription-Key: {AUTHORING_KEY}" \
  -o {APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz
 ```
+
+If successful, the response is a LUIS package file, sent as an attachment in an octet stream. You must save the file in the storage location specified for the input mount of the LUIS container. The LUIS package file uses the following naming convention, in which ```{APPLICATION_ID}``` represents the application ID and ```{APPLICATION_ENVIRONMENT}``` represents the environment of the packaged LUIS application:
+
+```{APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz```
 
 Remember to save or move the file to the `input` location.
 
@@ -141,6 +186,10 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APP
  -o {APPLICATION_ID}_v{APPLICATION_VERSION}.gz
 ```
 The letter `v` precedes the `{APPLICATION_VERSION}` in the -o argument value. 
+
+If successful, the response is a LUIS package file, sent as an attachment in an octet stream. You must save the package file in the storage location specified for the input mount of the LUIS container. The LUIS package file uses the following naming convention, in which ```{APPLICATION_ID}``` represents the application ID and ```{APPLICATION_VERSION}``` represents the application version of the packaged LUIS application:
+
+```{APPLICATION_ID}_v{APPLICATION_VERSION}.gz```
 
 Remember to save or move the file to the `input` location.
 
@@ -190,9 +239,9 @@ curl -X GET \
 
 The container provides two REST-based API endpoints.
 
-|REST-based API|Purpose|
+REST-based API|Purpose|
 |--|--|
-|LUIS prediction endpoint|Send an user's utterance and receive the prediction for intent, entities, and any other configured settings.|
+GET |Send an user's utterance and receive the prediction for intent, entities, and any other configured settings.|
 |LUIS query log extraction|Upload container's query logs to Azure LUIS service to continuing improving model with [Active Learning](luis-concept-review-endpoint-utterances)|.
 
 ### Query container from an SDK
@@ -203,6 +252,37 @@ You can either [call the Prediction REST API operations](https://aka.ms/LUIS-end
 > You must have Azure Cognitive Services LUIS Client Library version 2.0.0 or later if you want to use the client library with your container.
 
 The only difference between calling a given operation from your container and calling that same operation from the service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to call the operation. 
+
+## Active learning with LUIS
+
+If an output mount is specified for the LUIS container, application query log files are captured in the following folder at that storage location, replacing {INSTANCE_ID} with the container ID. 
+
+```
+/luis/{INSTANCE_ID}/
+```
+
+The application query log file contains the query, response, and timestamp for each prediction query submitted to the LUIS container for a given LUIS application. 
+
+You can upload the application query log files to the Language Understanding (LUIS) service by using the following REST API method, substituting the appropriate values for the placeholders in the following table:
+
+| Placeholder | Value |
+|-------------|-------|
+|{APPLICATION_ID} | The application ID of the trained or published LUIS application. |
+|{AUTHORING_KEY} | The authoring key of the LUIS account for the trained or published LUIS application.<br/>You can get your authoring key from the **User Settings** page for your LUIS account on the LUIS portal. |
+|{AZURE_REGION} | One of the following values for the appropriate Azure region:<br/>```westus``` - West US<br/>```westeurope``` - West Europe<br/>```australiaeast``` - Australia East |
+|{QUERY_LOG_FILE} | The full path and file name of the application query log file. |
+
+```http
+POST /webapi/v2.0/apps/{APPLICATION_ID}/unlabeled HTTP/1.1
+Host: {AZURE_REGION}.api.cognitive.microsoft.com
+APIM-SUBSCRIPTION-ID: {AUTHORING_KEY}
+Content-Type: multipart/form-data
+
+Content-Disposition: form-data; name=""; filename="{QUERY_LOG_FILE}"
+```
+
+If successful, the method responds with an HTTP 200 status code. After the log is uploaded, review the endpoint utterances in the LUIS portal. Perform the actions needed to identify unlabeled entities, align utterances with intents, delete utterances, as you typically would for a LUIS application. For more information about reviewing endpoint utterances, see [Enable active learning by reviewing endpoint utterances](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances).
+
 
 ### LUIS documentation on the container
 
