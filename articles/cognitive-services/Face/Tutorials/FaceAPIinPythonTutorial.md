@@ -26,13 +26,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
 - The Face API Python SDK. You can install it by running the following command:
-    ```bash
+
+    ```
     pip install cognitive_face
     ```
 
 ## Detect Faces in an image
 
-Create a new Python script, _FaceQuickstart.py_. Add the following code. This is the core functionality of face detection. You will need to replace `<Subscription Key>` with the value of your key. You may also need to change the value of `BASE_URL` to use the correct region identifier for your key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). Free trial subscription keys are generated in the **westus** region. Optionally, set `img_url` to the URL of any image you'd like to use.
+Create a new Python script, _FaceQuickstart.py_, and add the following code. This is the core functionality of face detection. You will need to replace `<Subscription Key>` with the value of your key. You may also need to change the value of `BASE_URL` to use the correct region identifier for your key (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints). Free trial subscription keys are generated in the **westus** region. Optionally, set `img_url` to the URL of any image you'd like to use.
 
 The script will detect faces by calling the **cognitive_face.face.detect** method, which wraps the [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) REST API and returns a list of faces.
 
