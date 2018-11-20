@@ -13,7 +13,7 @@ manager: carmonm
 
 # How to update Azure PowerShell modules in Azure Automation
 
-The most common Azure PowerShell modules are provided by default in each Automation account. The Azure team updates the Azure modules regularly. In your Automation account you're provided a way to update the modules in the account when new versions are available from the portal.
+The most common Azure PowerShell modules are provided by default in each Automation account. The Azure team updates the Azure modules regularly. In your Automation account, you're provided a way to update the modules in the account when new versions are available from the portal.
 
 Because modules are updated regularly by the product group, changes can occur with the included cmdlets. This action may negatively impact your runbooks depending on the type of change, such as renaming a parameter or deprecating a cmdlet entirely. To avoid impacting your runbooks and the processes they automate, test and validate before proceeding. If you don't have a dedicated Automation account intended for this purpose, consider creating one so that you can test many different scenarios during the development of your runbooks. This testing should include iterative changes such as updating the PowerShell modules. After the results are validated and you've applied any changes required, you can move the changes to production.
 
