@@ -100,23 +100,28 @@ output_data1 = PipelineData(
 
 ### Set up compute
 
-In Azure Machine Learning, compute (or compute target) refers to the machines or clusters that will perform the computational steps in your ML pipeline. For example, you can create a [Batch AI](https://docs.microsoft.com/azure/batch-ai/overview) cluster.
+In Azure Machine Learning, compute (or compute target) refers to the machines or clusters that will perform the computational steps in your ML pipeline. For example, you can create an Azure Machine Learning compute for running your steps.
 
 ```python
-from azureml.core.compute import BatchAiCompute
-batch_ai_name = "batchai"
-try:
-    batch_ai = BatchAiCompute(ws, batchai_cluster_name)
-    print("Found an existing Batch AI cluster.")
-except:
-    print("Creating a new Batch AI cluster")
-    provisioning_config = BatchAiCompute.provisioning_configuration(
-                              vm_size = "STANDARD_D2_V2",
-                              autoscale_enabled = True,
-                              cluster_min_nodes = 1, 
-                              cluster_max_nodes = 4)    
-    batch_ai = ComputeTarget.create(ws, batchai_cluster_name, provisioning_config)
-    batch_ai.wait_for_completion(show_output=True, timeout_in_minutes=20)
+compute_name = "amlcompute"
+ if compute_name in ws.compute_targets:
+    compute_target = ws.compute_targets[compute_name]
+    if compute_target and type(compute_target) is AmlCompute:
+        print('Found compute target: ' + compute_name)
+else:
+    print('Creating a new compute target...')
+    provisioning_config = AmlCompute.provisioning_configuration(vm_size = vm_size, # NC6 is GPU-enabled
+                                                                min_nodes = 1, 
+                                                                max_nodes = 4)
+     # create the compute target
+    compute_target = ComputeTarget.create(ws, compute_name, provisioning_config)
+    
+    # Can poll for a minimum number of nodes and for a specific timeout. 
+    # If no min node count is provided it will use the scale settings for the cluster
+    compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
+    
+     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+    print(compute_target.status.serialize())
 ```
 
 ## Construct your pipeline steps
@@ -129,7 +134,7 @@ trainStep = PythonScriptStep(
     arguments=["--input", blob_input_data, "--output", processed_data1],
     inputs=[blob_input_data],
     outputs=[processed_data1],
-    compute_target=batch_ai,
+    compute_target=compute_target,
     source_directory=project_folder
 )
 ```
@@ -187,7 +192,7 @@ You can publish a pipeline to run it with different inputs later. For the REST e
      arguments=["--comp_data1", comp_data1, "--comp_data2", comp_data2, "--output_data", out_data3, "--param1", pipeline_param],
      inputs=[ comp_data1, comp_data2],
      outputs=[out_data3],    
-     target=batch_ai, 
+     target=compute_target, 
      source_directory=project_folder)
  ```
 
@@ -203,7 +208,7 @@ published_pipeline1 = pipeline1.publish(
 
 All published pipelines have a REST endpoint to invoke the run of the pipeline from external systems such as non-Python clients. This endpoint provides a way for “managed repeatability” in batch scoring and retraining scenarios.
 
-Invoke the run of the above pipeline:
+Invoke the run of the above pipeline, you'll need an Azure Active Directory authentication header token as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)
 
 ```python
 response = requests.post(published_pipeline1.endpoint, 
@@ -220,7 +225,8 @@ See the list of all your pipelines and their run details:
 1. Select a specific pipeline to see the run results.
 
 ## Next steps
-Try the [pipeline notebooks](https://aka.ms/pipeline-notebooks) and let us know your feedback.
+- Use [these Jupyter notebooks on GitHub](https://aka.ms/aml-pipeline-readme) to explore machine learning pipelines further.
+- Read the SDK reference help for the [azureml-pipelines-core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) package and the [azureml-pipelines-steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) package.
 
 Get these notebooks:
 
