@@ -26,7 +26,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
 
-## Get the face SDK
+## Get the Face SDK
 
 Install the Face Python SDK by opening the command prompt and running the following command:
 
