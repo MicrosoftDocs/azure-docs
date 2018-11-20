@@ -101,7 +101,7 @@ Using PIM, you can invite an external user and make them eligible for an Azure r
 
 ## Activate role as an external user
 
-As an external user, you first need to accept the invite to the Azure AD directory and possibly active your role.
+As an external user, you first need to accept the invite to the Azure AD directory and possibly activate your role.
 
 1. Open the email with your directory invitation. The email will look similar to the following.
 
