@@ -139,10 +139,10 @@ For more information on the Data Science Virtual Machines, see [Data Science Vir
     conda install nb_conda
 
     # install experiment widget
-    jupyter nbextension install --py --user azureml.train.widgets
+    jupyter nbextension install --py --user azureml.widgets
 
     # enable experiment widget
-    jupyter nbextension enable --py --user azureml.train.widgets
+    jupyter nbextension enable --py --user azureml.widgets
     ```
 
 1. Open Jupyter Notebook with the following command:
