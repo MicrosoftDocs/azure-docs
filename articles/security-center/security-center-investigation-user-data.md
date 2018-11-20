@@ -3,7 +3,7 @@ title: Manage user data found in an Azure Security Center investigation | Micros
 description: " Learn how to manage user data found in Azure Security Center's investigation feature. "
 services: operations-management-suite
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/20/2018
-ms.author: terrylan
+ms.author: rkarlin
 
 ---
 
