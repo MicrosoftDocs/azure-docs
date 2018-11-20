@@ -64,7 +64,6 @@ You can combine the two models, provisioning throughput on both database and the
 
 |**Quota**  |**Throughput provisioned on a database**  |**Throughput provisioned on a container**|
 |---------|---------|---------|
-|Unit of scalability|Container|Container|
 |Minimum RUs |400 |400|
 |Minimum RUs per container|100|400|
 |Minimum RUs required to consume 1 GB of storage|40|40|
