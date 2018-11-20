@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up web app analytics for ASP.NET with Azure Application Insights | Microsoft Docs
 description: Configure performance, availability, and user behavior analytics tools for your ASP.NET website, hosted on-premises or in Azure.
 services: application-insights
@@ -146,7 +146,7 @@ There are alternative topics to look at if you are interested in:
 
 * **[Working with Application Insights in Visual Studio](app-insights-visual-studio.md)**<br/>Includes information about debugging with telemetry, diagnostic search, and drill through to code.
 * **[Working with the Application Insights portal](app-insights-dashboards.md)**<br/> Includes information about dashboards, powerful diagnostic and analytic tools, alerts, a live dependency map of your application, and telemetry export.
-* **[Analytics](app-insights-analytics-tour.md)** - The powerful query language.
+* **[Analytics](../log-analytics/query-language/get-started-analytics-portal.md)** - The powerful query language.
 
 ### Alerts
 

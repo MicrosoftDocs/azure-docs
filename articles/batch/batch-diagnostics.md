@@ -21,7 +21,7 @@ ms.custom:
 # Batch metrics, alerts, and logs for diagnostic evaluation and monitoring
 
  
-This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../monitoring/monitoring-data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) so you receive notifications when a metric reaches a specified value. 
+This article explains how to monitor a Batch account using features of [Azure Monitor](../azure-monitor/overview.md). Azure Monitor collects [metrics](../azure-monitor/platform/data-collection.md#metrics) and [diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) for resources in your Batch account. Collect and consume this data in a variety of ways to monitor your Batch account and diagnose issues. You can also configure [metric alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) so you receive notifications when a metric reaches a specified value. 
 
 ## Batch metrics
 
@@ -81,7 +81,7 @@ Other optional destinations for diagnostic logs:
 
 * Stream Batch diagnostic log events to an [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Event Hubs can ingest millions of events per second, which you can then transform and store using any real-time analytics provider. 
 
-* Send diagnostic logs to [Azure Log Analytics](../log-analytics/log-analytics-overview.md), where you can analyze them in the Operations Management Suite (OMS) portal, or export them for analysis in Power BI or Excel.
+* Send diagnostic logs to [Azure Log Analytics](../log-analytics/log-analytics-overview.md), where you can analyze them or export them for analysis in Power BI or Excel.
 
 > [!NOTE]
 > You may incur additional costs to store or process diagnostic log data with Azure services. 

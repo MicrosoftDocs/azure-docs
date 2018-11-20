@@ -6,7 +6,7 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
+ms.date: 10/20/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 ---
@@ -56,7 +56,7 @@ To begin:
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
+5. If you are using Azure Backup for the first time, you must use the **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet to register the Azure Recovery Service provider with your subscription.
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -66,7 +66,7 @@ To begin:
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ``` 
-    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet again.
+    In the command output, the **RegistrationState** should change to **Registered**. If not, just run the **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** cmdlet again.
 
 The following tasks can be automated with PowerShell:
 
@@ -344,8 +344,24 @@ To restore the disks and configuration information:
 $restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG"
 $restorejob
 ```
-The output is similar to the following example:
+#### Restore managed disks
 
+> [!NOTE]
+> If the backed VM has managed disks and you want to restore them as managed disks, we have introduced the capability from Azure Powershell v 6.7.0. onwards
+>
+>
+
+Provide an additional parameter **TargetResourceGroupName** to specify the RG to which managed disks will be restored.
+
+
+```powershell
+$restorejob = Restore-AzureRmRecoveryServicesBackupItem -RecoveryPoint $rp[0] -StorageAccountName "DestAccount" -StorageAccountResourceGroupName "DestRG" -TargetResourceGroupName "DestRGforManagedDisks"
+```
+
+The **VMConfig.JSON** file will be restored to the storage account and the managed disks will be restored to the specified target RG.
+
+
+The output is similar to the following example:
 ```
 WorkloadName     Operation          Status               StartTime                 EndTime            JobID
 ------------     ---------          ------               ---------                 -------          ----------
@@ -451,73 +467,17 @@ After you restore the disks, use the following steps to create and configure the
       Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $dekUrl -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -VolumeType Data
       ```
 
-   * **Managed and non-encrypted VMs** - For managed non-encrypted VMs, you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed non-encrypted VMs.
+   * **Managed and non-encrypted VMs** - For managed non-encrypted VMs, attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
 
-      ```powershell
-      $storageType = "StandardLRS"
-      $osDiskName = $vm.Name + "_osdisk"
-      $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
-      $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
-      $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
-      Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -CreateOption "Attach" -Windows
-      foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $dataDiskName = $vm.Name + $dd.name ;
-       $dataVhdUri = $dd.vhd.uri ;
-       $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
-       $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
-       Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
-       }
-      ```
-
-   * **Managed and encrypted VMs (BEK only)** - For managed encrypted VMs (encrypted using BEK only), you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed encrypted VMs.
-
-      ```powershell
-      $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      $storageType = "StandardLRS"
-      $osDiskName = $vm.Name + "_osdisk"
-      $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
-      $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
-      $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
-      Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
-      foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $dataDiskName = $vm.Name + $dd.name ;
-       $dataVhdUri = $dd.vhd.uri ;
-       $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
-       $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
-       Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
-       }
-      ```
-
-       Use the following command to manually enable encryption for the data disks.
+   * **Managed and encrypted VMs (BEK only)** - For managed encrypted VMs (encrypted using BEK only), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md).
+   
+      Use the following command to manually enable encryption for the data disks.
 
        ```powershell
        Set-AzureRmVMDiskEncryptionExtension -ResourceGroupName $RG -VMName $vm -AadClientID $aadClientID -AadClientSecret $aadClientSecret -DiskEncryptionKeyVaultUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -VolumeType Data
        ```
 
-   * **Managed and encrypted VMs (BEK and KEK)** - For managed encrypted VMs (encrypted using BEK and KEK), you'll need to create managed disks from blob storage, and then attach the disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). The following sample code shows how to attach the data disks for managed encrypted VMs.
-
-      ```powershell
-      $dekUrl = "https://ContosoKeyVault.vault.azure.net:443/secrets/ContosoSecret007/xx000000xx0849999f3xx30000003163"
-      $kekUrl = "https://ContosoKeyVault.vault.azure.net:443/keys/ContosoKey007/x9xxx00000x0000x9b9949999xx0x006"
-      $keyVaultId = "/subscriptions/abcdedf007-4xyz-1a2b-0000-12a2b345675c/resourceGroups/ContosoRG108/providers/Microsoft.KeyVault/vaults/ContosoKeyVault"
-      $storageType = "StandardLRS"
-      $osDiskName = $vm.Name + "_osdisk"
-      $osVhdUri = $obj.'properties.storageProfile'.osDisk.vhd.uri
-      $diskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $osVhdUri
-      $osDisk = New-AzureRmDisk -DiskName $osDiskName -Disk $diskConfig -ResourceGroupName "test"
-      Set-AzureRmVMOSDisk -VM $vm -ManagedDiskId $osDisk.Id -DiskEncryptionKeyUrl $dekUrl -DiskEncryptionKeyVaultId $keyVaultId -KeyEncryptionKeyUrl $kekUrl -KeyEncryptionKeyVaultId $keyVaultId -CreateOption "Attach" -Windows
-      foreach($dd in $obj.'properties.storageProfile'.dataDisks)
-       {
-       $dataDiskName = $vm.Name + $dd.name ;
-       $dataVhdUri = $dd.vhd.uri ;
-       $dataDiskConfig = New-AzureRmDiskConfig -AccountType $storageType -Location "West US" -CreateOption Import -SourceUri $dataVhdUri ;
-       $dataDisk2 = New-AzureRmDisk -DiskName $dataDiskName -Disk $dataDiskConfig -ResourceGroupName "test" ;
-       Add-AzureRmVMDataDisk -VM $vm -Name $dataDiskName -ManagedDiskId $dataDisk2.Id -Lun $dd.Lun -CreateOption "Attach"
-       }
-      ```
+   * **Managed and encrypted VMs (BEK and KEK)** - For managed encrypted VMs (encrypted using BEK and KEK), attach the restored managed disks. For in-depth information, see the article, [Attach a data disk to a Windows VM using PowerShell](../virtual-machines/windows/attach-disk-ps.md). 
 
       Use the following command to manually enable encryption for the data disks.
 

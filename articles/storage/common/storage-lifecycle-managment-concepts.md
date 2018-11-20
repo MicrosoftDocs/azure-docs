@@ -1,38 +1,38 @@
 ---
 title: Managing the Azure Storage Lifecycle
-description: Learn how to create lifecycle policy rules to transition againg data from hot to cool and archive tiers.
+description: Learn how to create lifecycle policy rules to transition aging data from Hot to Cool and Archive tiers.
 services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 11/01/2018
 ms.author: yzheng
 ms.component: common
 ---
 
 # Managing the Azure Blob Storage Lifecycle (Preview)
 
-Data sets have unique lifecycles. Some data is accessed often early in the lifecycle, but the need for access drops drastically as the data ages. Some data remain idle in the cloud and is rarely accessed once stored. Some data expire days or months after creation while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use to transition your data to the best access tier and to expire data at the end of its lifecycle.
+Data sets have unique lifecycles. Some data is accessed often early in the lifecycle, but the need for access drops drastically as the data ages. Some data remain idle in the cloud and is rarely accessed once stored. Some data expire days or months after creation while other data sets are actively read and modified throughout their lifetimes. Azure Blob Storage lifecycle management (Preview) offers a rich, rule-based policy which you can use on GPv2 and Blob storage accounts to transition your data to their appropriate access tiers or expire at the end of its lifecycle.
 
 Lifecycle management policy helps you:
 
 - Transition blobs to a cooler storage tier (Hot to Cool, Hot to Archive, or Cool to Archive) to optimize for performance and cost
 - Delete blobs at the end of their lifecycles
-- Define rules to be executed once a day at the storage account level (it supports both GPv2 and Blob storage accounts)
+- Define rules to be executed once per day at the storage account level
 - Apply rules to containers or a subset of blobs (using prefixes as filters)
 
-Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond. In this scenario, hot storage is best during the early stages, cool storage is most appropriate for occasional access, and archive storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policies are available to move aging data to cooler tiers.
+Consider a set of data that is accessed frequently during the early stage of the lifecycle, is needed only occasionally after two weeks, and is rarely accessed after a month and beyond. In this scenario, hot storage is best during the early stages, cool storage is most appropriate for occasional access, and archive storage is the best tier option after the data ages over a month. By adjusting storage tiers in respect to the age of data, you can design the least expensive storage options for your needs. To achieve this transition, lifecycle management policy rules are available to move aging data to cooler tiers.
 
 ## Storage account support
 
-Lifecycle management policy is available with both General Purpose v2 (GPv2) account and Blob Storage account. You can convert an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process in the Azure portal. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md) to learn more.  
+Lifecycle management policy is available with both General Purpose v2 (GPv2) account and Blob Storage account. You can upgrade an existing General Purpose (GPv1) account to a GPv2 account via a simple one-click process in the Azure portal with no downtime. For more information about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md) to learn more.  
 
 ## Pricing 
 
 Lifecycle management feature is free of charge in preview. Customers are charged the regular operation cost for the [List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) and [Set Blob Tier](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API calls. See [Block Blob pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) to learn more about pricing.
 
 ## Register for preview 
-To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2, West Central US, and West Europe will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
+To enroll in public preview, you will need to submit a request to register this feature to your subscription. After your request is approved (within a few days), any existing and new GPv2 or Blob Storage account in West US 2, West Central US, East US 2, and West Europe will have the feature enabled. During preview, only block blob is supported. As with most previews, this feature should not be used for production workloads until it reaches GA.
 
 To submit a request, run the following PowerShell or CLI commands.
 
@@ -62,9 +62,9 @@ az feature show --namespace Microsoft.Storage --name DLM
 If the feature is approved and properly registered, you should receive the "Registered" state. 
 
 
-## Add or remove policies 
+## Add or remove a policy 
 
-You can add, edit, or remove a policy using Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST APIs](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies), or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+You can add, edit, or remove a policy using Azure portal, [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), [REST APIs](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate), or client tools in the following languages: [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](	https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### Azure portal
 
@@ -72,7 +72,7 @@ You can add, edit, or remove a policy using Azure portal, [PowerShell](https://w
 
 2. To navigate to your storage account, select All Resources, then select your storage account.
 
-3. In the Settings blade, click **Lifecycle Management** grouped under Blob Service to view and/or change policies.
+3. In the Settings blade, click **Lifecycle Management** grouped under Blob Service to view and/or change your policy.
 
 ### PowerShell
 
@@ -87,7 +87,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 > [!NOTE]
 If you enable firewall rules for your storage account, lifecycle management requests may be blocked. You can unblock it by providing exceptions. For more information, see the Exceptions section at [Configure firewalls and virtual networks](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-## Policies
+## Policy
 
 A lifecycle management policy is a collection of rules in a JSON document:
 
@@ -117,20 +117,23 @@ Within a policy, two parameters are required:
 | version        | A string expressed as `x.x` | The preview version number is 0.5 |
 | rules          | An array of rule objects | At least one rule is required in each policy. During preview, you can specify up to 4 rules per policy. |
 
-Parameters required within a rule are:
+Within each rule, three parameters are required:
 
 | Parameter name | Parameter type | Notes |
 |----------------|----------------|-------|
 | Name           | String | A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy. |
 | type           | An enum value | The valid value for preview is `Lifecycle` |
-| definition     | An object that defines the lifecycle rule | Each definition is made up with a filter set and an action set. |
+| definition     | An object that defines the lifecycle rule | Each definition is made up with a filters set and an actions set. |
 
 ## Rules
 
-Each rule definition includes a filter set and an action set. The following sample rule modifies the tier for base block blobs with prefix `container1/foo`. In the policy, these rules are defined as:
+Each rule definition includes a filters set and an actions set. The [filter set](#rule-filters) is used to limit rule actions to a certain set of objects within a container or objects names. The [action set](#rule-actions) applies the tier or delete actions to the filtered set of objects.
 
-- Tier blob to cool storage 30 days after last modification
-- Tier blob to Archive storage 90 days after last modification
+### Sample Rule
+The following sample rule filters the account to run the actions only on `container1/foo`. For all the objects that exist inside `container1` **AND** starts with `foo`, these following actions are executed: 
+
+- Tier blob to Cool tier 30 days after last modification
+- Tier blob to Archive tier 90 days after last modification
 - Delete blob 2,555 days (7 years) after last modification
 - Delete blob snapshots 90 days after snapshot creation
 
@@ -172,7 +175,7 @@ During preview, valid filters include:
 | Filter name | Filter type | Notes | Is Required |
 |-------------|-------------|-------|-------------|
 | blobTypes   | An array of predefined enum values. | For the preview release, only `blockBlob` is supported. | Yes |
-| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if all blobs under "https://myaccount.blob.core.windows.net/mycontainer/mydir/..." should be matched for a rule, the prefix is "mycontainer/mydir". | If it isn’t defined, this rule applies to all blobs within the account. | No |
+| prefixMatch | An array of strings for prefixes to be match. A prefix string must start with a container name. For example, if all blobs under "https://myaccount.blob.core.windows.net/container1/foo/..." should be matched for a rule, the prefixMatch would be "container1/foo". | If prefixMatch isn’t defined, the rules apply to all blobs within the account. | No |
 
 ### Rule actions
 
@@ -311,6 +314,10 @@ For data that is modified and accessed regularly throughout its lifetime, snapsh
   ]
 }
 ```
+## FAQ
+### I created a new policy, why are the actions specified not executed immediately? 
+
+Lifecycle policy is executed once a day by the platform. Once a new policy is set, it can take up to 24 hours for actions such as tiering or deletion to be initiated and executed.  
 
 ## Next steps
 

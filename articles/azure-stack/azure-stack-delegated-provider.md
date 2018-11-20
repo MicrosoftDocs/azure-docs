@@ -1,9 +1,9 @@
-﻿---
+---
 title: Delegating offers in Azure Stack | Microsoft Docs
 description: Learn how to put other people in charge of creating offers and signing up users for you.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredop
 
 ---

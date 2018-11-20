@@ -2,12 +2,12 @@
 title: 'Quickstart: Ingest data using the Azure Data Explorer Python library'
 description: 'In this quickstart, you learn how to ingest (load) data into Azure Data Explorer using Python.'
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/16/2018
 
 #Customer intent: As a Python developer, I want to ingest data into Azure Data Explorer so that I can query data to include in my apps.
 ---
@@ -32,9 +32,9 @@ In addition to an Azure subscription, you need the following to complete this qu
 
 Install *azure-kusto-data* and *azure-kusto-ingest*.
 
-```python
-pip install azure-kusto-data
-pip install azure-kusto-ingest
+```
+pip install azure-kusto-data==0.0.13
+pip install azure-kusto-ingest==0.0.13
 ```
 
 ## Add import statements and constants
@@ -44,6 +44,7 @@ Import classes from the libraries, as well as *datetime* and *pandas*, a data an
 ```python
 from azure.kusto.data.request import KustoClient, KustoConnectionStringBuilder
 from azure.kusto.data.exceptions import KustoServiceError
+from azure.kusto.data.helpers import dataframe_from_result_table
 import pandas as pd
 import datetime
 ```
@@ -104,12 +105,12 @@ BLOB_PATH = "https://" + ACCOUNT_NAME + ".blob.core.windows.net/" + CONTAINER + 
 Create a table that matches the schema of the data in the StormEvents.csv file. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign in, then return to run the next code block. Subsequent code blocks that make a connection require you to sign in again.
 
 ```python
-KUSTO_CLIENT = KustoClient(KCSB_ENGINE)
+KUSTO_CLIENT = KustoClient(KCSB_DATA)
 CREATE_TABLE_COMMAND = ".create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)"
 
-df_table_create_output = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_TABLE_COMMAND)
 
-df_table_create_output
+dataframe_from_result_table(RESPONSE.primary_results[0])
 ```
 
 ## Define ingestion mapping
@@ -119,9 +120,9 @@ Map incoming CSV data to the column names and data types used when creating the 
 ```python
 CREATE_MAPPING_COMMAND = """.create table StormEvents ingestion csv mapping 'StormEvents_CSV_Mapping' '[{"Name":"StartTime","datatype":"datetime","Ordinal":0}, {"Name":"EndTime","datatype":"datetime","Ordinal":1},{"Name":"EpisodeId","datatype":"int","Ordinal":2},{"Name":"EventId","datatype":"int","Ordinal":3},{"Name":"State","datatype":"string","Ordinal":4},{"Name":"EventType","datatype":"string","Ordinal":5},{"Name":"InjuriesDirect","datatype":"int","Ordinal":6},{"Name":"InjuriesIndirect","datatype":"int","Ordinal":7},{"Name":"DeathsDirect","datatype":"int","Ordinal":8},{"Name":"DeathsIndirect","datatype":"int","Ordinal":9},{"Name":"DamageProperty","datatype":"int","Ordinal":10},{"Name":"DamageCrops","datatype":"int","Ordinal":11},{"Name":"Source","datatype":"string","Ordinal":12},{"Name":"BeginLocation","datatype":"string","Ordinal":13},{"Name":"EndLocation","datatype":"string","Ordinal":14},{"Name":"BeginLat","datatype":"real","Ordinal":16},{"Name":"BeginLon","datatype":"real","Ordinal":17},{"Name":"EndLat","datatype":"real","Ordinal":18},{"Name":"EndLon","datatype":"real","Ordinal":19},{"Name":"EpisodeNarrative","datatype":"string","Ordinal":20},{"Name":"EventNarrative","datatype":"string","Ordinal":21},{"Name":"StormSummary","datatype":"dynamic","Ordinal":22}]'"""
 
-df_mapping_create_output = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute_mgmt(KUSTO_DATABASE, CREATE_MAPPING_COMMAND)
 
-df_mapping_create_output
+dataframe_from_result_table(RESPONSE.primary_results[0])
 ```
 
 ## Queue a message for ingestion
@@ -129,12 +130,15 @@ df_mapping_create_output
 Queue a message to pull data from blob storage and ingest that data into Azure Data Explorer.
 
 ```python
-KUSTO_INGEST_CLIENT = KustoIngestClient(KCSB_INGEST)
+INGESTION_CLIENT = KustoIngestClient(KCSB_INGEST)
 
+# All ingestion properties are documented here: https://docs.microsoft.com/azure/kusto/management/data-ingest#ingestion-properties
 INGESTION_PROPERTIES  = IngestionProperties(database=KUSTO_DATABASE, table=DESTINATION_TABLE, dataFormat=DataFormat.csv, mappingReference=DESTINATION_TABLE_COLUMN_MAPPING, additionalProperties={'ignoreFirstRecord': 'true'})
-KUSTO_INGEST_CLIENT.ingest_from_multiple_blobs([BlobDescriptor(BLOB_PATH,FILE_SIZE)],delete_sources_on_success=False,ingestion_properties=INGESTION_PROPERTIES)
+BLOB_DESCRIPTOR = BlobDescriptor(BLOB_PATH, FILE_SIZE)  # 10 is the raw size of the data in bytes
+INGESTION_CLIENT.ingest_from_blob(BLOB_DESCRIPTOR,ingestion_properties=INGESTION_PROPERTIES)
 
-print('Done queueing up ingestion with Kusto')
+print('Done queuing up ingestion with Azure Data Explorer')
+
 ```
 
 ## Validate that data was ingested into the table
@@ -144,18 +148,18 @@ Wait for five to ten minutes for the queued ingestion to schedule the ingest and
 ```python
 QUERY = "StormEvents | count"
 
-df = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, QUERY).primary_results[0].to_dataframe()
+RESPONSE = KUSTO_CLIENT.execute_query(KUSTO_DATABASE, QUERY)
 
-df
+dataframe_from_result_table(RESPONSE.primary_results[0])
 ```
 
 ## Run troubleshooting queries
 
 Sign in to [https://dataexplorer.azure.com](https://dataexplorer.azure.com) and connect to your cluster. Run the following command in your database to see if there were any ingestion failures in the last four hours. Replace the database name before running.
-    
+
 ```Kusto
-    .show ingestion failures
-    | where FailedOn > ago(4h) and Database == "<DatabaseName>"
+.show ingestion failures
+| where FailedOn > ago(4h) and Database == "<DatabaseName>"
 ```
 
 Run the following command to view the status of all ingestion operations in the last four hours. Replace the database name before running.

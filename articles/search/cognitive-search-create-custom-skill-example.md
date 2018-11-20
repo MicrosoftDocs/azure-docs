@@ -33,6 +33,8 @@ Although this example uses an Azure Function to host a web API, it is not requir
 
 1. In the New Project dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a Name for your project, and select **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
+1. Select **Azure Functions v2 (.Net Core)**. You could also do it with version 1, but the code written below is based on the v2 template.
+
 1. Select the type to be **HTTP Trigger**
 
 1. For Storage Account, you may select **None**, as you won't need any storage for this function.
@@ -238,14 +240,6 @@ When you are satisfied with the function behavior, you can publish it.
 1. After the deployment is complete, note the Site URL. It is the address of your function app in Azure. 
 
 1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Manage** section, you should see Host Keys. Select the **Copy** icon for the *default* host key.  
-
-## Update SSL Settings
-
-All Azure Functions created after June 30th, 2018 have disabled TLS 1.0, which is not currently compatible with custom skills.
-
-1. In the [Azure portal](https://portal.azure.com), navigate to the Resource Group, and look for the Translate Function you published. Under the **Platform features** section, you should see SSL.
-
-1. After selecting SSL, you should change the **Minimum TLS version** to 1.0. TLS 1.2 functions are not yet supported as custom skills.
 
 ## Test the function in Azure
 

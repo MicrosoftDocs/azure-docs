@@ -5,10 +5,6 @@ services: traffic-manager
 documentationcenter: traffic-manager
 author: KumudD
 manager: jeconnoc
-editor: 
-tags: 
-
-ms.assetid: 
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article

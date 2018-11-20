@@ -90,7 +90,7 @@ sections:
             src: media/index/logo_gremlin.svg
           title: Gremlin
         - image:
-            src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
+            src: https://docs.microsoft.com/media/logos/logo_gopher.svg
           title: Go
         - image:
             src: media/index/logo_xamarin.svg

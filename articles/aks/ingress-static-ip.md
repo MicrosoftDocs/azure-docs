@@ -20,12 +20,12 @@ You can also:
 
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
-- [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
-- [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
+- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
+- [Create an ingress controller that uses Let's Encrypt to automatically generate TLS certificates with a dynamic public IP address][aks-ingress-tls]
 
 ## Before you begin
 
-This article uses Helm to install the NGINX ingress controller, cert-manager, and a sample web app. You need to have Helm initialized within your AKS cluster and using a service account for Tiller. Make sure that you are using the latest release of Helm. Make sure that you are using the latest release of Helm. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
+This article uses Helm to install the NGINX ingress controller, cert-manager, and a sample web app. You need to have Helm initialized within your AKS cluster and using a service account for Tiller. Make sure that you are using the latest release of Helm. For upgrade instructions, see the [Helm install docs][helm-install]. For more information on configuring and using Helm, see [Install applications with Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 This article also requires that you are running the Azure CLI version 2.0.41 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
@@ -45,13 +45,16 @@ Next, create a public IP address with the *static* allocation method using the [
 az network public-ip create --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP --allocation-method static
 ```
 
-Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step.
+Now deploy the *nginx-ingress* chart with Helm. Add the `--set controller.service.loadBalancerIP` parameter, and specify your own public IP address created in the previous step. For added redundancy, two replicas of the NGINX ingress controllers are deployed with the `--set controller.replicaCount` parameter. To fully benefit from running replicas of the ingress controller, make sure there's more than one node in your AKS cluster.
 
 > [!TIP]
 > The following examples install the ingress controller and certificates in the `kube-system` namespace. You can specify a different namespace for your own environment if desired. Also, if your AKS cluster is not RBAC enabled, add `--set rbac.create=false` to the commands.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system --set controller.service.loadBalancerIP="40.121.63.72"
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    --set controller.service.loadBalancerIP="40.121.63.72"  \
+    --set controller.replicaCount=2
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your static IP address is assigned, as shown in the following example output:
@@ -74,7 +77,7 @@ For the HTTPS certificates to work correctly, configure an FQDN for the ingress 
 #!/bin/bash
 
 # Public IP address of your ingress controller
-IP="51.145.155.210"
+IP="40.121.63.72"
 
 # Name to associate with public IP address
 DNSNAME="demo-aks-ingress"
@@ -265,6 +268,56 @@ Now add the */hello-world-two* path to the FQDN, such as *https://demo-aks-ingre
 
 ![Application example two](media/ingress/app-two.png)
 
+## Clean up resources
+
+This article used Helm to install the ingress components, certificates, and sample apps. When you deploy a Helm chart, a number of Kubernetes resources are created. These resources includes pods, deployments, and services. To clean up, first remove the certificate resources:
+
+```console
+kubectl delete -f certificates.yaml
+kubectl delete -f cluster-issuer.yaml
+```
+
+Now list the Helm releases with the `helm list` command. Look for charts named *nginx-ingress*, *cert-manager*, and *aks-helloworld*, as shown in the following example output:
+
+```
+$ helm list
+
+NAME                	REVISION	UPDATED                 	STATUS  	CHART               	APP VERSION	NAMESPACE
+waxen-hamster       	1       	Tue Oct 16 17:44:28 2018	DEPLOYED	nginx-ingress-0.22.1	0.15.0     	kube-system
+alliterating-peacock	1       	Tue Oct 16 18:03:11 2018	DEPLOYED	cert-manager-v0.3.4 	v0.3.2     	kube-system
+mollified-armadillo 	1       	Tue Oct 16 18:04:53 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+wondering-clam      	1       	Tue Oct 16 18:04:56 2018	DEPLOYED	aks-helloworld-0.1.0	           	default
+```
+
+Delete the releases with the `helm delete` command. The following example deletes the NGINX ingress deployment, certificate manager, and the two sample AKS hello world apps.
+
+```
+$ helm delete waxen-hamster alliterating-peacock mollified-armadillo wondering-clam
+
+release "billowing-kitten" deleted
+release "loitering-waterbuffalo" deleted
+release "flabby-deer" deleted
+release "linting-echidna" deleted
+```
+
+Next, remove the Helm repo for the AKS hello world app:
+
+```console
+helm repo remove azure-samples
+```
+
+Remove the ingress route that directed traffic to the sample apps:
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
+
+Finally, remove the static public IP address created for the ingress controller. Provide your *MC_* cluster resource group name obtained in the first step of this article, such as *MC_myResourceGroup_myAKSCluster_eastus*:
+
+```azurecli
+az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eastus --name myAKSPublicIP
+```
+
 ## Next steps
 
 This article included some external components to AKS. To learn more about these components, see the following project pages:
@@ -278,6 +331,7 @@ You can also:
 - [Create a basic ingress controller with external network connectivity][aks-ingress-basic]
 - [Enable the HTTP application routing add-on][aks-http-app-routing]
 - [Create an ingress controller that uses an internal, private network and IP address][aks-ingress-internal]
+- [Create an ingress controller that uses your own TLS certificates][aks-ingress-own-tls]
 - [Create an ingress controller with a dynamic public IP and configure Let's Encrypt to automatically generate TLS certificates][aks-ingress-tls]
 
 <!-- LINKS - external -->
@@ -299,3 +353,4 @@ You can also:
 [aks-ingress-basic]: ingress-basic.md
 [aks-ingress-tls]: ingress-tls.md
 [aks-http-app-routing]: http-application-routing.md
+[aks-ingress-own-tls]: ingress-own-tls.md

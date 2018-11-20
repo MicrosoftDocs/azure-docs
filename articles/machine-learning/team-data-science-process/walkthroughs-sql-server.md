@@ -4,7 +4,7 @@ description: Examples that walk through the use R, Python and T-SQL in SQL Serve
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 
 ms.assetid: 

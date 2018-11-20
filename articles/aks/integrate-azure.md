@@ -190,7 +190,7 @@ Refer to the [Azure/helm-charts][helm-charts] repository to access other updated
 
 <!-- LINKS - external -->
 [helm-charts]: https://github.com/Azure/helm-charts
-[helm-cli-install]: kubernetes-helm.md#install-helm-cli
+[helm-cli-install]: https://docs.helm.sh/helm/#helm-install
 [helm-create-new-chart]: https://github.com/Azure/helm-charts#creating-a-new-chart
 [kubernetes-service-catalog]: https://github.com/kubernetes-incubator/service-catalog
 [open-service-broker-azure]: https://github.com/Azure/open-service-broker-azure

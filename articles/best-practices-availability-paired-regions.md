@@ -28,7 +28,9 @@ Figure 1 – Azure regional pairs
 | Brazil |Brazil South 2 |South Central US |
 | Canada |Canada Central |Canada East |
 | China |China North |China East|
+| China |China North 2 |China East 2|
 | Europe |North Europe |West Europe |
+| France |France Central|France South|
 | Germany |Germany Central |Germany Northeast |
 | India |Central India |South India |
 | India |West India (1) |South India |
@@ -64,7 +66,7 @@ Figure 2 – Hypothetical Azure regional pair
 ## Cross-region activities
 As referred to in figure 2.
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (PaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure resiliency technical guidance](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png) **Azure Compute (IaaS)** – You must provision additional compute resources in advance to ensure resources are available in another region during a disaster. For more information, see [Azure resiliency technical guidance](resiliency/resiliency-technical-guidance.md).
 
 ![Storage](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** - Geo-Redundant storage (GRS) is configured by default when an Azure Storage account is created. With GRS, your data is automatically replicated three times within the primary region, and three times in the paired region. For more information, see [Azure Storage Redundancy Options](storage/common/storage-redundancy.md).
 

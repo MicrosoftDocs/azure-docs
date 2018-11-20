@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/26/2018
+ms.date: 10/22/2018
 ms.author: jingwang
 
 ---
@@ -37,17 +37,17 @@ For now, within a single copy activity you can only **copy data from Office 365 
 To copy data from Office 365 into Azure, you need to complete the following prerequisite steps:
 
 - Your Office 365 tenant admin must complete on-boarding actions as described [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding).
-- Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
+- Create and configure an Azure AD web application in Azure Active Directory.  For instructions, see [Create an Azure AD application](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application).
 - Make note of the following values, which you will use to define the linked service for Office 365:
-    - Tenant ID.  For instructions, see [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
-    - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+    - Tenant ID.  For instructions, see [Get tenant ID](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
+    - Application ID and Application key.  For instructions, see [Get application ID and authentication key](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 - Add the user identity who will be making the data access request as the owner of the Azure AD web application (from the Azure AD web application > Settings > Owners > Add owner).
 
 ## Approving new data access requests
 
 If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as “RequestingConsent”.  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
-Refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/Approving-a-data-access-request) on how the approver can approve the data access request, and refer [here](https://github.com/OfficeDev/ManagedAccessMSGraph/wiki/On-boarding) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
+Refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Approving-data-access-requests) on how the approver can approve the data access request, and refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#integration-with-privileged-access-management) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
 
 ## Policy validation
 
@@ -116,8 +116,8 @@ To copy data from Office 365, the following properties are supported:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the dataset must be set to: **Office365Table** | Yes |
-| tableName | Name of the dataset to extract from Office 365. Refer here for the list of Office 365 datasets available for extraction. | Yes |
-| predicate | A predicate expression that can be used to filter the specific rows to extract from Office 365.  Refer here to find out which columns can be used for predicate filtering for each table and the filter expression format. | No<br>(If no predicate is supplied, the default is to extract data for the last 30 days) |
+| tableName | Name of the dataset to extract from Office 365. Refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#datasets) for the list of Office 365 datasets available for extraction. | Yes |
+| predicate | A predicate expression that can be used to filter the specific rows to extract from Office 365.  Refer [here](https://github.com/OfficeDev/MS-Graph-Data-Connect/wiki/Capabilities#filters) to find out which columns can be used for predicate filtering for each table and the filter expression format. | No<br>(If no predicate is supplied, the default is to extract data for the last 30 days) |
 
 **Example**
 

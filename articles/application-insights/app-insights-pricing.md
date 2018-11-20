@@ -157,6 +157,10 @@ You can write a script to set the price plan by using Azure Resource Management.
 
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
+## Disable daily cap e-mails
+
+To disable the daily volume cap e-mails, under the **Configure** section of your Application Insights resource, in the **Usage and estimated costs** pane, select  **Daily Cap**. There are settings to send e-mail when the cap is reached, as well as when an adjustable warning level has been reached. If you wish to disable all daily cap volume related emails uncheck both boxes.
+
 ## Next steps
 
 * [Sampling](app-insights-sampling.md)

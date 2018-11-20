@@ -46,12 +46,12 @@ As a globally distributed, multi-model database service, Azure Cosmos DB makes i
 
 * **Build highly responsive and mission-critical applications**
     * Azure Cosmos DB guarantees end-to-end low latency at the 99th percentile to its customers. 
-    * For a typical 1KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 15 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
+    * For a typical 1KB item, Cosmos DB guarantees end-to-end latency of reads under 10 ms and indexed writes under 10 ms at the 99th percentile, within the same Azure region. The median latencies are significantly lower (under 5 ms).
 
 * **Ensure "always on" availability**
     * 99.99% availability SLA for all single region database accounts, and all 99.999% read availability on all multi-region database accounts.
     * Deploy to any number of [Azure regions](https://azure.microsoft.com/regions) for higher availability and better performance.
-    * Dynamically set priorities to regions and [simulate a failure](regional-failover.md) of one or more regions with zero-data loss guarantees to test the end-to-end availability for the entire app (beyond just the database). 
+    * Dynamically set priorities to regions and [simulate a failure](high-availability.md) of one or more regions with zero-data loss guarantees to test the end-to-end availability for the entire app (beyond just the database). 
 
 * **Write globally distributed applications, the right way**
     * Five well-defined, practical, and intuitive [consistency models](consistency-levels.md) provide a spectrum of strong SQL-like consistency all the way to the relaxed NoSQL-like eventual consistency, and everything in-between. 
@@ -75,9 +75,9 @@ Azure Cosmos DB provides the best capabilities of traditional relational and non
 | --- | --- | --- | --- |
 | Global distribution | No | No | Yes, turnkey distribution in 30+ regions, with multi-homing APIs|
 | Horizontal scale | No | Yes | Yes, you can independently scale storage and throughput | 
-| Latency guarantees | No | Yes | Yes, 99% of reads in <10 ms and writes in <15 ms | 
+| Latency guarantees | No | Yes | Yes, 99% of reads in <10 ms and writes in <10 ms | 
 | High availability | No | Yes | Yes, Azure Cosmos DB is always on, has well-defined PACELC tradeoffs, and offers automatic and manual failover options|
-| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API (more coming soon) |
+| Data model + API | Relational + SQL | Multi-model + OSS API | Multi-model + SQL + OSS API |
 | SLAs | Yes | No | Yes, comprehensive SLAs for latency, throughput, consistency, availability |
 
 ## Solutions that benefit from Azure Cosmos DB

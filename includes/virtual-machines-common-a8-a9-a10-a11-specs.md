@@ -13,8 +13,7 @@
 ## Deployment considerations
 * **Azure subscription** – To deploy more than a few compute-intensive instances, consider a pay-as-you-go subscription or other purchase options. If you're using an [Azure free account](https://azure.microsoft.com/free/), you can use only a limited number of Azure compute cores.
 
-* **Pricing and availability** - These VM sizes are offered only in the Standard pricing tier. Check [Products available by region]
-(https://azure.microsoft.com/regions/services/) for availability in Azure regions. 
+* **Pricing and availability** - These VM sizes are offered only in the Standard pricing tier. Check [Products available by region](https://azure.microsoft.com/global-infrastructure/services/) for availability in Azure regions. 
 * **Cores quota** – You might need to increase the cores quota in your Azure subscription from the default value. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../articles/azure-supportability/how-to-create-azure-support-request.md) at no charge. (Default limits may vary depending on your subscription category.)
   
   > [!NOTE]
@@ -33,4 +32,3 @@ This interface allows the RDMA-capable instances to communicate over an InfiniBa
 > In Azure, IP over IB is not supported. Only RDMA over IB is supported.
 >
 
-Deploy the RDMA-capable HPC VMs in the same availability set or VM scale set (when you use the Azure Resource Manager deployment model) or the same cloud service (when you use the classic deployment model). If you use a VM scale set, ensure that you limit the deployment to a single placement group; for example, in a Resource Manager template, set the *singlePlacementGroup* property to *true*. Additional requirements for RDMA-capable HPC VMs to access the Azure RDMA network follow.

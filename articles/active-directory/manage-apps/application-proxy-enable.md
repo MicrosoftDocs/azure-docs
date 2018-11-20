@@ -5,33 +5,50 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 11/14/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
 
 ---
 
 # Get started with Application Proxy and install the connector
-This article walks you through the steps to enable Microsoft Azure AD Application Proxy for your cloud directory in Azure AD.
+This article walks you through the steps to enable Application Proxy in Azure Active Directory (Azure AD).
 
 If you're not yet aware of the security and productivity benefits Application Proxy brings to your organization, learn more about [How to provide secure remote access to on-premises applications](application-proxy.md).
 
-## Application Proxy prerequisites
-Before you can enable and use Application Proxy services, you need to have:
+## Prerequisites
+To enable Application Proxy, you need:
 
-* A [Microsoft Azure AD basic or premium subscription](../fundamentals/active-directory-whatis.md) and an Azure AD directory for which you are a global administrator.
-* A server running Windows Server 2012 R2 or 2016, on which you can install the Application Proxy Connector. The server needs to be able to connect to the Application Proxy services in the cloud, and the on-premises applications that you are publishing.
-  * For single sign-on to your published applications using Kerberos Constrained Delegation, this machine should be domain-joined in the same AD domain as the applications that you are publishing. For information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+* A [Microsoft Azure AD basic or premium subscription](https://azure.microsoft.com/pricing/details/active-directory). 
+* An application administrator account.
 
-If your organization uses proxy servers to connect to the internet, read [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md) for details on how to configure them before you get started with Application Proxy.
+### Windows server
+You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you are publishing.
+
+The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. Existing connectors with versions below 1.5.612.0 will continue to work on prior versions of TLS until further notice. To enable TLS 1.2:
+
+1. Set the following registry keys:
+	
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Restart the server
+
+For single sign-on to applications that use Kerberos Contrained Delegation (KCD), the Windows server and the applications you are publishing need to be in the same Active Directory domain. For more information, see [KCD for single sign-on with Application Proxy](application-proxy-configure-single-sign-on-with-kcd.md).
+  
+### Proxy servers
+
+If your organization uses proxy servers to connect to the internet, you need to configure them for Application Proxy.  For more information, see [Work with existing on-premises proxy servers](application-proxy-configure-connectors-with-proxy-servers.md). 
+
+
 
 ## Open your ports
 

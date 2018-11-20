@@ -7,7 +7,6 @@ author: navyasric
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -22,7 +21,9 @@ ms.custom: include file
 ## Test your code
 
 ### Test with Node
+
 If you're not using Visual Studio, make sure your web server is started.
+
 1. Configure the server to listen to a TCP port that's based on the location of your **index.html** file. For Node, start the web server to listen to the port by running the following commands on a command line prompt from the application folder:
 
     ```bash
@@ -34,15 +35,14 @@ If you're not using Visual Studio, make sure your web server is started.
 <p/><!-- -->
 
 ### Test with Visual Studio
-If you're using Visual Studio, make sure to select the project solution and press **F5** to run your project. The browser opens to the http://<span></span>localhost:{port} location and you see the **Sign In** button.
 
+If you're using Visual Studio, make sure to select the project solution and press **F5** to run your project. The browser opens to the http://<span></span>localhost:{port} location and you see the **Sign In** button.
 
 ## Test your application
 
 After the browser loads your index.html file, click **Sign In**. You will be prompted to sign in with the Microsoft Azure Active Directory (Azure AD) v2.0 endpoint:
 
 ![Sign in to your JavaScript SPA account](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### Provide consent for application access
 
@@ -51,6 +51,7 @@ The first time that you sign in to your application, you're prompted to provide 
 ![Provide your consent for application access](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### View application results
+
 After you sign in, you should see your user profile information returned in the Microsoft Graph API response displayed on the page.
 
 ![Expected results from Microsoft Graph API call](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

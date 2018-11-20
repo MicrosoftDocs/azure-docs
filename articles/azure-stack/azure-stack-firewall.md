@@ -13,13 +13,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 
 ---
 # Azure Stack firewall integration
-It is recommended that you use a firewall device to help secure Azure Stack. Although firewalls can help with things like distributed denial-of-service (DDOS) attacks, intrusion detection and content inspection, they can also become a throughput bottleneck for Azure storage services like blobs, tables, and queues.
+It's recommended that you use a firewall device to help secure Azure Stack. Although firewalls can help with things like distributed denial-of-service (DDOS) attacks, intrusion detection and content inspection, they can also become a throughput bottleneck for Azure storage services like blobs, tables, and queues.
 
 Based on the identity model Azure Active Directory (Azure AD) or Windows Server Active Directory Federation Services (AD FS), you might be required to publish the AD FS endpoint. If a disconnected deployment mode is used, you must publish the AD FS endpoint. For more information, see the [datacenter integration identity article](azure-stack-integrate-identity.md).
 
@@ -30,7 +30,7 @@ For enterprise organizations, the external network can be the existing corporate
 ### Network Address Translation
 Network Address Translation (NAT) is the recommended method to allow the deployment virtual machine (DVM) to access the external resources and the internet during deployment as well as the Emergency Recovery Console (ERCS) VMs or Privileged End Point (PEP) during registration and troubleshooting.
 
-NAT can also be an alternative to Public IP addresses on the external network or public VIPs. However, it is not recommended to do so because it limits the tenant user experience and increases complexity. The two options would be a 1:1 NAT which still requires one public IP per user IP on the pool or many:1 NAT which requires a NAT rule per user VIP that contains associations to all ports a user might use.
+NAT can also be an alternative to Public IP addresses on the external network or public VIPs. However, it is not recommended to do so because it limits the tenant user experience and increases complexity. The two options would be a 1:1 NAT that still requires one public IP per user IP on the pool or many: 1 NAT that requires a NAT rule per user VIP that contains associations to all ports a user might use.
 
 Some of the downsides of using NAT for Public VIP are:
 - NAT adds overhead when managing firewall rules because users control their own endpoints and their own publishing rules in the software-defined networking (SDN) stack. Users must contact the Azure Stack operator to get their VIPs published, and to update the port list.

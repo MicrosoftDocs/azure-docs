@@ -7,7 +7,6 @@ author: andretms
 manager: mtillman
 editor: ''
 
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
@@ -28,6 +27,7 @@ To run the code in the simulator, press **Command** + **R**.
 When you're ready to test, select **Call Microsoft Graph API**. When prompted, enter your username and password.
 
 ### Provide consent for application access
+
 The first time that you sign in to your application, you're prompted to provide your consent to allow the application to access your profile and to sign you in:
 
 ![Provide your consent for application access](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
@@ -40,7 +40,7 @@ After you sign in, you should see your user profile information returned by the 
 
 The Microsoft Graph API requires the **user.read** scope to read a user's profile. This scope is automatically added by default in every application that's registered on the registration portal. Other APIs for Microsoft Graph, as well as custom APIs for your back-end server, might require additional scopes. The Microsoft Graph API requires the **Calendars.Read** scope to list the user’s calendars.
 
-To access the user’s calendars in the context of an application, add the **Calendars.Read** delegated permission to the application registration information. Then, add the **Calendars.Read** scope to the **acquireTokenSilent** call. 
+To access the user’s calendars in the context of an application, add the **Calendars.Read** delegated permission to the application registration information. Then, add the **Calendars.Read** scope to the **acquireTokenSilent** call.
 
 >[!NOTE]
 >The user might be prompted for additional consents as you increase the number of scopes.

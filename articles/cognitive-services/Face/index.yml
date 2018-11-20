@@ -5,7 +5,7 @@ metadata:
   title: Face Service Documentation - Quickstarts, Tutorials, API Reference - Azure Cognitive Services  | Microsoft Docs
   description: Learn how to use the Face service to detect and identify faces in images and return facial information. Tutorials show you how to build apps that use the API.
   services: cognitive-services
-  author: noellelacharite
+  author: PatrickFarley
   manager: nolachar
 
   ms.service: cognitive-services

@@ -1,6 +1,6 @@
-﻿---
-title: Application registration in Azure Active Directory B2C | Microsoft Docs 
-description: How to register your application with Azure Active Directory B2C
+---
+title: Register an application in Azure Active Directory B2C | Microsoft Docs 
+description: Learn how to register your application with Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
@@ -8,123 +8,73 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/13/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
 ---
 
-# Azure Active Directory B2C: Register your application
+# Register an application in Azure Active Directory B2C
 
-This Quickstart helps you register an application in a Microsoft Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure AD B2C tenant.
+To build an [application](active-directory-b2c-apps.md) that accepts consumer sign-up and sign-in, you first need to register the application with an Azure AD B2C tenant. This article helps you register an application in an Azure Active Directory (Azure AD) B2C tenant in a few minutes. When you're finished, your application is registered for use in the Azure AD B2C tenant.
 
 ## Prerequisites
 
-To build an application that accepts consumer sign-up and sign-in, you first need to register the application with an Azure Active Directory B2C tenant. Get your own tenant by using the steps outlined in [Create an Azure AD B2C tenant](active-directory-b2c-get-started.md).
+Get your own tenant by using the steps in [Create an Azure Active Directory B2C tenant](tutorial-create-tenant.md).
 
-Applications created in the Azure portal must be managed from the same location. If you edit the Azure AD B2C applications using PowerShell or another portal, they become unsupported and do not work with Azure AD B2C. See details in the [faulted apps](#faulted-apps) section. 
+Choose next steps based on your application type:
 
-This article uses examples that will help you get started with our samples. You can learn more about these samples in the subsequent articles.
+- [Register a web application](#register-a-web-application)
+- [Register a web API](#register-a-web-api)
+- [Register a mobile or native application](#register-a-mobile-or-native-application)
 
-## Navigate to B2C settings
+## Register a web application
 
-Log in to the [Azure portal](https://portal.azure.com/) as the Global Administrator of the B2C tenant. 
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+3. Select **Applications**, and then select **Add**.
+4. Enter a name for the application. For example *testapp1*.
+5. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
+6. For **Reply URL**, enter endpoint where Azure AD B2C should return any tokens that your app requests. For example, you can set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.
+7. Click **Create**.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+### Create a client secret
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+If your application calls a web API secured by Azure AD B2C, you need to create an application secret.
 
-## Choose next steps based on your application type
+1. Select **Keys** and then click **Generate key**. 
+2. Select **Save** to view the key. Make note of the **App key** value. You use the value as the application secret in your application's code.
+3. Select **API Access**, click **Add**, and select your web API and scopes (permissions).
 
-* [Register a web application](#register-a-web-app)
-* [Register a web API](#register-a-web-api)
-* [Register a mobile or native application](#register-a-mobile-or-native-app)
- 
-### Register a web app
+## Register a web API
 
-[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+3. Select **Applications**, and then select **Add**.
+4. Enter a name for the application. For example *testapp2*.
+5. For **Include web app/ web API** and **Allow implicit flow**, select **Yes**.
+6. For **Reply URL**, enter endpoint where Azure AD B2C should return any tokens that your app requests. For example, you can set it to listen locally at `https://localhost:44316`. If you don't yet know the port number, you can enter a placeholder value and change it later.
+7. For **App ID URI**, enter the identifier used for your web API. The full identifier URI including the domain is generated for you. For example, `https://contosotenant.onmicrosoft.com/api`.
+8. Click **Create**.
+9. Select **Published scopes** to add more scopes as necessary. By default, the `user_impersonation` scope is defined. The `user_impersonation` scope gives other applications the ability to access this API on behalf of the signed-in user. If you wish, the `user_impersonation` scope can be removed.
 
-### Create a web app client secret
+## Register a mobile or native application
 
-If your web application calls a web API secured by Azure AD B2C, perform these steps:
-   1. Create an application secret by going to the **Keys** blade and clicking the **Generate Key** button. Make note of the **App key** value. You use the value as the application secret in your application's code.
-   2. Click **API Access**, click **Add**, and select your web API and scopes (permissions).
+1. Make sure you're using the directory that contains your Azure AD B2C tenant by clicking the **Directory and subscription filter** in the top menu and choosing the directory that contains your tenant.
+2. Choose **All services** in the top-left corner of the Azure portal, and then search for and select **Azure AD B2C**.
+3. Select **Applications**, and then select **Add**.
+4. Enter a name for the application. For example *testapp3*.
+5. For **Include web app/ web API**, select **No**.
+6. For **Include native client**, select **Yes**.
+7. For **Redirect URI**, enter a [redirect URI with a custom scheme](active-directory-b2c-apps.md). Make sure you choose a good redirect URI and do not include special characters such as underscores.
+8. Click **Create**.
 
-> [!NOTE]
-> An **Application Secret** is an important security credential, and should be secured appropriately.
-> 
+### Create a client secret
 
-[Jump to **next steps**](#next-steps)
+If your application calls a web API secured by Azure AD B2C, you need to create an application secret.
 
-### Register a web API
-
-[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-Click **Published scopes** to add more scopes as necessary. By default, the "user_impersonation" scope is defined. The user_impersonation scope gives other applications the ability to access this api on behalf of the signed-in user. If you wish, the user_impersonation scope can be removed.
-
-[Jump to **next steps**](#next-steps)
-
-### Register a mobile or native app
-
-[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
-
-[Jump to **next steps**](#next-steps)
-
-## Limitations
-
-### Choosing a web app or api reply URL
-
-Currently, apps that are registered with Azure AD B2C are restricted to a limited set of reply URL values. The reply URL for web apps and services must begin with the scheme `https`, and all reply URL values must share a single DNS domain. For example, you cannot register a web app that has one of these reply URLs:
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-The registration system compares the whole DNS name of the existing reply URL to the DNS name of the reply URL that you are adding. The request to add the DNS name fails if either of the following conditions is true:
-
-* The whole DNS name of the new reply URL does not match the DNS name of the existing reply URL.
-* The whole DNS name of the new reply URL is not a subdomain of the existing reply URL.
-
-For example, if the app has this reply URL:
-
-`https://login.contoso.com`
-
-You can add to it, like this:
-
-`https://login.contoso.com/new`
-
-In this case, the DNS name matches exactly. Or, you can do this:
-
-`https://new.login.contoso.com`
-
-In this case, you're referring to a DNS subdomain of login.contoso.com. If you want to have an app that has login-east.contoso.com and login-west.contoso.com as reply URLs, you must add those reply URLs in this order:
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-You can add the latter two because they are subdomains of the first reply URL, contoso.com.
-
-### Choosing a native app redirect URI
-
-There are two important considerations when choosing a redirect URI for mobile/native applications:
-
-* **Unique**: The scheme of the redirect URI should be unique for every application. In the example (com.onmicrosoft.contoso.appname://redirect/path), com.onmicrosoft.contoso.appname is the scheme. We recommend following this pattern. If two applications share the same scheme, the user sees a "choose app" dialog. If the user makes an incorrect choice, the login fails.
-* **Complete**: Redirect URI must have a scheme and a path. The path must contain at least one forward slash after the domain (for example, //contoso/ works and //contoso fails).
-
-Ensure there are no special characters like underscores in the redirect uri.
-
-### Faulted apps
-
-B2C applications should NOT be edited:
-
-* On other application management portals such as the [Application Registration Portal](https://apps.dev.microsoft.com/).
-* Using Graph API or PowerShell
-
-If you edit the Azure AD B2C application as described and try to edit it again in Azure AD B2C features on the Azure portal, it becomes a faulted app, and your application is no longer usable with Azure AD B2C. You need to delete the application and create it again.
-
-To delete the app, go to the [Application Registration Portal](https://apps.dev.microsoft.com/) and delete the application there. In order for the application to be visible, you need to be the owner of the application (and not just an admin of the tenant).
+1. Select **Keys** and then click **Generate key**. 
+2. Select **Save** to view the key. Make note of the **App key** value. You use the value as the application secret in your application's code.
+3. Select **API Access**, click **Add**, and select your web API and scopes (permissions).
 
 ## Next steps
 

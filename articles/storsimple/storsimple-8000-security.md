@@ -117,7 +117,7 @@ For more information about StorSimple Snapshot Manager, go to [What is StorSimpl
 We recommend that you use the following guidelines to help ensure that StorSimple passwords are strong and well-protected:
 
 * Change your passwords every three months. Changing the passwords is enforced annually.
-* Use strong passwords. For more information, go to [Create stronger passwords and protect them](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Use strong passwords. For more information, go to [Create stronger passwords and protect them](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Always use different passwords for different access mechanisms; each of the passwords you specify should be unique.
 * Do not share passwords with anyone who is not authorized to access the StorSimple device.
 * Do not speak about a password in front of others or hint at the format of a password.
@@ -201,9 +201,9 @@ StorSimple uses the following encryption algorithms to protect data stored in or
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
-## Managing personal inforamation
+## Managing personal information
 
-The StorSimple Device Manager for both physical and virtual series collects personal information in the follwing key instances:
+The StorSimple Device Manager for both physical and virtual series collects personal information in the following key instances:
 
 - Alert user settings where email address of users are configured. This information can be viewed and cleared by the administrator. This applies to both the StorSimple 8000 series devices and StorSimple Virtual Arrays.
  * To view and clear the settings for StorSimple 8000 series, follow the steps in [View and manage StorSimple alerts](storsimple-8000-manage-alerts.md#configure-alert-settings)

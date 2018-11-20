@@ -25,20 +25,20 @@ sections:
     style: icon48
     items: 
     - image: 
-        src: http://docs.microsoft.com/en-us/media/logos/logo_NETcore.svg
+        src: http://docs.microsoft.com/media/logos/logo_NETcore.svg
       text: ASP.NET Core
       href: /azure/azure-signalr/signalr-quickstart-dotnet-core
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/azurefunctions.svg
+        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
       text: JavaScript
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-javascript
     - image: 
-        src: https://docs.microsoft.com/en-us/azure/media/index/azurefunctions.svg
+        src: https://docs.microsoft.com/azure/media/index/azurefunctions.svg
       text: C#
       href: /azure/azure-signalr/signalr-quickstart-azure-functions-csharp
     - image: 
-        src: https://docs.microsoft.com/en-us/media/logos/logo_REST.svg
-      text: C#
+        src: https://docs.microsoft.com/media/logos/logo_REST.svg
+      text: REST API
       href: /azure/azure-signalr/signalr-quickstart-rest-api
 - title: Step-by-Step Tutorials
   items:

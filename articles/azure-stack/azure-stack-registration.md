@@ -13,7 +13,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 11/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
 
@@ -23,7 +23,7 @@ ms.reviewer: brbartle
 
 Registering Azure Stack with Azure allows you to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. After you register Azure Stack, usage is reported to Azure commerce and you can see it under the subscription used for registration.
 
-The information in this article describes registering Azure Stack integrated systems with Azure. For information about registering the ASDK with Azure, see [Azure Stack registration](.\asdk\asdk-register.md) in the ASDK documentation.
+The information in this article describes registering Azure Stack integrated systems with Azure. For information about registering the ASDK with Azure, see [Azure Stack registration](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-register) in the ASDK documentation.
 
 > [!IMPORTANT]  
 > Registration is required to support full Azure Stack functionality, including offering items in the marketplace. In addition, you will be in violation of Azure Stack licensing terms if you do not register when using the pay-as-you-use billing model. To learn more about Azure Stack licensing models, please see the [How to buy page](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).
@@ -42,7 +42,7 @@ You will need the following in place before you register:
 
 Before registering Azure Stack with Azure, you must have:
 
-- The subscription ID for an Azure subscription. Only EA, CSP, or CSP shared services subscriptions are supported for registration. CSPs need to decide whether to [use a CSP or CSPSS subscription](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>To get the ID, sign in to Azure, click **All services**. Then, under the **GENERAL** category, select **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
+- The subscription ID for an Azure subscription. Only EA, CSP, or CSP shared services subscriptions are supported for registration. CSPs need to decide whether to [use a CSP or APSS subscription](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>To get the ID, sign in to Azure, click **All services**. Then, under the **GENERAL** category, select **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the Subscription ID.
 
   > [!Note]  
   > Germany cloud subscriptions are not currently supported.
@@ -208,11 +208,11 @@ Connected environments can access the internet and Azure. For these environments
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > You can disable usage reporting with the UsageReportingEnabled parameter for the **Set-AzsRegistration** cmdlet. Set the parameter to false. For example: `UsageReportingEnabled
+   > You can disable usage reporting with the UsageReportingEnabled parameter for the **Set-AzsRegistration** cmdlet by setting the parameter to false. 
    
   For more information on the Set-AzsRegistration cmdlet, see [Registration reference](#registration-reference).
 
@@ -232,7 +232,7 @@ If you are registering Azure Stack in a disconnected environment (with no intern
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    For more information on the Get-AzsRegistrationToken cmdlet, see [Registration reference](#registration-reference).
 
@@ -268,7 +268,7 @@ Next, you need to retrieve an activation key from the registration resource crea
 To get the activation key, run the following PowerShell cmdlets:  
 
   ```Powershell
-  $RegistrationResourceName = "AzureStack-<unique-registration-name>"
+  $RegistrationResourceName = "<unique-registration-name>"
   $KeyOutputFilePath = "$env:SystemDrive\ActivationKey.txt"
   $ActivationKey = Get-AzsActivationKey -RegistrationName $RegistrationResourceName -KeyOutputFilePath $KeyOutputFilePath
   ```
@@ -429,7 +429,7 @@ To run the cmdlet, you need:
 | ResourceGroupName | String |  |
 | ResourceGroupLocation | String |  |
 | BillingModel | String | The billing model that your subscription uses. Allowed values for this parameter are: Capacity, PayAsYouUse, and Development. |
-| MarketplaceSyndicationEnabled |  |  |
+| MarketplaceSyndicationEnabled | True/False | Determines whether or not the marketplace management feature is available in the portal. Set to true if registering with internet connectivity. Set to false if registering in disconnected environments. For disconnected registrations, the [offline syndication tool](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario) can be used for downloading marketplace items. |
 | UsageReportingEnabled | True/False | Azure Stack reports usage metrics by default. Operators with capacity uses or supporting a disconnected environment will need to turn off usage reporting. Allowed values for this parameter are: True, False. |
 | AgreementNumber | String |  |
 | RegistrationName | String | Set a unique name for the registration if you are running the registration script on more than one instance of Azure Stack using the same Azure Subscription ID. The parameter has a default value of **AzureStackRegistration**. However, if you use the same name on more than one instance of Azure Stack, the script will fail. |

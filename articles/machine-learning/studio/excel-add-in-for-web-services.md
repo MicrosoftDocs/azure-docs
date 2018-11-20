@@ -4,7 +4,8 @@ description: How to use Azure Machine Learning Web services directly in Excel wi
 services: machine-learning
 documentationcenter: ''
 author: marthalc
-ms.author: marthalc
+ms.custom: (previous ms.author marthalc)
+ms.author: amlstudiodocs
 
 
 ms.assetid: 9618079d-502f-4974-a3e2-8f924042a23f
@@ -22,10 +23,10 @@ Excel makes it easy to call web services directly without the need to write any 
 
 ## Steps to Use an Existing web service in the Workbook
 
-1. Open the [sample Excel file](http://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic. 
+1. Open the [sample Excel file](https://aka.ms/amlexcel-sample-2), which contains the Excel add-in and data about passengers on the Titanic. 
  
 > [!NOTE]
-> You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated everytime there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
+> You will see the list of the Web Services related to the file and at the bottom a checkbox for "Auto-predict". If you enable auto-predict the predictions of **all** your services will be updated every time there is a change on the inputs. If unchecked you will have to click on "Predict All" for refresh. For enabling auto-predict at a service level go to step 6.
 
 2. Choose the web service by clicking it - "Titanic Survivor Predictor (Excel Add-in Sample) [Score]" in this example.
    
@@ -82,7 +83,7 @@ Get the API key for your web service. Where you perform this action depends on w
 ## Sharing Your Workbook
 If you save your workbook, then the API/Primary key for the web services you have added is also saved. That means you should only share the workbook with individuals you trust.
 
-Ask any questions in the following comment section or on our [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Ask any questions in the following comment section or on our [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

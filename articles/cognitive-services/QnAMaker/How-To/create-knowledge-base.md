@@ -23,9 +23,7 @@ QnA Maker makes it simple to add your existing data sources when creating a know
 
 ## Steps
 
-1. Sign into to the [QnA Maker portal](https://qnamaker.ai) with your Azure credentials and select **Create new service**.
-
-    ![Create KB ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+1. Sign into to the [QnA Maker portal](https://qnamaker.ai) with your Azure credentials and select **Create a knowledge base**.
 
 2. If you have not already created a QnA Maker service, select **Create a QnA service**. 
 

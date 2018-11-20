@@ -13,14 +13,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
 
 ---
 # Understand the structure and syntax of Azure Resource Manager Templates
 This article describes the structure of an Azure Resource Manager template. It presents the different sections of a template and the properties that are available in those sections. The template consists of JSON and expressions that you can use to construct values for your deployment. For a step-by-step tutorial on creating a template, see [Create your first Azure Resource Manager template](resource-manager-create-first-template.md).
 
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
+
 ## Template format
+
 In its simplest structure, a template has the following elements:
 
 ```json
@@ -275,7 +278,7 @@ In the resources section, you define the resources that are deployed or updated.
 ],
 ```
 
-For more information, see [Resources section of Azure Resource Manager templates](resource-manager-templates-resources.md).
+To conditionally include or exclude a resource during deployment, use the [Condition element](resource-manager-templates-resources.md#condition). For more information about the resources section, see [Resources section of Azure Resource Manager templates](resource-manager-templates-resources.md).
 
 ## Outputs
 In the Outputs section, you specify values that are returned from deployment. For example, you could return the URI to access a deployed resource.

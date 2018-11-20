@@ -3,7 +3,7 @@ title: 'Azure Active Directory Domain Services: Administer Group Policy on manag
 description: Administer Group Policy on Azure Active Directory Domain Services managed domains
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
+ms.author: ergreenl
 
 ---
 # Administer Group Policy on an Azure AD Domain Services managed domain

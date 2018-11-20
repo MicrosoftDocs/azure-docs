@@ -11,10 +11,11 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ROBOTS: NOINDEX
 ---
 
 # Translator Speech API: Languages
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Translator Speech continually extends the list of languages supported by its services. Use this API to discover the set of languages currently available for use with the Translator Speech service.
 

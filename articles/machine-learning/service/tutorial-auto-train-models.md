@@ -30,7 +30,7 @@ You'll learn how to:
 > * Review training results
 > * Register the best model
 
-If you don’t have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 ## Get the notebook
 
@@ -539,5 +539,5 @@ In this Azure Machine Learning service tutorial, you used Python to:
 > * Review training results
 > * Register the best model
 
-Learn more about [how to configure settings for automatic training]() or [how to use automatic training on a remote resource](how-to-auto-train-remote.md).  
+Learn more about [how to configure settings for automatic training](how-to-configure-auto-train.md) or [how to use automatic training on a remote resource](how-to-auto-train-remote.md).  
 

@@ -1,16 +1,15 @@
 ---
-title: Set up VMware replication to Azure in multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
-description: Describes how to create and manage tenant subscriptions through CSP and deploy Azure Site Recovery in a multi-tenant setup
-services: site-recovery
-author: mayanknayar
+title: Set up VMware disaster recovery to Azure in a multi-tenancy environment using Site Recovery and the Cloud Solution Provider (CSP) program | Microsoft Docs
+description: Describes how to set up VMware disaster recovery in a multi-tenant environment with Azure Site Recovery.
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
 ---
 
-# Set up VMware replication in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
+# Set up VMware disaster recovery in a multi-tenancy environment with the Cloud Solution Provider (CSP) program
 
 The [CSP program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories for Microsoft cloud services, including Office 365, Enterprise Mobility Suite, and Microsoft Azure. With CSP, partners own the end-to-end relationship with customers, and become the primary relationship contact point. Partners can deploy Azure subscriptions for customers, and combine the subscriptions with their own value-added, customized offerings.
 

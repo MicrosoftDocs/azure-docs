@@ -1,6 +1,6 @@
 ---
-title: Copy data from QuickBooks using Azure Data Factory (Preview) | Microsoft Docs
-description: Learn how to copy data from QuickBooks to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
+title: Copy data from QuickBooks Online using Azure Data Factory (Preview) | Microsoft Docs
+description: Learn how to copy data from QuickBooks Online to supported sink data stores by using a copy activity in an Azure Data Factory pipeline.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,20 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/29/2018
 ms.author: jingwang
 
 ---
-# Copy data from QuickBooks using Azure Data Factory (Preview)
+# Copy data from QuickBooks Online using Azure Data Factory (Preview)
 
-This article outlines how to use the Copy Activity in Azure Data Factory to copy data from QuickBooks. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
+This article outlines how to use the Copy Activity in Azure Data Factory to copy data from QuickBooks Online. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 > [!IMPORTANT]
 > This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
-You can copy data from QuickBooks to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
+You can copy data from QuickBooks Online to any supported sink data store. For a list of data stores that are supported as sources/sinks by the copy activity, see the [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats) table.
 
 Azure Data Factory provides a built-in driver to enable connectivity, therefore you don't need to manually install any driver using this connector.
 
@@ -44,8 +44,8 @@ The following properties are supported for QuickBooks linked service:
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to: **QuickBooks** | Yes |
-| endpoint | The endpoint of the QuickBooks server. (that is, quickbooks.api.intuit.com)  | Yes |
-| companyId | The company ID of the QuickBooks company to authorize.  | Yes |
+| endpoint | The endpoint of the QuickBooks Online server. (that is, quickbooks.api.intuit.com)  | Yes |
+| companyId | The company ID of the QuickBooks company to authorize. For info about how to find the company ID, see [How do I find my Company ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551). | Yes |
 | consumerKey | The consumer key for OAuth 1.0 authentication. | Yes |
 | consumerSecret | The consumer secret for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
 | accessToken | The access token for OAuth 1.0 authentication. Mark this field as a SecureString to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
@@ -85,7 +85,7 @@ The following properties are supported for QuickBooks linked service:
 
 For a full list of sections and properties available for defining datasets, see the [datasets](concepts-datasets-linked-services.md) article. This section provides a list of properties supported by QuickBooks dataset.
 
-To copy data from QuickBooks, set the type property of the dataset to **QuickBooksObject**. There is no additional type-specific property in this type of dataset.
+To copy data from QuickBooks Online, set the type property of the dataset to **QuickBooksObject**. There is no additional type-specific property in this type of dataset.
 
 **Example**
 
@@ -108,7 +108,7 @@ For a full list of sections and properties available for defining activities, se
 
 ### QuickBooksSource as source
 
-To copy data from QuickBooks, set the source type in the copy activity to **QuickBooksSource**. The following properties are supported in the copy activity **source** section:
+To copy data from QuickBooks Online, set the source type in the copy activity to **QuickBooksSource**. The following properties are supported in the copy activity **source** section:
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
@@ -146,6 +146,9 @@ To copy data from QuickBooks, set the source type in the copy activity to **Quic
     }
 ]
 ```
+## Copy data from Quickbooks Desktop
+
+The Copy Activity in Azure Data Factory cannot copy data directly from Quickbooks Desktop. To copy data from Quickbooks Desktop, export your Quickbooks data to a comma-separated-values (CSV) file and then upload the file to Azure Blob Storage. From there, you can use Data Factory to copy the data to the sink of your choice.
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

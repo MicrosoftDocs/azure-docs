@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 Azure Data Explorer enables you to control access to databases and tables, using a *role-based access control* model. Under this model, *principals* (users, groups, and apps) are mapped to *roles*. Principals can access resources according to the roles they're assigned.
 
-This article describes the available roles and how to assign principals to those roles.
+This article describes the available roles and how to assign principals to those roles using the Azure portal and Azure Data Explorer management commands.
 
 ## Roles and permissions
 
@@ -26,7 +26,6 @@ Azure Data Explorer has the following roles:
 |Database user              |Can read all data and metadata in the database. Additionally, they can create tables (becoming the table admin for that table) and functions in the database.|
 |Database viewer            |Can read all data and metadata in the database.|
 |Database ingestor          |Can ingest data to all existing tables in the database, but not query the data.|
-|Database unrestrictedviewer|Can query tables that have the **RestrictedViewAccess** policy enabled. Cannot query other tables.|
 |Database monitor           |Can execute '.show ...' commands in the context of the database and its child entities.|
 |Table admin                |Can do anything in the scope of a particular table. |
 |Table ingestor             |Can ingest data in the scope of a particular table, but not query the data.|

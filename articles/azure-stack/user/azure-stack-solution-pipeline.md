@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
 ---
@@ -270,22 +270,58 @@ By creating endpoints, a Visual Studio Online (VSTO) build can deploy Azure Serv
 10. Select **Save changes**.
 
 Now that the endpoint information exists, the Azure DevOps Services to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure DevOps Services, and then the agent conveys endpoint information for communication with Azure Stack.
+
 ## Create an Azure Stack endpoint
+
+### Create an endpoint for Azure AD deployments
 
 You can follow the instructions in [Create an Azure Resource Manager service connection with an existing service principal
 ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) article to create a service connection with an existing service principal and use the following mapping:
 
-- Environment: AzureStack
-- Environment URL: Something like `https://management.local.azurestack.external`
-- Subscription ID: User subscription ID from Azure Stack
-- Subscription name: User subscription name from Azure Stack
-- Service Principal client ID: The principal ID from [this](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section in this article.
-- Service Principal key: The key from the same article (or the password if you used the script).
-- Tenant ID: The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+You can create a service connection using the following mapping:
 
-Now that the endpoint is created, the VSTS to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from VSTS, and then the agent conveys endpoint information for communication with Azure Stack.
+| Name | Example | Description |
+| --- | --- | --- |
+| Connection name | Azure Stack Azure AD | The name of the connection. |
+| Environment | AzureStack | The name of your environment. |
+| Environment URL | `https://management.local.azurestack.external` | Your management endpoint. |
+| Scope level | Subscription | The scope of the connection. |
+| Subscription ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | User subscription ID from Azure Stack |
+| Subscription name | name@contoso.com | User subscription name from Azure Stack. |
+| Service Principal client ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | The principal ID from [this](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section in this article. |
+| Service Principal key | THESCRETGOESHERE= | The key from the same article (or the password if you used the script). |
+| Tenant ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Connection: | Not verified | Validate your connection settings to the service principal. |
 
-![Build agent](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Now that the endpoint is created, the DevOps to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from DevOps, and then the agent conveys endpoint information for communication with Azure Stack.
+
+![Build agent Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### Create an endpoint for AD FS
+
+The latest update to Azure DevOps allows to create a service connection using a service principal with a certificate for authentication. This is required when Azure Stack is deployed with AD FS as identity provider. 
+
+![Build agent AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+You can create a service connection using the following mapping:
+
+| Name | Example | Description |
+| --- | --- | --- |
+| Connection name | Azure Stack ADFS | The name of the connection. |
+| Environment | AzureStack | The name of your environment. |
+| Environment URL | `https://management.local.azurestack.external` | Your management endpoint. |
+| Scope level | Subscription | The scope of the connection. |
+| Subscription ID | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | User subscription ID from Azure Stack |
+| Subscription name | name@contoso.com | User subscription name from Azure Stack. |
+| Service Principal client ID | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | The client ID from the Service Principal you created for AD FS. |
+| Certificate | `<certificate>` |  Convert the certificate file from PFX to PEM. Paste certificate PEM file content into this field. <br> Converting PFX to PEM:<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| Tenant ID | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | The tenant ID you retrieve following the instruction at [Get the tenant ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Connection: | Not verified | Validate your connection settings to the service principal. |
+
+Now that the endpoint is created, the Azure DevOps to Azure Stack connection is ready to use. The build agent in Azure Stack gets instructions from Azure DevOps, and then the agent conveys endpoint information for communication with Azure Stack.
+
+> [!Note]
+> If your Azure Stack User ARM endpoint is not exposed to the Internet, the connection validation will fail. This is expected and you can validate your connection by creating a release pipeline with a simple task. 
 
 ## Develop your application build
 

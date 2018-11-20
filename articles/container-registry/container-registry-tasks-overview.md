@@ -2,12 +2,12 @@
 title: Automate OS and framework patching with Azure Container Registry Tasks (ACR Tasks)
 description: An introduction to ACR Tasks, a suite of features in Azure Container Registry that provides secure, automated container image build and patching in the cloud.
 services: container-registry
-author: mmacy
+author: dlepow
 
 ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
-ms.author: marsma
+ms.author: danlep
 ---
 
 # Automate OS and framework patching with ACR Tasks

@@ -1,12 +1,14 @@
 ---
-title: Bing News Search single-page Web app (source code) | Microsoft Docs
+title: "Tutorial: Bing News Search single-page Web app (source code)"
+titlesuffix: Azure Cognitive Services
 description: Source code for tutorial showing how to use the Bing News Search API in a single-page Web application.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: rosh
 ms.reviewer: v-gedod
