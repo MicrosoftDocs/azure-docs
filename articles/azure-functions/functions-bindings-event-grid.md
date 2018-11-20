@@ -3,7 +3,7 @@ title: Event Grid trigger for Azure Functions
 description: Understand how to handle Event Grid events in Azure Functions.
 services: functions
 documentationcenter: na
-author: ggailey777
+author: craigshoemaker
 manager: jeconnoc
 keywords:
 
@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
 ms.date: 09/04/2018
-ms.author: glenga
+ms.author: cshoe
 ---
 
 # Event Grid trigger for Azure Functions
@@ -354,6 +354,14 @@ For more information about how to create a subscription, see [the blob storage q
 ### Get the system key
 
 You can get the system key by using the following API (HTTP GET):
+
+#### Version 2.x runtime
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
+```
+
+#### Version 1.x runtime
 
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}

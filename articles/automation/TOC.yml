@@ -241,9 +241,17 @@
   - name: Update Management
     href: troubleshoot/update-management.md
     displayName: troubleshoot
+  - name: Shared resources
+    href: troubleshoot/shared-resources.md
+    displayName: module, import
   - name: Troubleshoot Update Agent issues
-    href: troubleshoot/update-agent-issues.md
-    displayName: hybrid runbook worker, hybrid worker, troubleshoot
+    items:
+    - name: Windows
+      href: troubleshoot/update-agent-issues.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, windows
+    - name: Linux
+      href: troubleshoot/update-agent-issues-linux.md
+      displayName: update agent, issue, hybrid runbook worker, hybrid worker, troubleshoot, linux
 - name: Reference
   items:
   - name: Azure PowerShell

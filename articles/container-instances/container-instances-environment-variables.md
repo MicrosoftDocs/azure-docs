@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-instances
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/19/2018
 ms.author: danlep
 ---
 # Set environment variables
@@ -33,7 +33,7 @@ az container create \
     --restart-policy OnFailure
 ```
 
-To modify the output, start a second container with the `--environment-variables` argument added, specifying values for the *NumWords* and *MinLength* variables:
+To modify the output, start a second container with the `--environment-variables` argument added, specifying values for the *NumWords* and *MinLength* variables. (This example assume you are running the CLI in a Bash shell or Azure Cloud Shell. If you use the Windows Command Prompt, specify the variables with double-quotes, such as `--environment-variables "NumWords"="5" "MinLength"="8"`.)
 
 ```azurecli-interactive
 az container create \
@@ -41,7 +41,7 @@ az container create \
     --name mycontainer2 \
     --image microsoft/aci-wordcount:latest \
     --restart-policy OnFailure \
-    --environment-variables NumWords=5 MinLength=8
+    --environment-variables 'NumWords'='5' 'MinLength'='8'
 ```
 
 Once both containers' state shows as *Terminated* (use [az container show][az-container-show] to check state), display their logs with [az container logs][az-container-logs] to see the output.
@@ -90,7 +90,7 @@ New-AzureRmContainerGroup `
 Now run the following [New-AzureRmContainerGroup][new-azurermcontainergroup] command. This one specifies the *NumWords* and *MinLength* environment variables after populating an array variable, `envVars`:
 
 ```azurepowershell-interactive
-$envVars = @{NumWords=5;MinLength=8}
+$envVars = @{'NumWords'='5';'MinLength'='8'}
 New-AzureRmContainerGroup `
     -ResourceGroupName myResourceGroup `
     -Name mycontainer2 `
@@ -162,7 +162,7 @@ Set a secure environment variable by specifying the `secureValue` property inste
 Create a `secure-env.yaml` file with the following snippet.
 
 ```yaml
-apiVersion: 2018-06-01
+apiVersion: 2018-10-01
 location: eastus
 name: securetest
 properties:
@@ -170,10 +170,10 @@ properties:
   - name: mycontainer
     properties:
       environmentVariables:
-        - "name": "NOTSECRET"
-          "value": "my-exposed-value"
-        - "name": "SECRET"
-          "secureValue": "my-secret-value"
+        - name: 'NOTSECRET'
+          value: 'my-exposed-value'
+        - name: 'SECRET'
+          secureValue: 'my-secret-value'
       image: nginx
       ports: []
       resources:

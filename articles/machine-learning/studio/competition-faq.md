@@ -3,11 +3,11 @@ title: Cortana Intelligence Competitions FAQ | Microsoft Docs
 description: Frequently asked questions about Microsoft Cortana Intelligence Competitions.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: "(previous ms.author=haining, author=hning86)"
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
-
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
 ms.component: studio
@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-
 ---
 # Microsoft Cortana Intelligence Competitions FAQ
 **What is Cortana Intelligence Competitions?**
 
-The Microsoft Cortana Intelligence Competitions unites a global community of data enthusiasts by collectively solving some of the world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. These hosted competitions are based on unique data sets that have been made available publically for the first time. Participants can win rewards or get recognition via the top 10 public leaderboard. You can access the Competitions home page at [aka.ms/CIComp](http://aka.ms/CIComp).
+The Microsoft Cortana Intelligence Competitions unites a global community of data enthusiasts by collectively solving some of the world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. These hosted competitions are based on unique data sets that have been made available publicly for the first time. Participants can win rewards or get recognition via the top 10 public leaderboard. You can access the Competitions home page at [aka.ms/CIComp](https://aka.ms/CIComp).
 
 **How often will Microsoft release new competitions?**
 
@@ -34,7 +33,7 @@ forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
 
 **How do I enter a competition?**
 
-Access the [Competitions](https://gallery.cortanaintelligence.com/competitions) home page in the [Azure AI Gallery](https://gallery.cortanaintelligence.com/), or go to [http://aka.ms/CIComp](http://aka.ms/CIComp). The home page lists all competitions that are currently running. Each competition has detailed instructions and participation rules, prizes, and duration on its sign-up page.
+Access the [Competitions](https://gallery.cortanaintelligence.com/competitions) home page in the [Azure AI Gallery](https://gallery.cortanaintelligence.com/), or go to [http://aka.ms/CIComp](https://aka.ms/CIComp). The home page lists all competitions that are currently running. Each competition has detailed instructions and participation rules, prizes, and duration on its sign-up page.
 
 1. Find the competition you’d like to participate in, read all the instructions and watch the tutorial video. Then click the **Enter Competition** button and copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You'll likely spend the majority of your time in this step.   
 
@@ -95,7 +94,7 @@ Microsoft will verify the results of the private leaderboard, and then we'll con
 
 **How will I get the prize money if I win a competition?**
 
-If you are a competition winner, you will need to sign a declaration of eligibility, license, and release from. This form reiterates the Competition Rules. Winners need to fill out a US Tax form W-9, or a Form W-8BEN if they are not US taxpayers. We will contact all winners as part of the rewards disbursement process by using their registration email. Please refer to our [Terms and Conditions](http://aka.ms/comptermsandconditions) for additional details.
+If you are a competition winner, you will need to sign a declaration of eligibility, license, and release from. This form reiterates the Competition Rules. Winners need to fill out a US Tax form W-9, or a Form W-8BEN if they are not US taxpayers. We will contact all winners as part of the rewards disbursement process by using their registration email. Please refer to our [Terms and Conditions](https://aka.ms/comptermsandconditions) for additional details.
 
 **What if more than one entry receives the same score?**
 
@@ -111,5 +110,5 @@ Currently, the competition platform only supports entries submitted from a works
 
 **Do we keep users’ competitions solutions and entries?**
 
-User entries are only retained for evaluation purposes to identify the winning solutions. Please refer to our [Terms and Conditions](http://aka.ms/comptermsandconditions) for specifics.
+User entries are only retained for evaluation purposes to identify the winning solutions. Please refer to our [Terms and Conditions](https://aka.ms/comptermsandconditions) for specifics.
 

@@ -325,7 +325,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
           client.onload = function () {
             if (client.readyState == 4) {
               if (client.status == 200) {
-                updateLog("Notification Hub Registration succesful!");
+                updateLog("Notification Hub Registration successful!");
                 updateLog(client.responseText);
               } else {
                 updateLog("Notification Hub Registration did not succeed!");
@@ -359,7 +359,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
    * **registerWithGCM** is the first button-click handler, which makes the `chrome.gcm.register` call to GCM to register the current Chrome App instance.
    * **registerCallback** is the callback function that gets called when the GCM registration call returns.
    * **registerWithNH** is the second button-click handler, which registers with Notification Hubs. It gets `hubName` and `connectionString` (which the user has specified) and crafts the Notification Hubs Registration REST API call.
-   * **splitConnectionString** and **generateSaSToken** are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](http://msdn.microsoft.com/library/dn495627.aspx).
+   * **splitConnectionString** and **generateSaSToken** are helpers that represent the JavaScript implementation of a SaS token creation process, that must be used in all REST API calls. For more information, see [Common Concepts](https://msdn.microsoft.com/library/dn495627.aspx).
    * **sendNHRegistrationRequest** is the function that makes an HTTP REST call to Azure Notification Hubs.
    * **registrationPayload** defines the registration XML payload. For more information, see [Create Registration NH REST API]. Update the registration ID in it with the value received from GCM.
    * **client** is an instance of **XMLHttpRequest** that the application uses to make the HTTP POST request. Update the `Authorization` header with `sasToken`. Successful completion of this call registers this Chrome App instance with Azure Notification Hubs.
@@ -388,7 +388,7 @@ The Chrome App is created via JavaScript, and you can use any of your preferred 
 For testing purposes, send Chrome push notifications by using a .NET console application. 
 
 > [!NOTE]
-> You can send push notifications with Notification Hubs from any backend via the public <a href="http://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. Check out the [documentation portal](https://azure.microsoft.com/documentation/services/notification-hubs/) for more cross-platform examples.
+> You can send push notifications with Notification Hubs from any backend via the public <a href="https://msdn.microsoft.com/library/windowsazure/dn223264.aspx">REST interface</a>. Check out the [documentation portal](https://azure.microsoft.com/documentation/services/notification-hubs/) for more cross-platform examples.
 > 
 > 
 

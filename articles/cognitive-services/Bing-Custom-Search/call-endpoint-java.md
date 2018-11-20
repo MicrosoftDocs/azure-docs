@@ -3,14 +3,14 @@ title: "Quickstart: Call endpoint by using Java - Bing Custom Search"
 titlesuffix: Azure Cognitive Services
 description: This quickstart shows how to request search results from your custom search instance by using Java to call the Bing Custom Search endpoint. 
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
 ms.date: 05/07/2018
-ms.author: v-brapel
+ms.author: aahi
 ---
 
 # Quickstart: Call Bing Custom Search endpoint (Java)
@@ -118,7 +118,7 @@ To run this example, follow these steps:
     }
     
     // Container class for search results encapsulates relevant headers and JSON data
-    class SearchResults{
+    static class SearchResults{
         HashMap<String, String> relevantHeaders;
         String jsonResponse;
         SearchResults(HashMap<String, String> headers, String json) {

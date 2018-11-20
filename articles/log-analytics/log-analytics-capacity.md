@@ -45,8 +45,8 @@ The following table describes the connected sources that are supported by this s
 
 | Connected Source | Support | Description |
 |---|---|---|
-| [Windows agents](log-analytics-windows-agent.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
-| [Linux agents](log-analytics-linux-agents.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
+| [Windows agents](log-analytics-agent-windows.md) | Yes | The solution collects capacity and performance data information from Windows agents. |
+| [Linux agents](log-analytics-quick-collect-linux-computer.md) | No	| The solution does not collect capacity and performance data information from direct Linux agents.|
 | [SCOM management group](log-analytics-om-agents.md) | Yes |The solution collects capacity and performance data from agents in a connected SCOM management group. A direct connection from the SCOM agent to Log Analytics is not required.|
 | [Azure storage account](log-analytics-azure-storage.md) | No | Azure storage does not include capacity and performance data.|
 
@@ -59,7 +59,7 @@ The following table describes the connected sources that are supported by this s
 
 Perform the following step to add the Capacity and Performance solution to your workspace.
 
-- Add the Capacity and Performance solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).
+- Add the Capacity and Performance solution to your Log Analytics workspace using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 
 ## Management packs
 
@@ -133,4 +133,4 @@ The following table provides sample log searches for capacity and performance da
 
 
 ## Next steps
-* Use [Log searches in Log Analytics](log-analytics-log-search.md) to view detailed Capacity and Performance data.
+* Use [Log searches in Log Analytics](log-analytics-queries.md) to view detailed Capacity and Performance data.

@@ -5,7 +5,7 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ""
 ---
@@ -21,8 +21,8 @@ Within your Azure environment, there are several 'tiers' of monitoring data, and
 
 - **Application monitoring data:** Data about the performance and functionality of the code you have written and are running on Azure. Examples of application monitoring data include performance traces, application logs, and user telemetry. Application monitoring data is usually collected in one of the following ways:
   - By instrumenting your code with an SDK such as the [Application Insights SDK](../application-insights/app-insights-overview.md).
-  - By running a monitoring agent that listens for new application logs on the machine running your application, such as the [Windows Azure Diagnostic Agent](./azure-diagnostics.md) or [Linux Azure Diagnostic Agent](../virtual-machines/linux/diagnostic-extension.md).
-- **Guest OS monitoring data:** Data about the operating system on which your application is running. Examples of guest OS monitoring data would be Linux syslog or Windows system events. To collect this type of data, you need to install an agent such as the [Windows Azure Diagnostic Agent](./azure-diagnostics.md) or [Linux Azure Diagnostic Agent](../virtual-machines/linux/diagnostic-extension.md).
+  - By running a monitoring agent that listens for new application logs on the machine running your application, such as the [Windows Azure Diagnostic Agent](./azure-diagnostics.md) or [Linux Azure Diagnostic Agent](../virtual-machines/extensions/diagnostics-linux.md).
+- **Guest OS monitoring data:** Data about the operating system on which your application is running. Examples of guest OS monitoring data would be Linux syslog or Windows system events. To collect this type of data, you need to install an agent such as the [Windows Azure Diagnostic Agent](./azure-diagnostics.md) or [Linux Azure Diagnostic Agent](../virtual-machines/extensions/diagnostics-linux.md).
 - **Azure resource monitoring data:** Data about the operation of an Azure resource. For some Azure resource types, such as virtual machines, there is a guest OS and application(s) to monitor inside of that Azure service. For other Azure resources, such as Network Security Groups, the resource monitoring data is the highest tier of data available (since there is no guest OS or application running in those resources). This data can be collected using [resource diagnostic settings](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Azure subscription monitoring data:** Data about the operation and management of an Azure subscription, as well as data about the health and operation of Azure itself. The [activity log](./monitoring-overview-activity-logs.md) contains most subscription monitoring data, such as service health incidents and Azure Resource Manager audits. You can collect this data using a Log Profile.
 - **Azure tenant monitoring data:** Data about the operation of tenant-level Azure services, such as Azure Active Directory. The Azure Active Directory audits and sign-ins are examples of tenant monitoring data. This data can be collected using a tenant diagnostic setting.
@@ -48,7 +48,7 @@ Azure tenant monitoring data is currently only available for Azure Active Direct
 
 ### Azure Active Directory data
 
-To send data from the Azure Active Directory log into an Event Hubs namespace, you set up a tenant diagnostic setting on your AAD tenant. [Follow this guide](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) to set up a tenant diagnostic setting.
+To send data from the Azure Active Directory log into an Event Hubs namespace, you set up a tenant diagnostic setting on your AAD tenant. [Follow this guide](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) to set up a tenant diagnostic setting.
 
 ## Azure subscription monitoring data
 
@@ -65,7 +65,7 @@ To send data from the Azure activity log into an Event Hubs namespace, you set u
 
 Azure resources emit two types of monitoring data:
 1. [Resource diagnostic logs](./monitoring-overview-of-diagnostic-logs.md)
-2. [Metrics](monitoring-overview-metrics.md)
+2. [Metrics](../azure-monitor/platform/data-collection.md)
 
 Both types of data are sent to an event hub using a resource diagnostic setting. [Follow this guide](./monitoring-stream-diagnostic-logs-to-event-hubs.md) to set up a resource diagnostic setting on a particular resource. Set a resource diagnostic setting on each resource from which you want to collect logs.
 
@@ -107,10 +107,11 @@ Routing your monitoring data to an event hub with Azure Monitor enables you to e
     1. [The Azure Monitor Add-On for Splunk](https://splunkbase.splunk.com/app/3534/) is available in Splunkbase and an open source project. [Documentation is here](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. If you cannot install an add-on in your Splunk instance (eg. if using a proxy or running on Splunk Cloud), you can forward these events to the Splunk HTTP Event Collector using [this Function which is triggered by new messages in the event hub](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** - Instructions for setting up SumoLogic to consume data from an event hub are [available here](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **ArcSight** - The ArcSight Azure Event Hub smart connector is available as part of [the ArcSight smart connector collection here](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
 * **Syslog server** - If you want to stream Azure Monitor data directly to a syslog server, you can check out [this github repo](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## Next Steps
 * [Archive the Activity Log to a storage account](monitoring-archive-activity-log.md)
 * [Read the overview of the Azure Activity Log](monitoring-overview-activity-logs.md)
-* [Set up an alert based on an Activity Log event](insights-auditlog-to-webhook-email.md)
+* [Set up an alert based on an Activity Log event](monitor-alerts-unified-log-webhook.md)
 

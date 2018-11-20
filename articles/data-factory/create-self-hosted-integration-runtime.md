@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
 
 ---
@@ -143,6 +143,12 @@ Here are the requirements for the TLS/SSL certificate that is used for securing 
 ## Sharing the self-hosted integration runtime with multiple data factories
 
 You can reuse an existing self-hosted integration runtime infrastructure that you already set up in a data factory. This enables you to create a *linked self-hosted integration runtime* in a different data factory by referencing an existing self-hosted IR (shared).
+
+To share a self-hosted integration runtime by using PowerShell, see [Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+
+For a twelve-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### Terminology
 

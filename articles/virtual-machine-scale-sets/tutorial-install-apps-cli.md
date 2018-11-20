@@ -45,7 +45,7 @@ To use the Custom Script Extension with the Azure CLI, you create a JSON file th
 ## Create Custom Script Extension definition
 To see the Custom Script Extension in action, let's create a scale set that installs the NGINX web server and outputs the hostname of the scale set VM instance. The following Custom Script Extension definition downloads a sample script from GitHub, installs the required packages, then writes the VM instance hostname to a basic HTML page.
 
-In your current shell, create a file named *customConfig.json* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor cloudConfig.json` in the Cloud Shell to create the file and see a list of available editors.
+In your current shell, create a file named *customConfig.json* and paste the following configuration. For example, create the file in the Cloud Shell not on your local machine. You can use any editor you wish. Enter `sensible-editor customConfig.json` in the Cloud Shell to create the file and see a list of available editors.
 
 ```json
 {

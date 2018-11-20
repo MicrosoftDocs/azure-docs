@@ -1,5 +1,5 @@
 ---
-title: Upload, encode, and stream using Azure Media Services | Microsoft Docs
+title: Upload, encode, and stream using Azure Media Services - REST | Microsoft Docs
 description: Follow the steps of this tutorial to upload a file, and encode the video, and stream your content with Azure Media Services using REST.
 services: media-services
 documentationcenter: ''
@@ -11,15 +11,15 @@ ms.service: media-services
 ms.workload: 
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
 ---
 
 # Tutorial: Upload, encode, and stream videos with REST
 
-This tutorial shows you how to upload, encode, and stream video files with Azure Media Services.
+Azure Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
 
-Media Services enables you to encode your media files into formats that can be played on a wide variety of browsers and devices. For example, you might want to stream your content in Apple's HLS or MPEG DASH formats. Before streaming, you should encode your high-quality digital media file. For encoding guidance, see [Encoding concept](encoding-concept.md).
+This tutorial shows you how to upload, encode, and stream video files with Azure Media Services using REST. 
 
 ![Play the video](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -38,6 +38,14 @@ This tutorial shows you how to:
 
 ## Prerequisites
 
+- Install and use the CLI locally, this article requires the Azure CLI version 2.0 or later. Run `az --version` to find the version you have. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli). 
+
+    Currently, not all [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) commands work in the Azure Cloud Shell. It is recommended to use the CLI locally.
+
+- [Create a Media Services account](create-account-cli-how-to.md).
+
+    Make sure to remember the values that you used for the resource group name and Media Services account name
+
 - Install the [Postman](https://www.getpostman.com/) REST client to execute the REST APIs shown in some of the AMS REST tutorials. 
 
     We are using **Postman** but any REST tool would be suitable. Other alternatives are: **Visual Studio Code** with the REST plugin or **Telerik Fiddler**. 
@@ -49,10 +57,6 @@ Clone a GitHub repository that contains the  Postman collection and environment 
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -312,7 +316,7 @@ In this section, let's build an HLS streaming URL. URLs consist of the following
 
 2. StreamingEndpoint's hostname. In this case, the name is "amsaccount-usw22.streaming.media.azure.net".
 
-    To get the hostname you can use the following GET operation:
+    To get the hostname, you can use the following GET operation:
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
@@ -348,11 +352,11 @@ To delete a resource, select "Delete ..." operation under whichever resource you
 
 ## Clean up resources
 
-If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier. You can use the **CloudShell** tool.
+If you no longer need any of the resources in your resource group, including the Media Services and storage accounts you created for this tutorial, delete the resource group you created earlier.  
 
-In the **CloudShell**, execute the following command:
+Execute the following CLI command:
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

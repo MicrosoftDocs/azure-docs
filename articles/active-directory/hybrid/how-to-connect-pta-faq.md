@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -74,6 +74,23 @@ If you have not configured password writeback for a specific user or if the user
 ## Can the Pass-through Authentication Agents communicate over an outbound web proxy server?
 
 Yes. If Web Proxy Auto-Discovery (WPAD) is enabled in your on-premises environment, Authentication Agents automatically attempt to locate and use a web proxy server on the network.
+
+If you don't have WPAD in your environment, you can add proxy information (as shown below) to allow a Pass-through Authentication Agent to communicate with Azure AD:
+- Configure proxy information in Internet Explorer before you install the Pass-through Authentication Agent on the server. This will allow you to complete the installation of the Authentication Agent, but it will still show up as **Inactive** on the Admin portal.
+- On the server, navigate to "C:\Program Files\Microsoft Azure AD Connect Authentication Agent".
+- Edit the "AzureADConnectAuthenticationAgentService" configuration file and add the following lines (replace "http://contosoproxy.com:8080" with your actual proxy address):
+
+```
+   <system.net>
+      <defaultProxy enabled="true" useDefaultCredentials="true">
+         <proxy
+            usesystemdefault="true"
+            proxyaddress="http://contosoproxy.com:8080"
+            bypassonlocal="true"
+         />
+     </defaultProxy>
+   </system.net>
+```
 
 ## Can I install two or more Pass-through Authentication Agents on the same server?
 

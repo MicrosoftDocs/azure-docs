@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a node web app | Microsoft Docs'
-description: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a node web app'
+description: 'Quickstart: Set and retrieve a secret from Azure Key Vault by using a .NET web app'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -172,7 +172,6 @@ Now when you run the application, you should see your secret value retrieved. In
 
 ## Next steps
 
-* [Azure Key Vault home page](https://azure.microsoft.com/services/key-vault/)
-* [Azure Key Vault documentation](https://docs.microsoft.com/azure/key-vault/)
+* [Learn more about Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 * [Azure SDK For .NET](https://github.com/Azure/azure-sdk-for-net)
 * [Azure REST API reference](https://docs.microsoft.com/rest/api/keyvault/)

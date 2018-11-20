@@ -50,9 +50,9 @@ All resources must be deployed in a [resource group](../../azure-resource-manage
 
 ## Create the files
 
-In this step, you create a template file that deploys the resources and a parameters file that supplies parameter values to the template. You also create an authorization file that is used to perform Azure Resource Manager operations.
+In this step, you create a template file that deploys the resources and a parameters file that supplies parameter values to the template. You also create an authorization file that is used to perform Azure Resource Manager operations. 
 
-1. Create a file named *CreateVMTemplate.json* and add this JSON code to it:
+1. Create a file named *CreateVMTemplate.json* and add your JSON code to it. Replace the value of `domainNameLabel` with your own unique name.
 
     ```json
     {

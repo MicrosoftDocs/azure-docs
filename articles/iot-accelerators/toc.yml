@@ -21,16 +21,26 @@
 
 - name: Tutorials
   items:
-  - name: Monitor IoT devices
-    href: iot-accelerators-remote-monitoring-monitor.md
-  - name: Detect device issues
-    href: iot-accelerators-remote-monitoring-automate.md
-  - name: Configure and manage devices
-    href: iot-accelerators-remote-monitoring-manage.md
-  - name: Conduct a root cause analysis on an alert
-    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-  - name: Use alerts and fix device issues
-    href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Remote Monitoring
+    items:
+    - name: Monitor IoT devices
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Detect device issues
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Configure and manage devices
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Conduct a root cause analysis on an alert
+      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+    - name: Use alerts and fix device issues
+      href: iot-accelerators-remote-monitoring-maintain.md
+    - name: Detect anomalies at the edge
+      href: iot-accelerators-remote-monitoring-edge.md
+  - name: Device Simulation
+    items:
+    - name: Create and run a simulation
+      href: iot-accelerators-device-simulation-create-simulation.md
+    - name: Create a custom simulated device
+      href: iot-accelerators-device-simulation-create-custom-device.md
 
 - name: Concepts
   items:
@@ -50,12 +60,6 @@
     items:
     - name: Architecture
       href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Device Simulation
-    items:
-    - name: Device model schema
-      href: iot-accelerators-device-simulation-device-schema.md
-    - name: Device model behavior
-      href: iot-accelerators-device-simulation-device-behavior.md
   - name: Permissions on azureiotsolutions.com
     href: iot-accelerators-permissions.md
 
@@ -77,6 +81,10 @@
         href: iot-accelerators-connecting-pi-node.md
       - name: MXChip IoT DevKit
         href: iot-accelerators-arduino-iot-devkit-az3166-devkit-remote-monitoringv2.md
+    - name: Add an IoT Edge device
+      href: iot-accelerators-remote-monitoring-add-edge-device.md
+    - name: Import an IoT Edge package
+      href: iot-accelerators-remote-monitoring-import-edge-package.md
     - name: Integrate SIM data
       href: iot-accelerators-remote-monitoring-telefonica-sim.md
     - name: Create a simulated device
@@ -102,6 +110,13 @@
       href: iot-accelerators-remote-monitoring-deploy-cli.md
     - name: Deploy locally
       href: iot-accelerators-remote-monitoring-deploy-local.md
+      items:
+      - name: Visual Studio
+        href: iot-accelerators-remote-monitoring-deploy-local.md
+      - name: Docker
+        href: iot-accelerators-remote-monitoring-deploy-local-docker.md
+    - name: Email Actions
+      href: iot-accelerators-remote-monitoring-email-actions.md
     - name: Visualize telemetry with PowerBI
       href: iot-accelerators-integrate-data-powerbi.md
     - name: Integrate Azure Time Series Insights with Remote Monitoring
@@ -130,14 +145,14 @@
     items:
     - name: Use an existing IoT Hub
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Use a custom device model
-      href: iot-accelerators-device-simulation-custom-model.md
+    - name: Create an advanced simulated device
+      href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualize telemetry with Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Create a simulated device
-      href: iot-accelerators-device-simulation-create-simulated-device.md
-    - name: Deploy a simulated device
-      href: iot-accelerators-device-simulation-deploy-simulated-device.md
+    - name: Serialize telemetry using Protbuf
+      href: iot-accelerators-device-simulation-protobuf.md
+    - name: Deploy a custom docker image
+      href: iot-accelerators-device-simulation-deploy-image.md
 
 - name: Reference
   items:
@@ -218,5 +233,4 @@
     href: iot-accelerators-faq-cf.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
-  - name: IoT solution accelerators learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
+

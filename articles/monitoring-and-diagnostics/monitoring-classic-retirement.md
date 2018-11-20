@@ -11,11 +11,11 @@ ms.component: alerts
 ---
 # Unified alerting & monitoring in Azure Monitor replaces classic alerting & monitoring
 
-Azure Monitor has now become am unified full stack monitoring service which now supports ‘One Metrics’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
+Azure Monitor has now become a unified full stack monitoring service which now supports ‘One Metrics’ and ‘One Alerts’ across resources; for more information, see our [blog post on new Azure Monitor](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/).The new Azure monitoring and alerting platforms has been built to be faster, smarter, and extensible – keeping pace with the growing expanse of cloud computing and in-line with Microsoft Intelligent Cloud philosophy. 
 
 With the new Azure monitoring and alerting platform in place, we will be retiring the "classic" monitoring and alerting platform  - hosted within *view classic alerts* section of Azure alerts, will be deprecated by June 2019.
 
- ![Classic alert in Azure portal](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Classic alert in Azure portal](media/monitoring-classic-retirement/monitor-alert-screen2.png) 
 
 We encourage you to get started and recreate your alerts in the new platform. For customers who have a large number of alerts, we are working to provide an automated way to move existing classic alerts to the new alerts system without disruption or added costs.
 
@@ -47,7 +47,7 @@ Older classic monitoring and alerting will be retired on 30 June 2019; including
 - Older (classic) platform and custom metrics for Application Insights as well as alerting on them as currently available via [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal and accessible as [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules) resource
 - Older (classic) Failure Anomalies alert currently available as [Smart Detection inside Application Insights](../application-insights/app-insights-proactive-diagnostics.md) in the Azure portal; with alerts configured shown in [Alerts (classic) section](monitoring-overview-alerts-classic.md) of Azure portal
 
-All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portal page, and [Resource Template](monitoring-enable-alerts-using-template.md) will remain usable until June 2019. After this date, classic monitoring and alerts service will be retired and no longer available for use; while any alert rules that continue to exist in Alerts (classic) beyond June 2019 will continue to execute, but not be available for modification.
+All classic monitoring and alerting systems including corresponding [API](https://msdn.microsoft.com/library/azure/dn931945.aspx), [PowerShell](insights-alerts-powershell.md), [CLI](insights-alerts-command-line-interface.md), [Azure portal page](alert-metric-classic.md), and [Resource Template](monitoring-enable-alerts-using-template.md) will remain usable until June 2019. After this date, classic monitoring and alerts service will be retired and no longer available for use; while any alert rules that continue to exist in Alerts (classic) beyond June 2019 will continue to execute, but not be available for modification.
 
 Any alerts remaining in classic monitoring & alerting platform beyond June 2019, will be automatically migrated by Microsoft to their equivalent in the new Azure monitor platform in July 2019. The process will be seamless without any downtime and ensure customers have no loss in monitoring coverage.
 
@@ -66,4 +66,4 @@ This article will be continually updated will links & details regarding the new 
 ## Next steps
 
 * Learn about the [new unified Azure Monitor](../azure-monitor/overview.md).
-* Learn more about the new [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Learn more about the new [Azure Alerts](monitoring-overview-alerts.md).

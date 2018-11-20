@@ -24,7 +24,7 @@ shows you how to specify which, if any, Azure Marketplace images can be used whe
 creating VMs in a lab. This ensures that your team only has access to the Marketplace images they need. 
 
 ## Select which Azure Marketplace images are allowed when creating a VM
-1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 2. Select **All Services**, and then select **DevTest Labs** from the list.
 3. From the list of labs, select the desired lab. 
 4. On the lab's blade, select **Configuration and policies**.

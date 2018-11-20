@@ -3,19 +3,21 @@ title: LUIS and QnAMaker - Bot Integration
 titleSuffix: Azure Cognitive Services
 description: A step-by-step tutorial on integrating QnA Maker and LUIS in a bot.
 services: cognitive-services
-author: tulasim88
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
 ms.date: 09/28/2018
-ms.author: tulasim
+ms.author: diberry
 ---
 
 # Integrate QnA Maker and LUIS to distribute your knowledge base
 As your QnA Maker knowledge base grows large, it becomes difficult to maintain it as a single monolithic set and there is a need to split the knowledge base into smaller logical chunks.
 
 While it is straightforward to create multiple knowledge bases in QnA Maker, you will need some logic to route the incoming question to the appropriate knowledge base. You can do this by using LUIS.
+
+This article uses Bot Framework v3 SDK. Please see this [Bot Framework article](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-dispatch?view=azure-bot-service-4.0&tabs=csharp), if you are interested in Bot Framework v4 SDK version of this information.
 
 ## Architecture
 

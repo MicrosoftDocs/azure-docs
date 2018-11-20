@@ -11,7 +11,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 11/14/2018
 ms.author: jeffgilb
 ms.reviewer: quying
 
@@ -21,16 +21,19 @@ ms.reviewer: quying
 
 Before you remove the MySQL resource provider, you must remove all the provider dependencies. You'll also need a copy of the deployment package that was used to install the resource provider.
 
+> [!NOTE]
+> You can find the download links for the resource provider installers in [Deploy the resource provider prerequisites](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
+
 ## Dependency cleanup
 
 There are several cleanup tasks to do before you run the DeployMySqlProvider.ps1 script to remove the resource provider.
 
-The tenants are responsible for the following cleanup tasks:
+Azure Stack tenant users are responsible for the following cleanup tasks:
 
 * Delete all their databases from the resource provider. (Deleting the tenant databases doesn't delete the data.)
 * Unregister from the provider namespace.
 
-The administrator is responsible for the following cleanup tasks:
+The Azure Stack Operator is responsible for the following cleanup tasks:
 
 * Deletes the hosting servers from the MySQL Adapter.
 * Deletes any plans that reference the MySQL Adapter.

@@ -2,7 +2,7 @@
 title: External File bindings for Azure Functions (experimental)
 description: Using External File bindings in Azure Functions
 services: functions
-author: alexkarcher-msft
+author: craigshoemaker
 manager: jeconnoc
 
 ms.assetid:
@@ -10,7 +10,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.author: alkarche
+ms.author: cshoe
 
 ---
 # Azure Functions External File bindings (experimental)

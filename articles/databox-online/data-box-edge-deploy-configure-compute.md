@@ -220,6 +220,6 @@ In this tutorial, you learned about  Data Box Edge topics such as:
 Advance to the next tutorial to learn how to administer your Data Box Edge.
 
 > [!div class="nextstepaction"]
-> [Use local web UI to administer a Data Box Edge](http://aka.ms/dbg-docs)
+> [Use local web UI to administer a Data Box Edge](https://aka.ms/dbg-docs)
 
 
