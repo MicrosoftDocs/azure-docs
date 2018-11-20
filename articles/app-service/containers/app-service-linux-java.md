@@ -230,6 +230,34 @@ For shared server-level resources:
 
 5. Restart the App Service Linux application. Tomcat will reset `CATALINA_HOME` to `/home/tomcat` and use the updated configuration and classes.
 
+## Integrate APMs (Application Performance Monitors)
+
+The following are instructions for integrating NewRelic and AppDynamics with Java SE and Tomcat. 
+
+### New Relic
+
+1. Create a NewRelic account at [NewRelic.com](https://newrelic.com/signup)
+1. Download the Java agent from NewRelic, it will have a file name similar to `newrelic-java-x.x.x.zip`
+1. Copy your license key, you will need it to configure the agent later
+1. SSH into your App Service instance and create a directory: `/home/site/wwwroot/apm`. For instructions on SSHing into App Service, please see [this article](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support).
+1. Upload the Java agent files into a directory under `/home/site/wwwroot/apm`. The files for your agent should be in `/home/site/wwwroot/apm/newrelic`.
+1. Modify the the YAML file at `/home/site/wwwroot/apm/newrelic/newrelic.yml` and replace the placeholder value below with your license key
+    1. `license_key:'<%=License_Key%>'`
+1. In the Azure Portal, browse to your App Service. Under "Application Settings", add an environment variable.
+    1. If you are using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`.
+    1. If you are using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`
+    1. If you already have an environment variable for `JAVA_OPTS` or `CATALINA_OPTS`, append the `javaagent` option to the end of the current value
+
+### AppDynamics
+
+1. Create an AppDynamics account at [AppDynamics.com](https://www.appdynamics.com/community/register/)
+1. Download the Java agent from the AppDynamics website, the file name will be similar to `AppServerAgent-x.x.x.xxxxx.zip`
+1. SSH into your App Service instance and create a directory: `/home/site/wwwroot/apm`. For instructions on SSHing into App Service, please see [this article](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-ssh-support).
+1. Upload the Java agent files into a directory under `/home/site/wwwroot/apm`. The files for your agent should be in `/home/site/wwwroot/apm/appdynamics`.
+1. In the Azure Portal, browse to your App Service. Under "Application Settings", add an environment variable.
+    1. If you are using **Java SE**, create an environment variable named `JAVA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<YOUR_SITE_NAME>` where `<YOUR_SITE_NAME>` is your App Service name.
+    1. If you are using **Tomcat**, create an environment variable named `CATALINA_OPTS` with the value `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<YOUR_SITE_NAME>` where `<YOUR_SITE_NAME>` is your App Service name.
+
 ## Docker containers
 
 To use the Azure-supported Zulu JDK in your containers, make sure to pull and use the pre-built images as documented from the [supported Azul Zulu Enterprise for Azure download page](https://www.azul.com/downloads/azure-only/zulu/) or use the `Dockerfile` examples from the [Microsoft Java GitHub repo](https://github.com/Microsoft/java/tree/master/docker).
