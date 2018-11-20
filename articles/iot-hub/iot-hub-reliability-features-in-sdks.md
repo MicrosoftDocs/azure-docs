@@ -21,9 +21,9 @@ This article provides high-level guidance to help you design device applications
 
 - A dropped network connection
 - Switch between different network connections
-- Reconnect due to service transient connection errors
+- Reconnect because of service transient connection errors
 
-Implementation details may vary by language. See the API documentation or specific SDK for more details:
+Implementation details may vary by language. For more information, see the API documentation or specific SDK:
 
 - [C/Python/iOS SDK](https://github.com/azure/azure-iot-sdk-c)
 - [.NET SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
@@ -32,7 +32,7 @@ Implementation details may vary by language. See the API documentation or specif
 
 ## Designing for resiliency
 
-IoT devices often rely on non-continuous or unstable network connections (for example, GSM or satellite). Errors can also occur when devices interact with cloud-based services due to intermittent service availability and infrastructure-level or transient faults. An application running on a device must manage the connection and reconnection mechanisms as well as the retry logic for sending and receiving messages. Furthermore, the retry strategy requirements depend heavily on the device's IoT scenario, context, capabilities.
+IoT devices often rely on non-continuous or unstable network connections (for example, GSM or satellite). Errors can also occur when devices interact with cloud-based services because of intermittent service availability and infrastructure-level or transient faults. An application that runs on a device has to manage the mechanisms for connection, reconnection, and the retry logic for sending and receiving messages. Furthermore, the retry strategy requirements depend heavily on the device's IoT scenario, context, capabilities.
 
 The Azure IoT Hub device SDKs aim to simplify connecting and communicating from cloud-to-device and device-to-cloud. These SDKs provide a robust and comprehensive way of connecting and of transferring messages to and from Azure IoT Hub. Developers can also modify existing implementation to customize a better retry strategy for a given scenario.
 
@@ -47,26 +47,26 @@ Connection failures can happen at many levels:
 
 - **Network errors** such as a disconnected socket and name resolution errors
 - **Protocol-level errors for HTTP, AMQP, and MQTT transport** such as detached links or expired sessions
-- **Application-level errors that result from either local mistakes** such as invalid credentials or service behavior (for example, exceeding quota or throttling)
+- **Application-level errors that result from either local mistakes** such as invalid credentials or service behavior (for example, exceeding the quota or throttling)
 
 The device SDKs detect errors at all three levels. OS-related errors and hardware errors are not detected and handled by the device SDKs. The SDK design is based on [The Transient Fault Handling Guidance](/azure/architecture/best-practices/transient-faults#general-guidelines) from the Azure Architecture Center.
 
 ### Retry patterns
 
-The following describes the retry process when connection errors are detected:
+The following steps describe the retry process when connection errors are detected:
 
 1. The SDK detects the error and the associated error in the network, protocol, or application.
-1. The SDK uses the error filter to determine the error type and decide if retry needs to be performed.
-1. If an **unrecoverable error** is identified by the SDK, operations like connection and send/receive are stopped, and the SDK notifies the user. An unrecoverable error is one that the SDK identifies and determines that connection cannot be not recovered (For example, an authentication or bad endpoint error).
+1. The SDK uses the error filter to determine the error type and decide if retry is needed.
+1. If the SDK identifies an **unrecoverable error**, operations like connection, send, and receive are stopped. The SDK notifies the user. Examples of unrecoverable errors include an authentication error and a bad endpoint error.
 1. If the SDK identifies a **recoverable error**, it retries according to your specified retry policy until the defined timeout elapses.
 1. When the defined timeout expires, the SDK stops trying to connect or send. It notifies the user.
 1. The SDK allows the user to attach a callback to receive connection status changes.
 
 The SDKs provide three retry policies:
 
-- **Exponential back-off with jitter**: This is the default retry policy. It tends to be aggressive at the start and slow down over time until it reaches a maximum delay. The design is based on [Retry guidance from Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
-- **Custom retry**: Depending on the SDK language, you might be able to design a custom retry policy that is better suited for your scenario and then inject it into the RetryPolicy. Custom retry is not available on the C SDK.
-- **No retry**: You can set retry policy to "no retry," which disables the retry logic. The SDK tries to connect once and send a message once, assuming the connection is established. This policy is typically used in cases with bandwidth or cost concerns. If you choose this option, messages that fail to send are lost and cannot be recovered.
+- **Exponential back-off with jitter**: This default retry policy tends to be aggressive at the start and slow down over time until it reaches a maximum delay. The design is based on [Retry guidance from Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
+- **Custom retry**: For some SDK languages, you can design a custom retry policy that is better suited for your scenario and then inject it into the RetryPolicy. Custom retry isn't available on the C SDK.
+- **No retry**: You can set retry policy to "no retry," which disables the retry logic. The SDK tries to connect once and send a message once, assuming the connection is established. This policy is typically used in cases with bandwidth or cost concerns. If you choose this option, messages that fail to send are lost and can't be recovered.
 
 ### Retry policy APIs
 
@@ -89,9 +89,9 @@ The following code sample shows how to define and set the default retry policy:
    SetRetryPolicy(retryPolicy);
    ```
 
-To avoid high CPU usage, the retries are throttled if the code fails immediately (for example, when there is no network or route to destination). The minimum time to execute the next retry is 1 second.
+To avoid high CPU usage, the retries are throttled if the code fails immediately. For example, when there's no network or route to the destination. The minimum time to execute the next retry is 1 second.
 
-If the service responds with a throttling error, the retry policy is different and cannot be changed via public API:
+If the service responds with a throttling error, the retry policy is different and can't be changed via public API:
 
    ```csharp
    # throttled retry policy
