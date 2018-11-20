@@ -67,7 +67,7 @@ The specific configurations chosen are dependent on workload, CPU resources, and
 
 The hardware base for the offers, except units for customer-specific sizing projects, are SAP HANA TDI-certified. Two different classes of hardware divide the SKUs into:
 
-- S72, S72m, S144, S144m, S192, S192m, and S192xm, which are referred to as the "Type I class" of SKUs.
+- S72, S72m, S96, S144, S144m, S192, S192m, and S192xm, which are referred to as the "Type I class" of SKUs.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm and S960m, which are referred to as the "Type II class" of SKUs.
 
 A complete HANA Large Instance stamp isn't exclusively allocated for a single customer&#39;s use. This fact applies to the racks of compute and storage resources connected through a network fabric deployed in Azure as well. HANA Large Instance infrastructure, like Azure, deploys different customer &quot;tenants&quot; that are isolated from one another in the following three levels:
