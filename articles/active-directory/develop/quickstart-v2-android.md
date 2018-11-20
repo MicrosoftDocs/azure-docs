@@ -38,7 +38,7 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 > ### Register and configure your application and code sample
 > #### Step 1: Register your application
 > To register your app,
-> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/signin/index/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/androidQuickstartPage/sourceType/docs).
+> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and select **Register**.
 > 1. Follow the instructions to download and automatically configure your new application with just one click.
 
@@ -59,16 +59,18 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 1. Extract and open the Project in Android Studio.
 1. Inside **app** > **res** > **raw**, open **auth_config.json**.
-1. Replace the line starting with `client_id` with:
+1. Edit **auth_config.json** and replace the `client_id` and `tenant_id`:
 
 	> [!div renderon="portal" class="sxs-lookup"]
     > ```javascript
     > "client_id" : "ENTER_THE_APPLICATION_ID_HERE",
+    > "tenant_id" : "Enter_the_Tenant_Info_Here",
     > ```
 
 	> [!div renderon="docs"]
     > ```javascript
     > "client_id" : "ENTER_THE_APPLICATION_ID_HERE",
+    > "tenant_id" : "Enter_the_Tenant_Info_Here",
     > ```
 
 1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
