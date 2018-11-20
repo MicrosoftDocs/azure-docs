@@ -53,7 +53,7 @@ See the following table to get a better sense of the S0 and S1 pricing tiers. Fo
 | S1            |    The S1 pricing tier is for customers in need of support for large-scale enterprise,   |
 |               |    mission critical applications, high volumes of concurrent users, or require advanced  |
 |               |    geospatial services.                                                                  |
-|---------------|------------------------------------------------------------------------------------------|
+
 
 ## Next steps
 
