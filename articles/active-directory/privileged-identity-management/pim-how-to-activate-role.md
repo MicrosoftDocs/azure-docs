@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 08/27/2018
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.custom: pim
 ---
@@ -69,6 +69,20 @@ When you need to take on an Azure AD directory role, you can request activation 
 
     ![Request pending notification](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
+## Use a role immediately after activation
+
+After you activate a role in PIM, it can take at least 10 minutes before you can access the desired administrative portal or perform functions within a specific administrative workload. If you want to use a role immediately after activation, you can use the **Application access** page in the portal to force a refresh. Applications accessed from this page check for new role assignments.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Click the **Application access** page.
+
+    ![PIM Application access](./media/pim-how-to-activate-role/pim-application-access.png)
+
+1. Click **Azure Active Directory** to reopen the portal on the **All Users** page.
+
+    When you click this link, you force a refresh and there is a check for new Azure AD role assignments.
+
 ## View the status of your requests
 
 You can view the status of your pending requests to activate.
@@ -80,20 +94,6 @@ You can view the status of your pending requests to activate.
 1. Click **My requests** to see a list of your requests.
 
     ![Azure AD directory roles - My requests](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
-
-## Use a role immediately after activation
-
-Because of caching, activations do not occur immediately in the Azure portal without a refresh. If you need to reduce the possibility of delays after activating a role, you can use the **Application access** page in the portal. Applications accessed from this page check for new role assignments immediately.
-
-1. Open Azure AD Privileged Identity Management.
-
-1. Click the **Application access** page.
-
-    ![PIM Application access](./media/pim-how-to-activate-role/pim-application-access.png)
-
-1. Click **Azure Active Directory** to reopen the portal on the **All Users** page.
-
-    When you click this link, you force a refresh and there is a check for new Azure AD role assignments.
 
 ## Deactivate a role
 
@@ -126,6 +126,15 @@ If you do not require activation of a role that requires approval, you can cance
     When you click Cancel, the request will be cancelled. To activate the role again, you will have to submit a new request for activation.
 
    ![Cancel pending request](./media/pim-how-to-activate-role/directory-role-cancel.png)
+
+## Troubleshoot
+
+### Permissions not granted after activating a role
+
+If it has been less than 10 minutes since you activated the role, it might be because the permissions have not yet propagated. There are two ways that you can address this issue:
+
+- Use the **Application access** page in the Azure portal to force a refresh as described earlier in [Use a role immediately after activation](#use-a-role-immediately-after-activation).
+- Wait until the permissions have propagated.
 
 ## Next steps
 
