@@ -1,0 +1,142 @@
+---
+title: "Quickstart: Analyze text content for objectionable material in Python"
+titlesuffix: Azure Cognitive Services
+description: How to analyze text content for various objectionable material using the Content Moderator SDK for Python
+services: cognitive-services
+author: PatrickFarley
+manager: cgronlun
+
+ms.service: cognitive-services
+ms.component: content-moderator
+ms.topic: quickstart
+ms.date: 11/19/2018
+ms.author: pafarley
+#As a Python developer of content management software, I want to analyze text content for offensive or inappropriate material so that I can categorize and handle it accordingly.
+---
+
+# Quickstart: Analyze text content for objectionable material in Python
+
+This article provides information and code samples to help you get started using the Content Moderator SDK for Python. You will learn how to execute term-based filtering and classification of text content with the aim of moderating potentially objectionable material.
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin. 
+
+## Prerequisites
+- A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
+- [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
+- [pip](https://pip.pypa.io/en/stable/installing/) tool
+- The Content Moderator Python SDK. You can install it by running the following command:
+
+    ```
+    pip install azure-cognitiveservices-vision-contentmoderator
+    ```
+
+## Initialize the script
+
+Create a new Python script, _ContentModeratorQS.py_, and add the following code to import the necessary parts of the SDK.
+
+```Python
+# the ContentModeratorClient interacts with the service
+from azure.cognitiveservices.vision.contentmoderator import ContentModeratorClient
+
+# the Screen class represents the result of a text screen request
+from azure.cognitiveservices.vision.contentmoderator.models import (
+    Screen
+)
+
+# special class that represents a CogServ credential (key)
+from msrest.authentication import CognitiveServicesCredentials
+```
+
+Also import the "pretty print" function.
+
+```Python
+from pprint import pprint
+```
+
+Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to replace `<your subscription key>` with the value of your key. You may also need to change the value of `endpoint_url` to use the correct region identifier for your key. Free trial subscription keys are generated in the **westus** region.
+
+```Python
+# Replace with a valid key
+subscription_key = '<your subscription key>'
+endpoint_url = 'westus.api.cognitive.microsoft.com'
+```
+
+For the sake of simplicity, you will analyze text from here in the file itself. Define a new string of text content to moderate:
+
+```Python
+TEXT = """Is this a grabage email abcdef@abcd.com, phone: 6657789887, \
+IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052. \
+Crap is the profanity here. Is this information PII? phone 3144444444
+"""
+```
+
+## Query the Moderator service
+
+Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, you'll use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** reference documentation for more information on how to call it.
+
+```Python
+# Create the Content Moderator client
+client = ContentModeratorClient(endpoint_url, CognitiveServicesCredentials(subscription_key))
+
+# Screen the input text: check for profanity, 
+# autocorrect text, check for personally identifying 
+# information (PII), and classify text
+screen = client.text_moderation.screen_text(
+    "eng",
+    "text/plain",
+    TEXT,
+    autocorrect=True,
+    pii=True,
+    classify=True
+)
+```
+
+## Print the response
+
+Finally, check that the call completed successfully and returned a **Screen** instance; then print the returned data to the console.
+
+```Python
+assert isinstance(screen, Screen)
+pprint(screen.as_dict())
+```
+
+The sample text used in this quickstart gives the following output:
+
+```console
+{'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '
+                        '6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, '
+                        'Redmond, WA 98052. Crap is the profanity here. Is '
+                        'this information PII? phone 3144444444\\ n"',
+ 'classification': {'category1': {'score': 0.00025233393535017967},
+                    'category2': {'score': 0.18468093872070312},
+                    'category3': {'score': 0.9879999756813049},
+                    'review_recommended': True},
+ 'language': 'eng',
+ 'normalized_text': '" Is this a garbage email abide@ abed. com, phone: '
+                    '6657789887, IP: 255. 255. 255. 255, 1 Microsoft Way, '
+                    'Redmond, WA 98052. Crap is the profanity here. Is this '
+                    'information PII? phone 3144444444\\ n"',
+ 'original_text': '"Is this a grabage email abcdef@abcd.com, phone: '
+                  '6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, '
+                  'WA 98052. Crap is the profanity here. Is this information '
+                  'PII? phone 3144444444\\n"',
+ 'pii': {'address': [{'index': 82,
+                      'text': '1 Microsoft Way, Redmond, WA 98052'}],
+         'email': [{'detected': 'abcdef@abcd.com',
+                    'index': 25,
+                    'sub_type': 'Regular',
+                    'text': 'abcdef@abcd.com'}],
+         'ipa': [{'index': 65, 'sub_type': 'IPV4', 'text': '255.255.255.255'}],
+         'phone': [{'country_code': 'US', 'index': 49, 'text': '6657789887'},
+                   {'country_code': 'US', 'index': 177, 'text': '3144444444'}]},
+ 'status': {'code': 3000, 'description': 'OK'},
+ 'terms': [{'index': 118, 'list_id': 0, 'original_index': 118, 'term': 'crap'}],
+ 'tracking_id': 'b253515c-e713-4316-a016-8397662a3f1a'}
+```
+
+## Next steps
+
+In this quickstart, you've developed a simple Python script that uses the Content Moderator service to return relevant information about a given text sample. Next, learn more about what the different flags and classifications mean so you can decide which data you need and how your app should handle it.
+
+> [!div class="nextstepaction"]
+> [Text moderation guide](text-moderation-api.md)
