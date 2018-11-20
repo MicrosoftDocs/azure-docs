@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 
-ms.author: 
+ms.author: joscot
 
 ---
 
@@ -22,21 +22,21 @@ ms.author:
 
 ## Purpose
 
-The purpose of this document is to document the correct configuration for an App Service Environment (ASE) configured with an internal load balancer (ILB) for customers utilizing a DISA CAP connection to their Azure environment.
+The purpose of this document is to document the correct configuration for an App Service Environment (ASE) configured with an internal load balancer (ILB) for customers who use the DISA CAP connection to Azure.
 
 ## Environment Configuration
 
 ### Assumptions
 
-An ASE has been provisioned with an ILB and the customer has implemented an ExpressRoute connection as provisioned by the DISA Cloud Access Point (CAP) process.
+The customer has deployed an ASE with an ILB and has implemented an ExpressRoute connection via the DISA Cloud Access Point (CAP) process.
 
 ### Route Table
 
-By default, when provisioning the ASE via the portal, a route table with a default route of 0.0.0.0/0 with next hop “Internet” is created.  However, the DISA BGP routes will advertise for 0.0.0.0/0 and this route table should be removed from the ASE subnet.
+When the creating the ASE via the portal, a route table with a default route of 0.0.0.0/0 and next hop “Internet” is created.  However, the DISA BGP routes will advertise for 0.0.0.0/0 and this route table should be removed from the ASE subnet.
 
 ### NSG
 
-By default, the ASE will be provisioned with inbound and outbound security rules as shown below.  The inbound security rules MUST allow ports 454-455 with an ephemeral source port range (*).  Source IPs must include the following Azure Government ranges see [App Service Environment management addresses](../app-service/environment/management-addresses
+The ASE will be created with inbound and outbound security rules as shown below.  The inbound security rules MUST allow ports 454-455 with an ephemeral source port range (*).  Source IPs must include the following Azure Government ranges see [App Service Environment management addresses](../app-service/environment/management-addresses
 )
 
 * 23.97.29.209
@@ -47,7 +47,7 @@ By default, the ASE will be provisioned with inbound and outbound security rules
 
 #### Default NSG security rules
 
-The images below describe the default NSG rules created during the ASE creation.  For more information see [Networking considerations for an App Service Environment](../app-service/environment/network-info#network-security-groups)
+The images below describe the default NSG rules created during the ASE creation.  For more information, see [Networking considerations for an App Service Environment](../app-service/environment/network-info#network-security-groups)
 
 ![Default inbound NSG security rules for an ILB ASE](media/documentation-government-ase-disacap-inbound-route-table.png)
 
@@ -55,9 +55,10 @@ The images below describe the default NSG rules created during the ASE creation.
 
 ## FAQs
 
-* Some configuration changes may take some time to take effect.  Allow for several hours to allow changes to routing, NSGs, ASE Health, etc. to propagate and take effect.
+* Some configuration changes may take some time to take effect.  Allow for several hours for changes to routing, NSGs, ASE Health, etc. to propagate and take effect.
 
-## ARM Template Sample
+## Resource Manager Template Sample
+
 <a href="https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmasonch%2Fazure-ilb-ase-azuregov%2Fmaster%2Fazuredeploy.json" target="_blank">
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.png"/>
 </a>
