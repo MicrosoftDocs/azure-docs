@@ -46,7 +46,7 @@
     - name: Configuring SSL
       href: concepts-ssl-connection-security.md
     - name: VNet
-      href: concepts-data-access-and-security-vnet.md 
+      href: concepts-data-access-security-vnet.md 
   - name: Business continuity
     items:
     - name: Overview
@@ -118,7 +118,7 @@
   - name: Virtual Network
     items:
     - name: Azure portal
-      href: howto-manage-vnet-using-portal.md
+      href: howto-manage-vnet-portal.md
 - name: Reference
   items:
   - name: REST API

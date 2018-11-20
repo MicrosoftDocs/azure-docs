@@ -109,7 +109,7 @@ For Azure Database for MariaDB, the virtual network rules feature has the follow
 
 - Each Azure Database for MariaDB server can have up to 128 ACL entries for any given virtual network.
 
-- Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][arm-deployment-model-568f] networks.
+- Virtual network rules apply only to Azure Resource Manager virtual networks; and not to [classic deployment model][resource-manager-deployment-model-568f] networks.
 
 - Turning ON virtual network service endpoints to Azure Database for MariaDB using the **Microsoft.Sql** service tag also enables the endpoints for all Azure Database services: Azure Database for MariaDB, Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database and Azure SQL Data Warehouse.
 
@@ -144,7 +144,7 @@ For articles on creating VNet rules, see:
 -->
 
 <!-- Link references, to text, Within this same Github repo. -->
-[arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
+[resource-manager-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md
 
 [vm-virtual-network-overview]: ../virtual-network/virtual-networks-overview.md
 
