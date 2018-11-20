@@ -80,29 +80,29 @@ kusto.sink.tempdir=/var/tmp/
 kusto.sink.flush_size=1000
 ```
  
-## Create a target table in Azure Data Explorer
+## Create a target table in ADX
  
 Create a table in ADX to which Kafka can send data. Create the table in the cluster and database provisioned in the **Prerequisites**.
  
 1. In the Azure portal, navigate to your cluster and select **Query**.
  
-![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
+    ![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
  
 1. Copy the following command into the window and select **Run**.
  
-```Kusto
-.create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
-```
+    ```Kusto
+    .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
+    ```
  
-![Run create query](media/ingest-data-event-hub/run-create-query.png)
+    ![Run create query](media/ingest-data-event-hub/run-create-query.png)
  
 1. Copy the following command into the window and select **Run**.
  
-```Kusto
-.create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
-```
+    ```Kusto
+    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
+    ```
 
-This command maps incoming JSON data to the column names and data types of the table (TestTable).
+    This command maps incoming JSON data to the column names and data types of the table (TestTable).
 
 
 ## Generate sample data
@@ -121,9 +121,9 @@ cd ./azure-kusto-samples-dotnet/kafka/
 
 1. In the `Program.cs` file, update the `connectionString` constant to your Kafka connection string.
 
-```csharp    
-const string connectionString = @"<YourConnectionString>";
-```
+    ```csharp    
+    const string connectionString = @"<YourConnectionString>";
+    ```
 
 1. Build and run the app. The app sends messages to the Kafka cluster, and it prints out its status every ten seconds.
 
@@ -133,26 +133,26 @@ const string connectionString = @"<YourConnectionString>";
 
 1. To make sure no errors occured during ingestion:
 
-```Kusto
-.show ingestion failures
-```
+    ```Kusto
+    .show ingestion failures
+    ```
 
-2. To see the newly ingested data:
+1. To see the newly ingested data:
 
-```Kusto
-TestTable 
-| count
-```
+    ```Kusto
+    TestTable 
+    | count
+    ```
 
-3. To see the content of the messages:
+1. To see the content of the messages:
  
-```Kusto
-TestTable
-```
+    ```Kusto
+    TestTable
+    ```
  
-The result set should look like the following:
+    The result set should look like the following:
  
-![Message result set](media/ingest-data-event-hub/message-result-set.png)
+    ![Message result set](media/ingest-data-event-hub/message-result-set.png)
  
 ## Next steps
  
