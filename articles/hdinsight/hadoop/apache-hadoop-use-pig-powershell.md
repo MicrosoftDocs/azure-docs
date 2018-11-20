@@ -1,22 +1,22 @@
 ---
-title: Use Hadoop Pig with PowerShell in HDInsight - Azure 
-description: Learn how to submit Pig jobs to a Hadoop cluster on HDInsight using Azure PowerShell.
+title: Use Apache Pig with PowerShell in HDInsight - Azure 
+description: Learn how to submit Apache Pig jobs to a Apache Hadoop cluster on HDInsight using Azure PowerShell.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ms.custom: H1Hack27Feb2017,hdinsightactive
 ---
-# Use Azure PowerShell to run Pig jobs with HDInsight
+# Use Azure PowerShell to run Apache Pig jobs with HDInsight
 
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]
 
-This document provides an example of using Azure PowerShell to submit Pig jobs to a Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs by using a language (Pig Latin) that models data transformations, rather than map and reduce functions.
+This document provides an example of using Azure PowerShell to submit Apache Pig jobs to a Apache Hadoop on HDInsight cluster. Pig allows you to write MapReduce jobs by using a language (Pig Latin) that models data transformations, rather than map and reduce functions.
 
 > [!NOTE]
 > This document does not provide a detailed description of what the Pig Latin statements used in the examples do. For information about the Pig Latin used in this example, see [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md).

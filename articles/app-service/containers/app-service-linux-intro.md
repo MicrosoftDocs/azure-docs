@@ -29,13 +29,12 @@ App Service on Linux supports a number of Built-in images in order to increase d
 
 | Language | Supported Versions |
 |---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1 |
-| Java * | 8.0 |
+| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 9.4, 10.1,10.10 |
+| Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14 (all running JRE 8) |
 | PHP | 5.6, 7.0, 7.2 |
-| Python (Preview) | 3.7 |
-| .NET Core | 1.0, 1.1, 2.0 |
+| Python (Preview) | 3.6, 3.7 |
+| .NET Core | 1.0, 1.1, 2.0, 2.1 |
 | Ruby | 2.3 |
-| Apache Tomcat | 8.5, 9.0 |
 
 See [Create a Java web app in App Service on Linux](https://docs.microsoft.com/azure/app-service/containers/quickstart-java) for more details.
 
@@ -90,7 +89,7 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 The following articles get you started with App Service on Linux with web apps written in a variety of languages:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](quickstart-dotnetcore.md)
+* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)

@@ -61,9 +61,7 @@
   - name: Code samples
     href: https://azure.microsoft.com/resources/samples/?service=functions
   - name: Azure CLI
-    href: functions-cli-samples.md
-  - name: Azure Functions Recipes
-    href: https://docs.microsoft.com/sandbox/functions-recipes/    
+    href: functions-cli-samples.md    
 - name: Concepts
   items:
   - name: Compare versions 1.x and 2.x

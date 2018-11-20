@@ -5,7 +5,7 @@ author: rboucher
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/30/2018
 ms.author: robb
 ms.component: alerts
 ---
@@ -18,28 +18,36 @@ This article describes what alerts are, their benefits, and how to get started u
 ## What are alerts in Microsoft Azure?
 Alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues before the users of your system notice them. 
 
-This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](monitoring-overview-alerts.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page.
-
+This article discusses the unified alert experience in Azure Monitor, which now includes Log Analytics and Application Insights. The [previous alert experience](monitoring-overview-alerts.md) and alert types are called **classic alerts**. You can view this older experience and older alert type by clicking on **View classic alerts** at the top of the alert page. 
 
 ## Overview
 
-The diagram below represents the general terms and flow of alerts. 
+The diagram below represents the flow of alerts. 
 
 ![Alert Flow](media/monitoring-overview-alerts/Azure-Monitor-Alerts.svg)
 
 Alert rules are separated from alerts and the action that are taken when an alert fires. 
 
-- **Alert rule** - The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. The key attributes of an alert rules are:
-    - **Target Resource** - A target can be any Azure resource. Target Resource defines the scope and signals available for alerting. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (e.g. Virtual Machines), you can specify multiple resources as the target of an alert rule.
-    - **Signal** - Signals are emitted by the target resource and can be of several types. Metric, Activity log, Application Insights, and Log.
-    - **Criteria** - Criteria is combination of Signal and Logic applied on a Target resource. Examples: 
-         - Percentage CPU > 70%
-         - Server Response Time > 4 ms 
-         - Result count of a log query > 100
-- **Alert Name** – A specific name for the alert rule configured by the user
-- **Alert Description** – A description for the alert rule configured by the user
-- **Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
-- **Action** - A specific action taken when the alert is fired. For more information, see Action Groups.
+**Alert rule** - The alert rule captures the target and criteria for alerting. The alert rule can be in an enabled or a disabled state. Alerts only fire when enabled. 
+
+The key attributes of an alert rule are:
+
+**Target Resource** - Defines the scope and signals available for alerting. A target can be any Azure resource. Example targets: a virtual machine, a storage account, a virtual machine scale set, a Log Analytics workspace, or an Application Insights resource. For certain resources (like Virtual Machines), you can specify multiple resources as the target of the alert rule.
+
+**Signal** - Signals are emitted by the target resource and can be of several types. Metric, Activity log, Application Insights, and Log.
+
+**Criteria** - Criteria is combination of Signal and Logic applied on a Target resource. Examples: 
+   - Percentage CPU > 70%
+   - Server Response Time > 4 ms 
+   - Result count of a log query > 100
+
+**Alert Name** – A specific name for the alert rule configured by the user
+
+**Alert Description** – A description for the alert rule configured by the user
+
+**Severity** – The severity of the alert once the criteria specified in the alert rule is met. Severity can range from 0 to 4.
+
+**Action** - A specific action taken when the alert is fired. For more information, see [Action Groups](monitoring-action-groups.md).
 
 ## What you can alert on
 
@@ -49,8 +57,6 @@ You can alert on metrics and logs as described in [monitoring data sources](moni
 - Activity Log events
 - Health of the underlying Azure platform
 - Tests for web site availability
-
-
 
 ## Manage alerts
 You can set the state of an alert to specify where it is in the resolution process. When the criteria specified in the alert rule is met, an alert is created or fired, it has a status of *New*. You can change the status when you acknowledge an alert and when you close it. All state changes are stored in the history of the alert.
@@ -63,12 +69,12 @@ The following alert states are supported.
 | Acknowledged | An administrator has reviewed the alert and started working on it. |
 | Closed | The issue has been resolved. After an alert has been closed, you can reopen it by changing it to another state. |
 
-The state of an alert is different than the monitor condition. Alert state is set by the user and is independent of the monitor condition. When the underlying condition for the fired alert clears, the monitor condition for the alert is set to resolved. Although the system can set the monitor condition to resolved, the alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
+**Alert state** is different and independent of the **monitor condition**. Alert state is set by the user. Monitor condition is set by the system. When an alert fires, the alert's monitor condition is set to *fired*. When the underlying condition that caused the alert to fire clears, the monitor condition is set to *resolved*. The alert state isn't changed until the user changes it. Learn [how to change the state of your alerts and smart groups](https://aka.ms/managing-alert-smart-group-states).
 
 ## Smart groups 
 Smart Groups are in preview. 
 
-Smart groups are aggregations of alerts based on machine learning algorithms which can help reduce alert noise and aid in trouble-shooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
+Smart groups are aggregations of alerts based on machine learning algorithms, which can help reduce alert noise and aid in trouble-shooting. [Learn more about Smart Groups](https://aka.ms/smart-groups) and [how to manage your smart groups](https://aka.ms/managing-smart-groups).
 
 
 ## Alerts experience 
@@ -109,13 +115,13 @@ You create a new alert rule with the following three steps:
 1. Select the _signal_ from the available signals for the target.
 1. Specify the _logic_ to be applied to data from the signal.
  
-This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select, and it guides you through defining the logic of the alert rule.
+This simplified authoring process no longer requires you to know the monitoring source or signals that are supported before selecting an Azure resource. The list of available signals is automatically filtered based on the target resource that you select. Also based on that target, you are guided through defining the logic of the alert rule automatically.  
 
 You can learn more about how to create alert rules in [Create, view, and manage alerts using Azure Monitor](alert-metric.md).
 
 Alerts are available across several Azure monitoring services. For information about how and when to use each of these services, see [Monitoring Azure applications and resources](../azure-monitor/overview.md). The following table provides a listing of the types of alert rules that are available across Azure. It also lists what's currently supported in which alert experience.
 
-Previously, Azure Monitor, Application Insights, Log Analytics and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
+Previously, Azure Monitor, Application Insights, Log Analytics, and Service Health had separate alerting capabilities. Overtime, Azure improved and combined both the user interface and different methods of alerting. This consolidation is still in process. As a result, there are still some alerting capabilities not yet in the new alerts system.  
 
 | **Monitor source** | **Signal type**  | **Description** | 
 |-------------|----------------|-------------|
@@ -154,8 +160,8 @@ The Alert detail page includes the following sections.
 | Section | Description |
 |:---|:---|
 | Essentials | Displays the properties and other significant information about the alert. |
-| History | Lists each action taken by the alert and any changes made to the alert. This is currently limited to state changes. |
-| Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. This includes the other alerts in the same smart group that were created in the past 30 days.  This is regardless of the time filter in the alerts list page. Select an alert to view its detail. |
+| History | Lists each action taken by the alert and any changes made to the alert. Currently limited to state changes. |
+| Smart group | Information about the smart group the alert is included in. The *alert count* refers to the number of alerts that are included in the smart group. Includes other alerts in the same smart group that were created in the past 30 days regardless of the time filter in the alerts list page. Select an alert to view its detail. |
 | More details | Displays further contextual information for the alert, which is typically specific to the type of source that created the alert. |
 
 
@@ -163,7 +169,7 @@ The Alert detail page includes the following sections.
 
 The Azure Monitor metrics and activity log alerting capability before June 2018 is called "Alerts (classic)". 
 
-For more information see [Alerts classic](./monitoring-overview-alerts-classic.md)
+For more information, see [Alerts classic](./monitoring-overview-alerts-classic.md)
 
 
 ## Next steps

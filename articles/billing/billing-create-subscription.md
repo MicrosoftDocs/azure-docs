@@ -21,7 +21,7 @@ ms.author: cwatson
 
 You can create additional subscriptions for your Azure account. You may want to create an additional subscription to avoid hitting subscription limits, create separate environments for billing and security, or to isolate data for compliance reasons.
 
-If you want to create a subscription for your Enterprise account, you must have the Azure Enterprise or Department Administrator role for your organization.
+If you want to create Azure subscriptions under your organization's Enterprise Agreement, you must have the Account Owner role for your organization.
 
 If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
 

@@ -20,7 +20,7 @@ ms.author: cwatson
 ---
 # Manage access to billing information for Azure
 
-For most subscriptions, you can give billing information access to members of your team from **Subscriptions** in the Azure portal. If you're an Azure customer with an Enterprise Agreement (EA customer) and are the Enterprise Administrator, you can give permissions to the Department Admins and Account Owners from **Cost Management + Billing** in the Azure portal.
+For most subscriptions, you can give billing information access to members of your team from **Subscriptions** in the Azure portal. If you're an Azure customer with an Enterprise Agreement (EA customer) and are the Enterprise Administrator, you can give permissions to the Department Administrators and Account Owners in the Enterprise portal.
 
 ## Give access to billing
 
@@ -57,9 +57,9 @@ The Account Administrator can also configure to have invoices sent via email. To
 
 ## Give read-only access to billing
 
-Assign the Billing Reader role to someone that needs read-only access to the subscription billing information but not the ability to manage or create Azure services. This role is appropriate for users in an organization who only perform financial and cost management for Azure subscriptions.
+Assign the Billing Reader role to someone that needs read-only access to the subscription billing information but not the ability to manage or create Azure services. This role is appropriate for users in an organization who are responsible for the financial and cost management for Azure subscriptions.
 
-If you're an EA customer, an Account Owner or Department Admin can assign the Billing Reader role to team members. But for that Billing Reader to be able to view billing information for the department or account, the Enterprise Administrator must enable  **AO view charges** or **DA view charges** policies in the EA portal.
+If you're an EA customer, an Account Owner or Department Administrator can assign the Billing Reader role to team members. But for that Billing Reader to view billing information for the department or account, the Enterprise Administrator must enable  **AO view charges** or **DA view charges** policies in the Enterprise portal.
 
 The Billing Reader feature is in preview, and does not yet support non-global clouds.
 
@@ -77,22 +77,17 @@ The Billing Reader feature is in preview, and does not yet support non-global cl
 
     ![Screenshot that shows what the Billing Reader can see in Azure portal](./media/billing-manage-access/billing-reader-view.png)
 
-## Allow Department Admin or Account Owner billing access
+## Allow Department Administrator or Account Owner billing access
 
-The Enterprise Admin can allow the Department Admins and Account Owners to view usage details and costs associated to the Departments and Accounts that they manage.
+The Enterprise Administrator can allow the Department Administrators and Account Owners to view usage details and the costs associated to the Departments and Accounts that they manage.
 
-1. As the Enterprise Admin, sign in to the [EA portal](https://ea.azure.com/).
+1. As the Enterprise Administrator, sign in to the [EA portal](https://ea.azure.com/).
 1. Select **Manage**.
 1. Under **Enrollment**, change the **DA view charges** to **Enabled** for the Department Admin to view usage and costs.
 1. Change **AO view charges** to **Enabled** for the Account Owner to view usage and costs.
-1. After you select these policies, the Department Admin and/or Account Owners can:
 
-   - View the Usage Summary dashboard in the EA portal for their specific department or account.
-   - Download reports from **Download Usage** in the EA portal. The reports include the Usage Detail .csv file and Marketplace Charges .csv file for their specific department or account.
-   - Access the enterprise’s custom pricing in Azure Calculator.
-   - See forecasts at the Enterprise's price rates in the Azure portal.
 
-For more information, see Understand Azure Enterprise Agreement administrative roles.
+For more information, see [Understand Azure Enterprise Agreement administrative roles in Azure](billing-understand-ea-roles.md).
 
 ## Only Account Admins can access Account Center
 

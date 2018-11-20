@@ -34,6 +34,9 @@ A network security group (NSG) enables you to filter inbound traffic to, and out
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+> [!NOTE] 
+> Flow Logs Version 2 are only available in the West Central US Region. Configuration is available through the Azure portal and REST API. Enabling Version 2 logs in an unsupported region will result in Version 1 logs saved to your storage account.
+
 ## Create a VM
 
 1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
@@ -97,8 +100,10 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 6. From the list of NSGs, select the NSG named **myVm-nsg**.
 7. Under **Flow logs settings**, select **On**.
-8. Select the storage account that you created in step 3.
-9. Set **Retention (days)** to 5, and then select **Save**.
+8. Select the flow logging version. Version 2 contains flow-session statistics (Bytes and Packets)
+    a. ![Select flow Logs version](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+9. Select the storage account that you created in step 3.
+10. Set **Retention (days)** to 5, and then select **Save**.
 
 ## Download flow log
 
@@ -124,38 +129,93 @@ NSG flow logging requires the **Microsoft.Insights** provider. To register the p
 
 The following json is an example of what you'll see in the PT1H.json file for each flow that data is logged for:
 
+### Version 1 flow log event
 ```json
 {
-	"time": "2018-05-01T15:00:02.1713710Z",
-	"systemId": "<Id>",
-	"category": "NetworkSecurityGroupFlowEvent",
-	"resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
-	"operationName": "NetworkSecurityGroupFlowEvents",
-	"properties": {
-		"Version": 1,
-		"flows": [{
-			"rule": "UserRule_default-allow-rdp",
-			"flows": [{
-				"mac": "000D3A170C69",
-				"flowTuples": ["1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"]
-			}]
-		}]
-	}
+    "time": "2018-05-01T15:00:02.1713710Z",
+    "systemId": "<Id>",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/<Id>/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/MYVM-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 1,
+        "flows": [
+            {
+                "rule": "UserRule_default-allow-rdp",
+                "flows": [
+                    {
+                        "mac": "000D3A170C69",
+                        "flowTuples": [
+                            "1525186745,192.168.1.4,10.0.0.4,55960,3389,T,I,A"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
 }
 ```
+### Version 2 flow log event
+```json
+{
+    "time": "2018-11-13T12:00:35.3899262Z",
+    "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+    "category": "NetworkSecurityGroupFlowEvent",
+    "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
+    "operationName": "NetworkSecurityGroupFlowEvents",
+    "properties": {
+        "Version": 2,
+        "flows": [
+            {
+                "rule": "DefaultRule_DenyAllInBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                            "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                            "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                        ]
+                    }
+                ]
+            },
+            {
+                "rule": "DefaultRule_AllowInternetOutBound",
+                "flows": [
+                    {
+                        "mac": "000D3AF87856",
+                        "flowTuples": [
+                            "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
+                            "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
+                            "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
+                            "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+```
+
 
 The value for **mac** in the previous output is the MAC address of the network interface that was created when the VM was created. The comma-separated information for **flowTuples**, is as follows:
 
 | Example data | What data represents   | Explanation                                                                              |
 | ---          | ---                    | ---                                                                                      |
-| 1525186745   | Time stamp             | The time stamp of when the flow occurred, in UNIX EPOCH format. In the previous example, the date converts to May 1, 2018 at 2:59:05 PM GMT.                                                                                    |
-| 192.168.1.4  | Source IP address      | The source IP address that the flow originated from.
-| 10.0.0.4     | Destination IP address | The destination IP address that the flow was destined to. 10.0.0.4 is the private IP address of the VM you created in [Create a VM](#create-a-vm).                                                                                 |
-| 55960        | Source port            | The source port that the flow originated from.                                           |
-| 3389         | Destination port       | The destination port that the flow was destined to. Since the traffic was destined to port 3389, the rule named **UserRule_default-allow-rdp**, in the log file processed the flow.                                                |
+| 1542110377   | Time stamp             | The time stamp of when the flow occurred, in UNIX EPOCH format. In the previous example, the date converts to May 1, 2018 at 2:59:05 PM GMT.                                                                                    |
+| 10.0.0.4  | Source IP address      | The source IP address that the flow originated from. 10.0.0.4 is the private IP address of the VM you created in [Create a VM](#create-a-vm).
+| 13.67.143.118     | Destination IP address | The destination IP address that the flow was destined to.                                                                                  |
+| 44931        | Source port            | The source port that the flow originated from.                                           |
+| 443         | Destination port       | The destination port that the flow was destined to. Since the traffic was destined to port 443, the rule named **UserRule_default-allow-rdp**, in the log file processed the flow.                                                |
 | T            | Protocol               | Whether the protocol of the flow was TCP (T) or UDP (U).                                  |
-| I            | Direction              | Whether the traffic was inbound (I) or outbound (O).                                     |
-| A            | Action                 | Whether the traffic was allowed (A) or denied (D).                                           |
+| O            | Direction              | Whether the traffic was inbound (I) or outbound (O).                                     |
+| A            | Action                 | Whether the traffic was allowed (A) or denied (D).  
+| C            | Flow State **Version 2 Only** | Captures the state of the flow. Possible states are **B**: Begin, when a flow is created. Statistics aren't provided. **C**: Continuing for an ongoing flow. Statistics are provided at 5-minute intervals. **E**: End, when a flow is terminated. Statistics are provided. |
+| 30 | Packets sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packets sent from source to destination since last update. |
+| 16978 | Bytes sent - Source to destination **Version 2 Only** | The total number of TCP or UDP packet bytes sent from source to destination since last update. Packet bytes include the packet header and payload. | 
+| 24 | Packets sent - Destination to source **Version 2 Only** | The total number of TCP or UDP packets sent from destination to source since last update. |
+| 14008| Bytes sent - Destination to source **Version 2 Only** | The total number of TCP and UDP packet bytes sent from destination to source since last update. Packet bytes include packet header and payload.| |
 
 ## Next steps
 

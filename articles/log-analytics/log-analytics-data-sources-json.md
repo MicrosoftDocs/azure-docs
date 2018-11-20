@@ -102,5 +102,5 @@ Nested JSON data sources are supported, but are indexed based off of parent fiel
 
 
 ## Next steps
-* Learn about [log searches](log-analytics-log-search.md) to analyze the data collected from data sources and solutions. 
+* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
  

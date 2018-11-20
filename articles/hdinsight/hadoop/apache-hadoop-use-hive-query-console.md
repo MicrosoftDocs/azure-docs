@@ -1,21 +1,21 @@
 ---
-title: Use Hadoop Hive on the Query Console in HDInsight - Azure 
-description: Learn how to use the web-based Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
+title: Use Apache Hive on the Query Console in HDInsight - Azure 
+description: Learn how to use the web-based Query Console to run Apache Hive queries on an HDInsight Hadoop cluster from your browser.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
-# Run Hive queries using the Query Console
+# Run Apache Hive queries using the Query Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]
 
-In this article, you will learn how to use the HDInsight Query Console to run Hive queries on an HDInsight Hadoop cluster from your browser.
+In this article, you will learn how to use the HDInsight Query Console to run Apache Hive queries on an HDInsight Hadoop cluster from your browser.
 
 > [!IMPORTANT]
 > The HDInsight Query Console is only available on Windows-based HDInsight clusters. Linux is the only operating system used on HDInsight version 3.4 or greater. For more information, see [HDInsight retirement on Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
