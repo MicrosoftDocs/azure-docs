@@ -17,29 +17,36 @@
   - name: Create a TSI environment
     href: tutorial-create-populate-tsi-environment.md
   - name: Create a TSI single-page web app
-    href: tutorial-create-tsi-sample-spa.md    
+    href: tutorial-create-tsi-sample-spa.md
+
 - name: Concepts
   items:
-  - name: Plan your environment
-    href: time-series-insights-environment-planning.md
-  - name: Visualize data in the explorer
-    href: time-series-insights-explorer.md
-  - name: Mitigate throttling
-    href: time-series-insights-environment-mitigate-latency.md
-  - name: Understand data retention
-    href: time-series-insights-concepts-retention.md
-  - name: Diagnose and troubleshoot
-    href: time-series-insights-diagnose-and-solve-problems.md
-  - name: Develop
-    items:
-    - name: Authenticate and authorize
-      href: time-series-insights-authentication-and-authorization.md
-    - name: Query data using C#
-      href: time-series-insights-query-data-csharp.md
-    - name: Manage reference data in C#
-      href: time-series-insights-manage-reference-data-csharp.md
-    - name: Share a custom view
-      href: time-series-insights-parameterized-urls.md
+    - name: Azure Time Series Insights
+      items:
+        - name: Plan your environment
+          href: time-series-insights-environment-planning.md
+        - name: Visualize data in the explorer
+          href: time-series-insights-explorer.md
+        - name: Mitigate throttling
+          href: time-series-insights-environment-mitigate-latency.md
+        - name: Understand data retention
+          href: time-series-insights-concepts-retention.md
+        - name: Diagnose and troubleshoot
+          href: time-series-insights-diagnose-and-solve-problems.md
+    - name: Azure Time Series Insights Update
+      items:
+      - name: Data Storage and ingress
+        href: time-series-insights-storage-ingress.md
+    - name: Develop
+      items:
+      - name: Authenticate and authorize
+        href: time-series-insights-authentication-and-authorization.md
+      - name: Query data using C#
+        href: time-series-insights-query-data-csharp.md
+      - name: Manage reference data in C#
+        href: time-series-insights-manage-reference-data-csharp.md
+      - name: Share a custom view
+        href: time-series-insights-parameterized-urls.md
 - name: How-to guides
   items:
   - name: Create an environment
