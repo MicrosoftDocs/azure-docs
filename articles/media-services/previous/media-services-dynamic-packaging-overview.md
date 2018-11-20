@@ -37,13 +37,13 @@ The following diagram shows the dynamic packaging workflow.
 4. Build the streaming URLs to access and stream your content.
 
 ## Preparing assets for dynamic streaming
-To prepare your asset for dynamic streaming you have two options:
+To prepare your asset for dynamic streaming you have the following options:
 
-1. [Upload a master file](media-services-dotnet-upload-files.md).
-2. [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
-3. [Stream your content](media-services-deliver-content-overview.md).
+- [Upload a master file](media-services-dotnet-upload-files.md).
+- [Use the Media Encoder Standard encoder to produce H.264 MP4 adaptive bitrate sets](media-services-dotnet-encode-with-media-encoder-standard.md).
+- [Stream your content](media-services-deliver-content-overview.md).
 
-## Audio codecs that are supported by dynamic packaging
+## Audio codecs supported by dynamic packaging
 
 Dynamic Packaging supports MP4 files (or Smooth Streaming files) which contain audio encoded with [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1, HE-AAC v2), [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Enhanced AC-3 or E-AC3), or [DTS](https://en.wikipedia.org/wiki/DTS_%28sound_system%29) (DTS Express, DTS LBR, DTS HD, DTS HD Lossless).
 
