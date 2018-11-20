@@ -21,7 +21,7 @@ ms.author: juliako
 When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 For detailed information related to filters and Dynamic Manifest, see [Filters and dynamic manifests overview]().
 
-This topic shows how to use Media Services .NET SDK to create [Account Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) and [Asset Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
+This topic shows how to use Media Services .NET SDK to configure filters and create [Account Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.accountfilter?view=azure-dotnet) and [Asset Filters](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.assetfilter?view=azure-dotnet). 
 
 ## Prerequisites 
 
@@ -107,7 +107,7 @@ List<FilterTrackSelection> includedTracks = new List<FilterTrackSelection>()
 
 ## Create account filters
 
-The following code shows how to use .NET to create an account filter that includes all track selections defined above.
+The following code shows how to use .NET to create an account filter that includes all track selections defined above. Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
 
 ```csharp
 AccountFilter accountFilterParams = new AccountFilter(tracks: includedTracks);
@@ -116,7 +116,7 @@ client.AccountFilters.CreateOrUpdate(config.ResourceGroup, config.AccountName, "
 
 ## Create asset filters
 
-The following code shows how to use .NET to create asset filters.  
+The following code shows how to use .NET to create asset filters. Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter).
 
 ```csharp
 AssetFilter assetFilterParams = new AssetFilter(presentationTimeRange: range, firstQuality: firstQuality, tracks: includedTracks);
