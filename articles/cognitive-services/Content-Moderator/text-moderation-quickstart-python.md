@@ -30,7 +30,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
     pip install azure-cognitiveservices-vision-contentmoderator
     ```
 
-## Initialize the script
+## Import modules
 
 Create a new Python script, _ContentModeratorQS.py_, and add the following code to import the necessary parts of the SDK.
 
@@ -52,6 +52,8 @@ Also import the "pretty print" function.
 ```Python
 from pprint import pprint
 ```
+
+## Initialize variables
 
 Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to replace `<your subscription key>` with the value of your key. You may also need to change the value of `endpoint_url` to use the correct region identifier for your key. Free trial subscription keys are generated in the **westus** region.
 
