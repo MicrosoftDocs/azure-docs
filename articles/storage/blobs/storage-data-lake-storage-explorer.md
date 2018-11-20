@@ -39,11 +39,11 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ![Microsoft Azure Storage Explorer - Connect window](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
-## Create a directory
+## Create a filesystem
 
 Blobs are always uploaded into a directory. This allows you to organize groups of blobs like you organize your files on your computer in folders.
 
-To create a directory, expand the storage account you created in the proceeding step. Select **Blob directorys**, right-click and select **Create Blob directory**. Enter the name for your blob directory. See the [Create the directory and set permissions](storage-quickstart-blobs-dotnet.md#create-the-directory-and-set-permissions) section for a list of rules and restrictions on naming blob directorys. When complete, press **Enter** to create the blob directory. Once the blob directory has been successfully created, it is displayed under the **Blob directorys** folder for the selected storage account.
+To create a directory, expand the storage account you created in the proceeding step. Select **Blob filesystems**, right-click and select **Create Blob filesystem**. Enter the name for your filesystem. When complete, press **Enter** to create the filesystem. Once the blob directory has been successfully created, it is displayed under the **Blob directorys** folder for the selected storage account.
 
 ## Upload blobs to the directory
 
