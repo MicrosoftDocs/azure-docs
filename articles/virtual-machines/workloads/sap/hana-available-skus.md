@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 
@@ -45,6 +45,10 @@ Under SAP HANA TDIv5, SAP allows customer-specific sizing and customer-specific 
 - [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
 In a lot of cases, these customer-specific server configurations carry more memory than the server units certified with SAP. In working with SAP, customers do have the possibility to get SAP support and certify for their customer-specific sized server configurations. In Azure the following HANA Large Instance standard SKUs are available and in the Microsoft price list for such TDIv5 customer-specific sizing projects.
+
+| SKU|CPU | Memory | Storage | Availability |
+| ---| --- | --- | --- | --- |
+| S96 | SAP HANA on Azure S96<br /> – 4 x Intel® Xeon® Processor E7-8890 v4<br /> 48 CPU cores and 96 CPU threads |  768 TB |  3 TB | Available |
 
 
 | Original SKU that can be <br /> extended in memory | CPU | Memory | Storage | Availability |
