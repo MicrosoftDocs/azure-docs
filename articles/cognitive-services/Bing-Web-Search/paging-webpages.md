@@ -10,7 +10,7 @@ ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
-ms.author: erhopf
+ms.author: aahi
 ---
 
 # How to page through results from the Bing Web Search API
