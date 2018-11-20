@@ -11,14 +11,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 11/19/2018
+ms.date: 11/20/2018
 ms.author: rolyon
 ms.custom: pim
 ---
 
 # Invite external users and assign Azure resource roles in PIM
 
-Azure Activity Directory (Azure AD) business-to-business (B2B) is a set of capabilities within Azure AD that enables organizations to collaborate with external users and vendors using any account. When you combine B2B with Azure AD Privileged Identity Management (PIM), you can continue to apply your compliance and governance requirements for external users. For example, you can use these PIM features for Azure resources with external users:
+Azure Activity Directory (Azure AD) business-to-business (B2B) is a set of capabilities within Azure AD that enables organizations to collaborate with external users and vendors using any account. When you combine B2B with Azure AD Privileged Identity Management (PIM), you can continue to apply your compliance and governance requirements to external users. For example, you can use these PIM features for Azure resources with external users:
 
 - Assign access to specific Azure resources
 - Enable just-in-time access
@@ -133,7 +133,7 @@ As an external user, you first need to accept the invite to the Azure AD directo
 
     ![Activate role](./media/pim-resource-roles-external-users/activate-role.png)
 
-    Unless the administrator has approved your request, you should access to the specified resources.
+    Unless the administrator is required to approve your request, you should access to the specified resources.
 
 ## View activity for an external user
 
