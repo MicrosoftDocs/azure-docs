@@ -42,7 +42,7 @@ You need:
 2. Select **Azure Active Directory** and select **Sign-ins** from the **Monitoring** section. 
 3. Use the provided filters to narrow down the failure, either by the username or object identifier, application name or date. In addition select **Failure** from the **Status** drop-down to display only the failed sign-ins. 
 
-    ![Filter results](./media/howto-troubleshoot-sign-in-errors/filter.png)
+    ![Filter results](./media/howto-troubleshoot-sign-in-errors/filters.png)
         
 4. Identify the failed sign-in that you want to investigate and select it. This will open up the additional details window with more information about the failed sign-in. Note down the **Sign-in error code** and **Failure reason**. 
 
