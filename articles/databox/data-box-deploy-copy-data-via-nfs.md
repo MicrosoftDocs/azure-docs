@@ -32,7 +32,7 @@ Before you begin, make sure that:
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10 GbE connection. If a 10 GbE connection isn't available, a 1 GbE data link can be used but the copy speeds will be impacted. 
 
-## Connect to Data Box via NFS
+## Connect to Data Box
 
 Based on the storage account selected, Data Box creates upto:
 - Three shares for each associated storage account for GPv1 and GPv2.
@@ -67,7 +67,7 @@ If you are using a Linux host computer, perform the following steps to configure
 
     `sudo mount -t nfs 10.161.23.130:/Mystoracct_Blob /home/databoxubuntuhost/databox`
 
-## Copy data to Data Box via NFS
+## Copy data to Data Box
 
 Once you are connected to the Data Box shares, the next step is to copy data. Prior to data copy, ensure that you review the following considerations:
 
