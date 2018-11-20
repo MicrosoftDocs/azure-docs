@@ -13,13 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/16/2018
+ms.date: 11/20/2018
 ms.author: cwatson
 
 ---
 # Create an additional subscription in the Azure portal
 
-You can create additional subscriptions for your Azure account. But if you want to create a subscription for your Enterprise account, you must have the Azure Enterprise or Department Administrator role for your organization.
+You can create additional subscriptions for your Azure account. You may want to create an additional subscription to avoid hitting subscription limits, create separate environments for billing and security, or to isolate data for compliance reasons.
+
+If you want to create a subscription for your Enterprise account, you must have the Azure Enterprise or Department Administrator role for your organization.
 
 If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free).
 
@@ -31,16 +33,14 @@ If you don't already have an Azure subscription, create a [free account](https:/
    ![Screenshot that shows search in portal for subscription](./media/billing-create-subscription/billing-search-subscription-portal.png)
 
 1. Select **Add**.
-1. Select an offer.
-1. Fill in required information.
-1. Complete the subscription sign-up.
+
+You can also create additional subscriptions programmatically. For more information, see [Programmatically create Azure Enterprise subscriptions](../azure-resource-manager/programmatically-create-subscription.md).
 
 ## Next steps
 
 - [Add or change Azure subscription administrators](billing-add-change-azure-subscription-administrator.md)
 - [Move resources to new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json)
 - [Create management groups for resource organization and management](../governance/management-groups/create.md?toc=/azure/billing/TOC.json)
-- [Azure enterprise scaffold: Prescriptive subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance.md)
 - [Cancel your subscription for Azure](billing-how-to-cancel-azure-subscription.md)
 
 ## Need help? Contact support
