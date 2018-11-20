@@ -1,15 +1,14 @@
 ---
 title: Use the Video Indexer API
-titlesuffix: Azure Cognitive Services
+titlesuffix: Azure Media Services
 description: This article shows how to get started using the Video Indexer API.
-services: cognitive services
-author: juliako
-manager: cgronlun
+services: media-services
+author: Juliako
+manager: femila
 
-ms.service: cognitive-services
-ms.component: video-indexer
-ms.topic: tutorial
-ms.date: 10/20/2018
+ms.service: media-services
+ms.topic: article
+ms.date: 11/19/2018
 ms.author: juliako
 ---
 
