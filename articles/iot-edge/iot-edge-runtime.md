@@ -2,7 +2,7 @@
 title: Understand the Azure IoT Edge runtime | Microsoft Docs 
 description: Learn about the Azure IoT Edge runtime and how it empowers your edge devices
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 08/13/2018
 ms.topic: conceptual
@@ -65,8 +65,10 @@ To send data to the Edge hub, a module calls the SendEventAsync method. The firs
 To receive a message, register a callback that processes messages coming in on a specific input. The following pseudocode registers the function messageProcessor to be used for processing all messages received on input1:
 
    ```csharp
-   await client.SetEventHandlerAsync(“input1”, messageProcessor, userContext);
+   await client.SetInputMessageHandlerAsync(“input1”, messageProcessor, userContext);
    ```
+
+For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C and Python](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable), or [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
 The solution developer is responsible for specifying the rules that determine how Edge hub passes messages between modules. Routing rules are defined in the cloud and pushed down to Edge hub in its device twin. The same syntax for IoT Hub routes is used to define routes between modules in Azure IoT Edge. 
 

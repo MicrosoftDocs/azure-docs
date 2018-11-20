@@ -52,7 +52,7 @@ let path = '/v7.0/localbusinesses/search';
 let mkt = 'en-US';
 let q = 'hotel in Bellevue';
 
-let params = '?q=' + encodeURI(q) + "&appid=" + accessKey + "&traffictype=Internal_monitor&mkt=" + mkt;
+let params = '?q=' + encodeURI(q) + "&mkt=" + mkt;
 
 let response_handler = function (response) {
     let body = '';

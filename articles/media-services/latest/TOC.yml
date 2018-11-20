@@ -36,9 +36,8 @@
   - name: Analyzing content
     href: analyzing-video-audio-files-concept.md
   - name: Encoding content
+    href: encoding-concept.md
     items:
-    - name: Overview
-      href: encoding-concept.md
     - name: Autogen adaptive bitrate ladder
       href: autogen-bitrate-ladder.md
   - name: Examining entities
@@ -99,6 +98,8 @@
       href: protect-with-drm.md
   - name: Configure Postman
     href: media-rest-apis-with-postman.md
+  - name: Scale Media Reserved Units - CLI
+    href: media-reserved-units-cli-how-to.md
 - name: Reference
   items:
   - name: OpenAPI Specification (Swagger)

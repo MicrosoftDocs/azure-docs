@@ -41,6 +41,8 @@
     href: export-model-python.md
   - name: Build a model using the REST API
     href: rest-api-tutorial.md
+  - name: Export or delete account data
+    href: ./export-delete-data.md
 - name: Reference
   items:
   - name: Custom Vision Training API  
@@ -59,19 +61,17 @@
       href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices
 - name: Resources
   items:
-  - name: Release Notes
-    href: release-notes.md
   - name: Samples
     href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
   - name: Pricing and limits
     href: limits-and-quotas.md
-  - name: Export or delete account data
-    href: ./export-delete-data.md
   - name: UserVoice
     href: https://cognitive.uservoice.com/forums/598141-custom-vision-service
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
+  - name: Release Notes
+    href: release-notes.md

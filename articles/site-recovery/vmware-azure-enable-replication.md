@@ -6,7 +6,7 @@ ms.service: site-recovery
 ms.date: 07/06/2018
 ms.topic: conceptual
 ms.author: asgang
-
+---
 
 # Enable replication to Azure for VMware VMs
 
@@ -73,10 +73,7 @@ When replicating VMware virtual machines:
     ![Enable replication](./media/vmware-azure-enable-replication/enable-replication7.png)
 14. Click **Enable Replication**. You can track progress of the **Enable Protection** job in **Settings** > **Jobs** > **Site Recovery Jobs**. After the **Finalize Protection** job runs, the machine is ready for failover.
 
-> [!NOTE]
-> If the machine is prepared for push installation, the Mobility Service component is installed when protection is enabled. After the component is installed on the machine, a protection job starts and fails. After the failure, you need to manually restart each machine. After the restart, the protection job begins again and initial replication occurs.
->
->
+
 
 ## View and manage VM properties
 
