@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -78,12 +78,4 @@ You can't share files with other users on an Azure AD-joined device.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Configure hybrid Azure Active Directory join for federated domains](hybrid-azuread-join-federated-domains.md)
-> [Configure hybrid Azure Active Directory join for managed domains](hybrid-azuread-join-managed-domains.md)
-
-
-
-
-<!--Image references-->
-[1]: ./media/hybrid-azuread-join-plan/12.png
+For more information, see [What is device management in Azure Active Directory?](overview.md) 
