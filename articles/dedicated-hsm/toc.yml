@@ -14,6 +14,8 @@
   items:
   - name: High availability
     href: high-availability.md
+  - name: Monitoring
+    href: monitoring.md
   - name: Networking
     href: Networking.md
   - name: Physical security
