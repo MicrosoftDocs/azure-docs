@@ -19,7 +19,7 @@ Virtual Network (VNet) services endpoints and rules extend the private address s
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-## Create a VNet rule and enable service endpoints in the Azure portal
+## Create a VNet rule and enable service endpoints
 
 1. On the MariaDB server page, under the Settings heading, click **Connection Security** to open the Connection Security pane for Azure Database for MariaDB. Next, click on **+ Adding existing virtual network**. If you do not have an existing VNet you can click **+ Create new virtual network** to create one. See [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md)
 
