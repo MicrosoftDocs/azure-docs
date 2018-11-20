@@ -24,15 +24,18 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 - A Content Moderator subscription key. Follow the instructions in [Create a Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) to subscribe to Content Moderator and get your key.
 - [Python 2.7+ or 3.5+](https://www.python.org/downloads/)
 - [pip](https://pip.pypa.io/en/stable/installing/) tool
-- The Content Moderator Python SDK. You can install it by running the following command:
+- 
+## Get the Content Moderator SDK
 
-    ```
-    pip install azure-cognitiveservices-vision-contentmoderator
-    ```
+Install the Content Moderator Python SDK by opening a command prompt and running the following command:
+
+```
+pip install azure-cognitiveservices-vision-contentmoderator
+```
 
 ## Import modules
 
-Create a new Python script, _ContentModeratorQS.py_, and add the following code to import the necessary parts of the SDK.
+Create a new Python script named _ContentModeratorQS.py_ and add the following code to import the necessary parts of the SDK.
 
 ```Python
 # the ContentModeratorClient interacts with the service
@@ -47,7 +50,7 @@ from azure.cognitiveservices.vision.contentmoderator.models import (
 from msrest.authentication import CognitiveServicesCredentials
 ```
 
-Also import the "pretty print" function.
+Also import the "pretty print" function to handle the final output.
 
 ```Python
 from pprint import pprint
@@ -55,7 +58,7 @@ from pprint import pprint
 
 ## Initialize variables
 
-Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to replace `<your subscription key>` with the value of your key. You may also need to change the value of `endpoint_url` to use the correct region identifier for your key. Free trial subscription keys are generated in the **westus** region.
+Next, add variables for your Content Moderator subscription key and endpoint URL. You will need to replace `<your subscription key>` with the value of your key. You may also need to change the value of `endpoint_url` to use the region identifier that corresponds to your subscription key. Free trial subscription keys are generated in the **westus** region.
 
 ```Python
 # Replace with a valid key
@@ -63,7 +66,7 @@ subscription_key = '<your subscription key>'
 endpoint_url = 'westus.api.cognitive.microsoft.com'
 ```
 
-For the sake of simplicity, you will analyze text from here in the file itself. Define a new string of text content to moderate:
+For the sake of simplicity, you will analyze text directly from the script. Define a new string of text content to moderate:
 
 ```Python
 TEXT = """Is this a grabage email abcdef@abcd.com, phone: 6657789887, \
@@ -74,7 +77,7 @@ Crap is the profanity here. Is this information PII? phone 3144444444
 
 ## Query the Moderator service
 
-Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, you'll use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** reference documentation for more information on how to call it.
+Create a **ContentModeratorClient** instance using your subscription key and endpoint URL. Then, use its member **TextModerationOperations** instance to call the moderation API. See the **[screen_text](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.operations.textmoderationoperations?view=azure-python#screen-text)** reference documentation for more information on how to call it.
 
 ```Python
 # Create the Content Moderator client
@@ -95,14 +98,14 @@ screen = client.text_moderation.screen_text(
 
 ## Print the response
 
-Finally, check that the call completed successfully and returned a **Screen** instance; then print the returned data to the console.
+Finally, check that the call completed successfully and returned a **Screen** instance. Then print the returned data to the console.
 
 ```Python
 assert isinstance(screen, Screen)
 pprint(screen.as_dict())
 ```
 
-The sample text used in this quickstart gives the following output:
+The sample text used in this quickstart results in the following output:
 
 ```console
 {'auto_corrected_text': '" Is this a garbage email abide@ abed. com, phone: '
