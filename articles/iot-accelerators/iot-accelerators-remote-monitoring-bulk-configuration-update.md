@@ -235,7 +235,7 @@ In this section, you create and execute a deployment that applies the device con
     |---|---|
     |Name|Deploy firmware update|
     |Package type|Device Configuration|
-    |Configuration type|Firmware - MXChip|
+    |Configuration type|Firmware|
     |Package|firmware-update.json|
     |Device Group|DevKit|
     |Priority|10|
@@ -246,8 +246,8 @@ In this section, you create and execute a deployment that applies the device con
 
     * **Targeted** shows the number of devices in the device group.
     * **Applied** shows the number of devices that were updated with the configuration content.
-    * **Succeeded** shows the number of MXChips in the deployment that report success.
-    * **Failed** shows the number of Edge devices in the deployment that report failure.
+    * **Succeeded** shows the number of devices in the deployment that report success.
+    * **Failed** shows the number of devices in the deployment that report failure.
 
 ## Monitor the deployment
 
