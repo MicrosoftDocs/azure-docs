@@ -2,14 +2,14 @@
 title: Azure Quickstart - Run Batch job - Python
 description: Quickly run a Batch job and tasks using the Batch Python client library.
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc 
 
 ms.service: batch
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/19/2018
+ms.author: lahugh
 ms.custom: mvc
 ---
 
@@ -53,7 +53,6 @@ pip install -r requirements.txt
 
 Open the file `python_quickstart_client.py`. Update the Batch and storage account credential strings with the values you obtained for your accounts. For example:
 
-
 ```Python
 _BATCH_ACCOUNT_NAME = 'mybatchaccount'
 _BATCH_ACCOUNT_KEY = 'xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ=='
@@ -77,7 +76,7 @@ After running the script, review the code to learn what each part of the applica
 When you run the sample application, the console output is similar to the following. During execution, you experience a pause at `Monitoring all tasks for 'Completed' state, timeout in 00:30:00...` while the pool's compute nodes are started. Tasks are queued to run as soon as the first compute node is running. Go to your Batch account in the [Azure portal](https://portal.azure.com) to monitor the pool, compute nodes, job, and tasks in your Batch account.
 
 ```
-Sample start: 12/4/2017 4:02:54 PM
+Sample start: 11/19/2018 4:02:54 PM
 
 Container [input] created.
 Uploading file taskdata0.txt to container [input]...
@@ -111,7 +110,7 @@ The Python app in this quickstart does the following:
 * Creates a job and three tasks to run on the nodes. Each task processes one of the input files using a Bash shell command line.
 * Displays files returned by the tasks.
 
-See the file `python_quickstart_client.py` and the following sections for details. 
+See the file `python_quickstart_client.py` and the following sections for details.
 
 ### Preliminaries
 
@@ -145,7 +144,6 @@ batch_client = batch.BatchServiceClient(
     credentials,
     base_url=_BATCH_ACCOUNT_URL)
 ```
-
 
 ### Create a pool of compute nodes
 
