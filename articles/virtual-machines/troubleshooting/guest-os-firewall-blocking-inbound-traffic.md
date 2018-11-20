@@ -46,7 +46,7 @@ To fix the issue, use one of the methods in [How to use remote tools to troubles
 
 ### Online troubleshooting
 
-Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). If the Serial Console is not enabled on the VM, go to "[Repair the VM Offline](troubleshoot-rdp-internal-error#repair-the-vm-offline.md).
+Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). If the Serial Console is not enabled on the VM, go to "[Repair the VM Offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline).
 
 #### Mitigation 1
 

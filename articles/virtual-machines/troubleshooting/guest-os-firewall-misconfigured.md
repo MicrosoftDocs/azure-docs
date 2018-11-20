@@ -36,13 +36,13 @@ A misconfiguration of the guest system firewall can block some or all kinds of n
 
 Before you follow these steps, take a snapshot of the system disk of the affected VM as a backup. For more information, see [Snapshot a disk](../windows/snapshot-copy-managed-disk.md).
 
-To troubleshoot this issue, use the Serial Console or [repair the VM offline](troubleshoot-rdp-internal-error#repair-the-vm-offline.md) by attaching the system disk of the VM to a recovery VM.
+To troubleshoot this issue, use the Serial Console or [repair the VM offline](troubleshoot-rdp-internal-error.md#repair-the-vm-offline) by attaching the system disk of the VM to a recovery VM.
 
 ## Online mitigations
 
-Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows#open-cmd-or-powershell-in-serial-console.md). If the Serial Console is not enabled on the VM, go to the "Repair the VM Offline" section of the following Azure article:
+Connect to the [Serial Console, and then open a PowerShell instance](serial-console-windows.md#open-cmd-or-powershell-in-serial-console). If the Serial Console is not enabled on the VM, go to the "Repair the VM Offline" section of the following Azure article:
 
- [An internal error occurs when you try to connect to an Azure VM through Remote Desktop](troubleshoot-rdp-internal-error#repair-the-vm-offline.md)
+ [An internal error occurs when you try to connect to an Azure VM through Remote Desktop](troubleshoot-rdp-internal-error.md#repair-the-vm-offline)
 
 The following rules can be edited to either enable access to the VM (through RDP) or to provide an easier troubleshooting experience: 
 

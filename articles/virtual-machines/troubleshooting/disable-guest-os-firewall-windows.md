@@ -32,7 +32,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
 #### Mitigation 1: Custom Script Extension or Run Command feature
 
-If you have a working Azure agent, you can use [Custom Script Extension](../extensions/custom-script-windows.md) or the [Run Commands](../windows/run-command.md") feature (Resource Manager VMs only) to remotely run the following scripts.
+If you have a working Azure agent, you can use [Custom Script Extension](../extensions/custom-script-windows.md) or the [Run Commands](../windows/run-command.md) feature (Resource Manager VMs only) to remotely run the following scripts.
 
 > [!Note]
 > * If the firewall is set locally, run the following script:
