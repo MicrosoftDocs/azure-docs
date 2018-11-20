@@ -62,7 +62,7 @@ Additionally, features such as the [hierarchical namespace](./namespace.md) sign
 
 ### Interoperability
 
-Currently, when you create an Azure storage account with the hierarchical namespace enabled, you are creating an account that does not yet have access to the existing Azure Blob storage APIs. This means that you do not have access to any features that use that Blob API and any data uploaded through that API. If you need any of those features for your application, then you should be using a storage account without the hierarchical namespace. For now, using a storage account without the hierarchical namespace means you then do not have access to Data Lake Storage Gen2 specific features, such as directory and filesystem ACLs. Below is a more extensive list of what is supported and what is not supported on an account using the hierarchical namespace. The items in the list are subject to change.
+Currently, when you create an Azure storage account with the hierarchical namespace enabled, you are creating an account that does not yet have access to the existing Azure Blob storage APIs. This means that you do not have access to any features that use that Blob API. If you need any of those features for your application, then you should be using a storage account without the hierarchical namespace. For now, using a storage account without the hierarchical namespace means you then do not have access to Data Lake Storage Gen2 specific features, such as directory and filesystem ACLs. Below is a more extensive list of what is supported and what is not supported on an account using the hierarchical namespace. The items in the list are subject to change.
 
 ### What's supported using workarounds?
 
