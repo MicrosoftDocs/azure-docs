@@ -55,7 +55,7 @@ For more information about network security group, see [network security group](
 > [!NOTE]
 > RDP port 3389 is exposed to the Internet. This is only recommended for testing. For production environments, we recommend using a VPN or private connection.
 
-Next steps
+## Next steps
 
 If the RDP port is already enabled in network security group,  see [Troubleshoot an RDP general error in Azure VM](./troubleshoot-rdp-general-error.md).
 
