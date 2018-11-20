@@ -65,7 +65,9 @@ When you need to take on an Azure AD directory role, you can request activation 
 
 1. Click **Activate**.
 
-    If the role does not require approval, it is now activated, and the role appears in the list of active roles. If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
+    If the role does not require approval, it is activated and added to the list of active roles. If you want to use the role right away, follow the steps in next section.
+
+    If the [role requires approval](./azure-ad-pim-approval-workflow.md) to activate, a notification will appear in the upper right corner of your browser informing you the request is pending approval.
 
     ![Request pending notification](./media/pim-how-to-activate-role/directory-roles-activate-notification.png)
 
@@ -131,10 +133,12 @@ If you do not require activation of a role that requires approval, you can cance
 
 ### Permissions not granted after activating a role
 
-If it has been less than 10 minutes since you activated the role, it might be because the permissions have not yet propagated. There are two ways that you can address this issue:
+If permissions have not been granted and it has been less than 10 minutes since you activated the role, it might be because the permissions have not yet propagated. There are two ways that you can address this issue:
 
 - Use the **Application access** page in the Azure portal to force a refresh as described earlier in [Use a role immediately after activation](#use-a-role-immediately-after-activation).
 - Wait until the permissions have propagated.
+
+For additional troubleshooting steps, see [Troubleshooting Elevated Permissions](https://social.technet.microsoft.com/wiki/contents/articles/37568.troubleshooting-elevated-permissions-with-azure-ad-privileged-identity-management.aspx).
 
 ## Next steps
 
