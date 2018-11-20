@@ -28,6 +28,8 @@
       href: azure-stack-vaas-validate-oem-package.md
     - name: Validate software updates from Microsoft
       href: azure-stack-vaas-validate-microsoft-updates.md
+    - name: Interactive feature verification testing
+      href: azure-stack-vaas-interactive-feature-verification.md
 - name: Concepts
   items:
   - name: Key concepts

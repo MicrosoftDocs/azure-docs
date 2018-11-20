@@ -32,7 +32,7 @@ A: They are the same thing. [Log Analytics is being integrated as a feature in A
 A: Log Search is currently still available in the OMS portal and in the Azure portal under the name **Logs (classic)**. The OMS portal will be officially retired on January 15, 2019. The classic Logs experience in Azure portal will be gradually retired and replaced the new Logs experience. 
 
 ### Q. Can I still use Advanced Analytics Portal? 
-The new Logs experience in the Azure portal is based on the [Advanced Analytics Portal](https://portal.loganalytics.io/), but it still can be accessed outside of the Azure portal. The roadmap for retiring this external portal will be announced soon.
+The new Logs experience in the Azure portal is based on the Advanced Analytics Portal, but it still can be accessed outside of the Azure portal. The roadmap for retiring this external portal will be announced soon.
 
 ### Q. Why can't I see Query Explorer and Save buttons in the new Logs experience?
 
@@ -66,7 +66,7 @@ A: To access a workspace in Azure, you must have Azure permissions assigned. The
 A: View Designer is only available in Logs for users assigned with Contributor permissions or higher.
 
 ### Q. Can I still use the Analytics portal outside of Azure?
-A. Yes, the Logs page in Azure and the [Advanced Analytics portal](https://portal.loganalytics.io) are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
+A. Yes, the Logs page in Azure and the Advanced Analytics portal are based on the same code. Log Analytics is being integrated as a feature in Azure Monitor to provide a more unified monitoring experience. You can still access Analytics portal using the URL: https://portal.loganalytics.io/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/workspaces/{workspaceName}.
 
 
 
