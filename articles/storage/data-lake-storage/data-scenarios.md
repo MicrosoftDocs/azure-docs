@@ -88,6 +88,7 @@ Once the data is available in Data Lake Storage Gen2 you can run analysis on tha
 
 ![Analyze data in Data Lake Storage Gen2](./media/data-scenarios/analyze-data.png "Analyze data in Data Lake Storage Gen2")
 
+
 ## Download data from Data Lake Storage Gen2
 You might also want to download or move data from Azure Data Lake Storage Gen2 for scenarios such as:
 
