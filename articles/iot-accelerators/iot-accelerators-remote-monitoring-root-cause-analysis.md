@@ -5,7 +5,7 @@ author: aditidugar
 ms.author: adugar
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/11/2018
+ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
 
