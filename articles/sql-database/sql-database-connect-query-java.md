@@ -26,17 +26,17 @@ To complete this sample, make sure you have the following prerequisites:
 
 - Java-related software installed for your operating system,
 
-    **MacOS**, install Homebrew and Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
+  - **MacOS**, install Homebrew and Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
-    **Ubuntu**, install Java, the Java Development Kit, then install Maven. See [Step 1.2, 1.3, and 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
+  - **Ubuntu**, install Java, the Java Development Kit, then install Maven. See [Step 1.2, 1.3, and 1.4](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/).
 
-    **Windows**, install Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
+  - **Windows**, install Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/windows/).
 
 ## Get database connection
 
 [!INCLUDE [prerequisites-server-connection-info](../../includes/sql-database-connect-query-prerequisites-server-connection-info-includes.md)]
 
-## Create project and dependencies
+## Create the project
 
 1. From the terminal, create a new Maven project called *sqltest*.
 
@@ -70,7 +70,9 @@ To complete this sample, make sure you have the following prerequisites:
 
 ## Add code to query database
 
-1. You should already have a file called *App.java* in your Maven project located at:  *..\sqltest\src\main\java\com\sqldbsamples\App.java*
+1. You should already have a file called *App.java* in your Maven project located at:
+
+   *..\sqltest\src\main\java\com\sqldbsamples\App.java*
 
 1. Open the file and replace its contents with the following code. Then add the appropriate values for your server, database, user, and password.
 
@@ -142,6 +144,8 @@ To complete this sample, make sure you have the following prerequisites:
 
 ## Next steps
 
-[Design your first Azure SQL database](sql-database-design-first-database.md)  
-[Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)  
-[Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)  
+- [Design your first Azure SQL database](sql-database-design-first-database.md)  
+
+- [Microsoft JDBC Driver for SQL Server](https://github.com/microsoft/mssql-jdbc)  
+
+- [Report issues/ask questions](https://github.com/microsoft/mssql-jdbc/issues)  

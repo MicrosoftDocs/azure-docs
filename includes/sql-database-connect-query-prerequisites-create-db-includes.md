@@ -3,8 +3,8 @@
 
 - An Azure SQL database. You can use one of these techniques to create a database,
 
-    [Portal](../articles/sql-database/sql-database-get-started-portal.md)
+  - [Portal](../articles/sql-database/sql-database-get-started-portal.md)
 
-    [CLI](../articles/sql-database/sql-database-get-started-cli.md)
+  - [CLI](../articles/sql-database/sql-database-get-started-cli.md)
 
-    [PowerShell](../articles/sql-database/sql-database-get-started-powershell.md)
+  - [PowerShell](../articles/sql-database/sql-database-get-started-powershell.md)
