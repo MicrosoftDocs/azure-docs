@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/20/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -126,7 +126,7 @@ Following are considerations for different type of applications and resources
 
  
 
-- **Printers:** Deploy Hybrid cloud print for discovering printers from Azure AD joined devices. Alternatively, users can also use the printers’ UNC path to directly add them. Note: Currently printers cannot be automatically discovered in a cloud only environment. 
+- **Printers:** Deploy Hybrid cloud print for discovering printers from Azure AD joined devices. Alternatively, users can also use the printers’ UNC path to directly add them. Printers can't be automatically discovered in a cloud only environment. 
 
  
 
