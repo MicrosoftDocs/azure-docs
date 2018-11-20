@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2018
+ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
