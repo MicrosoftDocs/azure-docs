@@ -32,9 +32,9 @@ This hands-on article is platform-independent. You can run the code examples tha
 Before you begin, install the following software:
 
 - **Go programming language**: Terraform test cases are written in [Go](https://golang.org/dl/).
-- **Dep**: [Dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
+- **dep**: [dep](https://github.com/golang/dep#installation) is a dependency management tool for Go.
 - **Azure CLI**: The [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) is a command-line tool you can use to manage Azure resources. (Terraform supports authenticating to Azure through a service principal or [via the Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html).)
-- **Mage**: We use the [mage executable](https://github.com/magefile/mage/releases) to show you how to simplify running Terratest cases. 
+- **mage**: We use the [mage executable](https://github.com/magefile/mage/releases) to show you how to simplify running Terratest cases. 
 
 ## Create a static webpage module
 
@@ -387,11 +387,11 @@ GoPath/src/staticwebpage/test$ go test
 
 Integration tests take much longer than unit tests (two minutes for one integration case compared to one minute for five unit cases). But it's your decision whether to use unit tests or integration tests in a scenario. Typically, we prefer to use unit tests for complex logic by using Terraform HCL functions. We usually use integration tests for the end-to-end perspective of a user.
 
-## Use Mage to simplify running Terratest cases 
+## Use mage to simplify running Terratest cases 
 
-Running test cases in shell isn't an easy task. You have to go to different directories and execute different commands. To avoid using shell, we introduce the build system in our project. In this section, we use a Go build system, Mage, for the job.
+Running test cases in shell isn't an easy task. You have to go to different directories and execute different commands. To avoid using shell, we introduce the build system in our project. In this section, we use a Go build system, mage, for the job.
 
-The only thing required by Mage is `magefile.go` in your project's root directory (marked with `(+)` in the following example):
+The only thing required by mage is `magefile.go` in your project's root directory (marked with `(+)` in the following example):
 
 ```
  📁 GoPath/src/staticwebpage
@@ -505,9 +505,9 @@ GoPath/src/staticwebpage$ az login    # Required when no service principal envir
 GoPath/src/staticwebpage$ mage
 ```
 
-You can replace the last command line with additional Mage steps. For example, you can use `mage unit` or `mage clean`. It's a good idea to embed `dep` commands and `az login` in the magefile. We don't show the code here. 
+You can replace the last command line with additional mage steps. For example, you can use `mage unit` or `mage clean`. It's a good idea to embed `dep` commands and `az login` in the magefile. We don't show the code here. 
 
-With Mage, you could also share the steps by using the Go package system. In that case, you can simplify magefiles across all your modules by referencing only a common implementation and declaring dependencies (`mg.Deps()`).
+With mage, you could also share the steps by using the Go package system. In that case, you can simplify magefiles across all your modules by referencing only a common implementation and declaring dependencies (`mg.Deps()`).
 
 **Optional: Set service principal environment variables to run acceptance tests**
  
@@ -516,4 +516,4 @@ Instead of executing `az login` before tests, you can complete Azure authenticat
 ## Next steps
 
 * For more information about Terratest, see the [Terratest GitHub page](https://github.com/gruntwork-io/terratest).
-* For information about Mage, see the [Mage GitHub page](https://github.com/magefile/mage) and the [Mage website](https://magefile.org/).
+* For information about mage, see the [mage GitHub page](https://github.com/magefile/mage) and the [mage website](https://magefile.org/).
