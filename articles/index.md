@@ -284,7 +284,7 @@ featureFlags:
                                                     <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Azure DevOps Project
+                                                            Azure DevOps Projects
                                                         </a>
                                                     </li>
                                                 </ul>
