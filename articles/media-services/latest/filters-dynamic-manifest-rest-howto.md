@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/13/2018
+ms.date: 11/20/2018
 ms.author: juliako
 
 ---
@@ -21,7 +21,7 @@ ms.author: juliako
 When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 For detailed information related to filters and Dynamic Manifest, see [Filters and dynamic manifests overview]().
 
-This article shows how to use REST APIs to create [Account Filters](https://docs.microsoft.com/en-us/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/en-us/rest/api/media/assetfilters). 
+This article shows how to configure filters and use REST APIs to create [Account Filters](https://docs.microsoft.com/en-us/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/en-us/rest/api/media/assetfilters). 
 
 ## Prerequisites 
 
@@ -96,7 +96,7 @@ The following is the **Request body** example that defines the presentationTimeR
 
 ## Create account filters
 
-For details on how to create or update account filters, see [Create or update](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate).
+For details on how to create or update account filters, see [Create or update](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/en-us/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
 
 If you followed [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md), check out **Account Filters** defined in the "Media Services v3" Postman collection.
 
@@ -122,7 +122,7 @@ See [Configure filter](#configure-filter) that we defined earlier.
 
 ## Create asset filters  
 
-For details on how to create or update asset filters, see [Create or update](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate).
+For details on how to create or update asset filters, see [Create or update](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/assetfilters/createorupdate#create_an_asset_filter). 
 
 If you followed [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md), check out **Assets** -> **Create or update Asset Filter**  defined in the "Media Services v3" Postman collection.
 
