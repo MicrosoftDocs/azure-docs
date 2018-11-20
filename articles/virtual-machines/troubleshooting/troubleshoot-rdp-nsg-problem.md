@@ -18,7 +18,7 @@ ms.author: genli
 
 #  Cannot RDP to a VM because RDP port is not enabled in NSG
 
-This article shows how to resolve a problem in which you cannot connect to Azure Windows Virtual Machines (VMs) by using Remote Desktop Protocol (RDP) because the port is not enabled in the network security group.
+This article shows how to resolve a problem in which you cannot connect to Azure Windows Virtual Machines (VMs) because the port is not enabled in the network security group.
 
 
 > [!NOTE] 
@@ -27,17 +27,17 @@ This article shows how to resolve a problem in which you cannot connect to Azure
 
 ## Symptom
 
-You cannot make an RDP connection to a VM in Azure because of the RDP port is not opened in the network security group.
+You cannot make an Remote Desktop Protocol (RDP) connection to a VM in Azure because of the RDP port is not opened in the network security group.
 
 ## Solution 
 
 When you create a new VM, all traffic from the Internet is blocked by default. 
 
 To enable the RPD port in Network security group, follow these steps:
-1. Sign in to Azure portal.
+1. Sign in to [Azure portal](https://portal.azure.com).
 2. In **Virtual Machines**, the VM that has problem. 
-3. In Settings, select Networking. 
-4. In Inbound port rules, check if the port for RDP is set correctly. The following is sample of the configuration. 
+3. In **Settings**, select **Networking**. 
+4. In **Inbound port rules**, check if the port for RDP is set correctly. The following is sample of the configuration. 
 
     **Priority**: 300 </br>
     **Port**: 3389 </br>
