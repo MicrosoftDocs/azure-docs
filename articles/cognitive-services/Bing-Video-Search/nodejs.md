@@ -3,14 +3,14 @@ title: "Quickstart: Bing Video Search API, Node.js"
 titlesuffix: Azure Cognitive Services
 description: Get information and code samples to help you quickly get started using the Bing Video Search API.
 services: cognitive-services
-author: v-jerkin
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: bing-video-search
 ms.topic: quickstart
 ms.date: 9/21/2017
-ms.author: v-jerkin
+ms.author: aahi
 ---
 # Quickstart: Bing Video Search API with Node.js
 
