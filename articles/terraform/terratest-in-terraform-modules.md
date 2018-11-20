@@ -6,7 +6,7 @@ ms.service: terraform
 keywords: terraform, devops, storage account, azure, terratest, unit test, integration test
 author: JunyiYi
 manager: jeconnoc
-ms.author: junyi
+ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/19/2018
 
