@@ -13,68 +13,80 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/08/2018
+ms.date: 11/19/2018
 ms.author: sethm
 ms.reviewer:
 
 ---
 
 
-# Validate Azure registration 
-Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your Azure subscription is ready to use with Azure Stack. Validate registration before you begin an Azure Stack deployment. 
-The readiness checker validates:
+# Validate Azure registration
+ 
+Use the Azure Stack Readiness Checker tool (AzsReadinessChecker) to validate that your Azure subscription is ready to use with Azure Stack. Validate registration before you begin an Azure Stack deployment. The readiness checker validates that:
+
 - The Azure subscription you use is a supported type. Subscriptions must be a Cloud Service Provider (CSP) or Enterprise Agreement (EA). 
 - The account you use to register your subscription with Azure can sign in to Azure and is a subscription owner. 
 
 For more information about Azure Stack registration, see [Register Azure Stack with Azure](azure-stack-registration.md). 
 
 ## Get the readiness checker tool
-Download the latest version of the Azure Stack Readiness Checker tool (AzsReadinessChecker) is available on [PSGallery](https://aka.ms/AzsReadinessChecker).  
+
+Download the latest version of the Azure Stack Readiness Checker tool (AzsReadinessChecker) from the [PowerShell Gallery](https://aka.ms/AzsReadinessChecker).  
 
 ## Prerequisites
-The following prerequisites must be in place.
+
+The following prerequisites must be in place:
 
 **The computer where the tool runs:**
  - Windows 10 or Windows Server 2016, with internet connectivity.
- - PowerShell 5.1 or later. To check your version, run the following PowerShell cmd and then review the *Major* version and *Minor* versions:  
+ - PowerShell 5.1 or later. To check your version, run the following PowerShell cmdlet and then review the *Major* and *Minor* versions:  
 
-    >`$PSVersionTable.PSVersion` 
+    ```powershell
+    $PSVersionTable.PSVersion
+    ``` 
  - Configure [PowerShell for Azure Stack](azure-stack-powershell-install.md). 
- - Download the latest version of [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) tool.  
+ - Download the latest version of the [Microsoft Azure Stack Readiness Checker](https://aka.ms/AzsReadinessChecker) tool.  
 
 **Azure Active Directory environment:**
- - Identify the username and password for an account that is an owner for the Azure subscription you will use with Azure Stack.  
- - Identify the subscription ID for the Azure subscription you will use. 
- - Identify the AzureEnvironment you will use: *AzureCloud*, *AzureGermanCloud*, or *AzureChinaCloud*.
+ - Identify the username and password for an account that is an owner for the Azure subscription to use with Azure Stack.  
+ - Identify the subscription ID for the Azure subscription to use. 
+ - Identify the Azure environment you will use: **AzureCloud**, **AzureGermanCloud**, or **AzureChinaCloud**.
 
 ## Validate Azure registration
+
 1. On a computer that meets the prerequisites, open an administrative PowerShell prompt and then run the following command to install the AzsReadinessChecker.
     > `Install-Module Microsoft.AzureStack.ReadinessChecker -Force`
 
-2. From the PowerShell prompt, run the following to set *$registrationCredential* as the account that is the subscription owner.   Replace *subscriptionowner@contoso.onmicrosoft.com* with your account and tenant. 
-    > `$registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"`
+2. From the PowerShell prompt, run the following to set `$registrationCredential` as the account that is the subscription owner. Replace `subscriptionowner@contoso.onmicrosoft.com` with your account and tenant: 
+   ```powershell
+   $registrationCredential = Get-Credential subscriptionowner@contoso.onmicrosoft.com -Message "Enter Credentials for Subscription Owner"
+   ```
 
-3. From the PowerShell prompt, run the following to set *$subscriptionID* as the Azure subscription you will use. Replace *xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx* with your own subscription ID.  
-     > `$subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"` 
+3. From the PowerShell prompt, run the following to set `$subscriptionID` as the Azure subscription you will use. Replace `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` with your own subscription ID:
+   ```powershell
+   $subscriptionID = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+   ``` 
 
-4. From the PowerShell prompt, run the following to start validation of your subscription 
-   - Specify the value for AzureEnvironment as *AzureCloud*, *AzureGermanCloud*, or *AzureChinaCloud*.  
-   - Provide your Azure Active Directory administrator and your Azure Active Directory Tenant name. 
+4. From the PowerShell prompt, run the following to start validation of your subscription: 
+   - Specify the value for AzureEnvironment as `AzureCloud`, `AzureGermanCloud`, or `AzureChinaCloud`.  
+   - Provide your Azure Active Directory administrator and your Azure Active Directory tenant name. 
 
-   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   ```powershell
+   Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   ```
 
-5. After the tool runs, review the output. Confirm the status is OK for both logon and the registration requirements. A successful validation appears like the following:  
-````PowerShell
-Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
-Checking Registration Requirements: OK
-
-Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
-Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
-Invoke-AzsRegistrationValidation Completed
-````
-
+5. After the tool runs, review the output. Confirm the status is OK for both logon and the registration requirements. A successful validation appears similar to the following example:
+  
+   ```shell
+   Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+   Checking Registration Requirements: OK
+   Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+   Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+   Invoke-AzsRegistrationValidation Completed
+   ```
 
 ## Report and log file
+
 Each time validation runs, it logs results to **AzsReadinessChecker.log** and **AzsReadinessCheckerReport.json**. The location of these files displays with the validation results in PowerShell. 
 
 These files can help you share validation status before you deploy Azure Stack or investigate validation problems. Both files persist the results of each subsequent validation check. The report provides your deployment team confirmation of the identity configuration. The log file can help your deployment or support team investigate validation issues. 
