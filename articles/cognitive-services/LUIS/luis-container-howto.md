@@ -8,37 +8,23 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: diberry
 ---
 
 # Install and run containers
 
-Containerization is an approach to software distribution in which an application or service is packaged, including configuration and dependencies, as a single container image. The container is deployed on a container host with little or no modification. 
-
-The LUIS container allows you to extend beyond current Azure LUIS service transactions per second (TPS) quota.
+Containerization is an approach to software distribution in which an application or service is packaged, including configuration and dependencies, as a single container image. The container is deployed on a container host with little or no modification. Using a Cognitive Service container has [several features and benefits](cognitive-services-container-support.md#features-and-benefits). Additionally, the LUIS container allows you to extend beyond current transactions per second (TPS) limits.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Features of the LUIS container
+## Features
 
 Features of the LUIS container included:
 
-* Load an existing LUIS app's trained or published model 
-* Get prediction queries from the container's endpoint
-* Capture query logs and upload to [LUIS.ai](https://www.luis.ai) to [improve prediction accuracy](luis-concept-review-endpoint-utterances.md) through active learning. 
-
-When using the container, all user utterances sent to the container, stay on the container. Optionally, you can upload the utterance query logs from the container back to the LUIS service for active learning. 
-
-## The container replaces the prediction runtime endpoint
-
-The LUIS container allows you to replace calls to the Azure LUIS runtime service with calls to the container. The API URL is formatted exactly the same, except for the URL host and port.  
-
-|Location|Host URI|
-|--|--|
-|Azure region| GET https://**westus.api.cognitive.microsoft.com**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
-|Container|  GET http://**localhost:5000**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
-
+* Use an existing LUIS app's trained or published model. 
+* Get prediction queries from the container's endpoint.
+* Optionally, capture query logs and upload to [LUIS.ai](https://www.luis.ai) to [improve prediction accuracy](luis-concept-review-endpoint-utterances.md) through active learning.  
 
 ## Prerequisites
 
@@ -183,11 +169,24 @@ http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights
 
 In the preceding URI, replace the `{APPLICATION_ID}` with your own LUIS app's ID. Because this container was started with the ApiKey value of your Azure resource key for LUIS, you do not need to add it to every HTTP request to the container. 
 
-## Using the container's APIs
+## Query the container
 
 When the container is running, the container receives and responds to HTTP REST-based requests for LUIS predictions. The format of the REST-based request is almost exactly the same as a REST-based request to the Azure LUIS service. The only difference is the host URL and port used to make the request. 
 
-### LUIS rest-based APIs on the container
+|Location|Host URI|
+|--|--|
+|Azure region| GET https://**westus.api.cognitive.microsoft.com**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
+|Container|  GET http://**localhost:5000**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
+
+An example CURL command for querying the container is:
+
+```bash
+curl -X GET \
+"http://localhost:5000/luis/v2.0/apps/8c985349-ffef-4a45-9d9f-dcfe5e1af7ee?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
+-H "accept: application/json"
+```
+
+### Container APIs
 
 The container provides two REST-based API endpoints.
 
@@ -196,7 +195,7 @@ The container provides two REST-based API endpoints.
 |LUIS prediction endpoint|Send an user's utterance and receive the prediction for intent, entities, and any other configured settings.|
 |LUIS query log extraction|Upload container's query logs to Azure LUIS service to continuing improving model with [Active Learning](luis-concept-review-endpoint-utterances)|.
 
-### Calling container from an SDK
+### Query container from an SDK
 
 You can either [call the Prediction REST API operations](https://aka.ms/LUIS-endpoint-APIs) available from your container, or use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) to call those operations.  
 
