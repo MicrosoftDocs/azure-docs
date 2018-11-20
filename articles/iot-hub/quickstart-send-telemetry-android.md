@@ -64,7 +64,7 @@ A device must be registered with your IoT hub before it can connect. In this qui
 
     Make a note of the device connection string, which looks like:
 
-   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyNodeDevice;SharedAccessKey={YourSharedAccessKey}`
+   `HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyAndroidDevice;SharedAccessKey={YourSharedAccessKey}`
 
     You use this value later in this quickstart to send telemetry.
 

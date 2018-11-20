@@ -30,6 +30,8 @@
     href: quickstart-control-device-java.md
   - name: Control a device (Python)
     href: quickstart-control-device-python.md
+  - name: Control a device (Android)
+    href: quickstart-control-device-android.md
 - name: Tutorials
   items:
   - name: Routing messages
