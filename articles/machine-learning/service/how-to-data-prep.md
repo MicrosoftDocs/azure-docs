@@ -16,7 +16,7 @@ ms.date: 11/20/2018
  
 In this article, you learn about the use cases and unique features of the Azure Machine Learning Data Prep SDK. Data preparation is the most important part of a machine learning workflow. Real-world data is often broken, inconsistent, or unable to be used as training data without significant cleansing and transformation. Correcting errors and anomalies in raw data, and building new features that are relevant to the problem you're trying to solve, will increase model accuracy.
 
-You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py).
+You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
 ## Azure Machine Learning Data Prep SDK
 
