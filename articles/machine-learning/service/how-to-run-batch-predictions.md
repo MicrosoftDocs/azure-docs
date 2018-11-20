@@ -71,8 +71,8 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 
 Next, setup to use the default datastore for the outputs.
 
-When you create your workspace, an [Azure filestorage](/articles/storage/files/storage-files-introduction) and a [blob storage](/articles/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure file storage is the "default datastore" for a workspace, but you can also use blob storage as a datastore. Learn more about [Azure storage
-options](/articles/storage/common/storage-decide-blobs-files-disks).
+When you create your workspace, an [Azure filestorage](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) and a [blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are attached to the workspace by default. Azure file storage is the "default datastore" for a workspace, but you can also use blob storage as a datastore. Learn more about [Azure storage
+options](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
