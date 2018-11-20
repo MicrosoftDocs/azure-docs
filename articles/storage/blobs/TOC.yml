@@ -655,6 +655,8 @@
         href: ../data-lake-storage/quickstart-create-databricks-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Create an HDInsight cluster
         href: ../data-lake-storage/quickstart-create-connect-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Storage explorer
+        href: storage-data-lake-storage-explorer.md
     - name: Tutorials
       items:
       - name: Extract, transform, and load data using Azure Databricks
@@ -691,6 +693,8 @@
         href: ../data-lake-storage/evaluation.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: How-to guides
       items:
+      - name: Set ACLs using Azure Storage explorer
+        href: storage-how-to-set-acls-storage-explorer.md
       - name: Use Data Lake Storage Gen2 with Azure HDInsight clusters
         href: ../data-lake-storage/use-hdi-cluster.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
       - name: Use Hadoop File System CLI with Data Lake Storage Gen2
