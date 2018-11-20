@@ -16,14 +16,27 @@ ms.author: diberry
 
 Containerization is an approach to software distribution in which an application or service is packaged, including configuration and dependencies, as a single container image. The container is deployed on a container host with little or no modification. 
 
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-The LUIS container allows you to:
+## Features of the LUIS container
 
-* Load an existing LUIS app's model
+Features of the LUIS container included:
+
+* Load an existing LUIS app's trained or published model 
 * Get prediction queries from the container's endpoint
 * Capture query logs and upload to [LUIS.ai](https://www.luis.ai) to [improve prediction accuracy](luis-concept-review-endpoint-utterances.md) through active learning. 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+When using the container, all user utterances sent to the container, stay on the container. Optionally, you can upload the utterance query logs from the container back to the LUIS service for active learning. 
+
+## The container replaces the prediction runtime endpoint
+
+The LUIS container allows you to replace calls to the Azure LUIS runtime service with calls to the container. The API URL is formatted exactly the same, except for the URL host and port.  
+
+|Location|Host URI|
+|--|--|
+|Azure region| GET https://**westus.api.cognitive.microsoft.com**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
+|Container|  GET http://**localhost:5000**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
+
 
 ## Prerequisites
 
@@ -50,21 +63,19 @@ This container supports minimum and recommended values for the following:
 
 The container image is available from the Microsoft Container Registry. To install and run the container, complete the following steps:
 
-1. [Download container images from the container registry](#download-container-images-from-the-container-registry) - `docker pull`
+1. [Download container images from the container registry](#download-container-images-from-the-container-registry) with the `docker pull` command
 1. [Download the LUIS app's package](#download-the-package-LUIS-app) with a REST-based API call
-1. [Run the container](#run-a-container-from-a-downloaded-container-image) - `docker run`
+1. [Run the container](#run-a-container-from-a-downloaded-container-image) with the `docker run` command. 
 
 ## Download container image from the container registry
 
-The container image is available from  `mcr.microsoft.com/azure-cognitive-services/luis`, in the Microsoft Container Registry. The container image for the LUIS container must be downloaded from the repository to run the container.
-
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the repository. For example:
+Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/luis/microsoft/cognitive-services-luis:latest
 ```
 
-TBD: update for LUIS? For a full description of available tags for the LUIS container, see [LUIS]() on Docker Hub.
+For a full description of available tags, such as `latest` used in the preceding command, see [LUIS]() on Docker Hub. [TBD: what is the link?]
 
 > [!TIP]
 > You can use the [docker images](https://docs.docker.com/engine/reference/commandline/images/) command to list your downloaded container images. For example, the following command lists the ID, repository, and tag of each downloaded container image, formatted as a table:
@@ -75,13 +86,13 @@ TBD: update for LUIS? For a full description of available tags for the LUIS cont
 
 ## Download the packaged LUIS app
 
-The LUIS container requires a trained or published LUIS app model. In order to get the LUIS app model, use either the [published](get-a-published-models-package.md) or [trained](get-a-trained-models-package.md) download API. 
+The LUIS container requires a trained or published LUIS app model to answer prediction queries of user utterances. In order to get the LUIS app model, use either the [published](get-a-published-models-package.md) or [trained](get-a-trained-models-package.md) download API. 
 
-The resulting gzip file needs to be in the input location you specify in the `docker run` command. The default location is `input`, a subdirectory to the location from where you run the `docker run` command.  
+The resulting gzip file needs to be in the input location you specify in the `docker run` command. The default location is the `input` subdirectory in relation to where you run the `docker run` command.  
 
 ### Get a published model's package
 
-If you want to use a LUIS application that you've already published on Azure, you can package that application for use with your LUIS container by calling the following REST API method, substituting the appropriate values for the placeholders in the table below the HTTP specification:
+Use the following REST API method, to package a LUIS application that you've already published on Azure. Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
 GET /luis/webapi/v2.0/package/{APPLICATION_ID}/slot/{APPLICATION_ENVIRONMENT}/gzip HTTP/1.1
@@ -96,7 +107,7 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 |{AUTHORING_KEY} | The authoring key of the LUIS account for the published LUIS application.<br/>You can get your authoring key from the **User Settings** page for your LUIS account on the LUIS portal. |
 |{AZURE_REGION} | One of the following values for the appropriate Azure region:<br/>```westus``` - West US<br/>```westeurope``` - West Europe<br/>```australiaeast``` - Australia East |
 
-Use the following CURL command to download the published package:
+Use the following CURL command to download the published package, substituting your:
 
 ```bash
 curl -X GET \
@@ -109,7 +120,7 @@ Remember to save or move the file to the `input` location.
 
 ### Get a trained model's package
 
-If you don't want to publish your LUIS application on Azure, you can download the package for a trained LUIS application for use with your LUIS container by calling the following REST API method, substituting the appropriate values for the placeholders in the table below the HTTP specification:
+Use the following REST API method, to package a LUIS application that you've already published on Azure. Substituting your own appropriate values for the placeholders in the API call, using the table below the HTTP specification.
 
 ```http
 GET /luis/webapi/v2.0/package/{APPLICATION_ID}/versions/{APPLICATION_VERSION}/gzip HTTP/1.1
