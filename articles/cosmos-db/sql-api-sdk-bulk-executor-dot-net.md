@@ -10,7 +10,7 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 09/14/2018
+ms.date: 11/19/2018
 ms.author: ramkris
 
 ---
@@ -43,12 +43,32 @@ ms.author: ramkris
 
 <tr><td>**Get started**</td><td>[Get started with the Bulk Executor library .NET SDK](bulk-executor-dot-net.md)</td></tr>
 
-<tr><td>**Current supported framework**</td><td><ul><li>[Microsoft.Azure.DocumentDB](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/)(version >= 2.0.0)</li><li>
-[Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/)(version >= 9.0.1)
-</li></ul></td></tr>
+<tr><td>**Current supported framework**</td><td>Microsoft .NET Framework 4.5.2 and .NET Standard 2.0 </td></tr>
 </table></br>
 
 ## Release notes
+
+### <a name="2.0.0-preview"/>2.0.0-preview
+
+* Added the support of .NET Standard 2.0 as one of the target framework to make BulkExecutor work with .NET Core applications.
+
+### <a name="1.3.0"/>1.3.0
+
+* Added an overload for BulkDelete operation for SQL API accounts to accept partition key, document id tuples to delete.
+* Added an overload for BulkDelete operation for SQL API accounts to accept RequestOptions containing the partition key to delete.
+* Fixed an issue which caused a formatting issue in the user agent used by BulkExecutor.
+
+### <a name="1.2.0"/>1.2.0
+
+* Fixed an issue which caused BulkExecutor to throw internal exceptions resulting in incomplete import and update operations.
+
+### <a name="1.1.2"/>1.1.2
+
+* Bumped up the DocumentDB .NET SDK dependency to version 2.1.3.
+
+### <a name="1.1.1"/>1.1.1
+
+* Fixed an issue which caused BulkExecutor to throw JSRT error while importing to fixed collections.
 
 ### <a name="1.1.0"/>1.1.0
 
