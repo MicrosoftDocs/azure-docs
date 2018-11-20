@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/19/2018
+ms.date: 11/20/2018
 ms.author: jeedes
 
 ---
@@ -73,7 +73,7 @@ To configure the integration of Ivanti Service Manager (ISM) into Azure AD, you 
 
 4. In the search box, type **Ivanti Service Manager (ISM)**, select **Ivanti Service Manager (ISM)** from result panel then click **Add** button to add the application.
 
-	![Ivanti Service Manager (ISM) in the results list](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_addfromgallery.png)
+	![Ivanti Service Manager (ISM) in the results list](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-addfromgallery.png)
 
 ## Configure and test Azure AD single sign-on
 
@@ -85,7 +85,7 @@ To configure and test Azure AD single sign-on with Ivanti Service Manager (ISM),
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating an Ivanti Service Manager (ISM) test user](#creating-an-ivanti-service-manager-(ism)-test-user)** - to have a counterpart of Britta Simon in Ivanti Service Manager (ISM) that is linked to the Azure AD representation of user.
+3. **[Creating an Ivanti Service Manager (ISM) test user](#creating-an-ivanti-service-manager-ism-test-user)** - to have a counterpart of Britta Simon in Ivanti Service Manager (ISM) that is linked to the Azure AD representation of user.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing single sign-on](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -101,7 +101,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 2. On the **Select a Single sign-on method** dialog, Click **Select** for **SAML** mode to enable single sign-on.
 
-    ![Configure Single Sign-On](common/tutorial_general_301.png)
+    ![Configure Single Sign-On](common/tutorial-general-301.png)
 
 3. On the **Set up Single Sign-On with SAML** page, click **Edit** icon to open **Basic SAML Configuration** dialog.
 
@@ -109,7 +109,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 4. On the **Basic SAML Configuration** section, perform the following steps, if you wish to configure the application in **IDP** initiated mode:
 
-	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_url.png)
+	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-url.png)
 
     a. In the **Identifier** textbox, type a URL using the following pattern:
 	| |
@@ -122,7 +122,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 5. Click **Set additional URLs** and perform the following step if you wish to configure the application in **SP** initiated mode:
 
-	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_url1.png)
+	![Ivanti Service Manager (ISM) Domain and URLs single sign-on information](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-url1.png)
 
     In the **Sign-on URL** textbox, type a URL using the following pattern: `https://<customer>.saasit.com/`
 
@@ -131,7 +131,7 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 6. On the **SAML Signing Certificate** page, in the **SAML Signing Certificate** section, click **Download** to download **Certificate (Raw)** and then save certificate file on your computer.
 
-	![The Certificate download link](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_certificate.png) 
+	![The Certificate download link](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-certificate.png) 
 
 7. On the **Set up Ivanti Service Manager (ISM)** section, copy the appropriate URL as per your requirement.
 
@@ -155,11 +155,11 @@ The objective of this section is to create a test user in the Azure portal calle
 
 2. Select **New user** at the top of the screen.
 
-	![Creating an Azure AD test user](common/create_aaduser_01.png) 
+	![Creating an Azure AD test user](common/create-aaduser-01.png) 
 
 3. In the User properties, perform the following steps.
 
-	![Creating an Azure AD test user](common/create_aaduser_02.png)
+	![Creating an Azure AD test user](common/create-aaduser-02.png)
 
     a. In the **Name** field, enter **BrittaSimon**.
   
@@ -186,7 +186,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Ivanti Service Manager (ISM)**.
 
-	![Configure Single Sign-On](./media/ivantiservicemanager-tutorial/tutorial_ivantiservicemanager_app.png) 
+	![Configure Single Sign-On](./media/ivanti-service-manager-tutorial/tutorial-ivanti-service-manager-app.png) 
 
 3. In the menu on the left, click **Users and groups**.
 
@@ -214,13 +214,13 @@ For more information about the Access Panel, see [Introduction to the Access 
 
 <!--Image references-->
 
-[1]: common/tutorial_general_01.png
-[2]: common/tutorial_general_02.png
-[3]: common/tutorial_general_03.png
-[4]: common/tutorial_general_04.png
+[1]: common/tutorial-general-01.png
+[2]: common/tutorial-general-02.png
+[3]: common/tutorial-general-03.png
+[4]: common/tutorial-general-04.png
 
-[100]: common/tutorial_general_100.png
+[100]: common/tutorial-general-100.png
 
-[201]: common/tutorial_general_201.png
-[202]: common/tutorial_general_202.png
-[203]: common/tutorial_general_203.png
+[201]: common/tutorial-general-201.png
+[202]: common/tutorial-general-202.png
+[203]: common/tutorial-general-203.png
