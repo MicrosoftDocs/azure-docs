@@ -12,56 +12,64 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
+ms.date: 11/16/2018
 ms.author: cwatson
 ---
 # Understand Azure Enterprise Agreement administrative roles in Azure
 
-To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) have three distinct administrative roles:
+To help manage your organization's usage and spend, Azure customers with an Enterprise Agreement (EA) can assign five distinct administrative roles:
 
 - Enterprise Administrator
+- Enterprise Administrator (read only)
 - Department Administrator
+- Department Administrator (read only)
 - Account Owner
  
-These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Build-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
+These roles are specific to managing Azure Enterprise Agreements and are in addition to the built-in roles Azure has to control access to resources. For more information, see [Built-in roles for Azure resources](../role-based-access-control/built-in-roles.md).
 
-The following sections describe the user limits for each role, and the tasks the roles have permissions to do. For all the tasks, Enterprise Administrators and Department Administrators may be granted read-only access.
+The following sections describe the limitations and capabilities of each role.
 
 ## User limit for admin roles
 
 |Role| User limit|
 |---|---|
 |Enterprise Administrator|Unlimited|
+|Enterprise Administrator (read only)|Unlimited|
 |Department Administrator|Unlimited|
+|Department Administrator (read only)|Unlimited|
 |Account Owner|1 per account<sup>1</sup>|
 
 <sup>1</sup> Each account requires a unique Microsoft account, or work or school account.
 
 ## Organization structure and permissions by role
 
-|Tasks| Enterprise Administrator|Department Administrator|Account Owner|
-|---|---|---|---|
-|View, add, or remove Enterprise Administrators|✔|✘|✘|
-|View, add, or remove  Notification Contacts<sup>2</sup> |✔|✘|✘|
-|View, add, or remove Department Administrators|✔|✔|✘|
-|View, add, or remove  Account Owners|✔|✔|✘|
-|Manage subscription permissions including role-based access control|✘|✘|✔|
-|Create or cancel subscriptions|✘|✘|✔|
+|Tasks| Enterprise Administrator|Enterprise Administrator (read only)|Department Administrator|Department Administrator (read only)|Account Owner|
+|---|---|---|---|---|---|
+|View, add, or remove Enterprise Administrators|✔|✔<sup>2</sup>|✘|✘|✘|
+|View, add, or remove Notification Contacts<sup>4</sup> |✔|✔<sup>2</sup>|✘|✘|✘|
+|Create and manage Departments |✔|✘|✘|✘|✘|
+|View, add, or remove Department Administrators|✔|✔<sup>2</sup>|✔|✔<sup>2</sup>|✘|
+|View Accounts in the enrollment |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
+|Add Accounts to the enrollment & change Account Owner|✔|✘|✔<sup>3</sup>|✘|✘|
+|View subscriptions in your scope |✔|✔|✔|✔|✔|
+|Create and manage subscriptions & subscription permissions|✘|✘|✘|✘|✔|
 
-<sup>2</sup> Notification contacts are sent all the email communications about the Azure Enterprise Agreement.
+<sup>2</sup> View only.
+<sup>3</sup> Department scope only.
+<sup>4</sup> Notification contacts are sent all the email communications about the Azure Enterprise Agreement.
 
 ## Usage and costs access by role
 
 |Tasks| Enterprise Administrator|Department Administrator|Account Owner|
 |---|---|---|---|
 |View credit balance including monetary commitment|✔|✘|✘|
-|Set department spending limits|✔|✘|✘|
+|Set and view department spending limits|✔|✘|✘|
 |View organization's EA price sheet|✔|✘|✘|
-|View usage and cost details|✔|✔<sup>3</sup>|✔<sup>4</sup>|
+|View usage and cost details|✔|✔<sup>5</sup>|✔<sup>6</sup>|
 |Manage resources in Azure portal|✘|✘|✔|
 
-- <sup>3</sup> Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
-- <sup>4</sup> Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
+- <sup>5</sup> Requires that the Enterprise Administrator enable **DA view charges** policy in the Enterprise portal. The Department Administrator can then see cost details for the department.
+- <sup>6</sup> Requires that the Enterprise Administrator enable **AO view charges** policy in the Enterprise portal. The Account Owner can then see cost details for the account.
 
 
 ## Pricing in Azure portal
@@ -78,7 +86,7 @@ The following table shows the relationship between the Enterprise Agreement admi
 |Enterprise Agreement admin role|View charges policy for role|RBAC role|Pricing view|
 |---|---|---|---|
 |Account Owner OR Department Admin|✔ Enabled|Owner|Organization's EA pricing|
-|Account Owner OR Department Admin|✘ Disabled|Owner|No pricing|
+|Account Owner OR Department Admin|✘ Disabled|Owner|Retail pricing|
 |Account Owner OR Department Admin|✔ Enabled |none|No pricing|
 |Account Owner OR Department Admin|✘ Disabled |none|No pricing|
 |None|Not applicable |Owner|Retail pricing|
