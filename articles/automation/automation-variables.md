@@ -86,22 +86,25 @@ The [New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-Az
 
 The following sample commands show how to create a variable of type string and then return its value.
 
-	New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
-    –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
-    –Encrypted $false –Value 'My String'
-	$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
+```azurepowershell-interactive
+New-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" 
+–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable' `
+–Encrypted $false –Value 'My String'
+$string = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
+```
 
 The following sample commands show how to create a variable with a complex type and then return its properties. In this case, a virtual machine object from **Get-AzureRmVm** is used.
 
-	$vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
-	New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
-	
-	$vmValue = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
-    –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
-	$vmName = $vmValue.Name
-	$vmIpAddress = $vmValue.IpAddress
+```azurepowershell-interactive
+$vm = Get-AzureRmVm -ResourceGroupName "ResourceGroup01" –Name "VM01"
+New-AzureRmAutomationVariable –AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable" –Encrypted $false –Value $vm
 
+$vmValue = (Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" `
+–AutomationAccountName "MyAutomationAccount" –Name "MyComplexVariable").Value
+$vmName = $vmValue.Name
+$vmIpAddress = $vmValue.IpAddress
+```
 
 
 ## Using a variable in a runbook or DSC configuration
@@ -115,70 +118,80 @@ Use the **Set-AutomationVariable** activity to set the value of an Automation va
 
 The following sample commands show how to set and retrieve a variable in a textual runbook. In this sample, it is assumed that variables of type integer named *NumberOfIterations* and *NumberOfRunnings* and a variable of type string named *SampleMessage* have already been created.
 
-	$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
-	$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
-	$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
-	
-	Write-Output "Runbook has been run $NumberOfRunnings times."
-	
-	for ($i = 1; $i -le $NumberOfIterations; $i++) {
-	   Write-Output "$i`: $SampleMessage"
-	}
-	Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+```azurepowershell-interactive
+$NumberOfIterations = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfIterations'
+$NumberOfRunnings = Get-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" -Name 'NumberOfRunnings'
+$SampleMessage = Get-AutomationVariable -Name 'SampleMessage'
+
+Write-Output "Runbook has been run $NumberOfRunnings times."
+
+for ($i = 1; $i -le $NumberOfIterations; $i++) {
+	Write-Output "$i`: $SampleMessage"
+}
+Set-AzureRmAutomationVariable -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAccount" –Name NumberOfRunnings –Value ($NumberOfRunnings += 1)
+```
 
 #### Setting and retrieving a complex object in a variable
 
 The following sample code shows how to update a variable with a complex value in a textual runbook. In this sample, an Azure virtual machine is retrieved with **Get-AzureVM** and saved to an existing Automation variable.  As explained in [Variable types](#variable-types), this is stored as a PSCustomObject.
 
-    $vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
-    Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
+```azurepowershell-interactive
+$vm = Get-AzureVM -ServiceName "MyVM" -Name "MyVM"
+Set-AutomationVariable -Name "MyComplexVariable" -Value $vm
+```
 
 In the following code, the value is retrieved from the variable and used to start the virtual machine.
 
-    $vmObject = Get-AutomationVariable -Name "MyComplexVariable"
-    if ($vmObject.PowerState -eq 'Stopped') {
-       Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
-    }
-
+```azurepowershell-interactive
+$vmObject = Get-AutomationVariable -Name "MyComplexVariable"
+if ($vmObject.PowerState -eq 'Stopped') {
+	Start-AzureVM -ServiceName $vmObject.ServiceName -Name $vmObject.Name
+}
+```
 
 #### Setting and retrieving a collection in a variable
 
 The following sample code shows how to use a variable with a collection of complex values in a textual runbook. In this sample, multiple Azure virtual machines are retrieved with **Get-AzureVM** and saved to an existing Automation variable. As explained in [Variable types](#variable-types), this is stored as a collection of PSCustomObjects.
 
-    $vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
-    Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
+```azurepowershell-interactive
+$vms = Get-AzureVM | Where -FilterScript {$_.Name -match "my"}     
+Set-AutomationVariable -Name 'MyComplexVariable' -Value $vms
+```
 
 In the following code, the collection is retrieved from the variable and used to start each virtual machine.
 
-    $vmValues = Get-AutomationVariable -Name "MyComplexVariable"
-    ForEach ($vmValue in $vmValues)
-    {
-       if ($vmValue.PowerState -eq 'Stopped') {
-          Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
-       }
-    }
-    
+```azurepowershell-interactive
+$vmValues = Get-AutomationVariable -Name "MyComplexVariable"
+ForEach ($vmValue in $vmValues)
+{
+	if ($vmValue.PowerState -eq 'Stopped') {
+		Start-AzureVM -ServiceName $vmValue.ServiceName -Name $vmValue.Name
+	}
+}
+```
+
 #### Setting and retrieving a variable in Python2
 The following sample code shows how to use a variable, set a variable, and handle an exception for a non-existent variable in a Python2 runbook.
 
-	import automationassets
-	from automationassets import AutomationAssetNotFound
+```python
+import automationassets
+from automationassets import AutomationAssetNotFound
 
-	# get a variable
-	value = automationassets.get_automation_variable("test-variable")
-	print value
+# get a variable
+value = automationassets.get_automation_variable("test-variable")
+print value
 
-	# set a variable (value can be int/bool/string)
-	automationassets.set_automation_variable("test-variable", True)
-	automationassets.set_automation_variable("test-variable", 4)
-	automationassets.set_automation_variable("test-variable", "test-string")
+# set a variable (value can be int/bool/string)
+automationassets.set_automation_variable("test-variable", True)
+automationassets.set_automation_variable("test-variable", 4)
+automationassets.set_automation_variable("test-variable", "test-string")
 
-	# handle a non-existent variable exception
-	try:
-	    value = automationassets.get_automation_variable("non-existing variable")
-	except AutomationAssetNotFound:
-	    print "variable not found"
-
+# handle a non-existent variable exception
+try:
+	value = automationassets.get_automation_variable("non-existing variable")
+except AutomationAssetNotFound:
+	print "variable not found"
+```
 
 ### Graphical runbook samples
 
