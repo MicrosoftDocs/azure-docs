@@ -120,12 +120,14 @@
       href: how-to-troubleshoot-deployment.md 
     - name: Secure with SSL
       href: how-to-secure-web-service.md  
-    - name: Consume a deployed model
+  - name: Consume web services
+    items:  
+    - name: Consume in real-time
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
-  - name: Monitor models
+  - name: Monitor web services
     items:  
-    - name: Collect data in production  
+    - name: Collect and evaluate data 
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
