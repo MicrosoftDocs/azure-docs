@@ -3,7 +3,7 @@ documentType: LandingData
 title: Azure SQL Database Managed Instance
 metadata:
   document_id: 36d89c48-3646-380e-34a0-ae3ac62e2641
-  title: Azure SQL Database Documentation - Tutorials, API Reference
+  title: Azure SQL Database Managed Instance Documentation - Tutorials, API Reference
   meta.description: Learn how to use Azure SQL Database Managed Instance.
   services: sql-database
   author: jovanpop-msft
@@ -15,7 +15,7 @@ metadata:
   ms.date: 11/11/2018
   ms.author: jovanpop-msft
 abstract:
-  description: Azure SQL Database Managed Instance is a fully managed SQL Server Database Engine Instance hosted in Azure cloud. This is the best PaaS option for migrating your SQL Server database to cloud. Learn how to create and use Managed Instance with our quickstarts, tutorials, and samples.
+  description: Azure SQL Database Managed Instance is a fully managed SQL Server Database Engine Instance hosted in Azure cloud. This is the best PaaS option for migrating your SQL Server database to the cloud. Learn how to create and use Managed Instance with our quickstarts, tutorials, and samples.
   aside:
     image:
       alt: 
@@ -40,7 +40,7 @@ sections:
         href: /azure/sql-database/sql-database-managed-instance#sql-features-supported
         html: <p>Near 100% SQL feature compatibility with the latest version of SQL Server Database Engine.</p>
       - title: VNet Integration
-        href: /azure/sql-database/sql-database-service-tiers
+        href: /azure/sql-database/sql-database-managed-instance-vnet-configuration
         html: <p>Secure service placed in your private Azure VNet with private IP addresses.</p>
       - title: Easy Migration
         href: /azure/sql-database/sql-database-managed-instance-get-started-restore
@@ -52,13 +52,13 @@ sections:
         href: https://azure.microsoft.com/pricing/hybrid-benefit/
         html: <p>Save up to 40% with Azure Hybrid Benefit (AHB) with your existing on-premises licences.</p>
       - title: PaaS capabilities
-        href: /azure/sql-database/sql-database-technical-overview#availability-capabilities
+        href: /azure/sql-database/sql-database-paas
         html: <p>Azure PaaS enables you to use 99.99% available instance with minimal management.</p>
       - title: Service tiers
         href: /azure/sql-database/sql-database-high-availability
         html: <p>Choose between General Purpose and Business Critical service tiers depending on your business needs.</p>
       - title: Advanced security
-        href: /azure/sql-database/sql-database-technical-overview#advanced-security-and-compliance
+        href: /azure/sql-database/sql-database-security-index
         html: <p>Secure your instance and databases with built-in Azure SQL database security features.<p>
 - title: 5-Minute Quickstarts
   items:
@@ -118,7 +118,7 @@ sections:
     - html: Verify that your database can be migrated using <a href="https://www.microsoft.com/download/details.aspx?id=53595">Data Migration Asisstant</a> or <a href="https://blogs.msdn.microsoft.com/datamigration/2018/08/06/release-database-experimentation-assistant-dea-v2-6/">Database Experimentation Assistant</a>.
     - html: Bring your databases to Managed Instance using <a href="/azure/sql-database/sql-database-managed-instance-get-started-restore">Native restore</a> or <a href="/azure/dms/tutorial-sql-server-managed-instance-online">Data Migration Service</a>.
     - html: Move your SSIS packages to <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure Data Factory</a>, SSAS tabular models to <a href="https://azure.microsoft.com/resources/videos/azure-analysis-services-moving-models/">Azure Analysis Service</a>, and SSRS reports to <a href="https://docs.microsoft.com/business-applications-release-notes/april18/power-bi/service/sql-server-reporting-services-ssrs-reports-power-bi-premium">PowerBI Premium</a>.
-    - html: Best practices and recommendations for <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">securing your instance</a>.
+    - html: Find the best practices and recommendations for <a href="https://www.youtube.com/watch?v=vO6k05Ox1iI">securing your instance</a>.
     - html: Distribute your data using <a href="/azure/sql-database/replication-with-sql-database-managed-instance">Transactional replication</a>.
 - title: Reference
   items:
