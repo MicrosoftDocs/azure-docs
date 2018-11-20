@@ -38,4 +38,4 @@ Currently, there is an overlap between features offered by the [Video Indexer v2
 
 [Video Indexer overview](video-indexer-overview.md)
 
-[Media Services v3 overview](media-services-overview.md)
+[Media Services v3 overview](../latest/media-services-overview.md)
