@@ -25,21 +25,21 @@ Red Hat Enterprise Linux (RHEL) Pay-As-You-Go (PAYG) images come preconfigured t
 ## Important information about Azure RHUI
 * Azure RHUI currently supports only the latest minor release in each RHEL family (RHEL6 or RHEL7). To upgrade an RHEL VM instance connected to RHUI to the latest minor version, run `sudo yum update`.
 
-    For example, if you provision a VM from an RHEL 7.2 PAYG image and run `sudo yum update`, you end up with an RHEL 7.5 VM (the latest minor version in the RHEL7 family).
+    For example, if you provision a VM from an RHEL 7.2 PAYG image and run `sudo yum update`, you end up with an RHEL 7.6 VM (the latest minor version in the RHEL7 family).
 
     To avoid this behavior, you need to build your own image as described in the [Create and upload a Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article. Then you need to connect it to a different update infrastructure ([directly to Red Hat content delivery servers](https://access.redhat.com/solutions/253273) or a [Red Hat Satellite server](https://access.redhat.com/products/red-hat-satellite)).
 
 * Access to the Azure-hosted RHUI is included in the RHEL PAYG image price. If you unregister a PAYG RHEL VM from the Azure-hosted RHUI that does not convert the virtual machine into a bring-your-own-license (BYOL) type of VM. If you register the same VM with another source of updates, you might incur _indirect_ double charges. You're charged the first time for the Azure RHEL software fee. You're charged the second time for Red Hat subscriptions that were purchased previously. If you consistently need to use an update infrastructure other than Azure-hosted RHUI, consider creating and deploying your own (BYOL-type) images. This process is described in [Create and upload a Red Hat-based virtual machine for Azure](redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-* Two classes of RHEL PAYG images in Azure (RHEL for SAP HANA and RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification. 
+* Two classes of RHEL PAYG images in Azure (RHEL for SAP HANA and RHEL for SAP Business Applications) are connected to dedicated RHUI channels that remain on the specific RHEL minor version as required for SAP certification.
 
 * Access to Azure-hosted RHUI is limited to the VMs within the [Azure datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653). If you're proxying all VM traffic via an on-premises network infrastructure, you might need to set up user-defined routes for the RHEL PAYG VMs to access the Azure RHUI.
 
 ### The IPs for the RHUI content delivery servers
 
-RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Microsoft Azure Germany regions. 
+RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government, and Microsoft Azure Germany regions.
 
-If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on the environment you're in: 
+If you're using a network configuration to further restrict access from RHEL PAYG VMs, make sure the following IPs are allowed for `yum update` to work depending on the environment you're in:
 
 ```
 # Azure Global
@@ -59,9 +59,11 @@ If you're using a network configuration to further restrict access from RHEL PAY
 
 ## RHUI Azure infrastructure update
 
+In November 2018, we deployed an updated Azure RHUI for RHEL 8 beta images. Currently the new RHUI is deployed in only one region - West US. If you are using a RHEL 8 beta image, you may notice some network latency depending on your VM's location and proximity to West US. More RHUI servers will be deployed to mitigate this.
+
 In September 2016, we deployed an updated Azure RHUI. In April 2017, we shut down the old Azure RHUI. If you have been using the RHEL PAYG images (or their snapshots) from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
 
-The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, a single endpoint (rhui-1.microsoft.com) can be used by any VM, regardless of region. 
+The new Azure RHUI servers are deployed with [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/). In Traffic Manager, a single endpoint (rhui-1.microsoft.com) can be used by any VM, regardless of region.
 
 ### Troubleshoot connection problems to Azure RHUI
 If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM, follow these steps:
@@ -73,7 +75,7 @@ If you experience problems connecting to Azure RHUI from your Azure RHEL PAYG VM
     b. If it points to a location with the following pattern, `mirrorlist.*cds[1-4].cloudapp.net`, a configuration update is required. You're using the old VM snapshot, and you need to update it to point to the new Azure RHUI.
 
 1. Access to Azure-hosted RHUI is limited to VMs within the [Azure datacenter IP ranges] (https://www.microsoft.com/download/details.aspx?id=41653).
- 
+
 1. If you're using the new configuration, have verified that the VM connects from the Azure IP range, and still can't connect to Azure RHUI, file a support case with Microsoft or Red Hat.
 
 ### Manual update procedure to use the Azure RHUI servers
@@ -82,7 +84,7 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 1. Download the public key signature via curl.
 
    ```bash
-   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
+   curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc
    ```
 
 1. Verify the validity of the downloaded key.
@@ -123,20 +125,20 @@ This procedure is provided for reference only. RHEL PAYG images already have the
    ```
 
 1. Download, verify, and install a client RPM Package Manager (RPM).
-    
+
     >[!NOTE]
     >Package versions change. If you manually connect to Azure RHUI, you can find the latest version of the client package for each RHEL family by provisioning the latest image from the gallery.
-  
-   a. Download. 
-   
+
+   a. Download.
+
     - For RHEL 6:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm 
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.1-32.noarch.rpm
         ```
-    
+
     - For RHEL 7:
         ```bash
-        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm  
+        curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.1-19.noarch.rpm
         ```
 
    b. Verify.
@@ -164,4 +166,4 @@ This procedure is provided for reference only. RHEL PAYG images already have the
 1. After you finish, verify that you can access Azure RHUI from the VM.
 
 ## Next steps
-To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/). 
+To create a Red Hat Enterprise Linux VM from an Azure Marketplace PAYG image and to use Azure-hosted RHUI, go to the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/redhat/).
