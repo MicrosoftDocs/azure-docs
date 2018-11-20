@@ -18,7 +18,7 @@ Follow these steps to connect to the storage account and verify the connection.
 
 3. Paste your **Account name** and **Account key** (key 1 value from the **Connect and copy** page in the local web UI). Select Storage endpoints domain as **Other (enter below)** and then provide the blob service endpoint as shown below. Check **Use HTTP** option only if transferring over *http*. If using *https*, leave the option unchecked. Select **Next**.
 
-    ![Data Box dashboard](media/data-box-verify-connection/data-box-connect-via-rest-10.png)    
+    ![Data Box dashboard](media/data-box-verify-connection/data-box-connect-via-rest-11.png)    
 
 4. In the **Connection Summary** dialog, review the provided information. Select **Connect**.
 
