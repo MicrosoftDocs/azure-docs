@@ -1,6 +1,6 @@
 ---
-title: Shaping events with The Time Series Insights Update | Microsoft Docs
-description: Understanding how to shape events with The Time Series Insights Update
+title: How to diagnose and troubleshoot with The Time Series Insights Update | Microsoft Docs
+description: Understanding how to diagnose and troubleshoot with The Time Series Insights Update
 author: kingdomofends
 manager: cshankar
 ms.service: time-series-insights

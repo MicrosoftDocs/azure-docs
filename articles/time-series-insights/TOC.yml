@@ -37,6 +37,8 @@
       items:
       - name: Data Storage and ingress
         href: time-series-insights-storage-ingress.md
+      - name: Plan your environment
+        href: time-series-insights-plan-environment.md
     - name: Develop
       items:
       - name: Authenticate and authorize

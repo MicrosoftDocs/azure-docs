@@ -27,7 +27,7 @@ It's important to think about how you send events to Time Series Insights. Namel
 The following guidance helps ensure the best possible query performance:
 
 1. Don't send unnecessary properties. TSI Update will bill you on your usage and it is a best practice to store and process data that you will query.
-1. Use Time Series Instances for static data to avoid sending static data over the network. To learn   more about Time Series Instances click <here>((Update Link))
+1. Use Time Series Instances for static data to avoid sending static data over the network. To learn more about Time Series Instances click <here>((Update Link))
 1. Share dimension properties among multiple events, to send data over the network more efficiently.
 1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed.
@@ -40,7 +40,7 @@ In the following example, there is a single IoT Hub message, where the outer arr
 
 Example JSON payload:
 
-```JSON 
+```JSON
 [
     {
         "deviceId": "FXXX",
