@@ -1,7 +1,7 @@
 ---
 title: Data storage and ingress in The Azure Time Series Insights Update | Microsoft Docs
 description: Understanding data storage and ingress in The Azure Time Series Insights Update
-author: ashannon7
+author: ashannon7, kingdomofends
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
@@ -86,7 +86,6 @@ If you are uploading historical data or batch messages, you should designate the
 
 A physical partition is a block blob stored in Azure storage. The actual size of the blobs will vary as it depends on the push rate, however we expect blobs to be approximately 20-50 MB in size. Because of this the Time Series Insights team selected 20MB to be the size to optimize query performance. This could change over time based on file size and the velocity of data ingress.
 Note - Azure blobs are occasionally repartitioned for better performance by being dropped and recreated. The same Times Series Insights data can be present in multiple blobs.
-
 ## Logical partition
 
 A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. Time Series Insights update will logically partition each blob based on two properties:
