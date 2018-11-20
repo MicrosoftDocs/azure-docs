@@ -394,7 +394,7 @@ The client application then uses the SAS with **TableServiceWithSAS** to perform
 article for the format of tableSAS. 
 
 ```nodejs
-## Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
+// Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
 
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 var query = azure.TableQuery()
