@@ -41,7 +41,7 @@ Download| [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 
 ### Fixed issues
 
-This Hotfix build fixes a regression in the previous build where Password Writeback fails when using an ADDS Domain Controller on Windows Server 2008/R2
+This hotfix build fixes a regression in the previous build where Password Writeback fails when using an ADDS Domain Controller on Windows Server 2008/R2.
 
 ## 1.2.65.0 
 
