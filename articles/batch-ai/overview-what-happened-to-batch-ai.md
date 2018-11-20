@@ -3,8 +3,6 @@ title: What's happening to Azure Batch AI? | Microsoft Docs
 description: Learn about what's happening to Azure Batch AI, how it is being replaced with Azure Machine Learning, and what the timeline is.
 services: batch-ai
 author: garyericson
-manager: cgronlund
-editor: cgronlund
 
 ms.service: batch-ai
 ms.topic: overview
@@ -14,11 +12,7 @@ ms.author: garye
 
 # What's happening to Azure Batch AI?
 
-We recently released **Azure Machine Learning Compute** *(link)* which allows you to (***insert brief value statement of replacement service/feature***). Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on June 28, 2019.
-
-In addition to the Batch AI features you’re already familiar with, Azure Machine Learning Compute also includes:
-
-***list brief value statement(s)***
+We recently released **Azure Machine Learning Compute** which provides you with a cloud-based compute target for developing machine learning models. Because this service will fully replace the existing Azure Batch AI capabilities, Batch AI will be retired on June 28, 2019.
 
 ## How does this affect me?
 
@@ -26,9 +20,7 @@ Beginning December 4, 2018, we will no longer make updates to Batch AI. After th
 
 By the end of March 2019, we expect to have full feature parity between Batch AI and Azure Machine Learning.
 
-***(this is what I got from meeting notes/email, but it seems odd for subscriptions to die before we're at full parity)***
-
-On June 28, 2019, the Azure Batch AI service will be retired and no longer be available. Existing subscriptions will... ***(what happens to them on this date?)***
+On June 28, 2019, the Azure Batch AI service will be retired and no longer be available. Existing subscriptions will... ***[what happens?]***
 
 ## What do I need to do to prepare for this change?
 
