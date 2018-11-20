@@ -4,12 +4,11 @@ description: Four criteria your data needs to meet to be ready for data science.
 keywords: relevant data,evaluate data,prepare data,data criteria,data ready
 services: machine-learning
 documentationcenter: na
-author: heatherbshapiro
-ms.custom: (previous ms.author=hshapiro)
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund
-
 ms.assetid: d502062c-da70-4b21-9054-0bfd9902612e
 ms.service: machine-learning
 ms.component: studio
@@ -18,7 +17,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2018
-
 ---
 # Is your data ready for data science?
 ## Video 2: Data Science for Beginners series
