@@ -5,7 +5,7 @@
  author: tfitzmac
  ms.service: azure-resource-manager
  ms.topic: include
- ms.date: 03/13/2018
+ ms.date: 11/20/2018
  ms.author: tomfitz
  ms.custom: include file
 ---
@@ -24,3 +24,4 @@ The following limitations apply to tags:
 * Tags applied to the resource group are not inherited by the resources in that resource group.
 * Tags can't be applied to classic resources such as Cloud Services.
 * Tag names can't contain these characters: `<`, `>`, `%`, `&`, `\`, `?`, `/`
+* Not all resource types support tags. To determine if you can apply a tag to a resource type, see [Tag support for Azure resources](../articles/azure-resource-manager/tag-support.md).
