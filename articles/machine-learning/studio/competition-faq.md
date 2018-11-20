@@ -3,11 +3,11 @@ title: Cortana Intelligence Competitions FAQ | Microsoft Docs
 description: Frequently asked questions about Microsoft Cortana Intelligence Competitions.
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: "(previous ms.author=haining, author=hning86)"
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
-
 ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-
 ---
 # Microsoft Cortana Intelligence Competitions FAQ
 **What is Cortana Intelligence Competitions?**

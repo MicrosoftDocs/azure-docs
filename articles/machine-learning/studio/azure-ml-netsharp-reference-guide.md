@@ -3,11 +3,11 @@ title: Net# Neural Networks Specification Language Guide - Azure Machine Learnin
 description: Syntax for the Net# neural networks specification language, together with examples of how to create a custom neural network model using Net#
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: cfd1454b-47df-4745-b064-ce5f9b3be303
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
 ms.date: 03/01/2018
-
 ---
 # Guide to Net# neural network specification language for Azure Machine Learning
 

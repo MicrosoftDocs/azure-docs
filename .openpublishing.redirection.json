@@ -387,6 +387,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/indexing-policy.md",
+            "redirect_url": "/azure/cosmos-db/index-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
             "redirect_url": "/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": true
@@ -399,6 +404,11 @@
         {
             "source_path": "articles/cosmos-db/distribute-data-globally-turnkey.md",
             "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query.md",
+            "redirect_url": "/azure/cosmos-db/how-to-sql-query",
             "redirect_document_id": false
         },
         {
@@ -7947,6 +7957,11 @@
         {
             "source_path": "articles/jenkins/azure-container-agents-plugin-run-container-as-an-agent.md",
             "redirect_url": "/azure/container-instances/container-instances-jenkins",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/jenkins/java-deploy-webapp-tutorial.md",
+            "redirect_url": "/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service",
             "redirect_document_id": false
         },
         {
@@ -23802,6 +23817,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/marketplace/billing-options-azure-marketplace.md",
+            "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/marketplace/marketplace-what-is-appsource.md",
             "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
             "redirect_document_id": false
@@ -30577,6 +30597,31 @@
             "redirect_document_id" : false
         },
         {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-go.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/go#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-java.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/java#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-nodejs.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/nodejs#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-python.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/python#Update",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
             "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
             "redirect_document_id" : false
@@ -30720,6 +30765,42 @@
             "source_path":  "articles/monitoring/monitoring-vminsights-optout.md",
             "redirect_url":  "/azure/azure-monitor/insights/vminsights-optout",
             "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-data-sources.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-data-collection.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-collection",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-overview-azure-agents.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agents-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-runbook-datacollect.md",
+            "redirect_url":  "/azure/azure-monitor/platform/runbook-datacollect",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map-configure.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map-configure",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map-scom.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map-scom",
+            "redirect_document_id":  "false"
         }
     ]
 }
+https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/csharp#Update

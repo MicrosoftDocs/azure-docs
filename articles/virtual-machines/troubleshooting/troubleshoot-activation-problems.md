@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
 ---
 
@@ -25,7 +25,7 @@ If you have trouble when activating Azure Windows virtual machine (VM) that is c
 Azure uses different endpoints for KMS activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
 
 * Azure public cloud regions: kms.core.windows.net:1688
-* Azure China national cloud regions: kms.core.chinacloudapi.cn:1688
+* Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
 * Azure Germany national cloud regions: kms.core.cloudapi.de:1688
 * Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
@@ -80,8 +80,7 @@ This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automat
 3. Make sure that the VM is configured to use the correct Azure KMS server. To do this, run the following command:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     The command should return: Key Management Service machine name set to kms.core.windows.net:1688 successfully.
 

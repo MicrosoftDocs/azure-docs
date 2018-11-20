@@ -1,3 +1,10 @@
+---
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: genemi
+---
 
 <!-- sql-database-connect-query-prerequisites-server-connection-info-includes.md 
 
