@@ -59,7 +59,7 @@ If you're using a network configuration to further restrict access from RHEL PAY
 
 ## RHUI Azure infrastructure update
 
-In November 2018, we deployed an updated Azure RHUI for RHEL 8 beta images. Currently the new RHUI is deployed in only one region - West US. If you are using a RHEL 8 beta image, you may notice some network latency depending on your VM's location and proximity to West US. More RHUI servers will be deployed to mitigate this.
+In November 2018, we deployed an updated Azure RHUI for RHEL 8 beta images. Currently the new RHUI is deployed in only one region - West US. If you are using a RHEL 8 beta image, you may notice some network latency depending on your VM's location and proximity to West US. More RHUI servers will be deployed in the near future to mitigate this, and this document will be updated acordingly.
 
 In September 2016, we deployed an updated Azure RHUI. In April 2017, we shut down the old Azure RHUI. If you have been using the RHEL PAYG images (or their snapshots) from September 2016 or later, you're automatically connecting to the new Azure RHUI. If, however, you have older snapshots on your VMs, you need to manually update their configuration to access the Azure RHUI as described in a following section.
 
