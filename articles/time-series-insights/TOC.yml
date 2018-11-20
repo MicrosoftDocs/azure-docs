@@ -68,7 +68,11 @@
   - name: Manage resources using templates
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
   - name: Shape JSON for queries
-    href: how-to-shape-query-json.md     
+    href: how-to-shape-query-json.md
+  - name: Azure Time Series Insights Update
+    items:
+      - name: Shaping events
+        href: time-series-insights-shaping-json.md
 - name: Reference
   items:
   - name: Query API
