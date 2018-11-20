@@ -184,7 +184,7 @@ Here is an example of a configuration with the counter for the *Total Processor 
         "PerformanceCounterConfiguration": "[concat(variables ('processorTimeCounters'), variables('gcTimeCounters'),  variables('machineCounters'))]"
       },
 ....
- ```
+```
 
  >[!NOTE]
  >Though you can use `*` to specify groups of performance counters that are named similarly, sending any counters via a sink (to Application Insights) requires that they are individually declared. 
