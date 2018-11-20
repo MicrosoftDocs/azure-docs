@@ -96,7 +96,7 @@ The following is the **Request body** example that defines the presentationTimeR
 
 ## Create account filters
 
-For details on how to create or update account filters, see [Create or update](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/en-us/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
+For details on how to create or update account filters, see [Create or update](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate). Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/accountfilters/createorupdate#create_an_account_filter).
 
 If you followed [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md), check out **Account Filters** defined in the "Media Services v3" Postman collection.
 
