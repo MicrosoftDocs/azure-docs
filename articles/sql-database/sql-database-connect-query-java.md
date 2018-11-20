@@ -41,11 +41,8 @@ To complete this sample, make sure you have the following prerequisites:
 1. From the terminal, create a new Maven project called *sqltest*.
 
     ```bash
-    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" ^
-        "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
+    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=sqltest" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0" --batch-mode
     ```
-
-1. Enter **Y** when prompted.
 
 1. Change directory to *sqltest* and open *pom.xml* with your favorite text editor. Add the **Microsoft JDBC Driver for SQL Server** to your project's dependencies using the following code.
 
@@ -53,7 +50,7 @@ To complete this sample, make sure you have the following prerequisites:
     <dependency>
         <groupId>com.microsoft.sqlserver</groupId>
         <artifactId>mssql-jdbc</artifactId>
-        <version>6.4.0.jre8</version>
+        <version>7.0.0.jre8</version>
     </dependency>
     ```
 
@@ -130,6 +127,9 @@ To complete this sample, make sure you have the following prerequisites:
         }
     }
     ```
+
+   > [!NOTE]
+   > The code example uses the **AdventureWorksLT** sample database for Azure SQL.
 
 ## Run the code
 
