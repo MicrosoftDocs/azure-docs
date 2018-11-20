@@ -125,6 +125,8 @@
     - name: Consume in real-time
       displayName: create client, client, consume
       href: how-to-consume-web-service.md
+    - name: Run batch predictions
+      href: how-to-run-batch-predictions.md
   - name: Monitor web services
     items:  
     - name: Collect and evaluate data 
