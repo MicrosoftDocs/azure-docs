@@ -26,10 +26,10 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 * [Visual studio 2017 Version 15.3.2 or greater](https://www.visualstudio.com/vs/) to run the sample app
  
-## Kafka Connector Setup
+## Kafka connector setup
 Kafka Connect is a tool for scalably and reliably streaming data between Apache Kafka and other systems. It makes it simple to quickly define connectors that move large collections of data into and out of Kafka. The ADX Kafka Sink serves as the connector from Kafka.
  
-### Bundle (Clone & Build)
+### Bundle 
 Kafka can load a `.jar` as a plugin that will act as a custom connector. 
 To produce such a `.jar`, we will clone the code locally and build using Maven. 
 
@@ -48,7 +48,8 @@ Build locally with Maven to produce a `.jar` complete with dependencies.
 * Maven [download](https://maven.apache.org/install.html)
  
 
- Inside root directory *kafka-sink-azure-kusto* run:
+Inside the root directory *kafka-sink-azure-kusto*, run:
+
 ```bash
 mvn clean compile assembly:single
 ```
@@ -85,41 +86,44 @@ Create a table in ADX to which Kafka can send data. Create the table in the clus
  
 1. In the Azure portal, navigate to your cluster and select **Query**.
  
-    ![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
+![Query application link](media/ingest-data-event-hub/query-explorer-link.png)
  
 1. Copy the following command into the window and select **Run**.
  
-    ```Kusto
-    .create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
-    ```
+```Kusto
+.create table TestTable (TimeStamp: datetime, Name: string, Metric: int, Source:string)
+```
  
-    ![Run create query](media/ingest-data-event-hub/run-create-query.png)
+![Run create query](media/ingest-data-event-hub/run-create-query.png)
  
 1. Copy the following command into the window and select **Run**.
  
-    ```Kusto
-    .create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
-    ```
-    This command maps incoming JSON data to the column names and data types of the table (TestTable).
+```Kusto
+.create table TestTable ingestion json mapping 'TestMapping' '[{"column":"TimeStamp","path":"$.timeStamp","datatype":"datetime"},{"column":"Name","path":"$.name","datatype":"string"},{"column":"Metric","path":"$.metric","datatype":"int"},{"column":"Source","path":"$.source","datatype":"string"}]'
+```
+
+This command maps incoming JSON data to the column names and data types of the table (TestTable).
 
 
 ## Generate sample data
 
+Now that the Kafka cluster is connected to ADX, use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) you downloaded to generate data.
+
 ### Clone
+Clone the sample app locally:
+
 ```cmd
 git clone git://github.com:Azure/azure-kusto-samples-dotnet.git
 cd ./azure-kusto-samples-dotnet/kafka/
 ```
-
-Now that the Kafka cluster is connected to ADX, you use the [sample app](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) you downloaded to generate data.
-
+### Run the app
 1. Open the sample app solution in Visual Studio.
 
 1. In the `Program.cs` file, update the `connectionString` constant to your Kafka connection string.
 
-    ```csharp    
-    const string connectionString = @"<YourConnectionString>";
-    ```
+```csharp    
+const string connectionString = @"<YourConnectionString>";
+```
 
 1. Build and run the app. The app sends messages to the Kafka cluster, and it prints out its status every ten seconds.
 
@@ -129,28 +133,28 @@ Now that the Kafka cluster is connected to ADX, you use the [sample app](https:/
 
 1. To make sure no errors occured during ingestion:
 
-```
+```Kusto
 .show ingestion failures
 ```
 
-1. To see the newly ingested data:
+2. To see the newly ingested data:
 
-```
+```Kusto
 TestTable 
 | count
 ```
 
-1. To see the content of the messages:
+3. To see the content of the messages:
  
 ```Kusto
 TestTable
 ```
  
-The result set should look like the following.
+The result set should look like the following:
  
 ![Message result set](media/ingest-data-event-hub/message-result-set.png)
  
 ## Next steps
  
 > [!div class="nextstepaction"]
-> [Quickstart: Query data in Azure Data Explorer](web-query-data)
+> [Quickstart: Query data in Azure Data Explorer](web-query-data.md)
