@@ -18,11 +18,13 @@
         href: data-box-deploy-ordered.md
       - name: 2 - Set up
         href: data-box-deploy-set-up.md
-      - name: 3A - Connect via SMB & copy
-        href: data-box-deploy-copy-data.md 
-      - name: 3B - Connect via NFS & copy
-        href: data-box-deploy-copy-data.md
-      - name: 3C - Connect via REST & copy
+      - name: 3 - Connect & copy
+        items:
+        - name: Via SMB
+          href: data-box-deploy-copy-data.md 
+        - name: Via NFS
+          href: data-box-deploy-copy-data-via-nfs.md
+        - name: Via REST
         href: data-box-deploy-copy-data-via-rest.md
       - name: 4 - Return, upload, verify
         href: data-box-deploy-picked-up.md  
