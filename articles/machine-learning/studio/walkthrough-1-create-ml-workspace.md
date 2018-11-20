@@ -4,7 +4,7 @@ description: 'Step 1 of the Develop a predictive solution walkthrough: Learn how
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+ms.custom: (previous ms.author=hshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.custom: (previous ms.author garye)
+ms.custom: (previous ms.author=garye)
 ms.author: amlstudiodocs
 
 ---

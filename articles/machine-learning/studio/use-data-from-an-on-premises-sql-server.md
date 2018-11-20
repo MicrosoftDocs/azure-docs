@@ -4,7 +4,7 @@ description: Use data from an on-premises SQL Server database to perform advance
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+ms.custom: (previous ms.author=hshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

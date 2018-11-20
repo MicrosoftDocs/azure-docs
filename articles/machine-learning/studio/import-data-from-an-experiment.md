@@ -5,7 +5,7 @@ keywords: import data,data,data sources,training data
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-ms.custom: (previous ms.author deguhath)
+ms.custom: (previous ms.author=deguhath)
 ms.author: amlstudiodocs
 manager: jhubbard
 editor: cgronlun

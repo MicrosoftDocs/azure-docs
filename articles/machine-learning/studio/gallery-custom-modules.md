@@ -4,7 +4,7 @@ description: Discover custom machine learning modules in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+ms.custom: (previous ms.author=yahajiza)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

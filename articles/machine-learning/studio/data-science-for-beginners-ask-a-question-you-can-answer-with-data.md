@@ -5,7 +5,7 @@ keywords: data science problems,data science questions,formulate questions,regre
 services: machine-learning
 documentationcenter: na
 author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+ms.custom: (previous ms.author=hshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cjgronlund

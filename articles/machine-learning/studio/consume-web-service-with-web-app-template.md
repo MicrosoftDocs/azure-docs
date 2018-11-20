@@ -5,7 +5,7 @@ keywords: web service,operationalization,REST API,machine learning
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+ms.custom: (previous ms.author=yahajiza)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

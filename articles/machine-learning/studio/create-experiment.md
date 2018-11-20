@@ -5,7 +5,7 @@ keywords: experiment,linear regression,machine learning algorithms,machine learn
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+ms.custom: (previous ms.author=hshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

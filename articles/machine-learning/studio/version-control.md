@@ -5,7 +5,7 @@ keywords: ALM, AML, Azure ML, Application Life Cycle Management, Version Control
 services: machine-learning
 documentationcenter: ''
 author: hning86
-ms.custom: (previous ms.author haining)
+ms.custom: (previous ms.author=haining)
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun

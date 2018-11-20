@@ -5,7 +5,7 @@ keywords: machine learning introduction,predictive modeling,what is machine lear
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+ms.custom: (previous ms.author=hshapiro)
 ms.author: amlstudiodocs
 
 ms.assetid: a4a32a06-dbed-4727-a857-c10da774ce66

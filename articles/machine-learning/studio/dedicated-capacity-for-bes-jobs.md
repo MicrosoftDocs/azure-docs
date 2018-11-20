@@ -4,7 +4,7 @@ description: Overview of Azure Batch services for Machine Learning jobs.
 services: machine-learning
 documentationcenter: ''
 author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+ms.custom: (previous ms.author=yahajiza)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun

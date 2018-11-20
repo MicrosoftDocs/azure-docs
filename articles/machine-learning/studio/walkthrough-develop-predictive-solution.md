@@ -5,7 +5,7 @@ keywords: credit risk, predictive analytics solution,risk assessment
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+ms.custom: (previous ms.author=hshapiro)
 ms.author: amlstudiodocs
 
 ms.assetid: 43300854-a14e-4cd2-9bb1-c55c779e0e93

@@ -5,7 +5,7 @@ keywords: machine learning basics,algorithm examples,machine learning for beginn
 services: machine-learning
 documentationcenter: ''
 author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+ms.custom: (previous ms.author=hshapiro)
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
