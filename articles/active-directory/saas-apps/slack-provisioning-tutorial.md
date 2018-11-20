@@ -110,6 +110,14 @@ This result in any group objects assigned to Slack in the **Users and Groups** s
 
 For more information on how to read the Azure AD provisioning logs, see [Reporting on automatic user account provisioning](../manage-apps/check-status-user-account-provisioning.md).
 
+## Connector limitations
+
+  * When configuring Slack's **displayName** attribute, be aware of the following behaviors: 
+  * Values are not entirely unique (e.g. 2 users can have the same display name)
+  * Supports non-English characters, spaces, capitalization. 
+  * Punctuations allowed are periods, underscores, hyphens, apostrophes, brackets (e.g. **( [ { } ] )**) and separators (e.g. **, / ;**).
+  * Only updates if these two settings are configured in Slack's workplace/organization - **Profile syncing is enabled** and **Users cannot change their display name**.
+  * Slack's **userName** attribute has to be under 21 characters and have a unique value. 
 
 ## Additional Resources
 
