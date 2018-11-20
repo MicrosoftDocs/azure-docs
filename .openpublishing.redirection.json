@@ -387,6 +387,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/indexing-policy.md",
+            "redirect_url": "/azure/cosmos-db/index-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
             "redirect_url": "/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": true
@@ -399,6 +404,11 @@
         {
             "source_path": "articles/cosmos-db/distribute-data-globally-turnkey.md",
             "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query.md",
+            "redirect_url": "/azure/cosmos-db/how-to-sql-query",
             "redirect_document_id": false
         },
         {
@@ -7947,6 +7957,11 @@
         {
             "source_path": "articles/jenkins/azure-container-agents-plugin-run-container-as-an-agent.md",
             "redirect_url": "/azure/container-instances/container-instances-jenkins",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/jenkins/java-deploy-webapp-tutorial.md",
+            "redirect_url": "/azure/jenkins/tutorial-jenkins-deploy-web-app-azure-app-service",
             "redirect_document_id": false
         },
         {
@@ -30187,6 +30202,11 @@
             "redirect_url": "/azure/container-registry/container-registry-tasks-overview",
             "redirect_document_id" : true
         },
+		 {
+            "source_path": "articles/active-directory/hybrid/reference-connect-sync-connector-version-history.md",
+            "redirect_url": "https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history",
+            "redirect_document_id" : true
+        },
         {
             "source_path": "articles/container-registry/container-registry-tutorial-quick-build.md",
             "redirect_url": "/azure/container-registry/container-registry-tutorial-quick-task",
@@ -30572,6 +30592,31 @@
             "redirect_document_id" : false
         },
         {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-csharp.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/csharp#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-go.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/go#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-java.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/java#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-nodejs.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/nodejs#Update",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cognitive-services/QnAMaker/Quickstarts/update-kb-python.md",
+            "redirect_url": "/azure/cognitive-services/QnAMaker/Quickstarts/python#Update",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/media-services/latest/create-account-cli-quickstart.md",
             "redirect_url": "/azure/media-services/latest/create-account-cli-how-to",
             "redirect_document_id" : false
@@ -30580,7 +30625,177 @@
             "source_path": "articles/backup/backup-mabs-upgrade-to-v2.md",
             "redirect_url": "/azure/backup/backup-mabs-whats-new-mabs",
             "redirect_document_id" : false
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-agenthealth.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solution-agenthealth",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-office-365.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solution-office-365",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-best-practices.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-best-practices",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-creating.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-creating",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-inventory.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-inventory",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-automation.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-resources-automation",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-searches-alerts.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-resources-searches-alerts",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-resources-views.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-resources-views",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solutions-solution-file.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solutions-solution-file",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-solution-targeting.md",
+            "redirect_url":  "/azure/azure-monitor/insights/solution-targeting",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-analyze.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-analyze",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-onboard.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-onboard",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-optout.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-optout",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-insights-troubleshoot.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-insights-troubleshoot",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-container-agent-upgrade.md",
+            "redirect_url":  "/azure/azure-monitor/insights/container-agent-upgrade",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-faq.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-faq",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-health.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-health",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-known-issues.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-known-issues",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-log-search.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-log-search",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-maps.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-maps",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-onboard.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-onboard",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-overview.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-performance.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-performance",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-vminsights-optout.md",
+            "redirect_url":  "/azure/azure-monitor/insights/vminsights-optout",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-data-sources.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-sources",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-data-collection.md",
+            "redirect_url":  "/azure/azure-monitor/platform/data-collection",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-overview-azure-agents.md",
+            "redirect_url":  "/azure/azure-monitor/platform/agents-overview",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-runbook-datacollect.md",
+            "redirect_url":  "/azure/azure-monitor/platform/runbook-datacollect",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map-configure.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map-configure",
+            "redirect_document_id":  "false"
+        },
+        {
+            "source_path":  "articles/monitoring/monitoring-service-map-scom.md",
+            "redirect_url":  "/azure/azure-monitor/insights/service-map-scom",
+            "redirect_document_id":  "false"
         }
-
     ]
 }
+https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/csharp#Update

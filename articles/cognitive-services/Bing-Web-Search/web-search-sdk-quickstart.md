@@ -3,13 +3,13 @@ title: "Quickstart: Use the Bing Web Search SDK for C#"
 titleSuffix: Azure Cognitive Services
 description: The Bing Web Search SDK makes it easy to integrate Bing Web Search into your C# application. In this quickstart, you'll learn how to instantiate a client, send a request, and print the response.
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: quickstart
 ms.date: 08/16/2018
-ms.author: erhopf
+ms.author: aahi
 ---
 
 # Quickstart: Use the Bing Web Search SDK for C#

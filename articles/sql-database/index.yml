@@ -58,17 +58,17 @@ sections:
         image:
           src: media/index/i_elasticpool.svg
         title: Elastic pools
-      - href: /azure/sql-database/sql-database-managed-instance
+      - href: /azure/sql-database/sql-database-managed-instance-index
         html: <p>Use the Managed Instance to easily migrate your on-premises databases to the fully managed Azure PaaS database service with minimal or no database code changes.</p>
         image:
           src: media/index/i_mi.svg
         title: Managed Instance
-      - href: /azure/sql-database/sql-database-business-continuity
+      - href: /azure/sql-database/sql-database-paas
         html: <p>Built-in High-availability, automated backups, and geo-replication, will prevent maintenance operations, infrastructure or hardware failures from stopping your business.</p>
         image:
           src: media/index/gear.svg
-        title: Business continuity
-      - href: /azure/sql-database/sql-database-security-overview
+        title: Platform as a Service
+      - href: /azure/sql-database/sql-database-security-index
         html: <p>Secure your database with Azure AD authentication, Virtual Networks, Firewalls, Always Encrypted connections. Identify threats and vulnerabilities with built-in security.</p>
         image:
           src: media/index/i_security.svg
