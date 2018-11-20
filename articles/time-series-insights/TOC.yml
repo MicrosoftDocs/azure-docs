@@ -73,6 +73,8 @@
     items:
       - name: Shaping events
         href: time-series-insights-how-to-shape-events.md
+      - name: Diagnose and troubleshoot
+        href: time-series-insights-how-to-troubleshoot-update.md
 - name: Reference
   items:
   - name: Query API
