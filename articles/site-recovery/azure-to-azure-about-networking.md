@@ -55,10 +55,9 @@ If you are using an IP-based firewall proxy, or NSG rules to control outbound co
 - All IP address ranges that correspond to the storage accounts in source region
     - Create a [Storage service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for the source region.
     - Allow these addresses so that data can be written to the cache storage account, from the VM.
-- All IP address ranges that correspond to Office 365 [authentication and identity IP V4 endpoints](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity).
-    - If new addresses are added to the Office 365 ranges in the future, you need to create new NSG rules.
+- Create a [Azure Active Directory (AAD) service tag](../virtual-network/security-overview.md#service-tags) based NSG rule for allowing access to all IP addresses corresponding to AAD
+    - If new addresses are added to the Azure Active Directory (AAD) in the future, you need to create new NSG rules.
 - Site Recovery service endpoint IP addresses - available in an [XML file](https://aka.ms/site-recovery-public-ips) and depend on your target location.
--  You can [download and use this script](https://aka.ms/nsg-rule-script), to automatically create the required rules on the NSG.
 - We recommend that you create the required NSG rules on a test NSG, and verify that there are no problems before you create the rules on a production NSG.
 
 

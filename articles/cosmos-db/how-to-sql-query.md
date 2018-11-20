@@ -1,13 +1,11 @@
 ---
 title: SQL queries for Azure Cosmos DB | Microsoft Docs
 description: Learn about SQL syntax, database concepts, and SQL queries for Azure Cosmos DB. SQL can used as a JSON query language in Azure Cosmos DB.
-keywords: sql syntax, sql query, sql queries, json query language, database concepts and sql queries, aggregate functions
-services: cosmos-db
 author: markjbrown
 
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 11/10/2018
+ms.date: 11/15/2018
 ms.author: mjbrown
 
 ---
@@ -17,13 +15,13 @@ Azure Cosmos DB supports querying items using SQL (Structured Query Language) as
 
 * Instead of inventing a new query language, we made Azure Cosmos DB to support SQL, one of the most familiar and popular query languages. Azure Cosmos DB SQL provides a formal programming model for rich queries over JSON items.  
 
-* Azure Cosmos DB uses JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON items, self joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features.
+* Azure Cosmos DB uses JavaScript's programming model as the foundation for the query language. The SQL API is rooted in JavaScript's type system, expression evaluation, and function invocation. This in-turn provides a natural programming model for relational projections, hierarchical navigation across JSON items, self-joins, spatial queries, and invocation of user-defined functions (UDFs) written entirely in JavaScript, among other features.
 
 This article walks you through some examples SQL queries by using simple JSON items. To learn about Azure Cosmos DB SQL language syntax, see [SQL syntax reference](sql-api-sql-query-reference.md) article.
 
 ## <a id="GettingStarted"></a>Get started with SQL commands
 
-Let's create two simple JSON items and query against that data. Consider two JSON items about families, insert these JSON items into a container and subsequently query the data. Here we have a simple JSON item for the Andersen and Wakefield families, the parents, children (and their pets), address, and registration information. The item has strings, numbers, Booleans, arrays, and nested properties.
+Let's create two simple JSON items and query against that data. Consider two JSON items about families, insert these JSON items into a container, and subsequently query the data. Here we have a simple JSON item for the Andersen and Wakefield families, the parents, children (and their pets), address, and registration information. The item has strings, numbers, Booleans, arrays, and nested properties.
 
 **Item1**
 
@@ -114,7 +112,7 @@ Now let's try a few queries against this data to understand some of the key aspe
     }]
 ```
 
-**Query2** : Now consider the case where we need to reformat the JSON output in a different shape. This query projects a new JSON object with two selected fields, Name and City, when the address' city has the same name as the state. In this case, "NY, NY" matches.
+**Query2:** Now consider the case where we need to reformat the JSON output in a different shape. This query projects a new JSON object with two selected fields, Name and City, when the address' city has the same name as the state. In this case, "NY, NY" matches.
 
 ```sql
     SELECT {"Name":f.id, "City":f.address.city} AS Family
@@ -486,7 +484,7 @@ This example returns all items where the state is any of the specified values.
 
 ## Ternary (?) and Coalesce (??) operators
 
-The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. The Ternary (?) operator can be very handy when constructing new JSON properties on the fly. For example, now you can write queries to classify the class levels into a human readable form like Beginner/Intermediate/Advanced as shown below.
+The Ternary and Coalesce operators can be used to build conditional expressions, similar to popular programming languages like C# and JavaScript. The Ternary (?) operator can be handy when constructing new JSON properties on the fly. For example, now you can write queries to classify the class levels into a human readable form like Beginner/Intermediate/Advanced as shown below.
 
 ```sql
      SELECT (c.grade < 5)? "elementary": "other" AS gradeLevel
@@ -502,7 +500,7 @@ You can also nest the calls to the operator like in the query below.
 
 As with other query operators, if the referenced properties in the conditional expression are missing in any item, or if the types being compared are different, then those items are excluded in the query results.
 
-The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in a item. This is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
+The Coalesce (??) operator can be used to efficiently check for the presence of a property (a.k.a. is defined) in an item. This operator is useful when querying against semi-structured or data of mixed types. For example, this query returns the "lastName" if present, or the "surname" if it isn't present.
 
 ```sql
     SELECT f.lastName ?? f.surname AS familyName
@@ -606,7 +604,7 @@ In the following example, the result of the scalar expression is a Boolean.
 
 ## Object and array creation
 
-Another key feature of the SQL API is array/object creation. In the previous example, note that we created a new JSON object. Similarly, one can also construct arrays as shown in the following examples:
+Another key feature of the SQL API is array/object creation. In the previous example, you created a new JSON object. Similarly, one can also construct arrays as shown in the following examples:
 
 **Query**
 
@@ -678,7 +676,7 @@ The following query returns the JSON value without the `"address"` label in the 
     ]
 ```
 
-The following example extends this to show how to return JSON primitive values (the leaf level of the JSON tree).
+The following example extends to show how to return JSON primitive values (the leaf level of the JSON tree).
 
 **Query**
 
@@ -731,7 +729,7 @@ The special operator (*) is supported to project the item as-is. When used, it m
 
 ## <a id="TopKeyword"></a>TOP Operator
 
-The TOP keyword can be used to limit the number of values from a query. When TOP is used in conjunction with the ORDER BY clause, the result set is limited to the first N number of ordered values; otherwise, it returns the first N number of results in an undefined order. As a best practice, in a SELECT statement, always use an ORDER BY clause with the TOP clause. This is the only way to predictably indicate which rows are affected by TOP. 
+The TOP keyword can be used to limit the number of values from a query. When TOP is used in conjunction with the ORDER BY clause, the result set is limited to the first N number of ordered values; otherwise, it returns the first N number of results in an undefined order. As a best practice, in a SELECT statement, always use an ORDER BY clause with the TOP clause. TCombining these two clauses is the only way to predictably indicate which rows are affected by TOP. 
 
 **Query**
 
@@ -1001,9 +999,9 @@ You can also perform aggregation over the result of array iteration. For example
 
 ### <a id="Joins"></a>Joins
 
-In a relational database, the need to join across tables is important. It's the logical corollary to designing normalized schemas. Contrary to this, the SQL API deals with the denormalized data model of schema-free items. This is the logical equivalent of a "self-join".
+In a relational database, the need to join across tables is important. It's the logical corollary to designing normalized schemas. In contrast, the SQL API deals with the denormalized data model of schema-free items, which is the logical equivalent of a "self-join".
 
-The syntax that the language supports is <from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>. Overall, this returns a set of **N**-tuples (tuple with **N** values). Each tuple has values produced by iterating all container aliases over their respective sets. In other words, this is a full cross product of the sets participating in the join.
+The syntax that the language supports is `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`. Overall, this query returns a set of **N**-tuples (tuple with **N** values). Each tuple has values produced by iterating all container aliases over their respective sets. In other words, this query does a full cross product of the sets participating in the join.
 
 The following examples show how the JOIN clause works. In the following example, the result is empty since the cross product of each item from source and an empty set is empty.
 
@@ -1022,7 +1020,7 @@ The following examples show how the JOIN clause works. In the following example,
     }]
 ```
 
-In the following example, the join is between the item root and the `children` sub-root. It's a cross product between two JSON objects. The fact that children is an array is not effective in the JOIN since we are dealing with a single root that is the children array. Hence the result contains only two results, since the cross product of each item with the array yields exactly only one item.
+In the following example, the join is between the item root and the `children` subroot. It's a cross product between two JSON objects. The fact that children is an array is not effective in the JOIN since we are dealing with a single root that is the children array. Hence the result contains only two results, since the cross product of each item with the array yields exactly only one item.
 
 **Query**
 
@@ -1136,7 +1134,7 @@ This example is a natural extension of the preceding example, and performs a dou
 
 `AndersenFamily` has one child who has one pet. So, the cross product yields one row (1\*1\*1) from this family. WakefieldFamily however has two children, but only one child "Jesse" has pets. Jesse has two pets though. Hence the cross product yields 1\*1\*2 = 2 rows from this family.
 
-In the next example, there is an additional filter on `pet`. This excludes all the tuples where the pet name is not "Shadow". Notice that we are able to build tuples from arrays, filter on any of the elements of the tuple, and project any combination of the elements.
+In the next example, there is an additional filter on `pet`, which excludes all the tuples where the pet name is not "Shadow". Notice that we are able to build tuples from arrays, filter on any of the elements of the tuple, and project any combination of the elements.
 
 **Query**
 
@@ -1166,18 +1164,18 @@ In the next example, there is an additional filter on `pet`. This excludes all t
 
 ## <a id="JavaScriptIntegration"></a>JavaScript integration
 
-Azure Cosmos DB provides a programming model for executing JavaScript based application logic directly on the containers in terms of stored procedures and triggers. This allows for both:
+Azure Cosmos DB provides a programming model for executing JavaScript based application logic directly on the containers in terms of stored procedures and triggers, this method allows supports:
 
 * Ability to do high-performance transactional CRUD operations and queries against items in a container by virtue of the deep integration of JavaScript runtime directly within the database engine.
-* A natural modeling of control flow, variable scoping, and assignment and integration of exception handling primitives with database transactions. For more details about Azure Cosmos DB support for JavaScript integration, please refer to the JavaScript server-side programmability documentation.
+* A natural modeling of control flow, variable scoping, and assignment and integration of exception handling primitives with database transactions. For more details about Azure Cosmos DB support for JavaScript integration, see the JavaScript server-side programmability documentation.
 
 ### <a id="UserDefinedFunctions"></a>User-Defined Functions (UDFs)
 
 Along with the types already defined in this article, the SQL API provides support for User Defined Functions (UDF). In particular, scalar UDFs are supported where the developers can pass in zero or many arguments and return a single argument result back. Each of these arguments is checked for being legal JSON values.  
 
-The SQL syntax is extended to support custom application logic using these User-Defined Functions. UDFs can be registered with SQL API and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to be invoked by queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
+The SQL syntax is extended to support custom application logic using these User-Defined Functions. UDFs can be registered with SQL API and then be referenced as part of a SQL query. In fact, the UDFs are exquisitely designed to call from queries. As a corollary to this choice, UDFs do not have access to the context object which the other JavaScript types (stored procedures and triggers) have. Since queries execute as read-only, they can run either on primary or on secondary replicas. Therefore, UDFs are designed to run on secondary replicas unlike other JavaScript types.
 
-Below is an example of how a UDF can be registered at the Cosmos DB database, specifically under a item container.
+Below is an example of how a UDF can be registered at the Cosmos DB database, specifically under an item container.
 
 ```javascript
        UserDefinedFunction regexMatchUdf = new UserDefinedFunction
@@ -1374,7 +1372,7 @@ The mathematical functions each perform a calculation, based on input values tha
 | [POWER (num_expr, num_expr)](#bk_power) | Returns the power of the specified numeric expression to the value specified. |
 | [SIGN (num_expr)](#bk_sign) | Returns the sign value (-1, 0, 1) of the specified numeric expression. |
 | [ACOS (num_expr)](#bk_acos) | Returns the angle, in radians, whose cosine is the specified numeric expression; also called arccosine. |
-| [ASIN (num_expr)](#bk_asin) | Returns the angle, in radians, whose sine is the specified numeric expression. This is also called arcsine. |
+| [ASIN (num_expr)](#bk_asin) | Returns the angle, in radians, whose sine is the specified numeric expression. This function is also called arcsine. |
 | [ATAN (num_expr)](#bk_atan) | Returns the angle, in radians, whose tangent is the specified numeric expression. This is also called arctangent. |
 | [ATN2 (num_expr)](#bk_atn2) | Returns the angle, in radians, between the positive x-axis and the ray from the origin to the point (y, x), where x and y are the values of the two specified float expressions. |
 | [COS (num_expr)](#bk_cos) | Returns the trigonometric cosine of the specified angle, in radians, in the specified expression. |
@@ -1385,7 +1383,7 @@ The mathematical functions each perform a calculation, based on input values tha
 | [SIN (num_expr)](#bk_sin) | Returns the trigonometric sine of the specified angle, in radians, in the specified expression. |
 | [TAN (num_expr)](#bk_tan) | Returns the tangent of the input expression, in the specified expression. |
 
-For example, you can now run queries like the following:
+For example, you can now run queries as shown in the following example:
 
 **Query**
 
@@ -1399,7 +1397,7 @@ For example, you can now run queries like the following:
     [4]
 ```
 
-The main difference between Cosmos DB functions compared to ANSI SQL is that they are designed to work well with schema-less and mixed schema data. For example, if you have a item where the Size property is missing, or has a non-numeric value like "unknown", then the item is skipped over, instead of returning an error.
+The main difference between Cosmos DB functions compared to ANSI SQL is that they are designed to work well with schema-less and mixed schema data. For example, if you have an item where the Size property is missing, or has a non-numeric value like "unknown", then the item is skipped over, instead of returning an error.
 
 ### Type checking functions
 
@@ -1416,7 +1414,7 @@ The type checking functions allow you to check the type of an expression within 
 | [IS_DEFINED (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_defined) | Returns a Boolean indicating if the property has been assigned a value. |
 | [IS_PRIMITIVE (expr)](https://msdn.microsoft.com/library/azure/dn782250.aspx#bk_is_primitive) | Returns a Boolean indicating if the type of the value is a string, number, Boolean or null. |
 
-Using these functions, you can now run queries like the following:
+Using these functions, you can now run queries as shown in the following example:
 
 **Query**
 
@@ -1514,7 +1512,7 @@ String functions can also be used in the WHERE clause to filter results, like in
 
 ### Array functions
 
-The following scalar functions perform an operation on an array input value and return numeric, Boolean or array value. Here's a table of built-in array functions:
+The following scalar functions perform an operation on an array input value and return numeric, Boolean, or array value. Here's a table of built-in array functions:
 
 | Usage | Description |
 | --- | --- |
@@ -1588,7 +1586,7 @@ Cosmos DB supports the following Open Geospatial Consortium (OGC) built-in funct
 | Usage | Description |
 | --- | --- |
 | ST_DISTANCE (point_expr, point_expr) | Returns the distance between the two GeoJSON Point, Polygon, or LineString expressions. |
-| T_WITHIN (point_expr, polygon_expr) | eturns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString). |
+| T_WITHIN (point_expr, polygon_expr) | Returns a Boolean expression indicating whether the first GeoJSON object (Point, Polygon, or LineString) is within the second GeoJSON object (Point, Polygon, or LineString). |
 | ST_INTERSECTS (spatial_expr, spatial_expr) | Returns a Boolean expression indicating whether the two specified GeoJSON objects (Point, Polygon, or LineString) intersect. |
 | ST_ISVALID | Returns a Boolean value indicating whether the specified GeoJSON Point, Polygon, or LineString expression is valid. |
 | ST_ISVALIDDETAILED | Returns a JSON value containing a Boolean value if the specified GeoJSON Point, Polygon, or LineString expression is valid, and if invalid, additionally the reason as a string value. |
@@ -1611,7 +1609,7 @@ Spatial functions can be used to perform proximity queries against spatial data.
     }]
 ```
 
-For more details on geospatial support in Cosmos DB, please see [Working with geospatial data in Azure Cosmos DB](geospatial.md). That wraps up spatial functions, and the SQL syntax for Cosmos DB. Now let's take a look at how LINQ querying works and how it interacts with the syntax we've seen so far.
+For more information on geospatial support in Cosmos DB, see [Working with geospatial data in Azure Cosmos DB](geospatial.md). That wraps up spatial functions, and the SQL syntax for Cosmos DB. Now let's take a look at how LINQ querying works and how it interacts with the syntax we've seen so far.
 
 ## <a id="Linq"></a>LINQ to SQL API
 
@@ -2117,13 +2115,13 @@ If a query's results cannot fit within a single page of results, then the REST A
 
 To manage the data consistency policy for queries, use the `x-ms-consistency-level` header like all REST API requests. For session consistency, it is required to also echo the latest `x-ms-session-token` Cookie header in the query request. The queried container's indexing policy can also influence the consistency of query results. With the default indexing policy settings, for containers the index is always current with the item contents and query results match the consistency chosen for data. If the indexing policy is relaxed to Lazy, then queries can return stale results. For more information, see [Azure Cosmos DB Consistency Levels][consistency-levels].
 
-If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This is returned for range queries against paths configured for hash (equality) lookups, and for paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
+If the configured indexing policy on the container cannot support the specified query, the Azure Cosmos DB server returns 400 "Bad Request". This error message is returned for range queries against paths configured for hash (equality) lookups, and for paths explicitly excluded from indexing. The `x-ms-documentdb-query-enable-scan` header can be specified to allow the query to perform a scan when an index is not available.
 
 You can get detailed metrics on query execution by setting `x-ms-documentdb-populatequerymetrics` header to `True`. For more information, see [SQL query metrics for Azure Cosmos DB](sql-api-sql-query-metrics.md).
 
 ### <a id="DotNetSdk"></a>C# (.NET) SDK
 
-The .NET SDK supports both LINQ and SQL querying. The following example shows how to perform the simple filter query introduced earlier in this item.
+The .NET SDK supports both LINQ and SQL querying. The following example shows how to perform the filter query introduced earlier in this item.
 ```csharp
     foreach (var family in client.CreateDocumentQuery(containerLink,
         "SELECT * FROM Families f WHERE f.id = \"AndersenFamily\""))
@@ -2210,7 +2208,7 @@ The next sample shows joins, expressed through LINQ SelectMany.
 
 The .NET client automatically iterates through all the pages of query results in the foreach blocks as shown above. The query options introduced in the REST API section are also available in the .NET SDK using the `FeedOptions` and `FeedResponse` classes in the CreateDocumentQuery method. The number of pages can be controlled using the `MaxItemCount` setting.
 
-You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` can be set to enable scans when the query cannot be supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition (though Cosmos DB can automatically extract this from the query text), and `EnableCrossPartitionQuery` to run queries that may need to be run against multiple partitions.
+You can also explicitly control paging by creating `IDocumentQueryable` using the `IQueryable` object, then by reading the` ResponseContinuationToken` values and passing them back as `RequestContinuationToken` in `FeedOptions`. `EnableScanInQuery` can be set to enable scans when the query cannot be supported by the configured indexing policy. For partitioned containers, you can use `PartitionKey` to run the query against a single partition (though Azure Cosmos DB can automatically extract this from the query text), and `EnableCrossPartitionQuery` to run queries that may need to be run against multiple partitions.
 
 Refer to [Azure Cosmos DB .NET samples](https://github.com/Azure/azure-cosmosdb-dotnet) for more samples containing queries.
 
@@ -2268,6 +2266,6 @@ The following example shows how to use the queryDocuments in the JavaScript serv
 12. Christopher Olston, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar, Andrew Tomkins: Pig Latin: A Not-So-Foreign Language for Data Processing, SIGMOD 2008.
 13. G. Graefe. The Cascades framework for query optimization. IEEE Data Eng. Bull., 18(3): 1995.
 
-[1]: ./media/sql-api-sql-query/sql-query1.png
+[1]: ./media/how-to-sql-query/sql-query1.png
 [introduction]: introduction.md
 [consistency-levels]: consistency-levels.md

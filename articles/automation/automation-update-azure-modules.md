@@ -6,7 +6,7 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/19/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 manager: carmonm
 ---
@@ -56,9 +56,9 @@ If you use cmdlets from these Azure PowerShell modules in your runbooks, you wan
 
 As mentioned, the **Update Azure Modules** button is not available in the sovereign clouds, it is only available in the global Azure cloud. This is due to the fact that the latest version of the Azure PowerShell modules from the PowerShell Gallery may not work with the Resource Manager services currently deployed in these clouds.
 
-Updating the modules can still be done by importing the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook into your Automation Account and running it.
+Updating the modules can still be done by importing the [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook into your Automation Account and running it. Using this runbook you can update Azure modules, but they may still not be compatible with what is currently deployed in the Azure Environment you are using. You'll need to ensure the proper versions needed for each module to ensure that Azure Automation can still manage your resources. Azure Automation does not manage or track the versions of the services deployed.
 
-Use the `AzureRmEnvironment` parameter to pass the correct environment to the runbook.  Acceptable values are **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, and **AzureUSGovernmentCloud**. If you do not pass a value to this parameter, the runbook will default to the Azure public cloud **AzureCloud**.
+Use the `AzureRmEnvironment` parameter to pass the correct environment to the runbook.  Acceptable values are **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud**, and **AzureUSGovernmentCloud**. These values can be obtained from using `Get-AzureRmEnvironment | select Name`. If you do not pass a value to this parameter, the runbook will default to the Azure public cloud **AzureCloud**
 
 If you want to use a specific Azure PowerShell module version instead of the latest available on the PowerShell Gallery, pass these versions to the optional `ModuleVersionOverrides` parameter of the **Update-AzureModule** runbook. For examples, see the  [Update-AzureModule.ps1](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AzureModule.ps1) runbook. Azure PowerShell modules that are not mentioned in the `ModuleVersionOverrides` parameter are updated with the latest module versions on the PowerShell Gallery. If nothing is passed to the `ModuleVersionOverrides` parameter, all modules are updated with the latest module versions on the PowerShell Gallery, which is the behavior of the **Update Azure Modules** button.
 
