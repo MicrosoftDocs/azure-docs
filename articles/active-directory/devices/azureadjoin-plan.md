@@ -25,7 +25,7 @@ ms.reviewer: sandeo
 
 Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure.  
 
-This article assumes you have familiarity with Azure AD and device states in Azure AD <link to intro> 
+This article assumes you have familiarity with Azure AD and [device states in Azure AD](overview.md). 
 
  
 
@@ -60,7 +60,7 @@ Review your scenarios based on the following assessment
 
 ### Users 
 
-If your users are created in on-premises Active Directory, they need to be synced to Azure AD via Azure AD Connect. To know how to sync your users, go to <link for Azure AD Connect>. 
+If your users are created in on-premises Active Directory, they need to be synced to Azure AD via Azure AD Connect. To learn more about synchronizing users, see [What is Azure AD Connect?](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-hybrid-identity#what-is-azure-ad-connect) 
 
 If your users are created directly in Azure AD, no additional setup is required 
 
@@ -107,13 +107,8 @@ Recommendation: Always use the latest Windows 10 release for updated features
 
 ### Applications & other resources 
 
-We recommend you migrate your applications from on-premises to cloud for better user experience and access control. However, Azure AD joined devices can seamlessly provide access to both on-premises and cloud applications.  
+We recommend you migrate your applications from on-premises to cloud for better user experience and access control. However, Azure AD joined devices can seamlessly provide access to both on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).  
 
- 
-
-<Link here> to understand how Azure AD joined devices can access on-premises resources.   
-
- 
 
 Following are considerations for different type of applications and resources 
 
@@ -131,7 +126,7 @@ Following are considerations for different type of applications and resources
 
  
 
-- **Printers:** Deploy Hybrid cloud print <link here> for discovering printers from Azure AD joined devices. Alternatively, users can also use the printers’ UNC path to directly add them. Note: Currently printers cannot be automatically discovered in a cloud only environment. 
+- **Printers:** Deploy Hybrid cloud print for discovering printers from Azure AD joined devices. Alternatively, users can also use the printers’ UNC path to directly add them. Note: Currently printers cannot be automatically discovered in a cloud only environment. 
 
  
 
@@ -151,7 +146,7 @@ Group policies are not supported on Azure AD joined devices as they are not conn
 
  
 
-Evaluate MDM policy parity with Group policies using the MDM Migration Analysis Tool (MMA) \<link here\>. Review supported and unsupported policies to determine applicability of using an EMM solution instead of Group policies. For unsupported policies, consider the following:  
+Evaluate MDM policy parity with Group policies using the [MDM Migration Analysis Tool [MMAT](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/THR3002R). Review supported and unsupported policies to determine applicability of using an EMM solution instead of Group policies. For unsupported policies, consider the following:  
 
 - Are the unsupported policies necessary for users or devices Azure AD join is being deployed to? 
 
@@ -163,7 +158,7 @@ If your EMM solution is not available through the Azure AD app gallery, you can 
 
  
 
-Through co-management, SCCM can be used to manage certain aspects of the devices while policies are delivered through your EMM platform. Microsoft Intune enables co-management with SCCM, for more details see <link to co management>. If you are using an EMM product other than Intune, please check with your EMM provider on applicable co-management scenarios.  
+Through co-management, SCCM can be used to manage certain aspects of the devices while policies are delivered through your EMM platform. Microsoft Intune enables co-management with SCCM. For more information, see [Co-management for Windows 10 devices](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). If you are using an EMM product other than Intune, please check with your EMM provider on applicable co-management scenarios.  
 
  
 
@@ -187,11 +182,11 @@ Azure AD join can be configured in the Azure AD portal based on some specific se
 
 - Users may join devices to Azure AD: Set this to “All” or “Selected” based on the scope of your deployment.  
 
-- Additional local administrators on Azure AD joined devices: Set to “Selected” and selects users who you want to add to the local administrators’ group on all Azure AD joined devices deployed in your organization. Review \< article link\> to learn more about managing local administrators on Azure AD joined devices 
+- Additional local administrators on Azure AD joined devices: Set to “Selected” and selects users who you want to add to the local administrators’ group on all Azure AD joined devices deployed in your organization. For more information, see [How to manage the local administrators group on Azure AD joined devices](assign-local-admin.md). 
 
-- Require multi-factor Auth to join devices: Set to “Yes” if you require users to perform MFA while joining devices to Azure AD. Note: for the user who joins device to Azure AD using MFA, the device itself will become a 2nd factor. 
+- Require multi-factor Auth to join devices: Set to “Yes” if you require users to perform MFA while joining devices to Azure AD. For the user who joins device to Azure AD using MFA, the device becomes a 2nd factor. 
 
-If you want to enable state roaming to Azure AD so that devices can sync their settings, see <ESR link> We recommend enabling this setting even for Hybrid Azure AD joined devices 
+If you want to enable state roaming to Azure AD so that devices can sync their settings, see [What is enterprise state roaming?](enterprise-state-roaming-overview.md). We recommend enabling this setting even for Hybrid Azure AD joined devices 
 
 ### Deployment options 
 
@@ -199,11 +194,11 @@ If you want to enable state roaming to Azure AD so that devices can sync their s
 
 Azure AD join can be deployed via 3 different approaches:  
 
-- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. <link for article>  
+- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings.  
 
-- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform Azure AD join. \<link to Autopilot\>  
+- **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform Azure AD join.   
 
-- **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices. \<link to bulk enrollment\> for more info 
+- **Bulk enrollment** - Bulk enrollment enables an administrator driven Azure AD join by using a bulk provisioning tool to configure devices.  
 
 
 Here’s a comparison of these three approaches 
