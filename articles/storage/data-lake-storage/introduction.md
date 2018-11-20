@@ -58,6 +58,44 @@ One of the many benefits of building Data Lake Storage Gen2 on top of Azure Blob
 
 Additionally, features such as the [hierarchical namespace](./namespace.md) significantly improve the overall performance of many analytics jobs. This improvement in performance means that you require less compute power to process the same amount of data, resulting in a lower total cost of ownership (TCO) for the end-to-end analytics job.
 
+## Current limitations
+
+### Interoperability
+
+Currently, when you create an Azure storage account with the hierarchical namespace enabled, you are creating an account that does not yet have access to the existing Azure Blob storage APIs. This means that you do not have access to any features that use that Blob API and any data uploaded through that API. If you need any of those features for your application, then you should be using a storage account without the hierarchical namespace. For now, using a storage account without the hierarchical namespace means you then do not have access to Data Lake Storage Gen2 specific features, such as directory and filesystem ACLs. Below is a more extensive list of what is supported and what is not supported on an account using the hierarchical namespace. The items in the list are subject to change.
+
+### What's supported using workarounds?
+
+> [!div class="checklist"]
+> * Azure Storage Explorer can be used with Data Lake Storage Gen2 through the desktop version.
+> * Managing directory and file-level ACLs, by using Storage Explorer.
+> * AzCopy v10 (preview) can be used with Data Lake Storage Gen2.
+> * Diagnostics logs can be obtained on request from Azure Support.
+
+### What's not yet supported?
+
+:x: Interoperability with Blob and Data Lake Storage Gen2 APIs.
+
+:x: Azure Storage Explorer in the Azure portal.
+
+:x: AzCopy (v8).
+
+:x: Azure Event Grid support.
+
+:x: Versioning functionality (Soft-delete and snapshots).
+
+:x: Object-level tiering for accounts using a hierarchical namespace.
+
+:x: Data Lifecycle policies.
+
+:x: Ability to manage directory and file-level ACLs in the Azure portal.
+
+:x: OAuth support with some integrated services (Azure Stream Analytics, Eventhubs Capture).
+
+:x: The Blob viewing tool on Azure portal.
+
+:x: Cerebrata and other third party cloud storage apps.
+
 ## Next steps
 
 The following articles describe some of the main concepts of Data Lake Storage Gen2 and detail how to store, access, manage, and gain insights from your data:
