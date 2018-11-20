@@ -63,7 +63,7 @@ Parent devices can have multiple child devices, but a child device can only have
 
 ### Specifying DNS servers 
 
-To improve robustness, it is recommended you specify the DNS server addresses used in your environment. For example, on Linux, update /etc/docker/daemon.json (you might need to create the file) to include:
+To improve robustness, it is recommended you specify the DNS server addresses used in your environment. For example, on Linux, update **/etc/docker/daemon.json** (you might need to create the file) to include:
 
 ```
 {
@@ -71,7 +71,7 @@ To improve robustness, it is recommended you specify the DNS server addresses us
 }
 ```
 
-If you are using a local DNS server, replace the 1.1.1.1 IP address with the IP address of the local DNS server. The dockerf service will need to be restarted for the changes to take effect. 
+If you are using a local DNS server, replace the 1.1.1.1 with the IP address of the local DNS server. Restart the docker service for the changes to take effect.
 
 
 ## Optional offline settings
