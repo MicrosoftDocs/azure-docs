@@ -71,8 +71,7 @@ You may have to adjust your [domain-based filtering](../hybrid/how-to-connect-sy
 
 Apps and resources that depend on Active Directory machine authentication don't work because Azure AD joined devices don't have a computer object in AD. 
 
-You can't share files hosted on a domain-joined computer from an Azure AD-joined device.
-
+You can't share files with other users on an Azure AD-joined device.
 
 ## Next steps
 
