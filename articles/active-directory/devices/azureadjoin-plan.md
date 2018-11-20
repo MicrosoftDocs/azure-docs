@@ -118,7 +118,7 @@ Following are considerations for different type of applications and resources
 
  
 
-- **On-premises web applications:** If your apps are custom built and/or hosted on-premises, you need to add them to your browser’s trusted sites. This will enable Windows integrated authentication to work and provide a no-prompt SSO experience to users. If you are using AD FS, see [Verify and manage single sign-on with AD FS](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/jj151809(v%3dazure.100)) for more information. Recommendation: Consider hosting in the cloud (e.g. Azure) and integrating with Azure AD for a better experience. 
+- **On-premises web applications:** If your apps are custom built and/or hosted on-premises, you need to add them to your browser’s trusted sites. This will enable Windows-integrated authentication to work and provide a no-prompt SSO experience to users. If you are using AD FS, see [Verify and manage single sign-on with AD FS](https://docs.microsoft.com/en-us/previous-versions/azure/azure-services/jj151809(v%3dazure.100)) for more information. Recommendation: Consider hosting in the cloud (for example, Azure) and integrating with Azure AD for a better experience. 
 
 - **On-premises applications relying on legacy protocols:** Users get SSO from Azure AD joined devices if device has line of sight to the Domain controller. Recommendation: Deploy Azure AD App proxy to enable secure access for these applications. For more information, see [Why is Application Proxy a better solution?](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy#why-is-application-proxy-a-better-solution) 
 
@@ -138,7 +138,7 @@ Following are considerations for different type of applications and resources
 
  
 
-Device management for Azure AD joined devices is primarily through an EMM platform (e.g. Intune) and MDM CSPs. Windows 10 has in-built MDM agent that works with all compatible EMM solutions.  
+Device management for Azure AD joined devices is primarily through an EMM platform (for example, Intune) and MDM CSPs. Windows 10 has in-built MDM agent that works with all compatible EMM solutions.  
 
  
 
@@ -146,7 +146,7 @@ Group policies are not supported on Azure AD joined devices as they are not conn
 
  
 
-Evaluate MDM policy parity with Group policies using the [MDM Migration Analysis Tool [MMAT](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/THR3002R). Review supported and unsupported policies to determine applicability of using an EMM solution instead of Group policies. For unsupported policies, consider the following:  
+Evaluate MDM policy parity with Group policies using the [MDM Migration Analysis Tool [MMAT](https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/THR3002R). Review supported and unsupported policies to determine applicability of using an EMM solution instead of Group policies. For unsupported policies, consider:  
 
 - Are the unsupported policies necessary for users or devices Azure AD join is being deployed to? 
 
@@ -158,7 +158,7 @@ If your EMM solution is not available through the Azure AD app gallery, you can 
 
  
 
-Through co-management, SCCM can be used to manage certain aspects of the devices while policies are delivered through your EMM platform. Microsoft Intune enables co-management with SCCM. For more information, see [Co-management for Windows 10 devices](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). If you are using an EMM product other than Intune, please check with your EMM provider on applicable co-management scenarios.  
+Through comanagement, SCCM can be used to manage certain aspects of the devices while policies are delivered through your EMM platform. Microsoft Intune enables comanagement with SCCM. For more information, see [Co-management for Windows 10 devices](https://docs.microsoft.com/sccm/core/clients/manage/co-management-overview). If you are using an EMM product other than Intune, please check with your EMM provider on applicable co-management scenarios.  
 
  
 
@@ -192,7 +192,7 @@ If you want to enable state roaming to Azure AD so that devices can sync their s
 
  
 
-Azure AD join can be deployed via 3 different approaches:  
+Azure AD join can be deployed via three different approaches:  
 
 - **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings.  
 
@@ -206,7 +206,7 @@ Here’s a comparison of these three approaches
  
 ||Self-service setup|Windows Autopilot|Bulk enrollment|
 |---|---|---|---|
-|Require user interaction to setup|Yes|Yes|No|
+|Require user interaction to set up|Yes|Yes|No|
 |Require IT effort|No|Yes|Yes|
 |Applicable flows|OOBE & Settings|OOBE only|OOBE only|
 |Local admin rights to primary user|Yes, by default|Configurable|No|
@@ -215,7 +215,7 @@ Here’s a comparison of these three approaches
  
 Choose your deployment approach or approaches by reviewing the table above and reviewing the following considerations for adopting either approach:  
 
-- Are your user tech savvy to go through the setup themselves? 
+- Are your users tech savvy to go through the setup themselves? 
 
     - Self-service can work best for these users. Consider Windows Autopilot to enhance the user experience.  
 
@@ -223,9 +223,9 @@ Choose your deployment approach or approaches by reviewing the table above and r
 
     - Self-service or Autopilot work best for remote users for a hassle-free setup. 
  
-- Do you prefer a user driven or an admin managed configuration? 
+- Do you prefer a user driven or an admin-managed configuration? 
 
-    - Bulk enrollment works better for admin driven deployment to setup devices before handing over to users.     
+    - Bulk enrollment works better for admin driven deployment to set up devices before handing over to users.     
 
 - Do you purchase devices from 1-2 OEMS, or do you have a wide distribution of OEM devices?  
 
