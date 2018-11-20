@@ -30,18 +30,17 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 
 > [!NOTE]
 > **Prerequisites**
-> * Android Studio 3 or later
-> * Android SDK 21 or later is required (SDK 27 is recommended)
+> * Android Studio 3+
+> * Android 21+ is required 
 
 > [!div renderon="docs"]
 > ## Register and download
 > ### Register and configure your application and code sample
 > #### Step 1: Register your application
-> To register your application and add your application registration information to your solution, do the following:
-> 1. Go to the [Microsoft Application Registration Portal](https://apps.dev.microsoft.com/portal/register-app) to register an application.
-> 1. In the **Application Name** box, enter a name for your application.
-> 1. Ensure that the **Guided Setup** check box is cleared, and then select **Create**.
-> 1. Select **Add Platform**, select **Native Application**, and then select **Save**.
+> To register your app,
+> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/signin/index/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/androidQuickstartPage/sourceType/docs).
+> 1. Enter a name for your application and select **Register**.
+> 1. Follow the instructions to download and automatically configure your new application with just one click.
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### Step 1: Configure your application
@@ -59,20 +58,20 @@ This quickstart contains a code sample that demonstrates how an Android applicat
 #### Step 3: Configure your project
 
 1. Extract and open the Project in Android Studio.
-1. Under **app** > **java** > **<i>{host}.{namespace}</i>**, open **MainActivity**.
-1. Replace the line starting with `final static String CLIENT_ID` with:
+1. Inside **app** > **res** > **raw**, open **auth_config.json**.
+1. Replace the line starting with `client_id` with:
 
 	> [!div renderon="portal" class="sxs-lookup"]
-    > ```java
-    > final static String CLIENT_ID = "ENTER_THE_APPLICATION_ID_HERE";
+    > ```javascript
+    > "client_id" : "ENTER_THE_APPLICATION_ID_HERE",
     > ```
 
 	> [!div renderon="docs"]
-    > ```java
-    > final static String CLIENT_ID = "<ENTER_THE_APPLICATION_ID_HERE>";
+    > ```javascript
+    > "client_id" : "ENTER_THE_APPLICATION_ID_HERE",
     > ```
 
-1. Open: **app** > **manifests** > **AndroidManifest.xml**.
+1. Inside **app** > **manifests**, open  **AndroidManifest.xml**.
 1. Add the following activity to the **manifest\application** node. This code snippet registers a **BrowserTabActivity** to allow the OS to resume your application after completing the authentication:
 
 	> [!div renderon="docs"]
@@ -124,7 +123,7 @@ MSAL ([com.microsoft.identity.client](http://javadoc.io/doc/com.microsoft.identi
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
-implementation 'com.microsoft.identity.client:msal:0.1.+'
+implementation 'com.microsoft.identity.client:msal:0.2.+'
 ```
 
 ### MSAL initialization
@@ -138,9 +137,9 @@ import com.microsoft.identity.client.*;
 Then, initialize MSAL using the following code:
 
 ```java
-sampleApp = new PublicClientApplication(
+    sampleApp = new PublicClientApplication(
         this.getApplicationContext(),
-        CLIENT_ID);
+        R.raw.auth_config);
 ```
 
 > |Where: ||
@@ -174,12 +173,18 @@ sampleApp.acquireToken(this, SCOPES, getAuthInteractiveCallback());
 You don't want to require user to validate their credentials every time they need to access a resource. Most of the time you want token acquisitions and renewal without any user interaction. You can use `AcquireTokenSilentAsync` method to obtain tokens to access protected resources after the initial `acquireToken` method:
 
 ```java
-sampleApp.acquireToken(getActivity(), SCOPES, getAuthInteractiveCallback());
+List<IAccount> accounts = sampleApp.getAccounts();
+if (sample.size() == 1) {
+    sampleApp.acquireTokenSilentAsync(SCOPES, accounts.get(0), getAuthSilentCallback());
+} else {
+    // No or multiple accounts
+}
 ```
 
 > |Where:||
 > |---------|---------|
 > | `SCOPES` | Contains the scopes being requested (that is, `{ "user.read" }` for Microsoft Graph or `{ "<Application ID URL>/scope" }` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`) |
+> | `accounts.get(0)` | Contains the Account you're trying to get tokens for silently |
 > | `getAuthInteractiveCallback` | Callback executed when control is given back to the application after authentication |
 
 ## Next steps
