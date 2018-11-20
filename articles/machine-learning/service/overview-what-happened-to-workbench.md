@@ -11,7 +11,7 @@ author: j-martens
 ms.author: jmartens
 ms.date: 09/24/2018
 ---
-# What is happening to Workbench in Azure Machine Learning (preview)?
+# What is happening to Workbench in Azure Machine Learning?
 
 The Workbench application and some other early features were replaced in the September 2018 release to make way for an improved [architecture](concept-azure-machine-learning-architecture.md). The release contains many significant updates prompted by customer feedback to improve your experience. The core functionality from experiment runs to model deployment has not changed, but now you can use the robust <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> and [CLI](reference-azure-machine-learning-cli.md) to accomplish your machine learning tasks and pipelines.  
 
