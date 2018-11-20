@@ -113,6 +113,10 @@
       href: howto-troubleshoot-common-connection-issues.md
     - name: Troubleshoot query performance
       href: howto-troubleshoot-query-performance.md
+  - name: Virtual Network
+    items:
+    - name: Azure portal
+      href: howto-manage-vnet-using-portal.md
 - name: Reference
   items:
   - name: REST API
