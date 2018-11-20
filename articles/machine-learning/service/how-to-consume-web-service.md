@@ -16,7 +16,7 @@ ms.date: 10/30/2018
 
 Deploying an Azure Machine Learning model as a web service creates a REST API. You can send data to this API and receive the prediction returned by the model. In this document, learn how to create clients for the web service using C#, Go, Java, and Python.
 
-A web service is created when you deploy an image to an Azure Container Instance, Azure Kubernetes Service, or Project Brainwave (field programmable gate arrays). Images are created from registered models and scoring files. The URI used to access a web service can be retrieved using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py). If authentication is enabled, you can also use the SDK to get the authentication keys.
+A web service is created when you deploy an image to an Azure Container Instance, Azure Kubernetes Service, or Project Brainwave (field programmable gate arrays). Images are created from registered models and scoring files. The URI used to access a web service can be retrieved using the [Azure Machine Learning SDK](https://aka.ms/aml-sdk). If authentication is enabled, you can also use the SDK to get the authentication keys.
 
 The general workflow when creating a client that uses an ML web service is:
 
