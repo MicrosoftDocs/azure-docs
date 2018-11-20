@@ -281,7 +281,7 @@ Audio is sent in the body of the HTTP `POST` request. It must be in one of the f
 | OGG | OPUS | 16-bit | 16 kHz, mono |
 
 >[!NOTE]
->The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](/index.yml) currently only supports the WAV format with PCM codec.
+>The above formats are supported through REST API and WebSocket in the Speech Service. The [Speech SDK](speech-sdk.md) currently only supports the WAV format with PCM codec.
 
 ### Sample request
 

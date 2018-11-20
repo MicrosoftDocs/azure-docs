@@ -120,7 +120,7 @@ Azure Functions provides the ability to create scalable units of work, or concis
 
 Azure Cosmos DB is the recommended database for your serverless computing architecture for the following reasons:
 
-* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](indexing-policies.md) all data by default, and makes those indexes immediately available. This means you are able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
+* **Instant access to all your data**: You have granular access to every value stored because Azure Cosmos DB [automatically indexes](index-policy.md) all data by default, and makes those indexes immediately available. This means you are able to constantly query, update, and add new items to your database and have instant access via Azure Functions.
 
 * **Schemaless**. Azure Cosmos DB is schemaless - so it's uniquely able to handle any data output from an Azure Function. This "handle anything" approach makes it straightforward to create a variety of Functions that all output to Azure Cosmos DB.
 

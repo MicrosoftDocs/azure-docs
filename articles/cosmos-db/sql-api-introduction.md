@@ -39,7 +39,7 @@ Azure Cosmos DB, via the SQL API, offers the following key capabilities and bene
 
 * **Open by design:** Get started quickly by using existing skills and tools. Programming against the SQL API is simple, approachable, and does not require you to adopt new tools or adhere to custom extensions to JSON or JavaScript. You can access all of the database functionality including CRUD, query, and JavaScript processing over a simple RESTful HTTP interface. The SQL API embraces existing formats, languages, and standards while offering high value database capabilities on top of them.
 
-* **Automatic indexing:** By default, Azure Cosmos DB automatically indexes all the documents in the database and does not expect or require any schema or creation of secondary indices. Don't want to index everything? Don't worry, you can [opt out of paths in your JSON files](indexing-policies.md) too.
+* **Automatic indexing:** By default, Azure Cosmos DB automatically indexes all the documents in the database and does not expect or require any schema or creation of secondary indices. Don't want to index everything? Don't worry, you can [opt out of paths in your JSON files](index-policy.md) too.
 
 * **Change feed support:** Change feed provides a sorted list of documents within an Azure Cosmos DB collection in the order in which they were modified. This feed can be used to listen for modifications to data in order to replicate data, trigger API calls, or perform stream processing on updates. Change feed is automatically enabled and easy to use: [learn more about change feed](https://docs.microsoft.com/azure/cosmos-db/change-feed). 
 
