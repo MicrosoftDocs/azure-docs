@@ -38,9 +38,9 @@
     href: troubleshoot-rdp-static-ip.md
   - name: Troubleshoot RDP error in VM because the NIC is disabled
     href: troubleshoot-rdp-nic-disabled.md
-  - name: Troubleshoot RDP errors becauses of Safe Mode
+  - name: Troubleshoot RDP error caused by Safe Mode
     href: troubleshoot-rdp-safe-mode.md
-  - name: Troubleshoot RDP error becauses of netvsc.sys
+  - name: Troubleshoot RDP error caused by netvsc.sys
     href: troubleshoot-rdp-driver-netvsc.md
 - name: SSH
   items:

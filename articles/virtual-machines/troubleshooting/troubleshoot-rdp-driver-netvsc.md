@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot a netvsc.sys issue when you connect remotely to a Windows 10 or Windows Server 2016 VM in Azure | Microsoft Docs
-description: Learn how to troubleshoot a netsvc.sys-related RDP issue when you connecting to a Windows 10 or Windows Server 2016 VM in Azure. | Microsoft Docs
+description: Learn how to troubleshoot a netsvc.sys-related RDP issue when you connecting to a Windows 10 or Windows Server 2016 VM in Azure.
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -22,7 +22,7 @@ This article explains how to troubleshoot an issue in which there is no network 
 
 ## Symptoms
 
-You cannot connect to an Azure Windows 10 or Windows Server 2016 VM by using Rmote Desktop Protocol (RDP). In [Boot diagnostics](boot-diagnostics.md), the screen shows a red cross over the network interface card (NIC). This indicates that the VM has no connectivity after the operating system is fully loaded. 
+You cannot connect to an Azure Windows 10 or Windows Server 2016 VM by using Rmote Desktop Protocol (RDP). In [Boot diagnostics](boot-diagnostics.md), the screen shows a red cross over the network interface card (NIC). This indicates that the VM has no connectivity after the operating system is fully loaded.
 
 Typically, this issue occurs in Windows [build 14393](http://support.microsoft.com/help/4093120/) and [build 15063](http://support.microsoft.com/help/4015583/). If the version of your operating system is later than these versions, this article does not apply to your scenario. To check the version of the system, open a CMD session in [the Serial Access Console feature](serial-console-windows.md), and then run **Ver**.
 
@@ -38,9 +38,9 @@ Before you follow these steps, [take a snapshot of the system disk](../windows/s
 
 ### Use the Serial Console
 
-Connect to [the Serial Console, open a PowerShell instance](serial-console-windows.md), and then follow these steps. 
+Connect to [the Serial Console, open a PowerShell instance](serial-console-windows.md), and then follow these steps.
 
-> [!NOTE] 
+> [!NOTE]
 > If the Serial Console is not enabled on your VM, go to the [repair the VM offline](#repair-the-vm-offline) section.
 
 1. Run the following command in a PowerShell instance to get the version of the file (**c:\windows\system32\drivers\netvsc.sys**):
