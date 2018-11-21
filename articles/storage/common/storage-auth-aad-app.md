@@ -166,7 +166,7 @@ StorageCredentials storageCredentials = new StorageCredentials(tokenCredential);
 // Create a block blob using those credentials
 CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.core.windows.net/sample-container/Blob1.txt"), storageCredentials);
 
-blob.
+blob.UploadTextAsync("Blob created by Azure AD authenticated user.");
 ```
 
 > [!NOTE]
