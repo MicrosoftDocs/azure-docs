@@ -2,7 +2,7 @@
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 11/19/2018
 ms.author: jingwang
 ---
 | Category | Data store | Supported as a source | Supported as a sink |
@@ -36,6 +36,4 @@ ms.author: jingwang
 | &nbsp; |[Generic ODBC](../articles/data-factory/v1/data-factory-odbc-connector.md)* |✓ | |
 | &nbsp; |[Salesforce](../articles/data-factory/v1/data-factory-salesforce-connector.md) |✓ | |
 | &nbsp; |[Web Table (table from HTML)](../articles/data-factory/v1/data-factory-web-table-connector.md) |✓ | |
-| &nbsp; |[GE Historian](../articles/data-factory/v1/data-factory-odbc-connector.md#ge-historian-store)* |✓ | | |
-
 

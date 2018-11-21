@@ -103,7 +103,7 @@ You pass parameters in the body of the request payload. In the .NET SDK, Azure P
 ```json
 {
   "sourceBlobContainer": "MySourceFolder",
-  "sinkBlobCountainer": "MySinkFolder"
+  "sinkBlobContainer": "MySinkFolder"
 }
 ```
 
