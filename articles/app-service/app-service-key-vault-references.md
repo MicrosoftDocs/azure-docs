@@ -20,7 +20,7 @@ ms.author: mahender
 > [!NOTE] 
 > Key Vault references are currently in preview.
 
-This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/key-vault-overview.md) is a service which provides centralized secrets management, with full control over access policies and audit history.
+This topic shows you how to work with secrets from Azure Key Vault in your App Service or Azure Functions application without requiring any code changes. [Azure Key Vault](../key-vault/key-vault-overview.md) is a service that provides centralized secrets management, with full control over access policies and audit history.
 
 ## Granting your app access to Key Vault
 
@@ -33,7 +33,7 @@ In order to read secrets from Key Vault, you need to have a vault created and gi
 > [!NOTE] 
 > Key Vault references currently only support system-assigned managed identities. User-assigned identities cannot be used.
 
-3. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earler. Enable the "Get" secret permission on this policy.
+3. Create an [access policy in Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) for the application identity you created earlier. Enable the "Get" secret permission on this policy.
 
 ## Reference syntax
 
@@ -70,9 +70,9 @@ To use a Key Vault reference for an application setting, set the reference as th
 > [!TIP]
 > Most application settings using Key Vault references should be marked as slot settings, as you should have separate vaults for each environment.
 
-### ARM deployment
+### Azure Resource Manager deployment
 
-When automating resource deployments through ARM templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you will need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
+When automating resource deployments through Azure Resource Manager templates, you may need to sequence your dependencies in a particular order to make this feature work. Of note, you will need to define your application settings as their own resource, rather than using a `siteConfig` property in the site definition. This is because the site needs to be defined first so that the system-assigned identity is created with it and can be used in the access policy.
 
 An example psuedo-template for a function app might look like the following:
 
