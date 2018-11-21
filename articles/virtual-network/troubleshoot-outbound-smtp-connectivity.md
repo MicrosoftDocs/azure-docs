@@ -37,7 +37,8 @@ For Pay-As-You-Go or Microsoft Partner Network subscriptions that were created a
 
 When a Pay-As-You-Go or Microsoft Partner Network subscription is exempted, VMs within that subscription only will be exempted going forward.
 
->[AZURE.NOTE] Microsoft reserves the right to revoke this exemption if it's determined that a violation of terms of service has occurred.
+> [!NOTE]
+> Microsoft reserves the right to revoke this exemption if it's determined that a violation of terms of service has occurred.
 
 ## MSDN, Azure Pass, Azure in Open, Education, BizSpark, and Free Trial
 If you created an MSDN, Azure Pass, Azure in Open, Education, BizSpark, or Free Trial subscription after November 15, 2017, you’ll have technical restrictions that block email that’s sent from VMs within these subscriptions directly to email providers. The restrictions are done to prevent abuse. No requests to remove this restriction will be granted.
