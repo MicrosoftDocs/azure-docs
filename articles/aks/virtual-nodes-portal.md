@@ -5,7 +5,7 @@ services: container-service
 author: iainfoulds
 
 ms.service: container-service
-ms.date: 09/24/2018
+ms.date: 11/28/2018
 ms.author: iainfou
 ---
 
@@ -77,19 +77,22 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 In the Azure Cloud Shell, create a file named `virtual-node.yaml` and copy in the following YAML. To schedule the container on the node, a [nodeSelector][node-selector] and [toleration][toleration] are defined. These settings allow the pod to be scheduled on the virtual node and confirm that the feature is successfully enabled.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: virtual-node-helloworld
+  name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
-        app: virtual-node-helloworld
+        app: aci-helloworld
     spec:
       containers:
-      - name: virtual-node-helloworld
+      - name: aci-helloworld
         image: microsoft/aci-helloworld
         ports:
         - containerPort: 80

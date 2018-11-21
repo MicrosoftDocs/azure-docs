@@ -252,7 +252,7 @@ If you're using scripting languages (e.g. *.csx* or *.js* files) for development
     "taskHub": "<Optional - name of the task hub>",
     "connectionName": "<Optional - name of the connection string app setting>",
     "type": "orchestrationClient",
-    "direction": "out"
+    "direction": "in"
 }
 ```
 
@@ -306,7 +306,7 @@ If you're not using Visual Studio for development, you can create the following 
     {
       "name": "starter",
       "type": "orchestrationClient",
-      "direction": "out"
+      "direction": "in"
     }
   ],
   "disabled": false
@@ -346,6 +346,12 @@ module.exports = function (context, input) {
 ```
 
 More details on starting instances can be found in [Instance management](durable-functions-instance-management.md).
+
+<a name="host-json"></a>  
+
+## host.json settings
+
+[!INCLUDE [durabletask](../../includes/functions-host-json-durabletask.md)]
 
 ## Next steps
 

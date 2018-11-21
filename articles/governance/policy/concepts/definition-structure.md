@@ -4,7 +4,7 @@ description: Describes how resource policy definition is used by Azure Policy to
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -141,14 +141,15 @@ function syntax:
 
 ## Definition location
 
-While creating an initiative or policy definition, it is important that you specify the definition
-location.
+While creating an initiative or policy, it is necessary to specify the definition location. The
+definition location must be a management group or a subscription and determines the scope to which
+the initiative or policy can be assigned. Resources must be direct members of or children within
+the hierarchy of the definition location to target for assignment.
 
-The definition location determines the scope to which the initiative or policy definition can be
-assigned to. The location can be specified as a management group or a subscription.
+If the definition location is a:
 
-> [!NOTE]
-> If you plan to apply this policy definition to multiple subscriptions, the location must be a management group that contains the subscriptions you will assign the initiative or policy to.
+- **Subscription** - Only resources within that subscription can be assigned the policy.
+- **Management group** - Only resources within child management groups and child subscriptions can be assigned the policy. If you plan to apply the policy definition to multiple subscriptions, the location must be a management group that contains those subscriptions.
 
 ## Display name and description
 
@@ -169,7 +170,7 @@ In the **Then** block, you define the effect that happens when the **If** condit
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -257,11 +258,12 @@ The following fields are supported:
 
 Policy supports the following types of effect:
 
-- **Deny**: generates an event in the audit log and fails the request
-- **Audit**: generates a warning event in audit log but does not fail the request
+- **Deny**: generates an event in the activity log and fails the request
+- **Audit**: generates a warning event in activity log but does not fail the request
 - **Append**: adds the defined set of fields to the request
 - **AuditIfNotExists**: enables auditing if a resource does not exist
-- **DeployIfNotExists**: deploys a resource if it does not already exist.
+- **DeployIfNotExists**: deploys a resource if it does not already exist
+- **Disabled**: does not evaluate resources for compliance to the policy rule
 
 For **append**, you must provide the following details:
 
@@ -280,6 +282,20 @@ resource and apply a rule and a corresponding effect when that resource does not
 example, you can require that a network watcher is deployed for all virtual networks. For an
 example of auditing when a virtual machine extension is not deployed, see [Audit if extension does
 not exist](../samples/audit-ext-not-exist.md).
+
+The **DeployIfNotExists** effect requires the **roleDefinitionId** property in the **details**
+portion of the policy rule. For more information, see [Remediation - Configure policy
+definition](../how-to/remediate-resources.md#configure-policy-definition).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 For complete details on each effect, order of evaluation, properties, and examples, see
 [Understanding Policy Effects](effects.md).

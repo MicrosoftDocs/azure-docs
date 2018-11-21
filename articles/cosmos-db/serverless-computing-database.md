@@ -27,7 +27,8 @@ Azure Cosmos DB and Azure Functions enable you to integrate your databases and s
 * Bind a function to an Azure Cosmos DB container using an **output binding**. Output bindings write data to a container when a function completes.
 
 > [!NOTE]
-> At this time, the Azure Cosmos DB trigger, input bindings, and output bindings work with SQL API and Gremlin API accounts only.
+> Currently, Azure Cosmos DB trigger, input bindings, and output bindings are supported for use with the SQL API only. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including MongoDB API, Cassandra API, Gremlin API, and Table API.
+
 
 The following diagram illustrates each of these three integrations: 
 
@@ -93,7 +94,7 @@ In retail implementations, when a user adds an item to their basket you now have
 
 **Implementation:** Multiple Azure Cosmos DB triggers listening to one container
 
-1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed.md#understand-cf).
+1. You can create multiple Azure Functions by adding Azure Cosmos DB triggers to each - all of which listen to the same change feed of shopping cart data. Note that when multiple functions listen to the same change feed, a new lease collection is required for each function. For more information about lease collections, see [Understanding the Change Feed Processor library](change-feed-processor.md).
 2. Whenever a new item is added to a users shopping cart, each function is independently invoked by the change feed from the shopping cart container.
     * One function may use the contents of the current basket to change the display of other items the user might be interested in.
     * Another function may update inventory totals.

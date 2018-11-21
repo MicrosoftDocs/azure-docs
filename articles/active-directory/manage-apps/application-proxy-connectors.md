@@ -2,20 +2,15 @@
 title: Understand Azure AD Application Proxy connectors | Microsoft Docs
 description: Covers the basics about Azure AD Application Proxy connectors.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/17/2018
+ms.date: 11/15/2018
 ms.author: barbkess
 ms.reviewer: japere
-ms.custom: it-pro
 ---
 
 # Understand Azure AD Application Proxy connectors
@@ -29,6 +24,22 @@ Connectors are lightweight agents that sit on-premises and facilitate the outbou
 ## Requirements and deployment
 
 To deploy Application Proxy successfully, you need at least one connector, but we recommend two or more for greater resiliency. Install the connector on a Windows Server 2012 R2 or 2016 machine. The connector needs to be able to communicate with the Application Proxy service as well as the on-premises applications that you publish. 
+
+### Windows server
+You need a server running Windows Server 2012 R2 or later on which you can install the Application Proxy connector. The server needs to connect to the Application Proxy services in Azure, and the on-premises applications that you are publishing.
+
+The windows server needs to have TLS 1.2 enabled before you install the Application Proxy connector. Existing connectors with versions below 1.5.612.0 will continue to work on prior versions of TLS until further notice. To enable TLS 1.2:
+
+1. Set the following registry keys:
+	
+    ```
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
+    [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2\Client] "DisabledByDefault"=dword:00000000 "Enabled"=dword:00000001
+    [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\.NETFramework\v4.0.30319] "SchUseStrongCrypto"=dword:00000001
+    ```
+
+2. Restart the server
+
 
 For more information about the network requirements for the connector server, see [Get started with Application Proxy and install a connector](application-proxy-enable.md).
 

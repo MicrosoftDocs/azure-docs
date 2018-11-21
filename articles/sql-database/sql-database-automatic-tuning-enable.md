@@ -7,6 +7,7 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
+author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg

@@ -20,7 +20,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-The latest version of the [Java Development Kit](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (JDK)
+The latest version of the [Java Development Kit](https://aka.ms/azure-jdks) (JDK)
 
 Install the Bing Image Search SDK dependencies by using Maven, Gradle, or another dependency management system. The Maven POM file requires the following declaration:
 
@@ -29,7 +29,7 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
     <dependency>
       <groupId>com.microsoft.azure.cognitiveservices</groupId>
       <artifactId>azure-cognitiveservices-imagesearch</artifactId>
-      <version>0.0.1-beta-SNAPSHOT</version>
+      <version>1.0.1</version>
     </dependency>
  </dependencies>
 ```
@@ -59,7 +59,7 @@ Install the Bing Image Search SDK dependencies by using Maven, Gradle, or anothe
 ## Send a search request to the Bing Image Search API
 
 1. Using `bingImages().search()`, send the HTTP request containing the search query. Save the response as a `ImagesModel`.
-    ```java
+   ```java
     ImagesModel imageResults = client.bingImages().search()
                 .withQuery(searchTerm)
                 .withMarket("en-us")
@@ -82,8 +82,8 @@ if (imageResults != null && imageResults.value().size() > 0) {
 }
 else {
         System.out.println("Couldn't find image results!");
-    }
-}
+     }
+
 ```
 
 ## Next steps

@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+---
 The following table shows the bindings that are supported in the two major versions of the Azure Functions runtime.
 
 | Type | 1.x | 2.x<sup>1</sup> | Trigger | Input | Output |  

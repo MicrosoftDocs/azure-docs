@@ -47,7 +47,7 @@ Users with access to privileged accounts have unrestricted access to your enviro
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-This baseline policy provides you with the option to exclude users and groups. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
+This baseline policy provides you with the option to exclude users. You might want to exclude one *[emergency-access administrative account](../users-groups-roles/directory-emergency-access.md)* to ensure you are not locked out of the tenant.
 
 
 ## Enable a baseline policy 

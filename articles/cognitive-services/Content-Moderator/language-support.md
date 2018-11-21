@@ -12,7 +12,7 @@ ms.date: 09/25/2018
 ms.author: sajagtap
 ---
 
-# Language and region support for Content Moderator API
+# Language support for Content Moderator API
 
 > [!NOTE]
 > For the **language** parameter, assign `eng` or leave it empty to see the machine-assisted **classification** response (preview feature). **This feature supports English only**.
@@ -62,7 +62,7 @@ ms.author: sajagtap
 | Old (Persian) | Hebrew
 | Pashto | Hindi
 | Polish | Hungarian
-| Portugese | Icelandic
+| Portuguese | Icelandic
 | Punjabi | Igbo
 | Rejang | Indonesian
 | Russian | Inuktitut

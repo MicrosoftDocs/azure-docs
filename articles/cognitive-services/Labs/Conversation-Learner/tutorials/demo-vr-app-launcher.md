@@ -18,7 +18,7 @@ This demo illustrates a virtual reality model launcher, which supports commands 
 
 ## Video
 
-[![Demo VR App Preview](http://aka.ms/cl-demo-vrapp-preview)](http://aka.ms/blis-demo-vrapp)
+[![Demo VR App Preview](https://aka.ms/cl-demo-vrapp-preview)](https://aka.ms/blis-demo-vrapp)
 
 ## Requirements
 

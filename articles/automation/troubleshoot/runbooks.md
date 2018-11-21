@@ -87,8 +87,9 @@ This error occurs if the subscription name isn't valid or if the Azure Active Di
 
 To determine if you've properly authenticated to Azure and have access to the subscription you're trying to select, take the following steps:  
 
-1. Make sure that you run the **Add-AzureAccount** cmdlet before running the **Select-AzureSubscription** cmdlet.  
-2. If you still see this error message, modify your code by adding the **-AzureRmContext** parameter following the **Add-AzureAccount** cmdlet and then execute the code.
+1. Test your script outside of Azure Automation to make sure it works stand-alone.
+2. Make sure that you run the **Add-AzureAccount** cmdlet before running the **Select-AzureSubscription** cmdlet.  
+3. If you still see this error message, modify your code by adding the **-AzureRmContext** parameter following the **Add-AzureAccount** cmdlet and then execute the code.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -98,7 +99,7 @@ To determine if you've properly authenticated to Azure and have access to the su
    $context = Get-AzureRmContext
 
    Get-AzureRmVM -ResourceGroupName myResourceGroup -AzureRmContext $context
-   ```
+    ```
 
 ### <a name="auth-failed-mfa"></a>Scenario: Authentication to Azure failed because multi-factor authentication is enabled
 
@@ -299,7 +300,7 @@ Any of the following solutions fix the problem:
 * Check that you've entered the cmdlet name correctly.  
 * Make sure the cmdlet exists in your Automation account and that there are no conflicts. To verify if the cmdlet is present, open a runbook in edit mode and search for the cmdlet you want to find in the library or run `Get-Command <CommandName>`. Once you've validated that the cmdlet is available to the account, and that there are no name conflicts with other cmdlets or runbooks, add it to the canvas and make sure that you're using a valid parameter set in your runbook.  
 * If you do have a name conflict and the cmdlet is available in two different modules, you can resolve this by using the fully qualified name for the cmdlet. For example, you can use **ModuleName\CmdletName**.  
-* If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module/cmdlet is installed on the machine that hosts the hybrid worker.
+* If you're executing the runbook on-premises in a hybrid worker group, then make sure that the module and cmdlet is installed on the machine that hosts the hybrid worker.
 
 ### <a name="long-running-runbook"></a>Scenario: A long running runbook fails to complete
 

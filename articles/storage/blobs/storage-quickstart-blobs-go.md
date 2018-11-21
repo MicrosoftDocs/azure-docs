@@ -3,12 +3,11 @@ title: Azure Quickstart - Create a blob in object storage using Go | Microsoft D
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 services: storage  
 author: seguler
- 
 
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/23/2018
+ms.date: 11/14/2018
 ms.author: seguler
 ---
 
@@ -18,17 +17,20 @@ In this quickstart, you learn how to use the Go programming language to upload, 
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [Go 1.8 or above](https://golang.org/dl/)
-* Download and install [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/) using `go get -u github.com/Azure/azure-storage-blob-go/azblob`. 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-> [!NOTE]
-> Make sure that you capitalize Azure in the URL. Doing otherwise can cause case-related import problems when working with the SDK. You also need to capitalize Azure in your import statements.
+Make sure you have the following additional prerequisites installed:
+ 
+* [Go 1.8 or above](https://golang.org/dl/)
+* [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/), using the following command:
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+    ```
+    go get -u github.com/Azure/azure-storage-blob-go/azblob
+    ``` 
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
-
+    > [!NOTE]
+    > Make sure that you capitalize `Azure` in the URL to avoid case-related import problems when working with the SDK. Also capitalize `Azure` in your import statements.
+    
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-go-quickstart.git) used in this quickstart is a basic Go application.  
 
@@ -162,7 +164,7 @@ file, err := os.Open(fileName)
 handleErrors(err)
 
 // You can use the low-level Upload (PutBlob) API to upload files. Low-level APIs are simple wrappers for the Azure Storage REST APIs.
-// Note that Upload can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/en-us/rest/api/storageservices/put-blob
+// Note that Upload can upload up to 256MB data in one shot. Details: https://docs.microsoft.com/rest/api/storageservices/put-blob
 // To upload more than 256MB, use StageBlock (PutBlock) and CommitBlockList (PutBlockList) functions. 
 // Following is commented out intentionally because we will instead use UploadFileToBlockBlob API to upload the blob
 // _, err = blobURL.Upload(ctx, file, azblob.BlobHTTPHeaders{ContentType: "text/plain"}, azblob.Metadata{}, azblob.BlobAccessConditions{})

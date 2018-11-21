@@ -73,12 +73,14 @@
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Process node OS updates
+      href: node-updates-kured.md
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
     - name: Azure AD-enabled AKS
       href: aad-integration.md
-    - name: Create virtual nodes
+    - name: Create virtual nodes (preview)
       items:
       - name: Azure CLI
         href: virtual-nodes-cli.md
@@ -117,6 +119,8 @@
           href: http-application-routing.md
         - name: Use internal network
           href: ingress-internal-ip.md
+        - name: Use TLS with your own certificates
+          href: ingress-own-tls.md
         - name: Use TLS with Let's Encrypt
           href: ingress-tls.md
           items:

@@ -5,7 +5,7 @@ services: container-service
 author: iainfoulds
 
 ms.service: container-service
-ms.date: 09/24/2018
+ms.date: 11/28/2018
 ms.author: iainfou
 ---
 
@@ -22,7 +22,7 @@ Virtual nodes enable network communication between pods that run in ACI and the 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.46 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
+If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0.49 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
 ## Create a resource group
 
@@ -70,8 +70,8 @@ The output is similar to the following example:
 ```
 {
   "appId": "bef76eb3-d743-4a97-9534-03e9388811fc",
-  "displayName": "azure-cli-2018-08-29-22-29-29",
-  "name": "http://azure-cli-2018-08-29-22-29-29",
+  "displayName": "zure-cli-2018-11-21-18-42-00",
+  "name": "http://azure-cli-2018-11-21-18-42-00",
   "password": "1d257915-8714-4ce7-a7fb-0e5a5411df7f",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -126,7 +126,7 @@ After several minutes, the command completes and returns JSON-formatted informat
 To provide additional functionality, the virtual nodes connector uses an Azure CLI extension. Before you can enable the virtual nodes connector, first install the extension using the [az extension add][az-extension-add] command:
 
 ```azurecli-interactive
-az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.1.0-py2.py3-none-any.whl
+az extension add --source https://aksvnodeextension.blob.core.windows.net/aks-virtual-node/aks_virtual_node-0.2.0-py2.py3-none-any.whl
 ```
 
 To enable virtual nodes, now use the [az aks enable-addons][az-aks-enable-addons] command. The following example uses the subnet named *myVirtualNodeSubnet* created in a previous step:
@@ -135,7 +135,7 @@ To enable virtual nodes, now use the [az aks enable-addons][az-aks-enable-addons
 az aks enable-addons \
     --resource-group myResourceGroup \
     --name myAKSCluster \
-    --addons aks-virtual-node \
+    --addons virtual-node \
     --subnet-name myVirtualNodeSubnet
 ```
 
@@ -174,6 +174,9 @@ metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -249,7 +252,7 @@ Close the terminal session to your test pod with `exit`. When your session is en
 If you no longer wish to use virtual nodes, you can disable them using the [az aks disable-addons][az aks disable-addons] command. The following example disables the Linux virtual nodes:
 
 ```azurecli-interactive
-az aks disable-addons -resource-group myResourceGroup --name myAKSCluster –-add-ons virtual-nodes --os-type linux
+az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --addons virtual-node
 ```
 
 Now, remove the virtual network resources and resource group:
@@ -272,15 +275,6 @@ az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet --remove delegations 0
-
-# Delete the subnet
-az network vnet subnet delete --resource-group $RES_GROUP --vnet-name myVnet --name myAKSSubnet
-
-# Delete virtual network
-az network vnet delete --resource-group $RES_GROUP --name myVnet
-
-# Delete the resource group
-az group delete --name $RES_GROUP
 ```
 
 ## Next steps

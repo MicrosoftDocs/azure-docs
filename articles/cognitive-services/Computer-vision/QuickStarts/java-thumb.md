@@ -20,7 +20,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- You must have [Java&trade; Platform, Standard Edition Development Kit 7 or 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 or 8) installed.
+- You must have [Java&trade; Platform, Standard Edition Development Kit 7 or 8](https://aka.ms/azure-jdks) (JDK 7 or 8) installed.
 - You must have a subscription key for Computer Vision. To get a subscription key, see [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## Create and run the sample application
@@ -79,7 +79,7 @@ public class Main {
     // from the West US region, replace "westcentralus" in the URL
     // below with "westus".
     //
-    // Free trial subscription keys are generated in the West Central US region.
+    // Free trial subscription keys are generated in the "westus" region.
     // If you use a free trial subscription key, you shouldn't need to change
     // this region.
     private static final String uriBase =

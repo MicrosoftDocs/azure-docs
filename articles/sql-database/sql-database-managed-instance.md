@@ -11,7 +11,7 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/17/2018
+ms.date: 10/30/2018
 ---
 # Use SQL Database Managed Instance with virtual networks and near 100% compatibility
 
@@ -212,7 +212,7 @@ Managed Instance benefits from being always-up-to-date in the cloud, which means
 
 ### Managed Instance administration features
 
-Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, [database replication](replication-with-sql-database-managed-instance.md) (including system databases), high availability configuration, and configuration of health and performance monitoring data streams.
+Managed Instance enable system administrator to focus on what matters the most for business. Many system administrator/DBA activities are not required, or they are simple. For example, OS / RDBMS installation and patching, dynamic instance resizing and configuration, backups, [database replication](replication-with-sql-database-managed-instance.md) (including system databases), high availability configuration, and configuration of health and [performance monitoring](../log-analytics/log-analytics-azure-sql.md) data streams.
 
 > [!IMPORTANT]
 > For a list of supported, partially supported, and unsupported features, see [SQL Database features](sql-database-features.md). For a list of T-SQL differences in Managed Instances versus SQL Server, see [Managed Instance T-SQL Differences from SQL Server](sql-database-managed-instance-transact-sql-information.md)
@@ -235,4 +235,5 @@ The following table shows several properties, accessible through Transact SQL, t
 - For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 - For a quickstart that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
 - For a tutorial using the Azure Database Migration Service (DMS) for migration, see [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+- For advanced monitoring of Managed Instance database performance with built-in troubleshooting intelligence, see [Monitor Azure SQL Database using Azure SQL Analytics ](../log-analytics/log-analytics-azure-sql.md) 
 - For pricing information, see [SQL Database Managed Instance pricing](https://azure.microsoft.com/pricing/details/sql-database/managed/).

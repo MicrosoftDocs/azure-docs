@@ -185,8 +185,8 @@
       href: /rest/api/storageimportexport
 - name: Resources
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Azure roadmap
+    href: https://azure.microsoft.com/roadmap/?product=storage
   - name: Azure Storage client tools
     href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
   - name: Forum
@@ -195,8 +195,6 @@
     href: https://azure.microsoft.com/pricing/details/storage/queues/
   - name: Pricing calculator
     href: https://azure.microsoft.com/pricing/calculator/
-  - name: Service updates
-    href: https://azure.microsoft.com/updates/?product=storage
   - name: Stack Overflow
     href: http://stackoverflow.com/questions/tagged/windows-azure-storage
   - name: Videos

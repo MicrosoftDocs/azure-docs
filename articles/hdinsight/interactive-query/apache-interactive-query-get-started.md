@@ -3,8 +3,8 @@ title: Use Interactive Query with Azure HDInsight
 description: Learn how to use Interactive Query (Hive LLAP) with HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual

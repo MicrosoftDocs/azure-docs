@@ -233,16 +233,18 @@ In this example, the early termination policy is applied at every interval start
 
 ### No termination policy
 
-If you want all training runs to run to completion, use NoTerminationPolicy. This will have the effect of not applying any early termination policy.
+If you want all training runs to run to completion, set policy to None. This will have the effect of not applying any early termination policy.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### Default policy
 
-If no policy is specified, the hyperparameter tuning service will use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5 by default. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
+If no policy is specified, the hyperparameter tuning service will let all training runs run to completion.
+
+>[!NOTE] 
+>If you are looking for a conservative policy that provides savings without terminating promising jobs, you can use a Median Stopping Policy with `evaluation_interval` 1 and `delay_evaluation` 5. These are conservative settings, that can provide approximately 25%-35% savings with no loss on primary metric (based on our evaluation data).
 
 ## Allocate resources
 

@@ -35,10 +35,10 @@ Here is a simple C# example:
 public static async Task Run(
     [ManualTrigger] string input,
     [OrchestrationClient] DurableOrchestrationClient starter,
-    TraceWriter log)
+    ILogger log)
 {
     string instanceId = await starter.StartNewAsync("HelloWorld", input);
-    log.Info($"Started orchestration with ID = '{instanceId}'.");
+    log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
 }
 ```
 
@@ -114,12 +114,12 @@ You can use the `GetStatusAsync` method to query the statuses of all orchestrati
 public static async Task Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient client,
-    TraceWriter log)
+    ILogger log)
 {
     IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
-        log.Info(JsonConvert.SerializeObject(instance));
+        log.LogInformation(JsonConvert.SerializeObject(instance));
     };
 }
 ```
@@ -132,7 +132,7 @@ You can also use the `GetStatusAsync` method to get a list of orchestration inst
 public static async Task Run(
     [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
     [OrchestrationClient] DurableOrchestrationClient client,
-    TraceWriter log)
+    ILogger log)
 {
     IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
         OrchestrationRuntimeStatus.Completed,
@@ -145,7 +145,7 @@ public static async Task Run(
     ); // You can pass CancellationToken as a parameter.
     foreach (var instance in instances)
     {
-        log.Info(JsonConvert.SerializeObject(instance));
+        log.LogInformation(JsonConvert.SerializeObject(instance));
     };
 }
 ```

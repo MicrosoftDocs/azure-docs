@@ -188,7 +188,7 @@ If you write logs in your function code, their category is "Function".
 
 ### Log levels
 
-The Azure functions logger also includes a *log level* with every log. [LogLevel](https://docs.microsoft.com/aspnet/core/api/microsoft.extensions.logging.loglevel#Microsoft_Extensions_Logging_LogLevel) is an enumeration, and the integer code indicates relative importance:
+The Azure functions logger also includes a *log level* with every log. [LogLevel](/dotnet/api/microsoft.extensions.logging.loglevel) is an enumeration, and the integer code indicates relative importance:
 
 |LogLevel    |Code|
 |------------|---|
@@ -338,6 +338,9 @@ Application Insights has a [sampling](../application-insights/app-insights-sampl
   }
 }
 ```
+
+> [!NOTE]
+> [Sampling](../application-insights/app-insights-sampling.md) is enabled by default. If you appear to be missing data, you may just need to adjust the sampling settings to fit your particular monitoring scenario.
 
 ## Write logs in C# functions
 

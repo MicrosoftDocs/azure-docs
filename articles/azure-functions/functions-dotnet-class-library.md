@@ -61,9 +61,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -94,9 +94,9 @@ public static class SimpleExampleWithOutput
     public static void Run(
         [QueueTrigger("myqueue-items-source")] string myQueueItem, 
         [Queue("myqueue-items-destination")] out string myQueueItemCopy,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CopyQueueMessage function processed: {myQueueItem}");
+        log.LogInformation($"CopyQueueMessage function processed: {myQueueItem}");
         myQueueItemCopy = myQueueItem;
     }
 }
@@ -115,10 +115,10 @@ public static class BindingExpressionsExample
     public static void Run(
         [QueueTrigger("%queueappsetting%")] string myQueueItem,
         DateTimeOffset insertionTime,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"Message content: {myQueueItem}");
-        log.Info($"Created at: {insertionTime}");
+        log.LogInformation($"Message content: {myQueueItem}");
+        log.LogInformation($"Created at: {insertionTime}");
     }
 }
 ```
@@ -218,9 +218,9 @@ public static class ICollectorExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-3")] string myQueueItem,
         [Queue("myqueue-items-destination")] ICollector<string> myDestinationQueue,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
         myDestinationQueue.Add($"Copy 1: {myQueueItem}");
         myDestinationQueue.Add($"Copy 2: {myQueueItem}");
     }
@@ -229,9 +229,7 @@ public static class ICollectorExample
 
 ## Logging
 
-To log output to your streaming logs in C#, include an argument of type `TraceWriter`. We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions. 
-
-`TraceWriter` is defined in the [Azure WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). The log level for `TraceWriter` can be configured in [host.json](functions-host-json.md).
+To log output to your streaming logs in C#, include an argument of type [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger). We recommend that you name it `log`. Avoid using `Console.Write` in Azure Functions.
 
 ```csharp
 public static class SimpleExample
@@ -239,9 +237,9 @@ public static class SimpleExample
     [FunctionName("QueueTrigger")]
     public static void Run(
         [QueueTrigger("myqueue-items")] string myQueueItem, 
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"C# function processed: {myQueueItem}");
+        log.LogInformation($"C# function processed: {myQueueItem}");
     }
 } 
 ```
@@ -261,9 +259,9 @@ public static class AsyncExample
         [BlobTrigger("sample-images/{blobName}")] Stream blobInput,
         [Blob("sample-images-copies/{blobName}", FileAccess.Write)] Stream blobOutput,
         CancellationToken token,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"BlobCopy function processed.");
+        log.LogInformation($"BlobCopy function processed.");
         await blobInput.CopyToAsync(blobOutput, 4096, token);
     }
 }
@@ -307,11 +305,11 @@ To get an environment variable or an app setting value, use `System.Environment.
 public static class EnvironmentVariablesExample
 {
     [FunctionName("GetEnvironmentVariables")]
-    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, TraceWriter log)
+    public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger log)
     {
-        log.Info($"C# Timer trigger function executed at: {DateTime.Now}");
-        log.Info(GetEnvironmentVariable("AzureWebJobsStorage"));
-        log.Info(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
+        log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
+        log.LogInformation(GetEnvironmentVariable("AzureWebJobsStorage"));
+        log.LogInformation(GetEnvironmentVariable("WEBSITE_SITE_NAME"));
     }
 
     public static string GetEnvironmentVariable(string name)
@@ -358,9 +356,9 @@ public static class IBinderExample
     public static void Run(
         [QueueTrigger("myqueue-items-source-4")] string myQueueItem,
         IBinder binder,
-        TraceWriter log)
+        ILogger log)
     {
-        log.Info($"CreateBlobUsingBinder function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobUsingBinder function processed: {myQueueItem}");
         using (var writer = binder.Bind<TextWriter>(new BlobAttribute(
                     $"samples-output/{myQueueItem}", FileAccess.Write)))
         {
@@ -387,9 +385,9 @@ public static class IBinderExampleMultipleAttributes
     public async static Task RunAsync(
             [QueueTrigger("myqueue-items-source-binder2")] string myQueueItem,
             Binder binder,
-            TraceWriter log)
+            ILogger log)
     {
-        log.Info($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
+        log.LogInformation($"CreateBlobInDifferentStorageAccount function processed: {myQueueItem}");
         var attributes = new Attribute[]
         {
         new BlobAttribute($"samples-output/{myQueueItem}", FileAccess.Write),

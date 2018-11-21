@@ -284,7 +284,7 @@ featureFlags:
                                                     <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Azure DevOps Project
+                                                            Azure DevOps Projects
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -1117,6 +1117,12 @@ featureFlags:
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/avere-vfxt/">
+                                                <img src="media/index/avere.svg" alt="" />
+                                                <p>Avere vFXT</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows">
                                                 <img src="media/index/storage.svg" alt="" />
                                                 <p>Storage Explorer</p>
@@ -1275,7 +1281,7 @@ featureFlags:
 										<li>
                                             <a href="/azure/devops-project">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Azure DevOps Project</p>
+                                                <p>Azure DevOps Projects</p>
                                             </a>
                                         </li>
 									</ul>
@@ -2509,6 +2515,25 @@ featureFlags:
                                                 <div class="cardText">
                                                     <h3>Data Box family</h3>
                                                     <p>Family of storage devices that enable offline or network-based data transfer</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/en-us/azure/avere-vfxt/" data-linktype="absolute-path">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img alt="" src="media/index/avere.svg" data-linktype="relative-path">
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Avere vFXT</h3>
+                                                    <p>Run high-performance, file-based workloads in Azure</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -4830,7 +4855,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevOps Project</h3>
+                                                    <h3>Azure DevOps Projects</h3>
                                                     <p>Quickly deploy any language on any platform to Azure</p>
                                                 </div>
                                             </div>
@@ -5977,12 +6002,36 @@ featureFlags:
                                         <div class="card">
                                             <div class="cardImageOuter">
                                                 <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/media/logos/logo_visual-studio.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+                                                    <a href="/visualstudio/azure/">Visual Studio</a>
+                                                </h3>
+                                                <p>
+                                                    <a href="https://visualstudio.microsoft.com/downloads/?utm_medium=microsoft&utm_source=docs.microsoft.com&utm_campaign=navigation+cta&utm_content=download+vs2017">Download for Windows</a>
+                                                </p>
+                                                 <p>
+                                                    <a href="https://visualstudio.microsoft.com/vs/mac/">Download for Mac</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
                                                     <img src="https://docs.microsoft.com/media/logos/logo_vs-code.svg" alt="" />
                                                 </div>
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio Code</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-azureextensionpack">Visual Studio                             Code</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice">App Service</a>
@@ -6129,13 +6178,13 @@ featureFlags:
                                                     <a href="/azure/vs-azure-tools-storage-manage-with-storage-explorer">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708342">Download for Mac</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708342">Download for Mac</a>
                                                 </p>
                                                 <p>
-                                                    <a href="http://go.microsoft.com/fwlink/?LinkId=708343">Download for Windows</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=708343">Download for Windows</a>
                                                 </p>
                                             </div>
                                         </div>

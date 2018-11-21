@@ -236,7 +236,7 @@ If you did not read the documentation on [Integrating your on-premises identitie
 
 |Topic |Link|  
 | --- | --- |
-|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Download Azure AD Connect | [Download Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771)|
 |Install using Express settings | [Express installation of Azure AD Connect](how-to-connect-install-express.md)|
 |Install using Customized settings | [Custom installation of Azure AD Connect](./how-to-connect-install-custom.md)|
 |Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](how-to-dirsync-upgrade-get-started.md)|

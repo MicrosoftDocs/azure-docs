@@ -1,3 +1,10 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+---
 Other quick starts in this collection build upon this quick start. If you plan to work with subsequent quick starts, tutorials, or with any of the services you have created in this quick start, do not clean up the resources.
 
 *Resources* in Azure refers to function apps, functions, storage accounts, and so forth. They are grouped into *resource groups*, and you can delete everything in a group by deleting the group. 

@@ -182,7 +182,7 @@ Several Azure tools are installed on the VM:
 * **Microsoft Azure PowerShell** is a tool that's used to administer your Azure resources in the PowerShell scripting language. It's also installed on your VM. 
 
 ### Power BI
-The **Power BI Desktop** is installed to help you build dashboards and visualizations. Use this tool to pull data from different sources, to author your dashboards and reports, and to publish them to the cloud. For more information, see the [Power BI](http://powerbi.microsoft.com) site. You can find the Power BI desktop on the **Start** menu. 
+The **Power BI Desktop** is installed to help you build dashboards and visualizations. Use this tool to pull data from different sources, to author your dashboards and reports, and to publish them to the cloud. For more information, see the [Power BI](https://powerbi.microsoft.com) site. You can find the Power BI desktop on the **Start** menu. 
 
 > [!NOTE]
 > You need a Microsoft Office 365 account to access Power BI. 
@@ -224,7 +224,7 @@ The [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/p
 * Explore the tools on the data science VM by selecting the **Start** menu.
 * Learn about Azure Machine Learning Services and Workbench by visiting the product [quickstart and tutorials page](../service/index.yml). 
 * Navigate to **C:\Program Files\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** for samples that use the RevoScaleR library in R that supports data analytics at the enterprise scale.  
-* Read the article [Ten things you can do on the Data science Virtual Machine](http://aka.ms/dsvmtenthings).
+* Read the article [Ten things you can do on the Data science Virtual Machine](https://aka.ms/dsvmtenthings).
 * Learn how to build end-to-end analytical solutions systematically by using the [Team Data Science Process](../team-data-science-process/index.yml).
 * Visit the [Azure AI Gallery](http://gallery.cortanaintelligence.com) for machine learning and data analytics samples that use Azure Machine Learning and related data services on Azure. We've also provided an icon for this gallery on the **Start** menu and desktop of the virtual machine.
 

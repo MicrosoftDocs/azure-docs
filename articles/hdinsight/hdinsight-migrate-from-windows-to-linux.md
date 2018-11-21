@@ -2,14 +2,14 @@
 title: Migrate from Windows-based HDInsight to Linux-based HDInsight - Azure 
 description: Learn how to migrate from a Windows-based HDInsight cluster to a Linux-based HDInsight cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Migrate from a Windows-based HDInsight cluster to a Linux-based cluster

@@ -78,6 +78,7 @@ Replace the existing C# function with the following code:
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
 
 public static IActionResult Run(HttpRequest req, out object taskDocument, ILogger log)
 {
@@ -102,6 +103,7 @@ public static IActionResult Run(HttpRequest req, out object taskDocument, ILogge
         taskDocument = null;
         return (ActionResult)new BadRequestResult();
     }
+}
 ```
 
 # [JavaScript](#tab/nodejs)

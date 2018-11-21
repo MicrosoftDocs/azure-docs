@@ -205,6 +205,7 @@
     - name: Use Remote Desktop
       href: use-remote-desktop.md
     - name: Join VM to Azure Active Directory
+      displayName: AAD
       items:
         - name: Red Hat Enterprise Linux
           href: ../../active-directory-domain-services/active-directory-ds-join-rhel-linux-vm.md
@@ -357,10 +358,12 @@
         href: openshift-get-started.md
       - name: OpenShift prerequisites
         href: openshift-prerequisites.md
-      - name: OpenShift Origin
-        href: openshift-origin.md
       - name: OpenShift Container Platform
         href: openshift-container-platform.md
+      - name: OKD
+        href: openshift-okd.md
+      - name: Azure Stack
+        href: openshift-azure-stack.md
       - name: OpenShift post-deployment tasks
         href: openshift-post-deployment.md
       - name: Troubleshooting deployments
@@ -392,6 +395,12 @@
         href: classic/hpcpack-cluster-namd.md
       - name: Install NVIDIA GPU drivers
         href: n-series-driver-setup.md
+    - name: IBM Db2 pureScale
+      items:
+      - name: Architecture
+        href: ibm-db2-purescale-azure.md
+      - name: Deployment
+        href: deploy-ibm-db2-purescale-azure.md
   - name: Manage storage
     items:
     - name: Disks FAQs

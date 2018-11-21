@@ -46,6 +46,6 @@ Related links
 
 -   [How and where Microsoft sends customers\' data, including geo locations](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located)
 -   [Sub-contractors who have access to customers\' data](https://aka.ms/Online_Serv_Subcontractor_List)
--   [Details on Azure security measures administered by Microsoft](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+-   [Details on Azure security measures administered by Microsoft](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
 -   [Details regarding Microsoft\'s privacy reviews process, conducted for all products, including all Azure services](https://www.microsoft.com/trustcenter/privacy/we-set-and-adhere-to-stringent-standards)
 -   [What data Microsoft collects and processes from customer systems and end users](https://www.microsoft.com/trustcenter/privacy/you-own-your-data)
