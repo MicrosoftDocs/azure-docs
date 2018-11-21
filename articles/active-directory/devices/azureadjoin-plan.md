@@ -196,7 +196,7 @@ Your users have SSO from Azure AD joined devices when a device has access to an 
 
 ### Printers
 
-For printers, you need to deploy [hybrid cloud print](https://docs.microsoft.com/en-us/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) for discovering printers on Azure AD joined devices. 
+For printers, you need to deploy [hybrid cloud print](https://docs.microsoft.com/windows-server/administration/hybrid-cloud-print/hybrid-cloud-print-deploy) for discovering printers on Azure AD joined devices. 
 
 While printers can't be automatically discovered in a cloud only environment, your users can also use the printers’ UNC path to directly add them. 
 
@@ -214,7 +214,7 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 You can provision Azure AD join using the following approaches:
 
-- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://docs.microsoft.com/en-us/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Self-service in OOBE/Settings** - In the self-service mode, users go through the Azure AD join process either during Windows Out of Box Experience (OOBE) or from Windows Settings. For more information, see [Join your work device to your organization's network](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network). 
 
 - **Windows Autopilot** - Windows Autopilot enables pre-configuration of devices for a smoother experience in OOBE to perform an Azure AD join. For more information, see the [Overview of Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot). 
 
