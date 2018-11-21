@@ -146,6 +146,10 @@ You can reuse an existing self-hosted integration runtime infrastructure that yo
 
 To share a self-hosted integration runtime by using PowerShell, see [Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
 
+For a twelve-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
 ### Terminology
 
 - **Shared IR**: The original self-hosted IR that's running on a physical infrastructure.  

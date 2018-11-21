@@ -112,8 +112,10 @@ details, see this article: [Onboarding machines for management by Azure Automati
 
 At an authenticated (`Connect-AzureRmAccount`) PowerShell command line: (can take a few minutes while the pull server is set up)
 
-    New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
-    New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```azurepowershell-interactive
+New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES
+New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
+```
 
 You can put your automation account into any of the following regions (aka location): East US 2,
 South Central US, US Gov Virginia, West Europe, Southeast Asia, Japan East, Central India and
@@ -154,7 +156,7 @@ Integration Modules, see this article: [Authoring Integration Modules for Azure
 Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Install the module that you need on your workstation, as follows:
-  - Install [Windows Management Framework, v5](http://aka.ms/wmf5latest) (not needed for Windows 10)
+  - Install [Windows Management Framework, v5](https://aka.ms/wmf5latest) (not needed for Windows 10)
   - `Install-Module –Name MODULE-NAME`    <—grabs the module from the PowerShell Gallery
 - Copy the module folder from `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` to a temp folder
 - Delete samples and documentation from the main folder

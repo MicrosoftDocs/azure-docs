@@ -16,12 +16,12 @@ ms.author: laviswa
 
 # Azure Cosmos DB SQL syntax reference
 
-Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides reference/syntax documentation for the SQL query language, which is compatible with SQL API accounts. For a walkthrough of the SQL queries with sample data see [query Azure Cosmos DB data](sql-api-sql-query.md).  
+Azure Cosmos DB supports querying documents using a familiar SQL (Structured Query Language) like grammar over hierarchical JSON documents without requiring explicit schema or creation of secondary indexes. This article provides documentation for the SQL query language syntax, which is compatible with SQL API accounts. For a walkthrough of example SQL queries, see [SQL queries in Cosmos DB](how-to-sql-query.md).  
   
-Visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Azure Cosmos DB and run SQL queries against our dataset.  
+Visit the [Query Playground](http://www.documentdb.com/sql/demo) where you can try Cosmos DB and run SQL queries against our dataset.  
   
 ## SELECT query  
-Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section. For examples, see [SELECT query examples](sql-api-sql-query.md#SelectClause)
+Every query consists of a SELECT clause and optional FROM and WHERE clauses per ANSI-SQL standards. Typically, for each query, the source in the FROM clause is enumerated. Then the filter in the WHERE clause is applied on the source to retrieve a subset of JSON documents. Finally, the SELECT clause is used to project the requested JSON values in the select list. The conventions used for describing the SELECT statements are tabulated in the Syntax conventions section. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause)
   
 **Syntax**  
   
@@ -57,7 +57,7 @@ Note that this is different from the order in which they appear in the syntax. T
 
 ### Whitespace characters and comments  
 
-All white space characters which are not part of a quoted string or quoted identifier are not part of the language grammar and are ignored during parsing.  
+All whitespace characters that are not part of a quoted string or quoted identifier are not part of the language grammar and are ignored during parsing.  
 
 The query language supports T-SQL style comments like  
 
@@ -66,7 +66,7 @@ The query language supports T-SQL style comments like
 While whitespace characters and comments do not have any significance in the grammar, they must be used to separate tokens. For instance: `-1e5` is a single number token, while`: – 1 e5` is a minus token followed by number 1 and identifier e5.  
 
 ##  <a name="bk_select_query"></a> SELECT clause  
-The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order. For examples, see [SELECT query examples](sql-api-sql-query.md#SelectClause)
+The clauses in the SELECT statement must be ordered as shown above. Any one of the optional clauses can be omitted. But when optional clauses are used, they must appear in the right order. For examples, see [SELECT query examples](how-to-sql-query.md#SelectClause).
 
 **Syntax**  
 
@@ -109,7 +109,7 @@ SELECT <select_specification>
   
 The `SELECT *` syntax is only valid if FROM clause has declared exactly one alias. `SELECT *` provides an identity projection, which can be useful if no projection is needed. SELECT * is only valid if FROM clause is specified and introduced only a single input source.  
   
-Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be alternatively expressed by using simple SELECT statements as shown below.  
+Both `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be alternatively expressed by using simple SELECT statements as shown below.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
@@ -129,7 +129,7 @@ Note that `SELECT <select_list>` and `SELECT *` are "syntactic sugar" and can be
 [SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_from_clause"></a> FROM clause  
-Specifies the source or joined sources. The FROM clause is optional unless the source is filtered or projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole collection is the source, but one can specify a subset of the collection instead. If this clause is not specified, other clauses will still be executed as if FROM clause provided a single document. For examples, see [FROM clause examples](sql-api-sql-query.md#FromClause)
+Specifies the source or joined sources. The FROM clause is optional unless the source is filtered or projected later in the query. The purpose of this clause is to specify the data source upon which the query must operate. Commonly the whole container is the source, but one can specify a subset of the container instead. If this clause is not specified, other clauses will still be executed as if FROM clause provided a single document. For examples, see [FROM clause examples](how-to-sql-query.md#FromClause)
   
 **Syntax**  
   
@@ -140,98 +140,98 @@ FROM <from_specification>
         <from_source> {[ JOIN <from_source>][,...n]}  
   
 <from_source> ::=   
-          <collection_expression> [[AS] input_alias]  
-        | input_alias IN <collection_expression>  
+          <container_expression> [[AS] input_alias]  
+        | input_alias IN <container_expression>  
   
-<collection_expression> ::=   
+<container_expression> ::=   
         ROOT   
-     | collection_name  
+     | container_name  
      | input_alias  
-     | <collection_expression> '.' property_name  
-     | <collection_expression> '[' "property_name" | array_index ']'  
+     | <container_expression> '.' property_name  
+     | <container_expression> '[' "property_name" | array_index ']'  
 ```  
   
 **Arguments**  
   
 - `<from_source>`  
   
-  Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<collection_expression>` using following rules:  
+  Specifies a data source, with or without an alias. If alias is not specified, it will be inferred from the `<container_expression>` using following rules:  
   
-  -  If the expression is a collection_name, then collection_name will be used as an alias.  
+  -  If the expression is a container_name, then container_name will be used as an alias.  
   
-  -  If the expression is `<collection_expression>`, then property_name, then property_name will be used as an alias. If the expression is a collection_name, then collection_name will be used as an alias.  
+  -  If the expression is `<container_expression>`, then property_name, then property_name will be used as an alias. If the expression is a container_name, then container_name will be used as an alias.  
   
 - AS `input_alias`  
   
-  Specifies that the `input_alias` is a set of values returned by the underlying collection expression.  
+  Specifies that the `input_alias` is a set of values returned by the underlying container expression.  
  
 - `input_alias` IN  
   
-  Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying collection expression. Any value returned by underlying collection expression that is not an array is ignored.  
+  Specifies that the `input_alias` should represent the set of values obtained by iterating over all array elements of each array returned by the underlying container expression. Any value returned by underlying container expression that is not an array is ignored.  
   
-- `<collection_expression>`  
+- `<container_expression>`  
   
-  Specifies the collection expression to be used to retrieve the documents.  
+  Specifies the container expression to be used to retrieve the documents.  
   
 - `ROOT`  
   
-  Specifies that document should be retrieved from the default, currently connected collection.  
+  Specifies that document should be retrieved from the default, currently connected container.  
   
-- `collection_name`  
+- `container_name`  
   
-  Specifies that document should be retrieved from the provided collection. The name of the collection must match the name of the collection currently connected to.  
+  Specifies that document should be retrieved from the provided container. The name of the container must match the name of the container currently connected to.  
   
 - `input_alias`  
   
   Specifies that document should be retrieved from the other source defined by the provided alias.  
   
-- `<collection_expression> '.' property_`  
+- `<container_expression> '.' property_`  
   
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
   
-- `<collection_expression> '[' "property_name" | array_index ']'`  
+- `<container_expression> '[' "property_name" | array_index ']'`  
   
-  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified collection expression.  
+  Specifies that document should be retrieved by accessing the `property_name` property or array_index array element for all documents retrieved by specified container expression.  
   
 **Remarks**  
   
-All aliases provided or inferred in the `<from_source>(`s) must be unique. The Syntax `<collection_expression>.`property_name is the same as `<collection_expression>' ['"property_name"']'`. However, the latter syntax can be used if a property name contains a non-identifier characters.  
+All aliases provided or inferred in the `<from_source>(`s) must be unique. The Syntax `<container_expression>.`property_name is the same as `<container_expression>' ['"property_name"']'`. However, the latter syntax can be used if a property name contains a non-identifier character.  
   
-### handling missing properties, missing array elements, and undefined values
+### Handling missing properties, missing array elements, and undefined values
   
-If a collection expression accesses properties or array elements and that value does not exist, that value will be ignored and not processed further.  
+If a container expression accesses properties or array elements and that value does not exist, that value will be ignored and not processed further.  
   
-### Collection expression context scoping  
+### Container expression context scoping  
   
-A collection expression may be collection-scoped or document-scoped:  
+A container expression may be container-scoped or document-scoped:  
   
--   An expression is collection-scoped, if the underlying source of the collection expression is either ROOT or `collection_name`. Such an expression represents a set of documents retrieved from the collection directly, and is not dependent on the processing of other collection expressions.  
+-   An expression is container-scoped, if the underlying source of the container expression is either ROOT or `container_name`. Such an expression represents a set of documents retrieved from the container directly, and is not dependent on the processing of other container expressions.  
   
--   An expression is document-scoped, if the underlying source of the collection expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the collection expression in the scope of each document belonging to the set associated with the aliased collection.  The resulting set will be a union of sets obtained by evaluating the collection expression for each of the documents in the underlying set.  
+-   An expression is document-scoped, if the underlying source of the container expression is `input_alias` introduced earlier in the query. Such an expression represents a set of documents obtained by evaluating the container expression in the scope of each document belonging to the set associated with the aliased container.  The resulting set will be a union of sets obtained by evaluating the container expression for each of the documents in the underlying set.  
   
 ### Joins 
   
-In the current release, Azure Cosmos DB supports inner joins. Additional join capabilities are forthcoming. 
+In the current release, Cosmos DB supports inner joins. Additional join capabilities are forthcoming. 
 
-Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses. For examples, see [JOIN keyword examples](sql-api-sql-query.md#Joins)
+Inner joins result in a complete cross product of the sets participating in the join. The result of an N-way join is a set of N-element tuples, where each value in the tuple is associated with the aliased set participating in the join and can be accessed by referencing that alias in other clauses. For examples, see [JOIN keyword examples](how-to-sql-query.md#Joins)
   
 The evaluation of the join depends on the context scope of the participating sets:  
   
--  A join between collection-set A and collection-scoped set B, results in a cross product of all elements in sets A and B.
+-  A join between container-set A and container-scoped set B, results in a cross product of all elements in sets A and B.
   
 -   A join between set A and document-scoped set B, results in a union of all sets obtained by evaluating document-scoped set B for each document from set A.  
   
- In the current release, a maximum of one collection-scoped expression is supported by the query processor.  
+ In the current release, a maximum of one container-scoped expression is supported by the query processor.  
   
 ### Examples of joins  
   
 Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
- Let each source define `input_alias1, input_alias2, …, input_aliasN`. This FROM clause returns a set of N-tuples (tuple with N values). Each tuple has values produced by iterating all collection aliases over their respective sets.  
+ Let each source define `input_alias1, input_alias2, …, input_aliasN`. This FROM clause returns a set of N-tuples (tuple with N values). Each tuple has values produced by iterating all container aliases over their respective sets.  
   
 **Example 1** - 2 sources  
   
-- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
+- Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
   
 - Let `<from_source2>` be document-scoped referencing input_alias1 and represent sets:  
   
@@ -249,7 +249,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
 **Example 2** - 3 sources  
   
-- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
+- Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
   
 - Let `<from_source2>` be document-scoped referencing `input_alias1` and represent sets:  
   
@@ -276,9 +276,9 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
   
 **Example 3** - 3 sources  
   
-- Let <from_source1> be collection-scoped and represent set {A, B, C}.  
+- Let <from_source1> be container-scoped and represent set {A, B, C}.  
   
-- Let `<from_source1>` be collection-scoped and represent set {A, B, C}.  
+- Let `<from_source1>` be container-scoped and represent set {A, B, C}.  
   
 - Let <from_source2> be document-scoped referencing input_alias1 and represent sets:  
   
@@ -308,7 +308,7 @@ Let's look at the following FROM clause: `<from_source1> JOIN <from_source2> JOI
  [SELECT clause](#bk_select_query)  
   
 ##  <a name="bk_where_clause"></a> WHERE clause  
- Specifies the search condition for the documents returned by the query. For examples, see [WHERE clause examples](sql-api-sql-query.md#WhereClause)
+ Specifies the search condition for the documents returned by the query. For examples, see [WHERE clause examples](how-to-sql-query.md#WhereClause)
   
  **Syntax**  
   
@@ -330,10 +330,10 @@ WHERE <filter_condition>
   
  **Remarks**  
   
- In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array or Object will not satisfy the condition.  
+ In order for the document to be returned an expression specified as filter condition must evaluate to true. Only Boolean value true will satisfy the condition, any other value: undefined, null, false, Number, Array, or Object will not satisfy the condition.  
   
 ##  <a name="bk_orderby_clause"></a> ORDER BY clause  
- Specifies the sorting order for results returned by the query. For examples, see [ORDER BY clause examples](sql-api-sql-query.md#OrderByClause)
+ Specifies the sorting order for results returned by the query. For examples, see [ORDER BY clause examples](how-to-sql-query.md#OrderByClause)
   
  **Syntax**  
   
@@ -368,12 +368,12 @@ ORDER BY <sort_specification>
   
  **Remarks**  
   
- While the query grammar supports multiple order by properties, the Azure Cosmos DB query runtime supports sorting only against a single property, and only against property names, i.e., not against computed properties. Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
+ While the query grammar supports multiple order by properties, the Cosmos DB query runtime supports sorting only against a single property, and only against property names (not against computed properties). Sorting also requires that the indexing policy includes a range index for the property and the specified type, with the maximum precision. Refer to the indexing policy documentation for more details.  
   
 ##  <a name="bk_scalar_expressions"></a> Scalar expressions  
- A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](sql-api-sql-query.md#scalar-expressions)
+ A scalar expression is a combination of symbols and operators that can be evaluated to obtain a single value. Simple expressions can be constants, property references, array element references, alias references, or function calls. Simple expressions can be combined into complex expressions using operators. For examples, see [scalar expressions examples](how-to-sql-query.md#scalar-expressions)
   
- For details on values which scalar expression may have, see [Constants](#bk_constants) section.  
+ For details on values that scalar expression may have, see [Constants](#bk_constants) section.  
   
  **Syntax**  
   
@@ -421,7 +421,7 @@ ORDER BY <sort_specification>
   
 -   `<scalar_expression>'['"property_name"|array_index']'`  
   
-     Represents a value of the property with name `property_name` or array element with index `array_index` of an object/array. If the property/array index does not exist or the property/array index is referenced on a value which is not an object/array, then the expression evaluates to undefined value.  
+     Represents a value of the property with name `property_name` or array element with index `array_index` of an object/array. If the property/array index does not exist or the property/array index is referenced on a value that is not an object/array, then the expression evaluates to undefined value.  
   
 -   `unary_operator <scalar_expression>`  
   
@@ -437,7 +437,7 @@ ORDER BY <sort_specification>
   
 -   `udf_scalar_function`  
   
-     Name of the user defined scalar function.  
+     Name of the user-defined scalar function.  
   
 -   `builtin_scalar_function`  
   
@@ -457,7 +457,7 @@ ORDER BY <sort_specification>
   
  **Remarks**  
   
- When calling a built-in or user defined scalar function all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
+ When calling a built-in or user-defined scalar function all arguments must be defined. If any of the arguments is undefined, the function will not be called and the result will be undefined.  
   
  When creating an object, any property that is assigned undefined value will be skipped and not included in the created object.  
   
@@ -514,9 +514,9 @@ ORDER BY <sort_specification>
   
  **Remarks**  
   
- In Azure Cosmos DB, the types of values are often not known until they are actually retrieved from the database. In order to support efficient execution of queries, most of the operators have strict type requirements. Also operators by themselves do not perform implicit conversions.  
+ In Cosmos DB, the types of values are often not known until they are retrieved from the database. In order to support efficient execution of queries, most of the operators have strict type requirements. Also operators by themselves do not perform implicit conversions.  
   
- This means that a query like: SELECT * FROM ROOT r WHERE r.Age = 21 will only return documents with property Age equal to the number 21. Documents with property Age equal to the string "21" or the string "0021" will not match, as the expression "21" = 21 evaluates to undefined. This allows for a better use of indexes, because the lookup of a specific value (i.e. number 21) is faster than search for indefinite number of potential matches (i.e. number 21 or strings "21", "021", "21.0" …). This is different from how JavaScript evaluates operators on values of different types.  
+ This means that a query like: SELECT * FROM ROOT r WHERE r.Age = 21 will only return documents with property Age equal to the number 21. Documents with property Age equal to the string "21" or the string "0021" will not match, as the expression "21" = 21 evaluates to undefined. This allows for a better use of indexes, because the lookup of a specific value (such as the number 21) is faster than search for indefinite number of potential matches (the number 21 or strings "21", "021", "21.0" …). This is different from how JavaScript evaluates operators on values of different types.  
   
  **Arrays and objects equality and comparison**  
   
@@ -629,7 +629,7 @@ ORDER BY <sort_specification>
 |\uXXXX|A Unicode character defined by 4 hexadecimal digits.|U+XXXX|  
   
 ##  <a name="bk_query_perf_guidelines"></a> Query performance guidelines  
- In order for a query to be executed efficiently for a large collection, it should use filters which can be served through one or more indexes.  
+ In order for a query to be executed efficiently for a large container, it should use filters that can be served through one or more indexes.  
   
  The following filters will be considered for index lookup:  
   
@@ -637,15 +637,15 @@ ORDER BY <sort_specification>
   
 -   Use range operators (<, \<=, >, >=) with a document path expression and number constants.  
   
--   Document path expression stands for any expression which identifies a constant path in the documents from the referenced database collection.  
+-   Document path expression stands for any expression that identifies a constant path in the documents from the referenced database container.  
   
  **Document path expression**  
   
- Document path expressions are expressions that a path of property or array indexer assessors over a document coming from database collection documents. This path can be used to identify the location of values referenced in a filter directly within the documents in the database collection.  
+ Document path expressions are expressions that a path of property or array indexer assessors over a document coming from database container documents. This path can be used to identify the location of values referenced in a filter directly within the documents in the database container.  
   
  For an expression to be considered a document path expression, it should:  
   
-1.  Reference the collection root directly.  
+1.  Reference the container root directly.  
   
 2.  Reference property or constant array indexer of some document path expression  
   
@@ -664,22 +664,22 @@ ORDER BY <sort_specification>
     |other_terminal|Terminal (token), described in detail in words.|  
     |identifier|Identifier. Allows following characters only: a-z A-Z 0-9 _First character cannot be a digit.|  
     |"string"|Quoted string. Allows any valid string. See description of a string_literal.|  
-    |'symbol'|Literal symbol which is part of the syntax.|  
+    |'symbol'|Literal symbol that is part of the syntax.|  
     |&#124; (vertical bar)|Alternatives for syntax items. You can use only one of the items specified.|  
     |[ ] /(brackets)|Brackets enclose one or more optional items.|  
     |[ ,...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by commas.|  
     |[ ...n ]|Indicates the preceding item can be repeated n number of times. The occurrences are separated by blanks.|  
   
 ##  <a name="bk_built_in_functions"></a> Built-in functions  
- Azure Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
+ Cosmos DB provides many built-in SQL functions. The categories of built-in functions are listed below.  
   
 |Function|Description|  
 |--------------|-----------------|  
 |[Mathematical functions](#bk_mathematical_functions)|The mathematical functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.|  
 |[Type checking functions](#bk_type_checking_functions)|The type checking functions allow you to check the type of an expression within SQL queries.|  
 |[String functions](#bk_string_functions)|The string functions perform an operation on a string input value and return a string, numeric or Boolean value.|  
-|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean or array value.|  
-|[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on an spatial object input value and return a numeric or Boolean value.|  
+|[Array functions](#bk_array_functions)|The array functions perform an operation on an array input value and return numeric, Boolean, or array value.|  
+|[Spatial functions](#bk_spatial_functions)|The spatial functions perform an operation on a spatial object input value and return a numeric or Boolean value.|  
   
 ###  <a name="bk_mathematical_functions"></a> Mathematical functions  
  The following functions each perform a calculation, usually based on input values that are provided as arguments, and return a numeric value.  
@@ -1048,7 +1048,7 @@ EXP (<numeric_expression>)
   
  The constant **e** (2.718281…), is the base of natural logarithms.  
   
- The exponent of a number is the constant **e** raised to the power of the number. For example EXP(1.0) = e^1.0 = 2.71828182845905 and EXP(10) = e^10 = 22026.4657948067.  
+ The exponent of a number is the constant **e** raised to the power of the number. For example, EXP(1.0) = e^1.0 = 2.71828182845905 and EXP(10) = e^10 = 22026.4657948067.  
   
  The exponential of the natural logarithm of a number is the number itself: EXP (LOG (n)) = n. And the natural logarithm of the exponential of a number is the number itself: LOG (EXP (n)) = n.  
   
@@ -1542,7 +1542,7 @@ IS_ARRAY(<expression>)
   
  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_ARRAY function.  
+ The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_ARRAY function.  
   
 ```  
 SELECT   
@@ -1582,7 +1582,7 @@ IS_BOOL(<expression>)
   
  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_BOOL function.  
+ The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_BOOL function.  
   
 ```  
 SELECT   
@@ -1658,7 +1658,7 @@ IS_NULL(<expression>)
   
  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_NULL function.  
+ The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
   
 ```  
 SELECT   
@@ -1698,7 +1698,7 @@ IS_NUMBER(<expression>)
   
  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_NULL function.  
+ The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_NULL function.  
   
 ```  
 SELECT   
@@ -1738,7 +1738,7 @@ IS_OBJECT(<expression>)
   
  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_OBJECT function.  
+ The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_OBJECT function.  
   
 ```  
 SELECT   
@@ -1758,7 +1758,7 @@ SELECT
 ```  
   
 ####  <a name="bk_is_primitive"></a> IS_PRIMITIVE  
- Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric or null).  
+ Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric, or null).  
   
  **Syntax**  
   
@@ -1818,7 +1818,7 @@ IS_STRING(<expression>)
   
  **Examples**  
   
- The following example checks objects of JSON Boolean, number, string, null, object, array and undefined types using the IS_STRING function.  
+ The following example checks objects of JSON Boolean, number, string, null, object, array, and undefined types using the IS_STRING function.  
   
 ```  
 SELECT   
@@ -2653,20 +2653,30 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Is any valid numeric expression.  
-  
+     Zero-based numeric index at which to begin the array. Negative values may be used to specify the starting index relative to the last element of the array i.e. -1 references the last element in the array.  
+
+-   `num_expr`  
+
+     Maximum number of elements in the resulting array.    
+
  **Return Types**  
   
- Returns a Boolean value.  
+ Returns an array expression.  
   
  **Examples**  
   
- The following example how to get a part of an array using ARRAY_SLICE.  
+ The following example shows how to get different slices of an array using ARRAY_SLICE.  
   
 ```  
 SELECT   
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1),  
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1)  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100)      
+  
 ```  
   
  Here is the result set.  
@@ -2674,12 +2684,17 @@ SELECT
 ```  
 [{  
            "$1": ["strawberries", "bananas"],   
-           "$2": ["strawberries"]  
-       }]  
+           "$2": ["strawberries"],
+           "$3": ["strawberries"],  
+           "$4": ["strawberries", "bananas"], 
+           "$5": [],
+           "$6": ["strawberries", "bananas"],
+           "$7": [] 
+}]  
 ```  
-  
+ 
 ###  <a name="bk_spatial_functions"></a> Spatial functions  
- The following scalar functions perform an operation on an spatial object input value and return a numeric or Boolean value.  
+ The following scalar functions perform an operation on a spatial object input value and return a numeric or Boolean value.  
   
 ||||  
 |-|-|-|  
@@ -2790,7 +2805,7 @@ ST_INTERSECTS (<spatial_expr>, <spatial_expr>)
   
  **Examples**  
   
- The following example shows how to find all areas that intersects with the given polygon.  
+ The following example shows how to find all areas that intersect with the given polygon.  
   
 ```  
 SELECT a.id   
@@ -2886,7 +2901,7 @@ SELECT ST_ISVALIDDETAILED({
 ```  
   
 ## Next steps  
- [SQL syntax and SQL query for Azure Cosmos DB](sql-api-sql-query.md)   
- [Azure Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  
-  
-  
+
+- [SQL syntax and SQL query for Cosmos DB](how-to-sql-query.md)
+
+- [Cosmos DB documentation](https://docs.microsoft.com/azure/cosmos-db/)  

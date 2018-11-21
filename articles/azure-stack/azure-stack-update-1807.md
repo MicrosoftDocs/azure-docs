@@ -91,7 +91,7 @@ This update includes the following improvements for Azure Stack.
 - **Improved VM creation time** for VMs that are created with images you download from the Azure marketplace.
 
 <!-- TBD | IS, ASDK -->  
-- **Azure Stack Capacity Planner usability improvements**. The Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputting S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
+- **Azure Stack Capacity Planner usability improvements**. The Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) now offers a simplified experience for inputting S2D cache and S2D capacity when defining solution SKUs. The 1000 VM limit has been removed.
 
 
 ### Fixed issues

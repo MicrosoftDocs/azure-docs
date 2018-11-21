@@ -3,7 +3,7 @@ title: Azure Resource Health overview | Microsoft Docs
 description: Overview of Azure Resource Health
 services: Resource health
 documentationcenter: ''
-author: shawntabrizi
+author: stephbaron
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: Supportability
-ms.date: 03/27/2018
-ms.author: shawn.tabrizi
+ms.date: 11/16/2018
+ms.author: stbaron
 
 ---
 # Azure Resource Health overview

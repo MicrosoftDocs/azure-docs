@@ -729,7 +729,7 @@ Document createdItem = await client.CreateDocumentAsync(UriFactory.CreateDocumen
     });
 ```
 
-And the following example shows how to create a user-defined function (UDF) and use it in a [SQL query](sql-api-sql-query.md).
+And the following example shows how to create a user-defined function (UDF) and use it in a [SQL query](how-to-sql-query.md).
 
 ```javascript
 UserDefinedFunction function = new UserDefinedFunction()

@@ -194,7 +194,7 @@ After failover to Azure, Contoso wants to be able to connect to the Azure VMs. T
 
 - To access over the internet, they enable SSH on the on-premises Linux VM before the migration.  For Ubuntu this can be completed using the following command: **Sudo apt-get ssh install -y**.
 - After the failover, they should check **Boot diagnostics** to view a screenshot of the VM.
-- If this doesn't work, they need to verify that the VM is running, and review these [troubleshooting tips](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- If this doesn't work, they need to verify that the VM is running, and review these [troubleshooting tips](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 **Need more help?**
 
@@ -394,7 +394,7 @@ Running a test failover helps verify that everything's working as expected, befo
 
 ### Migrate the VM
 
-To migrate the VM, Contoso admins creats a recovery plan that includes the VM, and fail over the plan to Azure.
+To migrate the VM, Contoso admins creates a recovery plan that includes the VM, and fail over the plan to Azure.
 
 1. They create a plan, and add **OSTICKETWEB** to it.
 

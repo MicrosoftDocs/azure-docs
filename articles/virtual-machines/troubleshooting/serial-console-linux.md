@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machine Serial Console | Microsoft Docs
+title: Azure virtual machine serial console for Linux | Microsoft Docs
 description: Bi-Directional serial console for Azure virtual machines.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -29,17 +29,17 @@ For serial console documentation for Windows VMs, see [Virtual machine serial co
 
 ## Prerequisites 
 
-* The VM in which you are accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
+- The VM in which you're accessing a serial console must use the resource management deployment model. Classic deployments aren't supported. 
 
-* The VM in which you are accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. Select **Boot diagnostics** from the **Support + troubleshooting** section.
+- The VM in which you're accessing a serial console must have [boot diagnostics](boot-diagnostics.md) enabled. 
 
     ![Boot diagnostics settings](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-An account that uses a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account: 
+- An account that uses a serial console must have the [Virtual Machine Contributor role](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) for the VM and the [boot diagnostics](boot-diagnostics.md) storage account: 
 
-* The VM in which you are accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
+    - The VM in which you're accessing a serial console must have a password-based account. You can create one with the [reset password](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) function of the VM access extension. Select **Reset password** from the **Support + troubleshooting** section. 
 
-* For settings specific to Linux distributions, see [Serial console Linux distribution availability](#serial-console-linux-distribution-availability).
+    - For settings specific to Linux distributions, see [Serial console Linux distribution availability](#serial-console-linux-distribution-availability).
 
 
 
@@ -47,12 +47,14 @@ An account that uses a serial console must have the [Virtual Machine Contributor
 The serial console for virtual machines is accessible only through the Azure portal:
 
   1. Open the [Azure portal](https://portal.azure.com).
+
   1. On the left menu, select **Virtual machines**.
+
   1. Select a VM in the list. The overview page for the VM opens.
+
   1. Scroll down to the **Support + troubleshooting** section and select **Serial console**. A new pane with the serial console opens and starts the connection.
 
-   ![Linux serial console window](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Linux serial console window](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 
@@ -89,7 +91,7 @@ By default, all subscriptions have serial console access enabled for all VMs. Yo
 > To enable or disable the serial console for a subscription, you must have write permissions to the subscription. These permissions include administrator or owner roles. Custom roles can also have write permissions.
 
 ### Subscription-level disable
-The serial console can be disabled for an entire subscription through the [Disable Console REST API call](https://docs.microsoft.com/rest/api/serialconsole/console/console_disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter **default** for **default**, and then select **Run**. Azure CLI commands aren't yet available.
+The serial console can be disabled for an entire subscription through the [Disable Console REST API call](/rest/api/serialconsole/console/disableconsole). You can use the **Try It** function available on this API documentation page to disable and enable the serial console for a subscription. Enter your subscription ID for **subscriptionId**, enter **default** for **default**, and then select **Run**. Azure CLI commands aren't yet available.
 
 ![REST API Try It](./media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 

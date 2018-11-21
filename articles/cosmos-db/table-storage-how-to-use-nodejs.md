@@ -119,7 +119,7 @@ To add an entity, first create an object that defines your entity properties. Al
 * **PartitionKey** - Determines the partition in which the entity is stored.
 * **RowKey** - Uniquely identifies the entity within the partition.
 
-Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Both **PartitionKey** and **RowKey** must be string values. For more information, see [Understanding the Table Service Data Model](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 The following is an example of defining an entity. Note that **dueDate** is defined as a type of **Edm.DateTime**. Specifying the type is optional, and types are inferred if not specified.
 
@@ -390,9 +390,12 @@ var host = tableSvc.host;
 
 Note that you must also provide the host information, as it is required when the SAS holder attempts to access the table.
 
-The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query.
+The client application then uses the SAS with **TableServiceWithSAS** to perform operations against the table. The following example connects to the table and performs a query. See [using shared access signatures](../storage/common/storage-dotnet-shared-access-signature-part-1.md#examples-of-sas-uris)
+article for the format of tableSAS. 
 
 ```nodejs
+// Note in the following command, host is in the format: `https://<your_storage_account_name>.table.core.windows.net` and the tableSAS is in the format: `sv=2018-03-28&si=saspolicy&tn=mytable&sig=9aCzs76n0E7y5BpEi2GvsSv433BZa22leDOZXX%2BXXIU%3D`;
+
 var sharedTableService = azure.createTableServiceWithSas(host, tableSAS);
 var query = azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');

@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/24/2018
+ms.date: 11/20/2018
 ms.author: andret
 ms.custom: aaddev
 #Customer intent: As an application developer, I want to know how to write an ASP.NET web app that can sign in personal accounts, as well as work and school accounts from any Azure Active Directory instance.
@@ -35,7 +35,7 @@ In this quickstart, you'll learn how an ASP.NET web app can sign in personal acc
 >
 > ### Option 1: Register and auto configure your app and then download your code sample
 >
-> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Go to the [Azure portal - Application Registration (Preview)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
 > 1. Enter a name for your application and click **Register**.
 > 1. Follow the instructions to download and automatically configure your new application for you in one click.
 >
@@ -73,13 +73,13 @@ Select **Authentication** menu, set **ID tokens** under **Implicit Grant**, and 
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
-	<add key="Tenant" value="TenantId" />
+	<add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
 
 > [!div renderon="docs"]
 > Where:
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `TenantId` - is one of the options below:
+> - `Enter_the_Tenant_Info_Here` - is one of the options below:
 >   - If your application supports **My organization only**, replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
 >   - If your application supports **Accounts in any organizational directory**, replace this value with `organizations`
 >   - If your application supports **All Microsoft account users**, replace this value with `common`

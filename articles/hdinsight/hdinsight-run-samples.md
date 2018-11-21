@@ -2,13 +2,13 @@
 title: Run the Hadoop samples in HDInsight - Azure 
 description: Get started using the Azure HDInsight service with the samples provided. Use PowerShell scripts that run MapReduce programs on data clusters.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
 
 ---
@@ -922,7 +922,7 @@ public class TeraSort extends Configured implements Tool {
         splitPoints = readPartitions(fs, partFile, job);
         trie = buildTrie(splitPoints, 0, splitPoints.length, new Text(), 2);
         } catch (IOException ie) {
-        throw new IllegalArgumentException("can't read paritions file", ie);
+        throw new IllegalArgumentException("can't read partitions file", ie);
         }
     }
 

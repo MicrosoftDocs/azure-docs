@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: ergreenl
 
 ---
@@ -35,13 +35,15 @@ Pick the troubleshooting steps that correspond to the ID or message in the alert
 | AADDS105 | *The service principal with the application ID “d87dcbc6-a371-462e-88e3-28ad15ec4e64” was deleted and then recreated. The recreation leaves behind inconsistent permissions on Azure AD Domain Services resources needed to service your managed domain. Synchronization of passwords on your managed domain could be affected.* | [The password synchronization application is out of date](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS106 | *Your Azure subscription associated with your managed domain has been deleted.  Azure AD Domain Services requires an active subscription to continue functioning properly.* | [Azure subscription is not found](#aadds106-your-azure-subscription-is-not-found) |
 | AADDS107 | *Your Azure subscription associated with your managed domain is not active.  Azure AD Domain Services requires an active subscription to continue functioning properly.* | [Azure subscription is disabled](#aadds107-your-azure-subscription-is-disabled) |
-| AADDS108 | *A resource that is used for your managed domain has been deleted. This resource is needed for Azure AD Domain Services to function properly.* | [A resource has been deleted](#aadds108-resources-for-your-managed-domain-cannot-be-found) |
-| AADDS109 | *The subnet selected for deployment of Azure AD Domain Services is full, and does not have space for the additional domain controller that needs to be created.* | [Subnet is full](#aadds109-the-subnet-associated-with-your-managed-domain-is-full) |
-| AADDS110 | *We have identified that the subnet of the virtual network in this domain may not have enough IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Not enough IP addresses](#aadds110-not-enough-ip-address-in-the-managed-domain) |
-| AADDS111 | *One or more of the network resources used by the managed domain cannot be operated on as the target scope has been locked.* | [Resources are locked](#aadds111-resources-are-locked) |
-| AADDS112 | *One or more of the network resources used by the managed domain cannot be operated on due to policy restriction(s).* | [Resources are unusable](#aadds112-resources-are-unusable) |
+| AADDS108 | *The subscription used by Azure AD Domain Services has been moved to another directory. Azure AD Domain Services needs to have an active subscription in the same directory to function properly.* | [Subscription moved directories](#aadds108-subscription-moved-directories) |
+| AADDS109 | *A resource that is used for your managed domain has been deleted. This resource is needed for Azure AD Domain Services to function properly.* | [A resource has been deleted](#aadds109-resources-for-your-managed-domain-cannot-be-found) |
+| AADDS110 | *The subnet selected for deployment of Azure AD Domain Services is full, and does not have space for the additional domain controller that needs to be created.* | [Subnet is full](#aadds110-the-subnet-associated-with-your-managed-domain-is-full) |
+| AADDS111 | *A service principal that Azure AD Domain Services uses to service your domain is not authorized to manage resources on the Azure subscription. The service principal needs to gain permissions to service your managed domain. * | [Service principal unauthorized](#aadds111-service-principal-unauthorized) |
+| AADDS112 | *We have identified that the subnet of the virtual network in this domain may not have enough IP addresses. Azure AD Domain Services needs at-least two available IP addresses within the subnet it is enabled in. We recommend having at-least 3-5 spare IP addresses within the subnet. This may have occurred if other virtual machines are deployed within the subnet, thus exhausting the number of available IP addresses or if there is a restriction on the number of available IP addresses in the subnet.* | [Not enough IP addresses](#aadds112-not-enough-ip-address-in-the-managed-domain) |
 | AADDS113 | *The resources used by Azure AD Domain Services were detected in an unexpected state and cannot be recovered.* | [Resources are unrecoverable](#aadds113-resources-are-unrecoverable) |
-| AADDS114 | *Azure AD Domain Services domain controllers are not able to access port 443. It is needed to service, manage, and update your managed domain. * | [Port 442 blocked](#aadds114-port-443-blocked) |
+| AADDS114 | *The subnet selected for deployment of Azure AD Domain Services is invalid, and cannot be used. * | [Subnet invalid](#aadds114-subnet-invalid) |
+| AADDS115 | *One or more of the network resources used by the managed domain cannot be operated on as the target scope has been locked.* | [Resources are locked](#aadds115-resources-are-locked) |
+| AADDS116 | *One or more of the network resources used by the managed domain cannot be operated on due to policy restriction(s).* | [Resources are unusable](#aadds116-resources-are-unusable) |
 | AADDS500 | *The managed domain was last synchronized with Azure AD on [date]. Users may be unable to sign-in on the managed domain or group memberships may not be in sync with Azure AD.* | [Synchronization hasn't happened in a while](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *The managed domain was last backed up on [date].* | [A backup hasn't been taken in a while](#aadds501-a-backup-has-not-been-taken-in-a-while) |
 | AADDS502 | *The secure LDAP certificate for the managed domain will expire on [date].* | [Expiring secure LDAP certificate](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
@@ -134,7 +136,17 @@ Azure AD Domain Services requires a subscription to function and cannot be moved
 1. [Renew your Azure subscription](https://docs.microsoft.com/azure/billing/billing-subscription-become-disable).
 2. Once the subscription is renewed, Azure AD Domain Services will receive a notification from Azure to re-enable your managed domain.
 
-## AADDS108: Resources for your managed domain cannot be found
+## AADDS108: Subscription moved directories
+
+**Alert message:**
+
+*The subscription used by Azure AD Domain Services has been moved to another directory. Azure AD Domain Services needs to have an active subscription in the same directory to function properly.*
+
+**Resolution:**
+
+You can either move the subscription associated with Azure AD Domain Services back to the previous directory, or you need to [delete your managed domain](active-directory-ds-disable-aadds.md) from the existing directory and recreate it in the chosen directory (either with a new subscription or change the directory your Azure AD Domain Services instance is in).
+
+## AADDS109: Resources for your managed domain cannot be found
 
 **Alert message:**
 
@@ -145,15 +157,15 @@ Azure AD Domain Services requires a subscription to function and cannot be moved
 Azure AD Domain Services creates specific resources while deploying in order to function properly, including public IP addresses, NICs, and a load balancer. If any of the named are deleted, this causes your managed domain to be in an unsupported state and prevents your domain from being managed. This alert is found when someone who is able to edit the Azure AD Domain Services resources deletes a needed resource. The following steps outline how to restore your managed domain.
 
 1.	Navigate to the Azure AD Domain Services health page
-  1.	Travel to the [Azure AD Domain Services page]() in the Azure portal.
+  1.	Travel to the [Azure AD Domain Services page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.AAD%2FdomainServices) in the Azure portal.
   2.	In the left-hand navigation, click **Health**
 2.	Check to see if the alert is less than 4 hours old
-  1.	On the health page, click the alert with the ID **AADDS108**
+  1.	On the health page, click the alert with the ID **AADDS109**
   2.	The alert will have a timestamp for when it was first found. If that timestamp is less than 4 hours ago, there is a chance that Azure AD Domain Services can recreate the deleted resource.
 3.	If the alert is more than 4 hours old, the managed domain is in an unrecoverable state. You must delete and recreate Azure AD Domain Services.
 
 
-## AADDS109: The subnet associated with your managed domain is full
+## AADDS110: The subnet associated with your managed domain is full
 
 **Alert message:**
 
@@ -163,8 +175,21 @@ Azure AD Domain Services creates specific resources while deploying in order to 
 
 This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md)
 
+## AADDDS111: Service principal unauthorized
 
-## AADDS110: Not enough IP address in the managed domain
+**Alert message:**
+
+*A service principal that Azure AD Domain Services uses to service your domain is not authorized to manage resources on the Azure subscription. The service principal needs to gain permissions to service your managed domain.*
+
+**Resolution:**
+
+Our service principals need access to be able to manage and create resources on your managed domain. Someone has denied the service principal access and now it is unable to manage resources. Follow the steps to grant access to your service principal.
+
+1. Read about [RBAC control and how to grant access to applications on the Azure portal](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+2. Review the access that the service principal with the ID ```abba844e-bc0e-44b0-947a-dc74e5d09022``` and grant the access that was denied at an earlier date.
+
+
+## AADDS112: Not enough IP address in the managed domain
 
 **Alert message:**
 
@@ -185,7 +210,27 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 4. To domain-join your virtual machines to your new domain, follow [this guide](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 5. Check your domain's health in two hours to ensure that you have completed the steps correctly.
 
-## AADDS111: Resources are locked
+## AADDS113: Resources are unrecoverable
+
+**Alert message:**
+
+*The resources used by Azure AD Domain Services were detected in an unexpected state and cannot be recovered.*
+
+**Resolution:**
+
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md).
+
+## AADDS114: Subnet invalid
+
+**Alert message:**
+
+*The subnet selected for deployment of Azure AD Domain Services is invalid, and cannot be used.*
+
+**Resolution:**
+
+This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md).
+
+## AADDS115: Resources are locked
 
 **Alert message:**
 
@@ -196,8 +241,7 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 1.	Review Resource Manager operation logs on the network resources (this should give info on which lock is preventing modification).
 2.	Remove the locks on the resources so that the Azure AD Domain Services service principal can operate on them.
 
-
-## AADDS112: Resources are unusable
+## AADDS116: Resources are unusable
 
 **Alert message:**
 
@@ -205,28 +249,9 @@ This error is unrecoverable. To resolve, you must [delete your existing managed 
 
 **Resolution:**
 
-1.	Review Resource Manager operation logs on the network resources for your managed domain
+1.	Review Resource Manager operation logs on the network resources for your managed domain.
 2.	Weaken the policy restrictions on the resources so that the AAD-DS service principal can operate on them.
 
-## AADDS113: Resources are unrecoverable
-
-**Alert message:**
-
-*The resources used by Azure AD Domain Services were detected in an unexpected state and cannot be recovered.*
-
-**Resolution:**
-
-This error is unrecoverable. To resolve, you must [delete your existing managed domain](active-directory-ds-disable-aadds.md) and [recreate your managed domain](active-directory-ds-getting-started.md)
-
-## AADDS114: Port 443 Blocked
-
-**Alert message:**
-
-*Azure AD Domain Services domain controllers are not able to access port 443. It is needed to service, manage, and update your managed domain.*
-
-**Resolution:**
-
-Allow inbound access through port 443 on your network security group for Azure AD Domain Services.
 
 
 ## AADDS500: Synchronization has not completed in a while
@@ -251,7 +276,7 @@ Here are some common reasons why synchronization stops on managed domains:
 
 **Resolution:**
 
-[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to synchronize your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the synchronization has completed.
+[Check your domain's health](active-directory-ds-check-health.md) for any alerts that might indicate problems in your configuration of your managed domain. Sometimes, problems with your configuration can block Microsoft's ability to back up your managed domain. If you are able to resolve any alerts, wait two hours and check back to see if the backup has completed.
 
 
 ## AADDS503: Suspension due to disabled subscription

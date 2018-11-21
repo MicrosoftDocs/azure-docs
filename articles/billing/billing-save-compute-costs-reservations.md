@@ -4,7 +4,7 @@ description: Learn about Azure Reservations and pricing to save on your virtual 
 services: 'billing'
 documentationcenter: ''
 author: yashesvi
-manager: yashesvi
+manager: yashar
 editor: ''
 
 ms.service: billing

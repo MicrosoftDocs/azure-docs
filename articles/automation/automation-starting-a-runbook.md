@@ -37,13 +37,13 @@ The following image illustrates detailed step-by-step process in the life cycle 
 ## Starting a runbook with Windows PowerShell
 You can use the [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) to start a runbook with Windows PowerShell. The following sample code starts a runbook called Test-Runbook.
 
-```
+```azurepowershell-interactive
 Start-AzureRmAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -ResourceGroupName "ResourceGroup01"
 ```
 
 Start-AzureRmAutomationRunbook returns a job object that you can use to track its status once the runbook is started. You can then use this job object with [Get-AzureRmAutomationJob](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjob) to determine the status of the job and [Get-AzureRmAutomationJobOutput](https://docs.microsoft.com/powershell/module/azurerm.automation/get-azurermautomationjoboutput) to get its output. The following sample code starts a runbook called Test-Runbook, waits until it has completed, and then displays its output.
 
-```
+```azurepowershell-interactive
 $runbookName = "Test-Runbook"
 $ResourceGroup = "ResourceGroup01"
 $AutomationAcct = "MyAutomationAccount"
@@ -60,9 +60,9 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-If the runbook requires parameters, then you must provide them as a [hashtable](http://technet.microsoft.com/library/hh847780.aspx) where the key of the hashtable matches the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#Runbook-parameters) below.
+If the runbook requires parameters, then you must provide them as a [hashtable](https://technet.microsoft.com/library/hh847780.aspx) where the key of the hashtable matches the parameter name and the value is the parameter value. The following example shows how to start a runbook with two string parameters named FirstName and LastName, an integer named RepeatCount, and a boolean parameter named Show. For more information on parameters, see [Runbook Parameters](#Runbook-parameters) below.
 
-```
+```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}
 Start-AzureRmAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -ResourceGroupName "ResourceGroup01" –Parameters $params
 ```
@@ -77,7 +77,7 @@ If the parameter is data type [object], then you can use the following JSON form
 
 Consider the following test runbook that accepts a parameter called user.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -95,13 +95,13 @@ Workflow Test-Parameters
 
 The following text could be used for the user parameter.
 
-```
+```json
 {FirstName:'Joe',LastName:'Smith',RepeatCount:'2',Show:'True'}
 ```
 
 This results in the following output:
 
-```
+```output
 Joe
 Smith
 Joe
@@ -113,7 +113,7 @@ If the parameter is an array such as [array] or [string[]], then you can use the
 
 Consider the following test runbook that accepts a parameter called *user*.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -130,13 +130,13 @@ Workflow Test-Parameters
 
 The following text could be used for the user parameter.
 
-```
+```input
 ["Joe","Smith",2,true]
 ```
 
 This results in the following output:
 
-```
+```output
 Joe
 Smith
 Joe
@@ -148,7 +148,7 @@ If the parameter is data type **PSCredential**, then you can provide the name of
 
 Consider the following test runbook that accepts a parameter called credential.
 
-```
+```powershell
 Workflow Test-Parameters
 {
    param (
@@ -160,13 +160,13 @@ Workflow Test-Parameters
 
 The following text could be used for the user parameter assuming that there was a credential asset called *My Credential*.
 
-```
+```input
 My Credential
 ```
 
 Assuming the username in the credential was *jsmith*, this results in the following output:
 
-```
+```output
 jsmith
 ```
 

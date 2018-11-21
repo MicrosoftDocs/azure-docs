@@ -38,7 +38,7 @@ To deploy your Data Box Edge, refer to the following tutorials in the prescribed
 | --- | --- | --- | 
 | 1. |**[Prepare the Azure portal for Data Box Edge](data-box-edge-deploy-prep.md)** |Create and configure your Data Box Edge resource before you install a Data Box Edge physical device. |
 | 2. |**[Install Data Box Edge](data-box-edge-deploy-install.md)**|Unpack, rack, and cable the Data Box Edge physical device.  |
-| 3. |**[Connect, set up, activate the Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
+| 3. |**[Connect, set up, and activate Data Box Edge](data-box-edge-deploy-connect-setup-activate.md)** |Connect to the local web UI, complete the device setup, and activate the device. The device is ready to set up SMB or NFS shares.  |
 | 4. |**[Transfer data with Data Box Edge](data-box-edge-deploy-add-shares.md)** |Add shares and connect to shares via SMB or NFS. |
 | 5. |**[Transform data with Data Box Edge](data-box-edge-deploy-configure-compute.md)** |Configure Edge modules on the device to transform the data as it moves to Azure. |
 
@@ -46,20 +46,20 @@ You can now begin to set up the Azure portal.
 
 ## Prerequisites
 
-Here you find the configuration prerequisites for your Data Box Edge resource, your Data Box Edge device, and the datacenter network.
+Following are the configuration prerequisites for your Data Box Edge resource, your Data Box Edge device, and the datacenter network.
 
 ### For the Data Box Edge resource
 
 Before you begin, make sure that:
 
-* Your Microsoft Azure subscription should be enabled for a Data Box Edge resource.
+* Your Microsoft Azure subscription is enabled for a Data Box Edge resource.
 * You have your Microsoft Azure storage account with access credentials.
 
 ### For the Data Box Edge device
 
 Before you deploy a physical device, make sure that:
 
-- You have a 1 U slot available in a standard 19” rack in your datacenter to rackmount the device. 
+- You have a 1 U slot available in a standard 19” rack in your datacenter for rackmounting the device. 
 - You have access to a flat, stable, and level work surface where the device can rest safely.
 - The site where you intend to set up the device has standard AC power from an independent source or a rack power distribution unit (PDU) with an uninterruptible power supply (UPS).
 - You have access to a physical device.
@@ -69,9 +69,9 @@ Before you deploy a physical device, make sure that:
 
 Before you begin, make sure that:
 
-* The network in your datacenter is configured as per the networking requirements for your Data Box Edge device. For more information, see the [Data Box Edge System Requirements](data-box-gateway-system-requirements.md).
+* The network in your datacenter is configured per the networking requirements for your Data Box Edge device. For more information, see [Data Box Edge System Requirements](data-box-gateway-system-requirements.md).
 
-* Your Data Box Edge has a dedicated 20-Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications. If using network throttling, then for throttling to work, we recommend that you use 32-Mbps Internet bandwidth or more.
+* Your Data Box Edge has dedicated 20-Mbps Internet bandwidth (or more) available at all times. This bandwidth should not be shared with any other applications. If you are using network throttling, then for throttling to work, we recommend that you use 32-Mbps Internet bandwidth or more.
 
 ## Create a new resource
 
@@ -81,9 +81,9 @@ If you have an existing Data Box Edge resource to manage your physical device, s
 
 To create a Data Box resource, take the following steps in the Azure portal .
 
-1. Use your Microsoft Azure credentials to log into Azure preview portal at this URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
+1. Use your Microsoft Azure credentials to sign in to the Azure preview portal at this URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
 
-2. Pick the subscription that you want to use for Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the **Data Box Edge** option, select **Create**.
+2. Pick the subscription that you want to use for the Data Box Edge preview. Select the region where you want to deploy the Data Box Edge resource. In the **Data Box Edge** option, select **Create**.
 
     ![Search Data Box Edge service](media/data-box-edge-deploy-prep/data-box-edge-sku.png)
 

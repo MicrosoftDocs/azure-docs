@@ -77,12 +77,7 @@ Developers can also manage the keys directly, by using APIs. For more informatio
 
 ## Next steps
 
-For a getting-started tutorial for an administrator, see [Get started with Azure Key Vault](key-vault-get-started.md).
-
-For more information about usage logging for Key Vault, see [Azure Key Vault logging](key-vault-logging.md).
-
-For more information about using keys and secrets with Azure Key Vault, see [About keys, secrets, and certificates](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
-
+Learn how to [secure your vault](key-vault-secure-your-key-vault.md)
 <!--Image references-->
 [1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
 Azure Key Vault is available in most regions. For more information, see the [Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/).
