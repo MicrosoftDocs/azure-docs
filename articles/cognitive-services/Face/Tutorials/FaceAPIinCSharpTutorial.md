@@ -64,7 +64,7 @@ Open *MainWindow.xaml.cs* and add the client library namespaces, along with othe
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=1-12)]
 
-Next, insert the following code in the **MainWindow** class. This creates a **FaceClient** instance using the subscription key, which you must enter yourself. You must also set the region string in `faceEndpoint` to the correct region for your subscription.
+Next, insert the following code in the **MainWindow** class. This creates a **FaceClient** instance using the subscription key, which you must enter yourself. You must also set the region string in `faceEndpoint` to the correct region for your subscription (see the [Face API docs](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) for a list of all region endpoints).
 
 [!code-csharp[](~/Cognitive-Face-CSharp-sample/FaceTutorialCS/FaceTutorialCS/MainWindow.xaml.cs?range=18-46)]
 
@@ -113,14 +113,14 @@ Add the following code to the **FacePhoto_MouseMove** method. This event handler
 
 ## Run the app
 
-Run the application and browse for an image containing a face. Wait for a few seconds to allow the Face service to respond. You should see a red rectangle on each of the faces in the image. If you move the mouse over a face rectangle, the description of that face should appear in the status bar.
+Run the application and browse for an image containing a face. Wait a few seconds to allow the Face service to respond. You should see a red rectangle on each of the faces in the image. If you move the mouse over a face rectangle, the description of that face should appear in the status bar.
 
 ![Screenshot showing detected faces framed with rectangles](../Images/getting-started-cs-detected.png)
 
 
 ## Next steps
 
-In this tutorial, you learned the basic process for using the Face service .NET SDK and created an application to detect and frame faces in an image. Next, see How to Detect Faces in an Image to learn more about the details of face detection.
+In this tutorial, you learned the basic process for using the Face service .NET SDK and created an application to detect and frame faces in an image. Next, learn more about the details of face detection.
 
 > [!div class="nextstepaction"]
 > [How to Detect Faces in an Image](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

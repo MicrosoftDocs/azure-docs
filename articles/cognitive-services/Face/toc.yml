@@ -7,10 +7,14 @@
     href: Overview.md
 - name: Quickstarts
   items:
-  - name: Using the .NET SDK
+  - name: Using the client SDK
     items:
     - name: Detect faces in an image
-      href: QuickStarts/csharp-detect-sdk.md
+      items:
+      - name: C#
+        href: QuickStarts/csharp-detect-sdk.md
+      - name: Python
+        href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Using the REST API  
     items:
     - name: Detect faces in an image  
@@ -43,10 +47,6 @@
       href: Tutorials/FaceAPIinJavaForAndroidTutorial.md
 - name: How-to guides
   items:
-  - name: First Face API apps
-    items:
-    - name: Python
-      href: Tutorials/FaceAPIinPythonTutorial.md
   - name: Detect faces in image
     href: Face-API-How-to-Topics/HowtoDetectFacesinImage.md
   - name: Identify faces in image
@@ -98,8 +98,8 @@
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
   - name: Azure roadmap
-    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
+    href: https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services
   - name: Release notes
     href: ReleaseNotes.md
