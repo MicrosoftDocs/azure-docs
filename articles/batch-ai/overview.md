@@ -20,6 +20,8 @@ ms.author: danlep
 ---
 # What is Azure Batch AI?
 
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
+
 Azure Batch AI is a managed service to help data scientists and AI researchers train and test machine learning and AI models at scale in Azure - without having to manage complex infrastructure. Describe the compute resources, the jobs you want to run, where to store the model inputs and the outputs, and Batch AI takes care of the rest.
 
 You can use Batch AI either standalone or to perform model training as part of a larger development workflow:

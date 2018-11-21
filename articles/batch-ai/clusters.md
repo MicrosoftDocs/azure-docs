@@ -16,6 +16,8 @@ ms.custom: mvc
 ---
 # Work with Batch AI clusters 
 
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
+
 This article explains how to work with clusters in Azure Batch AI. It introduces the concept of clusters, the types of configurations that are possible, and examples. Most of the examples to create and manage a cluster in this article use the Azure CLI. However, you can use other tools including the Azure portal and the Azure Batch AI SDKs to work with clusters.
 
 A Batch AI cluster is one of several resources in the service. See the [overview of Batch AI resources](resource-concepts.md) to understand the scope of clusters in the service.

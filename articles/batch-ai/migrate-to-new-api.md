@@ -20,6 +20,8 @@ ms.author: danlep
 
 # Migrate to the updated Batch AI API
 
+[!INCLUDE [batch-ai-retiring](../../includes/batch-ai-retiring.md)]
+
 In the Batch AI REST API version 2018-05-01 and related Batch AI SDKs and tools, significant changes and new features have been introduced.
 
 If you've used a previous version of the Batch AI API, this article explains how to modify your code and scripts to work with the new API. 
