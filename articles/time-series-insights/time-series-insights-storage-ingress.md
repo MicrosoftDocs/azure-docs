@@ -89,14 +89,19 @@ If you are uploading historical data or batch messages, you should designate the
 
 ## Physical partition
 
-A physical partition is a block blob stored in Azure storage. The actual size of the blobs will vary as it depends on the push rate, however we expect blobs to be approximately 20-50 MB in size. Because of this the Time Series Insights team selected 20MB to be the size to optimize query performance. This could change over time based on file size and the velocity of data ingress.
-Note - Azure blobs are occasionally repartitioned for better performance by being dropped and recreated. The same Times Series Insights data can be present in multiple blobs.
+A physical partition is a block blob stored in Azure Storage. The actual size of the blobs will vary as it depends on the push rate, however we expect blobs to be approximately 20-50 MB in size. Because of that, the TSI team selected 20MB to be the size to optimize query performance. This could change over time based on file size and the velocity of data ingress.
+
+> [!NOTE]
+> * Blobs are sized at 20MB.
+> * Azure blobs are occasionally repartitioned for better performance by being dropped and recreated.
+> * Also note that the same TSI data can be present in multiple blobs.
+
 ## Logical partition
 
-A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. Time Series Insights update will logically partition each blob based on two properties:
+A logical partition is a partition within a physical partition that stores all the data associated with a single partition key value. The TSI Update will logically partition each blob based on two properties:
 
-1. Time series ID - is the partition key for all Time Series Insights data within the event stream and the model.
-1. Timestamp - based on the initial ingress.
+1. **Time Series ID** - is the partition key for all TSI data within the event stream and the model.
+1. **Timestamp** - based on the initial ingress.
 
 Time Series Insights update provides very performant queries that are based on these two properties. These two properties provide the most effective method for delivering Time Series Insights data in a timely manner.
 
@@ -104,17 +109,21 @@ Time Series Insights update provides very performant queries that are based on t
 
 ## Best practices when choosing a Time Series ID
 
-The choice of the time series ID is like selecting a partition key for a database and is an important decision that you must make at design time. You cannot update an existing Time Series Insights update environment to use a different time series ID.  In other words, once an environment is created with a time Series ID, the policy cannot be changed as it is an immutable property.  With this in mind, selecting the appropriate Time Series ID is critical.  Consider the following properties when selecting a time series ID:
+The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI Update environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.  With this in mind, selecting the appropriate **Time Series ID** is critical.  Consider the following properties when selecting a **Time Series ID**:
 
 * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like device ID, sensor ID, etc.
-* It should be unique at the leaf node level of your [model](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsm?branch=pr-en-us-53688).  
-* A time series ID property name character string can be up to 128 characters and time series ID property values can be up to 1024 characters.  
-* If some unique time series ID property values are missing, they are treated as null values, which take part in the uniqueness constraint.
-* You can select up to 3 key properties as your time series ID.  Note – they must all be string properties.  With regards to selecting more than one key property as your time series ID, please see the following scenarios:
 
-    1. You have legacy fleets of assets that each have unique keys.  For example, one fleet is uniquely identified by the property ‘deviceId’ and another where the unique property is ‘objectId’.  In both fleets, the other fleet’s unique property is not present.  In this example, you would select two keys, ‘deviceId’ and ‘objectId’ as unique keys.  We accept null values, and the lack of a property’s presence in the event payload will count as a null value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique time series ID.
+* It should be unique at the leaf node level of your [model](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsm?branch=pr-en-us-53688). 
 
-    1. You require multiple properties to show uniqueness in the same fleet of assets.  For example, let’s say you are a smart building manufacturer and deploy sensors in every room.  In each room, you typically have the same values for ‘sensorId’, including ‘sensor1’, ‘sensor2’, ‘sensor3’, and so on.  Additionally, you have overlapping floor and room numbers across sites in the property ‘flrRm’ which contain values like ‘1a’, ‘2b’, ‘3a’, and so on.  Finally, you have a property, ‘location’ which contains values like ‘Redmond’, ‘Barcelona’, ‘Tokyo’, and so on.  To create uniqueness, you would designate all three of these properties as your time series ID keys – ‘sensorId’, ‘flrRm’, and ‘location’.
+* A **Time Series ID** property name character string can be up to 128 characters and **Time Series ID** property values can be up to 1024 characters.  
+
+* If some unique **Time Series ID** property values are missing, they are treated as null values, which take part in the uniqueness constraint.
+
+* You can select up to **three** (3) key properties as your **Time Series ID**.  Note – they must all be string properties.  With regards to selecting more than one key property as your **Time Series ID**, please see the following scenarios:
+
+    1. You have legacy fleets of assets that each have unique keys.  For example, one fleet is uniquely identified by the property ‘deviceId’ and another where the unique property is ‘objectId’.  In both fleets, the other fleet’s unique property is not present.  In this example, you would select two keys, ‘deviceId’ and ‘objectId’ as unique keys.  We accept null values, and the lack of a property’s presence in the event payload will count as a null value.  This would also be the appropriate way to handle sending data to two different event sources where the data in each event source had a different unique **Time Series ID**.
+
+    1. You require multiple properties to show uniqueness in the same fleet of assets.  For example, let’s say you are a smart building manufacturer and deploy sensors in every room.  In each room, you typically have the same values for ‘sensorId’, including ‘sensor1’, ‘sensor2’, ‘sensor3’, and so on.  Additionally, you have overlapping floor and room numbers across sites in the property ‘flrRm’ which contain values like ‘1a’, ‘2b’, ‘3a’, and so on.  Finally, you have a property, ‘location’ which contains values like ‘Redmond’, ‘Barcelona’, ‘Tokyo’, and so on.  To create uniqueness, you would designate all three of these properties as your **Time Series ID** keys – ‘sensorId’, ‘flrRm’, and ‘location’.
 
 ## Your Azure Storage account
 
