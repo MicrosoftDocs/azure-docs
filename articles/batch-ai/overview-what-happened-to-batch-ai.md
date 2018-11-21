@@ -26,7 +26,7 @@ On June 28, 2019, the Azure Batch AI service will be retired and no longer be av
 
 Convert your scripts to use Azure Machine Learning Compute before June 28, 2019, to avoid disruptions to your applications and enjoy quality and feature updates.
 
-For guidance in updating your code, see **"migration" article** *(link)*.
+<!-- For guidance in updating your code, see **"migration" article** *(link)*. -->
 
 ## Support timeline
 
