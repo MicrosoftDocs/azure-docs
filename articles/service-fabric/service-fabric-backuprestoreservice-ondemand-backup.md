@@ -92,23 +92,38 @@ The on-demand backup request's progress may be one of the following states
 
     * Success - The backup state as _Success_ indicates that the partition state is backed up successfully. The response will provide __BackupEpoch__ and __BackupLSN__ for the partition along with the time in UTC.
         ```
-        BackupState     Success        
-        TimeStampUtc    2018-10-22T12:07:36Z 
-        BackupEpoch     @{DataLossNumber=131846800323087021;  ConfigurationNumber=12884901888}           
-        BackupLsn       24 
+        BackupState             : Success
+        TimeStampUtc            : 2018-11-21T20:00:01Z
+        BackupId                : 5d64b697-6acd-45a4-adbd-3d75e0078081
+        BackupLocation          : SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-11-21 20.00.01.zip
+        EpochOfLastBackupRecord : @{DataLossNumber=131873018908156893; ConfigurationNumber=8589934592}
+        LsnOfLastBackupRecord   : 36
+        FailureError            : 
 
         ```
     * Failure - The backup state as _Failure_ indicates the failure occurred during backup of the partition's state. The cause of the failure will be stated in response.
        ```
-       TBD
-       ```
+        BackupState             : Failure
+        TimeStampUtc            : 0001-01-01T00:00:00Z
+        BackupId                : 00000000-0000-0000-0000-000000000000
+        BackupLocation          : 
+        EpochOfLastBackupRecord : 
+        LsnOfLastBackupRecord   : 0
+        FailureError            : @{Code=FABRIC_E_BACKUPCOPIER_UNEXPECTED_ERROR; Message=An error occurred during this operation.  Please check the trace logs for more details.}
+      
+      ```
        
     * Timeout - The backup state as _Timeout_ indicates that the partitionS state backup couldn't be created in given time frame; default timeout value is 10 minutes. Initiating a new backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in on-demand backup request is recommended in this scenario.
 
         ```
-        BackupState Timeout
-        Code FABRIC_E_TIMEOUT
-        Message The request of backup has timed out
+        BackupState             : Timeout
+        TimeStampUtc            : 0001-01-01T00:00:00Z
+        BackupId                : 00000000-0000-0000-0000-000000000000
+        BackupLocation          : 
+        EpochOfLastBackupRecord : 
+        LsnOfLastBackupRecord   : 0
+        FailureError            : @{Code=FABRIC_E_TIMEOUT; Message=The request of backup has timed out.}
+        
         ```
 
 ## Next steps
