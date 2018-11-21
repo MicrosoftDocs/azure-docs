@@ -228,9 +228,9 @@
       items:
       - name: Understanding periodic backup configuration
         href: service-fabric-backuprestoreservice-configure-periodic-backup.md
-      - name: Triggering restore of Partition
+      - name: Triggering restore of partition
         href: service-fabric-backuprestoreservice-trigger-restore.md
-      - name: On Demand backup of Partition
+      - name: On-demand backup of partition
         href: service-fabric-backuprestoreservice-ondemand-backup.md
   - name: Clusters
     items:
