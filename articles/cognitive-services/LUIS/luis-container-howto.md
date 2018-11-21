@@ -1,7 +1,7 @@
 ---
 title: How to install and run docker containers - Language Understanding (LUIS) 
 titlesuffix: Azure Cognitive Services
-description: How to download, install, and run docker containers for LUIS in this walk-through tutorial.
+description: The LUIS container loads your trained or published app into a docker container and provides access to the LUIS prediction runtime with API endpoints. 
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -14,41 +14,39 @@ ms.author: diberry
 
 # Install and run containers
 
-Containerization is an approach to software distribution in which an application or service is packaged, including configuration and dependencies, as a single container image. The container is deployed on a container host with little or no modification. Using a Cognitive Service container has [several features and benefits](cognitive-services-container-support.md#features-and-benefits). Additionally, the LUIS container allows you to extend beyond current transactions per second (TPS) limits.
+The LUIS container loads your trained or published app into a docker container and provides access to the LUIS prediction runtime with API endpoints. You can collect query logs from the container and upload these back to the Azure LUIS service to improve the app's prediction accuracy. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Features
-
-Features of the LUIS container included:
-
-* Use an existing LUIS app's trained or published model. 
-* Get prediction queries from the container's endpoint.
-* Optionally, capture query logs and upload to [LUIS.ai](https://www.luis.ai) to [improve prediction accuracy](luis-concept-review-endpoint-utterances.md) through active learning.  
-
 ## Prerequisites
 
-You must satisfy the following prerequisites before using Cognitive Services Containers:
+In order to run the LUIS container, you must have the following: 
 
 |Required|Purpose|
 |--|--|
-|Docker Engine | To complete this preview, you need Docker Engine installed on a host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send usage data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.|
-|Familiarity with Azure Container Registry and Docker | You should have a basic understanding of both Azure Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.<br><br>For Azure Container Registry basics, see the [Azure Container Registry overview](https://docs.microsoft.com/azure/container-registry/container-registry-intro).| 
-|LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID, and the Endpoint Key and Endpoint URL.<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App, either on the container or in the cloud. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
+|Docker Engine| To complete this preview, you need Docker Engine installed on a host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send usage data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.|
+|Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
+|LUIS app package and information|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID, and the Endpoint Key and Endpoint URL.<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App, either on the container or in the cloud. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
 
-### Server requirements and recommendations
+### Container requirements and recommendations
 
 This container supports minimum and recommended values for the settings:
 
 |Setting| Minimum | Recommended |
 |-----------|---------|-------------|
-|Cores|1 core<BR>at least 2.6 gigahertz (GHz) or faster|1 core|
-|Memory|2 GB|4 GB|
+|Cores<BR>`--cpus`|1 core<BR>at least 2.6 gigahertz (GHz) or faster|1 core|
+|Memory<BR>`--memory`|2 GB|4 GB|
 |Transactions per second<BR>(TPS)|20 TPS|40 TPS|
 
-## Get container image
+The `--cpus` and `--memory` settings are used as part of the `docker run` command.
 
-Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
+```bash
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,src=c:\input,target=/input --mount type=bind,src=c:\output,target=/output mcr.microsoft.com/azure-cognitive-services/luis/microsoft/cognitive-services-luis Eula=accept Billing={BILLING_ENDPOINT} ApiKey={ENDPOINT_KEY}
+```
+
+## Get the container image
+
+Use the `[docker pull](https://docs.docker.com/engine/reference/commandline/pull/` command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/luis/microsoft/cognitive-services-luis:latest
@@ -63,7 +61,7 @@ For a full description of available tags, such as `latest` used in the preceding
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ``` 
 
-## How to use container
+## How to use the container
 
 Once the container is on the host computer, use the following process to work with the container.
 

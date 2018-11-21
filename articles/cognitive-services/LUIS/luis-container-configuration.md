@@ -1,7 +1,7 @@
 ---
-title: Configure docker containers for Language Understanding (LUIS)
+title: Docker container settings for Language Understanding (LUIS)
 titlesuffix: Azure Cognitive Services
-description: The docker containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your Cognitive Services containers, including LUIS.
+description: The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings.   
 services: cognitive-services
 author: diberry
 manager: cgronlun
@@ -14,11 +14,15 @@ ms.author: diberry
 
 # Configure containers
 
-The Cognitive Services containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your Cognitive Services containers, including LUIS.
+The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. 
+
+The primary settings are the input and output [mount settings](#mount-settings) on the host where the LUIS app package is located, and the billing settings. 
+
+Container settings are [hierarchical](#settings-are-hierarchical) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](command-line-argument-settings).
 
 ## Configuration settings
 
-Containers have the following configuration settings:
+This container has the following configuration settings:
 
 |Required|Setting|Purpose|
 |--|--|--|
@@ -30,8 +34,8 @@ Containers have the following configuration settings:
 |No|[Logging](#logging-configuration-settings)|Provides ASP.NET Core logging support for your container. |
 |Yes|[Mounts](#mounts-configuration-settings)|Read and write data from host to container and from container back to host.|
 
-Container settings are [hierarchical](#settings-are-hierarchical) and can be used from [environment variables](#environment-variable-settings) or docker [command-line arguments](command-line-argument-settings).
-
+> [!IMPORTANT]
+> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](luis-container-howto.md#billing).
 
 ## ApiKey setting
 
@@ -41,9 +45,6 @@ This setting can be found in two places:
 
 * Azure portal: **Language Understanding's** Resource Management, under **Keys**
 * LUIS portal: **Keys and Endpoint settings** page. 
-
-> [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](luis-container-howto.md#billing).
 
 ## ApplicationInsights setting
 
@@ -68,15 +69,9 @@ An example of an endpoint URI for the `westus` region is:
 
 `https://westus.api.cognitive.microsoft.com/luis/v2.0`
 
-> [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](luis-container-howto.md#billing).
-
 ## Eula setting
 
 The `Eula` setting indicates that you've accepted the license for the container. You must specify a value for this configuration setting, and the value must be set to `accept`.
-
-> [!IMPORTANT]
-> The [`ApiKey`](#apikey-configuration-setting), [`Billing`](#billing-configuration-setting), and [`Eula`](#eula-configuration-setting) configuration settings are used together, and you must provide valid values for all three of them; otherwise your container won't start. For more information about using these configuration settings to instantiate a container, see [Billing](luis-container-howto.md#billing).
 
 ## Fluentd settings
 
@@ -116,14 +111,11 @@ For more information about configuring ASP.NET Core logging support, see [Settin
 
 ## Mounts settings
 
-The LUIS containers are designed to be both stateless and immutable. Files created inside a container are stored in a writable container layer, which persists only while the container is running and cannot be easily accessed. If that container is stopped or removed, the files created inside that container are destroyed.
+The LUIS containers are both stateless and immutable. Files created inside a container are stored in a writable container layer, which persists only while the container is running and are not accessible. If that container is stopped or removed, the files created inside that container are destroyed.
 
-You can use Docker storage options, such as volumes and bind mounts, to read and write persisted data outside to and from the container. For more information about how to specify and manage Docker storage options, see [Manage data in Docker](https://docs.docker.com/storage/).
+Use bind mounts to read and write data to and from the container. For more information about how to specify and manage these options, see [Manage data in Docker](https://docs.docker.com/storage/).
 
-> [!NOTE]
-> You typically won't need to change the values for these configuration settings. Instead, you'll use the values specified in these configuration settings as destinations when specifying input and output mounts for your container. For more information about specifying input and output mounts, see [Input and output mounts](#input-and-output-mounts).
-
-The following table describes the configuration settings supported under the `Mounts` section.
+The following table describes the settings supported.
 
 |Required| Name | Data type | Description |
 |-------|------|-----------|-------------|
@@ -134,29 +126,27 @@ The following table describes the configuration settings supported under the `Mo
 
 You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command. By default, the input mount uses `/input` as its destination, and the output mount uses `/output` as its destination. Any Docker storage option available to the Docker container host can be specified in the `--mount` option.
 
-For example, the following command defines a Docker bind mount to the `D:\Output` folder on the host machine as the output mount, then instantiates a container from the LUIS container image, saving log files in JSON format to the output mount.
+Example mount values are:
 
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 --mount type=bind,source=D:\Output,destination=/output containerpreview.azurecr.io/microsoft/cognitive-services-luis Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/luis/v1.0 ApiKey=0123456789 Logging:Disk:Format=json
-  ```
+|Location|Value|
+|--|--|
+|Input|`--mount type=bind,src=c:\input,target=/input`|
+|Output|`--mount type=bind,src=c:\output,target=/output`|
 
-[???TBD - what does this mean]
-The LUIS container doesn't use input or output mounts to store training or database data. Instead, the LUIS container provides storage scenarios for managing training and database data. For more information about using storage scenarios, see [Storage scenario settings](#storage-scenario-settings).
+The LUIS container doesn't use input or output mounts to store training or service data. 
 
-#### Additional mount information
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the host's mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the host's mount location may not be inaccessible due to permissions used by the docker service account. 
+## Hierarchical settings
 
-## Settings are hierarchical
-
-Configuration settings in the LUIS container are hierarchical, and all containers use a shared hierarchy.
+Settings for the LUIS container are hierarchical, and all containers on the host computer use a shared hierarchy.
 
 You can use either of the following to specify settings:
 
 * [Environment variables](#environment-variable-settings)
 * [Command-line arguments](#command-line-argument-settings)
 
-Environment variable values override command-line argument values, which in turn override the default values for the container image. If you specify different values in an environment variable and a command-line argument for the same configuration setting, such as `Logging:Disk:LogLevel`, then instantiate a container, the value in the environment variable is used by the instantiated container.
+Environment variable values override command-line argument values, which in turn override the default values for the container image. If you specify different values in an environment variable and a command-line argument for the same configuration setting, the value in the environment variable is used by the instantiated container.
 
 |Precedence|Setting location|
 |--|--|
@@ -166,7 +156,10 @@ Environment variable values override command-line argument values, which in turn
 
 ## Environment variable settings
 
-The benefit of using environment variables is that multiple configuration settings can be set before instantiating containers, and multiple containers can automatically use the same set of configuration settings.
+The benefits of using environment variables are:
+
+* Multiple settings can be configured.
+* Multiple containers can use the same settings.
 
 For example, the following commands use an environment variable, named `Logging:Console:LogLevel` to configure the console logging level to `[Information](https://msdn.microsoft.com)`, then instantiates a LUIS container. 
 
@@ -175,9 +168,9 @@ SET Logging:Console:LogLevel=Information
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/luis Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/luis/v2.0 ApiKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 ```
 
-### Command-line argument settings
+## Command-line argument settings
 
-You can specify configuration settings in the optional `ARGS` parameter of the `[docker run]`(https://docs.docker.com/engine/reference/commandline/run/) command used to instantiate a container. The benefit of using command-line arguments is that each container can use a different, custom set of configuration settings.
+The benefit of using command-line arguments is that each container can use different settings.
 
 For example, the following command instantiates a container from the LUIS container image and configures the console logging level to `Information`, overriding the default configuration setting.
 
