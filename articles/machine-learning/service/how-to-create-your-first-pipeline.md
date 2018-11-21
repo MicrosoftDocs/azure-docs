@@ -15,17 +15,12 @@ ms.date: 11/08/2018
 
 In this article, you learn how to create, publish, run, and track a machine learning [pipeline](concept-ml-pipelines.md) using the [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).  
 
-Machine learning pipelines help create and manage the workflows that stitch together machine learning (ML) phases:
-* Data preparation
-* Model training
-* Model deployment
-* Inferencing. 
-
-Each phase includes one or more steps. A step is a unit run on a compute target. Each step can run unattended in various compute targets.
+Machine learning pipelines help create and manage the workflows that stitch together various machine learning (ML) phases. 
+Each phase could include one or more steps.
 
 Pipelines you create are visible to the members of your Azure Machine Learning [workspace](how-to-manage-workspace.md). 
 
-Pipelines use remote compute resources to perform the computational steps and to store the (intermediate and final) data associated with that pipeline.  Pipelines can read and write data from and to supported [Azure storage](https://docs.microsoft.com/azure/storage/) locations. This article shows how you can create or attach computes and storages in your workspace.
+Pipelines use remote compute resources to perform the computational steps and to store the (intermediate and final) data associated with that pipeline.  Pipelines can read and write data from and to supported [Azure storage](https://docs.microsoft.com/azure/storage/) locations.
 
 
 ## Prerequisites
@@ -76,7 +71,7 @@ def_blob_store.upload_files(
     overwrite=True)
 ```
 
-A pipeline consists of one or more steps.  Steps might consume data sources and produce “intermediate” data. A step can create data such as a model, a directory with model and dependent files, or temporary data.  This data is then available for other steps later in the pipeline.
+A pipeline consists of one or more steps.  A step is a unit run on a compute target.  Steps might consume data sources and produce “intermediate” data. A step can create data such as a model, a directory with model and dependent files, or temporary data.  This data is then available for other steps later in the pipeline.
 
 ### Configure data reference
 
@@ -206,7 +201,7 @@ published_pipeline1 = pipeline1.publish(
 
 ## Run a published pipeline
 
-All published pipelines have a REST endpoint to invoke the run of the pipeline from external systems such as non-Python clients. This endpoint provides a way for “managed repeatability” in batch scoring and retraining scenarios.
+All published pipelines have a REST endpoint to invoke the run of the pipeline from external systems such as non-Python clients. This endpoint provides a way for "managed repeatability" in batch scoring and retraining scenarios.
 
 Invoke the run of the above pipeline, you'll need an Azure Active Directory authentication header token as described in [AzureCliAuthentication class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py)
 
