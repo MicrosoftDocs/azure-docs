@@ -19,13 +19,16 @@ ms.author: srrengar
 ---
 
 # Event analysis and visualization with Log Analytics
- Log Analytics collects and analyzes telemetry from applications and services hosted in the cloud and provides analysis tools to help you maximize their availability and performance. It's important to note that while diagnostic storage are enabled by default at the cluster creation time, you must still set up the Log Analytics workspace to read from the diagnostic storage. This article outlines how to run queries in Log Analytics to gain insights and troubleshoot what is happening in your cluster. The following common questions are addressed:
+ Log Analytics collects and analyzes telemetry from applications and services hosted in the cloud and provides analysis tools to help you maximize their availability and performance. This article outlines how to run queries in Log Analytics to gain insights and troubleshoot what is happening in your cluster. The following common questions are addressed:
 
 * How do I troubleshoot health events?
 * How do I know when a node goes down?
 * How do I know if my application's services have started or stopped?
 
 ## Log Analytics workspace
+
+>[!NOTE] 
+>While diagnostic storage is enabled by default at the cluster creation time, you must still set up the Log Analytics workspace to read from the diagnostic storage.
 
 Log Analytics collects data from managed resources, including an Azure storage table or an agent, and maintains it in a central repository. The data can then be used for analysis, alerting, and visualization, or further exporting. Log Analytics supports events, performance data, or any other custom data. Check out [steps to configure the diagnostics extension to aggregate events](service-fabric-diagnostics-event-aggregation-wad.md) and [steps to create a Log Analytics workspace to read from the events in storage](service-fabric-diagnostics-oms-setup.md) to make sure data is flowing into Log Analytics.
 

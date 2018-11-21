@@ -26,7 +26,7 @@ This article provides an overview of monitoring and diagnostics for Azure Servic
 Application monitoring tracks how features and components of your application are being used. You want to monitor your applications to make sure issues that impact users are caught. The responsibility of application monitoring is on the users developing an application and its services since it is unique to the business logic of your application. Monitoring your applications can be useful in the following scenarios:
 * How much traffic is my application experiencing? - Do you need to scale your services to meet user demands or address a potential bottleneck in your application?
 * Are my service to service calls successful and tracked?
-* What actions are tkaen by the users of my application? - Collecting telemetry can guide future feature development and better diagnostics for application errors
+* What actions are taken by the users of my application? - Collecting telemetry can guide future feature development and better diagnostics for application errors
 * Is my application throwing unhandled exceptions? 
 * What is happening within the services running inside my containers?
 
