@@ -1,14 +1,13 @@
-﻿---
+---
 title: Retrain a New Azure Machine Learning web service with PowerShell | Microsoft Docs
 description: Learn how to programmatically retrain a model and update the web service to use the newly trained model in Azure Machine Learning using the Machine Learning Management PowerShell cmdlets.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 3953a398-6174-4d2d-8bbd-e55cf1639415
 ms.service: machine-learning
 ms.component: studio
@@ -17,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/28/2017
-
 ---
 # Retrain a New Resource Manager based web service using the Machine Learning Management PowerShell cmdlets
 When you retrain a New web service, you update the predictive web service definition to reference the new trained model.

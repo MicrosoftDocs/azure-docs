@@ -2,8 +2,8 @@
 title: Create a Machine Learning Studio Workspace | Microsoft Docs
 description: How to create a workspace for Azure Machine Learning Studio
 services: machine-learning
-author: heatherbshapiro
-ms.custom: (previous ms.author hshapiro)
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
@@ -13,7 +13,6 @@ ms.component: studio
 ms.workload: data-services
 ms.topic: article
 ms.date: 12/07/2017
-
 ---
 
 # Create and share an Azure Machine Learning workspace

@@ -148,7 +148,7 @@
     items:
     - name: Input
       href: stream-analytics-troubleshoot-input.md
-    - name: Ouput
+    - name: Output
       href: stream-analytics-troubleshoot-output.md
     - name: Query logic
       href: stream-analytics-troubleshoot-query.md

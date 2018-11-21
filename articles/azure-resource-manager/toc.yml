@@ -202,6 +202,8 @@
       href: resource-group-template-functions-resource.md
     - name: String functions
       href: resource-group-template-functions-string.md
+  - name: Tag support
+    href: tag-support.md
   - name: REST - Resource Manager
     href: /rest/api/resources/
   - name: REST - Deployment Manager
