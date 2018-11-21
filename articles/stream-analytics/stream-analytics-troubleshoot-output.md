@@ -24,7 +24,7 @@ This page describes common issues with output connections and how to troubleshoo
       - If the job is using an Event Hub, check to see whether the body of the message is *Null*.
       
     - If Data Conversion Errors > 0 and climbing, the following might be true:
-      - The ouput event does not conform to the schema of the target sink. 
+      - The output event does not conform to the schema of the target sink. 
       - The event schema might not match the defined or expected schema of the events in the query.
       - The datatypes of some of the fields in the event might not match expectations.
       
