@@ -1,15 +1,14 @@
 ---
-title: "Tutorial: Sign up for Video Indexer and upload your first video"
-titlesuffix: Azure Cognitive Services
+title: Sign up for Video Indexer and upload your first video
+titlesuffix: Azure Media Services
 description: Learn how to sign up and upload your first video using the Video Indexer portal.
-services: cognitive services
-author: juliako
-manager: cgronlun
+services: media-services
+author: Juliako
+manager: femila
 
-ms.service: cognitive-services
-ms.component: video-indexer
+ms.service: media-services
 ms.topic: tutorial
-ms.date: 09/15/2018
+ms.date: 11/19/2018
 ms.author: juliako
 ---
 
