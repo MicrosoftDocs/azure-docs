@@ -236,6 +236,7 @@
   - name: Use containers
     items:
     - name: Install and run containers
+      displayName: docker, container, package, packaged app, swagger, open api, openapi, train, publish, az, acr, cli, tps, core, curl, try it now
       href: luis-container-howto.md
     - name: Configure containers
       href: luis-container-configuration.md
