@@ -4,7 +4,7 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2018
+ms.date: 11/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -50,7 +50,7 @@ For steps to update the IoT Edge daemon, see [Update the IoT Edge runtime](how-t
 
 ### Use Moby as the container engine
 
-Having a container engine on a device is a prerequisite to installing the IoT Edge daemon and runtime. You can use any container engine that you like, but Moby is recommended in production deployments because it is an open-source project and is the only engine officially supported by the IoT Edge supported team. 
+Having a container engine on a device is a prerequisite to installing the IoT Edge daemon and runtime. You can use any container engine that you like, but Moby is only engine officially supported for IoT Edge. 
 
 ## Choose upstream protocol
 
@@ -139,14 +139,29 @@ For an example of a tag convention, see [Update the IoT Edge runtime](how-to-upd
 * **Helpful**
     * Review outbound/inbound configuration
     * Whitelist connections
+    * Configure communication through a proxy
 
 ### Review outbound/inbound configuration
 
-Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. 
+Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment)
+
+### Whitelist connections
+
+If your networking setup requires that you explicitly whitelist connections made from IoT Edge devices, review the following list of IoT Edge components:
+
+* **IoT Edge agent** opens a persistent AMQP/MQTT connection to IoT Hub, possibly over WebSockets. 
+* **IoT Edge hub** opens a single persistent AMQP connection or multiple MQTT connections to IoT Hub, possibly over WebSockets. 
+* **IoT Edge daemon** makes intermittent HTTPS calls to IoT Hub. 
+
+In all three cases, the DNS name would match the pattern \*.azure-devices.net. 
+
+Additionally, the **Container engine** makes calls to container registries over HTTPS. To retrieve the IoT Edge runtime container images, the DNS name is mcr.microsoft.com. The container engine connects to other registries as configured in the deployment. 
+
+### Configure communication through a proxy
+
+If your devices are going to be deployed on a network that uses a proxy server, they need to be able to communicate through the proxy to reach IoT Hub and container registries. For more information, see [Configure an IoT Edge device to communicate through a proxy server](how-to-configure-proxy.md).
 
 ## Solution management
-
-* **Important**
 
 * **Helpful**
     * Set up logs and diagnostics
