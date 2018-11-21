@@ -26,8 +26,6 @@ Twilio is powering the future of business communications, enabling developers to
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** enables your applications to send and receive SMS messages. **Twilio Client** allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.
 
 ## <a id="Pricing"></a>Twilio Pricing and Special Offers
-Azure customers receive a [special offer](http://www.twilio.com/azure): complimentary $10 of Twilio Credit when you upgrade your Twilio Account. This Twilio Credit can be applied to any Twilio usage ($10 credit equivalent to sending as many as 1,000 SMS messages or receiving up to 1000 inbound Voice minutes, depending on the location of your phone number and message or call destination). Redeem this Twilio credit and get started at [ahoy.twilio.com/azure](http://ahoy.twilio.com/azure).
-
 Twilio is a pay-as-you-go service. There are no set-up fees, and you can close your account at any time. You can find more details at [Twilio Pricing](http://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Concepts
