@@ -1,5 +1,5 @@
 ---
-title: Guest OS firewall is misconfigured | Microsoft Docs
+title: Azure VM Guest OS firewall is misconfigured | Microsoft Docs
 description: 
 services: virtual-machines-windows
 documentationcenter: ''

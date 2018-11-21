@@ -70,7 +70,7 @@ If you have a working Azure agent, you can use [Custom Script Extension](../exte
 
 #### Mitigation 3: PSTools commands
 
-1.	On the troubleshooting VM, download [PSTools](https://docs.microsoft.com/en-us/sysinternals/downloads/pstools).
+1.	On the troubleshooting VM, download [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 2.	Open a CMD instance, and then access the VM through its DIP.
 

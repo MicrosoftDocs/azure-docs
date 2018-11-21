@@ -1,5 +1,5 @@
 ---
-title: Enable or disable a firewall rule on a guest OS | Microsoft Docs
+title: Enable or disable a firewall rule on a guest OS in Azure VM | Microsoft Docs
 description: 
 services: virtual-machines-windows
 documentationcenter: ''
@@ -74,7 +74,7 @@ If the VM is online and can be accessed on another VM on the same virtual networ
 
 If the VM is online and can be accessed on another VM on the same virtual network, you can make the follow mitigations by using the other VM.
 
-1.	On the troubleshooting VM, download [PSTools](https://docs.microsoft.com/en-us/sysinternals/downloads/pstools).
+1.	On the troubleshooting VM, download [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
 
 2.	Open a CMD instance, and access the VM through its Internal IP (DIP). 
 

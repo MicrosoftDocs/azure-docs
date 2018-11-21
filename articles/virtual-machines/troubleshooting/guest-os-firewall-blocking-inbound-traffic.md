@@ -1,5 +1,5 @@
 ---
-title: Guest OS firewall is blocking inbound traffic | Microsoft Docs
+title: Azure VM Guest OS firewall is blocking inbound traffic | Microsoft Docs
 description: 
 services: virtual-machines-windows
 documentationcenter: ''
