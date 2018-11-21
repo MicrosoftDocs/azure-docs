@@ -25,7 +25,7 @@ Twilio is powering the future of business communications, enabling developers to
 
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** enables your applications to send and receive SMS messages. **Twilio Client** allows you to make VoIP calls from any phone, tablet, or browser and supports WebRTC.
 
-## <a id="Pricing"></a>Twilio Pricing and Special Offers
+## <a id="Pricing"></a>Twilio Pricing
 Twilio is a pay-as-you-go service. There are no set-up fees, and you can close your account at any time. You can find more details at [Twilio Pricing](http://www.twilio.com/voice/pricing).
 
 ## <a id="Concepts"></a>Concepts
