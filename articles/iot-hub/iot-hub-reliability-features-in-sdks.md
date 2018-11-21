@@ -1,5 +1,5 @@
 ---
-title: How to use the Azure IoT Hub device SDKs to manage connectivity and reliable messaging
+title: How to manage connectivity and reliable messaging by using Azure IoT Hub device SDKs
 description: Learn how to improve your device connectivity and messaging when using the Azure IoT Hub device SDKs
 services: iot-hub
 keywords: 
@@ -15,13 +15,13 @@ ms.devlang: na
 ms.custom: mvc
 ---
 
-# Use the Azure IoT Hub device SDKs to manage connectivity and reliable messaging
+# Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs
 
-This article provides high-level guidance to help you design device applications that are more resilient. It shows you how to take advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this guide is to help you manage the following scenarios:
+This article provides high-level guidance to help you design device applications that are more resilient. It shows you how to take advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this guide is to help you handle the following scenarios:
 
-- A dropped network connection
-- Switch between different network connections
-- Reconnect because of service transient connection errors
+- Managing a dropped network connection
+- Switching between different network connections
+- Reconnecting because of service transient connection errors
 
 Implementation details may vary by language. For more information, see the API documentation or specific SDK:
 
@@ -32,7 +32,7 @@ Implementation details may vary by language. For more information, see the API d
 
 ## Designing for resiliency
 
-IoT devices often rely on non-continuous or unstable network connections (for example, GSM or satellite). Errors can also occur when devices interact with cloud-based services because of intermittent service availability and infrastructure-level or transient faults. An application that runs on a device has to manage the mechanisms for connection, reconnection, and the retry logic for sending and receiving messages. Furthermore, the retry strategy requirements depend heavily on the device's IoT scenario, context, capabilities.
+IoT devices often rely on non-continuous or unstable network connections (for example, GSM or satellite). Errors can occur when devices interact with cloud-based services because of intermittent service availability and infrastructure-level or transient faults. An application that runs on a device has to manage the mechanisms for connection, reconnection, and the retry logic for sending and receiving messages. Also, the retry strategy requirements depend heavily on the device's IoT scenario, context, capabilities.
 
 The Azure IoT Hub device SDKs aim to simplify connecting and communicating from cloud-to-device and device-to-cloud. These SDKs provide a robust and comprehensive way of connecting and of transferring messages to and from Azure IoT Hub. Developers can also modify existing implementation to customize a better retry strategy for a given scenario.
 
@@ -40,14 +40,14 @@ The relevant SDK features that support connectivity and reliable messaging are c
 
 ## Connection and retry
 
-This section offers an overview of the reconnection and retry patterns available when managing connections. It details implementation guidance for using different retry policy in your device application, and provides relevant APIs for the device SDKs.
+This section gives an overview of the reconnection and retry patterns available when managing connections. It details implementation guidance for using different retry policy in your device application, and provides relevant APIs for the device SDKs.
 
 ### Error patterns
 Connection failures can happen at many levels:
 
-- **Network errors** such as a disconnected socket and name resolution errors
-- **Protocol-level errors for HTTP, AMQP, and MQTT transport** such as detached links or expired sessions
-- **Application-level errors that result from either local mistakes** such as invalid credentials or service behavior (for example, exceeding the quota or throttling)
+- Network errors: disconnected socket and name resolution errors
+- Protocol-level errors for HTTP, AMQP, and MQTT transport: detached links or expired sessions
+- Application-level errors that result from either local mistakes: invalid credentials or service behavior (for example, exceeding the quota or throttling)
 
 The device SDKs detect errors at all three levels. OS-related errors and hardware errors are not detected and handled by the device SDKs. The SDK design is based on [The Transient Fault Handling Guidance](/azure/architecture/best-practices/transient-faults#general-guidelines) from the Azure Architecture Center.
 
