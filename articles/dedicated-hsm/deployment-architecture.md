@@ -34,7 +34,7 @@ The HSMs are distributed across Microsoft’s data centers and can be easily pro
 * North Europe
 * West Europe
 
-Each of these regions has HSM racks deployed in either two independent data centers or at least two independent availability zones. South East Asia has three availability zones and East US 2 has two. There is a total of eight regions across Europe, Asia, and the USA that offer the Dedicated HSM service with plans to expand in the future. For more information on Azure regions, see the official  [Azure regions information](https://azure.microsoft.com/global-infrastructure/regions/).
+Each of these regions has HSM racks deployed in either two independent data centers or at least two independent availability zones. South East Asia has three availability zones and East US 2 has two. There is a total of eight regions across Europe, Asia, and the USA that offer the Dedicated HSM service. For more information on Azure regions, see the official  [Azure regions information](https://azure.microsoft.com/global-infrastructure/regions/).
 Some design factors for any Dedicated HSM-based solution are location/latency, high availability, and support for other distributed applications.
 
 ## Device location

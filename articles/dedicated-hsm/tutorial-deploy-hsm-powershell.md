@@ -1,5 +1,5 @@
 ﻿---
-title: Tutorial – Deploying HSMs into an existing virtual network using PowerShell| Microsoft Docs
+title: Tutorial – Deploying Azure dedicated HSMs into an existing virtual network using PowerShell| Microsoft Docs
 description: Deploy HSMs into an existing virtual network using PowerShell
 services: dedicated-hsm
 documentationcenter: na
@@ -31,7 +31,7 @@ A typical, high availability, multi-region deployment architecture may look as f
 
 This tutorial focuses on a pair of HSMs and the required ExpressRoute Gateway (see Subnet 1 above) being integrated into an existing virtual network (see VNET 1 above).  All other resources are standard Azure resources. The same integration process can be used for HSMs in subnet 4 on VNET 3 above.
 
-## Pre-requisites
+## Prerequisites
 
 Azure Dedicated HSM is not currently available in the Azure portal, therefore all interaction with the service will be via command-line or using PowerShell. This tutorial will use PowerShell in the Azure Cloud Shell. If you are new to PowerShell, follow getting started instructions here: [Azure PowerShell Get Started](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-5.0.0).
 
@@ -41,7 +41,7 @@ Assumptions:
 - You have created a Resource Group for these resources and the new ones deployed in this tutorial will join that group.
 - You have already created the necessary virtual network, subnet, and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
 
-All instructions below assume that you have already navigated to the Azure portal and you have opened the Cloud Shell (select “>_” towards the top right of the portal).
+All instructions below assume that you have already navigated to the Azure portal and you have opened the Cloud Shell (select “\>\_” towards the top right of the portal).
 
 ## Provisioning a Dedicated HSM
 
@@ -109,14 +109,14 @@ An example of these changes is as follows:
 
 The associated Resource Manager template file will create 6 resources with this information:
 
-1. A subnet for the HSMs in the specified VNET
-2. A subnet for the virtual network gateway 
-3. A virtual network gateway that connects the VNET to the HSM devices
-4. A public IP address for the gateway
-5. An HSM in stamp 1
-6. An HSM in stamp 2
+- A subnet for the HSMs in the specified VNET
+- A subnet for the virtual network gateway 
+- A virtual network gateway that connects the VNET to the HSM devices
+- A public IP address for the gateway
+- An HSM in stamp 1
+- An HSM in stamp 2
 
-Once parameter values are set, the files need to be uploaded to Azure portal cloud shell file share for use. In the Azure portal, click the “>_” cloud shell symbol top right and this will make the bottom portion of the screen a command environment. The options for this are BASH and PowerShell and you should select BASH if not already set.
+Once parameter values are set, the files need to be uploaded to Azure portal cloud shell file share for use. In the Azure portal, click the “\>\_” cloud shell symbol top right and this will make the bottom portion of the screen a command environment. The options for this are BASH and PowerShell and you should select BASH if not already set.
 
 The command shell has an upload/download option on the toolbar and you should select this to upload the template and parameter files to your file share:
 
@@ -157,8 +157,8 @@ New-AzureRmVirtualNetwork `
 
 ```
 
-[!NOTE]
-The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to “Microsoft.HardwareSecurityModules/dedicatedHSMs”.  The HSM provisioning will not work without this.
+>[!NOTE]
+>The most important configuration to note for the virtual network, is that the subnet for the HSM device must have delegations set to “Microsoft.HardwareSecurityModules/dedicatedHSMs”.  The HSM provisioning will not work without this.
 
 Once all pre-requisites are in place, run the following command to use the Resource Manager template ensuring you have updated values with your unique names (at least the resource group name):
 
@@ -214,8 +214,9 @@ When you have the IP address, run the following command:
 `ssh tenantadmin@<ip address of HSM>`
 
 If successful you will be prompted for a password. The default password is PASSWORD. The HSM will ask you to change your password so set a strong password and use whatever mechanism your organization prefers to store the password and prevent loss.  
-![IMPORTANT]
-if you lose this password, the HSM will have to be reset and that means losing your keys.
+
+>[!IMPORTANT]
+>if you lose this password, the HSM will have to be reset and that means losing your keys.
 
 When you are connected to the HSM device using ssh, run the following command to ensure the HSM is operational.
 
@@ -229,10 +230,7 @@ At this point, you have allocated all resources for a highly available, two HSM 
 
 ## Delete or clean up resources
 
-If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. To remove sensitive customer data the device should be factory reset using the Gemalto client. Refer to the Gemalto administrators guide for the SafeNet Network Luna 7 device and consider the following commands. 
-
->[!NOTE]
-if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
+If you have finished with just the HSM device, then it can be deleted as a resource and returned to the free pool. The obvious concern when doing this is any sensitive customer data that is on the device. To remove sensitive customer data the device should be factory reset using the Gemalto client. Refer to the Gemalto administrators guide for the SafeNet Network Luna 7 device and consider the following commands in order.
 
 1. `hsm factoryReset -f`
 2. `sysconf config factoryReset -f -service all`
@@ -243,6 +241,10 @@ if you have issue with any Gemalto device configuration you should contact [Gema
 7. `my file clear -f`
 8. `my public-key clear -f`
 9. `syslog rotate`
+
+
+>[!NOTE]
+if you have issue with any Gemalto device configuration you should contact [Gemalto customer support](https://safenet.gemalto.com/technical-support/).
 
 If you have finished with resources in this resource group, then you can remove them all with the following command:
 

@@ -15,7 +15,7 @@ ms.author: barclayn
 
 ---
 
-# Azure Dedicated HSM Monitoring
+# Azure Dedicated HSM monitoring
 
 The Azure Dedicated HSM Service provides a physical device for sole customer use with complete administrative control and management responsibility. The device made available is a [Gemalto SafeNet Luna 7 HSM model A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/).  Microsoft will have no administrative access once provisioned by a customer, beyond physical serial port attachment as a monitoring role. As a result, customers are responsible for typical operational activities including comprehensive monitoring and log analysis.
 Customers are fully responsible for applications that use the HSMs and should work with Gemalto for support or consulting assistance. Due to the extent of customer ownership of operational hygiene, it is not possible for Microsoft to offer any kind of high availability guarantee for this service. It is the customer’s responsibility to ensure their applications are correctly configured to achieve high availability. Microsoft will monitor and maintain device health and network connectivity.

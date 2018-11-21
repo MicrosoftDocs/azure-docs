@@ -29,7 +29,7 @@ A Hardware Security Module (HSM) is a physical computing device used to safeguar
 
 ### Q: What is Azure Dedicated HSM offering?
 
-Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated network appliances (Gemalto's SafeNet Network HSM 7 Model A790). They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, GDPR, HIPAA, PCI-DSS, and eIDAS and many others.
+Azure Dedicated HSM is a cloud-based service that provides HSMs hosted in Azure datacenters that are directly connected to a customer's virtual network. These HSMs are dedicated network appliances (Gemalto's SafeNet Network HSM 7 Model A790). They are deployed directly to a customers' private IP address space and Microsoft does not have any access to the cryptographic functionality of the HSMs. Only the customer has full administrative and cryptographic control over these devices. Customers are responsible for the management of the device and they can get full activity logs directly from their devices. Dedicated HSMs help customers meet compliance/regulatory requirements such as FIPS 140-2 Level 3, HIPAA, PCI-DSS, and eIDAS and many others.
 
 ## What hardware is used for Dedicated HSM?
 
@@ -71,7 +71,7 @@ Yes, if you have on-premises Gemalto SafeNet HSMs. There are multiple methods. R
 
 ### Q: What operating systems are supported by Dedicated HSM client software?
 
-* Windows, Linux, Solaris*, AIX*, HP-UX*, FreeBSD
+* Windows, Linux, Solaris, AIX, HP-UX, FreeBSD
 * Virtual: VMware, hyperv, Xen, KVM
 
 ### Q: How do I configure my client application to create a high availability configuration with multiple partitions from multiple HSMs?
@@ -86,7 +86,7 @@ Azure Dedicated HSM uses SafeNet Network HSM 7 appliances (model A790) and they 
 
 PKCS#11, Java (JCA/JCE), Microsoft CAPI, and CNG, OpenSSL
 
-## Q: Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
+### Q: Can I import/migrate keys from Luna 5/6 HSMs to Azure Dedicated HSMs?
 
 Yes. Please refer to the Gemalto migration guide. 
 
@@ -231,10 +231,6 @@ Yes. Dedicated HSM service provisions SafeNet Network HSM 7 appliances that use 
 ### Q: What do I need to do to make sure I operate Dedicated HSM in FIPS 140-2 Level 3 validated mode?
 
 The Dedicated HSM service provisions SafeNet Luna Network HSM 7 appliances. These appliances use FIPS 140-2 Level 3 validated HSMs. The default deployed configuration, operating system, and firmware are also FIPS validated. You do not need to take any action for FIPS 140-2 Level 3 compliance.
-
-### Q: Does Dedicated HSM comply with any industry standard or certifications?
-
-Not on the day of release, however we are planning to complete the audits and procedures required to get several industry standards/certifications in coming months.
 
 ### How does a customer ensure that when an HSM is deprovisioned all the key material is wiped out?
 

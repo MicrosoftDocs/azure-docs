@@ -2,7 +2,7 @@
   href: index.yml
 - name: Overview
   items:
-  - name: Dedicated HSM Overview
+  - name: Dedicated HSM overview
     href: overview.md
 - name: Tutorials
   items:
@@ -24,9 +24,9 @@
     href: supportability.md
 - name: How-to guides
   items:
-  - name: Deciding deployment architecture
+  - name: Deciding on deployment architecture
     href: deployment-architecture.md
-- name: Reference
+- name: Resources
   items:
   - name: Frequently asked questions
     href: faq.md

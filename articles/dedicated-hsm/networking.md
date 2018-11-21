@@ -15,7 +15,7 @@ ms.author: barclayn
 
 ---
 
-# Azure Dedicated HSM Networking
+# Azure Dedicated HSM networking
 
 Azure Dedicated HSM requires a highly secure networking environment. This is true whether it is from the Azure cloud back to the customer’s IT environment (on-premises), using distributed applications or for high availability scenarios. Azure Networking provides this and there are four distinct areas that must be addressed.
 
