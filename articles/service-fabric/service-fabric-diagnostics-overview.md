@@ -75,7 +75,7 @@ Now that we've gone over each area of monitoring and example scenarios, here is 
 * Cluster monitoring with [Diagnostics Agent](service-fabric-diagnostics-event-aggregation-wad.md) and [Log Analytics](service-fabric-diagnostics-oms-setup.md)
 * Infrastructure monitoring with [Log Analytics](service-fabric-diagnostics-oms-agent.md)
 
-You can also use and modify the sample ARM template located [here](service-fabric-diagnostics-oms-setup.md#Deploy-Log-Analytics-with-Azure-Resource-Manager) to automate deployment of all necessary resources and agents. 
+You can also use and modify the sample ARM template located [here](service-fabric-diagnostics-oms-setup.md#deploy-log-analytics-with-azure-resource-manager) to automate deployment of all necessary resources and agents. 
 
 ## Other logging solutions
 
