@@ -23,34 +23,31 @@ ms.reviewer: sandeo
 # How to: Plan your Azure AD join implementation
 
 
-Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure.  
+Azure AD join allows you to join devices directly to Azure AD without the need to join to on-premises Active Directory while keeping your users productive and secure. Azure AD join is enterprise-ready for both at-scale and scoped deployments.   
 
-This article assumes you have familiarity with Azure AD and [device states in Azure AD](overview.md). 
+This article:
+
+- Provides you with the information you need to plan your Azure AD join implementation.
+
+- Assumes you have familiarity with Azure AD and [device states in Azure AD](overview.md). 
 
  
 
 ## Review your scenarios 
 
-While Azure AD join is applicable to most scenarios in an organizational setting, there might be certain use cases where you might want to deploy Hybrid Azure AD join instead. Azure AD join is enterprise-ready for at-scale or scope deployments. 
+While Hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you are planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those objectives.  
 
  
-Consider Azure AD join based on the following criteria for your organization:  
+You should consider Azure AD join if your goals align with the the following criteria:
 
-- You either plan or have majority of your Windows devices on Windows 10. 
+- You are adopting Microsoft 365 as the productivity suite for your users.
 
-- You plan to move to a cloud-driven deployment and management of Windows devices. 
+- You want to manage devices with a cloud device management solution.
 
-- You have limited on-premises infrastructure or plan to reduce your on-premises footprint. 
+- You want to simplify device provisioning for geographically distributed users.
 
-- You do not have a heavy dependency on Group Policies to manage devices. 
-
-- You do not have legacy applications that rely on Active Directory machine authentication. 
-
-- All or selected users in your organization do not have to be on the corporate network to access necessary apps and resources.  
-
+- You plan to modernize your application infrastructure.
  
-
-Review your scenarios based on the following assessment  
 
  
 
