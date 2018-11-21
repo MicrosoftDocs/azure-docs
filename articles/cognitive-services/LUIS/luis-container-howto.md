@@ -37,20 +37,6 @@ You must satisfy the following prerequisites before using Cognitive Services Con
 |Familiarity with Azure Container Registry and Docker | You should have a basic understanding of both Azure Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `az acr` and `docker` commands.<br><br>For Azure Container Registry basics, see the [Azure Container Registry overview](https://docs.microsoft.com/azure/container-registry/container-registry-intro).| 
 |LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID and the Endpoint Key.<br><br>**Authoring key**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud.<br><br>**App ID**: This ID is used to select the App, either on the container or in the cloud.<br><br>**Endpoint key**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. [TBD???] Do not use the starter key.<br><br>**Billing endpoint**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
 
-## Unsupported dependencies
-
-You can use a LUIS application if it **doesn't include** any of the following:
-
-|Do not use<br>in trained app|Do not use<br>in published app|Unsupported app configurations|Details|
-|--|--|--|--|
-|X|X|Unsupported container cultures| German (de-DE)<br>Dutch (nl-NL)<br>Japanese (ja-JP)<br>|
-|X|X|Unsupported domains|Prebuilt domains, including prebuilt domain intents and entities|
-|X|X|Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
-|X|X|Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) and [PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entities|
-|X|X|Unsupported entities for Chinese (zh-CN) culture|[PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entity for Chinese| 
-||X|Speech priming|External dependencies are not supported in the container.|
-||X|Sentiment analysis|External dependencies are not supported in the container.|
-||X|Bing spell check|External dependencies are not supported in the container.|
 
 
 ### Server requirements and recommendations
@@ -156,7 +142,7 @@ https://{AZURE_REGION}.api.cognitive.microsoft.com/luis/webapi/v2.0/package/{APP
 
 If successful, the response is a LUIS package file, sent as an attachment in an octet stream. You must save the file in the storage location specified for the input mount of the LUIS container. The LUIS package file uses the following naming convention, in which ```{APPLICATION_ID}``` represents the application ID and ```{APPLICATION_ENVIRONMENT}``` represents the environment of the packaged LUIS application:
 
-```{APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz```
+`{APPLICATION_ID}_{APPLICATION_ENVIRONMENT}.gz`
 
 Remember to save or move the file to the `input` location.
 
@@ -189,7 +175,7 @@ The letter `v` precedes the `{APPLICATION_VERSION}` in the -o argument value.
 
 If successful, the response is a LUIS package file, sent as an attachment in an octet stream. You must save the package file in the storage location specified for the input mount of the LUIS container. The LUIS package file uses the following naming convention, in which ```{APPLICATION_ID}``` represents the application ID and ```{APPLICATION_VERSION}``` represents the application version of the packaged LUIS application:
 
-```{APPLICATION_ID}_v{APPLICATION_VERSION}.gz```
+`{APPLICATION_ID}_v{APPLICATION_VERSION}.gz`
 
 Remember to save or move the file to the `input` location.
 
@@ -248,7 +234,7 @@ Use the host, https://localhost:5000, for container APIs.
 
 To make queries to the **Staging** environment, change the **staging** query string parameter value to true: 
 
-```staging=true``` 
+`staging=true`
 
 ### Query container from an SDK
 Query operations from an SDK are available for published staging or production slot packaged apps only. 
@@ -264,9 +250,9 @@ The only difference between calling a given operation from your container and ca
 
 If an output mount is specified for the LUIS container, application query log files, along with container logs for debugging, are captured in the following folder at that storage location, replacing {INSTANCE_ID} with the container ID. 
 
-```
+`
 /luis/{INSTANCE_ID}/
-```
+`
 
 The application query log file contains the query, response, and timestamp for each prediction query submitted to the LUIS container for a given LUIS application. 
 
@@ -325,6 +311,22 @@ The LUIS container sends billing information to Azure, using a LUIS resource on 
 > All three options must be specified with valid values, or the container won't start.
 
 For more information about these options, see [Configure containers](luis-container-configuration.md).
+
+## Unsupported dependencies
+
+You can use a LUIS application if it **doesn't include** any of the following:
+
+|Do not use<br>in trained app|Do not use<br>in published app|Unsupported app configurations|Details|
+|--|--|--|--|
+|X|X|Unsupported container cultures| German (de-DE)<br>Dutch (nl-NL)<br>Japanese (ja-JP)<br>|
+|X|X|Unsupported domains|Prebuilt domains, including prebuilt domain intents and entities|
+|X|X|Unsupported entities for all cultures|[KeyPhrase](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-keyphrase) prebuilt entity for all cultures|
+|X|X|Unsupported entities for English (en-US) culture|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) and [PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entities|
+|X|X|Unsupported entities for Chinese (zh-CN) culture|[PersonName](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-person) prebuilt entity for Chinese| 
+||X|Speech priming|External dependencies are not supported in the container.|
+||X|Sentiment analysis|External dependencies are not supported in the container.|
+||X|Bing spell check|External dependencies are not supported in the container.|
+
 
 ## Summary
 
