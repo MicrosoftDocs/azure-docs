@@ -183,7 +183,7 @@ Here's the Java code:
             databaseName = "ToDoList",
             collectionName = "Items",
             leaseCollectionName = "leases",
-            reateLeaseCollectionIfNotExists = true,
+            createLeaseCollectionIfNotExists = true,
             connectionStringSetting = "AzureCosmosDBConnection") String[] items,
             final ExecutionContext context ) {
                 context.getLogger().info(items.length + "item(s) is/are changed.");
@@ -1274,7 +1274,7 @@ See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
 [Skip output examples](#output---attributes)
 
-### Ouput - C# examples
+### Output - C# examples
 
 This section contains the following examples:
 

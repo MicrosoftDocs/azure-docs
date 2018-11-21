@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/20/2018
 ms.component: hybrid
 ms.author: billmath
 ---
@@ -127,7 +127,7 @@ To estimate network traffic, use the following sizing guidance:
 For most customers, two or three Authentication Agents in total are sufficient for high availability and capacity. You should install Authentication Agents close to your domain controllers to improve sign-in latency.
 
 >[!NOTE]
->There is a system limit of 12 Authentication Agents per tenant.
+>There is a system limit of 40 Authentication Agents per tenant.
 
 ## Can I install the first Pass-through Authentication Agent on a server other than the one that runs Azure AD Connect?
 

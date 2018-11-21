@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/04/2018
+ms.date: 11/20/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
 
 ---
 # SAP HANA (Large Instances) storage architecture
 
-The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model through SAP recommended guidelines. The guidelines are documented in the [SAP HANA storage requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
+The storage layout for SAP HANA on Azure (Large Instances) is configured by SAP HANA on the classic deployment model per SAP recommended guidelines. The guidelines are documented in the [SAP HANA storage requirements](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) white paper.
 
 The HANA Large Instance of the Type I class comes with four times the memory volume as storage volume. For the Type II class of HANA Large Instance units, the storage isn't four times more. The units come with a volume that is intended for storing HANA transaction log backups. For more information, see [Install and configure SAP HANA (Large Instances) on Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -29,6 +29,7 @@ See the following table in terms of storage allocation. The table lists the roug
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
+| S96 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S192 | 4,608 GB | 1,024 GB | 1,536 GB | 1,024 GB |
 | S192m | 11,520 GB | 1,536 GB | 1,792 GB | 1,536 GB |
 | S192xm |  11,520 GB |  1,536 GB |  1,792 GB |  1,536 GB |
@@ -68,18 +69,18 @@ Refer [HLI supported scenarios](hana-supported-scenario.md) for storage layout d
 
 It's possible to host more than one active SAP HANA instance on HANA Large Instance units. To provide the capabilities of storage snapshots and disaster recovery, such a configuration requires a volume set per instance. Currently, HANA Large Instance units can be subdivided as follows:
 
-- **S72, S72m, S144, S192**: In increments of 256 GB, with 256 GB the smallest starting unit. Different increments such as 256 GB and 512 GB can be combined to the maximum of the memory of the unit.
+- **S72, S72m, S96, S144, S192**: In increments of 256 GB, with 256 GB the smallest starting unit. Different increments such as 256 GB and 512 GB can be combined to the maximum of the memory of the unit.
 - **S144m and S192m**: In increments of 256 GB, with 512 GB the smallest unit. Different increments such as 512 GB and 768 GB can be combined to the maximum of the memory of the unit.
 - **Type II class**: In increments of 512 GB, with the smallest starting unit of 2 TB. Different increments such as 512 GB, 1 TB, and 1.5 TB can be combined to the maximum of the memory of the unit.
 
-Some examples of running multiple SAP HANA instances might look like the following.
+Few examples of running multiple SAP HANA instances might look like the following.
 
 | SKU | Memory size | Storage size | Sizes with multiple databases |
 | --- | --- | --- | --- |
-| S72 | 768 GB | 3 TB | 1x768 GB HANA instance<br /> or 1x512 GB instance + 1x256 GB instance<br /> or 3x256 GB instances | 
-| S72m | 1.5 TB | 6 TB | 3x512GB HANA instances<br />or 1x512 GB instance + 1x1 TB instance<br />or 6x256 GB instances<br />or 1x1.5 TB instance | 
-| S192m | 4 TB | 16 TB | 8x512 GB instances<br />or 4x1 TB instances<br />or 4x512 GB instances + 2x1 TB instances<br />or 4x768 GB instances + 2x512 GB instances<br />or 1x4 TB instance |
-| S384xm | 8 TB | 22 TB | 4x2 TB instances<br />or 2x4 TB instances<br />or 2x3 TB instances + 1x2 TB instances<br />or 2x2.5 TB instances + 1x3 TB instances<br />or 1x8 TB instance |
+| S72 | 768 GB | 3 TB | 1x768-GB HANA instance<br /> or 1x512-GB instance + 1x256-GB instance<br /> or 3x256-GB instances | 
+| S72m | 1.5 TB | 6 TB | 3x512GB HANA instances<br />or 1x512-GB instance + 1x1-TB instance<br />or 6x256-GB instances<br />or 1x1.5-TB instance | 
+| S192m | 4 TB | 16 TB | 8x512-GB instances<br />or 4x1-TB instances<br />or 4x512-GB instances + 2x1-TB instances<br />or 4x768-GB instances + 2x512-GB instances<br />or 1x4-TB instance |
+| S384xm | 8 TB | 22 TB | 4x2-TB instances<br />or 2x4-TB instances<br />or 2x3-TB instances + 1x2-TB instances<br />or 2x2.5-TB instances + 1x3-TB instances<br />or 1x8-TB instance |
 
 
 There are other variations as well. 
@@ -87,7 +88,7 @@ There are other variations as well.
 ## Encryption of data at rest
 The storage used for HANA Large Instance allows a transparent encryption of the data as it's stored on the disks. When a HANA Large Instance unit is deployed, you can enable this kind of encryption. You also can change to encrypted volumes after the deployment takes place. The move from non-encrypted to encrypted volumes is transparent and doesn't require downtime. 
 
-With the Type I class of SKUs, the volume the boot LUN is stored on is encrypted. For the Type II class of SKUs of HANA Large Instance, you need to encrypt the boot LUN with OS methods. For more information, contact the Microsoft Service Management team.
+With the Type I class of SKUs, the volume the boot LUN is stored on, is encrypted. For the Type II class of SKUs of HANA Large Instance, you need to encrypt the boot LUN with OS methods. For more information, contact the Microsoft Service Management team.
 
 **Next steps**
 - Refer [Supported scenarios for HANA Large Instances](hana-supported-scenario.md)
