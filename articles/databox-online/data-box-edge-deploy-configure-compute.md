@@ -14,7 +14,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 # Tutorial: Transform data with Azure Data Box Edge (preview)
 
-This tutorial describes how to configure a compute role on your Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
+This tutorial describes how to configure a compute role on your Azure Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
 
 This procedure can take around 30-45 minutes to complete.
 
@@ -31,193 +31,224 @@ In this tutorial, you learn how to:
  
 ## Prerequisites
 
-Before you set up compute role on your Data Box Edge device, make sure that:
+Before you set up a compute role on your Data Box Edge device, make sure that:
 
-* Your Data Box Edge device is activated as detailed in [Connect, set up, and activate Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md).
+* You've activated your Data Box Edge device as described in [Connect, set up, and activate Azure Data Box Edge](data-box-edge-deploy-connect-setup-activate.md).
 
 
 ## Create an IoT Hub resource
 
-Before you set up compute role on Data Box Edge, you must create an IoT Hub resource.
+Before you set up a compute role on Data Box Edge, you must create an IoT Hub resource.
 
-For detailed instructions, go to [Create an IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#create-an-iot-hub). Use the same subscription and the resource group that you used for your Data Box Edge resource.
+For detailed instructions, go to [Create an IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal#create-an-iot-hub). Use the same subscription and resource group that you used for your Data Box Edge resource.
 
-![Create IoT Hub resource](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
+![Create an IoT Hub resource](./media/data-box-edge-deploy-configure-compute/create-iothub-resource-1.png)
 
-When the Edge compute role isn't set up, the following caveats apply:
+If an Edge compute role hasn't been set up, the following caveats apply:
 
 - The IoT Hub resource doesn't have any IoT devices or IoT Edge devices.
 - You can't create Edge local shares. When you add a share, the option to create a local share for Edge compute isn't enabled.
 
 
-## Set up compute role
+## Set up a compute role
 
-When the Edge compute role is set up on the Edge device, it creates two devices – one is an IoT device and the other is IoT Edge device. Both of these devices can be viewed in the IoT Hub resource.
+When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource.
 
-To set up the compute role on the device, do the following steps.
+To set up the compute role on the device, do the following:
 
-1. Go to the Data Box Edge resource and then go to **Overview** and click **Set up compute role**. 
+1. Go to the Data Box Edge resource, select **Overview**, and then select **Set up compute role**. 
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-1.png)
+    ![The Overview link in the left pane](./media/data-box-edge-deploy-configure-compute/setup-compute-1.png)
    
-    You can also go to **Modules** and click **Configure compute**.
+    Optionally, you can go to **Modules** and select **Configure compute**.
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-2.png)
+    ![The "Modules" and "Configure compute" links](./media/data-box-edge-deploy-configure-compute/setup-compute-2.png)
  
-2. From the dropdown list, select the **IoT Hub resource** you created in the previous step. Only the Linux platform is available at this point for your IoT Edge device. Click **Create**.
+1. In the drop-down list, select the **IoT Hub resource** you created in the previous step.  
+    At this point, only the Linux platform is available for your IoT Edge device. 
+    
+1. Click **Create**.
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-3.png)
+    ![The Create button](./media/data-box-edge-deploy-configure-compute/setup-compute-3.png)
  
-3. The compute role takes a couple minutes to create. Because of a bug in this release, even when the compute role is created, the screen doesn't refresh. Go to **Modules** and you can see that the Edge compute is configured.  
+    The compute role takes a couple minutes to create. Because of a bug in this release, even when the compute role is created, the screen doesn't refresh. To confirm that the Edge compute role has been configured, go to **Modules**.  
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-4.png)
+    ![The "Configure Edge compute" device list](./media/data-box-edge-deploy-configure-compute/setup-compute-4.png)
 
-4. Go to **Overview** again and now the screen is updated to indicate that the compute role is configured.
+1. Go to **Overview** again.  
+    The screen is updated to indicate that the compute role is configured.
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-5.png)
+    ![Set up a compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-5.png)
  
-5. Go to the IoT Hub you used when creating the Edge compute role. Go to **IoT devices**. You can see that an IoT device is now enabled. 
+1. In the IoT Hub that you used when you created the Edge compute role, go to **IoT devices**.  
+    An IoT device is now enabled. 
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-6.png)
+    ![The "IoT devices" page](./media/data-box-edge-deploy-configure-compute/setup-compute-6.png)
 
-6. Go to **IoT Edge** and you'll see that an IoT Edge device is also enabled.
+1. In the left pane, select **IoT Edge**.  
+    An IoT Edge device is also enabled.
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-7.png)
+    ![Set up a compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-7.png)
  
-7. Select and click the IoT Edge device. An Edge agent is running on this IoT Edge device. 
+1. Select and click the IoT Edge device.  
+    An Edge agent is running on this IoT Edge device. 
 
-    ![Set up compute role](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
+    ![The Device Details page](./media/data-box-edge-deploy-configure-compute/setup-compute-8.png) 
 
-There are however no custom modules on this Edge device. You can now add a custom module to this device. To learn how to create a custom module, go to [Develop a C# module for your Data Box Edge](data-box-edge-create-iot-edge-module.md).
+    There are no custom modules on this Edge device, but you can now add a custom module. To learn how to create a custom module, go to [Develop a C# module for your Data Box Edge device](data-box-edge-create-iot-edge-module.md).
 
 
 ## Add a custom module
 
-In this section, you'll add a custom module to the IoT Edge device that you created in [Develop a C# module for your Data Box Edge](data-box-edge-create-iot-edge-module.md). 
+In this section, you add a custom module to the IoT Edge device that you created in [Develop a C# module for your Data Box Edge](data-box-edge-create-iot-edge-module.md). 
 
-This procedure uses an example where the custom module used takes files from a local share on the Edge device and moves those to a cloud share on the device. The cloud share then pushes the files to the Azure storage account associated with the cloud share. 
+The following procedure uses an example where the custom module takes files from a local share on the Edge device and moves them to a cloud share on the device. The cloud share then pushes the files to the Azure storage account that's associated with the cloud share. 
 
-1. The first step is to add a local share on the Edge device. In your Data Box Edge resource, go to **Shares**. Click **+ Add share**. Provide the share name and select the share type. To create a local share, check the **Configure as Edge local share** option. Select an **existing user** or **create new**. Click **Create**.
+1. Add a local share on the Edge device by doing the following:
+
+    a. In your Data Box Edge resource, go to **Shares**. 
+    
+    b. Select **Add share**, and then provide the share name and select the share type. 
+    
+    c. To create a local share, select the **Configure as Edge local share** check box. 
+    
+    d. Select **Create new** or **Use existing**, and then select **Create**.
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-1.png) 
 
-    If you created a local NFS share, use the following rsync command option to copy files onto the share:
+    If you created a local NFS share, use the following remote sync (rsync) command option to copy files onto the share:
 
     `rsync --inplace <source file path> < destination file path>`
 
-     For more information on the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm). 
+     For more information about the rsync command, go to [Rsync documentation](https://www.computerhope.com/unix/rsync.htm). 
 
  
-2. Once the local share is created and you've received a successful creation notification (share list may be updated before but you must wait for the share creation to complete), go to the list of shares. 
+    The local share is created, and you'll receive a successful creation notification. The share list might be updated, but you must wait for the share creation to be completed.
+    
+1. Go to the list of shares. 
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-2.png) 
  
-3. Select and click the newly created local share and view the properties of the share. Copy and save the **local mount point for Edge modules** corresponding to this share.
+1. To view the properties of the newly created local share, select it. 
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-3.png) 
+1. In the **Local mount point for Edge compute modules** box, copy the value corresponding to this share.  
+    You'll use this local mount point when you deploy the module.
+
+    ![The "Local mount point for Edge compute modules" box](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-3.png) 
  
-    Go to an existing cloud share created on your Data Box Edge device. Again, copy and save the local mountpoint for Edge compute modules for this cloud share. These local mountpoints will be used when deploying the module.
+1. On an existing cloud share that was created on your Data Box Edge device, in the **Local mount point for Edge compute modules** box, copy the local mount point for Edge compute modules for this cloud share.  
+    You'll use this local mount point when you deploy the module.
 
     ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-4.png)  
 
-4. To add a custom module to the IoT Edge device, go to your IoT Hub resource and then go to **IoT Edge device**. Select and click the device. In the **Device details**, from the command bar at the top, click **Set Modules**. 
+1. To add a custom module to the IoT Edge device, go to your IoT Hub resource, and then go to **IoT Edge device**. 
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-5.png) 
+1. Select the device and then, under **Device details**, select **Set Modules**. 
 
-5. Under **Add Modules**, do the following steps:
+    ![The Set Modules link](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-5.png) 
 
-    1. Provide the **name**, **address**, **user name**, and **password** for the **Container registry settings** for the custom module. The name, address and listed credentials are used to retrieve modules with a matching URL. To deploy this module, under **Deployment modules**, select **IoT Edge module**. This IoT Edge module is a docker container you can deploy to IoT Edge device associated with your Data Box Edge device.
+1. Under **Add Modules**, do the following:
 
-        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
+    a. Enter the name, address, user name, and password for the container registry settings for the custom module.  
+    The name, address, and listed credentials are used to retrieve modules with a matching URL. To deploy this module, under **Deployment modules**, select **IoT Edge module**. This IoT Edge module is a docker container that you can deploy to the IoT Edge device that's associated with your Data Box Edge device.
+
+    ![The Set Modules page](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-6.png) 
  
-    2. Specify the settings for the IoT Edge custom module. Provide the **name** of your module and **image URI** for the corresponding container image. 
+    b. Specify the settings for the IoT Edge custom module by entering the name of your module and the image URI for the corresponding container image. 
     
-        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
+    ![The IoT Edge Custom Modules page](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-7.png) 
 
-    3. In the **Container create options**, provide the local mountpoints for the Edge modules copied in the preceding steps for the cloud and local share (important to use these paths as opposed to creating new ones). The local mountpoints are mapped to the corresponding **InputFolderPath** and the **OutputFolderPath** that you specified in the module when you [updated the module with custom code](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
+    c. In the **Container Create Options** box, enter the local mount points for the Edge modules that you copied in the preceding steps for the cloud and local share.
+    > [!IMPORTANT]
+    > Use the copied paths; do not create new paths. The local mount points are mapped to the corresponding **InputFolderPath** and the **OutputFolderPath** that you specified in the module when you [updated the module with custom code](data-box-edge-create-iot-edge-module.md#update-the-module-with-custom-code). 
     
-        You can copy and paste the sample shown below in your **Container create options**: 
-        
-        ```
-        {
-         "HostConfig": {
-          "Binds": [
-           "/home/hcsshares/mysmblocalshare:/home/LocalShare",
-           "/home/hcsshares/mysmbshare1:/home/CloudShare"
-           ]
-         }
+    In the **Container Create Options** box, you can paste the following sample: 
+    
+    ```
+    {
+        "HostConfig": {
+        "Binds": [
+        "/home/hcsshares/mysmblocalshare:/home/LocalShare",
+        "/home/hcsshares/mysmbshare1:/home/CloudShare"
+        ]
         }
-        ```
+    }
+    ```
 
-        Also provide any environmental variables here as well for your module.
+    Also provide any environmental variables here for your module.
 
-        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
+    ![The Container Create Options box](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-8.png) 
  
-    4. **Configure advanced Edge runtime settings** if needed and then click **Next**.
+    d. If necessary, configure the advanced Edge runtime settings, and then click **Next**.
 
-        ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
+    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-9.png) 
  
-6.	Under **Specify routes**, set routes between modules. In this case, provide the name of the local share that will push data to cloud share. Click **Next**.
+1.	Under **Specify Routes**, set routes between modules.  
+    In this example, enter the name of the local share that will push data to the cloud share.
 
-    You can replace route with the following route string:
-          "route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"
+    You can replace the route with the following route string:  
+    
+    `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
+    ![The Specify Routes section](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
+
+1. Select **Next**. 
+
+1.	Under **Review deployment**, review all the settings, and then select **Submit** to submit the module for deployment.
+
+    ![The Set Modules page](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-11.png) 
  
-7.	Under **Review deployment**, review all the settings and if satisfied, **submit** the module for deployment.
+    This action starts the module deployment as shown in the following image:
 
-    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-11.png) 
- 
-This starts the module deployment as shown by the **IoT Edge Custom module** under **Modules**.
-
-![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-12.png) 
+    ![Add custom module](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-12.png) 
 
 ### Verify data transform and transfer
 
-The final step is to make sure the module is connected and running as expected. Do the following steps to verify that the module is running.
+The final step is to ensure that the module is connected and running as expected. The run-time status of the module should be running for your IoT Edge device in the IoT Hub resource.
 
-1. The runtime status of module should be running for your IoT Edge device in the IoT Hub resource.
-
-    ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-1.png) 
+![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-1.png) 
  
-2. Select and click the module and look at the **Module Identity Twin**. The client status for the Edge device and module should show as **Connected**.
+To verify that the module is running, do the following:
+
+1. Select the module, and then view the Module Identity Twin.  
+    The client status for the Edge device and module should be displayed as *Connected*.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-2.png) 
  
-3.	Once the module is running, it is also displayed under the list of Edge modules in your Data Box Edge resource. The **runtime status** of the module you added is **running**.
+    After the module is running, it is also displayed under the list of Edge modules in your Data Box Edge resource. The runtime status of the module you added is *running*.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-3.png) 
  
-4.	Connect to both the local and cloud shares you created via File Explorer.
+1.	In File Explorer, connect to both the local and cloud shares you created previously.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-4.png) 
  
-5.	Add data to the local share.
+1.	Add data to the local share.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-5.png) 
  
-6.	The data gets moved to the cloud share.
+    The data gets moved to the cloud share.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-6.png)  
 
-7.	The data is then pushed from cloud share to the storage account. Go to the Storage Explorer to view the data.
+    The data is then pushed from the cloud share to the storage account. To view the data, go to the Storage Explorer to view the data.
 
     ![Verify data transform](./media/data-box-edge-deploy-configure-compute/verify-data-transform-7.png) 
  
-This concludes the validation process.
+You have completed the validation process.
 
 
 ## Next steps
 
-In this tutorial, you learned about  Data Box Edge topics such as:
+In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create an IoT Hub resource
-> * Set up compute role
+> * Set up a compute role
 > * Add a compute module
 > * Verify data transform and transfer
 
-Advance to the next tutorial to learn how to administer your Data Box Edge.
+To learn how to administer your Data Box Edge device, see:
 
 > [!div class="nextstepaction"]
 > [Use local web UI to administer a Data Box Edge](https://aka.ms/dbg-docs)
