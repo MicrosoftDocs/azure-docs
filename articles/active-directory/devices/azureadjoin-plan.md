@@ -355,7 +355,5 @@ You can use this implementation to [require managed devices for cloud app access
 > [Join your work device to your organization's network](https://docs.microsoft.com/azure/active-directory/user-help/user-help-join-device-on-network)
 
 
-- [Device management](overview.md)
-
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png
