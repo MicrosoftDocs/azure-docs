@@ -1,12 +1,12 @@
 ---
-title: Configure containers
-titlesuffix: LUIS - Cognitive Services - Azure
-description: Configuration settings for containers.
+title: Configure docker containers for Language Understanding (LUIS)
+titlesuffix: Azure Cognitive Services
+description: The docker containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your Cognitive Services containers, including LUIS.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: diberry
@@ -184,3 +184,8 @@ For example, the following command instantiates a container from the LUIS contai
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/lui Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/luis/v2.0 ApiKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Logging:Console:LogLevel=Information
   ```
+
+## Next steps
+
+* Review [Configure containers](luis-container-configuration.md) for configuration settings
+* Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.

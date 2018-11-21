@@ -1,12 +1,12 @@
 ---
-title: How to install and run containers
-titlesuffix: LUIS - Cognitive Services - Azure
-description: How to download, install, and run containers for LUIS in this walkthrough tutorial.
+title: How to install and run docker containers - Language Understanding (LUIS) 
+titlesuffix: Azure Cognitive Services
+description: How to download, install, and run docker containers for LUIS in this walk-through tutorial.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: text-analytics
+ms.component: language-understanding
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: diberry
