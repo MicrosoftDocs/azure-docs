@@ -322,7 +322,7 @@ This information is kept at every level (not just the leaves of the JSON structu
 ## Optimistic concurrency
 
 Tags, desired, and reported properties all support optimistic concurrency.
-Tags have an ETag, as per [RFC7232]()https://tools.ietf.org/html/rfc7232, that represents the tag's JSON representation. You can use ETags in conditional update operations from the solution back end to ensure consistency.
+Tags have an ETag, as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the tag's JSON representation. You can use ETags in conditional update operations from the solution back end to ensure consistency.
 
 Module twin desired and reported properties do not have ETags, but have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a module app for a reported property or the solution back end for a desired property.
 
