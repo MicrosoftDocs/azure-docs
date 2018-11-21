@@ -81,7 +81,7 @@ Before installing the required version, make sure that you uninstall any previou
     Get-Module -Name Azs.* -ListAvailable | Uninstall-Module -Force -Verbose
     Get-Module -Name AzureRM.* -ListAvailable | Uninstall-Module -Force -Verbose
   ````
-If you hit any error like 'The module is already in use', please close the powershell sessions which are using the modules and rerun the above script.
+  If you hit any error like 'The module is already in use', please close the PowerShell sessions that are using the modules and rerun the above script.
 
 2. Delete all the folders that start with `Azure` from the `C:\Program Files\WindowsPowerShell\Modules` and `C:\Users\{yourusername}\Documents\WindowsPowerShell\Modules` folders. Deleting these folders removes any existing PowerShell modules.
 
