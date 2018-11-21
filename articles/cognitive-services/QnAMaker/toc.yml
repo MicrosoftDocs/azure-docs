@@ -20,18 +20,6 @@
         href: Quickstarts/create-new-kb-nodejs.md
       - name: Python
         href: Quickstarts/create-new-kb-python.md
-    - name: Update a knowledge base
-      items:
-      - name: C#
-        href: Quickstarts/update-kb-csharp.md
-      - name: Go
-        href: Quickstarts/update-kb-go.md
-      - name: Java
-        href: Quickstarts/update-kb-java.md
-      - name: Node.js
-        href: Quickstarts/update-kb-nodejs.md
-      - name: Python
-        href: Quickstarts/update-kb-python.md
     - name: Publish a knowledge base
       items:
       - name: C#
@@ -44,6 +32,19 @@
         href: Quickstarts/publish-kb-nodejs.md
       - name: Python
         href: Quickstarts/publish-kb-python.md
+    - name: Get answer from knowledge base
+      items:
+      - name: C#
+        href: Quickstarts/get-answer-from-knowledge-base-csharp.md   
+      - name: Go
+        href: Quickstarts/get-answer-from-knowledge-base-go.md 
+      - name: Java
+        href: Quickstarts/get-answer-from-knowledge-base-java.md 
+      - name: Node.js
+        href: Quickstarts/get-answer-from-knowledge-base-nodejs.md 
+      - name: Python
+        href: Quickstarts/get-answer-from-knowledge-base-python.md
+    
 - name: Tutorials
   items: 
   - name: Create and answer from KB
@@ -68,42 +69,48 @@
     href: Concepts/data-sources-supported.md
 - name: How-to guides
   items:
-  - name: Set up a QnA Maker service
-    href: How-To/set-up-qnamaker-service-azure.md
-  - name: Create and publish a knowledge base
-    href: Quickstarts/create-publish-knowledge-base.md
-  - name: Create a knowledge base
-    href: How-To/create-knowledge-base.md
-  - name: Add chit-chat to knowledge base
-    href: How-to/chit-chat-knowledge-base.md
-  - name: Use metadata with GenerateAnswer API
-    href: How-To/metadata-generateanswer-usage.md
-  - name: Migrate a knowledge base from Preview
-    href: Tutorials/migrate-knowledge-base.md
-  - name: Edit a knowledge base
-    href: How-To/edit-knowledge-base.md
-  - name: Collaborate on a knowledge base
-    href: How-To/collaborate-knowledge-base.md
-  - name: Test a knowledge base
-    href: How-To/test-knowledge-base.md
-  - name: Publish a knowledge base
-    href: How-To/publish-knowledge-base.md
-  - name: Get analytics on your knowledge base
-    href: How-To/get-analytics-knowledge-base.md
-  - name: Manage keys
-    href: How-To/key-management.md
-  - name: Create a knowledge base in a different language
-    href: How-To/language-knowledge-base.md
-  - name: Integrate QnA Maker and LUIS
-    href: Tutorials/integrate-qnamaker-luis.md
-  - name: Create a business continuity plan for QnA Maker
-    href: How-To/business-continuity-plan.md
-  - name: Choose capacity for your QnA Maker deployment
-    href: Tutorials/choosing-capacity-qnamaker-deployment.md
-  - name: Upgrade your QnA Maker service
-    href: How-To/upgrade-qnamaker-service.md
-  - name: Troubleshoot and update QnAMaker runtime
-    href: How-To/troubleshooting-runtime.md
+  - name: Manage knowledge base
+    items:
+    - name: Create and publish a knowledge base
+      href: Quickstarts/create-publish-knowledge-base.md
+    - name: Create a knowledge base
+      href: How-To/create-knowledge-base.md
+    - name: Add chit-chat to knowledge base
+      href: How-to/chit-chat-knowledge-base.md
+    - name: Use metadata with GenerateAnswer API
+      href: How-To/metadata-generateanswer-usage.md
+    - name: Migrate a knowledge base from Preview
+      href: Tutorials/migrate-knowledge-base.md
+    - name: Edit a knowledge base
+      href: How-To/edit-knowledge-base.md
+    - name: Collaborate on a knowledge base
+      href: How-To/collaborate-knowledge-base.md      
+    - name: Create a knowledge base in a different language
+      href: How-To/language-knowledge-base.md
+    - name: Publish a knowledge base
+      href: How-To/publish-knowledge-base.md
+    - name: Test a knowledge base
+      href: How-To/test-knowledge-base.md
+  - name: Integrate with other services
+    items:
+    - name: Integrate QnA Maker and LUIS
+      href: Tutorials/integrate-qnamaker-luis.md
+  - name: Manage service
+    items:
+    - name: Set up a QnA Maker service
+      href: How-To/set-up-qnamaker-service-azure.md      
+    - name: Get analytics on your knowledge base
+      href: How-To/get-analytics-knowledge-base.md
+    - name: Manage keys
+      href: How-To/key-management.md
+    - name: Choose capacity for your QnA Maker deployment
+      href: Tutorials/choosing-capacity-qnamaker-deployment.md
+    - name: Upgrade your QnA Maker service
+      href: How-To/upgrade-qnamaker-service.md
+    - name: Create a business continuity plan for QnA Maker
+      href: How-To/business-continuity-plan.md      
+    - name: Troubleshoot and update QnAMaker runtime
+      href: How-To/troubleshooting-runtime.md
   - name: Use REST API
     items:
     - name: C#

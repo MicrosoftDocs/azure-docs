@@ -39,7 +39,7 @@ To complete this tutorial, you need:
 
 ## Sign in to Azure
 
-Sign in to the Azure portal at http://portal.azure.com.
+Sign in to the Azure portal at https://portal.azure.com.
 
 ## Enable Change tracking and Inventory
 
@@ -68,7 +68,7 @@ To search the logs by running queries, select **Log Analytics** at the top of th
 Change tracking data is stored under the type **ConfigurationChange**.
 The following sample Log Analytics query returns all the Windows Services that have been stopped.
 
-```
+```loganalytics
 ConfigurationChange
 | where ConfigChangeType == "WindowsServices" and SvcState == "Stopped"
 ```
