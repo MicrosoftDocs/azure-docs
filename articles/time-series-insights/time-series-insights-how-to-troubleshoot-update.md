@@ -16,7 +16,7 @@ This article summarizes several common problems you might encounter working with
 
 ## Problem: No data is seen in the Time Series Insights Update Explorer
 
-There are several common reasons why you might not see your data in the Azure Time Series Insights Explorer:
+There are several common reasons why you might not see your data in the Azure TSI Explorer:
 Potential cause A: Your event source may not be receiving data.
 Please verify that your Event Source (Event Hub or IoT Hub) are receiving data from your tags / instances. You can do so by navigating to the overview page of your resource on Azure Portal.
 
@@ -37,7 +37,7 @@ Potential cause C: Event source key is missing a required permission
 
 ![permissions][3]
 
-Potential cause D: The consumer group provided is not exclusive to Time Series Insights
+Potential cause D: The consumer group provided is not exclusive to TSI
 
 During registration of am IoT Hub or an event hub, you specify the consumer group that should be used for reading the data. This consumer group must not be shared. If the consumer group is shared, the underlying event hub automatically disconnects one of the readers randomly. Provide a unique consumer group for Time Series Insights to read from.
 

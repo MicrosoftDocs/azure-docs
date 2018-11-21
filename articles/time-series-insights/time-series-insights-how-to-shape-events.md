@@ -6,7 +6,7 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 11/21/2018
 ms.author: Shiful.Parti
 ---
 
@@ -19,15 +19,16 @@ This article provides guidance for shaping JSON, to maximize the efficiency of y
 > [!NOTE]
 > The 600-800 property limits for S1/S2 do not apply in this TSI Update
 
-It's important to think about how you send events to Time Series Insights. Namely, you should always:
+It's important to think about how you send events to TSI. Namely, you should always:
 
 1. Send data over the network as efficiently as possible.
 1. Ensure your data is stored in a way that enables you to perform aggregations suitable for your scenario.
 
 The following guidance helps ensure the best possible query performance:
 
-1. Don't send unnecessary properties. TSI Update will bill you on your usage and it is a best practice to store and process data that you will query.
-1. Use Time Series Instances for static data to avoid sending static data over the network. To learn more about Time Series Instances click <here>((Update Link))
+1. Don't send unnecessary properties. Exercising prudence in sending properties will help reduce cost. 
+* It's a best practice to store and process data that you will query.
+1. Use TSI for static data to avoid sending static data over the network. To learn more about Time Series Instances click <here>((Update Link))
 1. Share dimension properties among multiple events, to send data over the network more efficiently.
 1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed.
@@ -102,7 +103,7 @@ Time Series Instance (Time Series Id is deviceId):
   },
 ```
 
-Time Series Insights joined table (after flattening) during query time (The table will include additional columns such as Type. This example is to demonstrate how you can shape your telemetry data) :
+TSI joined table (after flattening) during query time (The table will include additional columns such as Type. This example is to demonstrate how you can shape your telemetry data) :
 
 | deviceId	| Type | L1 | L2 | timestamp | series.Flow Rate ft3/s |	series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
