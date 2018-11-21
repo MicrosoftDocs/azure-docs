@@ -48,7 +48,7 @@ using Newtonsoft.Json;
 
 ## Create a function to Translate Text
 
-Within the `Program` class, create a function called `TranslateText`. This will encapsulate the code used to call the Translate resource and print the result to console.
+Within the `Program` class, create a function called `TranslateText`. This class encapsulates the code used to call the Translate resource and print the result to console.
 
 ```csharp
 static void TranslateText()
@@ -62,7 +62,7 @@ static void TranslateText()
 
 ## Set the subscription key, host name, and path
 
-Add these lines to the `TranslateText` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
+Add these lines to the `TranslateText` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
@@ -70,7 +70,7 @@ string route = "/translate?api-version=3.0&to=de&to=it";
 string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
-Next, we need to create and serialize the JSON object that includes the text you want to translate. Keep in mind, you can pass multiple objects to the Translate resource.
+Next, we need to create and serialize the JSON object that includes the text you want to translate. Keep in mind, you can pass more than one object in the `body` array.
 
 ```csharp
 System.Object[] body = new System.Object[] { new { Text = @"Hello world!" } };
