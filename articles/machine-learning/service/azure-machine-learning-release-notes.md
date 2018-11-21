@@ -21,6 +21,32 @@ In this article, learn about the Azure Machine Learning service releases.
 + **Breaking changes** 
   * *azureml.train.widget* namespace has moved to *azureml.train*.
   * *azureml.core.compute.AmlCompute* deprecates *azureml.core.compute.BatchAICompute*. The latter class will be removed in subsequent releases.
+### Azure Machine Learning Data Prep SDK v0.5.1 
+Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/data-prep-sdk).
++ **New Features**
+   * Created a new DataPrep CLI to execute DataPrep packages and view the data profile for a dataset or dataflow
+   * Redesigned SetColumnType API to improve usability
+   * Renamed smart_read_file to auto_read_file
+   * Now includes skew and kurtosis in the Data Profile
+   * Can sample with stratified sampling
+   * Can read from zip files that contain CSV files
+   * Can split datasets row-wise with Random Split (e.g. into test-train sets)
+   * Can get all the column data types from a dataflow or a data profile by calling .dtypes
+   * Can get the row count from a dataflow or a data profile by calling .row_count
+
++ **Bug Fixes**
+   * Fixed long to double conversion 
+   * Fixed assert after any add column 
+   * Fixed an issue with FuzzyGrouping, where it would not detect groups in some cases
+   * Fixed sort function to respect multi-column sort order
+   * Fixed and/or expressions to be similar to how Pandas handles them
+   * Fixed reading from dbfs path
+   * Made error messages more understandable 
+   * Now no longer fails when reading on remote compute target using AML token
+   * Now no longer fails on Linux DSVM
+   * Now no longer crashes when non-string values are in string predicates
+   * Now handles assertion errors when Dataflow should fail correctly
+   * Now supports dbutils mounted storage locations on Azure Databricks
 
 ## 2018-11-05
 
