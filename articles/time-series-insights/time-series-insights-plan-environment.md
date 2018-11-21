@@ -20,10 +20,10 @@ It's best to have the following items ready before getting started:
 
 * You've identified your **Time Series IDs**
 * You have your **Timestamp** property ready
-* You've built your model
-* You understand how to send events that are denormalized well in JSON
+* You've built your **Time Series Model**
+* You understand how to send events that are efficiently denormalized in JSON
 
-Having these items ready helps to simplify planning and preparation. Additionally, it's wise to plan ahead and determine your business disaster recovery (BCDR) needs before you create your instance (and not afterwards). Do so ahead of time helps to ensure your instance is maximally prepared.
+Having these items ready helps to simplify planning and preparation. Additionally, it's wise to plan ahead and determine your business disaster recovery (BCDR) needs before you create your instance (and not afterwards). Doing so ahead of time helps to ensure your instance is maximally prepared.
 
 > [!TIP]
 > Configure your environment to suit your BCDR needs before and not after you create your instance.
@@ -35,9 +35,9 @@ The Time Series Insights Update employs a pay-as-you-go business model. For more
 To create a new TSI environment, select a **Time Series ID**. Doing so acts as a logical partition for your data. As noted, make sure to have your **Time Series IDs** ready.
 
 > [!IMPORTANT]
-> **Time Series IDs** are **immutable** and **cannot be changed later**. Verify each before final selection.
+> **Time Series IDs** are **immutable** and **cannot be changed later**. Verify each before final selection and first use.
 
-You can select up to **three** (3) keys to uniquely differentiate your resource. Read the [Azure TSI Update Storage and Ingress](./time-series-insights-storage-ingress.md) article for more information.
+You can select up to **three** (3) keys to uniquely differentiate your resources. Read the [Azure TSI Update Storage and Ingress](./time-series-insights-storage-ingress.md) article for more information.
 
 Each event source has an optional **Timestamp** property that's used to track event sources over time. **Timestamp** values are case-sensitive and must be formatted to the individual specification of each event source. 
 
@@ -50,13 +50,17 @@ When left blank, the **Event Enqueue Time** of an event source is used as the ev
 
 You can now configure your TSI environment’s **Time Series Model**. The new model makes it easy to find and analyze IoT data. It does so by enabling the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses **Time Series IDs**, which map to an instance associating the unique resource with variables (known as types) and hierarchies. You can learn all about the model [here]().  
 
-The model is dynamic so it can built at any time. However, you’ll be able to get started more quickly if it’s built and uploaded prior to you beginning to push data into Time Series Insights.
+//TODO
 
-With that in mind, it’s advised to review this document and begin to build your model.
+The model is dynamic so it can built at any time. However, you’ll be able to get started more quickly if it’s built and uploaded prior to you beginning to push data into TSI. To build your model, review []().
 
-For many customers, we expect the time series model to map to an existing asset model or ERP system already in place. For those that do not have an existing model, we’ve built a user experience to get going fast.
+//TODO
 
-More on that experience [here]().  
+For many customers, we expect the **Time Series Model** to map to an existing asset model or ERP system already in place. For those that do not have an existing model, a pre-built user experience is provided to get up and running quickly.
+
+Read about that experience [here]().  
+
+//TODO
 
 ## Shaping your events
 
