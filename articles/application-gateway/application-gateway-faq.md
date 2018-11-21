@@ -128,7 +128,7 @@ Network Security Groups (NSGs) are supported on the application gateway subnet w
 
 User-defined routes (UDRs) are supported on the application gateway subnet, as long as they do not alter the end-to-end request/response communication.
 
-For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network.
+For example, you can set up a UDR in the application gateway subnet to point to a firewall appliance for packet inspection, but you must ensure that the packet can reach its intended destination post inspection. Failure to do so might result in incorrect health probe or traffic routing behavior. This includes learned routes or default 0.0.0.0/0 routes propagated by ExpressRoute or VPN Gateways in the virtual network, as well as incoming traffic on ports 65503-65534 for the Application Gateway v1 SKU and ports 65200 - 65535 for the v2 SKU. This port-range is required for Azure infrastructure communication.
 
 ### What are the limits on Application Gateway? Can I increase these limits?
 
