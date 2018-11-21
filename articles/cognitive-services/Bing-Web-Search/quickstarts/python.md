@@ -20,6 +20,8 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/).
+
 This example is run as a Jupyter notebook on [MyBinder](https://mybinder.org). Click the launch Binder badge:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)

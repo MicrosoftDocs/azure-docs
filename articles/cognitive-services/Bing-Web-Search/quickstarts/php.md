@@ -19,9 +19,9 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## Prerequisites
-Get a [Cognitive Services access key](https://azure.microsoft.com/try/cognitive-services/) under **Search**.  See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/).
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/search-api/).
 
+## Prerequisites
 Here are a few things that you'll need before running this quickstart:
 
 * [PHP 5.6.x](http://php.net/downloads.php) or later
