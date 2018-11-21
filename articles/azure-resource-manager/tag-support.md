@@ -188,7 +188,6 @@ This article describes whether a resource type supports [tagging](resource-group
 | Resource type | Supports tags |
 | ------------- | ----------- |
 | DataBoxEdgeDevices | Yes | 
-| DataBoxEdgeDevices/checkNameAvailability | No | 
 
 ## Data Catalog
 | Resource type | Supports tags |
@@ -446,8 +445,8 @@ This article describes whether a resource type supports [tagging](resource-group
 ## Resources
 | Resource type | Supports tags |
 | ------------- | ----------- |
-| resourceGroups | No | 
-| subscriptions/resourceGroups | No | 
+| resourceGroups | Yes | 
+| subscriptions/resourceGroups | Yes | 
 
 ## Scheduler
 | Resource type | Supports tags |

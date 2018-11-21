@@ -84,12 +84,14 @@
   - name: Best practices
     href: luis-concept-best-practices.md
   - name: Plan your app
+    displayName: simple, hierarchical, composite, prebuilt, list, regex, regular expression
     href: luis-how-plan-your-app.md
   - name: Author App
     items:
     - name: Authoring cycle
       href: luis-concept-app-iteration.md
     - name: Collaboration
+      displayName: shared, transfer, ownership, author, access
       href: luis-concept-collaborator.md
     - name: Versioning
       href: luis-concept-version.md
@@ -98,6 +100,7 @@
     - name: Intents
       href: luis-concept-intent.md
     - name: Entities
+      displayName: prebuilt, custom, regular expression, regex, simple, list, pattern.any, composite, hierarchical, machine-learn, exact, mixed
       href: luis-concept-entity-types.md
     - name: Utterances
       href: luis-concept-utterance.md
@@ -138,6 +141,7 @@
   - name: Security
     items:
     - name: App access
+      displayName: public, public app, AAD, compliance, ISO, certification, trust center
       href: luis-concept-security.md
     - name: Authoring and endpoint keys
       href: luis-concept-keys.md
@@ -178,22 +182,29 @@
         - name: Web app bot
           items:
           - name: Node.js
+            displayName: ABS, azure bot, service
             href: luis-nodejs-tutorial-build-bot-framework-sample.md
           - name: C#
+            displayName: ABS, azure bot, service
             href: luis-csharp-tutorial-build-bot-framework-sample.md
         - name: Application Insights
           items:
           - name: Node.js
+            displayName: Application insight, kusto
             href: luis-tutorial-function-appinsights.md
           - name: C#
+            displayName: Application insight, kusto
             href: luis-tutorial-bot-csharp-appinsights.md
   - name: Improve prediction accuracy
     items:
     - name: Review endpoint utterances
+      displayName: active learning
       href: luis-how-to-review-endoint-utt.md
     - name: Add Phrase list
+      displayName: synonym, interchange
       href: luis-how-to-add-features.md
     - name: Add Patterns
+      displayName: syntax, template
       href: luis-how-to-model-intent-pattern.md
   - name: Train
     href: luis-how-to-train.md
@@ -208,14 +219,18 @@
   - name: Manage app
     items:
     - name: Using the dashboard
+      displayName: analytics, usage
       href: luis-how-to-use-dashboard.md
     - name: Create endpoint keys
+      displayName: azure portal
       href: luis-how-to-azure-subscription.md
     - name: Add endpoint keys to app
+      displayName: assign key, assign
       href: luis-how-to-manage-keys.md
     - name: Manage versions
       href: luis-how-to-manage-versions.md
     - name: Manage authors and collaborators
+      displayName: access, transfer, AAD, tenant, Azure AD, consent
       href: luis-how-to-collaborate.md
     - name: Manage authoring key
       href: luis-how-to-account-settings.md
@@ -288,6 +303,7 @@
     - name: Endpoint V2 REST API
       href: https://aka.ms/luis-endpoint-apis
     - name: HTTP codes
+      displayName: 400, 401, 403, 409, 410, 414, 429
       href: luis-reference-response-codes.md
   - name: SDKs
     items:
