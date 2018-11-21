@@ -48,10 +48,6 @@ ms.author: ramkris
 
 ## Release notes
 
-### <a name="2.0.0-preview2"/>2.0.0-preview2
-
-* Including MongoBulkExecutor also to support .NET Standard 2.0. This makes it functionally equivalent to 1.3.0 release, with the addition of supporting .NET Standard 2.0 as the traget framework.
-
 ### <a name="2.0.0-preview"/>2.0.0-preview
 
 * Added the support of .NET Standard 2.0 as one of the target framework to make BulkExecutor work with .NET Core applications.
