@@ -14,6 +14,14 @@ ms.date: 10/24/2018
 
 In this article, learn about the Azure Machine Learning service releases. 
 
+## 2018-11-20
+
+### Azure Machine Learning SDK for Python v0.1.80
+
++ **Breaking changes** 
+  * *azureml.train.widget* namespace has moved to *azureml.train*.
+  * *azureml.core.compute.AmlCompute* deprecates *azureml.core.compute.BatchAICompute*. The latter class will be removed in subsequent releases.
+
 ## 2018-11-05
 
 ### Azure portal 
