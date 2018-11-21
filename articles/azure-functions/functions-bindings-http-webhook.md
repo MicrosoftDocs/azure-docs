@@ -479,7 +479,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using Newtonsoft.Json.Linq;
 
-public static void Run(JObject input, ClaimsPrincipal identities, ILogger log)
+public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 {
     // ...
     return;
