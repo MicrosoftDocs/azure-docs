@@ -33,27 +33,13 @@ Before you begin, make sure that:
 4. You've access to a host computer that has the data that you want to copy over to Data Box. Your host computer must
     - Run a [Supported operating system](data-box-system-requirements.md).
     - Be connected to a high-speed network. We strongly recommend that you have at least one 10-GbE connection. If a 10-GbE connection isn't available, a 1-GbE data link can be used but the copy speeds will be impacted.
-5. You have the latest version of AzCopy on Linux or Windows. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
+5. [Download AzCopy 7.1.0](https://aka.ms/azcopyforazurestack20170417) on your host computer. You'll use AzCopy to copy data to Azure Data Box Blob storage from your host computer.
 6. You have access to a GPv1 storage account associated with your Data Box. You'll copy data to this account.
 
 
 ## Connect to Data Box Blob storage
 
-Based on the storage account selected, Data Box creates upto:
-
-- Three shares for each associated storage account for GPv1 and GPv2.
-- One share for premium or blob storage account.
-
-Under block blob and page blob shares, first-level entities are containers, and second-level entities are blobs. Under shares for Azure Files, first-level entities are shares, second-level entities are files.
-
-Consider the following example.
-
-- Storage account: *Mystoracct*
-- Share for block blob: *Mystoracct_BlockBlob/my-container/blob*
-- Share for page blob: *Mystoracct_PageBlob/my-container/blob*
-- Share for file: *Mystoracct_AzFile/my-share*
-
-Depending on whether you are connecting to Data Box over *http* or *https*, the steps can be different.
+Based on the storage account selected, Data Box creates upto three shares for each associated GPv1 storage account. Depending on whether you are connecting to Data Box Blob storage over *http* or *https*, the steps can be different.
 
 ## Connect via http
 
