@@ -14,7 +14,7 @@ ms.author: iainfou
 To quickly deploy workloads in an Azure Kubernetes Service (AKS) cluster, you can use virtual nodes. With virtual nodes, you have fast provisioning of pods, and only pay per second for their execution time. In a scaling scenario, you don't need to wait for the Kubernetes cluster autoscaler to deploy VM compute nodes to run the additional pods. This article shows you how to create and configure the virtual network resources and an AKS cluster with virtual nodes enabled.
 
 > [!IMPORTANT]
-> Virtual nodes for AKS are currently in **private preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
+> Virtual nodes for AKS are currently in **preview**. Previews are made available to you on the condition that you agree to the [supplemental terms of use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Some aspects of this feature may change prior to general availability (GA).
 
 ## Sign in to Azure
 
@@ -44,11 +44,9 @@ It takes a few minutes to create the AKS cluster and to be ready for use.
 
 ## Connect to the cluster
 
-To manage a Kubernetes cluster, use [kubectl][kubectl], the Kubernetes command-line client. The `kubectl` client is pre-installed in the Azure Cloud Shell.
+The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. To manage a Kubernetes cluster, use [kubectl][kubectl], the Kubernetes command-line client. The `kubectl` client is pre-installed in the Azure Cloud Shell.
 
-Open Cloud Shell using the button on the top right-hand corner of the Azure portal.
-
-![Open the Azure Cloud Shell in the portal](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
+To open the Cloud Shell, select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com/bash](https://shell.azure.com/bash). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press enter to run it.
 
 Use the [az aks get-credentials][az-aks-get-credentials] command to configure `kubectl` to connect to your Kubernetes cluster. The following example gets credentials for the cluster name *myAKSCluster* in the resource group named *myResourceGroup*:
 
@@ -107,7 +105,7 @@ spec:
 
 Run the application with the [kubectl apply][kubectl-apply] command.
 
-```console
+```azurecli-interactive
 kubectl apply -f virtual-node.yaml
 ```
 
@@ -126,19 +124,19 @@ The pod is assigned an internal IP address from the Azure virtual network subnet
 
 To test the pod running on the virtual node, browse to the demo application with a web client. As the pod is assigned an internal IP address, you can quickly test this connectivity from another pod on the AKS cluster. Create a test pod and attach a terminal session to it:
 
-```console
+```azurecli-interactive
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
 Install `curl` in the pod using `apt-get`:
 
-```console
+```azurecli-interactive
 apt-get update && apt-get install -y curl
 ```
 
 Now access the address of your pod using `curl`, such as *http://10.241.0.4*. Provide your own internal IP address shown in the previous `kubectl get pods` command:
 
-```console
+```azurecli-interactive
 curl -L http://10.241.0.4
 ```
 
