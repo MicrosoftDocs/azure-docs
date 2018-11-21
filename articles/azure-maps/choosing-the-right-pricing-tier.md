@@ -24,7 +24,7 @@ The following table will help you get a better idea of your application's needs 
 
 <br>
 
-| Capability                              |        S0           |  S1     || 
+| Capability                              |        S0           |  S1      | 
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    | 
 | Routing                                 |        ✓           |     ✓    | 
@@ -37,8 +37,8 @@ The following table will help you get a better idea of your application's needs 
 | Polygons from search (Preview)          |                    |     ✓    |
 | Batch Geocoding (preview)               |                    |     ✓    |
 | Batch Routing (preview)                 |                    |     ✓    |
-| Matrix Routing (preview)                |                    |     ✓   ||
-[Pricing Tier capabilities]
+| Matrix Routing (preview)                |                    |     ✓    |
+                    <caption>Pricing tier capabilities</caption>
 
 Some additional data points worth considering are, what kind enterprise do you have or how critical is the application being built?
 
