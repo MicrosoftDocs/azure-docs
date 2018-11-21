@@ -68,7 +68,7 @@ az group create \
 --name myresourcegroup \
 --location westus
 
-# Create a MySQL server in the resource group
+# Create a MariaDB server in the resource group
 # Name of a server maps to DNS name and is thus required to be globally unique in Azure.
 # Substitute the <server_admin_password> with your own value.
 az mariadb server create \
