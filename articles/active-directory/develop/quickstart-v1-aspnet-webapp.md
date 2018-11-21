@@ -143,7 +143,7 @@ In Visual Studio, create a new view to add the sign-in button and display user i
     [!code-html[main](../../../WebApp-OpenIDConnect-DotNet/WebApp-OpenIDConnect-DotNet/Views/Home/Index.cshtml "Index.cshtml")]
 
 <!--start-collapse-->
-This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [Branding guidelines for applications](https://docs.microsoft.com/azure/active-directory/develop/howto-add-branding-guidelines-in-azure-ad-apps).
+This page adds a sign-in button in SVG format with a black background:<br/>![Sign-in with Microsoft](./media/quickstart-v1-aspnet-webapp/aspnetsigninbuttonsample.png)<br/> For more sign-in buttons, go to [Branding guidelines for applications](howto-add-branding-in-azure-ad-apps.md).
 <!--end-collapse-->
 
 ## Step 7: Display user's claims by adding a controller
