@@ -1,7 +1,7 @@
----
+﻿---
 title: Tutorial – Deploying HSMs into an existing virtual network using PowerShell| Microsoft Docs
 description: Deploy HSMs into an existing virtual network using PowerShell
-services: key-vault
+services: dedicated-hsm
 documentationcenter: na
 author: barclayn
 manager: mbaldwin

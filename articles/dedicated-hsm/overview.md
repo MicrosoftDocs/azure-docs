@@ -1,7 +1,7 @@
----
+﻿---
 title: Azure Dedicated HSM Overview | Microsoft Docs
 description: Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
-services: key-vault
+services: dedicated-hsm
 author: barclayn
 manager: mbaldwin
 tags: azure-resource-manager
@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/19/2018
+ms.date: 11/21/2018
 ms.author: barclayn
 #Customer intent: As an IT Pro, Decision maker I am looking for key storage capability within Azure Cloud that meets FIPS 140-2 Level 3 certification and that gives me exclusive access to the hardware.
 
@@ -33,7 +33,7 @@ Many of our customers have a requirement for single tenancy of the cryptographic
 
 ### Full Administrative Control
 
-As well as single tenant devices, many customers require full administrative control and sole access for administrative purposes. Once provisioned, only that customer has any administrative or application level access to the device. Microsoft will have no administrative control after the customer’s first access which requires change changing the password. From that point the customer is a true single-tenant with full administrative control and application management capability. Microsoft does maintain a monitor level access (not an admin role) for telemetry via serial port connection covering hardware monitors such as temperature, power supply health and fan health. The customer is free to disable this if required, but would then not receive proactive health alerts from Microsoft.
+As well as single tenant devices, many customers require full administrative control, and sole access for administrative purposes. Once provisioned, only that customer has any administrative or application level access to the device. Microsoft will have no administrative control after the customer’s first access, which requires change changing the password. From that point, the customer is a true single-tenant with full administrative control and application management capability. Microsoft does maintain a monitor level access (not an admin role) for telemetry via serial port connection covering hardware monitors such as temperature, power supply health, and fan health. The customer is free to disable this if needed, but would then not receive proactive health alerts from Microsoft.
 
 ### High Performance
 

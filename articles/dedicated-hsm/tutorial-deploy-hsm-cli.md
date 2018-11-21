@@ -1,7 +1,7 @@
----
+﻿---
 title: Tutorial – Deploying HSMs into an existing virtual network using CLI | Microsoft Docs
 description: Tutorial showing how to deploy a dedicated HSM using the CLI
-services: key-vault
+services: dedicated-hsm
 documentationcenter: na
 author: barclayn
 manager: mbaldwin
