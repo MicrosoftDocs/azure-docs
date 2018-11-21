@@ -35,9 +35,10 @@ This article includes a simple console application that sends a Bing Visual Sear
 You need [Python 3](https://www.python.org/) to run this code.
 
 For this quickstart, you may use a [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) subscription key or a paid subscription key.
-notes: 
-- in Azure Portal, the API is found as BingSearchv7.
-- to use the visual search functionalities, choose S9 pricing tier (in Resources > BingSearchv7 > Resource Management > Pricing tier) 
+
+> [!Note]
+> In the Azure portal, the API is found as BingSearchv7.
+> To use the visual search functionality, choose **S9 pricing tier** under **Resources** > **BingSearchv7** > **Resource Management** > **Pricing tier**.  
 
 ## Running the walkthrough
 
