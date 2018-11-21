@@ -170,18 +170,18 @@ Use AzCopy to upload all files in a folder to Blob storage on Windows or Linux. 
 
     azcopy \
         --source /mnt/myfolder \
-        --destination https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ \
+        --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
         --dest-key <key> \
         --recursive
 
 # [Windows](#tab/windows)
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ /DestKey:<key> /S
+    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S
 ---
 
-Replace `<key>` and `key` with your account key. To get your account key, in the Azure portal, go to your storage account. Go to **Settings > Access keys**, select a key, and paste it into the AzCopy command.
+Replace `<key>` with your account key. To get your account key, in the Azure portal, go to your storage account. Go to **Settings > Access keys**, select a key, and paste it into the AzCopy command.
 
-If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace `myaccount` in the destination URL with your storage account name.
+If the specified destination container does not exist, AzCopy creates it and uploads the file into it. Update the source path to your data directory, and replace `data-box-storage-account-name` in the destination URL with the name of the storage account associated with your Data Box.
 
 To upload the contents of the specified directory to Blob storage recursively, specify the `--recursive` (Linux) or `/S` (Windows) option. When you run AzCopy with one of these options, all subfolders and their files are uploaded as well.
 
@@ -195,14 +195,14 @@ If you only want to copy source resources that do not exist in the destination, 
 
     azcopy \
     --source /mnt/myfolder \
-    --destination https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ \
+    --destination https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ \
     --dest-key <key> \
     --recursive \
     --exclude-older
 
 # [Windows](#tab/windows)
 
-    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.core.windows.net/container-name/files/ /DestKey:<key> /S /XO
+    AzCopy /Source:C:\myfolder /Dest:https://data-box-storage-account-name.blob.device-serial-no.microsoftdatabox.com/container-name/files/ /DestKey:<key> /S /XO
 ---
 
 ## Prepare to ship
