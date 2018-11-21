@@ -48,7 +48,7 @@ using Newtonsoft.Json;
 
 ## Create a function to Translate Text
 
-Within the `Program` class, create a function called `TranslateText`. This will encapsulate the code used to call the Translate endpoint and print the result to console.
+Within the `Program` class, create a function called `TranslateText`. This will encapsulate the code used to call the Translate resource and print the result to console.
 
 ```csharp
 static void TranslateText()
@@ -62,15 +62,15 @@ static void TranslateText()
 
 ## Set the subscription key, host name, and path
 
-Add these lines to the `TranslateText` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These are used to set the translation outputs. In this sample, it's set to German (`de`) and Spanish (`es`). Make sure you update the subscription key value.
+Add these lines to the `TranslateText` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/translate?api-version=3.0&to=de&to=es";
+string route = "/translate?api-version=3.0&to=de&to=it";
 string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
-Next, we need to create and serialize the JSON object that includes the text you want to translate.
+Next, we need to create and serialize the JSON object that includes the text you want to translate. Keep in mind, you can pass multiple objects to the Translate resource.
 
 ```csharp
 System.Object[] body = new System.Object[] { new { Text = @"Hello world!" } };
@@ -126,7 +126,7 @@ Console.WriteLine("Press any key to continue.");
 
 ## Put it all together
 
-The last step is to call `TranslateText()` in the `Main` function. Locate `static void Main(string[] args)` and add this code:
+The last step is to call `TranslateText()` in the `Main` function. Locate `static void Main(string[] args)` and add these lines:
 
 ```csharp
 TranslateText();
@@ -135,14 +135,13 @@ Console.ReadLine();
 
 ## Run the sample app
 
+That's it, you're ready to run your text-to-speech sample app. From the command line (or terminal session), navigate to your project directory and run:
 
 ```console
 dotnet run
 ```
 
 ## Sample response
-
-A successful response is returned in JSON as shown in the following example:
 
 ```json
 [
@@ -167,6 +166,8 @@ A successful response is returned in JSON as shown in the following example:
 
 ## Clean up resources
 
+Make sure to remove any confidential information from your sample app's source code, like subscription keys.
+
 ## Next steps
 
 Explore the sample code for this quickstart and others, including transliteration and language identification, as well as other sample Translator Text projects on GitHub.
@@ -175,3 +176,9 @@ Explore the sample code for this quickstart and others, including transliteratio
 > [Explore C# examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
 
 ## See also
+
+* [Transliterate text](quickstart-csharp-transliterate.md)
+* [Identify the language by input](quickstart-csharp-detect.md)
+* [Get alternate translations](quickstart-csharp-dictionary.md)
+* [Get a list of supported languages](quickstart-csharp-languages.md)
+* [Determine sentence lengths from an input](quickstart-csharp-sentences.md)
