@@ -12,7 +12,7 @@ ms.author: Shiful.Parti
 
 # Diagnose and solve problems in your Time Series Insights environment
 
-This article describes some problems you might see in your Time Series Insights environment. It offers potential causes and solutions for resolution.
+This article summarizes several common problems you might encounter working with your Azure Time Series Insights (TSI) environment. The article also describes potential causes and solutions for each.
 
 ## Problem: No data is seen in the Time Series Insights Update Explorer
 

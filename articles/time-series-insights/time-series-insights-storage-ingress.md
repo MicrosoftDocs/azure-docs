@@ -65,7 +65,7 @@ Two copies of blobs created by Azure TSI will be stored in the following formats
 Azure TSI events are mapped to Parquet file contents as follows:
 
 * Every event maps to a single row.
-* Built-in "timestamp" column with an event timestamp.  
+* Built-in **Timestamp**** column with an event timestamp.  
 
 The **Timestamp** property is never null.  It defaults to **Event Source Enqueued Time** if the **Timestamp** property is not specified in the event source.  **Timestamp** is in UTC.  
 
@@ -103,17 +103,18 @@ A logical partition is a partition within a physical partition that stores a
 1. **Time Series ID** - is the partition key for all TSI data within the event stream and the model.
 1. **Timestamp** - based on the initial ingress.
 
-Time Series Insights update provides very performant queries that are based on these two properties. These two properties provide the most effective method for delivering Time Series Insights data in a timely manner.
+The Azure TSI Update provides very performant queries that are based on these two properties. These two properties also provide the most effective method for delivering TSI data quickly.
 
 ![storage-architecture][2]
 
-## Best practices when choosing a Time Series ID
+## Best practices when choosing an Azure Time Series Insights ID
 
 The choice of the **Time Series ID** is like selecting a partition key for a database. It's therefore an important decision that should be made at design time. You cannot update an existing TSI Update environment to use a different **Time Series ID**.  In other words, once an environment is created with a **Time Series ID**, the policy cannot be changed as it is an immutable property.  With this in mind, selecting the appropriate **Time Series ID** is critical.  Consider the following properties when selecting a **Time Series ID**:
 
 * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key with many distinct values (e.g., hundreds or thousands). For many customers, this will be something like device ID, sensor ID, etc.
 
-* It should be unique at the leaf node level of your [model](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsm?branch=pr-en-us-53688). 
+//TODO
+* It should be unique at the leaf node level of your [model](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-tsm?branch=pr-en-us-53688).
 
 * A **Time Series ID** property name character string can be up to 128 characters and **Time Series ID** property values can be up to 1024 characters.  
 
@@ -129,39 +130,37 @@ The choice of the **Time Series ID** is like selecting a partition key for a dat
 
 ### Storage
 
-Azure TSI will publish up to two copies of each event in your Azure Storage account. The initial copy is always preserved to ensure you can query it performantly using other services - This allows easy Spark/Hadoop/etc. jobs across **Time Series IDs** over raw Parquet files since these engines support basic file name filtering. Grouping blobs by year and month is useful to collect blob list within specific time range for a custom job.  
+Azure TSI will publish up to two copies of each event in your Azure Storage account. The initial copy is always preserved to ensure you can query it performantly using other services. Thus, Spark, Hadoop or other familiar tools can be easily used across **Time Series IDs** over raw Parquet files since these engines support basic file name filtering. Grouping blobs by year and month is useful to collect blob list within specific time range for a custom job.  
 
-Additionally, Time Series Insights will repartition the Parquet files to optimize for Time Series Insights APIs, and the most-recently repartitioned file will also be saved.
-
-During public preview, data will be stored indefinitely in your Azure storage account.  We will add the ability to delete data in the future, thus allowing you to delete old data.
+Additionally, TSI will repartition the Parquet files to optimize for the Azure TSI APIs, and the most recently repartitioned file will also be saved. During Public Preview, data will be stored indefinitely in your Azure Storage account. The ability to delete data will be added in the future, allowing a greater degree of control of managing old data.
 
 ### Writing and editing Time Series Insights blobs
 
-To ensure query performance and data availability, please do not edit or delete any blobs created by Time Series Insights.
+To ensure query performance and data availability, please do not edit or delete any blobs created by TSI.
 
-Accessing and exporting data from Time Series Insights update.
+### Accessing and exporting data from Time Series Insights Update
 
-You may want to access data stored in Time Series Insights update to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform ML using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.
+You may want to access data stored in Azure TSI Update Explorer to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform machine learning using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.
 
 There are three general paths to access your data:
 
-* Time Series Insights update explorer.
-* Time Series Insights update APIs.
-* Directly from the Azure storage account.
+* The TSI Update explorer.
+* The TSI Update  APIs.
+* Directly from the Azure Storage account.
 
 ![three-ways][3]
 
-### From Time Series Insights update explorer
+### From the Time Series Insights Update Explorer
 
-You can export data as a CSV file from the Time Series Insights update explorer.  You can find out more about the Time Series Insights update explorer by going [here](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-explorer?branch=pr-en-us-53688).
+You can export data as a CSV file from the TSI Update Explorer.  You can find out more about the TSI Update Explorer by going [here](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-explorer?branch=pr-en-us-53688).
 
-### From Time Series Insights Update APIs
+### From the Time Series Insights Update APIs
 
 //TODO
 
 The API endpoint can be reached at `/getRecorded`.  To learn more about this API, read [TODO](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-explorer?branch=pr-en-us-53688).
 
-### From an Azure storage account
+### From an Azure Storage account
 
 1. You need to have read access granted to whatever account you will be using to access your TSI data. To learn more about granting read access to Azure BLob Storage, read [Managing access to Storage resources](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
 
@@ -172,7 +171,7 @@ The API endpoint can be reached at `/getRecorded`.  To learn more about this API
     * First make sure your account has the necessary requirements met to export data. Read [Storage import and export requirements](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements) for more information.
     * Learn about other ways to export data from your Azure Storage account by visiting [Storage import and export data from blobs](https://docs.microsoft.com/azure/storage/common/storage-import-export-data-from-blobs)
 
-### Blob Storage Considerations
+### Blob Storage considerations
 
 * Azure storage does have read and write limits based on how heavy your TSI Update usage is.  
 * The TSI Update does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
