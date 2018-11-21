@@ -34,7 +34,7 @@ You must satisfy the following prerequisites before using Cognitive Services Con
 |--|--|
 |Docker Engine | To complete this preview, you need Docker Engine installed on a host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send usage data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.|
 |Familiarity with Azure Container Registry and Docker | You should have a basic understanding of both Azure Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.<br><br>For Azure Container Registry basics, see the [Azure Container Registry overview](https://docs.microsoft.com/azure/container-registry/container-registry-intro).| 
-|LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID, and the Endpoint Key and Endpoint URL.<br><br>**Authoring key**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**App ID**: This ID is used to select the App, either on the container or in the cloud. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**Endpoint key**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**Billing endpoint**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
+|LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID, and the Endpoint Key and Endpoint URL.<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App, either on the container or in the cloud. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
 
 ### Server requirements and recommendations
 
@@ -184,42 +184,26 @@ If successful, the response is a LUIS package file. Save the file in the storage
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to run the container. This command:
 
 * Runs a container from the LUIS container image
+* Loads LUIS app from input mount at c:\input, located on container host
 * Allocates two CPU cores and 6 gigabytes (GB) of memory
 * Exposes TCP port 5000 and allocates a pseudo-TTY for the container
+* Saves container and LUIS logs to output mount at c:\output, located on container host
 * Automatically removes the container after it exits
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 mcr.microsoft.com/azure-cognitive-services/luis/microsoft/cognitive-services-luis Eula=accept Billing=https://westus.api.cognitive.microsoft.com/luis/v1.0 ApiKey={APPLICATION_ID}
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 --mount type=bind,src=c:\input,target=/input --mount type=bind,source=c:\output,destination=/output mcr.microsoft.com/azure-cognitive-services/luis/microsoft/cognitive-services-luis Eula=accept Billing={BILLING_ENDPOINT} ApiKey={APPLICATION_ID}
 ```
+
+Do not change the order of the arguments unless you are very familiar with docker containers.
+
+| Placeholder | Value |
+|-------------|-------|
+|{APPLICATION_ID} | The application ID of the trained LUIS application. |
+|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's Language Understanding Overview page.|
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page.  
-
-Once running, you can make HTTP requests to the container by using the container's host URI. For example, the following published production app's URI can be used to make a GET request with the user utterance `turn on the lights`:
-
-```http
-http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true
-```
-
-In the preceding URI, replace the `{APPLICATION_ID}` with your LUIS app ID. Because this container was started with the ApiKey value of your Azure resource key for LUIS, you do not need to add it to every HTTP request to the container. 
-
-## Query the container
-
-When the container is running, the container receives and responds to HTTP REST-based requests for LUIS predictions. The format of the REST-based request is _almost_ the same as a REST-based request to the Azure LUIS service.  
-
-|Location|Host URI|
-|--|--|
-|Azure region| GET https://**westus.api.cognitive.microsoft.com**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
-|Container|  GET http://**localhost:5000**/luis/v2.0/apps/ddd7dcdb-c37d-46af-88e1-8b97951ca1c2?staging=false&q=turn on the bedroom light|
-
-An example CURL command for querying the container is:
-
-```bash
-curl -X GET \
-"http://localhost:5000/luis/v2.0/apps/8c985349-ffef-4a45-9d9f-dcfe5e1af7ee?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
--H "accept: application/json"
-```
 
 ### Container APIs
 
@@ -232,12 +216,33 @@ Use the host, https://localhost:5000, for container APIs.
 |Published|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]<br>[&staging]|
 |Trained|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
 
+## API for published app
+
+An example CURL command for querying the container for a published app is:
+
+```bash
+curl -X GET \
+"http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}?q=turn%20on%20the%20lights&staging=false&timezoneOffset=0&verbose=false&log=true" \
+-H "accept: application/json"
+```
 To make queries to the **Staging** environment, change the **staging** query string parameter value to true: 
 
 `staging=true`
 
+## API for trained app
+
+An example CURL command for querying the container for a trained app is: 
+
+```bash
+curl -X GET \
+"http://localhost:5000/luis/v2.0/apps/{APPLICATION_ID}/versions/{APPLICATION_VERSION}?q=turn%20on%20the%20lights&timezoneOffset=0&verbose=false&log=true" \
+-H "accept: application/json"
+```
+The version name has a maximum of 10 characters and only contain characters allowed in a URL. 
+
 ### Query container from an SDK
-Query operations from an SDK are available for published packaged apps only. Use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) to the container.  
+
+Query operations from an SDK are available for published packaged apps only. Use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) to query the container.  
 
 > [!IMPORTANT]
 > You must have Azure Cognitive Services LUIS Client Library version 2.0.0 or later.

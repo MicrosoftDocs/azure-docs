@@ -14,7 +14,7 @@ ms.author: diberry
 
 # Configure containers
 
-The LUIS container uses a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your containers.
+The Cognitive Services containers use a common configuration framework, so that you can easily configure and manage storage, logging and telemetry, and security settings for your Cognitive Services containers, including LUIS.
 
 ## Configuration settings
 
@@ -24,7 +24,7 @@ Containers have the following configuration settings:
 |--|--|--|
 |Yes|[ApiKey](#apikey-configuration-setting)|Used to track billing information.|
 |No|[ApplicationInsights](#applicationinsights-configuration-settings)|Allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container.|
-|Yes|[Billing](#billing-configuration-setting)|pecifies the endpoint URI of the LUIS resource on Azure.|
+|Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the LUIS resource on Azure.|
 |Yes|[Eula](#eula-configuration-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-configuration-settings)|Write log and, optionally, metric data to a Fluentd server.|
 |No|[Logging](#logging-configuration-settings)|Provides ASP.NET Core logging support for your container. |
@@ -35,7 +35,7 @@ Container settings are [hierarchical](#settings-are-hierarchical) and can be use
 
 ## ApiKey setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for this configuration setting, and the value must be a valid configuration key for the LUIS resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value the ApiKey and the value must be a valid key for the LUIS resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in two places:
 
@@ -80,7 +80,7 @@ The `Eula` setting indicates that you've accepted the license for the container.
 
 ## Fluentd settings
 
-The `Fluentd` settings manages configuration settings for [Fluentd](https://www.fluentd.org), an open source data collector for unified logging. the LUIS container includes a Fluentd logging provider which allows your container to write logs and, optionally, metric data to a Fluentd server.
+Fluentd is an open-source data collector for unified logging. The `Fluentd` settings manage the container's connection to a [Fluentd](https://www.fluentd.org) server. The LUIS container includes a Fluentd logging provider, which allows your container to write logs and, optionally, metric data to a Fluentd server.
 
 The following table describes the configuration settings supported under the `Fluentd` section.
 
@@ -156,7 +156,7 @@ You can use either of the following to specify settings:
 * [Environment variables](#environment-variable-settings)
 * [Command-line arguments](#command-line-argument-settings)
 
-Environment variable values override command-line argument values, which in turn override the default values for the container image.If you specify different values in an environment variable and a command-line argument for the same configuration setting, such as `Logging:Disk:LogLevel`, then instantiate a container, the value in the environment variable is used by the instantiated container.
+Environment variable values override command-line argument values, which in turn override the default values for the container image. If you specify different values in an environment variable and a command-line argument for the same configuration setting, such as `Logging:Disk:LogLevel`, then instantiate a container, the value in the environment variable is used by the instantiated container.
 
 |Precedence|Setting location|
 |--|--|
