@@ -210,7 +210,7 @@ Azure AD joined devices don't support on-premises applications relying on machin
 
 
 
-### Understand your provisioning options
+## Understand your provisioning options
 
 You can provision Azure AD join using the following approaches:
 
