@@ -161,6 +161,9 @@ Creating an app with a user-assigned identity requires that you create the ident
 
 ### Using the Azure portal
 
+> [!NOTE] 
+> This portal experience is being delployed and may not yet be available in all regions.
+
 First, you'll need to create a user-assigned identity resource.
 
 1. Create a user-assigned managed identity resource according to [these instructions](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md#create-a-user-assigned-managed-identity).
