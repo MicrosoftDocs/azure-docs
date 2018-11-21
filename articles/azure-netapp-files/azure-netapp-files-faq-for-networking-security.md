@@ -32,10 +32,11 @@ This article answers networking and security questions that you might have about
 
 
 ## Next steps
-
+<!-->
 * [Read the Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 * [Learn about Microsoft Azure ExpressRoute service SLAs](https://azure.microsoft.com/support/legal/sla/expressroute/v1_0/)
 * [Learn how to configure ExpressRoute and site-to-site coexisting connections](https://docs.microsoft.com/azure/expressroute/expressroute-howto-coexist-resource-manager) 
 * [Learn about Microsoft Azure Virtual Network Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway/)
+-->
 * [Learn about the Network Contributor built-in role of Azure role-based access control](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles#network-contributor)
 
