@@ -17,7 +17,7 @@ In this article, learn about the Azure Machine Learning service releases.
 ## 2018-11-19
 
 ### Azure Machine Learning Data Prep SDK v0.5.1 
-
+Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/data-prep-sdk).
 + **New Features**
    * Created a new DataPrep CLI to execute DataPrep packages and view the data profile for a dataset or dataflow
    * Redesigned SetColumnType API to improve usability
@@ -35,13 +35,13 @@ In this article, learn about the Azure Machine Learning service releases.
    * Fixed an issue with FuzzyGrouping, where it would not detect groups in some cases
    * Fixed sort function to respect multi-column sort order
    * Fixed and/or expressions to be similar to how Pandas handles them
-   * Fixed reading from dbfs path.
+   * Fixed reading from dbfs path
    * Made error messages more understandable 
    * Now no longer fails when reading on remote compute target using AML token
    * Now no longer fails on Linux DSVM
    * Now no longer crashes when non-string values are in string predicates
    * Now handles assertion errors when Dataflow should fail correctly
-   * Now upports dbutils mounted storage locations on Azure Databricks
+   * Now supports dbutils mounted storage locations on Azure Databricks
 
 ## 2018-11-05
 
