@@ -41,6 +41,7 @@ If you have a working Azure agent, you can use [Custom Script Extension](../exte
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\PublicProfile' -name "EnableFirewall" -Value 0
 >   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\Standardprofile' -name "EnableFirewall" -Value 0 
 >   Restart-Service -Name mpssvc
+>   ```
 > * If the firewall is set through an Active Directory policy, you can use run the following script for temporary access. 
 >   ```powershell
 >   Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\WindowsFirewall\DomainProfile' -name "EnableFirewall" -Value 0
