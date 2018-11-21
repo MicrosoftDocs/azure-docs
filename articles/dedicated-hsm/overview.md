@@ -86,3 +86,4 @@ Considering the highly specialized nature of this service, it is recommended tha
 * [Physical Security](physical-security.md)
 * [Networking](networking.md)
 * [Supportability](supportability.md)
+* [Monitoring](monitoring.md)

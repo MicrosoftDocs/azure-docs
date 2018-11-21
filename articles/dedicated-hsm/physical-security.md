@@ -53,4 +53,5 @@ It is recommended that all key concepts of the service, such as high availabilit
 * [High Availability](high-availability.md)
 * [Networking](networking.md)
 * [Supportability](supportability.md)
+* [Monitoring](monitoring.md)
 * [Deployment architecture](deployment-architecture.md)

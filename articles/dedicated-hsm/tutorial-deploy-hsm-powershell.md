@@ -262,4 +262,5 @@ After completing the steps in the tutorial, Dedicated HSM resources are provisio
 * [High Availability](high-availability.md)
 * [Physical Security](physical-security.md)
 * [Networking](networking.md)
+* [Monitoring](monitoring.md)
 * [Supportability](supportability.md)

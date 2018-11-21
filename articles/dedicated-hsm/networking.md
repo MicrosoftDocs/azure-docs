@@ -56,13 +56,9 @@ At this time, ExpressRoute is not an option for connection to on-premises resour
 
 A point-to-site Virtual Private Network is the simplest form of secure connection to a single endpoint on-premises. This may be relevant if you intend to only have a single administration workstation for Azure-based dedicated HSMs.
 
-![point to site](media/networking/p2s.png)
-
 ### Site-to-Site VPN
 
 A site-to-site Virtual Private Network allows for secure communication between Azure-based Dedicated HSMs and your on-premises IT. A reason to do this is having a backup facility for the HSM’s on-premise and needing a connection between the two for running the backup.
-
-![site to site](media/networking/site-to-site.png)
 
 ## Connecting virtual networks
 
@@ -83,7 +79,7 @@ The HSM devices have the ability, via software libraries, to redirect traffic to
 For globally distributed applications or for high availability regional failover scenarios, it is required to connect virtual networks across regions. With Azure Dedicated HSM, high-availability can be achieved by using a VPN Gateway that provides a secure tunnel between the two virtual networks. For more information on Vnet-to-Vnet connections using VPN Gateway, see the article titled [What is VPN Gateway?](../vpn-gateway/vpn-gateway-about-vpngateways.md#V2V)
 
 >[!NOTE]
-Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time. 
+Global Vnet peering is not available in cross-region connectivity scenarios with Dedicated HSMs at this time and VPN gateway should be used instead. 
 
 ![global-vnet](media/networking/global-vnet.png)
 
@@ -93,4 +89,5 @@ Global Vnet peering is not available in cross-region connectivity scenarios with
 - [Supportability](supportability.md)
 - [High availability](high-availability.md)
 - [Physical Security](physical-security.md)
+- [Monitoring](monitoring.md)
 - [Deployment architecture](deployment-architecture.md)

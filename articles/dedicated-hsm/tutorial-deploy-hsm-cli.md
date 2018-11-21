@@ -262,3 +262,4 @@ A design with two HSMs in a primary region addressing availability at the rack l
 * [Physical Security](physical-security.md)
 * [Networking](networking.md)
 * [Supportability](supportability.md)
+* [Monitoring](monitoring.md)

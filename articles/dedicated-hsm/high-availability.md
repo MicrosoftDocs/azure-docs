@@ -30,9 +30,9 @@ It is recommended that all key concepts of the service, such as high availabilit
 Further concept level topics:
 
 * [Deployment Architecture](deployment-architecture.md)
-* [High Availability](high-availability.md)
 * [Physical Security](physical-security.md)
 * [Networking](networking.md)
 * [Supportability](supportability.md)
+* [Monitoring](monitoring.md)
 
 For specific details on configuring HSM devices for high availability, please refer to the Gemalto Customer Support Portal for the Administrator Guides and see section 6.
