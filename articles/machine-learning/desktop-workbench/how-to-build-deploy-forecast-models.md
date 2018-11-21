@@ -1030,7 +1030,7 @@ arima_model = Arima(oj_series_freq, arima_order)
 
 ### Combine Multiple Models
 
-The [ForecasterUnion](/python/api/azuremlftk/ftk.models.forecaster_union) estimator allows you to combine multiple estimators and fit/predict on them using one line of code.
+The [ForecasterUnion](/python/api/azuremlftk/ftk.models.forecaster_union.forecasterunion) estimator allows you to combine multiple estimators and fit/predict on them using one line of code.
 
 ```python
 forecaster_union = ForecasterUnion(
