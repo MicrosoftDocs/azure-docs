@@ -21,7 +21,7 @@ This procedure can take around 30-45 minutes to complete.
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create an IoT Hub resource
+> * Create an Azure IoT Hub resource
 > * Set up a compute role
 > * Add a compute module
 > * Verify data transform and transfer
@@ -46,7 +46,7 @@ For detailed instructions, go to [Create an IoT Hub](https://docs.microsoft.com/
 
 If an Edge compute role hasn't been set up, the following caveats apply:
 
-- The IoT Hub resource doesn't have any IoT devices or IoT Edge devices.
+- The IoT Hub resource doesn't have any Azure IoT devices or Azure IoT Edge devices.
 - You can't create Edge local shares. When you add a share, the option to create a local share for Edge compute isn't enabled.
 
 
