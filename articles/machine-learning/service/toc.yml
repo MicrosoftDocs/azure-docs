@@ -12,6 +12,9 @@
   - name: What's happening to Workbench?
     displayName: desktop
     href: overview-what-happened-to-workbench.md 
+  - name: Release notes
+    displayName: what's new
+    href: azure-machine-learning-release-notes.md  
 - name: Quickstarts
   items:
   - name: Get started - Portal
@@ -125,7 +128,7 @@
       href: how-to-consume-web-service.md
   - name: Monitor web services
     items:  
-    - name: Collect and evaluate data 
+    - name: Collect and evaluate model data 
       href: how-to-enable-data-collection.md
     - name: Monitor with Application Insights  
       href: how-to-enable-app-insights.md 
@@ -154,9 +157,6 @@
     href: https://azure.microsoft.com/pricing/details/machine-learning-services/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
-  - name: Release notes
-    displayName: what's new
-    href: azure-machine-learning-release-notes.md  
   - name: Known issues
     href: resource-known-issues.md
   - name: Get support
