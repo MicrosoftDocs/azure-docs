@@ -25,7 +25,7 @@ To step through this how-to guide, you need:
 > [!NOTE]
 > Support for VNet service endpoints is only for General Purpose and Memory Optimized servers.
 
-## Configure Vnet service endpoints
+## Configure VNet service endpoints
 The [az network vnet](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest) commands are used to configure Virtual Networks.
 
 If you don't have an Azure subscription, create a [free](https://azure.microsoft.com/free/) account before you begin.
