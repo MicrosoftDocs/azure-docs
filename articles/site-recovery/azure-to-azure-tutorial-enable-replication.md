@@ -63,7 +63,7 @@ For Site Recovery to work as expected, you need to modify outbound network conne
 > [!NOTE]
 > Site Recovery doesn't support using an authentication proxy to control network connectivity.
 
-  
+
 
 ### Outbound connectivity for URLs
 
@@ -161,8 +161,15 @@ Site Recovery creates default settings and replication policy for the target reg
       an "asr" suffix.
     - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes to
       source VMs are sent to this account before replication to the target location.
-    - **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the
-      target region to mirror the source VM storage account.
+      >[!NOTE]
+      >If you configured Azure storage firewall for cache storage account, ensure you 'Allow trusted Microsoft services'. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+      >
+
+    - **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the target region to mirror the source VM storage account.
+      >[!NOTE]
+      >If you configured Azure storage firewall for source or target storage account, ensure you 'Allow trusted Microsoft services'. [Learn more](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+      >
+
     - **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
       target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
     - **Target availability sets**: By default, Site Recovery creates a new availability set in the
