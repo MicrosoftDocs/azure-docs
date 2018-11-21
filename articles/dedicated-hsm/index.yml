@@ -9,7 +9,7 @@ metadata:
   manager: mbaldwin
   layout: LandingPage
   ms.assetid: 
-  ms.service: key-vault
+  ms.service: dedicated-hsm
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
@@ -29,7 +29,7 @@ sections:
         html: <p>Learn what Azure dedicated HSM is all about.</p>
         image:
           src: media/index/i_article.svg
-        title: Concepts
+        title: Dedicated HSM Overview
       - href: /azure/dedicated-hsm/faq
         html: <p>Frequently asked questions.</p>
         image:
@@ -59,4 +59,4 @@ sections:
     className: cardsD
     items:
     - title: FAQ
-      html: <p><a href="/dedicated-hsm/faq/">FAQ</a></p>
+      html: <p><a href="/dedicated-hsm/faq/">Frequently asked questions</a></p>
