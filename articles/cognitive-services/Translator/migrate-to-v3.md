@@ -102,7 +102,7 @@ Global
 
 ## Compatibility and customization
 
-Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](/custom-translator/overview.md)
+Microsoft Translator V3 uses neural machine translation by default. As such, it cannot be used with the Microsoft Translator Hub. The Translator Hub only supports legacy statistical machine translation. Customization for neural translation is now available using the Custom Translator. [Learn more about customizing neural machine translation](custom-translator/overview.md)
 
 Neural translation with the V3 text API does not support the use of standard categories (SMT, speech, text, generalnn).
 
