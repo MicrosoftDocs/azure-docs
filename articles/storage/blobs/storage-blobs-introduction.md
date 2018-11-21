@@ -37,7 +37,7 @@ For example, if your storage account is named *mystorageaccount*, then the defau
 http://mystorageaccount.blob.core.windows.net 
 ```
 
-To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md). To learn more about storage accounts, see [Azure storage account overview](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+To create a storage account, see [Create a storage account](../common/storage-quickstart-create-account.md). To learn more about storage accounts, see [Azure storage account overview](../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ### Containers
 
@@ -64,10 +64,10 @@ A number of options exist for migrating data to Blob storage or between storage 
 
  - **AzCopy** is a command-line tool for Windows and Linux that copies data to and from Blob storage. For more information about AzCopy, see [Transfer data with the AzCopy v10 (Preview)](../common/storage-use-azcopy-v10.md). 
  - The **Azure Storage Data Movement library** is a .NET library for moving data between Azure Storage services. The AzCopy utility is built with the Data Movement library. For more information, see the [reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement) for the Data Movement library. 
-- **Azure Data Factory** supports copying data to and from Blob storage by using account key, service shared access signature, service principal or managed identities for Azure resources authentications. For more information, see [Copy data to or from Azure Blob storage by using Azure Data Factory](../../data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
+- **Azure Data Factory** supports copying data to and from Blob storage by using account key, service shared access signature, service principal or managed identities for Azure resources authentications. For more information, see [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** is a virtual file system driver for Azure Blob storage. You can use blobfuse to access your existing block blob data in your Storage account through the Linux file system. For more information, see [How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md).
-- **Azure Data Box Disk** is a service for transferring on-premises data to Blob storage when large datasets or network constraints make uploading data over the wire unrealistic. You can use [Azure Data Box Disk](../articles/databox/data-box-disk-overview.md) to request solid-state disks (SSDs) from Microsoft. You can then copy your data to those disks and ship them back to Microsoft to be uploaded into Blob storage.
-- The **Azure Import/Export service** provides a way to export large amounts of data from your storage account to hard drives that you provide and that Microsoft then ships back to you with your data. For more information, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../articles/storage/common/storage-import-export-service.md).
+- **Azure Data Box Disk** is a service for transferring on-premises data to Blob storage when large datasets or network constraints make uploading data over the wire unrealistic. You can use [Azure Data Box Disk](../../databox/data-box-disk-overview.md) to request solid-state disks (SSDs) from Microsoft. You can then copy your data to those disks and ship them back to Microsoft to be uploaded into Blob storage.
+- The **Azure Import/Export service** provides a way to export large amounts of data from your storage account to hard drives that you provide and that Microsoft then ships back to you with your data. For more information, see [Use the Microsoft Azure Import/Export service to transfer data to Blob storage](../common/storage-import-export-service.md).
 
 ## Next steps
 
