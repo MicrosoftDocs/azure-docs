@@ -220,7 +220,7 @@ In the preceding URI, replace the `{APPLICATION_ID}` with your own LUIS app's ID
 
 ## Query the container
 
-When the container is running, the container receives and responds to HTTP REST-based requests for LUIS predictions. The format of the REST-based request is almost exactly the same as a REST-based request to the Azure LUIS service. The only difference is the host URL and port used to make the request. 
+When the container is running, the container receives and responds to HTTP REST-based requests for LUIS predictions. The format of the REST-based request is almost exactly the same as a REST-based request to the Azure LUIS service.  
 
 |Location|Host URI|
 |--|--|
@@ -237,14 +237,21 @@ curl -X GET \
 
 ### Container APIs
 
-The container provides two REST-based API endpoints.
+The container provides REST-based API endpoints. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
-REST-based API|Purpose|
-|--|--|
-GET |Send an user's utterance and receive the prediction for intent, entities, and any other configured settings.|
-|LUIS query log extraction|Upload container's query logs to Azure LUIS service to continuing improving model with [Active Learning](luis-concept-review-endpoint-utterances)|.
+Use the host, https://localhost:5000, for container APIs. 
+
+|Package type|Method|Route|Query parameters|
+|--|--|--|--|
+|Published|[Get](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78), [Post](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)|/luis/v2.0/apps/{appId}?|q={q}<br>[&timezoneOffset][&verbose]<br>[&staging]<br>[&log]|
+|Trained|Get, Post|/luis/v2.0/apps/{appId}/versions/{versionId}?|q={q}<br>[&timezoneOffset]<br>[&verbose]<br>[&log]|
+
+To make queries to the **Staging** environment, change the **staging** query string parameter value to true: 
+
+```staging=true``` 
 
 ### Query container from an SDK
+Query operations from an SDK are available for published staging or production slot packaged apps only. 
 
 You can either [call the Prediction REST API operations](https://aka.ms/LUIS-endpoint-APIs) available from your container, or use the [Azure Cognitive Services LUIS Client Library](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime/) to call those operations.  
 
@@ -255,7 +262,7 @@ The only difference between calling a given operation from your container and ca
 
 ## Active learning with LUIS
 
-If an output mount is specified for the LUIS container, application query log files are captured in the following folder at that storage location, replacing {INSTANCE_ID} with the container ID. 
+If an output mount is specified for the LUIS container, application query log files, along with container logs for debugging, are captured in the following folder at that storage location, replacing {INSTANCE_ID} with the container ID. 
 
 ```
 /luis/{INSTANCE_ID}/
@@ -279,6 +286,15 @@ APIM-SUBSCRIPTION-ID: {AUTHORING_KEY}
 Content-Type: multipart/form-data
 
 Content-Disposition: form-data; name=""; filename="{QUERY_LOG_FILE}"
+```
+
+An example CURL command for uploading the query log is:
+
+```bash
+curl -X POST \
+"http://westus.api.cognive.microsoft.com/luis/webapi/v2.0/apps/{APPLICATION_ID}/unlabeled" \
+-H "APIM-SUBSCRIPTION-ID: {AUTHORING_KEY}" \
+-H "Content-Type: multipart/form-data"
 ```
 
 If successful, the method responds with an HTTP 200 status code. After the log is uploaded, review the endpoint utterances in the LUIS portal. Perform the actions needed to identify unlabeled entities, align utterances with intents, delete utterances, as you typically would for a LUIS application. For more information about reviewing endpoint utterances, see [Enable active learning by reviewing endpoint utterances](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances).
