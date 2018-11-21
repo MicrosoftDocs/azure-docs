@@ -38,8 +38,10 @@ The following table will help you get a better idea of your application's needs 
 | Batch Geocoding (preview)               |                    |     ✓    |
 | Batch Routing (preview)                 |                    |     ✓    |
 | Matrix Routing (preview)                |                    |     ✓    |
-->**Pricing tier capabilities**<-
 
+<br>
+
+->**Pricing tier capabilities**<-
 
 Some additional data points worth considering are, what kind enterprise do you have or how critical is the application being built?
 
@@ -50,7 +52,7 @@ See the following table to get a better sense of the S0 and S1 pricing tiers. Fo
 | Pricing Tier  |        Targeted Customers                                                                |
 |---------------|:-----------------------------------------------------------------------------------------|
 | S0            |    The S0 pricing tier is for customers who are either small or medium-sized enterprises.<br>It is a right pricing tier for you if you do not expect high volumes of concurrent<br>users and your service requirements are met by the core geospatial APIs as indicated<br>by the table below. This tier is generally available and is applicable for<br>applications in all stages of production from proof of concept development and early<br>stage testing to application production and deployment.|
-| S1            |    The S1 pricing tier is for customers in need of support for large-scale enterprise,<br>mission critical applications, high volumes of concurrent users, or require advanced<br>geospatial services.|
+| S1            |    <p>The S1 pricing tier is for customers in need of support for large-scale enterprise, mission critical applications, high volumes of concurrent users, or require advanced geospatial services.</p>|
 
 
 ## Next steps
