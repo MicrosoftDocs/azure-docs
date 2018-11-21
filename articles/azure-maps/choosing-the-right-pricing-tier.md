@@ -39,9 +39,9 @@ The following table will help you get a better idea of your application's needs 
 | Batch Routing (preview)                 |                    |     ✓    |
 | Matrix Routing (preview)                |                    |     ✓    |
 
-<br>
 
-->**Pricing tier capabilities**<-
+
+<center>**Pricing tier capabilities**</center>
 
 Some additional data points worth considering are, what kind enterprise do you have or how critical is the application being built?
 
