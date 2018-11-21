@@ -28,7 +28,7 @@ Application monitoring tracks how features and components of your application ar
 * Are my service to service calls successful and tracked?
 * What actions are tkaen by the users of my application? - Collecting telemetry can guide future feature development and better diagnostics for application errors
 * Is my application throwing unhandled exceptions? 
-* What is happening within the services running inside my containers
+* What is happening within the services running inside my containers?
 
 The great thing about application monitoring is that developers can use whatever tools and framework they'd like since it lives within the context of your application! You can learn more about the Azure solution for application monitoring with Azure Monitor - Application Insights in [Event analysis with Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md).
 We also have a tutorial with how to [set this up for .NET Applications](service-fabric-tutorial-monitoring-aspnet.md). This tutorial goes over how to install the right tools, an example to write custom telemetry in your application, and viewing the application diagnostics and telemetry in the Azure portal. 

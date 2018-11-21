@@ -3,7 +3,7 @@ title: Azure Service Fabric Events | Microsoft Docs
 description: Learn about the Service Fabric events provided out of the box to help you monitor your Azure Service Fabric cluster.
 services: service-fabric
 documentationcenter: .net
-author: dkkapur
+author: srrengar
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/25/2018
-ms.author: dekapur
+ms.date: 11/21/2018
+ms.author: srrengar
 ---
 
 # Service Fabric events 
