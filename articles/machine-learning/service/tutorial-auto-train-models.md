@@ -210,7 +210,7 @@ Explore the results of experiment with a Jupyter widget or by examining the expe
 Use the Jupyter notebook widget to see a graph and a table of all results.
 
 ```python
-from azureml.train.widgets import RunDetails
+from azureml.widgets import RunDetails
 RunDetails(local_run).show()
 ```
 
