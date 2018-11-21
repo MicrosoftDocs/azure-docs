@@ -30,15 +30,15 @@ Features of the LUIS container included:
 
 You must satisfy the following prerequisites before using Cognitive Services Containers:
 
-|Prerequisite|Notes|
+|Required|Purpose|
 |--|--|
 |Docker Engine | To complete this preview, you need Docker Engine installed on a host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send usage data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.|
 |Familiarity with Azure Container Registry and Docker | You should have a basic understanding of both Azure Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.<br><br>For Azure Container Registry basics, see the [Azure Container Registry overview](https://docs.microsoft.com/azure/container-registry/container-registry-intro).| 
-|LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID and the Endpoint Key and Endpoint URL.<br><br>**Authoring key**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**App ID**: This ID is used to select the App, either on the container or in the cloud. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**Endpoint key**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**Billing endpoint**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
+|LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID, and the Endpoint Key and Endpoint URL.<br><br>**Authoring key**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**App ID**: This ID is used to select the App, either on the container or in the cloud. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**Endpoint key**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**Billing endpoint**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
 
 ### Server requirements and recommendations
 
-This container supports minimum and recommended values for the following:
+This container supports minimum and recommended values for the settings:
 
 |Setting| Minimum | Recommended |
 |-----------|---------|-------------|
@@ -73,7 +73,7 @@ Once the container is on the host computer, use the following process to work wi
 1. Save package file (*.gz) to the local file system. 
 1. Move package file into the required input directory on the host computer. Do not rename, alter, or decompress LUIS package file.
 
-    The host is the computer that runs the docker container. It can be the local computer or any docker hosting service including Azure Kubernetes, Azure Container instances, Kubernetes cluster, and Azure stack.
+    The host is the computer that runs the docker container. It can be the local computer or any docker hosting service including Azure Kubernetes, Azure Container instances, Kubernetes cluster, and Azure Stack.
 
 1. [Run the container](#run-the-container) with the required _input mount_ and optional output mount.
 1. Use container, [querying the container's prediction endpoint](#query-the-container). 
@@ -94,7 +94,7 @@ Place the package file in a directory and reference this directory as the input 
 
 ### Package types
 
-The input mount directory can contain the **Production**, **Staging**, and **Trained** versions of the app simultaneously. All the packages are mounted. The production and staging endpoints are available through the same GET/POST [APIs](#container-apis) as the Azure LUIS service provides. The trained version has its own GET/POST [APIs](#container-apis) which are only available on the container. There is no corresponding API on the Azure LUIS service. 
+The input mount directory can contain the **Production**, **Staging**, and **Trained** versions of the app simultaneously. All the packages are mounted. The production and staging endpoints are available through the same GET/POST [APIs](#container-apis) as the Azure LUIS service provides. The trained version has its own GET/POST [APIs, which are only available on the container. There is no corresponding API on the Azure LUIS service. 
 
 |Version|API|Availability|
 |--|--|--|
@@ -251,7 +251,7 @@ If an output mount is specified for the LUIS container, app query log files are 
 /output/luis/{INSTANCE_ID}/
 `
 
-The app query log contains the query, response, and timestamp for each prediction query submitted to the LUIS container. 
+The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
 
 Upload the app query log to the Language Understanding (LUIS) service by using the following REST API method, substituting the appropriate values for your own values:
 
@@ -301,7 +301,7 @@ The container provides a full set of documentation for the endpoints as well as 
 
 The LUIS container sends billing information to Azure, using a LUIS resource on your Azure account. 
 
-Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (e.g., the image or text that is being analyzed) to Microsoft. 
+Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (the utterance) to Microsoft. 
 
 The `docker run` uses the following arguments for billing purposes:
 
@@ -318,9 +318,9 @@ For more information about these options, see [Configure containers](luis-contai
 
 ## Unsupported dependencies
 
-You can use a LUIS application if it **doesn't include** any of the following:
+You can use a LUIS application if it **doesn't include** any of the following dependencies:
 
-|Do not use<br>in trained app|Do not use<br>in published app|Unsupported app configurations|Details|
+|Do not use<br>in trained app|Don't use<br>in published app|Unsupported app configurations|Details|
 |--|--|--|--|
 |X|X|Unsupported container cultures| German (de-DE)<br>Dutch (nl-NL)<br>Japanese (ja-JP)<br>|
 |X|X|Unsupported domains|Prebuilt domains, including prebuilt domain intents and entities|
