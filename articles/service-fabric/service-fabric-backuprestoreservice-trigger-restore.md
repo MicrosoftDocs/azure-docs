@@ -145,7 +145,7 @@ The restore is requested against partition of backup cluster by the following [R
 
 ```powershell 
 $RestorePartitionReference = @{ 
-    BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4', 
+    BackupId = 'b0035075-b327-41a5-a58f-3ea94b68faa4'
     BackupLocation = 'SampleApp\MyStatefulService\974bd92a-b395-4631-8a7f-53bd4ae9cf22\2018-04-06 21.10.27.zip' 
 } 
  
@@ -217,23 +217,26 @@ The restore request following the following order
     1. __Success__ - The restore state as _Success_ indicates the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the partition along with the time in UTC. 
     
         ```
-        RestoreState    Success        
-        TimeStampUtc    2018-10-22T12:07:36Z 
-        RestoredEpoch   @{DataLossNumber=131846800323087021;          ConfigurationNumber=12884901888}           
-        RestoredLsn     24 
+        RestoreState TimeStampUtc         RestoredEpoch                                                        RestoredLsn
+        ------------ ------------         -------------                                                        -----------
+        Success      2018-10-22T12:07:36Z @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}        3552
         ```
         
  
     2. __Failure__ - The restore state as _Failure_ indicates the failure of the restore request. The cause of the failure will be stated in request.
-         ```
-            TBD
-         ```
+         ```          
+        RestoreState TimeStampUtc         RestoredEpoch RestoredLsn
+        ------------ ------------         ------------- -----------
+        Failure      0001-01-01T00:00:00Z                         0
+
+        ```
     3. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. New restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) is recommended; defaults timeout is 10 minutes. It is advised to make sure that the partition is not in data loss state, before requesting restore again.
      
         ```
-        RestoreState    Timeout
-        Code            FABRIC_E_TIMEOUT
-        Message         The request of restore has timed out
+        RestoreState TimeStampUtc         RestoredEpoch RestoredLsn
+        ------------ ------------         ------------- -----------
+        Timeout      0001-01-01T00:00:00Z                         
+
         ```
 
 
