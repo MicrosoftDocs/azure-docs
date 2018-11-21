@@ -19,7 +19,7 @@ ms.author: cwatson
 ---
 # Create an additional subscription in the Azure portal
 
-You can create additional subscriptions for your Azure account. You may want to create an additional subscription to avoid hitting subscription limits, create separate environments for billing and security, or to isolate data for compliance reasons.
+You can create additional subscriptions for your Azure account. You may want an additional subscription to avoid hitting subscription limits, to create separate environments for billing and security, or to isolate data for compliance reasons.
 
 If you want to create Azure subscriptions under your organization's Enterprise Agreement, you must have the Account Owner role for your organization.
 
