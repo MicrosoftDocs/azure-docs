@@ -20,16 +20,22 @@ There are several common reasons why you might not see your data in the Azure Ti
 Potential cause A: Your event source may not be receiving data.
 Please verify that your Event Source (Event Hub or IoT Hub) are receiving data from your tags / instances. You can do so by navigating to the overview page of your resource on Azure Portal.
 
+![dashboard-insights][1]
+
 Potential cause B: Event source data is not in JSON format
 
 Azure Time Series Insights supports only JSON data. For JSON samples, see Supported JSON shapes.
 
 Potential cause C: Event source key is missing a required permission
 
+![configuration][2]
+
 * For an IoT Hub, you need to provide the key that has service connect permission.
 * As shown in the preceding image, either of the policies iothubowner and service would work, because both have service connect permission.
 * For an event hub, you need to provide the key that has Listen permission.
 * As shown in the preceding image, either of the policies read and manage would work, because both have Listen permission.
+
+![permissions][3]
 
 Potential cause D: The consumer group provided is not exclusive to Time Series Insights
 
@@ -65,3 +71,8 @@ This may occur if your environment doesn’t have a Time Series Model Hierarchy 
 
 * For additional assistance, start a conversation on the MSDN forum or Stack Overflow.
 * You can also use Azure support for assisted support options.
+
+<!-- Images -->
+[1]: media/diagnose-and-troubleshoot/dashboard-insights.png
+[2]: media/diagnose-and-troubleshoot/configuration.png
+[3]: media/diagnose-and-troubleshoot/permissions.png

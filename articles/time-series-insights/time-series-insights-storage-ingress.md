@@ -123,7 +123,7 @@ During public preview, data will be stored indefinitely in your Azure storage ac
 
 ### Writing and editing Time Series Insights blobs
 
-To ensure query performance and data availability, please do not edit or delete any blobs created by Time Series Insights.   
+To ensure query performance and data availability, please do not edit or delete any blobs created by Time Series Insights.
 Accessing and exporting data from Time Series Insights update.
 
 You may want to access data stored in Time Series Insights update to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform ML using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.

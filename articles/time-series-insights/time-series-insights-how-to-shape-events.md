@@ -16,7 +16,7 @@ This article provides guidance for shaping JSON, to maximize the efficiency of y
 
 ## Best practices
 
->[!NOTE]
+> [!NOTE]
 > The 600-800 property limits for S1/S2 do not apply in this TSI Update
 
 It's important to think about how you send events to Time Series Insights. Namely, you should always:
