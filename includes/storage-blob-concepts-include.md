@@ -44,4 +44,4 @@ For more information about Blob storage, see [Introduction to object storage in 
 
 ## About Azure Data Lake Storage Gen2 
 
-Blob storage supports Azure Data Lake Storage Gen2, Microsoft's enterprise big data analytics solution for the cloud. Azure Data Lake Storage Gen2 offers a hierarchical file system as well as the advantages of Blob storage, including low-cost, tiered storage; high availability; strong consistency; and disaster recovery capabilities. For more information about Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2 Preview](../articles/storage/blobs/data-lake-storage/introduction.md).
+Blob storage supports Azure Data Lake Storage Gen2, Microsoft's enterprise big data analytics solution for the cloud. Azure Data Lake Storage Gen2 offers a hierarchical file system as well as the advantages of Blob storage, including low-cost, tiered storage; high availability; strong consistency; and disaster recovery capabilities. For more information about Data Lake Storage Gen2, see [Introduction to Azure Data Lake Storage Gen2 Preview](../articles/storage/data-lake-storage/introduction.md).
