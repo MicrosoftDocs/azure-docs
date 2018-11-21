@@ -19,9 +19,11 @@ In this article, learn about the Azure Machine Learning service releases.
 ### Azure Machine Learning SDK for Python v0.1.80
 
 + **Breaking changes** 
-  * *azureml.train.widget* namespace has moved to *azureml.train*.
+  * *azureml.train.widgets* namespace has moved to *azureml.widgets*.
   * *azureml.core.compute.AmlCompute* deprecates *azureml.core.compute.BatchAICompute*. The latter class will be removed in subsequent releases.
+
 ### Azure Machine Learning Data Prep SDK v0.5.1 
+
 Learn more about the Data Prep SDK by reading [reference docs](https://aka.ms/data-prep-sdk).
 + **New Features**
    * Created a new DataPrep CLI to execute DataPrep packages and view the data profile for a dataset or dataflow
