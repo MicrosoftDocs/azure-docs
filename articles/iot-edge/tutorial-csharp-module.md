@@ -89,21 +89,25 @@ Create a C# solution template that you can customize with your own code.
 
 2. In the command palette, enter and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you're already signed in, you can skip this step.
 
-3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+3. In the command palette, enter and run the command **Azure IoT Edge: New IoT Edge solution**. Follow the prompts in the command palette to create your solution.
 
-   1. Select the folder where you want to create the solution. 
-   2. Provide a name for your solution or accept the default **EdgeSolution**.
-   3. Choose **C# Module** as the module template. 
-   4. Replace the default module name with **CSharpModule**. 
-   5. Specify the Azure container registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with the login server value that you copied. The final string looks like \<registry name\>.azurecr.io/csharpmodule.
-
+   | Field | Value |
+   | ----- | ----- |
+   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
+   | Select module template | Choose **C# Module**. |
+   | Provide a module name | Name your module **CSharpModule**. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/csharpmodule. |
+ 
    ![Provide Docker image repository](./media/tutorial-csharp-module/repository.png)
 
-The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the C# code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the C# code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial.
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
+<!--
    ![C# solution workspace](./media/tutorial-csharp-module/workspace.png)
+-->
 
 ### Add your registry credentials
 
@@ -262,6 +266,29 @@ The environment file stores the credentials for your container registry and shar
 
 11. Save this file.
 
+12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **CSharpModule**. The **CSharpModule.image** value is set to a Linux amd64 version of the image. 
+
+   Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
+
+   To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+
+   In the deployment.template.json file, the **registryCredentials** section stores your Docker registry credentials. The actual username and password pairs are stored in the .env file, which is ignored by git.  
+
+13. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
+
+   ```json
+       "CSharpModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
+
+   ![Add module twin to deployment template](./media/tutorial-csharp-module/module-twin.png)
+
+14. Save this file.
+
+
 ## Build your IoT Edge solution
 
 In the previous section, you created an IoT Edge solution and added code to the **CSharpModule** to filter out messages where the reported machine temperature is below the acceptable threshold. Now you need to build the solution as a container image and push it to your container registry. 
@@ -273,26 +300,7 @@ In the previous section, you created an IoT Edge solution and added code to the 
    ```
    Use the username, password, and login server that you copied from your Azure container registry in the first section. You can also retrieve these values from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, open the deployment.template.json file in your IoT Edge solution workspace. This file tells the **$edgeAgent** to deploy two modules: **tempSensor** and **CSharpModule**. The **CSharpModule.image** value is set to a Linux amd64 version of the image. 
-
-   Verify that the template has the correct module name, not the default **SampleModule** name that you changed when you created the IoT Edge solution.
-
-   To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
-
-3. In the deployment.template.json file, the **registryCredentials** section stores your Docker registry credentials. The actual username and password pairs are stored in the .env file, which is ignored by git.  
-
-4. Add the **CSharpModule** module twin to the deployment manifest. Insert the following JSON content at the bottom of the **modulesContent** section, after the **$edgeHub** module twin: 
-    ```json
-        "CSharpModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-4. Save this file.
-
-5. In the VS Code explorer, right-click the deployment.template.json file and select **Build and Push IoT Edge solution**. 
+2. In the VS Code explorer, right-click the deployment.template.json file and select **Build and Push IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first takes the information in the deployment template and generates a deployment.json file in a new folder named **config**. Then, it runs two commands in the integrated terminal: `docker build` and `docker push`. These two commands build your code, containerize the CSharpModule.dll, and then push the code to the container registry that you specified when you initialized the solution. 
 

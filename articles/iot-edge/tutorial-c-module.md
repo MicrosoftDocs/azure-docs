@@ -89,21 +89,25 @@ Create a C solution template that you can customize with your own code.
 
 2. In the command palette, type and run the command **Azure: Sign in** and follow the instructions to sign in your Azure account. If you've already signed in, you can skip this step.
 
-3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. In the command palette, provide the following information to create your solution: 
+3. In the command palette, type and run the command **Azure IoT Edge: New IoT Edge solution**. Follow the prompts in the command palette to create your solution.
 
-   1. Select the folder where you want to create the solution. 
-   2. Provide a name for your solution or accept the default **EdgeSolution**.
-   3. Choose **C Module** as the module template. 
-   4. Name your module **CModule**. 
-   5. Specify the Azure Container Registry that you created in the previous section as the image repository for your first module. Replace **localhost:5000** with **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name. 
-
+   | Field | Value |
+   | ----- | ----- |
+   | Select folder | Choose the location on your development machine for VS Code to create the solution files. |
+   | Provide a solution name | Enter a descriptive name for your solution or accept the default **EdgeSolution**. |
+   | Select module template | Choose **C Module**. |
+   | Provide a module name | Name your module **CModule**. |
+   | Provide Docker image repository for the module | An image repository includes the name of your container registry and the name of your container image. Your container image is prepopulated from the last step. Replace **localhost:5000** with the login server value from your Azure container registry. You can retrieve the login server from the Overview page of your container registry in the Azure portal. The final string looks like \<registry name\>.azurecr.io/cmodule. |
+ 
    ![Provide Docker image repository](./media/tutorial-c-module/repository.png)
 
-The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial. The **modules** folder contains the C code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. 
+The VS Code window loads your IoT Edge solution workspace. The solution workspace contains five top-level components. The **modules** folder contains the C code for your module as well as Dockerfiles for building your module as a container image. The **\.env** file stores your container registry credentials. The **deployment.template.json** file contains the information that the IoT Edge runtime uses to deploy modules on a device. You won't edit the **\.vscode** folder or **\.gitignore** file in this tutorial.
 
 If you didn't specify a container registry when creating your solution, but accepted the default localhost:5000 value, you won't have a \.env file. 
 
+<!--
    ![C solution workspace](./media/tutorial-c-module/workspace.png)
+-->
 
 ### Add your registry credentials
 
@@ -288,7 +292,23 @@ Add code to your C module that allows it to read in data from the sensor, check 
 
 11. Save the **main.c** file.
 
-## Build your IoT Edge solution
+12. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CModule**. The `CModule.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
+
+13. Add the CModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
+
+    ```json
+        "CModule": {
+            "properties.desired":{
+                "TemperatureThreshold":25
+            }
+        }
+    ```
+
+   ![Add CModule twin to deployment template](./media/tutorial-c-module/module-twin.png)
+
+14. Save the **deployment.template.json** file.
+
+## Build and push your solution
 
 In the previous section you created an IoT Edge solution and added code to the CModule that will filter out messages where the reported machine temperature is within the acceptable limits. Now you need to build the solution as a container image and push it to your container registry. 
 
@@ -301,22 +321,7 @@ In the previous section you created an IoT Edge solution and added code to the C
    ```
    Use the username, password, and login server that you copied from your Azure Container Registry in the first section. Or retrieve them again from the **Access keys** section of your registry in the Azure portal.
 
-2. In the VS Code explorer, open the **deployment.template.json** file in your IoT Edge solution workspace. This file tells the `$edgeAgent` to deploy two modules: **tempSensor** and **CModule**. The `CModule.image` value is set to a Linux amd64 version of the image. To learn more about deployment manifests, see [Understand how IoT Edge modules can be used, configured, and reused](module-composition.md).
-
-4. Add the CModule module twin to the deployment manifest. Insert the following JSON content at the bottom of the `moduleContent` section, after the `$edgeHub` module twin: 
-
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
-
-   ![Add CModule twin to deployment template](./media/tutorial-c-module/module-twin.png)
-
-4. Save the **deployment.template.json** file.
-5. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
+2. In the VS Code explorer, right-click the **deployment.template.json** file and select **Build and Push IoT Edge solution**. 
 
 When you tell Visual Studio Code to build your solution, it first generates a `deployment.json` file in a new **config** folder. The information for the deployment.json file is gathered from the template file that you updated, the .env file that you used to store your container registry credentials, and the module.json file in the CModule folder. 
 
