@@ -12,7 +12,7 @@ ms.devlang: azure-cli
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/09/2018
+ms.date: 11/21/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter 
 ---
@@ -40,25 +40,14 @@ az account set --subscription "<subscriptionID>"
 Mounting an Azure Files volume requires a storage account and file share.  You can use an existing Azure storage account and file share, or create resources:
 
 ```azurecli-interactive
-az group create \
-    --name myStorageGroup \
-    --location eastus
+az group create --name myResourceGroup --location eastus
 
-az storage account create \
---name myStorageAccount \
---resource-group myStorageGroup \
---location eastus \
---sku Standard_LRS \
---kind StorageV2
+az storage account create --name myStorageAccount --resource-group myResourceGroup --location eastus --sku Standard_LRS --kind StorageV2
 
-current_env_conn_string=$(az storage account show-connection-string -n myStorageAccount -g myStorageGroup --query 'connectionString' -o tsv)
+$current_env_conn_string=$(az storage account show-connection-string -n myStorageAccount -g myResourceGroup --query 'connectionString' -o tsv)
 
-if [[ $current_env_conn_string == "" ]]; then  
-    echo "Couldn't retrieve the connection string."
-fi
-
-az storage share create --name myFileShare --quota 2048 --connection-string $current_env_conn_string 1 > /dev/null
- ```
+az storage share create --name myshare --quota 2048 --connection-string $current_env_conn_string
+```
 
 ## Get the storage account name and key and the file share name
 The storage account name, storage account key, and the file share name are referenced as `<storageAccountName>`, `<storageAccountKey>`, and `<fileShareName>` in the following sections. 
