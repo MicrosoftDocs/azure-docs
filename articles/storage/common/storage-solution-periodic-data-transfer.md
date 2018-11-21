@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Solutions for periodic data transfer
  
-This article provides an overview of the data transfer solutions when you are transferring data periodically. Periodic data transfer over the network can be categorized as point-in-time and recurring or continuous data movement. The article also describes the recommended data transfer options and the respective key capability martix for this scenario.
+This article provides an overview of the data transfer solutions when you are transferring data periodically. Periodic data transfer over the network can be categorized as point-in-time and recurring or continuous data movement. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
 
 To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution).
 
@@ -42,8 +42,8 @@ The following table summarizes the differences in key capabilities.
 
 | Capability                  | AzCopy                                 | Azure Storage REST APIs       |
 |-----------------------------|----------------------------------------|-------------------------------|
-| Form factor                 | Command line tool from Microsoft       | Customers develop against Storage <br> REST APIs using Azure client libraries |
-| Initial one-time set up     | Minimal                                | Moderate, variable development effort    |
+| Form factor                 | Command-line tool from Microsoft       | Customers develop against Storage <br> REST APIs using Azure client libraries |
+| Initial one-time setup     | Minimal                                | Moderate, variable development effort    |
 | Data Format                 | Azure Blobs, Azure Files, Azure Tables | Azure Blobs, Azure Files, Azure Tables   |
 | Performance                 | Already optimized                      | Optimize as you develop                  |
 | Pricing                     | Free, data movement charges apply      | Free, data movement charges apply        |

@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Data transfer for large datasets with low or no network bandwidth
  
-This article provides an overview of the data transfer solutions when you have limited to no network bandwidth in your environment and you are planning to transfer large data sets. The article also describes the recommended data transfer options and the respective key capability martix for this scenario.
+This article provides an overview of the data transfer solutions when you have limited to no network bandwidth in your environment and you are planning to transfer large data sets. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
 
 To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution).
 
@@ -43,7 +43,7 @@ The following table summarizes the differences in key capabilities.
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Data size                        |    Up to 35 TBs                 |    Up to 80 TBs                                  |    Up to 800 TB                          |    Variable                            |
 |    Data type                        |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
-|    Form factor                      |    5 SSDs per order             |    1 X 50 lbs. desktop-sized device per order    |    1 ~500 lbs. large device per order    |    Up to 10 HDDs/SSDs per order        |
+|    Form factor                      |    5 SSDs per order             |    1 X 50-lbs. desktop-sized device per order    |    1 X ~500-lbs. large device per order    |    Up to 10 HDDs/SSDs per order        |
 |    Initial setup time               |    Low <br>(15 mins)            |    Low to moderate <br> (<30 mins)               |    Moderate<br>(1-2 hours)               |    Moderate to difficult<br>(variable) |
 |    Send data to Azure               |    Yes                          |    Yes                                           |    Yes                                   |    Yes                                 |
 |    Export data from Azure           |    No                           |    No                                            |    No                                    |    Yes                                 |
