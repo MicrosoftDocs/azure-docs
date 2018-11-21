@@ -1,5 +1,11 @@
 {
     "redirections": [
+
+        {
+            "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
+            "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
             "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
@@ -387,6 +393,11 @@
             "redirect_document_id": true
         },
         {
+            "source_path": "articles/cosmos-db/indexing-policy.md",
+            "redirect_url": "/azure/cosmos-db/index-policy",
+            "redirect_document_id": false
+        },
+        {
             "source_path": "articles/cosmos-db/distribute-data-globally-benefits.md",
             "redirect_url": "/azure/cosmos-db/distribute-data-globally",
             "redirect_document_id": true
@@ -399,6 +410,11 @@
         {
             "source_path": "articles/cosmos-db/distribute-data-globally-turnkey.md",
             "redirect_url": "/azure/cosmos-db/how-to-manage-database-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/cosmos-db/sql-api-sql-query.md",
+            "redirect_url": "/azure/cosmos-db/how-to-sql-query",
             "redirect_document_id": false
         },
         {
@@ -23804,6 +23820,11 @@
         {
             "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
             "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/marketplace/billing-options-azure-marketplace.md",
+            "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
             "redirect_document_id": true
         },
         {
