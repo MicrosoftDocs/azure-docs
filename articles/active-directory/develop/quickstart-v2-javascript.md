@@ -65,6 +65,19 @@ Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
 
 > [!div renderon="docs"]
 > Edit `index.html` and set the `clientID` and `authority` values under `applicationConfig`.
+
+> [!div class="sxs-lookup" renderon="portal"]
+> Edit `index.html` and replace `applicationConfig` with:
+
+```javascript
+var applicationConfig = {
+    clientID: "Enter_the_Application_Id_here",
+    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
+    graphScopes: ["user.read"],
+    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
+};
+```
+> [!div renderon="docs"]
 >
 > Where:
 > - `Enter_the_Application_Id_here` - is the **Application (client) ID** for the application you registered.
@@ -76,20 +89,8 @@ Extract the zip file to a local folder, for example, **C:\Azure-Samples**.
 > > [!TIP]
 > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, and **Supported account types**, go to the app's **Overview** page in the Azure portal.
 
-> [!div class="sxs-lookup" renderon="portal"]
-> Edit `index.html` and replace `applicationConfig` with:
-
-```javascript
-var applicationConfig = {
-    clientID: 'Enter_the_Application_Id_here',
-    authority: "https://login.microsoftonline.com/Enter_the_Tenant_Info_Here",
-    graphScopes: ["user.read"],
-    graphEndpoint: "https://graph.microsoft.com/v1.0/me"
-};
-```
 > [!NOTE]
->If you use [Node.js](https://nodejs.org/en/download/), the *server.js* file is configured for the server to start listening on port 30662.
-> If you use [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), the code sample's *.csproj* file is configured for the server to start listening on port 30662.
+> The server is configured to listen on port 30662 in the *server.js* file in [Node.js](https://nodejs.org/en/download/) project and the *.csproj* file in  [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) project.
 >
 
 #### Step 4: Run the project
