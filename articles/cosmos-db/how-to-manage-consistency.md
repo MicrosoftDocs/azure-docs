@@ -30,7 +30,7 @@ az cosmosdb update --name <name of Cosmos DB Account> --resource-group <resource
 
 ### PowerShell
 
-This example below creates a new Cosmos DB account with multi-master enabled in East US and West US regions setting the default consistency policy as Bounded Staleness with a max staleness interval of 10 seconds and maximum number of stale requests tolerated at 200.
+This example below creates a new Cosmos DB account with multi-master enabled in East US and West US regions setting the default consistency policy as Session.
 
 ```azurepowershell-interactive
 $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
@@ -38,9 +38,7 @@ $locations = @(@{"locationName"="East US"; "failoverPriority"=0},
 
 $iprangefilter = ""
 
-$consistencyPolicy = @{"defaultConsistencyLevel"="BoundedStaleness";
-                       "maxIntervalInSeconds"= "10";
-                       "maxStalenessPrefix"="200"}
+$consistencyPolicy = @{"defaultConsistencyLevel"="Session"}
 
 $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "locations"=$locations;
