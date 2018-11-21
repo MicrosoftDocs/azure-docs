@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: nacharya1
 ms.author: nilesha
 ms.reviewer: sgilley
-ms.date: 09/24/2018
+ms.date: 11/21/2018
 # As an app developer or data scientist I can generate a  machine learning model using Automated ML.
 ---
 
@@ -31,6 +31,9 @@ You'll learn how to:
 > * Register the best model
 
 If you don’t have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
+
+>[!NOTE]
+> Code in this article was tested with Azure Machine Learning SDK version 0.1.79
 
 ## Get the notebook
 
