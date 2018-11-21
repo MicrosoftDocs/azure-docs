@@ -73,6 +73,6 @@ This may occur if your environment doesn’t have a Time Series Model Hierarchy 
 * You can also use Azure support for assisted support options.
 
 <!-- Images -->
-[1]: media/diagnose-and-troubleshoot/dashboard-insights.png
-[2]: media/diagnose-and-troubleshoot/configuration.png
-[3]: media/diagnose-and-troubleshoot/permissions.png
+[1]: media/v2-update-diagnose-and-troubleshoot/dashboard-insights.png
+[2]: media/v2-update-diagnose-and-troubleshoot/configuration.png
+[3]: media/v2-update-diagnose-and-troubleshoot/permissions.png
