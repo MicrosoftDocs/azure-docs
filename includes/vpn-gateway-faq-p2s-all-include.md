@@ -11,7 +11,7 @@
 ---
 ### How many VPN client endpoints can I have in my Point-to-Site configuration?
 
-It depends on the gateway SKU. For more information on the number of connections supported, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku)
+It depends on the gateway SKU. For more information on the number of connections supported, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku).
 
 ### <a name="supportedclientos"></a>What client operating systems can I use with Point-to-Site?
 
