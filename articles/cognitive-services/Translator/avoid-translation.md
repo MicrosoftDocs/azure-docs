@@ -31,7 +31,7 @@ Example:
 
 (4) Do not pass the string to translation.
 
-(5) Custom Translator: Use a [dictionary in Custom Translator](/custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
+(5) Custom Translator: Use a [dictionary in Custom Translator](custom-translator/what-is-dictionary.md) to prescribe the translation of a phrase with 100% probability.
 
 
 ## Next steps
