@@ -238,6 +238,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
 
 5. Depending on the type of Docker containers on your IoT Edge device, update the **sql.settings** parameters with the following code:
    * Windows containers:
+
       ```json
       {
           "image": "microsoft/mssql-server-windows-developer",
@@ -255,7 +256,9 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
           }
       }
       ```
+
    * Linux containers:
+
       ```json
       {
           "image": "mcr.microsoft.com/mssql/server:latest",
@@ -273,6 +276,7 @@ A [Deployment manifest](module-composition.md) declares which modules the IoT Ed
           }
       }
       ```
+
    >[!Tip]
    >Any time that you create a SQL Server container in a production environment, you should [change the default system administrator password](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password).
 
