@@ -37,8 +37,6 @@ You must satisfy the following prerequisites before using Cognitive Services Con
 |Familiarity with Azure Container Registry and Docker | You should have a basic understanding of both Azure Container Registry and Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `az acr` and `docker` commands.<br><br>For Azure Container Registry basics, see the [Azure Container Registry overview](https://docs.microsoft.com/azure/container-registry/container-registry-intro).| 
 |LUIS app|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID and the Endpoint Key.<br><br>**Authoring key**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud.<br><br>**App ID**: This ID is used to select the App, either on the container or in the cloud.<br><br>**Endpoint key**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the LUIS resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. [TBD???] Do not use the starter key.<br><br>**Billing endpoint**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The LUIS resource associated with this app must use the **F0 pricing tier**. |
 
-
-
 ### Server requirements and recommendations
 
 This container supports minimum and recommended values for the following:
@@ -49,7 +47,7 @@ This container supports minimum and recommended values for the following:
 |Memory|2 GB|4 GB|
 |Transactions per second<BR>(TPS)|20 TPS|40 TPS|
 
-## Download container image from the container registry
+## Get container image
 
 Use the [docker pull](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
@@ -66,7 +64,7 @@ For a full description of available tags, such as `latest` used in the preceding
 >  docker images --format "table {{.ID}}\t{{.Repository}}\t{{.Tag}}"
 >  ``` 
 
-## Architectural flow between LUIS service and container
+## How to use container
 
 Once the container is on the host computer, use the architectural flow to work with the container.
 
@@ -83,7 +81,7 @@ Once the container is on the host computer, use the architectural flow to work w
 
 ![Conceptual architecture of LUIS service, container, and portal](./media/luis-container-how-to/luis-container-architecture.png)
 
-## Request LUIS app package
+## Get packaged app
 
 The LUIS container requires a trained or published LUIS app model to answer prediction queries of user utterances. In order to get the LUIS app model, use either the [published](get-a-published-models-package.md) or [trained](get-a-trained-models-package.md) download API. 
 
@@ -246,7 +244,7 @@ You can either [call the Prediction REST API operations](https://aka.ms/LUIS-end
 
 The only difference between calling a given operation from your container and calling that same operation from the service on Azure is that you'll use the host URI of your container, rather than the host URI of an Azure region, to call the operation. 
 
-## Active learning with LUIS
+## Upload container logs for active learning
 
 If an output mount is specified for the LUIS container, application query log files, along with container logs for debugging, are captured in the following folder at that storage location, replacing {INSTANCE_ID} with the container ID. 
 
@@ -286,7 +284,7 @@ curl -X POST \
 If successful, the method responds with an HTTP 200 status code. After the log is uploaded, review the endpoint utterances in the LUIS portal. Perform the actions needed to identify unlabeled entities, align utterances with intents, delete utterances, as you typically would for a LUIS application. For more information about reviewing endpoint utterances, see [Enable active learning by reviewing endpoint utterances](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances).
 
 
-### LUIS documentation on the container
+### Container's API documentation
 
 The container provides a full set of documentation for the endpoints as well as the `Try it now` feature. This feature allows you to enter your settings and information into an web-based HTML form and make the query without having to write any code. Once the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format required. 
 
