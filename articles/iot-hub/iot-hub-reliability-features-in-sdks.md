@@ -17,9 +17,9 @@ ms.custom: mvc
 
 # Manage connectivity and reliable messaging by using Azure IoT Hub device SDKs
 
-This article provides high-level guidance to help you design device applications that are more resilient. It shows you how to take advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this guide is to help you handle the following scenarios:
+This article provides high-level guidance to help you design device applications that are more resilient. It shows you how to take advantage of the connectivity and reliable messaging features in Azure IoT device SDKs. The goal of this guide is to help you manage the following scenarios:
 
-- Managing a dropped network connection
+- Fixing a dropped network connection
 - Switching between different network connections
 - Reconnecting because of service transient connection errors
 
@@ -34,13 +34,13 @@ Implementation details may vary by language. For more information, see the API d
 
 IoT devices often rely on non-continuous or unstable network connections (for example, GSM or satellite). Errors can occur when devices interact with cloud-based services because of intermittent service availability and infrastructure-level or transient faults. An application that runs on a device has to manage the mechanisms for connection, reconnection, and the retry logic for sending and receiving messages. Also, the retry strategy requirements depend heavily on the device's IoT scenario, context, capabilities.
 
-The Azure IoT Hub device SDKs aim to simplify connecting and communicating from cloud-to-device and device-to-cloud. These SDKs provide a robust and comprehensive way of connecting and of transferring messages to and from Azure IoT Hub. Developers can also modify existing implementation to customize a better retry strategy for a given scenario.
+The Azure IoT Hub device SDKs aim to simplify connecting and communicating from cloud-to-device and device-to-cloud. These SDKs provide a robust way to connect to Azure IoT Hub and a comprehensive set of options for sending and receiving messages. Developers can also modify existing implementation to customize a better retry strategy for a given scenario.
 
 The relevant SDK features that support connectivity and reliable messaging are covered in the following sections.
 
 ## Connection and retry
 
-This section gives an overview of the reconnection and retry patterns available when managing connections. It details implementation guidance for using different retry policy in your device application, and provides relevant APIs for the device SDKs.
+This section gives an overview of the reconnection and retry patterns available when managing connections. It details implementation guidance for using a different retry policy in your device application and lists relevant APIs from the device SDKs.
 
 ### Error patterns
 Connection failures can happen at many levels:
@@ -56,7 +56,7 @@ The device SDKs detect errors at all three levels. OS-related errors and hardwar
 The following steps describe the retry process when connection errors are detected:
 
 1. The SDK detects the error and the associated error in the network, protocol, or application.
-1. The SDK uses the error filter to determine the error type and decide if retry is needed.
+1. The SDK uses the error filter to determine the error type and decide if a retry is needed.
 1. If the SDK identifies an **unrecoverable error**, operations like connection, send, and receive are stopped. The SDK notifies the user. Examples of unrecoverable errors include an authentication error and a bad endpoint error.
 1. If the SDK identifies a **recoverable error**, it retries according to your specified retry policy until the defined timeout elapses.
 1. When the defined timeout expires, the SDK stops trying to connect or send. It notifies the user.
@@ -66,7 +66,7 @@ The SDKs provide three retry policies:
 
 - **Exponential back-off with jitter**: This default retry policy tends to be aggressive at the start and slow down over time until it reaches a maximum delay. The design is based on [Retry guidance from Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific).
 - **Custom retry**: For some SDK languages, you can design a custom retry policy that is better suited for your scenario and then inject it into the RetryPolicy. Custom retry isn't available on the C SDK.
-- **No retry**: You can set retry policy to "no retry," which disables the retry logic. The SDK tries to connect once and send a message once, assuming the connection is established. This policy is typically used in cases with bandwidth or cost concerns. If you choose this option, messages that fail to send are lost and can't be recovered.
+- **No retry**: You can set retry policy to "no retry," which disables the retry logic. The SDK tries to connect once and send a message once, assuming the connection is established. This policy is typically used in scenarios with bandwidth or cost concerns. If you choose this option, messages that fail to send are lost and can't be recovered.
 
 ### Retry policy APIs
 
