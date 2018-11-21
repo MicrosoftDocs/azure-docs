@@ -20,7 +20,7 @@ Beginning December 4, 2018, we will no longer make updates to Batch AI. After th
 
 By the end of March 2019, we expect to have full feature parity between Batch AI and Azure Machine Learning.
 
-On June 28, 2019, the Azure Batch AI service will be retired and no longer be available. Existing subscriptions will... ***[what happens?]***
+On June 28, 2019, the Azure Batch AI service will be retired and no longer be available. <!-- Existing subscriptions will... ***[what happens?]*** -->
 
 ## What do I need to do to prepare for this change?
 
