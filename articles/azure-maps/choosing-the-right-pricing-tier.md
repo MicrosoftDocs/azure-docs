@@ -38,7 +38,8 @@ The following table will help you get a better idea of your application's needs 
 | Batch Geocoding (preview)               |                    |     ✓    |
 | Batch Routing (preview)                 |                    |     ✓    |
 | Matrix Routing (preview)                |                    |     ✓    |
-                    <caption>Pricing tier capabilities</caption>
+                    
+<center>Pricing tier capabilities</center>
 
 Some additional data points worth considering are, what kind enterprise do you have or how critical is the application being built?
 
