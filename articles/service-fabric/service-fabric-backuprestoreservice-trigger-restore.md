@@ -25,7 +25,7 @@ Reliable Stateful services and Reliable Actors in Service Fabric can maintain mu
 
 For example, service may want to backup its data in order to protect from the following scenarios:
 
-- In the event of the permanent loss of an entire Service Fabric cluster. **(Case of Disaster Recovery - DR )**
+- In the event of the permanent loss of an entire Service Fabric cluster. **(Case of Disaster Recovery - DR)**
 - Permanent loss of a majority of the replicas of a service partition. **(Case of data loss)**
 - Administrative errors whereby the state accidentally gets deleted or corrupted. For example, an administrator with sufficient privilege erroneously deletes the service.**(Case of data loss)**
 - Bugs in the service that cause data corruption. For example, data corruption may happen when a service code upgrade starts writing faulty data to a Reliable Collection. In such a case, both the code and the data may have to be reverted to an earlier state. **(Case of data corruption)**
@@ -39,18 +39,18 @@ For example, service may want to backup its data in order to protect from the fo
 ## Triggering restore
 
 The restore can be for any of the following scenarios 
-1. Data restore in the case of _disaster recovery_ (DR)
-2. Data restore in the case of _data corruption / data loss_
+1. Data restore in the event of _disaster recovery_ (DR)
+2. Data restore in the event of _data corruption / data loss_
 
 
 
-### Data restore in the case of _disaster recovery_ (DR)
+### Data restore in the event of _disaster recovery_ (DR)
 In the event of an entire Service Fabric cluster being lost, the data for the partitions of the Reliable Stateful service and Reliable Actors can be restored to an alternate cluster. The desired backup can be selected from enumeration of [GetBackupAPI with backup storage Details](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getbackupsfrombackuplocation). The Backup Enumeration can be for an application, service, or partition.
 
 Lets assume the lost cluster was the cluster mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), which had `SampleApp` deployed, where the partition was having backup policy enabled and backups were happening in Azure Storage. 
 
 
-Execute following PowerShell script to invoke the REST API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster. Note that the enumeration API requires storage information, where the backups of an application are stored, for enumerating available backups. 
+Execute following PowerShell script to invoke the REST API to enumerate the backups created for all partitions inside the `SampleApp` application in lost Service Fabric cluster. The enumeration API requires storage information, where the backups of an application are stored, for enumerating available backups. 
 
 ```powershell
 $StorageInfo = @{
@@ -139,7 +139,7 @@ The partition in alternate cluster needs to chosen as per the [partition scheme]
 
 Assume that the partition ID on alternate cluster is `1c42c47f-439e-4e09-98b9-88b8f60800c6`, which maps to the original cluster partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` by comparing the high key and low key for _Ranged Partitioning (UniformInt64Partition)_.
 
-In case of _Named Partitioning_, the name value is compared to identify the target partition in alternate cluster.
+For _Named Partitioning_, the name value is compared to identify the target partition in alternate cluster.
 
 The restore is requested against partition of backup cluster by the following [Restore API](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
 
@@ -156,12 +156,12 @@ Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/j
 ``` 
 The progress of the restore can be [TrackRestoreProgress](service-fabric-backuprestoreservice-trigger-restore.md#tracking-restore-progress)
 
-### Data restore in the case of _data corruption / data loss_
+### Data restore in the event of _data corruption / data loss_
 
 For the case of _data loss_ or _data corruption_ the data, for the partitions of the Reliable Stateful service and Reliable Actors can be restored to any of the chosen backups. 
 The following case is the continuation of sample as mentioned in [Enabling periodic backup for Reliable Stateful service and Reliable Actors](service-fabric-backuprestoreservice-quickstart-azurecluster.md#enabling-periodic-backup-for-reliable-stateful-service-and-reliable-actors), where the partition has a backup policy enabled and is taking backup at a desired frequency in an Azure Storage. 
 
-The desired backup is selected from the output of  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In this scenario the backup is generated from the same cluster in the past.
+The desired backup is selected from the output of  [GetBackupAPI](service-fabric-backuprestoreservice-quickstart-azurecluster.md#list-backups). In this scenario, the backup is generated from the same cluster in the past.
 For triggering the restore, we need to choose the desired backup from the list. Let our desired backup for the current _data loss_ / _data corruption_ be the following backup
 
 ```
@@ -210,11 +210,11 @@ $restoreResponse
 
 The restore request following the following order
 
-1. __Accepted__  - Signifies the restore request is accepted. The restore requested has been triggered with correct request parameters.
-2. __InProgress__ - The partition will undergo a restore by initiating data loss on the partition and triggering restore with the backup mentioned in request.
+1. __Accepted__  - The restore state as _Accepted_ indicates that the requested has been triggered with correct request parameters.
+2. __InProgress__ - The restore state as _InProgress_ indicates that the partition will undergo a restore with the backup mentioned in request. The partition will report _dataloss_ state.
 3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following states. Each state has the following significance and response details.
        
-    1. __Success__ - The restore state as Success corresponds to the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the Partition along with the time in UTC. 
+    1. __Success__ - The restore state as _Success_ indicates the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the partition along with the time in UTC. 
     
         ```
         RestoreState    Success        
@@ -224,9 +224,11 @@ The restore request following the following order
         ```
         
  
-    2. __Failure__ - The restore state as Failure symbolizes the failure of the restore request. The cause of the failure will be stated in request.
-     
-    3. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. The state of partition is uncertain. Initiating a new restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in restore request will be the correct way to restore partition. The timeout can be stated in restore request, that defaults to 10 minutes. Before initiating a new restore request, it is advised to make sure that the partition has completed the data loss
+    2. __Failure__ - The restore state as _Failure_ indicates the failure of the restore request. The cause of the failure will be stated in request.
+         ```
+            TBD
+         ```
+    3. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. New restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) is recommended; defaults timeout is 10 minutes. It is advised to make sure that the partition is not in data loss state, before requesting restore again.
      
         ```
         RestoreState    Timeout
