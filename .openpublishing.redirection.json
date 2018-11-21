@@ -1,5 +1,11 @@
 {
     "redirections": [
+
+        {
+            "source_path": "articles/avere-vfxt/avere-vfxt-required-ports.md",
+            "redirect_url": "/azure/avere-vfxt/avere-vfxt-additional-resources",
+            "redirect_document_id": true
+        },
         {
             "source_path": "articles/machine-learning/service/how-to-choose-a-dev-environment.md",
             "redirect_url": "/azure/machine-learning/service/how-to-configure-environment",
@@ -23814,6 +23820,11 @@
         {
             "source_path": "articles/marketplace/enable-trial-using-azure-ad.md",
             "redirect_url": "/azure/marketplace/enable-appsource-marketplace-using-azure-ad",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/marketplace/billing-options-azure-marketplace.md",
+            "redirect_url": "/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations",
             "redirect_document_id": true
         },
         {
