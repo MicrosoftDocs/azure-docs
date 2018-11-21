@@ -60,8 +60,8 @@ For more information about the different types of blobs, see [Understanding Bloc
 
 A number of solutions exist for migrating existing data to Blob storage:
 
- - **AzCopy** is an easy-to-use command-line tool for Windows and Linux that copies data to and from Blob storage, across containers, or across storage accounts. For more information about AzCopy, see [Transfer data with the AzCopy v10 (Preview)](../common/storage-use-azcopy-v10.md). 
- - The **Azure Storage Data Movement library** is a .NET library for moving data between Azure Storage services. The AzCopy utility is built with the Data Movement library. For more information, see the [reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement) for the Data Movement library. 
+- **AzCopy** is an easy-to-use command-line tool for Windows and Linux that copies data to and from Blob storage, across containers, or across storage accounts. For more information about AzCopy, see [Transfer data with the AzCopy v10 (Preview)](../common/storage-use-azcopy-v10.md). 
+- The **Azure Storage Data Movement library** is a .NET library for moving data between Azure Storage services. The AzCopy utility is built with the Data Movement library. For more information, see the [reference documentation](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement) for the Data Movement library. 
 - **Azure Data Factory** supports copying data to and from Blob storage by using the account key, shared access signature, service principal, or managed identities for Azure resources authentications. For more information, see [Copy data to or from Azure Blob storage by using Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). 
 - **Blobfuse** is a virtual file system driver for Azure Blob storage. You can use blobfuse to access your existing block blob data in your Storage account through the Linux file system. For more information, see [How to mount Blob storage as a file system with blobfuse](storage-how-to-mount-container-linux.md).
 - **Azure Data Box Disk** is a service for transferring on-premises data to Blob storage when large datasets or network constraints make uploading data over the wire unrealistic. You can use [Azure Data Box Disk](../../databox/data-box-disk-overview.md) to request solid-state disks (SSDs) from Microsoft. You can then copy your data to those disks and ship them back to Microsoft to be uploaded into Blob storage.
@@ -70,6 +70,5 @@ A number of solutions exist for migrating existing data to Blob storage:
 ## Next steps
 
 * [Create a storage account](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-* [Getting started with Blob storage using .NET](storage-dotnet-how-to-use-blobs.md)
 * [Azure Storage samples using .NET](../common/storage-samples-dotnet.md)
 * [Azure Storage samples using Java](../common/storage-samples-java.md)
