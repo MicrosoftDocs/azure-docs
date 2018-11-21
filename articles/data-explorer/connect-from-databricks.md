@@ -19,26 +19,26 @@ To install [Python library](/azure/kusto/api/python/kusto-python-client-library)
 
 1. Go to your Azure Databricks workspace and [Create a Library](https://docs.azuredatabricks.net/user-guide/libraries.html#create-a-library)
 2. [Upload a Python PyPI package or Python Egg](https://docs.azuredatabricks.net/user-guide/libraries.html#upload-a-python-pypi-package-or-python-egg)
-    - Upload, install, and attach the library to your cluster.
+    - Upload, install, and attach the library to your Databricks cluster.
     - Enter the PyPi name: *azure-kusto-data*
 
 ## Connect to ADX using device login
 
-[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using this Query-ADX-device-login notebook to connect to ADX using your credentials.
+[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using the Query-ADX-device-login notebook to connect to ADX using your credentials.
 
 ## Connect to ADX using AAD App
 
 1. Create AAD App by [Provisioning an AAD application](/azure/kusto/management/access-control/how-to-provision-aad-app).
 1. Grant access to your AAD App on your Azure Data Explorer database as follows:
 
-```kusto
-.set database <DB Name> users ('aadapp=<AAD App ID>;<AAD Tenant ID>') 'AAD App to connect Spark to ADX
-```
-|   |   |
-| - | - |
-| ```DB Name``` | your database name |
-| ```AAD App ID``` | your AAD App ID |
-| ```AAD Tenant ID``` | your AAD Tenant ID |
+    ```kusto
+    .set database <DB Name> users ('aadapp=<AAD App ID>;<AAD Tenant ID>') 'AAD App to connect Spark to ADX
+    ```
+    |   |   |
+    | - | - |
+    | ```DB Name``` | your database name |
+    | ```AAD App ID``` | your AAD App ID |
+    | ```AAD Tenant ID``` | your AAD Tenant ID |
 
 ### Find your AAD Tenant ID
 
@@ -65,13 +65,13 @@ Store and secure your AAD App ID and Key using Azure Databricks [Secrets](https:
 1. [Set up authentication](https://docs.azuredatabricks.net/user-guide/dev-tools/databricks-cli.html#set-up-authentication).
 1. Configure the [Secrets](https://docs.azuredatabricks.net/user-guide/secrets/index.html#secrets) using the following sample commands:
 
-```databricks secrets create-scope --scope adx```
+    ```databricks secrets create-scope --scope adx```
 
-```databricks secrets put --scope adx --key myaadappid```
+    ```databricks secrets put --scope adx --key myaadappid```
 
-```databricks secrets put --scope adx --key myaadappkey```
+    ```databricks secrets put --scope adx --key myaadappkey```
 
-```databricks secrets list --scope adx```
+    ```databricks secrets list --scope adx```
 
 ### Import a Notebook
-[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using Query-ADX-AAD-App to connect to ADX and update the placeholder values with your cluster name, database name, and AAD Tenant ID.
+[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using the Query-ADX-AAD-App notebook to connect to ADX. Update the placeholder values with your cluster name, database name, and AAD Tenant ID.
