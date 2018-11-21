@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create an Azure IoT Hub resource
-> * Set up a compute role
+> * Set up compute role
 > * Add a compute module
 > * Verify data transform and transfer
 
@@ -50,7 +50,7 @@ If an Edge compute role hasn't been set up, the following caveats apply:
 - You can't create Edge local shares. When you add a share, the option to create a local share for Edge compute isn't enabled.
 
 
-## Set up a compute role
+## Set up compute role
 
 When the Edge compute role is set up on the Edge device, it creates two devices: an IoT device and an IoT Edge device. Both devices can be viewed in the IoT Hub resource.
 
@@ -244,7 +244,7 @@ In this tutorial, you learned how to:
 
 > [!div class="checklist"]
 > * Create an IoT Hub resource
-> * Set up a compute role
+> * Set up compute role
 > * Add a compute module
 > * Verify data transform and transfer
 
