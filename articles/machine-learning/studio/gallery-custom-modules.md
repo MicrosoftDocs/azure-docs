@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery custom modules | Microsoft Docs
+title: Azure AI Gallery custom modules - Azure Machine Learning Studio | Microsoft Docs
 description: Discover custom machine learning modules in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''

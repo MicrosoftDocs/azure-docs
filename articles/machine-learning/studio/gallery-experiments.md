@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery experiments | Microsoft Docs
+title: Azure AI Gallery experiments - Azure Machine Learning Studio | Microsoft Docs
 description: Discover and share experiments in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ---
-# Discover experiments in Azure AI Gallery
+# Azure Machine Learning Studio: Discover experiments in Azure AI Gallery
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) has a wide variety of [experiments](https://gallery.cortanaintelligence.com/experiments) that have been developed in [Azure Machine Learning Studio](https://studio.azureml.net). Experiments range from quick proof-of-concept experiments that demonstrate a specific machine learning technique, to fully developed solutions for complex machine learning problems.
 
