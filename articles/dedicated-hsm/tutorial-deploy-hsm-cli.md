@@ -12,7 +12,7 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/13/2018
+ms.date: 11/21/2018
 ms.author: barclayn
 ---
 
@@ -24,7 +24,7 @@ This tutorial shows a typical provisioning process where:
 
 - A customer has a virtual network already
 - They have a virtual machine
-- They need to add HSM resources into that existing environment. 
+- They need to add HSM resources into that existing environment.
 
 A typical, high availability, multi-region deployment architecture may look as follows:
 
@@ -40,7 +40,7 @@ Assumptions:
 
 - You completed the Azure Dedicated HSM registration process
 - You have been approved for use of the service. If not, contact your Microsoft account representative for details.
-- You created a Resource Group for these resources and the new ones deployed here will join that group. 
+- You created a Resource Group for these resources and the new ones deployed in this tutorial will join that group.
 - You already created the necessary virtual network, subnet, and virtual machines as per the diagram above and now want to integrate 2 HSMs into that deployment.
 
 All instructions below assume that you have already navigated to the Azure portal and you have opened the Cloud Shell (select “>_” towards the top right of the portal).
@@ -73,7 +73,7 @@ Both commands should return a status of “Registered” (as shown below). If th
 
 ### Creating HSM resources
 
-An HSM is provisioned into a customers’ virtual network so a virtual network and subnet are required. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Gemalto client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files can be found in the Azure template gallery by searching for “HSM”.
+An HSM is provisioned into a customers’ virtual network so a virtual network and subnet are required. A dependency for the HSM to enable communication between the virtual network and physical device is an ExpressRoute Gateway, and finally a virtual machine is required to access the HSM device using the Gemalto client software. These resources have been collected into a template file, with corresponding parameter file, for ease of use. The files are available by contacting Microsoft directly as HSMrequest@Microsoft.com.
 
 Once you have the files, you must edit the parameter file to insert your preferred names for resources. Edit lines with “value”: “”.
 
@@ -258,6 +258,7 @@ az group deployment delete \
 After completing the steps in the tutorial, Dedicated HSM resources are provisioned and you have a virtual network with necessary HSMs and further network components to enable communication with the HSM.  You are now in a position to compliment this deployment with more resources as required by your preferred deployment architecture. For more information on helping plan your deployment, see the Concepts documents.
 A design with two HSMs in a primary region addressing availability at the rack level, and two HSMs in a secondary region addressing regional availability is recommended. The template file used in this tutorial can easily be used as a basis for a two HSM deployment but needs to have its parameters modified to meet your requirements.
 
-- [Concepts]()
-- [Integration guides]()
-- [Deciding deployment architecture]()
+* [High Availability](high-availability.md)
+* [Physical Security](physical-security.md)
+* [Networking](networking.md)
+* [Supportability](supportability.md)

@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure Dedicated HSM physical security | Microsoft Docs
 description: Azure Dedicated HSM provides key storage capabilities within Azure that meets FIPS 140-2 Level 3 certification
 services: key-vault
@@ -10,7 +10,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/19/2018
+ms.date: 11/21/2018
 ms.author: barclayn
 
 ---
