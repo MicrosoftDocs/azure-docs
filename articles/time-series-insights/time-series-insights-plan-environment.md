@@ -16,56 +16,88 @@ This article describes best practices to plan and get started quickly using The 
 
 ## Best practices for planning and preparation
 
-To get started with Azure Time Series Insights (TSI), it’s best if you have identified your time series ID(s) and time stamp property, built your model, and understand how to send events efficiently in JSON.
+It's best to have the following items ready before getting started:
 
-Additionally, it’s best to configure your environment to suit your business disaster recovery needs at creation time rather than post creation time.  
+* You've identified your **Time Series IDs**
+* You have your **Timestamp** property ready
+* You've built your model
+* You understand how to send events that are denormalized well in JSON
 
-The Time Series Insights update employs a pay-as-you-go business model.
+Having these items ready helps to simplify planning and preparation. Additionally, it's wise to plan ahead and determine your business disaster recovery (BCDR) needs before you create your instance (and not afterwards). Do so ahead of time helps to ensure your instance is maximally prepared.
 
-For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights/).
+> [!TIP]
+> Configure your environment to suit your BCDR needs before and not after you create your instance.
 
-## Configuring time series ID and timestamp property
+The Time Series Insights Update employs a pay-as-you-go business model. For more information about charges and capacity, see [Time Series Insights pricing](https://azure.microsoft.com/pricing/details/time-series-insights).
 
-To create a new TSI environment, select a **Time Series ID**. Doing so acts as a logical partition for your data.
+## Configure your Time Series IDs and Timestamp properties
 
-It can’t be changed later, so it’s very important to get this right.
+To create a new TSI environment, select a **Time Series ID**. Doing so acts as a logical partition for your data. As noted, make sure to have your **Time Series IDs** ready.
 
-You can select up to **three** (3) keys to either create uniqueness or to differentiate between multiple fleets of assets.
+> [!IMPORTANT]
+> **Time Series IDs** are **immutable** and **cannot be changed later**. Verify each before final selection.
 
-Please see the [storage and ingress]() article for more details.  
+You can select up to **three** (3) keys to uniquely differentiate your resource. Read the [Azure TSI Update Storage and Ingress](./time-series-insights-storage-ingress.md) article for more information.
 
-The timestamp property is also important. You can designate this property when adding event sources. Each event source has its own timestamp property, and these can be different across event sources. To determine the timestamp property value, you need to understand the message format of the message data sent to your event source. This value is the name of the specific event property in the message data that you want to use as the event timestamp.
+Each event source has an optional **Timestamp** property that's used to track event sources over time. **Timestamp** values are case-sensitive and must be formatted to the individual specification of each event source. 
 
-The value is case-sensitive. When left blank, the event enqueue time within the event source is used as the event timestamp. If you are sending historical data or batching events, you likely want to make this designation as the enqueued time will likely not be appropriate.  More on this concept [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).  
+> [!TIP]
+> Verify the formatting and parsing requirements for your event sources.
 
-## Understand the time series model
+When left blank, the **Event Enqueue Time** of an event source is used as the event **Timestamp**. If you are sending historical data or batched events, you will likely find customizing the **Timestamp** property to be more helpful than the default **Event Enqueue Time**. For more, read about [How to add event sources in IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).  
 
-You can configure your Time Series Insights environment’s time series model. The new model makes it easy to find and analyze IoT data by enabling curation, maintenance, and enrichment of time series data to help establish consumer-ready data sets. The model uses the time series IDs, which map to the concept of an instance, and associate the unique asset with variables (known as types) and hierarchies. You can learn all about the model [here]().  
+## Understand the Time Series Model
 
-The model is dynamic so you can build it at any time. However, you’ll be able to get started more quickly if it’s built and uploaded prior to you beginning to push data into Time Series Insights. With that in mind, it’s advised to review this document and begin to build your model.  For many customers, we expect the time series model to map to an existing asset model or ERP system already in place. For those that do not have an existing model, we’ve built a user experience to get going fast.  More on that experience [here]().  
+You can now configure your TSI environment’s **Time Series Model**. The new model makes it easy to find and analyze IoT data. It does so by enabling the curation, maintenance, and enrichment of time series data and helps to prepare consumer-ready data sets. The model uses **Time Series IDs**, which map to an instance associating the unique resource with variables (known as types) and hierarchies. You can learn all about the model [here]().  
+
+The model is dynamic so it can built at any time. However, you’ll be able to get started more quickly if it’s built and uploaded prior to you beginning to push data into Time Series Insights.
+
+With that in mind, it’s advised to review this document and begin to build your model.
+
+For many customers, we expect the time series model to map to an existing asset model or ERP system already in place. For those that do not have an existing model, we’ve built a user experience to get going fast.
+
+More on that experience [here]().  
 
 ## Shaping your events
 
-It's important to ensure the way you send events to TSI is efficient. In short, we would expect most metadata to be stored in the aforementioned time series model as instance fields and events only contain information like time series ID, timestamp, and the value. With this in mind, we suggest reviewing the JSON shaping section of our Sending events documentation.
+It's important to verify the way you send events to TSI. Ideally, your events will be denormalized well and efficiently.
+
+A good rule of thumb:
+
+* Metadata should be stored in your **Time Series Model**
+* **Time Series Mode;** instance fields and events should only necessary information such as:
+  * **Time Series Id**
+  * **Timestamp**
+
+Review the [How to shape events](./time-series-insights-how-to-shape-events.md) article for more details.
 
 ## Business disaster recovery
 
-As an Azure service, Time Series Insights provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance) describes the built-in features in Azure for business continuity and DR. The [Disaster](https://docs.microsoft.com/azure/architecture/resiliency/index) recovery and high availability for Azure applications paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
+As an Azure service, TSI is a high availability (HA) service using redundancies at the Azure region level. No configuration is required to use these inherent functionalities. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region HA for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](https://docs.microsoft.com/azure/resiliency/resiliency-technical-guidance) describes the built-in features in Azure for business continuity and DR. The [Disaster](https://docs.microsoft.com/azure/architecture/resiliency/index) recovery and high availability for Azure applications paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
-Azure Time Series Insights does not have built-in business disaster recovery (BCDR). By default Azure Storage, Azure IoT Hub, and Event Hubs have recovery built in.
+> [!NOTE]
+> Azure Time Series Insights does not have built-in BCDR.
+> By default Azure Storage, Azure IoT Hub, and Event Hubs have recovery built in.
 
-However, customers that require BCDR can still implement a recovery strategy using the following method. By creating a second Time Series Insights environment in a backup Azure region and send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.
+To learn more:
 
-1. Create environment in second region. More on creating a Time Series Insights environment [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
-1. Create a second dedicated consumer group for your event source and connect that event source to the new environment. Be sure to designate the second, dedicated consumer group. You can learn more about this by following either [IoT Hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or [Event hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
-1. If your primary region were to go down during a disaster incident, switch over operations to the backup Time Series Insights environment.
+* Read about [Azure Storage’s redundancy](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
+* Read about [IoT Hub's HA DR](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).
+* Read about [Event Hub's policies](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
 
-It is important to note during any failover scenario there may be a delay before Time Series Insights can start processing messages again: this can cause a spike in message processing. For more information, please take a look at this [document](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
+Nevertheless, customers that require BCDR can still implement a recovery strategy by creating a second TSI environment in a backup Azure region. Customers send events to this secondary environment from the primary event source, leveraging a second dedicated consumer group and that event source's BCDR guidelines.
+
+The specific steps to accomplish this are as follows:
+
+1. Create an environment in a second region. Read about [TSI environments](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+1. Create a second dedicated consumer group for your event source and connect that event source to the new environment. Be sure to designate the second, dedicated consumer group. Learn more from the [IoT Hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) or the [Event hub documentation](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
+1. If your primary region were impacted during a disaster incident, reroute operations to the backup TSI environment.
+
+> [!IMPORTANT]
+> * Note that a delay may be experienced in the event of a failover.
+> * Failover may also cause a mometary spike in message processing as operations are rerouted.
+> * For more information, review [Mitigating latency in TSI](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-environment-mitigate-latency).
 
 ## Next steps
 
-To learn more about Azure Storage’s BCDR policies, head [here](https://docs.microsoft.com/azure/storage/common/storage-redundancy).
-
-To learn more about IoT Hub's BCDR policies, head [here](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).
-
-To learn more about Event hub's BCDR policies, head [here](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).
+//TODO
