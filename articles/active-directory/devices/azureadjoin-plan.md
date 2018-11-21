@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/21/2018
 ms.author: markvi
 ms.reviewer: sandeo
 
@@ -97,7 +97,7 @@ If your identity provider does not support these protocols, Azure AD join does n
 
 ### Smartcards and certificate-based authentication
 
-Azure AD does neither support smartcards nor certificate-based authentication. As a consequence of this, you can't use these authentication methods with Azure AD joined devices.
+You can't use smartcards or certificate-based authentication to join devices to Azure AD. However, smartcards can be used to sign in to Azure AD joined devices if you have AD FS configured.
 
 
 ### User configuration
@@ -131,7 +131,7 @@ Device management for Azure AD joined devices is based on an MDM platform such a
 
 There are two approaches for managing Azure AD joined devices:
 
-- **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated as part of Azure AD join.
+- **MDM-only** - A device is exclusively managed by an MDM provider like Intune. All policies are delivered as part of the MDM enrollment process. For Azure AD Premium or EMS customers, MDM enrollment is an automated step that is part of an Azure AD join.
 
 - **Co-management** -  A device is managed by an MDM provider and SCCM. In this approach, the SCCM agent is installed on an MDM-managed device to administer certain aspects.
 
@@ -157,7 +157,7 @@ Through co-management, you can use SCCM to manage certain aspects of your device
 
 ## Understand considerations for applications and resources
 
-We recommend to migrate applications from on-premises to cloud for a better user experience and access control. However, Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications.
+We recommend migrating applications from on-premises to cloud for a better user experience and access control. However, Azure AD joined devices can seamlessly provide access to both, on-premises and cloud applications. For more information, see [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
 
 The following sections list considerations for different types of applications and resources.
 
@@ -185,9 +185,9 @@ If you use AD FS, see [Verify and manage single sign-on with AD FS](https://docs
 
 ### On-premises applications relying on legacy protocols
 
-Users get SSO from Azure AD joined devices if a device has access to a domain controller. 
+Users get SSO from Azure AD joined devices if the device has access to a domain controller. 
 
-**Recommendation:** Deploy Azure AD App proxy to enable secure access for these applications.
+**Recommendation:** Deploy [Azure AD App proxy](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) to enable secure access for these applications.
 
 
 ### On-premises network shares
@@ -266,7 +266,7 @@ Set this option to **All** or **Selected** based on the scope of your deployment
 
 ### Additional local administrators on Azure AD joined devices
 
-Choose **Selected** and selects the users you want to add to the local administrators’ group on all Azure AD joined devices. For more information, [How SSO to on-premises resources works on Azure AD joined devices](azuread-join-sso.md).
+Choose **Selected** and selects the users you want to add to the local administrators’ group on all Azure AD joined devices. 
 
 ![Additional local administrators on Azure AD joined devices](./media/azureadjoin-plan/02.png)
 
@@ -332,7 +332,7 @@ MAM does not apply to Azure AD join.
 
 ## Configure enterprise state roaming
 
-If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see[Enable Enterprise State Roaming in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
+If you want to enable state roaming to Azure AD so that users can sync their settings across devices, see [Enable Enterprise State Roaming in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/enterprise-state-roaming-enable). 
 
 **Recommendation**: Enable this setting even for hybrid Azure AD joined devices.
 
