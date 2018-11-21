@@ -113,7 +113,7 @@ The on-demand backup request's progress may be one of the following states
       
       ```
        
-    * Timeout - The backup state as _Timeout_ indicates that the partitionS state backup couldn't be created in given time frame; default timeout value is 10 minutes. Initiating a new backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in on-demand backup request is recommended in this scenario.
+    * Timeout - The backup state as _Timeout_ indicates that the partition state backup couldn't be created in given time frame; default timeout value is 10 minutes. Initiating a new backup request with greater [BackupTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) in on-demand backup request is recommended in this scenario.
 
         ```
         BackupState             : Timeout
