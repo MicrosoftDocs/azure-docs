@@ -141,7 +141,7 @@ namespace SpellCheckSDK
                 Console.WriteLine("Encountered exception. " + ex.Message);
             }
 
-            SpellCheckError("19aa718a79d6444daaa415981d9f54ad");
+            SpellCheckError("YOUR-ACCESS-KEY");
 
             Console.WriteLine("Any key to exit...");
             Console.ReadKey();
