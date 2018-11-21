@@ -8,8 +8,8 @@ ms.author: banders
 ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
-ms.custom:
-manager: dougeby
+ms.custom: 
+manager: benshy
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->

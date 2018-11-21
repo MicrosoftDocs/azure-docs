@@ -3,11 +3,11 @@ title: Creating Web service endpoints in Machine Learning | Microsoft Docs
 description: Creating Web service endpoints in Azure Machine Learning
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 4657fc1b-5228-4950-a29e-bc709259f728
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/04/2016
-
 ---
 # Creating endpoints
 > [!NOTE]
