@@ -58,8 +58,11 @@ To use the service, you must register the Azure Resource Provider for Azure NetA
 
   The command output appears as follows:
    
-        "id": "/subscriptions/<SubID>/providers/Microsoft.Features/providers/Microsoft.NetApp/features/publicPreviewADC", 
-        "name": "Microsoft.NetApp/publicPreviewADC"
+        {
+        "id": "/subscriptions/<SubID>/providers/Microsoft.NetApp",
+        "namespace": "Microsoft.NetApp", 
+        "registrationState": "Registered", 
+        "resourceTypes": […. 
 
    `<SubID>` is your subscription ID.  The `state` parameter value indicates `Registered`.
 
