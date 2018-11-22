@@ -190,7 +190,7 @@ Remove-PSSession -Session $PEPSession
 This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack’s external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
 
 
-## Update the baseboard management controller (BMC) credentials
+## Update the baseboard management controller (BMC) credential
 
 The baseboard management controller (BMC) monitors the physical state of your servers. The specifications and instructions on updating the user account name and password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You should update your passwords for Azure Stack components at a regular cadence.
 
@@ -223,7 +223,7 @@ The baseboard management controller (BMC) monitors the physical state of your se
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
     $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force
-    $NewBMCuser = "<New BMC User name>" -AsPlainText -Force 
+    $NewBMCuser = "<New BMC User name>" 
 
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
 
