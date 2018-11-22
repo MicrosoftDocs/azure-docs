@@ -70,9 +70,9 @@ $BackupLocationAndEntityInfo = @{
 }
 
 $body = (ConvertTo-Json $BackupLocationAndEntityInfo)
-$url = "https://myalternatesfcluster.southcentralus.cloudapp.azure.com:19080/$/GetBackups?api-version=6.4"
+$url = "https://myalternatesfcluster.southcentralus.cloudapp.azure.com:19080/BackupRestore/$/GetBackups?api-version=6.4"
 
-Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
+$response = Invoke-WebRequest -Uri $url -Method Post -Body $body -ContentType 'application/json' -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3'
 $BackupPoints = (ConvertFrom-Json $response.Content)
 $BackupPoints.Items
 ```
@@ -211,7 +211,19 @@ $restoreResponse
 The restore request following the following order
 
 1. __Accepted__  - The restore state as _Accepted_ indicates that the requested has been triggered with correct request parameters.
+    ```
+        RestoreState TimeStampUtc         RestoredEpoch                                                        RestoredLsn
+        ------------ ------------         -------------                                                        -----------
+        Accepted     0001-01-01T00:00:00Z @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}        3552
+
+    ```
 2. __InProgress__ - The restore state as _InProgress_ indicates that the partition will undergo a restore with the backup mentioned in request. The partition will report _dataloss_ state.
+    ```
+    RestoreState      TimeStampUtc         RestoredEpoch                                                        RestoredLsn
+    ------------      ------------         -------------                                                        -----------
+    RestoreInProgress 0001-01-01T00:00:00Z @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}        3552
+
+    ```
 3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following states. Each state has the following significance and response details.
        
     1. __Success__ - The restore state as _Success_ indicates the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the partition along with the time in UTC. 
@@ -235,7 +247,7 @@ The restore request following the following order
         ```
         RestoreState TimeStampUtc         RestoredEpoch RestoredLsn
         ------------ ------------         ------------- -----------
-        Timeout      0001-01-01T00:00:00Z                         
+        Timeout      0001-01-01T00:00:00Z                         0 
 
         ```
 
