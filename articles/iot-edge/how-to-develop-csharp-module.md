@@ -88,9 +88,15 @@ The C# support in VS Code is optimized for cross-platform .NET Core development.
 
 The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C# Device SDK. Because the IoT C# module requires the environment settings to start and run, in the default module code you initialize a **ModuleClient** with environment settings and input name. You also need to send or route messages to the input channels. Your default C# module only contains one input channel and the name is **input1**.
 
-### Setup IoT Edge simulator for single module app
 
-1. To setup and start the simulator, in VS Code command palette, type and select **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module**. You also need to specify the input names for your single module application, type **input1** and press Enter. The command will trigger **iotedgehubdev** CLI and start IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
+### Setup IoT Edge simulator for single module app
+In your development machine, you can start IoT Edge simulator instead of installing the IoT Edge security daemon to run your IoT Edge solution. 
+
+1. In device explorer on the left side, right-click on your IoT Edge device ID, select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+
+2. You can see the IoT Edge Simulator has been successfully setup in integrated terminal.
+
+3. In VS Code command palette, type and select **Azure IoT Edge: Start IoT Edge Hub Simulator for Single Module**. You also need to specify the input names for your single module application, type **input1** and press Enter. The command will trigger **iotedgehubdev** CLI and start IoT Edge simulator and a testing utility module container. You can see the outputs below in the integrated terminal if the simulator has been started in single module mode successfully. You can also see a `curl` command to help send message through. You will use it later.
 
    ![Setup IoT Edge simulator for single module app](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
@@ -100,7 +106,7 @@ The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C
 
    The **edgeHubDev** container is the core of the local IoT Edge simulator. It can run on your development machine without IoT Edge security daemon and provide environment settings for your native module app or module containers. The **input** container exposed restAPIs to help bridge messages to target input channel on your module.
 
-2. In VS Code command palette, type and select **Azure IoT Edge: Set Module Credentials to User Settings** to set the module environment settings into `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` in user settings. You can find these environment settings are referenced in **.vscode** > **launch.json** and [VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings).
+4. In VS Code command palette, type and select **Azure IoT Edge: Set Module Credentials to User Settings** to set the module environment settings into `azure-iot-edge.EdgeHubConnectionString` and `azure-iot-edge.EdgeModuleCACertificateFile` in user settings. You can find these environment settings are referenced in **.vscode** > **launch.json** and [VS Code user settings](https://code.visualstudio.com/docs/getstarted/settings).
 
 ### Build module app and debug in launch mode
 
