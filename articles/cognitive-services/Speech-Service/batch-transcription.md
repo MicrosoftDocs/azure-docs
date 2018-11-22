@@ -13,9 +13,9 @@ ms.date: 04/26/2018
 ms.author: panosper
 ---
 
-# Use batch transcription
+# Why Batch transcription
 
-Batch transcription is ideal if you have large amounts of audio in storage. By using the REST API, you can point to audio files by shared access signature (SAS) URI and asynchronously receive transcriptions.
+Batch transcription is ideal if you have large amounts of audio in storage. By using the dedicated REST API, you can point to audio files by a shared access signature (SAS) URI and asynchronously receive transcriptions.
 
 ## The Batch Transcription API
 
@@ -31,6 +31,12 @@ The Batch Transcription API offers asynchronous speech-to-text transcription, al
 ### Supported formats
 
 The Batch Transcription API supports the following formats:
+
+| Format | Codec | Bitrate | Sample Rate |
+|--------|-------|---------|-------------|
+| WAV | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
+| MP3 | PCM | 16-bit | 8 or 16 kHz, mono, stereo |
+| OGG | OPUS | 16-bit | 8 or 16 kHz, mono, stereo |
 
 For stereo audio streams, the Batch transcription API splits the left and right channel during the transcription. The two JSON files with the result are each created from a single channel. The timestamps per utterance enable the developer to create an ordered final transcript. The following JSON sample shows the output of a channel, includuing properties for setting up the profanity filter and the punctuation model.
 
@@ -49,6 +55,16 @@ For stereo audio streams, the Batch transcription API splits the left and right 
 
 > [!NOTE]
 > The Batch Transcription API uses a REST service for requesting transcriptions, their status, and associated results. You can use the API from any language. The next section describes how the API is used.
+
+### Query parameters
+
+These parameters may be included in the query string of the REST request.
+
+| Parameter | Description | Required / Optional |
+|-----------|-------------|---------------------|
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `none`, which disables profanity filtering, `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `tags`, which adds "profanity" tegs. The default setting is `masked`. | Optional |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none`, which disables punctuatino, `dictated`, which implies explicit punctuation, `automatic`, which lets the decoder deal with punctuation, or `dictatedandautomatic`, which implies dictated punctuation marks or automatic. | Optional |
+
 
 ## Authorization token
 
