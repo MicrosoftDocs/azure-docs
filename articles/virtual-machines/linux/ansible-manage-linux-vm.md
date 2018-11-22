@@ -136,4 +136,4 @@ This section illustrates how to use Ansible to start a deallocated (stopped) Azu
 
 ## Next steps
 > [!div class="nextstepaction"] 
-> [Use Ansible to manage your Azure dynamic inventories](/articles/ansible/ansible-manage-azure-dynamic-inventories)
+> [Use Ansible to manage your Azure dynamic inventories](~/articles/ansible/ansible-manage-azure-dynamic-inventories.md)
