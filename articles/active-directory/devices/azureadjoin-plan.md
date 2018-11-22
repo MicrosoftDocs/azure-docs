@@ -59,7 +59,7 @@ To plan your hybrid Azure AD implementation, you should familiarize yourself wit
 While Hybrid Azure AD join may be preferred for certain scenarios, Azure AD join enables you to transition towards a cloud-first model with Windows. If you are planning to modernize your devices management and reduce device-related IT costs, Azure AD join provides a great foundation towards achieving those objectives.  
 
  
-You should consider Azure AD join if your goals align with the the following criteria:
+You should consider Azure AD join if your goals align with the following criteria:
 
 - You are adopting Microsoft 365 as the productivity suite for your users.
 
