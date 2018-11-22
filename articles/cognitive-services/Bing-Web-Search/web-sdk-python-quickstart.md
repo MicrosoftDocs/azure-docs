@@ -201,7 +201,7 @@ This sample uses the `count` and `offset` parameters to limit the number of resu
 
 ### Filter for news and freshness
 
-This sample uses the `response_filter` and `freshness` parameters to filter search results using the SDK's [`search` method](https://docs.microsoft.com//api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations?view=azure-python#search). The search results returned are limited to news articles and pages that Bing has discovered within the last 24 hours. The `name` and `URL` for the first result are printed.
+This sample uses the `response_filter` and `freshness` parameters to filter search results using the SDK's [`search` method](/python/api/azure-cognitiveservices-search-websearch/azure.cognitiveservices.search.websearch.operations.weboperations#search). The search results returned are limited to news articles and pages that Bing has discovered within the last 24 hours. The `name` and `URL` for the first result are printed.
 
 1. Add this code to your Python project:
     ```python
