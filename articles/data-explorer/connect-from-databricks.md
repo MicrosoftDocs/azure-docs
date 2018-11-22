@@ -1,6 +1,6 @@
 # Connect to Azure Data Explorer from Azure Databricks using Python
 
-[Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. This article shows you how to use Python library in Azure Databricks to access data from Azure Data Explorer (ADX). There are several ways to authenticate with ADX including device login and AAD App.
+[Azure Databricks](https://docs.microsoft.com/en-us/azure/azure-databricks/what-is-azure-databricks) is an Apache Spark-based analytics platform optimized for the Microsoft Azure cloud services platform. This article shows you how to use Python library in Azure Databricks to access data from Azure Data Explorer (ADX). There are several ways to authenticate with ADX including device login and Azure Active Directory (AAD) App.
 
 ## Prerequisites
 
@@ -24,7 +24,7 @@ To install [Python library](/azure/kusto/api/python/kusto-python-client-library)
 
 ## Connect to ADX using device login
 
-[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using the Query-ADX-device-login notebook to connect to ADX using your credentials.
+[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using the [Query-ADX-device-login](https://github.com/Azure/azure-kusto-docs-samples/blob/master/Databricks_notebooks/Query-ADX-device-login.ipynb) notebook to connect to ADX using your credentials.
 
 ## Connect to ADX using AAD App
 
@@ -74,4 +74,4 @@ Store and secure your AAD App ID and Key using Azure Databricks [Secrets](https:
     ```databricks secrets list --scope adx```
 
 ### Import a Notebook
-[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using the Query-ADX-AAD-App notebook to connect to ADX. Update the placeholder values with your cluster name, database name, and AAD Tenant ID.
+[Import a Notebook](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-a-notebook) using the [Query-ADX-AAD-App](https://github.com/Azure/azure-kusto-docs-samples/blob/master/Databricks_notebooks/Query-ADX-AAD-App.ipynb) notebook to connect to ADX. Update the placeholder values with your cluster name, database name, and AAD Tenant ID.
