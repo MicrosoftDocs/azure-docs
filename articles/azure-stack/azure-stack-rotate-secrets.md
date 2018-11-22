@@ -190,24 +190,26 @@ Remove-PSSession -Session $PEPSession
 This command rotates all of the infrastructure secrets exposed to Azure Stack internal network as well as the TLS certificates used for Azure Stack’s external network infrastructure endpoints. Start-SecretRotation rotates all stack-generated secrets, and because there are provided certificates, external endpoint certificates will also be rotated.  
 
 
-## Update the baseboard management controller (BMC) password
+## Update the baseboard management controller (BMC) credential
 
-The baseboard management controller (BMC) monitors the physical state of your servers. The specifications and instructions on updating the password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You should update your passwords for Azure Stack components at a regular cadence.
+The baseboard management controller (BMC) monitors the physical state of your servers. The specifications and instructions on updating the user account name and password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You should update your passwords for Azure Stack components at a regular cadence.
 
-1. Update the BMC on the Azure Stack’s physical servers by following your OEM instructions. The password for each BMC in your environment must be the same.
+1. Update the BMC on the Azure Stack’s physical servers by following your OEM instructions. The use account name and password for each BMC in your environment must be the same.
 2. Open a privileged endpoint in Azure Stack Sessions. For instruction, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
-3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcPassword` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter. For example:
+3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcCredemtial` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter. For example:
 
     ```powershell
     # Interactive Version
     $PEip = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PECred = Get-Credential "<Domain>\CloudAdmin" -Message "PE Credentials" 
-    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString 
+    $NewBMCpwd = Read-Host -Prompt "Enter New BMC password" -AsSecureString
+    $NewBMCuser = Read-Host -Prompt "Enter New BMC user name"
 
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+        # Parameter BMCPassword is mandatory, while the BMCUser parameter is optional.
+        Set-Bmccredential -bmcpassword $using:NewBMCpwd -bmcuser $using:NewBMCuser
     }
     Remove-PSSession -Session $PEPSession
     ```
@@ -220,12 +222,13 @@ The baseboard management controller (BMC) monitors the physical state of your se
     $PEUser = "<Privileged Endpoint user for exmaple Domain\CloudAdmin>"
     $PEpwd = ConvertTo-SecureString "<Privileged Endpoint Password>" -AsPlainText -Force
     $PECred = New-Object System.Management.Automation.PSCredential ($PEUser, $PEpwd) 
-    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force 
+    $NewBMCpwd = ConvertTo-SecureString "<New BMC Password>" -AsPlainText -Force
+    $NewBMCuser = "<New BMC User name>" 
 
     $PEPSession = New-PSSession -ComputerName $PEip -Credential $PECred -ConfigurationName "PrivilegedEndpoint" 
 
     Invoke-Command -Session $PEPSession -ScriptBlock {
-        Set-Bmcpassword -bmcpassword $using:NewBMCpwd
+        Set-Bmccredential -bmcpassword $using:NewBMCpwd -bmcuser $using:NewBMCuser
     }
     Remove-PSSession -Session $PEPSession
     ```
