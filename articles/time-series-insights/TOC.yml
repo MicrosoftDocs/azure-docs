@@ -86,7 +86,6 @@
     href: time-series-insights-manage-resources-using-azure-resource-manager-template.md  
   - name: Shape JSON for queries
     href: how-to-shape-query-json.md
-
   - name: Azure Time Series Insights V2 Update
     items:
     - name: Create an environment
@@ -97,7 +96,6 @@
       href: time-series-insights-update-how-to-tsm.md
     - name: Shape JSON for queries
       href: time-series-insights-update-how-to-shape-events.md
-
 - name: Reference
   items:
   - name: Time Series Insights 
@@ -112,16 +110,16 @@
           href: /rest/api/time-series-insights/time-series-insights-reference-query-syntax
       - name: Reference Data API
         items:
-   - name: Azure Time Series Insights V2 Update
+    - name: Azure Time Series Insights V2 Update
       items:
-        - name: Time Series Query
-          href: 
-        - name: Time Series Model
-          href: 
-        - name: Time Series Environment API
-          href: 
-        - name: Time Series Expression and Syntax
-          href: 
+      - name: Time Series Query
+        href: 
+      - name: Time Series Model
+        href: 
+      - name: Time Series Environment API
+        href: 
+      - name: Time Series Expression and Syntax
+        href: 
 - name: Related
   items:
   - name: Solutions
