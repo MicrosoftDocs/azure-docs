@@ -1,19 +1,18 @@
 ---
-title: "Example: Embed Video Indexer widgets into your applications"
-titlesuffix: Azure Cognitive Services
+title: Embed Video Indexer widgets into your applications
+titlesuffix: Azure Media Services
 description: Learn how to embed Video Indexer widgets into your application.
-services: cognitive services
-author: juliako
-manager: cgronlun
+services: media-services
+author: Juliako
+manager: femila
 
-ms.service: cognitive-services
-ms.component: video-indexer
-ms.topic: sample
-ms.date: 09/15/2018
+ms.service: media-services
+ms.topic: article
+ms.date: 11/19/2018
 ms.author: juliako
 ---
 
-# Example: Embed Video Indexer widgets into your applications
+# Embed Video Indexer widgets into your applications
 
 This article shows how you can embed Video Indexer widgets into your applications. Video Indexer supports embedding two types of widgets into your application: **Cognitive Insights** and **Player**. 
 ## Widget types

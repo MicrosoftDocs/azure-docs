@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 11/21/2018
 ms.author: rkarlin
 
 ---
@@ -57,7 +57,7 @@ To understand the policy definitions that are available in the default security 
 | Network security groups |Recommends that [network security groups](../virtual-network/security-overview.md) be configured to control inbound and outbound traffic to VMs that have public endpoints. Network security groups that are configured for a subnet are inherited by all virtual-machine network interfaces unless otherwise specified. In addition to checking to see whether a network security group has been configured, this policy assesses inbound security rules to identify rules that allow incoming traffic. |
 | Web application firewall |Recommends that a web application firewall be set up on virtual machines when either of the following is true: <ul><li>An [instance-level public IP](../virtual-network/virtual-networks-instance-level-public-ip.md) is used, and the inbound security rules for the associated network security group are configured to allow access to port 80/443.</li><li>A load-balanced IP is used, and the associated load balancing and inbound network address translation (NAT) rules are configured to allow access to port 80/443. For more information, see [Azure Resource Manager support for Load Balancer](../load-balancer/load-balancer-arm.md).</li> |
 | Next generation firewall |Extends network protections beyond network security groups, which are built into Azure. Security Center discovers deployments for which a next generation firewall is recommended, and then you can set up a virtual appliance. |
-| SQL auditing and threat detection |Recommends that auditing of access to your SQL database be enabled for both compliance and advanced threat detection, for investigation purposes. |
+| SQL auditing |Recommends that auditing of access to your SQL database be enabled for both compliance and advanced threat detection, for investigation purposes. |
 | SQL encryption |Recommends that encryption at rest be enabled for your SQL database, associated backups, and transaction log files. Even if your data is breached, it is not readable. |
 | Vulnerability assessment |Recommends that you install a vulnerability assessment solution on your VM. |
 | Storage encryption |Currently, this feature is available for blobs and Azure Files. After you enable Storage Service Encryption, only new data is encrypted, and any existing files in this storage account remain unencrypted. |

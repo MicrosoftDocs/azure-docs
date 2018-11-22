@@ -30806,7 +30806,71 @@
             "source_path":  "articles/monitoring/monitoring-service-map-scom.md",
             "redirect_url":  "/azure/azure-monitor/insights/service-map-scom",
             "redirect_document_id":  "false"
-        }
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/connect-to-azure.md",
+            "redirect_url": "/azure/media-services/video-indexer/connect-to-azure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/manage-account-connected-to-azure.md",
+            "redirect_url": "/azure/media-services/video-indexer/manage-account-connected-to-azure",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/migrate-from-v1-to-v2.md",
+            "redirect_url": "/azure/media-services/video-indexer/migrate-from-v1-to-v2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/upload-index-videos.md",
+            "redirect_url": "/azure/media-services/video-indexer/upload-index-videos",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-concepts.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-concepts",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-create-new.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-create-new",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-embed-widgets.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-embed-widgets",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-get-started.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-get-started",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-output-json-v2.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-output-json-v2",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-overview.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-overview",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-search.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-search",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-use-apis.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-use-apis",
+            "redirect_document_id": true
+        },
+        {
+            "source_path": "articles/cognitive-services/video-indexer/video-indexer-view-edit.md",
+            "redirect_url": "/azure/media-services/video-indexer/video-indexer-view-edit",
+            "redirect_document_id": true
+        }                                                        
     ]
 }
-https://docs.microsoft.com/en-us/azure/cognitive-services/qnamaker/quickstarts/csharp#Update

@@ -1,15 +1,14 @@
 ---
-title: "Upload and index videos with Video Indexer"
-titlesuffix: Azure Cognitive Services
+title: Upload and index videos with Video Indexer
+titlesuffix: Azure Media Services
 description: This topic demonstrates how to use APIs to upload and index your videos with Video Indexer.
-services: cognitive services
-author: juliako
-manager: cgronlun
+services: media-services
+author: Juliako
+manager: femila
 
-ms.service: cognitive-services
-ms.component: video-indexer
-ms.topic: sample
-ms.date: 11/12/2018
+ms.service: media-services
+ms.topic: article
+ms.date: 11/19/2018
 ms.author: juliako
 ---
 
