@@ -1,6 +1,6 @@
 ---
-title: Shaping events with The Time Series Insights Update | Microsoft Docs
-description: Understanding how to shape events with The Time Series Insights Update
+title: How to shape events with The Azure Time Series Insights V2 Update | Microsoft Docs
+description: Understanding how to shape events with The Azure Time Series Insights V2 Update 
 author: kingdomofends
 manager: cshankar
 ms.service: time-series-insights
@@ -10,7 +10,7 @@ ms.date: 11/21/2018
 ms.author: Shiful.Parti
 ---
 
-# Shaping events with The Time Series Insights Update
+# Shaping events with The Azure Time Series Insights V2 Update
 
 This article provides guidance for shaping JSON, to maximize the efficiency of your The Azure Time Series Insights V2 Update queries.
 
@@ -28,7 +28,7 @@ The following guidance helps ensure the best possible query performance:
 
 1. Don't send unnecessary properties. Exercising prudence in sending properties will help reduce cost.
 * It's a best practice to store and process data that you will query.
-1. Use TSI for static data to avoid sending static data over the network. To learn more about Time Series Instances, read about how to [Plan your Azure Time Series Insights V2 Update environment](time-series-insights-update=-plan.md).
+1. Use TSI for static data to avoid sending static data over the network. To learn more about Time Series Instances, read about how to [Plan your Azure Time Series Insights V2 Update environment](./time-series-insights-update-plan.md).
 1. Share dimension properties among multiple events, to send data over the network more efficiently.
 1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed.
@@ -107,9 +107,9 @@ TSI joined table (after flattening) during query time (The table will include ad
 
 | deviceId	| Type | L1 | L2 | timestamp | series.Flow Rate ft3/s |	series.Engine Oil Pressure psi |
 | ---- | ---- | ---- | ---- | ---- | ---- | ---- |
-| FXXX	| Default_Type | REVOLT SIMULATOR | Battery System | 2018-01-17T01:17:00Z |	1.0172575712203979 |	34.7 |
-| FXXX	| LINE_DATA	REVOLT | SIMULATOR |	Battery System |	2018-01-17T01:17:00Z | 2.445906400680542 |	49.2 |
-| FYYY	| LINE_DATA	COMMON | SIMULATOR |	Battery System |	2018-01-17T01:18:00Z | 0.58015072345733643 |	22.2 |
+| `FXXX` | Default_Type | REVOLT SIMULATOR | Battery System | 2018-01-17T01:17:00Z |	1.0172575712203979 |	34.7 |
+| `FXXX` | LINE_DATA	REVOLT | SIMULATOR |	Battery System |	2018-01-17T01:17:00Z | 2.445906400680542 |	49.2 |
+| `FYYY` | LINE_DATA	COMMON | SIMULATOR |	Battery System |	2018-01-17T01:18:00Z | 0.58015072345733643 |	22.2 |
 
 Note the following in the previous example:
 
@@ -120,4 +120,4 @@ Note the following in the previous example:
 
 ## Next steps
 
-To put these guidelines into practice, see Azure Time Series Insights query syntax (Update Link) to learn more about the query syntax for the TSI data access REST API.
+To put these guidelines into practice, see [Azure TSI query syntax](./time-series-insights-query-data-csharp.md) to learn more about the query syntax for the TSI data access REST API.
