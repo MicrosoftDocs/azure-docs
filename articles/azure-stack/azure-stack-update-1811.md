@@ -44,15 +44,15 @@ This update includes the following improvements for Azure Stack:
 
 - With this release, Azure Stack integrated systems supports configurations of 4-16 nodes. You can use the [Azure Stack Capacity Planner](https://aka.ms/azstackcapacityplanner) to help in your planning for Azure Stack capacity and configuration.
 
-- Support for Device Authentication with ADFS in particular when using Azure CLI [@Matt add Link to CLI for ADFS]
+- Support for Device Authentication with ADFS in particular when using Azure CLI. [@Matt add Link to CLI for ADFS]
 
-- Support for Azure CLI using Web Browser authentication with ADFS
+- Support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added new privileged endpoint commands to update & remove service principles for ADFS (@Matt add link to updated SPN - ADFS article)
+- Added new privileged endpoint commands to update & remove service principles for ADFS. (@Matt add link to updated SPN - ADFS article)
 
-- New Scale Unit Node operations that allow an Azure Stack operator to Start, Stop and Shutdown a node [@Matt add link to updated node actions doc]
+- New Scale Unit Node operations that allow an Azure Stack operator to Start, Stop and Shutdown a scale unit node. [@Matt add link to updated node actions doc]
 
-- Added new privileged endpoint command to update the BMC user and BMC password used by Azure Stack [@Matt add link to updated bmc doc]
+- Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. [@Matt add link to updated bmc doc]
 
 <!--  2712869   | IS  ASDK -->  
 - **Azure Stack syslog client (General Availability)**  This client allows the forwarding of audits, alerts, and security logs related to the Azure Stack infrastructure to a syslog server or security information and event management (SIEM) software external to Azure Stack. The syslog client now supports specifying the port on which the syslog server is listening.
