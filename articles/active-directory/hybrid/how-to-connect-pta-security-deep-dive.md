@@ -204,7 +204,7 @@ To auto-update an Authentication Agent:
 ## Next steps
 - [Current limitations](how-to-connect-pta-current-limitations.md): Learn which scenarios are supported and which ones are not.
 - [Quick start](how-to-connect-pta-quick-start.md): Get up and running on Azure AD Pass-through Authentication.
-- [Migrate from AD FS to Pass-through Authentication](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
+- [Migrate from AD FS to Pass-through Authentication](https://aka.ms/adfstoptadpdownload) - A detailed guide to migrate from AD FS (or other federation technologies) to Pass-through Authentication.
 - [Smart Lockout](../authentication/howto-password-smart-lockout.md): Configure the Smart Lockout capability on your tenant to protect user accounts.
 - [How it works](how-to-connect-pta-how-it-works.md): Learn the basics of how Azure AD Pass-through Authentication works.
 - [Frequently asked questions](how-to-connect-pta-faq.md): Find answers to frequently asked questions.

@@ -97,5 +97,5 @@ The preceding command will cause the deletion of any documents in ```db.coll``` 
 Currently, creating unique indexes is possible only when the collection contains no documents. Popular MongoDB migration tools attempt to create the unique indexes after importing the data. To circumvent this issue, it is suggested that users manually create the corresponding collections and unique indexes, instead of allowing the migration tool (for ```mongorestore``` this behavior is achieved by using the --noIndexRestore flag in the command line).
 
 ## Next steps
-* [How does Azure Cosmos DB index data?](../cosmos-db/indexing-policies.md)
+* [How does Azure Cosmos DB index data?](../cosmos-db/index-policy.md)
 * [Expire data in Azure Cosmos DB collections automatically with time to live](../cosmos-db/time-to-live.md)
