@@ -15,7 +15,7 @@ You may encounter errors when onboarding solutions like Update Management or Cha
 
 ## General Errors
 
-### <a name="computer-grou-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
+### <a name="computer-group-query-format-error"></a>Scenario: ComputerGroupQueryFormatError
 
 #### Issue
 
