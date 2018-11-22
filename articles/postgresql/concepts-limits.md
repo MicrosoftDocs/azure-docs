@@ -25,10 +25,10 @@ The maximum number of connections per pricing tier and vCores are as follows:
 |General Purpose| 8| 480|
 |General Purpose| 16| 950|
 |General Purpose| 32| 1500|
-|Memory Optimized| 2| 150|
-|Memory Optimized| 4| 250|
-|Memory Optimized| 8| 480|
-|Memory Optimized| 16| 950|
+|Memory Optimized| 2| 300|
+|Memory Optimized| 4| 500|
+|Memory Optimized| 8| 960|
+|Memory Optimized| 16| 1900|
 
 When connections exceed the limit, you may receive the following error:
 > FATAL:  sorry, too many clients already

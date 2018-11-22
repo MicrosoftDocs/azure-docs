@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: azure
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: cynthn
+---
 
 ## Open Azure Cloud Shell
 

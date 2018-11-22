@@ -4,11 +4,11 @@ description: This article helps you enable and configure extended diagnostics me
 services: cost-management
 keywords:
 author: bandersmsft
+manager: vitavor
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
 ms.custom:
 ---
 
@@ -62,6 +62,8 @@ Keep in mind that both Azure and Linux guest-level monitoring require a storage 
 When you create new VMs, on the Management tab, select **On** for **OS guest diagnostics**.
 
 ![Enable Guest OS diagnostics](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+For more information about enabling extended metrics for Azure virtual machines, see [Understanding and using the Azure Linux agent](../virtual-machines/extensions/agent-linux.md) and [Azure Virtual Machine Agent overview](../virtual-machines/extensions/agent-windows.md).
 
 ## Resource Manager credentials
 

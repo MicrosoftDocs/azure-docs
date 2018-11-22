@@ -7,7 +7,7 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
+ms.date: 11/06/2018
 ---
 # Create Spark Streaming jobs with exactly-once event processing
 
@@ -55,17 +55,21 @@ Checkpoints are enabled in Spark Streaming in two steps.
 
 1. In the StreamingContext object, configure the storage path for the checkpoints:
 
+    ```Scala
     val ssc = new StreamingContext(spark, Seconds(1))
     ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     In HDInsight, these checkpoints should be saved to the default storage attached to your cluster, either Azure Storage or Azure Data Lake Store.
 
 2. Next, specify a checkpoint interval (in seconds) on the DStream. At each interval, state data derived from the input event is persisted to storage. Persisted state data can reduce the computation needed when rebuilding the state from the source event.
 
+    ```Scala
     val lines = ssc.socketTextStream("hostname", 9999)
     lines.checkpoint(30)
     ssc.start()
     ssc.awaitTermination()
+    ```
 
 ### Use idempotent sinks
 

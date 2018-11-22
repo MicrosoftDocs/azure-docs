@@ -22,17 +22,17 @@ ms.component:
 
 ![Alert Management icon](media/log-analytics-solution-alert-management/icon.png)
 
-The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) or [imported from Nagios or Zabbix](log-analytics-quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
+The Alert Management solution helps you analyze all of the alerts in your Log Analytics repository.  These alerts may have come from a variety of sources including those sources [created by Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) or [imported from Nagios or Zabbix](log-analytics-quick-collect-linux-computer.md). The solution also imports alerts from any [connected System Center Operations Manager management groups](log-analytics-om-agents.md).
 
 ## Prerequisites
 The solution works with any records in the Log Analytics repository with a type of **Alert**, so you must perform whatever configuration is required to collect these records.
 
-- For Log Analytics alerts, [create alert rules](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) to create alert records directly in the repository.
+- For Log Analytics alerts, [create alert rules](../monitoring-and-diagnostics/monitoring-overview-alerts.md) to create alert records directly in the repository.
 - For Nagios and Zabbix alerts, [configure those servers](log-analytics-quick-collect-linux-computer.md) to send alerts to Log Analytics.
 - For System Center Operations Manager alerts, [connect your Operations Manager management group to your Log Analytics workspace](log-analytics-om-agents.md).  Any alerts created in System Center Operations Manager are imported into Log Analytics.  
 
 ## Configuration
-Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](../monitoring/monitoring-solutions.md). There is no further configuration required.
+Add the Alert Management solution to your Log Analytics workspace using the process described in [Add solutions](../azure-monitor/insights/solutions.md). There is no further configuration required.
 
 ## Management packs
 If your System Center Operations Manager management group is connected to your Log Analytics workspace,  then the following management packs are installed in System Center Operations Manager when you add this solution.  There is no configuration or maintenance of the management packs required.
@@ -70,7 +70,7 @@ Click on the **Alert Management** tile to open the **Alert Management** dashboar
 | Active SCOM Alerts |All alerts collected from Operations Manager with any state other than *Closed* grouped by source that generated the alert. |
 | All Active Alerts |All alerts with any severity grouped by alert name. Only includes Operations Manager alerts with any state other than *Closed*. |
 
-If you scroll to the right, the dashboard lists several common queries that you can click on to perform a [log search](log-analytics-log-search.md) for alert data.
+If you scroll to the right, the dashboard lists several common queries that you can click on to perform a [log search](log-analytics-queries.md) for alert data.
 
 ![Alert Management dashboard](media/log-analytics-solution-alert-management/dashboard.png)
 
@@ -119,4 +119,4 @@ The following table provides sample log searches for alert records collected by 
 
 
 ## Next steps
-* Learn about [Alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) for details on generating alerts from Log Analytics.
+* Learn about [Alerts in Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) for details on generating alerts from Log Analytics.

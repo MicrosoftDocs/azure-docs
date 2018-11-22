@@ -63,7 +63,7 @@ Unlike most other Log Analytics solutions, data isn't collected for activity log
 
 Perform the following steps to configure the Activity Log Analytics solution for your workspaces.
 
-1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+1. Enable the Activity Log Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 2. Configure activity logs to go to your Log Analytics workspace.
     1. In the Azure portal, select your workspace and then click **Azure Activity log**.
     2. For each subscription, click the subscription name.  
@@ -96,5 +96,5 @@ Activity log data only appears *after* you've configured your activity logs to g
 
 ## Next steps
 
-- Create an [alert](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) when a specific activity happens.
-- Use [Log Search](log-analytics-log-search.md) to view detailed information from your activity logs.
+- Create an [alert](../monitoring-and-diagnostics/alert-metric.md) when a specific activity happens.
+- Use [Log Search](log-analytics-queries.md) to view detailed information from your activity logs.

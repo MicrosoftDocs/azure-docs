@@ -359,4 +359,4 @@ The following table describes the settings for thresholds:
 | Color |The color that indicates the threshold value. |
 
 ## Next steps
-* Learn about [log searches](log-analytics-log-search.md) to support the queries in visualization parts.
+* Learn about [log searches](log-analytics-queries.md) to support the queries in visualization parts.

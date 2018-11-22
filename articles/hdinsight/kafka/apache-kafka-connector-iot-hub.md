@@ -8,7 +8,7 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/15/2018
+ms.date: 11/06/2018
 #Customer intent: As a developer, I need to use the Kafka IoT Hub connector with Kafka on HDInsight.
 ---
 

@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
 ---
 
@@ -25,7 +25,7 @@ Not yet. You can use one of the supported SDKs. See tutorials and samples in thi
 
 ## Is there an API for configuring Media Reserved Units?
 
-The Media Services team is eliminating RUs in v3. However the necessary service work is not complete. Until then, customers have to use the Azure portal or AMS v2 APIs to set RUs (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
+Currently, you have to use AMS v2 APIs to configure media Reserved Units (as described in [Scaling media processing](../previous/media-services-scale-media-processing-overview.md). 
 
 When using **VideoAnalyzerPreset** and/or **AudioAnalyzerPreset**, set your Media Services account to 10 S3 Media Reserved Units.
 
