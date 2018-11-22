@@ -89,14 +89,14 @@
 
   - name: Azure Time Series Insights V2 Update
     items:
-    - name: Shaping events
-      href: time-series-insights-update-how-to-shape-events.md
+    - name: Create an environment
+      href: time-series-insights-update-create-environment.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-update-how-to-troubleshoot.md
-    - name: Shaping events
+    - name: Use Time Series Models
+      href: time-series-insights-update-how-to-tsm.md
+    - name: Shape JSON for queries
       href: time-series-insights-update-how-to-shape-events.md
-    - name: Diagnose and troubleshoot
-      href: time-series-insights-update-how-to-troubleshoot.md
 
 - name: Reference
   items:
