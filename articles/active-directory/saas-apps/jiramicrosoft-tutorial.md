@@ -150,21 +150,18 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. For the reverse proxy scenario or load balancer scenario perform the following steps:
+9. For running the JIRA reverse proxy scenario or load balancer scenario perform the following steps:
 
-	**Step1**: Add below attribute in connector port in **server.xml** file of JIRA/Confluence server application.
+	> [!NOTE]
+	> You should be configuring the server first with the below instructions and then install the plugin.
 
-	Attribute Details:
+	a. Add below attribute in **connector** port in **server.xml** file of JIRA server application.
 
 	`scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-	Reference Screenshot:
-
 	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy1.png)
 
-	**Step2**: Change Base URL in General Setting according to proxy/load balancer.
-
-	Reference Screenshot:
+	b. Change **Base URL** in **System Settings** according to proxy/load balancer.
 
 	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy2.png)
 
