@@ -8,7 +8,7 @@ ms.author: banders
 ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom:
 ---
 
