@@ -211,12 +211,13 @@ $restoreResponse | Format-List
 The restore request following the following order
 
 1. __Accepted__  - The restore state as _Accepted_ indicates that the requested has been triggered with correct request parameters.
-    ```   
+    ```
     RestoreState  : Accepted
     TimeStampUtc  : 0001-01-01T00:00:00Z
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
+    
 2. __InProgress__ - The restore state as _InProgress_ indicates that the partition will undergo a restore with the backup mentioned in request. The partition will report _dataloss_ state.
     ```
     RestoreState  : RestoreInProgress
@@ -224,6 +225,7 @@ The restore request following the following order
     RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
     RestoredLsn   : 3552
     ```
+    
 3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following states. Each state has the following significance and response details.
        
     1. __Success__ - The restore state as _Success_ indicates the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the partition along with the time in UTC. 
@@ -233,7 +235,7 @@ The restore request following the following order
         TimeStampUtc  : 2018-11-22T11:22:33Z
         RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
         RestoredLsn   : 3552
-        ``` 
+        ```
         
     2. __Failure__ - The restore state as _Failure_ indicates the failure of the restore request. The cause of the failure will be stated in request.
         ```
