@@ -1,6 +1,6 @@
 ---
-title: Data storage and ingress in The Azure Time Series Insights Update | Microsoft Docs
-description: Understanding data storage and ingress in The Azure Time Series Insights Update
+title: Data storage and ingress in The Azure Time Series Insights V2 Update | Microsoft Docs
+description: Understanding data storage and ingress in The Azure Time Series Insights V2 Update
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 11/20/2018
 ---
 
-# Data storage and ingress in The Azure Time Series Insights Update
+# Data storage and ingress in The Azure Time Series Insights V2 Update
 
-This article describes changes to data storage and ingress from The V2 Azure Time Series Insights Update. It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
+This article describes changes to data storage and ingress from The Azure Time Series Insights V2 Update. It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
 
 ## Data storage
 
-The Azure Time Series Insights Update uses Azure Blob Storage with the Parquet file type. Azure Time Series Insights (TSI) manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The Azure Time Series Insights Update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
+The Azure Time Series Insights Update uses Azure Blob Storage with the Parquet file type. Azure Time Series Insights (TSI) manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The Azure Time Series Insights V2 Update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
 
 Like any other Azure Storage blob, you can read and write to your Azure TSI-created blobs to support different integration scenarios.
 
@@ -166,15 +166,15 @@ The API endpoint can be reached at `/getRecorded`.  To learn more about this API
 
 ### Blob storage considerations
 
-* Azure storage does have read and write limits based on how heavy your TSI Update usage is.  
-* The TSI Update does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
+* Azure storage does have read and write limits based on how heavy your TSI V2 Update usage is.  
+* The Azure Time Series Insights V2 Update does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
 * Customers will need to read the Azure blobs partitioned by time to be able to process the data.
-* The TSI update performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
-* Your TSI update data may be duplicated across blobs.
+* The TSI V2 Update performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
+* Your TSI V2 Update data may be duplicated across blobs.
 
 ### Data deletion
 
-The V2 Time Series Insights Update does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
+The Azure Time Series Insights V2 Update does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
 
 Do not delete blobs since Time Series Insights update maintains metadata about the blobs inside of Time Series Insights update.
 
@@ -182,7 +182,7 @@ Do not delete blobs since Time Series Insights update maintains metadata about t
 
 ### Azure Time Series Insights ingress policies
 
-The V2 Time Series Insights Update supports the same event sources and file types that it does today.
+The Azure Time Series Insights V2 Update supports the same event sources and file types that it does today.
 
 Supported event sources include:
 
@@ -197,7 +197,7 @@ Supported file types include:
 
 ### Data availability
 
-The V2 Time Series Insights Update Private Preview indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
+The Azure Time Series Insights V2 Update Private Preview indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
 
 > [!IMPORTANT]
 > * Public Preview TSI will make data available within 60 seconds of it hitting an event source.  
@@ -206,7 +206,7 @@ The V2 Time Series Insights Update Private Preview indexes data using a blob-siz
 
 ### Scale
 
-The V2 Time Series Insights Update will support at least 72,000 events per minute during Private Preview.
+The Azure Time Series Insights V2 Update will support at least 72,000 events per minute during Private Preview.
 
 [!INCLUDE [tsi-update-docs](../../includes/time-series-insights-update-documents.md)]
 

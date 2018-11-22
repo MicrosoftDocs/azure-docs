@@ -1,6 +1,6 @@
 ---
-title: Plan your Azure Time Series Insights Update environment | Microsoft Docs
-description: Plan your Azure Time Series Insights Update environment 
+title: Plan your Azure Time Series Insights V2 Update environment | Microsoft Docs
+description: Plan your Azure Time Series Insights V2 Update environment 
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -13,7 +13,7 @@ ms.date: 11/21/2018
 
 # Plan your Azure Time Series Insights V2 Update environment
 
-This article describes best practices to plan and get started quickly using The V2 Time Series Insights Update.
+This article describes best practices to plan and get started quickly using The Azure Time Series Insights V2 Update.
 
 ## Best practices for planning and preparation
 
