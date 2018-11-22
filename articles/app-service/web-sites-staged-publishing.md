@@ -71,6 +71,7 @@ When you clone configuration from another deployment slot, the cloned configurat
 * Handler mappings
 * Monitoring and diagnostic settings
 * WebJobs content
+* Hybrid connections
 
 **Settings that are not swapped**:
 
