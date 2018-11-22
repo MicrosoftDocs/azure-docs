@@ -24,6 +24,8 @@ The following table will help you get a better idea of your application's needs 
 
 <br>
 
+<center>**Table: Pricing tier capabilities**</center>
+
 | Capability                              |        S0           |  S1      | 
 |-----------------------------------------|:-------------------:|:--------:|
 | Search                                  |        ✓           |     ✓    | 
@@ -39,9 +41,6 @@ The following table will help you get a better idea of your application's needs 
 | Batch Routing (preview)                 |                    |     ✓    |
 | Matrix Routing (preview)                |                    |     ✓    |
 
-
-
-<center>**Pricing tier capabilities**</center>
 
 Some additional data points worth considering are, what kind enterprise do you have or how critical is the application being built?
 
