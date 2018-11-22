@@ -9,3 +9,7 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ms.author: Shiful.Parti
 ---
+
+# Explore the Azure Time Series Insights V2 Update
+
+## Next steps
