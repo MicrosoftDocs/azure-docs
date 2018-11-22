@@ -54,6 +54,7 @@ Before you prepare your environment, be sure to understand these limitations:
   * Virtual machines under load balancer configuration (internal and external)
   * Virtual machines with multiple reserved IP addresses
   * Virtual machines with multiple network adapters
+* Azure Backup does not support automatic adjustment of clock for daylight-saving changes for backing up Azure VM. If required, modify the policy to take the daylight savings time change into account.
 
   > [!NOTE]
   > Azure Backup supports [Standard SSD Managed Disks](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), a new type of durable storage for Microsoft Azure virtual machines. It is supported for managed disks on [Azure VM Backup stack V2](backup-upgrade-to-vm-backup-stack-v2.md).
