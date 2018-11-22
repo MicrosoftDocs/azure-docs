@@ -1,6 +1,6 @@
 ---
-title: Shaping events with The Time Series Insights Update | Microsoft Docs
-description: Understanding how to shape events with The Time Series Insights Update
+title: Time series query | Microsoft Docs
+description: Understanding how to time series query
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,6 +11,6 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ---
 
-# Explore the Azure Time Series Insights V2 Update
+# Time series query
 
 ## Next steps

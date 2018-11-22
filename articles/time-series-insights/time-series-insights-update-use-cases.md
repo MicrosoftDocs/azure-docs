@@ -1,6 +1,6 @@
 ---
-title: Explore the Azure Time Series Insights V2 Update | Microsoft Docs
-description: Explore the Azure Time Series Insights V2 Update
+title: Azure Time Series Insights V2 Update use cases | Microsoft Docs
+description: Understanding Azure Time Series Insights V2 Update use cases
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/21/2018
 ---
 
-# Time Series Insights Update Use Cases
+# Azure Time Series Insights V2 Update use cases
 
 This article provides an overview of several common use cases for Azure Time Series Insights. The recommendations in this article serve as a starting point as you develop applications and solutions with Time Series Insights.
 
@@ -65,3 +65,6 @@ Integrate with Advanced Analytics Services such as Azure Machine Learning and Az
 Advanced analytics and machine learning consume and process large volumes of data to make data-driven decisions and perform predictive analysis. In IoT use cases, advanced analytics algorithms learn from the data collected from millions of devices that can transmit data multiple times every second. However, the data collected from IoT devices is raw and lacks contextual information such as the location of device, unit of the sensor reading etc. This data cannot be consumed directly for advanced analytics.
 
 Azure Time Series Insights bridges the gap between IoT data and advanced analytics in a simple and cost-effective way. Time Series Insights collects raw telemetry data from millions of devices, enriches data with contextual information and transforms data into ‘parquet format’ that can easily integrate with a number of Azure Advanced Analytics Serices such as Azure Machine Learning, Azure DataBricks and your own 3rd party applications. Advanced Analytics models can learn continuously from incoming IoT telemetry data to make more accurate predictions.
+
+## Next steps
+

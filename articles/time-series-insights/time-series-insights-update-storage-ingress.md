@@ -75,7 +75,7 @@ The **Timestamp** property is never null.  It defaults to **Event Source Enqueue
 
 ## How to partition
 
-Each Azure TSI Update environment must have a **Time Series ID** property and a **Timestamp** property, which uniquely identify it. Your **Time Series ID** acts as a logical partition for your data and provides the Azure TSI Update environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure TSI Update in an Azure Storage account.
+Each Azure TSI V2 Update environment must have a **Time Series ID** property and a **Timestamp** property, which uniquely identify it. Your **Time Series ID** acts as a logical partition for your data and provides the Azure TSI Update environment with a natural boundary for distributing data across physical partitions. Physical partition management is managed by Azure TSI Update in an Azure Storage account.
 
 Azure TSI uses dynamic partitioning to optimize storage utilization and query performance by dropping and recreating partitions. The TSI Update dynamic partitioning algorithm strives to avoid a single physical partition having data for multiple different logical partitions. Or in other words the partitioning algorithm’s goal is to keep all data related to a single **Time Series ID** to be exclusively present in Parquet file(s) without being interleaved with other **Time Series IDs**. The dynamic partitioning algorithm also strives to preserve the original order of events within a single **Time Series ID**.
 
