@@ -88,6 +88,18 @@ $backupResponse
 The on-demand backup request's progress may be one of the following states
 
 1. InProgress - The backup has been initiated on the partition and is in progress.
+    ```
+    
+    BackupState             : Accepted
+    TimeStampUtc            : 0001-01-01T00:00:00Z
+    BackupId                : 00000000-0000-0000-0000-000000000000
+    BackupLocation          : 
+    EpochOfLastBackupRecord : 
+    LsnOfLastBackupRecord   : 0
+    FailureError            : 
+
+
+    ```
 2. Success/ Failure/ Timeout - A requested on-demand backup can be completed in any of the following states. Each state has the following significance and response details.
 
     * Success - The backup state as _Success_ indicates that the partition state is backed up successfully. The response will provide __BackupEpoch__ and __BackupLSN__ for the partition along with the time in UTC.
