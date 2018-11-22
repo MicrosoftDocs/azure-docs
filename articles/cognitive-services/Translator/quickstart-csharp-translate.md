@@ -47,7 +47,7 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## Create a function to Translate Text
+## Create a function to translate text
 
 Within the `Program` class, create a function called `TranslateText`. This class encapsulates the code used to call the Translate resource and print the result to console.
 
