@@ -97,6 +97,7 @@ The on-demand backup request's progress may be one of the following states
     LsnOfLastBackupRecord   : 0
     FailureError            : 
     ```
+    
 2. **Success/ Failure/ Timeout** - A requested on-demand backup can be completed in any of the following states. Each state has the following significance and response details.
 
     * **Success** - The backup state as _Success_ indicates that the partition state is backed up successfully. The response will provide __BackupEpoch__ and __BackupLSN__ for the partition along with the time in UTC.
@@ -109,6 +110,7 @@ The on-demand backup request's progress may be one of the following states
         LsnOfLastBackupRecord   : 36
         FailureError            : 
         ```
+        
     * **Failure** - The backup state as _Failure_ indicates the failure occurred during backup of the partition's state. The cause of the failure will be stated in response.
         ```
         BackupState             : Failure
