@@ -53,6 +53,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Guadeloupe|                 |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guam                                                |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Guatemala                                           |                 |                |       ✓      |      ✓     |          ✓         |
+| Guyana        |                |             |           |      ✓     |                 |
 | Haiti                                               |                 |                |       ✓      |      ✓     |          ✓         |
 | Honduras                                            |                 |                |       ✓      |      ✓     |          ✓         |
 | Jamaica                                             |                 |                |       ✓      |      ✓     |          ✓         |
@@ -102,6 +103,7 @@ The ability to geocode in a country is dependent upon the road data coverage and
 | Heard Island and McDonald Islands                   |                 |                |              |      ✓     |          ✓         |
 | Hong Kong                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
 | Indonesia                                           |        ✓        |        ✓       |       ✓      |      ✓     |          ✓         |
+| India       |        ✓        |        ✓       |       ✓      |      ✓     |                   |
 | Japan                                               |                 |                |              |      ✓     |          ✓         |
 | Kiribati                                            |                 |                |              |      ✓     |          ✓         |
 | Laos                                                |                 |                |              |      ✓     |          ✓         |
