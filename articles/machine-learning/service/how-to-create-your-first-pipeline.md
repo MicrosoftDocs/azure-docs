@@ -98,7 +98,7 @@ output_data1 = PipelineData(
 In Azure Machine Learning, compute (or compute target) refers to the machines or clusters that will perform the computational steps in your ML pipeline. For example, you can create an Azure Machine Learning compute for running your steps.
 
 ```python
-compute_name = "amlcompute"
+compute_name = "aml-compute"
  if compute_name in ws.compute_targets:
     compute_target = ws.compute_targets[compute_name]
     if compute_target and type(compute_target) is AmlCompute:

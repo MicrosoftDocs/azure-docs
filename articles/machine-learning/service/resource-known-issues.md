@@ -41,12 +41,18 @@ Databricks and Azure Machine Learning issues.
    
    Create your Azure Databricks cluster as v4.x with Python 3. We recommend a high concurrency cluster.
  
-1. AML SDK install failure on Databricks when more packages are installed.
+2. AML SDK install failure on Databricks when more packages are installed.
 
-   Some packages, such as `psutil upgrade libs`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not related to AML SDK. Example:
+   Some packages, such as `psutil`, can cause conflicts. To avoid installation errors,  install packages by freezing lib version. This issue is related to Databricks and not related to Azure ML SDK - you may face it with other libs too. Example:
    ```python
-   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython=2.2.0
+   pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0
    ```
+   Alternatively, you can use init scripts if you keep facing install issues with Python libs. This approach is not an officially supported approach. You can refer to [this doc](https://docs.azuredatabricks.net/user-guide/clusters/init-scripts.html#cluster-scoped-init-scripts).
+
+3. When using Automated Machine Learning on Databricks, if you see `Import error: numpy.core.multiarray failed to import`
+
+   Workaround: import Python library `numpy==1.14.5` to your Databricks cluster using Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library).
+
 
 ## Diagnostic logs
 Sometimes it can be helpful if you can provide diagnostic information when asking for help. 
