@@ -166,3 +166,32 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 * **Helpful**
     * Set up logs and diagnostics
     * Consider tests and CI/CD pipelines
+
+### Set up logs and diagnostics
+
+On Linux, IoT Edge uses [journald](https://docs.docker.com/config/containers/logging/journald/) as the default logging driver. You can use the command line tool `journalctl` to query the logs. On Windows, IoT Edge uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from IoT Edge. 
+
+When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. You should consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
+
+If you're worried about logs becoming too large on a resource constrained device, you have a few options to reduce memory use. 
+
+* You can specifically limit the size of all docker logfiles in the Docker daemon itself. For Linux, configure the daemon at `/etc/docker/daemon.json`. For Windows, `C:\ProgramData\docker\confige\daemon.json`. 
+* If you want to adjust the logfile size for each container, you can do so in the CreateOptions of each module. 
+* Configure Docker to automatically manage logs by setting journald as the default logging driver for Docker. 
+* Periodically remove old logs from your device by installing a logrotate tool for Docker. Use the following file specification: 
+
+   ```
+   /var/lib/docker/containers/*/*-json.log{
+       copytruncate
+       daily
+       rotate7
+       delaycompress
+       compress
+       notifempty
+       missingok
+   }
+   ```
+
+### Consider tests and CI/CD pipelines
+
+For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md)
