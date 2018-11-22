@@ -1,15 +1,14 @@
 ---
-title: "Tutorial: Create video insights from existing videos"
-titlesuffix: Azure Cognitive Services
+title: Create video insights from existing videos
+titlesuffix: Azure Media Services
 description: This topic shows you how to create and publish video insights based on existing video files.
-services: cognitive services
-author: juliako
-manager: cgronlun
+services: media-services
+author: Juliako
+manager: femila
 
-ms.service: cognitive-services
-ms.component: video-indexer
-ms.topic: tutorial
-ms.date: 09/15/2018
+ms.service: media-services
+ms.topic: article
+ms.date: 11/19/2018
 ms.author: juliako
 ---
 
