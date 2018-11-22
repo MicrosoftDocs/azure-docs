@@ -1,3 +1,15 @@
+---
+title: Explore the Azure Time Series Insights V2 Update | Microsoft Docs
+description: Explore the Azure Time Series Insights V2 Update
+author: ashannon7
+manager: cshankar
+ms.service: time-series-insights
+services: time-series-insights
+ms.topic: conceptual
+ms.date: 11/21/2018
+ms.author: anshan
+---
+
 # Time Series Insights Update Use Cases
 
 This article provides an overview of several common use cases for Azure Time Series Insights. The recommendations in this article serve as a starting point as you develop applications and solutions with Time Series Insights.

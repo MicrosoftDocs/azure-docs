@@ -13,3 +13,4 @@ ms.author: anshan
 # Explore the Azure Time Series Insights V2 Update
 
 ## Next steps
+
