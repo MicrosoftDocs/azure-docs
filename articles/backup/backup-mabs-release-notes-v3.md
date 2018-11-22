@@ -53,20 +53,20 @@ GO
 
 **Work around:** Do the following steps to upgrade to MABS V3 using Russian install package:
 
-1.  [Backup](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) your SQL database and uninstall MABS V2 (choose to retain the protected data during uninstall).
+1.  [Backup](https://docs.microsoft.com/sql/relational-databases/backup-restore/create-a-full-database-backup-sql-server?view=sql-server-2017#SSMSProcedure) your SQL database and uninstall MABS V2 (choose to retain the protected data during uninstall).
 2.  Upgrade to SQL 2017 (Enterprise) and uninstall reporting as part of upgrade.
-3. [Install](https://docs.microsoft.com/en-us/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
-4.  [Install](https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) SQL Server Management Studio (SSMS).
-5.  Configure Reporting using the parameters as documented in [SSRS configuration with SQL 2017](backup-azure-microsoft-azure-backup.md#upgrade-mabs).
+3. [Install](https://docs.microsoft.com/sql/reporting-services/install-windows/install-reporting-services?view=sql-server-2017#install-your-report-server) SQL Server Reporting Services (SSRS).
+4.  [Install](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017#ssms-installation-tips-and-issues-ssms-1791) SQL Server Management Studio (SSMS).
+5.  Configure Reporting using the parameters as documented in [SSRS configuration with SQL 2017](https://docs.microsoft.com/azure/backup/backup-azure-microsoft-azure-backup#upgrade-mabs).
 6.  [Install](backup-azure-microsoft-azure-backup.md) MABS V3.
-7. [Restore](https://docs.microsoft.com/en-us/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL using SSMS and run DPM-Sync tool as described [here](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10).
+7. [Restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL using SSMS and run DPM-Sync tool as described [here](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Update the ‘DataBaseVersion’ property in dbo.tbl_DLS_GlobalSetting table using the following command:
 
-```powershell
+    ```powershell
             UPDATE dbo.tbl_DLS_GlobalSetting
             set PropertyValue = '13.0.415.0'
             where PropertyName = 'DatabaseVersion'
-```
+    ```
 
 9.  Start MSDPM service.
 
