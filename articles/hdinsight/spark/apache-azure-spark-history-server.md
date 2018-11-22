@@ -10,15 +10,15 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/14/2018
 ---
-# Use extended Spark History Server to debug and diagnose Spark applications
+# Use extended Apache Spark History Server to debug and diagnose Apache Spark applications
 
-This article provides guidance on how to use extended Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
+This article provides guidance on how to use extended Apache Spark History Server to debug and diagnose completed and running Spark applications. The extension includes data tab and graph tab and diagnosis tab. On the **Data** tab, users can check the input and output data of the Spark job. On the **Graph** tab, users can check the data flow and replay the job graph. On the **Diagnosis** tab, user can refer to **Data Skew**, **Time Skew** and **Executor Usage Analysis**.
 
-## Get access to Spark History Server
+## Get access to Apache Spark History Server
 
-Spark History Server is the web UI for completed and running Spark applications. 
+Apache Spark History Server is the web UI for completed and running Spark applications. 
 
-### Open the Spark History Server Web UI from Azure portal
+### Open the Apache Spark History Server Web UI from Azure portal
 
 1. From the [Azure portal](https://portal.azure.com/), open the Spark cluster. For more information, see [List and show clusters](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. From **Quick Links**, click **Cluster Dashboard**, and then click **Spark History Server**. When prompted, enter the admin credentials for the Spark cluster. 
@@ -81,7 +81,7 @@ Select job ID then click **Data** on the tool menu to get the data view.
     ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## Graph tab in Spark History Server
+## Graph tab in Apache Spark History Server
 Select job ID then click **Graph** on the tool menu to get the job graph view.
 
 + Check overview of your job by the generated job graph. 
@@ -152,7 +152,7 @@ Select job ID then click **Graph** on the tool menu to get the job graph view.
     ![graph feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## Diagnosis tab in Spark History Server
+## Diagnosis tab in Apache Spark History Server
 Select job ID then click **Diagnosis** on the tool menu to get the job Diagnosis view. The diagnosis tab includes **Data Skew**, **Time Skew**, and **Executor Usage Analysis**.
     
 + Check the **Data Skew**, **Time Skew**, and **Executor Usage Analysis** by selecting the tabs respectively.
@@ -320,8 +320,8 @@ If you want to upgrade with hotfix, use the script below which will upgrade spar
 
 ## Next steps
 
-* [Manage resources for a Spark cluster on HDInsight](apache-spark-resource-manager.md)
-* [Configure Spark settings](apache-spark-settings.md)
+* [Manage resources for an Apache Spark cluster on HDInsight](apache-spark-resource-manager.md)
+* [Configure Apache Spark settings](apache-spark-settings.md)
 
 
 ## Contact us

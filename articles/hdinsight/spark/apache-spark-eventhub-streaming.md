@@ -13,9 +13,9 @@ ms.date: 11/06/2018
 #customer intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to use Apache Spark in Azure HDInsight to process streaming data from Azure Event Hubs.
 ---
 
-# Tutorial: Process tweets using Azure Event Hubs and Spark in HDInsight
+# Tutorial: Process tweets using Azure Event Hubs and Apache Spark in HDInsight
 
-In this tutorial, you Learn how to create an Apache Spark streaming application to send tweets to an Azure event hub, and create another application to read the tweets from the event hub. For a detailed explanation of Spark streaming, see [Apache Spark streaming overview](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming features to a Spark cluster on Azure.
+In this tutorial, you Learn how to create an [Apache Spark](https://spark.apache.org/) streaming application to send tweets to an Azure event hub, and create another application to read the tweets from the event hub. For a detailed explanation of Spark streaming, see [Apache Spark streaming overview](http://spark.apache.org/docs/latest/streaming-programming-guide.html#overview). HDInsight brings the same streaming features to a Spark cluster on Azure.
 
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -99,7 +99,7 @@ You use this event hub to store tweets.
 
 You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**. 
 
-1. Run the following code to add the external Maven libraries:
+1. Run the following code to add the external Apache Maven libraries:
 
     ```
     %%configure
@@ -181,7 +181,7 @@ You need to create a Jupyter notebook, and name it **SendTweetsToEventHub**.
 
 You need to create another Jupyter notebook, and name it **ReadTweetsFromEventHub**. 
 
-1. Run the following code to add an external Maven library:
+1. Run the following code to add an external Apache Maven library:
 
     ```
     %%configure -f
