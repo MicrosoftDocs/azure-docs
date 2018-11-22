@@ -2,12 +2,13 @@
 title: Data storage and ingress in The Azure Time Series Insights Update | Microsoft Docs
 description: Understanding data storage and ingress in The Azure Time Series Insights Update
 author: ashannon7
+ms.author: anshan
+ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/20/2018
-ms.author: anshan, Shiful.Parti
 ---
 
 # Data storage and ingress in The Azure Time Series Insights Update

@@ -1,13 +1,14 @@
 ---
-title: How to diagnose and troubleshoot with The Time Series Insights Update | Microsoft Docs
-description: Understanding how to diagnose and troubleshoot with The Time Series Insights Update
-author: kingdomofends
+title: How to diagnose and troubleshoot with The Azure Time Series Insights V2 Update | Microsoft Docs
+description: Understanding how to diagnose and troubleshoot with The Azure Time Series Insights V2 Update
+author: ashannon7
+ms.author: anshan
+ms.workload: big-data
 manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 11/20/2018
-ms.author: Shiful.Parti
 ---
 
 # Diagnose and solve problems in your Time Series Insights environment
@@ -17,6 +18,7 @@ This article summarizes several common problems you might encounter working with
 ## Problem: No data is seen in the Time Series Insights Update Explorer
 
 There are several common reasons why you might not see your data in the Azure TSI Explorer:
+
 Potential cause A: Your event source may not be receiving data.
 Please verify that your Event Source (Event Hub or IoT Hub) are receiving data from your tags / instances. You can do so by navigating to the overview page of your resource on Azure Portal.
 
