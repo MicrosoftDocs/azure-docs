@@ -12,23 +12,23 @@ ms.author: Shiful.Parti
 
 # Shaping events with The Time Series Insights Update
 
-This article provides guidance for shaping JSON, to maximize the efficiency of your Azure Time Series Insights (TSI) Update queries.
+This article provides guidance for shaping JSON, to maximize the efficiency of your The Azure Time Series Insights V2 Update queries.
 
 ## Best practices
 
 > [!NOTE]
-> The 600-800 property limits for S1/S2 do not apply in this TSI Update
+> For The Azure Time Series Insights V2 Update, the 600-800 property limits for S1/S2 do not apply.
 
-It's important to think about how you send events to TSI. Namely, you should always:
+It's important to think about how you send events to Azure Time Series Insights (TSI). Namely, you should always:
 
 1. Send data over the network as efficiently as possible.
 1. Ensure your data is stored in a way that enables you to perform aggregations suitable for your scenario.
 
 The following guidance helps ensure the best possible query performance:
 
-1. Don't send unnecessary properties. Exercising prudence in sending properties will help reduce cost. 
+1. Don't send unnecessary properties. Exercising prudence in sending properties will help reduce cost.
 * It's a best practice to store and process data that you will query.
-1. Use TSI for static data to avoid sending static data over the network. To learn more about Time Series Instances click <here>((Update Link))
+1. Use TSI for static data to avoid sending static data over the network. To learn more about Time Series Instances, read about how to [Plan your Azure Time Series Insights V2 Update environment](time-series-insights-update=-plan.md).
 1. Share dimension properties among multiple events, to send data over the network more efficiently.
 1. Don't use deep array nesting. TSI supports up to two levels of nested arrays that contain objects. TSI flattens arrays in the messages, into multiple events with property value pairs.
 1. If only a few measures exist for all or most events, it's better to send these measures as separate properties within the same object. Sending them separately reduces the number of events, and may make queries more performant as fewer events need to be processed.

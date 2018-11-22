@@ -7,7 +7,7 @@
  ms.service: time-series-insights
  author: kingdomofends
  ms.author: adgera
- ms.date: 11/13/2018
+ ms.date: 11/21/2018
 ---
 
 ## V2 Private Preview Time Series Insights Update documents

@@ -10,7 +10,7 @@ ms.date: 11/21/2018
 ms.author: anshan
 ---
 
-# Plan your Azure Time Series Insights Update environment
+# Plan your Azure Time Series Insights V2 Update environment
 
 This article describes best practices to plan and get started quickly using The V2 Time Series Insights Update.
 
@@ -65,7 +65,7 @@ A good rule of thumb:
   * **Time Series ID**
   * **Timestamp**
 
-Review the [How to shape events](./time-series-insights-how-to-shape-events.md) article for more details.
+Review the [How to shape events](./time-series-insights-update-how-to-shape-events.md) article for more details.
 
 ## Business disaster recovery
 
