@@ -205,52 +205,51 @@ $url = "https://mysfcluster-backup.southcentralus.cloudapp.azure.com:19080/Parti
 $response = Invoke-WebRequest -Uri $url -Method Get -CertificateThumbprint '1b7ebe2174649c45474a4819dafae956712c31d3' 
  
 $restoreResponse = (ConvertFrom-Json $response.Content) 
-$restoreResponse 
+$restoreResponse | Format-List
 ```
 
 The restore request following the following order
 
 1. __Accepted__  - The restore state as _Accepted_ indicates that the requested has been triggered with correct request parameters.
-    ```
-        RestoreState TimeStampUtc         RestoredEpoch                                                        RestoredLsn
-        ------------ ------------         -------------                                                        -----------
-        Accepted     0001-01-01T00:00:00Z @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}        3552
-
+    ```   
+    RestoreState  : Accepted
+    TimeStampUtc  : 0001-01-01T00:00:00Z
+    RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
+    RestoredLsn   : 3552
     ```
 2. __InProgress__ - The restore state as _InProgress_ indicates that the partition will undergo a restore with the backup mentioned in request. The partition will report _dataloss_ state.
     ```
-    RestoreState      TimeStampUtc         RestoredEpoch                                                        RestoredLsn
-    ------------      ------------         -------------                                                        -----------
-    RestoreInProgress 0001-01-01T00:00:00Z @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}        3552
-
+    RestoreState  : RestoreInProgress
+    TimeStampUtc  : 0001-01-01T00:00:00Z
+    RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
+    RestoredLsn   : 3552
     ```
 3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following states. Each state has the following significance and response details.
        
     1. __Success__ - The restore state as _Success_ indicates the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the partition along with the time in UTC. 
     
         ```
-        RestoreState TimeStampUtc         RestoredEpoch                                                        RestoredLsn
-        ------------ ------------         -------------                                                        -----------
-        Success      2018-10-22T12:07:36Z @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}        3552
-        ```
+        RestoreState  : Success
+        TimeStampUtc  : 2018-11-22T11:22:33Z
+        RestoredEpoch : @{DataLossNumber=131675205859825409; ConfigurationNumber=8589934592}
+        RestoredLsn   : 3552
+        ``` 
         
- 
     2. __Failure__ - The restore state as _Failure_ indicates the failure of the restore request. The cause of the failure will be stated in request.
-         ```          
-        RestoreState TimeStampUtc         RestoredEpoch RestoredLsn
-        ------------ ------------         ------------- -----------
-        Failure      0001-01-01T00:00:00Z                         0
-
+        ```
+        RestoreState  : Failure
+        TimeStampUtc  : 0001-01-01T00:00:00Z
+        RestoredEpoch : 
+        RestoredLsn   : 0
         ```
     3. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. New restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) is recommended; defaults timeout is 10 minutes. It is advised to make sure that the partition is not in data loss state, before requesting restore again.
      
         ```
-        RestoreState TimeStampUtc         RestoredEpoch RestoredLsn
-        ------------ ------------         ------------- -----------
-        Timeout      0001-01-01T00:00:00Z                         0 
-
+        RestoreState  : Timeout
+        TimeStampUtc  : 0001-01-01T00:00:00Z
+        RestoredEpoch : 
+        RestoredLsn   : 0
         ```
-
 
 ## Auto restore
 
@@ -265,5 +264,3 @@ The partitions for the Reliable Stateful service and Reliable Actors in the Serv
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
 - [Backup restore REST API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
-
-[0]: ./media/service-fabric-backuprestoreservice/PartitionBackedUpHealthEvent_Azure.png
