@@ -1,6 +1,6 @@
 ---
 title: Secure your Azure Key Vault | Microsoft Docs
-description: Manage access permissions for key vault for managing Azure Key Vault, keys, and secrets. Authentication and authorization model for key vault and how to secure your key vault.
+description: Manage access permissions for Azure Key Vault, keys, and secrets. Covers the authentication and authorization model for Key Vault, and how to secure your Key Vault.
 services: key-vault
 documentationcenter: ''
 author: amitbapat
@@ -18,57 +18,43 @@ ms.author: ambapat
 
 ---
 # Secure your key vault
-Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, passwords). Since this data is sensitive and business critical, access to your key vaults must be secured, allowing only authorized applications and users to obtain access. 
-
-This article provides an overview of the key vault access model. It explains authentication and authorization, and describes how to secure access to key vault.
+Azure Key Vault is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, and passwords). Because this data is sensitive and business critical, you must secure access to your Key Vaults, allowing only authorized applications and users. This article provides an overview of the Key Vault access model. It explains authentication and authorization, and describes how to secure access.
 
 ## Overview
-Access to a key vault is controlled through two separate interfaces: management plane and data plane. For both planes, proper authentication and authorization are required before a caller (a user or an application) can get access to key vault. Authentication establishes the identity of the caller, while authorization determines the operations the caller is allowed to perform.
+You control access to a Key Vault through two separate interfaces: the *management plane* and the *data plane*. For both planes, a caller (a user or an application) must have proper authentication and authorization to access a Key Vault. Authentication establishes the identity of the caller, while authorization determines the operations the caller can perform.
 
-For authentication both management plane and data plane use Azure Active Directory. For authorization, management plane uses role-based access control (RBAC) while data plane uses key vault access policy.
+For authentication, both planes use Azure Active Directory (Azure AD). For authorization, the management plane uses role-based access control (RBAC), while the data plane uses Key Vault access policy.
 
-Here is a brief overview of the topics covered:
+## Authenticate by using Azure Active Directory
+When you create a Key Vault in an Azure subscription, it's automatically associated with the subscription's Azure AD tenant. All callers must be registered in this tenant, and must authenticate to access the key vault. This requirement applies to both management plane and data plane access. In both cases, an application can access key vault in two ways:
 
-[Authentication using Azure Active Directory](#authentication-using-azure-active-directory) - This section explains how a caller authenticates with Azure Active Directory to access a key vault via management plane and data plane. 
+* **user+app access**: Used with applications that access Key Vault on behalf of a signed-in user. Azure PowerShell and the Azure portal are examples of this type of access. There are two ways to grant access to users: 
+  - Access Key Vault from any application.
+  - Access Key Vault only when they use a specific application (referred to as compound identity).
 
-[Management plane and data plane](#management-plane-and-data-plane) - Management plane and data plane are two access planes used for accessing your key vault. Each access plane supports specific operations. This section describes the access endpoints, operations supported, and access control method used by each plane. 
+* **app-only access**: Used with applications that run as daemon services or background jobs. The application's identity is granted access to the Key Vault.
 
-[Management plane access control](#management-plane-access-control) - In this section we'll look at allowing access to management plane operations using role-based access control.
+In both types of applications, the application authenticates with Azure AD by using any of the [supported authentication methods](../active-directory/develop/authentication-scenarios.md), and acquires a token. The authentication method used depends on the application type. Then the application uses this token and sends a REST API request to Key Vault. Management plane requests are routed through an Azure Resource Manager endpoint. When accessing the data plane, the application talks directly to a Key Vault endpoint. For more information, see the [whole authentication flow](../active-directory/develop/v1-protocols-oauth-code.md). 
 
-[Data plane access control](#data-plane-access-control) - This section describes how to use key vault access policy to control data plane access.
+The resource name for which the application requests a token depends on which plane the application is accessing. The resource name is either a management plane endpoint, or a data plane endpoint, depending on the Azure environment. For more details, see the table later in this article.
 
-[Example](#example) - This example describes how to set up access control for your key vault to allow three different teams (security team, developers/operators, and auditors) to perform specific tasks to develop, manage, and monitor an application in Azure.
+Having one single mechanism for authentication to both planes has some benefits:
 
-## Authentication using Azure Active Directory
-When you create a key vault in an Azure subscription, it's automatically associated with the subscription's Azure Active Directory tenant. All callers (users and applications) must be registered in this tenant, and must authenticate to access the key vault. This requirement applies to both management plane and data plane access. In both cases, an application can access key vault in two ways:
+* Organizations can centrally control access to all Key Vaults in their organization.
+* If a user leaves, he or she instantly loses access to all Key Vaults in the organization.
+* Organizations can customize authentication via the options in Azure AD (for example, enabling multi-factor authentication for added security).
 
-* **user+app access** - Used with applications that access key vault on behalf of a signed-in user. Azure PowerShell and Azure portal are examples of this type of access. There are two ways to grant access to users: 
-- Grant access to users so they can access key vault from any application.
-- Grant a user access to key vault only when they use a specific application (referred to as compound identity).
+## The management plane and the data plane
+Use the management plane to manage Key Vault itself. This includes operations such as managing attributes and setting data plane access policies. Use the data plane to add, delete, modify, and use the keys, secrets, and certificates stored in Key Vault.
 
-* **app-only access** - Used with applications that run as daemon services or background jobs. The application's identity is granted access to the key vault.
-
-In both types of applications, the application authenticates with Azure Active Directory using any of the [supported authentication methods](../active-directory/develop/authentication-scenarios.md) and acquires a token. Authentication method used depends on the application type. Then the application uses this token and sends REST API request to key vault. Management plane requests are routed through an Azure Resource Manager endpoint. When accessing data plane, the applications talks directly to a key vault endpoint. See more details on the [whole authentication flow](../active-directory/develop/v1-protocols-oauth-code.md). 
-
-The resource name for which the application requests a token is different depending on whether the application is accessing management plane or data plane. Hence the resource name is either management plane or data plane endpoint described in the table in a later section, depending on the Azure environment.
-
-Having one single mechanism for authentication to both management and data plane has its own benefits:
-
-* Organizations can centrally control access to all key vaults in their organization
-* If a user leaves, they instantly lose access to all key vaults in the organization
-* Organizations can customize authentication via the options in Azure Active Directory (for example, enabling multi-factor authentication for added security)
-
-## Management plane and data plane
-Azure Key Vault is an Azure service available via the Azure Resource Manager deployment model. When you create a key vault, you get a virtual container for storing sensitive objects such as keys, secrets, and certificates. Specific operations are performed on a key vault using management plane and data plane interfaces. The management plane is used to manage key vault itself. This includes operations such as managing attributes and setting data plane access policies. The data plane interface is used to add, delete, modify, and use the keys, secrets, and certificates stored in  key vault.
-
-The management plane and data plane interfaces are accessed through the different endpoints listed below. The second column describes the DNS names for these endpoints in different Azure environments. The third column describes the operations you can perform from each access plane. Each access plane also has its own access control mechanism. Management plane access control is set using Azure Resource Manager Role-Based Access Control (RBAC). Data plane access control is set using key vault access policy.
+Access the management plane and data plane interfaces through the different endpoints listed in the following table. The second column of the table describes the DNS names for these endpoints in different Azure environments. The third column describes the operations you can perform from each access plane. Each access plane also has its own access control mechanism. Management plane access control is set by using Azure Resource Manager role-based access control (RBAC). Data plane access control is set by using Key Vault access policy.
 
 | Access plane | Access endpoints | Operations | Access control mechanism |
 | --- | --- | --- | --- |
-| Management plane |**Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |Create/Read/Update/Delete key vault <br> Set access policies for key vault<br>Set tags for key vault |Azure Resource Manager Role-Based Access Control (RBAC) |
-| Data plane |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |For Keys: Decrypt, Encrypt, UnwrapKey, WrapKey, Verify, Sign, Get, List, Update, Create, Import, Delete, Backup, Restore<br><br> For secrets: Get, List, Set, Delete |Key vault access policy |
+| Management plane |**Global:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure US Government:**<br> management.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> management.microsoftazure.de:443 |Create/Read/Update/Delete Key Vault <br> Set access policies for Key Vault<br>Set tags for Key Vault |Azure Resource Manager RBAC |
+| Data plane |**Global:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure US Government:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure Germany:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |For keys: Decrypt, Encrypt, UnwrapKey, WrapKey, Verify, Sign, Get, List, Update, Create, Import, Delete, Backup, Restore<br><br> For secrets: Get, List, Set, Delete |Key Vault access policy |
 
-Management plane and data plane access controls work independently. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access. Access is granted through key vault access policies. Conversely, a user that needs to read vault properties and tags, but not access data (keys, secrets, or certificates), only needs control plane access. Access is granted by assigning 'read' access to the user, using RBAC.
+Management plane and data plane access controls work independently. For example, if you want to grant an application access to use keys in a key vault, you only need to grant data plane access. You grant access through Key Vault access policies. Conversely, a user who needs to read Key Vault properties and tags, but not access data (keys, secrets, or certificates), only needs management plane access. You grant access by assigning read access to the user with RBAC.
 
 ## Management plane access control
 The management plane consists of operations that affect the key vault itself, such as:
