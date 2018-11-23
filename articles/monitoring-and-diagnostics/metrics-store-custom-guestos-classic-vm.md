@@ -31,7 +31,7 @@ The process that's outlined in this article only works on classic virtual machin
 ## Create a classic virtual machine and storage account
 
 1. Create a classic VM by using the Azure portal.
-   ![Create Clasic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+   ![Create Classic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
 1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
 
