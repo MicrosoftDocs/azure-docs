@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # Transform data with the Azure Machine Learning Data Prep SDK
 
-In this article, you'll learn different methods of loading data using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). The SDK offers functions make it simple to add columns, filter out unwanted rows or columns, and impute missing values.
+In this article, you learn different methods of loading data using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). The SDK offers functions make it simple to add columns, filter out unwanted rows or columns, and impute missing values.
 
 Currently there are functions for the following tasks:
 
