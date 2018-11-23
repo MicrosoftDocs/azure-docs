@@ -31,7 +31,7 @@ When you delete a resource group, Resource Manager determines the order to delet
 
 After the order is determined, Resource Manager issues a DELETE operation for each resource. It waits for any dependencies to finish before proceeding.
 
-The expected successful response codes for synchronous operations are:
+For synchronous operations, the expected successful response codes are:
 
 * 200
 * 204
