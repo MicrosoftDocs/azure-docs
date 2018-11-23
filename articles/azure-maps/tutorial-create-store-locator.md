@@ -76,7 +76,7 @@ Looking at the screenshot of the data, we can make the following observations:
 * Some additional columns contain metadata related to the coffee shops: a phone number, Boolean columns for Wi-Fi hotspot and wheelchair accessibility, and store opening and closing times in 24-hour format. You can create your own columns that contain metadata that’s more relevant to your location data.
 
 > [!Note]
-> Azure maps uses a spherical Mercato projection (EPSG:3857).
+> Azure maps use a spherical Mercato projection **EPSG:3857** to render data and **EPSG:4325** to read data.
 
 There are many ways to expose the dataset to the application. One approach is to load the data into a database and expose a web service that queries the data and sends the results to the user’s browser. This option is ideal for large datasets or for datasets that are updated frequently. However, this option requires significantly more development work and has a higher cost. 
 
