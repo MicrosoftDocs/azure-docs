@@ -302,13 +302,11 @@ To configure protection for a SQL database:
 
       There is no limit on the number of databases that get selected in one go using auto-protect feature (as many databases as in the vault can be selected).  
 
-      It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection. 
+      It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
 
-
-> [!NOTE]
->
-To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
->
+      > [!Note]
+      > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
+      >
 
 7. To create or choose a backup policy, on the **Backup** menu, select **Backup policy**. The **Backup policy** menu opens.
 
