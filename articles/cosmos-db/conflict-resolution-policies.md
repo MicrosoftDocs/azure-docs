@@ -15,7 +15,7 @@ ms.author: mjbrown
 
 Conflicts and conflict resolution policies are applicable if your Cosmos account is configured with multiple write regions.
 
-For Cosmos DB accounts configured with multiple write regions, update conflicts can occur when multiple writers concurrently update the same item in multiple regions. Update conflicts are classified into the following three types:
+For Cosmos accounts configured with multiple write regions, update conflicts can occur when multiple writers concurrently update the same item in multiple regions. Update conflicts are classified into the following three types:
 
 1. **Insert conflicts:** These conflicts can occur when an application simultaneously inserts two or more items with the same unique index (for example, ID property) from two or more regions. In this case, all the writes may succeed initially in their respective local regions, but based on the conflict resolution policy you choose, only one item with the original ID is finally committed.
 

@@ -3,7 +3,7 @@ title: Add a popup with Azure Maps | Microsoft Docs
 description: How to add a popup to Javascript map
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/17/2018
+ms.date: 11/09/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
@@ -13,24 +13,24 @@ ms.custom: codepen
 
 # Add a popup to the map
 
-This article shows you how to add a popup to a map.  
+This article shows you how to add a popup to a point on a map.
 
 ## Understand the code
 
 <a id="addAPopup"></a>
 
-<iframe height='500' scrolling='no' title='Add a popup to a map' src='//codepen.io/azuremaps/embed/zRyKxj/?height=545&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/zRyKxj/'>Add a popup to a map</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Add a pop up using Azure Maps' src='//codepen.io/azuremaps/embed/MPRPvz/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/MPRPvz/'>Add a pop up using Azure Maps</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions.
+In the code above, the first block of code constructs a Map object. You can see [create a map](./map-create.md) for instructions. It also creates HTML content to be displayed within the popup.
 
-The second block of code creates a pin and add it to the map. You can see [add a pin to the map](./map-add-pin.md) for instructions.
+The second block of code creates a data source object using the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) class. A point is a [Feature](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) of the [Point](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) class. A point object with a name and description properties is then created and added to the data source.
 
-The third block of code creates content to be displayed within a popup. Popup content is HTML element.
+A [symbol layer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) uses text or icons to render point-based data wrapped in the [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) as symbols on the map.  A symbol layer is created in the third block of code. The data source is added to the symbol layer, which is then added to the map.
 
-The fourth block of code creates a [popup object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Popup properties such as content and position are part of [PopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.popupoptions?view=azure-iot-typescript-latest). PopupOptions can be defined in popup constructor or via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) function of the popup class.
+The fourth block of code creates a [popup object](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) via `new atlas.Popup()`. Popup properties such as position and pixelOffset are part of [PopupOptions](/javascript/api/azure-maps-control/atlas.popupoptions). PopupOptions can be defined in popup constructor or via [setOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setoptions-popupoptions-) function of the popup class. A `mouseover` event listener for the symbol layer is then created.
 
-The last block of code uses [addEventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) function of the map class to listen for mouseover event on the pins, and uses [open](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) function of the popup class to open the popup if the event occurs.
+The last block of code creates a function that is triggered by the `mouseover` event listener. It sets the content and properties of the popup and adds the popup object to the map.
 
 ## Next steps
 

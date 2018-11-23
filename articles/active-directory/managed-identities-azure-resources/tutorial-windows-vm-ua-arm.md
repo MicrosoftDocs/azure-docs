@@ -35,8 +35,6 @@ You learn how to:
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
 - [Sign in to Azure portal](https://portal.azure.com)
 
 - [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)

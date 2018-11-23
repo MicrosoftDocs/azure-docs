@@ -9,7 +9,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/12/2018
 ms.author: wolfma
 ---
 
@@ -27,7 +27,7 @@ ms.author: wolfma
 
 * Added additional verification in the recognizer configuration, and added additional error message.
 * Improved handling of long-time silence in middle of an audio file.
-* NuGet package: for .NET Framework projects prevent building with AnyCPU configuration.
+* NuGet package: for .NET Framework projects, it prevents building with AnyCPU configuration.
 
 **Bug fixes**
 
@@ -44,7 +44,7 @@ ms.author: wolfma
 
 **Samples**
 
-* Added C++ sample for pull and push stream usage in our [sample repository](https://aka.ms/csspeech/samples).
+* Added C++ and C# samplea for pull and push stream usage in the [sample repository](https://aka.ms/csspeech/samples).
 
 ## Speech Service SDK 1.0.1
 

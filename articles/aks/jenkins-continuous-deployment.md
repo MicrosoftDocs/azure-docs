@@ -1,42 +1,61 @@
 ---
-title: Jenkins continuous deployment with Azure Kubernetes Service (AKS)
-description: Learn how to automate a continuous deployment process with Jenkins to deploy and upgrade a containerized app in Azure Kubernetes Service (AKS)
+title: Tutorial - Deploy from GitHub to Azure Kubernetes Service (AKS) with Jenkins
+description: Set up Jenkins for continuous integration (CI) from GitHub and continuous deployment (CD) to Azure Kubernetes Service (AKS) 
 services: container-service
-author: iainfoulds
-
 ms.service: container-service
+author: iainfoulds
+ms.author: iainfou
 ms.topic: article
 ms.date: 09/27/2018
-ms.author: iainfou
 ---
 
-# Create a continuous deployment pipeline with Jenkins and Azure Kubernetes Service (AKS)
+# Tutorial: Deploy from GitHub to Azure Kubernetes Service (AKS) with Jenkins continuous integration and deployment
 
-To quickly deploy updates to applications in Azure Kubernetes Service (AKS), you often use a continuous integration and continuous delivery (CI/CD) platform. In a CI/CD platform, a code commit can trigger a new container build that is then used to deploy an updated application instance. In this article, you use Jenkins as the CI/CD platform to build and push container images to Azure Container Registry (ACR) and then run those applications in AKS. You learn how to:
+This tutorial deploys a sample app from GitHub to an 
+[Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) 
+cluster by setting up continuous integration (CI) and 
+continuous deployment (CD) in Jenkins. That way, when you 
+update your app by pushing commits to GitHub, Jenkins 
+automatically runs a new container build, pushes container 
+images to Azure Container Registry (ACR), and then runs your app in AKS. 
+
+In this tutorial, you'll complete these tasks:
 
 > [!div class="checklist"]
-> * Deploy a sample Azure vote application to an AKS cluster
-> * Create a basic Jenkins instance
-> * Configure credentials for Jenkins to interact with ACR
-> * Create a Jenkins build job and GitHub webhook for automated builds
-> * Test the CI/CD pipeline to update an application in AKS based on GitHub code commits
+> * Deploy a sample Azure vote app to an AKS cluster.
+> * Create a basic Jenkins project.
+> * Set up credentials for Jenkins to interact with ACR.
+> * Create a Jenkins build job and GitHub webhook for automated builds.
+> * Test the CI/CD pipeline to update an application in AKS based on GitHub code commits.
 
-## Before you begin
+## Prerequisites
 
-You need the following items in order to complete the steps in this article.
+To complete this tutorial, you need these items:
 
 - Basic understanding of Kubernetes, Git, CI/CD, and container images
 
-- An [AKS cluster][aks-quickstart] and `kubectl` configured with the [AKS cluster credentials][aks-credentials].
-- An [Azure Container Registry (ACR) registry][acr-quickstart], the ACR login server name, and the AKS cluster configured to [authenticate with the ACR registry][acr-authentication].
+- An [AKS cluster][aks-quickstart] and `kubectl` configured with the 
+[AKS cluster credentials][aks-credentials]
 
-- The Azure CLI version 2.0.46 or later installed and configured. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
-- [Docker installed][docker-install] on your development system.
-- A GitHub account, [GitHub personal access token][git-access-token], and Git client installed on your development system.
+- An [Azure Container Registry (ACR) registry][acr-quickstart], 
+the ACR login server name, and the AKS cluster configured to 
+[authenticate with the ACR registry][acr-authentication]
 
-- If you provide your own Jenkins instance rather than this sample scripted way to deploy Jenkins, your Jenkins instance needs [Docker installed and configured][docker-install] and [kubectl][kubectl-install].
+- The Azure CLI version 2.0.46 or later installed and configured. 
+Run `az --version` to find the version. If you need to install or upgrade, 
+see [Install Azure CLI][install-azure-cli].
 
-## Prepare the application
+- [Docker installed][docker-install] on your development system
+
+- A GitHub account, [GitHub personal access token][git-access-token], 
+and Git client installed on your development system
+
+- If you provide your own Jenkins instance rather 
+than this sample scripted way to deploy Jenkins, 
+your Jenkins instance needs [Docker installed and configured][docker-install] 
+and [kubectl][kubectl-install].
+
+## Prepare your app
 
 In this article, you use a sample Azure vote application that contains a web interface hosted in one or more pods, and a second pod hosting Redis for temporary data storage. Before you integrate Jenkins and AKS for automated deployments, first manually prepare and deploy the Azure vote application to your AKS cluster. This manual deployment is version one of the application, and lets you see the application in action.
 

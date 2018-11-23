@@ -5,7 +5,7 @@ keywords: billing invoice,invoice download,azure invoice,azure usage
 services: 'billing'
 documentationcenter: ''
 author: genlin
-manager: tonguyen
+manager: adpick
 editor: ''
 tags: billing
 

@@ -33,7 +33,7 @@ The syntax for Expressions for Attribute Mappings is reminiscent of Visual Basic
 * For string constants, if you need a backslash ( \ ) or quotation mark ( " ) in the string, it must be escaped with the backslash ( \ ) symbol. For example: "Company name: \"Contoso\""
 
 ## List of Functions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### Append
@@ -161,6 +161,26 @@ Replaces values within a string. It works differently depending on the parameter
 | **template** |Optional |String |When **template** value is provided, we will look for **oldValue** inside the template and replace it with source value. |
 
 - - -
+### SelectUniqueValue
+**Function:**<br> 
+SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
+
+**Description:**<br> 
+Requires a minimum of two arguments, which are unique value generation rules defined using expressions. The function evaluates each rule and then checks the value generated for uniqueness in the target app/directory. The first unique value found will be the one returned. If all of the values already exist in the target, the entry will get escrowed and the reason gets logged in the audit logs. There is no upper bound to the number of arguments that can be provided.
+
+> [!NOTE]
+>1. This is a top-level function, it cannot be nested.
+>2. This function is only meant to be used for entry creations. When using it with an attribute, set the **Apply Mapping** property to **Only during object creation**.
+
+
+**Parameters:**<br> 
+
+| Name | Required/ Repeating | Type | Notes |
+| --- | --- | --- | --- |
+| **uniqueValueRule1  … uniqueValueRuleN ** |At least 2 are required, no upper bound |String | List of unique value generation rules to evaluate |
+
+
+- - -
 ### SingleAppRoleAssignment
 **Function:**<br> 
 SingleAppRoleAssignment([appRoleAssignments])
@@ -253,6 +273,7 @@ NormalizeDiacritics([givenName])
 * **OUTPUT**:  "Zoe"
 
 ### Output date as a string in a certain format
+
 You want to send dates to a SaaS application in a certain format. <br>
 For example, you want to format dates for ServiceNow.
 
@@ -266,6 +287,7 @@ For example, you want to format dates for ServiceNow.
 * **OUTPUT**:  "2015-01-23"
 
 ### Replace a value based on predefined set of options
+
 You need to define the time zone of the user based on the state code stored in Azure AD. <br>
 If the state code doesn't match any of the predefined options, use default value of "Australia/Sydney".
 
@@ -277,6 +299,26 @@ If the state code doesn't match any of the predefined options, use default value
 
 * **INPUT** (state): "QLD"
 * **OUTPUT**: "Australia/Brisbane"
+
+### Generate unique value for userPrincipalName (UPN) attribute
+
+Based on the user's first name, middle name and last name, you need to generate a value for the UPN attribute and check for its uniqueness in the target AD directory before assigning the value to the UPN attribute.
+
+**Expression:** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**Sample input/output:**
+
+* **INPUT** (PreferredFirstName): "John"
+* **INPUT** (PreferredLastName): "Smith"
+* **OUTPUT**: "John.Smith@contoso.com" if UPN value of John.Smith@contoso.com doesn't already exist in the directory
+* **OUTPUT**: "J.Smith@contoso.com" if UPN value of John.Smith@contoso.com already exists in the directory
+* **OUTPUT**: "Jo.Smith@contoso.com" if the above two UPN values already exist in the directory
 
 ## Related Articles
 * [Automate User Provisioning/Deprovisioning to SaaS Apps](user-provisioning.md)

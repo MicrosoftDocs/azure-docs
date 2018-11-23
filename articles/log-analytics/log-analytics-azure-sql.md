@@ -27,8 +27,7 @@ By using metrics that you collect with the solution, you can create custom monit
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>[!VIDEO https://youtu.be/GK2Hl21aZqQ]
 >
 
 ## Connected sources
@@ -286,4 +285,4 @@ While the solution is free to use, consumption of diagnostics telemetry above th
 
 - Use [Log Searches](log-analytics-queries.md) in Log Analytics to view detailed Azure SQL data.
 - [Create your own dashboards](log-analytics-dashboards.md) showing Azure SQL data.
-- [Create alerts](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) when specific Azure SQL events occur.
+- [Create alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) when specific Azure SQL events occur.

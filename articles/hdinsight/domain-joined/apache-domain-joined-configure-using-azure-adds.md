@@ -16,7 +16,7 @@ Enterprise Security Package (ESP) clusters provide multi-user access on Azure HD
 In this article, you learn how to configure a HDInsight cluster with ESP by using Azure Active Directory Domain Services (Azure AD-DS).
 
 >[!NOTE]
->ESP is GA in HDI 3.6 for Spark, Interactive, and Hadoop. ESP for HBase and Kafka cluster types is in preview.
+>ESP is GA in HDI 3.6 for Spark, Interactive, and Apache Hadoop. ESP for HBase and Kafka cluster types is in preview.
 
 ## Enable Azure AD-DS
 
@@ -58,6 +58,9 @@ Once the managed identity is created and given the correct role, the AAD-DS admi
 ![HDInsight Managed Identity Operator Role Assignment](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-managed-identity-operator-role-assignment.png)
 
 ## Networking considerations
+
+> [!NOTE]
+> Azure AD-DS must be deployed in an Azure Resource Manager (ARM) based vNET. Classic virtual networks are not supported for Azure AD-DS. Please refer to [Enable Azure Active Directory Domain Services using the Azure portal](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started-network) for more details.
 
 After you enable Azure AD-DS, a local Domain Name Service (DNS) server runs on the AD Virtual Machines (VMs). Configure your Azure AD-DS Virtual Network (VNET) to use these custom DNS servers. To locate the right IP addresses, select **Properties** under the **Manage** category and look at the IP Addresses listed beneath **IP Address on Virtual Network**.
 
