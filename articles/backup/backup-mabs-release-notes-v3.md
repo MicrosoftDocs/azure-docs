@@ -20,30 +20,32 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 
 **Work around:** To prevent this, open SQL Server Management Studio (SSMS)) and run the following SQL script on the DPM DB:
 
-IF EXISTS (SELECT * FROM dbo.sysobjects
+
+    IF EXISTS (SELECT * FROM dbo.sysobjects
         WHERE id = OBJECT_ID(N'[dbo].[tbl_PRM_DatasourceLastActiveServerMap]')
         AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
-   DROP TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap]
-GO
+        DROP TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap]
+        GO
 
-CREATE TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap] (
-    [DatasourceId]          [GUID]          NOT NULL,
-    [ActiveNode]            [nvarchar](256) NULL,
-    [IsGCed]                [bit]           NOT NULL
-) ON [PRIMARY]
-GO
+        CREATE TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap] (
+            [DatasourceId]          [GUID]          NOT NULL,
+            [ActiveNode]            [nvarchar](256) NULL,
+            [IsGCed]                [bit]           NOT NULL
+            ) ON [PRIMARY]
+        GO
 
-ALTER TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap] ADD
-CONSTRAINT [pk__tbl_PRM_DatasourceLastActiveServerMap__DatasourceId] PRIMARY KEY NONCLUSTERED
-(
-    [DatasourceId]
-)  ON [PRIMARY],
+        ALTER TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap] ADD
+    CONSTRAINT [pk__tbl_PRM_DatasourceLastActiveServerMap__DatasourceId] PRIMARY KEY NONCLUSTERED
+        (
+            [DatasourceId]
+        )  ON [PRIMARY],
 
-CONSTRAINT [DF_tbl_PRM_DatasourceLastActiveServerMap_IsGCed] DEFAULT
-(
-        0
-) FOR [IsGCed]
-GO
+    CONSTRAINT [DF_tbl_PRM_DatasourceLastActiveServerMap_IsGCed] DEFAULT
+        (
+            0
+        ) FOR [IsGCed]
+    GO
+
 
 ##  Upgrade to MABS V3 fails in Russian locale
 
@@ -60,10 +62,9 @@ GO
 7. [Restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL using SSMS and run DPM-Sync tool as described [here](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Update the ‘DataBaseVersion’ property in dbo.tbl_DLS_GlobalSetting table using the following command:
 
-
-            UPDATE dbo.tbl_DLS_GlobalSetting
-            set PropertyValue = '13.0.415.0'
-            where PropertyName = 'DatabaseVersion'
+        UPDATE dbo.tbl_DLS_GlobalSetting
+        set PropertyValue = '13.0.415.0'
+        where PropertyName = 'DatabaseVersion'
 
 
 9.  Start MSDPM service.
