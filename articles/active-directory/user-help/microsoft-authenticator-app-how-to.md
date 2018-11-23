@@ -16,14 +16,32 @@ ms.reviewer: librown
 ---
 
 # Get started with the Microsoft Authenticator app
+The Microsoft Authenticator app helps you prove your identity without you needing to remember a password. Instead of a password, you sign-in using your username and your mobile device with your fingerprint, face, or PIN to confirm that you are in fact, you. Two-factor verification method is considered more secure than just a password, especially while viewing sensitive info.
 
-The Microsoft Authenticator app help prevent unauthorized access to accounts and to stop fraudulent transactions by giving you an additional level of security for your work or school account (for example, alain@contoso.com) or your personal Microsoft account (for example, alain@outlook.com).
 
-When using the app for two-step verification, it can work in one of two ways:
 
-- **Notification.** The app sends a notification to your device. Make sure the notification is right, and then select **Verify**. If you don’t recognize the notification, select **Deny**. After you click **Deny**, you can also mark the request as fraudulent.
+## Multi-factor authentication versus two-factor verification
+The easiest way to explain the difference between these two methods is that all two-factor verification is multi-factor authentication, but not all multi-factor authentication is two-factor verification. Two-factor verification requires you specifically to use only two pieces of verification info, like a password and a PIN. On the other hand, multi-factor authentication requires you to use _at least_ two pieces of verification info, based on what you or your organization's requirements.
 
-- **Verification code.** After you type your username and password, you can open the app and copy the verification code provided on the **Accounts** screen on to the sign-in screen. The verification code acts as a second form of authentication.
+Two-factor verification specifically works in two ways:
+
+- **Notification.** The Microsoft Authenticator app sends a notification asking you to **Approve sign-in**. Choose **Approve** if you recognize the sign-in attempt. Otherwise, choose **Deny**. If you choose **Deny**, you can also mark the request as fraudulent.
+
+- **Verification code.** Type in your username and password for either your work or school account or your personal Microsoft account, and then copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
+
+### Two-factor verification and your accounts
+
+- **Work or school account.** Your organization decides whether you need to use two-factor verfication with your work or school account (for example, alain@contoso.com), along with which verification methods you'll need to use. For more information about multi-factor verification, see [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md). For more information about how to set up Security info to use the Microsoft Authentication app, see [Set up security info to use an authenticator app (preview)](security-info-setup-auth-app.md).
+
+- **Personal Microsoft account.** You can set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com).
+
+- **Non-Microsoft personal account.** You can set up two-factor verification for your non-Microsoft personal accounts (for example, alain@gmail.com). These non-Microsoft accounts might not call themselves two-factor verification, but you should be able to find it within the Security or the Sign-in settings. You can watch these [Microsoft Customer Support videos](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX) to see how to add non-Microsoft personal accounts.
+
+
+
+
+
+
 
 ## Opt in for two-step verification
 
