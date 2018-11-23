@@ -21,13 +21,11 @@ Traditionally, the data collected from IoT devices lacks contextual information 
 
 ## Key capabilities
 
-With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The V2 Time Series Insights Update:
+With the goal to make it simple and effortless to manage time series contextualization, TSM enables the following capabilities in The Azure Time Series Insights V2 Update:
 
 * The ability to author and manage computations or formulas, to transform data leveraging scalar functions, aggregate operations, etc.
-
 * Defining parent child relationships to enable navigation and reference to provide context to time series telemetry.
-
-* Define properties associated with the instances part of Instance fields and use these to create hierarchies.
+* Define properties associated with the instances part of instance fields and use these to create hierarchies.
 
 ## Times Series Model key components
 
@@ -54,7 +52,15 @@ https://YOUR_ENVIROMENT.env.timeseries.azure.com/timeseries/types/$batch?api-ver
 | YOUR_ENVIRONMENT  |  The name of your environment  | `environment123` |
 | API_VERSION  |  The API specification | `2018-11-01-preview` |
 
-With JSON body:
+With the following JSON body and variable attributes:
+
+| Attribute | Required or Optional |
+| --- | --- |
+| **kind**  |  Required  |
+| **filter**  |  Optional |
+| **value**  | Null or not specified  |
+| **interpolation**  |  Optional |
+| **aggregation**  |  Required |
 
 ```JSON
 {
@@ -65,25 +71,25 @@ With JSON body:
             "description": "This is type 2",
             "variables": {
                 "Avg Temperature": {
-                    "kind": "numeric", //Required
-                    "filter": null, //Optional
-                    "value": { "tsx": "$event.temperature.Double" }, //Required
-                    "interpolation": "None", //Optional
-                    "aggregation": {"tsx": "avg($value)"} //Required
+                    "kind": "numeric",
+                    "filter": null,
+                    "value": { "tsx": "$event.temperature.Double" },
+                    "interpolation": "None",
+                    "aggregation": {"tsx": "avg($value)"}
                 },
                 "Count Temperature": {
-                    "kind": "aggregate", //Required
-                    "filter": null, //Optional
-                    "value": null, //Null or not specified
-                    "interpolation": "None", //Optional
-                    "aggregation": {"tsx": "count()"} //Required
+                    "kind": "aggregate",
+                    "filter": null,
+                    "value": null,
+                    "interpolation": "None",
+                    "aggregation": {"tsx": "count()"}
                 },
                 "Min Temperature": {
-                    "kind": "aggregate", //Required
-                    "filter": null, //Optional
-                    "value": null, //Null or not specified
-                    "interpolation": "None", //Optional
-                    "aggregation": {"tsx": "min($event.temperature)"} //Required
+                    "kind": "aggregate",
+                    "filter": null,
+                    "value": null,
+                    "interpolation": "None",
+                    "aggregation": {"tsx": "min($event.temperature)"}
                 },
             }
         }
@@ -107,22 +113,22 @@ Response:
                         "kind": "numeric",
                         "filter": null,
                         "value": { "tsx": "$event.temperature.Double" },
-                        "interpolation": "None", //Optional
-                        "aggregation": {"tsx": "avg($value)"} //Required
+                        "interpolation": "None",
+                        "aggregation": {"tsx": "avg($value)"}
                     },
                     "Count Temperature": {
-                        "kind": "aggregate", //Required
-                        "filter": null, //Optional
-                        "value": null, //Null or not specified
-                        "interpolation": "None", //Optional
-                        "aggregation": {"tsx": "count()"} //Required
+                        "kind": "aggregate",
+                        "filter": null,
+                        "value": null,
+                        "interpolation": "None",
+                        "aggregation": {"tsx": "count()"}
                     },
                     "Min Temperature": {
-                        "kind": "aggregate", //Required
-                        "filter": null, //Optional
-                        "value": null, //Null or not specified
-                        "interpolation": "None", //Optional
-                        "aggregation": {"tsx": "min($event.temperature)"} //Required
+                        "kind": "aggregate",
+                        "filter": null,
+                        "value": null,
+                        "interpolation": "None",
+                        "aggregation": {"tsx": "min($event.temperature)"}
                     }
                 }
             },
@@ -175,7 +181,7 @@ Variable values are and should be used in computation. This is the column in the
 
 The process of converting a set of values to a value per an interval is called a variable reduction. Variable reductions can be aggregated recorded data from the source, or reconstructed signals using interpolation and aggregating, or reconstructed signals using interpolation and sampling. Variable boundaries can be added to interpolation, these allow calculations to include events outside of search span.
 
-The V2 Time Series Insights Update supports the following variable interpolation: `linear`, `stepright`, and `none`.
+The Azure Time Series Insights V2 Update supports the following variable interpolation: `linear`, `stepright`, and `none`.
 
 ### Variable Aggregation
 
@@ -245,7 +251,7 @@ Response:
 
 ## Time Series Model instances
 
-Instances are the time series themselves. In most cases this will be the *deviceID* or *assetID that is the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
+Instances are the time series themselves. In most cases this will be the *deviceID* or *assetID* that is the unique identifier of the asset in the environment. Instances have descriptive information associated with them called instance properties. At a minimum, instance properties include hierarchy information. They can also include useful, descriptive data like the manufacturer, operator, or the last service date.
 
 Instances are defined by *timeSeriesID*, *typeID*, *hierarchyID*, and *instanceFields*. Each instance maps to only one *type*, and one or more hierarchies. Instances inherit all properties from hierarchies, while additional *instanceFields* can be added for further instance property definition.
 
