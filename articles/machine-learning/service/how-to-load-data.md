@@ -14,7 +14,7 @@ ms.date: 11/20/2018
 
 # Load and read data with Azure Machine Learning
 
-In this article, you'll learn different methods of loading data using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
+In this article, you learn different methods of loading data using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk). The SDK supports multiple data ingestion features, including:
 
 * Load from many file types with parsing parameter inference (encoding, separator, headers)
 * Type-conversion using inference during file loading
