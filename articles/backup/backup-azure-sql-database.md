@@ -154,26 +154,6 @@ To configure permissions:
 
     ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
 
-  The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On availability group to view the list of databases. The following images show examples of a standalone instance and an Always On availability group.
-
-    ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
-
-  In the list of databases, select all the databases you want to protect, and click **OK**.
-
-    ![Protecting the database](./media/backup-azure-sql-database/select-database-to-protect.png)
-
-  You can select up to 50 databases at a time. To protect more than 50 databases, make several passes. After you protect the first 50 databases, repeat this step to protect the next set of databases.
-  Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
-
-    ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
-
-  In case an instance or the availability group already has some of its databases protected, you can still turn ON the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the un-protected databases while the already protected databases will continue to be protected with their respective policies.
-
-  > [!NOTE]
-  > It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
-  >
-
-
 6. In the list of virtual machines, select the VM that has the SQL database to back up, and then select **Discover DBs**.
 
     The discovery process installs the **AzureBackupWindowsWorkload** extension on the virtual machine. The extension allows the Azure Backup service to communicate with the virtual machine so it can back up the SQL databases. After the extension installs, Azure Backup creates the Windows virtual service account **NT Service\AzureWLBackupPluginSvc** on the virtual machine. The virtual service account requires SQL sysadmin permission. During the virtual service account installation process, if you receive the error `UserErrorSQLNoSysadminMembership`, see [Fix SQL sysadmin permissions](backup-azure-sql-database.md#fix-sql-sysadmin-permissions).
@@ -304,28 +284,31 @@ To configure protection for a SQL database:
 
     ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. The following images show examples of a standalone instance and an Always On availability group.
+    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On availability group to view the list of databases. The following images show examples of a standalone instance and an Always On availability group.
 
-    > [!NOTE]
-    > For a SQL Server Always On availability group, the SQL backup preference is honored. But, due to a SQL platform limitation, full and differential backups need to happen from the primary node. Log back up happens according to your backup preference. Due to this limitation, the primary node must always be registered for availability groups.
-    >
+      ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
-    ![List of databases in the SQL instance](./media/backup-azure-sql-database/discovered-databases.png)
+6. In the list of databases, select all the databases you want to protect, and click **OK**.
 
-    Select the chevron to the left of the Always On availability group to view the list of databases.
+    ![Protecting the database](./media/backup-azure-sql-database/select-database-to-protect.png)
 
-    ![List of databases in the Always On availability group](./media/backup-azure-sql-database/discovered-database-availability-group.png)
+    You can select up to 50 databases at a time. To protect more than 50 databases, make several passes. After you protect the first 50 databases, repeat this step to protect the next set of databases.
 
-6. In the list of databases, select all of the databases to protect, and then select **OK**.
+    Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
-    ![Select multiple databases to protect](./media/backup-azure-sql-database/select-multiple-database-protection.png)
+      ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-    Select up to 50 databases at a time. To protect more than 50 databases, make several passes. After you protect the first 50 databases, repeat this step to protect the next set of databases.
+      In case an instance or the availability group already has some of its databases protected, you can still turn ON the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the un-protected databases while the already protected databases will continue to be protected with their respective policies.
 
-    > [!Note]
-    > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
-    >
-    >
+      There is no limit on the number of databases that get selected in one go using auto-protect feature (as many databases as in the vault can be selected).  
+
+      It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection. 
+
+
+> [!NOTE]
+>
+To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
+>
 
 7. To create or choose a backup policy, on the **Backup** menu, select **Backup policy**. The **Backup policy** menu opens.
 
@@ -865,6 +848,11 @@ If you want to do so, the only way is to disable the auto-protection on the inst
 
 No, if a database is dropped from an auto-protected instance, the backups on that database are still attempted. This implies that the deleted database begins to show up as unhealthy under **Backup Items** and is still treated as protected.
 The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database. You can now re-enable auto protection for this instance.
+
+###  Why can’t I see the newly added database to an auto-protected instance under the protected items?
+You may not see a newly added database to an auto-protected instance protected instantly. This is because the discovery typically runs every 8 hours. However, the user can run a manual discovery using Recover DBs option to discover and protect new databases immediately as shown in below image:
+
+  ![View Newly Added Database](./media/backup-azure-sql-database/view-newly-added-database.png)
 
 
 ## Next steps
