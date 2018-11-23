@@ -20,6 +20,7 @@ This article helps you migrate Azure media resources from Azure Germany to globa
 In Azure Media Services, you configure your own storage account and all media assets. Create a new Media Services account in global Azure by using the information provided in the links in this section. Reload corresponding media artifacts and perform encoding and streaming as appropriate under the new Media Services account.
 
 For more information, see these articles:
+
 - [Media Services overview](../media-services/previous/media-services-overview.md)
 - [Create a Media Services account](../media-services/previous/media-services-portal-create-account.md)
 
@@ -31,4 +32,4 @@ For more information, see [Azure Media Player](https://ampdemo.azureedge.net/azu
 
 ## Next steps
 
-Refresh your knowledge about Media Services by completing the [Media Services step-by-step tutorials](https://docs.microsoft.com/azure/media-services/#step-by-step-tutorials).
+Refresh your knowledge by completing the [Media Services step-by-step tutorials](https://docs.microsoft.com/azure/media-services/#step-by-step-tutorials).

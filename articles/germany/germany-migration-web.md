@@ -17,14 +17,14 @@ This article has information that can help you migrate Azure web resources from 
 
 ## Web apps
 
-Migrating apps that you created by using Web Apps feature of Microsoft Azure App Service from Azure Germany to global Azure isn't supported at this time. We recommend that you export a web app as an Azure Resource Manager template. Redeploy after you change the location property to the new destination region.
+Migrating apps that you created by using the Web Apps feature of Azure App Service from Azure Germany to global Azure isn't supported at this time. We recommend that you export a web app as an Azure Resource Manager template. Then, redeploy after you change the location property to the new destination region.
 
 > [!IMPORTANT]
 > Change location, Azure Key Vault secrets, certificates, and other GUIDs to be consistent with the new region.
 
 For more information, see these articles:
 - [App Service overview](../app-service/app-service-web-overview.md)
-- [Export a Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
+- [Export an Azure Resource Manager template by using PowerShell](../azure-resource-manager/resource-manager-export-template-powershell.md#export-resource-group-as-template)
 - [Overview of Azure locations](https://azure.microsoft.com/global-infrastructure/locations/)
 - [Redeploy a template](../azure-resource-manager/resource-group-template-deploy.md)
 

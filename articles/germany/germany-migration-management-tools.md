@@ -17,21 +17,22 @@ This article has information that can help you migrate Azure management tool res
 
 ## Traffic Manager
 
-Azure Traffic Manager can help you with a smooth migration. However, you can't migrate Traffic Manager profiles that you create in Azure Germany to global Azure. During a migration, you migrate all your Traffic Manager endpoints to the target environment, so, you need to update the Traffic Manager profile anyway.
+Azure Traffic Manager can help you complete a smooth migration. However, you can't migrate Traffic Manager profiles that you create in Azure Germany to global Azure. (During a migration, you migrate Traffic Manager endpoints to the target environment, so you need to update the Traffic Manager profile anyway.)
 
-You can define additional endpoints in the target environment with Traffic Manager still running in the old environment. When Target Manager is running in the new environment, you can still define endpoints in the old environment that you haven't yet migrated. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). The scenario is summarized in the following steps:
+You can define additional endpoints in the target environment by using Traffic Manager still running in the source environment. When Traffic Manager is running in the new environment, you can still define endpoints that you haven't yet migrated in the source environment. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). The Blue-Green scenario involves the following steps:
 
-1. Create a new Traffic Manager profile in Azure global.
+1. Create a new Traffic Manager profile in global Azure.
 1. Define the endpoints in Azure Germany.
 1. Change your DNS CNAME to the new Traffic Manager profile.
 1. Turn off the old Traffic Manager profile.
 1. For each endpoint in Azure Germany:
-  1. Migrate the endpoint to global Azure.
-  1. Change the Traffic Manager profile to use the new endpoint.
+   1. Migrate the endpoint to global Azure.
+   1. Change the Traffic Manager profile to use the new endpoint.
 
-For more information, see the [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md).
+For more information, see these articles:
 
-You can also learn how to [create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md).
+- [Traffic Manager overview](../traffic-manager/traffic-manager-overview.md)
+- [Create a Traffic Manager profile](../traffic-manager/traffic-manager-create-profile.md)
 
 ## Backup
 
@@ -47,39 +48,41 @@ For more information, see the [Azure Logic Apps overview](../logic-apps/logic-ap
 
 ## Network Watcher
 
-Migrating Azure Network Watcher from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new Network Watcher instance in Azure global. Afterward, compare the results between the old and new environments. Check these resources for information:
+Migrating Azure Network Watcher from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new Network Watcher instance in global Azure. Then, compare the results between the old and new environments. 
+
+For more information, see these articles:
 
 - [Network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 - [Connection Monitor](../network-watcher/connection-monitor.md)
-
-For more information, see the [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md).
+-  [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md)
 
 ## Site Recovery
 
 You can't migrate your current Azure Site Recovery setup to global Azure. You must set up a new Site Recovery solution in global Azure.
 
-For more information about Site Recovery and to learn how to migrate VMs from Azure Germany to global Azure, see [How to use Site Recovery](./germany-migration-compute.md#compute-iaas).
+For more information about Site Recovery, and to learn how to migrate VMs from Azure Germany to global Azure, see [How to use Site Recovery](./germany-migration-compute.md#compute-iaas).
 
 ## Azure policies
 
-You can't directly migrate policies from Azure Germany to global Azure. The scope of assigned policies changes in most cases, especially because the subscription ID will be different. However, you can preserve policy definitions and reuse them in global Azure.
+You can't directly migrate policies from Azure Germany to global Azure. During a migration, the scope of assigned policies changes in most cases, especially because the subscription is different in the target environment. However, you can preserve policy definitions and reuse them in global Azure.
 
 In the Azure CLI, run the following command to list all policies in your current environment:
 
 > [!NOTE]
-> Remember to first switch to the AzureGermanCloud environment in the Azure CLI.
+> Be sure to switch to the AzureGermanCloud environment in the Azure CLI before you run the following commands.
+
 
 ```azurecli
 az policy definition list --query '[].{Type:policyType,Name:name}' --output table
 ```
 
-Export only policies that have the PolicyType value **Custom**. Export **policyRule** to a file. The following example exports the custom policy "Allow Germany Central Only" (short version: *allowgconly*) to a file in the current folder: 
+Export only policies that have the **PolicyType** value **Custom**. Export **policyRule** to a file. The following example exports the custom policy "Allow Germany Central Only" (short version: *allowgconly*) to a file in the current folder: 
 
 ```azurecli
 az policy definition show --name allowgconly --output json --query policyRule > policy.json
 ```
 
-The export file looks similar to the following example:
+Your export file will look similar to the following example:
 
 ```json
 {
@@ -95,7 +98,7 @@ The export file looks similar to the following example:
 }
 ```
 
-Now, switch to the global Azure environment. Modify the policy rule by editing the file. For example, change *germanycentral* to *westeurope*.
+Now, switch to the global Azure environment. Modify the policy rule by editing the file. For example, change `germanycentral` to `westeurope`.
 
 ```json
 {
@@ -134,12 +137,12 @@ For more information about Azure policies and policy definitions, see these arti
 
 ## Next steps
 
-Refresh your knowledge with these step-by-step tutorials:
+Refresh your knowledge by completing these step-by-step tutorials:
 - [Traffic Manager tutorials](https://docs.microsoft.com/azure/traffic-manager/#step-by-step-tutorials)
 - [Azure Backup tutorials](https://docs.microsoft.com/azure/backup/#step-by-step-tutorials)
 - [Network Watcher tutorials](https://docs.microsoft.com/azure/network-watcher/#step-by-step-tutorials)
-- [Azure to Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#azure-to-azure)
-- [Vmware to Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#vmware)
-- [Hyper-V to Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#hyper-v)
+- [Azure-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#azure-to-azure)
+- [VMware-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#vmware)
+- [Hyper-V-to-Azure disaster recovery](https://docs.microsoft.com/azure/site-recovery/#hyper-v)
 - [Azure policies tutorial](../governance/policy/tutorials/create-and-manage.md)
 
