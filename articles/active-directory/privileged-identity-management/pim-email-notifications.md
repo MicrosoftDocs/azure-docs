@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 10/07/2018
+ms.date: 11/23/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
@@ -38,7 +38,7 @@ The email notifications sent for Azure AD roles depends on your role, the event,
 | Global Administrator | Yes* | Yes* | Yes* | Yes* | Yes* |
 | Eligible role member | No | Yes | No | Yes | No |
 
-\* If **Notifications** setting is set to **Enable**.
+\* If the [**Notifications** setting](pim-how-to-change-default-settings.md#notifications) is set to **Enable**.
 
 Starting at the end of July 2018, the PIM email notifications for Azure AD roles have an updated design. All events that previously triggered an email notification will continue to send an email. Some emails will have updated content providing more targeted information. The following shows an example email that is sent when a user activates a privileged role for the fictional Contoso organization.
 

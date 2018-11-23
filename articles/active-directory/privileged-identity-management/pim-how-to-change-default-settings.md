@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 10/07/2018
+ms.date: 11/23/2018
 ms.author: rolyon
 ms.custom: pim
 ---
