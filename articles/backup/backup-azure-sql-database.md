@@ -252,15 +252,6 @@ Azure Backup discovers all databases on a SQL Server instance. You can protect t
 
     ![Review the two Backup Goal steps](./media/backup-azure-sql-database/backup-goal-menu-step-one.png)
 
-    Please note that **Stop Backup** option will not work for a database in an auto-protected instance. The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database.  
-    You can disable the auto-protection on an instance or an Always On availability group under Configure Backup. Click the instance name to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto protection on that instance.
-
-      ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
-
-    All the databases in that instance will continue to be protected. However, this action will disable auto protection on any databases that will be added in the future.
-
-    After you have disabled auto-protection, you can **Stop Backup** for the database under **Backup Items**. The instance can again be enabled for auto-protection now.
-
 8. Under **Discover DBs in VMs**, select **Start Discovery** to search for unprotected virtual machines in the subscription. It can take a while to search through all of the virtual machines. The search time depends on the number of unprotected virtual machines in the subscription.
 
     ![Backup is pending during search for DBs in VMs](./media/backup-azure-sql-database/discovering-sql-databases.png)
@@ -759,6 +750,16 @@ To stop protection for a database:
     ![Stop Backup menu](./media/backup-azure-sql-database/stop-backup-button.png)
 
 7. Select **Stop backup** to stop protection on the database.
+
+  Please note that **Stop Backup** option will not work for a database in an auto-protected instance. The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database.  
+
+  You can disable the auto-protection on an instance or an Always On availability group under Configure Backup. Click the instance name to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto protection on that instance.
+
+    ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
+
+All the databases in that instance will continue to be protected. However, this action will disable auto protection on any databases that will be added in the future.
+
+After you have disabled auto-protection, you can **Stop Backup** for the database under **Backup Items**. The instance can again be enabled for auto-protection now.
 
 ### Resume protection for a SQL database
 
