@@ -284,7 +284,7 @@ To configure protection for a SQL database:
 
     ![Select Configure Backup](./media/backup-azure-sql-database/backup-goal-configure-backup.png)
 
-    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On availability group to view the list of databases. The following images show examples of a standalone instance and an Always On availability group.
+    The Azure Backup service displays all SQL Server instances with standalone databases and SQL Server Always On availability groups. To view the standalone databases in the SQL Server instance, select the chevron to the left of the instance name. Similarly, select the chevron to the left of the Always On availability group to view the list of databases. The following image is an example of a standalone instance and an Always On availability group.
 
       ![Displaying all SQL Server instances with standalone databases](./media/backup-azure-sql-database/list-of-sql-databases.png)
 
@@ -294,25 +294,26 @@ To configure protection for a SQL database:
 
     You can select up to 50 databases at a time. To protect more than 50 databases, make several passes. After you protect the first 50 databases, repeat this step to protect the next set of databases.
 
+    > [!Note]
+    > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
+    >
+
     Alternatively, you can enable auto-protection on the entire instance or Always On availability group by selecting the **ON** option in the corresponding dropdown in the **AUTOPROTECT** column. The auto-protection feature not only enables protection on all the existing databases in one go but also automatically protects any new databases that will be added to that instance or the availability group in future.  
 
       ![Enable auto-protection on the Always On availability group](./media/backup-azure-sql-database/enable-auto-protection.png)
 
-      In case an instance or the availability group already has some of its databases protected, you can still turn ON the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the un-protected databases while the already protected databases will continue to be protected with their respective policies.
+      In case an instance or an availability group already has some of its databases protected, you can still turn **ON** the auto-protect option. In this case, the backup policy defined in the next step will now only be applicable to the unprotected databases while the already protected databases will continue to be protected with their respective policies.
 
       There is no limit on the number of databases that get selected in one go using auto-protect feature (as many databases as in the vault can be selected).  
 
       It is recommended that you turn on auto-protection for all the instances and Always On availability groups if you want any databases added in the future to be automatically configured for protection.
 
-      > [!Note]
-      > To optimize backup loads, Azure Backup breaks large backup jobs into multiple batches. The maximum number of databases in one backup job is 50.
-      >
 
 7. To create or choose a backup policy, on the **Backup** menu, select **Backup policy**. The **Backup policy** menu opens.
 
     ![Select Backup policy](./media/backup-azure-sql-database/select-backup-policy.png)
 
-8. In the **Choose backup policy** drop-down list box, choose a backup policy, and then select **OK**. For information on how to create a backup policy, see [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
+8. In the **Choose backup policy** drop-down list, choose a backup policy, and select **OK**. For information on how to create a backup policy, see [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
 
    > [!NOTE]
    > During Preview, you can't edit Backup policies. If you want a different policy than what's available in the list, you must create that policy. For information on creating a new backup policy, see the section, [Define a backup policy](backup-azure-sql-database.md#define-a-backup-policy).
@@ -734,11 +735,11 @@ To stop protection for a database:
 
   Please note that **Stop Backup** option will not work for a database in an auto-protected instance. The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database.  
 
-  You can disable the auto-protection on an instance or an Always On availability group under Configure Backup. Click the instance name to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto protection on that instance.
+  You can disable the auto-protection on an instance or Always On availability group under **Configure Backup**. Click the instance name to open the right-side information panel which has **Disable Autoprotect** on the top. Click **Disable Autoprotect** to disable auto-protection on that instance.
 
     ![Disable auto protection on that instance](./media/backup-azure-sql-database/disable-auto-protection.png)
 
-All the databases in that instance will continue to be protected. However, this action will disable auto protection on any databases that will be added in the future.
+All the databases in that instance will continue to be protected. However, this action will disable auto-protection on any databases that will be added in the future.
 
 After you have disabled auto-protection, you can **Stop Backup** for the database under **Backup Items**. The instance can again be enabled for auto-protection now.
 
@@ -839,16 +840,18 @@ No, auto-protection applies to the entire instance. You cannot selectively prote
 
 ### Can I have different policies for different databases in an auto-protected instance?
 
-If you already have some protected databases in an instance, they will continue to be protected with their respective policies even after you turn **ON** the auto-protection option. However, all the un-protected databases along with the ones that you would add in future will have only a single policy that you define under **Configure Backup** after the databases are selected. In fact, unlike other protected databases, you cannot even change the policy for a database under an auto-protected instance.
-If you want to do so, the only way is to disable the auto-protection on the instance for the time being and then change the policy for that database. You can now re-enable auto protection for this instance.
+If you already have some protected databases in an instance, they will continue to be protected with their respective policies even after you turn **ON** the auto-protection option. However, all the unprotected databases along with the ones that you would add in future will have only a single policy that you define under **Configure Backup** after the databases are selected. In fact, unlike other protected databases, you cannot even change the policy for a database under an auto-protected instance.
+If you want to do so, the only way is to disable the auto-protection on the instance for the time being and then change the policy for that database. You can now re-enable auto-protection for this instance.
 
 ### If I delete a database from an auto-protected instance, will the backups for that database also stop?
 
 No, if a database is dropped from an auto-protected instance, the backups on that database are still attempted. This implies that the deleted database begins to show up as unhealthy under **Backup Items** and is still treated as protected.
-The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database. You can now re-enable auto protection for this instance.
+
+The only way to stop protecting this database is to disable the auto-protection on the instance for the time being and then choose the **Stop Backup** option under **Backup Items** for that database. You can now re-enable auto-protection for this instance.
 
 ###  Why can’t I see the newly added database to an auto-protected instance under the protected items?
-You may not see a newly added database to an auto-protected instance protected instantly. This is because the discovery typically runs every 8 hours. However, the user can run a manual discovery using Recover DBs option to discover and protect new databases immediately as shown in below image:
+
+You may not see a newly added database to an auto-protected instance protected instantly. This is because the discovery typically runs every 8 hours. However, the user can run a manual discovery using **Recover DBs** option to discover and protect new databases immediately as shown in the below image:
 
   ![View Newly Added Database](./media/backup-azure-sql-database/view-newly-added-database.png)
 
