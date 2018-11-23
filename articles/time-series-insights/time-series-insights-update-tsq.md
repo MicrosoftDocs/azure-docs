@@ -19,9 +19,13 @@ TSQ retrieves data in two different ways. TSQ can retrieve data as it is recorde
 
 Time Series Insights Data can be accessed via the native Time Series Insight update explorer or the Public Surface API. TSQ also offers an expression language so that you can author you own more advanced Time Series Insights queries. Below are our goals with TSQ:
 
+![goal][1]
+
 ## Core APIs
 
 Below are the core APIs we support in our modelled world.
+
+![tsq][2]
 
 ### getModelSettings API
 
@@ -584,5 +588,5 @@ Read the [Azure TSI Update Storage and Ingress](./time-series-insights-update-st
 Read about the new [Time Series Model](./time-series-insights-update-tsm.md).
 
 <!-- Images -->
-[1]: media/v2-update-tsq/tsm.png
-[2]: media/v2-update-tsq/table.png
+[1]: media/v2-update-tsq/goal.png
+[2]: media/v2-update-tsq/tsq.png
