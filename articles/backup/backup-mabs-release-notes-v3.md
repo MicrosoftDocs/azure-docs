@@ -20,8 +20,6 @@ This article provides the known issues and workarounds for Microsoft Azure Backu
 
 **Work around:** To prevent this, open SQL Server Management Studio (SSMS)) and run the following SQL script on the DPM DB:
 
-```powershell
-
 IF EXISTS (SELECT * FROM dbo.sysobjects
         WHERE id = OBJECT_ID(N'[dbo].[tbl_PRM_DatasourceLastActiveServerMap]')
         AND OBJECTPROPERTY(id, N'IsUserTable') = 1)
@@ -36,20 +34,20 @@ CREATE TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap] (
 GO
 
 ALTER TABLE [dbo].[tbl_PRM_DatasourceLastActiveServerMap] ADD
-    CONSTRAINT [pk__tbl_PRM_DatasourceLastActiveServerMap__DatasourceId] PRIMARY KEY NONCLUSTERED
-    (
-        [DatasourceId]
-    )  ON [PRIMARY],
+CONSTRAINT [pk__tbl_PRM_DatasourceLastActiveServerMap__DatasourceId] PRIMARY KEY NONCLUSTERED
+(
+    [DatasourceId]
+)  ON [PRIMARY],
 
-    CONSTRAINT [DF_tbl_PRM_DatasourceLastActiveServerMap_IsGCed] DEFAULT
-    (
+CONSTRAINT [DF_tbl_PRM_DatasourceLastActiveServerMap_IsGCed] DEFAULT
+(
         0
-    ) FOR [IsGCed]
+) FOR [IsGCed]
 GO
-```
+
 ##  Upgrade to MABS V3 fails in Russian locale
 
-**Description:** Upgrade from MABS V2 to MABS V3 in Russian locale fails with an error code 4387.
+**Description:** Upgrade from MABS V2 to MABS V3 in Russian locale fails with an error code **4387**.
 
 **Work around:** Do the following steps to upgrade to MABS V3 using Russian install package:
 
@@ -62,11 +60,11 @@ GO
 7. [Restore](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms?view=sql-server-2017) SQL using SSMS and run DPM-Sync tool as described [here](https://docs.microsoft.com/it-it/previous-versions/system-center/data-protection-manager-2010/ff634215(v=technet.10)).
 8.  Update the ‘DataBaseVersion’ property in dbo.tbl_DLS_GlobalSetting table using the following command:
 
-    ```powershell
+
             UPDATE dbo.tbl_DLS_GlobalSetting
             set PropertyValue = '13.0.415.0'
             where PropertyName = 'DatabaseVersion'
-    ```
+
 
 9.  Start MSDPM service.
 
