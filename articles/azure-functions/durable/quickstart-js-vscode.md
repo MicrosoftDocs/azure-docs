@@ -3,7 +3,7 @@ title: Create your first durable function in Azure using JavaScript
 description: Create and publish an Azure Durable Function using Visual Studio Code.
 services: functions
 documentationcenter: na
-author: cotresne
+author: ColbyTresness
 manager: jeconnoc
 keywords: azure functions, functions, event processing, compute, serverless architecture
 
@@ -11,7 +11,7 @@ ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: azfuncdf
+ms.author: azfuncdf, cotresne, glenga
 
 ---
 # Create your first durable function in JavaScript
@@ -66,7 +66,7 @@ The Azure Functions project template in Visual Studio Code creates a project tha
 
 1. When prompted, choose **Add to workspace**.
 
-Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](functions-host-json.md) and [local.settings.json](functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
+Visual Studio Code creates the function app project in a new workspace. This project contains the [host.json](../functions-host-json.md) and [local.settings.json](../functions-run-local.md#local-settings-file) configuration files, plus any language-specific project files. You also get a new Git repository in the project folder.
 
 ## Create a Starter Function
 
