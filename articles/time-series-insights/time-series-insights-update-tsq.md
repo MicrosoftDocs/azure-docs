@@ -1,6 +1,6 @@
 ---
-title: Time series query | Microsoft Docs
-description: Understanding how to time series query
+title:  Time Series Query | Microsoft Docs
+description: Axure Time Series Insights V2 Update Time Series Query
 author: ashannon7
 ms.author: anshan
 ms.workload: big-data
@@ -13,7 +13,7 @@ ms.date: 11/21/2018
 
 # Time Series Query
 
-Time Series Query (TSQ), makes it easier to compute and retrieve Time Series data stored in Time Series Insights at scale. TSQ leverages computational definitions stored in Time Series Model (TSM) or via inline provided variable definitions, to transform and retrieve data from storage.
+**Time Series Query** (TSQ), makes it easier to compute and retrieve Time Series data stored in Time Series Insights (TSI) at scale. TSQ leverages computational definitions stored in Time Series Model (TSM) or via inline provided variable definitions, to transform and retrieve data from storage.
 
 TSQ retrieves data in two different ways. TSQ can retrieve data as it is recorded from source provider, or can reduce data, or can reconstruct the signals leveraging the specified method to enable customers perform operations to transform, combine, and perform computations on time series data.
 

@@ -92,7 +92,7 @@
       href: time-series-insights-update-create-environment.md
     - name: Diagnose and troubleshoot
       href: time-series-insights-update-how-to-troubleshoot.md
-    - name: Use Time Series Models
+    - name: Data modeling
       href: time-series-insights-update-how-to-tsm.md
     - name: Shape JSON for queries
       href: time-series-insights-update-how-to-shape-events.md
