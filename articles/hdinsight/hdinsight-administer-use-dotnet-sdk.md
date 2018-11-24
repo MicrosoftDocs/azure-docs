@@ -224,7 +224,7 @@ _hdiManagementClient.Clusters.ConfigureHttpSettings("<Resource Group Name>, <Clu
 This can also be done via the Portal. See [Administer HDInsight by using the Azure portal][hdinsight-admin-portal].
 
 ## Update HTTP user credentials
-It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
+It is the same procedure as [Grant/revoke HTTP access](#grant/revoke-access).  If the cluster has been granted the HTTP access, you must first revoke it.  And then grant the access with new HTTP user credentials.
 
 ## Find the default storage account
 The following code snippet demonstrates how to get the default storage account name and the default storage account key for a cluster.
@@ -238,25 +238,25 @@ foreach (var key in results.Configuration.Keys)
 ```
 
 ## Submit jobs
-**To submit MapReduce jobs**
+**To submit Apache Hadoop MapReduce jobs**
 
-See [Run Hadoop MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
+See [Run Apache Hadoop MapReduce samples in HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
 **To submit Apache Hive jobs** 
 
-See [Run Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
+See [Run Apache Hive queries using .NET SDK](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
 **To submit Apache Pig jobs**
 
-See [Run Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
+See [Run Apache Pig jobs using .NET SDK](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
 **To submit Apache Sqoop jobs**
 
-See [Use Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
+See [Use Apache Sqoop with HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
 **To submit Apache Oozie jobs**
 
-See [Use Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
+See [Use Apache Oozie with Hadoop to define and run a workflow in HDInsight](hdinsight-use-oozie-linux-mac.md).
 
 ## Upload data to Azure Blob storage
 See [Upload data to HDInsight][hdinsight-upload-data].
