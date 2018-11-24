@@ -44,12 +44,12 @@ If you don’t already have Visual Studio 2017 installed, you can download and u
 <a id="create-account"></a>
 ## Create a database account
 
-[!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
+[!INCLUDE [cosmos-db-create-dbaccount-preview](../../includes/cosmos-db-create-dbaccount-preview.md)]
 
 <a id="create-collection"></a>
 ## Add a collection
 
-[!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
+[!INCLUDE [cosmos-db-create-collection-preview](../../includes/cosmos-db-create-collection-preview.md)]
 
 <a id="add-sample-data"></a>
 ## Add sample data
@@ -88,26 +88,24 @@ Now let's switch to working with code. Let's clone a [SQL API app from GitHub](h
 
 This step is optional. If you're interested in learning how the database resources are created in the code, you can review the following snippets. Otherwise, you can skip ahead to [Update your connection string](#update-your-connection-string). 
 
-Note, if you are familiar with the previous version of the .NET SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports multiple API models, version 3.0+ of the .NET SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container.
+Note, if you are familiar with the previous version of the .NET SDK, you may be used to seeing the terms 'collection' and 'document.' Because Azure Cosmos DB supports multiple API models, version 3.0+ of the .NET SDK uses the generic terms 'container' and 'item.' A container can be a collection, graph, or table. An item can be a document, edge/vertex, or row, and is the content inside a container. [Learn more about databases, containers, and items.](databases-containers-items.md)
 
 The following snippets are all taken from the ToDoItemService.cs file.
 
-* The CosmosClient is initialized on lines 68 - 70.
+* The CosmosClient is initialized on lines 68 - 69.
 
     ```csharp
-    CosmosConfiguration config;
-    config = new CosmosConfiguration(Endpoint, MasterKey);
+    CosmosConfiguration config = new CosmosConfiguration(Endpoint, PrimaryKey);
     client = new CosmosClient(config);
-
     ```
 
-* A new database is created on line 72.
+* A new database is created on line 71.
 
     ```csharp
     CosmosDatabase database = await client.Databases.CreateDatabaseIfNotExistsAsync(DatabaseId);
     ```
 
-* A new container is created on line 73 with partition key "/category."
+* A new container is created on line 72 with partition key "/category."
 
     ```csharp
     CosmosContainer container = await database.Containers.CreateContainerIfNotExistsAsync(ContainerId, "/category");
@@ -145,13 +143,14 @@ Now go back to the Azure portal to get your connection string information and co
 1. In the **NuGet** tab, click **Browse**, and type **Microsoft.Azure.Cosmos** in the search box.
 1. Within the results, find **Microsoft.Azure.Cosmos** and click **Install**.
    The package ID for the Azure Cosmos DB SQL API Client Library is [Microsoft Azure Cosmos DB Client Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/).
+
    ![Screen shot of the NuGet Menu for finding Azure Cosmos DB Client SDK](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget-2.png)
 
     If you get a message about reviewing changes to the solution, click **OK**. If you get a message about license acceptance, click **I accept**.
 
 1. Press CTRL + F5 to run the application. Your app displays in your browser. 
 
-1. Select **Create New** in the browser and create a few new tasks in your to-do app.
+1. Select **Create New** in the browser and create a few new tasks in your to-do app. You should also see the tasks you created in [Add sample data](#add-sample-data)
 
    ![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
 
