@@ -117,8 +117,8 @@ In this example, the Developer Console is the client-app. The following steps de
 
 6. Specify the **Authorization endpoint URL** and **Token endpoint URL**. Retrieve these values from the **Endpoints** page in your Azure AD tenant. Browse to the **App registrations** page again, and select **Endpoints**.
 
->[!NOTE]
-> Use the **v1** endpoints here
+    >[!NOTE]
+    > Use the **v1** endpoints here
 
 7. Copy the **OAuth 2.0 Authorization Endpoint**, and paste it into the **Authorization endpoint URL** text box.
 
