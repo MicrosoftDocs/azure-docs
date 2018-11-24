@@ -14,9 +14,7 @@ ms.author: diberry
 
 # Configure containers
 
-The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. 
-
-The primary settings are the input and output [mount settings](#mount-settings) on the host where the LUIS app package is located, and the billing settings. 
+The LUIS container runtime environment is configured using the `docker run` command arguments. LUIS has several required settings, along with a few optional settings. Several [examples](#example-docker-run-commands) of the command are available. The primary settings are the input [mount settings](#mount-settings) and the billing settings. 
 
 Container settings are [hierarchical](#settings-are-hierarchical) and can be set with [environment variables](#environment-variable-settings) or docker [command-line arguments](command-line-argument-settings).
 
@@ -54,9 +52,9 @@ The `ApplicationInsights` setting allows you to add [Azure Application Insights]
 
 The following table describes the configuration settings supported under the `ApplicationInsights` section.
 
-| Name | Data type | Description |
-|------|-----------|-------------|
-| `InstrumentationKey` | String | The instrumentation key of the Application Insights instance to which telemetry data for the container is sent. For more information, see [Application Insights for ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
+|Required| Name | Data type | Description |
+|--|------|-----------|-------------|
+|No| `InstrumentationKey` | String | The instrumentation key of the Application Insights instance to which telemetry data for the container is sent. For more information, see [Application Insights for ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). <br><br>Example:<br>`InstrumentationKey=123456789`|
 
 
 ## Billing setting
@@ -68,13 +66,17 @@ This setting can be found in two places:
 * Azure portal: **Language Understanding's** Overview, labeled `Endpoint`
 * LUIS portal: **Keys and Endpoint settings** page, as part of the endpoint URI.
 
-An example of an endpoint URI for the `westus` region is: 
-
-`https://westus.api.cognitive.microsoft.com/luis/v2.0`
+|Required| Name | Data type | Description |
+|--|------|-----------|-------------|
+|Yes| `Billing` | String | Billing endpoint URI<br><br>Example:<br>`Billing=https://westus.api.cognitive.microsoft.com/luis/v2.0` |
 
 ## Eula setting
 
 The `Eula` setting indicates that you've accepted the license for the container. You must specify a value for this configuration setting, and the value must be set to `accept`.
+
+|Required| Name | Data type | Description |
+|--|------|-----------|-------------|
+|Yes| `Eula` | String | License acceptance<br><br>Example:<br>`Eula=accept` |
 
 ## Fluentd settings
 
@@ -93,7 +95,11 @@ The following table describes the configuration settings supported under the `Fl
 
 ## Logging settings
 
-The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application. The following logging providers are supported by the LUIS container:
+The `Logging` settings manage ASP.NET Core logging support for your container. You can use the same configuration settings and values for your container that you use for an ASP.NET Core application. 
+
+TBD: what is the default setting? 
+
+The following logging providers are supported by the LUIS container:
 
 |Provider|Purpose|
 |--|--|
@@ -114,31 +120,18 @@ For more information about configuring ASP.NET Core logging support, see [Settin
 
 ## Mounts settings
 
-The LUIS containers are both stateless and immutable. Files created inside a container are stored in a writable container layer, which persists only while the container is running and are not accessible. If that container is stopped or removed, the files created inside that container are destroyed.
+Use bind mounts to read and write data to and from the container. You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command. 
 
-Use bind mounts to read and write data to and from the container. For more information about how to specify and manage these options, see [Manage data in Docker](https://docs.docker.com/storage/).
+The LUIS container doesn't use input or output mounts to store training or service data. 
+
+The exact syntax of the host mount location varies depending on the host operating system. Additionally, the host's mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
 
 The following table describes the settings supported.
 
 |Required| Name | Data type | Description |
 |-------|------|-----------|-------------|
-|Yes| `Input` | String | The target of the input mount. The default value is `/input`. This is the location of the LUIS package files. |
-|No| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes LUIS query logs and container logs. |
-
-### Input and output mounts
-
-You can specify an input mount or output mount by specifying the `--mount` option in the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command. By default, the input mount uses `/input` as its destination, and the output mount uses `/output` as its destination. Any Docker storage option available to the Docker container host can be specified in the `--mount` option.
-
-Example mount values are:
-
-|Location|Value|
-|--|--|
-|Input|`--mount type=bind,src=c:\input,target=/input`|
-|Output|`--mount type=bind,src=c:\output,target=/output`|
-
-The LUIS container doesn't use input or output mounts to store training or service data. 
-
-The exact syntax of the host mount location varies depending on the host operating system. Additionally, the host's mount location may not be accessible due to a conflict between permissions used by the docker service account and the host mount location permissions. 
+|Yes| `Input` | String | The target of the input mount. The default value is `/input`. This is the location of the LUIS package files. <br><br>Example:<br>`--mount type=bind,src=c:\input,target=/input`|
+|No| `Output` | String | The target of the output mount. The default value is `/output`. This is the location of the logs. This includes LUIS query logs and container logs. <br><br>Example:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## Hierarchical settings
 
@@ -170,15 +163,13 @@ The preceding docker command uses the back slash, `\`, as a line continuation ch
 
 The benefit of using command-line arguments is that each container can use different settings.
 
-For example, the following command instantiates a container from the LUIS container image and configures the console logging level to `Information`, overriding the default configuration setting.
-
-  ```Docker
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/lui Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/luis/v2.0 ApiKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Logging:Console:LogLevel=Information
-  ```
-
 ## Example docker run commands
 
 The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](luis-container-howto.md#stop-the-container) it.
+
+
+* **Line-continuation character**: The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. 
+* **Argument order**: Do not change the order of the arguments unless you are very familiar with docker containers.
 
 Replace {_argument_name_} with your own values:
 
@@ -186,8 +177,6 @@ Replace {_argument_name_} with your own values:
 |-------------|-------|---|
 |{ENDPOINT_KEY} | The application ID of the trained LUIS application. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's Language Understanding Overview page.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
-
-The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
 
 > [!IMPORTANT]
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
@@ -209,14 +198,28 @@ ApiKey={ENDPOINT_KEY}
 
 ### ApplicationInsights example
 
+The following example sets the ApplicationInsights argument to send telemetry to Application Insights while the container is running:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
+--mount type=bind,src=c:\input,target=/input \
+--mount type=bind,src=c:\output,target=/output \
+mcr.microsoft.com/azure-cognitive-services/luis:latest \
+Eula=accept \
+Billing={BILLING_ENDPOINT} \
+ApiKey={ENDPOINT_KEY}
+InstrumentationKey={INSTRUMENTATION_KEY}
+```
+
 ### Fluentd example
 
-### Logging example
+TBD: Who can I get this example from? 
+
+### Logging example with command-line arguments
 
 The following command sets the logging level, `Logging:Console:LogLevel`, to configure the logging level to `[Information](https://msdn.microsoft.com)`. 
 
 ```bash
-SET Logging:Console:LogLevel=Information
 docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
 --mount type=bind,src=c:\input,target=/input \
 --mount type=bind,src=c:\output,target=/output \
@@ -227,7 +230,7 @@ ApiKey={APPLICATION_ID} \
 Logging:Console:LogLevel=Information
 ```
 
-### Environment variable example 
+### Logging example with environment variable
 
 The following commands use an environment variable, named `Logging:Console:LogLevel` to configure the logging level to `[Information](https://msdn.microsoft.com)`. 
 

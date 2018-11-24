@@ -14,7 +14,7 @@ ms.author: diberry
 
 # Install and run containers
 
-The LUIS container loads your trained or published app into a docker container and provides access to the LUIS prediction runtime with API endpoints. You can collect query logs from the container and upload these back to the Azure LUIS service to improve the app's prediction accuracy. 
+The LUIS container loads your trained or published app into a docker container and provides access to the LUIS query prediction runtime from the container's API endpoints. You can collect query logs from the container and upload these back to the Azure LUIS service to improve the app's prediction accuracy. 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -24,10 +24,9 @@ In order to run the LUIS container, you must have the following:
 
 |Required|Purpose|
 |--|--|
-|Docker Engine| To complete this preview, you need Docker Engine installed on a host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>The **host** is the computer that runs the docker container. It can be the local computer or any docker hosting service including Azure Kubernetes, Azure Container instances, Kubernetes cluster, and Azure Stack.
-|
+|Docker Engine| To complete this preview, you need Docker Engine installed on a *host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>*The **host** is the computer that runs the docker container. It can be the local computer or any docker hosting service including Azure Kubernetes, Azure Container instances, Kubernetes cluster, and Azure Stack.|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|LUIS information|In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID, and the Endpoint Key and Endpoint URL.<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Language Understanding_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The _Language Understanding_ resource associated with this app must use the **F0 pricing tier**. |
+|LUIS information |In order to use the container, you must have a trained or published app packaged as a mounted input to the container. You need the Authoring Key, the App ID, and the Endpoint Key and Endpoint URL.<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Language Understanding_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`<br><br>The _Language Understanding_ resource associated with this app must use the **F0 pricing tier**. |
 
 ### Container requirements and recommendations
 
@@ -306,6 +305,10 @@ If successful, the method responds with an HTTP 200 status code. After the log i
 ## Stop the container
 
 To shut down the container, in the command-line environment where the container is running, press **Ctrl+C**.
+
+## Troubleshooting
+
+If you run the container with an output [mount](#input-and-output-mounts) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
 ## Container's API documentation
 
