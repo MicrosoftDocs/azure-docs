@@ -151,7 +151,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
    }
    ```
 
-4. Using the object ID of your VM's service principal (the value you retrieved in earlier steps), you can query the Azure AD Graph API to retrieve its group memberships. Replace `<OBJECT-ID>` with the Object ID of your VM's service principal and `<ACCESS-TOKEN>` with the previously obtained acccess token:
+4. Using the object ID of your VM's service principal (the value you retrieved in earlier steps), you can query the Azure AD Graph API to retrieve its group memberships. Replace `<OBJECT-ID>` with the Object ID of your VM's service principal and `<ACCESS-TOKEN>` with the previously obtained access token:
 
    ```bash
    curl 'https://graph.windows.net/myorganization/servicePrincipals/<OBJECT-ID>/getMemberGroups?api-version=1.6' -X POST -d "{\"securityEnabledOnly\": false}" -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS-TOKEN>"
