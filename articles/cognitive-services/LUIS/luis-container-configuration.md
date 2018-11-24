@@ -28,7 +28,7 @@ This container has the following configuration settings:
 |--|--|--|
 |Yes|[ApiKey](#apikey-configuration-setting)|Used to track billing information.|
 |No|[ApplicationInsights](#applicationinsights-configuration-settings)|Allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container.|
-|Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the LUIS resource on Azure.|
+|Yes|[Billing](#billing-configuration-setting)|Specifies the endpoint URI of the _Language Understanding_ resource on Azure.|
 |Yes|[Eula](#eula-configuration-setting)| Indicates that you've accepted the license for the container.|
 |No|[Fluentd](#fluentd-configuration-settings)|Write log and, optionally, metric data to a Fluentd server.|
 |No|[Logging](#logging-configuration-settings)|Provides ASP.NET Core logging support for your container. |
@@ -39,16 +39,18 @@ This container has the following configuration settings:
 
 ## ApiKey setting
 
-The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value the ApiKey and the value must be a valid key for the LUIS resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
+The `ApiKey` setting specifies the Azure resource key used to track billing information for the container. You must specify a value for the ApiKey and the value must be a valid key for the _Language Understanding_ resource specified for the [`Billing`](#billing-configuration-setting) configuration setting.
 
 This setting can be found in two places:
 
 * Azure portal: **Language Understanding's** Resource Management, under **Keys**
 * LUIS portal: **Keys and Endpoint settings** page. 
 
+Do not use the starter key or the authoring key. 
+
 ## ApplicationInsights setting
 
-The `ApplicationInsights` setting allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container. Application Insights provides in-depth monitoring of your container. You can easily monitor your container for availability, performance, and usage. You can also quickly identify and diagnose errors in your container without waiting for a user to report them.
+The `ApplicationInsights` setting allows you to add [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) telemetry support to your container. Application Insights provides in-depth monitoring of your container. You can easily monitor your container for availability, performance, and usage. You can also quickly identify and diagnose errors in your container.
 
 The following table describes the configuration settings supported under the `ApplicationInsights` section.
 
@@ -56,9 +58,10 @@ The following table describes the configuration settings supported under the `Ap
 |------|-----------|-------------|
 | `InstrumentationKey` | String | The instrumentation key of the Application Insights instance to which telemetry data for the container is sent. For more information, see [Application Insights for ASP.NET Core](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-core). |
 
+
 ## Billing setting
 
-The `Billing` setting specifies the endpoint URI of the LUIS resource on Azure used to track billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a LUIS resource on Azure.
+The `Billing` setting specifies the endpoint URI of the _Language Understanding_ resource on Azure used to track billing information for the container. You must specify a value for this configuration setting, and the value must be a valid endpoint URI for a _Language Understanding_ resource on Azure.
 
 This setting can be found in two places:
 
@@ -154,21 +157,16 @@ Environment variable values override command-line argument values, which in turn
 |2|Command-line|
 |3|Container image default value|
 
-## Environment variable settings
+### Environment variable settings
 
 The benefits of using environment variables are:
 
 * Multiple settings can be configured.
 * Multiple containers can use the same settings.
 
-For example, the following commands use an environment variable, named `Logging:Console:LogLevel` to configure the console logging level to `[Information](https://msdn.microsoft.com)`, then instantiates a LUIS container. 
+The preceding docker command uses the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
 
-```Docker
-SET Logging:Console:LogLevel=Information
-docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/luis Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/luis/v2.0 ApiKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-```
-
-## Command-line argument settings
+### Command-line argument settings
 
 The benefit of using command-line arguments is that each container can use different settings.
 
@@ -177,6 +175,72 @@ For example, the following command instantiates a container from the LUIS contai
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 mcr.microsoft.com/azure-cognitive-services/lui Eula=accept Billing=https://westcentralus.api.cognitive.microsoft.com/luis/v2.0 ApiKey=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx Logging:Console:LogLevel=Information
   ```
+
+## Example docker run commands
+
+The following examples use the configuration settings to illustrate how to write and use `docker run` commands.  Once running, the container continues to run until you [stop](luis-container-howto.md#stop-the-container) it.
+
+Replace {_argument_name_} with your own values:
+
+| Placeholder | Value | Format or example |
+|-------------|-------|---|
+|{ENDPOINT_KEY} | The application ID of the trained LUIS application. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's Language Understanding Overview page.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+
+The docker commands in the following sections use the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
+
+> [!IMPORTANT]
+> The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
+> The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page. 
+
+### Basic example
+
+The following example has the fewest arguments possible to run the container:
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
+--mount type=bind,src=c:\input,target=/input \
+--mount type=bind,src=c:\output,target=/output \
+mcr.microsoft.com/azure-cognitive-services/luis:latest \
+Eula=accept \
+Billing={BILLING_ENDPOINT} \
+ApiKey={ENDPOINT_KEY}
+```
+
+### ApplicationInsights example
+
+### Fluentd example
+
+### Logging example
+
+The following command sets the logging level, `Logging:Console:LogLevel`, to configure the logging level to `[Information](https://msdn.microsoft.com)`. 
+
+```bash
+SET Logging:Console:LogLevel=Information
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
+--mount type=bind,src=c:\input,target=/input \
+--mount type=bind,src=c:\output,target=/output \
+mcr.microsoft.com/azure-cognitive-services/luis:latest \
+Eula=accept \
+Billing={BILLING_ENDPOINT} \
+ApiKey={APPLICATION_ID} \
+Logging:Console:LogLevel=Information
+```
+
+### Environment variable example 
+
+The following commands use an environment variable, named `Logging:Console:LogLevel` to configure the logging level to `[Information](https://msdn.microsoft.com)`. 
+
+```bash
+SET Logging:Console:LogLevel=Information
+docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
+--mount type=bind,src=c:\input,target=/input \
+--mount type=bind,src=c:\output,target=/output \
+mcr.microsoft.com/azure-cognitive-services/luis:latest \
+Eula=accept \
+Billing={BILLING_ENDPOINT} \
+ApiKey={APPLICATION_ID} \
+```
 
 ## Next steps
 
