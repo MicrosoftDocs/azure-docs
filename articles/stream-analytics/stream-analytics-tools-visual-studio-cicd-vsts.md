@@ -8,7 +8,7 @@ manager: kfile
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
-ms.date: 7/10/2018
+ms.date: 07/10/2018
 --- 
 
 # Tutorial: Deploy an Azure Stream Analytics job with CI/CD using Azure Pipelines

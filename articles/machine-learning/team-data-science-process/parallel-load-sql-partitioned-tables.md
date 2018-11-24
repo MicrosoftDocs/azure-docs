@@ -19,7 +19,8 @@ ms.author: deguhath
 
 ---
 # Parallel Bulk Data Import Using SQL Partition Tables
-This document describes how to build partitioned tables for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using *Partitioned Tables and Views*. 
+
+This article describes how to build partitioned tables for fast parallel bulk importing of data to a SQL Server database. For big data loading/transfer to a SQL database, importing data to the SQL DB and subsequent queries can be improved by using *Partitioned Tables and Views*. 
 
 ## Create a new database and a set of filegroups
 * [Create a new database](https://technet.microsoft.com/library/ms176061.aspx), if it doesn't exist already.
@@ -77,7 +78,7 @@ To create partitioned table(s) according to the data schema, mapped to the datab
   To verify the ranges in effect in each partition according to the function/scheme, run the following query:
   
         SELECT psch.name as PartitionScheme,
-            prng.value AS ParitionValue,
+            prng.value AS PartitionValue,
             prng.boundary_id AS BoundaryID
         FROM sys.partition_functions AS pfun
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
@@ -98,7 +99,7 @@ For more information, see [Create Partitioned Tables and Indexes](https://msdn.m
 * [Alter the database](https://msdn.microsoft.com/library/bb522682.aspx) to change transaction logging scheme to BULK_LOGGED to minimize overhead of logging, for example:
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* To expedite data loading, launch the bulk import operations in parallel. For tips on expediting bulk importing of big data into SQL Server databases, see [Load 1TB in less than 1 hour](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* To expedite data loading, launch the bulk import operations in parallel. For tips on expediting bulk importing of big data into SQL Server databases, see [Load 1TB in less than 1 hour](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 The following PowerShell script is an example of parallel data loading using BCP.
 

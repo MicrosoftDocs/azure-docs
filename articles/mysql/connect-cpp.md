@@ -25,7 +25,7 @@ You also need to:
 - Install [.NET Framework](https://www.microsoft.com/net/download)
 - Install [Visual Studio](https://www.visualstudio.com/downloads/)
 - Install [MySQL Connector/C++](https://dev.mysql.com/downloads/connector/cpp/) 
-- Install [Boost](http://www.boost.org/)
+- Install [Boost](https://www.boost.org/)
 
 ## Install Visual Studio and .NET
 The steps in this section assume that you are familiar with developing using .NET.

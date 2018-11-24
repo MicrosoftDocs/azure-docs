@@ -61,6 +61,8 @@
       href: billing-understand-reserved-instance-usage-ea.md
     - name: Manage Reservations
       href: billing-manage-reserved-vm-instance.md
+    - name: View Reservations
+      href: billing-view-reservations.md  
 - name: Manage account
   items:
   - name: Free account

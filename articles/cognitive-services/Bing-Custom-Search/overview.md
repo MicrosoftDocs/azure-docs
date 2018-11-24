@@ -1,14 +1,16 @@
 ---
-title: What is Bing Custom Search? | Microsoft Docs
-description: Provides a high-level overview of Bing Custom Search
+title: What is Bing Custom Search?
+titlesuffix: Azure Cognitive Services
+description: Provides a high-level overview of Bing Custom Search.
 services: cognitive-services
-author: brapel
-manager: ehansen
+author: aahill
+manager: cgronlun
+
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: overview
 ms.date: 09/29/2017
-ms.author: v-brapel
+ms.author: aahi
 ---
 
 # What is Bing Custom Search?
@@ -23,7 +25,7 @@ After defining your instance, you can integrate custom search into your website,
 
 The following image shows the simplicity of the custom search integration.
 
-![picture alt](./media/bcs-overview.png "How Bing Custom Search works.")
+![picture alt](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/cognitive-services/Bing-Custom-Search/media/BCS-Overview.png "How Bing Custom Search works.")
 
 ## Adding custom search box suggestions
 
@@ -51,7 +53,7 @@ Familiarize yourself with the reference content for each of the custom search en
 
 - [Custom Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference)
 - [Custom Image API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference)
-- [Custom Vidoe API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
+- [Custom Video API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference)
 - [Custom Autosuggest API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference)
 
 

@@ -2,19 +2,12 @@
 title: Microsoft Azure Data Box Disk FAQ | Microsoft Docs in data 
 description: Contains frquently asked questions and answers for Azure Data Box Disk, a cloud solution that enables you to transfer large amounts of data into Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
 
-ms.assetid: 
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: overview
-ms.custom: mvc
-ms.tgt_pltfrm: NA
-ms.workload: TBD
-ms.date: 09/28/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 ---
 # What is Azure Data Box Disk? (Preview)
@@ -46,10 +39,10 @@ Disks are encrypted using Microsoft BitLocker drive encryption, and your encrypt
 A. If you have 40 TB of data (or less) that you want to transfer to Azure, you would benefit from using Data Box Disks.
 
 ### Q. What is the price of Data Box Disks?
-A. During the preview, Data Box Disks are available for no charge. Shipping is also free, however, the charges for Azure storage will apply.
+A. For information on the price of Data Box Disks, go to [Preview Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### Q. How do I get Data Box Disks? 
-A.  To get Azure Data Box Disks, first sign up for the [Data Box Disk preview](http://aka.ms/AzureDataBox). Next log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.   
+A.  To get Azure Data Box Disks, first sign up for the [Data Box Disk preview](https://aka.ms/AzureDataBox). Next log into Azure portal and create a Data Box order for disks. Provide your contact information and notification details. Once you place an order, based on the availability, disks are shipped to you within 10 days.   
 
 ### Q. What is the maximum amount of data I can transfer with Data Box Disks in one instance?
 A. For 5 disks each of 8 TB (7 TB usable capacity), the maximum usable capacity is 35 TB. Hence, you can transfer 35 TB of data in one instance.  To transfer more data, you need to order more disks.
@@ -74,7 +67,7 @@ A.  In the Azure portal, go to your Data Box Disk order, and navigate to **Devic
 For step-by-step instructions, go to [Unlock disks on a Windows client](data-box-disk-deploy-set-up.md#unlock-disks-on-windows-client) or [Unlock disks on a Linux client](data-box-disk-deploy-set-up.md#unlock-disks-on-linux-client).
 
 ### Q. Can I use a Linux host computer to connect and copy the data on to the Data Box Disks?
-A.  Yes. Both the Linux and Windows clinet can be used to connect and copy data on to the Data Box Disks. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
+A.  Yes. Both the Linux and Windows clients can be used to connect and copy data on to the Data Box Disks. For more information, go to the list of [Supported operating systems](data-box-disk-system-requirements.md) for your host computer.
 
 ### Q. My disks are dispatched but now I want to cancel this order. Why is the cancel button not available?
 A.  You can only cancel the order after the disks are ordered and before the shipment. Once the disks are dispatched, you can no longer cancel the order. In the preview timeframe, you can return your disks at no charge though this will likely change when the solution is generally available. 

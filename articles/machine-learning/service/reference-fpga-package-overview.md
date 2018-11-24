@@ -28,7 +28,7 @@ The Azure Machine Learning Hardware Acceleration package is a Python pip-install
 
 ## Prerequisites
 
-1. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+1. If you don't have an Azure subscription, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 1. An Azure Machine Learning Model Management account. For more information on creating the account, see the [Azure Machine Learning Quickstart and Workbench installation](../desktop-workbench/quickstart-installation.md) document. 
 
@@ -144,7 +144,7 @@ This sample code walks you through using the SDK to deploy a model to an FPGA.
 
 ## Reporting issues
 
-Use the [forum](https://aka.ms/aml-forum) to report any issues you encounter with the package.
+Use the [forum](https://aka.ms/aml-forum-service) to report any issues you encounter with the package.
 
 ## Next steps
 

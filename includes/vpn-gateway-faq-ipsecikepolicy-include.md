@@ -70,7 +70,7 @@ The table below lists the supported Diffie-Hellman Groups for IKE (DHGroup) and 
 | 2                         | DHGroup2                 | PFS2         | 1024-bit MODP  |
 | 14                        | DHGroup14<br>DHGroup2048 | PFS2048      | 2048-bit MODP  |
 | 19                        | ECP256                   | ECP256       | 256-bit ECP    |
-| 20                        | ECP384                   | ECP284       | 384-bit ECP    |
+| 20                        | ECP384                   | ECP384       | 384-bit ECP    |
 | 24                        | DHGroup24                | PFS24        | 2048-bit MODP  |
 |                           |                          |              |                |
 

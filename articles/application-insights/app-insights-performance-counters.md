@@ -1,4 +1,4 @@
-﻿---
+---
 title: Performance counters in Application Insights | Microsoft Docs
 description: Monitor system and custom .NET performance counters in Application Insights.
 services: application-insights
@@ -23,7 +23,7 @@ Performance counters appear in the Servers blade, which includes a table that se
 
 ![Performance counters reported in Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Performance counters aren't available for Azure Web Apps. But you can [send Azure Diagnostics to Application Insights](app-insights-azure-diagnostics.md).)
+(Performance counters aren't available for Azure Web Apps. But you can [send Azure Diagnostics to Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
 
 ## View counters
 The Servers blade shows a default set of performance counters. 
@@ -92,7 +92,7 @@ Or you can do the same thing with custom metrics you created:
 ## Performance counters in Analytics
 You can search and display performance counter reports in [Analytics](app-insights-analytics.md).
 
-The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you’ll see only the counters for that application. For example, to see what counters are available: 
+The **performanceCounters** schema exposes the `category`, `counter` name, and `instance` name of each performance counter.  In the telemetry for each application, you'll see only the counters for that application. For example, to see what counters are available: 
 
 ![Performance counters in Application Insights analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

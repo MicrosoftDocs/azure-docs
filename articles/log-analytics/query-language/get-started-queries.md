@@ -186,7 +186,7 @@ SecurityEvent
 ```
 
 ## Summarize: aggregate groups of rows
-Use **summarize** to identify groups of records, according to one or more columns, and apply aggregations to them. The most common use os **summarize** is *count*, which returns the number of results in each group.
+Use **summarize** to identify groups of records, according to one or more columns, and apply aggregations to them. The most common use of **summarize** is *count*, which returns the number of results in each group.
 
 The following query reviews all *Perf* records from the last hour, groups them by *ObjectName*, and counts the records in each group: 
 ```Kusto

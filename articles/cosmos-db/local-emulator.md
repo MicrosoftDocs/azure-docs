@@ -31,7 +31,9 @@ ms.author: danoble
 </tr>
 </table>
   
-The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud. You can use the Azure Cosmos DB Emulator with all the APIs - SQL, MongoDB, Cassandra, Gremlin, and Table.
+The Azure Cosmos DB Emulator provides a local environment that emulates the Azure Cosmos DB service for development purposes. Using the Azure Cosmos DB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the Azure Cosmos DB Emulator, you can switch to using an Azure Cosmos DB account in the cloud. 
+
+At this time the Data Explorer in the emulator only fully supports SQL API collections and MongoDB collections. Table, Graph, and Cassandra containers are not fully supported. 
 
 This article covers the following tasks: 
 
@@ -463,54 +465,6 @@ To collect debugging traces, run the following commands from an administrative c
 2. In the Windows search box, type **Apps & features** and click on the **Apps & features (System settings)** result.
 3. In the list of apps, scroll to **Azure Cosmos DB Emulator**, select it, click **Uninstall**, then confirm and click **Uninstall** again.
 4. When the app is uninstalled, navigate to `C:\Users\<user>\AppData\Local\CosmosDBEmulator` and delete the folder. 
-
-## Change list
-
-You can check the version number by right-clicking the local emulator icon on the task bar and clicking the about menu item.
-
-### 1.22.0. Released on April 20, 2018
-
-In addition to updating emulator services for parity with Cosmos DB cloud services, we've included improved PowerShell documentation and some miscellaneous bug fixes.
-
-### 1.21.0.6 Released on March 27, 2018
-
-In addition to updating emulator services for parity with Cosmos DB cloud services, we've included one new feature and two bug fixes in this release.
-
-#### Features
-
-1. The Start-CosmosDbEmulator command now includes startup options.
-
-#### Bug fixes
-
-1. The Microsoft.Azure.CosmosDB.Emulator PowerShell module now ensures that the `ServiceControllerStatus` enumeration is loaded.
-
-2. The Microsoft.Azure.CosmosDB.Emulator PowerShell module now includes a manifest; an omission from the first release.
-
-### 1.20.108.4 Released on February 14, 2018
-
-There is one new feature and two bug fixes in this release. Thanks to the customers who helped us to find and fix these issues.
-
-#### Bug fixes
-
-1. The emulator now works on computers with 1 or 2 cores (or virtual CPUs)
-
-   Cosmos DB allocates tasks to perform various services. The number of tasks allocated is a multiple of the number of cores on a host. The default multiple works well in production environments where the number of cores is large. However, on machines with 1 or 2 processors, no tasks are allocated to perform these services when this multiple is applied.
-
-   We corrected this by adding a configuration override to the emulator. We now apply a multiple of 1. The number of tasks allocated to perform various services is now equal to the number of cores on a host.
-
-   If we did nothing else for this release, it would have been to address this issue. We find that many dev/test environments hosting the emulator have 1 or 2 cores.
-
-2. The emulator no longer requires the Microsoft Visual C++ 2015 redistributable to be installed.
-
-   We found that fresh installs of Windows (desktop and server editions) do not include this redistributable package. Hence, we now bundle the redistributable binaries with the emulator.
-
-#### Features
-
-Many of the customers we've talked to have said: It would be nice if the emulator was scriptable. Hence, in this release we've added some script ability. The emulator now includes a PowerShell module for starting, stopping, getting status, and uninstalling itself: `Microsoft.Azure.CosmosDB.Emulator`. 
-
-### 1.20.91.1 Released on January 26, 2018
-
-* Enabled the MongoDB aggregation pipeline by default.
 
 ## Next steps
 

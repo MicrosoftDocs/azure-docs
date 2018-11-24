@@ -2,15 +2,15 @@
 title: FAQ about using the Azure Database Migration Service | Microsoft Docs
 description: Learn frequently asked questions about using the Azure Database Migration Service to perform database migrations.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: 
 ms.reviewer: 
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 10/09/2018
 ---
 
 # FAQ about using the Azure Database Migration Service
@@ -23,7 +23,7 @@ The Azure Database Migration Service is a fully managed service designed to enab
 - Continued investment in friction-free migrations.
 
 ### Q. What source-target pairs does the Azure Database Migration Service currently support?
-The service currently supports migrations from SQL Server to Azure SQL Database, and you can go to the Azure portal now to start using the Azure Database Migration Service for this scenario. Other source-target pairs, such as Oracle to Azure SQL Database are available via a limited Private Preview. For an opportunity to participate in the limited Private Preview of these scenarios, sign up [here](https://aka.ms/dms-preview/).
+The service currently supports migrations from SQL Server to Azure SQL Database, and you can go to the Azure portal now to start using the Azure Database Migration Service for this scenario. Other source-target pairs, such as Oracle to Azure SQL Database, are available via a limited Private Preview. For an opportunity to participate in the limited Private Preview of these scenarios, sign up [here](https://aka.ms/dms-preview/).
 
 ### Q. How does the Azure Database Migration Service compare to other Microsoft database migration tools such as the Database Migration Assistant (DMA) or SQL Server Migration Assistant (SSMA)?
 The Azure Database Migration Service is the preferred method for database migration to Microsoft Azure at scale. For more detail on how the Azure Database Migration Service compares to other Microsoft database migration tools and for recommendations on using the service for various scenarios, see the blog posting [Differentiating Microsoft’s Database Migration Tools and Services](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/).
@@ -48,15 +48,15 @@ During a typical, simple database migration, you:
 There are several prerequisites required to ensure that the Azure Database Migration Service runs smoothly when performing database migrations. Some of the prerequisites apply across all scenarios (source-target pairs) supported by the service, while other prerequisites are unique to a specific scenario.
 Azure Database Migration Service prerequisites that are common across all supported migration scenarios include the need to:
 - Create a VNET for the Azure Database Migration Service by using the Azure Resource Manager deployment model, which provides site-to-site connectivity to your on-premises source servers by using either [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Ensure that your Azure Virtual Network (VNET) Network Security Group rules do not block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Ensure that your Azure Virtual Network (VNET) Network Security Group rules don't block the following communication ports 443, 53, 9354, 445, 12000. For more detail on Azure VNET NSG traffic filtering, see the article [Filter network traffic with network security groups](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - When using a firewall appliance in front of your source database(s), you may need to add firewall rules to allow the Azure Database Migration Service to access the source database(s) for migration.
  
 For a list of all the prerequisites required to compete specific migration scenarios using the Azure Database Migration Service, see the related tutorials in the Azure Database Migration Service [documentation](https://docs.microsoft.com/azure/dms/dms-overview) on docs.microsoft.com.
 
 ### Q. How do I find the IP address for the Azure Database Migration Service so that I can create an allow list for the firewall rules used to access my source database for migration?
-You may need to add firewall rules allowing the Azure Database Migration Service to access to your source database for migration. The IP address for the service is dynamic, but if you are using Express Route, this address is privately assigned by your corporate network. The easiest way to identify the appropriate IP address it is to look in the same resource group as your provisioned Azure Database Migration Service resource to find the associated Network Interface. Usually the name of the Network Interface resource begins with the NIC prefix and followed by a unique character and number sequence, example NIC-jj6tnztnmarpsskr82rbndyp. By selecting this network interface resource, you can see the IP address that needs to be included in the allow list on the resource overview Azure portal page.
+You may need to add firewall rules allowing the Azure Database Migration Service to access to your source database for migration. The IP address for the service is dynamic, but if you're using Express Route, this address is privately assigned by your corporate network. The easiest way to identify the appropriate IP address it is to look in the same resource group as your provisioned Azure Database Migration Service resource to find the associated Network Interface. Usually the name of the Network Interface resource begins with the NIC prefix and followed by a unique character and number sequence, for example NIC-jj6tnztnmarpsskr82rbndyp. By selecting this network interface resource, you can see the IP address that needs to be included in the allow list on the resource overview Azure portal page.
 
-You may also need to include the port source that SQL Server is listening on the allow list. By default, it is port 1433, but the source SQL Server may be configured to listen on other ports as well. In this case, you need to include those ports on the allow list as well. You can determine the port that SQL Server is listening on by using a Dynamic Management View query:
+You may also need to include the port source that SQL Server is listening on the allow list. By default, it's port 1433, but the source SQL Server may be configured to listen on other ports as well. In this case, you need to include those ports on the allow list as well. You can determine the port that SQL Server is listening on by using a Dynamic Management View query:
 
 ```sql
     SELECT DISTINCT 

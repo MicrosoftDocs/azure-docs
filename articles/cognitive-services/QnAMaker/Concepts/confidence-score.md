@@ -47,6 +47,8 @@ When choosing your threshold, keep in mind the balance between Accuracy and Cove
 
 - If **Coverage** (or recall) is more important- and you want to answer as many questions as possible, even if there is only a partial relation to the user's question- then LOWER the threshold. This means there could be more cases where the answer does not answer the user's actual query, but gives some other somewhat related answer. *For example:* if you make the threshold **30**, you might give not very related answers like, answering with the above example, for queries like "Where can I edit my KB?"
 
+> [!NOTE]
+> Newer versions of QnA Maker include improvements to scoring logic, and could affect your threshold. Any time you update the service, make sure to test and tweak the threshold if necessary. You can check your QnA Service version [here](https://www.qnamaker.ai/UserSettings), and see how to get the latest updates [here](../How-To/troubleshooting-runtime.md).
 
 ## Improve confidence scores
 To improve the confidence score of a particular response to a user query, you can add the user query to the knowledge base as an alternate question on that response.
@@ -64,7 +66,9 @@ See here how the [publish](../How-To/publish-knowledge-base.md) operation works.
 ## No match found
 When no good match is found by the ranker, the confidence score of 0.0 or "None" is returned and the default response is "No good match found in the KB". You can override this default response in the bot or application code calling the endpoint. Alternately, you can also set the override response in Azure and this changes the default for all knowledge bases deployed in a particular QnA Maker service.
 
-1. Go to the [Azure portal](http://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
+### Change Default Answer
+
+1. Go to the [Azure portal](https://portal.azure.com) and navigate to the resource group that represents the QnA Maker service you created.
 
 2. Click to open the **App Service**.
 

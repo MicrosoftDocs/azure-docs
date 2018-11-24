@@ -48,6 +48,8 @@
       href: contoso-migration-rearchitect-container-sql.md
     - name: 13. Contoso-Rebuild an app in Azure
       href: contoso-migration-rebuild.md
+    - name: 14. Contoso-Scale a migration
+      href: contoso-migration-scale.md
   - name: Discover and assess a large environment
     href: how-to-scale-assessment.md
   - name: Group machines

@@ -1,23 +1,18 @@
 ---
-title: Protect a multi-tier SAP NetWeaver application deployment using Azure Site Recovery | Microsoft Docs
-description: This article describes how to protect SAP NetWeaver application deployments by using Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Set up disaster recovery for multi-tier SAP NetWeaver app deployment with Azure Site Recovery | Microsoft Docs
+description: This article describes how to set up disaster recovery for SAP NetWeaver application deployments using Azure Site Recovery.
 author: asgang
 manager: rochakm
-editor:
-
-ms.assetid:
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
 
 ---
-# Protect a multi-tier SAP NetWeaver application deployment by using Site Recovery
+# Set up disaster recovery for a multi-tier SAP NetWeaver app deployment
 
 Most large-size and medium-size SAP deployments use some form of disaster recovery solution. The importance of robust and testable disaster recovery solutions has increased as more core business processes are moved to applications like SAP. Azure Site Recovery has been tested and integrated with SAP applications. Site Recovery exceeds the capabilities of most on-premises disaster recovery solutions, and at a lower total cost of ownership (TCO) than competing solutions.
 
@@ -58,7 +53,7 @@ We recommend that you establish this infrastructure before you deploy Site Recov
 
 This reference architecture shows running SAP NetWeaver in a Windows environment on Azure with high availability.  This architecture is deployed with specific virtual machine (VM) sizes that can be changed to accommodate your organization’s needs.
 
-![Diagram of a typical SAP deployment pattern](./media/site-recovery-sap/reference_sap.png)
+![Diagram of a typical SAP deployment pattern](./media/site-recovery-sap/sap-netweaver_latest.png)
 
 ## Disaster Recovery considerations
 
@@ -67,10 +62,10 @@ For disaster recovery (DR), you must be able to fail over to a secondary region.
 #### VMs running SAP Web Dispatcher pool 
 The Web Dispatcher component is used as a load balancer for SAP traffic among the SAP application servers. To achieve high availability for the Web Dispatcher component, Azure Load Balancer is used to implement the parallel Web Dispatcher setup in a round-robin configuration for HTTP(S) traffic distribution among the available Web Dispatchers in the balancer pool. This will be replicated using Azure Site Recovery(ASR) and automation scripts will be used to configure load balancer on the disaster recovery region. 
 
-####VMs running application servers pool
+#### VMs running application servers pool
 To manage logon groups for ABAP application servers, the SMLG transaction is used. It uses the load balancing function within the message server of the Central Services to distribute workload among SAP application servers pool for SAPGUIs and RFC traffic. This will be replicated using Azure Site Recovery 
 
-####VMs running SAP Central Services cluster
+#### VMs running SAP Central Services cluster
 This reference architecture runs Central Services on VMs in the application tier. The Central Services is a potential single point of failure (SPOF) when deployed to a single VM—typical deployment when high availability is not a requirement.<br>
 
 To implement a high availability solution, either a shared disk cluster or a file share cluster can be used.To configure VMs for a shared disk cluster, use Windows Server Failover Cluster. Cloud Witness is recommended as a quorum witness. 
@@ -106,7 +101,7 @@ Below is the recommendation for disaster recovery of each tier used in this exam
 **Active directory virtual machines** |  Active directory replication 
 **SQL database servers** |  SQL always on replication
 
-##Replicate virtual machines
+## Replicate virtual machines
 
 To start replicating all the SAP application virtual machines to the Azure disaster recovery datacenter, follow the guidance in [Replicate a virtual machine to Azure](azure-to-azure-walkthrough-enable-replication.md).
 
@@ -167,5 +162,5 @@ For more information, see [Test failover to Azure in Site Recovery](site-recover
 For more information, see [Failover in Site Recovery](site-recovery-failover.md).
 
 ## Next steps
-* To learn more about building a disaster recovery solution for SAP NetWeaver deployments by using Site Recovery, see the downloadable white paper [SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery](http://aka.ms/asr-sap). The white paper discusses recommendations for various SAP architectures, lists supported applications and VM types for SAP on Azure, and describes testing plan options for your disaster recovery solution.
+* To learn more about building a disaster recovery solution for SAP NetWeaver deployments by using Site Recovery, see the downloadable white paper [SAP NetWeaver: Building a Disaster Recovery Solution with Azure Site Recovery](https://aka.ms/asr-sap). The white paper discusses recommendations for various SAP architectures, lists supported applications and VM types for SAP on Azure, and describes testing plan options for your disaster recovery solution.
 * Learn more about [replicating other workloads](site-recovery-workload.md) by using Site Recovery.

@@ -5,12 +5,12 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
 ---
 # Log alerts in Azure Monitor
-This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](monitoring-overview-unified-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
+This article provides details of Log alerts are one of the types of alerts supported within the [Azure Alerts](monitoring-overview-alerts.md) and allow users to use Azure's analytics platform as basis for alerting.
 
 Log Alert consists of Log Search rules created for [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) or [Application Insights](../application-insights/app-insights-cloudservices.md#view-azure-diagnostic-events). To learn more about its usage, see [creating log alerts in Azure](alert-log.md)
 
@@ -87,7 +87,7 @@ Consider a scenario where you wanted an alert if any computer exceeded processor
 
 The query would create an average value for each computer at 5-minute intervals.  This query would be run every 5 minutes for data collected over the previous 30 minutes.  Sample data is shown below for three computers.
 
-![Sample query results](./media/monitor-alerts-unified/metrics-measurement-sample-graph.png)
+![Sample query results](media/monitor-alerts-unified-log/metrics-measurement-sample-graph.png)
 
 In this example, separate alerts would be created for srv02 and srv03 since they breached the 90% threshold three times over the time period.  If the **Trigger alert based on:** were changed to **Consecutive** then an alert would be created only for srv03 since it breached the threshold for three consecutive samples.
 
@@ -100,11 +100,11 @@ Now assume we have a log alert rule called *Contoso-Log-Alert*, as per configura
 - At 1:15 PM when Contoso-Log-Alert was executed by Azure alerts, log search result provided 2 records; exceeding the threshold and firing the alert, soon after by triggering the [action group](monitoring-action-groups.md) associated.
 - Now at the next iteration at 1:20 PM when Contoso-Log-Alert was executed by Azure alert, log search result provided again 0 records; below the threshold and hence not firing the alert.
 
-But in the above listed case, at 1:15 PM - Azure alerts can't determine that the underlying issues seen at 1:10 persist and if there is net new failures; as query provided by user may be taking into account earlier records - Azure alerts can be sure. Hence to err on the side of caution, Contoso-Log-Alert is fired again at 1:15 PM via configured [action group](monitoring-action-groups.md). Now at 1:20 PM when no records are seen - Azure alerts can't be certain that the cause of the records has been solved; hence Contoso-Log-Alert will not changed to Resolved in Azure Alert dashboard and/or notifications sent out stating resolution of alert.
+But in the above listed case, at 1:15 PM - Azure alerts can't determine that the underlying issues seen at 1:10 persist and if there is net new failures; as query provided by user may be taking into account earlier records - Azure alerts can be sure. Hence to err on the side of caution, when Contoso-Log-Alert is executed at 1:15 PM, configured [action group](monitoring-action-groups.md) is fired again. Now at 1:20 PM when no records are seen - Azure alerts can't be certain that the cause of the records has been solved; hence Contoso-Log-Alert will not changed to Resolved in Azure Alert dashboard and/or notifications sent out stating resolution of alert.
 
 
 ## Pricing and Billing of Log Alerts
-Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https://azure.microsoft.com/en-us/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
+Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https://azure.microsoft.com/pricing/details/monitor/) page. In Azure bills, Log Alerts are represented as type `microsoft.insights/scheduledqueryrules` with:
 - Log Alerts on Application Insights shown with exact alert name along with resource group and alert properties
 - Log Alerts on Log Analytics shown with alert name as `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>` along with resource group and alert properties
 
@@ -114,6 +114,6 @@ Pricing applicable for Log Alerts is stated at the [Azure Monitor Pricing](https
 ## Next steps
 * Learn about [creating in log alerts in Azure](alert-log.md).
 * Understand [webhooks in log alerts in Azure](monitor-alerts-unified-log-webhook.md).
-* Learn about [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Learn about [Azure Alerts](monitoring-overview-alerts.md).
 * Learn more about [Application Insights](../application-insights/app-insights-analytics.md).
-* Learn more about [Log Analytics](../log-analytics/log-analytics-overview.md).    
+* Learn more about [Log Analytics](../log-analytics/log-analytics-queries.md).    

@@ -3,11 +3,11 @@ title: 'Troubleshoot: Create and connect to a Machine Learning workspace | Micro
 description: Solutions for common issues in creating and connecting to an Azure Machine Learning workspace
 services: machine-learning
 documentationcenter: ''
-author: heatherbshapiro
-ms.author: hshapiro
+author: ericlicoding
+ms.custom: "(previous ms.author=hshapiro, author=heatherbshapiro)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: 1a8aec4b-35f9-44e8-9570-2575b8979ab1
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-
 ---
 # Troubleshooting guide: Create and connect to an Machine Learning workspace
 This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning workspaces.
@@ -60,7 +59,7 @@ After the cookies are deleted, restart the browser and then go to the [Microsoft
 
 ## Comments
 
-Our goal is to make the Machine Learning experience as seamless as possible. Please post any comments and issues at the [Azure Machine Learning forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to help us serve you better.
+Our goal is to make the Machine Learning experience as seamless as possible. Please post any comments and issues at the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) to help us serve you better.
 
 [screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:media/troubleshooting-creating-ml-workspace/screen2.png

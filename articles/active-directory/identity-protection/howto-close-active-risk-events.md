@@ -48,7 +48,7 @@ By configuring the [user risk conditional access policy](howto-user-risk-policy.
 
 ![Reset password](./media/howto-close-active-risk-events/13.png)
 
-A password reset closes all active risks events of the related user and brings the identity back into a safe state. Using a user risk policy is the preferred method to close active risk events because this method is automated. There is now interaction required between the affected user and help desk or an administrator.
+A password reset closes all active risks events of the related user and brings the identity back into a safe state. Using a user risk policy is the preferred method to close active risk events because this method is automated. There is no interaction required between the affected user and help desk or an administrator.
 
 However, using a user risk policy is not always applicable. This applies, for example, to:
 

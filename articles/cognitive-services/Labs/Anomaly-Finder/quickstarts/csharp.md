@@ -6,13 +6,15 @@ author: chliang
 manager: bix
 
 ms.service: cognitive-services
-ms.technology: anomaly-detection
+ms.component: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
 ---
 
 # Use the Anomaly Finder API with C#
+
+[!INCLUDE [PrivatePreviewNote](../../../../../includes/cognitive-services-anomaly-finder-private-preview-note.md)]
 
 This article provides information and code samples to help you quickly get started using the Anomaly Finder API with C# to accomplish task of getting anomaly result of time series data.
 

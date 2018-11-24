@@ -92,15 +92,15 @@ When the backup is finished, the file is transferred to the Backup Server comput
 ## Before you begin
 
 1.  **Deploy Azure Backup Server**. Verify that Backup Server is correctly deployed. For more information, see:
-    * [System requirements for Azure Backup Server](http://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
+    * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)
     * [Backup Server protection matrix](backup-mabs-protection-matrix.md)
 
 2.  **Set up storage**. You can store backup data on disk, on tape, and in the cloud with Azure. For more information, see [Prepare data storage](https://docs.microsoft.com/system-center/dpm/plan-long-and-short-term-data-storage).
 
-3.  **Set up the protection agent**. Install the protection agent on the computer that you want to back up. For more information, see [Deploy the DPM protection agent](http://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
+3.  **Set up the protection agent**. Install the protection agent on the computer that you want to back up. For more information, see [Deploy the DPM protection agent](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent).
 
 ## Back up system state and bare metal
-Set up a protection group as described in [Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Note that you can't protect BMR and system state for the same computer in different groups. Also, when you select BMR, system state is automatically enabled.
+Set up a protection group as described in [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups). Note that you can't protect BMR and system state for the same computer in different groups. Also, when you select BMR, system state is automatically enabled.
 
 
 1.  To open the Create New Protection Group wizard in the Backup Server Administrator Console, select **Protection** > **Actions** > **Create Protection Group**.
@@ -109,7 +109,7 @@ Set up a protection group as described in [Deploy protection groups](http://docs
 
 3.  On the **Select Group Members** page, expand the computer, and then select either **BMR** or **system state**.
 
-    Remember that you can't protect both BMR and system state for the same computer in different groups. Also, when you select BMR, system state is automatically enabled. For more information, see [Deploy protection groups](http://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
+    Remember that you can't protect both BMR and system state for the same computer in different groups. Also, when you select BMR, system state is automatically enabled. For more information, see [Deploy protection groups](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups).
 
 4.  On the **Select Data Protection Method** page, select how you want to handle short-term and long-term backup. Short-term backup is always to disk first, with the option of backing up from the disk to the Azure cloud by using Azure Backup (short-term or long-term). An alternative to long-term backup to the cloud is to set up long-term backup to a standalone tape device or tape library that's connected to Backup Server.
 

@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 11/08/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
 ---
@@ -25,7 +25,7 @@ You can configure the Azure Stack to use PowerShell to manage resources such as 
 
 ## Prerequisites
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
+Run the following prerequisites either from the [development kit](.\asdk\asdk-connect.md#connect-with-rdp) or from a Windows-based external client if you are [connected to the ASDK through VPN](.\asdk\asdk-connect.md#connect-with-vpn). 
 
  - Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
  - Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md).  
@@ -39,12 +39,16 @@ Configure the Azure Stack operator environment with PowerShell. Run one of the f
     # To get this value for Azure Stack integrated systems, contact your service provider.
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
-    # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    $AuthEndpoint = (Get-AzureRmEnvironment -Name "AzureStackAdmin").ActiveDirectoryAuthority.TrimEnd('/')
+    $TenantId = (invoke-restmethod "$($AuthEndpoint)/$($AADTenantName)/.well-known/openid-configuration").issuer.TrimEnd('/').Split('/')[-1]
+
+    $TenantID = Get-AzsDirectoryTenantId `
+      -AADTenantName "<myDirectoryTenantName>.onmicrosoft.com" `
+      -EnvironmentName AzureStackAdmin
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.
-    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin"
+    Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $tenantId
 ````
 
 ## Test the connectivity

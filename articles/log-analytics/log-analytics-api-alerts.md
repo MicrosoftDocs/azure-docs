@@ -1,6 +1,6 @@
 ---
-title: Using OMS Log Analytics Alert REST API
-description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics which is part of Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
+title: Using Log Analytics Alert REST API
+description: The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics which is part of Log Analytics.  This article provides details of the API and several examples for performing different operations.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -19,12 +19,12 @@ ms.component:
 ---
 
 # Create and manage alert rules in Log Analytics with REST API
-The Log Analytics Alert REST API allows you to create and manage alerts in Operations Management Suite (OMS).  This article provides details of the API and several examples for performing different operations.
+The Log Analytics Alert REST API allows you to create and manage alerts in Log Analytics.  This article provides details of the API and several examples for performing different operations.
 
-The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools, you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
+The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager REST API. In this document, you will find examples where the API is accessed from a PowerShell command line using  [ARMClient](https://github.com/projectkudu/ARMClient), an open-source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. With these tools, you can utilize the RESTful Azure Resource Manager API to make calls to Log Analytics workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
 
 ## Prerequisites
-Currently, alerts can only be created with a saved search in Log Analytics.  You can refer to the [Log Search REST API](log-analytics-log-search-api.md) for more information.
+Currently, alerts can only be created with a saved search in Log Analytics.  You can refer to the [Log Search REST API](log-analytics-queries.md) for more information.
 
 ## Schedules
 A saved search can have one or more schedules. The schedule defines how often the search is run and the time interval over which the criteria is identified.
@@ -63,7 +63,7 @@ Following is a sample response for a schedule.
 ```
 
 ### Creating a schedule
-Use the Put method with a unique schedule ID to create a new schedule.  Note that two schedules cannot have the same ID even if they are associated with different saved searches.  When you create a schedule in the OMS console, a GUID is created for the schedule ID.
+Use the Put method with a unique schedule ID to create a new schedule.  Note that two schedules cannot have the same ID even if they are associated with different saved searches.  When you create a schedule in the Log Analytics console, a GUID is created for the schedule ID.
 
 > [!NOTE]
 > The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
@@ -98,7 +98,7 @@ All actions have the properties in the following table.  Different types of aler
 ### Retrieving actions
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use the Get method to retrieve all actions for a schedule.
 
@@ -109,7 +109,7 @@ Use the Get method with the action ID to retrieve a particular action for a sche
     armclient get /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Subscription ID}/schedules/{Schedule ID}/actions/{Action ID}?api-version=2015-03-20
 
 ### Creating or editing actions
-Use the Put method with an action ID that is unique to the schedule to create a new action.  When you create an action in the OMS console, a GUID is for the action ID.
+Use the Put method with an action ID that is unique to the schedule to create a new action.  When you create an action in the Log Analytics console, a GUID is for the action ID.
 
 > [!NOTE]
 > The name for all saved searches, schedules, and actions created with the Log Analytics API must be in lowercase.
@@ -121,7 +121,7 @@ The request format for creating a new action varies by action type so these exam
 ### Deleting actions
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Use the Delete method with the action ID to delete an action.
 
@@ -134,6 +134,7 @@ A Schedule should have one and only one Alert action.  Alert actions have one or
 |:--- |:--- |:--- |
 | Threshold |Criteria for when the action is run.| Required for every alert, before or after they are extended to Azure. |
 | Severity |Label used to classify alert when triggered.| Required for every alert, before or after they are extended to Azure. |
+| Suppress |Option to stop notifications from alert. | Optional for every alert, before or after they are extended to Azure. |
 | Action Groups |IDs of Azure ActionGroup where actions required are specified, like - E-Mails, SMSs, Voice Calls, Webhooks, Automation Runbooks, ITSM Connectors, etc.| Required once alerts are extended to Azure|
 | Customize Actions|Modify the standard output for select actions from ActionGroup| Optional for every alert, can be used after alerts are extended to Azure. |
 | EmailNotification |Send mail to multiple recipients. | Not required, if alerts are extended to Azure|
@@ -141,7 +142,7 @@ A Schedule should have one and only one Alert action.  Alert actions have one or
 | Webhook Actions | Push data from Alerts, to desired service as JSON |Not required, if alerts are extended to Azure|
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
+> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md).
 
 #### Thresholds
 An Alert action should have one and only one threshold.  When the results of a saved search match the threshold in an action associated with that search, then any other processes in that action are run.  An action can also contain only a threshold so that it can be used with actions of other types that don’t contain thresholds.
@@ -209,6 +210,37 @@ Use the Put method with an existing action ID to modify a severity action for a 
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### Suppress
+Log Analytics based query alerts will fire every time threshold is met or exceeded. Based on the logic implied in the query, this may result in alert getting fired for a series of intervals and hence notifications also being sent constantly. To prevent such scenario, a user can set Suppress option instructing Log Analytics to wait for a stipulated amount of time before notification is fired the second time for the alert rule. So if suppress is set for 30 minutes; then alert will fire the first time and send notifications configured. But then wait for 30 minutes, before notification for the alert rule is again used. In the interim period, alert rule will continue to run - only notification is suppressed by Log Analytics for specified time, regardless of how many times the alert rule fired in this period.
+
+Suppress property of Log Analytics alert rule is specified using the *Throttling* value and the suppression period using *DurationInMinutes* value.
+
+Following is a sample response for an action with only a threshold, severity and suppress property
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Use the Put method with a unique action ID to create a new action for a schedule with severity.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+Use the Put method with an existing action ID to modify a severity action for a schedule.  The body of the request must include the etag of the action.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### Action Groups
 All alerts in Azure, use Action Group as the default mechanism for handling actions. With Action Group, you can specify your actions once and then associate the action group to multiple alerts - across Azure. Without the need, to repeatedly declare the same actions over and over again. Action Groups support multiple actions - including email, SMS, Voice Call, ITSM Connection, Automation Runbook, Webhook URI and more. 
@@ -320,7 +352,7 @@ Use the Put method with an existing action ID to modify an Action Group associat
 Email Notifications send mail to one or more recipients.  They include the properties in the following table.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like E-Mail Notification are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like E-Mail Notification are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
    
 
 | Property | Description |
@@ -361,16 +393,16 @@ Use the Put method with an existing action ID to modify an e-mail action for a s
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myemailaction?api-version=2015-03-20 $emailJson
 
 #### Remediation actions
-Remediations start a runbook in Azure Automation that attempts to correct the problem identified by the alert.  You must create a webhook for the runbook used in a remediation action and then specify the URI in the WebhookUri property.  When you create this action using the OMS console, a new webhook is automatically created for the runbook.
+Remediations start a runbook in Azure Automation that attempts to correct the problem identified by the alert.  You must create a webhook for the runbook used in a remediation action and then specify the URI in the WebhookUri property.  When you create this action using Azure portal, a new webhook is automatically created for the runbook.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Remediation using runbook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Remediation using runbook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 Remediations include the properties in the following table.
 
 | Property | Description |
 |:--- |:--- |
-| RunbookName |Name of the runbook. This must match a published runbook in the automation account configured in the Automation Solution in your OMS workspace. |
+| RunbookName |Name of the runbook. This must match a published runbook in the automation account configured in the Automation Solution in your Log Analytics workspace. |
 | WebhookUri |URI of the webhook. |
 | Expiry |The expiration date and time of the webhook.  If the webhook doesn’t have an expiration, then this can be any valid future date. |
 
@@ -423,7 +455,7 @@ Following is a complete example to create a new email alert.  This creates a new
 Webhook actions start a process by calling a URL and optionally providing a payload to be sent.  They are similar to Remediation actions except they are meant for webhooks that may invoke processes other than Azure Automation runbooks.  They also provide the additional option of providing a payload to be delivered to the remote process.
 
 > [!NOTE]
-> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from OMS](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Webhook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
+> Beginning May 14, 2018, all alerts in a Azure public cloud instance of Log Analytics workspace will be automatically extended to Azure. A user can voluntarily initiate extending alerts to Azure before May 14, 2018. For more information, see [Extend Alerts into Azure from Log Analytics](../monitoring-and-diagnostics/monitoring-alerts-extend.md). For users that extend alerts to Azure, actions like Webhook are now controlled in Azure action groups. When a workspace and its alerts are extended to Azure, you can retrieve or add actions by using the [Action Group API](https://docs.microsoft.com/rest/api/monitor/actiongroups).
 
 
 Webhook actions do not have a threshold but instead should be added to a schedule that has an Alert action with a threshold.  
@@ -476,6 +508,6 @@ Use the Put method with an existing action ID to modify a webhook action for a s
 
 
 ## Next steps
-* Use the [REST API to perform log searches](log-analytics-log-search-api.md) in Log Analytics.
+* Use the [REST API to perform log searches](log-analytics-queries.md) in Log Analytics.
 * Learn about [log alerts in azure alerts](../monitoring-and-diagnostics/monitor-alerts-unified-log.md)
 

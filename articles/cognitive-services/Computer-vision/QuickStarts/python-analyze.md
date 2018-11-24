@@ -3,14 +3,14 @@ title: "Quickstart: Analyze a remote image - REST, Python - Computer Vision"
 titleSuffix: "Azure Cognitive Services"
 description: In this quickstart, you analyze a remote image using the Computer Vision API with Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
+ms.author: pafarley
 ---
 # Quickstart: Analyze a remote image using the REST API and Python in Computer Vision
 
@@ -45,6 +45,7 @@ import requests
 # If you are using a Jupyter notebook, uncomment the following line.
 #%matplotlib inline
 import matplotlib.pyplot as plt
+import json
 from PIL import Image
 from io import BytesIO
 
@@ -56,7 +57,7 @@ assert subscription_key
 # subscription keys. For example, if you got your subscription keys from
 # westus, replace "westcentralus" in the URI below with "westus".
 #
-# Free trial subscription keys are generated in the westcentralus region.
+# Free trial subscription keys are generated in the "westus" region.
 # If you use a free trial subscription key, you shouldn't need to change
 # this region.
 vision_base_url = "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/"

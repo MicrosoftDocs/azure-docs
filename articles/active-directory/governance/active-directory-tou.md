@@ -18,9 +18,19 @@ ms.author: rolyon
 ---
 
 # Azure Active Directory Terms of use feature
-Azure AD Terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Azure AD Terms of use.
+Azure AD Terms of use provides a simple method that organizations can use to present information to end users. This presentation ensures users see relevant disclaimers for legal or compliance requirements. This article describes how to get started with Terms of use.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+## Overview videos
+
+The following video provides a quick overview of Terms of use.
+
+>[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
+
+For additional videos, see:
+- [How to deploy Terms of use in Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## What can I do with Terms of use?
 Azure AD Terms of use enables you to do the following:
@@ -32,7 +42,9 @@ Azure AD Terms of use enables you to do the following:
 - Present specific Terms of use when accessing high business impact applications, like Salesforce.
 - Present Terms of use in different languages.
 - List who has or hasn't accepted to your Terms of use.
-- Display an audit log of Terms of use activity.
+- Assist in meeting privacy regulations.
+- Display a log of Terms of use activity for compliance and audit.
+- Create and manage Terms of use using [Microsoft Graph APIs](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (currently in preview).
 
 ## Prerequisites
 To use and configure Azure AD Terms of use, you must have:
@@ -298,7 +310,7 @@ Conditional access policies take effect immediately. When this happens, the admi
 
 **Q: How do I see when/if a user has accepted a Terms of use?**</br>
 A: On the Terms of use blade, click the number under **Accepted**. You can also view or search the accept activity in the Azure AD audit logs. For more information, see [View report of who has accepted and declined](#view-who-has-accepted-and-declined) and [View Azure AD audit logs](#view-azure-ad-audit-logs).
- 
+
 **Q: How long is information stored?**</br>
 A: The user counts in the Terms of use report and who accepted/declined are stored for the life of the Terms of use. The Azure AD audit logs are stored for 30 days.
 
@@ -331,6 +343,9 @@ A: The user is blocked from getting access to the application. The user would ha
  
 **Q: Is it possible to unaccept Terms of use that were previously accepted?**</br>
 A: You can [review previously accepted Terms of use](#how-users-can-review-their-terms-of-use), but currently there isn't a way to unaccept.
+
+**Q: What happens if I'm also using Intune terms and conditions?**</br>
+A: If you have configured both Azure AD Terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## Next steps
 

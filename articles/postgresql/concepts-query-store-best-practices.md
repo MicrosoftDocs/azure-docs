@@ -14,7 +14,7 @@ ms.date: 09/26/2018
 **Applies to:** Azure Database for PostgreSQL 9.6 and 10
 
 > [!IMPORTANT]
-> The Query Store feature is in Public Preview in a limited number of regions.
+> The Query Store feature is in Public Preview.
 
 
 This article outlines best practices for using Query Store in Azure Database for PostgreSQL.

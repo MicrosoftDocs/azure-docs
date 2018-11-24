@@ -4,7 +4,7 @@ description: Azure Policy is a service in Azure, that you use to create, assign 
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 11/06/2018
 ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
@@ -46,17 +46,17 @@ default allow and explicit deny system.
 
 ### RBAC Permissions in Azure Policy
 
-Azure Policy has permissions represented as operations in two different Resource Providers:
+Azure Policy has several permissions, known as operations, in two Resource Providers:
 
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
-- [Microsoft.PolicyInsight](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
+- [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Several of the Built-in roles have various levels of permission to Azure Policy resources, such as
-**Security Admin** that can manage policy assignments and definitions but cannot view compliance
-information and **Reader** that can read details regarding policy assignments and definitions, but
-cannot make changes or view compliance information. While **Owner** has full rights,
-**Contributor** does not have any Azure Policy permissions. To grant permission to view Policy
-compliance details, create a [custom role](../../role-based-access-control/custom-roles.md).
+Many Built-in roles grant permission to Azure Policy resources. The **Resource Policy Contributor
+(Preview)** role includes most Policy operations and **Owner** has full rights. Both
+**Contributor** and **Reader** can read all details regarding Policy, but **Contributor** can also
+trigger remediation.
+
+If none of the Built-in roles have the permissions required, create a [custom role](../../role-based-access-control/custom-roles.md).
 
 ## Policy definition
 

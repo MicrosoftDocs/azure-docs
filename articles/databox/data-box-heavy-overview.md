@@ -26,7 +26,7 @@ Data Box Heavy is currently in preview and you can sign up to request for a devi
 
 > [!IMPORTANT]
 > - Data Box Heavy is in preview. Review the [Azure terms of service for preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) before you deploy this solution. 
-> - To request a device, sign up in the [Preview portal](http://aka.ms/).
+> - To request a device, sign up in the [Preview portal](https://aka.ms/).
 > - During preview, Data Box Heavy can be shipped to customers in US and European Union. For more information, go to [Region availability](#region-availability).
 
 ## Use cases

@@ -2,13 +2,13 @@
 title: Timers in Durable Functions - Azure
 description: Learn how to implement durable timers in the Durable Functions extension for Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords:
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
 ---
 
@@ -52,12 +52,12 @@ public static async Task Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
+module.exports = df.orchestrator(function*(context) {
     for (let i = 0; i < 10; i++) {
         const dayOfMonth = context.df.currentUtcDateTime.getDate();
         const deadline = moment.utc(context.df.currentUtcDateTime).add(1, 'd');
         yield context.df.createTimer(deadline.toDate());
-        yield context.df.callActivityAsync("SendBillingEvent");
+        yield context.df.callActivity("SendBillingEvent");
     }
 });
 ```
@@ -106,10 +106,10 @@ public static async Task<bool> Run(
 const df = require("durable-functions");
 const moment = require("moment-js");
 
-module.exports = df(function*(context) {
-    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, 's');
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
 
-    const activityTask = context.df.callActivityAsync("GetQuote");
+    const activityTask = context.df.callActivity("GetQuote");
     const timeoutTask = context.df.createTimer(deadline);
 
     const winner = yield context.df.Task.any([activityTask, timeoutTask]);

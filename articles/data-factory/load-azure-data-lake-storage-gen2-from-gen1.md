@@ -76,7 +76,7 @@ This article shows you how to use the Data Factory Copy Data tool to copy data f
    3. Select **Next**.
    
    > [!IMPORTANT]
-   > In this walkthrough, you use a _managed service identity_ to authenticate your Data Lake Storage Gen1e. Be sure to grant the MSI the proper permissions in Azure Data Lake Storage Gen1 by following [these instructions](connector-azure-data-lake-store.md#using-managed-service-identity-authentication).
+   > In this walkthrough, you use a managed identity for Azure resources to authenticate your Data Lake Storage Gen1e. Be sure to grant the MSI the proper permissions in Azure Data Lake Storage Gen1 by following [these instructions](connector-azure-data-lake-store.md#managed-identity).
    
    ![Specify Azure Data Lake Storage Gen1 account](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
    

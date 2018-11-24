@@ -69,18 +69,18 @@ For more information:
 ##  <a name="CLRTypes"></a> .NET Framework types allowed in policy expressions  
  The following table lists the .NET Framework types and their members that are allowed in policy expressions.  
   
-|CLR type|Supported methods|  
+|CLR type|Supported members|  
 |--------------|-----------------------|  
-|Newtonsoft.Json.Linq.Extensions|All methods are supported|  
-|Newtonsoft.Json.Linq.JArray|All methods are supported|  
-|Newtonsoft.Json.Linq.JConstructor|All methods are supported|  
-|Newtonsoft.Json.Linq.JContainer|All methods are supported|  
-|Newtonsoft.Json.Linq.JObject|All methods are supported|  
-|Newtonsoft.Json.Linq.JProperty|All methods are supported|  
-|Newtonsoft.Json.Linq.JRaw|All methods are supported|  
-|Newtonsoft.Json.Linq.JToken|All methods are supported|  
-|Newtonsoft.Json.Linq.JTokenType|All methods are supported|  
-|Newtonsoft.Json.Linq.JValue|All methods are supported|  
+|Newtonsoft.Json.Linq.Extensions|All|  
+|Newtonsoft.Json.Linq.JArray|All|  
+|Newtonsoft.Json.Linq.JConstructor|All|  
+|Newtonsoft.Json.Linq.JContainer|All|  
+|Newtonsoft.Json.Linq.JObject|All|  
+|Newtonsoft.Json.Linq.JProperty|All|  
+|Newtonsoft.Json.Linq.JRaw|All|  
+|Newtonsoft.Json.Linq.JToken|All|  
+|Newtonsoft.Json.Linq.JTokenType|All|  
+|Newtonsoft.Json.Linq.JValue|All|  
 |System.Collections.Generic.IReadOnlyCollection<T\>|All|  
 |System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|All|  
 |System.Collections.Generic.ISet<TKey, TValue>|All|  
@@ -100,9 +100,10 @@ For more information:
 |System.Int16|All|  
 |System.Int32|All|  
 |System.Int64|All|  
-|System.Linq.Enumerable<T\>|All methods are supported|  
+|System.Linq.Enumerable<T\>|All|  
 |System.Math|All|  
-|System.MidpointRounding|All|  
+|System.MidpointRounding|All|
+|System.Net.WebUtility|All|
 |System.Nullable<T\>|All|  
 |System.Random|All|  
 |System.SByte|All|  
@@ -141,23 +142,23 @@ For more information:
 |System.UInt32|All|  
 |System.UInt64|All|  
 |System.Uri|All|  
-|System.Xml.Linq.Extensions|All methods are supported|  
-|System.Xml.Linq.XAttribute|All methods are supported|  
-|System.Xml.Linq.XCData|All methods are supported|  
-|System.Xml.Linq.XComment|All methods are supported|  
-|System.Xml.Linq.XContainer|All methods are supported|  
-|System.Xml.Linq.XDeclaration|All methods are supported|  
-|System.Xml.Linq.XDocument|All methods are supported|  
-|System.Xml.Linq.XDocumentType|All methods are supported|  
-|System.Xml.Linq.XElement|All methods are supported|  
-|System.Xml.Linq.XName|All methods are supported|  
-|System.Xml.Linq.XNamespace|All methods are supported|  
-|System.Xml.Linq.XNode|All methods are supported|  
-|System.Xml.Linq.XNodeDocumentOrderComparer|All methods are supported|  
-|System.Xml.Linq.XNodeEqualityComparer|All methods are supported|  
-|System.Xml.Linq.XObject|All methods are supported|  
-|System.Xml.Linq.XProcessingInstruction|All methods are supported|  
-|System.Xml.Linq.XText|All methods are supported|  
+|System.Xml.Linq.Extensions|All|  
+|System.Xml.Linq.XAttribute|All|  
+|System.Xml.Linq.XCData|All|  
+|System.Xml.Linq.XComment|All|  
+|System.Xml.Linq.XContainer|All|  
+|System.Xml.Linq.XDeclaration|All|  
+|System.Xml.Linq.XDocument|All|  
+|System.Xml.Linq.XDocumentType|All|  
+|System.Xml.Linq.XElement|All|  
+|System.Xml.Linq.XName|All|  
+|System.Xml.Linq.XNamespace|All|  
+|System.Xml.Linq.XNode|All|  
+|System.Xml.Linq.XNodeDocumentOrderComparer|All|  
+|System.Xml.Linq.XNodeEqualityComparer|All|  
+|System.Xml.Linq.XObject|All|  
+|System.Xml.Linq.XProcessingInstruction|All|  
+|System.Xml.Linq.XText|All|  
 |System.Xml.XmlNodeType|All|  
   
 ##  <a name="ContextVariables"></a> Context variable  

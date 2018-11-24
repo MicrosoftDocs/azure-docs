@@ -31,9 +31,9 @@ can be scaled to 10 instances, but an app can be set to use only five.
 
 ## Per app scaling using PowerShell
 
-Create a plan with per-app scaling 
-by passing in the ```-perSiteScaling $true``` attribute to the 
-```New-AzureRmAppServicePlan``` commandlet
+Create a plan with per-app scaling
+by passing in the ```-PerSiteScaling $true``` parameter to the
+```New-AzureRmAppServicePlan``` cmdlet.
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -42,23 +42,14 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-To update an existing App Service plan with per-app scaling: 
-
-- get the target plan ```Get-AzureRmAppServicePlan```
-- modifying the property locally ```$newASP.PerSiteScaling = $true```
-- posting your changes back to azure ```Set-AzureRmAppServicePlan``` 
+Enable per-app scaling with an existing App Service Plan
+by passing in the `-PerSiteScaling $true` parameter to the
+```Set-AzureRmAppServicePlan``` cmdlet.
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
 At the app level, configure the number of instances the app can use in the App Service plan.

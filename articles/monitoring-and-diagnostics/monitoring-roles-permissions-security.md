@@ -19,7 +19,7 @@ Azure Monitor’s built-in roles are designed to help limit access to resources 
 People assigned the Monitoring Reader role can view all monitoring data in a subscription but cannot modify any resource or edit any settings related to monitoring resources. This role is appropriate for users in an organization, such as support or operations engineers, who need to be able to:
 
 * View monitoring dashboards in the portal and create their own private monitoring dashboards.
-* View alert rules defined in [Azure Alerts](monitoring-overview-unified-alerts.md)
+* View alert rules defined in [Azure Alerts](monitoring-overview-alerts.md)
 * Query for metrics using the [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931930.aspx), [PowerShell cmdlets](insights-powershell-samples.md), or [cross-platform CLI](insights-cli-samples.md).
 * Query the Activity Log using the portal, Azure Monitor REST API, PowerShell cmdlets, or cross-platform CLI.
 * View the [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.
@@ -45,7 +45,7 @@ People assigned the Monitoring Contributor role can view all monitoring data in 
 * Publish monitoring dashboards as a shared dashboard.
 * Set [diagnostic settings](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) for a resource.*
 * Set the [log profile](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) for a subscription.*
-* Set alert rules activity and settings via [Azure Alerts](monitoring-overview-unified-alerts.md).
+* Set alert rules activity and settings via [Azure Alerts](monitoring-overview-alerts.md).
 * Create Application Insights web tests and components.
 * List Log Analytics workspace shared keys.
 * Enable or disable Log Analytics intelligence packs.
@@ -181,5 +181,5 @@ For more information, see [Network security and Azure Storage](../storage/common
 
 ## Next steps
 * [Read about RBAC and permissions in Resource Manager](../role-based-access-control/overview.md)
-* [Read the overview of monitoring in Azure](monitoring-overview.md)
+* [Read the overview of monitoring in Azure](../azure-monitor/overview.md)
 

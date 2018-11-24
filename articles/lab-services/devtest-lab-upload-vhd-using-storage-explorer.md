@@ -32,7 +32,7 @@ The following steps walk you through uploading a VHD file to DevTest Labs using 
 
 1. Get the name of the lab's storage account using the Azure portal:
 
-	1. Sign in to the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+	1. Sign in to the [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 	
 	1. Select **All services**, and then select **DevTest Labs** from the list.
 	

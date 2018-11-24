@@ -80,7 +80,7 @@ For more information about Table storage, see [Overview of Azure Table storage](
 
 ## Disk storage
 
-Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/en-gb/azure/#pivot=products&panel=Compute).
+Azure Storage also includes managed and unmanaged disk capabilities used by virtual machines. For more information about these features, please see the [Compute Service documentation](https://docs.microsoft.com/azure/#pivot=products&panel=Compute).
 
 ## Types of storage accounts
 
@@ -196,7 +196,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 ### Tools and utilities
 * [Azure PowerShell Cmdlets for Storage](https://docs.microsoft.com/powershell/module/azure.storage)
 * [Azure CLI Cmdlets for Storage](https://docs.microsoft.com/cli/azure/storage)
-* [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
+* [AzCopy Command-Line Utility](https://aka.ms/downloadazcopy)
 * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) is a free, standalone app from Microsoft that enables you to work visually with Azure Storage data on Windows, macOS, and Linux.
 * [Azure Storage Client Tools](../storage-explorers.md)
 * [Azure Developer Tools](https://azure.microsoft.com/tools/)
