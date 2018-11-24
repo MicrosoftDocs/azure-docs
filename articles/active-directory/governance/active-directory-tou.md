@@ -349,4 +349,5 @@ A: If you have configured both Azure AD Terms of use and [Intune terms and condi
 
 ## Next steps
 
+- [Quickstart: Require terms of use to be accepted before accessing cloud apps](../conditional-access/require-tou.md)
 - [Best practices for conditional access in Azure Active Directory](../conditional-access/best-practices.md)
