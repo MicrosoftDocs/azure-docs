@@ -16,9 +16,11 @@ ms.author: azfuncdf
 ---
 # Create your first durable function in C#
 
-*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) and [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
+*Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 
 In this article, you learn how to use the Visual Studio 2017 tools for Azure Functions to locally create and test a "hello world" durable function.  This function will orchestrate and chain together calls to other functions. You then publish the function code to Azure. These tools are available as part of the Azure development workload in Visual Studio 2017.
+
+![Running durable function in cloud](./media/durable-functions-create-first-csharp/functions-vs-complete.png)
 
 ## Prerequisites
 
@@ -40,7 +42,7 @@ The Azure Functions project template in Visual Studio creates a project that can
 
 2. In the **New Project** dialog, select **Installed**, expand **Visual C#** > **Cloud**, select **Azure Functions**, type a **Name** for your project, and click **OK**. The function app name must be valid as a C# namespace, so don't use underscores, hyphens, or any other nonalphanumeric characters.
 
-    ![New project dialog to create a function in Visual Studio](../../../includes/media/functions-vstools-create/functions-vs-new-project.png)
+    ![New project dialog to create a function in Visual Studio](./media/durable-functions-create-first-csharp/functions-vs-new-project.png)
 
 3. Use the settings specified in the table that follows the image.
 
@@ -48,16 +50,16 @@ The Azure Functions project template in Visual Studio creates a project that can
 
     | Setting      | Suggested value  | Description                      |
     | ------------ |  ------- |----------------------------------------- |
-    | **Version** | Azure Functions 2.x <br />(.NET Core) | This creates a function project that uses the version 2.x runtime of Azure Functions which supports .NET Core. Azure Functions 1.x supports the .NET Framework. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
+    | **Version** | Azure Functions 2.x <br />(.NET Core) | Creates a function project that uses the version 2.x runtime of Azure Functions which supports .NET Core. Azure Functions 1.x supports the .NET Framework. For more information, see [How to target Azure Functions runtime version](../functions-versions.md).   |
     | **Template** | Empty | This creates an empty function app. |
     | **Storage account**  | Storage Emulator | A storage account is required for durable function state management. |
 4. Click **OK** to create an empty function project.
 
 ### Adding a durable function to an app
 
-Visual Studio will now create an empty function app project.  It contains the basic configuration files needed for an app, but doesn't yet contain any functions.  We'll need to add a durable function template to the project.
+Visual Studio creates an empty function app project.  It contains the basic configuration files needed for an app, but doesn't yet contain any functions.  We'll need to add a durable function template to the project.
 
-1. Right-click the project in Visual Studio and select **Add** > **New Azure Function..**
+1. Right-click the project in Visual Studio and select **Add** > **New Azure Function**.
 
     ![Add new function](./media/durable-functions-create-first-csharp/functions-vs-add-new-function.png)
 
@@ -67,11 +69,11 @@ Visual Studio will now create an empty function app project.  It contains the ba
 
     ![Select durable template](./media/durable-functions-create-first-csharp/functions-vs-select-template.png)  
 
-A new durable function will be added to the app.  Open the new file to view the contents.  This durable function is a simple function chaining example.  The `RunOrchestrator` method is associated with the orchestrator function.  This function will start, create a list, and add the result of three function calls to the list.  When the three function calls are completed, it will return the list.  The function it is calling is the `SayHello` method (default it will be called "<NameOfFile>_Hello").
+A new durable function will be added to the app.  Open the new file to view the contents.  This durable function is a simple function chaining example.  
 
-The `SayHello` function will simply return a hello string echoing the value being based as the input.
-
-Finally, the `HttpStart` method describes the function that will start instances of the orchestration.  It is associated with an [HTTP trigger](../functions-bindings-http-webhook.md) that will start a new instance of the orchestrator and return back a check status response.
+* The `RunOrchestrator` method is associated with the orchestrator function.  This function will start, create a list, and add the result of three functions calls to the list.  When the three function calls are completed, it will return the list.  The function it is calling is the `SayHello` method (default it will be called "<NameOfFile>_Hello").
+* The `SayHello` function will return a hello.
+* The `HttpStart` method describes the function that will start instances of the orchestration.  It is associated with an [HTTP trigger](../functions-bindings-http-webhook.md) that will start a new instance of the orchestrator and return back a check status response.
 
 Now that you've created your function project and a durable function, you can test it on your local computer.
 
@@ -89,11 +91,11 @@ Azure Functions Core Tools lets you run an Azure Functions project on your local
 
     ![Function localhost response in the browser](./media/durable-functions-create-first-csharp/functions-vs-status.png)
 
-    The response is the initial result from the HTTP function letting us know the durable orchestration has started successfully.  It is not yet the end result of the orchestration.  The response includes a few useful URLs to query status (via HTTP GET to the `statusQueryGetUri`), send events into the orchestration (via HTTP POST to the `sendEventPostUri`), terminate the orchestration instance (via HTTP POST to the `terminatePostUri`), and rewind the orchestration (via HTTP POST to the `rewindPostUri`).  For now, let's simply query the status of the orchestration.
+    The response is the initial result from the HTTP function letting us know the durable orchestration has started successfully.  It is not yet the end result of the orchestration.  The response includes a few useful URLs.  For now, let's query the status of the orchestration.
 
 4. Copy the URL value for `statusQueryGetUri` and pasting it in the browser's address bar and execute the request.
 
-    This request will query this orchestration instance for the status. You should get an eventual response that looks like the following.  This shows us the instance has completed, and includes the outputs or results of the durable function.
+    The request will query the orchestration instance for the status. You should get an eventual response that looks like the following.  This shows us the instance has completed, and includes the outputs or results of the durable function.
 
     ```json
     {
@@ -135,5 +137,5 @@ You must have a function app in your Azure subscription before you can publish y
 
 You have used Visual Studio to create and publish a C# durable function app.
 
-* [Learn about common durable function patterns.](durable-functions-overview.md)
-* [Learn more about the different types and features of durable functions.](durable-functions-types-features-overview.md).
+> [!div class="nextstepaction"]
+> [Learn about common durable function patterns.](durable-functions-overview.md)
