@@ -33,7 +33,7 @@ For additional videos, see:
 - [How to roll out Terms of use in Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## What can I do with Terms of use?
-Azure AD Terms of use enables you to do the following:
+Azure AD Terms of use has the following capabilities:
 - Require employees or guests to accept your Terms of use before getting access.
 - Require employees or guests to accept your Terms of use on every device before getting access.
 - Require employees or guests to accept your Terms of use on a recurring schedule.
@@ -58,7 +58,7 @@ To use and configure Azure AD Terms of use, you must have:
 
 ## Terms of use document
 
-Azure AD Terms of use uses the PDF format to present content. The PDF file can be any content, such as existing contract documents, allowing you to collect end-user agreements during user sign in. To support users on mobile devices, the recommended font size in the PDF is 24 point.
+Azure AD Terms of use uses the PDF format to present content. The PDF file can be any content, such as existing contract documents, allowing you to collect end-user agreements during user sign-in. To support users on mobile devices, the recommended font size in the PDF is 24 point.
 
 ## Add Terms of use
 Once you have finalized your Terms of use document, use the following procedure to add it.
@@ -93,8 +93,8 @@ Once you have finalized your Terms of use document, use the following procedure 
 
     | Expire starting on | Frequency | Result |
     | --- | --- | --- |
-    | Today's date  | Monthly | Starting today, users must accept the Terms of use and then re-accept every month. |
-    | Date in the future  | Monthly | Users must accept the Terms of use immediately. Starting on the future date, consents will expire and then users must re-accept every month.  |
+    | Today's date  | Monthly | Starting today, users must accept the Terms of use and then reaccept every month. |
+    | Date in the future  | Monthly | Users must accept the Terms of use immediately. Starting on the future date, consents will expire and then users must reaccept every month.  |
 
     For example, if you set the expire starting on date to **Nov 1** and frequency to **Monthly**, here is how expiration might occur for two users:
 
@@ -103,7 +103,7 @@ Once you have finalized your Terms of use document, use the following procedure 
     | Alice | Nov 1 | Dec 1 | Jan 1 | Feb 1 |
     | Bob | Nov 15 | Dec 1 | Jan 1 | Feb 1 |
 
-1. Use the **Duration before re-acceptance requires (days)** setting to specify the number of days before the user must re-accept the Terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expiration might occur for two users:
+1. Use the **Duration before re-acceptance requires (days)** setting to specify the number of days before the user must reaccept the Terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expiration might occur for two users:
 
     | User | First accept date | First expire date | Second expire date | Third expire date |
     | --- | --- | --- | --- | --- |
@@ -118,8 +118,8 @@ Once you have finalized your Terms of use document, use the following procedure 
 
     | Template | Description |
     | --- | --- |
-    | **Access to cloud apps for all guests** | A conditional access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created you might be required to sign-out and sign-in. |
-    | **Access to cloud apps for all users** | A conditional access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created you will be required to sign-out and sign-in. |
+    | **Access to cloud apps for all guests** | A conditional access policy will be created for all guests and all cloud apps. This policy impacts the Azure portal. Once this is created, you might be required to sign-out and sign-in. |
+    | **Access to cloud apps for all users** | A conditional access policy will be created for all users and all cloud apps. This policy impacts the Azure portal. Once this is created, you will be required to sign-out and sign-in. |
     | **Custom policy** | Select the users, groups, and apps that this Terms of Use will be applied to. |
     | **Create conditional access policy later** | This terms of use will appear in the grant control list when creating a conditional access policy. |
 
@@ -181,7 +181,7 @@ To get started with Azure AD audit logs, use the following procedure:
     ![Activity details](./media/active-directory-tou/audit-log-activity-details.png)
 
 ## What Terms of use looks like for users
-Once a Terms of use is created and enforced, users, who are in scope, will see the following screen during sign in.
+Once a Terms of use is created and enforced, users, who are in scope, will see the following screen during sign-in.
 
 ![User web sign-in](./media/active-directory-tou/user-tou.png)
 
@@ -217,7 +217,7 @@ You can edit some details of Terms of use, but you can't modify an existing docu
 
 1. In the Edit terms of use pane, change the name, display name, or require users to expand values.
 
-    If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before re-acceptance, or conditional access policy, you must create a new Terms of use.
+    If there are other settings you would like to change, such as PDF document, require users to consent on every device, expire consents, duration before reacceptance, or conditional access policy, you must create a new Terms of use.
 
     ![Edit terms of use](./media/active-directory-tou/edit-tou.png)
 
@@ -268,9 +268,9 @@ If the user's device is not joined, they will receive a message that they need t
 
 ### Join a Windows 10 device
 
-If a user is using Windows 10 and Edge, they will receive a message similar to the following to [join their device](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
+If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
 
-![Windows 10 Edge - Join device prompt](./media/active-directory-tou/per-device-win10-edge.png)
+![Windows 10 and Microsoft Edge - Join device prompt](./media/active-directory-tou/per-device-win10-edge.png)
 
 If they are using Chrome, they will be prompted to install the [Windows 10 Accounts extension](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
 
