@@ -81,7 +81,7 @@ The detailed mechanics of the Word2Vec algorithm and Skip-Gram model are beyond 
 - [02_A_Word2Vec.py code with referenced TensorFlow examples](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py) 
 - [Vector Representations of Words](https://www.tensorflow.org/tutorials/word2vec)
 - [How exactly does word2vec work?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
-- [Notes on Noise Contrastive Estimation and Negative Sampling](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf)
+- [Notes on Noise Contrastive Estimation and Negative Sampling](https://arxiv.org/pdf/1410.8251v1.pdf)
 
 
 

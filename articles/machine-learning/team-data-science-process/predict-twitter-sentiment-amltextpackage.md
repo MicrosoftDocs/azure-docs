@@ -84,7 +84,7 @@ The details of the Word2Vec algorithm and skip-gram model are beyond the scope o
 
 * [Vector Representation of Words](https://www.tensorflow.org/tutorials/word2vec)
 * [How exactly does word2vec work?](http://www.1-4-5.net/~dmm/ml/how_does_word2vec_work.pdf)
-* [Notes on Noise Contrastive Estimation and Negative Sampling](http://demo.clab.cs.cmu.edu/cdyer/nce_notes.pdf)
+* [Notes on Noise Contrastive Estimation and Negative Sampling](https://arxiv.org/pdf/1410.8251v1.pdf)
 
 After the training process is done, two embedding files in the format of TSV are generated for the modeling stage.
 
