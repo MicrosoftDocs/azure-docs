@@ -8,7 +8,7 @@ manager: cgronlun
 
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 12/04/2018
 ms.author: diberry
 #As a potential customer, I want to know more about how Cognitive Services provides and supports Docker containers for each service.
 ---
@@ -23,12 +23,12 @@ Watch this [quick video](https://azure.microsoft.com/resources/videos/containers
 
 The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [Text Analytics](text-analytics/overview.md) services are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
 
-## Features and benefits
+## Featuresz and benefits
 
 - **Control over data**: Allow customers to use Cognitive Services with complete control over their data.  This is essential for customers that cannot send data to the cloud but need access to Cognitive Services technology. Support consistency in hybrid environments  – across data, management, identity, and security.
 - **Control over model updates**: Provide customers flexibility in versioning and updating of models deployed in their solutions.
 - **Portable architecture**: Enable the creation of a portable application architecture that can be deployed in the cloud, on-premises and the edge. Containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **High throughput / low latency**: Provide customers the ability to scale for high throughput and low latency requirements by enabling Cognitive Services to run in Azure Kubernetes Service physically close to their application logic and data.
+- **High throughput / low latency**: Provide customers the ability to scale for high throughput and low latency requirements by enabling Cognitive Services to run physically close to their application logic and data. Customers can scale beyond current service transactions per second (TPS) by running more containers. 
 
 
 ## Containers in Azure Cognitive Services
@@ -39,7 +39,7 @@ Azure Cognitive Services containers provide the following set of Docker containe
 |---------|----------|-------------|
 |[Computer Vision](Computer-vision/computer-vision-how-to-install-containers.md) |**Recognize Text** |Extracts printed text from images of various objects with different surfaces and backgrounds, such as receipts, posters, and business cards.<br/><br/>**Important:** The Recognize Text container currently works only with English.<br>[Request access](Computer-vision/computer-vision-how-to-install-containers.md#request-access-to-the-private-container-registry)|
 |[Face](Face/face-how-to-install-containers.md) |**Face** |Detects human faces in images, and identifies attributes, including face landmarks (such as noses and eyes), gender, age, and other machine-predicted facial features. In addition to detection, Face can check if two faces in the same image or different images are the same by using a confidence score, or compare faces against a database to see if a similar-looking or identical face already exists. It can also organize similar faces into groups, using shared visual traits.<br>[Request access](Face/face-how-to-install-containers.md#request-access-to-the-private-container-registry) |
-|[LUIS](LUIS/what-is-luis.md) |**LUIS** ||
+|[LUIS](LUIS/what-is-luis.md) |**LUIS** |Loads a trained or published app into a docker container and provides access to the LUIS query prediction runtime from the container's API endpoints. You can collect query logs from the container and upload these back to the Azure LUIS service to improve the app's prediction accuracy.|
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md) |**Key Phrase Extraction** ([image](https://go.microsoft.com/fwlink/?linkid=2018757)) |Extracts key phrases to identify the main points. For example, for the input text "The food was delicious and there were wonderful staff", the API returns the main talking points: "food" and "wonderful staff". |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Language Detection** ([image](https://go.microsoft.com/fwlink/?linkid=2018759)) |For up to 120 languages, detects which language the input text is written in and report a single language code for every document submitted on the request. The language code is paired with a score indicating the strength of the score. |
 |[Text Analytics](text-analytics/how-tos/text-analytics-how-to-install-containers.md)|**Sentiment Analysis** ([image](https://go.microsoft.com/fwlink/?linkid=2018654)) |Analyzes raw text for clues about positive or negative sentiment. This API returns a sentiment score between 0 and 1 for each document, where 1 is the most positive. The analysis models are pre-trained using an extensive body of text and natural language technologies from Microsoft. For [selected languages](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages.md), the API can analyze and score any raw text that you provide, directly returning results to the calling application. |
