@@ -208,7 +208,7 @@ More [examples](luis-container-configuration.md#example-docker-run-commands) of 
 > The `Eula`, `Billing`, and `ApiKey` options must be specified to run the container; otherwise, the container won't start.  For more information, see [Billing](#billing).
 > The ApiKey value is the **Key** from the Keys and Endpoints page in the LUIS portal and is also available on the Azure Language Understanding Resource keys page.  
 
-## Query container's endpoint API
+## Query container
 
 The container provides REST-based query prediction endpoint APIs. Endpoints for published (staging or production) apps have a _different_ route than endpoints for trained apps. 
 
@@ -229,7 +229,7 @@ The query parameters configure how and what is returned in the query response:
 |`staging`|boolean|Returns query from staging environment results if set to true. Default is false, which returns production environment results.|
 |`log`|boolean|Logs queries, which can be used later for [active learning](luis-how-to-review-endoint-utt.md). Default is true.|
 
-### Query container's published app
+### Query published app
 
 An example CURL command for querying the container for a published app is:
 
@@ -242,7 +242,7 @@ To make queries to the **Staging** environment, change the **staging** query str
 
 `staging=true`
 
-## Query container's trained app
+## Query trained app
 
 An example CURL command for querying the container for a trained app is: 
 
@@ -262,7 +262,7 @@ Query operations from an SDK are available for published apps. Trained app can't
 
 TBD: Example or link? 
 
-## Upload container logs for active learning
+## Upload logs for active learning
 
 If an output mount is specified for the LUIS container, app query log files are saved in the output directory, where {INSTANCE_ID} is the container ID. The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
 
