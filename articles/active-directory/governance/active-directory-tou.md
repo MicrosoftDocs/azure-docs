@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 11/23/2018
+ms.date: 11/24/2018
 ms.author: rolyon
 
 ---
@@ -94,21 +94,21 @@ Once you have finalized your Terms of use document, use the following procedure 
     | Expire starting on | Frequency | Result |
     | --- | --- | --- |
     | Today's date  | Monthly | Starting today, users must accept the Terms of use and then reaccept every month. |
-    | Date in the future  | Monthly | Users must accept the Terms of use immediately. Starting on the future date, consents will expire and then users must reaccept every month.  |
+    | Date in the future  | Monthly | Starting today, users must accept the Terms of use. When the future date occurs, consents will expire and then users must reaccept every month.  |
 
-    For example, if you set the expire starting on date to **Nov 1** and frequency to **Monthly**, here is how expiration might occur for two users:
-
-    | User | First accept date | First expire date | Second expire date | Third expire date |
-    | --- | --- | --- | --- | --- |
-    | Alice | Nov 1 | Dec 1 | Jan 1 | Feb 1 |
-    | Bob | Nov 15 | Dec 1 | Jan 1 | Feb 1 |
-
-1. Use the **Duration before re-acceptance requires (days)** setting to specify the number of days before the user must reaccept the Terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expiration might occur for two users:
+    For example, if you set the expire starting on date to **Jan 1** and frequency to **Monthly**, here is how expirations might occur for two users:
 
     | User | First accept date | First expire date | Second expire date | Third expire date |
     | --- | --- | --- | --- | --- |
-    | Alice | Nov 1 | Dec 1 | Dec 31 | Jan 30 |
-    | Bob | Nov 15 | Dec 15 | Jan 14 | Feb 13 |
+    | Alice | Jan 1 | Feb 1 | Mar 1 | Apr 1 |
+    | Bob | Jan 15 | Feb 1 | Mar 1 | Apr 1 |
+
+1. Use the **Duration before re-acceptance requires (days)** setting to specify the number of days before the user must reaccept the Terms of use. This allows users to follow their own schedule. For example, if you set the duration to **30** days, here is how expirations might occur for two users:
+
+    | User | First accept date | First expire date | Second expire date | Third expire date |
+    | --- | --- | --- | --- | --- |
+    | Alice | Jan 1 | Jan 31 | Mar 2 | Apr 1 |
+    | Bob | Jan 15 | Feb 14 | Mar 16 | Apr 15 |
 
     It is possible to use the **Expire consents** and **Duration before re-acceptance requires (days)** settings together, but typically you use one or the other.
 
