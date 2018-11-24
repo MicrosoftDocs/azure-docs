@@ -32,7 +32,7 @@ This quick start demonstrates how to create an Azure Cosmos DB [SQL API](sql-api
 
 This quick start uses Version 3.0+ of the Azure Cosmos DB .NET SDK. 
 
-![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list-preview.png)
 
 ## Prerequisites
 
@@ -152,7 +152,7 @@ Now go back to the Azure portal to get your connection string information and co
 
 1. Select **Create New** in the browser and create a few new tasks in your to-do app. You should also see the tasks you created in [Add sample data](#add-sample-data)
 
-   ![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list.png)
+   ![Todo app with sample data](./media/create-sql-api-dotnet/azure-comosdb-todo-app-list-preview.png)
 
 You can now go back to Data Explorer and see, query, modify, and work with this new data. 
 
