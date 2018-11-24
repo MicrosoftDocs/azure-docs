@@ -45,10 +45,12 @@ Before starting, review the following requirements.
 
 >[!NOTE]
 >Recent changes to Azure APIs will prevent customers from being able to successfully configure integration between their management group and Log Analytics for the first time. For customers who have already integrated their management group with the service, you are not impacted unless you need to reconfigure your existing connection.  
->A new management pack has been released for the following versions of Operations Manager:  
+>A new management pack has been released for the following versions of Operations Manager:
+>  
 >* For System Center Operations Manager 1801, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57173)  
 >* For System Center 2016 - Operations Manager, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57172)  
 >* For System Center Operations Manager 2012 R2, download the management pack from [here](https://www.microsoft.com/download/details.aspx?id=57171)  
+>
 >This management pack update is not applicable to System Center Operations Manager 1807, which is an update release from version 1801 and not a full build of the product.   
 
 ### Network
