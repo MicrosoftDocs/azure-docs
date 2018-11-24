@@ -126,7 +126,7 @@ Once you have finalized your Terms of use document, use the following procedure 
     >[!IMPORTANT]
     >Conditional access policy controls (including Terms of use) do not support enforcement on service accounts.  We recommend excluding all service accounts from the conditional access policy.
 
-     Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [configuring conditional access policies](../conditional-access/best-practices.md).
+     Custom conditional access policies enable granular Terms of use, down to a specific cloud application or group of users.  For more information, see [Quickstart: Require terms of use to be accepted before accessing cloud apps](../conditional-access/require-tou.md).
 
 1. Click **Create**.
 
