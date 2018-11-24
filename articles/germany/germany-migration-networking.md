@@ -11,11 +11,11 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate network resources from Azure Germany to global Azure
+# Migrate Azure network resources to global Azure
 
 Most networking services don't support migration from Azure Germany to global Azure. However, you can connect your networks in both cloud environments by using a site-to-site VPN. 
 
-The steps to setting up a site-to-site VPN between clouds are similar to deploying a site-to-site VPN between your on-premises network and Azure. Define a gateway in both clouds, and then tell the VPNs how to communicate with each other. [Create a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) describes the steps you complete to deploy a site-to-site VPN. Here's a summary of the steps:
+The steps you take to set up a site-to-site VPN between clouds are similar to the steps you take to deploy a site-to-site VPN between your on-premises network and Azure. Define a gateway in both clouds, and then tell the VPNs how to communicate with each other. [Create a site-to-site connection in the Azure portal](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) describes the steps you complete to deploy a site-to-site VPN. Here's a summary of the steps:
 
 1. Define a virtual network.
 1. Define address space.
@@ -26,7 +26,7 @@ The steps to setting up a site-to-site VPN between clouds are similar to deployi
 1. Configure a local VPN device.
 1. Build the connection.
 
-To connect vIrtual networks between global Azure and Azure Germany, repeat steps 1-5 for both environments. Connect the virtual networks in a final step. Here's a summary of the steps:
+To connect vIrtual networks between global Azure and Azure Germany:
 
 1. Complete steps 1-5 in the preceding procedure in global Azure.
 1. Complete steps 1-5 in Azure Germany.
@@ -37,18 +37,18 @@ To connect vIrtual networks between global Azure and Azure Germany, repeat steps
 1. Skip step 7.
 1. Complete step 8.
 
-## Virtual network
+## Virtual networks
 
-Migration of virtual networks between Azure Germany and global Azure isn't supported at this time. We recommend that you create new virtual networks in the target region and migrate resources into those virtual networks.
+Migrating virtual networks from Azure Germany to global Azure isn't supported at this time. We recommend that you create new virtual networks in the target region and migrate resources into those virtual networks.
 
 - [About virtual networks](../virtual-network/virtual-networks-overview.md)
 - [Planning virtual networks](../virtual-network/virtual-network-vnet-plan-design-arm.md)
 
 ## Network security groups
 
-Migrating network security groups between Azure Germany and global Azure isn't supported at this time. We recommend that you create new network security groups in the target region and apply the network security groups rules to the new application environment.
+Migrating network security groups from Azure Germany to global Azure isn't supported at this time. We recommend that you create new network security groups in the target region and apply the network security groups rules to the new application environment.
 
-You can get the current configuration of any network security group from the portal or by using the following PowerShell commands:
+Get the current configuration of any network security group from the portal or by running the following PowerShell commands:
 
 ```powershell
 $nsg=Get-AzureRmNetworkSecurityGroup -ResourceName <nsg-name> -ResourceGroupName <resourcegroupname>
@@ -61,7 +61,7 @@ For more information, see these articles:
 
 ## ExpressRoute
 
-Migrating an Azure ExpressRoute resource between Azure Germany and global Azure isn't supported at this time. We recommend that you create new ExpressRoute circuits and a new ExpressRoute gateway in global Azure.
+Migrating an Azure ExpressRoute instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create new ExpressRoute circuits and a new ExpressRoute gateway in global Azure.
 
 For more information, see these articles:
 
@@ -71,28 +71,28 @@ For more information, see these articles:
 
 ## VPN Gateway
 
-Migrating Azure VPN Gateway between Azure Germany and global Azure isn't supported at this time. We recommend that you create and configure a new instance of VPN Gateway in global Azure.
+Migrating an Azure VPN Gateway instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new instance of VPN Gateway in global Azure.
 
-Collect information about your current VPN Gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmVirtualNetworkGateway*`.
+You can collect information about your current VPN Gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzureRmVirtualNetworkGateway*`.
 
-Don't forget to update your on-premise configuration and delete any existing rules for the old IP ranges once you updated your Azure network environment.
+Make sure that you update your on-premises configuration. Also, delete any existing rules for the old IP address ranges after you update your Azure network environment.
 
 For more information, see these articles:
 
-- [Create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) .
-- [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0) PowerShell cmdlets,
-- Blog: [Create Site-to-Site connection](https://blogs.technet.microsoftcom/ralfwi/2017/02/02/connecting-clouds/) between Azure Germany and global Azure
+- [Create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0)
+- [Blog post: Create a site-to-site connection](https://blogs.technet.microsoftcom/ralfwi/2017/02/02/connecting-clouds/)
  
 ## Application Gateway
 
-Migrating Azure Application Gateway resources between Azure Germany and global Azure isn't supported at this time. We recommend that you create and configure a new gateway in global Azure.
+Migrating an Azure Application Gateway instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new gateway in global Azure.
 
-Collect information about your current gateway configuration by using the portal or by using PowerShell. There's a set of cmdlets starting with `Get-AzureRmApplicationGateway*`.
+You can collect information about your current gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzureRmApplicationGateway*`.
 
 For more information, see these articles:
 
-- [Create Application Gateway](../application-gateway/quick-create-portal.md)
-- [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0) PowerShell cmdlets
+- [Create an application gateway](../application-gateway/quick-create-portal.md)
+- [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0)
 
 ## DNS
 
@@ -110,11 +110,11 @@ Example:
 az network dns zone export -g "myresourcegroup" -n "contoso.com" -f "contoso.com.txt"
 ```
 
-This command calls the Azure DNS service to export the zone "contoso.com" in the resource group "myresourcegroup". The output is stored as a BIND-compatible zone file in "contoso.com.txt" in the current folder.
+This command calls the Azure DNS service to export the zone `contoso.com` in the resource group `myresourcegroup`. The output is stored as a BIND-compatible zone file in contoso.com.txt in the current folder.
 
 When the export is finished, delete the NS records from the zone file. New NS records are created for the new region and subscription.
 
-Now, sign in to your target environment, create a new resource group (or select an existing one), and import the previously created zone file:
+Now, sign in to your target environment, create a new resource group (or select an existing one), and then import the zone file:
 
 ```azurecli
 az network dns zone import -g <resource group> -n <zone name> -f <zone file name>
@@ -139,25 +139,25 @@ For more information, see these articles:
 
 ## Network Watcher
 
-Migrating Azure Network Watcher resources between Azure Germany and global Azure isn't supported at this time. We recommend that you create and configure a new Network Watcher in global Azure. Afterward, compare results between the old and new environments.
+Migrating an Azure Network Watcher instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new Network Watcher instance in global Azure. Afterward, compare results between the old and new environments.
 
 For more information, see these articles:
 
+- [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md)
 - [Network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 - [Connection Monitor](../network-watcher/connection-monitor.md)
-- [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md)
 
 ## Traffic Manager
 
-Azure Traffic Manager can help you with a smooth migration. However, you can't migrate Traffic Manager profiles that you create in Azure Germany to global Azure. (During a migration, you migrate Traffic Manager endpoints to the target environment, so, you need to update the Traffic Manager profile anyway.)
+Azure Traffic Manager can help you complete a smooth migration. However, you can't migrate Traffic Manager profiles that you create in Azure Germany to global Azure. (During a migration, you migrate Traffic Manager endpoints to the target environment, so you need to update the Traffic Manager profile anyway.)
 
-You can define additional endpoints in the target environment by using Traffic Manager still running in the old environment. When Traffic Manager is running in the new environment, you can still define endpoints in the old environment that you haven't yet migrated. This scenario is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). The scenario is summarized in the following steps:
+You can define additional endpoints in the target environment by using Traffic Manager while it's still running in the source environment. When Traffic Manager is running in the new environment, you can still define endpoints that you haven't yet migrated in the source environment. This scenario is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). The scenario involves the following steps:
 
 1. Create a new Traffic Manager profile in global Azure.
 1. Define the endpoints in Azure Germany.
-1. Change your DNS CNAME to the new Traffic Manager profile.
+1. Change your DNS CNAME record to the new Traffic Manager profile.
 1. Turn off the old Traffic Manager profile.
-1. For each endpoint in Azure Germany:
+1. Migrate and configure endpoints. For each endpoint in Azure Germany:
    1. Migrate the endpoint to global Azure.
    1. Change the Traffic Manager profile to use the new endpoint.
 
@@ -168,7 +168,7 @@ For more information, see these articles:
 
 ## Load Balancer
 
-Migrating Azure Load Balancer resources between Azure Germany and global Azure isn't supported at this time. We recommend that you create and configure a new load balancer in global Azure.
+Migrating an Azure Load Balancer instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new load balancer in global Azure.
 
 For more information, see these articles:
 
@@ -179,7 +179,7 @@ For more information, see these articles:
 
 - Refresh your knowledge by completing these step-by-step tutorials:
 
-  - [Azure Virtual Network tutorials](https://docs.microsoft.com/azure/virtual-network/#step-by-step-tutorials)
+  - [Virtual Network tutorials](https://docs.microsoft.com/azure/virtual-network/#step-by-step-tutorials)
   - [ExpressRoute tutorials](https://docs.microsoft.com/azure/expressroute/#step-by-step-tutorials)
   - [VPN Gateway tutorials](https://docs.microsoft.com/azure/vpn-gateway/#step-by-step-tutorials)
   - [Application Gateway tutorials](https://docs.microsoft.com/azure/application-gateway/#step-by-step-tutorials)

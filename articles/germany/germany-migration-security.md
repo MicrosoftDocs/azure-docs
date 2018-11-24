@@ -11,13 +11,13 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate security resources from Azure Germany to global Azure
+# Migrate Azure security resources to global Azure
 
-This article has information that can help you migrate Azure security resources from Azure Germany to global Azure.
+This article helps you migrate Azure security resources from Azure Germany to global Azure.
 
 ## Azure Active Directory
 
-For information about migrating this service, see [Migrating identities](./germany-migration-identity.md#azure-active-directory).
+For information about migrating this service, see [Migrate identities](./germany-migration-identity.md#azure-active-directory).
 
 ## Key Vault
 
@@ -25,7 +25,7 @@ Some features of Azure Key Vault can't be migrated from Azure Germany to global 
 
 ### Encryption keys
 
-Encryption keys can't be migrated. Create new keys in the target region and use them to protect the target resource (Azure Storage, Azure SQL Database). Then, securely migrate the data from the old region to the new region.
+Encryption keys can't be migrated. Create new keys in the target region, and then use the keys to protect the target resource (for example, Azure Storage or Azure SQL Database). Securely migrate the data from the old region to the new region.
 
 ### Application secrets
 
@@ -45,28 +45,28 @@ For more information, see these articles:
 
 ## VPN Gateway
 
-Migrating an instance of Azure VPN Gateway from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new instance of VPN Gateway in global Azure.
+Migrating an Azure VPN Gateway instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new instance of VPN Gateway in global Azure.
 
-Collect information about your current VPN Gateway configuration by using the Azure portal or PowerShell. You can use a set of cmdlets that begin with `Get-AzureRmVirtualNetworkGateway*`.
+You can collect information about your current VPN Gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzureRmVirtualNetworkGateway*`.
 
-Be sure to update your on-premises configuration and delete any existing rules for the old IP address ranges after you update your Azure network environment.
+Make sure that you update your on-premises configuration. Also, delete any existing rules for the old IP address ranges after you update your Azure network environment.
 
 For more information, see these articles:
 
-- [Create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md) by using VPN Gateway.
-- [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0) PowerShell cmdlets
-- A [blog post](https://blogs.technet.microsoft.com/ralfwi/2017/02/02/connecting-clouds/) that describes how to create a site-to-site connection between Azure Germany and global Azure.
- 
+- [Create a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+- [Get-AzureRmVirtualNetworkGateway](/powershell/module/azurerm.network/get-azurermvirtualnetworkgateway?view=azurermps-6.5.0)
+- [Blog post: Create a site-to-site connection](https://blogs.technet.microsoftcom/ralfwi/2017/02/02/connecting-clouds/)
+  
 ## Application Gateway
 
-Migrating an Azure Application Gateway instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new instance of Application Gateway in global Azure.
+Migrating an Azure Application Gateway instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new gateway in global Azure.
 
-Collect information about your current gateway configuration by using the Azure portal or PowerShell. You can use a set of cmdlets that begin with `Get-AzureRmApplicationGateway*`.
+You can collect information about your current gateway configuration by using the portal or PowerShell. In PowerShell, use a set of cmdlets that begin with `Get-AzureRmApplicationGateway*`.
 
 For more information, see these articles:
 
 - [Create an application gateway](../application-gateway/quick-create-portal.md)
-- [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0) PowerShell cmdlets
+- [Get-AzureRmApplicationGateway](/powershell/module/azurerm.network/get-azurermapplicationgateway?view=azurermps-6.5.0)
 
 ## Next steps
 

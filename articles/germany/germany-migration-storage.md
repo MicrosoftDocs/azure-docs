@@ -11,13 +11,13 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate storage resources from Azure Germany to global Azure
+# Migrate Azure storage resources to global Azure
 
-This article has information that can help you migrate Azure storage resources from Azure Germany to global Azure.
+This article helps you migrate Azure storage resources from Azure Germany to global Azure.
 
 ## Blobs
 
-AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works from Azure to Azure, from on-premises to Azure, and from Azure to on-premises. Use AzCopy for your migration to copy blobs directly from Azure Germany to global Azure.
+AzCopy is a free tool you can use to copy blobs, files, and tables. AzCopy works for Azure-to-Azure, on-premises-to-Azure, and Azure-to-on-premises migrations. Use AzCopy for your migration to copy blobs directly from Azure Germany to global Azure.
 
 If you don't use managed disks for your source VM, use AzCopy to copy the .vhd files to the target environment. Otherwise, you must complete some steps in advance. For more information, see [Recommendations for managed disks](#managed-disks).
 
@@ -37,7 +37,7 @@ https://<storageaccountname>.blob.core.windows.net/<containername>/<blobname>
 
 You get the three parts of the URI (*storageaccountname*, *containername*, *blobname*) from the portal, by using PowerShell, or by using the Azure CLI. The name of the blob can be part of the URI or it can be given as a pattern, like *vm121314.vhd*.
 
-You also need the storage account keys to access the Azure Storage account. Get them from the portal, PowerShell, or the CLI. For example:
+You also need the storage account keys to access the Azure Storage account. Get them from the portal, by using PowerShell, or by using the CLI. For example:
 
 ```powershell
 Get-AzureRmStorageAccountKey -Name <saname> -ResourceGroupName <rgname>
@@ -70,19 +70,19 @@ For more information, see these articles:
 
 Azure Managed Disks simplifies disk management for Azure infrastructure as a service (IaaS) VMs by managing the storage accounts that are associated with the VM disk. 
 
-Because you don't have direct access to the .vhd file, you can't directly use tools like AzCopy (see [Storage migration](#blobs)) to copy your files. The workaround is to first export the managed disk by getting a temporary SAS URI, and then download it or copy it by using this information. The following sections show an example of how to get the SAS URI and what to do with it.
+Because you don't have direct access to the .vhd file, you can't directly use tools like AzCopy to copy your files (see [Blobs](#blobs)). The workaround is to first export the managed disk by getting a temporary SAS URI, and then download it or copy it by using this information. The following sections show an example of how to get the SAS URI and what to do with it.
 
 ### Step 1: Get the SAS URI
 
 1. In the portal, search for your managed disk. (It's in the same resource group as your VM. The resource type is **Disk**.)
-1. On the **Overview** page, select the **Export** button in the top menu (you have to shut down and deallocate your VM first, or unattach it).
-1. Define a time when the URI expires (the default is 3,600 seconds).
+1. On the **Overview** page, select the **Export** button in the top menu (you have to shut down and deallocate your VM first, or unattach the VM).
+1. Define a time for the URI to expire (the default is 3,600 seconds).
 1. Generate a URL (this step should take only a few seconds).
 1. Copy the URL (it appears only once).
 
 ### Step 2: AzCopy
 
-For examples of how to use AzCopy, see [Blob migration](#blobs). Use AzCopy (or another tool) to copy the disk directly from your source environment to the target environment. For AzCopy, you have to split the URI into the base URI and the SAS part. The SAS part of the URI begins with the character "**?**". The portal provides this URI for the SAS URI:
+For examples of how to use AzCopy, see [Blobs](#blobs). Use AzCopy (or a similar tool) to copy the disk directly from your source environment to the target environment. In AzCopy, you have to split the URI into the base URI and the SAS part. The SAS part of the URI begins with the character "**?**". The portal provides this URI for the SAS URI:
 
 ```http
 https://md-kp4qvrzhj4j5.blob.core.cloudapi.de/r0pmw4z3vk1g/abcd?sv=2017-04-17&sr=b&si=22970153-4c56-47c0-8cbb-156a24b6e4b5&sig=5Hfu0qMw9rkZf6mCjuCE4VMV6W3IR8FXQSY1viji9bg%3D>
@@ -110,9 +110,9 @@ You have several options for creating a new managed disk. Here's how to do it in
 
 1. In the portal, select **New** > **Managed Disk** > **Create**.
 1. Enter a name for the new disk.
-1. Select a resource group as usual.
-1. Under **Source type**, select **Storage blob**. Then, either copy the destination URI from the AzCopy command, or browse to select the destination URI.
-1. If you copied an OS disk, select the OS type. For other disk types, select **Create**.
+1. Select a resource group.
+1. Under **Source type**, select **Storage blob**. Then, either copy the destination URI from the AzCopy command or browse to select the destination URI.
+1. If you copied an OS disk, select the **OS** type. For other disk types, select **Create**.
 
 ### Step 4: Create the VM
 

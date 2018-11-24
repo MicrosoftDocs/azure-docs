@@ -1,6 +1,6 @@
 ---
-title: Migrate Azure management tool resources from Azure Germany to global Azure
-description: This article provides information about migrating Azure management tool resources from Azure Germany to global Azure.
+title: Migrate Azure management tools from Azure Germany to global Azure
+description: This article provides information about migrating Azure management tools from Azure Germany to global Azure.
 author: gitralf
 services: germany
 cloud: Azure Germany
@@ -11,21 +11,21 @@ ms.topic: article
 ms.custom: bfmigrate
 ---
 
-# Migrate management tool resources from Azure Germany to global Azure
+# Migrate Azure management tool resources to global Azure
 
-This article has information that can help you migrate Azure management tool resources from Azure Germany to global Azure.
+This article helps you migrate Azure management tools from Azure Germany to global Azure.
 
 ## Traffic Manager
 
 Azure Traffic Manager can help you complete a smooth migration. However, you can't migrate Traffic Manager profiles that you create in Azure Germany to global Azure. (During a migration, you migrate Traffic Manager endpoints to the target environment, so you need to update the Traffic Manager profile anyway.)
 
-You can define additional endpoints in the target environment by using Traffic Manager still running in the source environment. When Traffic Manager is running in the new environment, you can still define endpoints that you haven't yet migrated in the source environment. This is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). The Blue-Green scenario involves the following steps:
+You can define additional endpoints in the target environment by using Traffic Manager while it's still running in the source environment. When Traffic Manager is running in the new environment, you can still define endpoints that you haven't yet migrated in the source environment. This scenario is known as [the Blue-Green scenario](https://azure.microsoft.com/blog/blue-green-deployments-using-azure-traffic-manager/). The scenario involves the following steps:
 
 1. Create a new Traffic Manager profile in global Azure.
 1. Define the endpoints in Azure Germany.
-1. Change your DNS CNAME to the new Traffic Manager profile.
+1. Change your DNS CNAME record to the new Traffic Manager profile.
 1. Turn off the old Traffic Manager profile.
-1. For each endpoint in Azure Germany:
+1. Migrate and configure endpoints. For each endpoint in Azure Germany:
    1. Migrate the endpoint to global Azure.
    1. Change the Traffic Manager profile to use the new endpoint.
 
@@ -48,13 +48,13 @@ For more information, see the [Azure Logic Apps overview](../logic-apps/logic-ap
 
 ## Network Watcher
 
-Migrating Azure Network Watcher from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new Network Watcher instance in global Azure. Then, compare the results between the old and new environments. 
+Migrating an Azure Network Watcher instance from Azure Germany to global Azure isn't supported at this time. We recommend that you create and configure a new Network Watcher instance in global Azure. Then, compare the results between the old and new environments. 
 
 For more information, see these articles:
 
+- [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md)
 - [Network security group flow logs](../network-watcher/network-watcher-nsg-flow-logging-portal.md)
 - [Connection Monitor](../network-watcher/connection-monitor.md)
--  [Network Watcher overview](../network-watcher/network-watcher-monitoring-overview.md)
 
 ## Site Recovery
 
@@ -64,9 +64,9 @@ For more information about Site Recovery, and to learn how to migrate VMs from A
 
 ## Azure policies
 
-You can't directly migrate policies from Azure Germany to global Azure. During a migration, the scope of assigned policies changes in most cases, especially because the subscription is different in the target environment. However, you can preserve policy definitions and reuse them in global Azure.
+You can't directly migrate policies from Azure Germany to global Azure. During a migration, the scope of assigned policies usually changes. It's especially true when the subscription is different in the target environment, as it is in this scenario. However, you can preserve policy definitions and reuse them in global Azure.
 
-In the Azure CLI, run the following command to list all policies in your current environment:
+In the Azure CLI, run the following command to list all policies in your current environment.
 
 > [!NOTE]
 > Be sure to switch to the AzureGermanCloud environment in the Azure CLI before you run the following commands.
