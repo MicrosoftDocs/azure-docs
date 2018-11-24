@@ -1,6 +1,6 @@
 ---
 title: 'Azure Active Directory Terms of use| Microsoft Docs'
-description: Azure AD Terms of use will allow you and your company the ability to provide Terms of use to users of Azure AD services.
+description: Describes how to get started using Azure AD Terms of use to present information to employees or guests before getting access.
 services: active-directory
 author: rolyon
 manager: mtillman
