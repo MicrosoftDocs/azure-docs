@@ -14,7 +14,7 @@ ms.author: hrasheed
 ---
 # Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
 
-Learn how to use Apache Spark to stream data into or out of Apache Kafka on HDInsight using DStreams. This example uses a Jupyter notebook that runs on the Spark cluster.
+Learn how to use [Apache Spark](https://spark.apache.org/) to stream data into or out of [Apache Kafka](https://kafka.apache.org/) on HDInsight using [DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html). This example uses a [Jupyter Notebook](https://jupyter.org/) that runs on the Spark cluster.
 
 > [!NOTE]
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
@@ -92,6 +92,6 @@ Since the steps in this document create both clusters in the same Azure resource
 In this example, you learned how to use Spark to read and write to Kafka. Use the following links to discover other ways to work with Kafka:
 
 * [Get started with Apache Kafka on HDInsight](kafka/apache-kafka-get-started.md)
-* [Use MirrorMaker to create a replica of Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
-* [Use Apache Storm with Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
+* [Use MirrorMaker to create a replica of Apache Kafka on HDInsight](kafka/apache-kafka-mirroring.md)
+* [Use Apache Storm with Apache Kafka on HDInsight](hdinsight-apache-storm-with-kafka.md)
 
