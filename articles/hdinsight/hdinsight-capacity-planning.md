@@ -59,7 +59,7 @@ For a 48-node cluster we recommend 4 to 8 storage accounts. Although there may a
 
 ## Choose a cluster type
 
-The cluster type determines the workload your HDInsight cluster is configured to run, such as Hadoop, Storm, Kafka, or Spark. For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
+The cluster type determines the workload your HDInsight cluster is configured to run, such as [Apache Hadoop](https://hadoop.apache.org/), [Apache Storm](https://storm.apache.org/), [Apache Kafka](https://kafka.apache.org/), or [Apache Spark](https://spark.apache.org/). For a detailed description of the available cluster types, see [Introduction to Azure HDInsight](hadoop/apache-hadoop-introduction.md#cluster-types-in-hdinsight). Each cluster type has a specific deployment topology that includes requirements for the size and number of nodes.
 
 ## Choose the VM size and type
 
@@ -77,7 +77,7 @@ The VM size and type is determined by CPU processing power, RAM size, and networ
 
 ## Choose the cluster scale
 
-A cluster's scale is determined by the quantity of its VM nodes. For all cluster types, there are node types that have a specific scale, and node types that support scale-out. For example, a cluster may  require exactly three ZooKeeper nodes or two Head nodes. Worker nodes that do data processing in a distributed fashion can benefit from scaling out, by adding additional worker nodes.
+A cluster's scale is determined by the quantity of its VM nodes. For all cluster types, there are node types that have a specific scale, and node types that support scale-out. For example, a cluster may  require exactly three [Apache ZooKeeper](https://zookeeper.apache.org/) nodes or two Head nodes. Worker nodes that do data processing in a distributed fashion can benefit from scaling out, by adding additional worker nodes.
 
 Depending on your cluster type, increasing the number of worker nodes adds additional computational capacity (such as more cores), but may also add to the total amount of memory required for the entire cluster to support in-memory storage of data being processed. As with the choice of VM size and type, selecting the right cluster scale is typically reached empirically, using simulated workloads or canary queries.
 
@@ -88,7 +88,7 @@ You can scale out your cluster to meet peak load demands, then scale it back dow
 You are charged for a cluster's lifetime. If there are only specific times that you need your cluster up and running, you can [create on-demand clusters using Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md). You can also create PowerShell scripts that provision and delete your cluster, and then schedule those scripts using [Azure Automation](https://azure.microsoft.com/services/automation/).
 
 > [!NOTE]
-> When a cluster is deleted, its default Hive metastore is also deleted. To persist the metastore for the next cluster re-creation, use an external metadata store such as Azure Database or Oozie.
+> When a cluster is deleted, its default Hive metastore is also deleted. To persist the metastore for the next cluster re-creation, use an external metadata store such as Azure Database or [Apache Oozie](https://oozie.apache.org/).
 <!-- see [Using external metadata stores](hdinsight-using-external-metadata-stores.md). -->
 
 ### Isolate cluster job errors
@@ -107,5 +107,5 @@ However, there are some fixed quota limits, for example a single Azure subscript
 
 ## Next steps
 
-* [Set up clusters in HDInsight with Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight with Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services, or Storm.
+* [Set up clusters in HDInsight with Apache Hadoop, Spark, Kafka, and more](hdinsight-hadoop-provision-linux-clusters.md): Learn how to set up and configure clusters in HDInsight with Apache Hadoop, Spark, Kafka, Interactive Hive, HBase, ML Services, or Storm.
 * [Monitor cluster performance](hdinsight-key-scenarios-to-monitor.md): Learn about key scenarios to monitor for your HDInsight cluster that might affect your cluster's capacity.
