@@ -19,7 +19,7 @@ ms.author: terrylan
 
 # Setting security policies in Security Center or in Azure Policy
 
-This article helps you configure Azure Security Center security policies. Azure Scurity Center policies integrate with Azure Policies, so you can set them either in Security Center on a specific subscription, or in [Azure Policy](../azure-policy/azure-policy-introduction.md), which enables you to set policies across Management groups and across multiple subscriptions..
+This article helps you configure Azure Security Center security policies. Azure Security Center policies integrate with Azure Policies, so you can set them either in Security Center on a specific subscription, or in [Azure Policy](../azure-policy/azure-policy-introduction.md), which enables you to set policies across Management groups and across multiple subscriptions.
 
 ## What are security policies?
 A security policy defines the desired configuration of your workloads and helps ensure compliance with company or regulatory security requirements. In Azure Security Center, you can define policies for your Azure subscriptions and tailor them to your type of workload or the sensitivity of your data. For example, applications that use regulated data, such as personally identifiable information, might require a higher level of security than other workloads. To set a policy across subscriptions or on Management groups, set them in [Azure Policy](../azure-policy/azure-policy-introduction.md).
