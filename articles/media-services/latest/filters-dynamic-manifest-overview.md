@@ -261,7 +261,7 @@ For more information, see [this](https://azure.microsoft.com/blog/azure-media-se
 - If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
 - Customers need to manually download the manifest and parse the exact startTimestamp and time scale.
     
-    - The formula to set the asset filter timestamp properties: <br/>startTimestamp = <start time in the manifest>  +  <expected filter start time in seconds>*timescale
+    - The formula to set the asset filter timestamp properties: <br/>startTimestamp = &lt;start time in the manifest&gt; +  &lt;expected filter start time in seconds&gt;*timescale
     - To compose the manifest path for an asset with AMS V3: Get the Streaming Endpoint host and the Streaming Locator path.<br/>The manifest path has the following format: `https://<streamingendpointhost>/<streaminglocatorpath>`
 
 
