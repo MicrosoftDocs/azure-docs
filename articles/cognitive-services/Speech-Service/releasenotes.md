@@ -27,7 +27,7 @@ ms.author: wolfma
 
 * Added additional verification in the recognizer configuration, and added additional error message.
 * Improved handling of long-time silence in middle of an audio file.
-* NuGet package: for .NET Framework projects prevent building with AnyCPU configuration.
+* NuGet package: for .NET Framework projects, it prevents building with AnyCPU configuration.
 
 **Bug fixes**
 
