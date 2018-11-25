@@ -108,7 +108,7 @@ Before packaging a LUIS application, you must have the following:
 |--|--|
 |Azure _Language Understanding_ resource instance|Supported regions include<br><br>West US (```westus```)<br>West Europe (```westeurope```)<br>Australia East (```australiaeast```)|
 |Trained or published LUIS app|With no [unsupported dependencies](#unsupported-dependencies). |
-|Access to the host computer's file system |The host computer must allow an [input mount](luis-container-configuration.md#mounts-settings).|
+|Access to the host computer's file system |The host computer must allow an [input mount](luis-container-configuration.md#mount-settings).|
   
 ### Get app package from LUIS portal
 
