@@ -1,6 +1,6 @@
 ---
 title: How to install and run docker containers - Language Understanding (LUIS) 
-titlesuffix: Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: The LUIS container loads your trained or published app into a docker container and provides access to the LUIS prediction runtime with API endpoints. 
 services: cognitive-services
 author: diberry
@@ -309,7 +309,7 @@ To shut down the container, in the command-line environment where the container 
 
 ## Troubleshooting
 
-If you run the container with an output [mount](luis-container-configuration.md#mounts-setting) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
+If you run the container with an output [mount](luis-container-configuration.md#mounts-settings) and logging enabled, the container generates log files that are helpful to troubleshoot issues that happen while starting or running the container. 
 
 ## Container's API documentation
 
