@@ -44,10 +44,10 @@ The following table shows some examples of URLs with filters:
 
 |Protocol|Example|
 |---|---|
-|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)`|
-|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)`|
-|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`|
-|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`|
+|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=myAccountFilter)`|
+|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=myAccountFilter)`|
+|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=myAssetFilter)`|
+|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=myAssetFilter)`|
 
 > [!NOTE]
 > Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
@@ -88,9 +88,7 @@ There are two types of asset filters:
 * [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
 * [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
 
-[Account Filter](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters) types have exactly the same properties for defining the filter. When creating the **Asset Filter**, you need to specify the asset with which you want to associate the filter.
-
-The main difference between the two is for which scenarios what type of a filter is more suitable. Account filters are suitable for device profiles (rendition filtering) where asset filters could be used to trim a specific asset.
+[Account Filter](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters) types have exactly the same properties for defining/describing the filter. Except when creating the **Asset Filter**, you need to specify the asset name with which you want to associate the filter.
 
 You use the following properties to describe the filters. 
 
@@ -186,6 +184,8 @@ Filter track property conditions describe track type and value (described in the
 ## Common scenarios
 
 As was mentioned before, when delivering your content to customers (streaming Live events or Video on Demand) your goal is to deliver a high-quality video to various devices under different network conditions. In addition, your might have other requirements that involve filtering your assets and using of Dynamic Manifests. The following sections give a short overview of different filtering scenarios.
+
+Depending on your scenario, you decide what type of a filter is more suitable (Asset Filter or Account Filter). Account Filters are suitable for device profiles (rendition filtering) where Asset Filters could be used to trim a specific asset.
 
 ### Rendition filtering
 
