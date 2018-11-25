@@ -25,7 +25,7 @@ The following video demonstrates using the Cognitive Services container.
 
 The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [Text Analytics](text-analytics/overview.md) services are available on [Microsoft Azure](https://azure.microsoft.com). Sign into the [Azure portal](https://portal.azure.com/) to create and explore Azure resources for these services.
 
-## Featuresz and benefits
+## Features and benefits
 
 - **Control over data**: Allow customers to use Cognitive Services with complete control over their data.  This is essential for customers that cannot send data to the cloud but need access to Cognitive Services technology. Support consistency in hybrid environments  – across data, management, identity, and security.
 - **Control over model updates**: Provide customers flexibility in versioning and updating of models deployed in their solutions.
