@@ -14,7 +14,7 @@ ms.date: 11/02/2018
 ms.author: dech
 
 ---
-# Azure Cosmos DB: SQL API getting started tutorial
+# Azure Cosmos DB: SQL API getting started with .NET tutorial - V3 SDK Preview
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
@@ -24,7 +24,7 @@ ms.author: dech
 > * [Node.js](sql-api-nodejs-get-started.md)
 > 
 
-Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. This tutorial uses Version 3.0+ of the Azure Cosmos DB .NET SDK. 
+Welcome to the Azure Cosmos DB SQL API getting started tutorial! After following this tutorial, you'll have a console application that creates and queries Azure Cosmos DB resources. This tutorial uses Version 3.0+ of the Azure Cosmos DB .NET SDK, which targets [.NET Standard 2.0.](https://docs.microsoft.com/dotnet/standard/net-standard#net-implementation-support)
 
 This tutorial covers:
 
