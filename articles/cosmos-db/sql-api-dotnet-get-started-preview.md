@@ -126,10 +126,10 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
 
 1. Next, we'll create a new instance of ```CosmosClient``` and set up some scaffolding for our program.
 
-    Below the **Main** method, add a new asynchronous task called **GetStartedDemo**, which will instantiate our new ```CosmosClient```. We will use **GetStartedDemo** as the entry point that calls methods that operate on Azure Cosmos DB resources.
+    Below the **Main** method, add a new asynchronous task called **GetStartedDemoAsync**, which will instantiate our new ```CosmosClient```. We will use **GetStartedDemoAsync** as the entry point that calls methods that operate on Azure Cosmos DB resources.
 
     ```csharp
-    static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
     }
 
@@ -137,23 +137,23 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
     /*
         Entry point to call methods that operate on Azure Cosmos DB resources in this sample
     */   
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
     }
     ```
 
-1. Add the following code to run the **GetStartedDemo** asynchronous task from your **Main** method. The **Main** method will catch exceptions and write them to the console.
+1. Add the following code to run the **GetStartedDemoAsync** asynchronous task from your **Main** method. The **Main** method will catch exceptions and write them to the console.
     ```csharp
-    static void Main(string[] args)
+    public static async Task Main(string[] args)
     {
         // ADD THIS PART TO YOUR CODE
         try
         {
             Console.WriteLine("Beginning operations...\n");
             Program p = new Program();
-            p.GetStartedDemo().GetAwaiter().GetResult();
+            await p.GetStartedDemoAsync();
         }
         catch (CosmosRequestException de)
         {
@@ -196,7 +196,7 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
 1. Copy and paste the code below where you instantiated the CosmosClient to call the **CreateDatabase** method you just added.
 
     ```csharp
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -237,13 +237,13 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
             private string databaseId = "FamilyDatabase";
             private string containerId = "FamilyContainer";
 
-            static void Main(string[] args)
+            public static async Task Main(string[] args)
             {
                 try
                 {
                     Console.WriteLine("Beginning operations...");
                     Program p = new Program();
-                    p.GetStartedDemo().GetAwaiter().GetResult();
+                    await p.GetStartedDemoAsync();
                 }
                 catch (CosmosRequestException de)
                 {
@@ -264,7 +264,7 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
             /*
                 Entry point to call methods that operate on Azure Cosmos DB resources in this sample
             */
-            public async Task GetStartedDemo()
+            public async Task GetStartedDemoAsync()
             {
                 // Create a new instance of the Cosmos Client
                 this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -314,7 +314,7 @@ A container can be created by using either the [**CreateContainerIfNotExistsAsyn
 1. Copy and paste the code below where you instantiated the CosmosClient to call the **CreateContainer** method you just added.
 
     ```csharp
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -421,7 +421,7 @@ The code checks to make sure an item with the same id does not already exist bef
             IsRegistered = true
         };
 
-        // Read the item to see if it exists
+        // Read the item to see if it exists. Note ReadItemAsync will not throw an exception if an item does not exist. Instead, we check the StatusCode property off the response object. 
         CosmosItemResponse<Family> andersenFamilyResponse = await this.container.Items.ReadItemAsync<Family>(andersenFamily.LastName, andersenFamily.Id);
 
         if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
@@ -490,10 +490,10 @@ The code checks to make sure an item with the same id does not already exist bef
         }
     }
     ```
-1. Add a call to ``AddItemsToContainer`` in the ``GetStartedDemo`` method.
+1. Add a call to ``AddItemsToContainer`` in the ``GetStartedDemoAsync`` method.
 
     ```csharp
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -542,10 +542,10 @@ Azure Cosmos DB supports rich [queries](sql-api-sql-query.md) against JSON docum
         }
     }
     ```
-1. Add a call to ``RunQuery`` in the ``GetStartedDemo`` method.
+1. Add a call to ``RunQuery`` in the ``GetStartedDemoAsync`` method.
 
     ```csharp
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -588,7 +588,7 @@ Now, we will update an item in Azure Cosmos DB.
 1. Add a call to ``ReplaceFamilyItem`` in the ``GetStartedDemo`` method.
 
     ```csharp
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -626,7 +626,7 @@ Now, we will delete an item in Azure Cosmos DB.
 1. Add a call to ``DeleteFamilyItem`` in the ``GetStartedDemo`` method.
 
     ```csharp
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -645,25 +645,28 @@ Press **F5** to run your application.
 Congratulations! You have successfully deleted an Azure Cosmos DB item.
 
 ## <a id="DeleteDatabase"></a>Step 10: Delete the database
-Now we will delete our database. Deleting the created database will remove the database and all children resources (containers, items, and any stored procedures, user-defined functions, and triggers).
+Now we will delete our database. Deleting the created database will remove the database and all children resources (containers, items, and any stored procedures, user-defined functions, and triggers). We will also dispose of the **CosmosClient** instance.
 
-1. Copy and paste the **DeleteDatabase** method below your **DeleteFamilyItem** method.
+1. Copy and paste the **DeleteDatabaseAndCleanup** method below your **DeleteFamilyItem** method.
     ```csharp
     /*
-    Delete the database
+    Delete the database and dispose of the Cosmos Client instance
     */
-    private async Task DeleteDatabase()
+    private async Task DeleteDatabaseAndCleanup()
     {
         CosmosDatabaseResponse databaseResourceResponse = await this.database.DeleteAsync();
         // Also valid: await this.cosmosClient.Databases["FamilyDatabase"].DeleteAsync();
 
         Console.WriteLine("Deleted Database: {0}\n", this.databaseId);
+
+        //Dispose of CosmosClient
+        this.cosmosClient.Dispose();
     }
     ```
-1. Add a call to ``DeleteDatabase`` in the ``GetStartedDemo`` method.
+1. Add a call to ``DeleteDatabaseAndCleanup`` in the ``GetStartedDemo`` method.
     
     ```csharp
-    public async Task GetStartedDemo()
+    public async Task GetStartedDemoAsync()
     {
         // Create a new instance of the Cosmos Client
         this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey);
@@ -675,7 +678,7 @@ Now we will delete our database. Deleting the created database will remove the d
         await this.DeleteFamilyItem();
 
         //ADD THIS PART TO YOUR CODE        
-        await this.DeleteDatabase();
+        await this.DeleteDatabaseAndCleanup();
     }
 
 Press **F5** to run your application.
