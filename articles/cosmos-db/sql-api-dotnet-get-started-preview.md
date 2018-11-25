@@ -426,11 +426,12 @@ The code checks to make sure an item with the same id does not already exist bef
 
         if (andersenFamilyResponse.StatusCode == HttpStatusCode.NotFound)
         {
-            // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Wakefield"
+            // Create an item in the container representing the Andersen family. Note we provide the value of the partition key for this item, which is "Andersen"
             andersenFamilyResponse = await this.container.Items.CreateItemAsync<Family>(andersenFamily.LastName, andersenFamily);
 
-            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse
-            Console.WriteLine("Created item in database with id: {0}\n", andersenFamilyResponse.Resource.Id);
+            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. 
+            //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+            Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", andersenFamilyResponse.Resource.Id, andersenFamilyResponse.RequestCharge);
         }
         else
         {
@@ -481,8 +482,9 @@ The code checks to make sure an item with the same id does not already exist bef
             // Create an item in the container representing the Wakefield family. Note we provide the value of the partition key for this item, which is "Wakefield"
             wakefieldFamilyResponse = await this.container.Items.CreateItemAsync<Family>(wakefieldFamily.LastName, wakefieldFamily);
 
-            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse
-            Console.WriteLine("Created item in database with id: {0}\n", wakefieldFamilyResponse.Resource.Id);
+            // Note that after creating the item, we can access the body of the item with the Resource property off the CosmosItemResponse. 
+            //We can also access the RequestCharge property to see the amount of RUs consumed on this request.
+            Console.WriteLine("Created item in database with id: {0} Operation consumed {1} RUs.\n", wakefieldFamilyResponse.Resource.Id, wakefieldFamilyResponse.RequestCharge);
         }
         else
         {
@@ -697,9 +699,9 @@ Created Database: FamilyDatabase
 
 Created Container: FamilyContainer
 
-Created item in database with id: Andersen.1
+Created item in database with id: Andersen.1 Operation consumed 11.43 RUs.
 
-Created item in database with id: Wakefield.7
+Created item in database with id: Wakefield.7 Operation consumed 14.29 RUs.
 
 Running query: SELECT * FROM c WHERE c.LastName = 'Andersen'
 
