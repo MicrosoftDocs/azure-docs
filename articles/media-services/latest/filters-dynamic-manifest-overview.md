@@ -30,11 +30,9 @@ Filters are server-side rules that allow your customers to do things like:
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 - Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
-The [Common scenarios](#common-scenarios] section has detailed explanations of common scenarios.
+The [Common scenarios](#common-scenarios) section has detailed explanations of common scenarios.
 
-Before you start examining scenarios, check out the [Concepts](#concepts) section and [Definitions of asset filters and account filters entities](#definitions).
-
-At the end, the article links to topics that demonstrate how to create [Account filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset filters](https://docs.microsoft.com/rest/api/media/assetfilters) programmatically.
+Before you start examining scenarios, check out the [Concepts](#concepts) section and [Defining filters](#definitions) with [Account filters](https://docs.microsoft.com/rest/api/media/accountfilters) and/or [Asset filters](https://docs.microsoft.com/rest/api/media/assetfilters).
 
 ## Concepts
 
@@ -46,13 +44,13 @@ The following table shows some examples of URLs with filters:
 
 |Protocol|Example|
 |---|---|
-|MPEG DASH|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)|
-|Smooth Streaming|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)|
-|HLS V4|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)|
-|HLS V3|http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)|
+|HLS V4|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl, filter=MyFilter)`|
+|HLS V3|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=m3u8-aapl-v3, filter=MyFilter)`|
+|MPEG DASH|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=mpd-time-csf,filter=MyLocalFilter)`|
+|Smooth Streaming|`http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(filter=MyLocalFilter)`|
 
 > [!NOTE]
-> Note that Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
+> Dynamic Manifests do not change the asset and the default manifest for that asset. Your client can choose to request a stream with or without filters. 
 > 
 > 
 
@@ -93,17 +91,98 @@ QualityLevels(3579378)/Manifest(video,format=m3u8-aapl)
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
 
-## Definitions
+## Defining filters
 
-This section talks about definitions and properties of **Asset filters** and **Account filters**
+When creating an [Account Filter](https://docs.microsoft.com/rest/api/media/accountfilters) and/or an [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters), you use the following properties to describe the filter. 
 
-### Asset filters
+|Name|Description|
+|---|---|
+|firstQuality|The first quality bitrate of the filter.|
+|presentationTimeRange|The presentation time range. The PresentationTimeRange is used for filtering manifest start/end points, presentation window length, and the live start position. More details about the type follow this section.|
+|tracks|The tracks selection conditions. For more details, see [tracks](#tracks)|
 
-Asset filters
+### PresentationTimeRange
 
-### Account filters
+Use this property with **Asset Filters**. It is not recommended to set it on **Acount Filters**.
 
-Account filters
+|Name|Description|
+|---|---|
+|endTimestamp|The absolute end time boundary.<br/>Applies to Video on Demand (VoD). For the Live presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/><br/>The value represents an absolute end point of the stream. It gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
+|forceEndTimestamp|The indicator of forcing exsiting of end time stamp.|
+|liveBackoffDuration|Applies to Live only. For VoD, it is silently ignored to enable smooth transitions when the presentation ends.<br/><br/>Used to define live playback position. Using this rule, you can delay live playback position and create a server side buffer for players. LiveBackoffDuration is relative to the live position.<br/><br/>The maximum live backoff duration is 60 seconds.|
+|presentationWindowDuration|Applies to Live and VoD. For VoD, it is used to enable smooth transitions when the Live presentation ends.<br/><br/>Use PresentationWindowDuration to apply a sliding window to the playlist. For example, set PresentationWindowDuration=1200000000 to apply a two minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist.<br/><br/>The minimum presentation window duration is 120 seconds.|
+|startTimestamp|Applies to VoD or Live streams.<br/><br/>The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
+|timescale|Applies to VoD or Live streams.<br/><br/>The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used.<br/><br/>Default is 10000000 HNS (hundred nanosecond).|
+
+### tracks
+
+Use tracks to specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (live or video-on-demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
+
+FilterTrackPropertyConditions includes FilterTrackPropertyType that describes the property type.
+
+|Name|Description|
+|---|---|
+|Bitrate|The bitrate of the track.<br/><br/>The value is a range of bitrates or a specific bitrate. For example, 0-2427000.|
+|FourCC|The track fourCC.<br/><br/>The value is the first element of codecs format, as specified in RFC 6381. Currently, the following are supported: For Video: `avc1`<br/>For Audio: `mp4a`, `ec-3`.|
+|Language|The language of the track. <br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, `en`.|
+|Name|The name of the track.|
+|Type|The type of the track.<br/><br/>The following values are allowed: `video`, `audio`, or `text`.|
+|Unknown|The unknown track property type.|
+
+### Example
+
+```json
+{
+  "properties": {
+    "presentationTimeRange": {
+      "startTimestamp": 0,
+      "endTimestamp": 170000000,
+      "presentationWindowDuration": 9223372036854776000,
+      "liveBackoffDuration": 0,
+      "timescale": 10000000,
+      "forceEndTimestamp": false
+    },
+    "firstQuality": {
+      "bitrate": 128000
+    },
+    "tracks": [
+      {
+        "trackSelections": [
+          {
+            "property": "Type",
+            "operation": "Equal",
+            "value": "Audio"
+          },
+          {
+            "property": "Language",
+            "operation": "NotEqual",
+            "value": "en"
+          },
+          {
+            "property": "FourCC",
+            "operation": "NotEqual",
+            "value": "EC-3"
+          }
+        ]
+      },
+      {
+        "trackSelections": [
+          {
+            "property": "Type",
+            "operation": "Equal",
+            "value": "Video"
+          },
+          {
+            "property": "Bitrate",
+            "operation": "Equal",
+            "value": "3000000-5000000"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
 
 ## Common scenarios
 
@@ -117,7 +196,7 @@ With Dynamic Manifest, you can create device profiles such as mobile, console, H
 
 ![Rendition filtering example][renditions2]
 
-In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, Smooth, and MPEG DASH.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1 Mbps, which resulted in the bottom two quality levels being stripped off in the response. In the bottom right, the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
+In the following example, an encoder was used to encode a mezzanine asset into seven ISO MP4s video renditions (from 180p to 1080p). The encoded asset can be dynamically packaged into any of the following streaming protocols: HLS, MPEG DASH, and Smooth.  At the top of the diagram, the HLS manifest for the asset with no filters is shown (it contains all seven renditions).  In the bottom left, the HLS manifest to which a filter named "ott" was applied is shown. The "ott" filter specifies to remove all bitrates below 1 Mbps, which resulted in the bottom two quality levels being stripped off in the response. In the bottom right, the HLS manifest to which a filter named "mobile" was applied is shown. The "mobile" filter specifies to remove renditions where the resolution is larger than 720p, which resulted in the two 1080p renditions being stripped off.
 
 ![Rendition filtering][renditions1]
 
@@ -175,25 +254,18 @@ You can combine up to three filters.
 
 For more information, see [this](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
-## Considerations 
+## Considerations and limitations
 
-### Live streaming
+- The values for **presentationWindowDuration** and **liveBackoffDuration** should not be set for a VoD filter. They are only used for live filter scenarios. 
+- If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Always clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
+- Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
+- You can use same filter name for Account and Asset filters. Asset filters have higher precedence and will override Account filters.
+- If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
+- Customers need to manually download the manifest and parse the exact startTimestamp and time scale.
+    
+    -The formula to set the asset filter timestamp properties: <br/>startTimestamp = <start time in the manifest>  +  <expected filter start time in seconds>*timescale
+    - To compose the manifest path for an asset with AMS V3: Get the Streaming Endpoint host and the Streaming Locator path.<br/>The manifest path is : https://<streamingendpointhost>/<streaminglocatorpath> 
 
-### VoD streaming
-
-## Know issues and limitations
-
-* Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
-* You can use same filter name for Account and Asset filters. Asset filters have higher precedence and will override Account filters.
-* If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
-
-## Next steps
-
-The following articles show how to create filters programmatically.  
-
-- [Create filters with REST APIs]()
-- [Create filters with .NET]()
-- [Create filters with CLI]()
 
 [renditions1]: ./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png
 [renditions2]: ./media/filters-dynamic-manifest-overview/media-services-rendition-filter2.png
