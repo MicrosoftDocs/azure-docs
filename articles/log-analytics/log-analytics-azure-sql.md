@@ -27,7 +27,8 @@ By using metrics that you collect with the solution, you can create custom monit
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
-[!VIDEO https://youtu.be/GK2Hl21aZqQ]
+>[!VIDEO https://youtu.be/GK2Hl21aZqQ]
+>
 
 ## Connected sources
 
