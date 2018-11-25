@@ -20,14 +20,14 @@ This article shows you how to use map class [events](https://docs.microsoft.com/
 <iframe height='550' scrolling='no' title='Interacting with the map – mouse events' src='//codepen.io/azuremaps/embed/bLZEWd/?height=550&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map – mouse events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Play with the map above and see the corresponding mouse events highlighted on the right. You can click on the **JS tab** to view and edit the JavaScript code. You can also click on the **Edit on CodePen** button and edit the code on CodePen.
+Play with the map above, and see the corresponding mouse events highlighted on the right. You can click on the **JS tab** to view and edit the JavaScript code. You can also click on the **Edit on CodePen** button and edit the code on CodePen.
 
 ## Interact with map layers
 
 <iframe height='550' scrolling='no' title='Interacting with the map - HTML Marker events' src='//codepen.io/azuremaps/embed/VVzKJY/?height=550&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interacting with the map - HTML Marker events</a> by Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) on <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-The code above highlights the name of the events that are firing as you interact with the Symbol Layer. The Symbol, Bubble, Line and Polygon layer all support the same set of events. The Tile Layer does not support any of these events.
+The code above highlights the name of the events that are firing as you interact with the Symbol Layer. The Symbol, Bubble, Line, and Polygon layer all support the same set of events. The Tile Layer does not support any of these events.
 
 ## Next steps
 
