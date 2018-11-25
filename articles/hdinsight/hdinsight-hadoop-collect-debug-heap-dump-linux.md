@@ -35,7 +35,7 @@ You can also enable heap dumps for the map and reduce processes ran by HDInsight
 
 ## <a name="configuration"></a>Understanding heap dump configuration
 
-Heap dumps are enabled by passing options (sometimes known as opts, or parameters) to the JVM when a service is started. For most Hadoop services, you can modify the shell script used to start the service to pass these options.
+Heap dumps are enabled by passing options (sometimes known as opts, or parameters) to the JVM when a service is started. For most [Apache Hadoop](https://hadoop.apache.org/) services, you can modify the shell script used to start the service to pass these options.
 
 In each script, there is an export for **\*\_OPTS**, which contains the options passed to the JVM. For example, in the **hadoop-env.sh** script, the line that begins with `export HADOOP_NAMENODE_OPTS=` contains the options for the NameNode service.
 
@@ -45,7 +45,7 @@ Map and reduce processes are slightly different, as these operations are a child
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> We recommend using Apache Ambari to modify both the scripts and mapred-site.xml settings, as Ambari handle replicating changes across nodes in the cluster. See the [Using Ambari](#using-ambari) section for specific steps.
+> We recommend using [Apache Ambari](https://ambari.apache.org/) to modify both the scripts and mapred-site.xml settings, as Ambari handle replicating changes across nodes in the cluster. See the [Using Apache Ambari](#using-apache-ambari) section for specific steps.
 
 ### Enable heap dumps
 
@@ -73,11 +73,11 @@ You can also trigger a script when an **OutOfMemoryError** occurs. For example, 
     -XX:OnOutOfMemoryError=/path/to/script
 
 > [!NOTE]
-> Since Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.
+> Since Apache Hadoop is a distributed system, any script used must be placed on all nodes in the cluster that the service runs on.
 > 
 > The script must also be in a location that is accessible by the account the service runs as, and must provide execute permissions. For example, you may wish to store scripts in `/usr/local/bin` and use `chmod go+rx /usr/local/bin/filename.sh` to grant read and execute permissions.
 
-## Using Ambari
+## Using Apache Ambari
 
 To modify the configuration for a service, use the following steps:
 
