@@ -1,5 +1,5 @@
 ---
-title: Release Notes for Microsoft Azure Backup Server v3
+title: Release notes for Microsoft Azure Backup Server v3
 description: This article provides the information about the known issues and workarounds for MABS v3.
 services: backup
 author: JYOTHIRMAISURI
@@ -14,7 +14,7 @@ ms.asset: 0c4127f2-d936-48ef-b430-a9198e425d81
 # Release notes for Microsoft Azure Backup Server
 This article provides the known issues and workarounds for Microsoft Azure Backup Server (MABS) V3.
 
-##  Backup & Recovery fails for clustered workloads
+##  Backup and recovery fails for clustered workloads
 
 **Description:** Backup/restore fails for clustered data sources such as Hyper-V cluster or SQL cluster (SQL Always On) or Exchange in database availability group (DAG) after upgrading MABS V2 to MABS V3.
 
