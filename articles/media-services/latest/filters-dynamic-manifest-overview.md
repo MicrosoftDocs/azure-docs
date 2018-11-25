@@ -18,7 +18,7 @@ ms.author: juliako
 ---
 # Filters and dynamic manifests
 
-When delivering your content to customers (streaming live events or video-on-demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
 Filters are server-side rules that allow your customers to do things like: 
 
@@ -32,7 +32,7 @@ Filters are server-side rules that allow your customers to do things like:
 
 The [Common scenarios](#common-scenarios) section has detailed explanations of common scenarios.
 
-Before you start examining scenarios, check out the [Concepts](#concepts) section and [Defining filters](#definitions) with [Account filters](https://docs.microsoft.com/rest/api/media/accountfilters) and/or [Asset filters](https://docs.microsoft.com/rest/api/media/assetfilters).
+Before you start examining scenarios, check out the [Concepts](#concepts) section and [Defining filters](#definitions).
 
 ## Concepts
 
@@ -54,15 +54,6 @@ The following table shows some examples of URLs with filters:
 > 
 > 
 
-### Filters
-
-There are two types of asset filters: 
-
-* [Account filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
-* [Asset filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
-
-Account and asset filter types have exactly the same properties. The main difference between the two is for which scenarios what type of a filer is more suitable. Account filters are suitable for device profiles (rendition filtering) where asset filters could be used to trim a specific asset.
-
 ### Manifest files
 
 When you encode an asset for adaptive bitrate streaming, a **manifest** (playlist) file is created (the file is text-based or XML-based). The **manifest** file includes streaming metadata such as: track type (audio, video, or text), track name, start and end time, bitrate (qualities), track languages, presentation window (sliding window of fixed duration), video codec (FourCC). It also instructs the player to retrieve the next fragment by providing information about the next playable video fragments available and their location. Fragments (or segments) are the actual "chunks" of a video content.
@@ -70,7 +61,6 @@ When you encode an asset for adaptive bitrate streaming, a **manifest** (playlis
 Here is an example of an HLS manifest file: 
 
 ```
-#EXT-X-VERSION:4
 #EXT-X-MEDIA:TYPE=AUDIO,GROUP-ID="audio",NAME="aac_eng_2_128041_2_1",LANGUAGE="eng",DEFAULT=YES,AUTOSELECT=YES,URI="QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)"
 #EXT-X-STREAM-INF:BANDWIDTH=536209,RESOLUTION=320x180,CODECS="avc1.64000d,mp4a.40.2",AUDIO="audio"
 QualityLevels(380658)/Manifest(video,format=m3u8-aapl)
@@ -93,32 +83,41 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 ## Defining filters
 
-When creating an [Account Filter](https://docs.microsoft.com/rest/api/media/accountfilters) and/or an [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters), you use the following properties to describe the filter. 
+There are two types of asset filters: 
+
+* [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) (global) - can be applied to any asset in the Azure Media Services account, have a lifetime of the account.
+* [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters) (local) - can only be applied to an asset with which the filter was associated upon creation, have a lifetime of the asset. 
+
+[Account Filter](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filter](https://docs.microsoft.com/rest/api/media/assetfilters) types have exactly the same properties for defining the filter. When creating the **Asset Filter**, you need to specify the asset with which you want to associate the filter.
+
+The main difference between the two is for which scenarios what type of a filter is more suitable. Account filters are suitable for device profiles (rendition filtering) where asset filters could be used to trim a specific asset.
+
+You use the following properties to describe the filters. 
 
 |Name|Description|
 |---|---|
 |firstQuality|The first quality bitrate of the filter.|
-|presentationTimeRange|The presentation time range. The PresentationTimeRange is used for filtering manifest start/end points, presentation window length, and the live start position. More details about the type follow this section.|
+|presentationTimeRange|The presentation time range. This property is used for filtering manifest start/end points, presentation window length, and the live start position. <br/>For more details, see [PresentationTimeRange](#PresentationTimeRange).|
 |tracks|The tracks selection conditions. For more details, see [tracks](#tracks)|
 
 ### PresentationTimeRange
 
-Use this property with **Asset Filters**. It is not recommended to set it on **Acount Filters**.
+Use this property with **Asset Filters**. It is not recommended to set the property with **Account Filters**.
 
 |Name|Description|
 |---|---|
 |endTimestamp|The absolute end time boundary.<br/>Applies to Video on Demand (VoD). For the Live presentation, it is silently ignored and applied when the presentation ends and the stream becomes VoD.<br/><br/>The value represents an absolute end point of the stream. It gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
-|forceEndTimestamp|The indicator of forcing exsiting of end time stamp.|
-|liveBackoffDuration|Applies to Live only. For VoD, it is silently ignored to enable smooth transitions when the presentation ends.<br/><br/>Used to define live playback position. Using this rule, you can delay live playback position and create a server side buffer for players. LiveBackoffDuration is relative to the live position.<br/><br/>The maximum live backoff duration is 60 seconds.|
-|presentationWindowDuration|Applies to Live and VoD. For VoD, it is used to enable smooth transitions when the Live presentation ends.<br/><br/>Use PresentationWindowDuration to apply a sliding window to the playlist. For example, set PresentationWindowDuration=1200000000 to apply a two minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist.<br/><br/>The minimum presentation window duration is 120 seconds.|
-|startTimestamp|Applies to VoD or Live streams.<br/><br/>The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
-|timescale|Applies to VoD or Live streams.<br/><br/>The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used.<br/><br/>Default is 10000000 HNS (hundred nanosecond).|
+|forceEndTimestamp|Applies to Live filters. The indicator of forcing the end of time stamp.|
+|liveBackoffDuration|Applies to Live only. <br/>The property is used to define live playback position. Using this rule, you can delay live playback position and create a server-side buffer for players. LiveBackoffDuration is relative to the live position.<br/><br/>The maximum live backoff duration is 60 seconds.|
+|presentationWindowDuration|Applies to Live. <br/>Use PresentationWindowDuration to apply a sliding window to the playlist. For example, set PresentationWindowDuration=1200000000 to apply a two-minute sliding window. Media within 2 minutes of the live edge will be included in the playlist. If a fragment straddles the boundary, the entire fragment will be included in the playlist.<br/><br/>The minimum presentation window duration is 120 seconds.|
+|startTimestamp|Applies to VoD or Live streams.<br/>The value represents an absolute start point of the stream. The value gets rounded to the closest next GOP start.<br/><br/>Use StartTimestamp and EndTimestamp to trim the playlist (manifest). For example, StartTimestamp=40000000 and EndTimestamp = 100000000 will generate a playlist that contains media between StartTimestamp and EndTimestamp. If a fragment straddles the boundary, the entire fragment will be included in the manifest.|
+|timescale|Applies to VoD or Live streams.<br/>The timescale used by the timestamps and durations specified above. The default timescale is 10000000. An alternative timescale can be used.<br/><br/>Default is 10000000 HNS (hundred nanosecond).|
 
 ### tracks
 
-Use tracks to specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (live or video-on-demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
+Use tracks to specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
 
-FilterTrackPropertyConditions includes FilterTrackPropertyType that describes the property type.
+Filter track property conditions describe track type and value (described in the following table), and operation (Equal, NotEqual). 
 
 |Name|Description|
 |---|---|
@@ -186,7 +185,7 @@ FilterTrackPropertyConditions includes FilterTrackPropertyType that describes th
 
 ## Common scenarios
 
-As was mentioned before, when delivering your content to customers (streaming live events or video-on-demand) your goal is to deliver a high quality video to various devices under different network conditions. In addition, your might have other requirements that involve filtering your assets and using of Dynamic Manifests. The following sections give a short overview of different filtering scenarios.
+As was mentioned before, when delivering your content to customers (streaming Live events or Video on Demand) your goal is to deliver a high-quality video to various devices under different network conditions. In addition, your might have other requirements that involve filtering your assets and using of Dynamic Manifests. The following sections give a short overview of different filtering scenarios.
 
 ### Rendition filtering
 
@@ -256,15 +255,14 @@ For more information, see [this](https://azure.microsoft.com/blog/azure-media-se
 
 ## Considerations and limitations
 
-- The values for **presentationWindowDuration** and **liveBackoffDuration** should not be set for a VoD filter. They are only used for live filter scenarios. 
-- If you update a filter, it can take up to two minutes for streaming endpoint to refresh the rules. If the content was served using this filter (and cached in proxies and CDN caches), updating this filter can result in player failures. Always clear the cache after updating the filter. If this option is not possible, consider using a different filter. 
+- The values for **forceEndTimestamp**, **presentationWindowDuration**, and **liveBackoffDuration** should not be set for a VoD filter. They are only used for live filter scenarios. 
 - Dynamic manifest operates in GOP boundaries (Key Frames) hence trimming has GOP accuracy. 
 - You can use same filter name for Account and Asset filters. Asset filters have higher precedence and will override Account filters.
 - If you update a filter, it can take up to 2 minutes for streaming endpoint to refresh the rules. If the content was served using some filters (and cached in proxies and CDN caches), updating these filters can result in player failures. It is recommended to clear the cache after updating the filter. If this option is not possible, consider using a different filter.
 - Customers need to manually download the manifest and parse the exact startTimestamp and time scale.
     
-    -The formula to set the asset filter timestamp properties: <br/>startTimestamp = <start time in the manifest>  +  <expected filter start time in seconds>*timescale
-    - To compose the manifest path for an asset with AMS V3: Get the Streaming Endpoint host and the Streaming Locator path.<br/>The manifest path is : https://<streamingendpointhost>/<streaminglocatorpath> 
+    - The formula to set the asset filter timestamp properties: <br/>startTimestamp = <start time in the manifest>  +  <expected filter start time in seconds>*timescale
+    - To compose the manifest path for an asset with AMS V3: Get the Streaming Endpoint host and the Streaming Locator path.<br/>The manifest path has the following format: `https://<streamingendpointhost>/<streaminglocatorpath>`
 
 
 [renditions1]: ./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png
