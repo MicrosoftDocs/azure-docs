@@ -30,9 +30,9 @@ Filters are server-side rules that allow your customers to do things like:
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 - Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
-The [Common cenarios](#common-scenarios] section has detailed explaination of common scenarios.
+The [Common scenarios](#common-scenarios] section has detailed explanations of common scenarios.
 
-Before you start examining scenarios, check out the [Concepts](#concepts) section and [Defenitions of asset filters and account filters entities](#definitions).
+Before you start examining scenarios, check out the [Concepts](#concepts) section and [Definitions of asset filters and account filters entities](#definitions).
 
 At the end, the article links to topics that demonstrate how to create [Account filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset filters](https://docs.microsoft.com/rest/api/media/assetfilters) programmatically.
 
