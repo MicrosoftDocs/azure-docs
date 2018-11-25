@@ -79,7 +79,6 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
     using System.Threading.Tasks;
     using System.Configuration;
     using Microsoft.Azure.Cosmos;
-    using Newtonsoft.Json;
     using System.Collections.Generic;
     using System.Net;
     ```
@@ -212,8 +211,8 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
     using System.Threading.Tasks;
     using System.Configuration;
     using Microsoft.Azure.Cosmos;
-    using Newtonsoft.Json;
     using System.Collections.Generic;
+    using System.Net;
 
     namespace CosmosGettingStarted
     {

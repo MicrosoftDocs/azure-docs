@@ -91,7 +91,6 @@ Great! Now that we finished the setup, let's start writing some code. You can fi
     ```csharp
     using System;
     using System.Threading.Tasks;
-    using System.Configuration;
     using Microsoft.Azure.Cosmos;
     using System.Collections.Generic;
     using System.Net;
@@ -223,9 +222,9 @@ A database can be created by using either the [**CreateDatabaseIfNotExistsAsync*
     ```csharp
     using System;
     using System.Threading.Tasks;
-    using System.Configuration;
     using Microsoft.Azure.Cosmos;
     using System.Collections.Generic;
+    using System.Net;
 
     namespace CosmosGettingStartedDotnetCoreTutorial
     {
