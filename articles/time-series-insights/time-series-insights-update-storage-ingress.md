@@ -112,7 +112,7 @@ The choice of the **Time Series ID** is like selecting a partition key for a dat
 
 * Pick a property name that has a wide range of values and has even access patterns. It’s a best practice to have a partition key supporting many distinct values (hundreds or thousands). For many customers, this will be something like device ID, sensor ID, etc.
 
-* It should be unique at the leaf node level of your [model](./time-series-insights-update-tsm.md).
+* It should be unique at the leaf node level of your [Time Series Model](./time-series-insights-update-tsm.md).
 * A **Time Series ID** property name character string can be up to 128 characters and **Time Series ID** property values can be up to 1024 characters.  
 * If some unique **Time Series ID** property values are missing, they are treated as null values, which take part in the uniqueness constraint.
 * You can select up to **three** (3) key properties as your **Time Series ID**.  Note – they must all be string properties.  With regards to selecting more than one key property as your **Time Series ID**, see the following scenarios:
@@ -193,7 +193,7 @@ Supported event sources include:
 Supported file types include:
 
 * JSON
-  * For more on the supported JSON shapes we can handle, see the [TSI TSQ](./time-series-insights/time-series-insights-update-tsq.md) documentation.
+  * For more on the supported JSON shapes we can handle, see the [TSI TSQ](./time-series-insights-update-tsq.md) documentation.
 
 ### Data availability
 
