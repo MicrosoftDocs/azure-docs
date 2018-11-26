@@ -104,7 +104,7 @@ request.RequestUri = new Uri(host + route);
 // Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request to Azure service, get response
+// Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
