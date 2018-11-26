@@ -2,7 +2,7 @@
 title: Choose an Azure solution for data transfer| Microsoft Docs
 description: Learn how to choose an Azure solution for data transfer
 services: storage
-author: alkohli;seguler;manuaery
+author: alkohli
 
 ms.service: storage
 ms.subservice: blob
