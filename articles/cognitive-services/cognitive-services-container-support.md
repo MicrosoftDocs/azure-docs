@@ -30,7 +30,7 @@ The [Computer Vision](Computer-vision/Home.md), [Face](Face/Overview.md), and [T
 - **Control over data**: Allow customers to use Cognitive Services with complete control over their data.  This is essential for customers that cannot send data to the cloud but need access to Cognitive Services technology. Support consistency in hybrid environments  – across data, management, identity, and security.
 - **Control over model updates**: Provide customers flexibility in versioning and updating of models deployed in their solutions.
 - **Portable architecture**: Enable the creation of a portable application architecture that can be deployed in the cloud, on-premises and the edge. Containers can also be deployed directly to [Azure Kubernetes Service](/azure/aks/), [Azure Container Instances](/azure/container-instances/), or to a [Kubernetes](https://kubernetes.io/) cluster deployed to [Azure Stack](/azure/azure-stack/). For more information, see [Deploy Kubernetes to Azure Stack](/azure/azure-stack/user/azure-stack-solution-template-kubernetes-deploy).
-- **High throughput / low latency**: Provide customers the ability to scale for high throughput and low latency requirements by enabling Cognitive Services to run physically close to their application logic and data. Customers can scale beyond current service transactions per second (TPS) by running more containers. 
+- **High throughput / low latency**: Provide customers the ability to scale for high throughput and low latency requirements by enabling Cognitive Services to run physically close to their application logic and data. Containers do not limit transactions per second (TPS) and can be made to scale both up and out to handle demand. 
 
 
 ## Containers in Azure Cognitive Services

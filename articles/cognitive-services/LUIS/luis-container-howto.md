@@ -26,7 +26,7 @@ In order to run the LUIS container, you must have the following:
 |--|--|
 |Docker Engine| To complete this preview, you need Docker Engine installed on a *host computer. Docker provides packages that configure the Docker environment on [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/), and [Linux](https://docs.docker.com/engine/installation/#supported-platforms). For a primer on Docker and container basics, see the [Docker overview](https://docs.docker.com/engine/docker-overview/).<br><br> Docker must be configured to allow the containers to connect with and send billing data to Azure. <br><br> **On Windows**, Docker must also be configured to support Linux containers.<br><br>*The **host** is the computer that runs the docker container. It can be the local computer or any docker hosting service including Azure Kubernetes, Azure Container instances, Kubernetes cluster, and Azure Stack.|
 |Familiarity with Docker | You should have a basic understanding of Docker concepts, like registries, repositories, containers, and container images, as well as knowledge of basic `docker` commands.| 
-|LUIS resource and associated app |In order to use the container, you must have:<br><br>* A _Language Understanding_ Azure resource in the **F0 pricing tier**, along with the associated endpoint key and endpoint URI (used as the billing endpoint).<br>* A trained or published app packaged as a mounted input to the container with its associated App ID.<br>* The Authoring Key to download the app package and upload the query logs.<br><br>These requirements are used to create access and command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Language Understanding_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`|
+|Language Understanding (LUIS) resource and associated app |In order to use the container, you must have:<br><br>* A [_Language Understanding_ Azure resource](luis-how-to-azure-subscription.md) in the **F0 pricing tier**, along with the associated endpoint key and endpoint URI (used as the billing endpoint).<br>* A trained or published app packaged as a mounted input to the container with its associated App ID.<br>* The Authoring Key to download the app package and upload the query logs.<br><br>These requirements are used to create access and command-line arguments to the following variables:<br><br>**{AUTHORING_KEY}**: This key is used to get the packaged app from the LUIS service in the cloud and upload the query logs back to the cloud. The format is `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`.<br><br>**{APPLICATION_ID}**: This ID is used to select the App. The format is `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.<br><br>**{ENDPOINT_KEY}**: This key is used to start the container. You can find the endpoint key in two places. The first is the Azure portal within the _Language Understanding_ resource's keys list. The endpoint key is also available in the LUIS portal on the Keys and Endpoint settings page. Do not use the starter key.<br><br>**{BILLING_ENDPOINT}**: The billing endpoint value is available on the Azure portal's Language Understanding Overview page. An example is: `https://westus.api.cognitive.microsoft.com/luis/v2.0`|
 
 ### Container requirements and recommendations
 
@@ -42,7 +42,7 @@ The `--cpus` and `--memory` settings are used as part of the `docker run` comman
 
 ## Get the container image
 
-Use the `[docker pull](https://docs.docker.com/engine/reference/commandline/pull/)` command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
+Use the [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) command to download a container image from the `mcr.microsoft.com/azure-cognitive-services/luis` repository:
 
 ```Docker
 docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
@@ -266,7 +266,7 @@ TBD: Example or link?
 
 If an output mount is specified for the LUIS container, app query log files are saved in the output directory, where {INSTANCE_ID} is the container ID. The app query log contains the query, response, and timestamps for each prediction query submitted to the LUIS container. 
 
-???TDB: if more than one app is running in container, like stage and production, is there more than 1 log?
+TBD: if more than one app is running in container, like stage and production, is there more than 1 log?
 
 The following location shows the nested directory structure for the container's log files.
 `
