@@ -21,7 +21,7 @@ In addition to tagging and descriptions, Computer Vision returns the taxonomy-ba
 
 Based on a list of 86 concepts seen in the following diagram, an image can be categorized ranging from broad to specific. For the full taxonomy in text format, see [Category Taxonomy](category-taxonomy.md).
 
-![Analyze Categories](./Images/analyze_categories.png)
+![grouped lists of all the categories in the category taxonomy](./Images/analyze_categories-v2.png)
 
 ## Image categorization examples
 
