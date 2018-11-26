@@ -18,36 +18,25 @@ In this article, you learn about the use cases and unique features of the Azure 
 
 You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
 
-## Azure Machine Learning Data Prep SDK
+## Use Azure Machine Learning Data Prep SDK
 
 The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Python library that includes:
 + Many common data preprocessing tools
 + Automated feature engineering and transformations derived from examples
 
-The SDK is similar in core-functionality to popular libraries such as **Pandas** and **PySpark**, yet offers more flexibility. Pandas is typically most useful on smaller data sets (< 2-5 GB) before memory capacity-constraints affect performance. In contrast, PySpark is generally for big-data applications but carries an overhead that makes working with small data sets much slower.
+The SDK offers the ability to use and scale the same code from small to big data use-cases. For small data sets, the SDK offers you practicality and convenience with small data sets. And for big data applications, the SDK enables you to scale easily.  The SDK is similar in core-functionality to popular libraries such as Pandas and PySpark, yet offers more flexibility. Pandas is typically most useful on smaller data sets (< 2-5 GB) before memory capacity-constraints affect performance. In contrast, PySpark is generally for big-data applications but carries an overhead that makes working with small data sets much slower.
 
-The Azure Machine Learning Data Prep SDK offers:
-- Practicality and convenience when working with small data sets
-
-- Scalability for modern big-data applications
-
-- The ability to use and scale the same code for both use-cases
-
-### Install the SDK
-
-Install the SDK in your Python environment using the following command.
-
+To install the SDK in your Python environment, use:
 ```shell
 pip install azureml-dataprep
 ```
 
-Use the following code to import the package.
-
+To import the package in your Python code, use:
 ```python
 import azureml.dataprep as dprep
 ```
 
-### Examples and reference
+## SDK examples & reference
 
 To learn about the modules and functions of this SDK, see the [Data Prep SDK reference docs](https://aka.ms/data-prep-sdk).
 
@@ -56,7 +45,7 @@ The following examples highlight some of the unique functionality of the SDK, in
 + Automated feature engineering
 + Summary statistics
 
-#### Automatic file type detection
+### Automatic file type detection
 
 Use the `smart_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
 
@@ -64,7 +53,7 @@ Use the `smart_read_file()` function to load your data without having to specify
 dataflow = dprep.smart_read_file(path="<your-file-path>")
 ```
 
-#### Automated feature engineering
+### Automated feature engineering
 
 Use the SDK to split and derive columns by both example and inference to automate feature engineering. Assume you have a field in your dataflow object called `datetime` with a value of `2018-09-15 14:30:00`.
 
@@ -84,7 +73,7 @@ new_dataflow = dataflow.derive_column_by_example(
     )
 ```
 
-#### Summary statistics
+### Summary statistics
 
 You can generate quick summary statistics for a dataflow with one line of code. This method offers a convenient way to understand your data and how it's distributed.
 
