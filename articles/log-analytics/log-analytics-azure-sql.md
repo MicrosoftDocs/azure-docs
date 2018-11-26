@@ -2,19 +2,16 @@
 title: Azure SQL Analytics solution in Log Analytics | Microsoft Docs
 description: Azure SQL Analytics solution helps you manage your Azure SQL databases
 services: log-analytics
-documentationcenter: ''
-author: danimir
-manager: carmonm
-ms.reviewer: carlrab
-ms.assetid: b2712749-1ded-40c4-b211-abc51cc65171
 ms.service: log-analytics
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.subservice: performance
+ms.custom: 
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/03/2018
+author: danimir
+ms.reviewer: carlrab
+manager: craigg
+ms.date: 11/26/2018
 ms.author: v-daljep
-ms.component: 
 ---
 
 # Monitor Azure SQL Database using Azure SQL Analytics (Preview)
@@ -27,7 +24,7 @@ By using metrics that you collect with the solution, you can create custom monit
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
->[!VIDEO https://youtu.be/GK2Hl21aZqQ]
+>[!VIDEO https://www.youtube.com/embed/GK2Hl21aZqQ]
 >
 
 ## Connected sources
