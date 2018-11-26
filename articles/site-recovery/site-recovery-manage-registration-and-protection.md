@@ -1,12 +1,12 @@
 ---
 title: Remove servers and disable protection | Microsoft Docs
 description: This article describes how to unregister servers from a Site Recovery vault, and to disable protection for virtual machines and physical servers.
-author: rayne-wiselman
-manager: carmonm
+author: rajani-janaki-ram
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
-ms.author: raynew
+ms.author: rajani-janaki-ram
 
 ---
 
@@ -47,7 +47,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 5. If your Hyper-V host was in a **Disconnected** state, then run the following script on each Hyper-V host that you removed. The script cleans up settings on the server, and unregisters it from the vault.
 
 
-
+```powershell
         pushd .
         try
         {
@@ -108,7 +108,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
                 "Registry keys removed."
             }
 
-            # First retrive all the certificates to be deleted
+            # First retrieve all the certificates to be deleted
             $ASRcerts = Get-ChildItem -Path cert:\localmachine\my | where-object {$_.friendlyname.startswith('ASR_SRSAUTH_CERT_KEY_CONTAINER') -or $_.friendlyname.startswith('ASR_HYPER_V_HOST_CERT_KEY_CONTAINER')}
             # Open a cert store object
             $store = New-Object System.Security.Cryptography.X509Certificates.X509Store("My","LocalMachine")
@@ -127,7 +127,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
             Write-Host "FAILED" -ForegroundColor "Red"
         }
         popd
-
+```
 
 
 ## Disable protection for a VMware VM or physical server (VMware to Azure)
@@ -154,13 +154,12 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
     > If you chose the **Remove** option then run the following set of scripts to clean up the replication settings on-premises Hyper-V Server.
 1. On the source Hyper-V host server, to remove replication for the virtual machine. Replace SQLVM1 with the name of your virtual machine and run the script from an administrative PowerShell
 
-
-    
+```powershell
     $vmName = "SQLVM1"
     $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'"
     $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"
     $replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
+```
 
 ## Disable protection for a Hyper-V virtual machine replicating to Azure using the System Center VMM to Azure scenario
 
@@ -172,21 +171,20 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 
     > [!NOTE]
     > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
-3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
+3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
         $vm = get-scvirtualmachine -Name "SQLVM1"
         Set-SCVirtualMachine -VM $vm -ClearDRProtection
 4. The above steps clear the replication settings on the VMM server. To stop replication for the virtual machine running on the Hyper-V host server, run this script. Replace SQLVM1 with the name of your virtual machine, and host01.contoso.com with the name of the Hyper-V host server.
 
-    
+```powershell
     $vmName = "SQLVM1"
     $hostName  = "host01.contoso.com"
     $vm = Get-WmiObject -Namespace "root\virtualization\v2" -Query "Select * From Msvm_ComputerSystem Where ElementName = '$vmName'" -computername $hostName
     $replicationService = Get-WmiObject -Namespace "root\virtualization\v2"  -Query "Select * From Msvm_ReplicationService"  -computername $hostName
     $replicationService.RemoveReplicationRelationship($vm.__PATH)
-    
-       
- 
+```
+
 ## Disable protection for a Hyper-V virtual machine replicating to secondary VMM Server using the System Center VMM to VMM scenario
 
 1. In **Protected Items** > **Replicated Items**, right-click the machine > **Disable replication**.
@@ -197,7 +195,7 @@ Hyper-V hosts that aren't managed by VMM are gathered into a Hyper-V site. Remov
 > [!NOTE]
 > If you chose the **Remove** option, then tun the following scripts to clean up the replication settings on-premises VMM Server.
 
-3. Run this script on the source VMM server, using PowerShell (administrator previleges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
+3. Run this script on the source VMM server, using PowerShell (administrator privileges required) from the VMM console. Replace the placeholder **SQLVM1** with the name of your virtual machine.
 
          $vm = get-scvirtualmachine -Name "SQLVM1"
          Set-SCVirtualMachine -VM $vm -ClearDRProtection

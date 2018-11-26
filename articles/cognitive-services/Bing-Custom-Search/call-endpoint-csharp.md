@@ -3,7 +3,7 @@ title: "Quickstart: Call your Bing Custom Search endpoint using C# | Microsoft D
 titlesuffix: Azure Cognitive Services
 description: Use this quickstart to begin requesting search results from your Bing Custom Search instance in C#. 
 services: cognitive-services
-author: brapel
+author: aahill
 manager: cgronlun
 
 ms.service: cognitive-services

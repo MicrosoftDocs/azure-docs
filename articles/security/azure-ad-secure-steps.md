@@ -29,6 +29,10 @@ This checklist will help you quickly deploy critical recommended actions to prot
 > [!NOTE]
 > Many of the recommendations in this document apply only to applications that are configured to use Azure Active Directory as their identity provider. Configuring apps for Single Sign-On assures the benefits of credential policies, threat detection, auditing, logging, and other features add to those applications. [Single sign-on through Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) is the foundation - on which all these recommendations are based.
 
+The recommendations in this document are aligned with the [Identity Secure Score](https://docs.microsoft.com/azure/active-directory/fundamentals/identity-secure-score), an automated assessment of your Azure AD tenant’s identity security configuration. Organizations can use the Identity Secure Score page in the Azure AD portal to find gaps in their current security configuration to ensure they follow current Microsoft best practices for security. Implementing each recommendation in the Secure Score page will increase your score and allow you to track your progress, plus help you compare your implementation against other similar size organizations or your industry.
+
+![Identity Secure Score](media/azure-ad/azure-ad-sec-steps0.png)
+
 ## Before you begin: Protect privileged accounts with MFA
 
 Before you begin this checklist, make sure you don't get compromised while you're reading this checklist. You first need to protect your privileged accounts.
@@ -39,45 +43,46 @@ All set? Let's get started on the checklist.
 
 ## Step 1 - Strengthen your credentials 
 
-Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (1h 15m):
-> [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
-
-If users in your identity system are using weak passwords and not strengthening them with multi-factor authentication, it isn't a matter of if or when you get compromised – just "how often."
+Most enterprise security breaches originate with an account compromised with one of a handful of methods such as password spray, breach replay, or phishing. Learn more about these attacks in this video (45 min):
+> [!VIDEO https://www.youtube.com/embed/uy0j1_t5Hd4]
 
 ### Make sure your organization use strong authentication
 
 Given the frequency of passwords being guessed, phished, stolen with malware, or reused, it's critical to back the password with some form of strong credential – learn more about [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
 
-### Turn off traditional complexity, expiration rules, and start banning commonly attacked passwords instead
+### Start banning commonly attacked passwords and turn off traditional complexity, and expiration rules.
 
-Many organizations use the traditional complexity (for example, special characters) and password expiration rules. Microsoft's research has shown these policies are harmful, causing users to choose passwords that are easier to guess.
+Many organizations use the traditional complexity (requiring special characters, numbers, uppercase, and lowercase) and password expiration rules. [Microsoft's research](https://aka.ms/passwordguidance) has shown these policies cause users to choose passwords that are easier to guess.
 
-Microsoft's recommendations, consistent with [NIST guidance](https://pages.nist.gov/800-63-3/sp800-63b.html), are to implement the following three:
+Azure AD's [dynamic banned password](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) feature uses current attacker behavior to prevent users from setting passwords that can easily be guessed. This capability is always on when users are created in the cloud, but is now also available for hybrid organizations when they deploy [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD password protection blocks users from choosing these common passwords and can be extended to block password containing custom keywords you specify. For example, you can prevent your users from choosing passwords containing your company’s product names or a local sport team.
+
+Microsoft recommends adopting the following modern password policy based on [NIST guidance](https://pages.nist.gov/800-63-3/sp800-63b.html):
 
 1. Require passwords have at least 8 characters. Longer isn't necessarily better, as they cause users to choose predictable passwords, save passwords in files, or write them down.
-2. Disable expiration rules, which drive users to easily guessed passwords such as **Summer2018!**.
+2. Disable expiration rules, which drive users to easily guessed passwords such as **Summer2018!**
 3. Disable character-composition requirements and prevent users from choosing commonly attacked passwords, as they cause users to choose predictable character substitutions in passwords.
 
-You can use [PowerShell to prevent passwords from expiring](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) on users if you create identities in Azure AD directly. Organizations using on-premises AD with Azure AD Connect to sync identities to Azure AD (also known as a hybrid deployment), should implement on-premises [intelligent password policies](https://aka.ms/passwordguidance) using [domain group policy settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) or [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
-
-Azure Active Directory's [dynamic banned password](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) feature uses current attacker behavior to prevent users from setting passwords that can easily be guessed. This capability is always on and organizations with a hybrid deployment can benefit from this feature by enabling [password writeback](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback) or they can deploy [Azure AD password protection for Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). Azure AD password protection blocks users from choosing common passwords in general and custom passwords you can configure.
+You can use [PowerShell to prevent passwords from expiring](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) for users if you create identities in Azure AD directly. Hybrid organizations should implement these policies using [domain group policy settings](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) or [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
 ### Protect against leaked credentials and add resilience against outages
 
-If your organization uses a hybrid identity solution, then you should enable password hash synchronization for the following two reasons:
+If your organization uses a hybrid identity solution with pass-through authentication or federation, then you should enable password hash sync for the following two reasons:
 
-* The [Users with leaked credentials](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
-* In the event of an on-premises outage (for example, in a ransomware attack) you'll be able to switch over to [cloud authentication using password hash synchronization](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Office 365.
+* The [Users with leaked credentials](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events) report in the Azure AD management warns you of username and password pairs, which have been exposed on the "dark web." An incredible volume of passwords is leaked via phishing, malware, and password reuse on third-party sites that are later breached. Microsoft finds many of these leaked credentials and will tell you, in this report, if they match credentials in your organization – but only if you [enable password hash sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization)!
+* In the event of an on-premises outage (for example, in a ransomware attack) you'll be able to switch over to using [cloud authentication using password hash sync](https://docs.microsoft.com/azure/security/azure-ad-choose-authn). This backup authentication method will allow you to continue accessing apps configured for authentication with Azure Active Directory, including Office 365. In this case IT staff will not need to resort to personal email accounts to share data until the on-premises outage is resolved.
 
-Learn more about how [password hash synchronization](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) works.
+Learn more about how [password hash sync](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization) works.
 
-### Implement AD FS extranet lockout
+> [!NOTE]
+> If you enable password hash sync and are using Azure AD Domain services, Kerberos (AES 256) hashes and optionally NTLM (RC4, no salt) hashes will also be encrypted and synchronized to Azure AD. 
 
-Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). If you use AD FS in Windows Server 2012R2, implement AD FS [extranet lockout protection](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). If you use AD FS on Windows Server 2016, implement [extranet smart lockout](https://support.microsoft.com/en-us/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart Extranet lockout protects against brute force attacks, which target AD FS while preventing users from being locked out in Active Directory.
+### Implement AD FS extranet smart lockout
+
+Organizations, which configure applications to authenticate directly to Azure AD benefit from [Azure AD smart lockout](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords). If you use AD FS in Windows Server 2012R2, implement AD FS [extranet lockout protection](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection). If you use AD FS on Windows Server 2016, implement [extranet smart lockout](https://support.microsoft.com/help/4096478/extranet-smart-lockout-feature-in-windows-server-2016). AD FS Smart Extranet lockout protects against brute force attacks, which target AD FS while preventing users from being locked out in Active Directory.
 
 ### Take advantage of intrinsically secure, easier to use credentials
 
-Using [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), you can replace passwords with strong two-factor authentication on PCs and mobile devices. This authentication consists of a new type of user credential that is tied to a device and uses a biometric or PIN.
+Using [Windows Hello](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification), you can replace passwords with strong two-factor authentication on PCs and mobile devices. This authentication consists of a new type of user credential that is tied securely to a device and uses a biometric or PIN.
 
 ## Step 2 - Reduce your attack surface
 
@@ -93,9 +98,11 @@ Apps using their own legacy methods to authenticate with Azure AD and access com
 
 ### Block invalid authentication entry points
 
-Using the assume breach mentality, you should reduce the impact of compromised user credentials when they happen. For each app in your environment consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. Take care to restrict the use of [highly privileged or service accounts](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices). With [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access their apps and resources based on specific conditions you define.
+Using the assume breach mentality, you should reduce the impact of compromised user credentials when they happen. For each app in your environment consider the valid use cases: which groups, which networks, which devices and other elements are authorized – then block the rest. With [Azure AD conditional access](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), you can control how authorized users access their apps and resources based on specific conditions you define.
 
-Pay particular attention to service accounts (accounts used to do tasks in an automated fashion). Using Conditional Access, you can make sure such accounts can only run against the service, from the IP, and at the time of day, which is appropriate.
+### Block end-user consent
+
+By default, all users in Azure AD are allowed to grant applications that leverage OAuth 2.0 and the Microsoft identity [consent framework](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) permissions to access company data. While consenting does allow users to easily acquire useful applications that integrate with Microsoft 365 and Azure, it can represent a risk if not used and monitored carefully. [Disabling all future user consent operations](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access) can help reduce your surface area and mitigate this risk. If end-user consent is disabled previous consent grants will still be honored, but all future consent operations must be performed by an administrator. Before disabling this functionality it is recommended to ensure that users will understand how to request admin approval for new applications; doing this should help reduce user friction, minimize support volume, and make sure users do not sign up for applications using non-Azure AD credentials.
 
 ### Implement Azure AD Privileged Identity Management
 
@@ -108,7 +115,7 @@ Another impact of "assume breach" is the need to minimize the likelihood a compr
 * Establish rules to make sure privileged roles are protected by multi-factor authentication.
 * Establish rules to make sure privileged roles are granted only long enough to accomplish the privileged task.
 
-Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely.
+Enable Azure AD PIM, then view the users who are assigned administrative roles and remove unnecessary accounts in those roles. For remaining privileged users, move them from permanent to eligible. Finally, establish appropriate policies to make sure when they need to gain access to those privileged roles, they can do so securely, with the necessary change control.
 
 As part of deploying your privileged account process, follow the [best practice to create at least two emergency accounts](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices) to make sure you have access to Azure AD if you lock yourself out.
 
@@ -138,7 +145,7 @@ Microsoft Azure services and features provide you with configurable security aud
 
 ### Monitor Azure AD Connect Health in hybrid environments
 
-[Monitoring ADFS with Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) provides you with greater insight into potential issues and visibility of attacks on your ADFS infrastructure. Azure AD Connect Health delivers alerts with details, resolution steps, and links to related documentation; usage analytics for several metrics related to authentication traffic; performance monitoring and reports.
+[Monitoring AD FS with Azure AD Connect Health](https://docs.microsoft.com/azure/active-directory/connect-health/active-directory-aadconnect-health-adfs) provides you with greater insight into potential issues and visibility of attacks on your AD FS infrastructure. Azure AD Connect Health delivers alerts with details, resolution steps, and links to related documentation; usage analytics for several metrics related to authentication traffic; performance monitoring and reports.
 
 ![Azure AD Connect Health](media/azure-ad/azure-ad-sec-steps4.png)
 
@@ -146,7 +153,15 @@ Microsoft Azure services and features provide you with configurable security aud
 
 [Azure AD Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection) is a notification, monitoring and reporting tool you can use to detect potential vulnerabilities affecting your organization's identities. It detects risk events, such as leaked credentials, impossible travel, and sign-ins from infected devices, anonymous IP addresses, IP addresses associated with the suspicious activity, and unknown locations. Enable notification alerts to receive email of users at risk and/or a weekly digest email.
 
+Azure AD Identity Protection provides two important reports you should monitor daily:
+1. Risky sign-in reports will surface user sign-in activities you should investigate, the legitimate owner may not have performed the sign-in.
+2. Risky user reports will surface user accounts that may have been compromised, such as leaked credential that was detected or the user signed in from different locations causing an impossible travel event. 
+
 ![Users flagged for risk](media/azure-ad/azure-ad-sec-steps3.png)
+
+### Audit apps and consented permissions
+
+Users can be tricked into navigating to a compromised web site or apps which will gain access to their profile information and user data, such as their email. A malicious actor can use the consented permissions it received to encrypt their mailbox content and demand a ransom to regain your mailbox data. [Administrators should review and audit](https://blogs.technet.microsoft.com/office365security/defending-against-illicit-consent-grants/) the permissions given by users.
 
 ## Step 5 - Enable end-user self-help
 

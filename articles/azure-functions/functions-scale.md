@@ -19,7 +19,7 @@ ms.custom: H1Hack27Feb2017
 ---
 # Azure Functions scale and hosting
 
-Azure Functions runs in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code is not running. You don't have to pay for idle VMs or reserve capacity in advance. This article focuses on the Consumption plan, a [serverless](https://azure.microsoft.com/solutions/serverless/) app model. For details about how the dedicated App Service plan works, see the [Azure App Service plans in-depth overview](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
+Azure Functions runs in two different modes: Consumption plan and Azure App Service plan. The Consumption plan automatically allocates compute power when your code is running. Your app is scaled out when needed to handle load, and scaled down when code is not running. You don't have to pay for idle VMs or reserve capacity in advance.
 
 > [!NOTE]  
 > [Linux hosting](functions-create-first-azure-function-azure-cli-linux.md) is currently only available on an App Service plan.

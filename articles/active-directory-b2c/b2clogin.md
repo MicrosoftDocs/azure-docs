@@ -20,7 +20,7 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 Using b2clogin.com gives you additional benefits, such as:
 
 - Cookies are no longer shared with the other Microsoft services.
-- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
+- Your URLs no longer include a reference to Microsoft. For example, `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`.
 
 Consider these settings that might need to change when using b2clogin.com:
 
@@ -58,7 +58,16 @@ Your Azure AD B2C application probably refers to `login.microsoftonline.com` in 
 
 If you're using MSAL, set the **ValidateAuthority** to `false`. The following example shows how you might set the property:
 
+In [MSAL for .Net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet):
+
 ```CSharp
+ ConfidentialClientApplication client = new ConfidentialClientApplication(...); // can also be PublicClientApplication
+ client.ValidateAuthority = false;
+```
+
+And in [MSAL for Javascript](https://github.com/AzureAD/microsoft-authentication-library-for-js):
+
+```Javascript
 this.clientApplication = new UserAgentApplication(
   env.auth.clientId,
   env.auth.loginAuthority,
@@ -68,5 +77,3 @@ this.clientApplication = new UserAgentApplication(
   }
 );
 ```
-
- For more information, see [ClientApplicationBase Class ](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.clientapplicationbase?view=azure-dotnet).

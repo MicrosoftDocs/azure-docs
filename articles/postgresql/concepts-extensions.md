@@ -8,7 +8,7 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/30/2018
+ms.date: 11/12/2018
 ---
 # PostgreSQL extensions in Azure Database for PostgreSQL
 PostgreSQL provides the ability to extend the functionality of your database using extensions. Extensions allow for bundling multiple related SQL objects together in a single package that can be loaded or removed from your database with a single command. After being loaded in the database, extensions can function as do built-in features. For more information on PostgreSQL extensions, see [Packaging Related Objects into an Extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -69,6 +69,7 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | **Extension** | **Description** |
 |---|---|
 | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL loadable procedural language. |
+| [plv8](https://plv8.github.io/) | A Javascript language extension for PostgreSQL that can be used for stored procedures, triggers, etc. |
 
 ### Miscellaneous extensions
 
@@ -82,7 +83,8 @@ The following tables list the standard PostgreSQL extensions that are currently 
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Provides a means for showing tuple-level statistics. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Foreign-data wrapper used to access data stored in external PostgreSQL servers. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Provides a means of creating hypothetical indexes that don't cost CPU or disk. |
-| [plv8](https://plv8.github.io/) | A Javascript language extension for PostgreSQL that can be used for stored procedures, triggers, etc. |
+| [dblink](https://www.postgresql.org/docs/current/dblink.html) | A module that supports connections to other PostgreSQL databases from within a database session. |
+
 
 ### PostGIS extensions
 
