@@ -43,7 +43,7 @@
   - name: Azure Time Series Insights V2 Update
     items:
     - name: Plan your environment
-      href: time-series-insights-update-plan-environment.md
+      href: time-series-insights-update-plan.md
     - name: Data Storage and ingress
       href: time-series-insights-update-storage-ingress.md
     - name: Use cases

@@ -20,11 +20,11 @@ This document describes how to provision and manage a new Azure Time Series Insi
 A brief description about provisioning following The Azure Time Series V2 Update:
 
 * Provision an Azure Time Series Insights update environment.
-* As part of the creation process you will need to provide a **Time Series ID**. It can be up to 3 keys. Learn more about [Time Series ID](./time-series-update-tsm.md).
-* When you provision a Time Series Insights update environment you create two Azure resources, a Time Series Insights update environment and an Azure Storage general purpose V1 account.  
-* In the future, new Azure customers will by default only be allowed to provision an Azure Storage general purpose V2 account, therefore we will support it when that change occurs.  
-* Please do not enable cold/archival properties on the storage account you will be using.
-* You can then optionally connect the update environment to a Time Series Insight supported event source (e.g. IoT Hub).
+* As part of the creation process you will need to provide a **Time Series ID**. It can be up to **three** (3) keys. Learn more about [Time Series ID](./time-series-update-tsm.md).
+* When you provision a Time Series Insights update environment you create two Azure resources, a Time Series Insights update environment and an Azure Storage general-purpose V1 account.  
+* In the future, new Azure customers will by default only be allowed to provision an Azure Storage general-purpose V2 account, therefore we will support it when that change occurs.  
+* Do not enable cold/archival properties on the storage account you will be using.
+* You can then optionally connect the update environment to a Time Series Insight supported event source (for example, IoT Hub).
 * Here you want to provide the **Timestamp ID** property and provide a unique consumer group to ensure that the environment has access to all your events.
 * After provisioning, you can then optionally manage access policies and other environment attributes that support your business requirements.
 
@@ -32,7 +32,7 @@ A brief description about provisioning following The Azure Time Series V2 Update
 
 1. Select `PAYG` from the **SKU** dropdown.  You’ll also input an environment name, designate which subscription and resource group you wish to create the environment in, and select a supported location for the environment to reside in.  
 
-1. Create a new Azure Storage account by selecting a storage account name and designating a replication choice.  This will automatically create a new Azure Storage general purpose V1 account in the same region as the Azure Time Series Insights V2 Update environment you previously selected.  
+1. Create a new Azure Storage account by selecting a storage account name and designating a replication choice.  Doing so will automatically create a new Azure Storage general-purpose V1 account in the same region as the Azure Time Series Insights V2 Update environment you previously selected.  
 
 1. Input **Time Series ID** property:
 
@@ -47,7 +47,7 @@ A brief description about provisioning following The Azure Time Series V2 Update
 
     * Azure Time Series Insights supports Azure IoT Hub and Event Hubs as options.  While you can only add a single event source at environment creation time, you can add an additional event source later.  It’s best to create a unique consumer group to ensure all events are visible to Time Series Insights.  You can select an existing consumer group or create a new consumer group when adding the event source.
 
-    * You should also designate the appropriate timestamp property.  By default, Time Series Insights uses the message enqueued time for each event source, which may not be right if you are batching events or uploading historical data.  Therefore, it is imperative to input the case sensitive timestamp property when adding the event source.  
+    * Also designate the appropriate **Timestamp** property.  By default, Time Series Insights uses the message enqueued time for each event source, which may not be right if you are batching events or uploading historical data.  Therefore, it is imperative to input the case-sensitive timestamp property when adding the event source.  
 
      ![environment_event_sources][2]
 

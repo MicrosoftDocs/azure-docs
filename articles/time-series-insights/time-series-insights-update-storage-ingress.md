@@ -151,7 +151,7 @@ You can export data as a CSV file from the TSI Update Explorer.  You can find ou
 
 ### From the V2 Time Series Insights Update APIs
 
-The API endpoint can be reached at `/getRecorded`.  To learn more about this API, read [TODO](./time-series-insights-v2-explorer.md).
+The API endpoint can be reached at `/getRecorded`.  To learn more about this API, read [TODO](./time-series-insights-update-explorer.md).
 
 ### From an Azure Storage account
 
@@ -193,7 +193,7 @@ Supported event sources include:
 Supported file types include:
 
 * JSON
-  * For more on the supported JSON shapes we can handle, see the [TSI TSQ]](./time-series-insights/time-series-insights-v2-tsq.md) documentation.
+  * For more on the supported JSON shapes we can handle, see the [TSI TSQ]](./time-series-insights/time-series-insights-update-tsq.md) documentation.
 
 ### Data availability
 
