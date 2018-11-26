@@ -18,9 +18,9 @@ ms.author: juliako
 ---
 # Creating filters with CLI 
 
-When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (streaming Live events or Video on Demand), your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
-This topic shows how to configure a filter for a Video on Demand asset and use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
+This topic shows how to configure a filter for a Video on-Demand asset and use CLI for Media Services v3 to create [Account Filters](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) and [Asset Filters](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest). 
 
 ## Prerequisites 
 
@@ -33,7 +33,7 @@ This topic shows how to configure a filter for a Video on Demand asset and use C
 
 The following example defines the track selection conditions that are applied to the manifest file. This filter includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
-Note that the same filter defined in REST, includes the "Properties" wrapper JSON object.  
+Filters defined in REST, include the "Properties" wrapper JSON object.  
 
 ```json
 [
