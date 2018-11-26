@@ -292,7 +292,7 @@ The aggregateSeries API enables query and retrieval of Time Series Insights data
 
 The aggregateSeries API takes the following parameters:
 
-* timeSeriesId: **ime Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
+* timeSeriesId: **Time Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
 * searchSpan: The timespan and bucket size for this aggregate expression.
 * Filter: Optional predicate clause.
 * Interval: Interval at which data should be computed.

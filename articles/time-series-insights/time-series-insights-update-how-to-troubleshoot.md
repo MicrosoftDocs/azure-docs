@@ -55,13 +55,13 @@ Ensure that the name and value conform to the following rules:
 * The **Timestamp** property name is case-sensitive.
 * The **Timestamp** property value that's coming from your event source, as a JSON string, should have the format `yyyy-MM-ddTHH:mm:ss.FFFFFFFK`. An example of such a string is `“2008-04-12T12:53Z”`.
 
-The easiest way to ensure that your timestamp property name is captured and working properly is to use the TSI explorer. Within the TSI explorer, using the chart, select a period of time after you provided the timestamp property name. Right-click the selection and choose the explore events option. The first column header should be your **Timestamp** property name and it should have a `($ts)` next to the word `Timestamp`, rather than:
+The easiest way to ensure that your timestamp property name is captured and working properly is to use the TSI explorer. Within the TSI explorer, use the chart to select a period of time after you provided the timestamp property name. Right-click the selection and choose the explore events option. The first column header should be your **Timestamp** property name and it should have a `($ts)` next to the word `Timestamp`, rather than:
 
 * `(abc)`, which would indicate TSI is reading the data values as strings
 * Calendar icon, which would indicate TSI is reading the data value as datetime
 * `#`, which would indicate TSI is reading the data values as an integer
 
-## Problem: My Time Series ID property is incorrect, missing or null
+## Problem: My Time Series ID property is incorrect, missing, or null
 
 This may occur if the **Time Series ID** property is configured incorrectly at the time of provisioning the environment. Please see this article for best practices on choosing a Time Series ID. At this time, you cannot update an existing TSI V2 Update environment to use a different time series ID.
 
