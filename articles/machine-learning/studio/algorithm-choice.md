@@ -1,19 +1,18 @@
 ---
-title: How to choose machine learning algorithms | Microsoft Docs
+title: How to choose machine learning algorithms - Azure Machine Learning Studio | Microsoft Docs
 description: How to choose Azure Machine Learning Studio algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
-author: pakalra
-ms.author: pakalra
+author: ericlicoding
+ms.custom: "(previous ms.author=pakalra, author=pakalra)"
+ms.author: amlstudiodocs
 manager: cgronlun
 editor: cgronlun
 tags: ''
-
 ms.assetid: a3b23d7f-f083-49c4-b6b1-3911cd69f1b4
 ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-
 ---
 # How to choose algorithms for Azure Machine Learning Studio
 

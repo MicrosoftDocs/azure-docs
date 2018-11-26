@@ -1,14 +1,14 @@
 ---
-title: PowerShell module for Machine Learning | Microsoft Docs
+title: PowerShell module for Machine Learning Studio - Azure | Microsoft Docs
 description: The PowerShell module for Azure Machine Learning is available in public preview mode. Use PowerShell to create and manage workspaces, experiments, web services, and more.
 keywords: experiment,linear regression,machine learning algorithms,machine learning tutorial,predictive modeling techniques,data science experiment
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.author: haining
+author: ericlicoding
+ms.custom: "(previous ms.author=haining, author=hning86)"
+ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
-
 ms.assetid: a9001cc2-3aa0-47e1-b175-1f76408ba1d1
 ms.service: machine-learning
 ms.component: studio
@@ -17,9 +17,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
-
 ---
-# PowerShell module for Microsoft Azure Machine Learning
+# PowerShell module for Azure Machine Learning Studio
 The PowerShell module for Azure Machine Learning is a powerful tool that allows you to use Windows PowerShell to manage workspaces, experiments, datasets, Classic web services, and more.
 
 You can view the documentation and download the module, along with the full source code, at [https://aka.ms/amlps](https://aka.ms/amlps). 

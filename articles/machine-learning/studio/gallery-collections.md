@@ -1,13 +1,13 @@
 ---
-title: Azure AI Gallery collections | Microsoft Docs
-description: Discover and share collections in Azure AI Gallery.
+title: Azure AI Gallery collections - Azure Machine Learning Studio | Microsoft Docs
+description: You can use a collection in Azure AI Gallery to group experiments, APIs, and other Gallery items that you use for a specific solution or concept. You can group them to use, to save for later reference, or to share.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.author: yahajiza
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
+ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: c834a0dc-492f-4fa4-8a48-c86bba7b2b97
 ms.service: machine-learning
 ms.component: studio
@@ -16,7 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-
 ---
 # Discover and share collections in Azure AI Gallery
 
