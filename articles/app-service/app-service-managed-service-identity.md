@@ -45,7 +45,7 @@ To set up a managed identity in the portal, you will first create an application
 
 4. Within the **System assigned** tab, switch **Status** to **On**. Click **Save**.
 
-![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-system.png)
 
 ### Using the Azure CLI
 
@@ -178,7 +178,7 @@ First, you'll need to create a user-assigned identity resource.
 
 6. Search for the identity you created earlier and select it. Click **Add**.
 
-![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade.png)
+![Managed identity in App Service](media/app-service-managed-service-identity/msi-blade-user.png)
 
 ### Using an Azure Resource Manager template
 
