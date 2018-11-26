@@ -37,7 +37,7 @@ The second code block uses the map's [setStyle](https://docs.microsoft.com/javas
 
 The first code block in the above code sets the subscription key and creates a Map object, the map style is pre-set to grayscale_dark. See [create a map](./map-create.md) for instructions on how to create a map.
 
-The second code block constructs a style selector using the atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) constructor.
+The second code block constructs a style selector using the atlas [StyleControl](/javascript/api/azure-maps-control/atlas.controls.stylecontrol) constructor.
 
 A style picker enables style selection for the map. The third code block adds the style picker to the map using the map's [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) method. The style selector is within the map **event listener** to ensure that it loads after the map loads fully.
 

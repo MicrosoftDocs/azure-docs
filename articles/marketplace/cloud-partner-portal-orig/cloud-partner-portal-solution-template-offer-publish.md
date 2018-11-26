@@ -1,6 +1,6 @@
 ---
-title: Publish a Solution Template | Microsoft Docs
-description: Publish a Solution Template to Azure Marketplace.
+title: Publish an Azure Solution Template | Microsoft Docs
+description: Publish a Solution Template to the Azure Marketplace.
 services: Azure, Marketplace, Cloud Partner Portal, 
 documentationcenter:
 author: dan-wesley
@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: conceptual
-ms.date: 09/17/2018
+ms.date: 11/15/2018
 ms.author: pbutlerm
 ---
 
@@ -29,36 +29,26 @@ The following technical and non-technical prerequisites apply to listing a solut
 
 ### Technical
 
-- [Understand Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates)
-
+- [Understand Azure Resource Manager Templates](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates).
 - Azure Quickstart templates:
-
     - [Azure quickstart template documentation](https://azure.microsoft.com/documentation/templates/)
-
     - [Azure quickstart documentation on GitHub](https://github.com/azure/azure-quickstart-templates)
-
  - [Create Azure portal user interface file](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+ - Enable [customer usage attribution](./../azure-partner-customer-usage-attribution.md) to help track Azure usage of customer deployments of software on Azure.
 
 ### Non-technical (business requirements)
 
--   Your company (or its subsidiary) must be located in a sell from country supported by the Azure Marketplace.
-
--   Your product must be licensed in a way that is compatible with billing models supported by the Azure Marketplace.
-
--   You're responsible for making technical support available to customers in a commercially reasonable manner, whether free, paid, or through community support.
-
--   You're responsible for licensing your software and any third-party software dependencies.
-
--   Provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure Management Portal.
-
--   Agree to the terms of the Azure Marketplace    Participation Policies and Publisher Agreement.
-
--   Agree to comply with the Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
+- Your company (or its subsidiary) must be located in a sell from country supported by the Azure Marketplace.
+- Your product must be licensed in a way that is compatible with billing models supported by the Azure Marketplace.
+- You're responsible for making technical support available to customers in a commercially reasonable manner, whether free, paid, or through community support.
+- You're responsible for licensing your software and any third-party software dependencies.
+- Provide content that meets criteria for your offering to be listed on Azure Marketplace and in the Azure portal.
+- Agree to the terms of the Azure Marketplace    Participation Policies and Publisher Agreement.
+- Agree to comply with the Terms of Use, Microsoft Privacy Statement, and Microsoft Azure Certified Program Agreement.
 
 ## Before you begin
 
-After meeting all the pre-requisites, you can start
-authoring your Solution Template offer. Before you begin, review the following offer and SKU information.
+After meeting all the pre-requisites, you can start authoring your Solution Template offer. Before you begin, review the following offer and SKU information.
 
 **Offer**
 
@@ -101,7 +91,7 @@ Each view contains a set of fields for you to fill out. Required fields are indi
 
     **Offer ID**
 
-     A unique identifier for the offer within a publisher profile. This ID is visible in product URLs, ARM templates, and billing reports. You can only use lowercase alphanumeric characters or dashes (-). The ID can't end in a dash and can have a maximum of 50 characters. 
+     A unique identifier for the offer within a publisher profile. This ID is visible in product URLs, Azure Resource Manager templates, and billing reports. You can only use lowercase alphanumeric characters or dashes (-). The ID can't end in a dash and can have a maximum of 50 characters. 
     >[!Note]
     >This field is locked when an offer goes live.
 
@@ -113,7 +103,7 @@ Each view contains a set of fields for you to fill out. Required fields are indi
 
     **Name**
 
-    The display name for your offer. This name is shown  in Azure Marketplace and in Azure Portal. It can have a maximum of 50 characters. Use the following guidance for the offer name:
+    The display name for your offer. This name is shown  in Azure Marketplace and in Azure portal. It can have a maximum of 50 characters. Use the following guidance for the offer name:
     -  Include a recognizable brand name for your product. 
     - Don't include your company name here unless that's how the offer is marketed.
     - If you're marketing this offer at your own website, make sure the name is identical to the name on your website.
@@ -128,7 +118,7 @@ for your offer.
 
     ![New SKU](./media/cloud-partner-portal-publish-managed-app/newOffer_skus.png)
 
-    SKU ID is a unique identifier for the SKU within an offer. This ID is visible in product URLs, ARM templates, and billing reports. The SKU ID:
+    SKU ID is a unique identifier for the SKU within an offer. This ID is visible in product URLs, Resource Manager templates, and billing reports. The SKU ID:
     - Can only have a maximum of 50 characters.
     - Can only be composed of lowercase alphanumeric characters or dashes (-).
     - The ID can't end in a dash.
@@ -146,14 +136,10 @@ for your offer.
 Provide the following SKU settings.
 
 - **Title** - A title for the SKU. This title is displayed in the gallery for this item.
-
 - **Summary** - A short summary description of the SKU. (Maximum length is 100 characters.)
-
 - **Description** - A detailed description of the SKU.
-
 - **SKU Type** - A dropdown list with these values: "Managed Application (Preview)" and "Solution Template". For this scenario, select **Solution Template**.
-
-- **Cloud Availability** - The location of the SKU. The default is Public Azure.
+- **Cloud Availability** - The location of the SKU. The default is **Public Azure**.
 
 ### Package Details
 
@@ -161,20 +147,17 @@ After you finish the SKU settings, provide the following Package Details.
 
 ![Package details](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
-- **Current version** - The version of the package that you will upload. It should be in the format - ..
-
+- **Current version** - The version of the package that you will upload. Version tags must be of the form X.Y.Z, where X, Y, and Z are integers.
 - **Package File** - This package contains the following files, which are saved in a .zip file.
-
     -   MainTemplate.json - The deployment template file that's used to deploy the solution/application and create the resources defined for the solution. For more information, see [how to author deployment template files](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-create-first-template)
-
-    -   createUIDefinition.json - This file is used by the Azure Portal to generate the user interface for provisioning this solution/application. For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
+    -   createUIDefinition.json - This file is used by the Azure portal to generate the user interface for provisioning this solution/application. For more information, see [Create Azure portal user interface for your managed application](https://docs.microsoft.com/azure/azure-resource-manager/managed-application-createuidefinition-overview)
 
     >[!IMPORTANT]
     >This package should contain any other nested templates or scripts that are needed to provision this application. The mainTemplate.json and createUIDefinition.json must be in the root folder.
 
 ## To configure the Marketplace
 
-Use the Marketplace view to configure the fields that are displayed for the offer on [Azure Marketplace](https://azuremarketplace.microsoft.com) and on [Azure Portal](https://portal.azure.com/).
+Use the Marketplace view to configure the fields that are displayed for the offer on [Azure Marketplace](https://azuremarketplace.microsoft.com) and on [Azure portal](https://portal.azure.com/).
 
 ### Preview Subscription Ids
 
@@ -182,9 +165,9 @@ The list of Azure Subscription IDs that you'd like to have access to the offer w
 
 ### Suggested Categories
 
-Select up to 5 categories from the provided list that your offer can be best associated with. The selected categories will be used to map your offer to the product categories available in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Azure Portal](https://portal.azure.com/).
+Select up to five categories from the provided list that your offer can be best associated with. The selected categories will be used to map your offer to the product categories available in [Azure Marketplace](https://azuremarketplace.microsoft.com) and [Azure Portal](https://portal.azure.com/).
 
-The following examples show marketplace information in the Azure Marketplace and the Azure Portal.
+The following examples show marketplace information in the Azure Marketplace and the Azure portal.
 
 **Azure Marketplace**
 
@@ -197,7 +180,7 @@ The following examples show marketplace information in the Azure Marketplace and
 ![publishvm15](./media/cloud-partner-portal-publish-managed-app/publishvm15.png)
 
 
-**Azure Portal**
+**Azure portal**
 
 
 ![publishvm12](./media/cloud-partner-portal-publish-managed-app/publishvm12.png)
@@ -216,11 +199,11 @@ Follow these guidelines for logos uploaded to the Cloud Partner Portal:
 
     >[!Note] 
     >If you're using a transparent
-    background, then make sure that the logos/text aren't white, black or blue.
+    background, then make sure that the logos/text aren't white, black, or blue.
 
 -   Don't use a gradient background on the logo.
 
--   Avoid placing text on the logo. This includes your company or brand name. The look and feel of your logo should be *flat* and should avoid gradients.
+-   Avoid placing text on the logo. This guideline includes your company or brand name. The look and feel of your logo should be *flat* and should avoid gradients.
 
 -   The logo shouldn't be stretched.
 
@@ -230,7 +213,7 @@ The Hero logo is optional. The publisher can choose not to upload a Hero logo. H
 
 #### Guidelines for the Hero logo icon
 
--   The Publisher Display Name, plan title and the offer's long summary are displayed using a white colored font. Avoid using any light color in the background. Black, white and
+-   The Publisher Display Name, plan title and the offer's long summary are displayed using a white-colored font. Avoid using any light color in the background. Black, white, and
     transparent backgrounds aren't allowed for Hero icons.
 
 -   The publisher display name, plan title, the offer long summary and the Create button are embedded programmatically inside the Hero logo when the offer's listed. Don't enter any text when you're designing the Hero logo. Leave an empty space on the right of the logo. This space should be 415 x 100 pixels and is offset by 370 px from the left.

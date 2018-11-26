@@ -1193,7 +1193,7 @@ See also the [input example](#input---c-examples) that uses `DocumentClient`.
 
 [Skip output examples](#output---attributes)
 
-### Ouput - C# examples
+### Output - C# examples
 
 This section contains the following examples:
 

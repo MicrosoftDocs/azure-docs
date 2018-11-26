@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -80,7 +80,7 @@ If none of these steps work for you, the following support channels are also ava
 | --- | --- |
 | 2 | Invalid option provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
 | 3 | Invalid configuration provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
-| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-concept-hybrid.md#network-firewall-requirements). |
+| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-agent-overview.md#network-firewall-requirements). |
 | 5 | 403 HTTP error received from Log Analytics service. See the full output of the omsadmin script for details. |
 | 6 | Non-200 HTTP error received from Log Analytics service. See the full output of the omsadmin script for details. |
 | 7 | Unable to connect to Log Analytics service. See the full output of the omsadmin script for details. |
@@ -212,7 +212,7 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 
 ### Resolution
 * Verify the configuration in the Log Analytics workspace for Syslog has all the facilities and the correct log levels. Review [configure Syslog collection in the Azure portal](log-analytics-data-sources-syslog.md#configure-syslog-in-the-azure-portal)
-* Verify the native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to recieve the forwarded messages
+* Verify the native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to receive the forwarded messages
 * Check firewall settings on the Syslog server to ensure that messages are not being blocked
 * Simulate a Syslog message to Log Analytics using `logger` command
   * `logger -p local0.err "This is my test message"`

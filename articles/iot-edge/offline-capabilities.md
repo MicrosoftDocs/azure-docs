@@ -2,7 +2,7 @@
 title: Azure IoT Edge offline capabilities | Microsoft Docs 
 description: Understand how IoT Edge devices and modules can operate offline for extended periods of time, and how IoT Edge can enable regular IoT devices to operate offline too.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/20/2018
 ms.topic: conceptual
@@ -43,7 +43,7 @@ The following example shows how an IoT Edge scenario operates in offline mode:
 
 The extended offline capabilities described in this article are available in [IoT Edge version 1.0.4 or higher](https://github.com/Azure/azure-iotedge/releases). Earlier versions have a subset of offline features. Existing IoT Edge devices that don't have extended offline capabilities can't be upgraded by changing the runtime version, but must be reconfigured with a new IoT Edge device identity to gain these features. 
 
-Extended offline support is available in all regions where IoT Hub is available, except East US and West Europe. 
+Extended offline support is available in all regions where IoT Hub is available, **except** East US.
 
 Only non-Edge IoT devices can be added as child devices. 
 
@@ -60,6 +60,19 @@ Child devices can be any non-Edge device registered to the same IoT Hub. You can
    ![Manage child devices from the IoT Edge device details page](./media/offline-capabilities/manage-child-devices.png)
 
 Parent devices can have multiple child devices, but a child device can only have one parent.
+
+### Specifying DNS servers 
+
+To improve robustness, it is recommended you specify the DNS server addresses used in your environment. For example, on Linux, update **/etc/docker/daemon.json** (you might need to create the file) to include:
+
+```
+{
+    "dns": [“1.1.1.1”]
+}
+```
+
+If you are using a local DNS server, replace the 1.1.1.1 with the IP address of the local DNS server. Restart the docker service for the changes to take effect.
+
 
 ## Optional offline settings
 

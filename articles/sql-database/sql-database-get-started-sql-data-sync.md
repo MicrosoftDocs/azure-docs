@@ -11,7 +11,7 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
-ms.date: 11/01/2018
+ms.date: 11/07/2018
 ---
 # Tutorial: Set up SQL Data Sync to sync data between Azure SQL Database and SQL Server on-premises
 
@@ -123,7 +123,7 @@ On the **Configure On-Premises** page, do the following things:
 
     If you chose **Create a new agent**, do the following things:
 
-   1. Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located.
+   1. Download the client sync agent software from the link provided and install it on the computer where the SQL Server is located. You can also download the data sync agent directly from [SQL Azure Data Sync Agent](https://www.microsoft.com/download/details.aspx?id=27693).
 
         > [!IMPORTANT]
         > You have to open outbound TCP port 1433 in the firewall to let the client agent communicate with the server.
@@ -247,35 +247,7 @@ After you export a database as a `.bacpac` file and import the file to create a 
 
 ## FAQ about the client agent
 
-### Why do I need a client agent
-
-The SQL Data Sync service communicates with SQL Server databases via the client agent. This security feature prevents direct communication with databases behind a firewall. When the SQL Data Sync service communicates with the agent, it does so using encrypted connections and a unique token or *agent key*. The SQL Server databases authenticate the agent using the connection string and agent key. This design provides a high level of security for your data.
-
-### How many instances of the local agent UI can be run
-
-Only one instance of the UI can be run.
-
-### How can I change my service account
-
-After you install a client agent, the only way to change the service account is to uninstall it and install a new client agent with the new service account.
-
-### How do I change my agent key
-
-An agent key can only be used once by an agent. It cannot be reused when you remove then reinstall a new agent, nor can it be used by multiple agents. If you need to create a new key for an existing agent, you must be sure that the same key is recorded with the client agent and with the SQL Data Sync service.
-
-### How do I retire a client agent
-
-To immediately invalidate or retire an agent, regenerate its key in the portal but do not submit it in the Agent UI. Regenerating a key invalidates the previous key irrespective if the corresponding agent is online or offline.
-
-### How do I move a client agent to another computer
-
-If you want to run the local agent from a different computer than it is currently on, do the following things:
-
-1. Install the agent on desired computer.
-2. Log in to the SQL Data Sync portal and regenerate an agent key for the new agent.
-3. Use the new agent's UI to submit the new agent key.
-4. Wait while the client agent downloads the list of on-premises databases that were registered earlier.
-5. Provide database credentials for all databases that display as unreachable. These databases must be reachable from the new computer on which the agent is installed.
+For frequently asked questions about the client agent, see [Agent FAQ](sql-database-data-sync-agent.md#agent-faq).
 
 ## Next steps
 
@@ -283,16 +255,18 @@ Congratulations. You have created a sync group that includes both a SQL Database
 
 For more info about SQL Data Sync, see:
 
-- [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
-- [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
-- [Monitor Azure SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
-- [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
-
-- Complete PowerShell examples that show how to configure SQL Data Sync:
-  - [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
-  - [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
-
-- [Download the SQL Data Sync REST API documentation](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
+-   Overview - [Sync data across multiple cloud and on-premises databases with Azure SQL Data Sync](sql-database-sync-data.md)
+-   Set up Data Sync
+    - With PowerShell
+        -  [Use PowerShell to sync between multiple Azure SQL databases](scripts/sql-database-sync-data-between-sql-databases.md)
+        -  [Use PowerShell to sync between an Azure SQL Database and a SQL Server on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
+-   Data Sync Agent - [Data Sync Agent for Azure SQL Data Sync](sql-database-data-sync-agent.md)
+-   Best practices - [Best practices for Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
+-   Monitor - [Monitor SQL Data Sync with Log Analytics](sql-database-sync-monitor-oms.md)
+-   Troubleshoot - [Troubleshoot issues with Azure SQL Data Sync](sql-database-troubleshoot-data-sync.md)
+-   Update the sync schema
+    -   With Transact-SQL - [Automate the replication of schema changes in Azure SQL Data Sync](sql-database-update-sync-schema.md)
+    -   With PowerShell - [Use PowerShell to update the sync schema in an existing sync group](scripts/sql-database-sync-update-schema.md)
 
 For more info about SQL Database, see:
 

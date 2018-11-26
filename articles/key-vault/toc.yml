@@ -18,8 +18,22 @@
     href: quick-create-node.md
 - name: Tutorials
   items:
-  - name: How to use Azure Key Vault with Azure Web App in .NET | Microsoft Docs
-    href: tutorial-net-create-vault-azure-web-app.md
+  - name: Azure Web Apps
+    items:
+    - name: Azure Key Vault with Azure Web App in .NET
+      href: tutorial-net-create-vault-azure-web-app.md
+  - name: Azure Virtual Machine
+    items:
+    - name: Linux Virtual Machine 
+      items: 
+        - name: .NET
+          href: tutorial-net-linux-virtual-machine.md
+    - name: Windows Virtual Machine 
+      items: 
+        - name: .NET
+          href: tutorial-net-windows-virtual-machine.md
+        - name: Python
+          href: tutorial-python-windows-virtual-machine.md
   - name: Read a secret from Key Vault
     href: tutorial-web-application-keyvault.md
   - name: Set up key rotation and auditing

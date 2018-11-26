@@ -158,7 +158,7 @@ Data collected from the Microsoft Monitoring Agent (on behalf of Azure Security 
 In the Azure portal, you can browse to see a list of your Log Analytics workspaces, including any created by Azure Security Center. A related resource group will be created for new workspaces. Both will follow this naming convention: 
 
 * Workspace: *DefaultWorkspace-[subscription-ID]-[geo]*
-* Resource Group: *DefaultResouceGroup-[geo]*
+* Resource Group: *DefaultResourceGroup-[geo]*
 
 For workspaces created by Azure Security Center, data is retained for 30 days. For existing workspaces, retention is based on the workspace pricing tier. If you want, you can also use an existing workspace.
 
@@ -191,7 +191,7 @@ Plan to visit the [threat intelligence](https://docs.microsoft.com/azure/securit
 ### Monitoring for new or changed resources
 Most Azure environments are dynamic, with new resources being spun up and down on a regular basis, configurations or changes, etc. Security Center helps ensure that you have visibility into the security state of these new resources.
 
-When you add new resources (VMs, SQL DBs) to your Azure Environment, Security Center will automatically discover these resources and begin to monitor their security. This also includes PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](security-center-policies.md), additional monitoring capabilities will be enabled automatically for your virtual machines.
+When you add new resources (VMs, SQL DBs) to your Azure Environment, Security Center will automatically discover these resources and begin to monitor their security. This also includes PaaS web roles and worker roles. If Data Collection is enabled in the [Security Policy](security-center-azure-policy.md), additional monitoring capabilities will be enabled automatically for your virtual machines.
 
 ![Key areas](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig3-newUI.png)
 

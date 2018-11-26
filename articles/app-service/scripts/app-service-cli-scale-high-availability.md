@@ -1,6 +1,6 @@
 ---
-title: Azure CLI Script Sample - Scale a web app worldwide with a high-availabilty architecture | Microsoft Docs
-description: Azure CLI Script Sample - Scale a web app worldwide with a high-availabilty architecture
+title: Azure CLI Script Sample - Scale a web app worldwide with a high-availability architecture | Microsoft Docs
+description: Azure CLI Script Sample - Scale a web app worldwide with a high-availability architecture
 services: appservice
 documentationcenter: appservice
 author: syntaxc4
