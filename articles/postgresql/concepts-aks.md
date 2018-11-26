@@ -43,5 +43,5 @@ A connection pooler minimizes the cost and time associated with creating and clo
 There are multiple connection poolers you can use with PostgreSQL. One of these is [PgBouncer](https://pgbouncer.github.io/). In the Microsoft Container Registry, we provide a lightweight containerized PgBouncer that can be used in a sidecar to pool connections from AKS to Azure Database for PostgreSQL. Visit the [docker hub page](https://hub.docker.com/r/microsoft/azureossdb-tools-pgbouncer/) to learn how to access and use this image. 
 
 
-## Next Steps
+## Next steps
 -  [Create an Azure Kubernetes Service cluster](../aks/kubernetes-walkthrough.md)
