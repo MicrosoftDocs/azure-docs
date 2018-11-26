@@ -23,8 +23,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
-    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub>Learn more about Log Analytics</a>
-    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub>Learn more about Application Insights</a>
+    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Learn more about Log Analytics</a>
+    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Learn more about Application Insights</a>
 
 - title: 5-Minute Quickstarts
   items:
