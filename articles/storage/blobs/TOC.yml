@@ -221,7 +221,7 @@
       - name: Enable and view metrics (classic)
         href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
   - name: Compare data transfer solutions
-    href: storage-choose-data-transfer-solution.md
+    href: ../common/storage-choose-data-transfer-solution.md
     items:
     - name: Large datasets, low network bandwidth
       href: ../common/storage-solution-large-dataset-low-network.md
