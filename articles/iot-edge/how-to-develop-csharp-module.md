@@ -75,6 +75,8 @@ There are four items within the solution:
    >The environment file is only created if you provide an image repository for the module. If you accepted the localhost defaults to test and debug locally, then you don't need to declare environment variables. 
 
 * A **deployment.template.json** file lists your new module along with a sample **tempSensor** module that simulates data you can use for testing. For more information about how deployment manifests work, see [Learn how to use deployment manifests to deploy modules and establish routes](module-composition.md). 
+* A **deployment.debug.template.json** file containers the debug version of your module images with proper container options.
+
 
 ## Develop your module
 
@@ -88,6 +90,13 @@ The C# support in VS Code is optimized for cross-platform .NET Core development.
 
 The IoT Edge C# module is a .Net Core application. And it depends on Azure IoT C# Device SDK. Because the IoT C# module requires the environment settings to start and run, in the default module code you initialize a **ModuleClient** with environment settings and input name. You also need to send or route messages to the input channels. Your default C# module only contains one input channel and the name is **input1**.
 
+### Setup IoT Edge simulator for IoT Edge solution
+
+In your development machine, you can start IoT Edge simulator instead of installing the IoT Edge security daemon to run your IoT Edge solution. 
+
+1. In device explorer on the left side, right-click on your IoT Edge device ID, select **Setup IoT Edge Simulator** to start the simulator with the device connection string.
+
+2. You can see the IoT Edge Simulator has been successfully setup in integrated terminal.
 
 ### Setup IoT Edge simulator for single module app
 In your development machine, you can start IoT Edge simulator instead of installing the IoT Edge security daemon to run your IoT Edge solution. 
@@ -147,7 +156,7 @@ In your development machine, you can start IoT Edge simulator instead of install
 
 ## Build module container for debugging and debug in attach mode
 
-Your default solution contains two modules, one is a simulated temperature sensor module and the other is the C# pipe module. The simulated temperature sensor keeps sending messages to the C# pipe module, then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. Currently, C# modules support debugging only in Linux amd64 containers in attach mode.
+Your default solution contains two modules, one is a simulated temperature sensor module and the other is the C# pipe module. The simulated temperature sensor keeps sending messages to the C# pipe module, then the messages are piped to IoT Hub. In the module folder you created, there are several Docker files for different container types. Use any of these files that end with the extension **.debug** to build your module for testing. By default, **deployment.debug.template.json** contains the debug version of the image. Currently, C# modules support debugging only in Linux amd64 containers in attach mode. You can swtich your Azure IoT Edge default platform in VS Code status bar.
 
 ### Setup IoT Edge simulator for IoT Edge solution
 
@@ -159,28 +168,24 @@ In your development machine, you can start IoT Edge simulator instead of install
 
 ### Build and run container for debugging and debug in attach mode
 
-1. In VS Code, navigate to the `deployment.template.json` file. Update your C# module image URL by adding **.debug** to the end.
+1. Navigate to `program.cs`. Add a breakpoint in this file.
 
-   ![Add **.debug** to your image name](./media/how-to-develop-csharp-module/image-debug.png)
-
-2. Navigate to `program.cs`. Add a breakpoint in this file.
-
-3. In the VS Code file explorer, select the `deployment.template.json` file for your solution, in the context-menu, click **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to Docker Explorer to watch container status.
+2. In the VS Code file explorer, select the `deployment.debug.template.json` file for your solution, in the context-menu, click **Build and Run IoT Edge solution in Simulator**. You can watch all the module container logs in the same window. You can also navigate to Docker Explorer to watch container status.
 
    ![Watch Variables](media/how-to-develop-csharp-module/view-log.png)
 
-4. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (.NET Core)**
+3. Navigate to the VS Code debug view. Select the debug configuration file for your module. The debug option name should be similar to **ModuleName Remote Debug (.NET Core)**
 
    ![Select Configuration](media/how-to-develop-csharp-module/debug-config.png)
 
-5. Select **Start Debugging** or select **F5**. Select the process to attach to.
+4. Select **Start Debugging** or select **F5**. Select the process to attach to.
 
-6. In VS Code Debug view, you'll see the variables in the left panel.
+5. In VS Code Debug view, you'll see the variables in the left panel.
 
-7. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
+6. To stop debugging session, click the Stop button or press **Shift + F5**. And in VS Code command palette, type and select **Azure IoT Edge: Stop IoT Edge Simulator**.
 
     > [!NOTE]
-    > This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the Visual Studio .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use or customize `Dockerfile` without VSDBG for production-ready IoT Edge modules.
+    > This example shows how to debug .NET Core IoT Edge modules on containers. It's based on the debug version of `Dockerfile.debug`, which includes the Visual Studio .NET Core command-line debugger (VSDBG) in your container image while building it. After you debug your C# modules, we recommend that you directly use the Dockerfile without VSDBG for production-ready IoT Edge modules.
 
 
 ## Next steps
