@@ -39,8 +39,8 @@ For example, service may want to backup its data in order to protect from the fo
 ## Triggering restore
 
 The restore can be for any of the following scenarios 
-1. Data restore in the event of _disaster recovery_ (DR)
-2. Data restore in the event of _data corruption / data loss_
+* Data restore in the event of _disaster recovery_ (DR)
+* Data restore in the event of _data corruption / data loss_
 
 
 
@@ -208,7 +208,7 @@ $restoreResponse = (ConvertFrom-Json $response.Content)
 $restoreResponse | Format-List
 ```
 
-The restore request following the following order
+the restore request progresses in the following order
 
 1. __Accepted__  - The restore state as _Accepted_ indicates that the requested has been triggered with correct request parameters.
     ```
@@ -228,7 +228,7 @@ The restore request following the following order
     
 3. __Success__/ __Failure__/ __Timeout__ - A requested restore can be completed in any of the following states. Each state has the following significance and response details.
        
-    1. __Success__ - The restore state as _Success_ indicates the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the partition along with the time in UTC. 
+    * __Success__ - The restore state as _Success_ indicates the partition state is regained. The response will provide RestoreEpoch and RestordLSN for the partition along with the time in UTC. 
     
         ```
         RestoreState  : Success
@@ -237,14 +237,14 @@ The restore request following the following order
         RestoredLsn   : 3552
         ```
         
-    2. __Failure__ - The restore state as _Failure_ indicates the failure of the restore request. The cause of the failure will be stated in request.
+    *. __Failure__ - The restore state as _Failure_ indicates the failure of the restore request. The cause of the failure will be stated in request.
         ```
         RestoreState  : Failure
         TimeStampUtc  : 0001-01-01T00:00:00Z
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    3. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. New restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) is recommended; defaults timeout is 10 minutes. It is advised to make sure that the partition is not in data loss state, before requesting restore again.
+    *. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. New restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) is recommended; defaults timeout is 10 minutes. It is advised to make sure that the partition is not in data loss state, before requesting restore again.
      
         ```
         RestoreState  : Timeout
@@ -261,7 +261,7 @@ The partitions for the Reliable Stateful service and Reliable Actors in the Serv
 
 
 [RestorePartition API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-restorepartition)
-[GetPartitionRestoreProgress API reference](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
+[GetPartitionRestoreProgress API reference](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionrestoreprogress)
 
 ## Next steps
 - [Understanding periodic backup configuration](./service-fabric-backuprestoreservice-configure-periodic-backup.md)
