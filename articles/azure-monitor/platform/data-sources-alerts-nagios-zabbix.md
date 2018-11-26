@@ -19,8 +19,8 @@ ms.component:
 ---
 
 # Collect alerts from Nagios and Zabbix in Log Analytics from Log Analytics agent for Linux 
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
-[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](../monitoring-and-diagnostics/monitoring-overview-alerts.md).  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
+[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)]
+[Nagios](https://www.nagios.org/) and [Zabbix](http://www.zabbix.com/) are open source monitoring tools. You can collect alerts from these tools into Log Analytics in order to analyze them along with [alerts from other sources](../../monitoring-and-diagnostics/monitoring-overview-alerts.md).  This article describes how to configure the Log Analytics agent for Linux to collect alerts from these systems.
  
 ## Prerequisites
 The Log Analytics agent for Linux supports collecting alerts from Nagios up to version 4.2.x, and Zabbix up to version 2.x.
@@ -76,7 +76,7 @@ To collect alerts on the Nagios server, perform the following steps.
 
 
 ## Alert records
-You can retrieve alert records from Nagios and Zabbix using [log searches](log-analytics-queries.md) in Log Analytics.
+You can retrieve alert records from Nagios and Zabbix using [log searches](../../log-analytics/log-analytics-queries.md) in Log Analytics.
 
 ### Nagios Alert records
 
@@ -114,5 +114,5 @@ Alert records collected by Zabbix have a **Type** of **Alert** and a **SourceSys
 
 
 ## Next steps
-* Learn about [alerts](../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics.
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Learn about [alerts](../../monitoring-and-diagnostics/monitoring-overview-alerts.md) in Log Analytics.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 

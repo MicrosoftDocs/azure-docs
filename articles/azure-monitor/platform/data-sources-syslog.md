@@ -26,22 +26,22 @@ Syslog is an event logging protocol that is common to Linux.  Applications will 
 >
 >
 
-![Syslog collection](media/log-analytics-data-sources-syslog/overview.png)
+![Syslog collection](media/data-sources-syslog/overview.png)
 
 ## Configuring Syslog
 The OMS Agent for Linux will only collect events with the facilities and severities that are specified in its configuration.  You can configure Syslog through the Azure portal or by managing configuration files on your Linux agents.
 
 ### Configure Syslog in the Azure portal
-Configure Syslog from the [Data menu in Log Analytics Advanced Settings](log-analytics-data-sources.md#configuring-data-sources).  This configuration is delivered to the configuration file on each Linux agent.
+Configure Syslog from the [Data menu in Log Analytics Advanced Settings](agent-data-sources.md#configuring-data-sources).  This configuration is delivered to the configuration file on each Linux agent.
 
 You can add a new facility by typing in its name and clicking **+**.  For each facility, only messages with the selected severities will be collected.  Check the severities for the particular facility that you want to collect.  You cannot provide any additional criteria to filter messages.
 
-![Configure Syslog](media/log-analytics-data-sources-syslog/configure.png)
+![Configure Syslog](media/data-sources-syslog/configure.png)
 
 By default, all configuration changes are automatically pushed to all agents.  If you want to configure Syslog manually on each Linux agent, then uncheck the box *Apply below configuration to my Linux machines*.
 
 ### Configure Syslog on Linux agent
-When the [OMS agent is installed on a Linux client](log-analytics-quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected.  You can modify this file to change the configuration.  The configuration file is different depending on the Syslog daemon that the client has installed.
+When the [OMS agent is installed on a Linux client](../../log-analytics/log-analytics-quick-collect-linux-computer.md), it installs a default syslog configuration file that defines the facility and severity of the messages that are collected.  You can modify this file to change the configuration.  The configuration file is different depending on the Syslog daemon that the client has installed.
 
 > [!NOTE]
 > If you edit the syslog configuration, you must restart the syslog daemon for the changes to take effect.
@@ -203,6 +203,6 @@ The following table provides different examples of log queries that retrieve Sys
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Count of Syslog records by facility. |
 
 ## Next steps
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.
-* Use [Custom Fields](log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
-* [Configure Linux agents](log-analytics-quick-collect-linux-computer.md) to collect other types of data.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.
+* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
+* [Configure Linux agents](../../log-analytics/log-analytics-quick-collect-linux-computer.md) to collect other types of data.

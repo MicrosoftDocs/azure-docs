@@ -21,7 +21,7 @@ ms.comopnent:
 # IIS logs in Log Analytics
 Internet Information Services (IIS) stores user activity in log files that can be collected by Log Analytics.  
 
-![IIS logs](media/log-analytics-data-sources-iis-logs/overview.png)
+![IIS logs](media/data-sources-iis-logs/overview.png)
 
 ## Configuring IIS logs
 Log Analytics collects entries from log files created by IIS, so you must [configure IIS for logging](https://technet.microsoft.com/library/hh831775.aspx).
@@ -29,7 +29,7 @@ Log Analytics collects entries from log files created by IIS, so you must [confi
 Log Analytics only supports IIS log files stored in W3C format and does not support custom fields or IIS Advanced Logging.  
 Log Analytics does not collect logs in NCSA or IIS native format.
 
-Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
+Configure IIS logs in Log Analytics from the [Data menu in Log Analytics Settings](agent-data-sources.md#configuring-data-sources).  There is no configuration required other than selecting **Collect W3C format IIS log files**.
 
 
 ## Data collection
@@ -75,6 +75,6 @@ The following table provides different examples of log queries that retrieve IIS
 | W3CIISLog &#124; summarize sum(csBytes) by Computer &#124; take 500000 |Total bytes received by each IIS computer. |
 
 ## Next steps
-* Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.
+* Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.
 * Configure alerts in Log Analytics to proactively notify you of important conditions found in IIS logs.

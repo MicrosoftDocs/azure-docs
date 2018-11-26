@@ -21,10 +21,10 @@ ms.component:
 # Windows and Linux performance data sources in Log Analytics
 Performance counters in Windows and Linux provide insight into the performance of hardware components, operating systems, and applications.  Log Analytics can collect performance counters at frequent intervals for Near Real Time (NRT) analysis in addition to aggregating performance data for longer term analysis and reporting.
 
-![Performance counters](media/log-analytics-data-sources-performance-counters/overview.png)
+![Performance counters](media/data-sources-performance-counters/overview.png)
 
 ## Configuring Performance counters
-Configure Performance counters from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).
+Configure Performance counters from the [Data menu in Log Analytics Settings](agent-data-sources.md#configuring-data-sources).
 
 When you first configure Windows or Linux Performance counters for a new Log Analytics workspace, you are given the option to quickly create several common counters.  They are listed with a checkbox next to each.  Ensure that any counters you want to initially create are checked and then click **Add the selected performance counters**.
 
@@ -38,7 +38,7 @@ For Windows performance counters, you can choose a specific instance for each pe
 
 ### Windows performance counters
 
-![Configure Windows Performance counters](media/log-analytics-data-sources-performance-counters/configure-windows.png)
+![Configure Windows Performance counters](media/data-sources-performance-counters/configure-windows.png)
 
 Follow this procedure to add a new Windows performance counter to collect.
 
@@ -52,7 +52,7 @@ Follow this procedure to add a new Windows performance counter to collect.
 
 ### Linux performance counters
 
-![Configure Linux Performance counters](media/log-analytics-data-sources-performance-counters/configure-linux.png)
+![Configure Linux Performance counters](media/data-sources-performance-counters/configure-linux.png)
 
 Follow this procedure to add a new Linux performance counter to collect.
 
@@ -86,7 +86,7 @@ The parameters in this element are described in the following table.
 | interval | Frequency at which the object's counters are collected. |
 
 
-The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Log Analytics](log-analytics-data-sources-linux-applications.md).
+The following table lists the objects and counters that you can specify in the configuration file.  There are additional counters available for certain applications as described in [Collect performance counters for Linux applications in Log Analytics](data-sources-linux-applications.md).
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -222,6 +222,6 @@ The following table provides different examples of log searches that retrieve Pe
 
 
 ## Next steps
-* [Collect performance counters from Linux applications](log-analytics-data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
-* Export collected data to [Power BI](log-analytics-powerbi.md) for additional visualizations and analysis.
+* [Collect performance counters from Linux applications](data-sources-linux-applications.md) including MySQL and Apache HTTP Server.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
+* Export collected data to [Power BI](../../log-analytics/log-analytics-powerbi.md) for additional visualizations and analysis.
