@@ -137,12 +137,12 @@ input_files = [
 The app creates a [BatchServiceClient](/python/api/azure.batch.batchserviceclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports Azure Active Directory authentication.
 
 ```python
-credentials = batch_auth.SharedKeyCredentials(_BATCH_ACCOUNT_NAME,
-    _BATCH_ACCOUNT_KEY)
+credentials = batch_auth.SharedKeyCredentials(config._BATCH_ACCOUNT_NAME,
+    config._BATCH_ACCOUNT_KEY)
 
 batch_client = batch.BatchServiceClient(
     credentials,
-    base_url=_BATCH_ACCOUNT_URL)
+    base_url=config._BATCH_ACCOUNT_URL)
 ```
 
 ### Create a pool of compute nodes
