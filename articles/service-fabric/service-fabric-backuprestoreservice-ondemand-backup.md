@@ -19,11 +19,11 @@ ms.author: aagup
 ---
 # On-demand backup in Azure Service Fabric
 
-The data of Reliable Stateful services and Reliable Actors can be backed to address disaster or data loss scenarios.
+The data of Reliable Stateful services and Reliable Actors can be backed up to address disaster or data loss scenarios.
 
-Service Fabric is equipped with feature for [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and backup of data on need basis. On demand backup is useful as it guards against _data loss_/_data corruption_ caused due to planned changes in the underlying service or its environment.
+Service Fabric is equipped with features for [periodic backup of data](service-fabric-backuprestoreservice-quickstart-azurecluster.md) and backup of data on need basis. On-demand backup is useful as it guards against _data loss_/_data corruption_ caused due to planned changes in the underlying service or its environment.
 
-The on-demand backup feature is helpful in capturing state of the services, before any manually triggered operation related to the service or service environment. Like changing the service binaries, that is, upgrading or downgrading of the service; as it will have the data guarded against data corruption by bugs in application's code.
+The on-demand backup features is helpful in capturing state of the services, before any manually triggered operation related to the service or service environment. Like changing the service binaries, that is, upgrading or downgrading of the service; as it will have the data guarded against data corruption by bugs in application's code.
 
 ## Triggering on-demand backup
 
@@ -47,7 +47,7 @@ The [on-demand backup progress](service-fabric-backuprestoreservice-ondemand-bac
 
 ### On-demand backup to specified storage
 
-The on-demand backup can be requested for a partition of a Reliable Stateful service or Reliable Actor along with the storage information. The storage information should be provided as a part of the on demand backup request.
+The on-demand backup can be requested for a partition of a Reliable Stateful service or Reliable Actor along with the storage information. The storage information should be provided as a part of the on-demand backup request.
 
 The on-demand backup for partition ID `974bd92a-b395-4631-8a7f-53bd4ae9cf22` can be triggered by  [BackupPartition] (https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition) API with Azure storage information as shown below.
 
@@ -87,7 +87,7 @@ $backupResponse
 
 The on-demand backup request's progress may be one of the following states
 
-1. **Accepted** - The backup has been initiated on the partition and is in progress.
+* **Accepted** - The backup has been initiated on the partition and is in progress.
     ```
     BackupState             : Accepted
     TimeStampUtc            : 0001-01-01T00:00:00Z
@@ -98,7 +98,7 @@ The on-demand backup request's progress may be one of the following states
     FailureError            : 
     ```
     
-2. **Success/ Failure/ Timeout** - A requested on-demand backup can be completed in any of the following states. Each state has the following significance and response details.
+* **Success/ Failure/ Timeout** - A requested on-demand backup can be completed in any of the following states. Each state has the following significance and response details.
 
     * **Success** - The backup state as _Success_ indicates that the partition state is backed up successfully. The response will provide __BackupEpoch__ and __BackupLSN__ for the partition along with the time in UTC.
         ```
