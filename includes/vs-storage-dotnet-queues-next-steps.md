@@ -1,3 +1,10 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: tamram
+---
 
 Now that you've learned the basics of Azure queue storage, follow these links to learn about more complex storage tasks.
 
