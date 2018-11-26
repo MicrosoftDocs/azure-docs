@@ -19,7 +19,7 @@ To understand an overview of all the available data transfer options, go to [Cho
 
 ## Scenario description
 
-Large datasets refer to data sizes in the order of TBs to PBs. Moderate to high network bandwidth refers to 100 Mbps to >10 Gbps range.
+Large datasets refer to data sizes in the order of TBs to PBs. Moderate to high network bandwidth refers to 100 Mbps to 10 Gbps.
 
 ## Recommended options
 
@@ -64,7 +64,7 @@ The following tables summarize the differences in key capabilities for the recom
 |                                     |    Tools AzCopy, PowerShell, CLI             |    Azure Storage REST APIs                   |    Data Box Gateway or Data Box Edge (preview)           |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Data type                  |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files                           |   Supports 70+ data connectors for data stores and formats    |
-|    Form factor                |    Command line tools                        |    Programmatic interface                    |    Microsoft supplies a virtual <br>or physical device     |    Service in Azure portal                                            |
+|    Form factor                |    Command-line tools                        |    Programmatic interface                    |    Microsoft supplies a virtual <br>or physical device     |    Service in Azure portal                                            |
 |    Initial one-time setup     |    Easy               |    Moderate                       |    Easy (<30 minutes) to moderate (1-2 hours)            |    Extensive                                                          |
 |    Data pre-processing              |    No                                        |    No                                        |    Yes (With Edge compute)                               |    Yes                                                                |
 |    Transfer from other clouds       |    No                                        |    No                                        |    No                                                    |    Yes                                                                |
