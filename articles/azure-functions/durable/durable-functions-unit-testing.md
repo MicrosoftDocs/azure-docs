@@ -31,13 +31,15 @@ The examples in this article require knowledge of the following concepts and fra
 
 ## Base classes for mocking 
 
-Mocking is supported via two abstract classes in Durable Functions:
+Mocking is supported via three abstract classes in Durable Functions:
 
 * [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 
 
 * [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
 
-These classes are base classes for [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) and [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) that define Orchestration Client and Orchestrator methods. The mocks will set expected behavior for base class methods so the unit test can verify the business logic. There is a two-step workflow for unit testing the business logic in the Orchestration Client and Orchestrator:
+* [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html)
+
+These classes are base classes for [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html), [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html), and [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) that define Orchestration Client, Orchestrator, and Activity methods. The mocks will set expected behavior for base class methods so the unit test can verify the business logic. There is a two-step workflow for unit testing the business logic in the Orchestration Client and Orchestrator:
 
 1. Use the base classes instead of the concrete implementation when defining Orchestration Client and Orchestrator's signatures.
 2. In the unit tests mock the behavior of the base classes and verify the business logic. 
@@ -78,6 +80,10 @@ Next `CreateCheckStatusResponse` is mocked to always return an empty HTTP 200 re
         {
             StatusCode = HttpStatusCode.OK,
             Content = new StringContent(string.Empty),
+            Headers = 
+            { 
+                RetryAfter = new RetryConditionHeaderValue(TimeSpan.FromSeconds(10))
+            } 
         });
 ```
 
@@ -161,13 +167,13 @@ After combining all steps, the unit test will have the following code:
 
 ## Unit testing activity functions
 
-Activity functions can be unit tested in the same way as non-durable functions. Activity functions don't have a base class for mocking. So the unit tests use the parameter types directly.
+Activity functions can be unit tested in the same way as non-durable functions. 
 
 In this section the unit test will validate the behavior of the `E1_SayHello` Activity function:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-And the unit test will verify the format of the output:
+And the unit tests will verify the format of the output. The unit tests can use the parameter types directly or mock [DurableActivityContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContextBase.html) class:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

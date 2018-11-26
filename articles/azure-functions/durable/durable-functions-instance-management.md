@@ -312,6 +312,41 @@ public static Task Run(
 }
 ```
 
+## Purge Instance History
+
+Orchestration history can be purged by using [PurgeInstanceHistoryAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_PurgeInstanceHistoryAsync_). The functionality will remove all the data associated with an orchestration - Azure Table rows and large message blobs if they exist. The method has two overloads. The first one purges history by orchestration instance's ID:
+
+```csharp
+[FunctionName("PurgeInstanceHistory")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    return client.PurgeInstanceHistoryAsync(instanceId);
+}
+```
+
+The second example shows a timer-triggered function that purges the history for all orchestration instances that completed after the specified time interval. In this case, it will remove data for all instances completed 30 or more days ago. It is scheduled to run once per day at 12 AM:
+
+```csharp
+[FunctionName("PurgeInstanceHistory")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [TimerTrigger("0 0 12 * * *")]TimerInfo myTimer)
+{
+    return client.InnerClient.PurgeInstanceHistoryAsync( 
+                    DateTime.MinValue,
+                    DateTime.UtcNow.AddDays(-30),  
+                    new List<OrchestrationStatus> 
+                    { 
+                        OrchestrationStatus.Completed
+                    }); 
+}
+```
+
+> [!NOTE]
+> The *PurgeInstanceHistory* overload accepting time period as parameter will process only orchestration instances in one of the runtime status - Completed, Terminated, or Failed.
+
 ## Next steps
 
 > [!div class="nextstepaction"]
