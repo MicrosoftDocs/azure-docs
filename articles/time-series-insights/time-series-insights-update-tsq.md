@@ -33,10 +33,12 @@ The getModelSettings API is used to return the automatically created model for t
 
 The getModelSettings API takes the following parameters:
 
-* name – The name of the model you wish to retrieve. 
-* timeSeriesIdProperties - 
+* name – The name of the model you wish to retrieve.
+* timeSeriesIdProperties
+
     * name
     * type
+
 * defaultTypeID
 
 ### getModelSettings API Sample JSON
