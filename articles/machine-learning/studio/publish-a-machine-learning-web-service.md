@@ -1,6 +1,6 @@
 ---
-title: Deploy a Machine Learning web service | Microsoft Docs
-description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning web service.
+title: Deploy a Machine Learning Studio web service - Azure | Microsoft Docs
+description: How to convert a training experiment to a predictive experiment, prepare it for deployment, then deploy it as an Azure Machine Learning Studio web service.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ---
-# Deploy an Azure Machine Learning web service
+# Deploy an Azure Machine Learning Studio web service
 Azure Machine Learning enables you to build, test, and deploy predictive analytic solutions.
 
 From a high-level point-of-view, this is done in three steps:

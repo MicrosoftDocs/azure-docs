@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery Solutions | Microsoft Docs
+title: Azure AI Gallery Solutions - Azure Machine Learning Studio | Microsoft Docs
 description: Discover Solutions in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''

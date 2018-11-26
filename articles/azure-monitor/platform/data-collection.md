@@ -153,7 +153,7 @@ Tasks that you can perform with logs include the following:
 
 - Use the [Log Analytics page](../../log-analytics/query-language/get-started-analytics-portal.md) in the Azure portal to write queries analyzing log data.  Pin results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
 - Configure a [log alert rule](../../monitoring-and-diagnostics/alert-log.md) that sends a notification or takes [automated action](../../monitoring-and-diagnostics/monitoring-action-groups.md) when the results of the query match a particular result.
-- Build a workflow based on data in Log Analytics using [Logic Apps]().
+- Build a workflow based on data in Log Analytics using [Logic Apps](~/articles/logic-apps/index.yml).
 - Export the results of a query to [Power BI](../../log-analytics/log-analytics-powerbi.md) to use different visualizations and share with users outside of Azure.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) or [REST API](https://dev.loganalytics.io/).
 
