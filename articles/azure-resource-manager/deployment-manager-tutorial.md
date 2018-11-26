@@ -198,7 +198,7 @@ The following screenshot only shows some parts of the service topology, services
 - **artifacts** point to the template artifacts.  Relative paths are used here. The full path is constructed by concatenating artifactSourceSASLocation (defined in the artifact source), artifactRoot (defined in the artifact source), and templateArtifactSourceRelativePath (or parametersArtifactSourceRelativePath).
 
 > [!NOTE]
-> The service unit names must be 31 characters or less. 
+> The service unit names must contain 31 characters or less. 
 
 ### Topology parameters file
 
