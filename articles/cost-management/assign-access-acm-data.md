@@ -8,7 +8,7 @@ ms.author: banders
 ms.date: 11/09/2018
 ms.topic: conceptual
 ms.service: cost-management
-manager: dougeby
+manager: vitavor
 ms.custom:
 ---
 
@@ -37,7 +37,7 @@ To view cost data, a user must have at least read access to one or more of the f
 
 ## Enable access to costs in the EA portal
 
-The billing account scope requires the **DA view charges** option **Enabled** in the EA portal. All other scopes require the **AO view charges** option **Enabled** in the EA portal.
+The department scope requires the **DA view charges** option **Enabled** in the EA portal. All other scopes require the **AO view charges** option **Enabled** in the EA portal.
 
 To enable an option:
 
@@ -46,7 +46,7 @@ To enable an option:
 3. For the cost management scopes that you want to provide access to, enable the charge option to **DA view charges** and/or **AO view charges**.  
     ![Enrollment tab showing DA and AO view charges options](./media/assign-access-acm-data/ea-portal-enrollment-tab.png)
 
-After view charge options are enabled, most scopes also require role-based access control (RBAC) permission configuration in the Azure portal.
+After the view charge options are enabled, most scopes also require role-based access control (RBAC) permission configuration in the Azure portal.
 
 ## Enterprise administrator role
 
@@ -84,7 +84,7 @@ Access to the department scope requires department administrator (DA view charge
 
 ## Assign enrollment account scope access
 
-Access to the enrollment account scope requires account owner (AO view charges) access in the EA portal. The account owner can view costs and usage data associated with an enrollment account. Data in the enrollment account includes all Azure subscriptions associated to the enrollment. No action is required in the Azure portal.
+Access to the enrollment account scope requires account owner (AO view charges) access in the EA portal. The account owner can view costs and usage data associated with the subscriptions created from that enrollment account. No action is required in the Azure portal.
 
 1. Sign in to the EA portal at [https://ea.azure.com](https://ea.azure.com) with an enterprise administrator account.
 2. Select **Manage** in the left pane.
@@ -95,10 +95,12 @@ Access to the enrollment account scope requires account owner (AO view charges) 
 7. Type the user's email address and then optionally type the cost center.
 8. Click on **Add** to create the account.  
     ![Add account box](./media/assign-access-acm-data/add-account.png)
+    
+After executing the above steps the user is an enrollment account on the EA and can now create subscriptions. For these subscription the user can access cost and usage data.
 
 ## Assign management group scope access
 
-Access to a management group scope requires at least Cost Management Reader (or Reader) permission. You configure permission to management group in the Azure portal. You must have at least contributor permission to the management group to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
+Access to a management group scope requires at least the Cost Management Reader (or Reader) permission. You can configure permissions for a management group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission to the management group to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
 
 1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 2. Select **All Services** in the sidebar, search for _management groups_, then select **management groups**.
@@ -114,7 +116,7 @@ Access to a management group scope requires at least Cost Management Reader (or 
 
 ## Assign subscription scope access
 
-Access to a subscription requires at least Cost Management Reader (or Reader) permission. You configure permission to a subscription in the Azure portal. You must have at least contributor permission to the subscription to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
+Access to a subscription requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a subscription in the Azure portal. You must have at least the User Access Administrator (or Owner) permission to the subscription to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
 
 1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 2. Select **All Services** in the sidebar, search for _subscriptions_, then select **Subscriptions**.
@@ -128,7 +130,7 @@ Access to a subscription requires at least Cost Management Reader (or Reader) pe
 
 ## Assign resource group scope access
 
-Access to a resource group requires at least Cost Management Reader (or Reader) permission. You configure permission to a resource group in the Azure portal. You must have at least contributor permission to the resource group to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
+Access to a resource group requires at least the Cost Management Reader (or Reader) permission. You can configure permissions to a resource group in the Azure portal. You must have at least the User Access Administrator (or Owner) permission to the resource group to enable access for others. And, you must also have enabled the **AO view charges** setting in the EA portal.
 
 1. Sign in to the Azure portal at [http://portal.azure.com](http://portal.azure.com).
 2. Select **All Services** in the sidebar, search for _resource groups_, then select **Resource groups**.

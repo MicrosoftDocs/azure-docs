@@ -39,9 +39,9 @@ If you're already running a web app in Azure, you already get some monitoring: r
 
     ![Instrument your web app](./media/app-insights-azure-web-apps/create-resource.png)
 
-2. Once your resource is created select **Check and update Application Insights extension for the web app** to confirm that the extension is up to date.
+2. After specifying which resource to use, you can choose how you want application insights to collect data per platform for your application.
 
-     ![Check and update site extension](./media/app-insights-azure-web-apps/check-and-update.png)
+    ![Choose options per platform](./media/app-insights-azure-web-apps/choose-options.png)
 
 3. **Instrument your web app** after Application Insights has been installed.
 
@@ -60,7 +60,7 @@ Later, you can build the app with Application Insights if you want.
 
 *How do I remove Application Insights, or switch to sending to another resource?*
 
-* In Azure, open the web app control blade, and under Development Tools, open **Extensions**. Delete the Application Insights extension. Then under Monitoring, choose Application Insights and create or select the resource you want.
+* In Azure, open the web app control blade, and under Settings, open **Application Insights**. You can turn off Application Insights by clicking **Disable** at the top, or select a new resource in the **Change your resource** section.
 
 ## Build the app with Application Insights
 Application Insights can provide more detailed telemetry by installing an SDK into your app. In particular, you can collect trace logs, [write custom telemetry](app-insights-api-custom-events-metrics.md), and get more detailed exception reports.

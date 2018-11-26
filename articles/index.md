@@ -284,7 +284,7 @@ featureFlags:
                                                     <li>
                                                         <a class="barLink" href="/azure/devops-project/">
                                                             <img src="https://docs.microsoft.com/media/logos/logo_vs-team-services.svg" alt="">
-                                                            Azure DevOps Project
+                                                            Azure DevOps Projects
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -1281,7 +1281,7 @@ featureFlags:
 										<li>
                                             <a href="/azure/devops-project">
                                                 <img src="media/index/logo_vs-team-services.svg" alt="" />
-                                                <p>Azure DevOps Project</p>
+                                                <p>Azure DevOps Projects</p>
                                             </a>
                                         </li>
 									</ul>
@@ -4855,7 +4855,7 @@ featureFlags:
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Azure DevOps Project</h3>
+                                                    <h3>Azure DevOps Projects</h3>
                                                     <p>Quickly deploy any language on any platform to Azure</p>
                                                 </div>
                                             </div>

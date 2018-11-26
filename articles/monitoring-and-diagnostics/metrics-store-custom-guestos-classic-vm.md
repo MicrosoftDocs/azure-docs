@@ -22,7 +22,7 @@ The process that's outlined in this article only works on classic virtual machin
 
 ## Prerequisites
 
-- You must be a [service administrator or co-administrator](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
+- You must be a [service administrator or co-administrator](../billing/billing-add-change-azure-subscription-administrator.md) on your Azure subscription. 
 
 - Your subscription must be registered with [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
@@ -31,7 +31,7 @@ The process that's outlined in this article only works on classic virtual machin
 ## Create a classic virtual machine and storage account
 
 1. Create a classic VM by using the Azure portal.
-   ![Create Clasic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
+   ![Create Classic VM](./media/metrics-store-custom-guestos-classic-vm/create-classic-vm.png)
 
 1. When you're creating this VM, choose the option to create a new classic storage account. We use this storage account in later steps.
 
