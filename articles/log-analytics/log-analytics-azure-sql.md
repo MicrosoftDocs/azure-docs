@@ -93,7 +93,7 @@ Each perspective in this view provides summaries on subscription, server, elasti
 
 ### Managed Instance and databases in Managed Instance view
 
-Once the Azure SQL Analytics tile for Managed Instances and Managed Instnace databases is selected, the monitoring dashboard is shown.
+Once the Azure SQL Analytics tile for Managed Instances and Managed Instance databases is selected, the monitoring dashboard is shown.
 
 ![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview-mi.png)
 
@@ -109,7 +109,7 @@ The below table outlines perspectives supported for two versions of the dashboar
 
 | Perspective | Description | SQL Database and elastic pools support | Managed Instance support |
 | --- | ------- | ----- | ----- |
-| Resource by type | Perspective that counts all the resources monitored. | Yes | Yes | 
+| Resource by type | Perspective that counts all the resources monitored. | Yes | Yes |
 | Insights | Provides hierarchical drill-down into Intelligent Insights into performance. | Yes | Yes |
 | Errors | Provides hierarchical drill-down into SQL errors that happened on the databases. | Yes | Yes |
 | Timeouts | Provides hierarchical drill-down into SQL timeouts that happened on the databases. | Yes | No |
@@ -185,13 +185,13 @@ Automated alerting in the solution is based on writing a Log Analytics query tha
 
 You can easily [create alerts](../monitoring-and-diagnostics/alert-metric.md) with the data coming from Azure SQL Database resources. Here are some useful [log search](log-analytics-queries.md) queries that you can use with a log alert:
 
-*High CPU on Azure SQL Database*
+#### High CPU on Azure SQL Database
 
 ```
-AzureMetrics 
+AzureMetrics
 | where ResourceProvider=="MICROSOFT.SQL"
 | where ResourceId contains "/DATABASES/"
-| where MetricName=="cpu_percent" 
+| where MetricName=="cpu_percent"
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
@@ -200,13 +200,13 @@ AzureMetrics
 > - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
-*High CPU on Azure SQL Database elastic pools*
+#### High CPU on Azure SQL Database elastic pools
 
 ```
-AzureMetrics 
+AzureMetrics
 | where ResourceProvider=="MICROSOFT.SQL"
 | where ResourceId contains "/ELASTICPOOLS/"
-| where MetricName=="cpu_percent" 
+| where MetricName=="cpu_percent"
 | summarize AggregatedValue = max(Maximum) by bin(TimeGenerated, 5m)
 | render timechart
 ```
@@ -215,7 +215,7 @@ AzureMetrics
 > - Pre-requirement of setting up this alert is that monitored databases stream diagnostics metrics ("All metrics" option) to the solution.
 > - Replace the MetricName value cpu_percent with dtu_consumption_percent to obtain high DTU results instead.
 
-*Azure SQL Database storage in average above 95% in the last 1 hr*
+#### Azure SQL Database storage in average above 95% in the last 1 hr
 
 ```
 let time_range = 1h;
@@ -233,13 +233,13 @@ AzureMetrics
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on some databases. The output is a list of database resources that are above the storage_threshold within the time_range defined.
 > - The output is a list of database resources that are above the storage_threshold within the time_range defined.
 
-*Alert on Intelligent insights*
+#### Alert on Intelligent insights
 
 ```
 let alert_run_interval = 1h;
 let insights_string = "hitting its CPU limits";
 AzureDiagnostics
-| where Category == "SQLInsights" and status_s == "Active" 
+| where Category == "SQLInsights" and status_s == "Active"
 | where TimeGenerated > ago(alert_run_interval)
 | where rootCauseAnalysis_s contains insights_string
 | distinct ResourceId
@@ -253,36 +253,36 @@ AzureDiagnostics
 
 ```
 AzureDiagnostics
-| where Category == "SQLInsights" and status_s == "Active" 
+| where Category == "SQLInsights" and status_s == "Active"
 | distinct rootCauseAnalysis_s
 ```
 
 ### Creating alerts for Managed Instance
 
-*Managed Instance storage is above 90%
+#### Managed Instance storage is above 90%
 
 ```
-let storage_percentage_treshold = 90;
+let storage_percentage_threshold = 90;
 AzureDiagnostics
 | where Category =="ResourceUsageStats"
 | summarize (TimeGenerated, calculated_storage_percentage) = arg_max(TimeGenerated, todouble(storage_space_used_mb_s) *100 / todouble (reserved_storage_mb_s))
    by ResourceId
-| where calculated_storage_percentage > storage_percentage_treshold
+| where calculated_storage_percentage > storage_percentage_threshold
 ```
 
 > [!NOTE]
 > - Pre-requirement of setting up this alert is that monitored Managed Instance has the streaming of ResourceUsageStats log enabled to the solution.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the Managed Instance. The output is storage percentage consumption on the Managed Instance.
 
-*Managed Instance CPU average consumption is above 95% in the last 2 hrs
+#### Managed Instance CPU average consumption is above 95% in the last 2 hrs
 
 ```
-let cpu_percentage_treshold = 95;
-let time_treshold = ago(2h);
+let cpu_percentage_threshold = 95;
+let time_threshold = ago(2h);
 AzureDiagnostics
 | where Category =="ResourceUsageStats" and TimeGenerated > time_treshold
 | summarize avg_cpu = max(todouble(avg_cpu_percent_s)) by ResourceId
-| where avg_cpu > cpu_percentage_treshold
+| where avg_cpu > cpu_percentage_threshold
 ```
 
 > [!NOTE]
