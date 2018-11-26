@@ -27,7 +27,9 @@ The options recommended in this scenario depend on whether you have moderate net
 
 ### Moderate network bandwidth (100 Mbps - 1 Gbps)
 
--	**Azure Data Box for offline transfers** – Choose from Data Box Disk, Data Box, Data Box Heavy, or Import/Export to do these offline bulk transfers when you have moderate bandwidth and large datasets.
+With moderate network bandwidth, you need to project the time for data transfer over the network.
+
+- **Azure Data Box for offline transfers** – Choose from Data Box Disk, Data Box, Data Box Heavy, or Import/Export to do these offline bulk transfers when you have moderate bandwidth and large datasets.
 
 ### High network bandwidth (1 Gbps - 100 Gbps)
 
@@ -79,8 +81,7 @@ The following tables summarize the differences in key capabilities for the recom
     - [Transfer data with Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
     - [Transfer data with Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
 - [Transfer data with AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
-- [Data transfer with Storage REST APIs]().
 - Understand how to:
     - [Transfer data with Data Box Gateway](https://docs.microsoft.com/azure/databox-online/data-box-gateway-deploy-add-shares.md).
     - [Transform data with Data Box Edge before sending to Azure](https://docs.microsoft.com/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Learn how to transfer data with Azure Data Factory]().
+- [Learn how to transfer data with Azure Data Factory](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal).

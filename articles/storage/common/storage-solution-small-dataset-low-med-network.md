@@ -13,7 +13,7 @@ ms.author: alkohli
 
 # Data transfer for small datasets with low to moderate network bandwidth
  
-This article provides an overview of the data transfer solutions when you have low to moderate network bandwidth in your environment and you are planning to transfer small datasets. The article also describes the recommended data transfer options and the respective key capability martix for this scenario.
+This article provides an overview of the data transfer solutions when you have low to moderate network bandwidth in your environment and you are planning to transfer small datasets. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
 
 To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md).
 
