@@ -1,0 +1,58 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Windows Virtual Desktop
+metadata:
+  title: Windows Virtual Desktop
+  description: The best virtual desktop experience, delivered on Azure
+  author: Heidilohr
+  manager: dansimp
+  ms.service: virtual-desktop
+  services: virtual-desktop
+  ms.topic: landing-page
+  ms.date: 10/25/2018
+  ms.author: helohr
+abstract:
+  description: Deliver a virtual desktop experience and remote apps to any device. Bring together Microsoft 365 and Azure to provide users with the only multi-session Windows 10 experience—with exceptional scale and reduced IT costs.
+sections:
+- title: Overview
+  items:
+  - type: paragraph
+    text: 'What is Windows Virtual Desktop?'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-desktop/overview">What is Windows Virtual Desktop?</a>
+- title: Step-by-Step Tutorials
+  items:
+  - type: paragraph
+    text: 'Learn how to install and configure Windows Virtual Desktop, and how to connect to the client when ready.'
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="/azure/virtual-desktop/tenant-setup-azure-active-directory">Set up Windows Virtual Desktop tenants</a>
+    - html: <a href="/azure/virtual-desktop/manage-host-pools">Create a host pool in Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/connect">Connect to Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/manage-app-groups">Manage app groups for Windows Virtual Desktop</a>
+    - html: <a href="/azure/virtual-desktop/manage-user-storage">Manage user storage for Windows Virtual Desktop</a>
+- title: How-tos
+  items:
+  - type: paragraph
+    text: 'Learn how to perform basic setup and diagnostics functions for Window Virtual Desktop.'
+  - type: list
+    style: unordered
+    items: 
+    - html: <a href="/azure/virtual-desktop/tenant-setup-remote-desktop">Connect to a Remote Desktop environment</a>
+- title: Concepts
+  items: 
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-desktop/environment-setup">Windows Virtual Desktop environment</a>
+    - html: <a href="/azure/virtual-desktop/diagnostics-role-service">The Windows Virtual Desktop diagnostics role service</a>
+    - html: <a href="/azure/virtual-desktop/delegated-access-virtual-desktop">Delegated access in Windows Virtual Desktop</a>
+- title: Reference
+  items: 
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/virtual-desktop/powershell-cmdlet-table">PowerShell</a>
