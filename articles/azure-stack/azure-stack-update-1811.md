@@ -80,6 +80,9 @@ This update includes the following improvements for Azure Stack:
 <!--1236441 – IS  ASDK --> 
 - Fixed an issue that did prevent applying RBAC policies to a User Group when using ADFS
 
+<!--3463840 - IS, ASDK --> 
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, 1811 update will not make any further modifications.  
+
 ### Changes
 
 None.
