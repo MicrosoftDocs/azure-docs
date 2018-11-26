@@ -21,7 +21,7 @@ ms.author: vinynigam
 
 This article captures the frequently asked questions (FAQs) about Network Performance Monitor (NPM) in Azure
 
-[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](log-analytics-network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](log-analytics-network-performance-monitor-service-endpoint.md) and [monitor the performance of Azure ExpressRoute](log-analytics-network-performance-monitor-expressroute.md). 
+[Network Performance Monitor](/azure/networking/network-monitoring-overview) is a cloud-based [hybrid network monitoring](../azure-monitor/insights/network-performance-monitor-performance-monitor.md) solution that helps you monitor network performance between various points in your network infrastructure. It also helps you monitor network connectivity to [service and application endpoints](../azure-monitor/insights/network-performance-monitor-service-endpoint.md) and [monitor the performance of Azure ExpressRoute](../azure-monitor/insights/network-performance-monitor-expressroute.md). 
 
 Network Performance Monitor detects network issues like traffic blackholing, routing errors, and issues that conventional network monitoring methods aren't able to detect. The solution generates alerts and notifies you when a threshold is breached for a network link. It also ensures timely detection of network performance issues and localizes the source of the problem to a particular network segment or device. 
 
@@ -51,12 +51,12 @@ If you are monitoring your network using Windows server-based nodes, we recommen
 
 ICMP is recommended for Windows desktops/client operating system-based nodes. This platform does not allow TCP data to be sent over raw sockets, which NPM uses to discover network topology.
 
-You can get more details on the relative advantages of each protocol [here](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
+You can get more details on the relative advantages of each protocol [here](../azure-monitor/insights/network-performance-monitor-performance-monitor.md#choose-the-protocol).
 
 ### How can I configure a node to support monitoring using TCP protocol?
 For the node to support monitoring using TCP protocol: 
 * Ensure that the node platform is Windows Server (2008 SP1 or later).
-* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node. See [instructions](log-analytics-network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) for more details.
+* Run [EnableRules.ps1](https://aka.ms/npmpowershellscript) Powershell script on the node. See [instructions](../azure-monitor/insights/network-performance-monitor.md#configure-log-analytics-agents-for-monitoring) for more details.
 
 
 ### How can I change the TCP port being used by NPM for monitoring?
@@ -121,10 +121,10 @@ For circuit level information, use the below mentioned query
     | project CircuitName,PrimaryBytesInPerSecond, PrimaryBytesOutPerSecond,SecondaryBytesInPerSecond,SecondaryBytesOutPerSecond
 
 ### Which regions are supported for NPM's Performance Monitor?
-NPM can monitor connectivity between networks in any part of the world, from a workspace that is hosted in one of the [supported regions](log-analytics-network-performance-monitor.md#supported-regions)
+NPM can monitor connectivity between networks in any part of the world, from a workspace that is hosted in one of the [supported regions](../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### Which regions are supported for NPM's Service Connectivity Monitor?
-NPM can monitor connectivity to services in any part of the world, from a workspace that is hosted in one of the [supported regions](log-analytics-network-performance-monitor.md#supported-regions)
+NPM can monitor connectivity to services in any part of the world, from a workspace that is hosted in one of the [supported regions](../azure-monitor/insights/network-performance-monitor.md#supported-regions)
 
 ### Which regions are supported for NPM's ExpressRoute Monitor?
 NPM can monitor your ExpressRoute circuits located in any Azure region. To onboard to NPM, you will require a Log Analytics workspace that must be hosted in one of the [supported regions](/azure/expressroute/how-to-npm#regions)
@@ -221,4 +221,4 @@ NPM rounds the latency numbers in the UI and in milliseconds. The same data is s
 
 ## Next steps
 
-- Learn more about Network Performance Monitor by referring to [Network Performance Monitor solution in Azure](log-analytics-network-performance-monitor.md).
+- Learn more about Network Performance Monitor by referring to [Network Performance Monitor solution in Azure](../azure-monitor/insights/network-performance-monitor.md).

@@ -47,7 +47,7 @@ Performance Monitor is part of NPM and is network monitoring for cloud, hybrid, 
 
 For more information, view the following articles:
 
-* [Configure a Network Performance Monitor Solution in Log Analytics](../log-analytics/log-analytics-network-performance-monitor.md) 
+* [Configure a Network Performance Monitor Solution in Log Analytics](../azure-monitor/insights/network-performance-monitor.md) 
 * [Use cases](https://blogs.technet.microsoft.com/msoms/2016/08/30/monitor-on-premises-cloud-iaas-and-hybrid-networks-using-oms-network-performance-monitor/)
 *  Product Updates: [February 2017](https://blogs.technet.microsoft.com/msoms/2017/02/27/oms-network-performance-monitor-is-now-generally-available/), [August 2017](https://blogs.technet.microsoft.com/msoms/2017/08/14/improvements-to-oms-network-performance-monitor/)
 

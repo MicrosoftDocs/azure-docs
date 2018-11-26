@@ -19,7 +19,7 @@ ms.component:
 
 # Network Performance Monitor solution: Performance monitoring
 
-The Performance Monitor capability in [Network Performance Monitor](log-analytics-network-performance-monitor.md) helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before your users complain. Key advantages are that you can: 
+The Performance Monitor capability in [Network Performance Monitor](network-performance-monitor.md) helps you monitor network connectivity across various points in your network. You can monitor cloud deployments and on-premises locations, multiple data centers and branch offices, and mission-critical multitier applications or microservices. With Performance Monitor, you can detect network issues before your users complain. Key advantages are that you can: 
 
 - Monitor loss and latency across various subnets and set alerts.
 - Monitor all paths (including redundant paths) on the network.
@@ -28,12 +28,12 @@ The Performance Monitor capability in [Network Performance Monitor](log-analytic
 - Monitor the health of the network, without the need for SNMP.
 
 
-![Network Performance Monitor](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
+![Network Performance Monitor](media/network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## Configuration
-To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](log-analytics-network-performance-monitor.md), and select **Configure**.
+To open the configuration for Network Performance Monitor, open the [Network Performance Monitor solution](network-performance-monitor.md), and select **Configure**.
 
-![Configure Network Performance Monitor](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
+![Configure Network Performance Monitor](media/network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### Create new networks
 
@@ -115,21 +115,21 @@ The drill-down page shows that the **DMZ2-DMZ1** network link is unhealthy. Sele
 
 The drill-down page shows all the subnetwork links in the **DMZ2-DMZ1** network link. For both subnetwork links, the latency crossed the threshold, which makes the network link unhealthy. You also can see the latency trends of both subnetwork links. Use the time selection control in the graph to focus on the required time range. You can see the time of day when latency reached its peak. Search the logs later for this time period to investigate the issue. Select **View node links** to drill down further. 
  
- ![Subnetwork Links page](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
+ ![Subnetwork Links page](media/network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 Similar to the previous page, the drill-down page for the particular subnetwork link lists its constituent node links. You can perform similar actions here as you did in the previous step. Select **View topology** to view the topology between the two nodes. 
  
- ![Node Links page](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
+ ![Node Links page](media/network-performance-monitor-performance-monitor/node-links.png) 
 
 All the paths between the two selected nodes are plotted in the topology map. You can visualize the hop-by-hop topology of routes between two nodes on the topology map. It gives you a clear picture of how many routes exist between the two nodes and what paths the data packets take. Network performance bottlenecks are shown in red. To locate a faulty network connection or a faulty network device, look at the red elements on the topology map. 
 
- ![Topology Dashboard with topology map](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
+ ![Topology Dashboard with topology map](media/network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 You can review the loss, latency, and the number of hops in each path in the **Action** pane. Use the scrollbar to view the details of the unhealthy paths. Use the filters to select the paths with the unhealthy hop so that the topology for only the selected paths is plotted. To zoom in or out of the topology map, use your mouse wheel. 
 
 In the following image, the root cause of the problem areas to the specific section of the network appear in the red paths and hops. Select a node in the topology map to reveal the properties of the node, which includes the FQDN and IP address. Selecting a hop shows the IP address of the hop. 
  
-![Topology map with node properties selected](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
+![Topology map with node properties selected](media/network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## Next steps
-[Search logs](log-analytics-queries.md) to view detailed network performance data records.
+[Search logs](../../log-analytics/log-analytics-queries.md) to view detailed network performance data records.

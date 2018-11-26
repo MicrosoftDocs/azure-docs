@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Key Vault Logging | Microsoft Docs
 description: Use this tutorial to help you get started with Azure Key Vault logging.
 services: key-vault
@@ -261,7 +261,7 @@ The following table lists the operationName and corresponding REST API command.
 
 ## <a id="loganalytics"></a>Use Log Analytics
 
-You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs. For more information, including how to set this up, see [Azure Key Vault solution in Log Analytics](../log-analytics/log-analytics-azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Log Analytics preview, where you first routed your logs to an Azure Storage account and configured Log Analytics to read from there.
+You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs. For more information, including how to set this up, see [Azure Key Vault solution in Log Analytics](../azure-monitor/insights/azure-key-vault.md). This article also contains instructions if you need to migrate from the old Key Vault solution that was offered during the Log Analytics preview, where you first routed your logs to an Azure Storage account and configured Log Analytics to read from there.
 
 ## <a id="next"></a>Next steps
 For a tutorial that uses Azure Key Vault in a web application, see [Use Azure Key Vault from a Web Application](key-vault-use-from-web-application.md).
