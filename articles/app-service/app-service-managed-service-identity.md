@@ -281,7 +281,7 @@ The **MSI_ENDPOINT** is a local URL from which your app can request tokens. To g
 > |resource|Query|The AAD resource URI of the resource for which a token should be obtained.|
 > |api-version|Query|The version of the token API to be used. "2017-09-01" is currently the only version supported.|
 > |secret|Header|The value of the MSI_SECRET environment variable.|
-> |client_id|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
+> |clientid|Query|(Optional) The ID of the user-assigned identity to be used. If omitted, the system-assigned identity is used.|
 
 
 A successful 200 OK response includes a JSON body with the following properties:
