@@ -9,7 +9,7 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 11/20/2018
+ms.date: 11/23/2018
 ---
 
 # Prepare data for modeling with Azure Machine Learning
@@ -21,17 +21,17 @@ You can prepare your data in Python using the [Azure Machine Learning Data Prep 
 ## Azure Machine Learning Data Prep SDK
 
 The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Python library that includes:
+
 + Many common data preprocessing tools
 + Automated feature engineering and transformations derived from examples
 
-The SDK is similar in core-functionality to popular libraries such as **Pandas** and **PySpark**, yet offers more flexibility. Pandas is typically most useful on smaller data sets (< 2-5 GB) before memory capacity-constraints affect performance. In contrast, PySpark is generally for big-data applications but carries an overhead that makes working with small data sets much slower.
+The SDK is similar in core-functionality to other popular data manipulation libraries, yet offers more
+flexibility. Other tools typically fall into one of two categories:
 
-The Azure Machine Learning Data Prep SDK offers:
-- Practicality and convenience when working with small data sets
+* Useful on smaller data sets, but memory capacity-constraints affect performance after a certain point.
+* Strength in processing large data sets, but carries an overhead that makes working with small data sets much slower.
 
-- Scalability for modern big-data applications
-
-- The ability to use and scale the same code for both use-cases
+The SDK offers practicality and convenience when working with small data sets, with added scalability for modern big-data applications. The SDK streams data rather than loading it into memory, which allows it to avoid performance bottlenecks as data set size increases. Most importantly, the **exact same code** you write to process data on a small-scale can be used to work with data at a large-scale.
 
 ### Install the SDK
 
@@ -52,6 +52,7 @@ import azureml.dataprep as dprep
 To learn about the modules and functions of this SDK, see the [Data Prep SDK reference docs](https://aka.ms/data-prep-sdk).
 
 The following examples highlight some of the unique functionality of the SDK, including:
+
 + Automatic file type detection
 + Automated feature engineering
 + Summary statistics
@@ -125,6 +126,7 @@ To see detailed examples and code for each preparation step, use the following h
 ![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
 
 ## Next steps
+
 Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
 
 Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).
