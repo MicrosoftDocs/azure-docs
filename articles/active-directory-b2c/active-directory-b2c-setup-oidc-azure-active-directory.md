@@ -22,7 +22,7 @@ This article shows you how to enable sign-in for users from a specific Azure Act
 
 ## Create an Azure AD app
 
-To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as you Azure AD B2C tenant.
+To enable sign-in for users from a specific Azure AD organization, you need to register an application within the organizational Azure AD tenant, which is not the same as your Azure AD B2C tenant.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Make sure you're using the directory that contains your Azure AD tenant by clicking the Directory and subscription filter in the top menu and choosing the directory that contains your Azure AD tenant.

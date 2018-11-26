@@ -306,9 +306,6 @@ Next, create a couple routes:
 - A route from the hub gateway subnet to the spoke subnet through the firewall IP address
 - A default route from the spoke subnet through the firewall IP address
 
-> [!NOTE]
-> Azure Firewall learns your on-premises networks using BGP. This may include a default route, which routes Internet traffic back through your on-premises network. In a production deployment, you might want Internet traffic to be sent directly from the firewall to the Internet. You could add a user-defined default route (0.0.0.0/0) on the AzureFirewallSubnet with next hop type **Internet**. Your on-premises destined traffic is still forced-tunneled through the VPN/ExpressRoute gateway using the more specific routes learned from BGP.
-
 ```azurepowershell
 #Create a route table
 $routeTableHubSpoke = New-AzureRmRouteTable `
