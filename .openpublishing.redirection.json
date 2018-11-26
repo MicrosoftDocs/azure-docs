@@ -30784,7 +30784,7 @@
         {
             "source_path":  "articles/aks/autoscaler.md",
             "redirect_url":  "/azure/aks/cluster-autoscaler",
-            "redirect_document_id":  "true"
+            "redirect_document_id":  "false"
         },
         {
             "source_path":  "articles/monitoring/monitoring-service-map-scom.md",
