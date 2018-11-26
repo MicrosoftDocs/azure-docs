@@ -319,7 +319,6 @@ To assign a user-assigned identity to a VM, your account needs the [Virtual Mach
 
 5. Create a VM using CURL to call the Azure Resource Manager REST endpoint. The following example creates a VM named *myVM* in the resource group *myResourceGroup* with a user-assigned managed identity `ID1`, as identified in the request body by the value `"identity":{"type":"UserAssigned"}`. Replace `<ACCESS TOKEN>` with the value you received in the previous step when you requested a Bearer access token and the `<SUBSCRIPTION ID>` value as appropriate for your environment.
  
-   
    **API VERSION 2018-06-01**
 
    ```bash   
