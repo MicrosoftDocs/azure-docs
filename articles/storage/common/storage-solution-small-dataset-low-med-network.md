@@ -28,12 +28,12 @@ Small datasets refer to data sizes in the order of GBs. Low to moderate network 
 
 The options recommended in this scenario are:
 
-- **Graphical tools** such as Azure Storage Explorer, and Azure Blob storage and Data Lake Storage Gen 1, available in Azure portal. These provide an easy way to view your data and quickly transfer a few files or objects.
+- **Graphical interface tools** such as Azure Storage Explorer, and Azure Blob storage and Data Lake Storage Gen 1, available in Azure portal. These provide an easy way to view your data and quickly transfer a few files or objects.
 
     - **Azure Storage Explorer** - This cross-platform tool lets you manage the contents of your Azure storage accounts. It allows you to upload, download, and manage blobs, files, queues, tables, and Azure Cosmos DB entities. Use it with Blob storage to manage blobs and folders, as well as upload and download blobs between your local file system and Blob storage, or between storage accounts.
     - **Azure portal** - Both Azure Blob storage and Data Lake Gen 1 Storage in Azure portal provide a web-based interface to explore files and upload new files one at a time. This is a good option if you do not want to install any tools or issue commands to quickly explore your files, or to simply upload a handful of new ones.
 
-- **Scripting/programmatic tools** such as AzCopy/Azure PowerShell/Azure CLI and Azure Storage REST APIs.
+- **Scripting/programmatic tools** such as AzCopy/PowerShell/Azure CLI and Azure Storage REST APIs.
 
     - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
     - **PowerShell** - For users comfortable with system administration, use the `Start-AzureStorageBlobCopy` PowerShell cmdlet.
