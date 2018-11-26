@@ -5,7 +5,7 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 09/12/2018
+ms.date: 11/26/2018
 ms.author: dukek
 ms.component: alerts
 ---
@@ -71,6 +71,8 @@ You may have up to 1000 email actions in an Action Group. See the [rate limiting
 ITSM Action requires an ITSM Connection. Learn how to create an [ITSM Connection](../log-analytics/log-analytics-itsmc-overview.md).
 
 **Logic App** - You may have up to 10 Logic App actions in an Action Group
+
+**Function App** - The function keys for Function Apps configured as actions are read through the Functions API, which currently requires v2 function apps to configure the app setting “AzureWebJobsSecretStorageType” to “files”, see [Changes to Key Management in Functions V2]( https://aka.ms/funcsecrets) for more information.
 
 **Runbook** - You may have up to 10 Runbook actions in an Action Group
 Refer to the [Azure subscription service limits](../azure-subscription-service-limits.md) for limits on Runbook payloads

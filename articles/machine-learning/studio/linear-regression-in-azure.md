@@ -1,5 +1,5 @@
 ---
-title: Using Linear Regression in Machine Learning | Microsoft Docs
+title: Using linear regression in Machine Learning Studio - Azure | Microsoft Docs
 description: A comparison of linear regression models in Excel and in Azure Machine Learning Studio
 metakeywords: ''
 services: machine-learning
@@ -18,7 +18,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ---
-# Using linear regression in Azure Machine Learning
+# Using linear regression in Azure Machine Learning Studio
 > *Kate Baroni* and *Ben Boatman* are enterprise solution architects in Microsoft’s Data Insights Center of Excellence. In this article, they describe their experience migrating an existing regression analysis suite to a cloud-based solution using Azure Machine Learning. 
 > 
 > 

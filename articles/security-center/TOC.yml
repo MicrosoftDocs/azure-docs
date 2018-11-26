@@ -44,17 +44,17 @@
     href: security-center-wdatp.md
   - name: Protect App Service
     href: security-center-app-services.md
-  - name: Set security policies
+  - name: View security policies
     href: security-center-azure-policy.md
   - name: Customize the information protection policy
     href: security-center-info-protection-policy.md
-  - name: Security policy settings
+  - name: Security Center settings
     href: security-center-policies-overview.md
     items:
     - name: Data collection
       href: security-center-enable-data-collection.md
-    - name: Policy definitions
-      href: security-center-policies.md
+    - name: Built-in security policies
+      href: security-center-policy-definitions.md
     - name: Email notifications
       href: security-center-provide-security-contact-details.md
     - name: Pricing tier

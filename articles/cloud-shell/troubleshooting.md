@@ -66,6 +66,8 @@ Known resolutions for troubleshooting issues in Azure Cloud Shell include:
 - **Resolution**: Close and reopen the shell.
 
 ### Troubleshooting remote management of Azure VMs
+> [!NOTE]
+> Azure VMs must have a Public facing IP address.
 
 - **Details**: Due to the default Windows Firewall settings for WinRM the user may see the following error:
  `Ensure the WinRM service is running. Remote Desktop into the VM for the first time and ensure it can be discovered.`
