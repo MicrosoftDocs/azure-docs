@@ -18,7 +18,7 @@ ms.author: juliako
 ---
 # Creating filters with Media Services REST API
 
-When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
+When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. For more information, see [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 
 This topic shows how to define a filter for a Video on Demand asset and use REST APIs to create [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
@@ -26,6 +26,7 @@ This topic shows how to define a filter for a Video on Demand asset and use REST
 
 To complete the steps described in this topic you have to:
 
+- Review [Filters and dynamic manifests](filters-dynamic-manifest-overview.md).
 - [Create a Media Services account](create-account-cli-how-to.md). Make sure to remember the resource group name and the Media Services account name. 
 - [Configure Postman for Azure Media Services REST API calls](media-rest-apis-with-postman.md)/
 
