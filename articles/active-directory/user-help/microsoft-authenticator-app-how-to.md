@@ -1,6 +1,6 @@
 ---
 title: Get started with the Microsoft Authenticator app - Azure Active Directory | Microsoft Docs
-description: Learn how to upgrade to the latest version of Microsoft Authenticator.
+description: Learn how to install and use the Microsoft Authenticator app for two-factor verification.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -10,84 +10,111 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: user-help
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/26/2018
 ms.author: lizross
 ms.reviewer: librown
 ---
 
 # Get started with the Microsoft Authenticator app
-The Microsoft Authenticator app helps you prove your identity without you needing to remember a password. Instead of a password, you sign-in using your username and your mobile device with your fingerprint, face, or PIN to confirm that you are in fact, you. Two-factor verification method is considered more secure than just a password, especially while viewing sensitive info.
+The Microsoft Authenticator app helps you prove your identity without needing to remember a password. Instead of a password, your sign-in using your username and your mobile device with your fingerprint, face, or PIN to confirm that you are in fact, you. two-factor verification is considered more secure than just a password, especially while viewing sensitive info.
 
+>[!NOTE]
+>If you're having issues signing in to your account, see [When you can't sign in to your Microsoft account](https://support.microsoft.com/help/12429) for help.  Get more info about what to do when you receive the [“That Microsoft account doesn't exist”](https://support.microsoft.com/help/13811) message when you try to sign in to your Microsoft account.
 
+## Terminology
+|Term|Description|
+|----|-----------|
+|two-factor verification |A verification process that requires you to specifically use only two pieces of verification info, like a password and a PIN. The Microsoft Authenticator app uses this form of verification.|
+|Multi-factor authentication (MFA)|All two-factor verification is multi-factor authentication, requiring you to use *at least* two pieces of verification info, based on your organization's requirements.|
+|Microsoft account (also called, MSA)|You create your own personal accounts, to get access to your consumer-oriented Microsoft products and cloud services, such as Outlook, OneDrive, Xbox LIVE, or Office 365. Your Microsoft account is created and stored in the Microsoft consumer identity account system that's run by Microsoft.|
+|Work or school account|Your organization creates your work or school account (such as alain@contoso.com) to let you access internal and potentially restricted resources, such as Microsoft Azure, Windows Intune, and Office 365.|
 
-## Multi-factor authentication versus two-factor verification
-The easiest way to explain the difference between these two methods is that all two-factor verification is multi-factor authentication, but not all multi-factor authentication is two-factor verification. Two-factor verification requires you specifically to use only two pieces of verification info, like a password and a PIN. On the other hand, multi-factor authentication requires you to use _at least_ two pieces of verification info, based on what you or your organization's requirements.
+## Who decides to use this feature?
+Depending on your account type, your organization might decide that you have to use two-factor verification, or you might be able to decide for yourself.
 
-Two-factor verification specifically works in two ways:
+- **Work or school account.** If you're using a work or school account (for example, alain@contoso.com), it's up to your organization whether you must use two-factor verification, along with the specific verification methods. For more information about multi-factor verification, see [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md). For more information about how to set up Security info to use the Microsoft Authentication app, see [Set up security info to use an authenticator app (preview)](security-info-setup-auth-app.md).
+
+- **Personal Microsoft account.** You can choose to set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com).
+
+- **Non-Microsoft personal account.** You can choose to set up two-factor verification for your non-Microsoft personal accounts (for example, alain@gmail.com). Your non-Microsoft accounts might not use the term, two-factor verification, but you should be able to find the feature within the **Security** or the **Sign-in** settings. For more information, watch these [Microsoft Customer Support videos](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX) to see how to add non-Microsoft personal accounts.
+
+## How this feature works?
+two-factor verification specifically works in one of two ways:
 
 - **Notification.** The Microsoft Authenticator app sends a notification asking you to **Approve sign-in**. Choose **Approve** if you recognize the sign-in attempt. Otherwise, choose **Deny**. If you choose **Deny**, you can also mark the request as fraudulent.
 
 - **Verification code.** Type in your username and password for either your work or school account or your personal Microsoft account, and then copy the associated verification code from the **Accounts** screen of the Microsoft Authenticator app.
 
-### Two-factor verification and your accounts
-
-- **Work or school account.** Your organization decides whether you need to use two-factor verfication with your work or school account (for example, alain@contoso.com), along with which verification methods you'll need to use. For more information about multi-factor verification, see [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md). For more information about how to set up Security info to use the Microsoft Authentication app, see [Set up security info to use an authenticator app (preview)](security-info-setup-auth-app.md).
-
-- **Personal Microsoft account.** You can set up two-factor verification for your personal Microsoft accounts (for example, alain@outlook.com).
-
-- **Non-Microsoft personal account.** You can set up two-factor verification for your non-Microsoft personal accounts (for example, alain@gmail.com). These non-Microsoft accounts might not call themselves two-factor verification, but you should be able to find it within the Security or the Sign-in settings. You can watch these [Microsoft Customer Support videos](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX) to see how to add non-Microsoft personal accounts.
-
-
-
-
-
-
-
-## Opt in for two-step verification
-
-Your organization decides whether you use two-step verification with your work or school account. Your administrator will let you know which verification methods need to be set up and used. For more information, see [What does Azure Multi-Factor Authentication mean for me](multi-factor-authentication-end-user.md).
-
-For your personal Microsoft account, you can set up two-step verification for yourself. For more detailed information and instructions, see [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification).
-
-You can also use the Microsoft Authenticator app with non-Microsoft accounts. Those accounts might call the feature something other than two-step verification, but you should be able to find it within the security or sign-in settings. For more information, about how to set up these non-Microsoft accounts, see the [Microsoft Customer Support videos](https://www.youtube.com/playlist?list=PLyhj1WZ29G65QdD9NxTOAm8HwOS-OBUrX).
-
 ## Install the app
+Install the latest version of the Microsoft Authenticator app, based on your operating system:
 
-The Microsoft Authenticator app is available for [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594), and [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). To get the best experience, you should let the app get notifications when you're asked. 
+- **Android.** On your Android device, go to [Google Play](https://play.google.com/store/apps/details?id=com.azure.authenticator) and install the Microsoft Authenticator app.
 
-## Add accounts to the app
+- **iOS.** On your Apple iOS device, go to [iTunes](https://itunes.apple.com/app/microsoft-authenticator/id983156458) and install the Microsoft Authenticator app.
 
-You can add work or school accounts or personal accounts to the Microsoft Authenticator app. 
+- **Windows Phone.** On your Windows Phone, go to the [Microsoft Store](https://www.microsoft.com/en-us/p/microsoft-authenticator/9nblgggzmcj6) and install the Microsoft Authenticator app.
 
-### Add a personal Microsoft account
+## Add your accounts
+You can add your work or school accounts and your personal accounts to the Microsoft Authenticator app.
 
-For a personal Microsoft account (one that you use to sign in to Outlook.com, Xbox, Skype, etc.), all you have to do is sign in to your account in the Microsoft Authenticator app.
+>[!Important]
+>Before you can add your account, you have to download and install the Microsoft Authenticator app. If you haven't done that yet, follow the steps in the [Install the app](#install-the-app) section of this article.
 
-### Add a work or school account
-
-1. If possible, go to the [Additional security verification](https://aka.ms/mfasetup) screen on another PC or device. For information about how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md#where-to-find-the-settings-page) or contact your administrator.
+### To add a work or school account
+1. On your PC, go to the [Additional security verification](https://aka.ms/mfasetup) page.
 
     >[!Note]
-    >If your administrator has turned on the security info preview experience, you can follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section.
+    >If you don't see the **Additional security verification** page, it's possible that your administrator has turned on the security info preview experience. If that's the case, you should follow the instructions in the [Set up security info to use an authenticator app](security-info-setup-auth-app.md) section. If that's not the case, you will need to contact your organization's Help Desk for assistance.
 
 2. Check the box next to **Authenticator app**, and then select **Configure**.
 
-    ![The Configure button on the security verification settings screen](./media/microsoft-authenticator-app-how-to/auth-app-configure.png)
-
-    The **Configure mobile app** screen appears with a QR code for you to scan with the authenticator app.
-
+    The **Configure mobile app** page appears.
+    
     ![Screen that provides the QR code](./media/microsoft-authenticator-app-how-to/auth-app-barcode.png)
 
-3. Open the Microsoft Authenticator app. On the **Accounts** screen, select **Add account**, and then select **Work or school account**.
+3. Open the Microsoft Authenticator app, select **Add account** from the **Customize and control** icon in the upper-right, and then select **Work or school account**.
 
-4. Use your device's camera to scan the QR code, and then select **Done** to close the QR code screen.
+4. Use your device's camera to scan the QR code from the **Configure mobile app** screen on your PC, and then choose **Done**.
 
     >[!Note]
     >If your camera isn't working properly, you can [enter the QR code and URL manually](#add-an-account-to-the-app-manually).
 
-    The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.  
+5. Review the **Accounts** screen of the app to make sure your account is right and that there's an associated six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.  
 
     ![Accounts screen](./media/microsoft-authenticator-app-how-to/auth-app-accounts.png)
+
+### To add a personal Microsoft account
+1. On your PC, go to your [Security basics](https://account.microsoft.com/security) page and sign-in using your personal Microsoft account.
+
+2. At the bottom of the **Security basics** page, choose the **More security options** link.
+
+3. Go to the **Two-step verification** section and choose to turn the feature **On**. You can also turn it off here if you no longer want to use it with your personal account.
+
+4. Open the Microsoft Authenticator app on your mobile device.
+
+5. Select **Add account** from the **Customize and control** icon in the upper-right, and then select **Personal account**.
+
+6. Enter the email address for your personal account, (such as alain@outlook.com) and then choose **Next**.
+
+    >[!Note]
+    >If you don't have a personal Microsoft account, you have the ability to create one here.
+
+7. Enter your password, and then choose **Sign in**.
+
+    Your account is added to the Microsoft Authenticator app.
+
+
+
+
+
+
+
+### To add a non-Microsoft personal account
+1. Open the Microsoft Authenticator app on your mobile device.
+
+2. Select **Add account** from the **Customize and control** icon in the upper-right, and then select **Other account (Google, Facebook, etc)**.
+
+3. Scan the QR code...<!--more info-->
 
 ### Add an account to the app manually
 
@@ -111,15 +138,15 @@ For a personal Microsoft account (one that you use to sign in to Outlook.com, Xb
 
     The **Accounts** screen of the app shows you your account name and a six-digit verification code. For additional security, the verification code changes every 30 seconds preventing you from using the same code twice.
 
-### Using your device's fingerprint or facial recognition capabilities
-
-Your organization might require a PIN to complete your identity verification. You can set up the Microsoft Authenticator app to use your device's fingerprint or facial recognition capabilities instead of a PIN. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
-
-## Use the app when you sign in
+## To sign in using the app
 
 After you add your accounts to the app, you can use the app to sign in to your accounts.
 
 If you chose to use verification codes in the app, you'll start to see them on the **Accounts** page. The codes change every 30 seconds so that you always have a new code when you need one. But you don't need to do anything with them until you sign in and are prompted to enter a verification code.
+
+### Using your device's fingerprint or facial recognition capabilities
+
+Your organization might require a PIN to complete your identity verification. You can set up the Microsoft Authenticator app to use your device's fingerprint or facial recognition capabilities instead of a PIN. You can set this up the first time you use the authenticator app to verify your account, by selecting the option to use your device biometric capabilities as identification instead of your PIN.
 
 ## Next steps
 
