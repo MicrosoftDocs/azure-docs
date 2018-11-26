@@ -25,6 +25,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Log Analytics</a>
+    - html: <a href="/azure/azure-monitor/azure-monitor-log-hub">Application Insights</a>
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
