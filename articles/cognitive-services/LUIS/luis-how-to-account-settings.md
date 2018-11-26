@@ -8,7 +8,7 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/08/2018
+ms.date: 11/26/2018
 ms.author: diberry
 ---
 
@@ -19,7 +19,7 @@ The two key pieces of information for a LUIS account are the user account and th
 
 This single, region-specific authoring key, on the **Settings** page, allows you to author all your apps from the [LUIS](luis-reference-regions.md) website as well as the [authoring APIs](https://aka.ms/luis-authoring-api). As a convenience, the authoring key is allowed to make a [limited](luis-boundaries.md) number of endpoint queries each month. 
 
-![LUIS Settings page](./media/luis-how-to-account-settings/account-settings.png)
+[![LUIS Settings page](./media/luis-how-to-account-settings/account-settings.png)](./media/luis-how-to-account-settings/account-settings.png#lightbox)
 
 The authoring key is used for any apps you own as well as any apps you are listed as a collaborator.
 
