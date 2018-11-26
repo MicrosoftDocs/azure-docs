@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 11/28/2018
 ms.author: alkohli
 ---
 
@@ -69,7 +69,7 @@ The following tables summarize the differences in key capabilities for the recom
 |    Data pre-processing              |    No                                        |    No                                        |    Yes (With Edge compute)                               |    Yes                                                                |
 |    Transfer from other clouds       |    No                                        |    No                                        |    No                                                    |    Yes                                                                |
 |    User type                        |    Dev                                       |    Dev                                       |    IT Pro                                                |    IT Pro                                                             |
-|    Pricing                          |    Free, data movement charges apply         |    Free, data movement charges apply         |    Pricing                                               |    Pricing                                                            |
+|    Pricing                          |    Free, data egress charges apply         |    Free, data egress charges apply         |    [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/edge/)                                               |    [Pricing](https://azure.microsoft.com/pricing/details/data-factory/)                                                            |
 
 ## Next steps
 
@@ -84,4 +84,3 @@ The following tables summarize the differences in key capabilities for the recom
     - [Transfer data with Data Box Gateway](azure/databox-online/data-box-gateway-deploy-add-shares).
     - [Transform data with Data Box Edge before sending to Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
 - [Learn how to transfer data with Azure Data Factory]().
-

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 11/28/2018
 ms.author: alkohli
 ---
 
@@ -56,7 +56,7 @@ The following table summarizes the differences in key capabilities.
 | Allowed Table storage operations<br>for tables                      | Upload                                    | No            |||
 | Allowed Azure Cosmos DB storage                                    | Upload                                    | No  |||
 | Allowed Queue storage                                              | Upload                                    | No  |||
-| Pricing                                                            | Free, data movement charges may apply    |  Free, data movement charges may apply  |  ||
+| Pricing                                                            | Free, data egress charges may apply    |  Free, data egress charges may apply  |  ||
 
 
 ## Next steps

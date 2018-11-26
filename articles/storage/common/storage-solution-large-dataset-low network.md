@@ -7,7 +7,7 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 11/28/2018
 ms.author: alkohli
 ---
 
@@ -24,7 +24,9 @@ Large datasets imply that you have few TBs to few PBs of data. You have limited 
 - You are limited by costs of network transfer.
 - Security or organizational policies do not allow outbound connections when dealing with sensitive data.
 
-In all the above instances, use a physical device to do a one-time bulk data  transfer. Choose from Data Box Disk, Data Box, Data Box Heavy, or Import/Export. Use the following table to understand if the network data transfer is slower than one of Data Box devices that you would use for offline transfer.
+In all the above instances, use a physical device to do a one-time bulk data  transfer. Choose from Data Box Disk, Data Box, Data Box Heavy devices which are supplied by Microsoft, or Import/Export using your own disks.
+
+To confirm whether a physical device is the right option, use the following table. It shows the projected time for network data transfer, for various available bandwidths. If network transfer is projected to be too slow, you should use a physical device.  
 
 ![Network transfer or offline transfer](media/storage-solution-large-dataset-low-network/storage-network-or-offline-transfer.png)
 
@@ -32,8 +34,8 @@ In all the above instances, use a physical device to do a one-time bulk data  tr
 
 The options available in this scenario are devices for Azure Data Box offline transfer or Azure Import/Export.
 
-- **Azure Data Box family for offline transfers** – Use devices from Data Box family to move large amounts of data to Azure when you’re limited by time, network availability, or costs. Copy on-premises data using tools such as Robocopy. Depending   on the data size intended for transfer, you can choose from Data Box Disk, Data Box, or Data Box Heavy.
-- **Azure Import/Export** – Use Azure Import/Export service to securely import large amounts of data to Azure Blob storage and Azure Files by shipping your own disk drives to an Azure datacenter. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites.
+- **Azure Data Box family for offline transfers** – Use devices from Microsoft-supplied Data Box devices to move large amounts of data to Azure when you’re limited by time, network availability, or costs. Copy on-premises data using tools such as Robocopy. Depending on the data size intended for transfer, you can choose from Data Box Disk, Data Box, or Data Box Heavy.
+- **Azure Import/Export** – Use Azure Import/Export service by shipping your own disk drives to securely import large amounts of data to Azure Blob storage and Azure Files. This service can also be used to transfer data from Azure Blob storage to disk drives and ship to your on-premises sites.
 
 ## Comparison of key capabilities
 
@@ -41,7 +43,7 @@ The following table summarizes the differences in key capabilities.
 
 |                                     |    Data Box Disk   (preview)    |    Data Box                                      |    Data Box Heavy (preview)              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
-|    Data size                        |    Up to 35 TBs                 |    Up to 80 TBs                                  |    Up to 800 TB                          |    Variable                            |
+|    Data size                        |    Up to 35 TBs                 |    Up to 80 TBs per device                       |    Up to 800 TB per device               |    Variable                            |
 |    Data type                        |    Azure Blobs                  |    Azure Blobs<br>Azure Files                    |    Azure Blobs<br>Azure Files            |    Azure Blobs<br>Azure Files          |
 |    Form factor                      |    5 SSDs per order             |    1 X 50-lbs. desktop-sized device per order    |    1 X ~500-lbs. large device per order    |    Up to 10 HDDs/SSDs per order        |
 |    Initial setup time               |    Low <br>(15 mins)            |    Low to moderate <br> (<30 mins)               |    Moderate<br>(1-2 hours)               |    Moderate to difficult<br>(variable) |
@@ -50,16 +52,16 @@ The following table summarizes the differences in key capabilities.
 |    Encryption                       |    AES 128-bit                  |    AES 256-bit                                   |    AES 256-bit                           |    AES 128-bit                         |
 |    Hardware                         |     Microsoft supplied          |    Microsoft supplied                            |    Microsoft supplied                    |    Customer supplied                   |
 |    Network interface                |    USB 3.1/SATA                 |    RJ 45, SFP+                                   |    RJ45, QSFP+                           |    SATA II/SATA III                    |
-|    Partner integration              |    Some                         |    High                                          |    High                                  |    Some                                |
+|    Partner integration              |    Some                         |    [High](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [High](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Some                                |
 |    Shipping                         |    Microsoft managed            |    Microsoft managed                             |    Microsoft managed                     |    Customer managed                    |
-|    Pricing                          |    [Pricing]                    |   [Pricing]                                      |  [Pricing]                               |   [Pricing]                            |
+| Use when data moves         |Within a commerce boundary|Within a commerce boundary|Within a commerce boundary|Across geographic boundaries, e.g. US to EU|
+|    Pricing                          |    [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Pricing](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Pricing](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 ## Next steps
 
-- [Learn how to transfer data with Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).
 - Understand how to
 
     - [Transfer data with Data Box Disk](https://docs.microsoft.com/azure/databox/data-box-disk-quickstart-portal).
     - [Transfer data with Data Box](https://docs.microsoft.com/azure/databox/data-box-quickstart-portal).
- 
+    - [Transfer data with Import/Export](/azure/storage/common/storage-import-export-data-to-blobs).

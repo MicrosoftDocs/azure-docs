@@ -1,5 +1,5 @@
 ---
-title: Choose an Azure solution for data transfer| Microsoft Docs
+title: Choose an Azure solution for periodic data transfer| Microsoft Docs
 description: Learn how to choose an Azure solution for data transfer when you are transferring data periodically.
 services: storage
 author: alkohli
@@ -7,13 +7,13 @@ author: alkohli
 ms.service: storage
 ms.subservice: blob
 ms.topic: article
-ms.date: 11/21/2018
+ms.date: 11/28/2018
 ms.author: alkohli
 ---
 
 # Solutions for periodic data transfer
  
-This article provides an overview of the data transfer solutions when you are transferring data periodically. Periodic data transfer over the network can be categorized as point-in-time and recurring or continuous data movement. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
+This article provides an overview of the data transfer solutions when you are transferring data periodically. Periodic data transfer over the network can be categorized as point-in-time at regular intervals and continuous data movement. The article also describes the recommended data transfer options and the respective key capability matrix for this scenario.
 
 To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution).
 
@@ -21,7 +21,7 @@ To understand an overview of all the available data transfer options, go to [Cho
 
 The recommended options for periodic data transfer fall into two categories depending on whether the transfer is point-in-time or continuous
 
-- **Scripted/programmatic tools** – For point-in-time data transfer that is recurring, the scripted and programmatic tool choices include AzCopy and Azure Storage REST APIs. These tools are targeted towards a dev user.
+- **Scripted/programmatic tools** – For point-in-time data transfer that occurs at regular intervals, use the scripted and programmatic tools such as AzCopy and Azure Storage REST APIs. These tools are targeted towards a dev user.
 
     - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
     - **Azure Storage REST APIs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure client libraries offered in multiple languages.
