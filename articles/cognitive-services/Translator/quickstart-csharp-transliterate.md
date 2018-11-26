@@ -49,7 +49,7 @@ using Newtonsoft.Json;
 
 ## Create a function to transliterate text
 
-Within the `Program` class, create a function called `TransliterateText`. This class encapsulates the code used to call the Transliterate resource and print the result to console.
+Within the `Program` class, create a function called `TransliterateText`. This class encapsulates the code used to call the Transliterate resource and prints the result to console.
 
 ```csharp
 static void TransliterateText()
@@ -159,7 +159,7 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including transliteration and language identification, as well as other sample Translator Text projects on GitHub.
+Explore the sample code for this quickstart and others, including translation and language identification, as well as other sample Translator Text projects on GitHub.
 
 > [!div class="nextstepaction"]
 > [Explore C# examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
