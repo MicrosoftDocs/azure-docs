@@ -294,6 +294,15 @@ This Azure SQL Database instance contains the data to be copied to Blob storage.
 ]
 ```
 
+## Limitations and workarounds
+
+Here are some limitations of the Lookup activity and suggested workarounds.
+
+| Limitation | Workaround |
+|---|---|
+| The Lookup activity has a maximum of 5,000 rows, and a maximum size of 2 MB. | Design a two-level pipeline where the outer pipeline iterates over an inner pipeline, which retrieves data that doesn't exceed the maximum rows or size. |
+| | |
+
 ## Next steps
 See other control flow activities supported by Data Factory: 
 
