@@ -15,7 +15,7 @@ ms.author: alkohli
  
 This article provides an overview of the data transfer solutions when you have low to moderate network bandwidth in your environment and you are planning to transfer small datasets. The article also describes the recommended data transfer options and the respective key capability martix for this scenario.
 
-To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution).
+To understand an overview of all the available data transfer options, go to [Choose an Azure data transfer solution](storage-choose-data-transfer-solution.md).
 
 ## Scenario description
 
@@ -36,7 +36,7 @@ The options recommended in this scenario are:
 - **Scripting/programmatic tools** such as AzCopy/Azure PowerShell/Azure CLI and Azure Storage REST APIs.
 
     - **AzCopy** - Use this command-line tool to easily copy data to and from Azure Blobs, Files, and Table storage with optimal performance. AzCopy supports concurrency and parallelism, and the ability to resume copy operations when interrupted.
-    - **Azure PowerShell** - 
+    - **PowerShell** - For users comfortable with system administration, use the `Start-AzureStorageBlobCopy` PowerShell cmdlet.
     - **Azure CLI** - Use this cross-platform tool to manage Azure services and upload data to Azure Storage.
     - **Azure Storage REST APIs** – When building an application, you can develop the application against Azure Storage REST APIs and use the Azure client libraries offered in multiple languages.
 
@@ -45,11 +45,11 @@ The options recommended in this scenario are:
 
 The following table summarizes the differences in key capabilities.
 
-| Feature                                                            | Azure Storage Explorer                    | Azure portal (Blob storage or <br> Data Lake Storage Gen1) | AzCopy<br>Azure PowerShell<br>Azure CLI            | Azure Storage REST APIs/SDKs/Azure client libraries |
+| Feature                                                            | Azure Storage Explorer                    | Azure portal (Blob storage or <br> Data Lake Storage Gen1) | AzCopy<br>PowerShell<br>Azure CLI            | Azure Storage REST APIs/SDKs/Azure client libraries |
 |----------------------------------------------|-------------------------------------------|--------------------------------------|-------------------|---------------------------------------|
 | Availability                                                       | Download and install <br>Standalone tool | Web-based exploration tools in Azure portal           | Command line tool |                                                         |
 | Graphical   interface                                              | Yes                                       | Yes                                                     | No                | No                                                      |
-| Supported   platforms                                              | Windows, Mac, Linux                       | Web-based                                               | Windows, Linux    |                                                         |
+| Supported   platforms                                              | Windows, Mac, Linux (AzCopy, Azure CLI)<br> Windows (Windows PowerShell)                      | Web-based                                               | Windows, Linux    |                                                         |
 | Allowed Blob storage operations<br>for blobs and folders            | Copy<br>Upload<br>Download<br>Manage    | Copy<br>Upload<br>Download<br>Manage  | Copy              |                                                         |
 | Allowed Data Lake Gen1 storage<br>operations for files and folders  | Upload                                    | Upload                                                  |                   |                                                         |
 | Allowed File storage operations<br>for files and directories        | Copy                                      | No                                                      | Copy              |                                                         |
