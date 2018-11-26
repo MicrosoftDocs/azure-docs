@@ -10,7 +10,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-# Understand IoT Edge deployments for single devices or at scale
+# Understand IoT Edge automatic deployments for single devices or at scale
 
 Azure IoT Edge devices follow a [device lifecycle](../iot-hub/iot-hub-device-management-overview.md) that is similar to other types of IoT devices:
 

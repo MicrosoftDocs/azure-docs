@@ -4,13 +4,13 @@ description: Learn how to take your Azure IoT Edge solution from development to 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/20/2018
+ms.date: 11/28/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ---
 
-# How to prepare your IoT Edge solution for production
+# Prepare to deploy your IoT Edge solution in production
 
 When you're ready to take your IoT Edge solution from development into production, make sure that it's configured for ongoing performance.
 
@@ -46,13 +46,13 @@ Before you put any device in production you should know how you're going to mana
 * IoT Edge daemon
 * CA certificates
 
-For steps to update the IoT Edge daemon, see [Update the IoT Edge runtime](how-to-update-iot-edge.md).
+For steps to update the IoT Edge daemon, see [Update the IoT Edge runtime](how-to-update-iot-edge.md). The current methods for updating the IoT Edge daemon require physical or SSH access to the IoT Edge device. If you have many devices to update, consider adding the update steps to a script or use an automation tool like Ansible to perform updates at scale.
 
 ### Use Moby as the container engine
 
-Having a container engine on a device is a prerequisite to installing the IoT Edge daemon and runtime. You can use any container engine that you like, but Moby is only engine officially supported for IoT Edge. 
+Having a container engine on a device is a prerequisite for any IoT Edge device. Only moby-engine is supported in production. Other container engines, like Docker, do work with IoT Edge and it's ok to use these for development. The moby-engine can be redistributed when used with Azure IoT Edge, and Microsoft provides servicing for this engine. Using other container engines on an IoT Edge device is not supported.
 
-## Choose upstream protocol
+### Choose upstream protocol
 
 The protocol (and therefore the port used) for upstream communication to IoT Hub can be configured for both the Edge agent and the Edge hub. The default protocol is AMQP, but you may want to change that depending on your network setup. 
 
@@ -70,11 +70,11 @@ Once your IoT Edge device connects, be sure to continue configuring the Upstream
 ## Deployment
 
 * **Helpful**
-    * Choose upstream protocol
+    * Be consistent with upstream protocol
     * Reduce memory space used by Edge hub
     * Do not use debug versions of module images
 
-### Choose upstream protocol
+### Be consistent with upstream protocol
 
 If you configured the Edge agent on your IoT Edge device to use a different protocol than the default AMQP, then you should declare the same protocol in all subsequent deployments. For example, if your IoT Edge device is behind a proxy server that blocks AMQP ports, you probably configured the device to connect over AMQP over WebSocket (AMQPWS). When you deploy modules to the device, if you don't configure the same APQPWS protocol for the Edge agent and Edge hub, the default AMQP will override the settings and prevent you from connecting again. 
 
@@ -88,9 +88,9 @@ If you're deploying constrained devices with limited memory available, you can c
 
 #### Don't optimize for performance on constrained devices
 
-The Edge hub is optimized for performance by default, so attempts to allocate large chunks of memory. This can cause stability problems on smaller devices like the Raspberry Pi. If you're deploying devices with constrained resources, you may want to set the **OptimizeForPerformance** environment variable to **false** on the Edge hub. 
+The Edge hub is optimized for performance by default, so it attempts to allocate large chunks of memory. This can cause stability problems on smaller devices like the Raspberry Pi. If you're deploying devices with constrained resources, you may want to set the **OptimizeForPerformance** environment variable to **false** on the Edge hub. 
 
-For more information, see [Stability issues on resource constrained devices](troubleshoot.md#stability-issues-on-resource-constrained-devices)
+For more information, see [Stability issues on resource constrained devices](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
 #### Disable unused protocols
 
@@ -143,7 +143,7 @@ For an example of a tag convention, see [Update the IoT Edge runtime](how-to-upd
 
 ### Review outbound/inbound configuration
 
-Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment)
+Communication channels between Azure IoT Hub and IoT Edge are always configured to be outbound. For most IoT Edge scenarios, only three connections are necessary. The container engine needs to connect with the container registry (or registries) that holds the module images. The IoT Edge runtime needs to connect with IoT Hub to retrieve device configuration information, and to send messages and telemetry. And if you use automatic provisioning, the IoT Edge daemon needs to connect to the Device Provisioning Service. For more information, see [Firewall and port configuration rules](troubleshoot.md#firewall-and-port-configuration-rules-for-iot-edge-deployment).
 
 ### Whitelist connections
 
@@ -169,7 +169,7 @@ If your devices are going to be deployed on a network that uses a proxy server, 
 
 ### Set up logs and diagnostics
 
-On Linux, IoT Edge uses [journald](https://docs.docker.com/config/containers/logging/journald/) as the default logging driver. You can use the command line tool `journalctl` to query the logs. On Windows, IoT Edge uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from IoT Edge. 
+On Linux, the IoT Edge daemon uses journald as the default logging driver. You can use the command line tool `journalctl` to query the daemon logs. On Windows, the IoT Edge daemon uses PowerShell diagnostics. Use `Get-WinEvent` to query logs from the daemon. IoT Edge modules use the JSON driver for logging, which is the Docker default.  
 
 When you're testing an IoT Edge deployment, you can usually access your devices to retrieve logs and troubleshoot. In a deployment scenario, you may not have that option. You should consider how you're going to gather information about your devices in production. One option is to use a logging module that collects information from the other modules and sends it to the cloud. One example of a logging module is [logspout-loganalytics](https://github.com/veyalla/logspout-loganalytics), or you can design your own. 
 
@@ -194,4 +194,9 @@ If you're worried about logs becoming too large on a resource constrained device
 
 ### Consider tests and CI/CD pipelines
 
-For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md)
+For the most efficient IoT Edge deployment scenario, consider integrating your production deployment into your testing and CI/CD pipelines. Azure IoT Edge supports multiple CI/CD platforms, including Azure DevOps. For more information, see [Continuous integration and continuous deployment to Azure IoT Edge](how-to-ci-cd.md).
+
+## Next steps
+
+* Learn more about [IoT Edge automatic deployment](module-deployment-monitoring.md).
+* See how IoT Edge supports [Continuous integration and continuous deployment](how-to-ci-cd.md).
