@@ -173,7 +173,9 @@ Site Recovery creates default settings and replication policy for the target reg
     - **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
       target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
     - **Target availability sets**: By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix for the VMs part of an availability set in source region. In case availability set created by Azure Site Recovery already exists, it is reused.
-    - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones. If the target region does not support availability zones, they are configured them as single instances by default. You can configure the VMs to be part of availability sets in target region by clicking 'Customize'.
+    - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones. 
+
+    If the target region does not support availability zones, the target VMs are configured as single instances by default. If required, you can configure such VMs to be part of availability sets in target region by clicking 'Customize'.
 
     >[!NOTE]
     >You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You need to disable and enable replication to change the availability type.
