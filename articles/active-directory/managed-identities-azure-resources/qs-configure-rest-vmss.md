@@ -80,6 +80,7 @@ To create a virtual machine scale set with system-assigned managed identity enab
    ```
 
   **Request headers**
+
   |Request header  |Description  |
   |---------|---------|
   |*Content-Type*     | Required. Set to `application/json`.        |
@@ -87,7 +88,68 @@ To create a virtual machine scale set with system-assigned managed identity enab
 
   **Request body**
 
-  For the contents of the request body, refer to the following CURL command.    
+  ```JSON
+    {
+       "sku":{
+          "tier":"Standard",
+          "capacity":3,
+          "name":"Standard_D1_v2"
+       },
+       "location":"eastus",
+       "identity":{
+          "type":"SystemAssigned"
+       },
+       "properties":{
+          "overprovision":true,
+          "virtualMachineProfile":{
+             "storageProfile":{
+                "imageReference":{
+                   "sku":"2016-Datacenter",
+                   "publisher":"MicrosoftWindowsServer",
+                   "version":"latest",
+                   "offer":"WindowsServer"
+                },
+                "osDisk":{
+                   "caching":"ReadWrite",
+                   "managedDisk":{
+                      "storageAccountType":"Standard_LRS"
+                   },
+                   "createOption":"FromImage"
+                }
+             },
+             "osProfile":{
+                "computerNamePrefix":"myVMSS",
+                "adminUsername":"azureuser",
+                "adminPassword":"myPassword12"
+             },
+             "networkProfile":{
+                "networkInterfaceConfigurations":[
+                   {
+                      "name":"myVMSS",
+                      "properties":{
+                         "primary":true,
+                         "enableIPForwarding":true,
+                         "ipConfigurations":[
+                            {
+                               "name":"myVMSS",
+                               "properties":{
+                                  "subnet":{
+                                     "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+                                  }
+                               }
+                            }
+                         ]
+                      }
+                   }
+                ]
+             }
+          },
+          "upgradePolicy":{
+             "mode":"Manual"
+          }
+       }
+    }  
+  ```  
  
   ```bash   
   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"SystemAssigned"},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -118,9 +180,16 @@ To enable system-assigned managed identity on an existing virtual machine scale 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned"
+       }
+    }
+   ```
 
    ```bash
     curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -143,10 +212,24 @@ To enable system-assigned managed identity on an existing virtual machine scale 
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
-   |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+   |*Authorization*     | Required. Set to a valid `Bearer` access token. |
+ 
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{
+    
+             }
+          }
+       }
+    }
+   ```
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -164,12 +247,23 @@ To enable system-assigned managed identity on an existing virtual machine scale 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 ### Disable system-assigned managed identity from a virtual machine scale set
@@ -198,9 +292,16 @@ To disable a system-assigned identity on an existing virtual machine scale set, 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"None"
+       }
+    }
+   ```
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -248,12 +349,79 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "sku":{
+          "tier":"Standard",
+          "capacity":3,
+          "name":"Standard_D1_v2"
+       },
+       "location":"eastus",
+       "identity":{
+          "type":"UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       },
+       "properties":{
+          "overprovision":true,
+          "virtualMachineProfile":{
+             "storageProfile":{
+                "imageReference":{
+                   "sku":"2016-Datacenter",
+                   "publisher":"MicrosoftWindowsServer",
+                   "version":"latest",
+                   "offer":"WindowsServer"
+                },
+                "osDisk":{
+                   "caching":"ReadWrite",
+                   "managedDisk":{
+                      "storageAccountType":"Standard_LRS"
+                   },
+                   "createOption":"FromImage"
+                }
+             },
+             "osProfile":{
+                "computerNamePrefix":"myVMSS",
+                "adminUsername":"azureuser",
+                "adminPassword":"myPassword12"
+             },
+             "networkProfile":{
+                "networkInterfaceConfigurations":[
+                   {
+                      "name":"myVMSS",
+                      "properties":{
+                         "primary":true,
+                         "enableIPForwarding":true,
+                         "ipConfigurations":[
+                            {
+                               "name":"myVMSS",
+                               "properties":{
+                                  "subnet":{
+                                     "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+                                  }
+                               }
+                            }
+                         ]
+                      }
+                   }
+                ]
+             }
+          },
+          "upgradePolicy":{
+             "mode":"Manual"
+          }
+       }
+    }
+   ```
 
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus",{"identity":{"type":"UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
    **API VERSION 2017-12-01**
@@ -267,13 +435,78 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |Request header  |Description  |
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
-   |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+   |*Authorization*     | Required. Set to a valid `Bearer` access token. |
+ 
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "sku":{
+          "tier":"Standard",
+          "capacity":3,
+          "name":"Standard_D1_v2"
+       },
+       "location":"eastus",
+       "identity":{
+          "type":"UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       },
+       "properties":{
+          "overprovision":true,
+          "virtualMachineProfile":{
+             "storageProfile":{
+                "imageReference":{
+                   "sku":"2016-Datacenter",
+                   "publisher":"MicrosoftWindowsServer",
+                   "version":"latest",
+                   "offer":"WindowsServer"
+                },
+                "osDisk":{
+                   "caching":"ReadWrite",
+                   "managedDisk":{
+                      "storageAccountType":"Standard_LRS"
+                   },
+                   "createOption":"FromImage"
+                }
+             },
+             "osProfile":{
+                "computerNamePrefix":"myVMSS",
+                "adminUsername":"azureuser",
+                "adminPassword":"myPassword12"
+             },
+             "networkProfile":{
+                "networkInterfaceConfigurations":[
+                   {
+                      "name":"myVMSS",
+                      "properties":{
+                         "primary":true,
+                         "enableIPForwarding":true,
+                         "ipConfigurations":[
+                            {
+                               "name":"myVMSS",
+                               "properties":{
+                                  "subnet":{
+                                     "id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
+                                  }
+                               }
+                            }
+                         ]
+                      }
+                   }
+                ]
+             }
+          },
+          "upgradePolicy":{
+             "mode":"Manual"
+          }
+       }
+    }
+   ```
 
    ```bash   
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus",{"identity":{"type":"UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
    ```
 
 ### Assign a user-assigned managed identity to an existing Azure virtual machine scale set
@@ -318,9 +551,21 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"userAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       }
+    }
+   ```
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -338,9 +583,19 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"userAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
+   ```
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -364,9 +619,24 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             },
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{
+    
+             }
+          }
+       }
+    }
+   ```
 
    ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -388,9 +658,20 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1",
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"
+          ]
+       }
+    }
+   ```
 
    ```bash
    curl  'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -438,9 +719,21 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned, UserAssigned",
+          "userAssignedIdentities":{
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{
+    
+             }
+          }
+       }
+    }
+   ```
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned, UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -460,12 +753,22 @@ In this section, you learn how to add and remove user-assigned managed identity 
    |---------|---------|
    |*Content-Type*     | Required. Set to `application/json`.        |
    |*Authorization*     | Required. Set to a valid `Bearer` access token. | 
+
    **Request body**
 
-   For the contents of the request body, refer to the following CURL command.   
+   ```JSON
+    {
+       "identity":{
+          "type":"SystemAssigned,UserAssigned",
+          "identityIds":[
+             "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"
+          ]
+       }
+    }
+   ```
 
    ```bash
-   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned","UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
+   curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
    ```
 
 If your virtual machine scale set has both system-assigned and user-assigned managed identities, you can remove all the user-assigned managed identities by switching to use only system-assigned using the following command:
@@ -483,7 +786,13 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Request body**
 
-For the contents of the request body, refer to the following CURL command.
+```JSON
+{
+   "identity":{
+      "type":"SystemAssigned"
+   }
+}
+```
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -504,7 +813,13 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 **Request body**
 
-For the contents of the request body, refer to the following CURL command.
+```JSON
+{
+   "identity":{
+      "type":"None"
+   }
+}
+```
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"None"}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
