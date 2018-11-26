@@ -115,7 +115,7 @@ The easiest way for you to set SPNs is to follow the SPN formats that may alread
 1. Browse to the site with the SPN from another machine.
  When you do, the relevant set of Kerberos tickets is cached on the machine. These tickets contain the SPN of the target site that you browsed to.
 
-2. You can pull the SPN for that site by using a tool called [Klist](http://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). In a command window that's running in the same context as the user who accessed the site in the browser, run the following command:
+2. You can pull the SPN for that site by using a tool called [Klist](https://web.mit.edu/kerberos/krb5-devel/doc/user/user_commands/klist.html). In a command window that's running in the same context as the user who accessed the site in the browser, run the following command:
 ```
 Klist
 ```

@@ -29,7 +29,7 @@ The following terminology is used in this article:
 |Alternate login ID|An on-premises attribute other than UserPrincipalName, such as mail attribute, used for sign-in.|
 
 ## What is UserPrincipalName?
-UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](http://www.ietf.org/rfc/rfc0822.txt). 
+UserPrincipalName is an attribute that is an Internet-style login name for a user based on the Internet standard [RFC 822](https://www.ietf.org/rfc/rfc0822.txt). 
 
 ### UPN format
 A UPN consists of a UPN prefix (the user account name) and a UPN suffix (a DNS domain name). The prefix is joined with the suffix using the "\@" symbol. For example, "someone\@example.com". A UPN must be unique among all security principal objects within a directory forest. 

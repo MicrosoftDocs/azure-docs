@@ -26,7 +26,7 @@ Twilio is a telephony web-service API that lets you use your existing web langua
 **Twilio Voice** allows your applications to make and receive phone calls. **Twilio SMS** allows your applications to make and receive SMS messages. **Twilio Client** allows your applications to enable voice communication using existing Internet connections, including mobile connections.
 
 ## <a id="Pricing"></a>Twilio Pricing and Special Offers
-Information about Twilio pricing is available at [Twilio Pricing][twilio_pricing]. Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [http://ahoy.twilio.com/azure][special_offer].
+Information about Twilio pricing is available at [Twilio Pricing][twilio_pricing]. Azure customers receive a [special offer][special_offer]: a free credit of 1000 texts or 1000 inbound minutes. To sign up for this offer or get more information, please visit [https://ahoy.twilio.com/azure][special_offer].
 
 ## <a id="Concepts"></a>Concepts
 The Twilio API is a RESTful API that provides voice and SMS functionality for applications. Client libraries are available in multiple languages; for a list, see [Twilio API Libraries][twilio_libraries].
@@ -113,7 +113,7 @@ The following shows how to make an outgoing call using the **Call** class. This 
     Twilio.init(accountSID, authToken);
 
     // Use the Twilio-provided site for the TwiML response.
-    URI uri = new URI("http://twimlets.com/message" +
+    URI uri = new URI("https://twimlets.com/message" +
             "?Message%5B0%5D=Hello%20World%21");
 
     // Declare To and From numbers
@@ -125,7 +125,7 @@ The following shows how to make an outgoing call using the **Call** class. This 
     Call.creator(to, from, uri).create();
 ```
 
-For more information about the parameters passed in to the **Call.creator** method, see [http://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
+For more information about the parameters passed in to the **Call.creator** method, see [https://www.twilio.com/docs/api/rest/making-calls][twilio_rest_making_calls].
 
 As mentioned, this code uses a Twilio-provided site to return the TwiML response. You could instead use your own site to provide the TwiML response; for more information, see [How to Provide TwiML Responses in a Java Application on Azure](#howto_provide_twiml_responses).
 
@@ -151,10 +151,10 @@ The following shows how to send an SMS message using the **Message** class. The 
     Message sms = Message.creator(to, from, body).create();
 ```
 
-For more information about the parameters passed in to the **Message.creator** method, see [http://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
+For more information about the parameters passed in to the **Message.creator** method, see [https://www.twilio.com/docs/api/rest/sending-sms][twilio_rest_sending_sms].
 
 ## <a id="howto_provide_twiml_responses"></a>How to: Provide TwiML Responses from your own Website
-When your application initiates a call to the Twilio API, for example via the **CallCreator.create** method, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [http://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [http://twimlets.com/message][twimlet_message_url] to see an empty **&lt;Response&gt;** element; as another example, click [http://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] to see a **&lt;Response&gt;** element that contains a **&lt;Say&gt;** element.)
+When your application initiates a call to the Twilio API, for example via the **CallCreator.create** method, Twilio will send your request to a URL that is expected to return a TwiML response. The example above uses the Twilio-provided URL [https://twimlets.com/message][twimlet_message_url]. (While TwiML is designed for use by Web services, you can view the TwiML in your browser. For example, click [https://twimlets.com/message][twimlet_message_url] to see an empty **&lt;Response&gt;** element; as another example, click [https://twimlets.com/message?Message%5B0%5D=Hello%20World%21][twimlet_message_url_hello_world] to see a **&lt;Response&gt;** element that contains a **&lt;Say&gt;** element.)
 
 Instead of relying on the Twilio-provided URL, you can create your own URL site that returns HTTP responses. You can create the site in any language that returns HTTP responses; this topic assumes you'll be hosting the URL in a JSP page.
 
@@ -216,22 +216,22 @@ Now that you've learned the basics of the Twilio service, follow these links to 
 [twilio_api_service]: https://api.twilio.com
 [add_ca_cert]: java-add-certificate-ca-store.md
 [howto_phonecall_java]: partner-twilio-java-phone-call-example.md
-[misc_role_config_settings]: http://msdn.microsoft.com/library/windowsazure/hh690945.aspx
-[twimlet_message_url]: http://twimlets.com/message
-[twimlet_message_url_hello_world]: http://twimlets.com/message?Message%5B0%5D=Hello%20World%21
-[twilio_rest_making_calls]: http://www.twilio.com/docs/api/rest/making-calls
-[twilio_rest_sending_sms]: http://www.twilio.com/docs/api/rest/sending-sms
-[twilio_pricing]: http://www.twilio.com/pricing
-[special_offer]: http://ahoy.twilio.com/azure
+[misc_role_config_settings]: https://msdn.microsoft.com/library/windowsazure/hh690945.aspx
+[twimlet_message_url]: https://twimlets.com/message
+[twimlet_message_url_hello_world]: https://twimlets.com/message?Message%5B0%5D=Hello%20World%21
+[twilio_rest_making_calls]: https://www.twilio.com/docs/api/rest/making-calls
+[twilio_rest_sending_sms]: https://www.twilio.com/docs/api/rest/sending-sms
+[twilio_pricing]: https://www.twilio.com/pricing
+[special_offer]: https://ahoy.twilio.com/azure
 [twilio_libraries]: https://www.twilio.com/docs/libraries
-[twiml]: http://www.twilio.com/docs/api/twiml
-[twilio_api]: http://www.twilio.com/api
+[twiml]: https://www.twilio.com/docs/api/twiml
+[twilio_api]: https://www.twilio.com/api
 [try_twilio]: https://www.twilio.com/try-twilio
 [twilio_console]:  https://www.twilio.com/console
 [verify_phone]: https://www.twilio.com/console/phone-numbers/verified#
-[twilio_api_documentation]: http://www.twilio.com/docs
-[twilio_security_guidelines]: http://www.twilio.com/docs/security
-[twilio_howtos]: http://www.twilio.com/docs/howto
+[twilio_api_documentation]: https://www.twilio.com/docs
+[twilio_security_guidelines]: https://www.twilio.com/docs/security
+[twilio_howtos]: https://www.twilio.com/docs/howto
 [twilio_on_github]: https://github.com/twilio
-[twilio_support]: http://www.twilio.com/help/contact
-[twilio_quickstarts]: http://www.twilio.com/docs/quickstart
+[twilio_support]: https://www.twilio.com/help/contact
+[twilio_quickstarts]: https://www.twilio.com/docs/quickstart

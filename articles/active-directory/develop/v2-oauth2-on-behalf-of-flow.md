@@ -130,7 +130,7 @@ A success response is a JSON OAuth 2.0 response with the following parameters.
 
 | Parameter | Description |
 | --- | --- |
-| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt). |
+| token_type |Indicates the token type value. The only type that Azure AD supports is **Bearer**. For more information about bearer tokens, see the [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt). |
 | scope |The scope of access granted in the token. |
 | expires_in |The length of time the access token is valid (in seconds). |
 | access_token |The requested access token. The calling service can use this token to authenticate to the receiving service. |
