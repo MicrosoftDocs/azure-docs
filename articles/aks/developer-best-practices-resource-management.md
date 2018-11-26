@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/26/2018
 ms.author: iainfou
 ---
 
@@ -66,7 +66,7 @@ For more information about resource measurements and assignments, see [Managing 
 
 With Azure Dev Spaces, you can develop, debug, and test applications directly against an AKS cluster. Developers within a team can work together to build and test throughout the application lifecycle. You can continue to use existing tools such as Visual Studio or Visual Studio Code. An extension is installed for Dev Spaces that gives an option to run and debug the application in an AKS cluster:
 
-![Debug applications in an AKS cluster with Dev Spaces](media/best-practices-cluster-isolation-resource-management/dev-spaces-debug.png)
+![Debug applications in an AKS cluster with Dev Spaces](media/developer-best-practices-resource-management/dev-spaces-debug.png)
 
 This integrated development and test process with Dev Spaces reduces the need for local test environments, such as [minikube][minikube]. Instead, you develop and test against an AKS cluster, which can also be secured and isolated as noted in previous section on the use of namespaces to logically isolate a cluster. When your apps are ready to deploy to production, you can confidently deploy as your development was all done against a real AKS cluster.
 
@@ -76,7 +76,7 @@ This integrated development and test process with Dev Spaces reduces the need fo
 
 The [Visual Studio Code extension for Kubernetes][vscode-kubernetes] helps you develop and deploy applications to AKS. The extension provides intellisense for Kubernetes resources, as well as Helm charts and templates. You can also browse, deploy, and edit Kubernetes resources from within VS Code. The extension also provides an intellisense check for resource requests or limits being set in the pod specifications:
 
-![VS Code extension for Kubernetes warning about missing memory limits](media/best-practices-cluster-isolation-resource-management/vs-code-kubernetes-extension.png)
+![VS Code extension for Kubernetes warning about missing memory limits](media/developer-best-practices-resource-management/vs-code-kubernetes-extension.png)
 
 ## Regularly check for application issues with kube-advisor
 
