@@ -1,5 +1,4 @@
 ---
-services: app-service
 author: cephalin
 ms.service: app-service
 ms.topic: include
