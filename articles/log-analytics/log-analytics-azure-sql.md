@@ -29,17 +29,15 @@ For a hands-on overview on using Azure SQL Analytics solution and for typical us
 
 ## Connected sources
 
-Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL Database, Managed Instance databases and elastic pools.
-
-As the solution does not use agents to connect to the Log Analytics service, the solution does not support monitoring of SQL Server hosted on-premises or in VMs, see the compatibility table below.
+Azure SQL Analytics is a cloud only monitoring solution supporting streaming of diagnostics telemetry for Azure SQL databases: single, pooled, and Managed Instance databases. As the solution does not use agents to connect to the Log Analytics service, the solution does not support monitoring of SQL Server hosted on-premises or in VMs, see the compatibility table below.
 
 | Connected Source | Supported | Description |
 | --- | --- | --- |
-| **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
+| [Azure Diagnostics](log-analytics-azure-storage.md) | **Yes** | Azure metric and log data are sent to Log Analytics directly by Azure. |
 | [Azure storage account](log-analytics-azure-storage.md) | No | Log Analytics doesn't read the data from a storage account. |
 | [Windows agents](log-analytics-agent-windows.md) | No | Direct Windows agents aren't used by the solution. |
 | [Linux agents](log-analytics-quick-collect-linux-computer.md) | No | Direct Linux agents aren't used by the solution. |
-| [SCOM management group](log-analytics-om-agents.md) | No | A direct connection from the SCOM agent to Log Analytics is not used by the solution. |
+| [System Center Operations Manager management group](log-analytics-om-agents.md) | No | A direct connection from the Operations Manager agent to Log Analytics is not used by the solution. |
 
 ## Configuration
 
@@ -57,9 +55,9 @@ Perform the following steps to add the Azure SQL Analytics solution to your Azur
 
 ### Configure Azure SQL Databases, elastic pools and Managed Instances to stream diagnostics telemetry
 
-Once you have created Azure SQL Analytics solution in your workspace, in order to monitor performance of Azure SQL databases, databases in Managed Instance databases and elastic pools, you will need to **configure each** of these resources you wish to monitor to stream its diagnostics telemetry to the solution. Please follow detailed instructions on this page:
+Once you have created Azure SQL Analytics solution in your workspace, you need to **configure each** resources that you want to monitor to stream its diagnostics telemetry to the solution. Follow detailed instructions on this page:
 
-- Enable Azure Diagnostics for your Azure SQL Database, Managed Instance databases and elastic pools to [stream diagnostics telemetry to Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
+- Enable Azure Diagnostics for your Azure SQL database to [stream diagnostics telemetry to Azure SQL Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 The above page also provides instructions on enabling support for monitoring multiple Azure subscriptions from a single Azure SQL Analytics workspace as a single pane of glass.
 
@@ -77,11 +75,11 @@ To view Azure SQL Analytics monitoring dashboard for Azure SQL Databases and ela
 
 The dashboard includes the overview of all databases that are monitored through different perspectives. For different perspectives to work, you must enable proper metrics or logs on your SQL resources to be streamed to Azure Log Analytics workspace.
 
-Please note that if some metrics or logs are not streamed into Azure Log Analytics, the tiles in the solution will not be populated with monitoring information.
+Note that if some metrics or logs are not streamed into Azure Log Analytics, the tiles in the solution are not populated with monitoring information.
 
 ### Azure SQL Database and elastic pool view
 
-Once the Azure SQL Analytics tile for Azure SQL Database and elastic pools is selected, the monitoring dashboard is shown.
+Once the Azure SQL Analytics tile for the database is selected, the monitoring dashboard is shown.
 
 ![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
@@ -93,7 +91,7 @@ Each perspective in this view provides summaries on subscription, server, elasti
 
 ### Managed Instance and databases in Managed Instance view
 
-Once the Azure SQL Analytics tile for Managed Instances and Managed Instance databases is selected, the monitoring dashboard is shown.
+Once the Azure SQL Analytics tile for the databases is selected, the monitoring dashboard is shown.
 
 ![Azure SQL Analytics Overview](./media/log-analytics-azure-sql/azure-sql-sol-overview-mi.png)
 
@@ -120,7 +118,7 @@ The below table outlines perspectives supported for two versions of the dashboar
 
 ### Intelligent Insights report
 
-Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with performance of Azure SQL Databases and Managed Instance databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) lets you know what is happening with performance of all Azure SQL databases. All Intelligent Insights collected can be visualized and accessed through the Insights perspective.
 
 ![Azure SQL Analytics Insights](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -140,13 +138,13 @@ Through the Query duration and query waits perspectives, you can correlate the p
 
 ## Permissions
 
-To use Azure SQL Analytics users will at minimum need to be granted the Reader role in Azure. This role will however not allow users to see the query text, or perform any Automatic tuning actions. More liberal roles in Azure that will allow using the solution to the fullest extent are Owner, Contributor, SQL DB Contributor, or SQL Server Contributor. You also might want to consider creating a custom role in the portal with specific permissions required only to use Azure SQL Analytics, and with no access to managing other resources.
+To use Azure SQL Analytics, users need to be granted a minimum permission of the Reader role in Azure. This role, however, does not allow users to see the query text, or perform any Automatic tuning actions. More permissive roles in Azure that allow using the solution to the fullest extent are Owner, Contributor, SQL DB Contributor, or SQL Server Contributor. You also might want to consider creating a custom role in the portal with specific permissions required only to use Azure SQL Analytics, and with no access to managing other resources.
 
 ### Creating a custom role in portal
 
-Recognizing that some organizations enforce strict permission controls in Azure, please find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
+Recognizing that some organizations enforce strict permission controls in Azure, find the following PowerShell script enabling creation of a custom role “SQL Analytics Monitoring Operator” in Azure portal with the minimum read and write permissions required to use Azure SQL Analytics to its fullest extent.
 
-Please replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
+Replace the “{SubscriptionId}" in the below script with your Azure subscription ID, and execute the script logged in as an Owner or Contributor role in Azure.
 
    ```powershell
     Connect-AzureRmAccount
@@ -177,9 +175,9 @@ Once the new role is created, assign this role to each user that you need to gra
 
 ## Analyze data and create alerts
 
-Data analysis in Azure SQL Analytics is based on [Log Analytics language](./query-language/get-started-queries.md) for your custom querying and reporting. Please find description of the available data collected from database resource for custom querying in [metrics and logs available](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
+Data analysis in Azure SQL Analytics is based on [Log Analytics language](./query-language/get-started-queries.md) for your custom querying and reporting. Find description of the available data collected from database resource for custom querying in [metrics and logs available](../sql-database/sql-database-metrics-diag-logging.md#metrics-and-logs-available).
 
-Automated alerting in the solution is based on writing a Log Analytics query that triggers an alert upon a condition met. Please find below several examples on Log Analytics queries upon which alerting can be setup in the solution.
+Automated alerting in the solution is based on writing a Log Analytics query that triggers an alert upon a condition met. Find below several examples on Log Analytics queries upon which alerting can be set up in the solution.
 
 ### Creating alerts for Azure SQL Database
 
@@ -291,7 +289,7 @@ AzureDiagnostics
 
 ### Pricing
 
-While the solution is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Please note that more active databases with heavier workloads will ingest more data versus idle databases. You can easily monitor your data ingestion consumption in the solution by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
+While the solution is free to use, consumption of diagnostics telemetry above the free units of data ingestion allocated each month applies, see [Log Analytics pricing](https://azure.microsoft.com/en-us/pricing/details/monitor). The free units of data ingestion provided enable free monitoring of several databases each month. Note that more active databases with heavier workloads ingest more data versus idle databases. You can easily monitor your data ingestion consumption in the solution by selecting OMS Workspace on the navigation menu of Azure SQL Analytics, and then selecting Usage and Estimated Costs.
 
 ## Next steps
 
