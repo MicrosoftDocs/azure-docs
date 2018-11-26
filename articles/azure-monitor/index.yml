@@ -24,6 +24,8 @@ sections:
     style: ordered
     items:
     - html: <a href="/azure/azure-monitor/azure-monitor-log-index>Learn more about Log Analytics</a>
+    - html: <a href="/azure/azure-monitor/azure-monitor-log-index>Learn more about Application Insights</a>
+
 - title: 5-Minute Quickstarts
   items:
   - type: paragraph
