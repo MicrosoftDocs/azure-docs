@@ -16,7 +16,7 @@ Customer intent: As an IT admin, I need to understand how to configure compute o
 
 This tutorial describes how to configure a compute role on your Azure Data Box Edge device. After you configure the compute role, Data Box Edge can transform data before sending it to Azure.
 
-This procedure can take around 30-45 minutes to complete.
+This procedure can take around 30 to 45 minutes to complete.
 
 In this tutorial, you learn how to:
 
