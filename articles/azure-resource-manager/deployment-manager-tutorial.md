@@ -197,6 +197,9 @@ The following screenshot only shows some parts of the service topology, services
 - **dependsOn**: All the service topology resources depend on the artifact source resource.
 - **artifacts** point to the template artifacts.  Relative paths are used here. The full path is constructed by concatenating artifactSourceSASLocation (defined in the artifact source), artifactRoot (defined in the artifact source), and templateArtifactSourceRelativePath (or parametersArtifactSourceRelativePath).
 
+> [!NOTE]
+> The service unit names must contain 31 characters or less. 
+
 ### Topology parameters file
 
 You create a parameters file used with the topology template.
