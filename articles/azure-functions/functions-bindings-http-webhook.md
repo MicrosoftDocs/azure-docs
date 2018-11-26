@@ -432,27 +432,9 @@ By default, all function routes are prefixed with *api*. You can also customize 
 
 ### Working with client identities
 
-If your function app is using [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md), you can view information about authenticated clients from your code. This capability is only available to the Functions 2.x runtime.
+If your function app is using [App Service Authentication / Authorization](../app-service/app-service-authentication-overview.md), you can view information about authenticated clients from your code. This information is available as [request headers injected by the platform](../app-service/app-service-authentication-how-to.md#access-user-claims). 
 
-For non-.NET languages, identities are available via an `identities` binding data property. This will be an array of identity objects, each one containing:
-- `authenticationType` - the name of the identity provider being used. App Service Authentication / Authorization provides the following options: `aad`, `facebook`, `google`, `twitter`, and `microsoftaccount`.
-- `nameClaimType` - A schema for the name claim. The value will be "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name".
-- `roleClaimType` - A schema for the role claim. The value will be "http://schemas.microsoft.com/ws/2008/06/identity/claims/role".
-- `claims` - An array of claims objects representing attributes of the subject which may be useful. Each object has a `type` and `value` property.
-
-In JavaScript, this would be referenced as follows:
-
-```javascript
-module.exports = async function (context, req) {
-    let identities = context.bindings.identities;
-    for (let id of identities) {
-        context.log(id.authenticationType);
-        //...
-    }
-    //...
-    context.done();
-};
-```
+You can also read this information from binding data. This capability is only available to the Functions 2.x runtime. It is also currently only available for .NET languages.
 
 In .NET languagues, this information is available as a [ClaimsPrincipal](https://docs.microsoft.com/en-us/dotnet/api/system.security.claims.claimsprincipal?view=netstandard-2.0). The ClaimsPrincipal is available as part of the request context as shown in the following example:
 
