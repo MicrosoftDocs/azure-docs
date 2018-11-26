@@ -31,7 +31,7 @@ This topic shows how to configure a filter for a Video on-Demand asset and use C
 
 ## Define a filter 
 
-The following example defines the track selection conditions that are applied to the manifest file. This filter includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
+The following example defines the track selection conditions that are added to the final manifest. This filter includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
 Filters defined in REST, include the "Properties" wrapper JSON object.  
 
