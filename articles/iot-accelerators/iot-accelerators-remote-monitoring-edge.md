@@ -21,16 +21,26 @@ To introduce edge processing with remote monitoring, this tutorial uses a simula
 
 Contoso wants to deploy an intelligent edge module to the oil pump jack that detects temperature anomalies. Another edge module sends alerts to the Remote Monitoring solution. When an alert is received, a Contoso operator can dispatch a maintenance technician. Contoso could also configure an automated action, such as sending an email, to run when the solution receives an alert.
 
-This tutorial uses your local Windows development machine as an IoT Edge device. You install edge modules to simulate the oil pump jack device and to detect the temperature anomalies.
+The following diagram shows the key components in the tutorial scenario:
+
+![Overview](media/iot-accelerators-remote-monitoring-edge/overview.png)
 
 In this tutorial, you:
 
 >[!div class="checklist"]
 > * Add an IoT Edge device to the solution
 > * Create an Edge manifest
-> * Import a package that defines the modules to run on the device
+> * Import the manifest as a package that defines the modules to run on the device
 > * Deploy the package to your IoT Edge device
 > * View alerts from the device
+
+On the IoT Edge device:
+
+* The runtime receives the package and installs the modules.
+* The stream analytics module detects temperature anomalies in the pump and sends commands resolve the issue.
+* The stream analytics module forwards filtered data to the solution accelerator.
+
+This tutorial uses a Linux virtual machine as an IoT Edge device. You also install an edge module to simulate the oil pump jack device.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
