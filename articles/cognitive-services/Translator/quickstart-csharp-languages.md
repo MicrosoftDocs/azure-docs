@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Get supported languages, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup and examples using the Translator Text API with C#.
+description: In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
@@ -88,7 +88,6 @@ Inside the `HttpRequestMessage` you'll:
 
 * Declare the HTTP method
 * Construct the request URI
-* Insert the request body (serialized JSON object)
 * Add required headers
 * Make an asynchronous request
 * Print the response
