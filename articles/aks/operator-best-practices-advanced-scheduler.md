@@ -25,7 +25,7 @@ This best practices article focuses on advanced Kubernetes scheduling features f
 
 **Best practice guidance** - Limit access for resource-intensive applications, such as ingress controllers, to specific nodes. Keep node resources available for workloads that require them, and don't allow scheduling of other workloads on the nodes.
 
-When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. These nodes are often used for large data processing workloads such as machine learning (ML) or artificial intelligence (AI). As this type of hardware is typically an expensive node resource to provision, limit the workloads that can be scheduled on these nodes. You may instead wish to dedicate some nodes in the cluster to run ingress services, and prevent other workloads.
+When you create your AKS cluster, you can deploy nodes with GPU support or a large number of powerful CPUs. These nodes are often used for large data processing workloads such as machine learning (ML) or artificial intelligence (AI). As this type of hardware is typically an expensive node resource to deploy, limit the workloads that can be scheduled on these nodes. You may instead wish to dedicate some nodes in the cluster to run ingress services, and prevent other workloads.
 
 The Kubernetes scheduler can use taints and tolerations to restrict what workloads can run on nodes.
 
@@ -75,7 +75,7 @@ For more information about taints and tolerations, see [applying taints and tole
 
 Taints and tolerations are used to logically isolate resources with a hard cut-off - if the pod doesn't tolerate a node's taint, it isn't scheduled on the node. An alternate approach is to use node selectors. You label nodes, such as to indicate locally attached SSD storage or a large amount of memory, and then define in the pod specification a node selector. Kubernetes then schedules those pods on a matching node. Unlike tolerations, pods without a matching node selector can be scheduled on labeled nodes. This behavior allows unused resources on the nodes to consume, but gives priority to pods that define the matching node selector.
 
-Let's look at an example of nodes with a high amount of memory. These nodes can give preference to pods that request a high amount of memory, but also allow other pods to run so the resources don't sit idle.
+Let's look at an example of nodes with a high amount of memory. These nodes can give preference to pods that request a high amount of memory. To make sure that the resources don't sit idle, they also allow other pods to run.
 
 ```console
 kubectl label node aks-nodepool1 hardware:highmem
@@ -103,15 +103,15 @@ spec:
       hardware: highmem
 ```
 
-When you use node selectors, affinity, or inter-pod affinity and anti-affinity, work with your application developers and owners to allow them to correctly define their pod specifications.
+When you use these scheduler options, work with your application developers and owners to allow them to correctly define their pod specifications.
 
 For more information about using node selectors, see [Assigning Pods to Nodes][k8s-node-selector].
 
 ### Node affinity
 
-A node selector is a basic way to assign pods to a given node. More flexibility is available using *node affinity*. With node affinity, you can define what happens if the pod can't be matched with a node. You can *require* that Kubernetes scheduler matches a pod with a labeled host, or that you *prefer* a match but allow the pod to be scheduled on a different host if not match is available.
+A node selector is a basic way to assign pods to a given node. More flexibility is available using *node affinity*. With node affinity, you define what happens if the pod can't be matched with a node. You can *require* that Kubernetes scheduler matches a pod with a labeled host. Or, you can *prefer* a match but allow the pod to be scheduled on a different host if not match is available.
 
-The following example sets the node affinity to *requiredDuringSchedulingIgnoredDuringExecution*. This affinity requires the Kubernetes schedule to use a node with a matching label. If no node is available, the pod has to wait for scheduling to proceed. To allow the pod to be scheduled on a different node, you can instead set the value to *preferredDuringScheduledIgnoreDuringExecution*:
+The following example sets the node affinity to *requiredDuringSchedulingIgnoredDuringExecution*. This affinity requires the Kubernetes schedule to use a node with a matching label. If no node is available, the pod has to wait for scheduling to continue. To allow the pod to be scheduled on a different node, you can instead set the value to *preferredDuringScheduledIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod
@@ -145,16 +145,16 @@ For more information, see [Affinity and anti-affinity][k8s-affinity].
 
 ### Inter-pod affinity and anti-affinity
 
-One final approach for the Kubernetes scheduler to logically isolate workloads is using inter-pod affinity or anti-affinity. The settings define either that pods *shouldn't* be scheduled on a node that has an existing matching pod, or that they *should* be scheduled. By default, the Kubernetes scheduler tries to schedule multiple pods in a replica set across nodes, but you can define more specific rules around this behavior.
+One final approach for the Kubernetes scheduler to logically isolate workloads is using inter-pod affinity or anti-affinity. The settings define that pods *shouldn't* be scheduled on a node that has an existing matching pod, or that they *should* be scheduled. By default, the Kubernetes scheduler tries to schedule multiple pods in a replica set across nodes. You can define more specific rules around this behavior.
 
-A good example is a web application that also uses a Redis cache. You can use pod anti-affinity rules to request that the Kubernetes scheduler distributes replicas across nodes, and then affinity rules to ensure that each web app component is scheduled on the same host as a corresponding cache. The distribution of pods across nodes looks like the following example:
+A good example is a web application that also uses a Redis cache. You can use pod anti-affinity rules to request that the Kubernetes scheduler distributes replicas across nodes. You can then ise affinity rules to make sure that each web app component is scheduled on the same host as a corresponding cache. The distribution of pods across nodes looks like the following example:
 
 | **Node 1** | **Node 2** | **Node 3** |
 |------------|------------|------------|
 | webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-This example is a more complex deployment than the use of node selectors or node affinity, but gives you control over how Kubernetes schedules pods on nodes and can logically isolate resources. For a complete example of this web application with Redis cache example, see [Colocate pods on the same node][k8s-pod-affinity].
+This example is a more complex deployment than the use of node selectors or node affinity. The deployment gives you control over how Kubernetes schedules pods on nodes and can logically isolate resources. For a complete example of this web application with Redis cache example, see [Colocate pods on the same node][k8s-pod-affinity].
 
 ## Next steps
 

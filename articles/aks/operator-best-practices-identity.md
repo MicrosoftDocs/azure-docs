@@ -12,7 +12,7 @@ ms.author: iainfou
 
 # Best practices for authentication and authorization in Azure Kubernetes Service (AKS)
 
-As you deploy and maintain clusters in Azure Kubernetes Service (AKS), you need to implement ways to manage access to resources and services. Without these controls, accounts may have access to resources and services they don't need, and it can be hard to track which set of credentials were used to make changes.
+As you deploy and maintain clusters in Azure Kubernetes Service (AKS), you need to implement ways to manage access to resources and services. Without these controls, accounts may have access to resources and services they don't need. It can also be hard to track which set of credentials were used to make changes.
 
 This best practices article focuses on how a cluster operator can manage access and identity for AKS clusters. In this article, you learn how to:
 
@@ -23,7 +23,7 @@ This best practices article focuses on how a cluster operator can manage access 
 
 ## Use Azure Active Directory
 
-**Best practice guidance** - Deploy AKS clusters with Azure AD integration. Using Azure AD centralizes the identity management component, meaning any change in user account or group status is automatically reflected in access to the AKS cluster. Use Roles or ClusterRoles and Bindings, as discussed in the next section, to scope users or groups to least amount of permissions needed.
+**Best practice guidance** - Deploy AKS clusters with Azure AD integration. Using Azure AD centralizes the identity management component. Any change in user account or group status is automatically updated in access to the AKS cluster. Use Roles or ClusterRoles and Bindings, as discussed in the next section, to scope users or groups to least amount of permissions needed.
 
 The developers and application owners of your Kubernetes cluster need access to different resources. Kubernetes doesn't provide an identity management solution to control which users can interact with what resources. Instead, you typically integrate your cluster with an existing identity solution. Azure Active Directory (AD) provides an enterprise-ready identity management solution, and can integrate with AKS clusters.
 
@@ -86,10 +86,10 @@ When *developer1@contoso.com* is authenticated against the AKS cluster, they hav
 
 When pods need access to other Azure services, such as Cosmos DB, Key Vault, or Blob Storage, the pod needs access credentials. These access credentials could be defined with the container image or injected as a Kubernetes secret, but need to be manually created and assigned. Often, the credentials are reused across pods, and aren't regularly rotated.
 
-Managed identities for Azure resources let you automatically request access to services through Azure AD. You don't manually define credentials for pods, instead they request an access token in real time, and can use it to access only their designated services. In AKS, two components are deployed by the cluster operator to allow pods to use managed identities:
+Managed identities for Azure resources let you automatically request access to services through Azure AD. You don't manually define credentials for pods, instead they request an access token in real time, and can use it to access only their assigned services. In AKS, two components are deployed by the cluster operator to allow pods to use managed identities:
 
-* **The Node Management Identity (NMI) server** is a pod that runs as a DaemonSet on each node in the AKS cluster, and listens for pod requests to Azure services.
-* **The Managed Identity Controller (MIC)** is a central pod with permissions to query the Kubernetes API server and check for an Azure identity mapping that corresponds to a pod.
+* **The Node Management Identity (NMI) server** is a pod that runs as a DaemonSet on each node in the AKS cluster. The NMI server listens for pod requests to Azure services.
+* **The Managed Identity Controller (MIC)** is a central pod with permissions to query the Kubernetes API server and checks for an Azure identity mapping that corresponds to a pod.
 
 When pods request access to an Azure service, network rules redirect the traffic to the Node Management Identity (NMI) server. The NMI server identifies pods that request access to Azure services based on their remote address, and queries the Managed Identity Controller (MIC). The MIC checks for Azure identity mappings in the AKS cluster, and the NMI server then requests an access token from Azure Active Directory (AD) based on the pod's identity mapping. Azure AD provides access to the NMI server, which is returned to the pod. This access token can be used by the pod to then request access to services in Azure.
 
