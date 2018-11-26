@@ -609,7 +609,7 @@ HealthStatistics      :
 ```
 
 ### REST
-You can get partition health with a [GET request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) that includes health policies described in the body.
+You can get partition health with a [GET request](/rest/api/servicefabric/sfclient-api-getpartitionhealth) or a [POST request](https://docs.microsoft.com/rest/api/servicefabric/get-the-health-of-a-partition-by-using-a-health-policy) that includes health policies described in the body.
 
 ## Get replica health
 Returns the health of a stateful service replica or a stateless service instance. Input:

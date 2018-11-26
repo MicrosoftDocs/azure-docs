@@ -172,6 +172,8 @@
       href: how-to-connect-pta-quick-start.md
     - name: How pass-through authentication works
       href: how-to-connect-pta-how-it-works.md
+    - name: Pass-through authentication current limitations
+      href: how-to-connect-pta-current-limitations.md
     - name: Security deep dive on pass-through authentication
       href: how-to-connect-pta-security-deep-dive.md
     - name: Pass-through authentication and user privacy
