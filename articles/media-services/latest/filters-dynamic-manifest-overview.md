@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/24/2018
+ms.date: 11/25/2018
 ms.author: juliako
 
 ---
@@ -30,9 +30,7 @@ Filters are server-side rules that allow your customers to do things like:
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 - Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
-The [Common scenarios](#common-scenarios) section has detailed explanations of common scenarios.
-
-Before you start examining scenarios, check out the [Concepts](#concepts) section and [Defining filters](#definitions).
+This topic describes [Concepts](#concepts) and [How to define filters](#definitions). It also gives details about [common scenarios](#common-scenarios).
 
 ## Concepts
 
@@ -115,12 +113,12 @@ Use this property with **Asset Filters**. It is not recommended to set the prope
 
 Use tracks to specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
 
-Filter track property conditions describe track type and value (described in the following table), and operation (Equal, NotEqual). 
+Filter track property conditions describe track types, values (described in the following table), and operations (Equal, NotEqual). 
 
 |Name|Description|
 |---|---|
 |Bitrate|The bitrate of the track.<br/><br/>The value is a range of bitrates or a specific bitrate. For example, 0-2427000.|
-|FourCC|The track fourCC.<br/><br/>The value is the first element of codecs format, as specified in RFC 6381. Currently, the following are supported: For Video: `avc1`<br/>For Audio: `mp4a`, `ec-3`.|
+|FourCC|The track fourCC.<br/><br/>The value is the first element of codecs format, as specified in RFC 6381. Currently, the following are supported: <br/>For Video: `avc1`<br/>For Audio: `mp4a`, `ec-3`.|
 |Language|The language of the track. <br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, `en`.|
 |Name|The name of the track.|
 |Type|The type of the track.<br/><br/>The following values are allowed: `video`, `audio`, or `text`.|
