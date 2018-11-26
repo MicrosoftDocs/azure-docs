@@ -74,7 +74,7 @@ The output is similar to the following example:
 ```
 {
   "appId": "bef76eb3-d743-4a97-9534-03e9388811fc",
-  "displayName": "zure-cli-2018-11-21-18-42-00",
+  "displayName": "azure-cli-2018-11-21-18-42-00",
   "name": "http://azure-cli-2018-11-21-18-42-00",
   "password": "1d257915-8714-4ce7-a7fb-0e5a5411df7f",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
@@ -200,7 +200,7 @@ spec:
         effect: NoSchedule
 ```
 
-Run the application with the [kubectl create][kubectl-create] command.
+Run the application with the [kubectl apply][kubectl-apply] command.
 
 ```console
 kubectl apply -f virtual-node.yaml
@@ -292,6 +292,9 @@ Virtual nodes are often one component of a scaling solution in AKS. For more inf
 
 <!-- LINKS - external -->
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
+[kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
+[node-selector]:https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
+[toleration]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 
 <!-- LINKS - internal -->
 [azure-cli-install]: /cli/azure/install-azure-cli
