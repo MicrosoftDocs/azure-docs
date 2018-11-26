@@ -175,7 +175,7 @@ Replace {_argument_name_} with your own values:
 
 | Placeholder | Value | Format or example |
 |-------------|-------|---|
-|{ENDPOINT_KEY} | The application ID of the trained LUIS application. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
+|{ENDPOINT_KEY} | The endpoint key of the trained LUIS application. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT} | The billing endpoint value is available on the Azure portal's Language Understanding Overview page.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
@@ -187,7 +187,7 @@ Replace {_argument_name_} with your own values:
 The following example has the fewest arguments possible to run the container:
 
 ```bash
-docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
+docker run --rm -it -p 5000:5000 --memory 4g --cpus 2 \
 --mount type=bind,src=c:\input,target=/input \
 --mount type=bind,src=c:\output,target=/output \
 mcr.microsoft.com/azure-cognitive-services/luis:latest \
@@ -226,7 +226,7 @@ docker run --rm -it -p 5000:5000 --memory 6g --cpus 2 \
 mcr.microsoft.com/azure-cognitive-services/luis:latest \
 Eula=accept \
 Billing={BILLING_ENDPOINT} \
-ApiKey={APPLICATION_ID} \
+ApiKey={ENDPOINT_KEY} \
 Logging:Console:LogLevel=Information
 ```
 
@@ -247,5 +247,5 @@ ApiKey={APPLICATION_ID} \
 
 ## Next steps
 
-* Review [Configure containers](luis-container-configuration.md) for configuration settings
+* Review [How to install and run containers](luis-container-howto.md)
 * Refer to [Frequently asked questions (FAQ)](luis-resources-faq.md) to resolve issues related to LUIS functionality.
