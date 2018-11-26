@@ -1,7 +1,20 @@
+---
+title: Azure Service Fabric Mesh Maven Reference | Microsoft Docs
+description: Contains the reference for how to use the Maven plugin for Service Fabric Mesh 
+services: service-fabric-mesh
+keywords: maven, java, cli 
+author: suhuruli
+ms.author: suhuruli
+ms.date: 11/26/2018
+ms.topic: reference
+ms.service: service-fabric-mesh
+manager: subramar
+---
+
 # Maven Plugin for Service Fabric Mesh
 [![Maven Central](https://img.shields.io/maven-central/v/com.microsoft.azure/azure-functions-maven-plugin.svg)]()
 
-#### Table of Content
+## Table of Content
   - [Prerequisites](#prerequisites)
   - [Goals](#goals)
       - [sf-mesh:init](#sf-meshinit)
@@ -24,29 +37,29 @@
 
 ## Goals
 
-#### `sf-mesh:init`
+### `sf-mesh:init`
 - Generates a `servicefabric` folder that contains an `appresources` folder that has the `application.yaml` file. 
 
-#### `sf-mesh:addservice`
+### `sf-mesh:addservice`
 - Creates a folder under  that stores a services YAML file. 
 
-#### `sf-mesh:addnetwork`
+### `sf-mesh:addnetwork`
 - Will create a `network` YAML with the provided network name under the `appresources` folder 
 
-#### `sf-mesh:addgateway`
+### `sf-mesh:addgateway`
 - Will create a `gateway` YAML with the provided gateway name under the `appresources` folder 
 
-#### `sf-mesh:addsecret`
+### `sf-mesh:addsecret`
 - Will create a `secret` YAML with the provided secret name under the `appresources` folder 
 
-#### `sf-mesh:addsecretvalue`
+### `sf-mesh:addsecretvalue`
 - Will create a `secretvalue` YAML with the provided secretvalue name under the `appresources` folder 
 
-#### `sf-mesh:deploy`
+### `sf-mesh:deploy`
 - Will create a folder (`cloud`) which contains the deployment JSONs for the application 
 - Deploys application to the local cluster or to the Azure Service Fabric Mesh environment 
 
-#### `sf-mesh:deploy`
+### `sf-mesh:deploy`
 - Will create a folder (`local`) which contains the deployment JSONs for the application applicable for Service Fabric clusters
 - Deploys application to the local cluster
  
