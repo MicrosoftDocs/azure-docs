@@ -14,8 +14,8 @@ metadata:
   ms.date: 11/26/2018
   ms.author: bwren
 abstract:
-  description:  Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
-  sections:
+  description: Azure Monitor, which now includes Log Analytics and Application Insights, provides sophisticated tools for collecting and analyzing telemetry that allow you to maximize the performance and availability of your cloud and on-premises resources and applications. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
+sections:
 - title: Learn more
   items:
   - type: paragraph
