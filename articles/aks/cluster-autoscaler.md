@@ -6,7 +6,7 @@ author: iainfoulds
 
 ms.service: container-service
 ms.topic: article
-ms.date: 11/28/2018
+ms.date: 12/03/2018
 ms.author: iainfou
 ---
 
@@ -80,16 +80,19 @@ If the minimum node count is greater than the existing number of nodes in the cl
 
 In the previous step to create or update an existing AKS cluster, the cluster autoscaler minimum node count was set to *1*, and the maximum node count was set to *5*. As your application demands change, you may need to adjust the cluster autoscaler node count.
 
-To change the node count, use the [az aks update][az-aks-update] command and specify a minimum and maximum value. The following example sets the *--min-count* to *3* and the *--max-count* to *10*:
+To change the node count, use the [az aks update][az-aks-update] command and specify a minimum and maximum value. The following example sets the *--min-count* to *1* and the *--max-count* to *10*:
 
 ```azurecli-interactive
 az aks update \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --update-cluster-autoscaler \
-  --min-count 3 \
+  --min-count 1 \
   --max-count 10
 ```
+
+> [!NOTE]
+> During preview, you cannot set a higher minimum node count than is currently set for the cluster. For example, if you currently have min count set to *1*, you cannot update the min count to *3*.
 
 Monitor the performance of your applications and services, and adjust the cluster autoscaler node counts to match the required performance.
 
