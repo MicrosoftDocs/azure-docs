@@ -11,6 +11,8 @@
   expanded: true
   items:
   - name: Create durable function - C#
+    href: durable-functions-create-first-csharp.md
+    displayName: get started, chaining
   - name: Create durable function - JavaScript
 - name: Tutorials
   items:
