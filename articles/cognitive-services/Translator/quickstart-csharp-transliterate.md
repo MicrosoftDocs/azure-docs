@@ -36,6 +36,12 @@ cd transliterate-sample
 
 The first command does two things. It creates a new .NET console application, and creates a directory named `transliterate-sample`. The second command changes to the directory for your project.
 
+Next, you'll need to install Json.Net. From your project's directory, run:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
 ## Add required namespaces to your project
 
 The `dotnet new console` command that you ran earlier created a project, including `Program.cs`. This file is where you'll put your application code. Open `Program.cs`, and replace the existing using statements. These statements ensure that you have access to all the types required to build and run the sample app.
@@ -49,7 +55,7 @@ using Newtonsoft.Json;
 
 ## Create a function to transliterate text
 
-Within the `Program` class, create a function called `TransliterateText`. This class encapsulates the code used to call the Transliterate resource and print the result to console.
+Within the `Program` class, create a function called `TransliterateText`. This class encapsulates the code used to call the Transliterate resource and prints the result to console.
 
 ```csharp
 static void TransliterateText()
@@ -116,7 +122,7 @@ request.Content = new StringContent(requestBody, Encoding.UTF8, "application/jso
 // Add the authorization header
 request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
 
-// Send request to Azure service, get response
+// Send request, get response
 var response = client.SendAsync(request).Result;
 var jsonResponse = response.Content.ReadAsStringAsync().Result;
 
@@ -136,7 +142,7 @@ Console.ReadLine();
 
 ## Run the sample app
 
-That's it, you're ready to run your text-to-speech sample app. From the command line (or terminal session), navigate to your project directory and run:
+That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
 
 ```console
 dotnet run
@@ -159,7 +165,7 @@ Make sure to remove any confidential information from your sample app's source c
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including transliteration and language identification, as well as other sample Translator Text projects on GitHub.
+Explore the sample code for this quickstart and others, including translation and language identification, as well as other sample Translator Text projects on GitHub.
 
 > [!div class="nextstepaction"]
 > [Explore C# examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
