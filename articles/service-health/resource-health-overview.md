@@ -24,7 +24,7 @@ Azure Resource Health helps you diagnose and get support when an Azure service p
 Whereas [Azure Status](https://status.azure.com) informs you about service problems that affect a broad set of Azure customers, Resource Health gives you a personalized dashboard of the health of your resources. Resource Health shows you all the times your resources were unavailable in the past because of Azure service problems. It's then simple for you to understand if an SLA was violated. 
 
 ## Resource definition and health assessment
-A resource is a specific instance an Azure service: for example, a virtual machine, a web app, or a SQL database.
+A resource is a specific instance of an Azure service: for example, a virtual machine, a web app, or a SQL database.
 
 Resource Health relies on signals emitted by the different Azure services to assess whether a resource is healthy or not. If a resource is unhealthy, Resource Health analyzes additional information to determine the source of the problem. It also identifies actions that Microsoft is taking to fix the problem or the actions that you can take to address the cause of the problem. 
 
