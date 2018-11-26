@@ -1,6 +1,7 @@
 - name: Batch AI Documentation
   href: index.yml
 - name: Overview
+  expanded: true
   items:
   - name: What's happening to Batch AI?
     displayName: retire, retired, retiring, deprecate, deprecated, deprecating, happening
@@ -8,7 +9,6 @@
   - name: What is Batch AI?
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Create cluster - CLI
     href: quickstart-create-cluster-cli.md
