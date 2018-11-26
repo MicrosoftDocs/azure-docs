@@ -21,7 +21,7 @@ After reading this article, you'll be able to answer the following questions:
 * What are the benefits of using Azure Time Series Insights for operational analysis and process efficiency?
 * What are the benefits of using Azure Time Series Insights for advanced analytics?
 
-This document provides an overview of the use cases that the Time Series Insights update is designed for. 
+This document provides an overview of the use cases that The Azure Time Series Insights V2 Update is designed for.
 
 ## Introduction
 
@@ -29,7 +29,7 @@ Azure Time Series Insights is Microsoft’s BLAH.
 
 Data exploration and visual anomaly detection
 
-Instantly explore and analyze billions of events to spot anomalies and discover hidden trends in your data.  Time Series Insights delivers near real-time performance for your IoT and DevOps analysis workloads.
+Instantly explore and analyze billions of events to spot anomalies and discover hidden trends in your data. Azure Time Series Insights delivers near real-time performance for your IoT and DevOps analysis workloads.
 
 ![data-explorer][1]
 
@@ -39,13 +39,13 @@ We see customers taking advantage of this speed to diagnose asset-related issues
 
 There are three primary ways to interact with data stored in Time Series Insights.  
 
-The first and easiest to get started with is our visualization, the explorer, that enables you to quickly visualize all of your IoT data in one place.  It provides tools like heatmap, which make visually spotting anomalies in your data simple as well as perspective view, which enables you compare up to four views from one or more Time Series Insights environments in a single dashboard, giving you a view of your time-series data across all your locations.  To learn more about the Time Series Insights explorer, head here.  For more on the Time Series Insights update explorer, which does require a little modeling ahead of time, head here. 
+The first and easiest to get started with is our visualization, the explorer, that enables you to quickly visualize all of your IoT data in one place.  It provides tools like heatmap, which make visually spotting anomalies in your data simple as well as perspective view, which enables you compare up to four views from one or more Time Series Insights environments in a single dashboard, giving you a view of your time-series data across all your locations.  To learn more about the Time Series Insights explorer, head [here](./time-series-insights-update-explorer.md). For more on the Time Series Insights Update Explorer, which does require a little modeling ahead of time, head [here](./time-series-insights-update-plan.md).
 
-The second way is to use our JavaScript SDK to quickly embed powerful charts and graphs in your own web application.  With just a few lines of code, you can author powerful queries to populate line charts, pie charts, bar charts, heatmaps, data grids and more – all which are elements of the SDK.  The SDK abstracts Time Series Insights query APIs, enabling you to author SQL-like predicates to query the data you want to show on a dashboard.  For hybrid presentation-layer solutions, Time Series Insights offers parameterized URLs that provide seamless connection points with the explorer for deep-dives into data.  To learn more about the JavaScript SDK, head here for documentation and here for GitHub.  For more on parameterized URLs, head here.  
+The second way is to use our JavaScript SDK to quickly embed powerful charts and graphs in your own web application.  With just a few lines of code, you can author powerful queries to populate line charts, pie charts, bar charts, heatmaps, data grids and more – all which are elements of the SDK. The SDK abstracts Time Series Insights query APIs, enabling you to author SQL-like predicates to query the data you want to show on a dashboard. For hybrid presentation-layer solutions, Time Series Insights offers parameterized URLs that provide seamless connection points with the explorer for deep-dives into data. To learn more about the JavaScript SDK, head [here](https://docs.microsoft.com/azure/time-series-insights/tutorial-explore-js-client-lib) for documentation and [here](https://github.com/Microsoft/tsiclient) for GitHub.  For more on parameterized URLs, head [here](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-parameterized-urls).  
 
 Finally, Time Series Insights provides powerful APIs for querying data stored in Time Series Insights.  Time Series Insights has temporal operators like from, to, first, and last, aggregations and transformations like average, min, max, split by, order by, and DateHistogram, and filtering operators like has, in and, or, greater than, REGEX, etc.  All these operators enable downstream applications to quickly find interesting trends and patterns in your data,and can be used to populate home-grown visualizations to spot anomalies.  
 
-For more information on Azure offerings for IoT, see Create the Internet of Your Things.
+For more information on Azure offerings for IoT, see [Create the Internet of Your Things](https://www.microsoft.com/internet-of-things).
 
 ## Operational analysis and driving process efficiency
 
