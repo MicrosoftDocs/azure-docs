@@ -19,7 +19,7 @@ ms.component:
 ---
 
 # Collect performance counters for Linux applications in Log Analytics 
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications.  The applications included in this article are:  
 
 - [MySQL](#MySQL)
@@ -112,7 +112,7 @@ These privileges can be granted by running the following grant commands.
 
 ### Define performance counters
 
-Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](data-sources-windows-events.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -148,7 +148,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### Define performance counters
 
-Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](log-analytics-data-sources-windows-events.md) with the counters in the following table.
+Once you configure the Log Analytics agent for Linux to send data to Log Analytics, you must configure the performance counters to collect.  Use the procedure in [Windows and Linux performance data sources in Log Analytics](data-sources-windows-events.md) with the counters in the following table.
 
 | Object Name | Counter Name |
 |:--|:--|
@@ -165,5 +165,5 @@ Once you configure the Log Analytics agent for Linux to send data to Log Analyti
 
 
 ## Next steps
-* [Collect performance counters](log-analytics-data-sources-performance-counters.md) from Linux agents.
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* [Collect performance counters](data-sources-performance-counters.md) from Linux agents.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 

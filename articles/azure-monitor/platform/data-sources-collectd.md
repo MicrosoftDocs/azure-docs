@@ -23,11 +23,11 @@ ms.component:
 
 A full list of available plugins can be found at [Table of Plugins](https://collectd.org/wiki/index.php/Table_of_Plugins).
 
-![CollectD overview](media/log-analytics-data-sources-collectd/overview.png)
+![CollectD overview](media/data-sources-collectd/overview.png)
 
 The following CollectD configuration is included in the Log Analytics agent for Linux to route  CollectD data to the Log Analytics agent for Linux.
 
-[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
     LoadPlugin write_http
 
@@ -121,6 +121,6 @@ To maintain a familiar model between infrastructure metrics already collected by
 | values[] | CounterValue |
 
 ## Next steps
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
-* Use [Custom Fields](log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions. 
+* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse data from syslog records into individual fields.
 

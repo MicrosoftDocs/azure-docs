@@ -19,18 +19,18 @@ ms.component:
 ---
 
 # Windows event log data sources in Log Analytics
-Windows Event logs are one of the most common [data sources](log-analytics-data-sources.md) for collecting data using Windows agents since many applications write to the Windows event log.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
+Windows Event logs are one of the most common [data sources](agent-data-sources.md) for collecting data using Windows agents since many applications write to the Windows event log.  You can collect events from standard logs such as System and Application in addition to specifying any custom logs created by applications you need to monitor.
 
-![Windows Events](media/log-analytics-data-sources-windows-events/overview.png)     
+![Windows Events](media/data-sources-windows-events/overview.png)     
 
 ## Configuring Windows Event logs
-Configure Windows Event logs from the [Data menu in Log Analytics Settings](log-analytics-data-sources.md#configuring-data-sources).
+Configure Windows Event logs from the [Data menu in Log Analytics Settings](agent-data-sources.md#configuring-data-sources).
 
 Log Analytics only collects events from the Windows event logs that are specified in the settings.  You can add an event log by typing in the name of the log and clicking **+**.  For each log, only the events with the selected severities are collected.  Check the severities for the particular log that you want to collect.  You cannot provide any additional criteria to filter events.
 
 As you type the name of an event log, Log Analytics provides suggestions of common event log names. If the log you want to add does not appear in the list, you can still add it by typing in the full name of the log. You can find the full name of the log by using event viewer. In event viewer, open the *Properties* page for the log and copy the string from the *Full Name* field.
 
-![Configure Windows events](media/log-analytics-data-sources-windows-events/configure.png)
+![Configure Windows events](media/data-sources-windows-events/configure.png)
 
 ## Data collection
 Log Analytics collects each event that matches a selected severity from a monitored event log as the event is created.  The agent records its place in each event log that it collects from.  If the agent goes offline for a period of time, then Log Analytics collects events from where it last left off, even if those events were created while the agent was offline.  There is a potential for these events to not be collected if the event log wraps with uncollected events being overwritten while the agent is offline.
@@ -71,7 +71,7 @@ The following table provides different examples of log searches that retrieve Wi
 
 
 ## Next steps
-* Configure Log Analytics to collect other [data sources](log-analytics-data-sources.md) for analysis.
-* Learn about [log searches](log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
-* Use [Custom Fields](log-analytics-custom-fields.md) to parse the event records into individual fields.
-* Configure [collection of performance counters](log-analytics-data-sources-performance-counters.md) from your Windows agents.
+* Configure Log Analytics to collect other [data sources](agent-data-sources.md) for analysis.
+* Learn about [log searches](../../log-analytics/log-analytics-queries.md) to analyze the data collected from data sources and solutions.  
+* Use [Custom Fields](../../log-analytics/log-analytics-custom-fields.md) to parse the event records into individual fields.
+* Configure [collection of performance counters](data-sources-performance-counters.md) from your Windows agents.
