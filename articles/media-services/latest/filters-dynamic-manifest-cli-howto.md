@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/26/2018
 ms.author: juliako
 
 ---
@@ -75,7 +75,7 @@ Filters defined in REST, include the "Properties" wrapper JSON object.
 
 ## Create account filters
 
-The following [az ams account-filter](https://docs.microsoft.com/en-us/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
+The following [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest) command creates an account filter with filter track selections that were [defined earlier](#define-a-filter). 
 
 ```azurecli
 az ams account-filter create -a amsAccount -g resourceGroup -n filterName --tracks @C:\tracks.json
@@ -85,7 +85,7 @@ Also, see [JSON examples for filters](https://docs.microsoft.com/rest/api/media/
 
 ## Create asset filters
 
-The following [az ams asset-filter](https://docs.microsoft.com/en-us/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
+The following [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest) command creates an asset filter with filter track selections that were [defined earlier](#define-a-filter). 
 
 ```azurecli
 az ams asset-filter create -a amsAccount -g resourceGroup -n filterName --asset-name assetName --tracks @C:\tracks.json
