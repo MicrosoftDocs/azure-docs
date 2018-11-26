@@ -46,7 +46,7 @@ To import the package in your Python code, use:
 import azureml.dataprep as dprep
 ```
 
-## SDK examples & reference
+## SDK examples and reference
 
 To learn about the modules and functions of this SDK, see the [Data Prep SDK reference docs](https://aka.ms/data-prep-sdk).
 
