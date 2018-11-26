@@ -38,7 +38,7 @@ You can change the runtime version used by you function app. Because of the pote
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
-### From the Azure CLI
+### <a name="view-and-update-the-runtime-version-using-azure-cli"></a>From the Azure CLI
 
 You can also view and set the `FUNCTIONS_EXTENSION_VERSION` from the Azure CLI.
 
