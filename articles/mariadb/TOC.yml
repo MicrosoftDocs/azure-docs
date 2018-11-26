@@ -119,6 +119,8 @@
     items:
     - name: Azure portal
       href: howto-manage-vnet-portal.md
+    - name: Azure CLI
+      href: howto-manage-vnet-cli.md
 - name: Reference
   items:
   - name: REST API
