@@ -34,9 +34,9 @@ Azure AD Connect uses 3 accounts in order to synchronize information from on-pre
 
 In addition to these three accounts used to run Azure AD Connect, you will also need the following additional accounts to install Azure AD Connect.  These are:
 
-- **Local Administrator account**: The administrator who is installing Azure AD Connect and who has local Administrator permissions on this machine
+- **Local Administrator account**: The administrator who is installing Azure AD Connect and who has local Administrator permissions on the machine.
 
-- **AD DS Enterprise Administrator account**: Optionally used to create the “AD DS Connector account” above
+- **AD DS Enterprise Administrator account**: Optionally used to create the “AD DS Connector account” above.
 
 - **Azure AD Global Administrator account**:  used to create the Azure AD Connector account and configure Azure AD.
 
