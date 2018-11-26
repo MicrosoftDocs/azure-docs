@@ -4,7 +4,7 @@ description: Learn about Azure Billing Usage and RateCard APIs, which are used t
 services: ''
 documentationcenter: ''
 author: tonguyen
-manager: tonguyen
+manager: mumami
 editor: ''
 tags: billing
 

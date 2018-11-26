@@ -27,8 +27,7 @@ By using metrics that you collect with the solution, you can create custom monit
 
 For a hands-on overview on using Azure SQL Analytics solution and for typical usage scenarios, see the embedded video:
 
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
+>[!VIDEO https://youtu.be/GK2Hl21aZqQ]
 >
 
 ## Connected sources
@@ -277,6 +276,21 @@ AzureDiagnostics
 > [!NOTE]
 > - Pre-requirement of setting up this alert is that monitored Managed Instance has the streaming of ResourceUsageStats log enabled to the solution.
 > - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the Managed Instance. The output is storage percentage consumption on the Managed Instance.
+
+*Managed Instance CPU average consumption is above 95% in the last 2 hrs
+
+```
+let cpu_percentage_treshold = 95;
+let time_treshold = ago(2h);
+AzureDiagnostics
+| where Category =="ResourceUsageStats" and TimeGenerated > time_treshold
+| summarize avg_cpu = max(todouble(avg_cpu_percent_s)) by ResourceId
+| where avg_cpu > cpu_percentage_treshold
+```
+
+> [!NOTE]
+> - Pre-requirement of setting up this alert is that monitored Managed Instance has the streaming of ResourceUsageStats log enabled to the solution.
+> - This query requires an alert rule to be set up to fire off an alert when there exist results (> 0 results) from the query, denoting that the condition exists on the Managed Instance. The output is average CPU utilization percentage consumption in defined period on the Managed Instance.
 
 ### Pricing
 

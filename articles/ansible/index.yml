@@ -14,7 +14,6 @@ metadata:
 abstract:
   description: Use <a href="http://www.ansible.com">Ansible</a> to automate cloud provisioning, configuration management, and application deployments.
 sections:
-sections:
 - title: 5-Minute Quickstarts
   items: 
   - type: paragraph

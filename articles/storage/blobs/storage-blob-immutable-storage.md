@@ -1,6 +1,6 @@
 ---
 title: Immutable storage for Azure Storage Blobs | Microsoft Docs
-description: Azure Storage offers WORM (write once, read many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval.
+description: Azure Storage offers WORM (Write Once, Read Many) support for Blob (object) storage that enables users to store data in a non-erasable, non-modifiable state for a specified interval.
 services: storage
 author: xyh1
 
@@ -13,7 +13,7 @@ ms.component: blobs
 
 # Store business-critical data in Azure Blob storage
 
-Immutable storage for Azure Blob (object) storage enables users to store business-critical data in a WORM (write once, read many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. Blobs can be created and read, but not modified or deleted, for the duration of the retention interval.
+Immutable storage for Azure Blob (object) storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. This state makes the data non-erasable and non-modifiable for a user-specified interval. Blobs can be created and read, but not modified or deleted, for the duration of the retention interval.
 
 ## Overview
 
@@ -43,7 +43,7 @@ Immutable storage is enabled in all Azure public regions.
 
 ## How it works
 
-Immutable storage for Azure Blob storage supports two types of WORM or immutable policies: time-based retention and legal holds. For details on how to create these immutable policies, see the [Getting started](#Getting-started) section.
+Immutable storage for Azure Blob storage supports two types of WORM or immutable policies: time-based retention and legal holds. For details on how to create these immutable policies, see the [Getting started](#getting-started) section.
 
 When a time-based retention policy or legal hold is applied on a container, all existing blobs move to the immutable (write and delete protected) state. All new blobs that are uploaded to the container will also move to the immutable state.
 
@@ -65,7 +65,7 @@ For new blobs, the effective retention period is equal to the user-specified ret
 
 ### Legal holds
 
-When you set a legal hold, all existing and new blobs stay in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see the [Getting started](#Getting-started) section.
+When you set a legal hold, all existing and new blobs stay in the immutable state until the legal hold is cleared. For more information on how to set and clear legal holds, see the [Getting started](#getting-started) section.
 
 A container can have both a legal hold and a time-based retention policy at the same time. All blobs in that container stay in the immutable state until all legal holds are cleared, even if their effective retention period has expired. Conversely, a blob stays in an immutable state until the effective retention period expires, even though all legal holds have been cleared.
 
