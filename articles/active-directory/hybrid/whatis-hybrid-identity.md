@@ -21,7 +21,7 @@ ms.author: billmath
 # Hybrid identity and Microsoft identity solutions
 [Microsoft Azure Active Directory (Azure AD)](../../active-directory/fundamentals/active-directory-whatis.md) hybrid identity solutions enable you to synchronize on-premises directory objects with Azure AD while still managing your users on-premises. The first decision to make when planning to synchronize your on-premises Windows Server Active Directory with Azure AD is whether you want to use managed identities or federated identity. 
 
-- **Managed identities** - User accounts and groups that are synchronized from a on-premises Active Directory and the user authentication is managed by Azure.   
+- **Managed identities** - User accounts and groups are synchronized from an on-premises Active Directory and the user authentication is managed by Azure.   
 - **Federated identities** allow for more control over users by separating user authentication from Azure, and delegating authentication to a trusted, on-premises, identity provider. 
 
 There are several options available for configuring hybrid identity. As you consider which identity model best fits your organization’s needs, you also need to think about time, existing infrastructure, complexity, and cost. These factors are different for every organization, and might change over time. However, if your requirements do change, you also have the flexibility to switch to a different identity model.
