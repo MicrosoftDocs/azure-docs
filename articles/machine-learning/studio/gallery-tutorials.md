@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery tutorials | Microsoft Docs
+title: Azure AI Gallery tutorials - Azure Machine Learning Studio | Microsoft Docs
 description: Discover and share tutorials in Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''

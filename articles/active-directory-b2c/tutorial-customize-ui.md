@@ -8,7 +8,7 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/12/2018
+ms.date: 11/26/2018
 ms.author: davidmu
 ms.component: B2C
 ---
@@ -60,7 +60,7 @@ Although you can store your files in many ways, for this tutorial, you store the
  Azure AD B2C code in a browser uses a modern and standard approach to load custom content from a URL that you specify in a policy. Cross-origin resource sharing (CORS) allows restricted resources on a web page to be requested from other domains.
 
 1. In the menu, select **CORS**.
-2. For **Allowed origins**, enter `your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `fabrikam.b2clogin.com`.
+2. For **Allowed origins**, enter `https://your-tenant-name.b2clogin.com`. Replace `your-tenant-name` with the name of your Azure AD B2C tenant. For example, `https://fabrikam.b2clogin.com`.
 3. For **Allowed Methods**, select both `GET` and `OPTIONS`.
 4. For **Allowed Headers**, enter an asterisk (*).
 5. For **Exposed Headers**, enter an asterisk (*).
