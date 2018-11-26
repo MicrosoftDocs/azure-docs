@@ -450,8 +450,239 @@ In addition, ensure that you have added your Google account to your running emul
    
     ![Testing on Android - notifications](./media/notification-hubs-android-push-notification-google-fcm-get-started/notification-hubs-android-studio-received-message.png)
 
+## (Optional) Send push notifications directly from the app
+Normally, you would send notifications using a backend server. For some cases, you might want to be able to send push notifications directly from the client application. This section explains how to send notifications from the client using the [Azure Notification Hub REST API](https://msdn.microsoft.com/library/azure/dn223264.aspx).
+
+1. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **layout**. Open the `activity_main.xml` layout file and click the **Text** tab to update the text contents of the file. Update it with the code below, which adds new `Button` and `EditText` controls for sending push notification messages to the notification hub. Add this code at the bottom, just before `</RelativeLayout>`.
+   
+    ```xml
+    <Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/send_button"
+    android:id="@+id/sendbutton"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:onClick="sendNotificationButtonOnClick" />
+
+    <EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/editTextNotificationMessage"
+    android:layout_above="@+id/sendbutton"
+    android:layout_centerHorizontal="true"
+    android:layout_marginBottom="42dp"
+    android:hint="@string/notification_message_hint" />
+    ```
+2. In Android Studio Project View, expand **App** > **src** > **main** > **res** > **values**. Open the `strings.xml` file and add the string values that are referenced by the new `Button` and `EditText` controls. Add the following lines at the bottom of the file, just before `</resources>`.
+
+    ```xml   
+    <string name="send_button">Send Notification</string>
+    <string name="notification_message_hint">Enter notification message text</string>
+    ```
+3. In your `NotificationSetting.java` file, add the following setting to the `NotificationSettings` class.
+   
+    Update `HubFullAccess` with the **DefaultFullSharedAccessSignature** connection string for your hub. This connection string can be copied from the [Azure portal] by clicking **Access Policies** on the **Settings** page for your notification hub.
+   
+    ```java
+    public static String HubFullAccess = "<Enter Your DefaultFullSharedAccess Connection string>";
+    ```
+4. In your `MainActivity.java` file, add the following `import` statements at the beginning of the file.
+   
+    ```java
+    import java.io.BufferedOutputStream;
+    import java.io.BufferedReader;
+    import java.io.InputStreamReader;
+    import java.io.OutputStream;
+    import java.net.HttpURLConnection;
+    import java.net.URL;
+    import java.net.URLEncoder;
+    import javax.crypto.Mac;
+    import javax.crypto.spec.SecretKeySpec;
+    import android.util.Base64;
+    import android.view.View;
+    import android.widget.EditText;
+    ```
+5. In your `MainActivity.java` file, add the following members at the top of the `MainActivity` class.    
+   
+    ```java
+    private String HubEndpoint = null;
+    private String HubSasKeyName = null;
+    private String HubSasKeyValue = null;
+    ```
+6. Create a Software Access Signature (SaS) token to authenticate a POST request to send messages to your notification hub. Parse the key data from the connection string and then creating the SaS token, as mentioned in the [Common Concepts](https://msdn.microsoft.com/library/azure/dn495627.aspx) REST API reference. The following code is an example implementation.
+   
+    In `MainActivity.java`, add the following method to the `MainActivity` class to parse your connection string.
+   
+    ```java
+    /**
+        * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx
+        * to parse the connection string so a SaS authentication token can be
+        * constructed.
+        *
+        * @param connectionString This must be the DefaultFullSharedAccess connection
+        *                         string for this example.
+        */
+    private void ParseConnectionString(String connectionString)
+    {
+        String[] parts = connectionString.split(";");
+        if (parts.length != 3)
+            throw new RuntimeException("Error parsing connection string: "
+                    + connectionString);
+
+        for (int i = 0; i < parts.length; i++) {
+            if (parts[i].startsWith("Endpoint")) {
+                this.HubEndpoint = "https" + parts[i].substring(11);
+            } else if (parts[i].startsWith("SharedAccessKeyName")) {
+                this.HubSasKeyName = parts[i].substring(20);
+            } else if (parts[i].startsWith("SharedAccessKey")) {
+                this.HubSasKeyValue = parts[i].substring(16);
+            }
+        }
+    }
+    ```
+7. In `MainActivity.java`, add the following method to the `MainActivity` class to create a SaS authentication token.
+   
+    ```java
+    /**
+        * Example code from http://msdn.microsoft.com/library/azure/dn495627.aspx to
+        * construct a SaS token from the access key to authenticate a request.
+        *
+        * @param uri The unencoded resource URI string for this operation. The resource
+        *            URI is the full URI of the Service Bus resource to which access is
+        *            claimed. For example,
+        *            "http://<namespace>.servicebus.windows.net/<hubName>"
+        */
+    private String generateSasToken(String uri) {
+
+        String targetUri;
+        String token = null;
+        try {
+            targetUri = URLEncoder
+                    .encode(uri.toString().toLowerCase(), "UTF-8")
+                    .toLowerCase();
+
+            long expiresOnDate = System.currentTimeMillis();
+            int expiresInMins = 60; // 1 hour
+            expiresOnDate += expiresInMins * 60 * 1000;
+            long expires = expiresOnDate / 1000;
+            String toSign = targetUri + "\n" + expires;
+
+            // Get an hmac_sha1 key from the raw key bytes
+            byte[] keyBytes = HubSasKeyValue.getBytes("UTF-8");
+            SecretKeySpec signingKey = new SecretKeySpec(keyBytes, "HmacSHA256");
+
+            // Get an hmac_sha1 Mac instance and initialize with the signing key
+            Mac mac = Mac.getInstance("HmacSHA256");
+            mac.init(signingKey);
+
+            // Compute the hmac on input data bytes
+            byte[] rawHmac = mac.doFinal(toSign.getBytes("UTF-8"));
+
+            // Using android.util.Base64 for Android Studio instead of
+            // Apache commons codec
+            String signature = URLEncoder.encode(
+                    Base64.encodeToString(rawHmac, Base64.NO_WRAP).toString(), "UTF-8");
+
+            // Construct authorization string
+            token = "SharedAccessSignature sr=" + targetUri + "&sig="
+                    + signature + "&se=" + expires + "&skn=" + HubSasKeyName;
+        } catch (Exception e) {
+            if (isVisible) {
+                ToastNotify("Exception Generating SaS : " + e.getMessage().toString());
+            }
+        }
+
+        return token;
+    }
+    ```
+8. In `MainActivity.java`, add the following method to the `MainActivity` class to handle the **Send Notification** button click and send the push notification message to the hub by using the built-in REST API.
+   
+    ```java
+    /**
+        * Send Notification button click handler. This method parses the
+        * DefaultFullSharedAccess connection string and generates a SaS token. The
+        * token is added to the Authorization header on the POST request to the
+        * notification hub. The text in the editTextNotificationMessage control
+        * is added as the JSON body for the request to add a FCM message to the hub.
+        *
+        * @param v
+        */
+    public void sendNotificationButtonOnClick(View v) {
+        EditText notificationText = (EditText) findViewById(R.id.editTextNotificationMessage);
+        final String json = "{\"data\":{\"message\":\"" + notificationText.getText().toString() + "\"}}";
+
+        new Thread()
+        {
+            public void run()
+            {
+                try
+                {
+                    // Based on reference documentation...
+                    // http://msdn.microsoft.com/library/azure/dn223273.aspx
+                    ParseConnectionString(NotificationSettings.HubFullAccess);
+                    URL url = new URL(HubEndpoint + NotificationSettings.HubName +
+                            "/messages/?api-version=2015-01");
+
+                    HttpURLConnection urlConnection = (HttpURLConnection)url.openConnection();
+
+                    try {
+                        // POST request
+                        urlConnection.setDoOutput(true);
+
+                        // Authenticate the POST request with the SaS token
+                        urlConnection.setRequestProperty("Authorization", 
+                            generateSasToken(url.toString()));
+
+                        // Notification format should be FCM
+                        urlConnection.setRequestProperty("ServiceBusNotification-Format", "fcm");
+
+                        // Include any tags
+                        // Example below targets 3 specific tags
+                        // Refer to : https://azure.microsoft.com/documentation/articles/notification-hubs-routing-tag-expressions/
+                        // urlConnection.setRequestProperty("ServiceBusNotification-Tags", 
+                        //        "tag1 || tag2 || tag3");
+
+                        // Send notification message
+                        urlConnection.setFixedLengthStreamingMode(json.length());
+                        OutputStream bodyStream = new BufferedOutputStream(urlConnection.getOutputStream());
+                        bodyStream.write(json.getBytes());
+                        bodyStream.close();
+
+                        // Get response
+                        urlConnection.connect();
+                        int responseCode = urlConnection.getResponseCode();
+                        if ((responseCode != 200) && (responseCode != 201)) {
+                            BufferedReader br = new BufferedReader(new InputStreamReader((urlConnection.getErrorStream())));
+                            String line;
+                            StringBuilder builder = new StringBuilder("Send Notification returned " +
+                                    responseCode + " : ")  ;
+                            while ((line = br.readLine()) != null) {
+                                builder.append(line);
+                            }
+
+                            ToastNotify(builder.toString());
+                        }
+                    } finally {
+                        urlConnection.disconnect();
+                    }
+                }
+                catch(Exception e)
+                {
+                    if (isVisible) {
+                        ToastNotify("Exception Sending Notification : " + e.getMessage().toString());
+                    }
+                }
+            }
+        }.start();
+    }
+    ```
 ## Next steps
-In this tutorial, you used Firebase Cloud Messaging to push notifications to Android devices. To learn how to push notifications by using Google Cloud Messaging, advance to the following tutorial: 
+In this tutorial, you used Firebase Cloud Messaging to push notifications to Android devices. To learn how to push notifications to specific Android devices, advance to the following tutorial:  
+
+ > [!div class="nextstepaction"] 
+ > [Push notifications to specific devices](notification-hubs-aspnet-backend-android-xplat-segmented-gcm-push-notification.md) 
+
 
 
 <!-- Images. -->
