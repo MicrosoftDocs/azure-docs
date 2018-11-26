@@ -18,7 +18,7 @@ ms.author: magoedte
 
 <div id="main" class="v2">
     <div class="container">
-        <h1>Azure Monitor Log Data Documentation</h1>
+        <h1>Azure Monitor log data documentation</h1>
         <p>Azure Monitor can collect different sources as log data and store it for correlation and analysis using its query language.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
@@ -82,6 +82,12 @@ ms.author: magoedte
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
+													<h3>Monitoring</h3>
+                                                        <p>
+                                                            <a href="/azure/monitoring/monitoring-data-collection">Metrics and logs</a><br/>
+                                                            <a href="/azure/log-analytics/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
+														</p>
+														<br>
 														<h3>Manage workspace</h3>
                                                         <p>
                                                             <a href="/azure/log-analytics/log-analytics-quick-create-workspace">Create workspace - Azure portal</a><br/>
@@ -89,7 +95,7 @@ ms.author: magoedte
                                                             <a href="/azure/log-analytics/log-analytics-quick-create-workspace-posh">Create workspace - Azure PowerShell</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-manage-del-workspace">Delete workspace</a><br/>
 														</p>
-														<br><br>
+														<br>
                                                         <h3>Data sources</h3>
                                                         <p>
                                                             <a href="/azure/monitoring/monitoring-data-sources">Overview<br/>
@@ -104,13 +110,6 @@ ms.author: magoedte
                                                             <a href="/azure/log-analytics/log-analytics-data-sources-custom-logs">Custom logs</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-custom-fields">Custom fields</a><br/>
                                                             <a href="/azure/log-analytics/log-analytics-data-collector-api">Data Collector API</a><br/>
-															</p>
-														<br><br>
-                                                        <h3>Monitoring</h3>
-                                                        <p>
-                                                            <a href="/azure/monitoring/monitoring-data-collection">Metrics and logs</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-data-ingestion-time">Log data ingestion time</a><br/>
-                                                            <a href="/azure/log-analytics/log-analytics-personal-data-mgmt">Personal log data handling security</a><br/>
 														</p>
                                                     </div>
                                                 </div>
@@ -130,7 +129,7 @@ ms.author: magoedte
                                                             <a href="/azure/log-analytics/query-language/query-language">Log query language reference</a><br/>
                                                             <a href="/azure/log-analytics-cross-workspace-search">Cross-resource query</a><br/>
 														</p>
-														<br><br>
+														<br>
                                                         <h3>Incident response</h3>
                                                         <p>
                                                             <a href="/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts">Alerts overview</a><br/>
