@@ -281,7 +281,7 @@ RESOURCE_GROUP=
 * Subnet name
 * Azure AD runtime role name - if you followed the example in [Create the cluster node access role](#create-the-cluster-node-access-role), use ``avere-cluster``. 
 * Storage account name (if creating a new Blob container)
-* Cluster name - You cannot have two vFXT clusters with the same name in the same resource group. 
+* Cluster name - You cannot have two vFXT clusters with the same name in the same resource group. Give each cluster a unique name for the best practice.
 * Administrative password - Choose a secure password for monitoring and administering the cluster. This password is assigned to the user ``admin``. 
 * Node instance type - see [vFXT node sizes](avere-vfxt-deploy-plan.md#vfxt-node-sizes) for information
 * Node cache size - see [vFXT node sizes](avere-vfxt-deploy-plan.md#vfxt-node-sizes) for information

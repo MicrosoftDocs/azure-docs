@@ -37,7 +37,7 @@ If you choose to use the script-based method, these steps are covered in the [on
 If you are already collecting data from your virtual machines, you may have already configured it to report data to an existing Log Analytics workspace.  As long as that workspace is in one of our supported regions, you can enable Azure Monitor for VMs to that pre-existing workspace.  If the workspace you are already using is not in one of our supported regions, you won’t be able to onboard to Azure Monitor for VMs at this time.  We are actively working to support additional regions.
 
 >[!NOTE]
->We configure performance counters for the workspace that affects all VMs that report to the   workspace, whether or not you have chosen to onboard them to Azure Monitor for VMs. For more details on how performance counters are configured for the workspace, please refer to our [documentation](../../log-analytics/log-analytics-data-sources-performance-counters.md). For information about the counters configured for Azure Monitor for VMs, please refer to our [onboarding documentation](vminsights-onboard.md#performance-counters-enabled).  
+>We configure performance counters for the workspace that affects all VMs that report to the   workspace, whether or not you have chosen to onboard them to Azure Monitor for VMs. For more details on how performance counters are configured for the workspace, please refer to our [documentation](../../azure-monitor/platform/data-sources-performance-counters.md). For information about the counters configured for Azure Monitor for VMs, please refer to our [onboarding documentation](vminsights-onboard.md#performance-counters-enabled).  
 
 ## Why did my VM fail to onboard?
 When onboarding an Azure VM from the Azure portal, the following steps occur:

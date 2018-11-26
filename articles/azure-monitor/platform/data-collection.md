@@ -128,14 +128,14 @@ Logs are especially useful for combining data from a variety of sources, for com
 Logs collected by Azure Monitor are stored in Log Analytics which collects telemetry and other data from a variety of sources. It provides a rich query language and an analytics engine that gives you insights into the operation of your applications and resources. Other Azure services such as [Azure Security Center](../../security-center/security-center-intro.md) store their data in Log Analytics in order to provide a common data platform across Azure management.
 
 > [!IMPORTANT]
-> Data from Application Insights is stored in Log Analytics like other log data except that it's stored in a separate partition. This supports the same functionality as other Log Analytics data, but you must use the [Application Insights console](/application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../log-analytics/log-analytics-cross-workspace-search.md) to analyze application data together with other log data.
+> Data from Application Insights is stored in Log Analytics like other log data except that it's stored in a separate partition. This supports the same functionality as other Log Analytics data, but you must use the [Application Insights console](../../application-insights/app-insights-analytics.md) or the [Application Insights API](https://dev.applicationinsights.io/) to access this data. You can use a [cross-resource query](../../log-analytics/log-analytics-cross-workspace-search.md) to analyze application data together with other log data.
 
 
 ### Sources of log data
 Log Analytics can collect data from a variety of sources both within Azure and from on-premises resources. Sources of data written to Log Analytics include the following:
 
 - [Activity logs](../../log-analytics/log-analytics-activity.md) from Azure resources that include information on their configuration and health and [Diagnostic logs](../../monitoring-and-diagnostics/monitor-stream-diagnostic-logs-log-analytics.md) that provide insights into their operation.
-- Agents on [Windows](../../log-analytics/log-analytics-windows-agent.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtual machines that send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](../../log-analytics/log-analytics-data-sources.md) that you configure.
+- Agents on [Windows](../../log-analytics/log-analytics-windows-agent.md) and [Linux](../../log-analytics/log-analytics-quick-collect-linux-computer.md) virtual machines that send telemetry from the guest operating system and applications to Log Analytics according to [Data Sources](../../azure-monitor/platform/agent-data-sources.md) that you configure.
 - Application data collected by [Application Insights](https://docs.microsoft.com/azure/application-insights/).
 - Data providing insights into a particular application or service from [monitoring solutions](../insights/solutions.md) or features such as Container Insights, VM Insights, or Resource Group Insights.
 - Security data collected by [Azure Security Center](https://docs.microsoft.com/azure/security-center/).
@@ -153,7 +153,7 @@ Tasks that you can perform with logs include the following:
 
 - Use the [Log Analytics page](../../log-analytics/query-language/get-started-analytics-portal.md) in the Azure portal to write queries analyzing log data.  Pin results rendered as tables or charts to an [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
 - Configure a [log alert rule](../../monitoring-and-diagnostics/alert-log.md) that sends a notification or takes [automated action](../../monitoring-and-diagnostics/monitoring-action-groups.md) when the results of the query match a particular result.
-- Build a workflow based on data in Log Analytics using [Logic Apps]().
+- Build a workflow based on data in Log Analytics using [Logic Apps](~/articles/logic-apps/index.yml).
 - Export the results of a query to [Power BI](../../log-analytics/log-analytics-powerbi.md) to use different visualizations and share with users outside of Azure.
 - Access metric values from a command line or custom application using  [PowerShell cmdlets](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/?view=azurermps-6.8.1) or [REST API](https://dev.loganalytics.io/).
 

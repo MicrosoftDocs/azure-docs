@@ -5,10 +5,9 @@ author: rthorn17
 manager: rithorn
 ms.service: azure-resource-manager
 ms.devlang: na
-ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/18/2018
+ms.date: 11/20/2018
 ms.author: rithorn
 ---
 # Manage your resources with management groups
@@ -211,7 +210,7 @@ To see what permissions you have, select the management group and then select **
 
 ### Move subscriptions in PowerShell
 
-To move a subscription in PowerShell, you use the Add-AzureRmManagementGroupSubscription command.  
+To move a subscription in PowerShell, you use the New-AzureRmManagementGroupSubscription command.  
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroupSubscription -GroupName 'Contoso' -SubscriptionId '12345678-1234-1234-1234-123456789012'
@@ -278,12 +277,26 @@ Use the update command to move a management group with Azure CLI.
 az account management-group update --name 'Contoso' --parent 'Contoso Tenant'
 ```
 
+## Audit management groups using activity logs
+
+To track management groups via this API, use the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs). It's currently not possible to use PowerShell, CLI, or Azure portal to track management groups activity.
+
+1. As a tenant admin of the Azure AD tenant, [elevate access](../../role-based-access-control/elevate-access-global-admin.md) then assign a Reader role to the auditing user over the scope `/providers/microsoft.insights/eventtypes/management`.
+1. As the auditing user, call the [Tenant Activity Log API](/rest/api/monitor/tenantactivitylogs) to see management group activities. You'll want to filter by Resource Provider **Microsoft.Management** for all management group activity.  Example:
+
+```xml
+GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015-04-01&$filter=eventTimestamp ge '{greaterThanTimeStamp}' and eventTimestamp le '{lessThanTimestamp}' and eventChannels eq 'Operation' and resourceProvider eq 'Microsoft.Management'"
+```
+
+> [!NOTE]
+> To conveniently call this API from the command line, try [ARMClient](https://github.com/projectkudu/ARMClient).
+
 ## Next steps
 
-To Learn more about management groups, see:
+To learn more about management groups, see:
 
-- [Organize your resources with Azure management groups](overview.md)
 - [Create management groups to organize Azure resources](create.md)
-- [Install the Azure Powershell module](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
-- [Review the REST API Spec](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
-- [Install the Azure CLI Extension](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)
+- [How to change, delete, or manage your management groups](manage.md)
+- [Review management groups in Azure PowerShell Resources Module](https://aka.ms/mgPSdocs)
+- [Review management groups in REST API](https://aka.ms/mgAPIdocs)
+- [Review management groups in Azure CLI](https://aka.ms/mgclidoc)
