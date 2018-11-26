@@ -26,7 +26,6 @@ In addition, a list of partners has ported our C SDK on to more platforms and th
 * Windows CE 2013 (deprecate in October 2018)
 * .NET Standard 1.3 with .NET Core 2.1 and .NET Framework 4.7
 * Xamarin iOS, Android, UWP
-* Android with Java
 
 ## Supported platforms
 
@@ -78,6 +77,7 @@ There are several platforms supported.
 |---------------------|------|--------------|
 | Ubuntu 16.04 LTS    | X64  | Java 8       |
 | Windows Server 2016 | X64  | Java 8       |
+| Android API 24 | X64  | Java 8       |
 
 ## Partner supported platforms
 
