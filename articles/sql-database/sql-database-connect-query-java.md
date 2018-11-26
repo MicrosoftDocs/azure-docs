@@ -22,7 +22,7 @@ To complete this sample, make sure you have the following prerequisites:
 
 [!INCLUDE [prerequisites-create-db](../../includes/sql-database-connect-query-prerequisites-create-db-includes.md)]
 
-- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you're using.
+- A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you're using
 
 - Java-related software installed for your operating system,
 
@@ -136,7 +136,7 @@ To complete this sample, make sure you have the following prerequisites:
 1. At the command prompt, run the program.
 
     ```bash
-    mvn package
+    mvn package -DskipTests
     mvn -q exec:java "-Dexec.mainClass=com.sqldbsamples.App"
     ```
 
