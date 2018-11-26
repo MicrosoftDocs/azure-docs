@@ -22741,6 +22741,7 @@
             "source_path": "articles/security-center/security-center-policies.md",
             "redirect_url": "/azure/security-center/security-center-azure-policy",
             "redirect_document_id": false
+        },
         {
             "source_path": "articles/security-center/security-center-platform-migration.md",
             "redirect_url": "/azure/security-center/security-center-enable-data-collection",
