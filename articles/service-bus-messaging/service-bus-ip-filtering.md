@@ -16,7 +16,7 @@ ms.author: clemensv
 
 # Use Firewalls
 
-For scenarios in which Azure Service Bus is only accessible from certain well-known sites, Firewalls enables you to configure rules for accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
+For scenarios in which Azure Service Bus is only accessible from certain well-known sites, Firewalls enable you to configure rules for accepting traffic originating from specific IPv4 addresses. For example, these addresses may be those of a corporate NAT gateway.
 
 ## When to use
 
@@ -48,8 +48,8 @@ The following Resource Manager template enables adding a virtual network rule to
 
 Template parameters:
 
-- **ipFilterRuleName** must be a unique, case-insensitive, alphanumeric string up to 128 characters long.
-- **ipFilterAction** is either **Reject** or **Accept** as the action to apply for the IP filter rule.
+- **ipFilterRuleName** must be a unique, case-insensitive, alphanumeric string up to 128 characters long. This is optional and is auto-generated on creation.
+- **ipFilterAction** currently supports **Accept** as the action to apply for the IP filter rule.
 - **ipMask** is a single IPv4 address or a block of IP addresses in CIDR notation. For example, in CIDR notation 70.37.104.0/24 represents the 256 IPv4 addresses from 70.37.104.0 to 70.37.104.255, with 24 indicating the number of significant prefix bits for the range.
 
 ```json
