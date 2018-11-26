@@ -12,11 +12,12 @@ ms.reviewer: jmartens
 ms.date: 09/24/2018
 ---
 # Write data using the Azure Machine Learning Data Prep SDK
-You can write out data at any point in a data flow. These writes are added as steps to the resulting data flow and are run every time the data flow is. Data is written to multiple partition files to allow parallel writes.
 
-Since there are no limitations to how many write steps there are in a pipeline, you can easily add additional write steps to get intermediate results for troubleshooting or for other pipelines. 
+In this article, you learn different methods to write data using the Azure Machine Learning Data Prep SDK. Output data can be written at any point in a dataflow, and writes are added as steps to the resulting data flow and are run every time the data flow is. Data is written to multiple partition files to allow parallel writes.
 
-Each time you run a write step, a full pull of the data in the data flow occurs. For example, a data flow with three write steps will read and process every record in the dataset three times.
+Since there are no limitations to how many write steps there are in a pipeline, you can easily add additional write steps to get intermediate results for troubleshooting or for other pipelines.
+
+Each time you run a write step, a full pull of the data in the data flow occurs. For example, a data flow with three write steps will read and process every record in the data set three times.
 
 ## Supported data types and location
 
@@ -30,21 +31,23 @@ Using the [Azure Machine Learning Data Prep python SDK](https://aka.ms/data-prep
 + Azure Data Lake Storage
 
 ## Spark considerations
+
 When running a data flow in Spark, you must write to an empty folder. Attempting to run a write to an existing folder results in a failure. Make sure your target folder is empty or use a different target location for each run, or the write will fail.
 
 ## Monitoring write operations
+
 For your convenience, a sentinel file named SUCCESS is generated once a write is completed. Its presence helps you identify when an intermediate write has completed without having to wait for the whole pipeline to complete.
 
 ## Example write code
 
-For this example, start by loading data into a data flow. We will reuse this data with different formats.
+For this example, start by loading data into a data flow. You reuse this data with different formats.
 
 ```python
 import azureml.dataprep as dprep
 t = dprep.smart_read_file('./data/fixed_width_file.txt')
 t = t.to_number('Column3')
 t.head(10)
-```   
+```
 
 Example output:
 |   |  Column1 |	Column2	| Column3 |	Column4	 |Column5	| Column6 |	Column7	| Column8 |	Column9 |
@@ -62,7 +65,7 @@ Example output:
 
 ### Delimited file example
 
-In this section, you can see an example using the `write_to_csv` function to write with a delimited file.
+The following code uses the `write_to_csv` function to write data to a delimited file.
 
 ```python
 # Create a new data flow using `write_to_csv` 
@@ -89,9 +92,9 @@ Example output:
 |8| 10020.0|    99999.0|    ERROR |   NO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    ERROR |   NO| SV|     |77000.0|   15500.0|    120.0|
 
-You can see in the preceding output, that several errors appear in the numeric columns because of numbers that were not parsed correctly. When written to CSV, these null values are replaced with the string "ERROR" by default. 
+In the preceding output, several errors appear in the numeric columns because of numbers that were not parsed correctly. When written to CSV, null values are replaced with the string "ERROR" by default.
 
-You can add parameters as part of your write call and specify a string to use to represent null values. For example:
+Add parameters as part of your write call and specify a string to use to represent null values.
 
 ```python
 write_t = t.write_to_csv(directory_path=dprep.LocalFileOutput('./test_out/'), 
@@ -116,7 +119,6 @@ The preceding code produces this output:
 |8| 10020.0|    99999.0|    BadData |   NO| SV|     |80050.0|   16250.0|    80.0|
 |9| 10030.0|    99999.0|    BadData |   NO| SV|     |77000.0|   15500.0|    120.0|
 
-
 ### Parquet file example
 
 Similar to `write_to_csv`, the `write_to_parquet` function returns a new data flow with a write Parquet step that is executed when the data flow runs.
@@ -126,9 +128,9 @@ write_parquet_t = t.write_to_parquet(directory_path=dprep.LocalFileOutput('./tes
 error='MiscreantData')
 ```
 
-Next, you can run the data flow to start the write operation.
+Run the data flow to start the write operation.
 
-```
+```python
 write_parquet_t.run_local()
 
 written_parquet_files = dprep.read_parquet_file('./test_parquet_out/part-*')
