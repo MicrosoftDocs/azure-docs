@@ -17,7 +17,7 @@ ms.date: 06/25/2018
 ms.author: daveba
 ---
 
-# Configure managed identities for Azure resources on a virtual machine scale set using REST API calls
+# Configure managed identities for Azure resources on a virtual machine scale set using CURL
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -137,7 +137,7 @@ To disable a system-assigned identity on an existing virtual machine scale set, 
 
 3. To remove system-assigned managed identity from a virtual machine scale set that has user-assigned managed identities, remove `SystemAssigned` from the `{"identity":{"type:" "}}` value while keeping the `UserAssigned` value and the `userAssignedIdentities` dictionary values if you are using **API version 2018-06-01**. If you are using **API version 2017-12-01** or earlier, keep the `identityIds` array.
 
-## user-assigned managed identity
+## User-assigned managed identity
 
 In this section, you learn how to add and remove user-assigned managed identity on a virtual machine scale set using CURL to make calls to the Azure Resource Manager REST endpoint.
 

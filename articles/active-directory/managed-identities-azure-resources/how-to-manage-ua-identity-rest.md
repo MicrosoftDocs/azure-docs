@@ -39,9 +39,25 @@ In this article, you learn how to create, list, and delete a user-assigned manag
 
 To create a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
-To create a user-assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, `<USER ASSIGNED IDENTITY NAME>`,`<LOCATION>`, and `<ACCESS TOKEN>` values with your own values:
-
 [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+
+```HTTP
+PUT https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
+s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+
+**Request headers**
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.        |
+
+**Request body**
+
+|Name  |Description  |
+|---------|---------|
+|location     | Required. Resource location.        |
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
@@ -53,7 +69,14 @@ ation": "<LOCATION>"}' -H "Content-Type: application/json" -H "Authorization: Be
 
 To list/read a user-assigned managed identity, your account needs the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) or [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
-To list user-assigned managed identities, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` values with your own values:
+```HTTP
+GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview HTTP/1.1
+```
+
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.        |
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities?api-version=2015-08-31-preview' -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -62,10 +85,17 @@ curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 To delete a user-assigned managed identity, your account needs the [Managed Identity Contributor](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) role assignment.
 
-To delete a user-assigned managed identity, use the following CURL request to the Azure Resource Manager API. Replace the `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>`, and `<ACCESS TOKEN>` parameters values with your own values:
-
 > [!NOTE]
-> Deleting a user-assigned managed identity will not remove the reference from any resource it was assigned to. To remove a user-assigned managed from a VM using CURL see [Remove a user-assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+> Deleting a user-assigned managed identity will not remove the reference from any resource it was assigned to. To remove a user-assigned managed identity from a VM using CURL see [Remove a user-assigned identity from an Azure VM](qs-configure-rest-vm.md#remove-a-user-assigned identity-from-an-azure-vm).
+
+```HTTP
+DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616f423ca/resourceGroups/TestRG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>?api-version=2015-08-31-preview HTTP/1.1
+```
+|Request header  |Description  |
+|---------|---------|
+|*Content-Type*     | Required. Set to `application/json`.        |
+|*Authorization*     | Required. Set to a valid `Bearer` access token.        |
+
 
 ```bash
 curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
@@ -75,5 +105,3 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 ## Next steps
 
 For information on how to assign a user-assigned managed identity to an Azure VM/VMSS using CURL see, [Configure managed identities for Azure resources on an Azure VM using REST API calls](qs-configure-rest-vm.md#user-assigned-managed-identity) and [Configure managed identities for Azure resources on a virtual machine scale set using REST API calls](qs-configure-rest-vmss.md#user-assigned-managed-identity).
-
-
