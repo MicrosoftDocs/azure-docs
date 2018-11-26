@@ -73,7 +73,7 @@ Add these lines to the `GetLanguages` function.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
-string route = "/translate?api-version=3.0&to=de&to=it";
+string route = "/languages?api-version=3.0";
 string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
