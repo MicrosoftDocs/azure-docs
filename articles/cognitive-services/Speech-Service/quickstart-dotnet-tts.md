@@ -41,7 +41,7 @@ The first command does two things. It creates a new .NET console application, an
 
 This quickstart requires C# 7.1 or later. There are a few ways to change the C# version for your project. In this guide, we'll show you how to adjust the `tts-sample.csproj` file. For all available options, such as changing the language in Visual Studio, see [Select the C# language version](https://docs.microsoft.com/dotnet/csharp/language-reference/configure-language-version).
 
-Open your project in Visual Studio, Visual Studio Code, or your favorite text editor. Open `tts-sample.csproj` and locate `LangVersion`.
+Open your project, then open `tts-sample.csproj`. Make sure that `LangVersion` is set to 7.1 or later. If there isn't a property group for the language version, add these lines:
 
 ```csharp
 <PropertyGroup>
@@ -49,7 +49,7 @@ Open your project in Visual Studio, Visual Studio Code, or your favorite text ed
 </PropertyGroup>
 ```
 
-Make sure that the version is set to 7.1 or later. Then save your changes.
+Make sure to save your changes.
 
 ## Add required namespaces to your project
 
@@ -106,11 +106,16 @@ public class Authentication
 
 ## Set the access token, host, and route
 
-Locate `static async Task Main(string[] args)` and copy this code into the main method. It does a few things, but most importantly, it calls the `Authentication` function to exchange your subscription key for an access token. If something goes wrong, the error is printed to the console.
+Locate `static void Main(string[] args)` and replace it with `static async Task Main(string[] args)`. Next, copy this code into the main method. It does a few things, but most importantly, it takes text as an input, and calls the `Authentication` function to exchange your subscription key for an access token. If something goes wrong, the error is printed to the console.
 
-Make sure that you enter your subscription key.
+Make sure to add your subscription key before running the app.
 
 ```csharp
+// Prompts the user to input text for TTS conversion
+Console.Write("What would you like to convert to speech? ");
+string text = Console.ReadLine();
+
+// Gets an access token
 string accessToken;
 Console.WriteLine("Attempting token exchange. Please wait...\n");
 Authentication auth = new Authentication("YOUR_SUBSCRIPTION_KEY");
@@ -131,8 +136,7 @@ catch (Exception ex)
 Then set the host and route for text-to-speech:
 
 ```csharp
-string host = "https://westus.tts.speech.microsoft.com";
-string route = "/cognitiveservices/v1";
+string host = "https://westus.tts.speech.microsoft.com/cognitiveservices/v1";
 ```
 
 ## Build the SSML request
@@ -143,10 +147,8 @@ In this quickstart, we'll use SSML with the language set to `en-US` and the voic
 
 ```csharp
 string body = @"<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'>
-              <voice name='Microsoft Server Speech Text to Speech Voice (en-US, Guy24kRUS)'>
-              We hope you enjoy using Text-to-Speech, a Microsoft Speech Services feature.
-              </voice>
-              </speak>";
+              <voice name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>" +
+              text + "</voice></speak>";
 ```
 
 ## Instantiate the client, make a request, and save the speech to file
@@ -158,27 +160,24 @@ There's a lot going on in this code sample. Let's quickly review what's happenin
 * Required headers are added to the request.
 * The request is sent and the status code is checked.
 * The response is read asynchronously, and written to a file named sample.wav.
-* A check is performed to make sure that sample.wav has bytes (isn't empty).
 
 Copy this code into your project. Make sure to replace the value of the `User-Agent` header with the name of your resource from the Azure portal.
 
 ```csharp
-// Instantiate the client
 using (var client = new HttpClient())
 {
-    // Instantiate the request
     using (var request = new HttpRequestMessage())
     {
         // Set the HTTP method
         request.Method = HttpMethod.Post;
 
         // Construct the URI
-        request.RequestUri = new Uri(host + route);
+        request.RequestUri = new Uri(host);
 
-        // Set the Content-type
+        // Set the content type header
         request.Content = new StringContent(body, Encoding.UTF8, "application/ssml+xml");
 
-        // Set additional headers, such as Authorization, and User-Agent
+        // Set additional header, such as Authorization and User-Agent
         request.Headers.Add("Authorization", "Bearer " + accessToken);
         request.Headers.Add("Connection", "Keep-Alive");
         request.Headers.Add("User-Agent", "YOUR_RESOURCE_NAME");
@@ -189,33 +188,22 @@ using (var client = new HttpClient())
         Console.WriteLine("Calling the TTS service. Please wait... \n");
         using (var response = await client.SendAsync(request))
         {
-            // Make sure the request returns a success code
             response.EnsureSuccessStatusCode();
             // Asynchronously read the response
             using (var dataStream = await response.Content.ReadAsStreamAsync())
             {
-                /* Write the response to a file. In this sample,
-                 * it's an audio file. Then close the stream. */
+                Console.WriteLine("Your speech file is being written to file...");
                 using (var fileStream = new FileStream(@"sample.wav", FileMode.Create, FileAccess.Write, FileShare.Write))
                 {
                     await dataStream.CopyToAsync(fileStream);
                     fileStream.Close();
                 }
+                Console.WriteLine("\nYour file is ready. Press any key to exit.");
+                Console.ReadLine();
             }
         }
     }
-    // Check to make sure that the sample.wav has bytes
-    if (new FileInfo("sample.wav").Length == 0)
-    {
-      Console.WriteLine("The response is empty. Please check your request. Press any key to exit.");
-      Console.ReadLine();
-    }
-    else
-    {
-      Console.WriteLine("Your speech file is ready for playback. Press any key to exit.");
-      Console.ReadLine();
-    }
-}
+}    
 ```
 
 ## Run the sample app
@@ -226,7 +214,7 @@ That's it, you're ready to run your text-to-speech app. From the command line (o
 dotnet run
 ```
 
-If successful, the speech file is located in your project folder. Play it using your favorite media player.
+If successful, the speech file is saved in your project folder. Play it using your favorite media player.
 
 ## Clean up resources
 
