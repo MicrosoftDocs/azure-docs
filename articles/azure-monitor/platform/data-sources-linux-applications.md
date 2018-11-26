@@ -19,7 +19,7 @@ ms.component:
 ---
 
 # Collect performance counters for Linux applications in Log Analytics 
-[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 This article provides details for configuring the [Log Analytics agent for Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) to collect performance counters for specific applications.  The applications included in this article are:  
 
 - [MySQL](#MySQL)

@@ -27,7 +27,7 @@ A full list of available plugins can be found at [Table of Plugins](https://coll
 
 The following CollectD configuration is included in the Log Analytics agent for Linux to route  CollectD data to the Log Analytics agent for Linux.
 
-[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
     LoadPlugin write_http
 
