@@ -26,7 +26,7 @@ The following example shows the resolution of the **builtin.phonenumber** entity
   "query": "my mobile is 00 44 161 1234567",
   "topScoringIntent": {
     "intent": "None",
-    "score": 0.8448457
+    "gscore": 0.8448457
   },
   "intents": [
     {
