@@ -75,11 +75,11 @@ The SQL .NET SDK automatically supports querying data stored in Azure Cosmos DB 
     // Translated to the following SQL statement and executed on Azure Cosmos DB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
 
-You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Cosmos DB](sql-api-sql-query.md).
+You can learn more about Azure Cosmos DB's SQL query language and the LINQ provider at [Querying Cosmos DB](how-to-sql-query.md).
 
 In this article, we looked at how to store, index, and query DateTimes in Azure Cosmos DB.
 
 ## Next Steps
 * Download and run the [Code samples on GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
-* Learn more about [SQL queries](sql-api-sql-query.md)
+* Learn more about [SQL queries](how-to-sql-query.md)
 * Learn more about [Azure Cosmos DB Indexing Policies](index-policy.md)

@@ -78,7 +78,10 @@ To ensure that you have access to Azure Cosmos DB metrics from the portal, you n
 
 4.	Select **Save** to apply your changes.
 
-## <a id="configure-using-powershell"></a>Configure a service endpoint by using Azure PowerShell 
+## <a id="configure-using-powershell"></a>Configure a service endpoint by using Azure PowerShell
+
+> [!NOTE]
+> When you're using PowerShell or the Azure CLI, be sure to specify the complete list of IP filters and virtual network ACLs in parameters, not just the ones that need to be added.
 
 Use the following steps to configure a service endpoint to an Azure Cosmos DB account by using Azure PowerShell:  
 
@@ -121,34 +124,37 @@ Use the following steps to configure a service endpoint to an Azure Cosmos DB ac
      -Name $acctName
    ```
 
-1. Initialize the variables for use later. Set up all the variables from the existing account definition. In this step, you also configure a virtual network service endpoint by setting the **accountVNETFilterEnabled** variable to True. This value is later assigned to the *isVirtualNetworkFilterEnabled* parameter. 
+1. Initialize the variables for use later. Set up all the variables from the existing account definition.
 
    ```powershell
    $locations = @()
 
    foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
       $locations += , @{
-         locationName = $readLocation.locationName;
+         locationName     = $readLocation.locationName;
          failoverPriority = $readLocation.failoverPriority;
       }
    }
 
-   $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
-   $accountVNETFilterEnabled = $True
-   $subnetID = $vnProp.Id+"/subnets/" + $sname  
-   $virtualNetworkRules = @(@{"id"=$subnetID})
-   $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
+   $virtualNetworkRules = @(@{
+      id = "$($vnProp.Id)/subnets/$sname";
+   })
+
+   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
+      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
+   }
    ```
 
 1. Update Azure Cosmos DB account properties with the new configuration by running the following cmdlets: 
 
    ```powershell
    $cosmosDBProperties = @{
-      databaseAccountOfferType = $databaseAccountOfferType;
-      locations = $locations;
-      consistencyPolicy = $consistencyPolicy;
-      virtualNetworkRules = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $accountVNETFilterEnabled;
+      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
+      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
+      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
+      locations                     = $locations;
+      virtualNetworkRules           = $virtualNetworkRules;
+      isVirtualNetworkFilterEnabled = $True;
    }
 
    Set-AzureRmResource `
@@ -221,45 +227,48 @@ After a service endpoint for an Azure Cosmos DB account is turned on for a subne
      -Name $acctName
    ```
 
-1. Initialize the variables to use them later. Set up all the variables from the existing account definition. Add the virtual network ACL to all Azure Cosmos DB accounts being accessed from the subnet with an `ignoreMissingVNetServiceEndpoint` flag.  
-
-   In this step, you also configure a virtual network service endpoint by setting the **accountVNETFilterEnabled** variable to True. This value is later assigned to the *isVirtualNetworkFilterEnabled* parameter.
+1. Initialize the variables to use them later. Set up all the variables from the existing account definition. Add the VNET ACL to all Azure Cosmos accounts being accessed from the subnet with `ignoreMissingVNetServiceEndpoint` flag.
 
    ```powershell
    $locations = @()
 
    foreach ($readLocation in $cosmosDBConfiguration.Properties.readLocations) {
       $locations += , @{
-         locationName = $readLocation.locationName;
+         locationName     = $readLocation.locationName;
          failoverPriority = $readLocation.failoverPriority;
       }
    }
 
-   $consistencyPolicy = $cosmosDBConfiguration.Properties.consistencyPolicy
-   $accountVNETFilterEnabled = $True
    $subnetID = "Subnet ARM URL" e.g "/subscriptions/f7ddba26-ab7b-4a36-a2fa-7d01778da30b/resourceGroups/testrg/providers/Microsoft.Network/virtualNetworks/testvnet/subnets/subnet1"
 
-   $virtualNetworkRules = @(@{"id"=$subnetID, "ignoreMissingVNetServiceEndpoint"="True"})
-   $databaseAccountOfferType = $cosmosDBConfiguration.Properties.databaseAccountOfferType
+   $virtualNetworkRules = @(@{
+      id = $subnetID;
+      ignoreMissingVNetServiceEndpoint = "True";
+   })
+
+   if ($cosmosDBConfiguration.Properties.isVirtualNetworkFilterEnabled) {
+      $virtualNetworkRules = $cosmosDBConfiguration.Properties.virtualNetworkRules + $virtualNetworkRules
+   }
    ```
 
 1. Update Azure Cosmos DB account properties with the new configuration by running the following cmdlets:
 
    ```powershell
    $cosmosDBProperties = @{
-      databaseAccountOfferType = $databaseAccountOfferType;
-      locations = $locations;
-      consistencyPolicy = $consistencyPolicy;
-      virtualNetworkRules = $virtualNetworkRules;
-      isVirtualNetworkFilterEnabled = $accountVNETFilterEnabled;
+      databaseAccountOfferType      = $cosmosDBConfiguration.Properties.databaseAccountOfferType;
+      consistencyPolicy             = $cosmosDBConfiguration.Properties.consistencyPolicy;
+      ipRangeFilter                 = $cosmosDBConfiguration.Properties.ipRangeFilter;
+      locations                     = $locations;
+      virtualNetworkRules           = $virtualNetworkRules;
+      isVirtualNetworkFilterEnabled = $True;
    }
 
    Set-AzureRmResource `
-    -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
-    -ApiVersion $apiVersion `
-    -ResourceGroupName $rgName `
-    -Name $acctName `
-    -Properties $CosmosDBProperties
+      -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
+      -ApiVersion $apiVersion `
+      -ResourceGroupName $rgName `
+      -Name $acctName `
+      -Properties $CosmosDBProperties
    ```
 
 1. Repeat steps 1-3 for all Azure Cosmos DB accounts that you access from the subnet.
@@ -275,11 +284,11 @@ After a service endpoint for an Azure Cosmos DB account is turned on for a subne
     $subnetPrefix = "<Subnet address range>"
 
     Get-AzureRmVirtualNetwork `
-     -ResourceGroupName $rgname `
-     -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
-     -Name $sname `
-     -AddressPrefix $subnetPrefix `
-     -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
+       -ResourceGroupName $rgname `
+       -Name $vnName | Set-AzureRmVirtualNetworkSubnetConfig `
+       -Name $sname `
+       -AddressPrefix $subnetPrefix `
+       -ServiceEndpoint "Microsoft.AzureCosmosDB" | Set-AzureRmVirtualNetwork
     ```
 
 1. Remove the IP firewall rule for the subnet.
@@ -287,4 +296,3 @@ After a service endpoint for an Azure Cosmos DB account is turned on for a subne
 ## Next steps
 
 * To configure a firewall for Azure Cosmos DB, see the [Firewall support](firewall-support.md) article.
-

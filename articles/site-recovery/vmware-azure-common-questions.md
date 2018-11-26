@@ -4,7 +4,7 @@ description: This article summarizes common questions when you set up disaster r
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 10/29/2018
+ms.date: 11/19/2018
 ms.topic: conceptual
 ms.author: raynew
 
@@ -42,14 +42,20 @@ If you're a subscription administrator, you have the replication permissions you
 ## On-premises
 
 ### What do I need on-premises?
-On on-premises you need Site Recovery components, installed on a single VMware VM. You also need a VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server. In addition, you need one or more VMware VMs to replicate. [Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
 
-The on-premises configuration server can be deployed in one of the two following ways
+On on-premises you need:
+- Site Recovery components, installed on a single VMware VM.
+- A VMware infrastructure, with at least one ESXi host, and we recommend a vCenter server.
+- One or more VMware VMs to replicate.
 
-1. Deploy it using a VM template that has the configuration server pre-installed. [Read more here](vmware-azure-tutorial.md#download-the-vm-template).
-2. Deploy it using the setup on a Windows Server 2016 machine of your choice. [Read more here](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+[Learn more](vmware-azure-architecture.md) about VMware to Azure architecture.
 
-To discover the getting started steps of deploying the configuration server on your own Windows Server machines, in the Protection goal of enable protection, choose **To Azure > Not virtualized/Other**.
+The on-premises configuration server can be deployed as follows:
+
+- We recommend you deploy the configuration server as a VMware VM using an OVA template with the configuration server pre-installed.
+- If for any reason you can't use a template, you can set up the configuration server manually. [Learn more](physical-azure-disaster-recovery.md#set-up-the-source-environment).
+
+
 
 ### Where do on-premises VMs replicate to?
 Data replicates to Azure storage. When you run a failover, Site Recovery automatically creates Azure VMs from the storage account.
