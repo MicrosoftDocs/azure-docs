@@ -63,7 +63,7 @@ For Site Recovery to work as expected, you need to modify outbound network conne
 > [!NOTE]
 > Site Recovery doesn't support using an authentication proxy to control network connectivity.
 
-  
+
 
 ### Outbound connectivity for URLs
 
@@ -142,7 +142,7 @@ Site Recovery retrieves a list of the VMs associated with the subscription and r
 Site Recovery creates default settings and replication policy for the target region. You can change the settings as required.
 
 1. Click **Settings** to view the target and replication settings.
-2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability Sets**.
+2. To override the default target settings, click **Customize** next to **Resource group, Network, Storage and Availability**.
 
   ![Configure settings](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
@@ -161,12 +161,25 @@ Site Recovery creates default settings and replication policy for the target reg
       an "asr" suffix.
     - **Cache storage accounts**: Site Recovery uses a storage account in the source region. Changes to
       source VMs are sent to this account before replication to the target location.
-    - **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the
-      target region to mirror the source VM storage account.
+      >[!NOTE]
+      >If you are using firewall enabled cache storage account, ensure you 'Allow trusted Microsoft services'. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+      >
+
+    - **Target storage accounts (If source VM does not use managed disks)**: By default, Site Recovery creates a new storage account in the target region to mirror the source VM storage account.
+      >[!NOTE]
+      >If you are using firewall enabled source or target storage account, ensure you 'Allow trusted Microsoft services'. [Learn more.](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+      >
+
     - **Replica managed disks (If source VM uses managed disks)**: By default, Site Recovery creates replica managed disks in the
       target region to mirror the source VM's managed disks with the same storage type (Standard or premium) as the source VM's managed disk.
-    - **Target availability sets**: By default, Site Recovery creates a new availability set in the
-      target region with the "asr" suffix. You can only add availability sets if VMs are part of a set in the source region.
+    - **Target availability sets**: By default, Azure Site Recovery creates a new availability set in the target region with name having "asr" suffix for the VMs part of an availability set in source region. In case availability set created by Azure Site Recovery already exists, it is reused.
+    - **Target availability zones**: By default, Site Recovery assigns the same zone number as the source region in target region if the target region supports availability zones. 
+
+    If the target region does not support availability zones, the target VMs are configured as single instances by default. If required, you can configure such VMs to be part of availability sets in target region by clicking 'Customize'.
+
+    >[!NOTE]
+    >You cannot change the availability type - single instance, availability set or availability zone, after you enable replication. You need to disable and enable replication to change the availability type.
+    >
 
 4. To customize replication policy settings, click **Customize** next to **Replication policy**, and modify the following settings as required:
 
