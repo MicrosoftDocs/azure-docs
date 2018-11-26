@@ -47,7 +47,7 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## Create a function to detect the source's language
+## Create a function to detect the source text's language
 
 Within the `Program` class, create a function called `Detect`. This class encapsulates the code used to call the Detect resource and prints the result to console.
 
