@@ -134,7 +134,7 @@ SecurityEvent
 ## Specify a time range
 
 ### Time picker
-The time picker is in the top left corner , which indicates we’re querying only records from the last 24 hours. This is the default time range applied to all queries. To get only records from the last hour, select _Last hour_ and run the query again.
+The time picker is next to the Run button and indicates we’re querying only records from the last 24 hours. This is the default time range applied to all queries. To get only records from the last hour, select _Last hour_ and run the query again.
 
 ![Time Picker](media/get-started-queries/timepicker.png)
 
