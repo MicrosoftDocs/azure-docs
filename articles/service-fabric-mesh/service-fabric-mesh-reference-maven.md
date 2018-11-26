@@ -158,7 +158,7 @@ With the help of goal `sf-mesh:deploy`, you can run the application locally usin
 mvn sf-mesh:deploytocluster
 ```
 
-The deployment to local clusters step assumes you have a local Service Fabric cluster up and running. Local Service Fabric cluster for resources is currently supported only on [Windows](service-fabric-mesh-howto-setup-developer-environment-sdk).
+The deployment to local clusters step assumes you have a local Service Fabric cluster up and running. Local Service Fabric cluster for resources is currently supported only on [Windows](service-fabric-mesh-howto-setup-developer-environment-sdk.md).
 
 ### Deploy applications to Azure Mesh 
 
