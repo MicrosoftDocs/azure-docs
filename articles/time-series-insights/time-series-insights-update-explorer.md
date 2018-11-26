@@ -17,10 +17,10 @@ This article describes features and options available within The Azure Time Seri
 
 ## Prerequisites
 
-Before you can use The Azure Time Series Insights V2 Update Explorer, you must:
+Before you use The Azure Time Series Insights V2 Update Explorer, you must:
 
 * Have a Time Series Insights environment provisioned. Learn more about provisioning a Time Series Insights environment here.
-* Provide data access to the Time Series Insights environment you just created to the account you will use to access it and for others who you wish to share access with.
+* Provide data access to the Time Series Insights environment you created for the account. Access can be supplied to others as well as yourself.
 * Add an event source to the Time Series Insights environment to push data to the environment.
 
 ## Learn About The Azure Time Series Insights V2 Update Explorer
@@ -56,7 +56,7 @@ The navigation menu allows you to switch between the Time Series Insights applic
 
 * Analyze – Allows you to chart & perform rich analytics on your modeled or unmodeled time series data.
 
-* Model - Allows you to push new Time Series Insights update types, hierarchies and instances to your Time Series Insights model.
+* Model - Allows you to push new Time Series Insights update types, hierarchies, and instances to your Time Series Insights model.
 
 ## Time Series Insights Update Model Authoring
 
@@ -64,7 +64,7 @@ This application gives you the ability to perform CRUD operations on your Time S
 
 * TSM type - Time Series Insights types enable defining variables or formulas for doing computations, they are associated with a given Time Series Insights instance. A type can have one or more variables.
 * TSM hierarchy - Hierarchies are systematic organizations of your data. Hierarchies depict the relationships between different entities in your Time Series Insights data.
-* TSM instance - Instances are the time series themselves. In most cases this will be the DeviceID or AssetID which is the unique identifier of the asset in the environment.
+* TSM instance - Instances are the time series themselves. In most cases, this will be the DeviceID or AssetID, which is the unique identifier of the asset in the environment.
 
 To learn more about the TSM please see this article.
 
@@ -102,18 +102,18 @@ The chart enables you to display time series instances as lines.  You can collap
 
 1. Time span collapse control - This control collapses and expands the time span panel editor.
 
-1. Y Axis format control – Click this control to cycle through the available Y Axis view options. The available Y Axis view options are:
+1. Y-Axis format control – Click this control to cycle through the available Y-Axis view options. The available Y-Axis view options are:
 
     * Default  - each line has an individual Y-axis
     * Stacked – this allows you to stack multiple lines on the same Y-axis, with the Y-axis data changing based on the line selected
     * Shared – All Y-axis data displayed together
 1. Current data element – The currently selected data element and its associated details.
 
-You can further drill into a specific data slice by left-clicking a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. Right click the greyed, selected area and click zoom as shown below. You can also
+You can further drill into a specific data slice by left-clicking a data point on the current graph while holding down the mouse and then dragging the selected area to the endpoint of your choice. Right-click the greyed, selected area, and click zoom as shown below. You can also
 
   ![tsi-update-thirteen][13]
  
-After performing the zoom action you will now see your selected data set. Click on the Y-axis format control to cycle through the three different Y-axis representations of your Time Series Insights data.
+After performing the zoom action, you will now see your selected data set. Click on the Y-axis format control to cycle through the three different Y-axis representations of your Time Series Insights data.
 
   ![tsi-update-fourteen][14]
 
