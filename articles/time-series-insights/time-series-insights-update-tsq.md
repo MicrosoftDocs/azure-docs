@@ -13,7 +13,7 @@ ms.date: 11/21/2018
 
 # Time Series Query
 
-**Time Series Query** (TSQ), makes it easier to compute and retrieve Time Series data stored in Time Series Insights (TSI) at scale. TSQ leverages computational definitions stored in Time Series Model (TSM) or via inline provided variable definitions, to transform and retrieve data from storage.
+**Time Series Query** (TSQ), makes it easier to compute and retrieve Time Series data stored in Time Series Insights (TSI) at scale. TSQ leverages computational definitions to transform and retrieve data from storage. It does so from **Time Series Models** (TSM) or via inline variable definitions.
 
 TSQ retrieves data in two different ways. TSQ can retrieve data as it is recorded from source provider, or can reduce data, or can reconstruct the signals leveraging the specified method to enable customers perform operations to transform, combine, and perform computations on time series data.
 
@@ -72,10 +72,11 @@ The getTypes API returns all the Time Series types and their associated variable
 The getTypes API takes the following parameters:
 
 * typeId – The immutable unique identifier for the type.
-* timeSeriesId – Time Series ID this is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
-* description – the description for the type.
-* hierarchyIds – an array of associated hierarchyIds for the type.
-* instanceFields: 
+* timeSeriesId: **Time Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
+* description: the description for the type.
+* hierarchyIds: an array of associated hierarchyIds for the type.
+* instanceFields:
+
     * state
     * city
 
@@ -165,13 +166,14 @@ getHierarchies API
 
 The getHierarchies API returns all of the Time Series hierarchies and all of their associated field paths.
 
-The getHierarchies API takes the following parameters
-•	id – the uniquely identifying key for the hierarchy. 
-•	name – the name of the hierarchy
-•	source 
-o	instanceFields
-	year
-	month
+The getHierarchies API takes the following parameters:
+
+* **id**: the uniquely identifying key for the hierarchy.
+* **name**: the name of the hierarchy
+* **source**
+    * instanceFields
+        * year
+        * month
 
 getHierarchies JSON request and response example
 Request:
@@ -226,12 +228,12 @@ The getInstances API is used to return all the Time Series Instances and all the
 
 The getInstances API takes the following parameters:
 
-* name – the name associated with the instance, used for Query as well as substitute in UX
-* typeId – the uniquely identifying key for the type.
-* timeSeriesId – Time Series ID this is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
-* description – the description of the instance.
-* hierarchyIds – an array of one or more of hierarchyIds that uniquely define each hierarchy.
-* instanceFields
+* name: the name associated with the instance, used for Query as well as substitute in UX
+* typeId: the uniquely identifying key for the type.
+* timeSeriesId: **Time Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
+* description: the description of the instance.
+* hierarchyIds: an array of one or more of hierarchyIds that uniquely define each hierarchy.
+* instanceFields:
 
     * state
     * city
@@ -290,12 +292,12 @@ The aggregateSeries API enables query and retrieval of Time Series Insights data
 
 The aggregateSeries API takes the following parameters:
 
-* timeSeriesId – Time Series ID this is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
-* searchSpan – The timespan and bucket size for this aggregate expression.
-* Filter – Optional predicate clause.
-* Interval – Interval at which data should be computed.
-* ProjectedVariables – Variables that are in scope to be computed.
-* InlineVariables(optional) – Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
+* timeSeriesId: **ime Series ID** is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
+* searchSpan: The timespan and bucket size for this aggregate expression.
+* Filter: Optional predicate clause.
+* Interval: Interval at which data should be computed.
+* ProjectedVariables: Variables that are in scope to be computed.
+* InlineVariables(optional): Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
 
 The getSeries API returns a TSV for each variable for each interval, based on the provided Time Series ID and the set of provided variables. The getSeries API achieves reduction by leveraging variables stored in TSM or provided inline to aggregate or sample data.
 
@@ -388,15 +390,18 @@ Response:
 
 ### getSeries API
 
-The getSeries API enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline. Please note if interpolation and aggregation clause is provided in variable, or interval is specified, it will be ignored.
+The getSeries API enables query and retrieval of Time Series Insights data from captured events by leveraging data recorded on the wire using the variables define in model or provided inline. 
+
+> [!Note]
+> If interpolation and aggregation clause is provided in variable, or interval is specified, it will be ignored.
 
 The getSeries API takes the following parameters:
 
-* timeSeriesId – Time Series ID this is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data. 
-* searchSpan – The timespan and bucket size for this aggregate expression.
-* Filter – Optional predicate clause.
-* ProjectedVariables – Variables that are in scope to be computed.
-* InlineVariables(optional) – Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
+* timeSeriesId: Time Series ID is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
+* searchSpan: The timespan and bucket size for this aggregate expression.
+* Filter: Optional predicate clause.
+* ProjectedVariables: Variables that are in scope to be computed.
+* InlineVariables(optional): Variables definitions that we want to either override from that coming via TSM or provided inline for computation.
 
 The getSeries API returns a TSV for each variable, based on the provided Time Series ID and the set of provided variables. The getSeries API achieves does not support intervals or variable reduction/interpolation.  
 
@@ -467,12 +472,12 @@ The getEvents API enables query and retrieval of Time Series Insights data from 
 
 The getEvents API takes the following parameters:
 
-* timeSeriesId – Time Series ID this is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
-* searchSpan – the timespan and bucket size for this aggregate expression.
-* filter – Allows you to specify predicate values to filter your queries however you desire.
-* projectedProperties (optional) – Allows column/properties filtering.
+* timeSeriesId: Time Series ID is the unique key for the data within the event stream and model. This key is what Time Series Insights uses to partition the data.
+* searchSpan: the timespan and bucket size for this aggregate expression.
+* filter: Allows you to specify predicate values to filter your queries however you desire.
+* projectedProperties (optional): Allows column/properties filtering.
 
-The getEvents API returns raw values from captured events as stored in Time Series Insights for a given Time Series ID and time range. It does not require variable definitions (neither TSM or variable definitions are used).
+The getEvents API returns raw values from captured events as stored in Time Series Insights for a given Time Series ID and time range. It does not require variable definitions (neither TSM nor variable definitions are used).
 
 ### getEvents JSON request and response example
 
@@ -568,13 +573,13 @@ Aggregation/Transformation:
 | TSQ Request Size | 32 KB |
 | TSQ Response Limit | 16 MB |
 | TSQ Parallel Query Limit | 20 per environment |
-| Get Events | 16MB size or 30s time |
+| Get Events | 16 MB size or 30s time |
 | Token validity | 1 hour |
-| Get Series | 500,000 intervals or timestamps, or 16MB size |
-| Min | Interval limit 1ms |
+| Get Series | 500,000 intervals or timestamps, or 16 MB size |
+| Min | Interval limit 1 ms |
 | Max | 50 projected variables |
-| Aggregate Series | 500,000 intervals or timestamps, or 16MB size |
-| Min | Interval limit 1ms |
+| Aggregate Series | 500,000 intervals or timestamps, or 16 MB size |
+| Min | Interval limit 1 ms |
 | Max | 50 projected variables |
 
 ## Time Series Query Tutorial
