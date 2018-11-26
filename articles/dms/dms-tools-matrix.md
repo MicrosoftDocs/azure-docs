@@ -13,9 +13,90 @@ ms.topic: article
 ms.date: 11/013/2018
 ---
 
-# Service and tools for data migration 
+# Service and tools for data migration
 
 This article provides a matrix of the Microsoft and third-party services and tools available to assist you with various database and data migration scenarios and specialty tasks.
+
+## (layout option #1) From SQL Server to Azure SQL Database
+
+### Business justification
+
+| **Discover<br/>Inventory** | **Target and SKU<br/>recommendation** | **TCO/ROI and <br/>Business case** |
+|---|---|---|
+| [MAP Toolkit](https://msdn.microsoft.com/en-us/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/en-us/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/) |
+| | | |
+
+### Pre-migration
+
+| **App Data Access <br/>Layer Assessment** | **Database <br/>Assessment** | **Performance <br/>Assessment** |
+|---|---|---|
+|   | [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/en-us/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
+| | | |
+
+### Migration
+
+| **Schema** | **Data <br/>(Offline)** | **Data <br/>(Online)** |
+|---|---|---|
+| [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/en-us/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/en-us/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
+| | | |
+
+### Post migration
+
+| **Optimize** |
+|---|
+| [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
+| |
+
+## (layout option #2) From SQL Server to Azure SQL Database
+
+### Business justification
+
+- **Discover/ Inventory**
+    - [MAP Toolkit](https://msdn.microsoft.com/en-us/library/bb977556.aspx)
+    - [Azure Migrate](https://azure.microsoft.com/en-us/services/azure-migrate/)
+    - [Cloudamize*](https://www.cloudamize.com/)
+
+- **Target and SKU recommendation**
+    - [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)
+    - [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)
+    - [Cloudamize*](https://www.cloudamize.com/)
+
+- **TCO/ROI and Business case**
+    - [TCO Calculator](https://azure.microsoft.com/en-us/pricing/tco/calculator/)
+
+### Pre-migration
+
+- **App Data Access Layer Assessment**
+
+- **Database Assessment**
+    - [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)
+    - [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)
+    - [Cloudamize*](https://www.cloudamize.com/)
+
+- **Performance Assessment**
+    - [DEA](https://www.microsoft.com/en-us/download/details.aspx?id=54090)
+    - [Cloudamize*](https://www.cloudamize.com/)
+
+### Migration
+
+- **Schema**
+    - [DMA](https://docs.microsoft.com/en-us/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize*](https://www.cloudamize.com/)
+
+- **Data (Offline)**
+    - [DMS](https://azure.microsoft.com/en-us/services/database-migration/)
+    - [Cloudamize*](https://www.cloudamize.com/)
+
+- **Data (Online)**
+    -[DMS](https://azure.microsoft.com/en-us/services/database-migration/)
+    - [Cloudamize*](https://www.cloudamize.com/)
+    - [Attunity*](https://www.attunity.com/products/replicate/)
+    - [Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/)
+
+### Post migration
+
+- **Optimize**
+    - [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)
+    - [Cloudamize*](https://www.cloudamize.com/)
 
 ## Migration planning and pre-migration
 
