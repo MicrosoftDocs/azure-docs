@@ -24,7 +24,7 @@ To complete this sample, make sure you have the following prerequisites:
 
 - A [server-level firewall rule](sql-database-get-started-portal-firewall.md) for the public IP address of the computer you're using
 
-- Java-related software installed for your operating system,
+- Java-related software installed for your operating system:
 
   - **MacOS**, install Homebrew and Java, then install Maven. See [Step 1.2 and 1.3](https://www.microsoft.com/sql-server/developer-get-started/java/mac/).
 
