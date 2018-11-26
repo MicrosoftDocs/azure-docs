@@ -182,9 +182,6 @@ Redeploy the updated template after making the changes.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
-$clusterloc="southcentralus"
-
-New-AzureRmResourceGroup -Name $groupname -Location $clusterloc
 
 New-AzureRmResourceGroupDeployment -ResourceGroupName $groupname -Verbose `
     -TemplateParameterFile "C:\temp\cluster\parameters.json" -TemplateFile "C:\temp\cluster\template.json" 
