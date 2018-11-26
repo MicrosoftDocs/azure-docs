@@ -15,7 +15,7 @@ ms.author: glenga
 
 # Monitor Azure Functions
 
-[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../application-insights/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send system generated log files to Application Insights.
+[Azure Functions](functions-overview.md) offers built-in integration with [Azure Application Insights](../application-insights/app-insights-overview.md) for monitoring functions. This article shows how to configure Functions to send system-generated log files to Application Insights.
 
 ![Application Insights Metrics Explorer](media/functions-monitoring/metrics-explorer.png)
 
@@ -54,7 +54,7 @@ The next step is to [disable built-in logging](#disable-built-in-logging).
 
    ![Create an Application Insights resource, type General](media/functions-monitoring/ai-general.png)
 
-2. Copy the instrumentation key from the **Essentials** page of the Application Insights resource. Hover over the end of the displayed key value to get a **Click to copy** button.
+1. Copy the instrumentation key from the **Essentials** page of the Application Insights resource. Hover over the end of the displayed key value to get a **Click to copy** button.
 
    ![Copy the Application Insights instrumentation key](media/functions-monitoring/copy-ai-key.png)
 
@@ -138,7 +138,7 @@ The [Live Metrics Stream](../application-insights/app-insights-live-stream.md) t
 
 ![Analytics example](media/functions-monitoring/analytics-traces.png)
 
-Here's a query example. This one shows the distribution of requests per worker over the last 30 minutes.
+Here's a query example that shows the distribution of requests per worker over the last 30 minutes.
 
 ```
 requests
@@ -326,6 +326,8 @@ As noted in the previous section, the runtime aggregates data about function exe
 
 Application Insights has a [sampling](../application-insights/app-insights-sampling.md) feature that can protect you from producing too much telemetry data at times of peak load. When the rate of incoming telemetry exceeds a specified threshold, Application Insights starts to randomly ignore some of the incoming items. The default setting for maximum number of items per second is 5. You can configure sampling in [host.json](functions-host-json.md).  Here's an example:
 
+### Version 1.x 
+
 ```json
 {
   "applicationInsights": {
@@ -414,7 +416,7 @@ This code is an alternative to calling `trackMetric` using [the Node.js SDK for 
 
 ## Custom telemetry in C# functions
 
-You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. There following C# example uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+You can use the [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights/) NuGet package to send custom telemetry data to Application Insights. The following C# example uses the [custom telemetry API](../application-insights/app-insights-api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
 ### Version 2.x
 
