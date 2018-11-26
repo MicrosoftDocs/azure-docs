@@ -29,7 +29,7 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 If this step fails, you may need to restart your cluster.  In your Databricks workspace, select `Clusters` > `your-cluster-name`.  On the `Libraries` tab, select `Restart`.
     ![Restart Databricks cluster ](./media/how-to-azure-machine-learning-on-databricks/restart-databricks-cluster.jpg)
 
-    Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
+Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
 
 1. Download the [Azure Databricks Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc) Databricks notebooks archive file.
 
