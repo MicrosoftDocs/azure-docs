@@ -28,15 +28,10 @@ There are two kinds of access control lists (ACLs), **Access ACLs** and **Defaul
 
 * **Default ACLs**: A "template" of ACLs associated with a folder that determine the Access ACLs for any child items that are created under that folder. Files do not have Default ACLs.
 
-
 Both Access ACLs and Default ACLs have the same structure.
 
-
-
-> [!NOTE]
+> [!IMPORTANT]
 > Changing the Default ACL on a parent does not affect the Access ACL or Default ACL of child items that already exist.
->
->
 
 ## Permissions
 
@@ -78,12 +73,8 @@ Following are some common scenarios to help you understand which permissions are
 | List /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
 | List /Seattle/Portland/  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
-
 > [!NOTE]
 > Write permissions on the file are not required to delete it as long as the previous two conditions are true.
->
->
-
 
 ## Users and identities
 
@@ -116,21 +107,19 @@ The user who created the item is automatically the owning user of the item. An o
 
 > [!NOTE]
 > The owning user *cannot* change the owning user of a file or folder. Only super-users can change the owning user of a file or folder.
->
->
 
 ### The owning group
 
-**Background**
+### Background
 
 In the POSIX ACLs, every user is associated with a "primary group." For example, user "alice" might belong to the "finance" group. Alice might also belong to multiple groups, but one group is always designated as her primary group. In POSIX, when Alice creates a file, the owning group of that file is set to her primary group, which in this case is "finance." The owning group otherwise behaves similarly to assigned permissions for other users/groups.
 
-**Assiging the owning group for a new file or folder**
+### Assiging the owning group for a new file or folder
 
 * **Case 1**: The root folder "/". This folder is created when a Data Lake Storage Gen2 account is created. In this case, the owning group is set to the user who created the account.
 * **Case 2** (Every other case): When a new item is created, the owning group is copied from the parent folder.
 
-**Changing the owning group**
+### Changing the owning group
 
 The owning group can be changed by:
 * Any super-users.

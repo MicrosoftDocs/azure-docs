@@ -37,7 +37,7 @@ When it completes connecting, Azure Storage Explorer loads with the **Explorer**
 
 ## Set ACLs on a directory
 
-IF you don't already have you, you can create a filesystem by right clicking **Blob containers** and selecting **Create a blob container**. Then, select that container and select **New folder**, enter a name. This will create a directory.
+If you don't already have you, you can create a filesystem by right clicking **Blob containers** and selecting **Create a blob container**. Then, select that container and select **New folder**, enter a name. This will create a directory.
 
 Now that you've done that, you may click the folder and select **Manage permissions**.
 
@@ -47,3 +47,4 @@ Setting **default ACLs** on a parent folder will, only on subsequent creation, s
 
 ## Set ACLs on a file
 
+If you have a file, you can set ACLs on it the same way you set ACLs on a directory.
