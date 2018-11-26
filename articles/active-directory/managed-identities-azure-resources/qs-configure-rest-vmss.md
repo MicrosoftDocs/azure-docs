@@ -17,7 +17,7 @@ ms.date: 06/25/2018
 ms.author: daveba
 ---
 
-# Configure managed identities for Azure resources on a virtual machine scale set using CURL
+# Configure managed identities for Azure resources on a virtual machine scale set using REST API calls
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
