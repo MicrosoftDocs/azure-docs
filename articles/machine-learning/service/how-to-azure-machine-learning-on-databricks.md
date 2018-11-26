@@ -23,9 +23,18 @@ If you don’t have an Azure subscription, create a [free account](https://aka.m
 
 1. Create a [Databricks cluster](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Create your Azure Databricks cluster as v4.x (high concurrency preferred) with **Python 3**. 
 
-1. Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library) the `azureml-sdk[databricks]` PyPi package to your cluster. 
-    Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
+1. Create a library to [install and attach](https://docs.databricks.com/user-guide/libraries.html#create-a-library) the `azureml-sdk[databricks]` PyPi package to your cluster. When you are done you will see the library attached.
+
+   ![SDK installed on Databricks ](./media/how-to-azure-machine-learning-on-databricks/sdk-installed-on-databricks.jpg)
+
+   If this step fails, you may need to restart your cluster.  In your Databricks workspace, select `Clusters` > `your-cluster-name`.  On the `Libraries` tab, select `Restart`.
+
+   ![Restart Databricks cluster ](./media/how-to-azure-machine-learning-on-databricks/restart-databricks-cluster.jpg)
+
+   Be aware of these [common Databricks issues](resource-known-issues.md#databricks).
+
 1. Download the [Azure Databricks Azure Machine Learning SDK](https://github.com/Azure/MachineLearningNotebooks/blob/master/databricks/Databricks_AMLSDK_github.dbc) Databricks notebooks archive file.
+
 1.  [Import the archive file](https://docs.azuredatabricks.net/user-guide/notebooks/notebook-manage.html#import-an-archive) into your Databricks cluster.  
 
  
