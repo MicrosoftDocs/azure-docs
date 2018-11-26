@@ -16,11 +16,11 @@ Use the following procedure to view and update the runtime version currently use
 
 1. Under **Configured Features**, choose **Function app settings**.
 
-    ![Select function app settings](./media/set-runtime-version/add-update-app-setting.png)
+    ![Select function app settings](./media/functions-view-update-version-portal/add-update-app-setting.png)
 
 1. In the **Function app settings** tab, locate the **Runtime version**. Note the specific runtime version and the requested major version. In the example below, the version is set to `~2`.
 
-   ![Select function app settings](./media/set-runtime-version/function-app-view-version.png)
+   ![Select function app settings](./media/functions-view-update-version-portal/function-app-view-version.png)
 
 1. To pin your function app to the version 1.x runtime, choose **~1** under **Runtime version**. This switch is disabled when you have functions in your app.
 
