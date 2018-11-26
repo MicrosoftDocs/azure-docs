@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: tedway
 author: tedway
-ms.date: 10/01/2018
+ms.date: 10/29/2018
 ---
 
 # Deploy a model as a web service on an FPGA with Azure Machine Learning
@@ -18,9 +18,7 @@ You can deploy a model as a web service on [field programmable gate arrays (FPGA
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-
-- You must request and be approved for FPGA quota. To request access, fill out the quota request form: https://aka.ms/aml-real-time-ai
+- An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 - An Azure Machine Learning service workspace and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
  
@@ -171,3 +169,7 @@ Concepts in this article are demonstrated in the [project-brainwave/project-brai
 Get this notebook:
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
+
+## Next steps
+
+Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).

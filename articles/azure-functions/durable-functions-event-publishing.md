@@ -132,9 +132,11 @@ A function with the following code is created:
 #r "Newtonsoft.Json"
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-public static void Run(JObject eventGridEvent, TraceWriter log)
+using Microsoft.Extensions.Logging;
+
+public static void Run(JObject eventGridEvent, ILogger log)
 {
-    log.Info(eventGridEvent.ToString(Formatting.Indented));
+    log.LogInformation(eventGridEvent.ToString(Formatting.Indented));
 }
 ```
 
@@ -159,6 +161,7 @@ using System.Threading.Tasks;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Extensions.Http;
 using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace LifeCycleEventSpike
 {
@@ -181,9 +184,9 @@ namespace LifeCycleEventSpike
         }
 
         [FunctionName("Sample_Hello")]
-        public static string SayHello([ActivityTrigger] string name, TraceWriter log)
+        public static string SayHello([ActivityTrigger] string name, ILogger log)
         {
-            log.Info($"Saying hello to {name}.");
+            log.LogInformation($"Saying hello to {name}.");
             return $"Hello {name}!";
         }
 
@@ -191,11 +194,11 @@ namespace LifeCycleEventSpike
         public static async Task<HttpResponseMessage> HttpStart(
             [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
             [OrchestrationClient]DurableOrchestrationClient starter,
-            TraceWriter log)
+            ILogger log)
         {
             // Function input comes from the request content.
             string instanceId = await starter.StartNewAsync("Sample", null);
-            log.Info($"Started orchestration with ID = '{instanceId}'.");
+            log.LogInformation($"Started orchestration with ID = '{instanceId}'.");
             return starter.CreateCheckStatusResponse(req, instanceId);
         }
     }

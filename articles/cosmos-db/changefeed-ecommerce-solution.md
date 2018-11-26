@@ -86,7 +86,7 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
    ```powershell
    .\deploy.ps1
    ```
-5. When prompted, enter your Azure **Subcription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
+5. When prompted, enter your Azure **Subscription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
 
 ## Create a database and the collection
 
@@ -101,7 +101,7 @@ You will now create a collection to hold e-commerce site events. When a user vie
    * For **Storage capacity**, select **Unlimited**.  
    * For the **Partition key** field, enter **/Item**. This is case-sensitive, so make sure you enter it correctly.  
    * For the **Throughput** field, enter **10000**.  
-   * Click the **OK** button.  
+   * Select the **OK** button.  
 
 3. Next create another collection named **leases** for change feed processing. The leases collection coordinates processing the change feed across multiple workers. A separate collection is used to store the leases with one lease per partition.  
 
@@ -111,7 +111,7 @@ You will now create a collection to hold e-commerce site events. When a user vie
    * For the **Collection id** field, enter **leases**.  
    * For **Storage capacity**, select **Fixed**.  
    * Leave the **Throughput** field set to its default value.  
-   * Click the **OK** button.
+   * Select the **OK** button.
 
 ## Get the connection string and keys
 
@@ -204,7 +204,7 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
    * Leave **Event serialization format** as **JSON**.  
    * Leave **Encoding field** set to **UTF-8**.  
    * Leave **Event compression type** field set to **None**.  
-   * Click the **Save** button.
+   * Select the **Save** button.
 
 5. Navigate back to the stream analytics job page, and select **Outputs**.  
 
@@ -216,10 +216,10 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
    * Leave the **Group workspace** field set to **Authorize connection to load workspaces**.  
    * In the **Dataset name** field, enter **averagePrice**.  
    * In the **Table name** field, enter **averagePrice**.  
-   * Click the **Authorize** button, then follow the instructions to authorize the connection to Power BI.  
-   * Click the **Save** button.  
+   * Select the **Authorize** button, then follow the instructions to authorize the connection to Power BI.  
+   * Select the **Save** button.  
 
-8. Then go back to **streamjob1** and click **Edit query**.
+8. Then go back to **streamjob1** and select **Edit query**.
 
    ![Edit query](./media/changefeed-ecommerce-solution/edit-query.png)
  
@@ -232,9 +232,9 @@ Azure Stream Analytics is a fully managed cloud service for real-time processing
     FROM input  
     GROUP BY Action, TumblingWindow(second,5) 
    ```
-10. Then click **Save** in the upper left-hand corner.  
+10. Then select **Save** in the upper left-hand corner.  
 
-11.	Now return to **streamjob1** and click the **Start** button at the top of the page. Azure Stream Analytics can take a few minutes to start up, but eventually you will see it change from "Starting" to "Running".
+11.	Now return to **streamjob1** and select the **Start** button at the top of the page. Azure Stream Analytics can take a few minutes to start up, but eventually you will see it change from "Starting" to "Running".
 
 ## Connect to Power BI
 
@@ -246,9 +246,9 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
 
 3. Select **+ Add tile** in the top right-hand corner.  
 
-4. Select **Custom Streaming Data**, then click the **Next** button.  
+4. Select **Custom Streaming Data**, then select the **Next** button.  
  
-5. Select **averagePrice** from **YOUR DATASETS**, then click **Next**.  
+5. Select **averagePrice** from **YOUR DATASETS**, then select **Next**.  
 
 6. In the **Visualization Type** field, choose **Clustered bar chart** from the drop-down menu. Under **Axis**, add action. Skip **Legend** without adding anything. Then, under the next section called **Value**, add **avg**. Select **Next**, then title your chart, and select **Apply**. You should see a new chart on your dashboard!  
 
@@ -258,7 +258,7 @@ Power BI is a suite of business analytics tools to analyze data and share insigh
    b. **Output alias:** top5Output, Dataset name: top5, Table name: top5  
    c. **Output alias:** uniqueVisitorCountOutput, Dataset name: uniqueVisitorCount, Table name: uniqueVisitorCount
 
-   Then click **Edit query** and paste the following queries **above** the one you already wrote.
+   Then select **Edit query** and paste the following queries **above** the one you already wrote.
 
    ```sql
     /*TOP 5*/
@@ -326,7 +326,7 @@ You will now observe how you can use your new data analysis tool to connect with
 
    Add another collection under **changefeedlabdatabase** named **topItems** with **Unlimited** storage capacity. Write **/Item** as the partition key.
 
-2. Click on the **topItems** collection, and under **Scale and Settings** set the **Time to Live** to be **30 seconds** so that topItems updates every 30 seconds.
+2. Select the **topItems** collection, and under **Scale and Settings** set the **Time to Live** to be **30 seconds** so that topItems updates every 30 seconds.
 
    ![Time to live](./media/changefeed-ecommerce-solution/time-to-live.png)
 

@@ -21,6 +21,8 @@
       items:
       - name: What happens when you add an app
         href: plan-an-application-integration.md
+      - name: Guidance for developers
+        href: developer-guidance-for-integrating-applications.md
     - name: Plan an on-premises app integration
       items:
       - name: Application Proxy
@@ -64,21 +66,9 @@
       - name: Tenant restrictions
         href: tenant-restrictions.md
     - name: Single sign-on
-      items:
-      - name: Overview
-        href: what-is-single-sign-on.md
-      - name: SSO methods
-        href: application-proxy-single-sign-on.md
-      - name: Choose a method
-        href: single-sign-on-modes.md
-      - name: Home Realm Discovery
-        href: configure-authentication-for-federated-users-portal.md
-      - name: Kerberos constrained Delegation (KCD)
-        href: application-proxy-configure-single-sign-on-with-kcd.md
-      - name: Password vaulting
-        href: application-proxy-configure-single-sign-on-password-vaulting.md
-      - name: Headers
-        href: application-proxy-configure-single-sign-on-with-ping-access.md
+      href: what-is-single-sign-on.md
+    - name: End-user portals
+      href: end-user-experiences.md
   - name: How-to guides
     items:
     - name: Cloud app integration
@@ -197,6 +187,8 @@
         href: disable-user-sign-in-portal.md
       - name: Configure self-service app assignment
         href: manage-self-service-access.md
+      - name: Home Realm Discovery
+        href: configure-authentication-for-federated-users-portal.md
     - name: Single sign-on
       items:
       - name: Configure non-gallery apps
@@ -217,6 +209,14 @@
         href: configure-password-single-sign-on-non-gallery-applications.md
       - name: Configure password common problems - non-gallery apps
         href: configure-password-single-sign-on-non-gallery-applications-problems.md
+      - name: Application Proxy
+        items:
+        - name: Kerberos constrained Delegation (KCD)
+          href: application-proxy-configure-single-sign-on-with-kcd.md
+        - name: Password vaulting
+          href: application-proxy-configure-single-sign-on-password-vaulting.md
+        - name: Headers
+          href: application-proxy-configure-single-sign-on-with-ping-access.md
     - name: Access panel
       items:
       - name: Manage browser extension

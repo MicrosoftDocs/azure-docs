@@ -1,7 +1,6 @@
 ---
-title: Replicate a multi-tier IIS-based web application using Azure Site Recovery | Microsoft Docs
+title: Set up disaster recovery fo a multi-tier IIS-based web application using Azure Site Recovery | Microsoft Docs
 description: Learn how to replicate IIS web farm virtual machines using Azure Site Recovery.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
@@ -10,7 +9,7 @@ ms.date: 07/06/2018
 ms.author: nisoneji
 
 ---
-# Replicate a multi-tier IIS-based web application
+# Set up disaster recovery for a multi-tier IIS-based web application
 
 Application software is the engine of business productivity in an organization. Various web applications can serve different purposes in an organization. Some applications, like applications used for payroll processing, financial applications, and customer-facing websites, might be critical to an organization. To prevent loss of productivity, it's important for the organization to have these applications continuously up and running. More importantly, having these applications consistently available can help prevent damage to the brand or image of the organization.
 

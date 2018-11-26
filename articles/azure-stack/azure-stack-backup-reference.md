@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 
@@ -85,7 +85,7 @@ Infrastructure Backup Controller will back up data on demand. The recommendation
 
 | Environment Scale | Projected size of backup | Total amount of space required |
 |-------------------|--------------------------|--------------------------------|
-| 4-12 nodes        | 10 GB                     | 140 GB                          |
+| 4-16 nodes        | 10 GB                     | 140 GB                          |
 
 ### Network requirements
 | Storage location                                                                 | Details                                                                                                                                                                                 |

@@ -101,8 +101,8 @@ Azure Role-Based Access Control (RBAC) policy determines who can log in to the V
 The following example uses [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) to assign the *Virtual Machine Administrator Login* role to the VM for your current Azure user. The username of your active Azure account is obtained with [az account show](/cli/azure/account#az-account-show), and the *scope* is set to the VM created in a previous step with [az vm show](/cli/azure/vm#az-vm-show). The scope could also be assigned at a resource group or subscription level, and normal RBAC inheritance permissions apply. For more information, see [Role-Based Access Controls](../../azure-resource-manager/resource-group-overview.md#access-control)
 
 ```azurecli-interactive
-$username=$(az account show --query user.name --output tsv)
-$vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
+username=$(az account show --query user.name --output tsv)
+vm=$(az vm show --resource-group myResourceGroup --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \
@@ -143,6 +143,20 @@ When prompted, enter your Azure AD login credentials at the login page. The foll
     You have signed in to the Microsoft Azure Linux Virtual Machine Sign-In application on your device.
 
 Close the browser window, return to the SSH prompt, and press the **Enter** key. You are now signed in to the Azure Linux virtual machine with the role permissions as assigned, such as *VM User* or *VM Administrator*. If your user account is assigned the *Virtual Machine Administrator Login* role, you can use the `sudo` to run commands that require root privileges.
+
+## Sudo and AAD login
+
+The first time that you run sudo, you will be asked to authenticate a second time. If you don't want to have to authenticate again to run sudo, you can edit your sudoers file `/aad/etc/sudoers.d/aad_admins` and replace this line:
+
+```bash
+%aad_admins ALL=(ALL) ALL
+```
+With this line:
+
+```bash
+%aad_admins ALL=(ALL) NOPASSWD:ALL
+```
+
 
 ## Troubleshoot sign-in issues
 

@@ -1,3 +1,10 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c 
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+---
 > [!NOTE]
 > **Custom policies are in public preview.**
 

@@ -20,7 +20,7 @@ ms.author: cephalin
 
 ---
 # Troubleshoot slow web app performance issues in Azure App Service
-This article helps you troubleshoot slow web app performance issues in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+This article helps you troubleshoot slow web app performance issues in [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 If you need more help at any point in this article, you can contact the Azure experts on [the MSDN Azure and the Stack Overflow forums](https://azure.microsoft.com/support/forums/). Alternatively, you can also file an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/) and click on **Get Support**.
 
@@ -123,22 +123,10 @@ If you have access to the web application source code, Application diagnostics e
 
 For detailed instructions on how to configure your application for logging, see [Enable diagnostics logging for web apps in Azure App Service](web-sites-enable-diagnostic-log.md).
 
-#### Use the Azure App Service support portal
-Web Apps provides you with the ability to troubleshoot issues related to your web app by looking at HTTP logs, event logs, process dumps, and more. You can access all this information using our Support portal at **http://&lt;your app name>.scm.azurewebsites.net/Support**
+#### Use the diagnostics tool
+App Service provides an intelligent and interactive experience to help you troubleshoot your web app with no configuration required. When you do run into issues with your web app, the diagnostics tool will point out what’s wrong to guide you to the right information to more easily and quickly troubleshoot and resolve the issue.
 
-The Azure App Service support portal provides you with three separate tabs to support the three steps of a common troubleshooting scenario:
-
-1. Observe current behavior
-2. Analyze by collecting diagnostics information and running the built-in analyzers
-3. Mitigate
-
-If the issue is happening right now, click **Analyze** > **Diagnostics** > **Diagnose Now** to create a diagnostic session for you, which collects HTTP logs, event viewer logs, memory dumps, PHP error logs, and PHP process report.
-
-Once the data is collected, the support portal runs an analysis on the data and provides you with an HTML report.
-
-In case you want to download the data, by default, it would be stored in the D:\home\data\DaaS folder.
-
-For more information on the Azure App Service support portal, see [New Updates to Support Site Extension for Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+To access App Service diagnostics, navigate to your App Service app or App Service Environment in the [Azure portal](https://portal.azure.com). In the left navigation, click on **Diagnose and solve problems**.
 
 #### Use the Kudu Debug Console
 Web Apps comes with a debug console that you can use for debugging, exploring, uploading files, as well as JSON endpoints for getting information about your environment. This console is called the *Kudu Console* or the *SCM Dashboard* for your web app.
