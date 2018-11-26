@@ -23,11 +23,7 @@ After reading this article, you'll be able to answer the following questions:
 
 This document provides an overview of the use cases that The Azure Time Series Insights V2 Update is designed for.
 
-## Introduction
-
-Azure Time Series Insights is Microsoft’s BLAH.
-
-Data exploration and visual anomaly detection
+## Data exploration and visual anomaly detection
 
 Instantly explore and analyze billions of events to spot anomalies and discover hidden trends in your data. Azure Time Series Insights delivers near real-time performance for your IoT and DevOps analysis workloads.
 
