@@ -89,7 +89,7 @@ To create a Key Vault:
     * **Key Vault Name**: assign a unique name. 
     * **Tenant Id**: the template function automatically retrieve your tenant id.  Don't change the default value
     * **Ad User Id**: enter your Azure AD user object ID that you retrieved from the last procedure.
-    * **Secret Name**: The default name is **mAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
+    * **Secret Name**: The default name is **vmAdminPassword**. If you change the secret name here, you need to update the secret name when you deploy the virtual machine.
     * **Secret Value**: Enter your secret.  The secret is the password used to sign in to the virtual machine. It is recommended to use the generated password you created in the last procedure.
     * **I agree to the terms and conditions state above**: Select.
 3. Select **Edit parameters** from the top to take a look of the template.
