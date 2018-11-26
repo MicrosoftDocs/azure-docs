@@ -244,7 +244,7 @@ the restore request progresses in the following order
         RestoredEpoch : 
         RestoredLsn   : 0
         ```
-    *. __Timeout__ - The restore state as Timeout symbolizes that the request has timeout. New restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) is recommended; defaults timeout is 10 minutes. It is advised to make sure that the partition is not in data loss state, before requesting restore again.
+    *. __Timeout__ - The restore state as _Timeout_ indicates the request has timeout. New restore request with greater [RestoreTimeout](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-backuppartition#backuptimeout) is recommended; defaults timeout is 10 minutes. It is advised to make sure that the partition is out of data loss state, before requesting restore again.
      
         ```
         RestoreState  : Timeout
