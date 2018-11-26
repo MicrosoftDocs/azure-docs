@@ -1,14 +1,13 @@
-﻿---
-title: Retrain an existing predictive web service | Microsoft Docs
-description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning.
+---
+title: Retrain an existing predictive web service - Azure Machine Learning Studio | Microsoft Docs
+description: Learn how to retrain a model and update the web service to use the newly trained model in Azure Machine Learning Studio.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: cc4c26a2-5672-4255-a767-cfd971e46775
 ms.service: machine-learning
 ms.component: studio
@@ -17,8 +16,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
-
-
 ---
 # Retrain an existing predictive web service
 This document describes the retraining process for the following scenario:
@@ -27,7 +24,7 @@ This document describes the retraining process for the following scenario:
 * You have new data that you want your predictive web service to use to perform its scoring.
 
 > [!NOTE]
-> To deploy a New web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
+> To deploy a new web service you must have sufficient permissions in the subscription to which you deploying the web service. For more information see, [Manage a Web service using the Azure Machine Learning Web Services portal](manage-new-webservice.md).
 
 Starting with your existing web service and experiments, you need to follow these steps:
 

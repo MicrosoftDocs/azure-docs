@@ -1,15 +1,14 @@
 ---
-title: ALM in Azure Machine Learning| Microsoft Docs
+title: Application lifecycle management - Azure Machine Learning Studio | Microsoft Docs
 description: Apply Application Lifecycle Management best practices in Azure Machine Learning Studio
 keywords: ALM, AML, Azure ML, Application Life Cycle Management, Version Control
 services: machine-learning
 documentationcenter: ''
-author: hning86
-ms.custom: (previous ms.author haining)
+author: ericlicoding
+ms.custom: "(previous ms.author=haining, author=hning86)"
 ms.author: amlstudiodocs
 manager: mwinkle
 editor: cgronlun
-
 ms.assetid: 1be6577d-f2c7-425b-b6b9-d5038e52b395
 ms.service: machine-learning
 ms.component: studio
@@ -18,7 +17,6 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
-
 ---
 # Application Lifecycle Management in Azure Machine Learning Studio
 Azure Machine Learning Studio is a tool for developing machine learning experiments that are operationalized in the Azure cloud platform. It is like the Visual Studio IDE and scalable cloud service merged into a single platform. You can incorporate standard Application Lifecycle Management (ALM) practices from versioning various assets to automated execution and deployment, into Azure Machine Learning Studio. This article discusses some of the options and approaches.

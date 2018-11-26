@@ -1,14 +1,13 @@
 ---
-title: Use Azure Machine Learning Web Service Parameters | Microsoft Docs
+title: Use Azure Machine Learning Studio web service parameters | Microsoft Docs
 description: How to use Azure Machine Learning Web Service Parameters to modify the behavior of your model when the web service is accessed.
 services: machine-learning
 documentationcenter: ''
-author: YasinMSFT
-ms.custom: (previous ms.author yahajiza)
+author: ericlicoding
+ms.custom: "(previous ms.author=yahajiza, author=YasinMSFT)"
 ms.author: amlstudiodocs
 manager: hjerez
 editor: cgronlun
-
 ms.assetid: c49187db-b976-4731-89d6-11a0bf653db1
 ms.service: machine-learning
 ms.component: studio
@@ -17,10 +16,8 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/12/2017
-
-
 ---
-# Use Azure Machine Learning Web Service Parameters
+# Use Azure Machine Learning Studio web service parameters
 An Azure Machine Learning web service is created by publishing an experiment that contains modules with configurable parameters. In some cases, you may want to change the module behavior while the web service is running. *Web Service Parameters* allow you to do this task. 
 
 A common example is setting up the [Import Data][reader] module so that the user of the published web service can specify a different data source when the web service is accessed. Or configuring the [Export Data][writer] module so that a different destination can be specified. Some other examples include changing the number of bits for the [Feature Hashing][feature-hashing] module or the number of desired features for the [Filter-Based Feature Selection][filter-based-feature-selection] module. 

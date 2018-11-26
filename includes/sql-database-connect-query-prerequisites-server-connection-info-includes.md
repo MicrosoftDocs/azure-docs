@@ -1,10 +1,15 @@
 ---
- author: ajlam
- ms.service: sql-database
- ms.topic: include
- ms.date: 11/26/2018
- ms.author: andrela
+author: MightyPen
+ms.service: sql-database
+ms.topic: include
+ms.date: 11/09/2018	
+ms.author: genemi
 ---
+
+<!-- sql-database-connect-query-prerequisites-server-connection-info-includes.md 
+
+## SQL server connection information
+-->
 
 Get the connection information needed to connect to the Azure SQL database. You will need the fully qualified server name, database name, and login information in the next procedures.
 
