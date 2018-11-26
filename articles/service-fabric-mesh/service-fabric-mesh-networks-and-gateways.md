@@ -12,7 +12,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/05/2018
+ms.date: 11/26/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter 
 
@@ -28,15 +28,13 @@ Load balancing can be performed at different layers in the [OSI model](https://e
 - An L7 load balancer works at the application layer, which deals with the content of each packet. It inspects packet contents because it understands protocols such as HTTP, HTTPS, or WebSockets. This gives the load balancer the ability to perform advanced routing. For example, a client makes a single HTTP/2 TCP connection to the load balancer. The load balancer then proceeds to make two backend connections. When the client sends two HTTP/2 streams to the load balancer, stream one is sent to backend one and stream two is sent to backend two. Thus, even multiplexing clients that have vastly different request loads will be balanced efficiently across the backends. 
 
 ## Networks and gateways
-In the [Service Fabric Resource Model](service-fabric-mesh-service-fabric-resources.md), a Network resource is an individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a private, isolated network for your applications. Applications outside the network cannot communicate directly with applications inside the network but must communicate through a gateway.  Services within the isolated network communicate with each other directly and do not go through the Azure Load Balancer (LB), making communication faster.  The network resource also provides the ability to configure and route external traffic from the external Azure LB to your services. Multiple services from different applications can be a part of the same network. This private network is created and managed by Service Fabric and is not an Azure virtual network (VNET). Applications can be dynamically added and removed from the network resource to enable and disable VNET connectivity. 
+In the [Service Fabric Resource Model](service-fabric-mesh-service-fabric-resources.md), a Network resource is an individually deployable resource, independent of an Application or Service resource that may refer to it as their dependency. It is used to create a network for your applications that is open to the internet. Multiple services from different applications can be a part of the same network. This private network is created and managed by Service Fabric and is not an Azure virtual network (VNET). Applications can be dynamically added and removed from the network resource to enable and disable VNET connectivity. 
 
-A gateway is used to bridge two networks. The Gateway resource deploys an [Envoy proxy](https://www.envoyproxy.io/) that provides L4 routing for any protocol and L7 routing for advanced HTTP(S) application routing. The gateway routes traffic into your isolated network from an external network and determines which service to route traffic to.  The external network could be an open network (essentially, the public internet) or an Azure virtual network, allowing you to connect with your other Azure applications and resources. 
+A gateway is used to bridge two networks. The Gateway resource deploys an [Envoy proxy](https://www.envoyproxy.io/) that provides L4 routing for any protocol and L7 routing for advanced HTTP(S) application routing. The gateway routes traffic into your network from an external network and determines which service to route traffic to.  The external network could be an open network (essentially, the public internet) or an Azure virtual network, allowing you to connect with your other Azure applications and resources. 
 
 When the network resource is created with `ingressConfig`, a public IP is assigned to the network resource. The public IP will be tied to the lifetime of the network resource.
 
 When a Mesh application is created, it should reference an existing network resource. New public ports can be added or existing ports can be removed from the ingress configuration. A delete for a network resource will fail if an application resource is referencing it. When the application is deleted, the network resource is removed.
-
-![Gateway and network][Image2]
 
 ## Next steps 
 To learn more about Service Fabric Mesh, read the overview:
