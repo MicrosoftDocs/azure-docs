@@ -131,7 +131,7 @@ To complete these steps, you will need an SSH client. If you are using Windows, 
 
 1. In the portal, navigate to your Linux VM and in the **Overview**, click **Connect**.  
 2. **Connect** to the VM with the SSH client of your choice. 
-3. In the terminal window, using CURL, make a request to the local managed identiies for Azure resources endpoint to get an access token for the Azure AD Graph.  
+3. In the terminal window, using CURL, make a request to the local managed identities for Azure resources endpoint to get an access token for the Azure AD Graph.  
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://graph.windows.net' -H Metadata:true
