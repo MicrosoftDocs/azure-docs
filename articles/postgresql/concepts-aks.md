@@ -44,4 +44,4 @@ There are multiple connection poolers you can use with PostgreSQL. One of these 
 
 
 ## Next Steps
--  [Create an Azure Kubernetes Service cluster](../aks/kubernetes-walkthrough)
+-  [Create an Azure Kubernetes Service cluster](../aks/kubernetes-walkthrough.md)
