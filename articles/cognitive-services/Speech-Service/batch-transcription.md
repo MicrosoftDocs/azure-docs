@@ -13,7 +13,7 @@ ms.date: 04/26/2018
 ms.author: panosper
 ---
 
-# Why Batch transcription
+# Why use Batch transcription?
 
 Batch transcription is ideal if you have large amounts of audio in storage. By using the dedicated REST API, you can point to audio files by a shared access signature (SAS) URI and asynchronously receive transcriptions.
 
@@ -62,8 +62,8 @@ These parameters may be included in the query string of the REST request.
 
 | Parameter | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `none`, which disables profanity filtering, `masked`, which replaces profanity with asterisks, `removed`, which removes all profanity from the result, or `tags`, which adds "profanity" tegs. The default setting is `masked`. | Optional |
-| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none`, which disables punctuatino, `dictated`, which implies explicit punctuation, `automatic`, which lets the decoder deal with punctuation, or `dictatedandautomatic`, which implies dictated punctuation marks or automatic. | Optional |
+| `ProfanityFilterMode` | Specifies how to handle profanity in recognition results. Accepted values are `none` which disables profanity filtering, `masked` which replaces profanity with asterisks, `removed` which removes all profanity from the result, or `tags` which adds "profanity" tags. The default setting is `masked`. | Optional |
+| `PunctuationMode` | Specifies how to handle punctuation in recognition results. Accepted values are `none` which disables punctuation, `dictated` which implies explicit punctuation, `automatic` which lets the decoder deal with punctuation, or `dictatedandautomatic` which implies dictated punctuation marks or automatic. | Optional |
 
 
 ## Authorization token
