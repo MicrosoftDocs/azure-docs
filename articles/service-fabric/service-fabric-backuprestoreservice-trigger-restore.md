@@ -21,7 +21,7 @@ ms.author: aagup
 #  Restoring backup in Azure Service Fabric
 
 
-Reliable Stateful services and Reliable Actors in Service Fabric can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to latest acceptable back up of its state in order to continue providing service after it comes back.
+Reliable Stateful services and Reliable Actors in Service Fabric can maintain mutable, authoritative state beyond the request and response or a complete transaction. If a stateful service goes down for a long time or loses information due to a disaster, it may need to be restored to latest acceptable backup of its state in order to continue providing service after it comes back.
 
 For example, service may want to backup its data in order to protect from the following scenarios:
 
