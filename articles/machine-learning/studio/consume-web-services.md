@@ -1,6 +1,6 @@
 ---
-title: How to consume an Azure Machine Learning Web service | Microsoft Docs
-description: Once a machine learning service is deployed, the RESTFul Web service that is made available can be consumed either as real-time request-response service or as a batch execution service.
+title: How to consume an Azure Machine Learning Studio web service | Microsoft Docs
+description: Once a machine learning service is deployed from Azure Machine Learning Studio, the RESTFul Web service can be consumed either as real-time request-response service or as a batch execution service.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -17,7 +17,7 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ---
-# How to consume an Azure Machine Learning Web service
+# How to consume an Azure Machine Learning Studio web service
 
 Once you deploy an Azure Machine Learning predictive model as a Web service, you can use a REST API to send it data and get predictions. You can send the data in real-time or in batch mode.
 
