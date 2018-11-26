@@ -46,7 +46,7 @@ If you are not familiar with the process of creating a General-purpose storage a
 
 1. From the left menu, select **Storage Accounts**, then select **Add**.
 
-2. Enter a unique name for your storage account. 
+2. Enter a unique name for your storage account.
 
 3. Select **Resource Manager** for your **Deployment model** and select **General purpose** from the **Account kind** drop-down.
 
@@ -219,13 +219,13 @@ The following steps show you where to find the search explorer and provides you 
 
   ![Unstructured search](media/storage-unstructured-search/emptySearch.png)
 
-### Full-text search 
+### Performing a full-text search
 
 Enter "Myopia" in the **Query string** field and select **Search**. Initiating a search of the contents of the files and returning a subset of them, which contains the word "Myopia."
 
   ![Unstructured search](media/storage-unstructured-search/secondMyopia.png) 
 
-### System properties search
+### Performing a system properties search
 
 You can also create queries that search by system properties using the `$select` parameter. Enter `$select=metadata_storage_name` into the query string and press enter, returning only that particular field.
     
