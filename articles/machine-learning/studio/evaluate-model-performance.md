@@ -1,6 +1,6 @@
 ---
 title: Evaluate model performance - Azure Machine Learning Studio | Microsoft Docs
-description: EThis article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task.
+description: This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding

@@ -17,7 +17,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ---
-# Discover custom machine learning modules in Azure AI Gallery
+# Machine Learning Studio: Discover custom machine learning modules in Azure AI Gallery
 
 [Azure AI Gallery](http://gallery.cortanaintelligence.com) offers several [custom modules](https://gallery.cortanaintelligence.com/customModules) that expand the capabilities of Azure Machine Learning Studio. You can import the modules to use in your experiments, so you can develop even more advanced predictive analytics solutions.
 
