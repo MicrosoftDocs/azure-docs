@@ -33,42 +33,47 @@ To complete the steps described in this topic you have to:
 
 The following is the **Request body** example that defines the track selection conditions that are applied to the manifest file. This filter includes any audio tracks that are English with EC-3 and any video tracks that have bitrate in the 0-1000000 range.
 
-```
-[
-    {
-        "trackSelections": [
-            {
-                "property": "Type",
-                "value": "Audio",
-                "operation": "Equal"
+```json
+{
+    "properties": {
+        "tracks": [
+      
+          {
+                "trackSelections": [
+                    {
+                        "property": "Type",
+                        "value": "Audio",
+                        "operation": "Equal"
+                    },
+                    {
+                        "property": "Language",
+                        "value": "en",
+                        "operation": "Equal"
+                    },
+                    {
+                        "property": "FourCC",
+                        "value": "EC-3",
+                        "operation": "NotEqual"
+                    }
+                ]
             },
             {
-                "property": "Language",
-                "value": "en",
-                "operation": "Equal"
-            },
-            {
-                "property": "FourCC",
-                "value": "EC-3",
-                "operation": "NotEqual"
+                "trackSelections": [
+                    {
+                        "property": "Type",
+                        "value": "Video",
+                        "operation": "Equal"
+                    },
+                    {
+                        "property": "Bitrate",
+                        "value": "0-1000000",
+                        "operation": "Equal"
+                    }
+                ]
             }
         ]
-    },
-    {
-        "trackSelections": [
-            {
-                "property": "Type",
-                "value": "Video",
-                "operation": "Equal"
-            },
-            {
-                "property": "Bitrate",
-                "value": "0-1000000",
-                "operation": "Equal"
-            }
-        ]
-    }
-]
+     }
+}
 ```
 
 ## Create account filters
