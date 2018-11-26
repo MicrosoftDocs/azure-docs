@@ -36,6 +36,12 @@ cd detect-sample
 
 The first command does two things. It creates a new .NET console application, and creates a directory named `detect-sample`. The second command changes to the directory for your project.
 
+Next, you'll need to install Json.Net. From your project's directory, run:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
 ## Add required namespaces to your project
 
 The `dotnet new console` command that you ran earlier created a project, including `Program.cs`. This file is where you'll put your application code. Open `Program.cs`, and replace the existing using statements. These statements ensure that you have access to all the types required to build and run the sample app.

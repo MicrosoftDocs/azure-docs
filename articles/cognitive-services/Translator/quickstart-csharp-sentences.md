@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.date: 11/26/2018
 ms.author: erhopf
 ---
+
 # Quickstart: Get sentence lengths with the Translator Text REST API (C#)
 
 In this quickstart, you'll learn how to determine sentence lengths using .NET Core and the Translator Text API.
@@ -34,6 +35,12 @@ cd sentences-sample
 ```
 
 The first command does two things. It creates a new .NET console application, and creates a directory named `sentences-sample`. The second command changes to the directory for your project.
+
+Next, you'll need to install Json.Net. From your project's directory, run:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
 
 ## Add required namespaces to your project
 

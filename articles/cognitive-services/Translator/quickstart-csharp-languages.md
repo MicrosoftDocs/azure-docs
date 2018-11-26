@@ -11,6 +11,7 @@ ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: erhopf
 ---
+
 # Quickstart: Get supported languages with the Translator Text REST API (C#)
 
 In this quickstart, you get a list of languages supported for translation, transliteration, and dictionary lookup using the Translator Text API.
@@ -34,6 +35,12 @@ cd languages-sample
 ```
 
 The first command does two things. It creates a new .NET console application, and creates a directory named `languages-sample`. The second command changes to the directory for your project.
+
+Next, you'll need to install Json.Net. From your project's directory, run:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
 
 ## Add required namespaces to your project
 
