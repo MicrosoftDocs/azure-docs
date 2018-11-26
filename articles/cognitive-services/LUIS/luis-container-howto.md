@@ -112,7 +112,36 @@ Before packaging a LUIS application, you must have the following:
   
 ### Get app package from LUIS portal
 
-TBD
+The LUIS [portal](https://www.luis.ai) provides the ability to export the trained or published app's package. 
+
+### Get published app's package from LUIS portal
+
+The published app's package is available from the **My Apps** list page. 
+
+1. Sign on to the LUIS [portal](https://www.luis.ai).
+1. Select the checkbox to the left of the app name in the list. 
+1. Select the **Export** item from the contextual toolbar above the list.
+1. Select **Export for container (GZIP)**.
+1. Select the environment of **Production slot** or **Staging slot**.
+1. The package is downloaded from the browser.
+
+![Export the published package for the container from the App page's Export menu](./media/luis-container-how-to/export-published-package-for-container.png)
+
+### Get trained app's package from LUIS portal
+
+The trained app's package is available from the **Versions** list page. 
+
+1. Sign on to the LUIS [portal](https://www.luis.ai).
+1. Select the app in the list. 
+1. Select **Manage** in the app's navigation bar.
+1. Select **Versions** in the left navigation bar.
+1. Select the checkbox to the left of the version name in the list.
+1. Select the **Export** item from the contextual toolbar above the list.
+1. Select **Export for container (GZIP)**.
+1. The package is downloaded from the browser.
+
+![Export the trained package for the container from the Versions page's Export menu](./media/luis-container-how-to/export-trained-package-for-container.png)
+
 
 ### Get published app's package from API
 
