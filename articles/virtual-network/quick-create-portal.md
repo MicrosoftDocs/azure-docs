@@ -22,28 +22,30 @@ ms.custom: mvc
 
 # Quickstart: Create a virtual network using the Azure portal
 
-A virtual network enables Azure resources, such as virtual machines (VM), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately between the two VMs.
+A virtual network enables Azure resources, like virtual machines (VM), to communicate privately with each other, and with the internet. In this quickstart, you learn how to create a virtual network. After creating a virtual network, you deploy two VMs into the virtual network. You then connect to one VM from the internet, and communicate privately between the two VMs.
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) now.
 
-## Log in to Azure 
+## Sign in to Azure
 
-Log in to the Azure portal at https://portal.azure.com.
+Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Create a virtual network
 
-1. Select **+ Create a resource** on the upper, left corner of the Azure portal.
-2. Select **Networking**, and then select **Virtual network**.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **Create**:
+1. On the upper-left side of the screen, select **Create a resource** > **Networking** > **Virtual network**.
+2. In **Create virtual network**, enter, or select this information:
 
-    |Setting|Value|
-    |---|---|
-    |Name|myVirtualNetwork|
-    |Subscription| Select your subscription.|
-    |Resource group| Select **Create new** and enter *myResourceGroup*.|
-    |Location| Select **East US**.|
-
-    ![Enter basic information about your virtual network](./media/quick-create-portal/create-virtual-network.png)
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myVirtualNetwork*. |
+    | Address space | Enter *10.1.0.0/16*. |
+    | Subscription | Select your subscription.|
+    | Resource group | Select **Create new** > Enter *myResourceGroup* > Select **OK** |
+    | Location | Select **East US**.|
+    | Subnet - Name | Enter *myVirtualSubnet*. |
+    | Subnet - Address range | Enter *10.1.0.0/24*. |
+    <!-- ![Enter basic information about your virtual network](./media/quick-create-portal/create-virtual-network.png) -->
+3. Accept the defaults for the remaining settings and select **Create**.
 
 ## Create virtual machines
 
@@ -51,40 +53,74 @@ Create two VMs in the virtual network:
 
 ### Create the first VM
 
-1. Select **+ Create a resource** found on the upper, left corner of the Azure portal.
-2. Select **Compute**, and then select **Windows Server 2016 Datacenter**.
-3. Enter, or select, the following information, accept the defaults for the remaining settings, and then select **OK**:
+1. On the upper-left side of the screen, select **Create a resource** > **Compute** > **Windows Server 2016 Datacenter**.
+2. In **Create a virtual machine - Basics**, enter, or select this information:
 
-    |Setting|Value|
-    |---|---|
-    |Name|myVm1|
-    |User name| Enter a user name of your choosing.|
-    |Password| Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Subscription| Select your subscription.|
-    |Resource group| Select **Use existing** and select **myResourceGroup**.|
-    |Location| Select **East US**|
+    | Setting | Value |
+    | ------- | ----- |
+    | **PROJECT DETAILS** | |
+    | Subscription | Select your subscription. |
+    | Resource group | Select **MyResourceGroup**. You created it in the last section. |
+    | **INSTANCE DETAILS** |  |
+    | Virtual machine name | Enter *myVm1* |
+    | Region | Select **East US**. |
+    | Availability options | Leave the default **No infrastructure redundancy required** |
+    | Image | Leave the default **Windows Server 2016 Datacenter** |
+    | Size | Leave the default **Standard DS1 v2** |
+    | **ADMINISTRATOR ACCOUNT** |  |
+    | Username | Enter a user name of your choosing. |
+    | Password | Enter a password of your choosing. The password must be at least 12 characters long and meet the [defined complexity requirements](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Confirm Password | Re-enter password. |
+    | **INBOUND PORT RULES** |  |
+    | Public inbound ports | Leave the default **None**. |
+    | **Save MONEY** |  |
+    | Already have a Windows license? | Leave the default **No**. |
 
-    ![Virtual machine basics](./media/quick-create-portal/virtual-machine-basics.png)
 
-4. Select a size for the VM and then select **Select**.
-5. Under **Settings**, accept all the defaults and then select **OK**.
+    <!-- ![Virtual machine basics](./media/quick-create-portal/virtual-machine-basics.png) -->
 
-    ![Virtual machine settings](./media/quick-create-portal/virtual-machine-settings.png)
+3. Scroll back to the top of the page.
+4. Under **Create a virtual machine** click **Management**
+5. For **Diagnostics storage account**, select **Create New**.
+6. In **Create storage account** enter or select this information:
 
-6. Under **Create** of the **Summary**, select **Create** to start VM deployment. The VM takes a few minutes to deploy. 
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | Enter *myvmstorageaccount*. |
+    | Account kind | Leave the default **Storage (general purpose v1)**. |
+    | Performance | Leave the default **Standard**. |
+    | Replication | Leave the default **Locally-redundant storage (LRS)**. |
+
+7. Select **OK**
+8. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+9. When you see that **Validation passed**, select **Create**.
+
+    <!-- ![Virtual machine settings](./media/quick-create-portal/virtual-machine-settings.png) -->
 
 ### Create the second VM
 
-Complete steps 1-6 again, but in step 3, name the VM *myVm2*.
+1. Complete steps 1 and 2 from above.
 
-## Connect to a VM from the internet
+    > [!NOTE]
+    > In step 2, enter *myVm2* for the **Virtual machine name**.
 
-1. After *myVm1* is created, connect to it. At the top of the Azure portal, enter *myVm1*. When **myVm1** appears in the search results, select it. Select the **Connect** button.
+2. Select **Review + create**. You're taken to the **Review + create** page and your configuration is validated.
+3. When you see that **Validation passed**, select **Create**.
+
+## Connect to vm1 from the internet
+
+After *myVm1* is created, you can connect to it over the internet.
+
+1. In the portal's search bar, enter *myVm1* and select it when it appears in the search results, select it
+2. Select the **Connect** button.
 
     ![Connect to a virtual machine](./media/quick-create-portal/connect-to-virtual-machine.png)
 
-2. After selecting the **Connect** button, a Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.  
-3. Open the downloaded rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM. 
+    After selecting the **Connect** button, **Connect to virtual machine** opens.
+
+3. Select **Download RDP File**. A Remote Desktop Protocol (.rdp) file is created and downloaded to your computer.
+
+3. Open the downloaded .rdp file. If prompted, select **Connect**. Enter the user name and password you specified when creating the VM. You may need to select **More choices**, then **Use a different account**, to specify the credentials you entered when you created the VM.
 4. Select **OK**.
 5. You may receive a certificate warning during the sign-in process. If you receive the warning, select **Yes** or **Continue**, to proceed with the connection.
 
@@ -97,7 +133,7 @@ Complete steps 1-6 again, but in step 3, name the VM *myVm2*.
     New-NetFirewallRule –DisplayName “Allow ICMPv4-In” –Protocol ICMPv4
     ```
 
-3. Close the remote desktop connection to *myVm1*. 
+3. Close the remote desktop connection to *myVm1*.
 
 4. Complete the steps in [Connect to a VM from the internet](#connect-to-a-vm-from-the-internet) again, but connect to *myVm2*. From a command prompt, enter `ping myvm1`.
 
