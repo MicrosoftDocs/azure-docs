@@ -140,6 +140,9 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Prerequisites
 
+> [!Important]  
+> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
+
 - Install the latest Azure Stack Hotfix for 1809 before updating to 1811. For more information, see [KB 4471993 – Azure Stack Hotfix Azure Stack Hotfix 1.1809.3.96](https://support.microsoft.com/help/4471993/).
 
   > [!TIP]  
@@ -153,8 +156,21 @@ For more information about these vulnerabilities, click on the preceding links, 
   ```PowerShell
   Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
   ``` 
-> [!Important]  
-> Get your Azure Stack deployment ready for extension host. Prepare your system using the following guidance, [Prepare for extension host for Azure Stack](azure-stack-extension-host-prepare.md).
+
+- The Azure Stack 1811 Update requires that you have properly imported the mandatory extension host certificates into your Azure Stack environment. For more information on these certificates see [this article](azure-stack-extension-host-prepare.md). If you do not properly import the mandatory extension host certificates and begin the 1811 update, it may fail with the following error:
+
+   ```shell
+   Type 'VerifyHostingServiceCerts' of Role 'WAS' raised an exception: 
+   The Certificate path does not exist: \\SU1FileServer\SU1_Infrastructure_1\WASRole\ExternalCertificates\Hosting.Admin.SslCertificate.pfx
+   ``` 
+ 
+- In addition to various quality improvements, the [1.1809.3.96 Hotfix](https://support.microsoft.com/help/4471993/) includes a check for properly imported extension host certificates. You may receive the following warning if you haven't performed the required steps: 
+ 
+   `Missing SSL certificates. SSL certificates for Extension Host not detected.` 
+ 
+   The required SSL certificates for Extension Host have not been imported. If you are missing the required SSL certificates, the Azure Stack update will fail to apply. 
+
+   Once you have properly imported the mandatory extension host certificates, you can simply resume the 1811 update from the Administrator portal. While Microsoft advises Azure Stack operators to place the scale unit into maintenance mode during the update process, a failure due to the missing extension host certificates should not impact existing workloads or services.  
 
 ### Known issues with the update process
 
