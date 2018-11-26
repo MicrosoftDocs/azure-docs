@@ -19,8 +19,9 @@ Use this quickstart to make your first call to the Bing Web Search API and recei
 
 [!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-## Prerequisites
+See also [Cognitive Services Pricing - Bing Search API](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
+## Prerequisites
 Here are a few things that you'll need before running this quickstart:
 
 * [JDK 7 or 8](https://aka.ms/azure-jdks)

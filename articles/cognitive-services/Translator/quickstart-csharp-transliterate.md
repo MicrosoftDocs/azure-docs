@@ -47,9 +47,9 @@ using System.Text;
 using Newtonsoft.Json;
 ```
 
-## Create a function to Translate Text
+## Create a function to transliterate text
 
-Within the `Program` class, create a function called `TransliterateText`. This class encapsulates the code used to call the Translate resource and print the result to console.
+Within the `Program` class, create a function called `TransliterateText`. This class encapsulates the code used to call the Transliterate resource and print the result to console.
 
 ```csharp
 static void TransliterateText()
@@ -63,7 +63,7 @@ static void TransliterateText()
 
 ## Set the subscription key, host name, and path
 
-Add these lines to the `TransliterateText` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the translation outputs. In this sample, it's set to German (`de`) and Italian (`it`). Make sure you update the subscription key value.
+Add these lines to the `TransliterateText` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the input language, and the scripts for transliteration. In this sample, it's set to Japanese (`jpan`) and Latin (`latn`). Make sure you update the subscription key value.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
@@ -71,7 +71,7 @@ string route = "/transliterate?api-version=3.0&language=ja&fromScript=jpan&toScr
 string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
 ```
 
-Next, we need to create and serialize the JSON object that includes the text you want to translate. Keep in mind, you can pass more than one object in the `body` array.
+Next, we need to create and serialize the JSON object that includes the text you want to transliterate. Keep in mind, you can pass more than one object in the `body` array.
 
 ```csharp
 System.Object[] body = new System.Object[] { new { Text = @"こんにちは" } };

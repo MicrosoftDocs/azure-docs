@@ -1,6 +1,6 @@
 ---
-title: 'Troubleshoot: Create and connect to a Machine Learning workspace | Microsoft Docs'
-description: Solutions for common issues in creating and connecting to an Azure Machine Learning workspace
+title: 'Troubleshoot: Create, connect to a Machine Learning Studio workspace - Azure | Microsoft Docs'
+description: This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning Studio workspaces.
 services: machine-learning
 documentationcenter: ''
 author: ericlicoding
@@ -17,8 +17,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
 ---
-# Troubleshooting guide: Create and connect to an Machine Learning workspace
-This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning workspaces.
+# Troubleshooting guide: Create and connect to an Machine Learning Studio workspace
+This guide provides solutions for some frequently encountered challenges when you are setting up Azure Machine Learning Studio workspaces.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

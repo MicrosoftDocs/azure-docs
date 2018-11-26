@@ -55,6 +55,7 @@ Find more information about the installation/upgrade steps for MABS [here](https
 ## Next steps
 
 Learn how to prepare your server or begin protecting a workload:
+- [Known issues in MABS V3](backup-mabs-release-notes-v3.md)
 - [Prepare Backup Server workloads](backup-azure-microsoft-azure-backup.md)
 - [Use Backup Server to back up a VMware server](backup-azure-backup-server-vmware.md)
 - [Use Backup Server to back up SQL Server](backup-azure-sql-mabs.md)
