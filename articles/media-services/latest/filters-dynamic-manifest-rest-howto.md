@@ -12,7 +12,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/26/2018
 ms.author: juliako
 
 ---
@@ -20,7 +20,7 @@ ms.author: juliako
 
 When delivering your content to customers (streaming Live events or Video on Demand) your client might need more flexibility than what's described in the default asset's manifest file. Azure Media Services enables you to define account filters and asset filters for your content. 
 
-This topic shows how to define a filter for a Video on Demand asset and use REST APIs to create [Account Filters](https://docs.microsoft.com/en-us/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/en-us/rest/api/media/assetfilters). 
+This topic shows how to define a filter for a Video on Demand asset and use REST APIs to create [Account Filters](https://docs.microsoft.com/rest/api/media/accountfilters) and [Asset Filters](https://docs.microsoft.com/rest/api/media/assetfilters). 
 
 ## Prerequisites 
 
