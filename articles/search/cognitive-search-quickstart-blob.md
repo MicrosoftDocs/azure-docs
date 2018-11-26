@@ -28,9 +28,16 @@ You can try out cognitive search in an Azure Search service created in the follo
 * West Central US
 * South Central US
 * East US
+* East US 2
+* West US 2
+* Canada Central
 * West Europe
+* UK South
 * North Europe
+* Brazil South
 * Southeast Asia
+* Central India
+* Australia East
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 

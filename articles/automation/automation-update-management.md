@@ -317,7 +317,7 @@ Replace the VMUUID value with the VM GUID of the virtual machine you are queryin
 
 ##### Missing updates summary
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"b08d5afa-1471-4b52-bd95-a44fea6e4ca8"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Approved) by Computer, SourceComputerId, UpdateID
@@ -328,7 +328,7 @@ Update
 
 ##### Missing updates list
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(14h) and OSType!="Linux" and (Optional==false or Classification has "Critical" or Classification has "Security") and VMUUID=~"8bf1ccc6-b6d3-4a0b-a643-23f346dfdf82"
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, Title, KBID, PublishedDate, Approved) by Computer, SourceComputerId, UpdateID
@@ -347,7 +347,7 @@ For some Linux distros, there is a [endianness](https://en.wikipedia.org/wiki/En
 
 ##### Missing updates summary
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification) by Computer, SourceComputerId, Product, ProductArch
@@ -358,7 +358,7 @@ Update
 
 ##### Missing updates list
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and (VMUUID=~"625686a0-6d08-4810-aae9-a089e68d4911" or VMUUID=~"a0865662-086d-1048-aae9-a089e68d4911")
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, UpdateState, Classification, BulletinUrl, BulletinID) by Computer, SourceComputerId, Product, ProductArch
@@ -375,7 +375,7 @@ Update
 
 ##### Computers summary
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=~"Windows" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions) by SourceComputerId
@@ -417,7 +417,7 @@ on SourceComputerId
 
 ##### Missing updates summary
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
@@ -441,7 +441,7 @@ Update
 
 ##### Computers list
 
-```
+```loganalytics
 Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
 | summarize arg_max(TimeGenerated, Solutions, Computer, ResourceId, ComputerEnvironment, VMUUID) by SourceComputerId
@@ -488,7 +488,7 @@ on SourceComputerId
 
 ##### Missing updates list
 
-```
+```loganalytics
 Update
 | where TimeGenerated>ago(5h) and OSType=="Linux" and SourceComputerId in ((Heartbeat
 | where TimeGenerated>ago(12h) and OSType=="Linux" and notempty(Computer)
