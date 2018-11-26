@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > * Test the definition by calling the function
 
 > [!IMPORTANT]
-> The OpenAPI feature is currently in preview and is only available for version 1.x of the Azure Functions runtime. Information on how to create a 1.x function app [can be found here](./functions-versions.md#creating-1x-apps).
+> The OpenAPI feature is currently in preview and is only available for version 1.x of the Azure Functions runtime.
 
 ## Create a function app
 
