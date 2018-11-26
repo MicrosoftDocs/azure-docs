@@ -15,7 +15,7 @@ ms.date: 11/21/2018
 
 This document describes how to work with **Time Series Models** following The Azure Time Series Insights V2 Update. It will detail common several use-cases and customization scenarios.
 
-Read [TIme Series Models](./time-series-update-tsm.md) for more information about **Time Series Models**. View The Azure Time Series Insights V2 Update Explorer [article](./time-series-insights-update-explorer.md) to learn more about the V2 Update.
+Read [TIme Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**. View The Azure Time Series Insights V2 Update Explorer [article](./time-series-insights-update-explorer.md) to learn more about the V2 Update.
 
 ## Types
 
