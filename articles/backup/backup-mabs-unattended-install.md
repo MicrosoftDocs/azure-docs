@@ -6,7 +6,7 @@ author: markgalioto
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 11/13/2018
 ms.author: markgal
 ---
 # Run an unattended installation of Azure Backup Server

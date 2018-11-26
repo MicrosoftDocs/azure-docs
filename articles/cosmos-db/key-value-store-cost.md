@@ -16,7 +16,7 @@ ms.author: sngun
 
 # Azure Cosmos DB as a key value store – Cost overview
 
-Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](sql-api-sql-query.md) (and [JavaScript](programming.md)) queries on any kind of data. 
+Azure Cosmos DB is a globally distributed, multi-model database service for building highly available, large-scale applications easily. By default, Azure Cosmos DB automatically indexes all the data it ingests, efficiently. This enables fast and consistent [SQL](how-to-sql-query.md) (and [JavaScript](programming.md)) queries on any kind of data. 
 
 This article describes the cost of Azure Cosmos DB for simple write and read operations when it’s used as a key/value store. Write operations include inserts, replaces, deletes, and upserts of documents. Besides guaranteeing a 99.99% availability SLA for all single region accounts and all multi-region accounts with relaxed consistency, and 99.999% read availability on all multi-region database accounts, Azure Cosmos DB offers guaranteed <10-ms latency for reads and <15-ms latency for the (indexed) writes respectively, at the 99th percentile. 
 

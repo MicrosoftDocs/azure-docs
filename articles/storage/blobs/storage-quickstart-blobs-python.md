@@ -4,11 +4,10 @@ description: In this quickstart, you create a storage account and a container in
 services: storage  
 author: tamram
  
-
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 11/14/2018
 ms.author: tamram
 ---
 
@@ -18,13 +17,12 @@ In this quickstart, you'll see how to use Python to upload, download, and list b
 
 ## Prerequisites
 
-To complete this quickstart: 
-* Install [Python](https://www.python.org/downloads/).
-* Download and install [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python). 
+[!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Make sure you have the following additional prerequisites installed:
 
-[!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
+* [Python](https://www.python.org/downloads/)
+* [Azure Storage SDK for Python](https://github.com/Azure/azure-sdk-for-python)
 
 ## Download the sample application
 The [sample application](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) in this quickstart is a basic Python application.  

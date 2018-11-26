@@ -95,12 +95,11 @@ az keyvault secret set --vault-name keyvault --name keysecret --file ~/.ssh/open
 ```
 
 ## Create a service principal 
-OpenShift communicates with Azure by using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like OpenShift. You control and define the permissions as to which operations the service principal can perform in Azure. To improve security beyond just providing a username and password, this example creates a basic service principal.
+OpenShift communicates with Azure by using a username and password or a service principal. An Azure service principal is a security identity that you can use with apps, services, and automation tools like OpenShift. You control and define the permissions as to which operations the service principal can perform in Azure. It is best to scope the permissions of the service principal to specific resource groups rather than the entire subscription.
 
 Create a service principal with [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) and output the credentials that OpenShift needs.
 
 The following example creates a service principal and assigns it contributor permissions to a resource group named openshiftrg.
-separately and use the output to feed the --scopes option.
 
 First, create the resource group named openshiftrg:
 
