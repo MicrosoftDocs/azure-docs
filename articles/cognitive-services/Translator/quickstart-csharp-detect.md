@@ -63,7 +63,7 @@ static void Detect()
 
 ## Set the subscription key, host name, and path
 
-Add these lines to the `Detect` function. You'll notice that along with the `api-version`.
+Add these lines to the `Detect` function.
 
 ```csharp
 string host = "https://api.cognitive.microsofttranslator.com";
@@ -136,7 +136,7 @@ Console.ReadLine();
 
 ## Run the sample app
 
-That's it, you're ready to run your text-to-speech sample app. From the command line (or terminal session), navigate to your project directory and run:
+That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
 
 ```console
 dotnet run
@@ -147,18 +147,22 @@ dotnet run
 ```json
 [
   {
-    "detectedLanguage": {
-      "language": "en",
-      "score": 1.0
-    },
-    "translations": [
+    "language": "it",
+    "score": 1.0,
+    "isTranslationSupported": true,
+    "isTransliterationSupported": false,
+    "alternatives": [
       {
-        "text": "Hallo Welt!",
-        "to": "de"
+        "language": "pt",
+        "score": 1.0,
+        "isTranslationSupported": true,
+        "isTransliterationSupported": false
       },
       {
-        "text": "Salve, mondo!",
-        "to": "it"
+        "language": "en",
+        "score": 1.0,
+        "isTranslationSupported": true,
+        "isTransliterationSupported": false
       }
     ]
   }

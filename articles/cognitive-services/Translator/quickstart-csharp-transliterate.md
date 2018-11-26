@@ -136,7 +136,7 @@ Console.ReadLine();
 
 ## Run the sample app
 
-That's it, you're ready to run your text-to-speech sample app. From the command line (or terminal session), navigate to your project directory and run:
+That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
 
 ```console
 dotnet run
