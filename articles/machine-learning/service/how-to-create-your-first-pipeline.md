@@ -115,7 +115,7 @@ else:
     # If no min node count is provided it will use the scale settings for the cluster
     compute_target.wait_for_completion(show_output=True, min_node_count=None, timeout_in_minutes=20)
     
-     # For a more detailed view of current BatchAI cluster status, use the 'status' property    
+     # For a more detailed view of current cluster status, use the 'status' property    
     print(compute_target.status.serialize())
 ```
 
