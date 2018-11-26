@@ -20,8 +20,8 @@ sections:
   items:
   - type: paragraph
     text: Learn more about Log Analytics and Application Insights.
-  - type: list
-    style: ordered
+    style: unordered
+    className: spaced noBullet
     items:
     - html: <a href="/azure/azure-monitor/azure-monitor-log-hub>Learn more about Log Analytics</a>
     - html: <a href="/azure/azure-monitor/azure-monitor-log-hub>Learn more about Application Insights</a>
