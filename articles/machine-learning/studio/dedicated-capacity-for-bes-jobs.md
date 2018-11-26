@@ -1,5 +1,5 @@
 ---
-title: Dedicated Capacity for Machine Learning Batch Execution Service Jobs | Microsoft Docs
+title: Dedicated capacity for machine learning batch execution service jobs - Azure Machine Learning Studio | Microsoft Docs
 description: Overview of Azure Batch services for Machine Learning jobs.
 services: machine-learning
 documentationcenter: ''

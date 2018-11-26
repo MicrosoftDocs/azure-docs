@@ -42,10 +42,12 @@
       href: autogen-bitrate-ladder.md
   - name: Examining entities
     items:
+    - name: Account and Asset filters 
+      href: filters-dynamic-manifest-overview.md      
     - name: Assets
-      href: assets-concept.md
+      href: assets-concept.md        
     - name: Content key policies
-      href: content-key-policy-concept.md
+      href: content-key-policy-concept.md 
     - name: Streaming endpoints
       href: streaming-endpoint-concept.md
     - name: Streaming locators

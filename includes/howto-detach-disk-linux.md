@@ -1,3 +1,10 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 11/25/2018
+ms.author: cynthn
+---
 When you no longer need a data disk that's attached to a virtual machine (VM), you can easily detach it. When you detach a disk from the VM, the disk is not removed it from storage. If you want to use the existing data on the disk again, you can reattach it to the same VM, or another one.  
 
 > [!NOTE]

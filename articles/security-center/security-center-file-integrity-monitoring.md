@@ -201,7 +201,7 @@ You can disable FIM. FIM uses the Azure Change Tracking solution to track and id
 ## Next steps
 In this article you learned to use File Integrity Monitoring (FIM) in Security Center. To learn more about Security Center, see the following:
 
-* [Setting security policies](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing security recommendations](security-center-recommendations.md) -- Learn how recommendations help you protect your Azure resources.
 * [Security health monitoring](security-center-monitoring.md)--Learn how to monitor the health of your Azure resources.
 * [Managing and responding to security alerts](security-center-managing-and-responding-alerts.md)--Learn how to manage and respond to security alerts.
