@@ -115,13 +115,13 @@
     - name: Azure Time Series Insights update (preview)
       items:
       - name: Time Series Query
-        href: 
+        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsq
       - name: Time Series Model
-        href: 
+        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsm
       - name: Time Series Environment API
-        href: 
+        href: /rest/api/time-series-insights/time-series-insights-reference-update-env
       - name: Time Series Expression and Syntax
-        href: 
+        href: /rest/api/time-series-insights/time-series-insights-reference-update-tsx
 - name: Related
   items:
   - name: Solutions
