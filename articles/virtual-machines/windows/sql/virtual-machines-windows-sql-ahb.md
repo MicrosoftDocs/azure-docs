@@ -18,16 +18,15 @@ ms.reviewer: jroth
 
 ---
 # How to change the licensing model for a SQL virtual machine in Azure
+This article describes how to change the licensing model for a SQL Server virtual machine in azure. There are two licensing models for a virtual machine(VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either Powershell or Azure CLI, you can modify the licensing model for your SQL VM to switch between the two. 
 
-This article describes how to change the licensing model for a SQL Server virtual machine in azure. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either Powershell or Azure CLI, you can modify the licensing model for your SQL VM to switch between the two. 
+The **Pay-per-usage** model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 
-Paying the SQL Server license per usage means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
-
-The BYOL model is also known as the Azure Hybrid Benefit, and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance) and [Azure hybrid benefit](https://azure.microsoft.com/pricing/hybrid-benefit/). 
+The **Bring-your-own-license** model is also known as the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/), and it allows you to use your own SQL Server license with a VM running SQL Server. For more information about prices, see [SQL VM pricing guide](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-pricing-guidance).
 
 
-## Register legacy SQL VM with new SQL VM resource provider
-The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first register the new provider to your subscription, and then register your legacy VM with the new SQL VM resource provider. To register your SQL VM with the provider, use the following code. 
+## Register legacy SQL VM with new resource provider
+The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register the new provider to your subscription, and then register your legacy VM with the new SQL VM resource provider. The following code 
 
 ```powershell
 # Register the new SQL resource provider
@@ -76,8 +75,8 @@ az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --reso
 
 This code snippet switches your BYOL model to pay-per-usage: 
 ```azurecli
-az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=NeedValue
-# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=NeedValue
+az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
+# example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
 ```
 
   >[NOTE]
@@ -85,29 +84,13 @@ az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --reso
 
 ## View current licensing 
 
-The following code snippets will allow you to view your current licensing model for your SQL VM. 
+The following code snippet allows you to view your current licensing model for your SQL VM. 
 
 ```powershell
 # View current licensing model for your SQL VM
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
 $SqlVm.Properties.sqlServerLicenseType
-```
-
-```azurecli
-code goes here
-```
-
-## Verify SQL resource provider
-
-The following code snippets will allow you to verify if your SQL VM has been registered with the new resource provider. 
-
-```powershell
-code goes here
-```
-
-```azurecli
-code goes here
 ```
 
 ## Next steps
