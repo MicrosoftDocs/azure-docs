@@ -12,7 +12,7 @@ ms.topic: conceptual
 ms.date: 11/26/2018
 ---
 
-# Grant data access to a Time Series Insights environment using Azure portal
+# Grant data access to an environment
 
 This article discusses the two types of Azure Time Series Insights (TSI) update access policies.
 

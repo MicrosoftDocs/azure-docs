@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# How to diagnose and troubleshoot the Azure Time Series Insights update
+# How to diagnose and troubleshoot
 
 This article summarizes several common problems you might encounter working with your Azure Time Series Insights (TSI) environment. The article also describes potential causes and solutions for each.
 

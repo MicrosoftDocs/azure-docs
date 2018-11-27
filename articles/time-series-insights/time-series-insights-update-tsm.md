@@ -163,7 +163,7 @@ The matrix below works as a legend for variable definitions:
 
 ![table][2]
 
-### Variable Kind
+### Variable kind
 
 The following variable kinds are supported:
 
@@ -173,7 +173,7 @@ The following variable kinds are supported:
 
 Variable filters specify an optional filter clause to restrict the number of rows being considered for computation based on conditions.
 
-### Variable Value
+### Variable value
 
 Variable values are and should be used in computation. This is the column in the events that we should refer to.
 
@@ -313,7 +313,7 @@ Response:
 }
 ```
 
-## Time Series model settings example
+## Time Series Model settings example
 
 Given a POST HTTP request:
 

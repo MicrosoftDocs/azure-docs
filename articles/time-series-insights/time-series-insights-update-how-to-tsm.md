@@ -11,7 +11,7 @@ ms.topic: conceptual
 ms.date: 11/27/2018
 ---
 
-# Data Modeling in Azure Time Series Insights
+# Data modeling in Azure Time Series Insights
 
 This document describes how to work with **Time Series Models** following the Azure Time Series Insights (TSI) update. It will detail common several use-cases and customization scenarios.
 
