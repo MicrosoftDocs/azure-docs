@@ -97,7 +97,7 @@ To bring up a list of all connections to virtual networks over private peering, 
 
 ### Circuit topology 
 
-To view circuit topology, select the **Topology** tile. This action takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network, and each layer 3 hop is represented by a node of the diagram. Selecting a hop reveals more details about the hop. To increase the level of visibility to include on-premises hops, move the slider bar under **FILTERS**. Moving the slider bar to the left or right increases or decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high-latency segments on your network. 
+To view circuit topology, select the **Topology** tile. This action takes you to the topology view of the selected circuit or peering. The topology diagram provides the latency for each segment on the network, and each layer 3 hop is represented by a node of the diagram. Selecting a hop reveals more details about the hop. To increase the level of visibility to include on-premises hops, move the slider bar under **FILTERS**. Moving the slider bar to the left or right increases or decreases the number of hops in the topology graph. The latency across each segment is visible, which allows for faster isolation of high-latency segments on your network.
 
 ![ExpressRoute topology](media/network-performance-monitor-expressroute/expressroute-topology.png)
 
@@ -107,12 +107,9 @@ This view shows virtual network connections. 
 
 ![ExpressRoute virtual network connections](media/network-performance-monitor-expressroute/expressroute-vnet.png)
  
-
 ## Diagnostics 
 
 Network Performance Monitor helps you diagnose several circuit connectivity issues. Some of the issues that you can see are listed below.
-
-**Notification codes**
 
 You can see the notification codes and set alerts on them via **LogAnalytics**. On the **NPM Diagnostics** page, you can see descriptions for every diagnostics message triggered.
 
