@@ -246,7 +246,7 @@ The security policies enabled in Azure Security Center drive security recommenda
 ### Who can modify a security policy?
 To modify a security policy, you must be a Security Administrator or an Owner or Contributor of that subscription.
 
-To learn how to configure a security policy, see [Setting security policies in Azure Security Center](security-center-policies.md).
+To learn how to configure a security policy, see [Setting security policies in Azure Security Center](security-center-azure-policy.md).
 
 ### What is a security recommendation?
 Azure Security Center analyzes the security state of your Azure resources. When potential security vulnerabilities are identified, recommendations are created. The recommendations guide you through the process of configuring the needed control. Examples are:

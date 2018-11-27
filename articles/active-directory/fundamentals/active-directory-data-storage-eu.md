@@ -21,7 +21,7 @@ While most Azure AD-related European identity data stays in European datacenters
 
 ## Data stored outside of European datacenters for European customers
 
-Most Azure AD-related European identity data, for organizations with European-based addresses, stays in European datacenters. Azure AD data that's not stored in European datacenters, includes:
+Most Azure AD-related European identity data, for organizations with European-based addresses, stays in European datacenters. Azure AD data that's stored in European datacenters, and also replicated to United States datacenters, includes:
 
 - **Identity-related attributes**
 

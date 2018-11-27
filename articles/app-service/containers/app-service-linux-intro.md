@@ -89,7 +89,7 @@ You can access the SCM site from **Advanced Tools** in the **Development Tools**
 The following articles get you started with App Service on Linux with web apps written in a variety of languages:
 
 * [.NET Core](quickstart-dotnetcore.md)
-* [PHP](quickstart-dotnetcore.md)
+* [PHP](https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php)
 * [Node.js](quickstart-nodejs.md)
 * [Java](quickstart-java.md)
 * [Python](quickstart-python.md)

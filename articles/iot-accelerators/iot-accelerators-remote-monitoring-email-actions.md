@@ -16,7 +16,7 @@ ms.topic: conceptual
 
 Email actions help make sure you never miss alerts. You can add an email action to an existing rule, or when you create a new rule.
 
-[!INCLUDE [iot-accelerators-tutorial-prereqs](../../includes/iot-accelerators-tutorial-prereqs.md)]
+To complete the steps in this how-to guide, you need a deployed instance of the Remote Monitoring solution accelerator in your Azure subscription.
 
 To create or modify a rule, you must be an [**Administrator**, or have the correct permissions](iot-accelerators-remote-monitoring-rbac.md).
 

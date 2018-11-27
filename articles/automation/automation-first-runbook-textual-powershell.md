@@ -110,7 +110,7 @@ Now that your runbook is authenticating to your Azure subscription, you can mana
 
 1. After *Connect-AzureRmAccount*, type *Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'NameofResourceGroup'* providing the name and Resource Group name of the virtual machine to start.  
    
-   ```
+   ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
    Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationID $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
@@ -125,7 +125,7 @@ Your runbook currently starts the virtual machine that you hardcoded in the runb
 
 1. Add parameters for *VMName* and *ResourceGroupName* to the runbook and use these variables with the **Start-AzureRmVM** cmdlet as in the following example.
 
-   ```
+   ```powershell
    Param(
     [string]$VMName,
     [string]$ResourceGroupName

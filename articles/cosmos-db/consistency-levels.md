@@ -45,7 +45,7 @@ The comprehensive SLAs provided by Azure Cosmos DB guarantee that 100% of read r
 
   Bounded staleness offers total global order except within the "staleness window." The monotonic read guarantees exist within a region both inside and outside the "staleness window." Strong consistency has the same semantics as the ones offered by bounded staleness and with a “staleness window” equal to zero. Bounded staleness is also referred to as **time-delayed linearizability**. When a client performs read operations within a region that accepts writes, the guarantees provided by bounded staleness consistency are identical to those with the strong consistency.
 
-- **Consistency level = "session"**: The reads are guaranteed to honor the consistent-prefix, monotonic reads, monotonic writes, read-your-writes, write-follows-reads guarantees. Session consistency is scoped to a client session.
+- **Consistency level = "session"**: The reads are guaranteed to honor the consistent-prefix (assuming a single “writer” session), monotonic reads, monotonic writes, read-your-writes, write-follows-reads guarantees. Session consistency is scoped to a client session.
 
 - **Consistency level = "consistent prefix"**: Updates returned contain some prefix of all the updates, with no gaps. Consistent prefix guarantee that reads never see out of order writes.
 

@@ -11,7 +11,7 @@ editor: ''
 ms.service: media-services
 ms.workload: 
 ms.topic: article
-ms.date: 10/23/2018
+ms.date: 11/17/2018
 ms.author: juliako
 ---
 
@@ -30,7 +30,7 @@ Media Services currently supports the following built-in analyzer presets:
 
 |**Preset name**|**Scenario**|**Details**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analyzing audio|The preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.<br/>You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region' (for example, 'en-US'). The list of supported languages are, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'.|
+|**AudioAnalyzerPreset**|Analyzing audio|The preset applies a pre-defined set of AI-based analysis operations, including speech transcription. Currently, the preset supports processing of content with a single audio track.<br/>You can specify the language for the audio payload in the input using the BCP-47 format of 'language tag-region' (for example, 'en-US'). The list of supported languages is, 'en-US', 'en-GB', 'es-ES', 'es-MX', 'fr-FR', 'it-IT', 'ja-JP', 'pt-BR', 'zh-CN'. If language is not specified or set to Null, automatic language detection will be employed. The automatic language detection feature currently supports English, Chinese, French, German, Italian, Japanese, Spanish, Russian, and Portuguese.|
 |**VideoAnalyzerPreset**|Analyzing audio and video|Extracts insights (rich metadata) from both audio and video, and outputs a JSON format file. You can specify whether you only want to extract audio insights when processing a video file. For more information, see [Analyze video](analyze-videos-tutorial-with-api.md).|
 
 ### AudioAnalyzerPreset
