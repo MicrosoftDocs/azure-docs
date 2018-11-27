@@ -4,7 +4,7 @@ description: Learn how to read and understand the sections of your detailed usag
 services: ''
 documentationcenter: ''
 author: tonguyen10
-manager: tonguyen
+manager: alherz
 editor: ''
 tags: billing
 

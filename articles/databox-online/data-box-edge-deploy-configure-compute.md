@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 10/19/2018
+ms.date: 11/27/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to configure compute on Data Box Edge so I can use it to transform the data before sending it to Azure.
 ---
@@ -186,9 +186,8 @@ The following procedure uses an example where the custom module takes files from
 1.	Under **Specify Routes**, set routes between modules.  
     In this example, enter the name of the local share that will push data to the cloud share.
 
-    You can replace the route with the following route string:  
-    
-    `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
+    You can replace *route* with the following route string:
+          `"route": "FROM /* WHERE topic = 'mysmblocalshare' INTO BrokeredEndpoint(\"/modules/filemovemodule/inputs/input1\")"`
 
     ![The Specify Routes section](./media/data-box-edge-deploy-configure-compute/add-a-custom-module-10.png) 
 
