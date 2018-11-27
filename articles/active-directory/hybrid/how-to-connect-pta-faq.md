@@ -29,7 +29,7 @@ Review [this guide](https://docs.microsoft.com/azure/security/azure-ad-choose-au
 
 Pass-through Authentication is a free feature. You don't need any paid editions of Azure AD to use it.
 
-## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](http://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
+## Is Pass-through Authentication available in the [Microsoft Azure Germany cloud](https://www.microsoft.de/cloud-deutschland) and the [Microsoft Azure Government cloud](https://azure.microsoft.com/features/gov/)?
 
 No. Pass-through Authentication is only available in the worldwide instance of Azure AD.
 
