@@ -182,7 +182,7 @@ To remove the agent, run the following command on the Linux computer.  The *--pu
 ### Windows agent
 Perform the following steps to configure the Log Analytics agent for Windows to report to a System Center Operations Manager management group.
 
-[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)] 
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 
 1. Sign on to the computer with an account that has administrative rights.
 2. Open **Control Panel**. 
@@ -198,7 +198,7 @@ Perform the following steps to configure the Log Analytics agent for Windows to 
 ### Linux agent
 Perform the following steps to configure the Log Analytics agent for Linux to report to a System Center Operations Manager management group. 
 
-[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)]
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
 1. Edit the file `/etc/opt/omi/conf/omiserver.conf`
 2. Ensure that the line beginning with `httpsport=` defines the port 1270. Such as: `httpsport=1270`

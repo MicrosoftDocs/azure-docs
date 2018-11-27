@@ -57,7 +57,7 @@ If the *Microsoft Monitoring Agent* VM extension is not installing or reporting,
 For more information, see [troubleshooting Windows extensions](../../virtual-machines/extensions/oms-windows.md).
 
 ## Troubleshooting Linux VM extension
-[!INCLUDE [log-analytics-agent-note](../../../../includes/log-analytics-agent-note.md)] 
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
 If the *Log Analytics agent for Linux* VM extension is not installing or reporting, you can perform the following steps to troubleshoot the issue.
 
 1. If the extension status is *Unknown* check if the Azure VM agent is installed and working correctly by reviewing the VM agent log file `/var/log/waagent.log`
