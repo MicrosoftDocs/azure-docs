@@ -20,7 +20,7 @@ ms.author: magoedte
     <div class="container">
         <h1>Azure Monitor log data documentation</h1>
         <p>Azure Monitor can collect different sources as log data and store it for correlation and analysis using its query language.</p>
-		<p>Here you can find all of the most relevant content on how to plan, collect, and analyze log data.</p>
+		<p>Here we have consolidated the most relevant content on how to plan, collect, and analyze log data.</p>
         <hr style="margin: 30px 0;" />
         <ul class="pivots">
             <li>
