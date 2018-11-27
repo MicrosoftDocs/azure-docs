@@ -22,7 +22,7 @@ ms.author: nitinme
 >
 >
 
-Azure Data Lake Storage Gen1 provides a command line tool, [AdlCopy](http://aka.ms/downloadadlcopy), to copy data from the following sources:
+Azure Data Lake Storage Gen1 provides a command line tool, [AdlCopy](https://aka.ms/downloadadlcopy), to copy data from the following sources:
 
 * From Azure Storage Blobs into Data Lake Storage Gen1. You cannot use AdlCopy to copy data from Data Lake Storage Gen1 to Azure Storage blobs.
 * Between two Azure Data Lake Storage Gen1 accounts.
@@ -39,7 +39,7 @@ Before you begin this article, you must have the following:
 * **Azure Storage Blobs** container with some data.
 * **An Azure Data Lake Storage Gen1 account**. For instructions on how to create one, see [Get started with Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 * **Azure Data Lake Analytics account (optional)** - See [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) for instructions on how to create a Data Lake Analytics account.
-* **AdlCopy tool**. Install the AdlCopy tool from [http://aka.ms/downloadadlcopy](http://aka.ms/downloadadlcopy).
+* **AdlCopy tool**. Install the AdlCopy tool from [http://aka.ms/downloadadlcopy](https://aka.ms/downloadadlcopy).
 
 ## Syntax of the AdlCopy tool
 Use the following syntax to work with the AdlCopy tool

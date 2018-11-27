@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
 
@@ -69,4 +69,4 @@ None of the user Infrastructure as a Service (IaaS) or Platform as a Service (Pa
 
 ## Next steps
 
- - Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-practices.md).
+Learn about the best practices for [using the Infrastructure Backup Service](azure-stack-backup-best-practices.md).

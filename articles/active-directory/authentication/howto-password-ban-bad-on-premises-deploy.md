@@ -50,6 +50,13 @@ Once the feature has been running in audit mode for a reasonable time, the enfor
 * All machines where Azure AD password protection components are installed including domain controllers must have the Universal C runtime installed.
 This is preferably accomplished by fully patching the machine via Windows Update. Otherwise an appropriate OS-specific update package may be installed - see [Update for Universal C Runtime in Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows)
 * Network connectivity must exist between at least one domain controller in each domain and at least one server hosting the Azure AD password protection proxy service. This connectivity must allow the domain controller to access the RPC endpoint mapper port (135) and the RPC server port on the proxy service.  The RPC server port is by default a dynamic RPC port but can be configured (see below) to use a static port.
+* All machines hosting the Azure AD password protection proxy service must have network access to the following endpoints:
+
+    |Endpoint |Purpose|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|Authentication requests|
+    |`https://enterpriseregistration.windows.net`|Azure AD password protection functionality|
+
 * A global administrator account to register the Azure AD password protection proxy service and forest with Azure AD.
 * An account with Active Directory domain administrator privileges in the forest root domain to register the Windows Server Active Directory forest with Azure AD.
 * Any Active Directory domain running the DC agent service software must use DFSR for sysvol replication.

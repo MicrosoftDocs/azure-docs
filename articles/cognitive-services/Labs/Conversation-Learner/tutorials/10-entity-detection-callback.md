@@ -18,7 +18,7 @@ This tutorial shows the entity detection callback, and illustrates a common patt
 
 ## Video
 
-[![Tutorial 10 Preview](http://aka.ms/cl-tutorial-10-preview)](http://aka.ms/blis-tutorial-10)
+[![Tutorial 10 Preview](https://aka.ms/cl-tutorial-10-preview)](https://aka.ms/blis-tutorial-10)
 
 ## Requirements
 This tutorial requires that the `tutorialEntityDetectionCallback` bot is running.

@@ -104,9 +104,9 @@ Microsoft uses the data only in order to provide the service to you.
 * No. Your application can run anywhere, either in your own on-premises hosts or in the Cloud.
 
 ## How secure is my data?
-Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights is an Azure Service. Security policies are described in the [Azure Security, Privacy, and Compliance white paper](https://go.microsoft.com/fwlink/?linkid=392408).
 
-The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](http://go.microsoft.com/fwlink/?linkid=392408).
+The data is stored in Microsoft Azure servers. For accounts in the Azure Portal, account restrictions are described in the [Azure Security, Privacy, and Compliance document](https://go.microsoft.com/fwlink/?linkid=392408).
 
 Access to your data by Microsoft personnel is restricted. We access your data only with your permission and if it is necessary to support your use of Application Insights. 
 

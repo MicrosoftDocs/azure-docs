@@ -18,7 +18,7 @@ ms.author: bwren
 ---
 
 # Visualizing data from Azure Monitor
-This article provides a summary of the available methods to visualize data stored in Azure Monitor. This includes [metrics in the Azure metrics store](../monitoring/monitoring-data-collection.md#metrics) and [log data in Log Analytics](../monitoring/monitoring-data-collection.md#logs). 
+This article provides a summary of the available methods to visualize data stored in Azure Monitor. This includes [metrics in the Azure metrics store](../azure-monitor/platform/data-collection.md#metrics) and [log data in Log Analytics](../azure-monitor/platform/data-collection.md#logs). 
 
 Visualizations such as charts and graphs can help you analyze your monitoring data to drill-down on issues and identify patterns. Depending on the tool you use, you may also have the option to share visualizations with other users inside and outside of your organization.
 
@@ -47,7 +47,7 @@ Visualizations such as charts and graphs can help you analyze your monitoring da
 - Limited contextual drill-down.
 
 ## Azure Monitor Views
-[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md)  allow you to create custom visualizations with log data stored in Log Analytics. They are used by [monitoring solutions](../monitoring/monitoring-solutions.md) to present the data they collect.
+[Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md)  allow you to create custom visualizations with log data stored in Log Analytics. They are used by [monitoring solutions](../azure-monitor/insights/solutions.md) to present the data they collect.
 
 ![View](media/visualizations/view.png)
 
@@ -135,7 +135,7 @@ You can access data in Azure metrics and Log Analytics through their API using a
 
 
 ## Next steps
-- Learn about the [data collected by Azure Monitor](../monitoring/monitoring-data-collection.md).
+- Learn about the [data collected by Azure Monitor](../azure-monitor/platform/data-collection.md).
 - Learn about [Azure dashboards](../azure-portal/azure-portal-dashboards.md).
 - Learn about [Views in Azure Monitor](../log-analytics/log-analytics-view-designer.md).
 - Learn about [Workbooks in Application Insights](../application-insights/app-insights-usage-workbooks.md).

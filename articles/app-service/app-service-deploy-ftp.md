@@ -21,7 +21,7 @@ ms.author: cephalin;dariac
 # Deploy your app to Azure App Service using FTP/S
 
 This article shows you how to use FTP or FTPS to deploy your web app, mobile app backend, 
-or API app to [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+or API app to [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 The FTP/S endpoint for your app is already active. No configuration is necessary to enable FTP/S deployment.
 
@@ -64,7 +64,7 @@ For enhanced security, you should allow FTP over SSL only. You can also disable 
 
 In your app's resource page in [Azure portal](https://portal.azure.com), select **App settings** in the left navigation.
 
-To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**. If using **FTPS Only** you must enforce TLS 1.1 or higher by navigating to the **SSL settings** blade of your web app. TLS 1.0 is not supported with **FTPS Only**.
+To disable unencrypted FTP, select **FTPS Only**. To disable both FTP and FTPS entirely, select **Disable**. When finished, click **Save**. If using **FTPS Only** you must enforce TLS 1.2 or higher by navigating to the **SSL settings** blade of your web app. TLS 1.0 and 1.1 are not supported with **FTPS Only**.
 
 ![Disable FTP/S](./media/app-service-deploy-ftp/disable-ftp.png)
 

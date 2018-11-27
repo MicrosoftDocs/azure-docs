@@ -629,5 +629,5 @@ After you create a database that uses Always Encrypted, you may want to do the f
 * [Transparent data encryption](https://msdn.microsoft.com/library/bb934049.aspx)
 * [SQL Server encryption](https://msdn.microsoft.com/library/bb510663.aspx)
 * [Always Encrypted wizard](https://msdn.microsoft.com/library/mt459280.aspx)
-* [Always Encrypted blog](http://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
+* [Always Encrypted blog](https://blogs.msdn.com/b/sqlsecurity/archive/tags/always-encrypted/)
 

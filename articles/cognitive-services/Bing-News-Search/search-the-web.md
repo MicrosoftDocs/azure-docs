@@ -40,7 +40,7 @@ Host: api.cognitive.microsoft.com
 
 If it's your first time calling any of the Bing APIs, don't include the client ID header. Only include the client ID if you've previously called a Bing API and Bing returned a client ID for the user and device combination.
 
-To get news from a specific domain, use the [site:](http://msdn.microsoft.com/library/ff795613.aspx) query operator.
+To get news from a specific domain, use the [site:](https://msdn.microsoft.com/library/ff795613.aspx) query operator.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/news/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1

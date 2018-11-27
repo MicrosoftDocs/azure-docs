@@ -1,20 +1,20 @@
 ---
-title: Apache Spark streaming with Kafka - Azure HDInsight 
-description: Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka using DStreams. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
+title: Apache Spark streaming with Apache Kafka - Azure HDInsight 
+description: Learn how to use Apache Spark to stream data into or out of Apache Kafka using DStreams. In this example, you stream data using a Jupyter notebook from Spark on HDInsight.
 keywords: kafka example,kafka zookeeper,spark streaming kafka,spark streaming kafka example 
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
 ---
-# Apache Spark streaming (DStream) example with Kafka on HDInsight
+# Apache Spark streaming (DStream) example with Apache Kafka on HDInsight
 
-Learn how to use Spark Apache Spark to stream data into or out of Apache Kafka on HDInsight using DStreams. This example uses a Jupyter notebook that runs on the Spark cluster.
+Learn how to use Apache Spark to stream data into or out of Apache Kafka on HDInsight using DStreams. This example uses a Jupyter notebook that runs on the Spark cluster.
 
 > [!NOTE]
 > The steps in this document create an Azure resource group that contains both a Spark on HDInsight and a Kafka on HDInsight cluster. These clusters are both located within an Azure Virtual Network, which allows the Spark cluster to directly communicate with the Kafka cluster.
@@ -54,7 +54,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
     * **Location**: Select a location geographically close to you.
 
-    * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdi** creates a Spark cluster named __spark-hdi__ and a Kafka cluster named **kafka-hdi**.
+    * **Base Cluster Name**: This value is used as the base name for the Spark and Kafka clusters. For example, entering **hdistreaming** creates a Spark cluster named __spark-hdistreaming__ and a Kafka cluster named **kafka-hdistreaming**.
 
     * **Cluster Login User Name**: The admin user name for the Spark and Kafka clusters.
 
@@ -66,7 +66,7 @@ While you can create an Azure virtual network, Kafka, and Spark clusters manuall
 
 3. Read the **Terms and Conditions**, and then select **I agree to the terms and conditions stated above**.
 
-4. Finally, check **Pin to dashboard** and then select **Purchase**. It takes about 20 minutes to create the clusters.
+4. Finally, select **Purchase**. It takes about 20 minutes to create the clusters.
 
 Once the resources have been created, a summary page appears.
 

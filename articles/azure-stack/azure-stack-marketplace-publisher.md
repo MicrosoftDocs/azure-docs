@@ -29,7 +29,7 @@ Adding your content to the [Azure Stack Marketplace](azure-stack-marketplace.md)
 
  - Download the [Azure Stack Quickstart templates](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) and extract.
 
- - Download the [Azure Gallery Packaging tool](http://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
+ - Download the [Azure Gallery Packaging tool](https://aka.ms/azurestackmarketplaceitem) (AzureGalleryPackage.exe). 
 
  - Publishing to the marketplace requires icons and a thumbnail file. You can use your own, or save the [sample](azure-stack-marketplace-publisher.md#support-files) files locally for this example.
 

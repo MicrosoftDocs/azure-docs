@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/31/2018
+ms.date: 11/15/2018
 ms.author: genli
 ---
 
@@ -25,7 +25,7 @@ If you have trouble when activating Azure Windows virtual machine (VM) that is c
 Azure uses different endpoints for KMS activation depending on the cloud region where the VM resides. When using this troubleshooting guide, use the appropriate KMS endpoint that applies to your region.
 
 * Azure public cloud regions: kms.core.windows.net:1688
-* Azure China national cloud regions: kms.core.chinacloudapi.cn:1688
+* Azure China 21Vianet national cloud regions: kms.core.chinacloudapi.cn:1688
 * Azure Germany national cloud regions: kms.core.cloudapi.de:1688
 * Azure US Gov national cloud regions: kms.core.usgovcloudapi.net:1688
 
@@ -41,9 +41,9 @@ Generally, Azure VM activation issues occur if the Windows VM is not configured 
 ## Solution
 
 >[!NOTE]
->If you are using a site-to-site VPN and forced tunneling, see [Use Azure custom routes to enable KMS activation with forced tunneling](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
+>If you are using a site-to-site VPN and forced tunneling, see [Use Azure custom routes to enable KMS activation with forced tunneling](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx). 
 >
->If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](http://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
+>If you are using ExpressRoute and you have a default route published, see [Azure VM may fail to activate over ExpressRoute](https://blogs.msdn.com/b/mast/archive/2015/12/01/azure-vm-may-fail-to-activate-over-expressroute.aspx).
 
 ### Step 1 Configure the appropriate KMS client setup key (for Windows Server 2016 and Windows Server 2012 R2)
 
@@ -80,8 +80,7 @@ This step does not apply to Windows 2012 or Windows 2008 R2. It uses the Automat
 3. Make sure that the VM is configured to use the correct Azure KMS server. To do this, run the following command:
   
     ```
-    iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms
-    kms.core.windows.net:1688
+    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
     The command should return: Key Management Service machine name set to kms.core.windows.net:1688 successfully.
 
@@ -122,7 +121,7 @@ Yes.
  
 ### What happens if Windows activation period expires? 
  
-When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating. The desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See  the Notifications section at the bottom of the [Licensing Conditions](http://technet.microsoft.com/library/ff793403.aspx) page.   
+When the grace period has expired and Windows is still not activated, Windows Server 2008 R2 and later versions of Windows will show additional notifications about activating. The desktop wallpaper remains black, and Windows Update will install security and critical updates only, but not optional updates. See  the Notifications section at the bottom of the [Licensing Conditions](https://technet.microsoft.com/library/ff793403.aspx) page.   
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.

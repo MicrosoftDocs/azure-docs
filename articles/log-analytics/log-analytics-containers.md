@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/26/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -31,7 +31,7 @@ The solution shows which containers are running, what container image they’re 
 - Service Fabric
 - Red Hat OpenShift
 
-If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS), see [Monitor Azure Kubernetes Service](../monitoring/monitoring-container-insights-overview.md). The Container Monitoring solution does not include support to monitor that platform.  
+If you are interested in monitoring the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS), see [Monitor Azure Kubernetes Service](../azure-monitor/insights/container-insights-overview.md). The Container Monitoring solution does not include support to monitor that platform.  
 
 The following diagram shows the relationships between various container hosts and agents with Log Analytics.
 
@@ -92,7 +92,7 @@ The following table outlines the Docker orchestration and operating system monit
 ## Installing and configuring the solution
 Use the following information to install and configure the solution.
 
-1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+1. Add the Container Monitoring solution to your Log Analytics workspace from [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ContainersOMS?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 
 2. Install and use Docker with a Log Analytics agent. Based on your operating system and Docker orchestrator, you can use the following methods to configure your agent.
   - For standalone hosts:
@@ -103,7 +103,7 @@ Use the following information to install and configure the solution.
     - If you have a Red Hat OpenShift environment, review [Configure a Log Analytics agent for Red Hat OpenShift](#configure-an-oms-agent-for-red-hat-openshift).
     - If you have a Kubernetes cluster using the Azure Container Service:
        - Review [Configure a Log Analytics Linux agent for Kubernetes](#configure-an-oms-linux-agent-for-kubernetes).
-       - Review [Configure an Log Analytis Windows agent for Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
+       - Review [Configure an Log Analytics Windows agent for Kubernetes](#configure-an-oms-windows-agent-for-kubernetes).
        - Review [Use Helm to deploy Log Analytics agent on Linux Kubernetes](#use-helm-to-deploy-oms-agent-on-linux-kubernetes).
     - If you have an Azure Container Service DC/OS cluster, learn more at [Monitor an Azure Container Service DC/OS cluster with Log Analytics](../container-service/dcos-swarm/container-service-monitoring-oms.md).
     - If you have a Docker Swarm mode environment, learn more at [Configure an Log Analytics agent for Docker Swarm](#configure-an-oms-agent-for-docker-swarm).
@@ -121,7 +121,7 @@ After you've installed Docker, use the following settings for your container hos
 
 **For all Linux container hosts except CoreOS:**
 
-- For more information and steps on how to install the Log Analytics agent for Linux, see [Connect your Linux Computers to Log Analytics](log-analytics-concept-hybrid.md).
+- For more information and steps on how to install the Log Analytics agent for Linux, see [Log Analytics agent overview](log-analytics-agent-overview.md).
 
 **For all Linux container hosts including CoreOS:**
 
@@ -599,7 +599,7 @@ Log Search opens, displaying information about the state of your containers.
 
 ![Log Search for containers](./media/log-analytics-containers/containers-log-search.png)
 
-From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about Log Searches, see [Log searches in Log Analytics](log-analytics-log-search.md).
+From here, you can edit the search query to modify it to find the specific information you're interested in. For more information about Log Searches, see [Log searches in Log Analytics](log-analytics-queries.md).
 
 ## Troubleshoot by finding a failed container
 
@@ -667,4 +667,4 @@ Saving queries is a standard feature in Log Analytics. By saving them, you'll ha
 After you create a query that you find useful, save it by clicking **Favorites** at the top of the Log Search page. Then you can easily access it later from the **My Dashboard** page.
 
 ## Next steps
-* [Search logs](log-analytics-log-search.md) to view detailed container data records.
+* [Search logs](log-analytics-queries.md) to view detailed container data records.

@@ -16,7 +16,7 @@ ms.date: 11/28/2017
 ms.author: apimpm
 ---
 # API Management advanced policies
-This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
+This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AdvancedPolicies"></a> Advanced policies
 
@@ -131,7 +131,7 @@ This topic provides a reference for the following API Management policies. For i
 |condition="Boolean expression &#124; Boolean constant"|The Boolean expression or constant to evaluated when the containing `when` policy statement is evaluated.|Yes|
 
 ###  <a name="ChooseUsage"></a> Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -242,7 +242,7 @@ This topic provides a reference for the following API Management policies. For i
 |follow-redirects="true &#124; false"|Specifies whether redirects from the backend service are followed by the gateway or returned to the caller.|No|false|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** backend
 -   **Policy scopes:** all scopes
@@ -289,7 +289,7 @@ This topic provides a reference for the following API Management policies. For i
 |max-count|An integer. Specifies a maximum number of requests that are allowed to enter the policy.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -340,7 +340,7 @@ This topic provides a reference for the following API Management policies. For i
 |partition-key|Specifies the value used for partition assignment when messages are sent.|Optional. This attribute may not be used if `partition-id` is used.|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -382,7 +382,7 @@ status code and media type. If no example or schema found, the content is empty.
 |content-type|Specifies `Content-Type` response header value and is used to select corresponding example or schema.|No|None|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, on-error
 
@@ -447,7 +447,7 @@ status code and media type. If no example or schema found, the content is empty.
 >  When the `interval`, `max-interval` and `delta` are specified, **exponential** interval retry algorithm is applied, where the wait time between the retries is growing exponentially from the value of `interval` to the value `max-interval` according to the following forumula - `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### Usage
- This policy can be used in the following policy                    [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and                   [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Note that child policy usage restrictions will be inherited by this policy.
+ This policy can be used in the following policy                    [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and                   [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) . Note that child policy usage restrictions will be inherited by this policy.
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -495,7 +495,7 @@ status code and media type. If no example or schema found, the content is empty.
 |response-variable-name|The name of the context variable referenced from, for example, an upstream [send-request](api-management-advanced-policies.md#SendRequest) policy and containing a `Response` object|Optional.|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -567,7 +567,7 @@ status code and media type. If no example or schema found, the content is empty.
 |exists-action|Specifies what action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> -   override - replaces the value of the existing header.<br />-   skip - does not replace the existing header value.<br />-   append - appends the value to the existing header value.<br />-   delete - removes the header from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result.|No|override|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -644,14 +644,14 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribute|Description|Required|Default|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Determines whether this is a new request or a copy of the current request. In outbound mode, mode=copy does not initialize the request body.|No|New|
-|response-variable-name="string"|The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon succesful execution of the policy and will become accesible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection.|Yes|N/A|
+|response-variable-name="string"|The name of context variable that will receive a response object. If the variable doesn't exist, it will be created upon successful execution of the policy and will become accesible via [`context.Variable`](api-management-policy-expressions.md#ContextVariables) collection.|Yes|N/A|
 |timeout="integer"|The timeout interval in seconds before the call to the URL fails.|No|60|
 |ignore-error|If true and the request results in an error:<br /><br /> -   If response-variable-name was specified it will contain a null value.<br />-   If response-variable-name was not specified, context.Request will not be updated.|No|false|
 |name|Specifies the name of the header to be set.|Yes|N/A|
 |exists-action|Specifies what action to take when the header is already specified. This attribute must have one of the following values.<br /><br /> -   override - replaces the value of the existing header.<br />-   skip - does not replace the existing header value.<br />-   append - appends the value to the existing header value.<br />-   delete - removes the header from the request.<br /><br /> When set to `override` enlisting multiple entries with the same name results in the header being set according to all entries (which will be listed multiple times); only listed values will be set in the result.|No|override|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -690,7 +690,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 |password="string"|Password to be used for authentication with the proxy.|No|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound
 
@@ -742,7 +742,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 |set-method|Root element. The value of the element specifies the HTTP method.|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, on-error
 
@@ -789,7 +789,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 |reason="string"|A description of the reason for returning the status code.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** outbound, backend, on-error
 -   **Policy scopes:** all scopes
@@ -824,7 +824,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 |value|The value of the variable. This can be an expression or a literal value.|Yes|
 
 ### Usage
- This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+ This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 -   **Policy scopes:** all scopes
@@ -871,7 +871,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 
 ```xml
 
-<trace source="arbitrary string literal"/>
+<trace source="arbitrary string literal">
     <!-- string expression or literal -->
 </trace>
 
@@ -890,7 +890,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 |source|String literal meaningful to the trace viewer and specifying the source of the message.|Yes|N/A|
 
 ### Usage
- This policy can be used in the following policy                    [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and                   [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
+ This policy can be used in the following policy                    [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and                   [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) .
 
 -   **Policy sections:** inbound, outbound, backend, on-error
 
@@ -958,7 +958,7 @@ Note the use of [properties](api-management-howto-properties.md) as values of th
 
 ### Usage
 
-This policy can be used in the following policy [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
+This policy can be used in the following policy [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) and [scopes](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Policy sections:** inbound, outbound, backend
 -   **Policy scopes:** all scopes

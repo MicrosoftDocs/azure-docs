@@ -3,13 +3,13 @@ title: Archived release notes for Azure HDInsight
 description: Archived release notes and versions of Azure HDInsight. 
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
-ms.author: jasonh
+ms.author: hrasheed
 
 ---
 # Archived release notes for Azure HDInsight
@@ -39,7 +39,7 @@ Following are the highlights. For the detailed release notes, bugs fixed, known 
 | Title | Description | Impacted Area  | Cluster Type  | 
 | --- | --- | --- | --- | --- |
 | Release of Microsoft R Server 9.1 on HDInsight |HDInsight now supports provisioning R Server 9.1 clusters on HDInsight. For more information on Microsoft R Server 9.1 release, see [this blog](https://blogs.technet.microsoft.com/dataplatforminsider/2017/04/19/introducing-microsoft-r-server-9-1-release/). |Service |R Server |
-| HDInsight 3.6 now includes newer versions of the Hadoop stack|<ul><li>For a detailed list of updated versions, see [Hadoop component versions available in HDInsight](hdinsight-component-versioning.md#hadoop-components-available-with-different-hdinsight-versions).</li><li>For a list of bugs fixed in the latest versions of the Hadoop stack, see [Apache Patch Information](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>For a list of breaking changes between HDP 2.6.1 (which is now available in HDInsight 3.6), see [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>For a list of known issues in HDP 2.6.1, see [Known issues](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Service |All |N/A |
+| HDInsight 3.6 now includes newer versions of the Hadoop stack|<ul><li>For a detailed list of updated versions, see [Hadoop component versions available in HDInsight](hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions).</li><li>For a list of bugs fixed in the latest versions of the Hadoop stack, see [Apache Patch Information](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/patch_parent.html).</li><li>For a list of breaking changes between HDP 2.6.1 (which is now available in HDInsight 3.6), see [https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/behavior_changes.html).</li><li>For a list of known issues in HDP 2.6.1, see [Known issues](https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.6.1/bk_release-notes/content/known_issues.html).</li></ul> |Service |All |N/A |
 | Updates to Interactive Hive (Preview) clusters |<ul><li><b>Feature improvement.</b> Implementation of cached metastore that reduces the load on the backend SQL by caching the metadata and improves performance for all metadata operations.  This improvement is now a default on all Interactive Hive clusters. For more information, see [https://issues.apache.org/jira/browse/HIVE-16520](https://issues.apache.org/jira/browse/HIVE-16520).</li><li><b>Feature improvement.</b> Dynamic partition loading is optimized. For more information, see [https://issues.apache.org/jira/browse/HIVE-14204](https://issues.apache.org/jira/browse/HIVE-14204).</li><li><b>Feature improvement.</b> Configuration optimizations for HDInsight on Linux.</li><li><b>Bug fix.</b> `CredentialProviderFactory$getProviders` is not thread-safe. This issue is now fixed. For more information, see [https://issues.apache.org/jira/browse/HADOOP-14195](https://issues.apache.org/jira/browse/HADOOP-14195).</li><li><b>Bug fix.</b> High CPU usage with WASB driver `liststatus` API resulting in bad ATS performance. This issue is now fixed. For more information, see [https://github.com/Azure/azure-storage-java/pull/154](https://github.com/Azure/azure-storage-java/pull/154).</li></ul> |Service |Interactive Hive (Preview) |
 | Updates to Hadoop clusters |Templeton job operation reliability is improved. For more information, see [https://issues.apache.org/jira/browse/HIVE-15947](https://issues.apache.org/jira/browse/HIVE-15947) |Service |Hadoop |
 | YARN updates | HDInsight now creates a 250 GB Ambari database (without increasing cost), which results in a better experience for customers. This change should prevent ATS from getting filled up and likely have a better performance. |Service |All |

@@ -17,7 +17,10 @@
   - name: FAQ
     href: sql-data-warehouse-overview-faq.md
 - name: Release Notes
+  href: release-notes.md
   items:
+    - name: October 2018 
+      href: release-notes-october-2018.md
     - name: September 2018 
       href: release-notes-september-2018.md
     - name: August 2018 
@@ -77,6 +80,8 @@
       href: sql-data-warehouse-auditing-overview.md
     - name: Column-level security
       href: column-level-security.md
+    - name: Row-level security
+      href: https://docs.microsoft.com/sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json
   - name: Data loading
     items:
     - name: Overview

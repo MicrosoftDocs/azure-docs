@@ -11,7 +11,7 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/29/2018
+ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
 ---
@@ -121,7 +121,7 @@ You need to add two additional resources to the template.
 
     ![Azure Resource Manager deploy sql extensions BACPAC](./media/resource-manager-tutorial-deploy-sql-extensions-bacpac/resource-manager-tutorial-deploy-sql-extensions-bacpac.png)
 
-    To understand the resource definition, see the [SQL Database extension reference](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
+    To understand the resource definition, see the [SQL Database extension reference](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). The following are some important elements:
 
     * **dependsOn**: The extension resource must be created after the SQL database has been created.
     * **storageKeyType**: The type of the storage key to use. The value can be either `StorageAccessKey` or `SharedAccessKey`. Because the provided BACPAC file is shared on an Azure Storage account with public access, `SharedAccessKey' is used here.

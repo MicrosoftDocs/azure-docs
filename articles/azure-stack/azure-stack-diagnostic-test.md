@@ -70,7 +70,7 @@ Validates the status of Azure Stack. The cmdlet reports the status of your Azure
 | BackupShareCredential   | PSCredential    | No       | NA      |
 
 
-The Test-AzureStack cmdlet supports the common parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](http://go.microsoft.com/fwlink/?LinkID=113216). 
+The Test-AzureStack cmdlet supports the common parameters: Verbose, Debug, ErrorAction, ErrorVariable, WarningAction, WarningVariable, OutBuffer, PipelineVariable, and OutVariable. For more information, see [About Common Parameters](https://go.microsoft.com/fwlink/?LinkID=113216). 
 
 ### Examples of Test-AzureStack
 

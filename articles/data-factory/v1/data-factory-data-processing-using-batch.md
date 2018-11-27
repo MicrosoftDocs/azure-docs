@@ -38,7 +38,7 @@ With the Batch service, you define Azure compute resources to execute your appli
 * [Basics of Batch](../../batch/batch-technical-overview.md)
 * [Batch feature overview](../../batch/batch-api-basics.md)
 
-Optionally, to learn more about Batch, see [Learning path for Batch](https://azure.microsoft.com/documentation/learning-paths/batch/).
+Optionally, to learn more about Batch, see [the Batch documentatnion](https://docs.microsoft.com/en-us/azure/batch/).
 
 ## Why Azure Data Factory?
 Data Factory is a cloud-based data integration service that orchestrates and automates the movement and transformation of data. You can use Data Factory to create managed data pipelines that move data from on-premises and cloud data stores to a centralized data store. An example is Azure Blob storage. You can use Data Factory to process/transform data by using services such as Azure HDInsight and Azure Machine Learning. You also can schedule data pipelines to run in a scheduled manner (for example, hourly, daily, and weekly). You can monitor and manage the pipelines at a glance to identify issues and take action.
@@ -48,7 +48,7 @@ Data Factory is a cloud-based data integration service that orchestrates and aut
 * [Introduction to Data Factory](data-factory-introduction.md)
 * [Build your first data pipeline](data-factory-build-your-first-pipeline.md)   
 
-Optionally, to learn more about Data Factory, see [Learning path for Data Factory](https://azure.microsoft.com/documentation/learning-paths/data-factory/).
+Optionally, to learn more about Data Factory, see [the Data Factory documentation](https://docs.microsoft.com/en-us/rest/api/datafactory/v1/data-factory-data-factory).
 
 ## Data Factory and Batch together
 Data Factory includes built-in activities. For example, the Copy activity is used to copy/move data from a source data store to a destination data store. The Hive activity is used to process data by using Hadoop clusters (HDInsight) on Azure. For a list of supported transformation activities, see [Data transformation activities](data-factory-data-transformation-activities.md).
@@ -58,9 +58,9 @@ You also can create custom .NET activities to move or process data with your own
 ## Architecture of a sample solution
   The architecture described in this article is for a simple solution. It's also relevant to complex scenarios, such as risk modeling by financial services, image processing and rendering, and genomic analysis.
 
-The diagram illustrates how Data Factory orchestrates data movement and processing. It also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](http://go.microsoft.com/fwlink/?LinkId=717686).
+The diagram illustrates how Data Factory orchestrates data movement and processing. It also shows how Batch processes the data in a parallel manner. Download and print the diagram for easy reference (11 x 17 inches or A3 size). To access the diagram so that you can print it, see [HPC and data orchestration by using Batch and Data Factory](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Large-scale data processing diagram](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 The following list provides the basic steps of the process. The solution includes code and explanations to build the end-to-end solution.
 

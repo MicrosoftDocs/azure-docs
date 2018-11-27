@@ -327,7 +327,7 @@ ORDER BY start_time ASC;
 
 ## Identify memory grant wait performance issues
 
-If your top wait type is `RESOURCE_SEMAHPORE` and you don't have high a CPU issue, you may have a memory grant waiting issue.
+If your top wait type is `RESOURCE_SEMAHPORE` and you don't have a high CPU usage issue, you may have a memory grant waiting issue.
 
 ### Determine if a `RESOURCE_SEMAHPORE` wait is a top wait
 
@@ -676,7 +676,7 @@ For SQL Database analysis, you can get historical statistics on sessions by quer
 
 ## Monitoring query performance
 
-Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
+Slow or long running queries can consume significant system resources. This section demonstrates how to use dynamic management views to detect a few common query performance problems. An older but still helpful reference for troubleshooting, is the [Troubleshooting Performance Problems in SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) article on Microsoft TechNet.
 
 ### Finding top N queries
 

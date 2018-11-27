@@ -101,8 +101,8 @@ You can set up autoscale via
 | Web Apps |[Scaling Web Apps](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Autoscale a Cloud Service](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Virtual Machines: Classic |[Scaling Classic Virtual Machine Availability Sets](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md) |
-| Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) |
+| Virtual Machines: Windows Scale Sets |[Scaling virtual machine scale sets in Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Virtual Machines: Linux Scale Sets |[Scaling virtual machine scale sets in Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Virtual Machines: Windows Example |[Advanced Autoscale configuration using Resource Manager templates for VM Scale Sets](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | API Management service|[Automatically scale an Azure API Management instance](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

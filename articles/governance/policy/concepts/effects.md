@@ -4,7 +4,7 @@ description: Azure Policy definition have various effects that determine how com
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
@@ -17,13 +17,14 @@ scanning when the **if** segment of the policy rule is evaluated to match the re
 scanned. The effects can also behave differently if they are for a new resource, an updated
 resource, or an existing resource.
 
-There are currently five effects that are supported in a policy definition:
+There are currently six effects that are supported in a policy definition:
 
 - Append
 - Audit
 - AuditIfNotExists
 - Deny
 - DeployIfNotExists
+- Disabled
 
 ## Order of evaluation
 
@@ -34,13 +35,20 @@ designed governance controls of Policy. Policy creates a list of all policy defi
 by a policy or initiative assignment, that apply by scope (minus exclusions) to the resource and
 prepares to evaluate the resource against each definition.
 
-- **Append** is evaluated first. Since append could alter the request, a change made by append may prevent an audit or deny effect from triggering.
+- **Disabled** is checked first to determine if the policy rule should be evaluated.
+- **Append** is then evaluated. Since append could alter the request, a change made by append may prevent an audit or deny effect from triggering.
 - **Deny** is then evaluated. By evaluating deny before audit, double logging of an undesired resource is prevented.
 - **Audit** is then evaluated prior to the request going to the Resource Provider.
 
 Once the request is provided to the Resource Provider and the Resource Provider returns a success
 status code, **AuditIfNotExists** and **DeployIfNotExists** are evaluated to determine if follow-up
 compliance logging or action is required.
+
+## Disabled
+
+This effect is useful for testing situations and when the policy definition has parameterized the
+effect. It becomes possible to disable a single assignment of that policy by altering the
+assignment parameter of the effect instead of disabling all assignments of the policy.
 
 ## Append
 

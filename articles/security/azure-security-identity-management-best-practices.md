@@ -19,7 +19,7 @@ ms.author: barclayn
 ---
 # Azure Identity Management and access control security best practices
 
-Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
+Many consider identity to be the new boundary layer for security, taking over that role from the traditional network-centric perspective. This evolution of the primary pivot for security attention and investments come from the fact that network perimeters have become increasingly porous and that perimeter defense cannot be as effective as they once were prior to the explosion of [BYOD](https://aka.ms/byodcg) devices and cloud applications.
 
 In this article, we discuss a collection of Azure identity management and access control security best practices. These best practices are derived from our experience with [Azure AD](../active-directory/fundamentals/active-directory-whatis.md) and the experiences of customers like yourself.
 
@@ -47,7 +47,7 @@ Azure identity management and access control security best practices discussed i
 
 ## Treat identity as the primary security perimeter
 
-Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of [BYOD](http://aka.ms/byodcg) devices and cloud applications.
+Many consider identity to be the primary perimeter for security. This is a shift from the traditional focus on network security. Network perimeters keep getting more porous, and that perimeter defense can’t be as effective as it was before the explosion of [BYOD](https://aka.ms/byodcg) devices and cloud applications.
 [Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md) is the Azure solution for identity and access management. Azure AD is a multitenant, cloud-based directory and identity management service from Microsoft. It combines core directory services, application access management, and identity protection into a single solution.
 
 The following sections list best practices for identity and access security using Azure AD.

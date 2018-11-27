@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/03/2017
+ms.date: 10/28/2018
 ms.author: terrylan
 
 ---
@@ -45,12 +45,26 @@ When you click the database to address this recommendation, the **Auditing & Thr
 
 To enable auditing, select **ON** under the **Auditing** option.
 
-## Available SQL service and data recommendations
-| Recommendation | Description |
-| --- | --- |
-| [Enable auditing and threat detection on SQL servers](security-center-enable-auditing-on-sql-servers.md) |Recommends that you turn on auditing and threat detection for Azure SQL servers (Azure SQL service only; doesn't include SQL running on your virtual machines). |
-| [Enable auditing and threat detection on SQL databases](security-center-enable-auditing-on-sql-databases.md) |Recommends that you turn on auditing and threat detection for Azure SQL databases (Azure SQL service only; doesn't include SQL running on your virtual machines). |
-| [Enable Transparent Data Encryption on SQL databases](security-center-enable-transparent-data-encryption.md) |Recommends that you enable encryption for SQL databases (Azure SQL service only). |
+## Data and storage recommendations
+
+|Resource type|Secure score|Recommendation|Description|
+|----|----|----|----|
+|Storage account|20|Require secure transfer to storage account|Secure transfer is an option that forces your storage account to accept requests only from secure connections (HTTPS). Use of HTTPS ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
+|Redis|20|Enable only secure connections to your Redis Cache|Enable only connections via SSL to Redis Cache. Use of secure connections ensures authentication between the server and the service and protects data in transit from network layer attacks such as man-in-the-middle, eavesdropping, and session-hijacking.|
+|SQL|15|Enable Transparent Data Encryption on SQL databases|Enable transparent data encryption to protect data-at-rest and meet compliance requirements.|
+|SQL|15|Enable auditing on SQL servers|Enable auditing  for Azure SQL servers. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
+|SQL|15|Enable auditing on SQL databases|Enable auditing for Azure SQL databases. (Azure SQL service only. Doesn't include SQL running on your virtual machines.)|
+|Data lake analytics|15|Enable encryption at rest of the Data Lake Analytics|Enable transparent data encryption to secure data at rest in your Data Lake Analytics. Encryption at rest is transparent, meaning that the Data Lake Analytics automatically encrypts data prior to persisting, and decrypts data prior to retrieval. There are no changes required in the in applications and services that interact with Data Lake Analytics because of encryption. Encryption at rest minimizes the risk of data loss from physical theft and also helps meet regulatory compliance requirements.|
+|Data lake store|15|Enable encryption at rest for the Data Lake Store|Enable transparent data encryption to secure data at rest in your Data Lake Store. Encryption at rest is transparent, meaning that the Data Lake Store automatically encrypts data prior to persisting, and decrypts data prior to retrieval. You don't have to make any changes in the applications and services that interact with Data Lake Store to accommodate encryption. Encryption at rest minimizes the risk of data loss from physical theft and also helps meet regulatory compliance requirements.|
+|Storage account|15|Enable encryption for Azure Storage Account|Enable Azure Storage Service Encryption for data at rest. Storage Service Encryption (SSE) works by encrypting the data when it is written to Azure storage and decrypts before retrieval. SSE is currently available only for the Azure Blob service and can be used for block blobs, page blobs, and append blobs.|
+|Data lake analytics|5|Enable diagnostics logs in Data Lake Analytics|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+|Data lake store|5|Enable diagnostics logs in Azure Data Lake Store|Enable logs and retain them up to a year. This enables you to recreate activity trails for investigation purposes when a security incident occurs or your network is compromised. |
+|SQL|30|Remediate vulnerabilities on your SQL databases|SQL Vulnerability Assessment scans your database for security vulnerabilities and exposes any deviations from best practices such as misconfigurations, excessive permissions and unprotected sensitive data. Resolving the vulnerabilities found can greatly improve your database security stature.|
+|SQL|20|Provision an Azure AD administrator for SQL server|Provision an Azure AD administrator for your SQL server to enable Azure AD authentication. Azure AD authentication enables simplified permission management and centralized identity management of database users and other Microsoft services.|
+|Storage account|15|Disable unrestricted network access to storage account|Audit unrestricted network access in your storage account firewall settings. Instead, configure network rules so only applications from allowed networks can access the storage account. To allow connections from specific Internet or on-premise clients, access can be granted to traffic from specific Azure virtual networks or to public Internet IP address ranges.|
+|Storage account|1||Migrate storage accounts to new AzureRM resources|Use new Azure Resource Manager v2, for your storage accounts to provide security enhancements such as: stronger access control (RBAC), better auditing, Resource Manager-based deployment and governance, access to managed identities, access to key vault for secrets, Azure AD-based authentication and support for tags and resource groups for easier security management.|
+
+
 
 ## See also
 To learn more about recommendations that apply to other Azure resource types, see the following:
@@ -61,6 +75,6 @@ To learn more about recommendations that apply to other Azure resource types, se
 
 To learn more about Security Center, see the following:
 
-* [Setting security policies in Azure Security Center](security-center-policies.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
+* [Setting security policies in Azure Security Center](security-center-azure-policy.md) -- Learn how to configure security policies for your Azure subscriptions and resource groups.
 * [Managing and responding to security alerts in Azure Security Center](security-center-managing-and-responding-alerts.md) -- Learn how to manage and respond to security alerts.
 * [Azure Security Center FAQ](security-center-faq.md) -- Find frequently asked questions about using the service.

@@ -2,14 +2,14 @@
 title: Ports used by Hadoop services on HDInsight - Azure 
 description: A list of ports used by Hadoop services running on HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: jasonh
+ms.date: 11/06/2018
+ms.author: hrasheed
    
 ---
 # Ports used by Hadoop services on HDInsight

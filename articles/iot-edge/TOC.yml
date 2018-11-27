@@ -203,8 +203,6 @@
     href: https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer
   - name: iothub-diagnostics tool
     href: https://github.com/Azure/iothub-diagnostics
-  - name: Learning path
-    href: https://azure.microsoft.com/documentation/learning-paths/iot-hub/
   - name: MSDN forum
     href: https://social.msdn.microsoft.com/Forums/azure/home?forum=iotedge
   - name: Pricing

@@ -72,9 +72,9 @@ Azure Stack supports only transparent proxy servers. In a deployment where a tra
 |Registration|https://management.azure.com|HTTPS|443|
 |Usage|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.net|HTTPS|443|
 |Windows Defender|.wdcp.microsoft.com<br>.wdcpalt.microsoft.com<br>*.updates.microsoft.com<br>*.download.microsoft.com<br>https://msdl.microsoft.com/download/symbols<br>http://www.microsoft.com/pkiops/crl<br>http://www.microsoft.com/pkiops/certs<br>http://crl.microsoft.com/pki/crl/products<br>http://www.microsoft.com/pki/certs<br>https://secure.aadcdn.microsoftonline-p.com<br>|HTTPS|80<br>443|
-|NTP|     |UDP|123|
-|DNS|     |TCP<br>UDP|53|
-|CRL|     |HTTP|80|
+|NTP|(IP of NTP server provided for deployment)|UDP|123|
+|DNS|(IP of DNS server provided for deployment)|TCP<br>UDP|53|
+|CRL|(URL under CRL Distribution Points on your certificate)|HTTP|80|
 |     |     |     |     |
 
 > [!Note]  

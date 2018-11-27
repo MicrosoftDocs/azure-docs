@@ -32,7 +32,7 @@ The customized system is then available through a regular call to the Microsoft 
 
 Given the appropriate type and amount of training data it is not uncommon to expect gains between 5 and 10, or even more BLEU points on translation quality by using Custom Translator.
 
-More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](http://aka.ms/CustomTranslatorDocs).
+More details about the various levels of customization based on available data can be found in the [Custom Translator User Guide](https://aka.ms/CustomTranslatorDocs).
 
 
 ## Microsoft Translator Hub
@@ -48,7 +48,7 @@ The legacy Microsoft Translator Hub can be used to translate statistical machine
 | SMT customization	| Yes	| No |
 | NMT customization	| No	| Yes |
 | New unified Speech services customization	| No	| Yes |
-| [No Trace](http://www.aka.ms/notrace) | Yes	| Yes |
+| [No Trace](https://www.aka.ms/notrace) | Yes	| Yes |
 
 ## Collaborative Translations Framework
 
@@ -60,4 +60,4 @@ The legacy Microsoft Translator Hub can be used to translate statistical machine
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up a customized language system using Custom Translator](http://aka.ms/CustomTranslatorDocs)
+> [Set up a customized language system using Custom Translator](https://aka.ms/CustomTranslatorDocs)

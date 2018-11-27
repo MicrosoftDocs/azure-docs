@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/15/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: 
 ---
@@ -27,7 +27,7 @@ If none of these steps work for you, the following support channels are also ava
 * Customers with Azure support agreements can open a support request [in the Azure portal](https://manage.windowsazure.com/?getsupport=true).
 * Diagnose OMI Problems with the [OMI troubleshooting guide](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * File a [GitHub Issue](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visit the Log Analytics Feedback page to review submitted ideas and bugs [http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback) or file a new one.  
+* Visit the Log Analytics Feedback page to review submitted ideas and bugs [http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) or file a new one.  
 
 ## Important log locations and Log Collector tool
 
@@ -47,7 +47,7 @@ If none of these steps work for you, the following support channels are also ava
  Additional configurations | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
  >[!NOTE]
- >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](log-analytics-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
+ >Editing configuration files for performance counters and Syslog is overwritten if the collection is configured from the [data menu Log Analytics Advanced Settings](../azure-monitor/platform/agent-data-sources.md#configuring-data-sources) in the Azure portal for your workspace. To disable configuration for all agents, disable collection from Log Analytics **Advanced Settings** or for a single agent run the following:  
 > `sudo su omsagent -c /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable`
 
 ## Installation error codes
@@ -80,7 +80,7 @@ If none of these steps work for you, the following support channels are also ava
 | --- | --- |
 | 2 | Invalid option provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
 | 3 | Invalid configuration provided to the omsadmin script. Run `sudo sh /opt/microsoft/omsagent/bin/omsadmin.sh -h` for usage. |
-| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-concept-hybrid.md#network-firewall-requirements). |
+| 4 | Invalid proxy provided to the omsadmin script. Verify the proxy and see our [documentation for using an HTTP proxy](log-analytics-agent-overview.md#network-firewall-requirements). |
 | 5 | 403 HTTP error received from Log Analytics service. See the full output of the omsadmin script for details. |
 | 6 | Non-200 HTTP error received from Log Analytics service. See the full output of the omsadmin script for details. |
 | 7 | Unable to connect to Log Analytics service. See the full output of the omsadmin script for details. |
@@ -211,8 +211,8 @@ This is a known issue that occurs on first upload of Linux data into a Log Analy
 * The number of messages being forwarded per second are too great for the base configuration of the Log Analytics agent for Linux to handle
 
 ### Resolution
-* Verify the configuration in the Log Analytics workspace for Syslog has all the facilities and the correct log levels. Review [configure Syslog collection in the Azure portal](log-analytics-data-sources-syslog.md#configure-syslog-in-the-azure-portal)
-* Verify the native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to recieve the forwarded messages
+* Verify the configuration in the Log Analytics workspace for Syslog has all the facilities and the correct log levels. Review [configure Syslog collection in the Azure portal](../azure-monitor/platform/data-sources-syslog.md#configure-syslog-in-the-azure-portal)
+* Verify the native syslog messaging daemons (`rsyslog`, `syslog-ng`) are able to receive the forwarded messages
 * Check firewall settings on the Syslog server to ensure that messages are not being blocked
 * Simulate a Syslog message to Log Analytics using `logger` command
   * `logger -p local0.err "This is my test message"`

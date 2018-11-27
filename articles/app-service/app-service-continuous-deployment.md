@@ -149,5 +149,5 @@ In the left menu, click **Deployment Center** > **GitHub** or **Azure DevOps Ser
 [Git Documentation]: http://git-scm.com/documentation
 
 [Create a repo (GitHub)]: https://help.github.com/articles/create-a-repo
-[Create a repo (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
+[Create a repo (BitBucket)]: https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html
 [Get started with Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

@@ -37,7 +37,7 @@ sections:
   - type: list
     style: ordered
     items:
-    - html: Design a Database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure portal</a> 
+    - html: Design a Database&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">Azure CLI</a>
 - title: Reference
   items:
   - type: list

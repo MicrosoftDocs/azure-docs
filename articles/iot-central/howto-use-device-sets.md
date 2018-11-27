@@ -12,9 +12,9 @@ manager: peterpfr
 
 # Use device sets in your Azure IoT Central application
 
-This article describes how, as an operator, to use device sets in your Microsoft Azure IoT Central application.
+This article describes how, as an operator, to use device sets in your Azure IoT Central application.
 
-A device set is a list of devices that are grouped together because they all match some specified criteria. Device sets help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you create a list of all the air conditioner devices in Seattle to enable the Seattle technician to find all the devices for which she is responsible. This article shows you how to create and configure device sets.
+A device set is a list of devices that are grouped together because they all match some specified criteria. Device sets help you manage, visualize, and analyze devices at scale by grouping devices into smaller, logical groups. For example, you create a list of all the air conditioner devices in Seattle to enable the Seattle technician to find all the devices for which the technician is responsible. This article shows you how to create and configure device sets.
 
 ## Create a device set
 
@@ -68,7 +68,7 @@ After you create your device set, you can configure its **Dashboard**. The **Das
         ![Choose grid](media/howto-use-device-sets/image8.png)
 
     1. Give your grid a **Title**.
-    1. Select the columns to be shown by choosing the settings button. In the panel that pops up, choose the column you want shown and choose the right arrow to select it.
+    1. Select the columns to be shown by choosing **Add/Remove**. In the panel that pops up, choose the column you want shown and choose the right arrow to select it.
     1. Choose **OK**.
     1. Choose **Save**.
 
@@ -96,9 +96,10 @@ In order to add a location map to you device sets dashboard you must have config
 
 2. Give a title and choose the location property you have previously configured as part of your Device Property.
 3. Save and you will see the map tile displaying the location of your devices in the Device Set.
-4. Now when an operator views the device sets dashboard, she can see all the tiles you have configured including the location Map to visualize all the devices location at a glance! 
+4. Now when an operator views the device sets dashboard, the operator can see all the tiles you have configured, including the location Map to visualize all the devices location at a glance! 
     
-[!NOTE] You will be able to resize the map to your desired size. Clicking on a pin in the map will display the device information, name and location. You can click on the pop-up to go to the device property page.  
+> [!NOTE] 
+> You will be able to resize the map to your desired size. Clicking on a pin in the map will display the device information, name and location. You can click on the pop-up to go to the device property page.  
 
 
 ## Configure the List for your device set

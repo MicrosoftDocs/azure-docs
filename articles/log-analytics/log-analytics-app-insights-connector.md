@@ -52,7 +52,7 @@ Unlike most other Log Analytics solutions, data isn't collected for the Applicat
 
 ## Configuration
 
-1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../monitoring/monitoring-solutions.md).
+1. Enable the Azure Web Apps Analytics solution from the [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ApplicationInsights?tab=Overview) or by using the process described in [Add Log Analytics solutions from the Solutions Gallery](../azure-monitor/insights/solutions.md).
 2. Browse to the [Azure portal](https://portal.azure.com). Select **All services** to open Application Insights. Then, search for Application Insights. 
 3. Under **Subscriptions**, select a subscription that has Application Insights resources and then under **Name**, select one or more applications.
 4. Click **Save**.
@@ -262,4 +262,4 @@ This solution does not have a set of sample log searches shown on the dashboard.
 
 ## Next steps
 
-- Use [Log Search](log-analytics-log-search.md) to view detailed information for your Application Insights apps.
+- Use [Log Search](log-analytics-queries.md) to view detailed information for your Application Insights apps.

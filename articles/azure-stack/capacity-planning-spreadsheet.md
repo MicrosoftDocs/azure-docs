@@ -22,7 +22,7 @@ ms.reviewer: prchint
 The Azure Stack Capacity Planner is a spreadsheet used for Azure Stack resource capacity planning. The capacity planner provides you with the ability to design various allocations of computing resources and see how these would fit across a selection of hardware offerings. Detailed instructions for the use of the Azure Stack Calculator are provided below.
 
 ## Worksheet descriptions
-The following is a short summary of the worksheets contained in the Azure Stack Capacity Planner spreadsheet that can be downloaded from [http://aka.ms/azstackcapacityplanner](http://aka.ms/azstackcapacityplanner):
+The following is a short summary of the worksheets contained in the Azure Stack Capacity Planner spreadsheet that can be downloaded from [http://aka.ms/azstackcapacityplanner](https://aka.ms/azstackcapacityplanner):
 
 |Tab Name|Description|
 |-----|-----|

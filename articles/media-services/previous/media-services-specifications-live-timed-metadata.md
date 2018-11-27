@@ -448,7 +448,7 @@ formats, 2nd edition
 **[HLS]** [“HTTP Live Streaming”, draft-pantos-http-live-streaming-14, October 14,
 2014,](http://tools.ietf.org/html/draft-pantos-http-live-streaming-14)
 
-**[MS-SSTR]** [“Microsoft Smooth Streaming Protocol”, May 15, 2014](http://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
+**[MS-SSTR]** [“Microsoft Smooth Streaming Protocol”, May 15, 2014](https://download.microsoft.com/download/9/5/E/95EF66AF-9026-4BB0-A41D-A4F81802D92C/%5bMS-SSTR%5d.pdf)
 
 **[AMF0]** ["Action Message Format AMF0"](http://download.macromedia.com/pub/labs/amf/amf0_spec_121207.pdf)
 

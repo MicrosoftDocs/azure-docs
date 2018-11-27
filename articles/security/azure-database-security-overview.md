@@ -33,7 +33,7 @@ Microsoft provides additional ways to encrypt enterprise data:
 
 Azure SQL Database Auditing enables enterprises to record events to an audit log in Azure Storage. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses.
 
-Azure SQL databases can be tightly secured to satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Azure Trust Center site](http://azure.microsoft.com/support/trust-center/services/).
+Azure SQL databases can be tightly secured to satisfy most regulatory or security requirements, including HIPAA, ISO 27001/27002, and PCI DSS Level 1. A current list of security compliance certifications is available at the [Microsoft Azure Trust Center site](https://azure.microsoft.com/support/trust-center/services/).
 
 This article walks through the basics of securing Microsoft Azure SQL databases for structured, tabular, and relational data. In particular, this article will get you started with resources for protecting data, controlling access, and proactive monitoring.
 
@@ -42,7 +42,7 @@ This article walks through the basics of securing Microsoft Azure SQL databases 
 SQL Database helps secure your data by providing encryption:
 
 - For data in motion through [Transport Layer Security (TLS)](https://support.microsoft.com/kb/3135244).
-- For data at rest through [transparent data encryption](http://go.microsoft.com/fwlink/?LinkId=526242).
+- For data at rest through [transparent data encryption](https://go.microsoft.com/fwlink/?LinkId=526242).
 - For data in use through [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx).
 
 For other ways to encrypt your data, consider:

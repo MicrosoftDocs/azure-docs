@@ -283,6 +283,16 @@
     href: https://channel9.msdn.com/events/Build/2018/THR2030
   - name: Video - Ignite 2017
     href: https://myignite.microsoft.com/videos/54781
+  - name: Guest Configuration videos
+    items:
+    - name: Getting Started
+      href: https://www.youtube.com/watch?v=mjJw9_EIyHo
+    - name: Understanding Initiatives
+      href: https://www.youtube.com/watch?v=4JZH3kuG8bI
+    - name: Assign Policy
+      href: https://www.youtube.com/watch?v=fbZBaxcjA-Y
+    - name: Remediation Task
+      href: https://www.youtube.com/watch?v=URE4DUYMgmg
   - name: Azure roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Pricing calculator

@@ -56,6 +56,22 @@
     href: concepts-storage.md
   - name: Scale
     href: concepts-scale.md
+  - name: Best practices
+    items:
+    - name: For cluster operators
+      items:
+      - name: Multi-tenancy and cluster isolation
+        href: operator-best-practices-cluster-isolation.md
+      - name: Basic scheduler features
+        href: operator-best-practices-scheduler.md
+      - name: Advanced scheduler features
+        href: operator-best-practices-advanced-scheduler.md
+      - name: Authentication and authorization
+        href: operator-best-practices-identity.md
+    - name: For application developers
+      items:
+      - name: Resource management
+        href: developer-best-practices-resource-management.md
   - name: Quotas and regional limits
     href: container-service-quotas.md
   - name: Migrate from ACS to AKS
@@ -73,6 +89,8 @@
       href: scale-cluster.md
     - name: Upgrade an AKS cluster
       href: upgrade-cluster.md
+    - name: Process node OS updates
+      href: node-updates-kured.md
     - name: Delete an AKS cluster
       href: /cli/azure/aks#az-aks-delete
       maintainContext: true
@@ -185,6 +203,9 @@
       href: spark-job.md
     - name: Use GPUs
       href: gpu-cluster.md
+    - name: Use Azure Database for PostgreSQL
+      href: ../postgresql/concepts-aks.md
+      maintainContext: true
   - name: DevOps
     items:
     - name: Use Ansible to create AKS clusters

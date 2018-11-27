@@ -22,7 +22,7 @@ ms.component: alerts
 Azure Monitor (formerly Azure Insights) offered a capability to create an alert that triggered off of management events and generated notifications to a webhook URL or email addresses. You may have created one of these alerts any of these ways:
 * In the Azure portal for certain resource types, under Monitoring -> Alerts -> Add Alert, where “Alert on” is set to “Events”
 * By running the Add-AzureRmLogAlertRule PowerShell cmdlet
-* By directly using [the alert REST API](http://docs.microsoft.com/rest/api/monitor/alertrules) with odata.type = “ManagementEventRuleCondition” and dataSource.odata.type = “RuleManagementEventDataSource”
+* By directly using [the alert REST API](https://docs.microsoft.com/rest/api/monitor/alertrules) with odata.type = “ManagementEventRuleCondition” and dataSource.odata.type = “RuleManagementEventDataSource”
  
 The following PowerShell script returns a list of all alerts on management events that you have in your subscription, as well as the conditions set on each alert.
 

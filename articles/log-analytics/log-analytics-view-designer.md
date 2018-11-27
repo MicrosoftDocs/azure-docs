@@ -38,7 +38,7 @@ The views that you create with View Designer contain the elements that are descr
 |:--- |:--- |
 | Tiles | Are displayed on your Log Analytics workspace **Overview** page. Each tile displays a visual summary of the custom view it represents. Each tile type provides a different visualization of your records. You select a tile to display a custom view. |
 | Custom view | Displayed when you select a tile. Each view contains one or more visualization parts. |
-| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log searches](log-analytics-log-search.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log search that provides detailed records. |
+| Visualization parts | Present a visualization of data in the Log Analytics workspace based on one or more [log searches](log-analytics-queries.md). Most parts include a header, which provides a high-level visualization, and a list, which displays the top results. Each part type provides a different visualization of the records in the Log Analytics workspace. You select elements in the part to perform a log search that provides detailed records. |
 
 
 ## Work with an existing view

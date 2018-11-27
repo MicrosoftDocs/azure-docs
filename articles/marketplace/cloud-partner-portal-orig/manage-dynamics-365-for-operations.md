@@ -21,7 +21,7 @@ ms.author: pbutlerm
 
 Publishing portal provides role-based access to the portal allowing multiple individuals to be able to collaborate towards publishing an offer. See [Cloud Portal Manage Users](./cloud-partner-portal-manage-users.md) for more info.
 
-Before an offer can be published on behalf of a publisher account, one of individuals with \"owner\" role need to agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](http://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Before an offer can be published on behalf of a publisher account, one of individuals with \"owner\" role need to agree to comply with the [Terms of Use](https://azure.microsoft.com/support/legal/website-terms-of-use/), [Microsoft Privacy Statement](https://www.microsoft.com/privacystatement/default.aspx), and [Microsoft Azure Certified Program Agreement](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## How to create a new Dynamics 365 for Operations offer
 

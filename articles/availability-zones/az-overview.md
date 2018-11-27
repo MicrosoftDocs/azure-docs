@@ -38,7 +38,7 @@ To achieve comprehensive business continuity on Azure, build your application ar
 - East US 2 (Preview)
 - France Central
 - North Europe
-- Southeast Asia (Preview)
+- Southeast Asia 
 - West Europe
 - West US 2
 
@@ -80,4 +80,4 @@ There is no additional cost for virtual machines deployed in an Availability Zon
 
 
 ## Next steps
-- [Quickstart templates](http://aka.ms/azqs)
+- [Quickstart templates](https://aka.ms/azqs)

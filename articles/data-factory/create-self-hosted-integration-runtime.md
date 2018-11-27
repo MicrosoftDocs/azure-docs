@@ -146,6 +146,10 @@ You can reuse an existing self-hosted integration runtime infrastructure that yo
 
 To share a self-hosted integration runtime by using PowerShell, see [Create a shared self-hosted integration runtime in Azure Data Factory with PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
 
+For a twelve-minute introduction and demonstration of this feature, watch the following video:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
+
 ### Terminology
 
 - **Shared IR**: The original self-hosted IR that's running on a physical infrastructure.  
@@ -191,7 +195,9 @@ To share a self-hosted integration runtime by using PowerShell, see [Create a sh
 
 * The Azure PowerShell version that supports this feature is 6.6.0 or later (AzureRM.DataFactoryV2, 0.5.7 or later).
 
-* To grant permission, the user needs the Owner role or the inherited Owner role in the data factory where the shared IR exists. 
+* To grant permission, the user needs the Owner role or the inherited Owner role in the data factory where the shared IR exists.
+
+* Sharing feature works only for Data Factories within the same Azure Active Directory tenant.
 
 * For Active Directory [guest users](https://docs.microsoft.com/azure/active-directory/governance/manage-guest-access-with-access-reviews), the search functionality (listing all data factories by using a search keyword) in the UI [does not work](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes#SearchLimits). But as long as the guest user is the Owner of the data factory, they can share the IR without the search functionality, by directly typing the MSI of the data factory with which the IR needs to be shared in the **Assign Permission** text box and selecting **Add** in the Azure Data Factory UI. 
 

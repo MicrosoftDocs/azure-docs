@@ -8,7 +8,7 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 10/19/2018
+ms.date: 11/05/2018
 ms.author: byvinyal
 
 ---
@@ -73,7 +73,6 @@ In the limits below, a new table has been added to reflect any differences in li
 * [Log Analytics](#log-analytics-limits)
 * [Managed Identity](#managed-identity-limits)
 * [Media Services](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Multi-Factor Authentication](#multi-factor-authentication)
 * [Networking](#networking-limits)

@@ -176,7 +176,7 @@ To be notified by email of unusual values of any metric, add an alert. You can c
 If you want data continuously exported so that you can process it externally, consider using [Continuous export](app-insights-export-telemetry.md).
 
 ### Power BI
-If you want even richer views of your data, you can [export to Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
+If you want even richer views of your data, you can [export to Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx).
 
 ## Analytics
 [Analytics](app-insights-analytics.md) is a more versatile way to analyze your telemetry using a powerful query language. Use it if you want to combine or compute results from metrics, or perform an in-depth exploration of your app's recent performance. 

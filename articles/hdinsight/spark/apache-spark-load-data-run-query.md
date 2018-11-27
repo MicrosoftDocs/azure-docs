@@ -2,21 +2,21 @@
 title: 'Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight '
 description: Learn how to load data and run interactive queries on Spark clusters in Azure HDInsight.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: jasonh
-ms.date: 05/17/2018
+ms.author: hrasheed
+ms.date: 11/06/2018
 
 #custom intent: As a developer new to Apache Spark and to Apache Spark in Azure HDInsight, I want to learn how to load data into a Spark cluster, so I can run interactive SQL queries against the data.
 ---
 
 # Tutorial: Load data and run queries on an Apache Spark cluster in Azure HDInsight
 
-In this tutorial, you learn how to use create a dataframe from a csv file, and how to run interactive Spark SQL queries against an Apache Spark cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
+In this tutorial, you learn how to create a dataframe from a csv file, and how to run interactive Spark SQL queries against an Apache Spark cluster in Azure HDInsight. In Spark, a dataframe is a distributed collection of data organized into named columns. Dataframe is conceptually equivalent to a table in a relational database or a data frame in R/Python.
  
 In this tutorial, you learn how to:
 > [!div class="checklist"]
@@ -31,7 +31,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Create a dataframe from a csv file
 
-Applications can create dataframes from an existing Resilient Distributed Dataset (RDD), from a Hive table, or from data sources using the SQLContext object. The following screenshot shows a snapshot of the HVAC.csv file used in this tutorial. The csv file comes with all HDInsight Spark clusters. The data captures the temperature variations of some buildings.
+Applications can create dataframes directly from files or folders on the remote storage such as Azure Storage or Azure Data Lake Storage; from a Hive table; or from other data sources supported by Spark, such as Cosmos DB, Azure SQL DB, DW, etc. The following screenshot shows a snapshot of the HVAC.csv file used in this tutorial. The csv file comes with all HDInsight Spark clusters. The data captures the temperature variations of some buildings.
     
 ![Snapshot of data for interactive Spark SQL query](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Snapshot of data for interactive Spark SQL query")
 
@@ -39,7 +39,7 @@ Applications can create dataframes from an existing Resilient Distributed Datase
 1. Open the Jupyter notebook that you created in the prerequisites section.
 2. Paste the following code in an empty cell of the notebook, and then press **SHIFT + ENTER** to run the code. The code imports the types required for this scenario:
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -50,14 +50,14 @@ Applications can create dataframes from an existing Resilient Distributed Datase
 
 3. Run the following code to create a dataframe and a temporary table (**hvac**) by running the following code. 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > By using the PySpark kernel to create a notebook, the SQL contexts are automatically created for you when you run the first code cell. You do not need to explicitly create any contexts.
+    > By using the PySpark kernel to create a notebook, the `spark` session is automatically created for you when you run the first code cell. You do not need to explicitly create the session.
 
 
 ## Run queries on the dataframe
@@ -66,12 +66,10 @@ Once the table is created, you can run an interactive query on the data.
 
 1. Run the following code in an empty cell of the notebook:
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   Because the PySpark kernel is used in the notebook, you can now directly run an interactive SQL query on the temporary table **hvac**.
 
    The following tabular output is displayed.
 
@@ -87,7 +85,7 @@ Once the table is created, you can run an interactive query on the data.
 
 ## Clean up resources
 
-With HDInsight, your data is stored in Azure Storage or Azure Data Lake Store, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
+With HDInsight, your data and Jupyter notebooks are stored in Azure Storage or Azure Data Lake Store, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. If you plan to work on the next tutorial immediately, you might want to keep the cluster.
 
 Open the cluster in the Azure portal, and select **Delete**.
 

@@ -1,6 +1,6 @@
 ---
-title: Hadoop components and versions - Azure HDInsight 
-description: Learn the Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of Hortonworks Data Platform.
+title: Apache Hadoop components and versions - Azure HDInsight 
+description: Learn the Apache Hadoop components and versions in HDInsight and the service levels available in this cloud distribution of Hortonworks Data Platform.
 keywords: hadoop versions,hadoop ecosystem components,hadoop components,how to check hadoop version
 services: hdinsight
 ms.reviewer: jasonh
@@ -13,13 +13,13 @@ ms.date: 09/19/2018
 ms.author: kakampf
 
 ---
-# What are the Hadoop components and versions available with HDInsight?
+# What are the Apache Hadoop components and versions available with HDInsight?
 
 Learn about the Apache Hadoop ecosystem components and versions in Microsoft Azure HDInsight, as well as the Enterprise Security Package. Also, learn how to check Hadoop component versions in HDInsight. 
 
 Each HDInsight version is a cloud distribution of a version of Hortonworks Data Platform (HDP).
 
-## Hadoop components available with different HDInsight versions
+## Apache Hadoop components available with different HDInsight versions
 Azure HDInsight supports multiple Hadoop cluster versions that can be deployed at any time. Each version choice creates a specific version of the HDP distribution and a set of components that are contained within that distribution. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6 and is based on HDP 2.6.
 
 The component versions associated with HDInsight cluster versions are listed in the following table: 
@@ -243,7 +243,7 @@ The following tables list the default virtual machine (VM) sizes for HDInsight c
   | Edge: recommended VM size | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazil South and Japan West only (no v2 sizes):
 
-  | Cluster type | Hadoop | HBase | Interactive Query |Storm | Spark | ML Service |
+  | Cluster type | Hadoop | HBase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head: default VM size |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Head: recommended VM sizes |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
