@@ -563,7 +563,7 @@
           href: https://github.com/Azure/azure-storage-ruby
         - name: iOS
           href: https://github.com/Azure/azure-storage-ios
-- name: Blob storage for big data analytics
+- name: Data Lake Storage Gen2
   items:
   - name: Switch to Data Lake Storage Gen1 documentation
     href: /azure/data-lake-store/
