@@ -5,7 +5,7 @@ services: azure-stack
 keywords: 
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/09/2018
+ms.date: 11/27/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
@@ -116,8 +116,6 @@ Use a computer that can connect to the Azure Stack privileged endpoint for the n
     }
     ```
 
-
-
 ### Update DNS configuration
 
 > [!Note]  
@@ -126,8 +124,8 @@ If individual host A records have been configured to publish Azure Stack endpoin
 
 | IP | Hostname | Type |
 |----|------------------------------|------|
-| \<IP> | Adminhosting.<Region>.<FQDN> | A |
-| \<IP> | Hosting.<Region>.<FQDN> | A |
+| \<IP> | *.Adminhosting.<Region>.<FQDN> | A |
+| \<IP> | *.Hosting.<Region>.<FQDN> | A |
 
 Allocated IPs can be retrieved using privileged endpoint by running the cmdlet **Get-AzureStackStampInformation**.
 
