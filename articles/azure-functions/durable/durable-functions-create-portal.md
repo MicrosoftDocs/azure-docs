@@ -103,7 +103,7 @@ By default, the the function app created uses version 2.x of the Azure Functions
         }
     ```
 
-Your first durable function is now up and running in Azure Portal.
+Your first durable function is now up and running in Azure.
 
 ## Next steps
 
