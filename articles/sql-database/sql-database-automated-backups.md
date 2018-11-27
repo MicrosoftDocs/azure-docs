@@ -27,8 +27,8 @@ You can use these backups to:
 
 - Restore a database to a point-in-time within the retention period. This operation will create a new database in the same server as the original database.
 - Restore a deleted database to the time it was deleted or any time within the retention period. The deleted database can only be restored in the same server where the original database was created.
-- Restore a database to another geographical region. This allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world.
-- Restore a database from a specific long-term backup if the database has been configured with a long-term retention policy (LTR). This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
+- Restore a database to another geographical region. Geo-restore allows you to recover from a geographic disaster when you cannot access your server and database. It creates a new database in any existing server anywhere in the world.
+- Restore a database from a specific long-term backup if the database has been configured with a long-term retention policy (LTR). LTR allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 - To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
 > [!NOTE]
@@ -36,11 +36,11 @@ You can use these backups to:
 
 ## How long are backups kept
 
-Each SQL Database has a default backup retention period between 7 and 35 days that depends on the [purchasing model and service tier](#pitr-retention-period). You can update the backup retention period for a database on Azure Logical Server (this feature will be enabled soon in Managed Instance). See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
+Each SQL Database has a default backup retention period between 7 and 35 days that depends on the [purchasing model and service tier](#pitr-retention-period). You can update the backup retention period for a database on Azure Logical Server (this feature will be enabled soon in Managed Instance). For more information, see [Change Backup Retention Period](#how-to-change-backup-retention-period).
 
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
-If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
+If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL databases, all elastic pools and databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR will not be deleted and these databases can be restored.
@@ -57,7 +57,7 @@ The default retention period for a database created using the DTU-based purchasi
 
 #### vCore-based purchasing model
 
-If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for single, pooled,and Managed Instance databases). For all Azure SQL databases (single, pooled, and Managed Imstance databases, you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period).
+If you're using the [vCore-based purchasing model](sql-database-service-tiers-vcore.md), the default backup retention period is 7 days (for single, pooled, and Managed Instance databases). For all Azure SQL databases (single, pooled, and Managed Instance databases, you can [change backup retention period up to 35 days](#how-to-change-backup-retention-period).
 
 > [!WARNING]
 > If you reduce the current retention period, all existing backups older than the new retention period are no longer be available. If you increase the current retention period, SQL Database will keep the existing backups until the longer retention period is reached.
@@ -99,7 +99,7 @@ When you migrate your database from a DTU-based service tier with the default PI
 You can change the default PITR backup retention period using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days.
 
 > [!NOTE]
-> Thes APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. See [Long-term backup retention](sql-database-long-term-retention.md) for details of how to change the LTR retention period(s).
+> Thes APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. For more information about how to change the LTR retention period(s), see [Long-term retention](sql-database-long-term-retention.md).
 
 ### Change PITR backup retention period using PowerShell
 
@@ -143,7 +143,7 @@ Status code: 200
 }
 ```
 
-See [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies) for more details.
+For more information, see [Backup Retention REST API](https://docs.microsoft.com/rest/api/sql/backupshorttermretentionpolicies).
 
 ## Next steps
 

@@ -169,7 +169,7 @@ Authorization refers to what a user can do within an Azure SQL Database, and is 
 
 Managed Instance targets user scenarios with mass database migration from on-premises or IaaS database implementations. Managed Instance supports several database migration options:
 
-### Backup and restore  
+### Back up and restore  
 
 The migration approach leverages SQL backups to Azure blob storage. Backups stored in Azure storage blob can be directly restored into Managed Instance using the [T-SQL RESTORE command](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
 
@@ -224,7 +224,7 @@ The following table shows several properties, accessible through Transact SQL, t
 
 ## Next steps
 
-- To learn how to create your first Managed Instance, see [Quick-start guide](sql-database-managed-instance-get-started.md).
+- To learn how to create your first Managed Instance, see [Quickstart guide](sql-database-managed-instance-get-started.md).
 - For a features and comparison list, see [SQL common features](sql-database-features.md).
 - For more information about VNet configuration, see [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md).
 - For a quickstart that creates a Managed Instance and restores a database from a backup file, see [Create a Managed Instance](sql-database-managed-instance-get-started.md).
