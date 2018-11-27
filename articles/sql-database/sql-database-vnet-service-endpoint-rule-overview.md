@@ -195,23 +195,23 @@ PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storag
 
     1. Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
 
-    ```
+    ```SQL
     CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
     ```
     > [!NOTE] 
     > - Please note that there is no need to specify Azure Storage key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
-    > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.
+    > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to work with Azure Storage account secured to VNet.    
+    
+    2. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
 
-    1. Create external data source with abfss:// scheme for connecting to your general-purpose v2 storage account using PolyBase:
-
-    ```
+    ```SQL
     CREATE EXTERNAL DATA SOURCE abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
     ```
     > [!NOTE] 
     > For more information on abfs scheme, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
     > For more information on CREATE EXTERNAL DATA SOURCE, please refer to this [guide](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql).
-
-    1. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
+    
+    3. Query as normal using [external tables](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql).
 
 ### Azure SQL Database Blob Auditing
 
