@@ -118,8 +118,8 @@ $SqlVm.Properties.sqlServerLicenseType
 For more information, see the following articles: 
 
 * [Overview of SQL Server on a Windows VM](virtual-machines-windows-sql-server-iaas-overview.md).
-* [SQL Server on a Windows VM FAQ](virtual-machines-sql-server-iaas-faq.md)
+* [SQL Server on a Windows VM FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
 * [SQL Server on a windows VM pricing guidance](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [SQL Server on a Windows VM release notes](virtual-machines-sql-server-iaas-release-notes.md)
+* [SQL Server on a Windows VM release notes](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

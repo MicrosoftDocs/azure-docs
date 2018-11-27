@@ -75,11 +75,11 @@ This article provides answers to some of the most common questions about running
 
 1. **Can I change a VM to use my own SQL Server license if it was created from one of the pay-as-you-go gallery images?**
 
-   Yes. And you can change your BYOL license to be pay-as-you-go. For more information about switching between the two licensing models, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md).
+   Yes. You can move easily move between the two licensing models, regardless of the image that was originally deployed. For more information, see [How to change the licensing model for a SQL VM](virtual-machines-windows-sql-ahb.md).
 
 1. **Should I use BYOL images or SQL VM RP to create new SQL VM?**
 
-   BYOL images are only available for EA customers. Other customers who have Software Assurance should use the SQL VM resource provider to create a SQL VM with AHB. 
+   Bring-your-own-license (BYOL) images are only available for EA customers. Other customers who have Software Assurance should use the SQL VM resource provider to create a SQL VM with [Azure Hybrid Benefit (AHB)](https://azure.microsoft.com/pricing/licensing-faq/). 
 
 1. **Will switching licensing models require any downtime for SQL Server?**
 
