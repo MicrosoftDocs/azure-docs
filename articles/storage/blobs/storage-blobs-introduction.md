@@ -15,13 +15,13 @@ ms.component: blobs
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 
-## Blob service resources
+## Blob storage resources
 
 Blob storage offers three types of resources:
 
-- The storage account
-- Containers in the storage account
-- Blobs in a container 
+- The **storage account**. 
+- A **container** in the storage account
+- A **blob** in a container 
 
 The following diagram shows the relationship between these resources.
 
