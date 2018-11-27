@@ -17,7 +17,9 @@ ms.date: 11/27/2018
 ms.author: apimpm
 
 ---
+
 # Add caching to improve performance in Azure API Management
+
 Operations in API Management can be configured for response caching. Response caching can significantly reduce API latency, bandwidth consumption, and web service load for data that does not change frequently.
  
 For more detailed information about caching, see [API Management caching policies](api-management-caching-policies.md) and  [Custom caching in Azure API Management](api-management-sample-cache-by-key.md).
@@ -29,6 +31,11 @@ What you'll learn:
 > [!div class="checklist"]
 > * Add response caching for your API
 > * Verify caching in action
+
+## Availability
+
+> [!NOTE]
+> Internal cache is not available in the **Consumption** tier of Azure API Management. You can [use an external Redis cache](api-management-howto-byoc.md) instead.
 
 ## Prerequisites
 
