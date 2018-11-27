@@ -10,9 +10,9 @@ ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
 
-experimental: true
-experiment_id: "b0354115-dc43-45"
-# Control file -- leave as-is 
+experimental: false
+experiment_id: "b0354115-dc43-45" 
+# Treatment file -- make changes here
 # Any changes not related to the IoT Edge VM switch should be reflected in both files
 ---
 
