@@ -23,7 +23,7 @@ To get suggested queries using the Bing API, send a `GET` request to the followi
 **Endpoint:** Returns search suggestions as JSON results that are relevant to the user's input defined by `?q=""`.
 
 ```http
-GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
+GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions/search 
 ```
 
 For details about headers, parameters, market codes, response objects, errors, etc., see the [Bing Autosuggest API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference) reference.
