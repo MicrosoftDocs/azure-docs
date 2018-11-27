@@ -25,21 +25,18 @@ This tutorial walks you through the creation of a [PowerShell runbook](automatio
 To complete this tutorial, you need the following:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* [Automation account](automation-offering-get-started.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+* [Automation account](automation-quickstart-create-account.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
 * An Azure virtual machine. You stop and start this machine so it should not be a production VM.
 
 ## Step 1 - Create new runbook
 You start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure portal, open your Automation account.
-
-   The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
-
-1. Click **Runbooks** under **Process Automation** to open the list of runbooks.
-2. Create a new runbook by clicking the **+ Add a runbook** button and then **Create a new runbook**.
-3. Give the runbook the name *MyFirstRunbook-PowerShell*.
-4. In this case, you're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) so select **Powershell** for **Runbook type**.
-5. Click **Create** to create the runbook and open the textual editor.
+2. Click **Runbooks** under **Process Automation** to open the list of runbooks.
+3. Create a new runbook by clicking the **+ Add a runbook** button and then **Create a new runbook**.
+4. Give the runbook the name *MyFirstRunbook-PowerShell*.
+5. In this case, you're going to create a [PowerShell runbook](automation-runbook-types.md#powershell-runbooks) so select **Powershell** for **Runbook type**.
+6. Click **Create** to create the runbook and open the textual editor.
 
 ## Step 2 - Add code to the runbook
 You can either type code directly into the runbook, or you can select cmdlets, runbooks, and assets from the Library control and have them added to the runbook with any related parameters. For this walkthrough, you type directly in the runbook.
@@ -77,7 +74,7 @@ The runbook that you created is still in Draft mode. you need to publish it befo
 12. You can click this job to open the same Job pane that you viewed when you started the runbook. This allows you to go back in time and view the details of any job that was created for a particular runbook.
 
 ## Step 5 - Add authentication to manage Azure resources
-You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using the credentials that are referred to in the [prerequisites](#prerequisites). You do that with the **Connect-AzureRmAccount** cmdlet. If you are managing resources across multiple subscriptions you need to use the **-AzureRmContext** parameter along with [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources. It is not able to do that though unless You have it authenticate using a Run As connection that is automatically created when you create your automation account. You use the Run As connection with the **Connect-AzureRmAccount** cmdlet. If you are managing resources across multiple subscriptions you need to use the **-AzureRmContext** parameter along with [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
