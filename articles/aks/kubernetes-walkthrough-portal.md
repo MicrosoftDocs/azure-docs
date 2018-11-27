@@ -184,7 +184,7 @@ spec:
 Use the [kubectl apply][kubectl-apply] command to run the application.
 
 ```azurecli-interactive
-kubectl create -f azure-vote.yaml
+kubectl apply -f azure-vote.yaml
 ```
 
 The following example output shows the Kubernetes resources created on your AKS cluster:

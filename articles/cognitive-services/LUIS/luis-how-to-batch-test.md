@@ -13,9 +13,11 @@ ms.author: diberry
 ---
 
 # Batch testing with a set of example utterances
+
  Batch testing is a comprehensive test on your current trained model to measure its performance in LUIS. 
 
 <a name="batch-testing"></a>
+
 ## Import a dataset file for batch testing
 
 1. Select **Test** in the top bar, and then select **Batch testing panel**.
@@ -31,6 +33,7 @@ ms.author: diberry
 4. Select **Done**. The dataset file is added.
 
 ## Run, rename, export, or delete dataset
+
 To run, rename, export, or delete the dataset, use the ellipsis (***...***) button at the end of the dataset row.
 
 ![Dataset Actions](./media/luis-how-to-batch-test/batch-testing-options.png)
@@ -50,7 +53,9 @@ The downloadable dataset is the same file that was uploaded for batch testing.
 |![Ready to test icon](./media/luis-how-to-batch-test/batch-test-result-blue.png)|Test is ready to run.|
 
 <a name="access-batch-test-result-details-in-a-visualized-view"></a>
+
 ## View batch test results 
+
 To review the batch test results, select **See results**.
 
 ![Batch test results](./media/luis-how-to-batch-test/run-test-results.png)
@@ -59,6 +64,7 @@ To review the batch test results, select **See results**.
 
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
+
 ## Filter chart results
 
 To filter the chart by a specific intent or entity, select the intent or entity in the right-side filtering panel. The data points and their distribution update in the graph according to your selection. 
@@ -66,6 +72,7 @@ To filter the chart by a specific intent or entity, select the intent or entity 
 ![Visualized Batch Test Result](./media/luis-how-to-batch-test/filter-by-entity.png) 
 
 ## View single-point utterance data
+
 In the chart, hover over a data point to see the certainty score of its prediction. Select a data point to retrieve its corresponding utterance in the utterances list at the bottom of the page. 
 
 ![Selected utterance](./media/luis-how-to-batch-test/selected-utterance.png)
@@ -73,7 +80,9 @@ In the chart, hover over a data point to see the certainty score of its predicti
 
 <a name="relabel-utterances-and-retrain"></a>
 <a name="false-test-results"></a>
+
 ## View section data
+
 In the four-section chart, select the section name, such as **False Positive** at the top-right of the chart. Below the chart, all utterances in that section display below the chart in a list. 
 
 ![Selected utterances by section](./media/luis-how-to-batch-test/selected-utterances-by-section.png)

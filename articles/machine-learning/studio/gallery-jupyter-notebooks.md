@@ -1,5 +1,5 @@
 ---
-title: Azure AI Gallery Jupyter notebooks | Microsoft Docs
+title: Azure AI Gallery Jupyter notebooks - Azure Machine Learning Studio | Microsoft Docs
 description: Discover Jupyter notebooks in the Azure AI Gallery.
 services: machine-learning
 documentationcenter: ''

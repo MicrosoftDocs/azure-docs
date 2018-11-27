@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2018
+ms.date: 11/22/2018
 ms.author: jeedes
 
 ---
@@ -150,11 +150,26 @@ In this section, you enable Azure AD single sign-on in the Azure portal and conf
 
 	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon12.png)
 
-9. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
+9. For running the JIRA reverse proxy scenario or load balancer scenario perform the following steps:
+
+	> [!NOTE]
+	> You should be configuring the server first with the below instructions and then install the plugin.
+
+	a. Add below attribute in **connector** port in **server.xml** file of JIRA server application.
+
+	`scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
+
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy1.png)
+
+	b. Change **Base URL** in **System Settings** according to proxy/load balancer.
+
+	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/reverseproxy2.png)
+
+10. Once the plugin is installed, it appears in **User Installed** add-ons section of **Manage Add-on** section. Click **Configure** to configure the new plugin.
 
 	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon13.png)
 
-10. Perform following steps on configuration page:
+11. Perform following steps on configuration page:
 
 	![Configure Single Sign-On](./media/jiramicrosoft-tutorial/addon52.png)
 

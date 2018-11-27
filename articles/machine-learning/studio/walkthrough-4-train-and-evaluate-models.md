@@ -1,5 +1,5 @@
 ---
-title: 'Step 4: Train and evaluate the predictive analytic models | Microsoft Docs'
+title: 'Step 4: Train predictive analytic models - Azure Machine Learning Studio | Microsoft Docs'
 description: 'Step 4 of the Develop a predictive solution walkthrough: Train, score, and evaluate multiple models in Azure Machine Learning Studio.'
 services: machine-learning
 documentationcenter: ''
@@ -17,10 +17,10 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ---
-# Walkthrough Step 4: Train and evaluate the predictive analytic models
+# Walkthrough Step 4: Train and evaluate the predictive analytic models in Machine Learning Studio
 This topic contains the fourth step of the walkthrough, [Develop a predictive analytics solution in Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. [Create a Machine Learning workspace](walkthrough-1-create-ml-workspace.md)
+1. [Create a Machine Learning Studio workspace](walkthrough-1-create-ml-workspace.md)
 2. [Upload existing data](walkthrough-2-upload-data.md)
 3. [Create a new experiment](walkthrough-3-create-new-experiment.md)
 4. **Train and evaluate the models**
@@ -35,7 +35,7 @@ In the experiment we're developing in this walkthrough, we'll create two differe
 There are various models we could choose from. To see the models available, expand the **Machine Learning** node in the module palette, and then expand **Initialize Model** and the nodes beneath it. For the purposes of this experiment, we'll select the [Two-Class Support Vector Machine][two-class-support-vector-machine] (SVM) and the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree] modules.    
 
 > [!TIP]
-> To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning](algorithm-choice.md).
+> To get help deciding which Machine Learning algorithm best suits the particular problem you're trying to solve, see [How to choose algorithms for Microsoft Azure Machine Learning Studio](algorithm-choice.md).
 > 
 > 
 
