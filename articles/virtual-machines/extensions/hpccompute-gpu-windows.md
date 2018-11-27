@@ -80,7 +80,7 @@ All settings are optional. The default behavior is install the latest supported 
 
 | Name | Description | Default Value | Valid Values | Data Type |
 | ---- | ---- | ---- | ---- | ---- |
-| driverVersion | NV: GRID driver version<br> NC/ND: CUDA driver version | latest | GRID: "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
+| driverVersion | NV: GRID driver version<br> NC/ND: CUDA driver version | latest | GRID: "411.81", "391.81", "391.58", "391.03"<br> CUDA: "398.75", "397.44", "390.85" | string |
 | installGridND | Install GRID driver on ND series VMs | false | true, false | boolean |
 
 ## Deployment
