@@ -175,8 +175,10 @@ Use the following steps to give TPM access. Alternatively, you can accomplish th
    Successful output looks like the following:
 
    ```output
-   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
+   crw-rw---- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
+
+   If you don't see that the correct permissions have been applied, try rebooting your machine to refress udev. 
 
 8. Open the IoT Edge runtime overrides file. 
 
