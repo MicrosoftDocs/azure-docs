@@ -1,5 +1,5 @@
 ---
-title: Use Draft with Azure Container Service and Azure Container Registry
+title: (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry
 description: Create an ACS Kubernetes cluster and an Azure Container Registry to create your first application in Azure with Draft.
 services: container-service
 author: squillace
@@ -11,10 +11,31 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ---
+# (DEPRECATED) Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
 
-# Use Draft with Azure Container Service and Azure Container Registry to build and deploy an application to Kubernetes
-
-[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+> [!WARNING]
+>  **The Azure Container Service (ACS) is being deprecated. No new features or functionality are being added to ACS. All of the APIs, portal experience, CLI commands and documentation are marked as deprecated.**
+>  
+> Beginning January 31, 2020:
+>  
+> * All ACS APIs will be blocked. Any code you have written will no longer execute.
+> * You will not be able to create new clusters, update, or scale existing clusters using the portal, CLI or Azure Resource Manager templates.
+>  
+> Existing ACS clusters won't be deleted. You can continue to list and delete existing clusters using the portal, CLI and ARM templates. Between now and January 31, 2020, you can continue to perform all operations; including create, update, scale, delete and list. All these operations are available through the portal, CLI and Azure Resource Manager templates.
+>
+> We recommend that you deploy the following Azure Marketplace solutions that use the latest versions of the respective orchestrator and [acs-engine](https://github.com/Azure/acs-engine):
+>
+> * Docker EE for Azure
+>   * [Standard/Enterprise edition](https://azuremarketplace.microsoft.com/marketplace/apps/docker.dockerdatacenter?tab=Overview)
+>   * [Basic edition](https://azuremarketplace.microsoft.com/marketplace/apps/docker.docker4azure-st?tab=Overview)
+>  
+> * Mesosphere DC/OS
+>   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
+>   * [Open Source edition](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)
+>
+> If you want to use Kubernetes, see [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks).
+>
+> These docs are deprecated, with no additional updates scheduled or support provided through GitHub issues.
 
 [Draft](https://aka.ms/draft) is a new open-source tool that makes it easy to develop container-based applications and deploy them to Kubernetes clusters without knowing much about Docker and Kubernetes -- or even installing them. Using tools like Draft let you and your teams focus on building the application with Kubernetes, not paying as much attention to infrastructure.
 

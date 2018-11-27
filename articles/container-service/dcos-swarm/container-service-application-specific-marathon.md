@@ -11,6 +11,7 @@ ms.date: 04/12/2016
 ms.author: rogardle
 ms.custom: mvc
 ---
+# (DEPRECATED) Create an application or user-specific Marathon service
 
 > [!WARNING]
 >  **The Azure Container Service (ACS) is being deprecated. No new features or functionality are being added to ACS. All of the APIs, portal experience, CLI commands and documentation are marked as deprecated.**
@@ -35,8 +36,6 @@ ms.custom: mvc
 > If you want to use Kubernetes, see [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks).
 >
 > These docs are deprecated, with no additional updates scheduled or support provided through GitHub issues.
-
-# (DEPRECATED) Create an application or user-specific Marathon service
 
 Azure Container Service provides a set of master servers on which we preconfigure Apache Mesos and Marathon. These can be used to orchestrate your applications on the cluster, but it's best not to use the master servers for this purpose. For example, tweaking the configuration of Marathon requires logging into the master servers themselves and making changes--this encourages unique master servers that are a little different from the standard and need to be cared for and managed independently. Additionally, the configuration required by one team might not be the optimal configuration for another team.
 
