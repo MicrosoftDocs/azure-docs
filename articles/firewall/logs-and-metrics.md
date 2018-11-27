@@ -13,7 +13,7 @@ ms.author: victorh
 
 You can monitor Azure Firewall using firewall logs. You can also use activity logs to audit operations on Azure Firewall resources.
 
-You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
+You can access some of these logs through the portal. Logs can be sent to [Log Analytics](../azure-monitor/insights/azure-networking-analytics.md), Storage, and Event Hubs and analyzed in Log Analytics or by different tools such as Excel and Power BI.
 
 ## Diagnostic logs
 
