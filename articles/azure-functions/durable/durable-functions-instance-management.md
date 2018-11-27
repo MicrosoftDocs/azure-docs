@@ -81,11 +81,11 @@ It is also possible to start an instance directly via the [Azure Functions Core 
 * **`input` (optional)**: Input to the function, either in-line or via a JSON file. For files, prefix the path to the file with @ (e.g. "@path/to/file.json")
 * **`id` (optional)**: ID of the orchestration instance. If not provided, a random GUID is generated.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName. 
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName. 
 
-The following command would start the function named HelloWorld and pass the contents of the file 'counter-data.json' to it:
+All Azure Functions CLI commands should be run from the root directory of a Function App. The following command would start the function named HelloWorld and pass the contents of the file 'counter-data.json' to it:
 ```bash
-C:\path\to\function\app func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
+func durable start-new --function-name HelloWorld --input @counter-data.json --task-hub-name TestTaskHub
 ```
 
 ## Querying instances
@@ -136,11 +136,13 @@ It is also possible to get the status of an orchestration instance directly via 
 * **`show-input` (optional)**: If set to `true`, the response will contain the input of the function. The default value is `false`.
 * **`show-output` (optional)**: If set to `true`, the response will contain the output of the function. The default value is `false`.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
+
+All Azure Functions CLI commands should be run from the root directory of a Function App. 
 
 The following command would retrieve the status (including input and output) of an instance with an orchestration instance id of 0ab8c55a66644d68a3a8b220b12d209c:
 ```bash
-C:\path\to\function\app func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
+func durable get-runtime-status --id 0ab8c55a66644d68a3a8b220b12d209c --show-input true --show-output true
 ```
 
 The `durable get-history` command can be used to retrieve the history of an orchestration instance. It takes the following parameters:
@@ -150,7 +152,7 @@ The `durable get-history` command can be used to retrieve the history of an orch
 * **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
 
 ```bash
-C:\path\to\function\app func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
+func durable get-history --id 0ab8c55a66644d68a3a8b220b12d209c
 ```
 
 ## Querying all instances
@@ -179,10 +181,12 @@ It is also possible to query instances directly via the [Azure Functions Core To
 * **`top` (optional)**: This command supports paging. This parameters corresponds to the number of instances retrieved per request. The default is 10.
 * **`continuation-token` (optional)**: A token to indicate which page/section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
+
+All Azure Functions CLI commands should be run from the root directory of a Function App.
 
 ```bash
-C:\path\to\function\app func durable get-instances
+func durable get-instances
 ```
 
 ## Querying instances with filters
@@ -216,18 +220,20 @@ public static async Task Run(
 
 The `durable get-instances` command can also be used with filters. In addition to the aforementioned `top`, `continuation-token`, `connection-string-setting`, and `task-hub-name` parameters, three filter parameters (`created-after`, `created-before`, and `runtime-status`), can be used. 
 
-* **`created-after` (optional)**: Retrieve the instances created after this date/time (UTC). Format: mm/dd/yyyy HH:mm.
-* **`created-before` (optional)**: Retrieve the instances created before this date/time (UTC). Format: mm/dd/yyyy HH:mm
+* **`created-after` (optional)**: Retrieve the instances created after this date/time (UTC). All ISO 8601 formatted datetimes accepted.
+* **`created-before` (optional)**: Retrieve the instances created before this date/time (UTC). All ISO 8601 formatted datetimes accepted.
 * **`runtime-status` (optional)**: Retrieve the instances whose status match these ('running', 'completed', etc.). Can provide multiple (space separated) statuses.
 * **`top` (optional)**: Number of instances retrieved per request. The default is 10.
 * **`continuation-token` (optional)**: A token to indicate which page/section of instances to retrieve. Each `get-instances` execution returns a token to the next set of instances.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
 
 If no filters (`created-after`, `created-before`, or `runtime-status`) are provided, then `top` instances will be retrieved with no regard to runtime status or creation time.
 
+All Azure Functions CLI commands should be run from the root directory of a Function App.
+
 ```bash
-C:\path\to\function\app func durable get-instances --created-after 3/10/2018 10:01 --created-before 3/10/2018 23:59 --runtime-status running completed --top 15
+func durable get-instances --created-after 2018-03-10T13:57:31.2311892-04:00 --created-before  2018-03-10T23:59-04:00 --runtime-status running completed --top 15
 ```
 
 ## Terminating instances
@@ -255,11 +261,11 @@ It is also possible to terminate an orchestration instance directly via the [Azu
 * **`id` (required)**: ID of the orchestration instance to terminate
 * **`reason` (optional)**: Reason for termination
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
 
-The following command would terminate an orchestration instance with an id of 0ab8c55a66644d68a3a8b220b12d209c:
+All Azure Functions CLI commands should be run from the root directory of a Function App. The following command would terminate an orchestration instance with an id of 0ab8c55a66644d68a3a8b220b12d209c:
 ```bash
-C:\path\to\function\app func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
+func durable terminate --id 0ab8c55a66644d68a3a8b220b12d209c --reason "It was time to be done."
 ```
 
 ## Sending events to instances
@@ -294,13 +300,15 @@ It is also possible to raise an event to an orchestration instance directly via 
 * **`event-name` (optional)**: Name of the event to raise. The default is `$"Event_{RandomGUID}"`
 * **`event-data` (optional)**: Data to send to the orchestration instance. This can be the path to a JSON file or the data can be provided directly on the command line
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
+
+All Azure Functions CLI commands should be run from the root directory of a Function App.
 
 ```bash
-C:\path\to\function\app func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
+func durable raise-event --id 0ab8c55a66644d68a3a8b220b12d209c --event-name MyEvent --event-data @eventdata.json
 ```
 ```bash
-C:\path\to\function\app func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
+func durable raise-event --id 1234567 --event-name MyOtherEvent --event-data 3
 ```
 
 ## Wait for orchestration completion
@@ -423,10 +431,12 @@ It is also possible to rewind an orchestration instance directly via the [Azure 
 * **`id` (required)**: ID of the orchestration instance
 * **`reason` (optional)**: Reason for rewinding the orchestration instance
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
+
+All Azure Functions CLI commands should be run from the root directory of a Function App.
 
 ```bash
-C:\path\to\function\app func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
+func durable rewind --id 0ab8c55a66644d68a3a8b220b12d209c --reason "Orchestrator failed and needs to be revived."
 ```
 
 ## Purge Instance History
@@ -468,26 +478,26 @@ public static Task Run(
 
 It is possible to purge an orchestration instance's history using the [Azure Functions Core Tools's](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local) `durable purge-history` command. Similar to the second C# example above, it purges the history for all orchestration instances created during a specified time interval. The instances purged can be further filtered by runtime status. The command has several parameters:
 
-* **`created-after` (optional)**: Purge the history of instances created after this date/time (UTC). Format: mm/dd/yyyy HH:mm.
-* **`created-before` (optional)**: Purge the history of instances created before this date/time (UTC). Format: mm/dd/yyyy HH:mm
+* **`created-after` (optional)**: Purge the history of instances created after this date/time (UTC). All ISO 8601 formatted datetimes accepted.
+* **`created-before` (optional)**: Purge the history of instances created before this date/time (UTC). All ISO 8601 formatted datetimes accepted.
 * **`runtime-status` (optional)**: Purge the history of instances whose status match these ('running', 'completed', etc.). Can provide multiple (space separated) statuses.
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
 
-The following command will delete the history of all failed instances created before November 14, 2018 at 11:15 PM.
+All Azure Functions CLI commands should be run from the root directory of a Function App. The following command will delete the history of all failed instances created before November 14, 2018 at 11:15 PM.
 ```bash
-C:\path\to\function\app func durable purge-history --created-before 11/14/2018 23:15 --runtime-status failed
+func durable purge-history --created-before 11/14/2018 23:15 --runtime-status failed
 ```
 
 ## Deleting a Task Hub
 Using the [Azure Functions Core Tools's](https://docs.microsoft.com/en-us/azure/azure-functions/functions-run-local) `durable delete-task-hub` command, it is possible to delete all storage artifacts associated with a particular task hub. This includes Azure storage tables, queues, and blobs. The command has two parameters: 
 
 * **`connection-string-setting` (optional)**: Name of the application setting containing the storage connection string to use. The default is AzureWebJobsStorage.
-* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in host.json via durableTask:HubName.
+* **`task-hub-name` (optional)**: Name of the Durable task hub to use. The default is DurableFunctionsHub. It can also be set in [host.json](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-bindings#host-json) via durableTask:HubName.
 
-The following command will delete all Azure storage data associated with the 'UserTest' task hub.
+All Azure Functions CLI commands should be run from the root directory of a Function App. The following command will delete all Azure storage data associated with the 'UserTest' task hub.
 ```bash
-C:\path\to\function\app func durable delete-task-hub --task-hub-name UserTest
+func durable delete-task-hub --task-hub-name UserTest
 ```
 
 
