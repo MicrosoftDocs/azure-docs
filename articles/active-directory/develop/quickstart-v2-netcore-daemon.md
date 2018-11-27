@@ -76,25 +76,25 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
 
 1. Extract the zip file to a local folder close to the root of the disk, for example, **C:\Azure-Samples**.
 1. Open the solution in Visual Studio - **daemon-console.sln** (optional).
-1. Edit **appsettings.json** and replace the values of the fields `ClientId` and `Tenant` with the following code:
+1. Edit **appsettings.json** and replace the values of the fields `ClientId`, `Tenant` and `ClientSecret` with the following:
 
     ```json
     "Tenant": "Enter_the_Tenant_Id_Here",
     "ClientId": "Enter_the_Application_Id_Here",
     "ClientSecret": "Enter_the_Client_Secret_Here"
     ```
-> > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
-> > [Generate a new client secret]()
+    > > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
+    > > [Generate a new client secret]()
+    
+    > [!div renderon="docs"]
+    >> Where:
+    >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+    >> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+    >> * `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
 
-> [!div renderon="docs"]
->> Where:
->> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
->> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
->> * `Enter_the_Client_Secret_Here` - replace this value with the client secret created on step 1.
->
-> > [!TIP]
-> > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
-
+    > > [!TIP]
+    > > To find the values of **Application (client) ID**, **Directory (tenant) ID**, go to the app's **Overview** page in the Azure portal. To generate a new key, go to **Certificates & secrets** page.
+    
 #### Step 4: Admin consent
 
 Any *app-only permission* requires Admin consent - which means that it needs an global administrator of your directory to give consent to your application. Select one of the options below depending your role:
@@ -172,7 +172,7 @@ var app = new ConfidentialClientApplication(
 );
 ```
 
-> |Where: |---------|
+> | Where: ||
 > |---------|---------|
 > | `secret` | Is the client secret created for the application in Azure Portal. |
 > | `clientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
