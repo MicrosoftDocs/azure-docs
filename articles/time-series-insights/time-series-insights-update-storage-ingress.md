@@ -8,16 +8,16 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/20/2018
+ms.date: 11/27/2018
 ---
 
-# Data storage and ingress in The Azure Time Series Insights V2 Update
+# Data storage and ingress in the Azure Time Series Insights update
 
-This article describes changes to data storage and ingress from The Azure Time Series Insights V2 Update. It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
+This article describes changes to data storage and ingress from the Azure Time Series Insights (TSI) update. It covers the underlying storage structure, file format, and **Time Series ID** property. It also discusses the underlying ingress process, throughput, and limitations.
 
 ## Data storage
 
-The Azure Time Series Insights Update uses Azure Blob Storage with the Parquet file type. Azure Time Series Insights (TSI) manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The Azure Time Series Insights V2 Update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
+The TSI update uses Azure Blob Storage with the Parquet file type. Azure TSI manages all the data operations including creating blobs, indexing, and partitioning the data in the Azure Storage account. These blobs are created using an Azure Storage account. To ensure that all events can be queried in a performant manner. The TSI update will support Azure Storage general-purpose V1 and V2 "hot" configuration options.  
 
 Like any other Azure Storage blob, you can read and write to your Azure TSI-created blobs to support different integration scenarios.
 
@@ -133,29 +133,29 @@ Additionally, TSI will repartition the Parquet files to optimize for the Azure T
 
 To ensure query performance and data availability, do not edit or delete any blobs created by TSI.
 
-### Accessing and exporting data from Time Series Insights Update
+### Accessing and exporting data from Time Series Insights update
 
 You may want to access data stored in Azure TSI Update Explorer to use in conjunction with other services. For example, you may want to use your data for reporting in Power BI, to perform machine learning using Azure Machine Learning Studio or in a notebook application Jupyter Notebooks, etc.
 
 There are three general paths to access your data:
 
-* The V2 TSI Update explorer.
-* The V2 TSI Update APIs.
+* The V2 TSI update Explorer.
+* The V2 TSI update APIs.
 * Directly from an Azure Storage account.
 
 ![three-ways][3]
 
-### From the V2 Time Series Insights Update Explorer
+### From the Time Series Insights update Explorer
 
-You can export data as a CSV file from the TSI Update Explorer.  You can find out more about the TSI Update Explorer by going [here](https://review.docs.microsoft.com/azure/time-series-insights/time-series-insights-v2-explorer?branch=pr-en-us-53688).
+You can export data as a CSV file from the TSI update Explorer. Read more about the [the TSI update Explorer](./time-series-insights-update-explorer.md).
 
-### From the V2 Time Series Insights Update APIs
+### From the Time Series Insights update APIs
 
-The API endpoint can be reached at `/getRecorded`. To learn more about this API, read [TODO](./time-series-insights-update-explorer.md).
+The API endpoint can be reached at `/getRecorded`. To learn more about this API, read about [Time Series Query](./time-series-insights-update-tsq.md).
 
 ### From an Azure Storage account
 
-1. You need to have read access granted to whatever account you will be using to access your TSI data. To learn more about granting read access to Azure BLob Storage, read [Managing access to Storage resources](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
+1. You need to have read access granted to whatever account you will be using to access your TSI data. To learn more about granting read access to Azure Blob Storage, read [Managing access to Storage resources](https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources).
 
 1. For more information on direct ways to read data from Azure Blob Storage, read [Moving data to and from Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -166,38 +166,38 @@ The API endpoint can be reached at `/getRecorded`. To learn more about this API,
 
 ### Blob storage considerations
 
-* Azure storage does have read and write limits based on how heavy your TSI V2 Update usage is.  
-* The Azure Time Series Insights V2 Update does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
+* Azure storage does have read and write limits based on how heavy your TSI update usage is.  
+* The Azure TSI update does not yet provide any kind of Parquet blob meta-store to support external data processing systems. However, we are investigating this and may add support in the future.  
 * Customers will need to read the Azure blobs partitioned by time to be able to process the data.
-* The TSI V2 Update performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
-* Your TSI V2 Update data may be duplicated across blobs.
+* The TSI update performs dynamic repartitioning of blob data for better performance. This is accomplished by dropping and recreating the blobs. Most services will be best served by using the original files.  
+* Your TSI update data may be duplicated across blobs.
 
 ### Data deletion
 
-The Azure Time Series Insights V2 Update does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
+The Azure TSI update does not currently support data deletion but will in the future. We expect to support it by GA, but potentially sooner. We will notify users when we support data deletion.
 
-Do not delete blobs since Time Series Insights update maintains metadata about the blobs inside of Time Series Insights update.
+Do not delete blobs since Time Series Insights update maintains metadata about the blobs inside of TSI update.
 
 ## Ingress
 
 ### Azure Time Series Insights ingress policies
 
-The Azure Time Series Insights V2 Update supports the same event sources and file types that it does today.
+The Azure TSI update supports the same event sources and file types that it does today.
 
 Supported event sources include:
 
 * Azure IoT Hub
 * Azure Event Hubs
-  * Note: Azure Event Hub instances support Kafka
+  * Note: Azure Event Hub instances support Kafka.
 
 Supported file types include:
 
 * JSON
-  * For more on the supported JSON shapes we can handle, see the [TSI TSQ](./time-series-insights-update-tsq.md) documentation.
+  * For more on the supported JSON shapes we can handle, see the [Time Series Query](./time-series-insights-update-tsq.md) documentation.
 
 ### Data availability
 
-The Azure Time Series Insights V2 Update Private Preview indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
+The Azure TSI update Private Preview indexes data using a blob-size optimization strategy. This means that data will be available to query once it’s indexed (which is based on how much data is coming in and at what velocity). As we approach Public Preview, logic will be added to look for new events every few seconds (which will make data available for queries faster and more reliable).
 
 > [!IMPORTANT]
 > * Public Preview TSI will make data available within 60 seconds of it hitting an event source.  

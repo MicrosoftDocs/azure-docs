@@ -45,7 +45,7 @@ Each event source has an optional **Timestamp** property that's used to track ev
 > [!TIP]
 > Verify the formatting and parsing requirements for your event sources.
 
-When left blank, the **Event Enqueue Time** of an event source is used as the event **Timestamp**. If you are sending historical data or batched events, you will likely find customizing the **Timestamp** property to be more helpful than the default **Event Enqueue Time**. For more, read about [How to add event sources in IoT Hub](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub).  
+When left blank, the **Event Enqueue Time** of an event source is used as the event **Timestamp**. If you are sending historical data or batched events, you will likely find customizing the **Timestamp** property to be more helpful than the default **Event Enqueue Time**. For more, read about [How to add event sources in IoT Hub](./time-series-insights-how-to-add-an-event-source-iothub).  
 
 ## Understand the Time Series Model
 
