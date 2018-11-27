@@ -40,12 +40,12 @@ Each SQL Database has a default backup retention period between 7 and 35 days th
 
 If you delete a database, SQL Database will keep the backups in the same way it would for an online database. For example, if you delete a Basic database that has a retention period of seven days, a backup that is four days old is saved for three more days.
 
-If you need to keep the backups for longer than the maximum PITR retention period, you can modify the backup properties to add one or more long-term retention periods to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
+If you need to keep the backups for longer than the maximum retention period, you can modify the backup properties to add one or more long-term retention periods to your database. See [Long-term backup retention](sql-database-long-term-retention.md) for more details.
 
 > [!IMPORTANT]
 > If you delete the Azure SQL server that hosts SQL databases, all elastic pools and databases that belong to the server are also deleted and cannot be recovered. You cannot restore a deleted server. But if you configured long-term retention, the backups for the databases with LTR will not be deleted and these databases can be restored.
 
-### PITR retention period
+### Default backup retention period
 
 #### DTU-based purchasing model
 
@@ -88,15 +88,15 @@ If your database is encrypted with TDE, the backups are automatically encrypted 
 
 On an ongoing basis, the Azure SQL Database engineering team automatically tests the restore of automated database backups of databases across the service. Upon restore, databases also receive integrity checks using DBCC CHECKDB. Any issues found during the integrity check will result in an alert to the engineering team. For more information about data integrity in Azure SQL Database, see [Data Integrity in Azure SQL Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/).
 
-## How do automated backups impact my compliance
+## How do automated backups impact compliance
 
 When you migrate your database from a DTU-based service tier with the default PITR retention of 35 days, to a vCore-based service tier, the PITR retention is preserved to ensure that your application's data recovery policy is not compromised. If the default retention doesn't meet your compliance requirements, you can change the PITR retention period using PowerShell or REST API. See [Change Backup Retention Period](#how-to-change-backup-retention-period) for more details.
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-## How to change backup retention period
+## How to change the PITR backup retention period
 
-You can change the default retention using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days.
+You can change the default PITR backup retention period using REST API or PowerShell. The supported values are: 7, 14, 21, 28 or 35 days. The following examples illustrate how to change PITR retention to 28 days.
 
 > [!NOTE]
 > Thes APIs will only impact the PITR retention period. If you configured LTR for your database, it will not be impacted. See [Long-term backup retention](sql-database-long-term-retention.md) for details of how to change the LTR retention period(s).
