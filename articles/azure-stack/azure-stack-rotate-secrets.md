@@ -12,7 +12,7 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 11/27/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 
@@ -192,10 +192,10 @@ This command rotates all of the infrastructure secrets exposed to Azure Stack in
 
 ## Update the baseboard management controller (BMC) credential
 
-The baseboard management controller (BMC) monitors the physical state of your servers. The specifications and instructions on updating the user account name and password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You should update your passwords for Azure Stack components at a regular cadence.
+The baseboard management controller (BMC) monitors the physical state of your servers. The specifications and instructions on updating the user account name and password of the BMC vary based on your original equipment manufacturer (OEM) hardware vendor. You should update your passwords for Azure Stack components on a regular basis.
 
-1. Update the BMC on the Azure Stack’s physical servers by following your OEM instructions. The use account name and password for each BMC in your environment must be the same.
-2. Open a privileged endpoint in Azure Stack Sessions. For instruction, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
+1. Update the BMC on the Azure Stack physical servers by following your OEM instructions. The user account name and password for each BMC in your environment must be the same.
+2. Open a privileged endpoint in Azure Stack sessions. For instructions, see [Using the privileged endpoint in Azure Stack](azure-stack-privileged-endpoint.md).
 3. After your PowerShell prompt has changed to **[IP address or ERCS VM name]: PS>** or to **[azs-ercs01]: PS>**, depending on the environment, run `Set-BmcCredemtial` by running `invoke-command`. Pass your privileged endpoint session variable as a parameter. For example:
 
     ```powershell

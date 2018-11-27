@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 11/27/2018
 ms.author: sethm
 ms.reviewer: adepue
 
@@ -48,9 +48,9 @@ This update includes the following improvements for Azure Stack:
 
 - Support for Azure CLI using Web Browser authentication with ADFS.
 
-- Added new privileged endpoint commands to update & remove service principles for ADFS. (@Matt add link to updated SPN - ADFS article)
+- Added new privileged endpoint commands to update and remove service principles for ADFS. (@Matt add link to updated SPN - ADFS article)
 
-- New Scale Unit Node operations that allow an Azure Stack operator to Start, Stop and Shutdown a scale unit node. [@Matt add link to updated node actions doc]
+- New Scale Unit Node operations that allow an Azure Stack operator to start, stop and shut down a scale unit node. [@Matt add link to updated node actions doc]
 
 - Added new privileged endpoint command to update the BMC credential - user name and password used to communicate with the physical machines. [@Matt add link to updated bmc doc]
 
@@ -81,7 +81,7 @@ This update includes the following improvements for Azure Stack:
 - Fixed an issue that did prevent applying RBAC policies to a User Group when using ADFS
 
 <!--3463840 - IS, ASDK --> 
-- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, 1811 update will not make any further modifications.  
+- Fixed issue with infrastructure backups failing due to inaccessible file server from the public VIP network. This fix moves the infrastructure backup service back to the public infrastructure network. If you applied the [Azure Stack Hotfix 1.1809.6.102](https://support.microsoft.com/en-us/help/4477849) that addresses this issue, the 1811 update will not make any further modifications.  
 
 ### Changes
 
@@ -174,7 +174,7 @@ For more information about these vulnerabilities, click on the preceding links, 
 
 ### Known issues with the update process
 
-- When you run [Test-AzureStack](azure-stack-diagnostic-test.md) after the 1809 update, a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
+- When you run [Test-AzureStack](azure-stack-diagnostic-test.md), a warning message from the Baseboard Management Controller (BMC) is displayed. You can safely ignore this warning.
 
 - <!-- 2468613 - IS --> During installation of this update, you might see alerts with the title *Error – Template for FaultType UserAccounts.New is missing.*  You can safely ignore these alerts. These alerts will close automatically after installation of this update completes.
 
