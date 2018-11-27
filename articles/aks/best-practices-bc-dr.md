@@ -93,17 +93,19 @@ Two common ways of replicating storage are:
 
 ### Infrastructure-based Asynchronous Replication
 
-![Infrastructure-based Asynchronous Replication](media/best-practices-bc-dr/aks-app-based-async-repl.jpg)
+![Infrastructure-based Asynchronous Replication](media/best-practices-bc-dr/aks-infra-based-async-repl.jpg)
 
 Sometimes your application requires persistent storage even after the pod is deleted.  Kubernetes enables this through Persistent Volumes which are mounted to host VM and then to the containers running on that VM.  Persistent Volumes will follow Pods, even if the Pod is moved to a different node inside the same cluster.
 
-If using Managed Disks, the recommended approaches to migrate storage across regions are:
+Depending on the storage solution you pick, BC/DR strategies will depend.   For example, [Gluster](https://docs.gluster.org/en/latest/Administrator%20Guide/Geo%20Replication/), [CEPH](http://docs.ceph.com/docs/master/cephfs/disaster-recovery/), [Rook](https://rook.io/docs/rook/master/disaster-recovery.html), [Portworx](https://docs.portworx.com/scheduler/kubernetes/going-production-with-k8s.html#disaster-recovery-with-cloudsnaps), etc. will have their own guidance.
+
+If using Azure Managed Disks, the recommended approaches to migrate storage across regions are:
 
 * [Ark on Azure](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/en-us/blog/asr-managed-disks-between-azure-regions/)
 
 ### Application-based Asynchronous Replication
 
-![Application-based Asynchronous Replication](media/best-practices-bc-dr/aks-infra-based-async-repl.jpg)
+![Application-based Asynchronous Replication](media/best-practices-bc-dr/aks-app-based-async-repl.jpg)
 
-Currently, there are no kubernetes specific implementations for Application-based Asynchronous Replication, and you would need to build this into your application.
+Currently, there are no Kubernetes native implementations for Application-based Asynchronous Replication.  Due to the loosely coupled nature of containers and Kubernetes, any traditional application/language approach should work.
