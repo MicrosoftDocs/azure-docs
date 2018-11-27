@@ -124,8 +124,8 @@ If individual host A records have been configured to publish Azure Stack endpoin
 
 | IP | Hostname | Type |
 |----|------------------------------|------|
-| \<IP> | *.Adminhosting.<Region>.<FQDN> | A |
-| \<IP> | *.Hosting.<Region>.<FQDN> | A |
+| \<IP> | *.Adminhosting.\<Region>.<FQDN> | A |
+| \<IP> | *.Hosting.<Region>.\<FQDN> | A |
 
 Allocated IPs can be retrieved using privileged endpoint by running the cmdlet **Get-AzureStackStampInformation**.
 
