@@ -37,6 +37,8 @@ AKS Region Availibility and Azure Paired Regions should be considered jointly so
 
 For example, AKS is available in East US and West US, which are also Paired Regions, so these two regions are recommended when creating an AKS BC/DR strategy.
 
+When deploying your application, it's required to add another step to your CI/CD pipeline to deploy to the Paired Region.
+
 ## Use Azure Traffic Manager to Route Traffic to Desired Region
 
 **Best practice guidance** - Ensure that all application traffic is directed through Azure Traffic Manager before going to your AKS cluster.
@@ -48,6 +50,8 @@ Instead of directly publishing your Kubernetes Service IP, end users should be d
 ![AKS with Azure Traffic Manager](media/best-practices-bc-dr/aks-azure-traffic-manager.jpg)
 
 For details on how to implement this, see [Traffic Manager Routing Details](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-routing-methods#geographic).
+
+While Azure Traffic Manager uses DNS (Layer 3) to shape traffic, [Azure Front Door (preview)](https://docs.microsoft.com/en-us/azure/frontdoor/front-door-overview) provides an HTTP/HTTPS (Layer 7) routing option.  Additional features include SSL termination, custom domain, Web Appplication Firewall, URL Rewrite and Session Affinity.
 
 ## Enable Geo-Replication in Azure Container Registry
 
@@ -63,9 +67,13 @@ Benefits of using ACR Geo-replication are:
 
 For details on how to implement this, see [Azure Container Registry Geo Replication](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-geo-replication)
 
-## Remove State From Inside Containers
+## Remove Service State From Inside Containers
 
-**Best practice guidance** - Where possible, do not store application state inside the container.  Instead, use Azure PaaS services which support multi-region replication.
+**Best practice guidance** - Where possible, do not store service state inside the container.  Instead, use Azure PaaS services which support multi-region replication.
+
+Service state refers to the in-memory or on-disk data that a service requires to function. It includes, for example, the data structures and member variables that the service reads and writes to do work. Depending on how the service is architected, it could also include files or other resources that are stored on disk. For example, the files a database would use to store data and transaction logs.
+
+State can be either externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or other data store that runs on different machines over the network or out of process on the same machine.
 
 Containers and Microservices are most resilient when the processes that run inside them do not retain state.  Your application will almost always contain some state, and it is recommended to use a Platform as a Service solution (e.g. Azure Database for MySQL/Postgres, Azure SQL, etc.).  
 
@@ -78,9 +86,24 @@ For details on for how to build applications that are more portable, please revi
 
 **Best practice guidance** - If using Azure Storage, then prepare and test how you plan to migrate your storage from the primary to the backup region.
 
+Two common ways of replicating storage are:
+
+* Application-based Asynchronous Replication
+* Infrastructure-based Asynchronous Replication
+
+### Infrastructure-based Asynchronous Replication
+
+![Infrastructure-based Asynchronous Replication](media/best-practices-bc-dr/aks-app-based-async-repl.jpg)
+
 Sometimes your application requires persistent storage even after the pod is deleted.  Kubernetes enables this through Persistent Volumes which are mounted to host VM and then to the containers running on that VM.  Persistent Volumes will follow Pods, even if the Pod is moved to a different node inside the same cluster.
 
 If using Managed Disks, the recommended approaches to migrate storage across regions are:
 
 * [Ark on Azure](https://github.com/heptio/ark/blob/master/docs/azure-config.md)
 * [Azure Site Recovery](https://azure.microsoft.com/en-us/blog/asr-managed-disks-between-azure-regions/)
+
+### Application-based Asynchronous Replication
+
+![Application-based Asynchronous Replication](media/best-practices-bc-dr/aks-infra-based-async-repl.jpg)
+
+Currently, there are no kubernetes specific implementations for Application-based Asynchronous Replication, and you would need to build this into your application.
