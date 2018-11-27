@@ -30,7 +30,7 @@ Filters are server-side rules that allow your customers to do things like:
 - Deliver only the specified renditions and/or specified language tracks that are supported by the device that is used to play back the content ("rendition filtering"). 
 - Adjust Presentation Window (DVR) in order to provide a limited length of the DVR window in the player ("adjusting presentation window").
 
-This topic describes [Concepts](#concepts) and [shows filters definitions](#definitions). It then gives details about [common scenarios](#common-scenarios). At the end of the aricle, you find links that show how to create filters programmatically.  
+This topic describes [Concepts](#concepts) and [shows filters definitions](#definitions). It then gives details about [common scenarios](#common-scenarios). At the end of the article, you find links that show how to create filters programmatically.  
 
 ## Concepts
 
