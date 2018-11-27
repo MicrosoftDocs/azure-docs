@@ -68,7 +68,7 @@ Azure Migrate creates an on-premises VM known as the collector appliance. This V
 
     **Instant gratification:** With the continuous discovery appliance, once the discovery is complete (takes couple of hours depending on the number of VMs), you can immediately create assessments. Since the performance data collection starts when you kick off discovery, if you are looking for instant gratification, you should select the sizing criterion in the assessment as *as on-premises*. For performance-based assessments, it is advised to wait for at least a day after kicking off discovery to get reliable size recommendations.
 
-    Note that the appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (i.e. VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
+    Note that the appliance only collects performance data continuously, it does not detect any configuration change in the on-premises environment (that is, VM addition, deletion, disk addition etc.). If there is a configuration change in the on-premises environment, you can do the following to reflect the changes in the portal:
 
     - Addition of items (VMs, disks, cores etc.): To reflect these changes in the Azure portal, you can stop the discovery from the appliance and then start it again. This will ensure that the changes are updated in the Azure Migrate project.
 
@@ -185,7 +185,7 @@ The collector appliance will continuously profile the on-premises environment an
 
 ## Create and view an assessment
 
-After VMs are discovered in the portal, you group them and create assessments. You can immediately create as on-premises assessments once the VMs are discovered in the portal. It is strongly recommended to wait for at least a day before creating any performance-based assessments to get reliable size recommendations.
+After VMs are discovered in the portal, you group them and create assessments. You can immediately create as on-premises assessments once the VMs are discovered in the portal. It is recommended to wait for at least a day before creating any performance-based assessments to get reliable size recommendations.
 
 1. In the project **Overview** page, click **+Create assessment**.
 2. Click **View all** to review the assessment properties.

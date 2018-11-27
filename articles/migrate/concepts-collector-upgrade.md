@@ -4,7 +4,7 @@ description: Provides information about upgrades for the Azure Migrate Collector
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/29/2018
+ms.date: 11/28/2018
 ms.author: hamusa
 services: azure-migrate
 ---
@@ -16,7 +16,7 @@ This article summarizes upgrade information for the Collector appliance in [Azur
 The Azure Migrate Collector is a lightweight appliance that's used to discover an on-premises vCenter environment, for the purposes of assessment before migration to Azure. [Learn more](concepts-collector.md).
 
 
-## One-time discovery: Upgrade versions
+## One-time discovery  (deprecated now): Upgrade versions
 
 ### Version 1.0.9.16 (Released on 10/29/2018)
 
