@@ -155,8 +155,6 @@ The benefits of using environment variables are:
 * Multiple settings can be configured.
 * Multiple containers can use the same settings.
 
-The preceding docker command uses the back slash, `\`, as a line continuation character. Replace or remove this based on your host operating system's requirements. Do not change the order of the arguments unless you are very familiar with docker containers.
-
 ### Command-line argument settings
 
 The benefit of using command-line arguments is that each container can use different settings.
