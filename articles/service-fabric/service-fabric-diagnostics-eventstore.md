@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/25/2018
+ms.date: 11/21/2018
 ms.author: srrengar
 
 ---
@@ -34,6 +34,9 @@ This is done by exposing Service Fabric events through the Service Fabric Explor
 
 
 To see a full list of events available in the EventStore, see [Service Fabric events](service-fabric-diagnostics-event-generation-operational.md).
+
+>[!NOTE]
+>As of Service Fabric version 6.2. the EventStore APIs are currently in preview for Windows clusters running on Azure only. We are working on porting this functionality to Linux as well as our Standalone clusters.
 
 The EventStore service can be queried for events that are available for each entity and entity type in your cluster. This means you can query for events on the following levels;
 * Cluster: events specific to the cluster itself (e.g. cluster upgrade)
