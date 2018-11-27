@@ -193,7 +193,7 @@ Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -Serve
   
 4.	**Polybase connectivity to the Azure Storage account:**
 
-a.	Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
+-	Create database scoped credential with **IDENTITY = 'Managed Service Identity'**:
 
 ```
 CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
@@ -202,13 +202,15 @@ CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Iden
 > - Please note that there is no need to specify Azure Storage key because this mechanism uses [Managed Identity](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) under the covers.
 > - IDENTITY name should be **'Managed Service Identity'** for PolyBase connectivity to Azure Storage secured to a VNET to work.
 
-b.	Create external data source with abfss:// scheme using .dfs.core.windows.net end-point:
+- Create external data source with abfss:// scheme using .dfs.core.windows.net end-point:
 
 ```
 CREATE EXTERNAL DATA SOURCE abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
 ```
+> [!NOTE] 
+> For more information on abfs scheme, please refer to this [guide](https://docs.microsoft.com/azure/storage/data-lake-storage/introduction-abfs-uri).
 
-c. Query as normal using external table(s).
+- Query as normal using external table(s).
 
 ### Azure SQL Database Blob Auditing
 
