@@ -83,7 +83,7 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
     "ClientId": "Enter_the_Application_Id_Here",
     "ClientSecret": "Enter_the_Client_Secret_Here"
     ```
-> > [!div renderon="portal" id="newsecret" class="sxs-lookup"]
+> > [!div renderon="portal" id="certandsecretspage" class="sxs-lookup"]
 > > [Generate a new client secret]()
 
 > [!div renderon="docs"]
@@ -99,20 +99,31 @@ This quickstart requires [.NET Core 2.1](https://www.microsoft.com/net/download/
 
 Any *app-only permission* requires Admin consent - which means that it needs an global administrator of your directory to give consent to your application. Select one of the options below depending your role:
 
-1. If you are a global administrator, go to **API Permissions** page in the Azure Portal's Application Registration (Preview) and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
-1. If you are not a global administrator, then you need to ask a tenant administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+##### Global administrator
 
-    ```url
-    https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
-    ```
+> [!div renderon="docs"]
+> If you are a global administrator, go to **API Permissions** page in the Azure Portal's Application Registration (Preview) and select **Grant admin consent for {Tenant Name}** (Where {Tenant Name} is the name of your directory).
 
-    > [!div renderon="docs"]
-    >>  Where:
-    >> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
-    >> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+> [!div renderon="portal" class="sxs-lookup"]
+> If you are a global administrator, go to **API Permissions** page select **Grant admin consent for Enter_the_Tenant_Name_Here**
+> > [!div id="apipermissionspage"]
+> > [Go to the API Permissions page]()
 
-    > [!NOTE]
-    > Because this application and the request does not have a redirect URI, you may see the error *AADSTS50011: No reply address is registered for the application* after giving consent to the app. Please ignore the error.
+##### Standard user
+
+If you are not a global administrator, then you need to ask a tenant administrator to grant admin consent for your application. To do this, give the following URL to your administrator:
+
+```url
+https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_id=Enter_the_Application_Id_Here
+```
+
+> [!div renderon="docs"]
+>> Where:
+>> * `Enter_the_Tenant_Id_Here` - replace this value with the **Tenant Id** or **Tenant name** (for example, contoso.microsoft.com)
+>> * `Enter_the_Application_Id_Here` - is the **Application (client) ID** for the application you registered.
+
+> [!NOTE]
+> Because this application and the request does not have a redirect URI, you may see the error *AADSTS50011: No reply address is registered for the application* after granting consent to the app. Please ignore the error.
 
 #### Step 5: Run the application
 
@@ -161,7 +172,7 @@ var app = new ConfidentialClientApplication(
 );
 ```
 
-> |Where: ||
+> |Where: |---------|
 > |---------|---------|
 > | `secret` | Is the client secret created for the application in Azure Portal. |
 > | `clientId` | Is the **Application (client) ID** for the application registered in the Azure portal. You can find this value in the app's **Overview** page in the Azure portal. |
