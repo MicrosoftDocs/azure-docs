@@ -26,13 +26,13 @@ The following metrics can be added to a run while training an experiment. To vie
 
 |Type| Python function | Notes|
 |----|:----|:----|
-|Scalar values |Function:<br>run.log(name, value, description='')<br>Example:<br>run.log("accuracy", 0.95) |Log a numerical or string value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
-|Lists|Function:<br>run.log_list(name, value, description='')<br>Example:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Log a list of values to the run with the given name.|
-|Row|Function:<br>run.log_row(name, description=None, **kwargs)<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
-|Table|Function:<br>run.log_table(name, value, description='')<br>Example:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Log a dictionary object to the run with the given name. |
-|Images|Function:<br>run.log_image(name, path=None, plot=None)<br>Example:<br>run.log_image("ROC", plt) | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
-|Tag a run|Function:<br>run.tag(key, value=None)<br>Example:<br>run.tag("selected", "yes") | Tag the run with a string key and optional string value.|
-|Upload file or directory|Function:<br>run.upload_file(name, path_or_stream)<br> Example:<br>run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
+|Scalar values |Function:<br>`run.log(name, value, description='')`<br><br>Example:<br>run.log("accuracy", 0.95) |Log a numerical or string value to the run with the given name. Logging a metric to a run causes that metric to be stored in the run record in the experiment.  You can log the same metric multiple times within a run, the result being considered a vector of that metric.|
+|Lists|Function:<br>`run.log_list(name, value, description='')`<br><br>Example:<br>run.log_list("accuracies", [0.6, 0.7, 0.87]) | Log a list of values to the run with the given name.|
+|Row|Function:<br>`run.log_row(name, description=None, **kwargs)<br>Example:<br>run.log_row("Y over X", x=1, y=0.4) | Using *log_row* creates a metric with multiple columns as described in kwargs. Each named parameter generates a column with the value specified.  *log_row* can be called once to log an arbitrary tuple, or multiple times in a loop to generate a complete table.|
+|Table|Function:<br>`run.log_table(name, value, description='')`<br><br>Example:<br>run.log_table("Y over X", {"x":[1, 2, 3], "y":[0.6, 0.7, 0.89]}) | Log a dictionary object to the run with the given name. |
+|Images|Function:<br>`run.log_image(name, path=None, plot=None)`<br><br>Example:<br>run.log_image("ROC", plt) | Log an image to the run record. Use log_image to log an image file or a matplotlib plot to the run.  These images will be visible and comparable in the run record.|
+|Tag a run|Function:<br>`run.tag(key, value=None)`<br><br>Example:<br>run.tag("selected", "yes") | Tag the run with a string key and optional string value.|
+|Upload file or directory|Function:<br>`run.upload_file(name, path_or_stream)`<br> <br> Example:<br>run.upload_file("best_model.pkl", "./model.pkl") | Upload a file to the run record. Runs automatically capture file in the specified output directory, which defaults to "./outputs" for most run types.  Use upload_file only when additional files need to be uploaded or an output directory is not specified. We suggest adding `outputs` to the name so that it gets uploaded to the outputs directory. You can list all of the files that are associated with this run record by called `run.get_file_names()`|
 
 > [!NOTE]
 > Metrics for scalars, lists, rows, and tables can have type: float, integer, or string.
@@ -277,7 +277,13 @@ There are various ways to use the logging APIs to record different types of metr
 
 After submitting an automated ML job in a notebook, a history of these runs can be found in your machine learning service workspace. 
 
-To see them:
+Learn more about:
++ [Charts and curves for classification models](#classification)
++ [Charts and graphs for regression models](#regression)
++ [Model explain ability](#model-explain-ability-and-feature-importance)
+
+
+### How to see run charts:
 
 1. Go to your workspace. 
 
@@ -297,10 +303,7 @@ To see them:
 
    ![Screenshot of experiment menu](./media/how-to-track-experiments/azure-machine-learning-auto-ml-experiment_model.PNG)
 
-Learn more about:
-+ [Charts and curves for classification models](#classification)
-+ [Charts and graphs for regression models](#regression)
-+ [Model explain ability](#model-explain-ability-and-feature-importance)
+
 
 ### Classification
 
