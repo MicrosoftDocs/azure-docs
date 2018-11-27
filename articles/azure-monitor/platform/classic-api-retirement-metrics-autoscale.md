@@ -19,13 +19,13 @@ The same operations have been supported through a set of Azure Resource Manager 
 
 If you are managing autoscale via the Azure portal, the [new Azure Monitor SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/), PowerShell, CLI, or Resource Manager templates, no action is necessary.  
 
-If you are consuming metrics via the Azure portal or via various [monitoring partner services](../../monitoring-and-diagnostics/monitoring-partners), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
+If you are consuming metrics via the Azure portal or via various [monitoring partner services](../../monitoring-and-diagnostics/monitoring-partners.md), no action is necessary. Microsoft is working with monitoring partners to migrate to the new APIs.
 
 ## Who is affected 
 
 This article applies to you if you are using the following components:
 
-- **Classic Azure Insights SDK** - If you're using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/),  switch to using the new Azure Monitor SDK for ([.NET](https://github.com/azure/azure-libraries-for-net#download) or [Java](https://github.com/azure/azure-libraries-for-java#download)).
+- **Classic Azure Insights SDK** - If you're using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/),  switch to using the new Azure Monitor SDK for [.NET](https://github.com/azure/azure-libraries-for-net#download) or [Java](https://github.com/azure/azure-libraries-for-java#download). Download the [Azure Monitor SDK NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Management.Monitor/).
 
 - **Classic Autoscale** - If you're calling the [classic autoscale settings APIs](https://msdn.microsoft.com/en-us/library/azure/mt348562.aspx) from your custom-built tools or using the [classic Azure Insights SDK](https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/), you should switch to using the [Resource Manager Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/autoscalesettings).
 
@@ -37,7 +37,7 @@ If you're unsure whether your code or custom tools are calling the classic APIs,
 
 - Compare the assembly name on your machine. The older classic assembly is  at  https://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring/.
 
-- If you're using certificate authentication to access metrics or autoscale APIs and not using Azure Active Directory, you are using a classic endpoint and library. The newer Resource Manager APIs require Azure Active Directory authentication via a service principal.
+- If you're using certificate authentication to access metrics or autoscale APIs, you are using a classic endpoint and library. The newer Resource Manager APIs require Azure Active Directory authentication via a service principal or user principal.
 
 - If you're using calls referenced in the documentation at any of the following links, you are using the older classic APIs.
 
@@ -55,7 +55,7 @@ Migrating over to newer APIs come with Resource Manager based capabilities, such
 
 - support for dimensions
 - consistent 1-minute metric granularity across all services 
-- better querying capabilities
+- better querying
 - higher data retention (93 days of metrics vs. 30 days) 
 
 Overall, like all other services in Azure, the Resource Manager based Azure Monitor APIs come with better performance, scalability, and reliability. 
@@ -69,7 +69,7 @@ There will not be any direct impact to your Azure services or their workloads.
 
 ### After retirement
 
-Any calls to the classic APIs listed previously will fail and return error messages similar to the following ones:
+Any calls to the classic APIs listed previously will fail and return error messages similar the following ones:
 
 For autoscale:
 *This API has been deprecated. Use the Azure portal, Azure Monitor SDK, PowerShell, CLI, or Resource Manager templates to manage Autoscale Settings*.  
@@ -81,9 +81,8 @@ For metrics:
 
 A retirement notification was sent to email addresses for the following account roles: 
 
-- account and service administrators 
-
-- co-administrators.  
+- account and service administrators
+- coadministrators  
 
 If you have any questions, contact us at MonitorClassicAPIhelp@microsoft.com.  
 
