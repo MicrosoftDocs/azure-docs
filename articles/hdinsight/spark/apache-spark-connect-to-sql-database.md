@@ -31,15 +31,10 @@ Learn how to connect an Apache Spark cluster in Azure HDInsight with an Azure SQ
 
 Start by creating a Jupyter notebook associated with the Spark cluster. You use this notebook to run the code snippets used in this article. 
 
-1. From the [Azure portal](https://portal.azure.com/), open your cluster. 
+1. From the [Azure portal](https://portal.azure.com/), open your cluster.
+1. Select **Jupyter notebook** underneath **Cluster dashboards** on the right side.  If you don't see **Cluster dashboards**, click **Overview** from the left menu on the blade. If prompted, enter the admin credentials for the cluster.
 
-1. From the **Quick links** section, click **Cluster dashboards** to open the **Cluster dashboards** view.  If you don't see **Quick Links**, click **Overview** from the left menu on the blade.
-
-    ![Cluster dashboard on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-cluster-dashboard-on-spark.png "Cluster dashboard on Spark") 
-
-1. Click **Jupyter Notebook**. If prompted, enter the admin credentials for the cluster.
-
-    ![Jupyter notebook on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-jupyter-notebook-on-spark.png "Jupyter notebook on Spark")
+    ![Jupyter notebook on Spark](./media/apache-spark-connect-to-sql-database/hdinsight-spark-cluster-dashboard-jupyter-notebook.png "Jupyter notebook on Spark")
    
    > [!NOTE]
    > You can also access the Jupyter notebook on Spark cluster by opening the following URL in your browser. Replace **CLUSTERNAME** with the name of your cluster:
@@ -229,7 +224,7 @@ In this section, we stream data into the **hvactable** that you already created 
         
          var streamingQuery = WriteToSQLQuery.start()
 
-1. Verify that the data is being streamed into the **hvactable** by running the following query in SQL Server Management Studio (SSMS). Everytime you run the query, it shows the number of rows in the table increasing.
+1. Verify that the data is being streamed into the **hvactable** by running the following query in SQL Server Management Studio (SSMS). Every time you run the query, it shows the number of rows in the table increasing.
 
         SELECT COUNT(*) FROM hvactable
 

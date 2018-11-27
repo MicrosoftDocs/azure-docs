@@ -268,7 +268,7 @@ The **UseTechnicalProfileForSessionManagement** element contains the following a
 | ReferenceId | Yes | An identifier of a technical profile already defined in the policy file or parent policy file. |
 
 ### EnabledForUserJourneys
-The **ClaimsProviderSelections** in a user journey defines the list of claims provider selection options and their order. With the **EnabledForUserJourneys** element  you filter, which claims provider is avaible to the user. The **EnabledForUserJourneys** element contains one of the following values:
+The **ClaimsProviderSelections** in a user journey defines the list of claims provider selection options and their order. With the **EnabledForUserJourneys** element  you filter, which claims provider is available to the user. The **EnabledForUserJourneys** element contains one of the following values:
 
 - **Always**, execute the technical profile.
 - **Never**, skip the technical profile. 

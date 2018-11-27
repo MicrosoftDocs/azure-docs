@@ -28,7 +28,9 @@ Code scenarios are documented under the following headings:
 
 ## Application dependencies
 
-* Run `npm install Microsoft.Azure.CognitiveServices.Search.VisualSearch`.
+To set up a console application using the Bing Visual Search SDK:
+* Run `npm install ms-rest-azure`
+* Run `npm install azure-cognitiveservices-search-visualSearch`.
 
 <a name="client"></a>
 ## Visual Search client

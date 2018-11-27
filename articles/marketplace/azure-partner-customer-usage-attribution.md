@@ -13,21 +13,22 @@ ms.workload:
 ms.tgt_pltfrm: 
 ms.devlang: 
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/17/2018
 ms.author: yijenj
 
 ---  
 # Azure partner customer usage attribution
 
-As a software partner for Azure, your solutions require Azure components or they need to be deployed directly on the Azure infrastructure. Customers who deploy a partner solution and provision their own Azure resources can find it difficult to gain visibility into the status of the deployment, and get optics into the impact on Azure growth. When you add a higher level of visibility, you align with the Microsoft sales teams and gain credit for Microsoft partner programs.   
+As a software partner for Azure, your solutions require Azure components or they need to be deployed directly on the Azure infrastructure. Customers who deploy a partner solution and provision their own Azure resources can find it difficult to gain visibility into the status of the deployment, and get optics into the impact on Azure growth. When you add a higher level of visibility, you align with the Microsoft sales teams and gain credit for Microsoft partner programs. 
 
 Microsoft now offers a method to help partners better track Azure usage of customer deployments of their software on Azure. The new method uses Azure Resource Manager to orchestrate the deployment of Azure services.
 
 As a Microsoft partner, you can associate Azure usage with any Azure resources that you provision on a customer's behalf. You can form the association via the Azure Marketplace, the Quickstart repository, private GitHub repositories, and one-on-one customer engagement. To enable tracking, two approaches are available:
 
 - Azure Resource Manager templates: Resource Manager templates or solution templates to deploy the Azure services to run the partner's software. Partners can create a Resource Manager template to define the infrastructure and configuration of their Azure solution. A Resource Manager template allows you and your customers to deploy your solution throughout its lifecycle. You can be confident that your resources are deployed in a consistent state. 
-
 - Azure Resource Manager APIs: Partners can call the Resource Manager APIs directly to deploy a Resource Manager template or to generate the API calls to directly provision Azure services. 
+
+Customer usage attribution is required on all [solution templates](./cloud-partner-portal-orig/cloud-partner-portal-solution-template-offer-publish.md) published to Azure Marketplace. 
 
 ## Use Resource Manager templates
 
@@ -55,14 +56,15 @@ To add a globally unique identifier (GUID), you make a single modification to th
 1. [Verify GUID success in the template deployment](#verify-the-guid-deployment).
 
 ### Sample Resource Manager template code
-Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
+
+To enable tracking resources for your template, you need to add the following additional resource under the resources section. Please make sure to modify the below sample code with your own inputs when you add it to the main template file.
 The resource needs to be added in the **mainTemplate.json** or **azuredeploy.json** file only, and not in any nested or linked templates.
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
-{ // add this resource to the mainTemplate.json (do not add the entire file)
+{ // add this resource to the resources section in the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -122,14 +124,14 @@ A GUID is a unique reference number that has 32 hexadecimal digits. To create GU
 > [!Note]
 > It is highly recommend that you use [Azure Storage's GUID generator form](https://aka.ms/StoragePartners) to create your GUID. For more information, see our [FAQ](#faq).
 
-Create a unique GUID for every offer and distribution channel. If you deploy two solutions by using a template and each one is available in the Azure Marketplace and on GitHub, you need to create four GUIDS:
+We recommend you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split. 
 
-*	Offer A in Azure Marketplace 
-*	Offer A on GitHub
-*	Offer B in Azure Marketplace 
-*	Offer B on GitHub
+If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register 2 distinct GUIDS:
 
-Reporting is done by the partner value (Microsoft Partner ID) and the GUID. 
+*	Product A in Azure Marketplace 
+*	Product A on GitHub
+
+Reporting is done by the partner value (Microsoft Partner ID) and the GUIDs. 
 
 You can also track GUIDs at a more granular level like the SKU, where SKUs are variants of an offer.
 

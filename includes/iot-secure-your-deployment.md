@@ -10,7 +10,7 @@
  ms.custom: include file
 ---
 
-# Secure your IoT deployment
+# Secure your Internet of Things (IoT) deployment
 
 This article provides the next level of detail for securing the Azure IoT-based Internet of Things (IoT) infrastructure. It links to implementation level details for configuring and deploying each component. It also provides comparisons and choices between various competing methods.
 

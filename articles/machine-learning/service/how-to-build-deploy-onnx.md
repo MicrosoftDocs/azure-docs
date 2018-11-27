@@ -14,7 +14,7 @@ ms.date: 09/24/2018
 
 # ONNX and Azure Machine Learning: Create and deploy interoperable AI models
 
-The [Open Neural Network Exchange](http://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a [community of partners](http://onnx.ai/supported-tools), including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
+The [Open Neural Network Exchange](https://onnx.ai) (ONNX) format is an open standard for representing machine learning models. ONNX is supported by a [community of partners](https://onnx.ai/supported-tools), including Microsoft, who create compatible frameworks and tools. Microsoft is committed to open and interoperable AI so that data scientists and developers can:
 
 + Use the framework of their choice to create and train models
 + Deploy models cross-platform with minimal integration work
@@ -189,13 +189,13 @@ Here is an example for deploying an ONNX model:
 ## Examples
  
 The following notebooks demonstrate how to create ONNX models and deploy them with Azure Machine Learning: 
-+ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
-+ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
-+ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
++ [onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb)
++ [onnx/onnx-convert-aml-deploy-tinyyolo.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb)
++ [onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb)
 
 The following notebooks demonstrate how to deploy existing ONNX models with Azure Machine Learning: 
-+ [onnx/onnx-inference-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist.ipynb) 
-+ [onnx/onnx-inference-emotion-recognition.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-emotion-recognition.ipynb)
++ [onnx/onnx-inference-mnist-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist-deploy.ipynb) 
++ [onnx/onnx-inference-facial-expression-recognition-deploy.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-facial-expression-recognition-deploy.ipynb)
  
 Get these notebooks:
  
@@ -204,6 +204,6 @@ Get these notebooks:
 ## More info
 
 Learn more about ONNX or contribute to the project:
-+ [ONNX project website](http://onnx.ai)
++ [ONNX project website](https://onnx.ai)
 
 + [ONNX code on GitHub](https://github.com/onnx/onnx)

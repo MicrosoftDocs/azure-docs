@@ -62,7 +62,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 ## Upload data to an HDInsight cluster
 
-There are many ways to upload data to the storage associated with an HDInsight cluster. In this section, you use `scp` to upload data. To learn about other ways to upload data, see [Use Distcp to copy data between Azure Storage Blobs and Data Lake Storage Gen2 Preview](use-distcp.md).
+There are many ways to upload data to the storage associated with an HDInsight cluster. In this section, you use `scp` to upload data. To learn about other ways to upload data, see [Use Distcp to copy data between an existing storage account and a new storage account with Data Lake Storage Gen2 enabled](use-distcp.md).
 
 1. Open a command prompt and use the following command to upload the .zip file to the HDInsight cluster head node:
 

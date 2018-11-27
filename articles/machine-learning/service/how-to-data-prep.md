@@ -9,18 +9,115 @@ ms.author: cforbe
 author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
-ms.date: 09/24/2018
+ms.date: 11/23/2018
 ---
 
 # Prepare data for modeling with Azure Machine Learning
  
-Data preparation is an important part of a machine learning workflow. Your models will be more accurate and efficient if they have access to clean data in a format that is easier to consume. 
+In this article, you learn about the use cases and unique features of the Azure Machine Learning Data Prep SDK. Data preparation is the most important part of a machine learning workflow. Real-world data is often broken, inconsistent, or unable to be used as training data without significant cleansing and transformation. Correcting errors and anomalies in raw data, and building new features that are relevant to the problem you're trying to solve, will increase model accuracy.
 
-You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py). 
+You can prepare your data in Python using the [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk).
+
+## Azure Machine Learning Data Prep SDK
+
+The [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk) is a Python library that includes:
+
++ Many common data preprocessing tools
++ Automated feature engineering and transformations derived from examples
+
+The SDK is similar in core-functionality to other popular data manipulation libraries, yet offers more
+flexibility. Other tools typically fall into one of two categories:
+
+* Useful on smaller data sets, but memory capacity-constraints affect performance after a certain point.
+* Strength in processing large data sets, but carries an overhead that makes working with small data sets much slower.
+
+The SDK offers practicality and convenience when working with small data sets, with added scalability for modern big-data applications. The SDK streams data rather than loading it into memory, which allows it to avoid performance bottlenecks as data set size increases. Most importantly, the **exact same code** you write to process data on a small-scale can be used to work with data at a large-scale.
+
+### Install the SDK
+
+Install the SDK in your Python environment using the following command.
+
+```shell
+pip install azureml-dataprep
+```
+
+Use the following code to import the package.
+
+```python
+import azureml.dataprep as dprep
+```
+
+### Examples and reference
+
+To learn about the modules and functions of this SDK, see the [Data Prep SDK reference docs](https://aka.ms/data-prep-sdk).
+
+The following examples highlight some of the unique functionality of the SDK, including:
+
++ Automatic file type detection
++ Automated feature engineering
++ Summary statistics
+
+#### Automatic file type detection
+
+Use the `smart_read_file()` function to load your data without having to specify the file type. This function automatically recognizes and parses the file type.
+
+```python
+dataflow = dprep.smart_read_file(path="<your-file-path>")
+```
+
+#### Automated feature engineering
+
+Use the SDK to split and derive columns by both example and inference to automate feature engineering. Assume you have a field in your dataflow object called `datetime` with a value of `2018-09-15 14:30:00`.
+
+To automatically split the `datetime` field, call the following function.
+
+```python
+new_dataflow = dataflow.split_column_by_example(source_column="datetime")
+```
+
+By not defining the example parameter, the function will automatically split the `datetime` field into two new fields `datetime_1` and `datetime_2`. The resulting values are `2018-09-15` and `14:30:00`, respectively. It's also possible to provide an example pattern, and the SDK will predict and execute your intended transformation. Using the same `datetime` object, the following code will create a new column `datetime_weekday` for the weekday based on the provided example.
+
+```python
+new_dataflow = dataflow.derive_column_by_example(
+        source_columns="datetime", 
+        new_column_name="datetime_weekday", 
+        example_data=[("2009-01-04 10:12:00", "Sunday"), ("2013-08-22 17:00:00", "Thursday")]
+    )
+```
+
+#### Summary statistics
+
+You can generate quick summary statistics for a dataflow with one line of code. This method offers a convenient way to understand your data and how it's distributed.
+
+```python
+dataflow.get_profile()
+```
+
+Calling this function on a dataflow object will result in output like the following table.
+
+![Summary Statistics Output](./media/concept-data-preparation/output-example.png)
+
+## Multiple environment compatibilities
+
+The SDK also allows for dataflow objects to be serialized and opened in *any* Python environment. The environment where it's opened can be different than the environment where it's saved. This functionality allows for easy transfer between Python environments and quick integration with Azure Machine Learning models.
+
+Use the following code to save your dataflow objects.
+
+```python
+package = dprep.Package([dataflow_1, dataflow_2])
+package.save("<your-local-path>")
+```
+
+Use the following code to reopen your package in any environment and retrieve a list of dataflow objects.
+
+```python
+package = dprep.Package.open("<your-local-path>")
+dataflow_list = package.dataflows
+```
 
 ## Data preparation pipeline
 
-The main data preparation steps are:
+To see detailed examples and code for each preparation step, use the following how-to guides:
 
 1. [Load data](how-to-load-data.md), which can be in various formats
 2. [Transform](how-to-transform-data.md) it into a more usable structure
@@ -29,4 +126,7 @@ The main data preparation steps are:
 ![Data preparation process](./media/concept-data-preparation/data-prep-process.png)
 
 ## Next steps
-Review an [example notebook](https://github.com/Microsoft/MSDataPrepDocs/blob/master/Scenarios/GettingStarted/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
+
+Review an [example notebook](https://github.com/Microsoft/AMLDataPrepDocs/tree/master/tutorials/getting-started/getting-started.ipynb) of data preparation using the Azure Machine Learning Data Prep SDK.
+
+Azure Machine Learning Data Prep SDK [reference documentation](https://docs.microsoft.com/python/api/overview/azure/dataprep/intro?view=azure-dataprep-py).

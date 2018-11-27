@@ -87,7 +87,7 @@ For more information on creating an HDInsight cluster and running Hive jobs, see
     $nameToken = "<Enter an Alias>"
 
     ###########################################
-    # You must configure the follwing variables
+    # You must configure the following variables
     # for an existing Azure SQL Database
     ###########################################
     $existingSqlDatabaseServerName = "<Azure SQL Database Server>"
@@ -448,7 +448,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     Write-Host "`nvalidating the folder structure on the workstation for saving the HQL script file ..."  -ForegroundColor Green
     if (test-path $hqlLocalFileName){
 
-        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwirte it? (Y/N)'
+        $isDelete = Read-Host 'The file, ' $hqlLocalFileName ', exists.  Do you want to overwrite it? (Y/N)'
 
         if ($isDelete.ToLower() -ne "y")
         {
@@ -639,7 +639,7 @@ For a full list of the HiveQL commands, see [Hive Data Definition Language][hado
     catch{Connect-AzureRmAccount}
     #EndRegion
 
-    #region - Create and validate Azure resouce group
+    #region - Create and validate Azure resource group
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
     }

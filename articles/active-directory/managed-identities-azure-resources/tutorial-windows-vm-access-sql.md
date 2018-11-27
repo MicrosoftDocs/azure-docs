@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2017
+ms.date: 11/07/2018
 ms.author: daveba
 ---
 
@@ -32,15 +32,7 @@ This tutorial shows you how to use a system-assigned identity for a Windows virt
 
 ## Prerequisites
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Sign in to Azure portal](https://portal.azure.com)
-
-- [Create a Windows virtual machine](/azure/virtual-machines/windows/quick-create-portal)
-
-- [Enable system-assigned managed identity on your virtual machine](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## Grant your VM access to a database in an Azure SQL server
 

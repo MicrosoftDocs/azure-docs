@@ -118,7 +118,7 @@ For events in Cloud Events schema, use the following values for the key:
 * EventTypeVersion
 * Event data (like Data.key1)
 
-For custom input schema, use the event data fields (like Data.key1 Data.key1.key2).
+For custom input schema, use the event data fields (like Data.key1).
 
 ### Values
 
@@ -136,7 +136,7 @@ Advanced filtering has the following limitations:
 * Five advanced filters per event grid subscription
 * 512 characters per string value
 * Five values for **in** and **not in** operators
-* The key can only have two levels of nesting (like data.key1.key2)
+* The key can only have one level of nesting (like data.key1)
 
 The same key can be used in more than one filter.
 

@@ -211,6 +211,7 @@ The X out of Y locations alert rule is enabled by default in the [new unified al
 > [!NOTE]
 > * Configure the action groups to receive notifications when the alert triggers by following the steps above. Without this step, you will only receive in-portal notifications when the rule triggers.
 >
+
 ### Alert on availability metrics
 Using the [new unified alerts](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), you can alert on segmented aggregate availability and test duration metrics as well:
 

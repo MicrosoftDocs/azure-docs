@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/28/2018
+ms.date: 11/23/2018
 ms.author: jingwang
 
 ---
@@ -103,7 +103,7 @@ To copy data from ServiceNow, set the source type in the copy activity to **Serv
 | type | The type property of the copy activity source must be set to: **ServiceNowSource** | Yes |
 | query | Use the custom SQL query to read data. For example: `"SELECT * FROM Actual.alm_asset"`. | Yes |
 
-Note the following when specifying the schema and column for ServiceNow in query:
+Note the following when specifying the schema and column for ServiceNow in query, and **refer to [Performance tips](#performance-tips) on copy performance implication**.
 
 - **Schema:** specify the schema as `Actual` or `Display` in the ServiceNow query, which you can look at it as the parameter of `sysparm_display_value` as true or false when calling [ServiceNow restful APIs](https://developer.servicenow.com/app.do#!/rest_api_doc?v=jakarta&id=r_AggregateAPI-GET). 
 - **Column:** the column name for actual value under `Actual` schema is `[columne name]_value`, while for display value under `Display` schema is `[columne name]_display_value`. Note the column name need map to the schema being used in the query.
@@ -144,6 +144,17 @@ OR 
     }
 ]
 ```
+## Performance tips
+
+### Schema to use
+
+ServiceNow has 2 different schemas, one is **"Actual"** which returns actual data, the other is **"Display"** which returns the display values of data. 
+
+If you have a filter in your query, use "Actual" schema which has better copy performance. When querying against "Actual" schema, ServiceNow natively support filter when fetching the data to only return the filtered resultset, whereas when querying "Display" schema, ADF retrieve all the data and apply filter internally.
+
+### Index
+
+ServiceNow table index can help improve query performance, refer to [Create a table index](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/table_administration/task/t_CreateCustomIndex.html).
 
 ## Next steps
 For a list of data stores supported as sources and sinks by the copy activity in Azure Data Factory, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

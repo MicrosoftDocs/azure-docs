@@ -393,6 +393,12 @@
         href: classic/hpcpack-cluster-namd.md
       - name: Install NVIDIA GPU drivers
         href: n-series-driver-setup.md
+    - name: IBM Db2 pureScale
+      items:
+      - name: Architecture
+        href: ibm-db2-purescale-azure.md
+      - name: Deployment
+        href: deploy-ibm-db2-purescale-azure.md
   - name: Manage storage
     items:
     - name: Disks FAQs

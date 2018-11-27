@@ -146,7 +146,7 @@ In approximately 30 minutes, you are able to see data from the storage account i
 Use the steps in [Configuring Log Analytics to index Azure diagnostics](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) to use PowerShell to read from Azure diagnostics that are written to table storage.
 
 Using Azure PowerShell you can more precisely specify the events that are written to Azure Storage.
-For more information, see [Enabling Diagnostics in Azure Virtual Machines](../virtual-machines/virtual-machines-dotnet-diagnostics.md).
+For more information, see [Enabling Diagnostics in Azure Virtual Machines](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 You can enable and update Azure diagnostics using the following PowerShell script.
 You can also use this script with a custom logging configuration.
@@ -189,5 +189,5 @@ Review the following script sample, copy it, modify it as needed, save the sampl
 
 ## Next steps
 * [Collect logs and metrics for Azure services](log-analytics-azure-storage.md) for supported Azure services.
-* [Enable Solutions](../monitoring/monitoring-solutions.md) to provide insight into the data.
+* [Enable Solutions](../azure-monitor/insights/solutions.md) to provide insight into the data.
 * [Use search queries](log-analytics-queries.md) to analyze the data.

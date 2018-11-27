@@ -12,7 +12,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 11/08/2018
 ms.author: jingwang
 
 ---
@@ -213,7 +213,7 @@ To copy data from or to Azure SQL Data Warehouse, set the **type** property of t
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The **type** property of the dataset must be set to **AzureSqlDWTable**. | Yes |
-| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | Yes |
+| tableName | The name of the table or view in the Azure SQL Data Warehouse instance that the linked service refers to. | No for source, Yes for sink |
 
 #### Dataset properties example
 
@@ -253,7 +253,6 @@ To copy data from Azure SQL Data Warehouse, set the **type** property in the Cop
 
 - If the **sqlReaderQuery** is specified for the **SqlSource**, the Copy Activity runs this query against the Azure SQL Data Warehouse source to get the data. Or you can specify a stored procedure. Specify the **sqlReaderStoredProcedureName** and **storedProcedureParameters** if the stored procedure takes parameters.
 - If you don't specify either **sqlReaderQuery** or **sqlReaderStoredProcedureName**, the columns defined in the **structure** section of the dataset JSON are used to construct a query. `select column1, column2 from mytable` runs against Azure SQL Data Warehouse. If the dataset definition doesn't have the **structure**, all columns are selected from the table.
-- When you use **sqlReaderStoredProcedureName**, you still need to specify a dummy **tableName** property in the dataset JSON.
 
 #### SQL query example
 

@@ -1,251 +1,196 @@
 ---
 title: "Quickstart: Find alternate translations, C# - Translator Text API"
 titleSuffix: Azure Cognitive Services
-description: In this quickstart, you find alternate translations and examples of terms in context using the Translator Text API with C#.
+description: In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using .NET Core and the Translator Text API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/15/2018
+ms.date: 11/26/2018
 ms.author: erhopf
 ---
+
 # Quickstart: Find alternate translations with the Translator Text REST API (C#)
 
-In this quickstart, you find details of possible alternate translations for a term, and also usage examples of those alternate translations, using the Translator Text API.
+In this quickstart, you'll learn how to get alternate translations for a term, and also usage examples of those alternate translations, using .NET Core and the Translator Text API.
+
+This quickstart requires an [Azure Cognitive Services account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) with a Translator Text resource. If you don't have an account, you can use the [free trial](https://azure.microsoft.com/try/cognitive-services/) to get a subscription key.
 
 ## Prerequisites
 
-You'll need [Visual Studio 2017](https://www.visualstudio.com/downloads/) to run this code on Windows. (The free Community Edition will work.)
+* [.NET SDK](https://www.microsoft.com/net/learn/dotnet/hello-world-tutorial)
+* [Json.NET NuGet Package](https://www.nuget.org/packages/Newtonsoft.Json/)
+* [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download), or your favorite text editor
+* An Azure subscription key for the Speech Service
 
-To use the Translator Text API, you also need a subscription key; see [How to sign up for the Translator Text API](translator-text-how-to-signup.md).
+## Create a .NET Core project
 
-## Dictionary Lookup request
+Open a new command prompt (or terminal session) and run these commands:
 
-> [!TIP]
-> Get the latest code from [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+```console
+dotnet new console -o alternate-sample
+cd alternate-sample
+```
 
-The following gets alternate translations for a word using the [Dictionary Lookup](./reference/v3-0-dictionary-lookup.md) method.
+The first command does two things. It creates a new .NET console application, and creates a directory named `alternate-sample`. The second command changes to the directory for your project.
 
-1. Create a new C# project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+Next, you'll need to install Json.Net. From your project's directory, run:
+
+```console
+dotnet add package Newtonsoft.Json --version 11.0.2
+```
+
+## Add required namespaces to your project
+
+The `dotnet new console` command that you ran earlier created a project, including `Program.cs`. This file is where you'll put your application code. Open `Program.cs`, and replace the existing using statements. These statements ensure that you have access to all the types required to build and run the sample app.
 
 ```csharp
 using System;
 using System.Net.Http;
 using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
 using Newtonsoft.Json;
-
-namespace TranslatorTextQuickStart
-{
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/dictionary/lookup?api-version=3.0";
-        // Translate from English to French.
-        static string params_ = "&from=en&to=fr";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "great";
-
-        async static void Lookup()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Lookup();
-            Console.ReadLine();
-        }
-    }
-}
 ```
 
-## Dictionary Lookup response
+## Create a function to get alternate translations
 
-A successful response is returned in JSON as shown in the following example:
-
-```json
-[
-  {
-    "normalizedSource": "great",
-    "displaySource": "great",
-    "translations": [
-      {
-        "normalizedTarget": "grand",
-        "displayTarget": "grand",
-        "posTag": "ADJ",
-        "confidence": 0.2783,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 34358
-          },
-          {
-            "normalizedText": "big",
-            "displayText": "big",
-            "numExamples": 15,
-            "frequencyCount": 21770
-          },
-...
-        ]
-      },
-      {
-        "normalizedTarget": "super",
-        "displayTarget": "super",
-        "posTag": "ADJ",
-        "confidence": 0.1514,
-        "prefixWord": "",
-        "backTranslations": [
-          {
-            "normalizedText": "super",
-            "displayText": "super",
-            "numExamples": 15,
-            "frequencyCount": 12023
-          },
-          {
-            "normalizedText": "great",
-            "displayText": "great",
-            "numExamples": 15,
-            "frequencyCount": 10931
-          },
-...
-        ]
-      },
-...
-    ]
-  }
-]
-```
-
-## Dictionary Examples request
-
-The following gets contextual examples of how to use a term in the dictionary using the [Dictionary Examples](./reference/v3-0-dictionary-examples.md) method.
-
-1. Create a new C# project in your favorite IDE.
-2. Add the code provided below.
-3. Replace the `key` value with an access key valid for your subscription.
-4. Run the program.
+Within the `Program` class, create a function called `AltTranslation`. This class encapsulates the code used to call the Dictionary resource and prints the result to console.
 
 ```csharp
-using System;
-using System.Net.Http;
-using System.Text;
-// NOTE: Install the Newtonsoft.Json NuGet package.
-using Newtonsoft.Json;
-
-namespace TranslatorTextQuickStart
+static void AltTranslation()
 {
-    class Program
-    {
-        static string host = "https://api.cognitive.microsofttranslator.com";
-        static string path = "/dictionary/examples?api-version=3.0";
-        // Translate from English to French.
-        static string params_ = "&from=en&to=fr";
-
-        static string uri = host + path + params_;
-
-        // NOTE: Replace this example key with a valid subscription key.
-        static string key = "ENTER KEY HERE";
-
-        static string text = "great";
-        static string translation = "formidable";
-
-        async static void Examples()
-        {
-            System.Object[] body = new System.Object[] { new { Text = text, Translation = translation } };
-            var requestBody = JsonConvert.SerializeObject(body);
-
-            using (var client = new HttpClient())
-            using (var request = new HttpRequestMessage())
-            {
-                request.Method = HttpMethod.Post;
-                request.RequestUri = new Uri(uri);
-                request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
-                request.Headers.Add("Ocp-Apim-Subscription-Key", key);
-
-                var response = await client.SendAsync(request);
-                var responseBody = await response.Content.ReadAsStringAsync();
-                var result = JsonConvert.SerializeObject(JsonConvert.DeserializeObject(responseBody), Formatting.Indented);
-
-                Console.OutputEncoding = UnicodeEncoding.UTF8;
-                Console.WriteLine(result);
-            }
-        }
-
-        static void Main(string[] args)
-        {
-            Examples();
-            Console.ReadLine();
-        }
-    }
+  /*
+   * The code for your call to the translation service will be added to this
+   * function in the next few sections.
+   */
 }
 ```
 
-## Dictionary Examples response
+## Set the subscription key, host name, and path
 
-A successful response is returned in JSON as shown in the following example:
+Add these lines to the `AltTranslation` function. You'll notice that along with the `api-version`, two additional parameters have been appended to the `route`. These parameters are used to set the translation input and output. In this sample, these are English (`en`) and Spanish (`es`).
+
+```csharp
+string host = "https://api.cognitive.microsofttranslator.com";
+string route = "/dictionary/lookup?api-version=3.0&from=en&to=es";
+string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
+```
+
+Next, we need to create and serialize the JSON object that includes the text you want to translate. Keep in mind, you can pass more than one object in the `body` array.
+
+```csharp
+System.Object[] body = new System.Object[] { new { Text = @"Elephants" } };
+var requestBody = JsonConvert.SerializeObject(body);
+```
+
+## Instantiate the client and make a request
+
+These lines instantiate the `HttpClient` and the `HttpRequestMessage`:
+
+```csharp
+using (var client = new HttpClient())
+using (var request = new HttpRequestMessage())
+{
+  // In the next few sections you'll add code to construct the request.
+}
+```
+
+## Construct the request and print the response
+
+Inside the `HttpRequestMessage` you'll:
+
+* Declare the HTTP method
+* Construct the request URI
+* Insert the request body (serialized JSON object)
+* Add required headers
+* Make an asynchronous request
+* Print the response
+
+Add this code to the `HttpRequestMessage`:
+
+```csharp
+// Set the method to POST
+request.Method = HttpMethod.Post;
+
+// Construct the full URI
+request.RequestUri = new Uri(host + route);
+
+// Add the serialized JSON object to your request
+request.Content = new StringContent(requestBody, Encoding.UTF8, "application/json");
+
+// Add the authorization header
+request.Headers.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+// Send request, get response
+var response = client.SendAsync(request).Result;
+var jsonResponse = response.Content.ReadAsStringAsync().Result;
+
+// Print the response
+Console.WriteLine(jsonResponse);
+Console.WriteLine("Press any key to continue.");
+```
+
+## Put it all together
+
+The last step is to call `AltTranslation()` in the `Main` function. Locate `static void Main(string[] args)` and add these lines:
+
+```csharp
+AltTranslation();
+Console.ReadLine();
+```
+
+## Run the sample app
+
+That's it, you're ready to run your sample app. From the command line (or terminal session), navigate to your project directory and run:
+
+```console
+dotnet run
+```
+
+## Sample response
 
 ```json
 [
-  {
-    "normalizedSource": "great",
-    "normalizedTarget": "formidable",
-    "examples": [
-      {
-        "sourcePrefix": "You have a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " expression there.",
-        "targetPrefix": "Vous avez une expression ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-      {
-        "sourcePrefix": "You played a ",
-        "sourceTerm": "great",
-        "sourceSuffix": " game today.",
-        "targetPrefix": "Vous avez été ",
-        "targetTerm": "formidable",
-        "targetSuffix": "."
-      },
-...
-    ]
-  }
+    {
+        "displaySource": "elephants",
+        "normalizedSource": "elephants",
+        "translations": [
+            {
+                "backTranslations": [
+                    {
+                        "displayText": "elephants",
+                        "frequencyCount": 1207,
+                        "normalizedText": "elephants",
+                        "numExamples": 5
+                    }
+                ],
+                "confidence": 1.0,
+                "displayTarget": "elefantes",
+                "normalizedTarget": "elefantes",
+                "posTag": "NOUN",
+                "prefixWord": ""
+            }
+        ]
+    }
 ]
 ```
+
+## Clean up resources
+
+Make sure to remove any confidential information from your sample app's source code, like subscription keys.
 
 ## Next steps
 
-Explore the sample code for this quickstart and others, including translation and transliteration, as well as other sample Translator Text projects on GitHub.
+Explore the sample code for this quickstart and others, including transliteration and language identification, as well as other sample Translator Text projects on GitHub.
 
 > [!div class="nextstepaction"]
 > [Explore C# examples on GitHub](https://aka.ms/TranslatorGitHub?type=&language=c%23)
+
+## See also
+
+* [Translate text](quickstart-csharp-translate.md)
+* [Transliterate text](quickstart-csharp-transliterate.md)
+* [Identify the language by input](quickstart-csharp-detect.md)
+* [Get a list of supported languages](quickstart-csharp-languages.md)
+* [Determine sentence lengths from an input](quickstart-csharp-sentences.md)

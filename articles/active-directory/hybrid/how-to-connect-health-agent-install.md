@@ -3,7 +3,7 @@ title: Azure AD Connect Health Agent installation | Microsoft Docs
 description: This is the Azure AD Connect Health page that describes the agent installation for AD FS and Sync.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: 1cc8ae90-607d-4925-9c30-6770a4bd1b4e

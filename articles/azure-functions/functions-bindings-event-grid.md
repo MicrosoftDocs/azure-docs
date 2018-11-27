@@ -355,6 +355,14 @@ For more information about how to create a subscription, see [the blob storage q
 
 You can get the system key by using the following API (HTTP GET):
 
+#### Version 2.x runtime
+
+```
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgrid_extension?code={masterkey}
+```
+
+#### Version 1.x runtime
+
 ```
 http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```

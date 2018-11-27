@@ -191,7 +191,7 @@ Now you are all set with preparing and configuring your development environment.
 1. In the new opened project window, click `F1` to open the command palette, type and select **IoT Workbench: Cloud**, then select **Azure Provision**. Follow the step by step guide to finish provisioning your Azure IoT Hub and creating the device.
     ![Cloud provision](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/cloud-provision.png)
 
-1. Click `F1` to open the command palette, type and select **IoT Workbench: Device**, then select **Config Device Settings > Select IoT Hub Device Connection String**.
+1. Click `F1` to open the command palette, type and select **IoT Workbench: Device**, then select **Config Device Settings > Config Device Connection String > Select IoT Hub Device Connection String**.
 
 1. On DevKit, hold down **button A**, push and release the **reset** button, and then release **button A**. Your DevKit enters configuration mode and saves the connection string.
     ![Connection string](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/connection-string.png)

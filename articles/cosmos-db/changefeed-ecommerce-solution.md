@@ -86,7 +86,7 @@ Create the Azure resources - Azure Cosmos DB, Storage account, Event Hub, Stream
    ```powershell
    .\deploy.ps1
    ```
-5. When prompted, enter your Azure **Subcription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
+5. When prompted, enter your Azure **Subscription ID**, **changefeedlab** for the resource group name, and **run1** for the deployment name. Once the resources begin to deploy, it may take up to 10 minutes for it to complete.
 
 ## Create a database and the collection
 

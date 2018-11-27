@@ -20,7 +20,7 @@ Deploying to AKS provides auto-scaling, logging, model data collection, and fast
 
 ## Prerequisites
 
-- An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+- An Azure subscription. If you don't have one, create a [free account](https://aka.ms/AMLfree) before you begin.
 
 - An Azure Machine Learning service workspace, a local directory containing your scripts, and the Azure Machine Learning SDK for Python installed. Learn how to get these prerequisites using the [How to configure a development environment](how-to-configure-environment.md) document.
 
@@ -58,6 +58,9 @@ Azure Kubernetes Service uses Docker images. To create the image, use the follow
 1. To configure the image, you must create a scoring script and environment file. For an example of creating the script and environment file, see the following sections of the image classification example:
 
     * [Create a scoring script (score.py)](tutorial-deploy-models-with-aml.md#create-scoring-script)
+
+        > [!IMPORTANT]
+        > The scoring script receives data submitted from clients and passes it to the model for scoring. Document the data structure that the script and model expect. Having this documentation makes things easier when building a client to consume the web service.
 
     * [Create an environment file (myenv.yml)](tutorial-deploy-models-with-aml.md#create-environment-file) 
 
@@ -185,3 +188,7 @@ aks_service.delete()
 image.delete()
 model.delete()
 ```
+
+## Next steps
+
+Learn how to [Consume a ML Model deployed as a web service](how-to-consume-web-service.md).
