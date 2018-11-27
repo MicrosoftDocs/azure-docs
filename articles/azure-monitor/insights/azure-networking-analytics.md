@@ -229,7 +229,7 @@ To use the updated solutions:
 Data collected before the change is not visible in the new solution. You can continue to query for this data using the old Type and field names.
 
 ## Troubleshooting
-[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
+[!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## Next steps
 * Use [Log searches in Log Analytics](../../log-analytics/log-analytics-queries.md) to view detailed Azure diagnostics data.
