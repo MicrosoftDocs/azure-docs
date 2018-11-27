@@ -8,43 +8,41 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 11/21/2018
+ms.date: 11/27/2018
 ---
 
 # Data Modeling in Azure Time Series Insights
 
-This document describes how to work with **Time Series Models** following The Azure Time Series Insights V2 Update. It will detail common several use-cases and customization scenarios.
-
-Read [TIme Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**. View The Azure Time Series Insights V2 Update Explorer [article](./time-series-insights-update-explorer.md) to learn more about the V2 Update.
+This document describes how to work with **Time Series Models** following the Azure Time Series Insights (TSI) update. It will detail common several use-cases and customization scenarios.
 
 ## Types
 
-How to create a single type:
+### How to create a single type
 
-1. First let’s start by heading to the TSM model selector panel and select types from the menu. Then collapse the panel to focus on TSM types:
+1. Start by heading to the TSM model selector panel and select types from the menu. Then, collapse the panel to focus on TSM types:
 
     ![portal_one][1]
 
 1. Click on **Add**.
-1. Input all details pertaining to types and click **Create**. This should create types in the environment:
+1. Input all details pertaining to types and click **Create**. Doing so should create types in the environment:
 
     ![portal_two][2]
 
-How to bulk upload one or more type:
+### How to bulk upload one or more types
 
 1. Click on **upload Json**.
-1. Choose file which contains the type payload.
+1. Choose that file that contains the type payload.
 1. Click on **upload**
 
     ![portal_three][3]
 
-How to edit a single type:
+### How to edit a single type
 
 1. Select the type and click on **Edit** button. Make required changes and click **Save**:
 
     ![portal_four][4]
 
-How to delete a type:
+### How to delete a type
 
 1. Select the type and click on **Delete** button. If no instances are associated to the types, it will be deleted:
 
@@ -52,9 +50,9 @@ How to delete a type:
 
 ## Hierarchies
 
-How to create a single hierarchy:
+### How to create a single hierarchy
 
-1. First let’s start by heading to the TSM model selector panel and select hierarchies from the menu. Then collapse the panel to focus on TSM types:
+1. Start by heading to the TSM model selector panel and select hierarchies from the menu. Then, collapse the panel to focus on TSM types:
 
     ![portal_six][6]
 
@@ -70,21 +68,21 @@ How to create a single hierarchy:
 
     ![portal_nine][9]
 
-How to bulk upload one or more hierarchies:
+### How to bulk upload one or more hierarchies
 
 1. Click on **Upload Json**.
-1. Choose the file which contains the hierarchy payload.
+1. Choose the file that contains the hierarchy payload.
 1. Click on **Upload**:
 
     ![portal_ten][10]
 
-How to edit a single hierarchy:
+### How to edit a single hierarchy
 
 1. Select the Hierarchy and click on the **Edit** button. Make required changes and click **Save**:
 
     ![portal_eleven][11]
 
-How to delete a hierarchy:
+### How to delete a hierarchy
 
 1. Select the hierarchy and click on **Delete** button. If no instances are associated to the hierarchy, it will be deleted.
 
@@ -92,9 +90,9 @@ How to delete a hierarchy:
 
 ## Instances
 
-How to create a single Instance:
+### How to create a single instance
 
-1. First let’s start by heading to the TSM model selector panel and select instances from the menu. Then collapse the panel to focus on TSM types:
+1. Start by heading to the TSM model selector panel and select instances from the menu. Then,  collapse the panel to focus on TSM types:
 
     ![portal_thirteen][13]
 
@@ -104,26 +102,30 @@ How to create a single Instance:
 
 1. Enter the instance details, select type and hierarchy association and click **Create**.
 
-How to bulk upload one or more Instances
+### How to bulk upload one or more instances
 
 1. Click on **Upload JSON**.
-1. Choose the file which contains the instances payload:
+1. Choose the file that contains the instances payload:
 
     ![portal_fifteen][15]
 
 1. Click on **Upload**.
 
-How to edit a single Instance
+### How to edit a single instance
 
 1. Select the instance and click on the **Edit** button. Make required changes and click **Save**:
 
     ![portal_sixteen][16]
 
-How to delete a Instance
+### How to delete an instance
 
 1. Select the instance and click on **Delete** button. If no events are associated to the instances, it will be deleted.
 
 ## Next steps
+
+* Read [TIme Series Models](./time-series-insights-update-tsm.md) for more information about **Time Series Models**.
+
+* View the Azure TSI update Explorer [article](./time-series-insights-update-explorer.md) to learn more about the V2 update.
 
 <!-- Images -->
 [1]: media/v2-update-how-to-tsm/portal_one.png
