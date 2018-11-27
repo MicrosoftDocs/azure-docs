@@ -22,6 +22,8 @@ Azure API Management provides the following types of resources for use in the de
 -   [String resources](#strings)  
   
 -   [Glyph resources](#glyphs)  
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
   
 ##  <a name="strings"></a> String resources  
  API Management provides a comprehensive set of string resources for use in the developer portal. These resources are localized into all of the languages supported by API Management. The default set of templates uses these resources for page headers, labels, and any constant strings that are displayed in the developer portal. To use a string resource in your templates, provide the resource string prefix followed by the string name, as shown in the following example.  

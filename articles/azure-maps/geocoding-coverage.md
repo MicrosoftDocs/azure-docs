@@ -20,8 +20,6 @@ The ability to geocode in a country is dependent upon the road data coverage and
 * **Street level** - Addresses are resolved to the latitude/longitude coordinate of the street that contains the address. The house number may not be processed.
 * **City level** - City place names are supported.
 
-![Geocoding Coverage Map](media/coverage/GeocodeCoverage.png)
-
 ## Americas
 
 | Region             | Address points | House numbers | Street level | City level | Points of interest |
