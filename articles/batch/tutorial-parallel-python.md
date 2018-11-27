@@ -2,14 +2,14 @@
 title: Run a parallel workload - Azure Batch Python 
 description: Tutorial - Process media files in parallel with ffmpeg in Azure Batch using the Batch Python client library
 services: batch
-author: dlepow
+author: laurenhughes
 manager: jeconnoc
 
 ms.service: batch
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 09/24/2018
-ms.author: danlep
+ms.date: 11/27/2018
+ms.author: lahugh
 ms.custom: mvc
 ---
 

@@ -43,7 +43,7 @@ git clone https://github.com/Azure-Samples/batch-dotnet-quickstart.git
 
 Navigate to the directory that contains the Visual Studio solution file `BatchDotNetQuickstart.sln`.
 
-Open the solution file in Visual Studio, and update the credential strings in `program.cs` with the values you obtained for your accounts. For example:
+Open the solution file in Visual Studio, and update the credential strings in `Program.cs` with the values you obtained for your accounts. For example:
 
 ```csharp
 // Batch account credentials
