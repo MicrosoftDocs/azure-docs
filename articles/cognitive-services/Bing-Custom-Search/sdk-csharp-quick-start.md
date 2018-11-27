@@ -1,11 +1,10 @@
 ---
-title: "Quickstart: Custom Search SDK, C#"
+title: "Quickstart: Call your Bing Custom Search endpoint using the C# SDK | Microsoft Docs"
 titleSuffix: Azure Cognitive Services
 description: Setup Custom Search SDK C# console application.
 services: cognitive-services
 author: swhite-msft
 manager: cgronlun
-
 ms.service: cognitive-services
 ms.component: bing-custom-search
 ms.topic: quickstart
@@ -13,34 +12,25 @@ ms.date: 09/06/2018
 ms.author: scottwhi
 ---
 
-# Quickstart: Using the Bing Custom Search SDK with C#
+# Quickstart: Call your Bing Custom Search endpoint using the C# SDK 
 
-The Bing Custom Search SDK provides an easier programming model than the Bing Custom Search REST API. This section walks you through making your first Custom Search calls using the C# SDK.
+Use this quickstart to begin requesting search results from your Bing Custom Search instance, using the C# SDK. While Bing Custom Search has a REST API compatible with most programming languages, the Bing Custom Search SDK provides an easy way to integrate the service into your applications. The code for this sample can be found on [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 ## Prerequisites
 
-To complete this quickstart, you need:
+- A Bing Custom Search instance. See [Quickstart: Create your first Bing Custom Search instance](quick-start.md) for more information.
+- Microsoft [.Net Core](https://www.microsoft.com/net/download/core)
+- Any edition of [Visual Studio 2017](https://www.visualstudio.com/downloads/)
+- If you are using Linux/MacOS, this application can be run using [Mono](http://www.mono-project.com/).
+- The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. 
+    - From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package. Installing the NuGet Custom Search package also installs the following assemblies:
+        - Microsoft.Rest.ClientRuntime
+        - Microsoft.Rest.ClientRuntime.Azure
+        - Newtonsoft.Json
 
-- A ready-to-use custom search instance. See [Create your first Bing Custom Search instance](quick-start.md).  
-  
-- A subscription key. You can get a subscription key when you activate your [free trial](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search), or you can use a paid subscription key from your Azure dashboard (see [Cognitive Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)).  
-  
-- Visual Studio 2017 installed. If you don’t already have it, you can download the **free** [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/).  
-  
-- The [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) package installed. From the Solution Explorer in Visual Studio, right-click on your project and select `Manage NuGet Packages` from the menu. Install the `Microsoft.Azure.CognitiveServices.Search.CustomSearch` package.
-
-Installing the NuGet Custom Search package also installs the following assemblies:
-
-* Microsoft.Rest.ClientRuntime
-* Microsoft.Rest.ClientRuntime.Azure
-* Newtonsoft.Json
-
-
+You must have a [Cognitive Services API account](../cognitive-services-apis-create-account) with access to the Bing Custom Search API. If you don't have an Azure subscription, you can [create an account](https://azure.microsoft.com/try/cognitive-services/?api=bing-custom-search) for free. Before continuing, You will need the access key provided after activating your free trial, or a paid subscription key from your Azure dashboard.
 
 ## Run the code
-
-> [!TIP]
-> Get the latest code as a Visual Studio solution from [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
 
 To run this example, follow these steps:
 
