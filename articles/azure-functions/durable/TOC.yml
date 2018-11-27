@@ -14,6 +14,7 @@
     href: durable-functions-create-first-csharp.md
     displayName: get started, chaining
   - name: Create durable function - JavaScript
+    displayName: get started, chaining
 - name: Tutorials
   items:
   - name: Fan-in/fan-out
@@ -64,6 +65,7 @@
   - name: Develop
     items:
     - name: Create in Azure portal
+      href: durable-functions-create-portal.md
     - name: Manage connections
       href: ../manage-connections.md?toc=%2fazure%2fazure-functions%2fdurable%2ftoc.json
     - name: Error handling
