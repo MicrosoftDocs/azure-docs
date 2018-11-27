@@ -1,5 +1,5 @@
 ---
-title: Application or user-specific Marathon service
+title: [DEPRECATED] Application or user-specific Marathon service
 description: Create an application or user-specific Marathon service
 services: container-service
 author: rgardler
@@ -12,7 +12,31 @@ ms.author: rogardle
 ms.custom: mvc
 ---
 
-# Create an application or user-specific Marathon service
+> [!WARNING]
+>  **The Azure Container Service (ACS) is being deprecated. No new features or functionality are being added to ACS. All of the APIs, portal experience, CLI commands and documentation are marked as deprecated.**
+>  
+> Beginning January 31, 2020:
+>  
+> * All ACS APIs will be blocked. Any code you have written will no longer execute.
+> * You will not be able to create new clusters, update, or scale existing clusters using the portal, CLI or Azure Resource Manager templates.
+>  
+> Existing ACS clusters won't be deleted. You can continue to list and delete existing clusters using the portal, CLI and ARM templates. Between now and January 31, 2020, you can continue to perform all operations; including create, update, scale, delete and list. All these operations are available through the portal, CLI and Azure Resource Manager templates.
+>
+> We recommend that you deploy the following Azure Marketplace solutions that use the latest versions of the respective orchestrator and [acs-engine](https://github.com/Azure/acs-engine):
+>
+> * Docker EE for Azure
+>   * [Standard/Enterprise edition](https://azuremarketplace.microsoft.com/marketplace/apps/docker.dockerdatacenter?tab=Overview)
+>   * [Basic edition](https://azuremarketplace.microsoft.com/marketplace/apps/docker.docker4azure-st?tab=Overview)
+>  
+> * Mesosphere DC/OS
+>   * [Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.enterprise-dcos?tab=Overview)
+>   * [Open Source edition](https://azuremarketplace.microsoft.com/marketplace/apps/mesosphere.dcos?tab=overview)
+>
+> If you want to use Kubernetes, see [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks).
+>
+> Don't create new ACS clusters using the steps detailed in this article. These docs are deprecated, with no additional updates scheduled or support provided through GitHub issues.
+
+# [DEPRECATED] Create an application or user-specific Marathon service
 
 Azure Container Service provides a set of master servers on which we preconfigure Apache Mesos and Marathon. These can be used to orchestrate your applications on the cluster, but it's best not to use the master servers for this purpose. For example, tweaking the configuration of Marathon requires logging into the master servers themselves and making changes--this encourages unique master servers that are a little different from the standard and need to be cared for and managed independently. Additionally, the configuration required by one team might not be the optimal configuration for another team.
 
