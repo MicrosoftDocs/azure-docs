@@ -2,21 +2,15 @@
 title: Predict Twitter sentiment with word embeddings by using the Team Data Science Process in Azure | Microsoft Docs
 description: The steps that are needed to execute your data-science projects.
 services: machine-learning
-documentationcenter: ''
-author: deguhath
+author: marktab
 manager: cgronlun
 editor: cgronlun
-
-ms.assetid: 
 ms.service: machine-learning
 ms.component: team-data-science-process
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
-ms.author: deguhath
-
+ms.author: tdsp
+ms.custom: "(previous author=deguhath, ms.author=deguhath)"
 ---
 
 # Predict Twitter sentiment with word embeddings by using the Team Data Science Process
