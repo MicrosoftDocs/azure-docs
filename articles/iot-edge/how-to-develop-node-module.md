@@ -62,7 +62,7 @@ The following steps show you how to create an IoT Edge module based on Node.js u
 6. Provide a name for your solution. 
 7. Choose **Node.js Module** as the template for the first module in the solution.
 8. Provide a name for your module. Choose a name that's unique within your container registry. 
-9. Provide the image repository for the module. VS Code autopopulates the module name, so you just have to replace **localhost:5000** with your own registry information. If you use a local Docker registry for testing, then localhost is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name.
+9. Provide the image repository for the module. VS Code autopopulates the module name, so you just have to replace **localhost:5000** with your own registry information. If you use a local Docker registry for testing, then localhost is fine. If you use Azure Container Registry, then use the login server from your registry's settings. The login server looks like **\<registry name\>.azurecr.io**. Only replace the localhost part of the string, don't delete your module name. The final string looks like \<registry name\>.azurecr.io/\<modulename\>.
 
    ![Provide Docker image repository](./media/how-to-develop-node-module/repository.png)
 
