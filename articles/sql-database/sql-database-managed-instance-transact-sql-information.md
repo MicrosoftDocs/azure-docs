@@ -137,10 +137,6 @@ Managed Instance cannot access files so cryptographic providers cannot be create
 - `CREATE CRYPTOGRAPHIC PROVIDER` is not supported. See [CREATE CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
 - `ALTER CRYPTOGRAPHIC PROVIDER` is not supported. See [ALTER CRYPTOGRAPHIC PROVIDER](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
-### Collation
-
-Server collation is `SQL_Latin1_General_CP1_CI_AS` and cannot be changed. See [Collations](https://docs.microsoft.com/sql/t-sql/statements/collations).
-
 ### Database options
 
 - Multiple log files are not supported.
