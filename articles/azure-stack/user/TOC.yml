@@ -136,6 +136,8 @@
           href: azure-stack-solution-template-kubernetes-deploy.md
         - name: Troubleshoot Kubernetes cluster
           href: azure-stack-solution-template-kubernetes-trouble.md
+      - name: Deploy Cognitive Services
+        href: azure-stack-solution-template-cognitive-services.md
   - name: Build apps
     items:
     - name: Develop for Azure Stack
