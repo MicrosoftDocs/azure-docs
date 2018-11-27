@@ -81,6 +81,8 @@ QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 
 #### Get and examine manifest files
 
+You specify a list of filter track property conditions based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. To get and examine the properties of the tracks, you have to load the Smooth Streaming manifest first.
+
 The [Upload, encode, and stream files with .NET](stream-files-tutorial-with-api.md) tutorial shows you how to build the streaming URLs with .NET (see, the [building URLs](stream-files-tutorial-with-api.md#get-streaming-urls) section. If you run the app, one of the URLs points to the Smooth Streaming manifest: `https://amsaccount-usw22.streaming.media.azure.net/00000000-0000-0000-0000-0000000000000/ignite.ism/manifest`. Download and view the manifest file.
 
 For the REST example, see [Upload, encode, and stream files with REST](stream-files-tutorial-with-rest.md#list-paths-and-build-streaming-urls)
@@ -117,14 +119,14 @@ Use this property with **Asset Filters**. It is not recommended to set the prope
 
 ### tracks
 
-Use tracks to specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
+You specify a list of filter track property conditions (FilterTrackPropertyConditions) based on which the tracks of your stream (Live or Video on Demand) should be included into dynamically created manifest. The filters are combined using a logical **AND** and **OR** operation.
 
 Filter track property conditions describe track types, values (described in the following table), and operations (Equal, NotEqual). 
 
 |Name|Description|
 |---|---|
 |Bitrate|Use the bitrate of the track for filtering.<br/><br/>The recommended value is a range of bitrates, in bits per second. For example, "0-2427000".<br/><br/>Note: while you can use a specific bitrate value, like 250000 (bits per second), this approach is not recommended, as the exact bitrates can fluctuate from one Asset to another.|
-|FourCC|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in RFC 6381. Currently, the following are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files). |
+|FourCC|Use the FourCC value of the track for filtering.<br/><br/>The value is the first element of codecs format, as specified in [RFC 6381](https://tools.ietf.org/html/rfc6381). Currently, the following are supported: <br/>For Video: "avc1", "hev1", "hvc1"<br/>For Audio: "mp4a", "ec-3"<br/><br/>To determine the FourCC values for tracks in an Asset, [get and examine the manifest file](#get-and-examine-manifest-files). <br/><br/>Note: FourCC is specific to Smooth and does not apply to HLS or DASH manifests.|
 |Language|Use the language of the track for filtering.<br/><br/>The value is the tag of a language you want to include, as specified in RFC 5646. For example, "en".|
 |Name|Use the name of the track for filtering.|
 |Type|Use the type of the track for filtering.<br/><br/>The following values are allowed: "video", "audio", or "text".|
