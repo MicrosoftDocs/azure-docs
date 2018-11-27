@@ -11,7 +11,7 @@ author: oslake
 ms.author: moslake
 ms.reviewer: vanto, genemi
 manager: craigg
-ms.date: 09/18/2018
+ms.date: 12/03/2018
 ---
 # Use Virtual Network service endpoints and rules for Azure SQL Database and SQL Data Warehouse
 
@@ -166,7 +166,49 @@ If you choose to use this feature with a Storage account that is being used by a
 
 ### Azure SQL Data Warehouse PolyBase
 
-PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. There is a mitigation for this, and you may contact Microsoft support for more information.
+PolyBase is commonly used to load data into Azure SQL Data Warehouse from Storage accounts. If the Storage account that you are loading data from limits access only to a set of VNet-subnets, connectivity from PolyBase to the Account will break. To mitigate this, please follow the steps below to ensure connectivity works:
+
+#### Prerequisites
+1.	Install Azure PowerShell SDK using this [guide](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fpowershell%2Fazure%2Finstall-azurerm-ps%3Fview%3Dazurermps-6.10.0&data=02%7C01%7Ckavithaj%40microsoft.com%7Cf4067f29feac495db2c508d653d0115b%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636788550451735014&sdata=uXNHKNlGh61xynby4WtFxW95GEKwlbtfIUZXjrkrwpc%3D&reserved=0).
+2.	If you have a general-purpose v1 storage account, you must first upgrade to general-purpose v2 using this [guide](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Fcommon%2Fstorage-account-upgrade%3Ftoc%3D%252fazure%252fstorage%252ftables%252ftoc.json&data=02%7C01%7Ckavithaj%40microsoft.com%7Cd97d9610b8bc45bb89a108d645b04faf%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636773020880736558&sdata=D8bQ0l2cA3DBUltdrZJpcX0Iri6t%2Bj3LA%2F1ECO6KX6M%3D&reserved=0).
+ 
+#### Steps
+1.	In PowerShell, ***register your logical SQL Server*** with Azure Active Directory (AAD):
+
+```powershell
+Add-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId your-subscriptionId
+Set-AzureRmSqlServer -ResourceGroupName your-logical-server-resourceGroup -ServerName your-logical-servername -AssignIdentity
+```
+ 
+2.	Create a ***general-purpose v2 Storage Account*** using this [guide](https://docs.microsoft.com/en-us/azure/storage/common/storage-quickstart-create-account?toc=%2Fen-us%2Fazure%2Fstorage%2Ftables%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&tabs=portal).
+
+> [!NOTE]
+> If you have a general-purpose v1 storage account, you must ***first upgrade to v2*** using this [guide](https://na01.safelinks.protection.outlook.com/?url=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fstorage%2Fcommon%2Fstorage-account-upgrade%3Ftoc%3D%252fazure%252fstorage%252ftables%252ftoc.json&data=02%7C01%7Ckavithaj%40microsoft.com%7Cd97d9610b8bc45bb89a108d645b04faf%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C636773020880736558&sdata=D8bQ0l2cA3DBUltdrZJpcX0Iri6t%2Bj3LA%2F1ECO6KX6M%3D&reserved=0).
+ 
+3.	Under your storage account, navigate to **Access Control (IAM)**, and click **Add**. Assign **Storage Blob Data Contributor (Preview)** RBAC role to your logical SQL Server.
+
+> [!NOTE] 
+> Only members with right privileges can perform this step.
+  
+4.	***Polybase connectivity to the Azure Storage account:***
+
+-	Create database scoped credential with ***IDENTITY = 'Managed Service Identity'*** 
+
+```
+CREATE DATABASE SCOPED CREDENTIAL msi_cred WITH IDENTITY = 'Managed Service Identity';
+```
+> [!NOTE] 
+> - IDENTITY name should be 'Managed Service Identity' for polybase connectivity to Azure Storage secured to a VNET to work.
+> - No 
+
+-	External Data Source (must use abfss:// scheme with .dfs.core.windows.net end-point)
+
+```
+CREATE EXTERNAL DATA SOURCE abfss WITH (TYPE = hadoop, LOCATION = 'abfss://myfile@mystorageaccount.dfs.core.windows.net', CREDENTIAL = msi_cred);
+```
+
+-	Query as normal
 
 ### Azure SQL Database Blob Auditing
 
@@ -312,7 +354,7 @@ The virtual network rule feature for Azure SQL Database became available in late
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.yml
 
-<!-- Link references, to text, Outside this Github repo (HTTP). -->
+<!-- Link references, to text, Outside this Github repo (HTTP).. -->
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
 
