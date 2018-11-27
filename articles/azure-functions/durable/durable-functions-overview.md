@@ -136,7 +136,7 @@ The third pattern is all about the problem of coordinating the state of long-run
 
 ![HTTP API diagram](./media/durable-functions-overview/async-http-api.png)
 
-Durable Functions provides built-in APIs that simplify the code you write for interacting with long-running function executions. The [quickstart sample](../articles/azure-functions/durable/durable-functions-create-first-csharp.md) shows a simple REST command that can be used to start new orchestrator function instances. Once an instance is started, the extension exposes webhook HTTP APIs that query the orchestrator function status. The following example shows the REST commands to start an orchestrator and to query its status. For clarity, some details are omitted from the example.
+Durable Functions provides built-in APIs that simplify the code you write for interacting with long-running function executions. The [quickstart sample](durable-functions-create-first-csharp.md) shows a simple REST command that can be used to start new orchestrator function instances. Once an instance is started, the extension exposes webhook HTTP APIs that query the orchestrator function status. The following example shows the REST commands to start an orchestrator and to query its status. For clarity, some details are omitted from the example.
 
 ```
 > curl -X POST https://myfunc.azurewebsites.net/orchestrators/DoWork -H "Content-Length: 0" -i
@@ -381,4 +381,4 @@ All known issues should be tracked in the [GitHub issues](https://github.com/Azu
 To learn more about Durable Functions, see [Overview of function types and features for Durable Functions (Azure Functions)](durable-functions-types-features-overview.md), or ...
 
 > [!div class="nextstepaction"]
-> [Create your first durable function](../articles/azure-functions/durable/durable-functions-create-first-csharp.md)
+> [Create your first durable function](durable-functions-create-first-csharp.md)

@@ -108,4 +108,4 @@ Your first durable function is now up and running in Azure.
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Run the function chaining sample](durable-functions-sequence.md)
+> [Learn about common durable function patterns](durable-functions-overview.md)
