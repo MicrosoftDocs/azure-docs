@@ -18,7 +18,7 @@ ms.reviewer: jroth
 
 ---
 # How to change the licensing model for a SQL virtual machine in Azure
-This article describes how to change the licensing model for a SQL Server virtual machine in azure. There are two licensing models for a virtual machine(VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either Powershell or Azure CLI, you can modify the licensing model for your SQL VM to switch between the two. 
+This article describes how to change the licensing model for a SQL Server virtual machine in Azure. There are two licensing models for a virtual machine (VM) hosting SQL Server - pay-per-usage, and bring your own license (BYOL). And now, using either Powershell or Azure CLI, you can modify which licensing model  your SQL VM uses. 
 
 The **Pay-per-usage** model means that the per-second cost of running the Azure VM includes the cost of the SQL Server license.
 
@@ -26,7 +26,9 @@ The **Bring-your-own-license** model is also known as the [Azure Hybrid Benefit]
 
 
 ## Register legacy SQL VM with new resource provider
-The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register the new provider to your subscription, and then register your legacy VM with the new SQL VM resource provider. The following code 
+The ability to switch between licensing models is a feature provided by the new SQL VM resource provider (Microsoft.SqlVirtualMachine). At this time, to be able to switch your licensing model, you will first need to register the new provider to your subscription, and then register your legacy VM with the new SQL VM resource provider. 
+
+The following code registers the new SQL resource provider and registers your legacy SQL VM with the new resource provider. 
 
 ```powershell
 # Register the new SQL resource provider
@@ -56,11 +58,11 @@ This code snippet switches your BYOL model to pay-per-usage:
 ```powershell
 #example: $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
 $SqlVm = Get-AzureRmResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType="NeedValue"
+$SqlVm.Properties.sqlServerLicenseType="PAYG"
 $SqlVm | Set-AzureRmResource -Force 
-``` 
+```
 
-  >[NOTE]
+  >[!NOTE]
   > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL VM with the new provider, you may encounter this error: `Get-AzureRmResource : The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set. ` If you see this error, please [register your SQL VM with the new resource provider](#register-legacy-SQL-vm-with-new-SQL-VM-resource-provider). 
  
 
@@ -79,8 +81,8 @@ az resource update -g <resource_group_name> -n <sql_virtual_machine_name> --reso
 # example: az resource update -g AHBTest -n AHBTest --resource-type "Microsoft.SqlVirtualMachine/SqlVirtualMachines" --set properties.sqlServerLicenseType=PAYG
 ```
 
-  >[NOTE]
-  > To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL VM with the new provider, you may encounter this error: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` If you see this error, please [register your SQL VM with the new resource provider](#register-legacy-SQL-vm-with-new-resource-provider). 
+  >[!NOTE]
+  >To switch between licenses, you must be using the new SQL VM resource provider. If you try to run these commands before registering your SQL VM with the new provider, you may encounter this error: `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/AHBTest' under resource group 'AHBTest' was not found. ` If you see this error, please [register your SQL VM with the new resource provider](#register-legacy-SQL-vm-with-new-resource-provider). 
 
 ## View current licensing 
 
