@@ -22,7 +22,7 @@ This article lists the open source big data applications that work with Azure Da
 | [HD Insights](https://azure.microsoft.com/services/hdinsight/) | 4.0, 3.6 |
 | [Hadoop](https://hadoop.apache.org/) | 3.0 |
 | [Cloudera](https://www.cloudera.com/) | 6.1 |
-| [HortenWorks](https://hortonworks.com/) | TBD |
+| [HortenWorks](https://hortonworks.com/) | 3.0, 2.6 |
 | [Azure Databricks](https://azure.microsoft.com/services/databricks/) | 5.1 |
 
 For information on about which Hadoop components are available with HDInsight, see [HDInsight component versioning](../../hdinsight/hdinsight-component-versioning.md).

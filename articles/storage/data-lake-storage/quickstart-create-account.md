@@ -82,21 +82,15 @@ To create a general-purpose v2 storage account in the Azure portal, follow these
 > The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
 
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **All services**. Then, scroll down to **Storage**, and choose **Storage accounts**. On the **Storage Accounts** window that appears, choose **Add**.
-2. Enter a name for your storage account.
-3. Leave **Deployment model** set to the default value.
-4. Set the **Account kind** field to **StorageV2 (general-purpose v2)**.
-5. Set **Location** to **West US 2**
-6. Set the **Replication** field to **Locally-redundant storage (LRS)**.
-7. Leave these fields set to their defaults: **Performance**, **Access tier**.
-8. Choose the subscription in which you want to create the storage account.
-9. In the **Resource group** section, choose the resource group you created in the previous section.
-
-   ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create.png)
-
-10. Choose the **Advanced** tab. 
-11. Keep the default value for **Secure transfer required** and **Virtual Networks**.
-12. In the **Data Lake Storage Gen2** section, set **Hierarchical namespace** to **Enabled**.
-13. Click **Review + create** to create the storage account.
+2. Select your **Subscription** and the **Resource group** you created earlier.
+3. Enter a name for your storage account.
+4. Set **Location** to **West US 2**
+5. Leave these fields set to their defaults: **Performance**, **Account kind**, **Replication**, **Access tier**.
+6. Choose the subscription in which you want to create the storage account.
+7. Select **Next : Advanced >**
+8. Leave the values under **SECURITY** and **VIRTUAL NETWORKS** fields set to their defaults.
+9. In the **Data Lake Storage Gen2 (preview)** section set **Hierarchical namespace** to **Enabled**.
+10. Click **Review + Create** to create the storage account.
 
     ![Screen shot showing storage account creation in the Azure portal](./media/quickstart-create-account/azure-data-lake-storage-account-create-advanced.png)
 
@@ -109,6 +103,14 @@ To remove a resource group using the Azure portal:
 1. In the Azure portal, expand the menu on the left side to open the menu of services, and choose **Resource Groups** to display the list of your resource groups.
 2. Locate the resource group to delete, and right-click the **More** button (**...**) on the right side of the listing.
 3. Select **Delete resource group**, and confirm.
+
+## Upgrade your powershell module
+
+In order to interact with Data Lake Storage Gen2 through PowerShell, you will have to upgrade your module to the PowerShell module Az.Storage version **0.7** or later.
+
+To do that, open an elevated PowerShell and enter the following command: `Install-Module Az.Storage –Repository PSGallery -RequiredVersion .07 –AllowPrerelease –AllowClobber –Force `
+
+Then restart your shell.
 
 ## Create an account using PowerShell
 
@@ -137,7 +139,7 @@ Login-AzureRmAccount
 To create a new resource group with PowerShell, use the [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) command: 
 
 > [!NOTE]
-> > The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
+> The hierarchical namespace is currently available in all public regions. It is currently unavailable in sovereign clouds.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -152,7 +154,6 @@ New-AzureRmResourceGroup -Name $resourceGroup -Location $location
 To create a general-purpose v2 storage account from PowerShell with locally-redundant storage (LRS), use the [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/New-AzureRmStorageAccount) command:
 
 ```powershell
-Get-AzureRmLocation | select Location 
 $location = "westus2"
 
 New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `

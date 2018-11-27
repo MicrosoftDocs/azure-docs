@@ -15,7 +15,7 @@ ms.date: 11/18/2018
 # Quickstart: Ingest data using the Azure Data Explorer .NET Standard SDK (Preview)
 
 Azure Data Explorer (ADX) is a fast and highly scalable data exploration service for log and telemetry data. ADX provides two client libraries for .NET Standard: an [ingest library](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Ingest.NETStandard) and [a data library](https://www.nuget.org/packages/Microsoft.Azure.Kusto.Data.NETStandard). 
-These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a test cluster. You then queue ingestion to the cluster and validate the results.
+These libraries enable you to ingest (load) data into a cluster and query data from your code. In this quickstart, you first create a table and data mapping in a test cluster. You then queue an ingestion to the cluster and validate the results.
 
 ## Prerequisites
 
@@ -73,14 +73,14 @@ var kustoConnectionStringBuilder =
 
 ## Set source file information
 
-Set constants for the data source file. This example uses a sample file hosted on Azure Blob Storage. The **StormEvents** sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
+Set the path for the source file. This example uses a sample file hosted on Azure Blob Storage. The **StormEvents** sample data set contains weather-related data from the [National Centers for Environmental Information](https://www.ncdc.noaa.gov/stormevents/).
 
 ```csharp
 var blobPath = "https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D";
 ```
 
 ## Create a table on your test cluster
-Create a table that matches the schema of the data in the `StormEvents.csv` file. When this code runs, it returns a message like the following: *To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code F3W4VWZDM to authenticate*. Follow the steps to sign in, then return to run the next code block. Subsequent code blocks that make a connection require you to sign in again.
+Create a table named `StormEvents` that matches the schema of the data in the `StormEvents.csv` file.
 
 ```csharp
 var table = "StormEvents";
@@ -120,7 +120,7 @@ using (var kustoClient = KustoClientFactory.CreateCslAdminProvider(kustoConnecti
 
 ## Define ingestion mapping
 
-Map incoming CSV data to the column names and data types used when creating the table.
+Map the incoming CSV data to the column names used when creating the table.
 Provision a [CSV column mapping object](/azure/kusto/management/tables#create-ingestion-mapping) on that table
 
 ```csharp
@@ -191,12 +191,12 @@ using (var ingestClient = KustoIngestFactory.CreateQueuedIngestClient(ingestConn
 
 ## Validate data was ingested into the table
 
-Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into ADX. Then run the following code to get the count of records in the StormEvents table.
+Wait for five to ten minutes for the queued ingestion to schedule the ingest and load the data into ADX. Then run the following code to get the count of records in the `StormEvents` table.
 
 ```csharp
 using (var cslQueryProvider = KustoClientFactory.CreateCslQueryProvider(kustoConnectionStringBuilder))
 {
-    var query = "StormEvents | count";
+    var query = $"{table} | count";
 
     var results = cslQueryProvider.ExecuteQuery<long>(query);
     Console.WriteLine(results.Single());
@@ -222,7 +222,7 @@ Run the following command to view the status of all ingestion operations in the 
 
 ## Clean up resources
 
-If you plan to follow our other quickstarts and tutorials, keep the resources you created. If not, run the following command in your database to clean up the StormEvents table.
+If you plan to follow our other quickstarts and tutorials, keep the resources you created. If not, run the following command in your database to clean up the `StormEvents` table.
 
 ```Kusto
 .drop table StormEvents
