@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: article
-ms.date: 11/20/2018
+ms.date: 11/26/2018
 ms.author: danlep
 ---
 
@@ -25,6 +25,7 @@ Certain limitations apply when you deploy a container registry groups to a virtu
 
 * Region limitations?
 * Resource group limitations?
+* Limit to VNets with particular resources: AKS cluster, VM? (Not ACI)
 
 ## Prerequisites
 
@@ -43,13 +44,13 @@ Certain limitations apply when you deploy a container registry groups to a virtu
 
 Before you can create a virtual network, you must create a resource group to contain the virtual network. Create a resource group with [az group create](/cli/azure/group#az_group_create). The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
-```azurecli-interactive 
+```azurecli
 az group create --name myResourceGroup --location eastus
 ```
 
 Create a virtual network with [az network vnet create](/cli/azure/network/vnet#az_network_vnet_create). The following example creates a default virtual network named *myVirtualNetwork* with one subnet named *default*:
 
-```azurecli-interactive 
+```azurecli
 az network vnet create \
   --name myVirtualNetwork \
   --resource-group myResourceGroup \
@@ -58,13 +59,13 @@ az network vnet create \
 
 ### Add a service endpoint for Azure Container Registry [confirm CLI]
 
-[not certain if this is the best path to set endpoint explicitly first?]
+[not certain if this is the best path to set endpoint explicitly first? Confirm service-endpoint name.]
 
-```azurecli-interactive
+```azurecli
 az network vnet subnet update \
   --name default \
   --vnet-name myVirtualNetwork \
-  --resource-group myResource Group \
+  --resource-group myResourceGroup \
   --service-endpoint microsoft.container-registry
 ```
 
@@ -79,7 +80,7 @@ az acr create --resource-group myResourceGroup --name myContainerRegistry717 --s
 
 ### Configure network access for container registry
 
-By default, an Azure container registry accepts connections from clients on any network. To limit access to a selected network, you must first change the default action. In preview, you can manage default network access rules for a container registry only through the Azure portal.
+By default, an Azure container registry accepts connections from clients on any network. To limit access to a selected network, you must change the default action. In preview, you can manage default network access rules for a container registry only through the Azure portal.
 
 1. Sign in to the Azure portal at [https://portal.azure.com](https://portal.azure.com).
 1. In the portal, navigate to your registry and select **Firewall and virtual networks**
@@ -93,24 +94,27 @@ By default, an Azure container registry accepts connections from clients on any 
 
 Run a sample [task](container-registry-tasks-multi-step.md) with [az acr run][az-acr-run] to build a `hello-world` container image and push it to your container registry:
 
-```azurecli-interactive
+```azurecli
 az acr run --registry myContainerRegistry717
  -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
 To verify that the `hello-world` image is in a repository in your container registry, run the [az acr repository list][az-acr-repository-list] command:
 
-```azurecli-interactive
+```azurecli
 az acr repository list --name myContainerRegistry717 -o tsv
 ```
 
+
 ### Configure ACR authentication
+
+[Would it be better to create the SP automatically with AKS cluster, then delegate permissions to ACR?]
 
 To allow an AKS cluster to interact with other Azure resources such as an Azure container registry, an Azure Active Directory service principal is used.
 
 Create a service principal using the [az ad sp create-for-rbac][az-ad-sp-create-for-rbac] command. The `--skip-assignment` parameter limits any additional permissions from being assigned.
 
-```azurecli-interactive
+```azurecli
 az ad sp create-for-rbac --skip-assignment
 ```
 
@@ -120,7 +124,7 @@ Now, grant the AKS service principal the correct rights to pull images from ACR.
 
 First, get the ACR resource ID using [az acr show][az-acr-show] and store it in a variable. 
 
-```azurecli-interactive
+```azurecli
 acrId=$(az acr show --resource-group myResourceGroup --name myContainerRegistry717 --query "id" --output tsv)
 ```
 
@@ -134,7 +138,7 @@ az role assignment create --assignee <appId> --scope $acrId --role Reader
 
 Now deploy an AKS cluster into the virtual network for the container registry. First get the resource ID of the subnet you created previously (named *default*) using the [az network vnet subnet show][az-network-vnet-subnet-show] command:
 
-```azurecli-interactive
+```azurecli
 $subnetId=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myVirtualNetwork --name default --query "id" --output tsv)
 ``` 
 
@@ -155,6 +159,14 @@ After several minutes, the deployment completes, and returns JSON-formatted info
 
 ### Connect to cluster using kubectl
 
+To connect to the Kubernetes cluster from your local computer, you use [kubectl][kubectl], the Kubernetes command-line client.
+
+If you use the Azure Cloud Shell, `kubectl` is already installed. You can also install it locally using the [az aks install-cli][az-aks-install-cli] command:
+
+```azurecli
+az aks install-cli
+```
+
 To configure `kubectl` to connect to your Kubernetes cluster, use [az aks get-credentials][az-aks-get-credentials]:
 
 ```azurecli
@@ -170,7 +182,48 @@ NAME                       STATUS    ROLES     AGE       VERSION
 aks-nodepool1-66427764-0   Ready     agent     9m        v1.9.9
 ```
 
+
+### Run container on AKS cluster
+
+As a simple example, use `kubectl run` to run a container on the AKS cluster from the `hello-world` container image you pushed to your container registry: 
+
+```
+kubectl run hello-world --image=myContainerRegistry717.azurecr.io/hello-world
+```
+
+Output is similar to the following:
+
+```Console
+$ kubectl run hello-world --image=hello-world
+deployment.apps/hello-world created
+```
+
+Run the `kubectl logs` command to see the expected output of the container:
+
+```Console
+$ kubectl logs deployment.apps/hello-world
+
+Hello from Docker!
+This message shows that your installation appears to be working correctly.
+...
+```
+
+### Verify that container registry isn't accessible from the internet
+
+Although you are able to run a container on the AKS cluster from an image pulled from the private container registry, the registry can't be accessed from other networks. For example, you can't login to the registry over the internet using the `docker login` command. The following example passes the service principal `<appId>` and `<password>` credentials used by the AKS cluster.
+
+```Console
+docker login --username <appId> --password <password> mycontainerregistry717.azurecr.io
+```
+
+Output is similar to:
+
+```Console
+Error response from daemon: Get https://mycontainerregistry717.azurecr.io/v2/: unauthorized: authentication required
+```
 ## Clean up resources
+
+[Add this section]
 
 
 ## Next steps
@@ -188,6 +241,7 @@ Several virtual network resources and features were discussed in this article, t
 <!-- LINKS - External -->
 [aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - Internal -->
@@ -201,4 +255,5 @@ Several virtual network resources and features were discussed in this article, t
 [az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-install-cli]: /cli/azure/aks#az-aks-install-cli
 [az-network-vnet-subnet-show]: /cli/azure/network/vnet/subnet/#az-network-vnet-subnet-show
