@@ -95,7 +95,7 @@ By default, an Azure container registry accepts connections from clients on any 
 Run a sample [task](container-registry-tasks-multi-step.md) with [az acr run][az-acr-run] to build a `hello-world` container image and push it to your container registry:
 
 ```azurecli
-az acr run --registry myContainerRegistry717
+az acr run --registry myContainerRegistry717 
  -f build-push-hello-world.yaml https://github.com/Azure-Samples/acr-tasks.git
 ```
 
